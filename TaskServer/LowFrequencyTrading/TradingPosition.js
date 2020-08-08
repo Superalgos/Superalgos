@@ -4,6 +4,7 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
     */
     const MODULE_NAME = 'Trading Position'
     let thisObject = {
+        mantain: mantain,
         openPosition: openPosition,
         closingPosition: closingPosition,
         closePosition: closePosition,
@@ -15,7 +16,6 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
         updateEnds: updateEnds,
         resetTradingEngineDataStructure: resetTradingEngineDataStructure,
         updateCounters: updateCounters,
-        resetPosition: resetPosition,
         initialize: initialize,
         finalize: finalize
     }
@@ -38,14 +38,22 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
         sessionParameters = undefined
     }
 
+    function mantain() {
+        resetTradingEngineDataStructure()
+        updateCounters()
+        updateEnds()
+    }
+
     function openPosition(situationName) {
 
         /* Recording the opening at the Trading Engine Data Structure */
         tradingEngine.current.position.status.value = 'Open'
         tradingEngine.current.position.serialNumber.value = tradingEngine.current.episode.episodeCounters.positions.value
         tradingEngine.current.position.identifier.value = global.UNIQUE_ID()
-        tradingEngine.current.position.begin.value = tradingEngine.current.candle.begin.value
-        tradingEngine.current.position.beginRate.value = tradingEngine.current.candle.close.value
+        tradingEngine.current.position.begin.value = tradingEngine.current.episode.candle.begin.value
+        tradingEngine.current.position.beginRate.value = tradingEngine.current.episode.candle.close.value
+        tradingEngine.current.position.positionBaseAsset.beginBalance.value = tradingEngine.current.episode.episodeBaseAsset.balance.value
+        tradingEngine.current.position.positionQuotedAsset.beginBalance.value = tradingEngine.current.episode.episodeQuotedAsset.balance.value
         tradingEngine.current.position.situationName.value = situationName
 
         /* Initializing Stop and Take Profit Stage / Phase */
@@ -58,7 +66,7 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
         tradingEngine.current.episode.episodeCounters.positions.value++
 
         /* Inicializing this counter */
-        tradingEngine.current.distanceToEvent.takePosition.value = 1
+        tradingEngine.current.episode.distanceToEvent.takePosition.value = 1
     }
 
     function closingPosition(exitType) {
@@ -68,8 +76,10 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
 
     function closePosition() {
         tradingEngine.current.position.status.value = 'Closed'
-        tradingEngine.current.position.end.value = tradingEngine.current.candle.end.value
-        tradingEngine.current.position.endRate.value = tradingEngine.current.candle.close.value
+        tradingEngine.current.position.end.value = tradingEngine.current.episode.candle.end.value
+        tradingEngine.current.position.endRate.value = tradingEngine.current.episode.candle.close.value
+        tradingEngine.current.position.positionBaseAsset.endBalance.value = tradingEngine.current.episode.episodeBaseAsset.balance.value
+        tradingEngine.current.position.positionQuotedAsset.endBalance.value = tradingEngine.current.episode.episodeQuotedAsset.balance.value
 
         /* Position Statistics & Results */
         updateStatistics()
@@ -78,10 +88,6 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
         Now that the position is closed, it is the right time to move this position from current to last at the Trading Engine data structure.
         */
         tradingEngineModule.cloneValues(tradingEngine.current.position, tradingEngine.last.position)
-    }
-
-    function resetPosition() {
-        tradingEngine.current.position.initialize(tradingEngine.current.position)
     }
 
     function applyStopLossFormula(formulas, formulaId) {
@@ -223,14 +229,16 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
 
     function updateEnds() {
         if (tradingEngine.current.position.status.value === 'Open') {
-            tradingEngine.current.position.end.value = tradingEngine.current.candle.end.value
-            tradingEngine.current.position.endRate.value = tradingEngine.current.candle.close.value
+            tradingEngine.current.position.end.value = tradingEngine.current.episode.candle.end.value
+            tradingEngine.current.position.endRate.value = tradingEngine.current.episode.candle.close.value
+            tradingEngine.current.position.positionBaseAsset.endBalance.value = tradingEngine.current.episode.episodeBaseAsset.balance.value
+            tradingEngine.current.position.positionQuotedAsset.endBalance.value = tradingEngine.current.episode.episodeQuotedAsset.balance.value
         }
     }
 
     function resetTradingEngineDataStructure() {
         if (tradingEngine.current.position.status.value === 'Closed') {
-            resetPosition()
+            tradingEngine.current.position.initialize(tradingEngine.current.position)
         }
     }
 
@@ -245,12 +253,12 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
         /* Profit Loss Calculation */
         tradingEngine.current.position.positionStatistics.profitLoss.value =
             (
-                tradingEngine.current.balance.baseAsset.value * tradingEngine.current.position.endRate.value +
-                tradingEngine.current.balance.quotedAsset.value
+                tradingEngine.current.episode.episodeBaseAsset.balance.value * tradingEngine.current.position.endRate.value +
+                tradingEngine.current.episode.episodeQuotedAsset.balance.value
             ) -
             (
-                tradingEngine.previous.balance.baseAsset.value * tradingEngine.current.position.beginRate.value +
-                tradingEngine.previous.balance.quotedAsset.value
+                tradingEngine.current.position.positionBaseAsset.beginBalance * tradingEngine.current.position.beginRate.value +
+                tradingEngine.current.position.positionQuotedAsset.beginBalance
             )
         tradingEngine.current.position.positionStatistics.profitLoss.value = global.PRECISE(tradingEngine.current.position.positionStatistics.profitLoss.value, 10)
 
@@ -261,8 +269,8 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
             )
             * 100 /
             (
-                tradingEngine.previous.balance.baseAsset.value * tradingEngine.current.position.beginRate.value +
-                tradingEngine.previous.balance.quotedAsset.value
+                tradingEngine.current.position.positionBaseAsset.beginBalance * tradingEngine.current.position.beginRate.value +
+                tradingEngine.current.position.positionQuotedAsset.beginBalance
             )
         tradingEngine.current.position.positionStatistics.ROI.value = global.PRECISE(tradingEngine.current.position.positionStatistics.ROI.value, 10)
 
@@ -284,12 +292,12 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
     function updateResults() {
         /* Profit Loss Calculation */
         tradingEngine.current.position.positionBaseAsset.profitLoss.value =
-            tradingEngine.current.balance.baseAsset.value -
-            tradingEngine.previous.balance.baseAsset.value
+            tradingEngine.current.episode.episodeBaseAsset.balance.value -
+            tradingEngine.current.position.positionBaseAsset.beginBalance
 
         tradingEngine.current.position.positionQuotedAsset.profitLoss.value =
-            tradingEngine.current.balance.quotedAsset.value -
-            tradingEngine.previous.balance.quotedAsset.value
+            tradingEngine.current.episode.episodeQuotedAsset.balance.value -
+            tradingEngine.current.position.positionQuotedAsset.beginBalance
 
         tradingEngine.current.position.positionBaseAsset.profitLoss.value = global.PRECISE(tradingEngine.current.position.positionBaseAsset.profitLoss.value, 10)
         tradingEngine.current.position.positionQuotedAsset.profitLoss.value = global.PRECISE(tradingEngine.current.position.positionQuotedAsset.profitLoss.value, 10)

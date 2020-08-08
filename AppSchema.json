@@ -2490,12 +2490,6 @@
                 "autoAdd": true
             },
             {
-                "name": "previous",
-                "type": "node",
-                "childType": "Previous",
-                "autoAdd": true
-            },
-            {
                 "name": "exchangeOrders",
                 "type": "node",
                 "childType": "Exchange Orders",
@@ -2691,6 +2685,18 @@
                 "name": "episodeStatistics",
                 "type": "node",
                 "childType": "Episode Statistics",
+                "autoAdd": true
+            },
+            {
+                "name": "candle",
+                "type": "node",
+                "childType": "Candle",
+                "autoAdd": true
+            },
+            {
+                "name": "distanceToEvent",
+                "type": "node",
+                "childType": "Distance To Event",
                 "autoAdd": true
             }
         ]
@@ -3757,6 +3763,24 @@
         "propertyNameAtParent": "episodeBaseAsset",
         "properties": [
             {
+                "name": "balance",
+                "type": "node",
+                "childType": "Balance",
+                "autoAdd": true
+            },
+            {
+                "name": "beginBalance",
+                "type": "node",
+                "childType": "Begin Balance",
+                "autoAdd": true
+            },
+            {
+                "name": "endBalance",
+                "type": "node",
+                "childType": "End Balance",
+                "autoAdd": true
+            },
+            {
                 "name": "hits",
                 "type": "node",
                 "childType": "Hits",
@@ -3827,6 +3851,24 @@
         "icon": "tron",
         "propertyNameAtParent": "episodeQuotedAsset",
         "properties": [
+            {
+                "name": "balance",
+                "type": "node",
+                "childType": "Balance",
+                "autoAdd": true
+            },
+            {
+                "name": "beginBalance",
+                "type": "node",
+                "childType": "Begin Balance",
+                "autoAdd": true
+            },
+            {
+                "name": "endBalance",
+                "type": "node",
+                "childType": "End Balance",
+                "autoAdd": true
+            },
             {
                 "name": "hits",
                 "type": "node",
@@ -3899,6 +3941,18 @@
         "propertyNameAtParent": "positionBaseAsset",
         "properties": [
             {
+                "name": "beginBalance",
+                "type": "node",
+                "childType": "Begin Balance",
+                "autoAdd": true
+            },
+            {
+                "name": "endBalance",
+                "type": "node",
+                "childType": "End Balance",
+                "autoAdd": true
+            },
+            {
                 "name": "entryTargetSize",
                 "type": "node",
                 "childType": "Entry Target Size",
@@ -3957,6 +4011,18 @@
         "icon": "tron",
         "propertyNameAtParent": "positionQuotedAsset",
         "properties": [
+            {
+                "name": "beginBalance",
+                "type": "node",
+                "childType": "Begin Balance",
+                "autoAdd": true
+            },
+            {
+                "name": "endBalance",
+                "type": "node",
+                "childType": "End Balance",
+                "autoAdd": true
+            },
             {
                 "name": "entryTargetSize",
                 "type": "node",
@@ -4600,24 +4666,6 @@
                 "type": "node",
                 "childType": "Strategy Close Stage",
                 "autoAdd": true
-            },
-            {
-                "name": "candle",
-                "type": "node",
-                "childType": "Candle",
-                "autoAdd": true
-            },
-            {
-                "name": "balance",
-                "type": "node",
-                "childType": "Balance",
-                "autoAdd": true
-            },
-            {
-                "name": "distanceToEvent",
-                "type": "node",
-                "childType": "Distance To Event",
-                "autoAdd": true
             }
         ]
     },
@@ -4625,20 +4673,11 @@
         "type": "Balance",
         "menuItems": [
             {
-                "action": "Add UI Object",
-                "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "baseAsset",
-                "label": "Add Base Asset",
-                "relatedUiObject": "Base Asset",
-                "actionFunction": "payload.onMenuItemClick"
-            },
-            {
-                "action": "Add UI Object",
-                "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "quotedAsset",
-                "label": "Add Quoted Asset",
-                "relatedUiObject": "Quoted Asset",
-                "actionFunction": "payload.onMenuItemClick"
+                "action": "Configure This",
+                "label": "Configure This",
+                "iconPathOn": "settings",
+                "iconPathOff": "settings",
+                "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Delete UI Object",
@@ -4650,31 +4689,64 @@
                 "actionFunction": "payload.onMenuItemClick"
             }
         ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": 0\n}"
+        },
         "addLeftIcons": true,
         "level": 3,
         "chainAttachesTo": {
-            "compatibleTypes": "->Current->"
+            "compatibleTypes": "->Episode->"
         },
         "icon": "bitfinex",
-        "propertyNameAtParent": "balance",
-        "properties": [
+        "propertyNameAtParent": "balance"
+    },
+    {
+        "type": "Begin Balance",
+        "menuItems": [
             {
-                "name": "baseAsset",
-                "type": "node",
-                "childType": "Base Asset",
-                "autoAdd": true
+                "action": "Configure This",
+                "label": "Configure This",
+                "iconPathOn": "settings",
+                "iconPathOff": "settings",
+                "actionFunction": "uiObject.configEditor.activate"
             },
             {
-                "name": "quotedAsset",
-                "type": "node",
-                "childType": "Quoted Asset",
-                "autoAdd": true
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
             }
-        ]
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": 0\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Episode->Position->"
+        },
+        "icon": "key-m",
+        "propertyNameAtParent": "beginBalance"
     },
     {
-        "type": "Base Asset",
+        "type": "End Balance",
         "menuItems": [
+            {
+                "action": "Configure This",
+                "label": "Configure This",
+                "iconPathOn": "settings",
+                "iconPathOff": "settings",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
             {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
@@ -4694,37 +4766,10 @@
         "addLeftIcons": true,
         "level": 3,
         "chainAttachesTo": {
-            "compatibleTypes": "->Balance->"
+            "compatibleTypes": "->Episode->Position->"
         },
-        "icon": "litecoin",
-        "propertyNameAtParent": "baseAsset"
-    },
-    {
-        "type": "Quoted Asset",
-        "menuItems": [
-            {
-                "action": "Delete UI Object",
-                "askConfirmation": true,
-                "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
-                "actionFunction": "payload.onMenuItemClick"
-            }
-        ],
-        "editors": {
-            "config": true
-        },
-        "initialValues": {
-            "config": "{\n\"initialValue\": 0\n}"
-        },
-        "addLeftIcons": true,
-        "level": 3,
-        "chainAttachesTo": {
-            "compatibleTypes": "->Balance->"
-        },
-        "icon": "litecoin",
-        "propertyNameAtParent": "quotedAsset"
+        "icon": "key-m",
+        "propertyNameAtParent": "endBalance"
     },
     {
         "type": "Distance To Event",
@@ -4748,7 +4793,7 @@
         "addLeftIcons": true,
         "level": 3,
         "chainAttachesTo": {
-            "compatibleTypes": "->Current->"
+            "compatibleTypes": "->Episode->"
         },
         "icon": "dash",
         "propertyNameAtParent": "distanceToEvent",
@@ -6570,7 +6615,7 @@
         "addLeftIcons": true,
         "level": 3,
         "chainAttachesTo": {
-            "compatibleTypes": "->Current->Previous->"
+            "compatibleTypes": "->Episode->"
         },
         "icon": "us-dollar",
         "propertyNameAtParent": "candle",
@@ -6615,57 +6660,6 @@
                 "name": "index",
                 "type": "node",
                 "childType": "Index",
-                "autoAdd": true
-            }
-        ]
-    },
-    {
-        "type": "Previous",
-        "menuItems": [
-            {
-                "action": "Add UI Object",
-                "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "balance",
-                "label": "Add Balance",
-                "relatedUiObject": "Balance",
-                "actionFunction": "payload.onMenuItemClick"
-            },
-            {
-                "action": "Add UI Object",
-                "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "candle",
-                "label": "Add Candle",
-                "relatedUiObject": "Candle",
-                "actionFunction": "payload.onMenuItemClick"
-            },
-            {
-                "action": "Delete UI Object",
-                "askConfirmation": true,
-                "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
-                "actionFunction": "payload.onMenuItemClick"
-            }
-        ],
-        "addLeftIcons": true,
-        "level": 3,
-        "chainAttachesTo": {
-            "compatibleTypes": "->Trading Engine->"
-        },
-        "icon": "bitcoin-cash",
-        "propertyNameAtParent": "previous",
-        "properties": [
-            {
-                "name": "balance",
-                "type": "node",
-                "childType": "Balance",
-                "autoAdd": true
-            },
-            {
-                "name": "candle",
-                "type": "node",
-                "childType": "Candle",
                 "autoAdd": true
             }
         ]

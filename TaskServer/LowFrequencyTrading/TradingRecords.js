@@ -219,8 +219,8 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                             of the day? Easy: the end of the candle must be 1 millisecod before the next day. That happens at any 
                             time frame. 
                             */
-                            let currentDay = new Date(tradingEngine.current.candle.end.value)
-                            let nextDay = new Date(tradingEngine.current.candle.end.value + 1)
+                            let currentDay = new Date(tradingEngine.current.episode.candle.end.value)
+                            let nextDay = new Date(tradingEngine.current.episode.candle.end.value + 1)
                             if (currentDay.getUTCDate() !== nextDay.getUTCDate()) {
                                 /*
                                 We will save the object only if it is closed, becasuse we are at the last candle of the day.
@@ -302,7 +302,7 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                     let recordProperty = product.record.properties[j]
                     if (recordProperty.config.codeName === 'end') {
                         let end = record[j]
-                        if (end >= tradingEngine.current.candle.end.value) {
+                        if (end >= tradingEngine.current.episode.candle.end.value) {
                             outputFile.splice(i, 1)
                             pruneOutputFile(product, outputFile)
                             return

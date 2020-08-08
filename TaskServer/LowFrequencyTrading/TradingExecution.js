@@ -135,7 +135,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
                         }
                         case 'Open': {
                             /* Update this order properties */
-                            tradingEngineOrder.end.value = tradingEngine.current.candle.end.value
+                            tradingEngineOrder.end.value = tradingEngine.current.episode.candle.end.value
                             tradingEngineOrder.orderCounters.periods.value++
                             tradingEngineOrder.orderStatistics.days.value = tradingEngineOrder.orderCounters.periods.value * sessionParameters.timeFrame.config.value / global.ONE_DAY_IN_MILISECONDS
 
@@ -191,13 +191,13 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
                 tradingEngine.current.episode.episodeCounters.orders.value++
 
                 /* Initialize this */
-                tradingEngine.current.distanceToEvent.createOrder.value = 1
+                tradingEngine.current.episode.distanceToEvent.createOrder.value = 1
 
                 /* Create Order Procedure */
                 tradingEngineOrder.status.value = 'Open'
                 tradingEngineOrder.identifier.value = global.UNIQUE_ID()
-                tradingEngineOrder.begin.value = tradingEngine.current.candle.begin.value
-                tradingEngineOrder.end.value = tradingEngine.current.candle.end.value
+                tradingEngineOrder.begin.value = tradingEngine.current.episode.candle.begin.value
+                tradingEngineOrder.end.value = tradingEngine.current.episode.candle.end.value
                 tradingEngineOrder.serialNumber.value = tradingEngine.current.episode.episodeCounters.orders.value
                 tradingEngineOrder.orderName.value = tradingSystemOrder.name
                 tradingEngineOrder.algorithmName.value = executionAlgorithm.name
@@ -205,7 +205,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
 
                 function calculateOrderRate() {
                     /* By default this is the order rate and it is the rate that applies to Market Orders */
-                    tradingEngineOrder.rate.value = tradingEngine.current.candle.close.value
+                    tradingEngineOrder.rate.value = tradingEngine.current.episode.candle.close.value
 
                     /* Optional Rate Definition */
                     if (tradingSystemOrder.orderRate !== undefined) {
@@ -458,7 +458,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
                                 tradingEngineOrder.exitType.value = 'Filled'
 
                                 /* Initialize this */
-                                tradingEngine.current.distanceToEvent.closeOrder.value = 1
+                                tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
                             }
                         }
                     }
@@ -515,7 +515,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
                     tradingEngineOrder.exitType.value = 'Filled'
 
                     /* Initialize this */
-                    tradingEngine.current.distanceToEvent.closeOrder.value = 1
+                    tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
                 }
                 if (order.remaining > 0 && order.status === AT_EXCHANGE_STATUS.CLOSED) {
 
@@ -524,7 +524,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
                     tradingEngineOrder.exitType.value = 'Closed at the Exchange'
 
                     /* Initialize this */
-                    tradingEngine.current.distanceToEvent.closeOrder.value = 1
+                    tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
                 }
                 if (order.status === AT_EXCHANGE_STATUS.CANCELLED) {
 
@@ -533,7 +533,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
                     tradingEngineOrder.exitType.value = 'Cancelled at the Exchange'
 
                     /* Initialize this */
-                    tradingEngine.current.distanceToEvent.closeOrder.value = 1
+                    tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
                 }
 
                 syncWithExchange(tradingSystemOrder, tradingEngineOrder, order)
@@ -657,24 +657,24 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
                         case tradingSystemOrder.type === 'Market Buy Order' || tradingSystemOrder.type === 'Limit Buy Order': {
 
                             /* Balance Base Asset: Undo the previous accounting */
-                            tradingEngine.current.balance.baseAsset.value =
-                                tradingEngine.current.balance.baseAsset.value -
+                            tradingEngine.current.episode.episodeBaseAsset.balance.value =
+                                tradingEngine.current.episode.episodeBaseAsset.balance.value -
                                 previousBaseAssetSizeFilled
 
                             /* Balance Base Asset: Account the current filling and fees */
-                            tradingEngine.current.balance.baseAsset.value =
-                                tradingEngine.current.balance.baseAsset.value +
+                            tradingEngine.current.episode.episodeBaseAsset.balance.value =
+                                tradingEngine.current.episode.episodeBaseAsset.balance.value +
                                 tradingEngineOrder.orderBaseAsset.sizeFilled.value
 
                             /* Balance Quoted Asset: Undo the previous accounting */
-                            tradingEngine.current.balance.quotedAsset.value =
-                                tradingEngine.current.balance.quotedAsset.value +
+                            tradingEngine.current.episode.episodeQuotedAsset.balance.value =
+                                tradingEngine.current.episode.episodeQuotedAsset.balance.value +
                                 previousQuotedAssetSizeFilled +
                                 previousQuotedAssetFeesPaid
 
                             /* Balance Quoted Asset: Account the current filling and fees */
-                            tradingEngine.current.balance.quotedAsset.value =
-                                tradingEngine.current.balance.quotedAsset.value -
+                            tradingEngine.current.episode.episodeQuotedAsset.balance.value =
+                                tradingEngine.current.episode.episodeQuotedAsset.balance.value -
                                 tradingEngineOrder.orderQuotedAsset.sizeFilled.value -
                                 tradingEngineOrder.orderQuotedAsset.feesPaid.value
                             break
@@ -682,31 +682,31 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
                         case tradingSystemOrder.type === 'Market Sell Order' || tradingSystemOrder.type === 'Limit Sell Order': {
 
                             /* Balance Base Asset: Undo the previous accounting */
-                            tradingEngine.current.balance.baseAsset.value =
-                                tradingEngine.current.balance.baseAsset.value +
+                            tradingEngine.current.episode.episodeBaseAsset.balance.value =
+                                tradingEngine.current.episode.episodeBaseAsset.balance.value +
                                 previousBaseAssetSizeFilled +
                                 previousBaseAssetFeesPaid
 
                             /* Balance Base Asset: Account the current filling and fees */
-                            tradingEngine.current.balance.baseAsset.value =
-                                tradingEngine.current.balance.baseAsset.value -
+                            tradingEngine.current.episode.episodeBaseAsset.balance.value =
+                                tradingEngine.current.episode.episodeBaseAsset.balance.value -
                                 tradingEngineOrder.orderBaseAsset.sizeFilled.value -
                                 tradingEngineOrder.orderBaseAsset.feesPaid.value
 
                             /* Balance Quoted Asset: Undo the previous accounting */
-                            tradingEngine.current.balance.quotedAsset.value =
-                                tradingEngine.current.balance.quotedAsset.value -
+                            tradingEngine.current.episode.episodeQuotedAsset.balance.value =
+                                tradingEngine.current.episode.episodeQuotedAsset.balance.value -
                                 previousQuotedAssetSizeFilled
 
                             /* Balance Quoted Asset: Account the current filling and fees */
-                            tradingEngine.current.balance.quotedAsset.value =
-                                tradingEngine.current.balance.quotedAsset.value +
+                            tradingEngine.current.episode.episodeQuotedAsset.balance.value =
+                                tradingEngine.current.episode.episodeQuotedAsset.balance.value +
                                 tradingEngineOrder.orderQuotedAsset.sizeFilled.value
                             break
                         }
                     }
-                    tradingEngine.current.balance.baseAsset.value = global.PRECISE(tradingEngine.current.balance.baseAsset.value, 10)
-                    tradingEngine.current.balance.quotedAsset.value = global.PRECISE(tradingEngine.current.balance.quotedAsset.value, 10)
+                    tradingEngine.current.episode.episodeBaseAsset.balance.value = global.PRECISE(tradingEngine.current.episode.episodeBaseAsset.balance.value, 10)
+                    tradingEngine.current.episode.episodeQuotedAsset.balance.value = global.PRECISE(tradingEngine.current.episode.episodeQuotedAsset.balance.value, 10)
                 }
 
             }
@@ -734,7 +734,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
                 tradingEngineOrder.exitType.value = exitType
 
                 /* Initialize this */
-                tradingEngine.current.distanceToEvent.closeOrder.value = 1
+                tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
 
                 recalculateStageSize(tradingEngineOrder)
             }
@@ -765,7 +765,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
                     tradingEngineOrder.exitType.value = exitType
 
                     /* Initialize this */
-                    tradingEngine.current.distanceToEvent.closeOrder.value = 1
+                    tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
 
                     /* 
                     Perhaps the order was filled a bit more between the last time we checked and when it was cancelled.

@@ -69,10 +69,10 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     let diff = lastBegin - firstBegin
                     let amount = diff / sessionParameters.timeFrame.config.value
 
-                    tradingEngine.current.candle.index.value = Math.trunc(amount) + 1 // Because we need to start from the next candle
-                    if (tradingEngine.current.candle.index.value < 0 || tradingEngine.current.candle.index.value > candles.length - 1) {
+                    tradingEngine.current.episode.candle.index.value = Math.trunc(amount) + 1 // Because we need to start from the next candle
+                    if (tradingEngine.current.episode.candle.index.value < 0 || tradingEngine.current.episode.candle.index.value > candles.length - 1) {
                         logger.write(MODULE_NAME, '[ERROR] runSimulation -> initializeLoop -> Cannot resume simulation.')
-                        logger.write(MODULE_NAME, '[ERROR] runSimulation -> initializeLoop -> tradingEngine.current.candle.index.value = ' + tradingEngine.current.candle.index.value)
+                        logger.write(MODULE_NAME, '[ERROR] runSimulation -> initializeLoop -> tradingEngine.current.episode.candle.index.value = ' + tradingEngine.current.episode.candle.index.value)
                         logger.write(MODULE_NAME, '[ERROR] runSimulation -> initializeLoop -> firstBegin = ' + firstBegin)
                         logger.write(MODULE_NAME, '[ERROR] runSimulation -> initializeLoop -> lastBegin = ' + lastBegin)
                         logger.write(MODULE_NAME, '[ERROR] runSimulation -> initializeLoop -> diff = ' + diff)
@@ -88,14 +88,14 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     let diff = targetEnd - firstEnd
                     let amount = diff / sessionParameters.timeFrame.config.value
 
-                    tradingEngine.current.candle.index.value = Math.trunc(amount)
-                    if (tradingEngine.current.candle.index.value < 0) { tradingEngine.current.candle.index.value = 0 }
-                    if (tradingEngine.current.candle.index.value > candles.length - 1) {
+                    tradingEngine.current.episode.candle.index.value = Math.trunc(amount)
+                    if (tradingEngine.current.episode.candle.index.value < 0) { tradingEngine.current.episode.candle.index.value = 0 }
+                    if (tradingEngine.current.episode.candle.index.value > candles.length - 1) {
                         /* 
                         This will happen when the sessionParameters.timeRange.config.initialDatetime is beyond the last candle available, 
                         meaning that the dataSet needs to be updated with more up-to-date data. 
                         */
-                        tradingEngine.current.candle.index.value = candles.length - 1
+                        tradingEngine.current.episode.candle.index.value = candles.length - 1
                     }
                 }
 
@@ -103,8 +103,8 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
             }
 
             async function loop() {
-                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Processing candle # ' + tradingEngine.current.candle.index.value) }
-                let candle = candles[tradingEngine.current.candle.index.value] // This is the current candle the Simulation is working at.
+                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Processing candle # ' + tradingEngine.current.episode.candle.index.value) }
+                let candle = candles[tradingEngine.current.episode.candle.index.value] // This is the current candle the Simulation is working at.
 
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Candle Begin @ ' + (new Date(candle.begin)).toLocaleString()) }
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Candle End @ ' + (new Date(candle.end)).toLocaleString()) }
@@ -140,11 +140,11 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 /* Do the stuff needed previous to the run */
                 tradingSystemModule.mantain()
 
-                /* Episode Counters and Statistics */
-                tradingEpisodeModule.updateCounters()
-                tradingEpisodeModule.updateStatistics()
+                /* Episode Counters and Statistics update */
+                tradingEpisodeModule.mantain()
 
-                tradingEngineModule.updateDistanceToEventsCounters()
+                /* Run your maintaince procedure */
+                tradingEngineModule.mantain()
 
                 /* Run one cycle of the Trading System*/
                 await tradingSystemModule.run()
@@ -157,23 +157,23 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 if (bot.STOP_SESSION === true) {
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> controlLoop -> We are going to stop here bacause we were requested to stop processing this session.') }
                     console.log('[INFO] runSimulation -> controlLoop -> We are going to stop here bacause we were requested to stop processing this session.')
-                    closeEpisode('Session Stopped')
+                    updateEpisode('Session Stopped')
                     return
                 }
 
                 if (global.STOP_TASK_GRACEFULLY === true) {
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> controlLoop -> We are going to stop here bacause we were requested to stop processing this task.') }
                     console.log('[INFO] runSimulation -> controlLoop -> We are going to stop here bacause we were requested to stop processing this task.')
-                    closeEpisode('Task Stopped')
+                    updateEpisode('Task Stopped')
                     return
                 }
 
-                if (tradingEngine.current.candle.index.value + 1 < candles.length) {
+                if (tradingEngine.current.episode.candle.index.value + 1 < candles.length) {
 
                     /* Add new records to the process output */
                     tradingRecordsModule.appendRecords()
 
-                    tradingEngine.current.candle.index.value++
+                    tradingEngine.current.episode.candle.index.value++
 
                     setImmediate(loop) // This will execute the next loop in the next iteration of the NodeJs event loop allowing for other callbacks to be executed.
                 } else {
@@ -182,8 +182,17 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
             }
 
             function closeEpisode(exitType) {
-                tradingEpisodeModule.closingEpisode(exitType)
+                tradingEpisodeModule.updateExitType(exitType)
                 tradingEpisodeModule.closeEpisode()
+
+                /* Add new records to the process output */
+                tradingRecordsModule.appendRecords()
+
+                afterLoop()
+            }
+
+            function updateEpisode(exitType) {
+                tradingEpisodeModule.updateExitType(exitType)
 
                 /* Add new records to the process output */
                 tradingRecordsModule.appendRecords()
@@ -208,11 +217,11 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
             function heartBeat() {
                 /* We will produce a simulation level heartbeat in order to inform the user this is running. */
-                heartBeatDate = new Date(Math.trunc(tradingEngine.current.candle.begin.value / global.ONE_DAY_IN_MILISECONDS) * global.ONE_DAY_IN_MILISECONDS)
+                heartBeatDate = new Date(Math.trunc(tradingEngine.current.episode.candle.begin.value / global.ONE_DAY_IN_MILISECONDS) * global.ONE_DAY_IN_MILISECONDS)
                 if (heartBeatDate.valueOf() !== previousHeartBeatDate) {
                     let processingDate = heartBeatDate.getUTCFullYear() + '-' + utilities.pad(heartBeatDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(heartBeatDate.getUTCDate(), 2)
 
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Simulation ' + bot.sessionKey + ' Loop # ' + tradingEngine.current.candle.index.value + ' @ ' + processingDate) }
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Simulation ' + bot.sessionKey + ' Loop # ' + tradingEngine.current.episode.candle.index.value + ' @ ' + processingDate) }
 
                     /*  Telling the world we are alive and doing well */
                     let fromDate = new Date(sessionParameters.timeRange.config.initialDatetime)
@@ -305,15 +314,15 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     for (let i = 0; i < pArray.length; i++) {
                         element = pArray[i]
 
-                        if (tradingEngine.current.candle.end.value === element.end) { // when there is an exact match at the end we take that element
+                        if (tradingEngine.current.episode.candle.end.value === element.end) { // when there is an exact match at the end we take that element
                             return element
                         } else {
                             if (
                                 i > 0 &&
-                                element.end > tradingEngine.current.candle.end.value
+                                element.end > tradingEngine.current.episode.candle.end.value
                             ) {
                                 let previousElement = pArray[i - 1]
-                                if (previousElement.end < tradingEngine.current.candle.end.value) {
+                                if (previousElement.end < tradingEngine.current.episode.candle.end.value) {
                                     return previousElement // If one elements goes into the future of currentCandle, then we stop and take the previous element.
                                 } else {
                                     return
@@ -336,7 +345,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 */
                 if (bot.processingDailyFiles) { // We are processing Daily Files
                     let candlesPerDay = global.ONE_DAY_IN_MILISECONDS / sessionParameters.timeFrame.config.value
-                    if (tradingEngine.current.candle.index.value === candles.length - 1) {
+                    if (tradingEngine.current.episode.candle.index.value === candles.length - 1) {
                         if ((candles.length < candlesPerDay) || (candles.length > candlesPerDay && candles.length < candlesPerDay * 2)) {
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> checkLastCandle -> Skipping Candle because it is the last one and has not been closed yet.') }
                             return false
@@ -347,7 +356,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         }
                     }
                 } else { // We are processing Market Files
-                    if (tradingEngine.current.candle.index.value === candles.length - 1) {
+                    if (tradingEngine.current.episode.candle.index.value === candles.length - 1) {
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> checkLastCandle -> Skipping Candle because it is the last one and has not been closed yet.') }
                         return false
                     }
@@ -357,11 +366,11 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
             function checkInitialAndFinalDatetime() {
                 /* Here we check that the current candle is not outside of user-defined time range at the session parameters.*/
-                if (tradingEngine.current.candle.end.value < sessionParameters.timeRange.config.initialDatetime) {
+                if (tradingEngine.current.episode.candle.end.value < sessionParameters.timeRange.config.initialDatetime) {
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> checkInitialAndFinalDatetime -> Skipping Candle before the sessionParameters.timeRange.config.initialDatetime.') }
                     return false
                 }
-                if (tradingEngine.current.candle.begin.value > sessionParameters.timeRange.config.finalDatetime) {
+                if (tradingEngine.current.episode.candle.begin.value > sessionParameters.timeRange.config.finalDatetime) {
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> checkInitialAndFinalDatetime -> Skipping Candle after the sessionParameters.timeRange.config.finalDatetime.') }
                     return false
                 }
@@ -378,10 +387,10 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     because there the balances have shifted from their resting position.
                     */
 
-                    let stopRunningDate = (new Date(tradingEngine.current.candle.begin.value)).toLocaleString()
+                    let stopRunningDate = (new Date(tradingEngine.current.episode.candle.begin.value)).toLocaleString()
 
                     if (sessionParameters.sessionBaseAsset.config.minimumBalance !== undefined) {
-                        if (tradingEngine.current.balance.baseAsset.value <= sessionParameters.sessionBaseAsset.config.minimumBalance) {
+                        if (tradingEngine.current.episode.episodeBaseAsset.balance.value <= sessionParameters.sessionBaseAsset.config.minimumBalance) {
                             const errorMessage = 'Min Balance reached @ ' + stopRunningDate
                             tradingSystem.errors.push([tradingSystem.id, errorMessage])
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, '[WARN] runSimulation -> checkMinimunAndMaximunBalance -> ' + errorMessage) }
@@ -390,7 +399,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     }
 
                     if (sessionParameters.sessionBaseAsset.config.maximumBalance !== undefined) {
-                        if (tradingEngine.current.balance.baseAsset.value >= sessionParameters.sessionBaseAsset.config.maximumBalance) {
+                        if (tradingEngine.current.episode.episodeBaseAsset.balance.value >= sessionParameters.sessionBaseAsset.config.maximumBalance) {
                             const errorMessage = 'Max Balance reached @ ' + stopRunningDate
                             tradingSystem.errors.push([tradingSystem.id, errorMessage])
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, '[WARN] runSimulation -> checkMinimunAndMaximunBalance -> ' + errorMessage) }
@@ -399,7 +408,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     }
 
                     if (sessionParameters.sessionQuotedAsset.config.minimumBalance !== undefined) {
-                        if (tradingEngine.current.balance.quotedAsset.value <= sessionParameters.sessionQuotedAsset.config.minimumBalance) {
+                        if (tradingEngine.current.episode.episodeQuotedAsset.balance.value <= sessionParameters.sessionQuotedAsset.config.minimumBalance) {
                             const errorMessage = 'Min Balance reached @ ' + stopRunningDate
                             tradingSystem.errors.push([tradingSystem.id, errorMessage])
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, '[WARN] runSimulation -> checkMinimunAndMaximunBalance -> ' + errorMessage) }
@@ -408,7 +417,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     }
 
                     if (sessionParameters.sessionQuotedAsset.config.maximumBalance !== undefined) {
-                        if (tradingEngine.current.balance.quotedAsset.value >= sessionParameters.sessionQuotedAsset.config.maximumBalance) {
+                        if (tradingEngine.current.episode.episodeQuotedAsset.balance.value >= sessionParameters.sessionQuotedAsset.config.maximumBalance) {
                             const errorMessage = 'Max Balance reached @ ' + stopRunningDate
                             tradingSystem.errors.push([tradingSystem.id, errorMessage])
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, '[WARN] runSimulation -> checkMinimunAndMaximunBalance -> ' + errorMessage) }

@@ -238,7 +238,7 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
 
     function resetTradingEngineDataStructure() {
         if (tradingEngine.current.position.status.value === 'Closed') {
-            tradingEngine.initializeNode(tradingEngine.current.position)
+            tradingEngineModule.initializeNode(tradingEngine.current.position)
         }
     }
 

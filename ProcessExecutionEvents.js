@@ -29,11 +29,7 @@
     return thisObject;
 
     function initialize(callBackFunction) {
-
         try {
-
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
-
             let name = 'Not Depends on any Process'
             logger.fileName = MODULE_NAME + "." + name;
 

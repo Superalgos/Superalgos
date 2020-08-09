@@ -18,11 +18,7 @@
     return thisObject;
 
     function initialize(callBackFunction) {
-
         try {
-
-            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
-
             /* Basic Valdidations */
             if (bot.processNode.referenceParent.processDependencies !== undefined) {
                 if (bot.processNode.referenceParent.processDependencies.statusDependencies !== undefined) {
@@ -88,9 +84,6 @@
 
                         switch (err.message) {
                             case global.DEFAULT_OK_RESPONSE.message: {
-
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> onLoad -> Execution finished well. -> Status Dependency = " + JSON.stringify(statusDependency.dependency)) }
-
                                 addReport();
                                 return;
                             }

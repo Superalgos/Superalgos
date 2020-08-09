@@ -75,7 +75,7 @@
                 return
             }
             if (outputDatasetNode.referenceParent.parentNode.dataBuilding === undefined) {
-                logger.write(MODULE_NAME, "[WARN] start -> Product Definition " + outputDatasetNode.referenceParent.parentNode.name + " without a Data Building Procedure. Product Definition = " + JSON.stringify(outputDatasetNode.referenceParent.parentNode));
+                logger.write(MODULE_NAME, "[WARN] start -> Product Definition " + outputDatasetNode.referenceParent.parentNode.name + " without a Data Building Procedure. Product Definition Name = " + outputDatasetNode.referenceParent.parentNode.name);
             }
             if (outputDatasetNode.referenceParent.config.codeName === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] start -> Dataset witn no codeName defined. Product Dataset = " + JSON.stringify(outputDatasetNode.referenceParent));

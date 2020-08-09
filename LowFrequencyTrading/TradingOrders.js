@@ -81,7 +81,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
                     try {
                         if (tradingEngineOrder.status === undefined) { continue }
                     } catch (err) {
-
+                        console.log(err.stack)
                     }
 
 

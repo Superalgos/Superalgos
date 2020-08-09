@@ -23,9 +23,6 @@ exports.newDataSet = function newDataSet(BOT, logger) {
     function initialize(dataDependency, callBackFunction) {
 
         try {
-
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
-
             thisObject.node = dataDependency.referenceParent;
             logger.fileName = MODULE_NAME + "." + thisObject.node.type + "." + thisObject.node.name + "." + thisObject.node.id;
 

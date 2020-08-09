@@ -31,9 +31,6 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
         recursiveGetTextFile(filePath, callBackFunction, noRetry, canUsePrevious)
 
         function recursiveGetTextFile(filePath, callBackFunction, noRetry, canUsePrevious) {
-
-            logger.write(MODULE_NAME, '[INFO] FileStorage -> getTextFile -> Entering Function.')
-
             let fileDoesNotExist = false
 
             /* Choose path for either bots or data */

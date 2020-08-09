@@ -98,9 +98,9 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
         for (let i = 0; i < orders.length; i++) {
 
             let tradingSystemOrder = orders[i]
+            tradingSystemValidations(tradingSystemOrder)
             let tradingEngineOrder = tradingEngineModule.getNodeById(tradingSystemOrder.referenceParent.id)
-
-            definitionValidations(tradingSystemOrder, tradingEngineOrder)
+            tradingEngineValidations(tradingEngineOrder)
 
             switch (tradingEngineOrder.status.value) {
                 case 'Not Open': {
@@ -158,11 +158,13 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
         }
     }
 
-    function definitionValidations(tradingSystemOrder, tradingEngineOrder) {
+    function tradingSystemValidations(tradingSystemOrder) {
         /* Trading System Validations */
         if (tradingSystemOrder.config.percentageOfAlgorithmSize === undefined) { badDefinitionUnhandledException(undefined, 'tradingSystemOrder.config.percentageOfAlgorithmSize === undefined', tradingSystemOrder) }
         if (tradingSystemOrder.referenceParent === undefined) { badDefinitionUnhandledException(undefined, 'tradingSystemOrder.referenceParent === undefined', tradingSystemOrder) }
+    }
 
+    function tradingEngineValidations(tradingEngineOrder) {
         /* Trading Engine Order Validations */
         if (tradingEngineOrder.serialNumber === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.serialNumber === undefined', tradingEngineOrder) }
         if (tradingEngineOrder.identifier === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.identifier === undefined', tradingEngineOrder) }
@@ -185,7 +187,6 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
         if (tradingEngineOrder.orderQuotedAsset.size === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.orderQuotedAsset.size === undefined', tradingEngineOrder) }
         if (tradingEngineOrder.orderQuotedAsset.sizeFilled === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.orderQuotedAsset.sizeFilled === undefined', tradingEngineOrder) }
         if (tradingEngineOrder.orderQuotedAsset.feesPaid === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.orderQuotedAsset.feesPaid === undefined', tradingEngineOrder) }
-
     }
 
     async function tryToOpenOrder(tradingEngineStage, executionAlgorithm, tradingSystemOrder, tradingEngineOrder, situationName) {

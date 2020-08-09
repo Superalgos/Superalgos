@@ -90,6 +90,11 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                         let productRootNode = productRoot[index]
                         let record = scanRecordDefinition(product, productRootNode, index)
                         if (record !== undefined) {
+                            /*
+                            We will add the index value to the record itself, so that the plotter can know to which 
+                            brach of the trading engine data structure it belongs. 
+                            */
+                            record.push(index)
                             persistIndividualRecord(record, product, outputDatasetArray)
                         }
                     }

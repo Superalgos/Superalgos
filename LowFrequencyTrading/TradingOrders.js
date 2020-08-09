@@ -459,28 +459,54 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
         }
 
         function percentageFilledSimulation() {
-            /* Order Filling Simulation */
-            if (tradingSystemOrder.simulatedExchangeEvents.simulatedPartialFill !== undefined) {
-                if (tradingSystemOrder.simulatedExchangeEvents.simulatedPartialFill.config.fillProbability !== undefined) {
-
-                    /* Percentage Filled */
-                    let percentageFilled = tradingSystemOrder.simulatedExchangeEvents.simulatedPartialFill.config.fillProbability * 100
-                    if (tradingEngineOrder.orderStatistics.percentageFilled.value + percentageFilled > 100) {
-                        percentageFilled = 100 - tradingEngineOrder.orderStatistics.percentageFilled.value
+            /* 
+            Order Filling Simulation: the way we are going to handle this is the following. 
+            For buy orders we are going to check if the price was below the order rate, and 
+            for sell orders we are going to check if the price was above the order rate.
+            
+            If we have a partial filling defined we are going to use it to estimate how much
+            of the order we will consider filled.
+            */
+            let orderWasHit
+            switch (tradingSystemOrder.type) {
+                case 'Limit Buy Order': {
+                    if (tradingEngine.current.episode.candle.min.value <= tradingEngineOrder.rate.value) {
+                        orderWasHit = true
                     }
-                    tradingEngineOrder.orderStatistics.percentageFilled.value = tradingEngineOrder.orderStatistics.percentageFilled.value + percentageFilled
-                    tradingEngineOrder.orderStatistics.percentageFilled.value = global.PRECISE(tradingEngineOrder.orderStatistics.percentageFilled.value, 10)
-
-                    /* Check if we need to close */
-                    if (tradingEngineOrder.orderStatistics.percentageFilled.value === 100) {
-
-                        /* Close this Order */
-                        tradingEngineOrder.status.value = 'Closed'
-                        tradingEngineOrder.exitType.value = 'Filled'
-
-                        /* Initialize this */
-                        tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
+                    break
+                }
+                case 'Limit Sell Order': {
+                    if (tradingEngine.current.episode.candle.max.value >= tradingEngineOrder.rate.value) {
+                        orderWasHit = true
                     }
+                    break
+                }
+            }
+            if (orderWasHit === true) {
+                if (tradingSystemOrder.simulatedExchangeEvents.simulatedPartialFill !== undefined) {
+                    if (tradingSystemOrder.simulatedExchangeEvents.simulatedPartialFill.config.fillProbability !== undefined) {
+
+                        /* Percentage Filled */
+                        let percentageFilled = tradingSystemOrder.simulatedExchangeEvents.simulatedPartialFill.config.fillProbability * 100
+                        if (tradingEngineOrder.orderStatistics.percentageFilled.value + percentageFilled > 100) {
+                            percentageFilled = 100 - tradingEngineOrder.orderStatistics.percentageFilled.value
+                        }
+                        tradingEngineOrder.orderStatistics.percentageFilled.value = tradingEngineOrder.orderStatistics.percentageFilled.value + percentageFilled
+                        tradingEngineOrder.orderStatistics.percentageFilled.value = global.PRECISE(tradingEngineOrder.orderStatistics.percentageFilled.value, 10)
+                    }
+                } else {
+                    /* We will assume that 100% of the order was filled */
+                    tradingEngineOrder.orderStatistics.percentageFilled.value = 100
+                }
+                /* Check if we need to close the order */
+                if (tradingEngineOrder.orderStatistics.percentageFilled.value === 100) {
+
+                    /* Close this Order */
+                    tradingEngineOrder.status.value = 'Closed'
+                    tradingEngineOrder.exitType.value = 'Filled'
+
+                    /* Initialize this */
+                    tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
                 }
             }
         }

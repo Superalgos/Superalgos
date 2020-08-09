@@ -47,7 +47,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
             tradingSystemModule.initialize()
 
             const TRADING_EPISODE_MODULE = require('./TradingEpisode.js')
-            let tradingEpisodeModule = TRADING_EPISODE_MODULE.newTradingEpisode(bot, logger)
+            let tradingEpisodeModule = TRADING_EPISODE_MODULE.newTradingEpisode(bot, logger, tradingEngineModule)
             tradingEpisodeModule.initialize()
 
             /* Setting up the candles array: The whole simulation is based on the array of candles at the time-frame defined at the session parameters. */
@@ -177,7 +177,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                     setImmediate(loop) // This will execute the next loop in the next iteration of the NodeJs event loop allowing for other callbacks to be executed.
                 } else {
-                    closeEpisode('All Candles Processed')
+                    updateEpisode('All Candles Processed')
                 }
             }
 

@@ -78,7 +78,12 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
                     let tradingSystemOrder = orders[i]
                     if (tradingSystemOrder.referenceParent === undefined) { continue }
                     let tradingEngineOrder = tradingEngineModule.getNodeById(tradingSystemOrder.referenceParent.id)
-                    if (tradingEngineOrder.status === undefined) { continue }
+                    try {
+                        if (tradingEngineOrder.status === undefined) { continue }
+                    } catch (err) {
+
+                    }
+
 
                     updateCounters(tradingEngineOrder)
                     updateEnds(tradingEngineOrder)
@@ -873,7 +878,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
     function resetTradingEngineDataStructure(tradingEngineOrder, tradingSystemOrder, stageStatus) {
         if (tradingEngineOrder.status.value === 'Closed') {
             /* We reset the order data structure inside the Trading Engine to its initial value */
-            tradingEngineOrder.initialize(tradingEngineOrder)
+            tradingEngineModule.initializeNode(tradingEngineOrder)
             if (tradingSystemOrder.config.spawnMultipleOrders !== true) {
                 /* 
                 We close the lock so as to prevent this data structure to be used again during this same stage execution.

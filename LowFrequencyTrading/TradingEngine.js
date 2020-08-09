@@ -9,6 +9,7 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
         getNodeById: getNodeById,
         cloneValues: cloneValues,
         setCurrentCandle: setCurrentCandle,
+        initializeNode: initializeNode,
         initialize: initialize,
         finalize: finalize
     }
@@ -108,7 +109,6 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
                 node.value = node.config.initialValue
             }
         }
-        node.initialize = initializeNode // This will allow anyone to initialize this node and its children.
 
         /* Now we go down through all this node children */
         let nodeDefinition = bot.APP_SCHEMA_MAP.get(node.type)

@@ -55,7 +55,7 @@ function newSessionFunctions() {
             'Episode Base Asset->Episode Quoted Asset->Episode Counters->Episode Statistics->' +
             'Strategies->Positions->Orders->Hits->Fails->' +
             'Profit Loss->Hit Ratio->Hit Fail->Days->ROI->Anualized Rate Of Return->User Defined Statistic->' +
-            'Candle->' +
+            'Candle->Cycle->' +
             'Begin->End->Open->Close->Min->Max->Index->' +
             'Distance To Event->' +
             'Trigger On->Trigger Off->Take Position->Close Position->Next Phase->Move To Phase->Create Order->Cancel Order->Close Order->' +

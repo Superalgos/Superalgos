@@ -6,6 +6,7 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
     const MODULE_NAME = 'Trading Engine'
     let thisObject = {
         mantain: mantain,
+        reset: reset,
         getNodeById: getNodeById,
         cloneValues: cloneValues,
         setCurrentCandle: setCurrentCandle,
@@ -44,6 +45,10 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
 
     function mantain() {
         updateDistanceToEventsCounters()
+    }
+
+    function reset() {
+
     }
 
     function getNodeById(NodeId) {

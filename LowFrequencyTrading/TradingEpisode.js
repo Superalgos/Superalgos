@@ -5,6 +5,7 @@ exports.newTradingEpisode = function newTradingEpisode(bot, logger, tradingEngin
     const MODULE_NAME = 'Trading Episode'
     let thisObject = {
         mantain: mantain,
+        reset: reset,
         openEpisode: openEpisode,
         updateExitType: updateExitType,
         closeEpisode: closeEpisode,
@@ -33,10 +34,13 @@ exports.newTradingEpisode = function newTradingEpisode(bot, logger, tradingEngin
     }
 
     function mantain() {
-        resetTradingEngineDataStructure()
         updateCounters()
         updateStatistics()
         updateEnds()
+    }
+
+    function reset() {
+        resetTradingEngineDataStructure()
     }
 
     function openEpisode() {

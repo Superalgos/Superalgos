@@ -5,6 +5,7 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
     const MODULE_NAME = 'Trading Position'
     let thisObject = {
         mantain: mantain,
+        reset: reset,
         openPosition: openPosition,
         closingPosition: closingPosition,
         closePosition: closePosition,
@@ -39,9 +40,12 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
     }
 
     function mantain() {
-        resetTradingEngineDataStructure()
         updateCounters()
         updateEnds()
+    }
+
+    function reset() {
+        resetTradingEngineDataStructure()
     }
 
     function openPosition(situationName) {
@@ -50,7 +54,7 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
         tradingEngine.current.position.status.value = 'Open'
         tradingEngine.current.position.serialNumber.value = tradingEngine.current.episode.episodeCounters.positions.value
         tradingEngine.current.position.identifier.value = global.UNIQUE_ID()
-        tradingEngine.current.position.begin.value = tradingEngine.current.episode.candle.begin.value
+        tradingEngine.current.position.begin.value = tradingEngine.current.episode.candle.end.value
         tradingEngine.current.position.beginRate.value = tradingEngine.current.episode.candle.close.value
         tradingEngine.current.position.positionBaseAsset.beginBalance.value = tradingEngine.current.episode.episodeBaseAsset.balance.value
         tradingEngine.current.position.positionQuotedAsset.beginBalance.value = tradingEngine.current.episode.episodeQuotedAsset.balance.value

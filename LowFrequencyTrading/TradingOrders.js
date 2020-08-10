@@ -6,6 +6,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
     let thisObject = {
         mantain: mantain,
+        reset: reset,
         checkOrders: checkOrders,
         initialize: initialize,
         finalize: finalize
@@ -45,6 +46,14 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
     }
 
     function mantain() {
+        mantainReset(true, false)
+    }
+
+    function reset() {
+        mantainReset(false, true)
+    }
+
+    function mantainReset(mantain, reset) {
 
         if (tradingEngine.current.strategy.index.value === tradingEngine.current.strategy.index.config.initialValue) { return }
 
@@ -53,42 +62,46 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
         stageNode = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].openStage
         executionNode = stageNode.openExecution
-        mantainExecutionNode(executionNode, tradingEngine.current.strategyOpenStage.status.value)
+        processExecutionNode(executionNode, tradingEngine.current.strategyOpenStage.status.value)
 
         stageNode = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].closeStage
         executionNode = stageNode.closeExecution
-        mantainExecutionNode(executionNode, tradingEngine.current.strategyCloseStage.status.value)
+        processExecutionNode(executionNode, tradingEngine.current.strategyCloseStage.status.value)
 
-        function mantainExecutionNode(executionNode, stageStatus) {
+        function processExecutionNode(executionNode, stageStatus) {
 
-            mantainExecutionAlgorithms(executionNode)
+            preocessExecutionAlgorithms(executionNode)
 
-            function mantainExecutionAlgorithms(executionNode) {
+            function preocessExecutionAlgorithms(executionNode) {
                 for (let i = 0; i < executionNode.executionAlgorithms.length; i++) {
                     let executionAlgorithm = executionNode.executionAlgorithms[i]
-                    mantainOrders(executionAlgorithm.marketBuyOrders)
-                    mantainOrders(executionAlgorithm.marketSellOrders)
-                    mantainOrders(executionAlgorithm.limitBuyOrders)
-                    mantainOrders(executionAlgorithm.limitSellOrders)
+                    processOrders(executionAlgorithm.marketBuyOrders)
+                    processOrders(executionAlgorithm.marketSellOrders)
+                    processOrders(executionAlgorithm.limitBuyOrders)
+                    processOrders(executionAlgorithm.limitSellOrders)
                 }
             }
 
-            function mantainOrders(orders) {
+            function processOrders(orders) {
                 for (let i = 0; i < orders.length; i++) {
                     let tradingSystemOrder = orders[i]
-                    if (tradingSystemOrder.referenceParent === undefined) { continue }
+                    if (tradingSystemOrder.referenceParent === undefined) {
+                        badDefinitionUnhandledException(undefined, 'tradingSystemOrder.referenceParent === undefined', tradingSystemOrder)
+                    }
                     let tradingEngineOrder = tradingEngineModule.getNodeById(tradingSystemOrder.referenceParent.id)
-                    try {
-                        if (tradingEngineOrder.status === undefined) { continue }
-                    } catch (err) {
-                        console.log(err.stack)
+
+                    if (tradingEngineOrder.status === undefined) {
+                        badDefinitionUnhandledException(undefined, 'tradingEngineOrder.status === undefined', tradingEngineOrder)
                     }
 
-
-                    updateCounters(tradingEngineOrder)
-                    updateEnds(tradingEngineOrder)
-                    updateStatistics(tradingEngineOrder)
-                    resetTradingEngineDataStructure(tradingEngineOrder, tradingSystemOrder, stageStatus)
+                    if (mantain === true) {
+                        updateCounters(tradingEngineOrder)
+                        updateEnds(tradingEngineOrder)
+                        updateStatistics(tradingEngineOrder)
+                    }
+                    if (reset === true) {
+                        resetTradingEngineDataStructure(tradingEngineOrder, tradingSystemOrder, stageStatus)
+                    }
                 }
             }
         }
@@ -216,7 +229,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
         /* Create Order Procedure */
         tradingEngineOrder.status.value = 'Open'
         tradingEngineOrder.identifier.value = global.UNIQUE_ID()
-        tradingEngineOrder.begin.value = tradingEngine.current.episode.candle.begin.value
+        tradingEngineOrder.begin.value = tradingEngine.current.episode.candle.end.value
         tradingEngineOrder.end.value = tradingEngine.current.episode.candle.end.value
         tradingEngineOrder.serialNumber.value = tradingEngine.current.episode.episodeCounters.orders.value
         tradingEngineOrder.orderName.value = tradingSystemOrder.name

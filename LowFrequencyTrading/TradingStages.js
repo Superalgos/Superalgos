@@ -6,6 +6,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
     let thisObject = {
         updateChart: updateChart,
         mantain: mantain,
+        reset: reset,
         runTriggerStage: runTriggerStage,
         runOpenStage: runOpenStage,
         runManageStage: runManageStage,
@@ -88,9 +89,16 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
         tradingStrategyModule.mantain()
         tradingExecutionModule.mantain()
 
-        resetTradingEngineDataStructure()
         updateCounters()
         updateEnds()
+    }
+
+    function reset() {
+        tradingPositionModule.reset()
+        tradingStrategyModule.reset()
+        tradingExecutionModule.reset()
+
+        resetTradingEngineDataStructure()
     }
 
     function runTriggerStage() {
@@ -1017,7 +1025,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
 
         function openStage(stage) {
             /* Recording the opening at the Trading Engine Data Structure */
-            stage.begin.value = tradingEngine.current.episode.candle.begin.value
+            stage.begin.value = tradingEngine.current.episode.candle.end.value
             stage.beginRate.value = tradingEngine.current.episode.candle.close.value
             stage.end.value = tradingEngine.current.episode.candle.end.value
         }

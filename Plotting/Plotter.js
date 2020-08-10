@@ -293,7 +293,7 @@ function newPlotter() {
             }
 
             if (
-                (record.begin >= farLeftDate.valueOf() && record.end <= farRightDate.valueOf()) &&
+                (record.begin >= farLeftDate.valueOf() || record.end <= farRightDate.valueOf()) &&
                 (record.end >= coordinateSystem.min.x && record.begin <= coordinateSystem.max.x)
             ) {
                 record.previous = previous

@@ -147,7 +147,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
                         if (situationName !== undefined) {
 
                             /* Simulate Order Cancelation, if needed. */
-                            simulateCancelOrder(tradingSystemOrder, tradingEngineOrder, 'Cancel Event')
+                            simulateCancelOrder(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, 'Cancel Event')
 
                             /* Cancel the order at the Exchange, if needed. */
                             await exchangeCancelOrder(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, 'Cancel Event')
@@ -349,7 +349,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
         /* If the Stage is Closing and this order is still open, we need to cancel it now */
         if (tradingEngineStage.status.value === 'Closing' && tradingEngineOrder.status.value !== 'Closed') {
-            simulateCancelOrder(tradingSystemOrder, tradingEngineOrder, 'Closing Stage')
+            simulateCancelOrder(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, 'Closing Stage')
         }
 
         function actualRateSimulation() {
@@ -760,7 +760,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
     }
 
-    function simulateCancelOrder(tradingSystemOrder, tradingEngineOrder, exitType) {
+    function simulateCancelOrder(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, exitType) {
 
         /* Filter by Session Type */
         switch (bot.SESSION.type) {
@@ -833,30 +833,30 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
     function recalculateStageSize(tradingEngineStage, tradingEngineOrder) {
         /* 
-        Since the order is Cancelled, we need to adjust the stage size. Remember that the Stage Size
-        accumulates for each asset, the order size placed at the exchange. A cancelation means that 
+        Since the order is Cancelled, we need to adjust the stage sizePlaced. Remember that the Stage 
+        Size Placed accumulates for each asset, the order size placed at the exchange. A cancelation means that 
         only the part filled can be considered placed, so we need to substract from the stage size 
         the remainder. To achieve this with the information we currently have, we are going first 
         to unaccount the order size, and the account only the sizeFilled + the feesPaid.
         */
-        tradingEngineStage.stageBaseAsset.size.value =
-            tradingEngineStage.stageBaseAsset.size.value -
+        tradingEngineStage.stageBaseAsset.sizePlaced.value =
+            tradingEngineStage.stageBaseAsset.sizePlaced.value -
             tradingEngineOrder.orderBaseAsset.size.value
-        tradingEngineStage.stageQuotedAsset.size.value =
-            tradingEngineStage.stageQuotedAsset.size.value -
+        tradingEngineStage.stageQuotedAsset.sizePlaced.value =
+            tradingEngineStage.stageQuotedAsset.sizePlaced.value -
             tradingEngineOrder.orderQuotedAsset.size.value
 
-        tradingEngineStage.stageBaseAsset.size.value =
-            tradingEngineStage.stageBaseAsset.size.value +
+        tradingEngineStage.stageBaseAsset.sizePlaced.value =
+            tradingEngineStage.stageBaseAsset.sizePlaced.value +
             tradingEngineOrder.orderBaseAsset.sizeFilled.value +
             tradingEngineOrder.orderBaseAsset.feesPaid.value
-        tradingEngineStage.stageQuotedAsset.size.value =
-            tradingEngineStage.stageQuotedAsset.size.value +
+        tradingEngineStage.stageQuotedAsset.sizePlaced.value =
+            tradingEngineStage.stageQuotedAsset.sizePlaced.value +
             tradingEngineOrder.orderQuotedAsset.sizeFilled.value +
             tradingEngineOrder.orderQuotedAsset.feesPaid.value
 
-        tradingEngineStage.stageBaseAsset.size.value = global.PRECISE(tradingEngineStage.stageBaseAsset.size.value, 10)
-        tradingEngineStage.stageQuotedAsset.size.value = global.PRECISE(tradingEngineStage.stageQuotedAsset.size.value, 10)
+        tradingEngineStage.stageBaseAsset.sizePlaced.value = global.PRECISE(tradingEngineStage.stageBaseAsset.sizePlaced.value, 10)
+        tradingEngineStage.stageQuotedAsset.sizePlaced.value = global.PRECISE(tradingEngineStage.stageQuotedAsset.sizePlaced.value, 10)
     }
 
     function checkOrderEvent(event, order, executionAlgorithm, executionNode) {

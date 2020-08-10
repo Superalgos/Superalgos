@@ -78,7 +78,12 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
                     let tradingSystemOrder = orders[i]
                     if (tradingSystemOrder.referenceParent === undefined) { continue }
                     let tradingEngineOrder = tradingEngineModule.getNodeById(tradingSystemOrder.referenceParent.id)
-                    if (tradingEngineOrder.status === undefined) { continue }
+                    try {
+                        if (tradingEngineOrder.status === undefined) { continue }
+                    } catch (err) {
+                        console.log(err.stack)
+                    }
+
 
                     updateCounters(tradingEngineOrder)
                     updateEnds(tradingEngineOrder)
@@ -93,9 +98,9 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
         for (let i = 0; i < orders.length; i++) {
 
             let tradingSystemOrder = orders[i]
+            tradingSystemValidations(tradingSystemOrder)
             let tradingEngineOrder = tradingEngineModule.getNodeById(tradingSystemOrder.referenceParent.id)
-
-            definitionValidations(tradingSystemOrder, tradingEngineOrder)
+            tradingEngineValidations(tradingEngineOrder)
 
             switch (tradingEngineOrder.status.value) {
                 case 'Not Open': {
@@ -142,7 +147,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
                         if (situationName !== undefined) {
 
                             /* Simulate Order Cancelation, if needed. */
-                            simulateCancelOrder(tradingSystemOrder, tradingEngineOrder, 'Cancel Event')
+                            simulateCancelOrder(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, 'Cancel Event')
 
                             /* Cancel the order at the Exchange, if needed. */
                             await exchangeCancelOrder(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, 'Cancel Event')
@@ -153,11 +158,13 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
         }
     }
 
-    function definitionValidations(tradingSystemOrder, tradingEngineOrder) {
+    function tradingSystemValidations(tradingSystemOrder) {
         /* Trading System Validations */
         if (tradingSystemOrder.config.percentageOfAlgorithmSize === undefined) { badDefinitionUnhandledException(undefined, 'tradingSystemOrder.config.percentageOfAlgorithmSize === undefined', tradingSystemOrder) }
         if (tradingSystemOrder.referenceParent === undefined) { badDefinitionUnhandledException(undefined, 'tradingSystemOrder.referenceParent === undefined', tradingSystemOrder) }
+    }
 
+    function tradingEngineValidations(tradingEngineOrder) {
         /* Trading Engine Order Validations */
         if (tradingEngineOrder.serialNumber === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.serialNumber === undefined', tradingEngineOrder) }
         if (tradingEngineOrder.identifier === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.identifier === undefined', tradingEngineOrder) }
@@ -180,7 +187,6 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
         if (tradingEngineOrder.orderQuotedAsset.size === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.orderQuotedAsset.size === undefined', tradingEngineOrder) }
         if (tradingEngineOrder.orderQuotedAsset.sizeFilled === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.orderQuotedAsset.sizeFilled === undefined', tradingEngineOrder) }
         if (tradingEngineOrder.orderQuotedAsset.feesPaid === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.orderQuotedAsset.feesPaid === undefined', tradingEngineOrder) }
-
     }
 
     async function tryToOpenOrder(tradingEngineStage, executionAlgorithm, tradingSystemOrder, tradingEngineOrder, situationName) {
@@ -343,7 +349,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
         /* If the Stage is Closing and this order is still open, we need to cancel it now */
         if (tradingEngineStage.status.value === 'Closing' && tradingEngineOrder.status.value !== 'Closed') {
-            simulateCancelOrder(tradingSystemOrder, tradingEngineOrder, 'Closing Stage')
+            simulateCancelOrder(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, 'Closing Stage')
         }
 
         function actualRateSimulation() {
@@ -453,28 +459,54 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
         }
 
         function percentageFilledSimulation() {
-            /* Order Filling Simulation */
-            if (tradingSystemOrder.simulatedExchangeEvents.simulatedPartialFill !== undefined) {
-                if (tradingSystemOrder.simulatedExchangeEvents.simulatedPartialFill.config.fillProbability !== undefined) {
-
-                    /* Percentage Filled */
-                    let percentageFilled = tradingSystemOrder.simulatedExchangeEvents.simulatedPartialFill.config.fillProbability * 100
-                    if (tradingEngineOrder.orderStatistics.percentageFilled.value + percentageFilled > 100) {
-                        percentageFilled = 100 - tradingEngineOrder.orderStatistics.percentageFilled.value
+            /* 
+            Order Filling Simulation: the way we are going to handle this is the following. 
+            For buy orders we are going to check if the price was below the order rate, and 
+            for sell orders we are going to check if the price was above the order rate.
+            
+            If we have a partial filling defined we are going to use it to estimate how much
+            of the order we will consider filled.
+            */
+            let orderWasHit
+            switch (tradingSystemOrder.type) {
+                case 'Limit Buy Order': {
+                    if (tradingEngine.current.episode.candle.min.value <= tradingEngineOrder.rate.value) {
+                        orderWasHit = true
                     }
-                    tradingEngineOrder.orderStatistics.percentageFilled.value = tradingEngineOrder.orderStatistics.percentageFilled.value + percentageFilled
-                    tradingEngineOrder.orderStatistics.percentageFilled.value = global.PRECISE(tradingEngineOrder.orderStatistics.percentageFilled.value, 10)
-
-                    /* Check if we need to close */
-                    if (tradingEngineOrder.orderStatistics.percentageFilled.value === 100) {
-
-                        /* Close this Order */
-                        tradingEngineOrder.status.value = 'Closed'
-                        tradingEngineOrder.exitType.value = 'Filled'
-
-                        /* Initialize this */
-                        tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
+                    break
+                }
+                case 'Limit Sell Order': {
+                    if (tradingEngine.current.episode.candle.max.value >= tradingEngineOrder.rate.value) {
+                        orderWasHit = true
                     }
+                    break
+                }
+            }
+            if (orderWasHit === true) {
+                if (tradingSystemOrder.simulatedExchangeEvents.simulatedPartialFill !== undefined) {
+                    if (tradingSystemOrder.simulatedExchangeEvents.simulatedPartialFill.config.fillProbability !== undefined) {
+
+                        /* Percentage Filled */
+                        let percentageFilled = tradingSystemOrder.simulatedExchangeEvents.simulatedPartialFill.config.fillProbability * 100
+                        if (tradingEngineOrder.orderStatistics.percentageFilled.value + percentageFilled > 100) {
+                            percentageFilled = 100 - tradingEngineOrder.orderStatistics.percentageFilled.value
+                        }
+                        tradingEngineOrder.orderStatistics.percentageFilled.value = tradingEngineOrder.orderStatistics.percentageFilled.value + percentageFilled
+                        tradingEngineOrder.orderStatistics.percentageFilled.value = global.PRECISE(tradingEngineOrder.orderStatistics.percentageFilled.value, 10)
+                    }
+                } else {
+                    /* We will assume that 100% of the order was filled */
+                    tradingEngineOrder.orderStatistics.percentageFilled.value = 100
+                }
+                /* Check if we need to close the order */
+                if (tradingEngineOrder.orderStatistics.percentageFilled.value === 100) {
+
+                    /* Close this Order */
+                    tradingEngineOrder.status.value = 'Closed'
+                    tradingEngineOrder.exitType.value = 'Filled'
+
+                    /* Initialize this */
+                    tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
                 }
             }
         }
@@ -728,7 +760,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
     }
 
-    function simulateCancelOrder(tradingSystemOrder, tradingEngineOrder, exitType) {
+    function simulateCancelOrder(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, exitType) {
 
         /* Filter by Session Type */
         switch (bot.SESSION.type) {
@@ -801,30 +833,30 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
     function recalculateStageSize(tradingEngineStage, tradingEngineOrder) {
         /* 
-        Since the order is Cancelled, we need to adjust the stage size. Remember that the Stage Size
-        accumulates for each asset, the order size placed at the exchange. A cancelation means that 
+        Since the order is Cancelled, we need to adjust the stage sizePlaced. Remember that the Stage 
+        Size Placed accumulates for each asset, the order size placed at the exchange. A cancelation means that 
         only the part filled can be considered placed, so we need to substract from the stage size 
         the remainder. To achieve this with the information we currently have, we are going first 
         to unaccount the order size, and the account only the sizeFilled + the feesPaid.
         */
-        tradingEngineStage.stageBaseAsset.size.value =
-            tradingEngineStage.stageBaseAsset.size.value -
+        tradingEngineStage.stageBaseAsset.sizePlaced.value =
+            tradingEngineStage.stageBaseAsset.sizePlaced.value -
             tradingEngineOrder.orderBaseAsset.size.value
-        tradingEngineStage.stageQuotedAsset.size.value =
-            tradingEngineStage.stageQuotedAsset.size.value -
+        tradingEngineStage.stageQuotedAsset.sizePlaced.value =
+            tradingEngineStage.stageQuotedAsset.sizePlaced.value -
             tradingEngineOrder.orderQuotedAsset.size.value
 
-        tradingEngineStage.stageBaseAsset.size.value =
-            tradingEngineStage.stageBaseAsset.size.value +
+        tradingEngineStage.stageBaseAsset.sizePlaced.value =
+            tradingEngineStage.stageBaseAsset.sizePlaced.value +
             tradingEngineOrder.orderBaseAsset.sizeFilled.value +
             tradingEngineOrder.orderBaseAsset.feesPaid.value
-        tradingEngineStage.stageQuotedAsset.size.value =
-            tradingEngineStage.stageQuotedAsset.size.value +
+        tradingEngineStage.stageQuotedAsset.sizePlaced.value =
+            tradingEngineStage.stageQuotedAsset.sizePlaced.value +
             tradingEngineOrder.orderQuotedAsset.sizeFilled.value +
             tradingEngineOrder.orderQuotedAsset.feesPaid.value
 
-        tradingEngineStage.stageBaseAsset.size.value = global.PRECISE(tradingEngineStage.stageBaseAsset.size.value, 10)
-        tradingEngineStage.stageQuotedAsset.size.value = global.PRECISE(tradingEngineStage.stageQuotedAsset.size.value, 10)
+        tradingEngineStage.stageBaseAsset.sizePlaced.value = global.PRECISE(tradingEngineStage.stageBaseAsset.sizePlaced.value, 10)
+        tradingEngineStage.stageQuotedAsset.sizePlaced.value = global.PRECISE(tradingEngineStage.stageQuotedAsset.sizePlaced.value, 10)
     }
 
     function checkOrderEvent(event, order, executionAlgorithm, executionNode) {
@@ -873,7 +905,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
     function resetTradingEngineDataStructure(tradingEngineOrder, tradingSystemOrder, stageStatus) {
         if (tradingEngineOrder.status.value === 'Closed') {
             /* We reset the order data structure inside the Trading Engine to its initial value */
-            tradingEngineOrder.initialize(tradingEngineOrder)
+            tradingEngineModule.initializeNode(tradingEngineOrder)
             if (tradingSystemOrder.config.spawnMultipleOrders !== true) {
                 /* 
                 We close the lock so as to prevent this data structure to be used again during this same stage execution.

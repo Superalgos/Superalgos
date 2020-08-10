@@ -269,7 +269,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
             let executionNode = stageNode.openExecution
 
             /* Reset the Exchange Orders data structure to its initial value */
-            tradingEngine.exchangeOrders.initialize(tradingEngine.exchangeOrders)
+            tradingEngineModule.initializeNode(tradingEngine.exchangeOrders)
 
             tradingSystem.evalConditions(stageNode, 'Initial Definition')
             tradingSystem.evalFormulas(stageNode, 'Initial Definition')
@@ -1066,7 +1066,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
         }
 
         function resetStage(stage) {
-            stage.initialize(stage)
+            tradingEngineModule.initializeNode(stage)
         }
     }
 

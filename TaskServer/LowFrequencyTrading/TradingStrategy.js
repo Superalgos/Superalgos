@@ -65,7 +65,7 @@ exports.newTradingStrategy = function newTradingStrategy(bot, logger, tradingEng
 
     function resetTradingEngineDataStructure() {
         if (tradingEngine.current.strategy.status.value === 'Closed') {
-            tradingEngine.current.strategy.initialize(tradingEngine.current.strategy)
+            tradingEngineModule.initializeNode(tradingEngine.current.strategy)
         }
     }
 

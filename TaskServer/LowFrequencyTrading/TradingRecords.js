@@ -89,7 +89,14 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                         */
                         let productRootNode = productRoot[index]
                         let record = scanRecordDefinition(product, productRootNode, index)
-                        persistIndividualRecord(record, product, outputDatasetArray)
+                        if (record !== undefined) {
+                            /*
+                            We will add the index value to the record itself, so that the plotter can know to which 
+                            brach of the trading engine data structure it belongs. 
+                            */
+                            record.push(index)
+                            persistIndividualRecord(record, product, outputDatasetArray)
+                        }
                     }
                 } else {
                     /*
@@ -101,7 +108,9 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                     */
                     let productRootNode = productRoot
                     let record = scanRecordDefinition(product, productRootNode)
-                    persistIndividualRecord(record, product, outputDatasetArray)
+                    if (record !== undefined) {
+                        persistIndividualRecord(record, product, outputDatasetArray)
+                    }
                 }
             }
         }
@@ -192,6 +201,13 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                         value = targetNode
                     }
                 }
+
+                /* We are not going to add records where the begin or end are missing */
+                if (
+                    recordProperty.config.codeName === 'begin' && value === 0 ||
+                    recordProperty.config.codeName === 'end' && value === 0
+                ) { return }
+
                 if (recordProperty.config.isString !== true && Array.isArray(value) !== true) {
                     value = safeNumericValue(value)
                 }
@@ -213,27 +229,36 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                         let propertyValue = record[j]
 
                         if (bot.processingDailyFiles) {
-                            /*
-                            When dealing with Daily Files, we need to avoid to write an open object at the last 'candle' of the day,
-                            since the object will be duplicated on the next day. How do we know we are positioned at the last candle
-                            of the day? Easy: the end of the candle must be 1 millisecod before the next day. That happens at any 
-                            time frame. 
-                            */
-                            let currentDay = new Date(tradingEngine.current.episode.candle.end.value)
-                            let nextDay = new Date(tradingEngine.current.episode.candle.end.value + 1)
-                            if (currentDay.getUTCDate() !== nextDay.getUTCDate()) {
-                                /*
-                                We will save the object only if it is closed, becasuse we are at the last candle of the day.
+                            if (product.config.doNotCutObjectInDays !== true) {
+                                /* 
+                                By default we will cut objects in days.
                                 */
-                                if (propertyValue === product.config.propertyValueThatClosesObject) {
+                                if (propertyValue !== product.config.propertyValueThatPreventsSavingObject) {
                                     outputDatasetArray.push(record)
                                 }
                             } else {
                                 /*
-                                When we are not at the end of the day, we will save the object normally, like in market files.
+                                When dealing with Daily Files, we need to avoid to write an open object at the last 'candle' of the day,
+                                since the object will be duplicated on the next day. How do we know we are positioned at the last candle
+                                of the day? Easy: the end of the candle must be 1 millisecod before the next day. That happens at any 
+                                time frame. 
                                 */
-                                if (propertyValue !== product.config.propertyValueThatPreventsSavingObject) {
-                                    outputDatasetArray.push(record)
+                                let currentDay = new Date(tradingEngine.current.episode.candle.end.value)
+                                let nextDay = new Date(tradingEngine.current.episode.candle.end.value + 1)
+                                if (currentDay.getUTCDate() !== nextDay.getUTCDate()) {
+                                    /*
+                                    We will save the object only if it is closed, becasuse we are at the last candle of the day.
+                                    */
+                                    if (propertyValue === product.config.propertyValueThatClosesObject) {
+                                        outputDatasetArray.push(record)
+                                    }
+                                } else {
+                                    /*
+                                    When we are not at the end of the day, we will save the object normally, like in market files.
+                                    */
+                                    if (propertyValue !== product.config.propertyValueThatPreventsSavingObject) {
+                                        outputDatasetArray.push(record)
+                                    }
                                 }
                             }
                         }

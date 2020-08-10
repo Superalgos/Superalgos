@@ -4,12 +4,12 @@
     const LOG_FILE_CONTENT = false;
     const MODULE_NAME = "Data Dependencies";
 
-    let bot = BOT 
+    let bot = BOT
 
     let thisObject = {
         nodeArray: undefined,
         dataSetsModulesArray: [],
-        isItADepenency: isItADepenency, 
+        isItADepenency: isItADepenency,
         initialize: initialize,
         finalize: finalize
     };
@@ -21,9 +21,6 @@
     function initialize(callBackFunction) {
 
         try {
-
-            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
-
             /* Basic Valdidations */
             if (bot.processNode.referenceParent.processDependencies !== undefined) {
                 if (bot.processNode.referenceParent.processDependencies.dataDependencies !== undefined) {
@@ -51,7 +48,7 @@
             if (bot.DEPENDENCY_FILTER !== undefined) {
                 for (let i = 0; i < bot.DEPENDENCY_FILTER.length; i++) {
                     let key = bot.DEPENDENCY_FILTER[i]
-                        filter.set(key, true)
+                    filter.set(key, true)
                 }
             }
 
@@ -70,7 +67,7 @@
                 function onInitilized(err) {
 
                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                        logger.write(MODULE_NAME, "[ERROR] initialize -> onInitilized -> err = "+ JSON.stringify(err));
+                        logger.write(MODULE_NAME, "[ERROR] initialize -> onInitilized -> err = " + JSON.stringify(err));
 
                         alreadyCalledBack = true;
                         callBackFunction(err);
@@ -81,9 +78,6 @@
                 }
 
                 function addDataSet() {
-
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> addDataSet -> Entering function."); }
-
                     addCount++;
 
                     thisObject.dataSetsModulesArray.push(dataSetModule);
@@ -99,14 +93,14 @@
             }
 
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] initialize -> err = "+ err.stack);
+            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 
     function finalize() {
         for (let i = 0; i < thisObject.dataSetsModulesArray.length; i++) {
-            let dataSetModule = thisObject.dataSetsModulesArray[i] 
+            let dataSetModule = thisObject.dataSetsModulesArray[i]
             dataSetModule.finalize()
         }
         thisObject.dataSetsModulesArray = undefined
@@ -115,7 +109,7 @@
     }
 
     function isItADepenency(timeFrame, product) {
-        let key = timeFrame + '-' + product 
+        let key = timeFrame + '-' + product
 
         return filter.get(key)
     }

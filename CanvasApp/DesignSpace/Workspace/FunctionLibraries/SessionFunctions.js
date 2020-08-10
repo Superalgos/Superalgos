@@ -38,6 +38,7 @@ function newSessionFunctions() {
             'Announcement->Announcement Formula->' +
             'Open Execution->Close Execution->' +
             'Execution Algorithm->Market Buy Order->Market Sell Order->Limit Buy Order->Limit Sell Order->' +
+            'Order Rate->Formula->' +
             'Create Order Event->Cancel Order Event->' +
             'Size In Base Asset->Size In Quoted Asset->Position Rate->Formula->' +
             'Situation->Condition->Javascript Code->' +

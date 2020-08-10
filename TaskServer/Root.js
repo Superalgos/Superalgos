@@ -56,50 +56,29 @@
             /* Global control of logging. */
 
             global.LOG_CONTROL = {
-                "Assistant": {
-                    logInfo: true,
-                    logWarnings: false,
-                    logErrors: true,
-                    logContent: false,
-                    intensiveLogging: false
-                },
-                "Exchange API": {
-                    logInfo: true,
-                    logWarnings: false,
-                    logErrors: true,
-                    logContent: false,
-                    intensiveLogging: false
-                },
                 "Status Report": {
-                    logInfo: true,
+                    logInfo: false,
                     logWarnings: false,
                     logErrors: true,
                     logContent: false,
                     intensiveLogging: false
                 },
                 "Dataset": {
-                    logInfo: true,
-                    logWarnings: false,
-                    logErrors: true,
-                    logContent: false,
-                    intensiveLogging: false
-                },
-                "Context": {
-                    logInfo: true,
+                    logInfo: false,
                     logWarnings: false,
                     logErrors: true,
                     logContent: false,
                     intensiveLogging: false
                 },
                 "Process Execution Events": {
-                    logInfo: true,
+                    logInfo: false,
                     logWarnings: false,
                     logErrors: true,
                     logContent: false,
                     intensiveLogging: false
                 },
                 "Process Output": {
-                    logInfo: true,
+                    logInfo: false,
                     logWarnings: false,
                     logErrors: true,
                     logContent: false,

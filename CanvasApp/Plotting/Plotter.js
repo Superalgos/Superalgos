@@ -282,8 +282,18 @@ function newPlotter() {
                 }
             }
 
+            if (productDefinition.config.nodePathType === 'array') {
+                /*
+                When we have an array configuration, we know that the last field of the record
+                contains the array index, which is needed to correctly plot this data. Since 
+                this index is not part of the product definition, we will restore its value in 
+                this way:
+                */
+                record.index = dataFile[i][recordDefinition.properties.length]
+            }
+
             if (
-                (record.begin >= farLeftDate.valueOf() && record.end <= farRightDate.valueOf()) &&
+                (record.begin >= farLeftDate.valueOf() || record.end <= farRightDate.valueOf()) &&
                 (record.end >= coordinateSystem.min.x && record.begin <= coordinateSystem.max.x)
             ) {
                 record.previous = previous

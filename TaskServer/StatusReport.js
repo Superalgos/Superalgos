@@ -39,10 +39,7 @@
     return thisObject;
 
     function initialize(pStatusDependencyNode, callBackFunction) {
-
         try {
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
-
             statusDependencyNode = pStatusDependencyNode;
             logger.fileName = MODULE_NAME + "." + statusDependencyNode.type + "." + statusDependencyNode.name + "." + statusDependencyNode.id;
 

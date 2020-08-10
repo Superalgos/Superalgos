@@ -59,11 +59,15 @@ function newRecordValues() {
         function scanProperties(productRootNode, index) {
             for (let i = 0; i < productDefinition.record.properties.length; i++) {
                 let property = productDefinition.record.properties[i]
+                let key = property.id
+                if (index !== undefined) {
+                    key = property.id + '-' + index
+                }
                 if (property.config.nodePath !== undefined) {
                     let propertyRoot = eval(property.config.nodePath)
-                    propertyTargetNodeMap.set(property.id, propertyRoot)
+                    propertyTargetNodeMap.set(key, propertyRoot)
                 } else {
-                    propertyTargetNodeMap.set(property.id, productRootNode)
+                    propertyTargetNodeMap.set(key, productRootNode)
                 }
             }
         }
@@ -74,7 +78,16 @@ function newRecordValues() {
         for (let i = 0; i < productDefinition.record.properties.length; i++) {
             let property = productDefinition.record.properties[i]
             let value = currentRecord[property.config.codeName]
-            let targetNode = propertyTargetNodeMap.get(property.id)
+            let key = property.id
+            if (productDefinition.config.nodePathType === 'array') {
+                /*
+                When we have an array configuration, in this case we will use the index
+                property that was injected into the record in order to build the key to 
+                get the node where we have to send the value.
+                */
+                key = property.id + '-' + currentRecord.index
+            }
+            let targetNode = propertyTargetNodeMap.get(key)
             /*
             If the codeName of the Record Property can not match the name of the property at
             the target node, the user can explicitly specify the property name at the configuration,

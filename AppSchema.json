@@ -10449,7 +10449,7 @@
             }
         ],
         "initialValues": {
-            "config": "{\n\"positionSizePercentage\": 100, \n\"spawnMultipleOrders\": false \n}"
+            "config": "{\n\"percentageOfAlgorithmSize\": 100, \n\"spawnMultipleOrders\": false \n}"
         },
         "editors": {
             "config": true
@@ -10532,7 +10532,7 @@
             }
         ],
         "initialValues": {
-            "config": "{\n\"positionSizePercentage\": 100, \n\"spawnMultipleOrders\": false \n}"
+            "config": "{\n\"percentageOfAlgorithmSize\": 100, \n\"spawnMultipleOrders\": false \n}"
         },
         "editors": {
             "config": true
@@ -10625,7 +10625,7 @@
             }
         ],
         "initialValues": {
-            "config": "{\n\"positionSizePercentage\": 100, \n\"spawnMultipleOrders\": false \n}"
+            "config": "{\n\"percentageOfAlgorithmSize\": 100, \n\"spawnMultipleOrders\": false \n}"
         },
         "editors": {
             "config": true

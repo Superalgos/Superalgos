@@ -1,4 +1,4 @@
-exports.newTradingEpisode = function newTradingEpisode(bot, logger) {
+exports.newTradingEpisode = function newTradingEpisode(bot, logger, tradingEngineModule) {
     /*
     This module packages all functions related to Episodes.
     */
@@ -76,7 +76,7 @@ exports.newTradingEpisode = function newTradingEpisode(bot, logger) {
     }
 
     function resetEpisode() {
-        tradingEngine.current.episode.initialize(tradingEngine.current.episode)
+        tradingEngineModule.initializeNode(tradingEngine.current.episode)
     }
 
     function updateEnds() {

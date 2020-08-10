@@ -155,6 +155,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 give some room so that orders can be canceled or filled and we can
                 write those records into the output memory.
                 */
+                tradingEngineModule.setCurrentCycle('First')
                 await tradingSystemModule.run()
 
                 /* Add new records to the process output */
@@ -172,6 +173,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 first run, and the same Limit Order definition to spawn a new order 
                 without the need to wait until the next candle.
                 */
+                tradingEngineModule.setCurrentCycle('Second')
                 await tradingSystemModule.run()
 
                 controlLoop()

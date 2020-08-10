@@ -98,6 +98,12 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
     }
 
     function mantain() {
+        tradingStagesModule.mantain()
+    }
+
+    function reset() {
+        tradingStagesModule.reset()
+
         tradingSystem.highlights = []
         tradingSystem.errors = []
         tradingSystem.values = []
@@ -105,12 +111,6 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
         tradingSystem.progress = []
         tradingSystem.running = []
         tradingSystem.announcements = []
-
-        tradingStagesModule.mantain()
-    }
-
-    function reset() {
-        tradingStagesModule.reset()
     }
 
     function updateChart(pChart) {

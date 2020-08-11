@@ -348,9 +348,9 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
         let previousQuotedAssetFeesPaid = tradingEngineOrder.orderQuotedAsset.feesPaid.value
 
         actualRateSimulation()
-        feesPaidSimulation()
         percentageFilledSimulation()
         sizeFilledSimulation()
+        feesPaidSimulation()
 
         doTheAccounting(
             tradingEngineStage,
@@ -422,7 +422,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
                     if (tradingEngineOrder.orderBaseAsset.feesPaid.value === tradingEngineOrder.orderBaseAsset.feesPaid.config.initialValue) {
 
                         tradingEngineOrder.orderBaseAsset.feesPaid.value =
-                            tradingEngineOrder.orderBaseAsset.size.value *
+                            tradingEngineOrder.orderBaseAsset.sizeFilled.value *
                             tradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid.config.percentage / 100
 
                         calculatedBasedOnTradingSystem = true
@@ -431,7 +431,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
                     if (tradingEngineOrder.orderQuotedAsset.feesPaid.value === tradingEngineOrder.orderQuotedAsset.feesPaid.config.initialValue) {
 
                         tradingEngineOrder.orderQuotedAsset.feesPaid.value =
-                            tradingEngineOrder.orderQuotedAsset.size.value *
+                            tradingEngineOrder.orderQuotedAsset.sizeFilled.value *
                             tradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid.config.percentage / 100
 
                         calculatedBasedOnTradingSystem = true
@@ -446,11 +446,11 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
                     case 'Market Order': {
 
                         tradingEngineOrder.orderBaseAsset.feesPaid.value =
-                            tradingEngineOrder.orderBaseAsset.size.value *
+                            tradingEngineOrder.orderBaseAsset.sizeFilled.value *
                             bot.SESSION.parameters.feeStructure.config.taker / 100
 
                         tradingEngineOrder.orderQuotedAsset.feesPaid.value =
-                            tradingEngineOrder.orderQuotedAsset.size.value *
+                            tradingEngineOrder.orderQuotedAsset.sizeFilled.value *
                             bot.SESSION.parameters.feeStructure.config.taker / 100
 
                         break
@@ -458,11 +458,11 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
                     case 'Limit Order': {
 
                         tradingEngineOrder.orderBaseAsset.feesPaid.value =
-                            tradingEngineOrder.orderBaseAsset.size.value *
+                            tradingEngineOrder.orderBaseAsset.sizeFilled.value *
                             bot.SESSION.parameters.feeStructure.config.maker / 100
 
                         tradingEngineOrder.orderQuotedAsset.feesPaid.value =
-                            tradingEngineOrder.orderQuotedAsset.size.value *
+                            tradingEngineOrder.orderQuotedAsset.sizeFilled.value *
                             bot.SESSION.parameters.feeStructure.config.maker / 100
 
                         break

@@ -68,23 +68,24 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
     function setCurrentCycle(cycle) {
         switch (cycle) {
             case 'First': {
-                tradingEngine.current.episode.cycle.begin.value = tradingEngine.current.episode.candle.begin.value
+                tradingEngine.current.episode.cycle.begin.value =
+                    tradingEngine.current.episode.candle.begin.value +
+                    sessionParameters.timeFrame.config.value
                 tradingEngine.current.episode.cycle.end.value =
                     tradingEngine.current.episode.candle.begin.value +
-                    (
-                        tradingEngine.current.episode.candle.end.value -
-                        tradingEngine.current.episode.candle.begin.value + 1
-                    ) / 2 - 1
+                    sessionParameters.timeFrame.config.value +
+                    sessionParameters.timeFrame.config.value / 4 - 1
                 break
             }
             case 'Second': {
                 tradingEngine.current.episode.cycle.begin.value =
                     tradingEngine.current.episode.candle.begin.value +
-                    (
-                        tradingEngine.current.episode.candle.end.value -
-                        tradingEngine.current.episode.candle.begin.value + 1
-                    ) / 2
-                tradingEngine.current.episode.cycle.end.value = tradingEngine.current.episode.candle.end.value
+                    sessionParameters.timeFrame.config.value +
+                    sessionParameters.timeFrame.config.value / 4
+                tradingEngine.current.episode.cycle.end.value =
+                    tradingEngine.current.episode.candle.begin.value +
+                    sessionParameters.timeFrame.config.value +
+                    sessionParameters.timeFrame.config.value * 2 / 4 - 1
                 break
             }
         }

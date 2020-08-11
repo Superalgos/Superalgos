@@ -159,7 +159,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 await tradingSystemModule.run()
 
                 /* Add new records to the process output */
-                tradingRecordsModule.appendRecords()
+                tradingRecordsModule.appendRecords('First')
 
                 /* Reset Data Structures */
                 tradingSystemModule.reset()
@@ -198,7 +198,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 if (tradingEngine.current.episode.candle.index.value + 1 < candles.length) {
 
                     /* Add new records to the process output */
-                    tradingRecordsModule.appendRecords()
+                    tradingRecordsModule.appendRecords('Second')
 
                     tradingEngine.current.episode.candle.index.value++
 
@@ -213,7 +213,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 tradingEpisodeModule.closeEpisode()
 
                 /* Add new records to the process output */
-                tradingRecordsModule.appendRecords()
+                tradingRecordsModule.appendRecords('Second')
 
                 afterLoop()
             }
@@ -222,7 +222,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 tradingEpisodeModule.updateExitType(exitType)
 
                 /* Add new records to the process output */
-                tradingRecordsModule.appendRecords()
+                tradingRecordsModule.appendRecords('Second')
 
                 afterLoop()
             }

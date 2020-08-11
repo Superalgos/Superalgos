@@ -164,6 +164,8 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
                             /* Cancel the order at the Exchange, if needed. */
                             await exchangeCancelOrder(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, 'Cancel Event')
+
+                            updateEndsWithCycle(tradingEngineOrder)
                         }
                     }
                 }
@@ -229,8 +231,8 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
         /* Create Order Procedure */
         tradingEngineOrder.status.value = 'Open'
         tradingEngineOrder.identifier.value = global.UNIQUE_ID()
-        tradingEngineOrder.begin.value = tradingEngine.current.episode.candle.end.value
-        tradingEngineOrder.end.value = tradingEngine.current.episode.candle.end.value
+        tradingEngineOrder.begin.value = tradingEngine.current.episode.cycle.begin.value
+        tradingEngineOrder.end.value = tradingEngine.current.episode.cycle.end.value
         tradingEngineOrder.serialNumber.value = tradingEngine.current.episode.episodeCounters.orders.value
         tradingEngineOrder.orderName.value = tradingSystemOrder.name
         tradingEngineOrder.algorithmName.value = executionAlgorithm.name
@@ -520,6 +522,8 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
                     /* Initialize this */
                     tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
+
+                    updateEndsWithCycle(tradingEngineOrder)
                 }
             }
         }
@@ -576,6 +580,8 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
             /* Initialize this */
             tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
+
+            updateEndsWithCycle(tradingEngineOrder)
         }
         if (order.remaining > 0 && order.status === AT_EXCHANGE_STATUS.CLOSED) {
 
@@ -585,6 +591,8 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
             /* Initialize this */
             tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
+
+            updateEndsWithCycle(tradingEngineOrder)
         }
         if (order.status === AT_EXCHANGE_STATUS.CANCELLED) {
 
@@ -594,6 +602,8 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
             /* Initialize this */
             tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
+
+            updateEndsWithCycle(tradingEngineOrder)
         }
 
         syncWithExchange(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order)
@@ -902,6 +912,10 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
         if (tradingEngineOrder.status.value === 'Open') {
             tradingEngineOrder.end.value = tradingEngine.current.episode.candle.end.value
         }
+    }
+
+    function updateEndsWithCycle(tradingEngineOrder) {
+        tradingEngineOrder.end.value = tradingEngine.current.episode.cycle.end.value
     }
 
     function updateCounters(tradingEngineOrder) {

@@ -31,7 +31,7 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
         outputDatasetsMap = undefined
     }
 
-    function appendRecords() {
+    function appendRecords(cycle) {
         /*
             Here we add records to the output files. At the product config property nodePath
             we have a pointer to the node that have the information we need to extract.
@@ -53,6 +53,14 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
             }
 
             function persistRecords() {
+                /*
+                There are a few products configured to be saved only at an specific cycle.
+                */
+                if (product.config.saveAtCycle !== undefined) {
+                    if (cycle !== product.config.saveAtCycle) {
+                        return
+                    }
+                }
 
                 /* Clean the file from information of previous executions */
                 pruneOutputFile(product, outputDatasetArray)

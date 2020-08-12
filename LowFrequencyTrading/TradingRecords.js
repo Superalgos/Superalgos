@@ -337,7 +337,12 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                         let end = record[j]
                         if (end >= tradingEngine.current.episode.candle.end.value) {
                             outputFile.splice(i, 1)
-                            pruneOutputFile(product, outputFile)
+                            /*
+                            This will execute the next prune call in the next iteration of the NodeJs event loop 
+                            allowing for other callbacks to be executed. It also prevents the error
+                            'Maximum call stack size exceeded', since the call is not placed at the call stack.
+                            */
+                            setImmediate(pruneOutputFile, product, outputFile)
                             return
                         }
                     }

@@ -202,7 +202,12 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                     tradingEngine.current.episode.candle.index.value++
 
-                    setImmediate(loop) // This will execute the next loop in the next iteration of the NodeJs event loop allowing for other callbacks to be executed.
+                    /*
+                    This will execute the next loop in the next iteration of the NodeJs event loop 
+                    allowing for other callbacks to be executed. It also prevents the error
+                    'Maximum call stack size exceeded', since the call is not placed at the call stack.
+                    */
+                    setImmediate(loop)
                 } else {
                     updateEpisode('All Candles Processed')
                 }

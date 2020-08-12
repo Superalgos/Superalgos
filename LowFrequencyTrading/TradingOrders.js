@@ -268,24 +268,42 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
             if (tradingSystemOrder.config.percentageOfAlgorithmSize === undefined) { badDefinitionUnhandledException(undefined, 'tradingSystemOrder.config.percentageOfAlgorithmSize === undefined', tradingSystemOrder) }
             if (isNaN(tradingSystemOrder.config.percentageOfAlgorithmSize) === true) { badDefinitionUnhandledException(undefined, 'isNaN(tradingSystemOrder.config.percentageOfAlgorithmSize) === true', tradingSystemOrder) }
 
-            /* Size in Base Asset */
-            tradingEngineOrder.orderBaseAsset.size.value = algorithmSizeInBaseAsset * tradingSystemOrder.config.percentageOfAlgorithmSize / 100
+            /*
+            The Size calculation depends on how the user defined the size of the position.
+            The user could have defined the size of the position in Base Asset or Quoted Asset.
+            */
+            switch (tradingEngineStage.stageDefinedIn.value) {
+                case 'Base Asset': {
+                    /* Size in Base Asset */
+                    tradingEngineOrder.orderBaseAsset.size.value = algorithmSizeInBaseAsset * tradingSystemOrder.config.percentageOfAlgorithmSize / 100
 
-            /* Size in Quoted Asset */
-            tradingEngineOrder.orderQuotedAsset.size.value = algorithmSizeInQuotedAsset * tradingSystemOrder.config.percentageOfAlgorithmSize / 100
+                    /* Check that the Size calculated would not surpass Stage Target Size */
+                    if (
+                        tradingEngineOrder.orderBaseAsset.size.value + tradingEngineStage.stageBaseAsset.sizePlaced.value >
+                        tradingEngineStage.stageBaseAsset.targetSize.value
+                    ) {
+                        tradingEngineOrder.orderBaseAsset.size.value = tradingEngineStage.stageBaseAsset.targetSize.value - tradingEngineStage.stageBaseAsset.sizePlaced.value
+                    }
 
-            /* Check that the Size calculated would not surpass Stage Target Size */
-            if (
-                tradingEngineOrder.orderBaseAsset.size.value + tradingEngineStage.stageBaseAsset.sizePlaced.value >
-                tradingEngineStage.stageBaseAsset.targetSize.value
-            ) {
-                tradingEngineOrder.orderBaseAsset.size.value = tradingEngineStage.stageBaseAsset.targetSize.value - tradingEngineStage.stageBaseAsset.sizePlaced.value
-            }
-            if (
-                tradingEngineOrder.orderQuotedAsset.size.value + tradingEngineStage.stageQuotedAsset.sizePlaced.value >
-                tradingEngineStage.stageQuotedAsset.targetSize.value
-            ) {
-                tradingEngineOrder.orderQuotedAsset.size.value = tradingEngineStage.stageQuotedAsset.targetSize.value - tradingEngineStage.stageQuotedAsset.sizePlaced.value
+                    /* Size in Quoted Asset */
+                    tradingEngineOrder.orderQuotedAsset.size.value = tradingEngineOrder.orderBaseAsset.size.value * tradingEngineOrder.rate.value
+                    break
+                }
+                case 'Quoted Asset': {
+                    /* Size in Quoted Asset */
+                    tradingEngineOrder.orderQuotedAsset.size.value = algorithmSizeInQuotedAsset * tradingSystemOrder.config.percentageOfAlgorithmSize / 100
+
+                    if (
+                        tradingEngineOrder.orderQuotedAsset.size.value + tradingEngineStage.stageQuotedAsset.sizePlaced.value >
+                        tradingEngineStage.stageQuotedAsset.targetSize.value
+                    ) {
+                        tradingEngineOrder.orderQuotedAsset.size.value = tradingEngineStage.stageQuotedAsset.targetSize.value - tradingEngineStage.stageQuotedAsset.sizePlaced.value
+                    }
+
+                    /* Size in Base Asset */
+                    tradingEngineOrder.orderBaseAsset.size.value = tradingEngineOrder.orderQuotedAsset.size.value / tradingEngineOrder.rate.value
+                    break
+                }
             }
 
             tradingEngineOrder.orderBaseAsset.size.value = global.PRECISE(tradingEngineOrder.orderBaseAsset.size.value, 10)

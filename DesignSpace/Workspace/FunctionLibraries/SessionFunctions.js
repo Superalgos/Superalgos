@@ -28,7 +28,6 @@ function newSessionFunctions() {
             'Trigger Stage->Trigger On Event->Trigger Off Event->Take Position Event->' +
             'Announcement->Announcement Formula->' +
             'Open Stage->' +
-            'Initial Definition->Initial Stop->Initial Take Profit->' +
             'Manage Stage->' +
             'Managed Stop Loss->Managed Take Profit->' +
             'Phase->Formula->Next Phase Event->Move To Phase Event->Phase->' +
@@ -63,8 +62,8 @@ function newSessionFunctions() {
             'Strategy Counters->' +
             'Position->' +
             'Entry Target Rate->Exit Target Rate->' +
-            'Stop Loss->Stop Loss Stage->Stop Loss Phase->Stop Loss Position->' +
-            'Take Profit->Take Profit Stage->Take Profit Phase->Take Profit Position->' +
+            'Stop Loss->Stop Loss Phase->Stop Loss Position->' +
+            'Take Profit->Take Profit Phase->Take Profit Position->' +
             'Position Counters->' +
             'Position Statistics->Days->User Defined Statistic->' +
             'Position Base Asset->Position Quoted Asset->Entry Target Size->Exit Target Size->' +

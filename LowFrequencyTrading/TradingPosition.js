@@ -71,6 +71,10 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
 
         /* Inicializing this counter */
         tradingEngine.current.episode.distanceToEvent.takePosition.value = 1
+
+        /* Remember the balance we had before taking the position to later calculate profit or loss */
+        tradingEngine.current.position.positionBaseAsset.beginBalance = tradingEngine.current.episode.episodeBaseAsset.balance.value
+        tradingEngine.current.position.positionQuotedAsset.beginBalance = tradingEngine.current.episode.episodeQuotedAsset.balance.value
     }
 
     function closingPosition(exitType) {

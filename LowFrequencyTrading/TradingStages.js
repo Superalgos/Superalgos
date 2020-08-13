@@ -282,10 +282,6 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
             tradingSystem.evalConditions(tradingSystemStage, 'Initial Definition')
             tradingSystem.evalFormulas(tradingSystemStage, 'Initial Definition')
 
-            /* Remember the balance we had before taking the position to later calculate profit or loss */
-            tradingEngine.current.position.positionBaseAsset.beginBalance = tradingEngine.current.episode.episodeBaseAsset.balance.value
-            tradingEngine.current.position.positionQuotedAsset.beginBalance = tradingEngine.current.episode.episodeQuotedAsset.balance.value
-
             /* Entry Position size and rate */
             tradingSystem.evalFormulas(tradingSystemStage, 'Initial Targets')
             tradingPositionModule.initialTargets(tradingSystemStage, tradingEngine.current.strategyOpenStage)

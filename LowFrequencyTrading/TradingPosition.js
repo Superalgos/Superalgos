@@ -60,11 +60,9 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
         tradingEngine.current.position.positionQuotedAsset.beginBalance.value = tradingEngine.current.episode.episodeQuotedAsset.balance.value
         tradingEngine.current.position.situationName.value = situationName
 
-        /* Initializing Stop and Take Profit Stage / Phase */
-        tradingEngine.current.position.stopLoss.stopLossStage.value = 'Open Stage'
-        tradingEngine.current.position.takeProfit.takeProfitStage.value = 'Open Stage'
-        tradingEngine.current.position.stopLoss.stopLossPhase.value = 0
-        tradingEngine.current.position.takeProfit.takeProfitPhase.value = 0
+        /* Initializing Stop and Take Phase */
+        tradingEngine.current.position.stopLoss.stopLossPhase.value = 1
+        tradingEngine.current.position.takeProfit.takeProfitPhase.value = 1
 
         /* Updating Episode Counters */
         tradingEngine.current.episode.episodeCounters.positions.value++

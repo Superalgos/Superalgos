@@ -53,7 +53,7 @@ function newSessionFunctions() {
             'Episode->' +
             'Episode Base Asset->Episode Quoted Asset->Episode Counters->Episode Statistics->' +
             'Strategies->Positions->Orders->Hits->Fails->' +
-            'Profit Loss->Hit Ratio->Hit Fail->Days->ROI->Anualized Rate Of Return->User Defined Statistic->' +
+            'Profit Loss->Hit Ratio->Hit Fail->Days->ROI->Annualized Rate Of Return->User Defined Statistic->' +
             'Candle->Cycle->' +
             'Begin->End->Open->Close->Min->Max->Index->' +
             'Distance To Event->' +

@@ -104,14 +104,12 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
         tradingEngine.current.position.takeProfit.value = formulas.get(formulaId)
     }
 
-    function updateStopLoss(phase, stage) {
+    function updateStopLoss(phase) {
         tradingEngine.current.position.stopLoss.stopLossPhase.value = phase
-        tradingEngine.current.position.stopLoss.stopLossStage.value = stage
     }
 
-    function updateTakeProfit(phase, stage) {
+    function updateTakeProfit(phase) {
         tradingEngine.current.position.takeProfit.takeProfitPhase.value = phase
-        tradingEngine.current.position.takeProfit.takeProfitStage.value = stage
     }
 
     function initialTargets(tradingSystemStageNode, tradingEngineStageNode) {

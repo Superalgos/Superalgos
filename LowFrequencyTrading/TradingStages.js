@@ -545,7 +545,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
                             tradingSystem.highlights.push(parentNode.id)
                             tradingSystem.highlights.push(manageStage.id)
 
-                            tradingPositionModule.updateStopLoss(tradingEngine.current.position.stopLoss.stopLossPhase.value + 1, 'Manage Stage')
+                            tradingPositionModule.updateStopLoss(tradingEngine.current.position.stopLoss.stopLossPhase.value + 1)
 
                             announcementsModule.makeAnnoucements(nextPhaseEvent)
                             return // only one event can pass at the time
@@ -579,7 +579,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
                                 if (moveToPhase !== undefined) {
                                     for (let q = 0; q < stopLoss.phases.length; q++) {
                                         if (stopLoss.phases[q].id === moveToPhase.id) {
-                                            tradingPositionModule.updateStopLoss(q + 1, 'Manage Stage')
+                                            tradingPositionModule.updateStopLoss(q + 1)
                                         }
                                     }
                                 } else {
@@ -638,7 +638,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
                             tradingSystem.highlights.push(parentNode.id)
                             tradingSystem.highlights.push(manageStage.id)
 
-                            tradingPositionModule.updateTakeProfit(tradingEngine.current.position.takeProfit.takeProfitPhase.value + 1, 'Manage Stage')
+                            tradingPositionModule.updateTakeProfit(tradingEngine.current.position.takeProfit.takeProfitPhase.value + 1)
 
                             announcementsModule.makeAnnoucements(nextPhaseEvent)
                             return // only one event can pass at the time
@@ -672,7 +672,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
                                 if (moveToPhase !== undefined) {
                                     for (let q = 0; q < takeProfit.phases.length; q++) {
                                         if (takeProfit.phases[q].id === moveToPhase.id) {
-                                            tradingPositionModule.updateTakeProfit(q + 1, 'Manage Stage')
+                                            tradingPositionModule.updateTakeProfit(q + 1)
                                         }
                                     }
                                 } else {
@@ -769,7 +769,13 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
             The reason for that is that we need the final filled size of the Open Stage
             to be known before we start placing orders at the Close Stage. 
             */
-            if (tradingEngine.current.strategyCloseStage.status.value === 'Open' && tradingEngine.current.strategyOpenStage.status.value === 'Closed') {
+            if (
+                tradingEngine.current.strategyCloseStage.status.value === 'Open' && 
+            (
+                tradingEngine.current.strategyOpenStage.status.value === 'Closed'  ||
+                tradingEngine.current.strategyOpenStage.status.value == tradingEngine.current.strategyOpenStage.status.config.initialValue
+            )
+                ) {
                 /*
                 This will happen as long as the Close Stage is Open.
                 */
@@ -878,7 +884,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
                 if (
                     tradingEngineStage.stageBaseAsset.sizeFilled.value +
                     tradingEngineStage.stageBaseAsset.feesPaid.value >=
-                    tradingEngineStage.stageBaseAsset.targetSize
+                    tradingEngineStage.stageBaseAsset.targetSize.value
                 ) {
                     positionFilled()
                 } else {
@@ -890,7 +896,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
                 if (
                     tradingEngineStage.stageQuotedAsset.sizeFilled.value +
                     tradingEngineStage.stageQuotedAsset.feesPaid.value >=
-                    tradingEngineStage.stageQuotedAsset.targetSize
+                    tradingEngineStage.stageQuotedAsset.targetSize.value
                 ) {
                     positionFilled()
                 } else {
@@ -970,33 +976,33 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
 
         function openStage(stage) {
             /* Recording the opening at the Trading Engine Data Structure */
-            stage.begin.value = tradingEngine.current.episode.candle.end.value
+            stage.begin.value = tradingEngine.current.episode.cycle.begin.value
             stage.beginRate.value = tradingEngine.current.episode.candle.close.value
-            stage.end.value = tradingEngine.current.episode.candle.end.value
+            stage.end.value = tradingEngine.current.episode.cycle.end.value
         }
 
         function closeStage(stage) {
             /* Recording the closing at the Trading Engine Data Structure */
-            stage.end.value = tradingEngine.current.episode.candle.end.value
+            stage.end.value = tradingEngine.current.episode.cycle.end.value
             stage.endRate.value = tradingEngine.current.episode.candle.close.value
         }
     }
 
     function updateEnds() {
         if (tradingEngine.current.strategyTriggerStage.status.value === 'Open') {
-            tradingEngine.current.strategyTriggerStage.end.value = tradingEngine.current.episode.candle.end.value
+            tradingEngine.current.strategyTriggerStage.end.value = tradingEngine.current.episode.cycle.end.value
             tradingEngine.current.strategyTriggerStage.endRate.value = tradingEngine.current.episode.candle.close.value
         }
         if (tradingEngine.current.strategyOpenStage.status.value === 'Open') {
-            tradingEngine.current.strategyOpenStage.end.value = tradingEngine.current.episode.candle.end.value
+            tradingEngine.current.strategyOpenStage.end.value = tradingEngine.current.episode.cycle.end.value
             tradingEngine.current.strategyOpenStage.endRate.value = tradingEngine.current.episode.candle.close.value
         }
         if (tradingEngine.current.strategyManageStage.status.value === 'Open') {
-            tradingEngine.current.strategyManageStage.end.value = tradingEngine.current.episode.candle.end.value
+            tradingEngine.current.strategyManageStage.end.value = tradingEngine.current.episode.cycle.end.value
             tradingEngine.current.strategyManageStage.endRate.value = tradingEngine.current.episode.candle.close.value
         }
         if (tradingEngine.current.strategyCloseStage.status.value === 'Open') {
-            tradingEngine.current.strategyCloseStage.end.value = tradingEngine.current.episode.candle.end.value
+            tradingEngine.current.strategyCloseStage.end.value = tradingEngine.current.episode.cycle.end.value
             tradingEngine.current.strategyCloseStage.endRate.value = tradingEngine.current.episode.candle.close.value
         }
     }

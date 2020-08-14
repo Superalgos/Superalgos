@@ -367,8 +367,8 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
         actualRateSimulation()
         percentageFilledSimulation()
-        sizeFilledSimulation()
         feesPaidSimulation()
+        sizeFilledSimulation()
 
         doTheAccounting(
             tradingEngineStage,
@@ -430,67 +430,6 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
             tradingEngineOrder.orderStatistics.actualRate.value = global.PRECISE(tradingEngineOrder.orderStatistics.actualRate.value, 10)
         }
 
-        function feesPaidSimulation() {
-            /* Fees Paid Simulation */
-            let calculatedBasedOnTradingSystem = false
-
-            /* Based on the Trading System Definition */
-            if (tradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid !== undefined) {
-                if (tradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid.config.percentage !== undefined) {
-                    if (tradingEngineOrder.orderBaseAsset.feesPaid.value === tradingEngineOrder.orderBaseAsset.feesPaid.config.initialValue) {
-
-                        tradingEngineOrder.orderBaseAsset.feesPaid.value =
-                            tradingEngineOrder.orderBaseAsset.sizeFilled.value *
-                            tradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid.config.percentage / 100
-
-                        calculatedBasedOnTradingSystem = true
-                    }
-
-                    if (tradingEngineOrder.orderQuotedAsset.feesPaid.value === tradingEngineOrder.orderQuotedAsset.feesPaid.config.initialValue) {
-
-                        tradingEngineOrder.orderQuotedAsset.feesPaid.value =
-                            tradingEngineOrder.orderQuotedAsset.sizeFilled.value *
-                            tradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid.config.percentage / 100
-
-                        calculatedBasedOnTradingSystem = true
-                    }
-                }
-            }
-
-            /* Based on the Session Parameters Definition */
-            if (calculatedBasedOnTradingSystem === false) {
-                /* Fees are simulated based on the Session Paremeters */
-                switch (tradingEngineOrder.type) {
-                    case 'Market Order': {
-
-                        tradingEngineOrder.orderBaseAsset.feesPaid.value =
-                            tradingEngineOrder.orderBaseAsset.sizeFilled.value *
-                            bot.SESSION.parameters.feeStructure.config.taker / 100
-
-                        tradingEngineOrder.orderQuotedAsset.feesPaid.value =
-                            tradingEngineOrder.orderQuotedAsset.sizeFilled.value *
-                            bot.SESSION.parameters.feeStructure.config.taker / 100
-
-                        break
-                    }
-                    case 'Limit Order': {
-
-                        tradingEngineOrder.orderBaseAsset.feesPaid.value =
-                            tradingEngineOrder.orderBaseAsset.sizeFilled.value *
-                            bot.SESSION.parameters.feeStructure.config.maker / 100
-
-                        tradingEngineOrder.orderQuotedAsset.feesPaid.value =
-                            tradingEngineOrder.orderQuotedAsset.sizeFilled.value *
-                            bot.SESSION.parameters.feeStructure.config.maker / 100
-
-                        break
-                    }
-                }
-            }
-            tradingEngineOrder.orderBaseAsset.feesPaid.value = global.PRECISE(tradingEngineOrder.orderBaseAsset.feesPaid.value, 10)
-            tradingEngineOrder.orderQuotedAsset.feesPaid.value = global.PRECISE(tradingEngineOrder.orderQuotedAsset.feesPaid.value, 10)
-        }
-
         function percentageFilledSimulation() {
             /* 
             Order Filling Simulation: the way we are going to handle this is the following. 
@@ -514,6 +453,14 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
                     }
                     break
                 }
+                case 'Market Buy Order': {
+                        orderWasHit = true
+                    break
+                }
+                case 'Market Sell Order': {
+                    orderWasHit = true
+                break
+            }
             }
             if (orderWasHit === true) {
                 if (tradingSystemOrder.simulatedExchangeEvents.simulatedPartialFill !== undefined) {
@@ -544,6 +491,80 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
                     updateEndsWithCycle(tradingEngineOrder)
                 }
             }
+        }
+
+        function feesPaidSimulation() {
+            /*
+            The way the fess paid is calculated is as follows: From the order size we apply the % of fee,
+            that would give us the total fees for that order. To that we apply the % filled of the orders,
+            that give use the final result of the fees paid for the current % filled.
+            
+            But before that, we will see if there is an specific definition on how to simulate the fees for 
+            this order, or if there is not, we use the fees session parameters definitions.            
+            */
+            let calculatedBasedOnTradingSystem = false
+
+            /* Based on the Trading System Definition */
+            if (tradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid !== undefined) {
+                if (tradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid.config.percentage !== undefined) {
+                    if (tradingEngineOrder.orderBaseAsset.feesPaid.value === tradingEngineOrder.orderBaseAsset.feesPaid.config.initialValue) {
+
+                        tradingEngineOrder.orderBaseAsset.feesPaid.value =
+                            tradingEngineOrder.orderBaseAsset.size.value *
+                            tradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid.config.percentage / 100 *
+                            tradingEngineOrder.orderStatistics.percentageFilled.value / 100
+
+                        calculatedBasedOnTradingSystem = true
+                    }
+
+                    if (tradingEngineOrder.orderQuotedAsset.feesPaid.value === tradingEngineOrder.orderQuotedAsset.feesPaid.config.initialValue) {
+
+                        tradingEngineOrder.orderQuotedAsset.feesPaid.value =
+                            tradingEngineOrder.orderQuotedAsset.size.value *
+                            tradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid.config.percentage / 100 *
+                            tradingEngineOrder.orderStatistics.percentageFilled.value / 100
+
+                        calculatedBasedOnTradingSystem = true
+                    }
+                }
+            }
+
+            /* Based on the Session Parameters Definition */
+            if (calculatedBasedOnTradingSystem === false) {
+                /* Fees are simulated based on the Session Paremeters */
+                switch (tradingEngineOrder.type) {
+                    case 'Market Order': {
+
+                        tradingEngineOrder.orderBaseAsset.feesPaid.value =
+                            tradingEngineOrder.orderBaseAsset.size.value *
+                            bot.SESSION.parameters.feeStructure.config.taker / 100 *
+                            tradingEngineOrder.orderStatistics.percentageFilled.value / 100
+
+                        tradingEngineOrder.orderQuotedAsset.feesPaid.value =
+                            tradingEngineOrder.orderQuotedAsset.size.value *
+                            bot.SESSION.parameters.feeStructure.config.taker / 100 *
+                            tradingEngineOrder.orderStatistics.percentageFilled.value / 100
+
+                        break
+                    }
+                    case 'Limit Order': {
+
+                        tradingEngineOrder.orderBaseAsset.feesPaid.value =
+                            tradingEngineOrder.orderBaseAsset.size.value *
+                            bot.SESSION.parameters.feeStructure.config.maker / 100  *
+                            tradingEngineOrder.orderStatistics.percentageFilled.value / 100
+
+                        tradingEngineOrder.orderQuotedAsset.feesPaid.value =
+                            tradingEngineOrder.orderQuotedAsset.size.value *
+                            bot.SESSION.parameters.feeStructure.config.maker / 100 *
+                            tradingEngineOrder.orderStatistics.percentageFilled.value / 100
+
+                        break
+                    }
+                }
+            }
+            tradingEngineOrder.orderBaseAsset.feesPaid.value = global.PRECISE(tradingEngineOrder.orderBaseAsset.feesPaid.value, 10)
+            tradingEngineOrder.orderQuotedAsset.feesPaid.value = global.PRECISE(tradingEngineOrder.orderQuotedAsset.feesPaid.value, 10)
         }
 
         function sizeFilledSimulation() {

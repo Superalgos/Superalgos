@@ -136,12 +136,12 @@ exports.newTradingEpisode = function newTradingEpisode(bot, logger, tradingEngin
 
         tradingEngine.current.episode.episodeStatistics.ROI.value = global.PRECISE(tradingEngine.current.episode.episodeStatistics.ROI.value, 10)
 
-        /* Updating Anualized Rate Of Return */
-        tradingEngine.current.episode.episodeStatistics.anualizedRateOfReturn.value =
+        /* Updating Annualized Rate Of Return */
+        tradingEngine.current.episode.episodeStatistics.annualizedRateOfReturn.value =
             tradingEngine.current.episode.episodeStatistics.ROI.value /
             tradingEngine.current.episode.episodeStatistics.days.value * 365
 
-        tradingEngine.current.episode.episodeStatistics.anualizedRateOfReturn.value = global.PRECISE(tradingEngine.current.episode.episodeStatistics.anualizedRateOfReturn.value, 10)
+        tradingEngine.current.episode.episodeStatistics.annualizedRateOfReturn.value = global.PRECISE(tradingEngine.current.episode.episodeStatistics.annualizedRateOfReturn.value, 10)
 
         /* Updating Hit or Fail */
         if (tradingEngine.current.episode.episodeStatistics.profitLoss.value > 0) {
@@ -201,17 +201,17 @@ exports.newTradingEpisode = function newTradingEpisode(bot, logger, tradingEngin
         tradingEngine.current.episode.episodeBaseAsset.hitRatio.value = global.PRECISE(tradingEngine.current.episode.episodeBaseAsset.hitRatio.value, 10)
         tradingEngine.current.episode.episodeQuotedAsset.hitRatio.value = global.PRECISE(tradingEngine.current.episode.episodeQuotedAsset.hitRatio.value, 10)
 
-        /* Updating Anualized Rate Of Return */
-        tradingEngine.current.episode.episodeBaseAsset.anualizedRateOfReturn.value =
+        /* Updating Annualized Rate Of Return */
+        tradingEngine.current.episode.episodeBaseAsset.annualizedRateOfReturn.value =
             tradingEngine.current.episode.episodeBaseAsset.ROI.value /
             tradingEngine.current.episode.episodeStatistics.days.value * 365
 
-        tradingEngine.current.episode.episodeQuotedAsset.anualizedRateOfReturn.value =
+        tradingEngine.current.episode.episodeQuotedAsset.annualizedRateOfReturn.value =
             tradingEngine.current.episode.episodeQuotedAsset.ROI.value /
             tradingEngine.current.episode.episodeStatistics.days.value * 365
 
-        tradingEngine.current.episode.episodeBaseAsset.anualizedRateOfReturn.value = global.PRECISE(tradingEngine.current.episode.episodeBaseAsset.anualizedRateOfReturn.value, 10)
-        tradingEngine.current.episode.episodeQuotedAsset.anualizedRateOfReturn.value = global.PRECISE(tradingEngine.current.episode.episodeQuotedAsset.anualizedRateOfReturn.value, 10)
+        tradingEngine.current.episode.episodeBaseAsset.annualizedRateOfReturn.value = global.PRECISE(tradingEngine.current.episode.episodeBaseAsset.annualizedRateOfReturn.value, 10)
+        tradingEngine.current.episode.episodeQuotedAsset.annualizedRateOfReturn.value = global.PRECISE(tradingEngine.current.episode.episodeQuotedAsset.annualizedRateOfReturn.value, 10)
 
         /* Updating Hit or Fail */
         if (tradingEngine.current.episode.episodeBaseAsset.profitLoss.value > 0) {

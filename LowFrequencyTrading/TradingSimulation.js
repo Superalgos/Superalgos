@@ -197,7 +197,6 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                 if (tradingEngine.current.episode.candle.index.value + 1 < candles.length) {
 
-                    console.log('Processing Candle: ' + tradingEngine.current.episode.candle.index.value)
                     /* Add new records to the process output */
                     tradingRecordsModule.appendRecords('Second')
 

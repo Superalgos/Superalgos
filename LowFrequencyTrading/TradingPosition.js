@@ -52,7 +52,7 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
 
         /* Recording the opening at the Trading Engine Data Structure */
         tradingEngine.current.position.status.value = 'Open'
-        tradingEngine.current.position.serialNumber.value = tradingEngine.current.episode.episodeCounters.positions.value
+        tradingEngine.current.position.serialNumber.value = tradingEngine.current.episode.episodeCounters.positions.value + 1
         tradingEngine.current.position.identifier.value = global.UNIQUE_ID()
         tradingEngine.current.position.begin.value = tradingEngine.current.episode.candle.end.value
         tradingEngine.current.position.beginRate.value = tradingEngine.current.episode.candle.close.value

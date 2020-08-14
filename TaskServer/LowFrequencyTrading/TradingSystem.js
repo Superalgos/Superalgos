@@ -6,6 +6,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
     const MODULE_NAME = 'Trading System'
     let thisObject = {
         mantain: mantain,
+        reset: reset,
         run: run,
         updateChart: updateChart,
         initialize: initialize,
@@ -97,19 +98,19 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
     }
 
     function mantain() {
-        reset()
         tradingStagesModule.mantain()
+    }
 
-        function reset() {
-            /* This function helps reset data structures at every cycle of the simulation loop/=. */
-            tradingSystem.highlights = []
-            tradingSystem.errors = []
-            tradingSystem.values = []
-            tradingSystem.status = []
-            tradingSystem.progress = []
-            tradingSystem.running = []
-            tradingSystem.announcements = []
-        }
+    function reset() {
+        tradingStagesModule.reset()
+
+        tradingSystem.highlights = []
+        tradingSystem.errors = []
+        tradingSystem.values = []
+        tradingSystem.status = []
+        tradingSystem.progress = []
+        tradingSystem.running = []
+        tradingSystem.announcements = []
     }
 
     function updateChart(pChart) {

@@ -777,6 +777,9 @@
         "editors": {
             "config": true
         },
+        "title": [
+            "Use Reference Parent"
+        ],
         "initialValues": {
             "config": "{ \n\"offsetX\": 0,\n \"offsetY\": 0\n }"
         },
@@ -963,6 +966,9 @@
         "editors": {
             "config": true
         },
+        "title": [
+            "Use Reference Parent"
+        ],
         "initialValues": {
             "config": "{ \n\"offsetX\": 0,\n \"offsetY\": 0\n }"
         },
@@ -2688,15 +2694,21 @@
                 "autoAdd": true
             },
             {
+                "name": "distanceToEvent",
+                "type": "node",
+                "childType": "Distance To Event",
+                "autoAdd": true
+            },
+            {
                 "name": "candle",
                 "type": "node",
                 "childType": "Candle",
                 "autoAdd": true
             },
             {
-                "name": "distanceToEvent",
+                "name": "cycle",
                 "type": "node",
-                "childType": "Distance To Event",
+                "childType": "Cycle",
                 "autoAdd": true
             }
         ]
@@ -3215,21 +3227,15 @@
                 "autoAdd": true
             },
             {
-                "name": "hitRatio",
-                "type": "node",
-                "childType": "Hit Ratio",
-                "autoAdd": true
-            },
-            {
                 "name": "days",
                 "type": "node",
                 "childType": "Days",
                 "autoAdd": true
             },
             {
-                "name": "anualizedRateOfReturn",
+                "name": "annualizedRateOfReturn",
                 "type": "node",
-                "childType": "Anualized Rate Of Return",
+                "childType": "Annualized Rate Of Return",
                 "autoAdd": true
             },
             {
@@ -3280,12 +3286,6 @@
         "icon": "shapes-polygon-body",
         "propertyNameAtParent": "stopLoss",
         "properties": [
-            {
-                "name": "stopLossStage",
-                "type": "node",
-                "childType": "Stop Loss Stage",
-                "autoAdd": true
-            },
             {
                 "name": "stopLossPhase",
                 "type": "node",
@@ -3341,12 +3341,6 @@
         "propertyNameAtParent": "stopLoss",
         "properties": [
             {
-                "name": "takeProfitStage",
-                "type": "node",
-                "childType": "Take Profit Stage",
-                "autoAdd": true
-            },
-            {
                 "name": "takeProfitPhase",
                 "type": "node",
                 "childType": "Take Profit Phase",
@@ -3359,40 +3353,6 @@
                 "autoAdd": true
             }
         ]
-    },
-    {
-        "type": "Stop Loss Stage",
-        "menuItems": [
-            {
-                "action": "Configure This",
-                "label": "Configure This",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
-                "actionFunction": "uiObject.configEditor.activate"
-            },
-            {
-                "action": "Delete UI Object",
-                "askConfirmation": true,
-                "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
-                "actionFunction": "payload.onMenuItemClick"
-            }
-        ],
-        "editors": {
-            "config": true
-        },
-        "initialValues": {
-            "config": "{\n\"initialValue\": \"\"\n}"
-        },
-        "addLeftIcons": true,
-        "level": 3,
-        "chainAttachesTo": {
-            "compatibleTypes": "->Stop Loss->"
-        },
-        "icon": "volume",
-        "propertyNameAtParent": "stopLossStage"
     },
     {
         "type": "Stop Loss Phase",
@@ -3427,40 +3387,6 @@
         },
         "icon": "volume",
         "propertyNameAtParent": "stopLossPhase"
-    },
-    {
-        "type": "Take Profit Stage",
-        "menuItems": [
-            {
-                "action": "Configure This",
-                "label": "Configure This",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
-                "actionFunction": "uiObject.configEditor.activate"
-            },
-            {
-                "action": "Delete UI Object",
-                "askConfirmation": true,
-                "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
-                "actionFunction": "payload.onMenuItemClick"
-            }
-        ],
-        "editors": {
-            "config": true
-        },
-        "initialValues": {
-            "config": "{\n\"initialValue\": \"\"\n}"
-        },
-        "addLeftIcons": true,
-        "level": 3,
-        "chainAttachesTo": {
-            "compatibleTypes": "->Take Profit->"
-        },
-        "icon": "bitmex",
-        "propertyNameAtParent": "takeProfitStage"
     },
     {
         "type": "Take Profit Phase",
@@ -3811,9 +3737,9 @@
                 "autoAdd": true
             },
             {
-                "name": "anualizedRateOfReturn",
+                "name": "annualizedRateOfReturn",
                 "type": "node",
-                "childType": "Anualized Rate Of Return",
+                "childType": "Annualized Rate Of Return",
                 "autoAdd": true
             },
             {
@@ -3900,9 +3826,9 @@
                 "autoAdd": true
             },
             {
-                "name": "anualizedRateOfReturn",
+                "name": "annualizedRateOfReturn",
                 "type": "node",
-                "childType": "Anualized Rate Of Return",
+                "childType": "Annualized Rate Of Return",
                 "autoAdd": true
             },
             {
@@ -4321,7 +4247,7 @@
         "addLeftIcons": true,
         "level": 3,
         "chainAttachesTo": {
-            "compatibleTypes": "->Episode Statistics->Episode Base Asset->Episode Quoted Asset->"
+            "compatibleTypes": "->Episode Base Asset->Episode Quoted Asset->"
         },
         "icon": "histogram",
         "propertyNameAtParent": "hitRatio"
@@ -4531,7 +4457,7 @@
         "propertyNameAtParent": "ROI"
     },
     {
-        "type": "Anualized Rate Of Return",
+        "type": "Annualized Rate Of Return",
         "menuItems": [
             {
                 "action": "Configure This",
@@ -4562,7 +4488,7 @@
             "compatibleTypes": "->Episode Statistics->Episode Base Asset->Episode Quoted Asset->"
         },
         "icon": "bitmex",
-        "propertyNameAtParent": "anualizedRateOfReturn"
+        "propertyNameAtParent": "annualizedRateOfReturn"
     },
     {
         "type": "Hit Fail",
@@ -5354,6 +5280,12 @@
                 "autoAdd": true
             },
             {
+                "name": "stageDefinedIn",
+                "type": "node",
+                "childType": "Stage Defined In",
+                "autoAdd": true
+            },
+            {
                 "name": "stageBaseAsset",
                 "type": "node",
                 "childType": "Stage Base Asset",
@@ -5428,6 +5360,12 @@
                 "name": "endRate",
                 "type": "node",
                 "childType": "End Rate",
+                "autoAdd": true
+            },
+            {
+                "name": "stageDefinedIn",
+                "type": "node",
+                "childType": "Stage Defined In",
                 "autoAdd": true
             },
             {
@@ -5922,7 +5860,7 @@
         "addLeftIcons": true,
         "level": 3,
         "chainAttachesTo": {
-            "compatibleTypes": "->Episode->Strategy->Position->Candle->Market Order->Limit Order->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->"
+            "compatibleTypes": "->Episode->Strategy->Position->Candle->Cycle->Market Order->Limit Order->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->"
         },
         "icon": "monero",
         "propertyNameAtParent": "begin"
@@ -5956,7 +5894,7 @@
         "addLeftIcons": true,
         "level": 3,
         "chainAttachesTo": {
-            "compatibleTypes": "->Episode->Strategy->Position->Candle->Market Order->Limit Order->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->"
+            "compatibleTypes": "->Episode->Strategy->Position->Candle->Cycle->Market Order->Limit Order->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->"
         },
         "icon": "upbit",
         "propertyNameAtParent": "end"
@@ -6347,6 +6285,40 @@
         "propertyNameAtParent": "exitTargetRate"
     },
     {
+        "type": "Stage Defined In",
+        "menuItems": [
+            {
+                "action": "Configure This",
+                "label": "Configure This",
+                "iconPathOn": "settings",
+                "iconPathOff": "settings",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": \"\"\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Strategy Open Stage->Strategy Close Stage->"
+        },
+        "icon": "pantone",
+        "propertyNameAtParent": "stageDefinedIn"
+    },
+    {
         "type": "Size",
         "menuItems": [
             {
@@ -6660,6 +6632,47 @@
                 "name": "index",
                 "type": "node",
                 "childType": "Index",
+                "autoAdd": true
+            }
+        ]
+    },
+    {
+        "type": "Cycle",
+        "menuItems": [
+            {
+                "action": "Add Missing Children",
+                "label": "Add Missing Children",
+                "relatedUiObject": "Parameters",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Episode->"
+        },
+        "icon": "qtum",
+        "propertyNameAtParent": "cycle",
+        "properties": [
+            {
+                "name": "begin",
+                "type": "node",
+                "childType": "Begin",
+                "autoAdd": true
+            },
+            {
+                "name": "end",
+                "type": "node",
+                "childType": "End",
                 "autoAdd": true
             }
         ]
@@ -9605,12 +9618,6 @@
                 "autoAdd": true
             },
             {
-                "name": "initialDefinition",
-                "type": "node",
-                "childType": "Initial Definition",
-                "autoAdd": true
-            },
-            {
                 "name": "openExecution",
                 "type": "node",
                 "childType": "Open Execution",
@@ -9675,48 +9682,6 @@
             }
         ],
         "propertyNameAtParent": "closeStageEvent"
-    },
-    {
-        "type": "Initial Definition",
-        "docURL": "https://docs.superalgos.org/suite-hierarchy-trading-system.html#initial-definition",
-        "menuItems": [
-            {
-                "action": "Add Missing Children",
-                "label": "Add Missing Items",
-                "relatedUiObject": "Initial Definition",
-                "actionFunction": "payload.onMenuItemClick"
-            },
-            {
-                "action": "Delete UI Object",
-                "askConfirmation": true,
-                "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
-                "actionFunction": "payload.onMenuItemClick"
-            }
-        ],
-        "addLeftIcons": true,
-        "level": 2,
-        "chainAttachesTo": {
-            "compatibleTypes": "->Open Stage->"
-        },
-        "icon": "initial-definition",
-        "properties": [
-            {
-                "name": "initialStopLoss",
-                "type": "node",
-                "childType": "Initial Stop",
-                "autoAdd": true
-            },
-            {
-                "name": "initialTakeProfit",
-                "type": "node",
-                "childType": "Initial Take Profit",
-                "autoAdd": true
-            }
-        ],
-        "propertyNameAtParent": "initialDefinition"
     },
     {
         "type": "Initial Targets",
@@ -9802,43 +9767,6 @@
         "propertyNameAtParent": "managedStopLoss"
     },
     {
-        "type": "Initial Stop",
-        "docURL": "https://docs.superalgos.org/suite-hierarchy-trading-system.html#initial-stop",
-        "menuItems": [
-            {
-                "action": "Add UI Object",
-                "label": "Add Phase",
-                "relatedUiObject": "Phase",
-                "actionFunction": "payload.onMenuItemClick"
-            },
-            {
-                "action": "Delete UI Object",
-                "askConfirmation": true,
-                "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
-                "actionFunction": "payload.onMenuItemClick"
-            }
-        ],
-        "addLeftIcons": true,
-        "level": 3,
-        "chainAttachesTo": {
-            "compatibleTypes": "->Manage Stage->Initial Definition->"
-        },
-        "icon": "stop",
-        "properties": [
-            {
-                "name": "phases",
-                "type": "array",
-                "maxItems": 1,
-                "childType": "Phase",
-                "autoAdd": true
-            }
-        ],
-        "propertyNameAtParent": "initialStopLoss"
-    },
-    {
         "type": "Phase",
         "docURL": "https://docs.superalgos.org/suite-hierarchy-trading-system.html#phase-0",
         "menuItems": [
@@ -9884,7 +9812,7 @@
         "level": 1,
         "chainedToSameType": true,
         "chainAttachesTo": {
-            "compatibleTypes": "->Stop->Take Profit->Initial Stop->Initial Take Profit->Phase->"
+            "compatibleTypes": "->Managed Stop->Managed Take Profit->Phase->"
         },
         "icon": "placeholder",
         "properties": [
@@ -10044,43 +9972,6 @@
             }
         ],
         "propertyNameAtParent": "managedTakeProfit"
-    },
-    {
-        "type": "Initial Take Profit",
-        "docURL": "https://docs.superalgos.org/suite-hierarchy-trading-system.html#initial-take-profit",
-        "menuItems": [
-            {
-                "action": "Add UI Object",
-                "label": "Add Phase",
-                "relatedUiObject": "Phase",
-                "actionFunction": "payload.onMenuItemClick"
-            },
-            {
-                "action": "Delete UI Object",
-                "askConfirmation": true,
-                "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
-                "actionFunction": "payload.onMenuItemClick"
-            }
-        ],
-        "addLeftIcons": true,
-        "level": 3,
-        "chainAttachesTo": {
-            "compatibleTypes": "->Manage Stage->Initial Definition->"
-        },
-        "icon": "stage-open-take-profit",
-        "properties": [
-            {
-                "name": "phases",
-                "type": "array",
-                "maxItems": 1,
-                "childType": "Phase",
-                "autoAdd": true
-            }
-        ],
-        "propertyNameAtParent": "initialTakeProfit"
     },
     {
         "type": "Target Size In Base Asset",
@@ -10914,7 +10805,7 @@
             }
         ],
         "initialValues": {
-            "config": "{ \n\"percentage\": 0.01\n}"
+            "config": "{ \n\"percentage\": 0.1\n}"
         },
         "editors": {
             "config": true

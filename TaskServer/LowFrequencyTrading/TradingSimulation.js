@@ -137,16 +137,43 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 /* The chart was recalculated based on the current candle. */
                 tradingSystemModule.updateChart(chart)
 
-                /* Do the stuff needed previous to the run */
+                /* 
+                Do the stuff needed previous to the run like 
+                Episode Counters and Statistics update
+                */
                 tradingSystemModule.mantain()
-
-                /* Episode Counters and Statistics update */
                 tradingEpisodeModule.mantain()
-
-                /* Run your maintaince procedure */
                 tradingEngineModule.mantain()
 
-                /* Run one cycle of the Trading System*/
+                /* Reset Data Structures */
+                tradingSystemModule.reset()
+                tradingEpisodeModule.reset()
+                tradingEngineModule.reset()
+
+                /* 
+                Run the first cycle of the Trading System. In this first cycle we
+                give some room so that orders can be canceled or filled and we can
+                write those records into the output memory.
+                */
+                tradingEngineModule.setCurrentCycle('First')
+                await tradingSystemModule.run()
+
+                /* Add new records to the process output */
+                tradingRecordsModule.appendRecords('First')
+
+                /* Reset Data Structures */
+                tradingSystemModule.reset()
+                tradingEpisodeModule.reset()
+                tradingEngineModule.reset()
+
+                /* 
+                Run the second cycle of the Trading System. During this second run
+                some new orders might be created at slots freed up during the first 
+                run. This allows for example for an Limit Order to be cancelled during the 
+                first run, and the same Limit Order definition to spawn a new order 
+                without the need to wait until the next candle.
+                */
+                tradingEngineModule.setCurrentCycle('Second')
                 await tradingSystemModule.run()
 
                 controlLoop()
@@ -171,11 +198,16 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 if (tradingEngine.current.episode.candle.index.value + 1 < candles.length) {
 
                     /* Add new records to the process output */
-                    tradingRecordsModule.appendRecords()
+                    tradingRecordsModule.appendRecords('Second')
 
                     tradingEngine.current.episode.candle.index.value++
 
-                    setImmediate(loop) // This will execute the next loop in the next iteration of the NodeJs event loop allowing for other callbacks to be executed.
+                    /*
+                    This will execute the next loop in the next iteration of the NodeJs event loop 
+                    allowing for other callbacks to be executed. It also prevents the error
+                    'Maximum call stack size exceeded', since the call is not placed at the call stack.
+                    */
+                    setImmediate(loop)
                 } else {
                     updateEpisode('All Candles Processed')
                 }
@@ -186,7 +218,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 tradingEpisodeModule.closeEpisode()
 
                 /* Add new records to the process output */
-                tradingRecordsModule.appendRecords()
+                tradingRecordsModule.appendRecords('Second')
 
                 afterLoop()
             }
@@ -195,7 +227,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 tradingEpisodeModule.updateExitType(exitType)
 
                 /* Add new records to the process output */
-                tradingRecordsModule.appendRecords()
+                tradingRecordsModule.appendRecords('Second')
 
                 afterLoop()
             }

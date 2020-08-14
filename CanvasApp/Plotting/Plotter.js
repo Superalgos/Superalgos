@@ -300,10 +300,8 @@ function newPlotter() {
                 jsonifiedArray.push(record)
                 previous = record
 
-                if (record.begin === undefined || record.end === undefined) { console.log('Could not find the property begin or end which are needed for the plotter to work.') }
-                if (datetime.valueOf() >= record.begin && datetime.valueOf() <= record.end) {
-                    thisObject.currentRecord = record
-                    thisObject.container.eventHandler.raiseEvent('Current Record Changed', thisObject.currentRecord)
+                if (record.begin === undefined || record.end === undefined) {
+                    console.log('Could not find the property begin or end which are needed for the plotter to work. productDefinition.config.codeName = ' + productDefinition.config.codeName)
                 }
             }
         }

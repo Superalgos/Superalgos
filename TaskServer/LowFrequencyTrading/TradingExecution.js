@@ -6,6 +6,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
 
     let thisObject = {
         mantain: mantain,
+        reset: reset,
         runExecution: runExecution,
         initialize: initialize,
         finalize: finalize
@@ -39,6 +40,10 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
 
     function mantain() {
         tradingOrdersModule.mantain()
+    }
+
+    function reset() {
+        tradingOrdersModule.reset()
     }
 
     async function runExecution(

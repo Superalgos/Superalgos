@@ -6,9 +6,11 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
     const MODULE_NAME = 'Trading Engine'
     let thisObject = {
         mantain: mantain,
+        reset: reset,
         getNodeById: getNodeById,
         cloneValues: cloneValues,
         setCurrentCandle: setCurrentCandle,
+        setCurrentCycle: setCurrentCycle,
         initializeNode: initializeNode,
         initialize: initialize,
         finalize: finalize
@@ -46,6 +48,10 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
         updateDistanceToEventsCounters()
     }
 
+    function reset() {
+
+    }
+
     function getNodeById(NodeId) {
         return nodesMap.get(NodeId)
     }
@@ -57,6 +63,32 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
         tradingEngine.current.episode.candle.close.value = candle.close
         tradingEngine.current.episode.candle.min.value = candle.min
         tradingEngine.current.episode.candle.max.value = candle.max
+    }
+
+    function setCurrentCycle(cycle) {
+        switch (cycle) {
+            case 'First': {
+                tradingEngine.current.episode.cycle.begin.value =
+                    tradingEngine.current.episode.candle.begin.value +
+                    sessionParameters.timeFrame.config.value
+                tradingEngine.current.episode.cycle.end.value =
+                    tradingEngine.current.episode.candle.begin.value +
+                    sessionParameters.timeFrame.config.value +
+                    sessionParameters.timeFrame.config.value / 2 - 1
+                break
+            }
+            case 'Second': {
+                tradingEngine.current.episode.cycle.begin.value =
+                    tradingEngine.current.episode.candle.begin.value +
+                    sessionParameters.timeFrame.config.value +
+                    sessionParameters.timeFrame.config.value / 2
+                tradingEngine.current.episode.cycle.end.value =
+                    tradingEngine.current.episode.candle.begin.value +
+                    sessionParameters.timeFrame.config.value +
+                    sessionParameters.timeFrame.config.value * 4 / 4 - 1
+                break
+            }
+        }
     }
 
     function cloneValues(originNode, destinationNode) {

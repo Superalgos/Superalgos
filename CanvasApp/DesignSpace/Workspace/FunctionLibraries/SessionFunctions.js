@@ -28,7 +28,6 @@ function newSessionFunctions() {
             'Trigger Stage->Trigger On Event->Trigger Off Event->Take Position Event->' +
             'Announcement->Announcement Formula->' +
             'Open Stage->' +
-            'Initial Definition->Initial Stop->Initial Take Profit->' +
             'Manage Stage->' +
             'Managed Stop Loss->Managed Take Profit->' +
             'Phase->Formula->Next Phase Event->Move To Phase Event->Phase->' +
@@ -54,8 +53,8 @@ function newSessionFunctions() {
             'Episode->' +
             'Episode Base Asset->Episode Quoted Asset->Episode Counters->Episode Statistics->' +
             'Strategies->Positions->Orders->Hits->Fails->' +
-            'Profit Loss->Hit Ratio->Hit Fail->Days->ROI->Anualized Rate Of Return->User Defined Statistic->' +
-            'Candle->' +
+            'Profit Loss->Hit Ratio->Hit Fail->Days->ROI->Annualized Rate Of Return->User Defined Statistic->' +
+            'Candle->Cycle->' +
             'Begin->End->Open->Close->Min->Max->Index->' +
             'Distance To Event->' +
             'Trigger On->Trigger Off->Take Position->Close Position->Next Phase->Move To Phase->Create Order->Cancel Order->Close Order->' +
@@ -63,8 +62,8 @@ function newSessionFunctions() {
             'Strategy Counters->' +
             'Position->' +
             'Entry Target Rate->Exit Target Rate->' +
-            'Stop Loss->Stop Loss Stage->Stop Loss Phase->Stop Loss Position->' +
-            'Take Profit->Take Profit Stage->Take Profit Phase->Take Profit Position->' +
+            'Stop Loss->Stop Loss Phase->Stop Loss Position->' +
+            'Take Profit->Take Profit Phase->Take Profit Position->' +
             'Position Counters->' +
             'Position Statistics->Days->User Defined Statistic->' +
             'Position Base Asset->Position Quoted Asset->Entry Target Size->Exit Target Size->' +
@@ -77,7 +76,7 @@ function newSessionFunctions() {
             'Size->Size Filled->Fees Paid->' +
             'Order Statistics->Percentage Filled->Actual Rate->Days->User Defined Statistic->' +
             'Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->' +
-            'Begin->End->Exit Type->Status->Begin Rate->End Rate->Stage Base Asset->Stage Quoted Asset->Size Placed->Target Size->Size Filled->Fees Paid->' +
+            'Begin->End->Exit Type->Status->Begin Rate->End Rate->Stage Base Asset->Stage Quoted Asset->Size Placed->Target Size->Size Filled->Fees Paid->Stage Defined In->' +
             'Serial Number->Identifier->Begin->End->Begin Rate->End Rate->Strategy Name->Status->Exit Type->' +
             'Balance->Begin Balance->End Balance->' +
             'Index->Situation Name->Formula->Periods->'

@@ -548,6 +548,9 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
                             tradingPositionModule.updateStopLoss(tradingEngine.current.position.stopLoss.stopLossPhase.value + 1)
 
                             announcementsModule.makeAnnoucements(nextPhaseEvent)
+
+                            /* Reset this counter */
+                            tradingEngine.current.episode.distanceToEvent.nextPhase.value = 1
                             return // only one event can pass at the time
                         }
                     }
@@ -588,6 +591,9 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
                                 }
 
                                 announcementsModule.makeAnnoucements(moveToPhaseEvent)
+                                
+                                /* Reset this counter */
+                                tradingEngine.current.episode.distanceToEvent.moveToPhase.value = 1
                                 return // only one event can pass at the time
                             }
                         }
@@ -641,6 +647,9 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
                             tradingPositionModule.updateTakeProfit(tradingEngine.current.position.takeProfit.takeProfitPhase.value + 1)
 
                             announcementsModule.makeAnnoucements(nextPhaseEvent)
+
+                            /* Reset this counter */
+                            tradingEngine.current.episode.distanceToEvent.nextPhase.value = 1
                             return // only one event can pass at the time
                         }
                     }
@@ -681,6 +690,9 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
                                 }
 
                                 announcementsModule.makeAnnoucements(moveToPhaseEvent)
+
+                                /* Reset this counter */
+                                tradingEngine.current.episode.distanceToEvent.moveToPhase.value = 1
                                 return // only one event can pass at the time
                             }
                         }

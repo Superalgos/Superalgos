@@ -45,7 +45,6 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
     }
 
     function mantain() {
-        updateDistanceToEventsCounters()
     }
 
     function reset() {
@@ -212,63 +211,5 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
             }
         }
     }
-
-    function updateDistanceToEventsCounters() {
-        /* Keeping Distance Counters Up-to-date while avoinding counting before the first event happens. */
-        if (
-            tradingEngine.current.episode.distanceToEvent.triggerOn.value > 0
-        ) {
-            tradingEngine.current.episode.distanceToEvent.triggerOn.value++
-        }
-
-        if (
-            tradingEngine.current.episode.distanceToEvent.triggerOff.value > 0
-        ) {
-            tradingEngine.current.episode.distanceToEvent.triggerOff.value++
-        }
-
-        if (
-            tradingEngine.current.episode.distanceToEvent.takePosition.value > 0
-        ) {
-            tradingEngine.current.episode.distanceToEvent.takePosition.value++
-        }
-
-        if (
-            tradingEngine.current.episode.distanceToEvent.closePosition.value > 0
-        ) {
-            tradingEngine.current.episode.distanceToEvent.closePosition.value++
-        }
-
-        if (
-            tradingEngine.current.episode.distanceToEvent.nextPhase.value > 0
-        ) {
-            tradingEngine.current.episode.distanceToEvent.nextPhase.value++
-        }
-
-        if (
-            tradingEngine.current.episode.distanceToEvent.moveToPhase.value > 0
-        ) {
-            tradingEngine.current.episode.distanceToEvent.moveToPhase.value++
-        }
-
-        if (
-            tradingEngine.current.episode.distanceToEvent.createOrder.value > 0
-        ) {
-            tradingEngine.current.episode.distanceToEvent.createOrder.value++
-        }
-
-        if (
-            tradingEngine.current.episode.distanceToEvent.cancelOrder.value > 0
-        ) {
-            tradingEngine.current.episode.distanceToEvent.cancelOrder.value++
-        }
-
-        if (
-            tradingEngine.current.episode.distanceToEvent.closeOrder.value > 0
-        ) {
-            tradingEngine.current.episode.distanceToEvent.closeOrder.value++
-        }
-    }
-
 }
 

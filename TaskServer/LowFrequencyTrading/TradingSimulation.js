@@ -110,6 +110,9 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Candle End @ ' + (new Date(candle.end)).toLocaleString()) }
 
                 tradingEngineModule.setCurrentCandle(candle) // We move the current candle we are standing at, to the trading engine data structure to make it available to anyone, including conditions and formulas.
+                
+                /* We emit a heart beat so that the UI can now where we are at the overal process.*/
+                heartBeat()
 
                 if (firstLoopExecution === true) {
                     tradingEpisodeModule.openEpisode()
@@ -131,7 +134,6 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     return
                 }
 
-                heartBeat()
                 positionChartAtCurrentCandle()
 
                 /* The chart was recalculated based on the current candle. */

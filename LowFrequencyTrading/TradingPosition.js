@@ -347,6 +347,6 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
         if (err !== undefined) {
             logger.write(MODULE_NAME, "[ERROR] -> err.stack = " + err.stack);
         }
-        throw 'It is not safe to continue with a Definition Error like this. Please fix the problem and try again.'
+        throw 'Please fix the problem and try again.'
     }
 }

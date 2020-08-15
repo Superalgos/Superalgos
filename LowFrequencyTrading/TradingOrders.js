@@ -355,11 +355,6 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
             }
         }
 
-        /* Filter by what is defined at the Strategy */
-        if (tradingSystemOrder.simulatedExchangeEvents === undefined) {
-            badDefinitionUnhandledException(undefined, 'tradingSystemOrder.simulatedExchangeEvents === undefined', tradingSystemOrder)
-        }
-
         let previousBaseAssetSizeFilled = tradingEngineOrder.orderBaseAsset.sizeFilled.value
         let previousQuotedAssetSizeFilled = tradingEngineOrder.orderQuotedAsset.sizeFilled.value
         let previousBaseAssetFeesPaid = tradingEngineOrder.orderBaseAsset.feesPaid.value
@@ -390,13 +385,15 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
             let calculatedBasedOnTradingSystem = false
 
             /* Based on the Trading System Definition */
-            if (tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate !== undefined) {
-                if (tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate.formula !== undefined) {
-                    /* Calculate this only once for this order */
-                    if (tradingEngineOrder.orderStatistics.actualRate.value === tradingEngineOrder.orderStatistics.actualRate.config.initialValue) {
-                        tradingEngineOrder.orderStatistics.actualRate.value = tradingSystem.formulas.get(tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate.formula.id)
-                        if (tradingEngineOrder.orderStatistics.actualRate.value !== undefined) {
-                            calculatedBasedOnTradingSystem = true
+            if (tradingSystemOrder.simulatedExchangeEvents !== undefined) {
+                if (tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate !== undefined) {
+                    if (tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate.formula !== undefined) {
+                        /* Calculate this only once for this order */
+                        if (tradingEngineOrder.orderStatistics.actualRate.value === tradingEngineOrder.orderStatistics.actualRate.config.initialValue) {
+                            tradingEngineOrder.orderStatistics.actualRate.value = tradingSystem.formulas.get(tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate.formula.id)
+                            if (tradingEngineOrder.orderStatistics.actualRate.value !== undefined) {
+                                calculatedBasedOnTradingSystem = true
+                            }
                         }
                     }
                 }
@@ -463,18 +460,29 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
             }
             }
             if (orderWasHit === true) {
-                if (tradingSystemOrder.simulatedExchangeEvents.simulatedPartialFill !== undefined) {
-                    if (tradingSystemOrder.simulatedExchangeEvents.simulatedPartialFill.config.fillProbability !== undefined) {
+                let calculatedBasedOnTradingSystem = false
 
-                        /* Percentage Filled */
-                        let percentageFilled = tradingSystemOrder.simulatedExchangeEvents.simulatedPartialFill.config.fillProbability * 100
-                        if (tradingEngineOrder.orderStatistics.percentageFilled.value + percentageFilled > 100) {
-                            percentageFilled = 100 - tradingEngineOrder.orderStatistics.percentageFilled.value
+                /* Based on the Trading System Definition */
+                if (tradingSystemOrder.simulatedExchangeEvents !== undefined) {
+                    if (tradingSystemOrder.simulatedExchangeEvents.simulatedPartialFill !== undefined) {
+                        if (tradingSystemOrder.simulatedExchangeEvents.simulatedPartialFill.config.fillProbability !== undefined) {
+
+                            /* Percentage Filled */
+                            let percentageFilled = tradingSystemOrder.simulatedExchangeEvents.simulatedPartialFill.config.fillProbability * 100
+                            if (tradingEngineOrder.orderStatistics.percentageFilled.value + percentageFilled > 100) {
+                                percentageFilled = 100 - tradingEngineOrder.orderStatistics.percentageFilled.value
+                            }
+                            tradingEngineOrder.orderStatistics.percentageFilled.value = tradingEngineOrder.orderStatistics.percentageFilled.value + percentageFilled
+                            tradingEngineOrder.orderStatistics.percentageFilled.value = global.PRECISE(tradingEngineOrder.orderStatistics.percentageFilled.value, 10)
+                            calculatedBasedOnTradingSystem = true
                         }
-                        tradingEngineOrder.orderStatistics.percentageFilled.value = tradingEngineOrder.orderStatistics.percentageFilled.value + percentageFilled
-                        tradingEngineOrder.orderStatistics.percentageFilled.value = global.PRECISE(tradingEngineOrder.orderStatistics.percentageFilled.value, 10)
                     }
-                } else {
+                }
+                /* 
+                If there is no definition for this at the trading system we will assume orders
+                are 100% filled every single time. 
+                */
+                if (calculatedBasedOnTradingSystem === false) {
                     /* We will assume that 100% of the order was filled */
                     tradingEngineOrder.orderStatistics.percentageFilled.value = 100
                 }
@@ -505,26 +513,28 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
             let calculatedBasedOnTradingSystem = false
 
             /* Based on the Trading System Definition */
-            if (tradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid !== undefined) {
-                if (tradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid.config.percentage !== undefined) {
-                    if (tradingEngineOrder.orderBaseAsset.feesPaid.value === tradingEngineOrder.orderBaseAsset.feesPaid.config.initialValue) {
+            if (tradingSystemOrder.simulatedExchangeEvents !== undefined) {
+                if (tradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid !== undefined) {
+                    if (tradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid.config.percentage !== undefined) {
+                        if (tradingEngineOrder.orderBaseAsset.feesPaid.value === tradingEngineOrder.orderBaseAsset.feesPaid.config.initialValue) {
 
-                        tradingEngineOrder.orderBaseAsset.feesPaid.value =
-                            tradingEngineOrder.orderBaseAsset.size.value *
-                            tradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid.config.percentage / 100 *
-                            tradingEngineOrder.orderStatistics.percentageFilled.value / 100
+                            tradingEngineOrder.orderBaseAsset.feesPaid.value =
+                                tradingEngineOrder.orderBaseAsset.size.value *
+                                tradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid.config.percentage / 100 *
+                                tradingEngineOrder.orderStatistics.percentageFilled.value / 100
 
-                        calculatedBasedOnTradingSystem = true
-                    }
+                            calculatedBasedOnTradingSystem = true
+                        }
 
-                    if (tradingEngineOrder.orderQuotedAsset.feesPaid.value === tradingEngineOrder.orderQuotedAsset.feesPaid.config.initialValue) {
+                        if (tradingEngineOrder.orderQuotedAsset.feesPaid.value === tradingEngineOrder.orderQuotedAsset.feesPaid.config.initialValue) {
 
-                        tradingEngineOrder.orderQuotedAsset.feesPaid.value =
-                            tradingEngineOrder.orderQuotedAsset.size.value *
-                            tradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid.config.percentage / 100 *
-                            tradingEngineOrder.orderStatistics.percentageFilled.value / 100
+                            tradingEngineOrder.orderQuotedAsset.feesPaid.value =
+                                tradingEngineOrder.orderQuotedAsset.size.value *
+                                tradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid.config.percentage / 100 *
+                                tradingEngineOrder.orderStatistics.percentageFilled.value / 100
 
-                        calculatedBasedOnTradingSystem = true
+                            calculatedBasedOnTradingSystem = true
+                        }
                     }
                 }
             }
@@ -993,7 +1003,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
         if (err !== undefined) {
             logger.write(MODULE_NAME, "[ERROR] -> err.stack = " + err.stack);
         }
-        throw 'It is not safe to continue with a Definition Error like this. Please fix the problem and try again.'
+        throw 'Please fix the problem and try again.'
     }
 }
 

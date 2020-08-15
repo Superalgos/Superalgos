@@ -1699,10 +1699,10 @@ function newUiObject() {
             if (thisObject.isOnFocus === true) {
                 VISIBLE_RADIUS = thisObject.container.frame.radius
                 browserCanvasContext.beginPath()
-                browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS - 2, 0, Math.PI * 2, true)
+                browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS * 1.2, 0, Math.PI * 2, true)
                 browserCanvasContext.closePath()
 
-                browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.BLACK + ', 0.25)'
+                browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.BLACK + ', 0.75)'
 
                 browserCanvasContext.fill()
             }

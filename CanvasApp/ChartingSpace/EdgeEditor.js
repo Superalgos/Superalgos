@@ -185,6 +185,7 @@ function newEdgeEditor() {
     }
 
     function onKeyPressed(event) {
+        if (whereIsMouseOver !== 'center' ) {return}
         const STEP = 10
 
         if (event.shiftKey === false && event.ctrlKey === false && event.code === 'ArrowLeft') {

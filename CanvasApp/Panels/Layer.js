@@ -566,7 +566,7 @@ function newLayer() {
 
         browserCanvasContext.strokeStyle = progressBar.strokeStyle.replace('@Opacity', progressBar.opacity.toString())
 
-        browserCanvasContext.setLineDash([1, 4])
+        browserCanvasContext.setLineDash([2, 4])
         browserCanvasContext.lineWidth = lineWidth
         browserCanvasContext.stroke()
     }
@@ -631,14 +631,14 @@ function newLayer() {
             label3FontSize = 9
         }
 
-        drawLabel(label1, 1 / 2, 6 / 10, -5, 0, label1FontSize, thisObject.container)
+        drawLabel(label1, 1 / 2, 5.2 / 10, -5, 0, label1FontSize, thisObject.container)
         drawLabel(label2, 1 / 2, 8.2 / 10, -5, 0, label2FontSize, thisObject.container)
         drawLabel(label3, 1 / 2, 9.5 / 10, -5, 0, label3FontSize, thisObject.container)
 
-        drawProgressBar(marketFileProgressBar, 1, -45)
-        drawProgressBar(dailyFileProgressBar, 1, -46)
-        drawProgressBar(singleFileProgressBar, 1, -47)
-        drawProgressBar(fileSequenceProgressBar, 1, -48)
+        drawProgressBar(marketFileProgressBar, 2, -45 + 18)
+        drawProgressBar(dailyFileProgressBar, 2, -46 + 18)
+        drawProgressBar(singleFileProgressBar, 2, -47 + 18)
+        drawProgressBar(fileSequenceProgressBar, 2, -48 + 18)
 
         drawIcon(thisObject.exchangeIcon, 1 / 8, 2 / 10, 0, 0, 14, thisObject.container)
         drawIcon(thisObject.plotterTypeIcon, 7 / 8, 2 / 10, 0, 0, 14, thisObject.container)
@@ -646,3 +646,4 @@ function newLayer() {
         drawIcon(thisObject.quotedAssetIcon, 4.6 / 8, 2 / 10, 0, 0, 14, thisObject.container)
     }
 }
+

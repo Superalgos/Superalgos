@@ -110,7 +110,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -138,7 +138,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -159,7 +159,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -180,7 +180,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -201,7 +201,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -222,7 +222,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -243,7 +243,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -264,7 +264,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -285,7 +285,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -363,7 +363,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -425,7 +425,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -476,7 +476,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -511,7 +511,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -546,7 +546,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -582,7 +582,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -621,7 +621,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -656,7 +656,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -706,7 +706,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -755,7 +755,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -796,7 +796,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -849,7 +849,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -909,7 +909,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -944,7 +944,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -985,7 +985,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -1019,7 +1019,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -1097,7 +1097,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -1132,7 +1132,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -1181,7 +1181,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -1230,7 +1230,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -1281,7 +1281,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -1316,7 +1316,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -1345,7 +1345,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -1446,7 +1446,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -1507,7 +1507,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -1555,7 +1555,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -1595,7 +1595,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -1640,7 +1640,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -1700,7 +1700,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -1743,7 +1743,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -1788,7 +1788,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -1825,7 +1825,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -1858,7 +1858,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -1925,7 +1925,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -2006,7 +2006,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -2087,7 +2087,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -2141,7 +2141,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -2185,7 +2185,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -2231,7 +2231,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -2309,7 +2309,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -2413,7 +2413,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -2472,7 +2472,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -2522,7 +2522,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -2566,7 +2566,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -2607,7 +2607,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -2732,7 +2732,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -2811,7 +2811,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -2860,7 +2860,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -2909,7 +2909,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -2951,7 +2951,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -2985,7 +2985,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -3019,7 +3019,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -3053,7 +3053,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -3087,7 +3087,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -3121,7 +3121,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -3155,7 +3155,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -3194,7 +3194,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -3266,7 +3266,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -3320,7 +3320,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -3368,7 +3368,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -3402,7 +3402,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -3436,7 +3436,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -3470,7 +3470,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -3509,7 +3509,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -3568,7 +3568,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -3621,7 +3621,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -3674,7 +3674,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -3763,7 +3763,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -3852,7 +3852,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -3923,7 +3923,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -4000,7 +4000,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -4053,7 +4053,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -4100,7 +4100,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -4198,7 +4198,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -4232,7 +4232,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -4266,7 +4266,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -4300,7 +4300,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -4334,7 +4334,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -4368,7 +4368,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -4402,7 +4402,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -4436,7 +4436,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -4470,7 +4470,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -4504,7 +4504,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -4537,7 +4537,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -4609,7 +4609,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -4643,7 +4643,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -4677,7 +4677,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -4710,7 +4710,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -4794,7 +4794,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -4828,7 +4828,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -4862,7 +4862,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -4896,7 +4896,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -4930,7 +4930,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -4964,7 +4964,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -4998,7 +4998,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -5032,7 +5032,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -5066,7 +5066,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -5099,7 +5099,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -5164,7 +5164,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -5229,7 +5229,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -5312,7 +5312,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -5403,7 +5403,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -5505,7 +5505,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -5539,7 +5539,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -5573,7 +5573,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -5607,7 +5607,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -5641,7 +5641,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -5675,7 +5675,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -5709,7 +5709,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -5743,7 +5743,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -5777,7 +5777,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -5811,7 +5811,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -5845,7 +5845,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -5879,7 +5879,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -5906,7 +5906,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -5927,7 +5927,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -5948,7 +5948,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -5969,7 +5969,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -5997,7 +5997,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -6031,7 +6031,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -6064,7 +6064,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -6196,7 +6196,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -6230,7 +6230,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -6264,7 +6264,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -6298,7 +6298,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -6332,7 +6332,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -6366,7 +6366,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -6400,7 +6400,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -6434,7 +6434,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -6468,7 +6468,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -6502,7 +6502,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -6537,7 +6537,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -6578,7 +6578,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -6649,7 +6649,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -6716,7 +6716,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -6769,7 +6769,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -6804,7 +6804,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -6929,7 +6929,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -6964,7 +6964,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -6999,7 +6999,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -7034,7 +7034,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -7160,7 +7160,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -7231,7 +7231,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -7258,7 +7258,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -7292,7 +7292,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -7334,7 +7334,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -7370,7 +7370,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -7400,7 +7400,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -7438,7 +7438,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -7482,7 +7482,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -7517,7 +7517,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -7552,7 +7552,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -7587,7 +7587,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -7621,7 +7621,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -7655,7 +7655,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -7689,7 +7689,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -7763,7 +7763,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -7866,7 +7866,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -7922,7 +7922,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -7996,7 +7996,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -8067,7 +8067,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -8126,7 +8126,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -8200,7 +8200,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -8267,7 +8267,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -8324,7 +8324,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -8391,7 +8391,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -8433,7 +8433,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -8477,7 +8477,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -8513,7 +8513,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -8535,7 +8535,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -8565,7 +8565,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -8615,7 +8615,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -8679,7 +8679,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -8728,7 +8728,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -8771,7 +8771,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -8801,7 +8801,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -8837,7 +8837,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -8883,7 +8883,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -8927,7 +8927,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -8962,7 +8962,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -9006,7 +9006,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -9050,7 +9050,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -9088,7 +9088,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -9134,7 +9134,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -9189,7 +9189,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -9246,7 +9246,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -9296,7 +9296,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -9337,7 +9337,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -9398,7 +9398,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -9457,7 +9457,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -9504,7 +9504,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -9551,7 +9551,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -9598,7 +9598,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -9656,7 +9656,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -9696,7 +9696,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -9744,7 +9744,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -9802,7 +9802,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -9860,7 +9860,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -9907,7 +9907,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -9951,7 +9951,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -9988,7 +9988,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -10025,7 +10025,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -10062,7 +10062,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -10099,7 +10099,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -10135,7 +10135,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -10194,7 +10194,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -10266,7 +10266,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -10333,7 +10333,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -10416,7 +10416,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -10509,7 +10509,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -10575,7 +10575,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -10621,7 +10621,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -10679,7 +10679,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -10727,7 +10727,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -10762,7 +10762,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -10798,7 +10798,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -10838,7 +10838,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -10891,7 +10891,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -10944,7 +10944,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -10978,7 +10978,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -11017,7 +11017,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -11068,7 +11068,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -11116,7 +11116,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -11194,7 +11194,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -11229,7 +11229,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -11275,7 +11275,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -11319,7 +11319,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -11381,7 +11381,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -11494,7 +11494,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -11536,7 +11536,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -11646,7 +11646,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -11704,7 +11704,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -11758,7 +11758,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -11805,7 +11805,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -11848,7 +11848,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -11884,7 +11884,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -11915,7 +11915,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -11954,7 +11954,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -12026,7 +12026,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -12094,7 +12094,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -12184,7 +12184,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -12220,7 +12220,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -12256,7 +12256,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -12308,7 +12308,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -12366,7 +12366,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -12418,7 +12418,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -12476,7 +12476,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -12537,7 +12537,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -12601,7 +12601,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -12657,7 +12657,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -12713,7 +12713,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -12748,7 +12748,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -12791,7 +12791,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -12825,7 +12825,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -12868,7 +12868,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -12905,7 +12905,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -12950,7 +12950,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -12988,7 +12988,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
+                "label": "Delete",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"

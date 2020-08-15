@@ -68,7 +68,7 @@ function newCircularMenuItem() {
     let selfMouseNotOverEventSubscriptionId
 
     let labelToPrint = ''
-    let defaultBackgroudColor = UI_COLOR.RED
+    let defaultBackgroudColor = UI_COLOR.BLACK
     let backgroundColorToUse = UI_COLOR.RED
     let temporaryStatus = 0
     let temporaryStatusCounter = 0

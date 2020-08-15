@@ -5,6 +5,7 @@ exports.newTradingEpisode = function newTradingEpisode(bot, logger, tradingEngin
     const MODULE_NAME = 'Trading Episode'
     let thisObject = {
         mantain: mantain,
+        reset: reset,
         openEpisode: openEpisode,
         updateExitType: updateExitType,
         closeEpisode: closeEpisode,
@@ -33,10 +34,14 @@ exports.newTradingEpisode = function newTradingEpisode(bot, logger, tradingEngin
     }
 
     function mantain() {
-        resetTradingEngineDataStructure()
         updateCounters()
         updateStatistics()
         updateEnds()
+        updateDistanceToEventsCounters()
+    }
+
+    function reset() {
+        resetTradingEngineDataStructure()
     }
 
     function openEpisode() {
@@ -132,12 +137,12 @@ exports.newTradingEpisode = function newTradingEpisode(bot, logger, tradingEngin
 
         tradingEngine.current.episode.episodeStatistics.ROI.value = global.PRECISE(tradingEngine.current.episode.episodeStatistics.ROI.value, 10)
 
-        /* Updating Anualized Rate Of Return */
-        tradingEngine.current.episode.episodeStatistics.anualizedRateOfReturn.value =
+        /* Updating Annualized Rate Of Return */
+        tradingEngine.current.episode.episodeStatistics.annualizedRateOfReturn.value =
             tradingEngine.current.episode.episodeStatistics.ROI.value /
             tradingEngine.current.episode.episodeStatistics.days.value * 365
 
-        tradingEngine.current.episode.episodeStatistics.anualizedRateOfReturn.value = global.PRECISE(tradingEngine.current.episode.episodeStatistics.anualizedRateOfReturn.value, 10)
+        tradingEngine.current.episode.episodeStatistics.annualizedRateOfReturn.value = global.PRECISE(tradingEngine.current.episode.episodeStatistics.annualizedRateOfReturn.value, 10)
 
         /* Updating Hit or Fail */
         if (tradingEngine.current.episode.episodeStatistics.profitLoss.value > 0) {
@@ -197,17 +202,17 @@ exports.newTradingEpisode = function newTradingEpisode(bot, logger, tradingEngin
         tradingEngine.current.episode.episodeBaseAsset.hitRatio.value = global.PRECISE(tradingEngine.current.episode.episodeBaseAsset.hitRatio.value, 10)
         tradingEngine.current.episode.episodeQuotedAsset.hitRatio.value = global.PRECISE(tradingEngine.current.episode.episodeQuotedAsset.hitRatio.value, 10)
 
-        /* Updating Anualized Rate Of Return */
-        tradingEngine.current.episode.episodeBaseAsset.anualizedRateOfReturn.value =
+        /* Updating Annualized Rate Of Return */
+        tradingEngine.current.episode.episodeBaseAsset.annualizedRateOfReturn.value =
             tradingEngine.current.episode.episodeBaseAsset.ROI.value /
             tradingEngine.current.episode.episodeStatistics.days.value * 365
 
-        tradingEngine.current.episode.episodeQuotedAsset.anualizedRateOfReturn.value =
+        tradingEngine.current.episode.episodeQuotedAsset.annualizedRateOfReturn.value =
             tradingEngine.current.episode.episodeQuotedAsset.ROI.value /
             tradingEngine.current.episode.episodeStatistics.days.value * 365
 
-        tradingEngine.current.episode.episodeBaseAsset.anualizedRateOfReturn.value = global.PRECISE(tradingEngine.current.episode.episodeBaseAsset.anualizedRateOfReturn.value, 10)
-        tradingEngine.current.episode.episodeQuotedAsset.anualizedRateOfReturn.value = global.PRECISE(tradingEngine.current.episode.episodeQuotedAsset.anualizedRateOfReturn.value, 10)
+        tradingEngine.current.episode.episodeBaseAsset.annualizedRateOfReturn.value = global.PRECISE(tradingEngine.current.episode.episodeBaseAsset.annualizedRateOfReturn.value, 10)
+        tradingEngine.current.episode.episodeQuotedAsset.annualizedRateOfReturn.value = global.PRECISE(tradingEngine.current.episode.episodeQuotedAsset.annualizedRateOfReturn.value, 10)
 
         /* Updating Hit or Fail */
         if (tradingEngine.current.episode.episodeBaseAsset.profitLoss.value > 0) {
@@ -219,6 +224,63 @@ exports.newTradingEpisode = function newTradingEpisode(bot, logger, tradingEngin
             tradingEngine.current.episode.episodeQuotedAsset.hitFail.value = 'Hit'
         } else {
             tradingEngine.current.episode.episodeQuotedAsset.hitFail.value = 'Fail'
+        }
+    }
+
+    function updateDistanceToEventsCounters() {
+        /* Keeping Distance Counters Up-to-date while avoinding counting before the first event happens. */
+        if (
+            tradingEngine.current.episode.distanceToEvent.triggerOn.value > 0
+        ) {
+            tradingEngine.current.episode.distanceToEvent.triggerOn.value++
+        }
+
+        if (
+            tradingEngine.current.episode.distanceToEvent.triggerOff.value > 0
+        ) {
+            tradingEngine.current.episode.distanceToEvent.triggerOff.value++
+        }
+
+        if (
+            tradingEngine.current.episode.distanceToEvent.takePosition.value > 0
+        ) {
+            tradingEngine.current.episode.distanceToEvent.takePosition.value++
+        }
+
+        if (
+            tradingEngine.current.episode.distanceToEvent.closePosition.value > 0
+        ) {
+            tradingEngine.current.episode.distanceToEvent.closePosition.value++
+        }
+
+        if (
+            tradingEngine.current.episode.distanceToEvent.nextPhase.value > 0
+        ) {
+            tradingEngine.current.episode.distanceToEvent.nextPhase.value++
+        }
+
+        if (
+            tradingEngine.current.episode.distanceToEvent.moveToPhase.value > 0
+        ) {
+            tradingEngine.current.episode.distanceToEvent.moveToPhase.value++
+        }
+
+        if (
+            tradingEngine.current.episode.distanceToEvent.createOrder.value > 0
+        ) {
+            tradingEngine.current.episode.distanceToEvent.createOrder.value++
+        }
+
+        if (
+            tradingEngine.current.episode.distanceToEvent.cancelOrder.value > 0
+        ) {
+            tradingEngine.current.episode.distanceToEvent.cancelOrder.value++
+        }
+
+        if (
+            tradingEngine.current.episode.distanceToEvent.closeOrder.value > 0
+        ) {
+            tradingEngine.current.episode.distanceToEvent.closeOrder.value++
         }
     }
 }

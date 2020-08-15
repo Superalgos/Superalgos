@@ -6,6 +6,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
     let thisObject = {
         mantain: mantain,
+        reset: reset,
         checkOrders: checkOrders,
         initialize: initialize,
         finalize: finalize
@@ -45,6 +46,14 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
     }
 
     function mantain() {
+        mantainReset(true, false)
+    }
+
+    function reset() {
+        mantainReset(false, true)
+    }
+
+    function mantainReset(mantain, reset) {
 
         if (tradingEngine.current.strategy.index.value === tradingEngine.current.strategy.index.config.initialValue) { return }
 
@@ -53,42 +62,46 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
         stageNode = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].openStage
         executionNode = stageNode.openExecution
-        mantainExecutionNode(executionNode, tradingEngine.current.strategyOpenStage.status.value)
+        processExecutionNode(executionNode, tradingEngine.current.strategyOpenStage.status.value)
 
         stageNode = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].closeStage
         executionNode = stageNode.closeExecution
-        mantainExecutionNode(executionNode, tradingEngine.current.strategyCloseStage.status.value)
+        processExecutionNode(executionNode, tradingEngine.current.strategyCloseStage.status.value)
 
-        function mantainExecutionNode(executionNode, stageStatus) {
+        function processExecutionNode(executionNode, stageStatus) {
 
-            mantainExecutionAlgorithms(executionNode)
+            preocessExecutionAlgorithms(executionNode)
 
-            function mantainExecutionAlgorithms(executionNode) {
+            function preocessExecutionAlgorithms(executionNode) {
                 for (let i = 0; i < executionNode.executionAlgorithms.length; i++) {
                     let executionAlgorithm = executionNode.executionAlgorithms[i]
-                    mantainOrders(executionAlgorithm.marketBuyOrders)
-                    mantainOrders(executionAlgorithm.marketSellOrders)
-                    mantainOrders(executionAlgorithm.limitBuyOrders)
-                    mantainOrders(executionAlgorithm.limitSellOrders)
+                    processOrders(executionAlgorithm.marketBuyOrders)
+                    processOrders(executionAlgorithm.marketSellOrders)
+                    processOrders(executionAlgorithm.limitBuyOrders)
+                    processOrders(executionAlgorithm.limitSellOrders)
                 }
             }
 
-            function mantainOrders(orders) {
+            function processOrders(orders) {
                 for (let i = 0; i < orders.length; i++) {
                     let tradingSystemOrder = orders[i]
-                    if (tradingSystemOrder.referenceParent === undefined) { continue }
+                    if (tradingSystemOrder.referenceParent === undefined) {
+                        badDefinitionUnhandledException(undefined, 'tradingSystemOrder.referenceParent === undefined', tradingSystemOrder)
+                    }
                     let tradingEngineOrder = tradingEngineModule.getNodeById(tradingSystemOrder.referenceParent.id)
-                    try {
-                        if (tradingEngineOrder.status === undefined) { continue }
-                    } catch (err) {
-                        console.log(err.stack)
+
+                    if (tradingEngineOrder.status === undefined) {
+                        badDefinitionUnhandledException(undefined, 'tradingEngineOrder.status === undefined', tradingEngineOrder)
                     }
 
-
-                    updateCounters(tradingEngineOrder)
-                    updateEnds(tradingEngineOrder)
-                    updateStatistics(tradingEngineOrder)
-                    resetTradingEngineDataStructure(tradingEngineOrder, tradingSystemOrder, stageStatus)
+                    if (mantain === true) {
+                        updateCounters(tradingEngineOrder)
+                        updateEnds(tradingEngineOrder)
+                        updateStatistics(tradingEngineOrder)
+                    }
+                    if (reset === true) {
+                        resetTradingEngineDataStructure(tradingEngineOrder, tradingSystemOrder, stageStatus)
+                    }
                 }
             }
         }
@@ -151,6 +164,8 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
                             /* Cancel the order at the Exchange, if needed. */
                             await exchangeCancelOrder(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, 'Cancel Event')
+
+                            updateEndsWithCycle(tradingEngineOrder)
                         }
                     }
                 }
@@ -216,8 +231,8 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
         /* Create Order Procedure */
         tradingEngineOrder.status.value = 'Open'
         tradingEngineOrder.identifier.value = global.UNIQUE_ID()
-        tradingEngineOrder.begin.value = tradingEngine.current.episode.candle.begin.value
-        tradingEngineOrder.end.value = tradingEngine.current.episode.candle.end.value
+        tradingEngineOrder.begin.value = tradingEngine.current.episode.cycle.begin.value
+        tradingEngineOrder.end.value = tradingEngine.current.episode.cycle.end.value
         tradingEngineOrder.serialNumber.value = tradingEngine.current.episode.episodeCounters.orders.value
         tradingEngineOrder.orderName.value = tradingSystemOrder.name
         tradingEngineOrder.algorithmName.value = executionAlgorithm.name
@@ -253,24 +268,42 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
             if (tradingSystemOrder.config.percentageOfAlgorithmSize === undefined) { badDefinitionUnhandledException(undefined, 'tradingSystemOrder.config.percentageOfAlgorithmSize === undefined', tradingSystemOrder) }
             if (isNaN(tradingSystemOrder.config.percentageOfAlgorithmSize) === true) { badDefinitionUnhandledException(undefined, 'isNaN(tradingSystemOrder.config.percentageOfAlgorithmSize) === true', tradingSystemOrder) }
 
-            /* Size in Base Asset */
-            tradingEngineOrder.orderBaseAsset.size.value = algorithmSizeInBaseAsset * tradingSystemOrder.config.percentageOfAlgorithmSize / 100
+            /*
+            The Size calculation depends on how the user defined the size of the position.
+            The user could have defined the size of the position in Base Asset or Quoted Asset.
+            */
+            switch (tradingEngineStage.stageDefinedIn.value) {
+                case 'Base Asset': {
+                    /* Size in Base Asset */
+                    tradingEngineOrder.orderBaseAsset.size.value = algorithmSizeInBaseAsset * tradingSystemOrder.config.percentageOfAlgorithmSize / 100
 
-            /* Size in Quoted Asset */
-            tradingEngineOrder.orderQuotedAsset.size.value = algorithmSizeInQuotedAsset * tradingSystemOrder.config.percentageOfAlgorithmSize / 100
+                    /* Check that the Size calculated would not surpass Stage Target Size */
+                    if (
+                        tradingEngineOrder.orderBaseAsset.size.value + tradingEngineStage.stageBaseAsset.sizePlaced.value >
+                        tradingEngineStage.stageBaseAsset.targetSize.value
+                    ) {
+                        tradingEngineOrder.orderBaseAsset.size.value = tradingEngineStage.stageBaseAsset.targetSize.value - tradingEngineStage.stageBaseAsset.sizePlaced.value
+                    }
 
-            /* Check that the Size calculated would not surpass Stage Target Size */
-            if (
-                tradingEngineOrder.orderBaseAsset.size.value + tradingEngineStage.stageBaseAsset.sizePlaced.value >
-                tradingEngineStage.stageBaseAsset.targetSize.value
-            ) {
-                tradingEngineOrder.orderBaseAsset.size.value = tradingEngineStage.stageBaseAsset.targetSize.value - tradingEngineStage.stageBaseAsset.sizePlaced.value
-            }
-            if (
-                tradingEngineOrder.orderQuotedAsset.size.value + tradingEngineStage.stageQuotedAsset.sizePlaced.value >
-                tradingEngineStage.stageQuotedAsset.targetSize.value
-            ) {
-                tradingEngineOrder.orderQuotedAsset.size.value = tradingEngineStage.stageQuotedAsset.targetSize.value - tradingEngineStage.stageQuotedAsset.sizePlaced.value
+                    /* Size in Quoted Asset */
+                    tradingEngineOrder.orderQuotedAsset.size.value = tradingEngineOrder.orderBaseAsset.size.value * tradingEngineOrder.rate.value
+                    break
+                }
+                case 'Quoted Asset': {
+                    /* Size in Quoted Asset */
+                    tradingEngineOrder.orderQuotedAsset.size.value = algorithmSizeInQuotedAsset * tradingSystemOrder.config.percentageOfAlgorithmSize / 100
+
+                    if (
+                        tradingEngineOrder.orderQuotedAsset.size.value + tradingEngineStage.stageQuotedAsset.sizePlaced.value >
+                        tradingEngineStage.stageQuotedAsset.targetSize.value
+                    ) {
+                        tradingEngineOrder.orderQuotedAsset.size.value = tradingEngineStage.stageQuotedAsset.targetSize.value - tradingEngineStage.stageQuotedAsset.sizePlaced.value
+                    }
+
+                    /* Size in Base Asset */
+                    tradingEngineOrder.orderBaseAsset.size.value = tradingEngineOrder.orderQuotedAsset.size.value / tradingEngineOrder.rate.value
+                    break
+                }
             }
 
             tradingEngineOrder.orderBaseAsset.size.value = global.PRECISE(tradingEngineOrder.orderBaseAsset.size.value, 10)
@@ -333,8 +366,8 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
         let previousQuotedAssetFeesPaid = tradingEngineOrder.orderQuotedAsset.feesPaid.value
 
         actualRateSimulation()
-        feesPaidSimulation()
         percentageFilledSimulation()
+        feesPaidSimulation()
         sizeFilledSimulation()
 
         doTheAccounting(
@@ -397,67 +430,6 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
             tradingEngineOrder.orderStatistics.actualRate.value = global.PRECISE(tradingEngineOrder.orderStatistics.actualRate.value, 10)
         }
 
-        function feesPaidSimulation() {
-            /* Fees Paid Simulation */
-            let calculatedBasedOnTradingSystem = false
-
-            /* Based on the Trading System Definition */
-            if (tradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid !== undefined) {
-                if (tradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid.config.percentage !== undefined) {
-                    if (tradingEngineOrder.orderBaseAsset.feesPaid.value === tradingEngineOrder.orderBaseAsset.feesPaid.config.initialValue) {
-
-                        tradingEngineOrder.orderBaseAsset.feesPaid.value =
-                            tradingEngineOrder.orderBaseAsset.size.value *
-                            tradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid.config.percentage / 100
-
-                        calculatedBasedOnTradingSystem = true
-                    }
-
-                    if (tradingEngineOrder.orderQuotedAsset.feesPaid.value === tradingEngineOrder.orderQuotedAsset.feesPaid.config.initialValue) {
-
-                        tradingEngineOrder.orderQuotedAsset.feesPaid.value =
-                            tradingEngineOrder.orderQuotedAsset.size.value *
-                            tradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid.config.percentage / 100
-
-                        calculatedBasedOnTradingSystem = true
-                    }
-                }
-            }
-
-            /* Based on the Session Parameters Definition */
-            if (calculatedBasedOnTradingSystem === false) {
-                /* Fees are simulated based on the Session Paremeters */
-                switch (tradingEngineOrder.type) {
-                    case 'Market Order': {
-
-                        tradingEngineOrder.orderBaseAsset.feesPaid.value =
-                            tradingEngineOrder.orderBaseAsset.size.value *
-                            bot.SESSION.parameters.feeStructure.config.taker / 100
-
-                        tradingEngineOrder.orderQuotedAsset.feesPaid.value =
-                            tradingEngineOrder.orderQuotedAsset.size.value *
-                            bot.SESSION.parameters.feeStructure.config.taker / 100
-
-                        break
-                    }
-                    case 'Limit Order': {
-
-                        tradingEngineOrder.orderBaseAsset.feesPaid.value =
-                            tradingEngineOrder.orderBaseAsset.size.value *
-                            bot.SESSION.parameters.feeStructure.config.maker / 100
-
-                        tradingEngineOrder.orderQuotedAsset.feesPaid.value =
-                            tradingEngineOrder.orderQuotedAsset.size.value *
-                            bot.SESSION.parameters.feeStructure.config.maker / 100
-
-                        break
-                    }
-                }
-            }
-            tradingEngineOrder.orderBaseAsset.feesPaid.value = global.PRECISE(tradingEngineOrder.orderBaseAsset.feesPaid.value, 10)
-            tradingEngineOrder.orderQuotedAsset.feesPaid.value = global.PRECISE(tradingEngineOrder.orderQuotedAsset.feesPaid.value, 10)
-        }
-
         function percentageFilledSimulation() {
             /* 
             Order Filling Simulation: the way we are going to handle this is the following. 
@@ -481,6 +453,14 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
                     }
                     break
                 }
+                case 'Market Buy Order': {
+                        orderWasHit = true
+                    break
+                }
+                case 'Market Sell Order': {
+                    orderWasHit = true
+                break
+            }
             }
             if (orderWasHit === true) {
                 if (tradingSystemOrder.simulatedExchangeEvents.simulatedPartialFill !== undefined) {
@@ -507,8 +487,84 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
                     /* Initialize this */
                     tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
+
+                    updateEndsWithCycle(tradingEngineOrder)
                 }
             }
+        }
+
+        function feesPaidSimulation() {
+            /*
+            The way the fess paid is calculated is as follows: From the order size we apply the % of fee,
+            that would give us the total fees for that order. To that we apply the % filled of the orders,
+            that give use the final result of the fees paid for the current % filled.
+            
+            But before that, we will see if there is an specific definition on how to simulate the fees for 
+            this order, or if there is not, we use the fees session parameters definitions.            
+            */
+            let calculatedBasedOnTradingSystem = false
+
+            /* Based on the Trading System Definition */
+            if (tradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid !== undefined) {
+                if (tradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid.config.percentage !== undefined) {
+                    if (tradingEngineOrder.orderBaseAsset.feesPaid.value === tradingEngineOrder.orderBaseAsset.feesPaid.config.initialValue) {
+
+                        tradingEngineOrder.orderBaseAsset.feesPaid.value =
+                            tradingEngineOrder.orderBaseAsset.size.value *
+                            tradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid.config.percentage / 100 *
+                            tradingEngineOrder.orderStatistics.percentageFilled.value / 100
+
+                        calculatedBasedOnTradingSystem = true
+                    }
+
+                    if (tradingEngineOrder.orderQuotedAsset.feesPaid.value === tradingEngineOrder.orderQuotedAsset.feesPaid.config.initialValue) {
+
+                        tradingEngineOrder.orderQuotedAsset.feesPaid.value =
+                            tradingEngineOrder.orderQuotedAsset.size.value *
+                            tradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid.config.percentage / 100 *
+                            tradingEngineOrder.orderStatistics.percentageFilled.value / 100
+
+                        calculatedBasedOnTradingSystem = true
+                    }
+                }
+            }
+
+            /* Based on the Session Parameters Definition */
+            if (calculatedBasedOnTradingSystem === false) {
+                /* Fees are simulated based on the Session Paremeters */
+                switch (tradingEngineOrder.type) {
+                    case 'Market Order': {
+
+                        tradingEngineOrder.orderBaseAsset.feesPaid.value =
+                            tradingEngineOrder.orderBaseAsset.size.value *
+                            bot.SESSION.parameters.feeStructure.config.taker / 100 *
+                            tradingEngineOrder.orderStatistics.percentageFilled.value / 100
+
+                        tradingEngineOrder.orderQuotedAsset.feesPaid.value =
+                            tradingEngineOrder.orderQuotedAsset.size.value *
+                            bot.SESSION.parameters.feeStructure.config.taker / 100 *
+                            tradingEngineOrder.orderStatistics.percentageFilled.value / 100
+
+                        break
+                    }
+                    case 'Limit Order': {
+
+                        tradingEngineOrder.orderBaseAsset.feesPaid.value =
+                            tradingEngineOrder.orderBaseAsset.size.value *
+                            bot.SESSION.parameters.feeStructure.config.maker / 100  *
+                            tradingEngineOrder.orderStatistics.percentageFilled.value / 100
+
+                        tradingEngineOrder.orderQuotedAsset.feesPaid.value =
+                            tradingEngineOrder.orderQuotedAsset.size.value *
+                            bot.SESSION.parameters.feeStructure.config.maker / 100 *
+                            tradingEngineOrder.orderStatistics.percentageFilled.value / 100
+
+                        break
+                    }
+                }
+            }
+            tradingEngineOrder.orderBaseAsset.feesPaid.value = global.PRECISE(tradingEngineOrder.orderBaseAsset.feesPaid.value, 10)
+            tradingEngineOrder.orderQuotedAsset.feesPaid.value = global.PRECISE(tradingEngineOrder.orderQuotedAsset.feesPaid.value, 10)
         }
 
         function sizeFilledSimulation() {
@@ -563,6 +619,8 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
             /* Initialize this */
             tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
+
+            updateEndsWithCycle(tradingEngineOrder)
         }
         if (order.remaining > 0 && order.status === AT_EXCHANGE_STATUS.CLOSED) {
 
@@ -572,6 +630,8 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
             /* Initialize this */
             tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
+
+            updateEndsWithCycle(tradingEngineOrder)
         }
         if (order.status === AT_EXCHANGE_STATUS.CANCELLED) {
 
@@ -581,6 +641,8 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
             /* Initialize this */
             tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
+
+            updateEndsWithCycle(tradingEngineOrder)
         }
 
         syncWithExchange(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order)
@@ -889,6 +951,10 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
         if (tradingEngineOrder.status.value === 'Open') {
             tradingEngineOrder.end.value = tradingEngine.current.episode.candle.end.value
         }
+    }
+
+    function updateEndsWithCycle(tradingEngineOrder) {
+        tradingEngineOrder.end.value = tradingEngine.current.episode.cycle.end.value
     }
 
     function updateCounters(tradingEngineOrder) {

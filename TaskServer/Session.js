@@ -160,6 +160,20 @@
                             finalDatetime: (new Date()).valueOf()
                         }
                     }
+                } else {
+                    /* Check that we received valid dates */
+                    if(isNaN(new Date(bot.SESSION.parameters.timeRange.config.initialDatetime)).valueOf()) {
+                        let errorMessage = "sessionParameters.timeRange.config.initialDatetime is not a valid date."
+                        parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
+                        bot.sessionError(bot.SESSION.parameters, errorMessage)
+                        return false
+                    }
+                    if(isNaN(new Date(bot.SESSION.parameters.timeRange.config.finalDatetime)).valueOf()) {
+                        let errorMessage = "sessionParameters.timeRange.config.initialDatetime is not a valid date."
+                        parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
+                        bot.sessionError(bot.SESSION.parameters, errorMessage)
+                        return false
+                    }
                 }
 
                 /* Session Type Forced Values */

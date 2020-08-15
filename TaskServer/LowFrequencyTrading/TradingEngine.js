@@ -6,9 +6,11 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
     const MODULE_NAME = 'Trading Engine'
     let thisObject = {
         mantain: mantain,
+        reset: reset,
         getNodeById: getNodeById,
         cloneValues: cloneValues,
         setCurrentCandle: setCurrentCandle,
+        setCurrentCycle: setCurrentCycle,
         initializeNode: initializeNode,
         initialize: initialize,
         finalize: finalize
@@ -43,7 +45,10 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
     }
 
     function mantain() {
-        updateDistanceToEventsCounters()
+    }
+
+    function reset() {
+
     }
 
     function getNodeById(NodeId) {
@@ -57,6 +62,32 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
         tradingEngine.current.episode.candle.close.value = candle.close
         tradingEngine.current.episode.candle.min.value = candle.min
         tradingEngine.current.episode.candle.max.value = candle.max
+    }
+
+    function setCurrentCycle(cycle) {
+        switch (cycle) {
+            case 'First': {
+                tradingEngine.current.episode.cycle.begin.value =
+                    tradingEngine.current.episode.candle.begin.value +
+                    sessionParameters.timeFrame.config.value
+                tradingEngine.current.episode.cycle.end.value =
+                    tradingEngine.current.episode.candle.begin.value +
+                    sessionParameters.timeFrame.config.value +
+                    sessionParameters.timeFrame.config.value / 2 - 1
+                break
+            }
+            case 'Second': {
+                tradingEngine.current.episode.cycle.begin.value =
+                    tradingEngine.current.episode.candle.begin.value +
+                    sessionParameters.timeFrame.config.value +
+                    sessionParameters.timeFrame.config.value / 2
+                tradingEngine.current.episode.cycle.end.value =
+                    tradingEngine.current.episode.candle.begin.value +
+                    sessionParameters.timeFrame.config.value +
+                    sessionParameters.timeFrame.config.value * 4 / 4 - 1
+                break
+            }
+        }
     }
 
     function cloneValues(originNode, destinationNode) {
@@ -180,63 +211,5 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
             }
         }
     }
-
-    function updateDistanceToEventsCounters() {
-        /* Keeping Distance Counters Up-to-date while avoinding counting before the first event happens. */
-        if (
-            tradingEngine.current.episode.distanceToEvent.triggerOn.value > 0
-        ) {
-            tradingEngine.current.episode.distanceToEvent.triggerOn.value++
-        }
-
-        if (
-            tradingEngine.current.episode.distanceToEvent.triggerOff.value > 0
-        ) {
-            tradingEngine.current.episode.distanceToEvent.triggerOff.value++
-        }
-
-        if (
-            tradingEngine.current.episode.distanceToEvent.takePosition.value > 0
-        ) {
-            tradingEngine.current.episode.distanceToEvent.takePosition.value++
-        }
-
-        if (
-            tradingEngine.current.episode.distanceToEvent.closePosition.value > 0
-        ) {
-            tradingEngine.current.episode.distanceToEvent.closePosition.value++
-        }
-
-        if (
-            tradingEngine.current.episode.distanceToEvent.nextPhase.value > 0
-        ) {
-            tradingEngine.current.episode.distanceToEvent.nextPhase.value++
-        }
-
-        if (
-            tradingEngine.current.episode.distanceToEvent.moveToPhase.value > 0
-        ) {
-            tradingEngine.current.episode.distanceToEvent.moveToPhase.value++
-        }
-
-        if (
-            tradingEngine.current.episode.distanceToEvent.createOrder.value > 0
-        ) {
-            tradingEngine.current.episode.distanceToEvent.createOrder.value++
-        }
-
-        if (
-            tradingEngine.current.episode.distanceToEvent.cancelOrder.value > 0
-        ) {
-            tradingEngine.current.episode.distanceToEvent.cancelOrder.value++
-        }
-
-        if (
-            tradingEngine.current.episode.distanceToEvent.closeOrder.value > 0
-        ) {
-            tradingEngine.current.episode.distanceToEvent.closeOrder.value++
-        }
-    }
-
 }
 

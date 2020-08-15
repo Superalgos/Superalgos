@@ -5,6 +5,7 @@ exports.newTradingStrategy = function newTradingStrategy(bot, logger, tradingEng
     const MODULE_NAME = 'Trading Strategy'
     let thisObject = {
         mantain: mantain,
+        reset: reset,
         openStrategy: openStrategy,
         closeStrategy: closeStrategy,
         initialize: initialize,
@@ -24,16 +25,19 @@ exports.newTradingStrategy = function newTradingStrategy(bot, logger, tradingEng
     }
 
     function mantain() {
-        resetTradingEngineDataStructure()
         updateCounters()
         updateEnds()
+    }
+
+    function reset() {
+        resetTradingEngineDataStructure()
     }
 
     function openStrategy(index, situationName, strategyName) {
         tradingEngine.current.strategy.status.value = 'Open'
         tradingEngine.current.strategy.serialNumber.value = tradingEngine.current.episode.episodeCounters.strategies.value
         tradingEngine.current.strategy.identifier.value = global.UNIQUE_ID()
-        tradingEngine.current.strategy.begin.value = tradingEngine.current.episode.candle.begin.value
+        tradingEngine.current.strategy.begin.value = tradingEngine.current.episode.candle.end.value
         tradingEngine.current.strategy.end.value = tradingEngine.current.episode.candle.end.value
         tradingEngine.current.strategy.beginRate.value = tradingEngine.current.episode.candle.min.value
 

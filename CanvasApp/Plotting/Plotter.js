@@ -94,6 +94,7 @@ function newPlotter() {
 
     function initialize(pStorage, pDatetime, pTimeFrame, pCoordinateSystem, callBackFunction, pProductDefinition) {
         try {
+
             /* Store the information received. */
             marketFiles = pStorage.marketFiles[0]
             dailyFiles = pStorage.dailyFiles[0]
@@ -300,10 +301,8 @@ function newPlotter() {
                 jsonifiedArray.push(record)
                 previous = record
 
-                if (record.begin === undefined || record.end === undefined) { console.log('Could not find the property begin or end which are needed for the plotter to work.') }
-                if (datetime.valueOf() >= record.begin && datetime.valueOf() <= record.end) {
-                    thisObject.currentRecord = record
-                    thisObject.container.eventHandler.raiseEvent('Current Record Changed', thisObject.currentRecord)
+                if (record.begin === undefined || record.end === undefined) {
+                    console.log('Could not find the property begin or end which are needed for the plotter to work. productDefinition.config.codeName = ' + productDefinition.config.codeName)
                 }
             }
         }
@@ -425,15 +424,6 @@ function newPlotter() {
                 currentDate = new Date(currentDate.valueOf() + ONE_DAY_IN_MILISECONDS)
             }
 
-            /* Lests check if all the visible screen is going to be covered by candle-record. */
-            let lowerEnd = leftDate.valueOf()
-            let upperEnd = rightDate.valueOf()
-
-            if (records.length > 0) {
-                if (records[0].begin > lowerEnd || records[records.length - 1].end < upperEnd) {
-                    setTimeout(recalculate, 2000)
-                }
-            }
         } catch (err) {
             if (ERROR_LOG === true) { logger.write('[ERROR] recalculateUsingDailyFiles -> err = ' + err.stack) }
         }
@@ -899,7 +889,9 @@ function newPlotter() {
     }
 
     function onDragFinished() {
-        recalculate()
+        if (canvas.chartingSpace.visible === true) {
+            recalculate()
+        }
     }
 
     function onDisplace(event) {

@@ -442,7 +442,7 @@ function newFileCursor() {
           if (beginDateRange !== undefined) {
             let compareBeginDate = removeTime(beginDateRange)
 
-            if (compareTargetDate.valueOf() < compareBeginDate) {
+            if (compareTargetDate.valueOf() < compareBeginDate.valueOf()) {
               controlLoop()
               return
             }
@@ -451,7 +451,7 @@ function newFileCursor() {
           if (endDateRange !== undefined) {
             let compareEndDate = removeTime(endDateRange)
 
-            if (compareTargetDate.valueOf() > compareEndDate) {
+            if (compareTargetDate.valueOf() >= compareEndDate.valueOf()) {
               controlLoop()
               return
             }

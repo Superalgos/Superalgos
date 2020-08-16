@@ -103,10 +103,10 @@ function newFileCloud () {
 
           if (pSession !== undefined) {
             let config
-            let sessionFolderName = pSession.id
+            let sessionFolderName = pSession.type.replace(' ', '-').replace(' ', '-') + '-' + pSession.id    
             if (pSession.config !== undefined) {
               if (pSession.config.folderName !== undefined) {
-                sessionFolderName = pSession.config.folderName + '-' + pSession.id
+                sessionFolderName = pSession.type.replace(' ', '-').replace(' ', '-') + '-' + pSession.config.folderName
               }
             }
             filePath = filePath.replace('@Session', sessionFolderName)

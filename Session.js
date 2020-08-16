@@ -22,9 +22,9 @@
 
             /* Set the folderName for early logging */
             if (bot.processNode.session.config.folderName === undefined) {
-                bot.SESSION.folderName = bot.SESSION.id
+                bot.SESSION.folderName = bot.processNode.session.type.replace(' ', '-').replace(' ', '-') + '-' + bot.SESSION.id
             } else {
-                bot.SESSION.folderName = bot.processNode.session.config.folderName + "-" + bot.SESSION.id
+                bot.SESSION.folderName = bot.processNode.session.type.replace(' ', '-').replace(' ', '-') + '-' + bot.processNode.session.config.folderName
             }
 
             /* Check if there is a session */
@@ -125,14 +125,18 @@
             }
 
             function setUpSessionFolderName() {
-                /* Set the folderName for logging, reports, context and data output */
+                /* 
+                The session object is overwritten when the session is run. For that reason we 
+                need to setup again the folder name at the Session level.
+                Set the folderName for logging, reports, context and data output 
+                */
                 let config
                 if (bot.SESSION.config !== undefined) {
                     config = bot.SESSION.config
                     if (config.folderName === undefined) {
-                        bot.SESSION.folderName = bot.SESSION.id
+                        bot.SESSION.folderName = bot.processNode.session.type.replace(' ', '-').replace(' ', '-') + '-' + bot.SESSION.id
                     } else {
-                        bot.SESSION.folderName = config.folderName + "-" + bot.SESSION.id
+                        bot.SESSION.folderName = bot.processNode.session.type.replace(' ', '-').replace(' ', '-') + '-' + bot.processNode.session.config.folderName                   
                     }
                 }
             }
@@ -162,11 +166,13 @@
                     }
                 } else {
                     /* Check that we received valid dates */
-                    if(isNaN(new Date(bot.SESSION.parameters.timeRange.config.initialDatetime)).valueOf()) {
-                        let errorMessage = "sessionParameters.timeRange.config.initialDatetime is not a valid date."
-                        parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
-                        bot.sessionError(bot.SESSION.parameters, errorMessage)
-                        return false
+                    if (bot.SESSION.type === 'Backtesting Session') {
+                        if(isNaN(new Date(bot.SESSION.parameters.timeRange.config.initialDatetime)).valueOf()) {
+                            let errorMessage = "sessionParameters.timeRange.config.initialDatetime is not a valid date."
+                            parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
+                            bot.sessionError(bot.SESSION.parameters, errorMessage)
+                            return false
+                        }
                     }
                     if(isNaN(new Date(bot.SESSION.parameters.timeRange.config.finalDatetime)).valueOf()) {
                         let errorMessage = "sessionParameters.timeRange.config.initialDatetime is not a valid date."

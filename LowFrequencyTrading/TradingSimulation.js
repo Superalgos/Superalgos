@@ -119,18 +119,23 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     firstLoopExecution = false
                 }
 
+                if (checkInitialDatetime() === false) {
+                    controlLoop()
+                    return
+                }
+
+                if (checkFinalDatetime() === false) {
+                    closeEpisode('Final Datetime Reached')
+                    return
+                }
+
                 if (checkLastCandle() === false) {
-                    closeEpisode('Last Candle Reached')
+                    controlLoop()
                     return
                 }
 
                 if (checkMinimunAndMaximunBalance() === false) {
                     closeEpisode('Min or Max Balance Reached')
-                    return
-                }
-
-                if (checkInitialAndFinalDatetime() === false) {
-                    controlLoop()
                     return
                 }
 
@@ -211,7 +216,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     */
                     setImmediate(loop)
                 } else {
-                    updateEpisode('All Candles Processed')
+                    updateEpisode('All Available Candles Processed')
                 }
             }
 
@@ -398,12 +403,17 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 return true
             }
 
-            function checkInitialAndFinalDatetime() {
-                /* Here we check that the current candle is not outside of user-defined time range at the session parameters.*/
+            function checkInitialDatetime() {
+                /* Here we check that the current candle is not before the initial datetime defined at the session parameters.*/
                 if (tradingEngine.current.episode.candle.end.value < sessionParameters.timeRange.config.initialDatetime) {
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> checkInitialAndFinalDatetime -> Skipping Candle before the sessionParameters.timeRange.config.initialDatetime.') }
                     return false
                 }
+                return true
+            }
+
+            function checkFinalDatetime() {
+                /* Here we check that the current candle is not after of the user-defined final datetime at the session parameters.*/
                 if (tradingEngine.current.episode.candle.begin.value > sessionParameters.timeRange.config.finalDatetime) {
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> checkInitialAndFinalDatetime -> Skipping Candle after the sessionParameters.timeRange.config.finalDatetime.') }
                     return false

@@ -4,7 +4,7 @@ const path = require('path')
 exports.newFileStorage = function newFileStorage(logger, host, port) {
 
     const MODULE_NAME = 'FileStorage'
-    const MAX_RETRY = 30
+    const MAX_RETRY = 10
     const FAST_RETRY_TIME_IN_MILISECONDS = 500
     const SLOW_RETRY_TIME_IN_MILISECONDS = 2000
 
@@ -160,7 +160,7 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
             }
 
             function retry() {
-                console.log(new Date(), ' Retry #: ' + currentRetryGetTextFile, fileLocation)
+                console.log(new Date(), 'Read File Retry #: ' + currentRetryGetTextFile, fileLocation)
                 if (currentRetryGetTextFile < MAX_RETRY) {
                     currentRetryGetTextFile++
                     logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> retry -> Will try to read the file again -> Retry #: ' + currentRetryGetTextFile)

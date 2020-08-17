@@ -131,6 +131,9 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
 
             /* Run the Close Stage */
             await tradingStagesModule.runCloseStage()
+
+            tradingStagesModule.calculateStatistics()
+
         } catch (err) {
             /* 
             If an error ocurred during execution, it was alreeady logged and

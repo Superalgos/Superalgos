@@ -6,6 +6,7 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
     let thisObject = {
         mantain: mantain,
         reset: reset,
+        calculateStatistics: calculateStatistics, 
         openPosition: openPosition,
         closingPosition: closingPosition,
         closePosition: closePosition,
@@ -87,9 +88,6 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
         tradingEngine.current.position.positionBaseAsset.endBalance.value = tradingEngine.current.episode.episodeBaseAsset.balance.value
         tradingEngine.current.position.positionQuotedAsset.endBalance.value = tradingEngine.current.episode.episodeQuotedAsset.balance.value
 
-        /* Position Statistics & Results */
-        updateStatistics()
-        updateResults()
         /*
         Now that the position is closed, it is the right time to move this position from current to last at the Trading Engine data structure.
         */
@@ -258,82 +256,86 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
         }
     }
 
-    function updateStatistics() {
+    function calculateStatistics() { 
+        calculatePositionStatistics()
+        calculateAssetsStatistics()
 
-        /* Profit Loss Calculation */
-        tradingEngine.current.position.positionStatistics.profitLoss.value =
-            (
-                tradingEngine.current.episode.episodeBaseAsset.balance.value * tradingEngine.current.position.endRate.value +
-                tradingEngine.current.episode.episodeQuotedAsset.balance.value
-            ) -
-            (
-                tradingEngine.current.position.positionBaseAsset.beginBalance * tradingEngine.current.position.beginRate.value +
-                tradingEngine.current.position.positionQuotedAsset.beginBalance
-            )
-        tradingEngine.current.position.positionStatistics.profitLoss.value = global.PRECISE(tradingEngine.current.position.positionStatistics.profitLoss.value, 10)
-
-        /* ROI Calculation */
-        tradingEngine.current.position.positionStatistics.ROI.value =
-            (
-                tradingEngine.current.position.positionStatistics.profitLoss.value
-            )
-            * 100 /
-            (
-                tradingEngine.current.position.positionBaseAsset.beginBalance * tradingEngine.current.position.beginRate.value +
-                tradingEngine.current.position.positionQuotedAsset.beginBalance
-            )
-        tradingEngine.current.position.positionStatistics.ROI.value = global.PRECISE(tradingEngine.current.position.positionStatistics.ROI.value, 10)
-
-        /* Hit Fail Calculation */
-        if (tradingEngine.current.position.positionStatistics.ROI.value > 0) {
-            tradingEngine.current.position.positionStatistics.hitFail.value = 'Hit'
-        } else {
-            tradingEngine.current.position.positionStatistics.hitFail.value = 'Fail'
+        function calculatePositionStatistics() {
+            /* Profit Loss Calculation */
+            tradingEngine.current.position.positionStatistics.profitLoss.value =
+                (
+                    tradingEngine.current.episode.episodeBaseAsset.balance.value * tradingEngine.current.position.endRate.value +
+                    tradingEngine.current.episode.episodeQuotedAsset.balance.value
+                ) -
+                (
+                    tradingEngine.current.position.positionBaseAsset.beginBalance * tradingEngine.current.position.beginRate.value +
+                    tradingEngine.current.position.positionQuotedAsset.beginBalance
+                )
+            tradingEngine.current.position.positionStatistics.profitLoss.value = global.PRECISE(tradingEngine.current.position.positionStatistics.profitLoss.value, 10)
+    
+            /* ROI Calculation */
+            tradingEngine.current.position.positionStatistics.ROI.value =
+                (
+                    tradingEngine.current.position.positionStatistics.profitLoss.value
+                )
+                * 100 /
+                (
+                    tradingEngine.current.position.positionBaseAsset.beginBalance * tradingEngine.current.position.beginRate.value +
+                    tradingEngine.current.position.positionQuotedAsset.beginBalance
+                )
+            tradingEngine.current.position.positionStatistics.ROI.value = global.PRECISE(tradingEngine.current.position.positionStatistics.ROI.value, 10)
+    
+            /* Hit Fail Calculation */
+            if (tradingEngine.current.position.positionStatistics.ROI.value > 0) {
+                tradingEngine.current.position.positionStatistics.hitFail.value = 'Hit'
+            } else {
+                tradingEngine.current.position.positionStatistics.hitFail.value = 'Fail'
+            }
+    
+            /* Days Calculation */
+            tradingEngine.current.position.positionStatistics.days.value =
+                tradingEngine.current.position.positionCounters.periods.value *
+                sessionParameters.timeFrame.config.value / global.ONE_DAY_IN_MILISECONDS
+    
+            tradingEngine.current.position.positionStatistics.days.value = global.PRECISE(tradingEngine.current.position.positionStatistics.days.value, 10)
         }
-
-        /* Days Calculation */
-        tradingEngine.current.position.positionStatistics.days.value =
-            tradingEngine.current.position.positionCounters.periods.value *
-            sessionParameters.timeFrame.config.value / global.ONE_DAY_IN_MILISECONDS
-
-        tradingEngine.current.position.positionStatistics.days.value = global.PRECISE(tradingEngine.current.position.positionStatistics.days.value, 10)
-    }
-
-    function updateResults() {
-        /* Profit Loss Calculation */
-        tradingEngine.current.position.positionBaseAsset.profitLoss.value =
-            tradingEngine.current.episode.episodeBaseAsset.balance.value -
-            tradingEngine.current.position.positionBaseAsset.beginBalance
-
-        tradingEngine.current.position.positionQuotedAsset.profitLoss.value =
-            tradingEngine.current.episode.episodeQuotedAsset.balance.value -
-            tradingEngine.current.position.positionQuotedAsset.beginBalance
-
-        tradingEngine.current.position.positionBaseAsset.profitLoss.value = global.PRECISE(tradingEngine.current.position.positionBaseAsset.profitLoss.value, 10)
-        tradingEngine.current.position.positionQuotedAsset.profitLoss.value = global.PRECISE(tradingEngine.current.position.positionQuotedAsset.profitLoss.value, 10)
-
-        /* ROI Calculation */
-        tradingEngine.current.position.positionBaseAsset.ROI.value =
-            tradingEngine.current.position.positionBaseAsset.profitLoss.value * 100 /
-            tradingEngine.current.position.positionBaseAsset.entryTargetSize.value
-
-        tradingEngine.current.position.positionQuotedAsset.ROI.value =
-            tradingEngine.current.position.positionQuotedAsset.profitLoss.value * 100 /
-            tradingEngine.current.position.positionQuotedAsset.entryTargetSize.value
-
-        tradingEngine.current.position.positionBaseAsset.ROI.value = global.PRECISE(tradingEngine.current.position.positionBaseAsset.ROI.value, 10)
-        tradingEngine.current.position.positionQuotedAsset.ROI.value = global.PRECISE(tradingEngine.current.position.positionQuotedAsset.ROI.value, 10)
-
-        /* Hit Fail Calculation */
-        if (tradingEngine.current.position.positionBaseAsset.ROI.value > 0) {
-            tradingEngine.current.position.positionBaseAsset.hitFail.value = 'Hit'
-        } else {
-            tradingEngine.current.position.positionBaseAsset.hitFail.value = 'Fail'
-        }
-        if (tradingEngine.current.position.positionQuotedAsset.ROI.value > 0) {
-            tradingEngine.current.position.positionQuotedAsset.hitFail.value = 'Hit'
-        } else {
-            tradingEngine.current.position.positionQuotedAsset.hitFail.value = 'Fail'
+    
+        function calculateAssetsStatistics() {
+            /* Profit Loss Calculation */
+            tradingEngine.current.position.positionBaseAsset.profitLoss.value =
+                tradingEngine.current.episode.episodeBaseAsset.balance.value -
+                tradingEngine.current.position.positionBaseAsset.beginBalance
+    
+            tradingEngine.current.position.positionQuotedAsset.profitLoss.value =
+                tradingEngine.current.episode.episodeQuotedAsset.balance.value -
+                tradingEngine.current.position.positionQuotedAsset.beginBalance
+    
+            tradingEngine.current.position.positionBaseAsset.profitLoss.value = global.PRECISE(tradingEngine.current.position.positionBaseAsset.profitLoss.value, 10)
+            tradingEngine.current.position.positionQuotedAsset.profitLoss.value = global.PRECISE(tradingEngine.current.position.positionQuotedAsset.profitLoss.value, 10)
+    
+            /* ROI Calculation */
+            tradingEngine.current.position.positionBaseAsset.ROI.value =
+                tradingEngine.current.position.positionBaseAsset.profitLoss.value * 100 /
+                tradingEngine.current.position.positionBaseAsset.entryTargetSize.value
+    
+            tradingEngine.current.position.positionQuotedAsset.ROI.value =
+                tradingEngine.current.position.positionQuotedAsset.profitLoss.value * 100 /
+                tradingEngine.current.position.positionQuotedAsset.entryTargetSize.value
+    
+            tradingEngine.current.position.positionBaseAsset.ROI.value = global.PRECISE(tradingEngine.current.position.positionBaseAsset.ROI.value, 10)
+            tradingEngine.current.position.positionQuotedAsset.ROI.value = global.PRECISE(tradingEngine.current.position.positionQuotedAsset.ROI.value, 10)
+    
+            /* Hit Fail Calculation */
+            if (tradingEngine.current.position.positionBaseAsset.ROI.value > 0) {
+                tradingEngine.current.position.positionBaseAsset.hitFail.value = 'Hit'
+            } else {
+                tradingEngine.current.position.positionBaseAsset.hitFail.value = 'Fail'
+            }
+            if (tradingEngine.current.position.positionQuotedAsset.ROI.value > 0) {
+                tradingEngine.current.position.positionQuotedAsset.hitFail.value = 'Hit'
+            } else {
+                tradingEngine.current.position.positionQuotedAsset.hitFail.value = 'Fail'
+            }
         }
     }
 

@@ -352,7 +352,6 @@
         filePath += '/' + fileName
         let fileContent = JSON.stringify(thisObject.file);
 
-        fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated, true);
         let response = await fileStorage.asyncCreateTextFile(filePath, fileContent + '\n', true)
 
         if (response.err.result !== global.DEFAULT_OK_RESPONSE.result) {
@@ -361,6 +360,6 @@
 
         /* All good, lets emit the event that means data has been updated. */
         let processOutput = PROCESS_OUTPUT.newProcessOutput(bot, logger)
-        processOutput.raiseEvents(thisObject.file.lastFile, thisObject.file.timeFrames, callBackFunction);
+        processOutput.asyncRaiseEvents(thisObject.file.lastFile, thisObject.file.timeFrames)
     }
 }

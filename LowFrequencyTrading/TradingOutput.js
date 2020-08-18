@@ -3,7 +3,6 @@ exports.newTradingOutput = function newTradingOutput(bot, logger, UTILITIES, FIL
     This module will load if necesary all the data outputs so that they can be appended with new
     records if needed. After running the simulation, it will save all the data outputs.
     */
-    const FULL_LOG = true
     const MODULE_NAME = 'Trading Bot'
 
     let thisObject = {
@@ -24,21 +23,13 @@ exports.newTradingOutput = function newTradingOutput(bot, logger, UTILITIES, FIL
         commons = undefined
     }
 
-    function initialize(callBackFunction) {
-        try {
-            logger.fileName = MODULE_NAME
-            logger.initialize()
+    function initialize() {
 
-            callBackFunction(global.DEFAULT_OK_RESPONSE)
-        } catch (err) {
-            logger.write(MODULE_NAME, '[ERROR] initialize -> err = ' + err.stack)
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE)
-        }
     }
 
-    function start(chart, timeFrame, timeFrameLabel, currentDay, callBackFunction) {
+    async function start(chart, timeFrame, timeFrameLabel, currentDay) {
         try {
-            bot.processingDailyFiles
+
             if (timeFrame > global.dailyFilePeriods[0][0]) {
                 bot.processingDailyFiles = false
             } else {
@@ -51,10 +42,6 @@ exports.newTradingOutput = function newTradingOutput(bot, logger, UTILITIES, FIL
 
             let outputDatasets = bot.processNode.referenceParent.processOutput.outputDatasets
             let market = bot.market
-            let totalFilesToBeRead = 0
-            let totalFilesRead = 0
-            let totalFilesToBeWritten = 0
-            let totalFilesWritten = 0
             let outputDatasetsMap = new Map()
 
             if (bot.FIRST_EXECUTION === true && bot.RESUME === false) {
@@ -63,21 +50,27 @@ exports.newTradingOutput = function newTradingOutput(bot, logger, UTILITIES, FIL
                 */
                 bot.simulationState.tradingEngine = bot.TRADING_ENGINE
                 bot.simulationState.tradingSystem = bot.TRADING_SYSTEM
-                initializeOutputs()
+                await initializeOutputs()
             } else {
-                readFiles()
+                await readFiles()
             }
+            
+            await tradingSimulation.runSimulation(
+                chart,
+                outputDatasetsMap,
+                writeFiles
+            )
             return
 
-            function initializeOutputs() {
+            async function initializeOutputs() {
                 if (bot.processingDailyFiles) {
-                    initializeDailyFiles()
+                    await initializeDailyFiles()
                 } else {
-                    initializeMarketFiles()
+                    await initializeMarketFiles()
                 }
             }
 
-            function initializeDailyFiles() {
+            async function initializeDailyFiles() {
                 for (let i = 0; i < outputDatasets.length; i++) {
                     let outputDatasetNode = outputDatasets[i]
                     let dataset = outputDatasetNode.referenceParent
@@ -86,10 +79,9 @@ exports.newTradingOutput = function newTradingOutput(bot, logger, UTILITIES, FIL
                         outputDatasetsMap.set(dataset.parentNode.config.codeName, [])
                     }
                 }
-                runSimulation()
             }
 
-            function initializeMarketFiles() {
+            async function initializeMarketFiles() {
                 for (let i = 0; i < outputDatasets.length; i++) {
                     let outputDatasetNode = outputDatasets[i]
                     let dataset = outputDatasetNode.referenceParent
@@ -98,23 +90,22 @@ exports.newTradingOutput = function newTradingOutput(bot, logger, UTILITIES, FIL
                         outputDatasetsMap.set(dataset.parentNode.config.codeName, [])
                     }
                 }
-                runSimulation()
             }
 
-            function readFiles() {
+            async function readFiles() {
                 /* 
                 This bot have an output of files that it generates. At every call to the bot, it needs to read the previously generated
                 files in order to later append more information after the execution is over. Here in this function we are going to
                 read those output files and get them ready for appending content during the simulation.
                 */
                 if (bot.processingDailyFiles) {
-                    readDailyFiles()
+                    await readDailyFiles()
                 } else {
-                    readMarketFiles()
+                    await readMarketFiles()
                 }
             }
 
-            function readMarketFiles() {
+            async function readMarketFiles() {
                 for (let i = 0; i < outputDatasets.length; i++) {
                     let outputDatasetNode = outputDatasets[i]
                     let dataset = outputDatasetNode.referenceParent
@@ -124,12 +115,12 @@ exports.newTradingOutput = function newTradingOutput(bot, logger, UTILITIES, FIL
                         let fileName = 'Data.json'
                         let filePath = bot.filePathRoot + '/Output/' + bot.SESSION.folderName + '/' + dataset.parentNode.config.codeName + '/' + dataset.config.codeName + '/' + timeFrameLabel
 
-                        readOutputFile(fileName, filePath, dataset.parentNode.config.codeName)
+                        await readOutputFile(fileName, filePath, dataset.parentNode.config.codeName)
                     }
                 }
             }
 
-            function readDailyFiles() {
+            async function readDailyFiles() {
                 for (let i = 0; i < outputDatasets.length; i++) {
                     let outputDatasetNode = outputDatasets[i]
                     let dataset = outputDatasetNode.referenceParent
@@ -140,70 +131,38 @@ exports.newTradingOutput = function newTradingOutput(bot, logger, UTILITIES, FIL
                         let fileName = 'Data.json'
                         let filePath = bot.filePathRoot + '/Output/' + bot.SESSION.folderName + '/' + dataset.parentNode.config.codeName + '/' + dataset.config.codeName + '/' + timeFrameLabel + "/" + dateForPath
 
-                        readOutputFile(fileName, filePath, dataset.parentNode.config.codeName)
+                        await readOutputFile(fileName, filePath, dataset.parentNode.config.codeName)
                     }
                 }
             }
 
-            function readOutputFile(fileName, filePath, productName) {
-                totalFilesToBeRead++
+            async function readOutputFile(fileName, filePath, productName) {
                 filePath += '/' + fileName
-                fileStorage.getTextFile(filePath, onFileRead, true)
 
-                function onFileRead(err, text) {
-                    try {
+                let response = await fileStorage.asyncGetTextFile(filePath, true)
 
-                        if (err.message === 'File does not exist.') {
-                            outputDatasetsMap.set(productName, [])
-                            anotherFileRead()
-                            return
-                        }
-
-                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                            logger.write(MODULE_NAME, '[ERROR] start -> readMarketFiles -> readOutputFile -> onFileRead -> err = ' + err.stack)
-                            logger.write(MODULE_NAME, '[ERROR] start -> readMarketFiles -> readOutputFile -> onFileRead -> filePath = ' + filePath)
-                            logger.write(MODULE_NAME, '[ERROR] start -> readMarketFiles -> readOutputFile -> onFileRead -> market = ' + market.baseAsset + '_' + market.quotedAsset)
-
-                            callBackFunction(err)
-                            return
-                        }
-
-                        outputDatasetsMap.set(productName, JSON.parse(text))
-                        anotherFileRead()
-                    } catch (err) {
-                        logger.write(MODULE_NAME, '[ERROR] start -> readMarketFiles -> readOutputFile -> onFileRead -> err = ' + err.stack)
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE)
-                    }
+                if (response.err.message === 'File does not exist.') {
+                    outputDatasetsMap.set(productName, [])
+                    return
                 }
-            }
-
-            function anotherFileRead() {
-                totalFilesRead++
-                if (totalFilesRead === totalFilesToBeRead) {
-                    runSimulation()
+                if (response.err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                    throw(response.err)
                 }
+                outputDatasetsMap.set(productName, JSON.parse(text))          
             }
 
-            function runSimulation() {
-                tradingSimulation.runSimulation(
-                    chart,
-                    outputDatasetsMap,
-                    writeFiles,
-                    callBackFunction)
-            }
-
-            function writeFiles() {
+            async function writeFiles() {
                 /*
                 The output of files which were appended with information during the simulation execution, now needs to be saved.
                 */
                 if (bot.processingDailyFiles) {
-                    writeDailyFiles()
+                    await writeDailyFiles()
                 } else {
-                    writeMarketFiles()
+                    await writeMarketFiles()
                 }
             }
 
-            function writeMarketFiles() {
+            async function writeMarketFiles() {
                 for (let i = 0; i < outputDatasets.length; i++) {
                     let outputDatasetNode = outputDatasets[i]
                     let dataset = outputDatasetNode.referenceParent
@@ -213,12 +172,12 @@ exports.newTradingOutput = function newTradingOutput(bot, logger, UTILITIES, FIL
                         let fileName = 'Data.json'
                         let filePath = bot.filePathRoot + '/Output/' + bot.SESSION.folderName + '/' + dataset.parentNode.config.codeName + '/' + dataset.config.codeName + '/' + timeFrameLabel
 
-                        writeOutputFile(fileName, filePath, dataset.parentNode.config.codeName)
+                        await writeOutputFile(fileName, filePath, dataset.parentNode.config.codeName)
                     }
                 }
             }
 
-            function writeDailyFiles() {
+            async function writeDailyFiles() {
                 for (let i = 0; i < outputDatasets.length; i++) {
                     let outputDatasetNode = outputDatasets[i]
                     let dataset = outputDatasetNode.referenceParent
@@ -229,47 +188,25 @@ exports.newTradingOutput = function newTradingOutput(bot, logger, UTILITIES, FIL
                         let fileName = 'Data.json'
                         let filePath = bot.filePathRoot + '/Output/' + bot.SESSION.folderName + '/' + dataset.parentNode.config.codeName + '/' + dataset.config.codeName + '/' + timeFrameLabel + "/" + dateForPath
 
-                        writeOutputFile(fileName, filePath, dataset.parentNode.config.codeName)
+                        await writeOutputFile(fileName, filePath, dataset.parentNode.config.codeName)
                     }
                 }
             }
 
-            function writeOutputFile(fileName, filePath, productName) {
-                totalFilesToBeWritten++
+            async function writeOutputFile(fileName, filePath, productName) {
                 filePath += '/' + fileName
                 let fileContent = JSON.stringify(outputDatasetsMap.get(productName))
 
-                fileStorage.createTextFile(filePath, fileContent, onFileCreated)
+                let response = await fileStorage.asyncCreateTextFile(filePath, fileContent)
 
-                function onFileCreated(err) {
-                    try {
-                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                            logger.write(MODULE_NAME, '[ERROR] start -> readMarketFiles -> readOutputFile -> onFileRead -> err = ' + err.stack)
-                            logger.write(MODULE_NAME, '[ERROR] start -> readMarketFiles -> readOutputFile -> onFileRead -> filePath = ' + filePath)
-                            logger.write(MODULE_NAME, '[ERROR] start -> readMarketFiles -> readOutputFile -> onFileRead -> market = ' + market.baseAsset + '_' + market.quotedAsset)
-
-                            callBackFunction(err)
-                            return
-                        }
-
-                        anotherFileWritten()
-                    } catch (err) {
-                        logger.write(MODULE_NAME, '[ERROR] start -> readMarketFiles -> readOutputFile -> onFileRead -> err = ' + err.stack)
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE)
-                    }
-                }
-            }
-
-            function anotherFileWritten() {
-                totalFilesWritten++
-                if (totalFilesWritten === totalFilesToBeWritten) {
-                    callBackFunction(global.DEFAULT_OK_RESPONSE)
+                if (response.err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                    throw(response.err)
                 }
             }
 
         } catch (err) {
             logger.write(MODULE_NAME, '[ERROR] start -> err = ' + err.stack)
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE)
+            throw(global.DEFAULT_FAIL_RESPONSE)
         }
     }
 }

@@ -31,16 +31,18 @@
 
     function initialize(pProcessConfig, pStatusDependencies, pDataDependencies, callBackFunction) {
         try {
-            logger.fileName = MODULE_NAME;
-            logger.initialize();
+            logger.fileName = MODULE_NAME
+            logger.initialize()
 
-            statusDependencies = pStatusDependencies;
-            dataDependenciesModule = pDataDependencies;
-            processConfig = pProcessConfig;
+            statusDependencies = pStatusDependencies
+            dataDependenciesModule = pDataDependencies
+            processConfig = pProcessConfig
 
             let TRADING_OUTPUT_MODULE = require("./TradingOutput")
-            tradingOutputModule = TRADING_OUTPUT_MODULE.newTradingOutput(bot, logger, UTILITIES, FILE_STORAGE);
-            tradingOutputModule.initialize(callBackFunction);
+            tradingOutputModule = TRADING_OUTPUT_MODULE.newTradingOutput(bot, logger, UTILITIES, FILE_STORAGE)
+            tradingOutputModule.initialize()
+
+            callBackFunction(global.DEFAULT_OK_RESPONSE)
 
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
@@ -560,7 +562,7 @@
             }
 
             async function generateOutput(chart) {
-                tradingOutputModule.start(
+                await tradingOutputModule.start(
                     chart,
                     currentTimeFrame,
                     currentTimeFrameLabel,
@@ -584,7 +586,7 @@
                 async function writeDataRanges(currentTimeFrameLabel) {
                     for (let outputDatasetIndex = 0; outputDatasetIndex < bot.processNode.referenceParent.processOutput.outputDatasets.length; outputDatasetIndex++) {
                         let productCodeName = bot.processNode.referenceParent.processOutput.outputDatasets[outputDatasetIndex].referenceParent.parentNode.config.codeName;
-                        await writeDataRange(contextVariables.dateBeginOfMarket, bot.tradingProcessDate, productCodeName, currentTimeFrameLabel, controlLoop);
+                        await writeDataRange(contextVariables.dateBeginOfMarket, bot.tradingProcessDate, productCodeName, currentTimeFrameLabel);
                     }
     
                     async function writeDataRange(pBegin, pEnd, productCodeName, currentTimeFrameLabel) {

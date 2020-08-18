@@ -256,7 +256,7 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
         }
     }
 
-    function calculateStatistics() { 
+    function calculateStatistics(tradingEngineStageNode) { 
 
         calculateAssetsStatistics()
         calculatePositionStatistics()
@@ -277,11 +277,11 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
             /* ROI Calculation */
             tradingEngine.current.position.positionBaseAsset.ROI.value =
                 tradingEngine.current.position.positionBaseAsset.profitLoss.value * 100 /
-                tradingEngine.current.position.positionBaseAsset.sizeFilled.value
+                tradingEngine.current.strategyOpenStage.stageBaseAsset.sizeFilled.value
     
             tradingEngine.current.position.positionQuotedAsset.ROI.value =
                 tradingEngine.current.position.positionQuotedAsset.profitLoss.value * 100 /
-                tradingEngine.current.position.positionQuotedAsset.sizeFilled.value
+                tradingEngine.current.strategyOpenStage.stageQuotedAsset.sizeFilled.value
     
             tradingEngine.current.position.positionBaseAsset.ROI.value = global.PRECISE(tradingEngine.current.position.positionBaseAsset.ROI.value, 10)
             tradingEngine.current.position.positionQuotedAsset.ROI.value = global.PRECISE(tradingEngine.current.position.positionQuotedAsset.ROI.value, 10)
@@ -306,7 +306,7 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
                     tradingEngine.current.episode.episodeBaseAsset.profitLoss.value * tradingEngine.current.position.endRate.value +
                     tradingEngine.current.episode.episodeQuotedAsset.profitLoss.value
                 ) 
-                
+
             tradingEngine.current.position.positionStatistics.profitLoss.value = global.PRECISE(tradingEngine.current.position.positionStatistics.profitLoss.value, 10)
     
             /* ROI Calculation */

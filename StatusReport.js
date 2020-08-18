@@ -20,6 +20,7 @@
         finalize: finalize,
         load: load,
         save: save,
+        asyncSave: asyncSave, 
         status: undefined
     };
 
@@ -343,4 +344,23 @@
         }
     }
 
-};
+    async function asyncSave() {
+
+        let fileName = "Status.Report.json";
+        let filePath = bot.filePathRoot + "/Reports/" + sessionPath + statusDependencyNode.process;
+
+        filePath += '/' + fileName
+        let fileContent = JSON.stringify(thisObject.file);
+
+        fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated, true);
+        let response = await fileStorage.asyncCreateTextFile(filePath, fileContent + '\n', true)
+
+        if (response.err.result !== global.DEFAULT_OK_RESPONSE.result) {
+            throw(response.err)
+        }
+
+        /* All good, lets emit the event that means data has been updated. */
+        let processOutput = PROCESS_OUTPUT.newProcessOutput(bot, logger)
+        processOutput.raiseEvents(thisObject.file.lastFile, thisObject.file.timeFrames, callBackFunction);
+    }
+}

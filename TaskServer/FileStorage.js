@@ -4,7 +4,7 @@ const path = require('path')
 exports.newFileStorage = function newFileStorage(logger, host, port) {
 
     const MODULE_NAME = 'FileStorage'
-    const MAX_RETRY = 30
+    const MAX_RETRY = 10
     const FAST_RETRY_TIME_IN_MILISECONDS = 500
     const SLOW_RETRY_TIME_IN_MILISECONDS = 2000
 
@@ -17,12 +17,49 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
     }
 
     let thisObject = {
+        asyncGetTextFile: asyncGetTextFile,
+        asyncCreateTextFile: asyncCreateTextFile, 
         getTextFile: getTextFile,
         createTextFile: createTextFile,
         deleteTextFile: deleteTextFile
     }
 
     return thisObject
+
+    async function asyncGetTextFile(filePath, noRetry, canUsePrevious) {
+        /* This function allows its caller to work with async / await instead of callbacks */
+        let promise = new Promise((resolve, reject) => {
+
+            getTextFile(filePath, onFileRead, noRetry, canUsePrevious) 
+            function onFileRead(err, text) {
+ 
+                let response = {
+                    err: err,
+                    text: text
+                }
+                resolve(response)
+            }
+          })
+
+        return promise
+    }
+
+    async function asyncCreateTextFile(filePath, fileContent, keepPrevious, noTemp) {
+        /* This function allows its caller to work with async / await instead of callbacks */
+        let promise = new Promise((resolve, reject) => {
+
+            createTextFile(filePath, fileContent, onFileWriten, keepPrevious, noTemp) 
+            function onFileWriten(err) {
+ 
+                let response = {
+                    err: err
+                }
+                resolve(response)
+            }
+          })
+
+        return promise
+    }
 
     function getTextFile(filePath, callBackFunction, noRetry, canUsePrevious) {
 
@@ -160,7 +197,7 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
             }
 
             function retry() {
-                console.log(new Date(), ' Retry #: ' + currentRetryGetTextFile, fileLocation)
+                console.log(new Date(), 'Read File Retry #: ' + currentRetryGetTextFile, fileLocation)
                 if (currentRetryGetTextFile < MAX_RETRY) {
                     currentRetryGetTextFile++
                     logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> retry -> Will try to read the file again -> Retry #: ' + currentRetryGetTextFile)
@@ -216,12 +253,12 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
                 */
                 const fs = require('fs')
                 if (noTemp === true) {
-                    fs.writeFile(fileLocation, fileContent, onFileWritenn)
+                    fs.writeFile(fileLocation, fileContent, onFileWriten)
                 } else {
-                    fs.writeFile(fileLocation + '.tmp', fileContent, onFileWritenn)
+                    fs.writeFile(fileLocation + '.tmp', fileContent, onFileWriten)
                 }
 
-                function onFileWritenn(err) {
+                function onFileWriten(err) {
                     let retryTimeToUse = FAST_RETRY_TIME_IN_MILISECONDS
                     if (currentRetryWriteTextFile > MAX_RETRY - 2) {
                         retryTimeToUse = SLOW_RETRY_TIME_IN_MILISECONDS

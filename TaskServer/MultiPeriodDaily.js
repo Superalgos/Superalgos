@@ -490,7 +490,7 @@
             function writeDataRange(pBegin, pEnd, productCodeName, callBack) {
                 let dataRange = {
                     begin: pBegin.valueOf(),
-                    end: pEnd.valueOf()
+                    end: pEnd.valueOf() + ONE_DAY_IN_MILISECONDS
                 };
                 let fileContent = JSON.stringify(dataRange)
                 let fileName = '/Data.Range.json';

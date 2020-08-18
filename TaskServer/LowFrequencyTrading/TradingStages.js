@@ -7,6 +7,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
         updateChart: updateChart,
         mantain: mantain,
         reset: reset,
+        calculateStatistics: calculateStatistics,
         runTriggerStage: runTriggerStage,
         runOpenStage: runOpenStage,
         runManageStage: runManageStage,
@@ -99,6 +100,11 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
         tradingExecutionModule.reset()
 
         resetTradingEngineDataStructure()
+    }
+
+    function calculateStatistics() {
+        tradingEpisodeModule.calculateStatistics()
+        tradingPositionModule.calculateStatistics()
     }
 
     function runTriggerStage() {
@@ -869,9 +875,6 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
 
             /* Close the Position */
             tradingPositionModule.closePosition()
-
-            tradingEpisodeModule.calculateResults()
-            tradingEpisodeModule.calculateStatistics()
 
             /* Close the Strategy */
             tradingStrategyModule.closeStrategy('Position Closed')

@@ -3378,7 +3378,7 @@
             "config": true
         },
         "initialValues": {
-            "config": "{\n\"initialValue\": -1\n}"
+            "config": "{\n\"initialValue\": 0\n}"
         },
         "addLeftIcons": true,
         "level": 3,
@@ -3412,7 +3412,7 @@
             "config": true
         },
         "initialValues": {
-            "config": "{\n\"initialValue\": -1\n}"
+            "config": "{\n\"initialValue\": 0\n}"
         },
         "addLeftIcons": true,
         "level": 3,

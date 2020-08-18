@@ -38,8 +38,8 @@
             bot.sessionKey = bot.processNode.session.name + '-' + bot.processNode.session.type + '-' + bot.processNode.session.id
             global.SESSION_MAP.set(bot.sessionKey, bot.sessionKey)
 
-            global.EVENT_SERVER_CLIENT.listenToEvent(bot.sessionKey, 'Run Session', undefined, bot.sessionKey, undefined, runSession)
-            global.EVENT_SERVER_CLIENT.listenToEvent(bot.sessionKey, 'Stop Session', undefined, bot.sessionKey, undefined, stopSession)
+            global.EVENT_SERVER_CLIENT.listenToEvent(bot.sessionKey, 'Run Session', undefined, bot.sessionKey, undefined, onSessionRan)
+            global.EVENT_SERVER_CLIENT.listenToEvent(bot.sessionKey, 'Stop Session', undefined, bot.sessionKey, undefined, onSessionStopped)
 
             /* Errors sent to the UI */
             bot.sessionError = sessionError
@@ -50,7 +50,7 @@
             callBackFunction(global.DEFAULT_OK_RESPONSE)
             return
 
-            function runSession(message) {
+            function onSessionRan(message) {
                 try {
                     if (bot.SESSION_STATUS === 'Idle' || bot.SESSION_STATUS === 'Running') { return } // This happens when the UI is reloaded, the session was running and tries to run it again.
 
@@ -99,19 +99,21 @@
 
                     socialBotsModule.sendMessage(bot.SESSION.type + " '" + bot.SESSION.name + "' is starting.")
                 } catch (err) {
-                    parentLogger.write(MODULE_NAME, "[ERROR] initialize -> runSession -> err = " + err.stack);
+                    parentLogger.write(MODULE_NAME, "[ERROR] initialize -> onSessionRan -> err = " + err.stack);
                 }
             }
 
+            function onSessionStopped() {
+                stopSession('Session Stopped From the User Interface.')
+            }
+
             function stopSession(commandOrigin) {
-                try {
-                    if (commandOrigin === undefined) { commandOrigin = ' from the User Interface.' }
-                    socialBotsModule.sendMessage(bot.SESSION.type + " '" + bot.SESSION.name + "' is stopping " + commandOrigin)
-                    socialBotsModule.finalize()
-                    bot.STOP_SESSION = true
-                } catch (err) {
-                    parentLogger.write(MODULE_NAME, "[ERROR] initialize -> stopSession -> err = " + err.stack);
-                }
+   
+                socialBotsModule.sendMessage(bot.SESSION.type + " '" + bot.SESSION.name + "' is stopping " + commandOrigin)
+                socialBotsModule.finalize()
+                bot.STOP_SESSION = true
+                sessionError(bot.SESSION, commandOrigin)
+
             }
 
             function setUpAppSchema() {

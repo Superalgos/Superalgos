@@ -95,7 +95,8 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     This will happen when the sessionParameters.timeRange.config.initialDatetime is beyond the last candle available, 
                     meaning that the dataSet needs to be updated with more up-to-date data. 
                     */
-                    tradingEngine.current.episode.candle.index.value = candles.length - 1
+                   bot.SESSION.stop('Data is not up-to-date enough. Please start the Masters Data Mining Operation.')
+                   return
                 }
             }
 

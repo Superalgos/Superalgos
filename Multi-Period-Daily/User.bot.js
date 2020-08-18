@@ -738,7 +738,7 @@ Read the candles and volumes from Exchange Raw Data and produce a file for each 
 
                     let dataRange = {
                         begin: pBegin.valueOf(),
-                        end:pEnd.valueOf()
+                        end:pEnd.valueOf() + ONE_DAY_IN_MILISECONDS
                     };
 
                     let fileContent = JSON.stringify(dataRange);

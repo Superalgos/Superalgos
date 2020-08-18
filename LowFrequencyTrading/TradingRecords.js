@@ -63,7 +63,7 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                 }
 
                 /* Clean the file from information of previous executions */
-                pruneOutputFile(product, outputDatasetArray)
+                pruneOutputFile(product, outputDatasetArray, tradingEngine.current.episode.candle.end.value)
 
                 /* Clean Open Records */
                 if (product.config.saveAsObjects === true) {
@@ -321,7 +321,7 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
             return value
         }
 
-        function pruneOutputFile(product, outputFile) {
+        function pruneOutputFile(product, outputFile, currentEnd) {
             if (outputFile.isPrunned === true) { return }
             /*
             When a session is resumed, we will be potentially reading output files belonging to a previous session execution. 
@@ -335,14 +335,14 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                     let recordProperty = product.record.properties[j]
                     if (recordProperty.config.codeName === 'end') {
                         let end = record[j]
-                        if (end >= tradingEngine.current.episode.candle.end.value) {
+                        if (end >= currentEnd) {
                             outputFile.splice(i, 1)
                             /*
                             This will execute the next prune call in the next iteration of the NodeJs event loop 
                             allowing for other callbacks to be executed. It also prevents the error
                             'Maximum call stack size exceeded', since the call is not placed at the call stack.
                             */
-                            setImmediate(pruneOutputFile, product, outputFile)
+                            setImmediate(pruneOutputFile, product, outputFile, currentEnd)
                             return
                         }
                     }

@@ -54,7 +54,7 @@ exports.newTradingOutput = function newTradingOutput(bot, logger, UTILITIES, FIL
             } else {
                 await readFiles()
             }
-            
+
             await tradingSimulation.runSimulation(
                 chart,
                 outputDatasetsMap,
@@ -148,7 +148,7 @@ exports.newTradingOutput = function newTradingOutput(bot, logger, UTILITIES, FIL
                 if (response.err.result !== global.DEFAULT_OK_RESPONSE.result) {
                     throw(response.err)
                 }
-                outputDatasetsMap.set(productName, JSON.parse(text))          
+                outputDatasetsMap.set(productName, JSON.parse(response.text))          
             }
 
             async function writeFiles() {

@@ -4658,7 +4658,7 @@
         "addLeftIcons": true,
         "level": 3,
         "chainAttachesTo": {
-            "compatibleTypes": "->Episode->Position->"
+            "compatibleTypes": "->Episode Base Asset->Episode Quoted Asset->"
         },
         "icon": "key-m",
         "propertyNameAtParent": "beginBalance"
@@ -4692,7 +4692,7 @@
         "addLeftIcons": true,
         "level": 3,
         "chainAttachesTo": {
-            "compatibleTypes": "->Episode->Position->"
+            "compatibleTypes": "->Episode Base Asset->Episode Quoted Asset->"
         },
         "icon": "key-m",
         "propertyNameAtParent": "endBalance"

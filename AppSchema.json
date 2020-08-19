@@ -9585,7 +9585,7 @@
             {
                 "action": "Add Missing Children",
                 "label": "Add Missing Items",
-                "relatedUiObject": "Initial Definition",
+                "relatedUiObject": "Open Stage",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -9689,7 +9689,7 @@
             {
                 "action": "Add Missing Children",
                 "label": "Add Missing Items",
-                "relatedUiObject": "Initial Definition",
+                "relatedUiObject": "Initial Targets",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -10448,7 +10448,8 @@
             {
                 "name": "createOrderEvent",
                 "type": "node",
-                "childType": "Create Order Event"
+                "childType": "Create Order Event",
+                "autoAdd": true
             },
             {
                 "name": "cancelOrderEvent",
@@ -10541,7 +10542,8 @@
             {
                 "name": "createOrderEvent",
                 "type": "node",
-                "childType": "Create Order Event"
+                "childType": "Create Order Event",
+                "autoAdd": true
             },
             {
                 "name": "cancelOrderEvent",
@@ -10878,7 +10880,7 @@
             {
                 "action": "Add Missing Children",
                 "label": "Add Missing Items",
-                "relatedUiObject": "Initial Definition",
+                "relatedUiObject": "Close Stage",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {

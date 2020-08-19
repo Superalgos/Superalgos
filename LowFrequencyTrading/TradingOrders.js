@@ -117,7 +117,9 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
             switch (tradingEngineOrder.status.value) {
                 case 'Not Open': {
-                    {
+                    {   
+                        /* During the First cycle we can not create new orders. That is reserved for the Second cycle. */
+                        if (tradingEngine.current.episode.cycle.value  === 'First') {continue}
                         /* When the stage is closing we can not create new orders */
                         if (tradingEngineStage.status.value === 'Closing') { continue }
                         /* 
@@ -147,13 +149,15 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
                     /* Check Events that happens at the Exchange, if needed. */
                     await checkExchangeEvents(tradingEngineStage, tradingSystemOrder, tradingEngineOrder)
 
+                    /* During the Second cycle we can not cancel orders. That is reserved for the First cycle. */
+                    if (tradingEngine.current.episode.cycle.value  === 'Second') {continue}
                     /* 
                     In the previous steps, we might have discovered that the order was cancelled 
                     at the exchange, or filled, so  the order might still not be Open. 
                     If the stage is closing or the order is not Open, we wont be cancelling orders 
                     based on defined events. 
                     */
-                    if (tradingEngineStage.status.value !== 'Closing' && tradingEngineOrder.status.value === 'Open') {
+                   if (tradingEngineStage.status.value !== 'Closing' && tradingEngineOrder.status.value === 'Open') {
 
                         /* Check if we need to Cancel this Order */
                         let situationName = checkOrderEvent(tradingSystemOrder.cancelOrderEvent, tradingSystemOrder, executionAlgorithm, executionNode)

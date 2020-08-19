@@ -60,37 +60,19 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
             let firstLoopExecution = true
             
             /*
-            Loop Initialization
+            Estimation of the Initial Candle to Process in this Run.
             */
-            if (bot.FIRST_EXECUTION === false && tradingEngine.last.candle !== undefined) {
-                /* Estimate the Initial Candle based on the last candle saved at tradingEngine */
-                let firstBegin = candles[0].begin
-                let lastBegin = tradingEngine.last.candle.begin
-                let diff = lastBegin - firstBegin
-                let amount = diff / sessionParameters.timeFrame.config.value
-
-                tradingEngine.current.episode.candle.index.value = Math.trunc(amount) + 1 // Because we need to start from the next candle
-                if (tradingEngine.current.episode.candle.index.value < 0 || tradingEngine.current.episode.candle.index.value > candles.length - 1) {
-                    logger.write(MODULE_NAME, '[ERROR] runSimulation -> initializeLoop -> Cannot resume simulation.')
-                    logger.write(MODULE_NAME, '[ERROR] runSimulation -> initializeLoop -> tradingEngine.current.episode.candle.index.value = ' + tradingEngine.current.episode.candle.index.value)
-                    logger.write(MODULE_NAME, '[ERROR] runSimulation -> initializeLoop -> firstBegin = ' + firstBegin)
-                    logger.write(MODULE_NAME, '[ERROR] runSimulation -> initializeLoop -> lastBegin = ' + lastBegin)
-                    logger.write(MODULE_NAME, '[ERROR] runSimulation -> initializeLoop -> diff = ' + diff)
-                    logger.write(MODULE_NAME, '[ERROR] runSimulation -> initializeLoop -> amount = ' + amount)
-
-                    throw(global.DEFAULT_FAIL_RESPONSE)
-                    return
-                }
-            } else {
+           let initialCandle 
+           if (bot.FIRST_EXECUTION === true && bot.RESUME === false)   {
                 /* Estimate Initial Candle based on the timeRage configured for the session. */
                 let firstEnd = candles[0].end
                 let targetEnd = sessionParameters.timeRange.config.initialDatetime
                 let diff = targetEnd - firstEnd
                 let amount = diff / sessionParameters.timeFrame.config.value
 
-                tradingEngine.current.episode.candle.index.value = Math.trunc(amount)
-                if (tradingEngine.current.episode.candle.index.value < 0) { tradingEngine.current.episode.candle.index.value = 0 }
-                if (tradingEngine.current.episode.candle.index.value > candles.length - 1) {
+                initialCandle = Math.trunc(amount)
+                if (initialCandle < 0) { initialCandle = 0 }
+                if (initialCandle > candles.length - 1) {
                     /* 
                     This will happen when the sessionParameters.timeRange.config.initialDatetime is beyond the last candle available, 
                     meaning that the dataSet needs to be updated with more up-to-date data. 
@@ -98,15 +80,40 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                    bot.SESSION.stop('Data is not up-to-date enough. Please start the Masters Data Mining Operation.')
                    return
                 }
+            } else {
+                {
+                    /* 
+                    In this case we already have last candle index. Now we need to continue
+                    at the next candle, so we add 1. This works well for Market Files,
+                    but for Daily Files we need to consider that we we turn into a new date
+                    a we get a new file with candles statting at index 0. 
+                    */
+                    if (bot.processingDailyFiles === true) {
+                        /*
+                        We are going to test if adding 1 gets us a valid candle, it means that
+                        the candle dataset did not change since the lasst execution, otherwise
+                        it means it changed and we need to start again from 0.
+                        */
+                        let candle = candles[tradingEngine.current.episode.candle.index.value + 1]
+                        if (candle === undefined) {
+                            initialCandle = 0
+                        } else {
+                            initialCandle = tradingEngine.current.episode.candle.index.value + 1
+                        }
+                    } else {
+                        initialCandle = tradingEngine.current.episode.candle.index.value + 1
+                    }
+                }
             }
-
             /*
             Main Simulation Loop
             */
+           console.log('initialCandle =  ' + initialCandle)
            let breakLoop = false
-            for( let i = tradingEngine.current.episode.candle.index.value; i < candles.length; i++) {
+            for( let i = initialCandle; i < candles.length; i++) {
 
                 tradingEngine.current.episode.candle.index.value = i
+                console.log('index =  ' + tradingEngine.current.episode.candle.index.value)
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Processing candle # ' + tradingEngine.current.episode.candle.index.value) }
                 let candle = candles[tradingEngine.current.episode.candle.index.value] // This is the current candle the Simulation is working at.
 
@@ -124,6 +131,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 }
 
                 if (checkInitialDatetime() === false) {
+                    console.log(' Esta candle esta dentras del Initial Datetime')
                     continue
                 }
 
@@ -134,75 +142,77 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                 /* 
                 Do the stuff needed previous to the run like 
-                Episode Counters and Statistics update
+                Episode Counters and Statistics update. Mantaince is done
+                once per simulation candle.
                 */
                 tradingSystemModule.mantain()
                 tradingEpisodeModule.mantain()
                 tradingEngineModule.mantain()
 
-                /* Reset Data Structures */
-                tradingSystemModule.reset()
-                tradingEpisodeModule.reset()
-                tradingEngineModule.reset()
-
                 /* 
                 Run the first cycle of the Trading System. In this first cycle we
                 give some room so that orders can be canceled or filled and we can
-                write those records into the output memory.
+                write those records into the output memory. During this cycle new
+                orders can not be created, since otherwise the could be cancelled at
+                the second cycle without spending real time at the order book.
                 */
                 tradingEngineModule.setCurrentCycle('First')
-                await tradingSystemModule.run()
-
-                /* Add new records to the process output */
-                tradingRecordsModule.appendRecords('First')
-
-                /* Reset Data Structures */
-                tradingSystemModule.reset()
-                tradingEpisodeModule.reset()
-                tradingEngineModule.reset()
-
+                await runCycle() 
                 /* 
                 Run the second cycle of the Trading System. During this second run
                 some new orders might be created at slots freed up during the first 
-                run. This allows for example for an Limit Order to be cancelled during the 
+                run. This allows for example for a Limit Order to be cancelled during the 
                 first run, and the same Limit Order definition to spawn a new order 
-                without the need to wait until the next candle.
+                without the need to wait until the next candle. Orders can not be cancelled
+                during the second cycle.
                 */
                 tradingEngineModule.setCurrentCycle('Second')
-                await tradingSystemModule.run()
+                await runCycle() 
 
-                /* Checking if we should continue processing this loop or not. */
-                if (bot.STOP_SESSION === true) {
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> controlLoop -> We are going to stop here bacause we were requested to stop processing this session.') }
-                    console.log('[INFO] runSimulation -> controlLoop -> We are going to stop here bacause we were requested to stop processing this session.')
-                    updateEpisode('Session Stopped')
-                    breakLoop = true
+                async function runCycle() {
+
+                    console.log(new Date(), 'Function runCycle', ' Cycle = ' + tradingEngine.current.episode.cycle.value )
+
+                    /* Reset Data Structures */
+                    tradingSystemModule.reset()
+                    tradingEpisodeModule.reset()
+                    tradingEngineModule.reset()
+
+                    await tradingSystemModule.run()
+
+                    /* Checking if we should continue processing this loop or not. */
+                    if (bot.STOP_SESSION === true) {
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> controlLoop -> We are going to stop here bacause we were requested to stop processing this session.') }
+                        console.log('[INFO] runSimulation -> controlLoop -> We are going to stop here bacause we were requested to stop processing this session.')
+                        updateEpisode('Session Stopped')
+                        breakLoop = true
+                    }
+
+                    if (global.STOP_TASK_GRACEFULLY === true) {
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> controlLoop -> We are going to stop here bacause we were requested to stop processing this task.') }
+                        console.log('[INFO] runSimulation -> controlLoop -> We are going to stop here bacause we were requested to stop processing this task.')
+                        updateEpisode('Task Stopped')
+                        breakLoop = true
+                    }
+
+                    if (checkFinalDatetime() === false) {
+                        closeEpisode('Final Datetime Reached')
+                        breakLoop = true
+                    }
+
+                    if (checkLastCandle() === false) {
+                        updateEpisode('All Available Candles Processed')
+                        breakLoop = true
+                    }
+
+                    if (checkMinimunAndMaximunBalance() === false) {
+                        closeEpisode('Min or Max Balance Reached')
+                        breakLoop = true
+                    }
+
+                    /* Add new records to the process output */
+                    tradingRecordsModule.appendRecords()
                 }
-
-                if (global.STOP_TASK_GRACEFULLY === true) {
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> controlLoop -> We are going to stop here bacause we were requested to stop processing this task.') }
-                    console.log('[INFO] runSimulation -> controlLoop -> We are going to stop here bacause we were requested to stop processing this task.')
-                    updateEpisode('Task Stopped')
-                    breakLoop = true
-                }
-
-                if (checkFinalDatetime() === false) {
-                    closeEpisode('Final Datetime Reached')
-                    breakLoop = true
-                }
-
-                if (checkLastCandle() === false) {
-                    updateEpisode('All Available Candles Processed')
-                    breakLoop = true
-                }
-
-                if (checkMinimunAndMaximunBalance() === false) {
-                    closeEpisode('Min or Max Balance Reached')
-                    breakLoop = true
-                }
-
-                /* Add new records to the process output */
-                tradingRecordsModule.appendRecords('Second')
 
                 if (breakLoop === true) {break}
             }
@@ -353,28 +363,15 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
             function checkLastCandle() {
                 /* 
-                We skip the candle at the head of the market because it has not closed yet. The procedure to determine if we are at the head of the market is different 
-                when we are processing Market Files than when we are processing Daily Files. TODO Check that the procedure is good for Beta 6
+                Before reaching the last candle of the loop, we need to check that the next candle it is not the last candle.
+                We skip the candle at the head of the market because it has not closed yet. 
+                For the special case of Daily Files, this means that the last candle of each day will never be processed.
                 */
-                if (bot.processingDailyFiles) { // We are processing Daily Files
-                    let candlesPerDay = global.ONE_DAY_IN_MILISECONDS / sessionParameters.timeFrame.config.value
-                    if (tradingEngine.current.episode.candle.index.value + 1 === candles.length - 1) {
-                        if ((candles.length < candlesPerDay) || (candles.length > candlesPerDay && candles.length < candlesPerDay * 2)) {
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> checkLastCandle -> Skipping Candle because it is the last one and has not been closed yet.') }
-                            return false
-                            /* 
-                            Note here that in the last candle of the first day or the second day it will use an incomplete candle and partially calculated indicators.
-                            if we skip these two periods, then there will be a hole in the file since the last period will be missing. 
-                            */
-                        }
-                    }
-                } else { // We are processing Market Files
-                    if (tradingEngine.current.episode.candle.index.value + 1 === candles.length - 1) {
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> checkLastCandle -> Skipping Candle because it is the last one and has not been closed yet.') }
-                        return false
-                    }
+               if (tradingEngine.current.episode.candle.index.value + 1 === candles.length - 1) {
+                    return false
+                } else {
+                    return true
                 }
-                return true
             }
 
             function checkInitialDatetime() {

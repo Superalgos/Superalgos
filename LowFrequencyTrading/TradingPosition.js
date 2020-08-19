@@ -277,11 +277,11 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
             /* ROI Calculation */
             tradingEngine.current.position.positionBaseAsset.ROI.value =
                 tradingEngine.current.position.positionBaseAsset.profitLoss.value * 100 /
-                tradingEngine.current.strategyOpenStage.stageBaseAsset.sizeFilled.value
+                tradingEngine.current.strategyOpenStage.stageBaseAsset.targetSize.value
     
             tradingEngine.current.position.positionQuotedAsset.ROI.value =
                 tradingEngine.current.position.positionQuotedAsset.profitLoss.value * 100 /
-                tradingEngine.current.strategyOpenStage.stageQuotedAsset.sizeFilled.value
+                tradingEngine.current.strategyOpenStage.stageQuotedAsset.targetSize.value
     
             tradingEngine.current.position.positionBaseAsset.ROI.value = global.PRECISE(tradingEngine.current.position.positionBaseAsset.ROI.value, 10)
             tradingEngine.current.position.positionQuotedAsset.ROI.value = global.PRECISE(tradingEngine.current.position.positionQuotedAsset.ROI.value, 10)

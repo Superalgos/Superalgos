@@ -65,6 +65,7 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
     }
 
     function setCurrentCycle(cycle) {
+        tradingEngine.current.episode.cycle.value = cycle
         switch (cycle) {
             case 'First': {
                 tradingEngine.current.episode.cycle.begin.value =

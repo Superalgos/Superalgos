@@ -269,7 +269,6 @@ exports.newTradingEpisode = function newTradingEpisode(bot, logger, tradingEngin
         }
     }
 
-
     function updateDistanceToEventsCounters() {
         /* Keeping Distance Counters Up-to-date while avoinding counting before the first event happens. */
         if (

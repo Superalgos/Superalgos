@@ -83,17 +83,20 @@
             await processMarketFiles()
 
             /*
+            This is the Data Structure used at the Simulation with all indicator data.
+            We start creating it right here.
+            */
+            let chart = {} 
+            /*
                 Here we check if we need to get Daily Files or not. As an optimization, when 
                 we are running on a Time Frame of 1hs or above, we are not going to load 
                 dependencies on Daily Files. The way we recognize that is by checking if 
                 we alreaady set a value to currentTimeFrame. We are also not going to loop
                 through days if we are processing market files.
             */
-
             if (currentTimeFrame) {
                 /* We are processing Market Files */
 
-                let chart = {} 
                 buildCharts(chart)
 
                 await generateOutput(chart)
@@ -115,7 +118,6 @@
     
                     await processDailyFiles()
     
-                    let chart = {} 
                     buildCharts(chart)
     
                     await generateOutput(chart)
@@ -407,6 +409,10 @@
 
                     dataFiles = new Map();
 
+                    /*
+                    We will iterate through all dependencies, in order to load the
+                    files that later will end up at the chart data structure.
+                    */
                     for (let dependencyIndex = 0; dependencyIndex < dataDependenciesModule.nodeArray.length; dependencyIndex++) {
                         let dependency = dataDependenciesModule.nodeArray[dependencyIndex];
                         let datasetModule = dataDependenciesModule.dataSetsModulesArray[dependencyIndex];
@@ -461,13 +467,6 @@
 
                     let mapKey = global.dailyFilePeriods[n][1];
                     multiPeriodDataFiles.set(mapKey, dataFiles)
-                }
-
-                if (currentTimeFrame !== undefined) {
-                    buildCharts(advanceTime);
-                } else {
-                    logger.write(MODULE_NAME, "[ERROR] start -> processDailyFiles -> Time Frame not Recognized. Can not continue.");
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 

@@ -243,20 +243,27 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
         tradingEngineOrder.situationName.value = situationName
 
         function calculateOrderRate() {
-            /* By default this is the order rate and it is the rate that applies to Market Orders */
-            tradingEngineOrder.rate.value = tradingEngine.current.episode.candle.close.value
 
             /* Optional Rate Definition */
-            if (tradingSystemOrder.orderRate !== undefined) {
-                if (tradingSystemOrder.orderRate.formula !== undefined) {
-                    tradingEngineOrder.rate.value = tradingSystem.formulas.get(tradingSystemOrder.orderRate.formula.id)
+            if (tradingSystemOrder.type === 'Limit Buy Order' || tradingSystemOrder.type === 'Limit Sell Order') {
+                if (tradingSystemOrder.orderRate === undefined) { badDefinitionUnhandledException(undefined, 'tradingSystemOrder.orderRate === undefined', tradingSystemOrder) }
+                if (tradingSystemOrder.orderRate.formula === undefined) { badDefinitionUnhandledException(undefined, 'tradingSystemOrder.orderRate.formula === undefined', tradingSystemOrder) }
+                
+                /* Extract the rate value from the user-defined formula */
+                tradingEngineOrder.rate.value = tradingSystem.formulas.get(tradingSystemOrder.orderRate.formula.id)
 
-                    if (tradingEngineOrder.rate.value === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.rate.value === undefined', tradingEngineOrder) }
-                    if (isNaN(tradingEngineOrder.rate.value) === true) { badDefinitionUnhandledException(undefined, 'isNaN(tradingEngineOrder.rate.value) === true', tradingEngineOrder) }
-                    if (tradingEngineOrder.rate.value <= 0) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.rate.value <= 0', tradingEngineOrder) }
+                /* Final rate validations */
+                if (tradingEngineOrder.rate.value === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.rate.value === undefined', tradingSystemOrder) }
+                if (isNaN(tradingEngineOrder.rate.value) === true) { badDefinitionUnhandledException(undefined, 'isNaN(tradingEngineOrder.rate.value) === true', tradingSystemOrder) }
+                if (tradingEngineOrder.rate.value <= 0) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.rate.value <= 0', tradingSystemOrder) }
 
-                    tradingEngineOrder.rate.value = global.PRECISE(tradingEngineOrder.rate.value, 10)
-                }
+                tradingEngineOrder.rate.value = global.PRECISE(tradingEngineOrder.rate.value, 10)               
+            } else {
+                /* 
+                For Market Orders, the rate is irrelevant, since it is not sent to the Exchange.
+                We store at this field the last know price as a reference.
+                */
+                tradingEngineOrder.rate.value = tradingEngine.current.episode.candle.close.value
             }
         }
 

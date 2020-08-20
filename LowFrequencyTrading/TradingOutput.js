@@ -27,7 +27,7 @@ exports.newTradingOutput = function newTradingOutput(bot, logger, UTILITIES, FIL
 
     }
 
-    async function start(chart, timeFrame, timeFrameLabel, currentDay) {
+    async function start(chart, timeFrame, timeFrameLabel, tradingProcessDate) {
         try {
 
             if (timeFrame > global.dailyFilePeriods[0][0]) {
@@ -41,7 +41,6 @@ exports.newTradingOutput = function newTradingOutput(bot, logger, UTILITIES, FIL
             let tradingSimulation = TRADING_SIMULATION.newTradingSimulation(bot, logger, UTILITIES)
 
             let outputDatasets = bot.processNode.referenceParent.processOutput.outputDatasets
-            let market = bot.market
             let outputDatasetsMap = new Map()
 
             if (bot.FIRST_EXECUTION === true && bot.RESUME === false) {
@@ -127,7 +126,7 @@ exports.newTradingOutput = function newTradingOutput(bot, logger, UTILITIES, FIL
 
                     if (dataset.config.type === 'Daily Files') {
 
-                        let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
+                        let dateForPath = tradingProcessDate.getUTCFullYear() + '/' + utilities.pad(tradingProcessDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(tradingProcessDate.getUTCDate(), 2);
                         let fileName = 'Data.json'
                         let filePath = bot.filePathRoot + '/Output/' + bot.SESSION.folderName + '/' + dataset.parentNode.config.codeName + '/' + dataset.config.codeName + '/' + timeFrameLabel + "/" + dateForPath
 
@@ -184,7 +183,7 @@ exports.newTradingOutput = function newTradingOutput(bot, logger, UTILITIES, FIL
 
                     if (dataset.config.type === 'Daily Files') {
 
-                        let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
+                        let dateForPath = tradingProcessDate.getUTCFullYear() + '/' + utilities.pad(tradingProcessDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(tradingProcessDate.getUTCDate(), 2);
                         let fileName = 'Data.json'
                         let filePath = bot.filePathRoot + '/Output/' + bot.SESSION.folderName + '/' + dataset.parentNode.config.codeName + '/' + dataset.config.codeName + '/' + timeFrameLabel + "/" + dateForPath
 

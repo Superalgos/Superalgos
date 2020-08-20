@@ -368,8 +368,33 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 For the special case of Daily Files, this means that the last candle of each day will never be processed.
                 */
                if (tradingEngine.current.episode.candle.index.value + 1 === candles.length - 1) {
+                    /*
+                    When processing daily files, we need a mechanism to turn from one day to the next one.
+                    That mechanism is the one implemented here. If we detect that we are at the last candle of 
+                    the day, we will advance current process day. By doing so, during the next execution, the
+                    simulation will receive the candles and indicators files of the next day. 
+                    */
+                    if (bot.processingDailyFiles) {
+                        let candlesPerDay = global.ONE_DAY_IN_MILISECONDS / sessionParameters.timeFrame.config.value
+                        if (tradingEngine.current.episode.candle.index.value + 1 === candlesPerDay - 1) {
+                            /*
+                            Here we found that the next candle of the Simulation is the last candle of the day.
+                            It is time to move to the next day so as to receive next, the indicator files from 
+                            the next day. At the same time we will reset the index to be ready to real next time
+                            the first candle of the new set we receive.
+                            */
+                           tradingEngine.current.episode.candle.index.value = 0
+                           tradingEngine.current.episode.processDate.value = 
+                           tradingEngine.current.episode.processDate.value + global.ONE_DAY_IN_MILISECONDS
+                         }
+                    }
+
+                    /* We reached the head of the market */
+                    tradingEngine.current.episode.headOfTheMarket.value = true
                     return false
                 } else {
+                    /* Wd did not reach the head of the market */
+                    tradingEngine.current.episode.headOfTheMarket.value = false
                     return true
                 }
             }

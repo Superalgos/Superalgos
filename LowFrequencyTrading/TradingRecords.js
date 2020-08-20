@@ -104,7 +104,6 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                             brach of the trading engine data structure it belongs. 
                             */
                             record.push(index)
-                            record.push('"' + tradingEngine.current.episode.cycle.value + '"')
                             persistIndividualRecord(record, product, outputDatasetArray)
                         }
                     }

@@ -1,4 +1,4 @@
-﻿exports.newTradingProcess = function newTradingProcess(bot, logger, UTILITIES, TRADING_OUTPUT_MODULE, USER_BOT_COMMONS) {
+﻿exports.newTradingProcess = function newTradingProcess(bot, logger, UTILITIES) {
     /*
     This Module will load all the process data dependencies from files and send them downstream.
     After execution, will save the time range and status report of the process.
@@ -20,10 +20,14 @@
     let dataFiles = new Map();
     let multiPeriodDataFiles = new Map();
 
-    let tradingOutputModule;
-
     const FILE_STORAGE = require('../FileStorage.js');
     let fileStorage = FILE_STORAGE.newFileStorage(logger);
+
+    const TRADING_ENGINE_MODULE = require('./TradingEngine.js')
+    let tradingEngineModule = TRADING_ENGINE_MODULE.newTradingEngine(bot, logger)
+
+    let TRADING_OUTPUT_MODULE = require("./TradingOutput")
+    let tradingOutputModule = TRADING_OUTPUT_MODULE.newTradingOutput(bot, logger, tradingEngineModule, UTILITIES, FILE_STORAGE)
 
     let processConfig;
 
@@ -38,8 +42,6 @@
             dataDependenciesModule = pDataDependencies
             processConfig = pProcessConfig
 
-            let TRADING_OUTPUT_MODULE = require("./TradingOutput")
-            tradingOutputModule = TRADING_OUTPUT_MODULE.newTradingOutput(bot, logger, UTILITIES, FILE_STORAGE)
             tradingOutputModule.initialize()
 
             callBackFunction(global.DEFAULT_OK_RESPONSE)
@@ -51,12 +53,17 @@
     }
 
     function finalize() {
+
+        tradingEngineModule.finalize()
+        tradingEngineModule = undefined
+
+        tradingOutputModule.finalize()
+        tradingOutputModule = undefined
+
         dataFiles = undefined
         multiPeriodDataFiles = undefined
         statusDependencies = undefined
         dataDependenciesModule = undefined
-        tradingOutputModule.finalize()
-        tradingOutputModule = undefined
         fileStorage = undefined
         processConfig = undefined
         thisObject = undefined
@@ -75,6 +82,17 @@
             };
 
             getContextVariables()
+
+            if (bot.FIRST_EXECUTION === true && bot.RESUME === false) {
+                /* 
+                Here is where the Trading Engine and Trading Systems received are moved to the simulation state.
+                */
+                bot.simulationState.tradingEngine = bot.TRADING_ENGINE
+                bot.simulationState.tradingSystem = bot.TRADING_SYSTEM
+            }
+
+            /* We set up the Trading Engine Module. */
+            tradingEngineModule.initialize()
 
             /* Initializing the Trading Process Date */
             if (bot.FIRST_EXECUTION === true && bot.RESUME === false) {
@@ -117,7 +135,6 @@
             } else {
                 /* We are processing Daily Files */
                 do {
-                    if (checkStopHeadOfTheMarket() === false) {break}
                     if (checkStopTaskGracefully() === false) {break}
                     if (checkStopProcessing() === false) {break}
 
@@ -135,6 +152,8 @@
     
                     await generateOutput(chart)
                     await writeProcessFiles()
+
+                    if (checkStopHeadOfTheMarket() === false) {break}
                   }
                   while (true)
             }
@@ -434,8 +453,10 @@
                 again. 
                 */
                 if (bot.simulationState.tradingEngine.current.episode.headOfTheMarket.value === true) {
+                    console.log('YES at the head of the market')
                     return false
                 }
+                console.log('NOT at the head of the market')
             }
 
             function checkStopTaskGracefully() {

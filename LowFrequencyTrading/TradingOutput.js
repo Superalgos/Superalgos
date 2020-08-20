@@ -1,4 +1,4 @@
-exports.newTradingOutput = function newTradingOutput(bot, logger, UTILITIES, FILE_STORAGE) {
+exports.newTradingOutput = function newTradingOutput(bot, logger, tradingEngineModule, UTILITIES, FILE_STORAGE) {
     /*
     This module will load if necesary all the data outputs so that they can be appended with new
     records if needed. After running the simulation, it will save all the data outputs.
@@ -38,17 +38,12 @@ exports.newTradingOutput = function newTradingOutput(bot, logger, UTILITIES, FIL
 
             /* Preparing everything for the Simulation */
             const TRADING_SIMULATION = require('./TradingSimulation.js')
-            let tradingSimulation = TRADING_SIMULATION.newTradingSimulation(bot, logger, UTILITIES)
+            let tradingSimulation = TRADING_SIMULATION.newTradingSimulation(bot, logger, tradingEngineModule, UTILITIES)
 
             let outputDatasets = bot.processNode.referenceParent.processOutput.outputDatasets
             let outputDatasetsMap = new Map()
 
             if (bot.FIRST_EXECUTION === true && bot.RESUME === false) {
-                /* 
-                Here is where the Trading Engine and Trading Systems received are moved to the simulation state.
-                */
-                bot.simulationState.tradingEngine = bot.TRADING_ENGINE
-                bot.simulationState.tradingSystem = bot.TRADING_SYSTEM
                 await initializeOutputs()
             } else {
                 await readFiles()
@@ -59,6 +54,8 @@ exports.newTradingOutput = function newTradingOutput(bot, logger, UTILITIES, FIL
                 outputDatasetsMap,
                 writeFiles
             )
+
+            tradingSimulation.finalize()
             return
 
             async function initializeOutputs() {

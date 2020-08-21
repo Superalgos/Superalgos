@@ -1,12 +1,9 @@
 ﻿exports.newProcessExecutionEvents = function newProcessExecutionEvents(BOT, logger) {
-
     /*
-
-    Here we manage the process execution events. This allow us to emit events when the process starts and finishes. Also to wait for a dependent event
+    Here we manage the process execution events. This allow us to emit events 
+    when the process starts and finishes. Also to wait for a dependent event
     of another process.
-
     */
-
     const MODULE_NAME = "Process Execution Events";
     logger.fileName = MODULE_NAME
 
@@ -28,7 +25,7 @@
 
     return thisObject;
 
-    function initialize(callBackFunction) {
+    function initialize(processConfig, callBackFunction) {
         try {
             let name = 'Not Depends on any Process'
             logger.fileName = MODULE_NAME + "." + name;
@@ -42,21 +39,49 @@
             let market = bot.market.baseAsset + '/' + bot.market.quotedAsset
             currentProcessKey = bot.processNode.referenceParent.name + "-" + bot.processNode.referenceParent.type + "-" + bot.processNode.referenceParent.id + "-" + bot.exchange + "-" + market
 
+            /*
+            A process can depend for its own execution on another process to finish, and
+            this can be achieved in two different ways. The first one is by referencing
+            the Execution Started Event node from a Process Definition node to a Execution
+            Ended Event node of another Process Definition. The second way is when there is
+            a Execution Started Event node at a Process Instance. This allows the user to
+            override the definition created by the Data Mine for an specific task.
+            */
+
+            /*
+            Here we check if we can find this relationship at the Data Mine level.
+            */
             if (bot.processNode.referenceParent.executionStartedEvent !== undefined) {
                 if (bot.processNode.referenceParent.executionStartedEvent.referenceParent !== undefined) {
                     if (bot.processNode.referenceParent.executionStartedEvent.referenceParent.parentNode !== undefined) {
                         processThisDependsOn = bot.processNode.referenceParent.executionStartedEvent.referenceParent.parentNode
 
                         name = processThisDependsOn.name
-                        if (processThisDependsOn.config.monthlyInstances === true) {
-                            logger.fileName = MODULE_NAME + "." + name;
-                        }
-                        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> " + currentProcessKey + " depends on " + name); }
+                        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) 
+                        { logger.write(MODULE_NAME, "[INFO] initialize -> " + currentProcessKey + " based on the Data Mine depends on " + name); }
+                    }
+                }
+            }
+
+            /*
+            Here we check if at the task level if there is an overriding configuration.
+            */
+            if (bot.processNode.executionStartedEvent !== undefined) {
+                if (bot.processNode.executionStartedEvent.referenceParent !== undefined) {
+                    if (bot.processNode.executionStartedEvent.referenceParent.parentNode !== undefined) {
+                        processThisDependsOn = bot.processNode.executionStartedEvent.referenceParent.parentNode
+
+                        name = processThisDependsOn.name
+                        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) 
+                        { logger.write(MODULE_NAME, "[INFO] initialize -> " + currentProcessKey + " based on the User's Task depends on " + name); }
                     }
                 }
             }
 
             if (processThisDependsOn !== undefined) {
+
+                /* We need to remember that this process waits for another process in order to start. */
+                processConfig.waitsForExecutionFinishedEvent = true
 
                 /* We need to find at which network node is running the process that we need to hear from when it finished. */
                 let network = global.TASK_NETWORK

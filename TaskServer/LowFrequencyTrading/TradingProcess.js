@@ -460,10 +460,8 @@
                 again. 
                 */
                 if (bot.simulationState.tradingEngine.current.episode.headOfTheMarket.value === true) {
-                    console.log('YES at the head of the market')
                     return false
                 }
-                console.log('NOT at the head of the market')
             }
 
             function checkStopTaskGracefully() {

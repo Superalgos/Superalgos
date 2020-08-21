@@ -2306,6 +2306,14 @@
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "executionStartedEvent",
+                "label": "Add Execution Started Event",
+                "relatedUiObject": "Execution Started Event",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -2355,6 +2363,12 @@
                 "type": "node",
                 "childType": "Market Reference",
                 "autoAdd": true
+            },
+            {
+                "name": "executionStartedEvent",
+                "type": "node",
+                "childType": "Execution Started Event",
+                "autoAdd": false
             }
         ],
         "propertyNameAtParent": "processes"

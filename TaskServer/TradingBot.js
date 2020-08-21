@@ -131,7 +131,7 @@
                     function initializeProcessExecutionEvents() {
                         try {
                             processExecutionEvents = PROCESS_EXECUTION_EVENTS.newProcessExecutionEvents(bot, logger)
-                            processExecutionEvents.initialize(onInizialized);
+                            processExecutionEvents.initialize(processConfig, onInizialized);
 
                             function onInizialized(err) {
                                 try {
@@ -560,23 +560,27 @@
                                     break
                                 case 'Normal': {
                                     let waitTime
-                                    switch (bot.SESSION.type) {
-                                        case 'Live Trading Session': {
-                                            waitTime = processConfig.liveTradingWaitTime
+                                    if (processConfig.waitsForExecutionFinishedEvent === true) {
+                                        waitTime = 0
+                                    } else {
+                                        switch (bot.SESSION.type) {
+                                            case 'Live Trading Session': {
+                                                waitTime = bot.SESSION.parameters.timeFrame.config.value
+                                                break
+                                            }
+                                            case 'Fordward Tessting Session': {
+                                                waitTime = bot.SESSION.parameters.timeFrame.config.value
+                                                break
+                                            }
+                                            case 'Paper Trading Session': {
+                                                waitTime = bot.SESSION.parameters.timeFrame.config.value
+                                                break
+                                            }
+                                            case 'Backtesting Session': {
+                                                waitTime = 0
+                                                break
+                                            }
                                         }
-                                            break
-                                        case 'Fordward Tessting Session': {
-                                            waitTime = processConfig.fordwardTestingWaitTime
-                                        }
-                                            break
-                                        case 'Paper Trading Session': {
-                                            waitTime = processConfig.paperTradingWaitTime
-                                        }
-                                            break
-                                        case 'Backtesting Session': {
-                                            waitTime = processConfig.backtestingWaitTime
-                                        }
-                                            break
                                     }
 
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (waitTime / 1000 / 60) + " minute/s."); }

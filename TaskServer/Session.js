@@ -324,7 +324,6 @@
                     if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[ERROR] initialize -> startLiveTrading -> Key 'codeName' or 'secret' not provided. Plese check that and try again."); }
                     return false
                 }
-                pProcessConfig.liveWaitTime = bot.SESSION.parameters.timeFrame.config.value
                 return true
             }
 
@@ -357,7 +356,6 @@
             }
 
             function startPaperTrading(message) {
-                pProcessConfig.normalWaitTime = bot.SESSION.parameters.timeFrame.config.value
                 return true
             }
 

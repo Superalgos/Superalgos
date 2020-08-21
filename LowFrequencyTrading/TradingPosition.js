@@ -6,7 +6,7 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
     let thisObject = {
         mantain: mantain,
         reset: reset,
-        calculateStatistics: calculateStatistics, 
+        cycleBasedStatistics: cycleBasedStatistics, 
         openPosition: openPosition,
         closingPosition: closingPosition,
         closePosition: closePosition,
@@ -256,7 +256,7 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
         }
     }
 
-    function calculateStatistics(tradingEngineStageNode) { 
+    function cycleBasedStatistics(tradingEngineStageNode) { 
 
         calculateAssetsStatistics()
         calculatePositionStatistics()

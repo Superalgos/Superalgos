@@ -7,7 +7,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
         updateChart: updateChart,
         mantain: mantain,
         reset: reset,
-        calculateStatistics: calculateStatistics,
+        cycleBasedStatistics: cycleBasedStatistics,
         runTriggerStage: runTriggerStage,
         runOpenStage: runOpenStage,
         runManageStage: runManageStage,
@@ -102,9 +102,9 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
         resetTradingEngineDataStructure()
     }
 
-    function calculateStatistics() {
-        tradingEpisodeModule.calculateStatistics()
-        tradingPositionModule.calculateStatistics()
+    function cycleBasedStatistics() {
+        tradingEpisodeModule.cycleBasedStatistics()
+        tradingPositionModule.cycleBasedStatistics()
     }
 
     function runTriggerStage() {

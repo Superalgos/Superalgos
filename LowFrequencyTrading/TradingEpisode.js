@@ -9,7 +9,7 @@ exports.newTradingEpisode = function newTradingEpisode(bot, logger, tradingEngin
         openEpisode: openEpisode,
         updateExitType: updateExitType,
         closeEpisode: closeEpisode,
-        calculateStatistics: calculateStatistics,
+        cycleBasedStatistics: cycleBasedStatistics,
         initialize: initialize,
         finalize: finalize
     }
@@ -113,7 +113,7 @@ exports.newTradingEpisode = function newTradingEpisode(bot, logger, tradingEngin
             global.ONE_DAY_IN_MILISECONDS
     }
 
-    function calculateStatistics() {
+    function cycleBasedStatistics() {
 
         calculateAssetsStatistics()
         calculateEpisodeStatistics()

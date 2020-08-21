@@ -3,9 +3,6 @@
     const MODULE_NAME = "Trading Bot";
     const FULL_LOG = true;
 
-    let USER_BOT_MODULE;
-    let USER_BOT_COMMONS;
-
     const TRADING_PROCESS_MODULE = require(global.ROOT_DIR + '/LowFrequencyTrading/TradingProcess.js');
     const FILE_STORAGE = require('./FileStorage.js');
     const SESSION = require(global.ROOT_DIR + 'Session');
@@ -33,53 +30,9 @@
             processConfig = pProcessConfig;
             if (bot.definedByUI === true) {
                 /* The code of the bot is defined at the UI. No need to load a file with the code. */
-                session.initialize(processConfig, onSessionInitialized)
-
-                function onSessionInitialized(err) {
-                    callBackFunction(err);
-                }
-                return
+                session.initialize(processConfig, callBackFunction)
             }
 
-            let filePath = bot.dataMine + "/" + "bots" + "/" + bot.repo + "/" + pProcessConfig.codeName
-            filePath += "/User.Bot.js"
-
-            fileStorage.getTextFile(filePath, onBotDownloaded);
-
-            function onBotDownloaded(err, text) {
-                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-
-                    parentLogger.write(MODULE_NAME, "[ERROR] initialize -> onInizialized -> onBotDownloaded -> err = " + err.message);
-                    parentLogger.write(MODULE_NAME, "[ERROR] initialize -> onInizialized -> onBotDownloaded -> filePath = " + filePath);
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                    return;
-                }
-
-                USER_BOT_MODULE = {}
-                USER_BOT_MODULE.newUserBot = eval(text); // Use this for production
-
-                filePath = bot.dataMine + "/" + "bots" + "/" + bot.repo;
-                filePath += "/Commons.js"
-
-                fileStorage.getTextFile(filePath, onCommonsDownloaded);
-
-                function onCommonsDownloaded(err, text) {
-                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                        parentLogger.write(MODULE_NAME, "[WARN] initialize -> onBotDownloaded -> onCommonsDownloaded -> Commons not found: " + err.code || err.message);
-                        callBackFunction(global.DEFAULT_OK_RESPONSE);
-                        return;
-                    }
-
-                    USER_BOT_COMMONS = {}
-                    USER_BOT_COMMONS.newCommons = eval(text); // Use this for production
-
-                    session.initialize(onSessionInitialized)
-
-                    function onSessionInitialized(err) {
-                        callBackFunction(err);
-                    }
-                }
-            }
         } catch (err) {
             parentLogger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
@@ -337,7 +290,7 @@
                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeDataDependencies -> onInizialized -> Execution finished well."); }
                                             switch (processConfig.framework.name) {
                                                 case 'Low-Frequency-Trading-Process': {
-                                                    processFramework = TRADING_PROCESS_MODULE.newTradingProcess(bot, logger, UTILITIES, USER_BOT_MODULE, USER_BOT_COMMONS);
+                                                    processFramework = TRADING_PROCESS_MODULE.newTradingProcess(bot, logger, UTILITIES);
                                                     intitializeProcessFramework();
                                                     break;
                                                 }

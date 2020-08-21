@@ -57,6 +57,7 @@ function newSessionFunctions() {
             'Candle->Cycle->' +
             'Begin->End->Open->Close->Min->Max->Index->' +
             'Distance To Event->' +
+            'Head Of The Market->Process Date->' +
             'Trigger On->Trigger Off->Take Position->Close Position->Next Phase->Move To Phase->Create Order->Cancel Order->Close Order->' +
             'Strategy->' +
             'Strategy Counters->' +

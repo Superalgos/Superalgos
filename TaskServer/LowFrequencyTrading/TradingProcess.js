@@ -1,4 +1,4 @@
-﻿exports.newTradingProcess = function newTradingProcess(bot, logger, UTILITIES, TRADING_OUTPUT_MODULE, USER_BOT_COMMONS) {
+﻿exports.newTradingProcess = function newTradingProcess(bot, logger, UTILITIES) {
     /*
     This Module will load all the process data dependencies from files and send them downstream.
     After execution, will save the time range and status report of the process.
@@ -20,10 +20,14 @@
     let dataFiles = new Map();
     let multiPeriodDataFiles = new Map();
 
-    let tradingOutputModule;
-
     const FILE_STORAGE = require('../FileStorage.js');
     let fileStorage = FILE_STORAGE.newFileStorage(logger);
+
+    const TRADING_ENGINE_MODULE = require('./TradingEngine.js')
+    let tradingEngineModule = TRADING_ENGINE_MODULE.newTradingEngine(bot, logger)
+
+    let TRADING_OUTPUT_MODULE = require("./TradingOutput")
+    let tradingOutputModule = TRADING_OUTPUT_MODULE.newTradingOutput(bot, logger, tradingEngineModule, UTILITIES, FILE_STORAGE)
 
     let processConfig;
 
@@ -38,8 +42,6 @@
             dataDependenciesModule = pDataDependencies
             processConfig = pProcessConfig
 
-            let TRADING_OUTPUT_MODULE = require("./TradingOutput")
-            tradingOutputModule = TRADING_OUTPUT_MODULE.newTradingOutput(bot, logger, UTILITIES, FILE_STORAGE)
             tradingOutputModule.initialize()
 
             callBackFunction(global.DEFAULT_OK_RESPONSE)
@@ -51,12 +53,17 @@
     }
 
     function finalize() {
+
+        tradingEngineModule.finalize()
+        tradingEngineModule = undefined
+
+        tradingOutputModule.finalize()
+        tradingOutputModule = undefined
+
         dataFiles = undefined
         multiPeriodDataFiles = undefined
         statusDependencies = undefined
         dataDependenciesModule = undefined
-        tradingOutputModule.finalize()
-        tradingOutputModule = undefined
         fileStorage = undefined
         processConfig = undefined
         thisObject = undefined
@@ -66,22 +73,58 @@
         try {
             let currentTimeFrame
             let currentTimeFrameLabel
-            let market = bot.market;
 
             /* Context Variables */
-
             let contextVariables = {
                 lastFile: undefined,                // Datetime of the last file files sucessfully produced by this process.
                 dateBeginOfMarket: undefined,       // Datetime of the first trade file in the whole market history.
                 dateEndOfMarket: undefined          // Datetime of the last file available to be used as an input of this process.
             };
 
-            let previousDay;                        // Holds the date of the previous day relative to the processing date.
-
             getContextVariables()
+
+            if (bot.FIRST_EXECUTION === true && bot.RESUME === false) {
+                /* 
+                Here is where the Trading Engine and Trading Systems received are moved to the simulation state.
+                */
+                bot.simulationState.tradingEngine = bot.TRADING_ENGINE
+                bot.simulationState.tradingSystem = bot.TRADING_SYSTEM
+            }
+
+            /* We set up the Trading Engine Module. */
+            tradingEngineModule.initialize()
+
+            /* Initializing the Trading Process Date */
+            if (bot.FIRST_EXECUTION === true && bot.RESUME === false) {
+                /* 
+                This funcion is going to be called many times by the Trading Bot Loop.
+                Only during the first execution and when the User is not resuming the execution
+                of a stopped session / task; we are going to initialize the Process Date Time.
+                This variable tell us which day we are standing at, specially while working
+                with Daily Files. From this Date is that we are going to load the Daily Files.
+                */
+                bot.simulationState.tradingEngine.current.episode.processDate.value = global.REMOVE_TIME(bot.SESSION.parameters.timeRange.config.initialDatetime).valueOf()
+            }
+
+            /* 
+            This is the Date that is going to be used across the execution of this Trading Process. 
+            We need this because it has a different life cycle than the processData stored at the 
+            Trading Engine data structure. This date has to remain the same during the whole execution
+            of the Trading Process until the end, inclusind the writting of Data Ranges and Status Reports.
+            The processDate of the Trading Engine data structure on the other hand can be changed during
+            the simulation loop, once we discover that all candles from a certain date have benn processed.
+            Here is the point where we sync one and the other.
+            */
+            let tradingProcessDate = global.REMOVE_TIME(bot.simulationState.tradingEngine.current.episode.processDate.value)
+
             await processSingleFiles()
             await processMarketFiles()
 
+            /*
+            This is the Data Structure used at the Simulation with all indicator data.
+            We start creating it right here.
+            */
+            let chart = {} 
             /*
                 Here we check if we need to get Daily Files or not. As an optimization, when 
                 we are running on a Time Frame of 1hs or above, we are not going to load 
@@ -89,54 +132,56 @@
                 we alreaady set a value to currentTimeFrame. We are also not going to loop
                 through days if we are processing market files.
             */
-
             if (currentTimeFrame) {
                 /* We are processing Market Files */
 
-                let chart = {} 
                 buildCharts(chart)
 
                 await generateOutput(chart)
                 await writeProcessFiles()
 
-                checkIfSessionMustStop()
-
             } else {
                 /* We are processing Daily Files */
-
-                /*
-                Go back one day to start well when we advance time at the begining of the loop.
-                */
-                bot.tradingProcessDate = new Date(contextVariables.lastFile.valueOf() - global.ONE_DAY_IN_MILISECONDS); 
                 do {
-                    if (advanceTime() === false) {break}
                     if (checkStopTaskGracefully() === false) {break}
                     if (checkStopProcessing() === false) {break}
-    
+
+                    /* 
+                    We update the Trading Process Date with the date calculated at the simulation.
+                    We will use this date to load indicator and output files. After that we will 
+                    use it to save Output Files and later the Data Ranges. This is the point where
+                    the date calculated by the Simulation is applied at the Trading Process Level.
+                    */
+                    tradingProcessDate = global.REMOVE_TIME(bot.simulationState.tradingEngine.current.episode.processDate.value)
+
                     await processDailyFiles()
     
-                    let chart = {} 
                     buildCharts(chart)
     
                     await generateOutput(chart)
                     await writeProcessFiles()
+
+                    if (checkStopHeadOfTheMarket() === false) {break}
                   }
                   while (true)
             }
 
+            checkIfSessionMustStop()
+            /*
+            Everything worked as expected. We return an OK code and wait for
+            the Bot Loop to call us again later. 
+            */
             callBackFunction(global.DEFAULT_OK_RESPONSE)
 
             function getContextVariables() {
                 try {
                     let thisReport;
-                    let reportKey;
                     let statusReport;
 
                     /* We are going to use the start date as beging of market date. */
-                    contextVariables.dateBeginOfMarket = new Date(bot.SESSION.parameters.timeRange.config.initialDatetime)
-
+                    contextVariables.dateBeginOfMarket = global.REMOVE_TIME(bot.SESSION.parameters.timeRange.config.initialDatetime)
                     /*
-                        Here we get the status report from the bot who knows which is the end of the market.
+                    Here we get the status report from the bot who knows which is the end of the market.
                     */
                     statusReport = statusDependencies.reportsByMainUtility.get("Market Ending Point")
 
@@ -167,17 +212,6 @@
                     }
 
                     contextVariables.dateEndOfMarket = new Date(thisReport.lastFile.valueOf());
-
-                    /* Validation that the data is not up-to-date. */
-                    if (bot.tradingProcessDate.valueOf() - global.ONE_DAY_IN_MILISECONDS > contextVariables.dateEndOfMarket.valueOf() && bot.SESSION.type !== "Backtesting Session") {
-
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> " + "Head of the market is @ " + contextVariables.dateEndOfMarket); }
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> You need to UPDATE your datasets in order to run a " + bot.SESSION.type) }
-
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                        return
-
-                    }
 
                     /* Finally we get our own Status Report. */
                     statusReport = statusDependencies.reportsByMainUtility.get("Self Reference")
@@ -254,29 +288,13 @@
 
                     /* We cut the async calls via callBacks at this point, so as to have a clearer code upstream */
                     let response = await asyncGetDatasetFile(datasetModule, filePath, fileName) 
-                    onFileReceived(response.err, response.text)
 
-                    function onFileReceived(err, text) {
-                        try {
-                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                if (err.message === 'File does not exist.') {
-                                    logger.write(MODULE_NAME, "[ERROR] The file " + filePath + '/' + fileName + ' does not exist and it is required to continue. This process will retry to read it in a while. In the meantime make yourself sure that the process that generates it has ran properly.');
-                                    callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                                } else {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> processSingleFiles ->  onFileReceived -> err = " + err.message);
-                                    callBackFunction(err);
-                                }
-                                return
-                            }
-
-                            let dataFile = JSON.parse(text);
-                            dataFiles.set(dependency.id, dataFile);
-                        }
-                        catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> processSingleFiles ->  onFileReceived -> err = " + err.stack);
-                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                        }
+                    if (response.err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                        throw(response.err)
                     }
+
+                    let dataFile = JSON.parse(response.text);
+                    dataFiles.set(dependency.id, dataFile);
                 }
 
                 let mapKey = "Single Files"
@@ -319,30 +337,14 @@
 
                         /* We cut the async calls via callBacks at this point, so as to have a clearer code upstream */
                         let response = await asyncGetDatasetFile(datasetModule, filePath, fileName) 
-                        onFileReceived(response.err, response.text)
 
-                        function onFileReceived(err, text) {
-                            try {
-                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                    if (err.message === 'File does not exist.') {
-                                        logger.write(MODULE_NAME, "[ERROR] The file " + filePath + '/' + fileName + ' does not exist and it is required to continue. This process will retry to read it in a while. In the meantime make yourself sure that the process that generates it has ran properly.');
-                                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                                    } else {
-                                        logger.write(MODULE_NAME, "[ERROR] start -> processMarketFiles -> onFileReceived -> err = " + err.message);
-                                        callBackFunction(err);
-                                    }
-                                    return
-                                }
-
-                                let dataFile = JSON.parse(text);
-                                let trimmedDataFile = trimDataFile(dataFile, datasetModule.node.parentNode.record)
-                                dataFiles.set(dependency.id, trimmedDataFile);
-                            }
-                            catch (err) {
-                                logger.write(MODULE_NAME, "[ERROR] start -> processMarketFiles -> onFileReceived -> err = " + err.stack);
-                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                            }
+                        if (response.err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                            throw(response.err)
                         }
+    
+                        let dataFile = JSON.parse(response.text);
+                        let trimmedDataFile = trimDataFile(dataFile, datasetModule.node.parentNode.record)
+                        dataFiles.set(dependency.id, trimmedDataFile);
 
                         function trimDataFile(dataFile, recordDefinition) {
                             /* 
@@ -379,8 +381,8 @@
 
             async function processDailyFiles() {
                 /*  Telling the world we are alive and doing well and which date we are processing right now. */
-                let processingDate = bot.tradingProcessDate.getUTCFullYear() + '-' + utilities.pad(bot.tradingProcessDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(bot.tradingProcessDate.getUTCDate(), 2);
-                bot.processHeartBeat(processingDate)
+                let processingDateString = tradingProcessDate.getUTCFullYear() + '-' + utilities.pad(tradingProcessDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(tradingProcessDate.getUTCDate(), 2);
+                bot.processHeartBeat(processingDateString)
  
                 /*
                 We will iterate through all posible timeFrames.
@@ -407,10 +409,13 @@
 
                     dataFiles = new Map();
 
+                    /*
+                    We will iterate through all dependencies, in order to load the
+                    files that later will end up at the chart data structure.
+                    */
                     for (let dependencyIndex = 0; dependencyIndex < dataDependenciesModule.nodeArray.length; dependencyIndex++) {
                         let dependency = dataDependenciesModule.nodeArray[dependencyIndex];
                         let datasetModule = dataDependenciesModule.dataSetsModulesArray[dependencyIndex];
-                        let file
 
                         if (dependency.referenceParent.config.codeName !== "Multi-Period-Daily") {
                             continue
@@ -422,7 +427,7 @@
                             }
                         }
 
-                        let dateForPath = bot.tradingProcessDate.getUTCFullYear() + '/' + utilities.pad(bot.tradingProcessDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(bot.tradingProcessDate.getUTCDate(), 2);
+                        let dateForPath = tradingProcessDate.getUTCFullYear() + '/' + utilities.pad(tradingProcessDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(tradingProcessDate.getUTCDate(), 2);
                         let filePath
                         if (dependency.referenceParent.config.codeName === "Multi-Period-Daily") {
                             filePath = dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName + "/" + timeFrameLabel + "/" + dateForPath;
@@ -433,66 +438,32 @@
 
                         /* We cut the async calls via callBacks at this point, so as to have a clearer code upstream */
                         let response = await asyncGetDatasetFile(datasetModule, filePath, fileName) 
-                        onFileReceived(response.err, response.text)
-
-                        function onFileReceived(err, text) {
-                            try {
-                                if ((err.result === "Fail Because" && err.message === "File does not exist.") || err.code === 'The specified key does not exist.') {
-                                    logger.write(MODULE_NAME, "[ERROR] The file " + filePath + '/' + fileName + ' does not exist and it is required to continue. This process will retry to read it in a while. In the meantime make yourself sure that the process that generates it has ran properly.');
-                                    callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                                    return
-                                }
-
-                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> processDailyFiles -> onFileReceived -> Not Ok -> err = " + err.code);
-                                    callBackFunction(err);
-                                    return
-                                }
-
-                                file = JSON.parse(text);
-                                dataFiles.set(dependency.id, file);
-                            }
-                            catch (err) {
-                                logger.write(MODULE_NAME, "[ERROR] start -> processDailyFiles -> onFileReceived -> err = " + err.stack);
-                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                            }
+                        
+                        if (response.err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                            throw(response.err)
                         }
+
+                        let dataFile = JSON.parse(response.text);
+                        dataFiles.set(dependency.id, dataFile);
                     }
 
                     let mapKey = global.dailyFilePeriods[n][1];
                     multiPeriodDataFiles.set(mapKey, dataFiles)
                 }
-
-                if (currentTimeFrame !== undefined) {
-                    buildCharts(advanceTime);
-                } else {
-                    logger.write(MODULE_NAME, "[ERROR] start -> processDailyFiles -> Time Frame not Recognized. Can not continue.");
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                }
             }
 
-            function advanceTime() {
-                bot.tradingProcessDate = new Date(bot.tradingProcessDate.valueOf() + global.ONE_DAY_IN_MILISECONDS);
-                previousDay = new Date(bot.tradingProcessDate.valueOf() - global.ONE_DAY_IN_MILISECONDS);
-
-                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> advanceTime -> bot.tradingProcessDate = " + bot.tradingProcessDate); }
-                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> advanceTime -> previousDay = " + previousDay); }
-
-                /* Validation that we are not going past the user defined end date. */
-                if (bot.tradingProcessDate.valueOf() >= bot.SESSION.parameters.timeRange.config.finalDatetime) {
-                    const logText = "User Defined End Datetime reached @ " + previousDay.getUTCFullYear() + "/" + (previousDay.getUTCMonth() + 1) + "/" + previousDay.getUTCDate() + ".";
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> advanceTime -> " + logText); }
-
-                    bot.SESSION.stop(logText)
+            function checkStopHeadOfTheMarket() {                
+                /*  
+                We need to check if we have reached the head of the market in order to know 
+                when to break the Daily Files Process loop and give time for a new candles /
+                indicators to be built and continue the processing once this process is called
+                again. 
+                */
+                if (bot.simulationState.tradingEngine.current.episode.headOfTheMarket.value === true) {
+                    console.log('YES at the head of the market')
                     return false
                 }
-
-                /* Validation that we are not going past the head of the market. */
-                if (bot.tradingProcessDate.valueOf() > contextVariables.dateEndOfMarket.valueOf() + global.ONE_DAY_IN_MILISECONDS - 1) {
-                    const logText = "Head of the market found @ " + previousDay.getUTCFullYear() + "/" + (previousDay.getUTCMonth() + 1) + "/" + previousDay.getUTCDate() + ".";
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> advanceTime -> " + logText); }
-                    return false
-                }
+                console.log('NOT at the head of the market')
             }
 
             function checkStopTaskGracefully() {
@@ -566,7 +537,7 @@
                     chart,
                     currentTimeFrame,
                     currentTimeFrameLabel,
-                    bot.tradingProcessDate
+                    tradingProcessDate
                     )
 
                 bot.FIRST_EXECUTION = false // From here on, all other loops executions wont be the first execution.
@@ -575,24 +546,28 @@
             async function writeProcessFiles() {
 
                 await writeTimeFramesFiles(currentTimeFrame, currentTimeFrameLabel)
-                await writeDataRanges(currentTimeFrameLabel)
+                await writeDataRanges()
  
                 if (currentTimeFrame > global.dailyFilePeriods[0][0]) {
                     await writeMarketStatusReport(currentTimeFrameLabel)
                 } else {
-                    await writeDailyStatusReport(bot.tradingProcessDate, currentTimeFrameLabel)
+                    await writeDailyStatusReport(currentTimeFrameLabel)
                 }
 
-                async function writeDataRanges(currentTimeFrameLabel) {
-                    for (let outputDatasetIndex = 0; outputDatasetIndex < bot.processNode.referenceParent.processOutput.outputDatasets.length; outputDatasetIndex++) {
+                async function writeDataRanges() {
+                    for (
+                            let outputDatasetIndex = 0; 
+                            outputDatasetIndex < bot.processNode.referenceParent.processOutput.outputDatasets.length; 
+                            outputDatasetIndex++
+                        ) {
                         let productCodeName = bot.processNode.referenceParent.processOutput.outputDatasets[outputDatasetIndex].referenceParent.parentNode.config.codeName;
-                        await writeDataRange(contextVariables.dateBeginOfMarket, bot.tradingProcessDate, productCodeName, currentTimeFrameLabel);
+                        await writeDataRange(productCodeName);
                     }
     
-                    async function writeDataRange(pBegin, pEnd, productCodeName, currentTimeFrameLabel) {
+                    async function writeDataRange(productCodeName) {
                         let dataRange = {
-                            begin: pBegin.valueOf(),
-                            end: pEnd.valueOf() + global.ONE_DAY_IN_MILISECONDS
+                            begin: contextVariables.dateBeginOfMarket.valueOf(),
+                            end: tradingProcessDate.valueOf() + global.ONE_DAY_IN_MILISECONDS
                         }
         
                         let fileContent = JSON.stringify(dataRange);
@@ -619,12 +594,16 @@
     
                 async function writeTimeFramesFiles(currentTimeFrame, currentTimeFrameLabel) {
     
-                    for (let outputDatasetIndex = 0; outputDatasetIndex < bot.processNode.referenceParent.processOutput.outputDatasets.length; outputDatasetIndex++) {
+                    for (
+                            let outputDatasetIndex = 0; 
+                            outputDatasetIndex < bot.processNode.referenceParent.processOutput.outputDatasets.length; 
+                            outputDatasetIndex++
+                        ) {
                         let productCodeName = bot.processNode.referenceParent.processOutput.outputDatasets[outputDatasetIndex].referenceParent.parentNode.config.codeName;
-                        await writeTimeFramesFile(currentTimeFrame, currentTimeFrameLabel, productCodeName, 'Multi-Period-Daily')
-                        await writeTimeFramesFile(currentTimeFrame, currentTimeFrameLabel, productCodeName, 'Multi-Period-Market')
+                        await writeTimeFramesFile( currentTimeFrameLabel, productCodeName, 'Multi-Period-Daily')
+                        await writeTimeFramesFile( currentTimeFrameLabel, productCodeName, 'Multi-Period-Market')
     
-                        async function writeTimeFramesFile(currentTimeFrame, currentTimeFrameLabel, productCodeName, processType) {
+                        async function writeTimeFramesFile(currentTimeFrameLabel, productCodeName, processType) {
     
                             let timeFramesArray = []
                             timeFramesArray.push(currentTimeFrameLabel)
@@ -642,12 +621,12 @@
                     }
                 }
 
-                async function writeDailyStatusReport(lastFileDate, currentTimeFrameLabel) {
+                async function writeDailyStatusReport( currentTimeFrameLabel) {
                     let reportKey = bot.dataMine + "-" + bot.codeName + "-" + bot.processNode.referenceParent.config.codeName
                     let thisReport = statusDependencies.statusReports.get(reportKey)
     
                     thisReport.file.lastExecution = bot.currentDaytime
-                    thisReport.file.lastFile = lastFileDate
+                    thisReport.file.lastFile = tradingProcessDate
                     thisReport.file.simulationState = bot.simulationState
                     thisReport.file.timeFrames = currentTimeFrameLabel
                     await thisReport.asyncSave()
@@ -661,33 +640,54 @@
                     thisReport.file.simulationState = bot.simulationState
                     thisReport.file.timeFrames = currentTimeFrameLabel
     
-                    logger.newInternalLoop(bot.codeName, bot.process, bot.tradingProcessDate)
+                    logger.newInternalLoop(bot.codeName, bot.process, tradingProcessDate)
                     await thisReport.asyncSave()
                 }
             }
 
             function checkIfSessionMustStop() {
-                /* 
-                The natural way for the session to stop is when we reached the 
-                user defined end datetime.  
-                */
-                const now = new Date()
-                if (now.valueOf() >= bot.SESSION.parameters.timeRange.config.finalDatetime) {
-                    const logText = "User Defined End Datetime reached @ " + now.getUTCFullYear() + "/" + (now.getUTCMonth() + 1) + "/" + now.getUTCDate() + ".";
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeProcessFiles -> onMarketStatusReport -> " + logText); }
 
-                    bot.SESSION.stop('because it just finished.')
-                    return
-                }
                 if (bot.SESSION.type === 'Backtesting Session') {
-                    bot.SESSION.stop('Backtesting Session over Market Files Finished.')
-                    return
+                    /*
+                    Backtests needs only one execution of this process to complete.
+                    */
+                    bot.SESSION.stop('Backtesting Session Finished.')
+                } else {
+                    /* 
+                    The natural way for the session to stop is when we reached the 
+                    user defined end datetime.  
+                    */
+                    const now = new Date()
+                    if (now.valueOf() >= bot.SESSION.parameters.timeRange.config.finalDatetime) {
+                        const logText = "User Defined End Datetime reached @ " + now.getUTCFullYear() + "/" + (now.getUTCMonth() + 1) + "/" + now.getUTCDate() + ".";
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeProcessFiles -> onMarketStatusReport -> " + logText); }
+
+                        bot.SESSION.stop('Final Datetime Reached.')
+                    }
                 }
             }
         }
         catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] start -> err = " + err.stack);
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+            /* An unhandled exception occured. in this case we return Fail and log the stack. */
+            if (err.stack) {
+                logger.write(MODULE_NAME, "[ERROR] start -> Unhandled Exception. Will Abort this process. err = " + err.stack);
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                return
+            }
+
+            /* Some expected file was not found. We will return a RETRY code and move on. */
+            if ((err.result === "Fail Because" && err.message === "File does not exist.") || err.code === 'The specified key does not exist.') {
+                logger.write(MODULE_NAME, "[ERROR] File not Found. Will Retry the Process Loop.")
+                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                return
+            }
+
+            /* Some other handled exception occured. We return Fail and move on. */
+            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                logger.write(MODULE_NAME, "[ERROR] start -> Handled Exception. Will Abort this process. err = " + err.message);
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                return
+            }
         }
     }
 

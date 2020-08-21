@@ -71,9 +71,9 @@
         ],
         "menuItems": [
             {
-                "action": "Configure This",
+                "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Configure This",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -400,9 +400,9 @@
         ],
         "menuItems": [
             {
-                "action": "Configure This",
+                "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Configure This",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -457,9 +457,9 @@
         ],
         "menuItems": [
             {
-                "action": "Configure This",
+                "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Configure This",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -898,9 +898,9 @@
         },
         "menuItems": [
             {
-                "action": "Configure This",
+                "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Configure This",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -1305,9 +1305,9 @@
         },
         "menuItems": [
             {
-                "action": "Configure This",
+                "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Configure This",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -1371,7 +1371,7 @@
                 "ring": 1
             },
             {
-                "action": "Configure This",
+                "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
                 "label": "Configure Workspace",
                 "iconPathOn": "html",
@@ -1537,9 +1537,9 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-super-scripts.html#super-scripts",
         "menuItems": [
             {
-                "action": "Configure This",
+                "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Configure This",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -1882,8 +1882,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#network-node",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -2124,8 +2124,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#trading-bot-instance",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -2396,8 +2396,8 @@
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -2548,8 +2548,8 @@
         "type": "Indicator Function",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -2667,6 +2667,18 @@
                 "name": "exitType",
                 "type": "node",
                 "childType": "Exit Type",
+                "autoAdd": true
+            }, 
+            {
+                "name": "headOfTheMarket",
+                "type": "node",
+                "childType": "Head Of The Market",
+                "autoAdd": true
+            },
+            {
+                "name": "processDate",
+                "type": "node",
+                "childType": "Process Date",
                 "autoAdd": true
             },
             {
@@ -2941,8 +2953,8 @@
         "type": "Positions",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -2975,8 +2987,8 @@
         "type": "Strategies",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -3009,8 +3021,8 @@
         "type": "Orders",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -3043,8 +3055,8 @@
         "type": "Fails",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -3077,8 +3089,8 @@
         "type": "Hits",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -3111,8 +3123,8 @@
         "type": "Periods",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -3145,8 +3157,8 @@
         "type": "User Defined Counter",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -3250,8 +3262,8 @@
         "type": "Stop Loss",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -3304,8 +3316,8 @@
         "type": "Take Profit",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -3358,8 +3370,8 @@
         "type": "Stop Loss Phase",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -3392,8 +3404,8 @@
         "type": "Take Profit Phase",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -3426,8 +3438,8 @@
         "type": "Take Profit Position",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -3460,8 +3472,8 @@
         "type": "Stop Loss Position",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -4138,8 +4150,8 @@
         "type": "User Defined Statistic",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -4188,8 +4200,8 @@
         "type": "Profit Loss",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -4222,8 +4234,8 @@
         "type": "Hit Ratio",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -4256,8 +4268,8 @@
         "type": "Days",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -4290,8 +4302,8 @@
         "type": "Size Filled",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -4324,8 +4336,8 @@
         "type": "Percentage Filled",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -4358,8 +4370,8 @@
         "type": "Actual Rate",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -4392,8 +4404,8 @@
         "type": "Fees Paid",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -4426,8 +4438,8 @@
         "type": "ROI",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -4460,8 +4472,8 @@
         "type": "Annualized Rate Of Return",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -4494,8 +4506,8 @@
         "type": "Hit Fail",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -4599,8 +4611,8 @@
         "type": "Balance",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -4633,8 +4645,8 @@
         "type": "Begin Balance",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -4667,8 +4679,8 @@
         "type": "End Balance",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -4784,8 +4796,8 @@
         "type": "Trigger On",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -4818,8 +4830,8 @@
         "type": "Trigger Off",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -4852,8 +4864,8 @@
         "type": "Take Position",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -4886,8 +4898,8 @@
         "type": "Close Position",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -4920,8 +4932,8 @@
         "type": "Next Phase",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -4954,8 +4966,8 @@
         "type": "Move To Phase",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -4988,8 +5000,8 @@
         "type": "Create Order",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -5022,8 +5034,8 @@
         "type": "Cancel Order",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -5056,8 +5068,8 @@
         "type": "Close Order",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -5495,8 +5507,8 @@
         "type": "Strategy Name",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -5529,8 +5541,8 @@
         "type": "Index",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -5563,8 +5575,8 @@
         "type": "Status",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -5597,8 +5609,8 @@
         "type": "Situation Name",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -5631,8 +5643,8 @@
         "type": "Algorithm Name",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -5665,8 +5677,8 @@
         "type": "Order Name",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -5699,8 +5711,8 @@
         "type": "Serial Number",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -5733,8 +5745,8 @@
         "type": "Identifier",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -5767,8 +5779,8 @@
         "type": "Exchange Id",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -5801,8 +5813,8 @@
         "type": "Lock",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -5835,8 +5847,8 @@
         "type": "Begin",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -5869,8 +5881,8 @@
         "type": "End",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -5987,8 +5999,8 @@
         "type": "Begin Rate",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -6021,8 +6033,8 @@
         "type": "End Rate",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -6186,8 +6198,8 @@
         "type": "Rate",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -6220,8 +6232,8 @@
         "type": "Entry Target Rate",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -6254,8 +6266,8 @@
         "type": "Exit Target Rate",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -6288,8 +6300,8 @@
         "type": "Stage Defined In",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -6322,8 +6334,8 @@
         "type": "Size",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -6356,8 +6368,8 @@
         "type": "Entry Target Size",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -6390,8 +6402,8 @@
         "type": "Exit Target Size",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -6424,8 +6436,8 @@
         "type": "Size Placed",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -6458,8 +6470,8 @@
         "type": "Target Size",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -6492,8 +6504,8 @@
         "type": "Exit Type",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -6521,6 +6533,74 @@
         },
         "icon": "quality",
         "propertyNameAtParent": "exitType"
+    },
+    {
+        "type": "Process Date",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "settings",
+                "iconPathOff": "settings",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": 0\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Episode->"
+        },
+        "icon": "shapes",
+        "propertyNameAtParent": "processDate"
+    },
+    {
+        "type": "Head Of The Market",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "settings",
+                "iconPathOff": "settings",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": false\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Episode->"
+        },
+        "icon": "shapes",
+        "propertyNameAtParent": "headOfTheMarket"
     },
     {
         "type": "Last",
@@ -7282,8 +7362,8 @@
         "type": "Session Base Asset",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -7324,8 +7404,8 @@
         "type": "Session Quoted Asset",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -7472,8 +7552,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#time-range",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -7507,8 +7587,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#time-frame",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -7542,8 +7622,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#slippage",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -7577,8 +7657,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#fee-structure",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -7611,8 +7691,8 @@
         "type": "Snapshots",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -7645,8 +7725,8 @@
         "type": "User Defined Parameters",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -7679,8 +7759,8 @@
         "type": "Time Frames Filter",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -7746,8 +7826,8 @@
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -7849,8 +7929,8 @@
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -7979,8 +8059,8 @@
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -8050,8 +8130,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#sensor-bot-instance",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -8101,8 +8181,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#indicator-bot-instance",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -8165,8 +8245,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#data-mine",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -8244,8 +8324,8 @@
         "type": "Sensor Bot",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -8307,8 +8387,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#process-definition",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -8466,8 +8546,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#status-dependency",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -8584,8 +8664,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#product-definition",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -8668,8 +8748,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#dataset-definition",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -8705,8 +8785,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#indicator-bot",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -8864,8 +8944,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#record-property",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -9166,8 +9246,8 @@
         "type": "Trading Bot",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -9229,8 +9309,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#plotter",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -9280,9 +9360,9 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-trading-system.html#trading-system",
         "menuItems": [
             {
-                "action": "Configure This",
+                "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Configure This",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -10160,9 +10240,9 @@
         "type": "Execution Algorithm",
         "menuItems": [
             {
-                "action": "Configure This",
+                "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Configure This",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -10240,9 +10320,9 @@
         "type": "Market Buy Order",
         "menuItems": [
             {
-                "action": "Configure This",
+                "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Configure This",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -10307,9 +10387,9 @@
         "type": "Market Sell Order",
         "menuItems": [
             {
-                "action": "Configure This",
+                "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Configure This",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -10374,9 +10454,9 @@
         "type": "Limit Buy Order",
         "menuItems": [
             {
-                "action": "Configure This",
+                "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Configure This",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -10468,9 +10548,9 @@
         "type": "Limit Sell Order",
         "menuItems": [
             {
-                "action": "Configure This",
+                "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Configure This",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -10719,9 +10799,9 @@
         "type": "Simulated Partial Fill",
         "menuItems": [
             {
-                "action": "Configure This",
+                "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Configure This",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -10790,9 +10870,9 @@
         "type": "Simulated Fees Paid",
         "menuItems": [
             {
-                "action": "Configure This",
+                "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Configure This",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -11009,9 +11089,9 @@
         },
         "menuItems": [
             {
-                "action": "Configure This",
+                "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Configure This",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -11044,9 +11124,9 @@
         },
         "menuItems": [
             {
-                "action": "Configure This",
+                "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Configure This",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -11257,9 +11337,9 @@
         "type": "Signals Provider",
         "menuItems": [
             {
-                "action": "Configure This",
+                "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Configure This",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -11351,7 +11431,7 @@
             {
                 "action": "Configure Thise",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Configure This",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -11471,9 +11551,9 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-crypto-ecosystem.html#exchange-assets",
         "menuItems": [
             {
-                "action": "Configure This",
+                "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Configure This",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -11528,9 +11608,9 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-crypto-ecosystem.html#asset",
         "menuItems": [
             {
-                "action": "Configure This",
+                "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Configure This",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -11674,9 +11754,9 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-crypto-ecosystem.html#market",
         "menuItems": [
             {
-                "action": "Configure This",
+                "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Configure This",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -11945,8 +12025,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-crypto-ecosystem.html#exchange-account-key",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -12055,8 +12135,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-charting-space.html#time-machine",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -12148,8 +12228,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-charting-space.html#viewport",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -12175,8 +12255,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-charting-space.html#time-scale",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -12211,8 +12291,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-charting-space.html#rate-scale",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -12247,8 +12327,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-charting-space.html#time-frame-scale",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -12351,8 +12431,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-charting-space.html#layers-manager",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -12401,8 +12481,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-charting-space.html#layer",
         "menuItems": [
             {
-                "action": "Configure This",
-                "label": "Configure This",
+                "action": "Configure",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,

@@ -117,7 +117,9 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
             switch (tradingEngineOrder.status.value) {
                 case 'Not Open': {
-                    {
+                    {   
+                        /* During the First cycle we can not create new orders. That is reserved for the Second cycle. */
+                        if (tradingEngine.current.episode.cycle.value  === 'First') {continue}
                         /* When the stage is closing we can not create new orders */
                         if (tradingEngineStage.status.value === 'Closing') { continue }
                         /* 
@@ -147,13 +149,15 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
                     /* Check Events that happens at the Exchange, if needed. */
                     await checkExchangeEvents(tradingEngineStage, tradingSystemOrder, tradingEngineOrder)
 
+                    /* During the Second cycle we can not cancel orders. That is reserved for the First cycle. */
+                    if (tradingEngine.current.episode.cycle.value  === 'Second') {continue}
                     /* 
                     In the previous steps, we might have discovered that the order was cancelled 
                     at the exchange, or filled, so  the order might still not be Open. 
                     If the stage is closing or the order is not Open, we wont be cancelling orders 
                     based on defined events. 
                     */
-                    if (tradingEngineStage.status.value !== 'Closing' && tradingEngineOrder.status.value === 'Open') {
+                   if (tradingEngineStage.status.value !== 'Closing' && tradingEngineOrder.status.value === 'Open') {
 
                         /* Check if we need to Cancel this Order */
                         let situationName = checkOrderEvent(tradingSystemOrder.cancelOrderEvent, tradingSystemOrder, executionAlgorithm, executionNode)
@@ -239,20 +243,27 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
         tradingEngineOrder.situationName.value = situationName
 
         function calculateOrderRate() {
-            /* By default this is the order rate and it is the rate that applies to Market Orders */
-            tradingEngineOrder.rate.value = tradingEngine.current.episode.candle.close.value
 
             /* Optional Rate Definition */
-            if (tradingSystemOrder.orderRate !== undefined) {
-                if (tradingSystemOrder.orderRate.formula !== undefined) {
-                    tradingEngineOrder.rate.value = tradingSystem.formulas.get(tradingSystemOrder.orderRate.formula.id)
+            if (tradingSystemOrder.type === 'Limit Buy Order' || tradingSystemOrder.type === 'Limit Sell Order') {
+                if (tradingSystemOrder.orderRate === undefined) { badDefinitionUnhandledException(undefined, 'tradingSystemOrder.orderRate === undefined', tradingSystemOrder) }
+                if (tradingSystemOrder.orderRate.formula === undefined) { badDefinitionUnhandledException(undefined, 'tradingSystemOrder.orderRate.formula === undefined', tradingSystemOrder) }
+                
+                /* Extract the rate value from the user-defined formula */
+                tradingEngineOrder.rate.value = tradingSystem.formulas.get(tradingSystemOrder.orderRate.formula.id)
 
-                    if (tradingEngineOrder.rate.value === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.rate.value === undefined', tradingEngineOrder) }
-                    if (isNaN(tradingEngineOrder.rate.value) === true) { badDefinitionUnhandledException(undefined, 'isNaN(tradingEngineOrder.rate.value) === true', tradingEngineOrder) }
-                    if (tradingEngineOrder.rate.value <= 0) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.rate.value <= 0', tradingEngineOrder) }
+                /* Final rate validations */
+                if (tradingEngineOrder.rate.value === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.rate.value === undefined', tradingSystemOrder) }
+                if (isNaN(tradingEngineOrder.rate.value) === true) { badDefinitionUnhandledException(undefined, 'isNaN(tradingEngineOrder.rate.value) === true', tradingSystemOrder) }
+                if (tradingEngineOrder.rate.value <= 0) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.rate.value <= 0', tradingSystemOrder) }
 
-                    tradingEngineOrder.rate.value = global.PRECISE(tradingEngineOrder.rate.value, 10)
-                }
+                tradingEngineOrder.rate.value = global.PRECISE(tradingEngineOrder.rate.value, 10)               
+            } else {
+                /* 
+                For Market Orders, the rate is irrelevant, since it is not sent to the Exchange.
+                We store at this field the last know price as a reference.
+                */
+                tradingEngineOrder.rate.value = tradingEngine.current.episode.candle.close.value
             }
         }
 
@@ -293,6 +304,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
                     /* Size in Quoted Asset */
                     tradingEngineOrder.orderQuotedAsset.size.value = algorithmSizeInQuotedAsset * tradingSystemOrder.config.percentageOfAlgorithmSize / 100
 
+                    /* Check that the Size calculated would not surpass Stage Target Size */
                     if (
                         tradingEngineOrder.orderQuotedAsset.size.value + tradingEngineStage.stageQuotedAsset.sizePlaced.value >
                         tradingEngineStage.stageQuotedAsset.targetSize.value

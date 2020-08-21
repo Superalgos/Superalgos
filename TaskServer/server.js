@@ -45,6 +45,12 @@ global.PRECISE = function (floatNumber, precision) {
     return this.parseFloat(floatNumber.toFixed(precision))
 }
 
+global.REMOVE_TIME = function (datetime) {
+    const GMT_SECONDS = ':00.000 GMT+0000';
+    let date = new Date(datetime)
+    return new Date(date.getUTCFullYear() + "-" + (date.getUTCMonth() + 1) + "-" + date.getUTCDate() + " " + "00:00" + GMT_SECONDS);
+}
+
 process.on('uncaughtException', function (err) {
     console.log('[ERROR] Task Server -> server -> uncaughtException -> err.message = ' + err.message)
     console.log('[ERROR] Task Server -> server -> uncaughtException -> err.stack = ' + err.stack)

@@ -67,6 +67,7 @@
                     setUpAppSchema()
                     setUpSessionFolderName()
 
+                    /* We validate all parameters received and complete some that might be missing if needed. */
                     if (checkParemeters() === false) { return }
 
                     socialBotsModule.initialize()
@@ -208,6 +209,11 @@
                 }
 
                 function useDefaultDatetimes(initialDefault, finalDefault) {
+                    /* 
+                    Note that inside the system, we are going to deal with these
+                    dates in their numeric value representation.
+                    */
+
                     /* Initial Datetime */
                     if (bot.SESSION.parameters.timeRange.config.initialDatetime === undefined) {
                         bot.SESSION.parameters.timeRange.config.initialDatetime = initialDefault
@@ -310,7 +316,6 @@
             }
 
             function startBackTesting(message) {
-                bot.tradingProcessDate = new Date(bot.SESSION.parameters.timeRange.config.initialDatetime.valueOf()) //  Here we initialize the date of the process.
                 return true
             }
 
@@ -319,8 +324,6 @@
                     if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[ERROR] initialize -> startLiveTrading -> Key 'codeName' or 'secret' not provided. Plese check that and try again."); }
                     return false
                 }
-
-                bot.tradingProcessDate = new Date(bot.SESSION.parameters.timeRange.config.initialDatetime.valueOf())
                 pProcessConfig.liveWaitTime = bot.SESSION.parameters.timeFrame.config.value
                 return true
             }
@@ -331,8 +334,6 @@
                     console.log("Key 'codeName' or 'secret' not provided. Plese check that and try again.")
                     return false
                 }
-
-                bot.tradingProcessDate = new Date(bot.SESSION.parameters.timeRange.config.initialDatetime.valueOf())
 
                 /* Reduce the balance */
                 let balancePercentage = 1 // This is the default value
@@ -356,7 +357,6 @@
             }
 
             function startPaperTrading(message) {
-                bot.tradingProcessDate = new Date(bot.SESSION.parameters.timeRange.config.initialDatetime.valueOf())
                 pProcessConfig.normalWaitTime = bot.SESSION.parameters.timeFrame.config.value
                 return true
             }

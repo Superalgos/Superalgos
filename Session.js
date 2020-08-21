@@ -209,6 +209,11 @@
                 }
 
                 function useDefaultDatetimes(initialDefault, finalDefault) {
+                    /* 
+                    Note that inside the system, we are going to deal with these
+                    dates in their numeric value representation.
+                    */
+
                     /* Initial Datetime */
                     if (bot.SESSION.parameters.timeRange.config.initialDatetime === undefined) {
                         bot.SESSION.parameters.timeRange.config.initialDatetime = initialDefault

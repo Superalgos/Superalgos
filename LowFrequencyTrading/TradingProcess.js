@@ -103,11 +103,19 @@
                 This variable tell us which day we are standing at, specially while working
                 with Daily Files. From this Date is that we are going to load the Daily Files.
                 */
-                bot.simulationState.tradingEngine.current.episode.processDate.value = bot.SESSION.parameters.timeRange.config.initialDatetime.valueOf()
+                bot.simulationState.tradingEngine.current.episode.processDate.value = global.REMOVE_TIME(bot.SESSION.parameters.timeRange.config.initialDatetime).valueOf()
             }
 
-            /* This is the Date that is going to be used across the execution of this Trading Process */
-            let tradingProcessDate = new Date(bot.simulationState.tradingEngine.current.episode.processDate.value)
+            /* 
+            This is the Date that is going to be used across the execution of this Trading Process. 
+            We need this because it has a different life cycle than the processData stored at the 
+            Trading Engine data structure. This date has to remain the same during the whole execution
+            of the Trading Process until the end, inclusind the writting of Data Ranges and Status Reports.
+            The processDate of the Trading Engine data structure on the other hand can be changed during
+            the simulation loop, once we discover that all candles from a certain date have benn processed.
+            Here is the point where we sync one and the other.
+            */
+            let tradingProcessDate = global.REMOVE_TIME(bot.simulationState.tradingEngine.current.episode.processDate.value)
 
             await processSingleFiles()
             await processMarketFiles()
@@ -144,8 +152,8 @@
                     use it to save Output Files and later the Data Ranges. This is the point where
                     the date calculated by the Simulation is applied at the Trading Process Level.
                     */
-                    tradingProcessDate = new Date(bot.simulationState.tradingEngine.current.episode.processDate.value)
-    
+                    tradingProcessDate = global.REMOVE_TIME(bot.simulationState.tradingEngine.current.episode.processDate.value)
+
                     await processDailyFiles()
     
                     buildCharts(chart)
@@ -171,8 +179,7 @@
                     let statusReport;
 
                     /* We are going to use the start date as beging of market date. */
-                    contextVariables.dateBeginOfMarket = new Date(bot.SESSION.parameters.timeRange.config.initialDatetime)
-
+                    contextVariables.dateBeginOfMarket = global.REMOVE_TIME(bot.SESSION.parameters.timeRange.config.initialDatetime)
                     /*
                     Here we get the status report from the bot who knows which is the end of the market.
                     */
@@ -560,7 +567,7 @@
                     async function writeDataRange(productCodeName) {
                         let dataRange = {
                             begin: contextVariables.dateBeginOfMarket.valueOf(),
-                            end: tradingProcessDate + global.ONE_DAY_IN_MILISECONDS
+                            end: tradingProcessDate.valueOf() + global.ONE_DAY_IN_MILISECONDS
                         }
         
                         let fileContent = JSON.stringify(dataRange);

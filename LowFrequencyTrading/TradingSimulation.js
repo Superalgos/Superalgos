@@ -365,27 +365,31 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
 
             function checkNextCandle() {
                 /* 
-                Before reaching the last candle of the loop, we need to check that the next candle it is not the last candle.
-                We skip the candle at the head of the market because it has not closed yet. 
-                For the special case of Daily Files, this means that the last candle of each day will never be processed.
+                We need to check that the candle we have just processed it is not the last candle.
+                The candle at the head of the market is already skipped from the loop because it has not closed yet. 
+                Note: for Daily Files, this means that the last candle of each day will never be processed.
                 */
-                if (tradingEngine.current.episode.candle.index.value + 1 === candles.length - 1) {
+                if (tradingEngine.current.episode.candle.index.value === candles.length - 1) {
                     /*
                     When processing daily files, we need a mechanism to turn from one day to the next one.
                     That mechanism is the one implemented here. If we detect that the next candle is the last candle of 
                     the day, we will advance current process day one day. By doing so, during the next execution, the
                     simulation will receive the candles and indicators files of the next day. 
+
+                    The first +1 is because array indexes are based on 0. 
+                    The second +1 is because we need to compare the next candle (remember that the loops allways avoid the
+                    last candle of the dataset available.)
                     */
                     let candlesPerDay = global.ONE_DAY_IN_MILISECONDS / sessionParameters.timeFrame.config.value
                     if (
                         bot.processingDailyFiles &&
-                        tradingEngine.current.episode.candle.index.value + 1 === candlesPerDay - 1
+                        tradingEngine.current.episode.candle.index.value + 1 + 1 === candlesPerDay 
                     ) {
                         /*
-                        Here we found that the next candle of the Simulation is the last candle of the day.
-                        It is time to move to the next day so as to receive next, the indicator files from 
+                        Here we found that the next candle of the dataset is the last candle of the day.
+                        It is time to move to the next day so as to receive at the next execution, the indicator files from 
                         the next day. At the same time we will reset the index to be pointing to
-                        the first candle of the new set we receive. The first candle of the next day starts
+                        the first candle of the new dataset we shall receive. The first candle of the next day starts
                         at index 0, so we will position the index now at zero.
                         */
                         tradingEngine.current.episode.candle.index.value = 0

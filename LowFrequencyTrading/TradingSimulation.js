@@ -86,7 +86,6 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
             /*
             Main Simulation Loop
             */
-            console.log('initialCandle =  ' + initialCandle)
             /* We are going to use this to exit the loop if needed. */
             let breakLoop = false
 
@@ -106,7 +105,6 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
             for (let i = initialCandle; i < candles.length - 1; i++) {
 
                 tradingEngine.current.episode.candle.index.value = i
-                console.log('index =  ' + tradingEngine.current.episode.candle.index.value)
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Processing candle # ' + tradingEngine.current.episode.candle.index.value) }
                 let candle = candles[tradingEngine.current.episode.candle.index.value] // This is the current candle the Simulation is working at.
 
@@ -124,7 +122,6 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
                 }
 
                 if (checkInitialDatetime() === false) {
-                    console.log(' Esta candle esta dentras del Initial Datetime')
                     continue
                 }
 
@@ -179,9 +176,6 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
                 if (breakLoop === true) { break }
 
                 async function runCycle() {
-
-                    console.log(new Date(), 'Function runCycle', ' Cycle = ' + tradingEngine.current.episode.cycle.value)
-
                     /* Reset Data Structures */
                     tradingSystemModule.reset()
                     tradingEpisodeModule.reset()

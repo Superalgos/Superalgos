@@ -145,7 +145,7 @@
                     function initializeProcessExecutionEvents() {
                         try {
                             processExecutionEvents = PROCESS_EXECUTION_EVENTS.newProcessExecutionEvents(bot, logger)
-                            processExecutionEvents.initialize(onInizialized);
+                            processExecutionEvents.initialize(processConfig, onInizialized);
 
                             function onInizialized(err) {
                                 try {

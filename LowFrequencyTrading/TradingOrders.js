@@ -304,6 +304,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
                     /* Size in Quoted Asset */
                     tradingEngineOrder.orderQuotedAsset.size.value = algorithmSizeInQuotedAsset * tradingSystemOrder.config.percentageOfAlgorithmSize / 100
 
+                    /* Check that the Size calculated would not surpass Stage Target Size */
                     if (
                         tradingEngineOrder.orderQuotedAsset.size.value + tradingEngineStage.stageQuotedAsset.sizePlaced.value >
                         tradingEngineStage.stageQuotedAsset.targetSize.value

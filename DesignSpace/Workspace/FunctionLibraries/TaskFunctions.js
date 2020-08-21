@@ -31,7 +31,7 @@ function newTaskFunctions() {
             'Indicator Bot Instance->Time Frames Filter->' +
             'Trading Bot Instance->' +
             'Sensor Process Instance->Indicator Process Instance->Trading Process Instance->' +
-            'Market Reference->' +
+            'Market Reference->Execution Started Event->' +
             'Key Reference->Exchange Account Key->' +
             'Market->Exchange Markets->Crypto Exchange->' +
             'Market Base Asset->Market Quoted Asset->Asset->' +

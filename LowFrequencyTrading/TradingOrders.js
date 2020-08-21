@@ -911,7 +911,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
             syncWithExchange(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order)
 
-            recalculateStageSize(tradingEngineStage)
+            recalculateStageSize(tradingEngineStage, tradingEngineOrder)
         }
     }
 

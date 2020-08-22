@@ -6,7 +6,7 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
     let thisObject = {
         mantain: mantain,
         reset: reset,
-        cycleBasedStatistics: cycleBasedStatistics, 
+        cycleBasedStatistics: cycleBasedStatistics,
         openPosition: openPosition,
         closingPosition: closingPosition,
         closePosition: closePosition,
@@ -92,6 +92,22 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
         Now that the position is closed, it is the right time to move this position from current to last at the Trading Engine data structure.
         */
         tradingEngineModule.cloneValues(tradingEngine.current.position, tradingEngine.last.position)
+
+        cycleBasedStatistics()
+        
+        /* Updating Hits & Fails */
+        if (tradingEngine.current.position.positionBaseAsset.profitLoss.value > 0) {
+            tradingEngine.current.episode.episodeBaseAsset.hits.value++
+        }  
+        if (tradingEngine.current.position.positionBaseAsset.profitLoss.value < 0) {
+            tradingEngine.current.episode.episodeBaseAsset.fails.value++
+        }
+        if (tradingEngine.current.position.positionQuotedAsset.profitLoss.value > 0) {
+            tradingEngine.current.episode.episodeQuotedAsset.hits.value++
+        } 
+        if (tradingEngine.current.position.positionQuotedAsset.profitLoss.value < 0) {
+            tradingEngine.current.episode.episodeQuotedAsset.fails.value++
+        }
     }
 
     function applyStopLossFormula(formulas, formulaId) {
@@ -256,46 +272,54 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
         }
     }
 
-    function cycleBasedStatistics(tradingEngineStageNode) { 
+    function cycleBasedStatistics() {
 
         calculateAssetsStatistics()
         calculatePositionStatistics()
-    
+
         function calculateAssetsStatistics() {
             /* Profit Loss Calculation */
             tradingEngine.current.position.positionBaseAsset.profitLoss.value =
                 tradingEngine.current.episode.episodeBaseAsset.balance.value -
                 tradingEngine.current.position.positionBaseAsset.beginBalance
-    
+
             tradingEngine.current.position.positionQuotedAsset.profitLoss.value =
                 tradingEngine.current.episode.episodeQuotedAsset.balance.value -
                 tradingEngine.current.position.positionQuotedAsset.beginBalance
-    
+
             tradingEngine.current.position.positionBaseAsset.profitLoss.value = global.PRECISE(tradingEngine.current.position.positionBaseAsset.profitLoss.value, 10)
             tradingEngine.current.position.positionQuotedAsset.profitLoss.value = global.PRECISE(tradingEngine.current.position.positionQuotedAsset.profitLoss.value, 10)
-    
+
             /* ROI Calculation */
             tradingEngine.current.position.positionBaseAsset.ROI.value =
                 tradingEngine.current.position.positionBaseAsset.profitLoss.value * 100 /
                 tradingEngine.current.strategyOpenStage.stageBaseAsset.targetSize.value
-    
+
             tradingEngine.current.position.positionQuotedAsset.ROI.value =
                 tradingEngine.current.position.positionQuotedAsset.profitLoss.value * 100 /
                 tradingEngine.current.strategyOpenStage.stageQuotedAsset.targetSize.value
-    
+
             tradingEngine.current.position.positionBaseAsset.ROI.value = global.PRECISE(tradingEngine.current.position.positionBaseAsset.ROI.value, 10)
             tradingEngine.current.position.positionQuotedAsset.ROI.value = global.PRECISE(tradingEngine.current.position.positionQuotedAsset.ROI.value, 10)
-    
+
             /* Hit Fail Calculation */
             if (tradingEngine.current.position.positionBaseAsset.ROI.value > 0) {
                 tradingEngine.current.position.positionBaseAsset.hitFail.value = 'Hit'
-            } else {
+            } 
+            if (tradingEngine.current.position.positionBaseAsset.ROI.value < 0) {
                 tradingEngine.current.position.positionBaseAsset.hitFail.value = 'Fail'
+            }
+            if (tradingEngine.current.position.positionBaseAsset.ROI.value === 0) {
+                tradingEngine.current.position.positionBaseAsset.hitFail.value = 'Even'
             }
             if (tradingEngine.current.position.positionQuotedAsset.ROI.value > 0) {
                 tradingEngine.current.position.positionQuotedAsset.hitFail.value = 'Hit'
-            } else {
+            } 
+            if (tradingEngine.current.position.positionQuotedAsset.ROI.value < 0) {
                 tradingEngine.current.position.positionQuotedAsset.hitFail.value = 'Fail'
+            }
+            if (tradingEngine.current.position.positionQuotedAsset.ROI.value === 0) {
+                tradingEngine.current.position.positionQuotedAsset.hitFail.value = 'Even'
             }
         }
 
@@ -305,10 +329,10 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
                 (
                     tradingEngine.current.episode.episodeBaseAsset.profitLoss.value * tradingEngine.current.position.endRate.value +
                     tradingEngine.current.episode.episodeQuotedAsset.profitLoss.value
-                ) 
+                )
 
             tradingEngine.current.position.positionStatistics.profitLoss.value = global.PRECISE(tradingEngine.current.position.positionStatistics.profitLoss.value, 10)
-    
+
             /* ROI Calculation */
             tradingEngine.current.position.positionStatistics.ROI.value =
                 (
@@ -320,19 +344,23 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
                     tradingEngine.current.position.positionQuotedAsset.beginBalance
                 )
             tradingEngine.current.position.positionStatistics.ROI.value = global.PRECISE(tradingEngine.current.position.positionStatistics.ROI.value, 10)
-    
+
             /* Hit Fail Calculation */
             if (tradingEngine.current.position.positionStatistics.ROI.value > 0) {
                 tradingEngine.current.position.positionStatistics.hitFail.value = 'Hit'
-            } else {
+            } 
+            if (tradingEngine.current.position.positionStatistics.ROI.value < 0) {
                 tradingEngine.current.position.positionStatistics.hitFail.value = 'Fail'
             }
-    
+            if (tradingEngine.current.position.positionStatistics.ROI.value === 0) {
+                tradingEngine.current.position.positionStatistics.hitFail.value = 'Even'
+            }
+
             /* Days Calculation */
             tradingEngine.current.position.positionStatistics.days.value =
                 tradingEngine.current.position.positionCounters.periods.value *
                 sessionParameters.timeFrame.config.value / global.ONE_DAY_IN_MILISECONDS
-    
+
             tradingEngine.current.position.positionStatistics.days.value = global.PRECISE(tradingEngine.current.position.positionStatistics.days.value, 10)
         }
     }

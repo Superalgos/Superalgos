@@ -359,8 +359,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
                 switch (tradingEngine.current.strategyOpenStage.stageDefinedIn.value) {
                     case 'Base Asset': {
                         if (
-                            tradingEngine.current.strategyOpenStage.stageBaseAsset.sizeFilled.value +
-                            tradingEngine.current.strategyOpenStage.stageBaseAsset.feesPaid.value >=
+                            tradingEngine.current.strategyOpenStage.stageBaseAsset.sizeFilled.value >=
                             tradingEngine.current.strategyOpenStage.stageBaseAsset.sizePlaced.value
                         ) {
                             changeStageStatus('Open Stage', 'Closed')
@@ -369,8 +368,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
                     }
                     case 'Quoted Asset': {
                         if (
-                            tradingEngine.current.strategyOpenStage.stageQuotedAsset.sizeFilled.value +
-                            tradingEngine.current.strategyOpenStage.stageQuotedAsset.feesPaid.value >=
+                            tradingEngine.current.strategyOpenStage.stageQuotedAsset.sizeFilled.value >=
                             tradingEngine.current.strategyOpenStage.stageQuotedAsset.sizePlaced.value
                         ) {
                             changeStageStatus('Open Stage', 'Closed')
@@ -897,10 +895,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
         switch (tradingEngineStage.stageDefinedIn.value) {
             case 'Base Asset': {
                 if (
-                    global.PRECISE(
-                        tradingEngineStage.stageBaseAsset.sizeFilled.value +
-                        tradingEngineStage.stageBaseAsset.feesPaid.value
-                        , 10)
+                    tradingEngineStage.stageBaseAsset.sizeFilled.value
                     >=
                     tradingEngineStage.stageBaseAsset.targetSize.value
                 ) {
@@ -912,10 +907,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
             }
             case 'Quoted Asset': {
                 if (
-                    global.PRECISE(
-                        tradingEngineStage.stageQuotedAsset.sizeFilled.value +
-                        tradingEngineStage.stageQuotedAsset.feesPaid.value 
-                        , 10)
+                    tradingEngineStage.stageQuotedAsset.sizeFilled.value
                     >=
                     tradingEngineStage.stageQuotedAsset.targetSize.value
                 ) {

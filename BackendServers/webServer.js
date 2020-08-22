@@ -33,7 +33,9 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
     }
 
     function run() {
-        startHtttpServer()
+        if (process.argv[2] !== 'noBrowser') {
+            startHtttpServer()
+        }
     }
 
     function startHtttpServer() {

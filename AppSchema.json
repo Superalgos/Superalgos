@@ -1935,7 +1935,7 @@
             "config": true
         },
         "initialValues": {
-            "config": "{ \n\"host\": \"localhost\", \n\"webPort\": \"34247\", \n\"webSocketsPort\": \"8080\"\n}"
+            "config": "{ \n\"host\": \"localhost\", \n\"webPort\": \"34248\", \n\"webSocketsPort\": \"8081\"\n}"
         },
         "isTitleAllwaysVisible": true,
         "addLeftIcons": true,

@@ -33,11 +33,7 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
     }
 
     function run() {
-        if (process.argv[4] !== 'noBrowser') {
-            startHtttpServer()
-        } else {
-            console.log('Running Backend only with no UI.')
-        }
+        startHtttpServer()
     }
 
     function startHtttpServer() {
@@ -47,7 +43,14 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
             if (isHttpServerStarted === false) {
                 gWebServer = http.createServer(onBrowserRequest).listen(port)
                 isHttpServerStarted = true
-                open('http://localhost:' + port)
+
+                /* Starting the browser now is optional */
+                if (process.argv[4] !== 'noBrowser') {
+                    open('http://localhost:' + port)
+                } else {
+                    console.log('Running Backend only with no UI.')
+                }
+
                 console.log('Web Server Started.')
             }
         } catch (err) {

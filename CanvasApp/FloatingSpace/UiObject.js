@@ -110,6 +110,7 @@ function newUiObject() {
 
     let errorMessage = ''
     let currentValue = 0
+    let valueMinDecimals = undefined
     let currentPercentage = ''
     let currentStatus = ''
     let rightDragging = false
@@ -745,10 +746,11 @@ function newUiObject() {
         hasError = false
     }
 
-    function setValue(value, counter) {
+    function setValue(value, counter, minDecimals) {
         if (value !== undefined) {
             currentValue = value
             hasValue = true
+            valueMinDecimals = minDecimals
             if (counter !== undefined) {
                 valueCounter = counter
             } else {
@@ -1438,7 +1440,7 @@ function newUiObject() {
             label = currentValue
             if (!isNaN(currentValue)) {
                 if (currentValue.toFixed !== undefined) {
-                    label = dynamicDecimals(currentValue)
+                    label = dynamicDecimals(currentValue, valueMinDecimals)
                 }
             }
 

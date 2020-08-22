@@ -8646,7 +8646,7 @@
             "compatibleTypes": "->Execution Finished Event->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Process Definition->"
+            "compatibleTypes": "->Process Definition->Trading Process Instance->"
         },
         "icon": "execution-started-event",
         "propertyNameAtParent": "executionStartedEvent"

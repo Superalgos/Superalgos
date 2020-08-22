@@ -132,7 +132,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
             /* Run the Close Stage */
             await tradingStagesModule.runCloseStage()
 
-            tradingStagesModule.calculateStatistics()
+            tradingStagesModule.cycleBasedStatistics()
 
         } catch (err) {
             /* 

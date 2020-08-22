@@ -95,14 +95,14 @@ function newRecordValues() {
             pointing to the same property at the Target Node.
             */
             if (property.config.childProperty !== undefined) {
-                applyValue(targetNode[property.config.childProperty], value)
+                applyValue(targetNode[property.config.childProperty], value, property.config.decimals)
             } else {
-                applyValue(targetNode[property.config.codeName], value)
+                applyValue(targetNode[property.config.codeName], value, property.config.decimals)
             }
         }
     }
 
-    function applyValue(node, value) {
+    function applyValue(node, value, minDecimals) {
         if (canvas.chartingSpace.visible !== true) { return }
         if (node === undefined) { return }
         if (node === undefined) { return }
@@ -110,6 +110,6 @@ function newRecordValues() {
         if (node.payload.uiObject === undefined) { return }
         if (value === true) { value = 'true' }
         if (value === false) { value = 'false' }
-        node.payload.uiObject.setValue(value, 1)
+        node.payload.uiObject.setValue(value, 1, minDecimals)
     }
 }

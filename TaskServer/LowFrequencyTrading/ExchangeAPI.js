@@ -124,7 +124,7 @@
             return order.id
         } catch (err) {
             tradingSystem.errors.push([tradingSystemOrder.id, err.message])
-            logError("getOrder -> Error = " + err.message);
+            logError("createOrder -> Error = " + err.message);
         }
     }
 
@@ -133,13 +133,13 @@
         let orderId = tradingEngineOrder.exchangeId.value
 
         /* Basic Logging */
-        logInfo("getOrder -> Entering function. orderId = " + orderId);
+        logInfo("cancelOrder -> Entering function. orderId = " + orderId);
 
         const symbol = bot.market.baseAsset + '/' + bot.market.quotedAsset
 
         /* Basic Validations */
         if (exchange.has['fetchOrder'] === false) {
-            logError("getOrder -> Exchange does not support fetchOrder command.");
+            logError("cancelOrder -> Exchange does not support fetchOrder command.");
             return
         }
 
@@ -148,7 +148,7 @@
             return true
         } catch (err) {
             tradingSystem.errors.push([tradingSystemOrder.id, err.message])
-            logError("getOrder -> Error = " + err.message);
+            logError("cancelOrder -> Error = " + err.message);
         }
     }
 

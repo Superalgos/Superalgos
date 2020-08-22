@@ -76,6 +76,8 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
             }
 
         } catch (err) {
+            tradingSystem.errors.push([executionNode.id, err.message])
+            
             if (typeof err === 'string' || err instanceof String) {
                 logger.write(MODULE_NAME, '[ERROR] runExecution -> err = ' + err)
             }

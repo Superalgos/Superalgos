@@ -33,8 +33,10 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
     }
 
     function run() {
-        if (process.argv[2] !== 'noBrowser') {
+        if (process.argv[4] !== 'noBrowser') {
             startHtttpServer()
+        } else {
+            console.log('Running Backend only with no UI.')
         }
     }
 

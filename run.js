@@ -1,4 +1,4 @@
 const { fork } = require('child_process')
-fork('./BackendServers/server.js', undefined, { stdio: 'inherit' })
+fork('./BackendServers/server.js', process.argv, { stdio: 'inherit' })
 
 

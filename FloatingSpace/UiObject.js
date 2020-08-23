@@ -1429,10 +1429,10 @@ function newUiObject() {
             position = canvas.floatingSpace.transformPointToMap(position)
         }
 
-        let radius = thisObject.container.frame.radius * 1.35
+        let radius = thisObject.container.frame.radius * 1.00
         /* Label Text */
         let labelPoint
-        let fontSize = thisObject.payload.floatingObject.currentFontSize * 6 / 4
+        let fontSize = thisObject.payload.floatingObject.currentFontSize * 8 / 7
         let label
 
         if (radius > 6) {
@@ -1451,7 +1451,7 @@ function newUiObject() {
                 }
 
                 if (label.length > 30) {
-                    fontSize = fontSize / 2
+                    fontSize = fontSize * 2 / 3
                 }
 
                 labelPoint = {
@@ -1483,7 +1483,7 @@ function newUiObject() {
             position = canvas.floatingSpace.transformPointToMap(position)
         }
 
-        let radius = thisObject.container.frame.radius * 1.75
+        let radius = thisObject.container.frame.radius * 1.30
         /* Label Text */
         let labelPoint
         let fontSize = thisObject.payload.floatingObject.currentFontSize * 6 / 4
@@ -1526,7 +1526,7 @@ function newUiObject() {
             position = canvas.floatingSpace.transformPointToMap(position)
         }
 
-        let radius = thisObject.container.frame.radius * 0.9
+        let radius = thisObject.container.frame.radius * 0.8
         /* Label Text */
         let labelPoint
         let fontSize = thisObject.payload.floatingObject.currentFontSize * 6 / 4 / 2
@@ -1706,10 +1706,10 @@ function newUiObject() {
                 browserCanvasContext.beginPath()
                 browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
                 browserCanvasContext.closePath()
-                browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.BLACK + ', 0.65)'
+                browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.BLACK + ', 0.70)'
                 browserCanvasContext.fill()
                 /* Border when node is in focus */
-                if (hasError !== true && nodeDefinition.isHierarchyHead !== true) {
+                if (hasError !== true && nodeDefinition.isHierarchyHead !== true && thisObject.circularProgressBar === undefined) {
                     browserCanvasContext.beginPath()
                     browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
                     browserCanvasContext.closePath()
@@ -1717,6 +1717,15 @@ function newUiObject() {
                     browserCanvasContext.lineWidth = 3
                     browserCanvasContext.setLineDash([0, 0])
                     browserCanvasContext.stroke()
+                    
+                    browserCanvasContext.beginPath()
+                    browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS - 1, 0, Math.PI * 2, true)
+                    browserCanvasContext.closePath()
+                    browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK_TURQUOISE + ', ' + 1 + ')'
+                    browserCanvasContext.lineWidth = 2
+                    browserCanvasContext.setLineDash([0, 0])
+                    browserCanvasContext.stroke()
+
                 }
             }
 

@@ -110,7 +110,7 @@ function newCircularProgressBar() {
         if (canvas.floatingSpace.inMapMode === true) { return }
         if (needToDrawRing !== true) { return }
 
-        const VISIBLE_RADIUS = thisObject.container.frame.radius * 2
+        const VISIBLE_RADIUS = thisObject.container.frame.radius * 1.5
 
         let visiblePosition = {
             x: thisObject.container.frame.position.x,
@@ -121,7 +121,7 @@ function newCircularProgressBar() {
         visiblePosition = thisObject.fitFunction(visiblePosition)
 
         for (let i = 0; i < 60; i++) {
-            let OPACITY = opacityCounters[i] / 1000
+            let OPACITY = opacityCounters[i] / 4000
 
             if (OPACITY === 0) { continue }
 
@@ -133,13 +133,13 @@ function newCircularProgressBar() {
             browserCanvasContext.closePath()
 
             browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GOLDEN_ORANGE + ', ' + OPACITY * 2 + ')'
-            browserCanvasContext.lineWidth = 6 + opacityCounters[i] / 100 / 2
-            browserCanvasContext.setLineDash([3, 4])
+            browserCanvasContext.lineWidth = 6 + opacityCounters[i] / 100 / 4
+            browserCanvasContext.setLineDash([1, 10])
             browserCanvasContext.stroke()
 
             browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK_TURQUOISE + ', ' + OPACITY + ')'
-            browserCanvasContext.lineWidth = 0 + opacityCounters[i] / 100 / 2
-            browserCanvasContext.setLineDash([3, 4])
+            browserCanvasContext.lineWidth = 0 + opacityCounters[i] / 100 / 4
+            browserCanvasContext.setLineDash([2, 10])
             browserCanvasContext.stroke()
         }
     }

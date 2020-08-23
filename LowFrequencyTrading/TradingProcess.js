@@ -349,6 +349,10 @@
                         function trimDataFile(dataFile, recordDefinition) {
                             /* 
                             Here we will discard all the records in a file that are outside of the current time range.
+                            We will include the las element previous to the begining of the time range. This is needed
+                            because during the simulation, the current period is not the open one, but the previous to 
+                            the open, and if we do not include the previous to the initial datetime there will be no 
+                            current objects at the begining of the simulation for many time frames. 
                             */
                             let beginIndex
                             let endIndex
@@ -366,7 +370,7 @@
                                 let dataRecord = dataFile[i]
                                 let begin = dataRecord[beginIndex]
                                 let end = dataRecord[endIndex]
-                                if (end < bot.SESSION.parameters.timeRange.config.initialDatetime - 1) { continue } // /1 because we need the previous closed element
+                                if (end + timeFrame < bot.SESSION.parameters.timeRange.config.initialDatetime - 1) { continue } // /1 because we need the previous closed element
                                 if (begin > bot.SESSION.parameters.timeRange.config.finalDatetime) { continue }
                                 result.push(dataRecord)
                             }

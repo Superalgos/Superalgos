@@ -189,35 +189,54 @@ function newWorkspace() {
     }
 
     function saveWorkspace() {
-        if (isInitialized === false) { return }
-        /*  When there is an exception while loading the app, the rootNodes of the workspace get into null value. To avoid saving a corrupt staate we are going to verufy we are not in that situation before saving. */
         let workspace = canvas.designSpace.workspace.workspaceNode
 
+        /* Validation if it is too early to save. */
+        if (isInitialized === false) { return }
+
+        /* Validation of 2 sessions opened at the same time. */
         let savedSessionTimestamp = window.localStorage.getItem('Session Timestamp')
         if (Number(savedSessionTimestamp) !== sessionTimestamp) {
-            canvas.cockpitSpace.setStatus('Could not save the Workspace. You have more that one instance of the Superlagos User Interface open at the same time. Plese close this instance as it is older than the others.', 150, canvas.cockpitSpace.statusTypes.WARNING)
-        } else {
-            let textToSave = stringifyWorkspace()
-            window.localStorage.setItem(CANVAS_APP_NAME + '.' + 'Workspace', textToSave)
-            window.localStorage.setItem('Session Timestamp', sessionTimestamp)
+            canvas.cockpitSpace.setStatus(
+                'Could not save the Workspace. You have more that one instance of the Superlagos User Interface open at the same time. Plese close this instance as it is older than the others.'
+                , 150, canvas.cockpitSpace.statusTypes.WARNING)
+            return
+        }
 
-            if (workspace.name !== undefined) {
-                let url = 'SaveWorkspace/' + workspace.name
-                callServer(textToSave, url, onResponse)
-            }
+        /* Validation that there is something to save */
+        let textToSave = stringifyWorkspace()
+        if (textToSave === undefined) {
+            canvas.cockpitSpace.setStatus(
+                'Could not save the Workspace. Something is preventing the System to do it at this time.'
+                , 150, canvas.cockpitSpace.statusTypes.WARNING)
+            return
+        }
 
-            function onResponse(err) {
-                if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                    window.localStorage.setItem('Last Used Workspace', workspace.name)
-                    window.localStorage.setItem('Session Timestamp', sessionTimestamp)
-                    if (ARE_WE_RECORDING_A_MARKET_PANORAMA === false) {
-                        canvas.cockpitSpace.setStatus(workspace.name + ' Saved.', 50, canvas.cockpitSpace.statusTypes.ALL_GOOD)
-                    }
-                } else {
-                    canvas.cockpitSpace.setStatus('Could not save the Workspace at the Backend. Please check the Backend Console for more information.', 150, canvas.cockpitSpace.statusTypes.WARNING)
+        window.localStorage.setItem(CANVAS_APP_NAME + '.' + 'Workspace', textToSave)
+        window.localStorage.setItem('Session Timestamp', sessionTimestamp)
+
+        /* Validation Workspace has a name */
+        if (workspace.name === undefined) {
+            canvas.cockpitSpace.setStatus(
+                'Could not save the Workspace. You need to specify a name for it.'
+                , 150, canvas.cockpitSpace.statusTypes.WARNING)
+            return
+        }
+
+        let url = 'SaveWorkspace/' + workspace.name
+        callServer(textToSave, url, onResponse)
+        return true
+
+        function onResponse(err) {
+            if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                window.localStorage.setItem('Last Used Workspace', workspace.name)
+                window.localStorage.setItem('Session Timestamp', sessionTimestamp)
+                if (ARE_WE_RECORDING_A_MARKET_PANORAMA === false) {
+                    canvas.cockpitSpace.setStatus(workspace.name + ' Saved.', 50, canvas.cockpitSpace.statusTypes.ALL_GOOD)
                 }
+            } else {
+                canvas.cockpitSpace.setStatus('Could not save the Workspace at the Backend. Please check the Backend Console for more information.', 150, canvas.cockpitSpace.statusTypes.WARNING)
             }
-            return true
         }
     }
 
@@ -311,7 +330,16 @@ function newWorkspace() {
             rootNodes: stringifyReadyNodes
         }
 
-        return JSON.stringify(workspace)
+        /*
+        Sometimes it happens that there are no rootNodes. 
+        In those situations the workspace can not be stringified,
+        to prevent later saving it corrupting the original file.
+        */
+        if (stringifyReadyNodes.length > 0) {
+            return JSON.stringify(workspace)
+        } else {
+            return 
+        }
     }
 
     function stopAllRunningTasks() {
@@ -460,14 +488,18 @@ function newWorkspace() {
                 {
                     let text = stringifyWorkspace(true)
                     let fileName = 'Share - ' + payload.node.type + ' - ' + payload.node.name + '.json'
-                    downloadText(fileName, text)
+                    if (text !== undefined) {
+                        downloadText(fileName, text)
+                    }
                 }
                 break
             case 'Backup Workspace':
                 {
                     let text = stringifyWorkspace(false)
                     let fileName = 'Backup - ' + payload.node.type + ' - ' + payload.node.name + '.json'
-                    downloadText(fileName, text)
+                    if (text !== undefined) {
+                        downloadText(fileName, text)
+                    }
                 }
                 break
             case 'Edit Code':

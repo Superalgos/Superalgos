@@ -2197,7 +2197,7 @@
             "Use Reference Parent"
         ],
         "addLeftIcons": true,
-        "level": 3,
+        "level": 2,
         "referenceAttachesTo": {
             "compatibleTypes": "->Process Definition->"
         },
@@ -2243,7 +2243,7 @@
             "Use Reference Parent"
         ],
         "addLeftIcons": true,
-        "level": 3,
+        "level": 2,
         "referenceAttachesTo": {
             "compatibleTypes": "->Process Definition->"
         },
@@ -2329,7 +2329,7 @@
             "Use Reference Parent"
         ],
         "addLeftIcons": true,
-        "level": 3,
+        "level": 2,
         "referenceAttachesTo": {
             "compatibleTypes": "->Process Definition->"
         },
@@ -9036,7 +9036,7 @@
         },
         "level": 4,
         "chainAttachesTo": {
-            "compatibleTypes": "->Target Size In Base Asset->Target Size In Quoted Asset->Target Rate->Phase->Record Property->Simulated Actual Rate->Situation->"
+            "compatibleTypes": "->Target Size In Base Asset->Target Size In Quoted Asset->Target Rate->Phase->Record Property->Simulated Actual Rate->Situation->Indicator Function->"
         },
         "icon": "pipette",
         "propertyNameAtParent": "formula"

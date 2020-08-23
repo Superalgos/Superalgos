@@ -1054,7 +1054,7 @@ function newUiObject() {
         if (thisObject.isOnFocus === false) {
             drawReferenceLine()
             drawChainLine()
-
+            drawBodyAndPicture()
             if (isDragging === false && thisObject.isOnFocus === true) {
                 thisObject.menu.drawBackground()
             }
@@ -1067,6 +1067,7 @@ function newUiObject() {
 
     function drawMiddleground() {
         if (thisObject.isOnFocus === false) {
+            drawErrorMessage()
             drawValue()
             drawPercentage()
             drawStatus()
@@ -1077,7 +1078,7 @@ function newUiObject() {
 
     function drawForeground() {
         if (thisObject.isOnFocus === false) {
-            drawBodyAndPicture()
+            
             if (isDragging === false) {
                 thisObject.menu.drawForeground()
             }
@@ -1699,18 +1700,18 @@ function newUiObject() {
             }
 
             if (thisObject.isOnFocus === true) {
-                VISIBLE_RADIUS = thisObject.container.frame.radius
+                VISIBLE_RADIUS = thisObject.container.frame.radius * 1.5
                 browserCanvasContext.beginPath()
-                browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS * 1.2, 0, Math.PI * 2, true)
+                browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
                 browserCanvasContext.closePath()
 
-                browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.BLACK + ', 0.75)'
+                browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.BLACK + ', 0.60)'
 
                 browserCanvasContext.fill()
             }
 
             if (hasError === true) {
-                VISIBLE_RADIUS = thisObject.container.frame.radius * 1
+                VISIBLE_RADIUS = thisObject.container.frame.radius * 1.5
                 let OPACITY = errorMessageCounter / 30
 
                 browserCanvasContext.beginPath()
@@ -1719,8 +1720,8 @@ function newUiObject() {
 
                 browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RED + ', ' + OPACITY + ')'
 
-                browserCanvasContext.lineWidth = 10
-                browserCanvasContext.setLineDash([19, 20])
+                browserCanvasContext.lineWidth = 5
+                browserCanvasContext.setLineDash([5, 10])
                 browserCanvasContext.stroke()
             }
 

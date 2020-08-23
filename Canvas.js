@@ -48,7 +48,6 @@ function newCanvas() {
     thisObject.eventHandler = newEventHandler()
 
     let lastContainerMouseOver
-    let lastShortcutKeyRejection
 
     thisObject.mouse = {
         position: {
@@ -467,22 +466,12 @@ function newCanvas() {
                         nodeOnFocus.payload.uiObject.setValue('Shortcut Key Removed ')
                         return
                     } else {
-                        if (lastShortcutKeyRejection !== event.key + nodeUsingThisKey.type + ' ' + nodeUsingThisKey.name) {
-                            /* The first time we show a warning that this key is in use. */
-                            nodeOnFocus.payload.uiObject.setErrorMessage('Key already in use by ' + nodeUsingThisKey.type + ' ' + nodeUsingThisKey.name)
-                            lastShortcutKeyRejection = event.key + nodeUsingThisKey.type + ' ' + nodeUsingThisKey.name
-                            return
-                        } else {
-                            /* After the warning, we allow the key to be re-assigned */
-                            nodeUsingThisKey.payload.uiObject.shortcutKey = ''
-                            nodeUsingThisKey === undefined
-                        }
+                        /* After the warning, we allow the key to be re-assigned */
+                        nodeUsingThisKey.payload.uiObject.shortcutKey = ''
+                        nodeUsingThisKey === undefined
+                        nodeOnFocus.payload.uiObject.shortcutKey = event.key
+                        nodeOnFocus.payload.uiObject.setValue('Shortcut Key: Ctrl + Alt + ' + event.key)
                     }
-                }
-                /* If there is not node using this key and a node in focus, we assign this key to this node */
-                if (nodeUsingThisKey === undefined && nodeOnFocus !== undefined) {
-                    nodeOnFocus.payload.uiObject.shortcutKey = event.key
-                    nodeOnFocus.payload.uiObject.setValue('Shortcut Key: Ctrl + Alt + ' + event.key)
                 }
                 return
             }

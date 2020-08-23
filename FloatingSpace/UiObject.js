@@ -1078,7 +1078,7 @@ function newUiObject() {
 
     function drawForeground() {
         if (thisObject.isOnFocus === false) {
-            
+
             if (isDragging === false) {
                 thisObject.menu.drawForeground()
             }
@@ -1670,19 +1670,20 @@ function newUiObject() {
 
             let nodeDefinition = getNodeDefinition(thisObject.payload.node)
             if (nodeDefinition !== undefined) {
+                /* Hierarchy Head Ring */
                 if (nodeDefinition.isHierarchyHead === true) {
-                    VISIBLE_RADIUS = thisObject.payload.floatingObject.currentHierarchyRing * 2.8
+                    VISIBLE_RADIUS = thisObject.payload.floatingObject.currentHierarchyRing * 3.8
                     if (canvas.floatingSpace.inMapMode === true) {
                         VISIBLE_RADIUS = canvas.floatingSpace.transformRadiusToMap(VISIBLE_RADIUS)
                     }
-                    let OPACITY = 1
+                    let OPACITY = 0.5
 
                     browserCanvasContext.beginPath()
                     browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
                     browserCanvasContext.closePath()
                     browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.LIGHT_GREY + ', ' + OPACITY + ')'
                     browserCanvasContext.lineWidth = 10
-                    browserCanvasContext.setLineDash([4, 16])
+                    browserCanvasContext.setLineDash([1, 10])
                     browserCanvasContext.stroke()
 
                     browserCanvasContext.beginPath()
@@ -1693,33 +1694,42 @@ function newUiObject() {
                     if (thisObject.payload.node.isIncluded === true) {
                         browserCanvasContext.setLineDash([0, 0])
                     } else {
-                        browserCanvasContext.setLineDash([20, 20])
+                        browserCanvasContext.setLineDash([10, 20])
                     }
                     browserCanvasContext.stroke()
                 }
             }
 
             if (thisObject.isOnFocus === true) {
+                /* Black Translucent Background when node is in focus */
                 VISIBLE_RADIUS = thisObject.container.frame.radius * 1.5
                 browserCanvasContext.beginPath()
                 browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
                 browserCanvasContext.closePath()
-
-                browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.BLACK + ', 0.60)'
-
+                browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.BLACK + ', 0.65)'
                 browserCanvasContext.fill()
+                /* Border when node is in focus */
+                if (hasError !== true && nodeDefinition.isHierarchyHead !== true) {
+                    browserCanvasContext.beginPath()
+                    browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
+                    browserCanvasContext.closePath()
+                    browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + 1 + ')'
+                    browserCanvasContext.lineWidth = 3
+                    browserCanvasContext.setLineDash([0, 0])
+                    browserCanvasContext.stroke()
+                }
             }
 
             if (hasError === true) {
                 VISIBLE_RADIUS = thisObject.container.frame.radius * 1.5
+                if (canvas.floatingSpace.inMapMode === true) {
+                    VISIBLE_RADIUS = canvas.floatingSpace.transformRadiusToMap(VISIBLE_RADIUS)
+                }
                 let OPACITY = errorMessageCounter / 30
-
                 browserCanvasContext.beginPath()
                 browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
                 browserCanvasContext.closePath()
-
                 browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RED + ', ' + OPACITY + ')'
-
                 browserCanvasContext.lineWidth = 5
                 browserCanvasContext.setLineDash([5, 10])
                 browserCanvasContext.stroke()

@@ -1,5 +1,5 @@
 
-function newEventsServerClient(host, port, hostName) {
+function newEventsServerClient(host, port, hostName, networkNode) {
     /* Web Sockets Connection */
 
     const MODULE_NAME = 'System Event Handler'
@@ -17,6 +17,7 @@ function newEventsServerClient(host, port, hostName) {
     let thisObject = {
         isConnected: isConnected,
         initialize: initialize,
+        finalize: finalize,
         physics: physics,
         createEventHandler: createEventHandler,
         deleteEventHandler: deleteEventHandler,
@@ -35,6 +36,21 @@ function newEventsServerClient(host, port, hostName) {
 
     function initialize(callBackFunction) {
         setuptWebSockets(callBackFunction)
+    }
+
+    function finalize() {
+        WEB_SOCKETS_CONNECTION.close()
+        WEB_SOCKETS_CONNECTION.onerror = undefined
+        WEB_SOCKETS_CONNECTION.onmessage = undefined
+        WEB_SOCKETS_CONNECTION.onopen = undefined
+        WEB_SOCKETS_CONNECTION = undefined
+
+        eventListeners = undefined
+        responseWaiters = undefined
+        commandsWaitingConfirmation = undefined
+        commandsSentByTimestamp = undefined
+        nonce = undefined
+        thisObject = undefined
     }
 
     function isConnected() {
@@ -156,7 +172,13 @@ function newEventsServerClient(host, port, hostName) {
         }
 
         if (thisObject.isConnected() !== true) {
-            canvas.cockpitSpace.setStatus('Connecting to Superalgos Backend at ' + hostName + ' Network Node. Please wait until the connection is established.', 100, canvas.cockpitSpace.statusTypes.WARNING)
+            if (networkNode !== undefined) {
+                if (networkNode.payload !== undefined) {
+                    if (networkNode.payload.uiObject !== undefined) {
+                        networkNode.payload.uiObject.setErrorMessage('Connecting to Superalgos Backend at ' + hostName + ' Network Node')
+                    }
+                }
+            }
         } else {
             retryCommandsPhysics()
         }

@@ -67,6 +67,7 @@ function newWorkspace() {
 
     thisObject.nodeChildren = newNodeChildren()
 
+    let savingWorkspaceIntervalId
     let isInitialized = false
     let workingAtTask = 0
     let circularProgressBar = newBusyProgressBar()
@@ -118,7 +119,7 @@ function newWorkspace() {
                 thisObject.enabled = true
                 canvas.cockpitSpace.initializePosition()
                 canvas.splashScreen.initialize()
-                setInterval(saveWorkspace, 60000)
+                savingWorkspaceIntervalId = setInterval(saveWorkspace, 60000)
                 isInitialized = true
             }
         } catch (err) {
@@ -162,7 +163,7 @@ function newWorkspace() {
                     if (host === undefined) { host = 'localhost' }
                     if (webSocketsPort === undefined) { webSocketsPort = '8080' }
 
-                    let eventsServerClient = newEventsServerClient(host, webSocketsPort, networkNode.name)
+                    let eventsServerClient = newEventsServerClient(host, webSocketsPort, networkNode.name, networkNode)
                     eventsServerClient.initialize()
 
                     thisObject.eventsServerClients.set(networkNode.id, eventsServerClient)
@@ -233,6 +234,14 @@ function newWorkspace() {
         }
     }
 
+    function finalizeEventsServerClients() {
+        thisObject.eventsServerClients.forEach(finalize)
+
+        function finalize(eventServerClient) {
+            eventServerClient.finalize()
+        }
+    }
+
     function replacingWorkspacePhysics() {
         if (thisObject.enabled !== true) { return }
 
@@ -249,21 +258,30 @@ function newWorkspace() {
                     workingAtTask++
                     break
                 case 3:
+                    finalizeEventsServerClients()
+                    thisObject.eventsServerClients = new Map()
+                    workingAtTask++
+                    break
+                case 4:
+                    clearInterval(savingWorkspaceIntervalId)
+                    workingAtTask++
+                    break
+                case 5:
                     thisObject.workspaceNode = loadedWorkspaceNode
                     loadedWorkspaceNode = undefined
                     workingAtTask++
                     break
-                case 4:
+                case 6:
                     functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode)
                     setupEventsServerClients()
                     runTasksAndSessions(true)
                     workingAtTask++
                     break
-                case 5:
+                case 7:
                     canvas.chartingSpace.reset()
                     workingAtTask++
                     break
-                case 6:
+                case 8:
                     workingAtTask = 0
                     circularProgressBar.visible = false
                     break

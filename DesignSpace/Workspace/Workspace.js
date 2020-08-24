@@ -148,22 +148,7 @@ function newWorkspace() {
                 for (let j = 0; j < rootNode.networkNodes.length; j++) {
                     let networkNode = rootNode.networkNodes[j]
 
-                    let host
-                    let webSocketsPort
-                    /* At this point the node does not have the payload property yet, that is why we have to do this manually */
-                    try {
-                        let config = JSON.parse(networkNode.config)
-                        host = config.host
-                        webSocketsPort = config.webSocketsPort
-                    } catch (err) {
-                        console.log('[ERROR] networkNode ' + networkNode.name + ' has an invalid configuration. Cannot know the host name and webSocketsPort.')
-                        return
-                    }
-
-                    if (host === undefined) { host = 'localhost' }
-                    if (webSocketsPort === undefined) { webSocketsPort = '8080' }
-
-                    let eventsServerClient = newEventsServerClient(host, webSocketsPort, networkNode.name, networkNode)
+                    let eventsServerClient = newEventsServerClient(networkNode)
                     eventsServerClient.initialize()
 
                     thisObject.eventsServerClients.set(networkNode.id, eventsServerClient)

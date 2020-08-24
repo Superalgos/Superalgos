@@ -175,7 +175,7 @@ function newEventsServerClient(host, port, hostName, networkNode) {
             if (networkNode !== undefined) {
                 if (networkNode.payload !== undefined) {
                     if (networkNode.payload.uiObject !== undefined) {
-                        networkNode.payload.uiObject.setErrorMessage('Connecting to Superalgos Backend at ' + hostName + ' Network Node')
+                        networkNode.payload.uiObject.setErrorMessage('Trying to Connect to Superalgos Backend')
                     }
                 }
             }

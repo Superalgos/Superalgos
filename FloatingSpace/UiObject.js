@@ -1367,6 +1367,9 @@ function newUiObject() {
 
     function drawErrorMessage() {
         if (hasError === false) { return }
+        if (canvas.floatingSpace.inMapMode === true) {
+            return
+        }
 
         /* Text Follows */
         let position = {

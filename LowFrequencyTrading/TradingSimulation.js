@@ -235,27 +235,57 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
             }
 
             function heartBeat() {
-                /* We will produce a simulation level heartbeat in order to inform the user this is running. */
-                heartBeatDate = new Date(Math.trunc(tradingEngine.current.episode.candle.begin.value / global.ONE_DAY_IN_MILISECONDS) * global.ONE_DAY_IN_MILISECONDS)
-                if (heartBeatDate.valueOf() !== previousHeartBeatDate) {
-                    let processingDate = heartBeatDate.getUTCFullYear() + '-' + utilities.pad(heartBeatDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(heartBeatDate.getUTCDate(), 2)
+                let hartbeatText = ''
+                if (sessionParameters.heartbeats !== undefined) {
+                    if (sessionParameters.heartbeats.config.date === true || sessionParameters.heartbeats.config.candleIndex === true) {
+                        /* We will produce a simulation level heartbeat in order to inform the user this is running. */
 
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Simulation ' + bot.sessionKey + ' Loop # ' + tradingEngine.current.episode.candle.index.value + ' @ ' + processingDate) }
+                        heartBeatDate = new Date(Math.trunc(tradingEngine.current.episode.candle.begin.value / global.ONE_DAY_IN_MILISECONDS) * global.ONE_DAY_IN_MILISECONDS)
 
-                    /*  Telling the world we are alive and doing well */
-                    let fromDate = new Date(sessionParameters.timeRange.config.initialDatetime)
-                    let lastDate = new Date(sessionParameters.timeRange.config.finalDatetime)
+                        let fromDate = new Date(sessionParameters.timeRange.config.initialDatetime)
+                        let lastDate = new Date(sessionParameters.timeRange.config.finalDatetime)
 
-                    let currentDateString = heartBeatDate.getUTCFullYear() + '-' + utilities.pad(heartBeatDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(heartBeatDate.getUTCDate(), 2)
-                    let currentDate = new Date(heartBeatDate)
-                    let percentage = global.getPercentage(fromDate, currentDate, lastDate)
-                    bot.processHeartBeat(currentDateString, percentage)
+                        let currentDateString = heartBeatDate.getUTCFullYear() + '-' + utilities.pad(heartBeatDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(heartBeatDate.getUTCDate(), 2)
+                        let currentDate = new Date(heartBeatDate)
+                        let percentage = global.getPercentage(fromDate, currentDate, lastDate)
 
-                    if (global.areEqualDates(currentDate, new Date()) === false) {
-                        logger.newInternalLoop(bot.codeName, bot.process, currentDate, percentage)
+                        /*
+                        Theere are a few tasks that we need to do only when the date changes,
+                        otherwise it would be suboptimal.
+                        */
+                        if (heartBeatDate.valueOf() !== previousHeartBeatDate) {
+                            let processingDate = heartBeatDate.getUTCFullYear() + '-' + utilities.pad(heartBeatDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(heartBeatDate.getUTCDate(), 2)
+
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Simulation ' + bot.sessionKey + ' Loop # ' + tradingEngine.current.episode.candle.index.value + ' @ ' + processingDate) }
+
+                            /*  Logging to console and disk */
+                            if (global.areEqualDates(currentDate, new Date()) === false) {
+                                logger.newInternalLoop(bot.codeName, bot.process, currentDate, percentage)
+                            }
+
+                            /* Date only hearbeat */
+                            if (sessionParameters.heartbeats.config.date === true  && sessionParameters.heartbeats.config.candleIndex === false) {
+                                hartbeatText = hartbeatText + currentDateString
+                                bot.processHeartBeat(hartbeatText, percentage)
+                                return
+                            }
+                        }
+                        previousHeartBeatDate = heartBeatDate.valueOf()
+
+                        /* 
+                        When the Candle Index nees to be shown, then we can not send the hearbet
+                        only when the dates changes, we have to send it for every candle.
+                        It might also contain the date information.
+                        */
+                        if (sessionParameters.heartbeats.config.candleIndex === true ) {
+                            if (sessionParameters.heartbeats.config.date === true ) {
+                                hartbeatText = hartbeatText + currentDateString
+                            }
+                            hartbeatText = hartbeatText + ' Candle # ' + tradingEngine.current.episode.candle.index.value  
+                            bot.processHeartBeat(hartbeatText, percentage)
+                        }
                     }
                 }
-                previousHeartBeatDate = heartBeatDate.valueOf()
             }
 
             function positionChartAtCurrentCandle() {
@@ -377,7 +407,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
                     let candlesPerDay = global.ONE_DAY_IN_MILISECONDS / sessionParameters.timeFrame.config.value
                     if (
                         bot.processingDailyFiles &&
-                        tradingEngine.current.episode.candle.index.value + 1 + 1 === candlesPerDay 
+                        tradingEngine.current.episode.candle.index.value + 1 + 1 === candlesPerDay
                     ) {
                         /*
                         Here we found that the next candle of the dataset is the last candle of the day.

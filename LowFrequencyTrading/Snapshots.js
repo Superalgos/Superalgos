@@ -236,8 +236,13 @@ exports.newSnapshots = function newSnapshots(bot, logger) {
                                 snapshots.headers.push(key)
                             }
 
-                            let value = eval(instruction)
-                            values.push(value)
+                            try {
+                                let value = eval(instruction)
+                                values.push(value)
+                            } catch (err) {
+                                tradingSystem.errors.push([nodeWithCode.id, 'Instruction ' + instruction + ' evalueates with error ' + err.message])
+                                values.push(0)
+                            }
                         }
                     }
                 }

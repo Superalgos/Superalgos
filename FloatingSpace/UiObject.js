@@ -1394,7 +1394,7 @@ function newUiObject() {
 
             label = errorMessage
 
-            if (label !== undefined) {
+            if (label !== undefined && label !== null) {
                 if (label.length > MAX_LABEL_LENGTH) {
                     label = label.substring(0, MAX_LABEL_LENGTH) + '...'
                 }

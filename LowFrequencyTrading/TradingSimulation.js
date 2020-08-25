@@ -189,27 +189,34 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> controlLoop -> We are going to stop here bacause we were requested to stop processing this session.') }
                         updateEpisode('Session Stopped')
                         breakLoop = true
+                        return
                     }
 
                     if (global.STOP_TASK_GRACEFULLY === true) {
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> controlLoop -> We are going to stop here bacause we were requested to stop processing this task.') }
                         updateEpisode('Task Stopped')
                         breakLoop = true
+                        return
                     }
 
                     if (checkFinalDatetime() === false) {
                         closeEpisode('Final Datetime Reached')
                         breakLoop = true
+                        bot.SESSION.stop('Final Datetime Reached')
+                        return
                     }
 
                     if (checkNextCandle() === false) {
                         updateEpisode('All Available Candles Processed')
                         breakLoop = true
+                        return
                     }
 
                     if (checkMinimunAndMaximunBalance() === false) {
                         closeEpisode('Min or Max Balance Reached')
                         breakLoop = true
+                        bot.SESSION.stop('Min or Max Balance Reached')
+                        return
                     }
                 }
             }

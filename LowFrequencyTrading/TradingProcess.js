@@ -134,7 +134,10 @@
             */
             if (currentTimeFrame) {
                 /* We are processing Market Files */
-
+                /*
+                With all the indicators data files loaded, we will build the chart object 
+                data structure that will be used in user-defied conditions and formulas.
+                */
                 buildCharts(chart)
 
                 await generateOutput(chart)
@@ -153,14 +156,26 @@
                     the date calculated by the Simulation is applied at the Trading Process Level.
                     */
                     tradingProcessDate = global.REMOVE_TIME(bot.simulationState.tradingEngine.current.episode.processDate.value)
-
                     await processDailyFiles()
-    
+                    /*
+                    With all the indicators data files loaded, we will build the chart object 
+                    data structure that will be used in user-defied conditions and formulas.
+                    */
                     buildCharts(chart)
-    
+                    /*
+                    The process of generating the output includes the trading simulation.
+                    */
                     await generateOutput(chart)
                     await writeProcessFiles()
-
+                    /*
+                    If for any reason the session was stopped, we will break this loop and exit the process.
+                    */
+                    if (bot.STOP_SESSION === true) {break}
+                    /* 
+                    When we get to the end of the market, we need to break this process loop in order
+                    to let time pass, new information be collected from the exchange, new data built 
+                    into indicators, and eventually a new execution of this process.
+                    */
                     if (checkStopHeadOfTheMarket() === false) {break}
                   }
                   while (true)
@@ -654,18 +669,6 @@
                     Backtests needs only one execution of this process to complete.
                     */
                     bot.SESSION.stop('Backtesting Session Finished.')
-                } else {
-                    /* 
-                    The natural way for the session to stop is when we reached the 
-                    user defined end datetime.  
-                    */
-                    const now = new Date()
-                    if (now.valueOf() >= bot.SESSION.parameters.timeRange.config.finalDatetime) {
-                        const logText = "User Defined End Datetime reached @ " + now.getUTCFullYear() + "/" + (now.getUTCMonth() + 1) + "/" + now.getUTCDate() + ".";
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeProcessFiles -> onMarketStatusReport -> " + logText); }
-
-                        bot.SESSION.stop('Final Datetime Reached.')
-                    }
                 }
             }
         }

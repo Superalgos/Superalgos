@@ -114,7 +114,6 @@
                 socialBotsModule.finalize()
                 bot.STOP_SESSION = true
                 sessionError(bot.SESSION, commandOrigin)
-
             }
 
             function setUpAppSchema() {

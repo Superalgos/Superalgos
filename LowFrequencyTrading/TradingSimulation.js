@@ -103,7 +103,6 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
             that still can change. So effectively will be processing all closed candles. 
             */
             for (let i = initialCandle; i < candles.length - 1; i++) {
-
                 tradingEngine.current.episode.candle.index.value = i
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Processing candle # ' + tradingEngine.current.episode.candle.index.value) }
                 let candle = candles[tradingEngine.current.episode.candle.index.value] // This is the current candle the Simulation is working at.
@@ -254,6 +253,8 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
                         otherwise it would be suboptimal.
                         */
                         if (heartBeatDate.valueOf() !== previousHeartBeatDate) {
+                            previousHeartBeatDate = heartBeatDate.valueOf()
+
                             let processingDate = heartBeatDate.getUTCFullYear() + '-' + utilities.pad(heartBeatDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(heartBeatDate.getUTCDate(), 2)
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Simulation ' + bot.sessionKey + ' Loop # ' + tradingEngine.current.episode.candle.index.value + ' @ ' + processingDate) }
@@ -270,8 +271,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
                                 return
                             }
                         }
-                        previousHeartBeatDate = heartBeatDate.valueOf()
-
+                        
                         /* 
                         When the Candle Index nees to be shown, then we can not send the hearbet
                         only when the dates changes, we have to send it for every candle.
@@ -392,17 +392,17 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
                 We need to check that the candle we have just processed it is not the last candle.
                 The candle at the head of the market is already skipped from the loop because it has not closed yet. 
                 Note: for Daily Files, this means that the last candle of each day will never be processed.
+
+                The first +1 is because array indexes are based on 0. 
+                The second +1 is because we need to compare the next candle (remember that the loops allways avoid the
+                last candle of the dataset available.)
                 */
-                if (tradingEngine.current.episode.candle.index.value === candles.length - 1) {
+                if (tradingEngine.current.episode.candle.index.value  + 1 + 1 === candles.length ) {
                     /*
                     When processing daily files, we need a mechanism to turn from one day to the next one.
                     That mechanism is the one implemented here. If we detect that the next candle is the last candle of 
                     the day, we will advance current process day one day. By doing so, during the next execution, the
                     simulation will receive the candles and indicators files of the next day. 
-
-                    The first +1 is because array indexes are based on 0. 
-                    The second +1 is because we need to compare the next candle (remember that the loops allways avoid the
-                    last candle of the dataset available.)
                     */
                     let candlesPerDay = global.ONE_DAY_IN_MILISECONDS / sessionParameters.timeFrame.config.value
                     if (

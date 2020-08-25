@@ -103,7 +103,6 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
             that still can change. So effectively will be processing all closed candles. 
             */
             for (let i = initialCandle; i < candles.length - 1; i++) {
-
                 tradingEngine.current.episode.candle.index.value = i
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Processing candle # ' + tradingEngine.current.episode.candle.index.value) }
                 let candle = candles[tradingEngine.current.episode.candle.index.value] // This is the current candle the Simulation is working at.
@@ -190,27 +189,34 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> controlLoop -> We are going to stop here bacause we were requested to stop processing this session.') }
                         updateEpisode('Session Stopped')
                         breakLoop = true
+                        return
                     }
 
                     if (global.STOP_TASK_GRACEFULLY === true) {
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> controlLoop -> We are going to stop here bacause we were requested to stop processing this task.') }
                         updateEpisode('Task Stopped')
                         breakLoop = true
+                        return
                     }
 
                     if (checkFinalDatetime() === false) {
                         closeEpisode('Final Datetime Reached')
                         breakLoop = true
+                        bot.SESSION.stop('Final Datetime Reached')
+                        return
                     }
 
                     if (checkNextCandle() === false) {
                         updateEpisode('All Available Candles Processed')
                         breakLoop = true
+                        return
                     }
 
                     if (checkMinimunAndMaximunBalance() === false) {
                         closeEpisode('Min or Max Balance Reached')
                         breakLoop = true
+                        bot.SESSION.stop('Min or Max Balance Reached')
+                        return
                     }
                 }
             }
@@ -235,27 +241,58 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
             }
 
             function heartBeat() {
-                /* We will produce a simulation level heartbeat in order to inform the user this is running. */
-                heartBeatDate = new Date(Math.trunc(tradingEngine.current.episode.candle.begin.value / global.ONE_DAY_IN_MILISECONDS) * global.ONE_DAY_IN_MILISECONDS)
-                if (heartBeatDate.valueOf() !== previousHeartBeatDate) {
-                    let processingDate = heartBeatDate.getUTCFullYear() + '-' + utilities.pad(heartBeatDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(heartBeatDate.getUTCDate(), 2)
+                let hartbeatText = ''
+                if (sessionParameters.heartbeats !== undefined) {
+                    if (sessionParameters.heartbeats.config.date === true || sessionParameters.heartbeats.config.candleIndex === true) {
+                        /* We will produce a simulation level heartbeat in order to inform the user this is running. */
 
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Simulation ' + bot.sessionKey + ' Loop # ' + tradingEngine.current.episode.candle.index.value + ' @ ' + processingDate) }
+                        heartBeatDate = new Date(Math.trunc(tradingEngine.current.episode.candle.begin.value / global.ONE_DAY_IN_MILISECONDS) * global.ONE_DAY_IN_MILISECONDS)
 
-                    /*  Telling the world we are alive and doing well */
-                    let fromDate = new Date(sessionParameters.timeRange.config.initialDatetime)
-                    let lastDate = new Date(sessionParameters.timeRange.config.finalDatetime)
+                        let fromDate = new Date(sessionParameters.timeRange.config.initialDatetime)
+                        let lastDate = new Date(sessionParameters.timeRange.config.finalDatetime)
 
-                    let currentDateString = heartBeatDate.getUTCFullYear() + '-' + utilities.pad(heartBeatDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(heartBeatDate.getUTCDate(), 2)
-                    let currentDate = new Date(heartBeatDate)
-                    let percentage = global.getPercentage(fromDate, currentDate, lastDate)
-                    bot.processHeartBeat(currentDateString, percentage)
+                        let currentDateString = heartBeatDate.getUTCFullYear() + '-' + utilities.pad(heartBeatDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(heartBeatDate.getUTCDate(), 2)
+                        let currentDate = new Date(heartBeatDate)
+                        let percentage = global.getPercentage(fromDate, currentDate, lastDate)
 
-                    if (global.areEqualDates(currentDate, new Date()) === false) {
-                        logger.newInternalLoop(bot.codeName, bot.process, currentDate, percentage)
+                        /*
+                        Theere are a few tasks that we need to do only when the date changes,
+                        otherwise it would be suboptimal.
+                        */
+                        if (heartBeatDate.valueOf() !== previousHeartBeatDate) {
+                            previousHeartBeatDate = heartBeatDate.valueOf()
+
+                            let processingDate = heartBeatDate.getUTCFullYear() + '-' + utilities.pad(heartBeatDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(heartBeatDate.getUTCDate(), 2)
+
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Simulation ' + bot.sessionKey + ' Loop # ' + tradingEngine.current.episode.candle.index.value + ' @ ' + processingDate) }
+
+                            /*  Logging to console and disk */
+                            if (global.areEqualDates(currentDate, new Date()) === false) {
+                                logger.newInternalLoop(bot.codeName, bot.process, currentDate, percentage)
+                            }
+
+                            /* Date only hearbeat */
+                            if (sessionParameters.heartbeats.config.date === true  && sessionParameters.heartbeats.config.candleIndex === false) {
+                                hartbeatText = hartbeatText + currentDateString
+                                bot.processHeartBeat(hartbeatText, percentage)
+                                return
+                            }
+                        }
+                        
+                        /* 
+                        When the Candle Index nees to be shown, then we can not send the hearbet
+                        only when the dates changes, we have to send it for every candle.
+                        It might also contain the date information.
+                        */
+                        if (sessionParameters.heartbeats.config.candleIndex === true ) {
+                            if (sessionParameters.heartbeats.config.date === true ) {
+                                hartbeatText = hartbeatText + currentDateString
+                            }
+                            hartbeatText = hartbeatText + ' Candle # ' + tradingEngine.current.episode.candle.index.value  
+                            bot.processHeartBeat(hartbeatText, percentage)
+                        }
                     }
                 }
-                previousHeartBeatDate = heartBeatDate.valueOf()
             }
 
             function positionChartAtCurrentCandle() {
@@ -362,22 +399,22 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
                 We need to check that the candle we have just processed it is not the last candle.
                 The candle at the head of the market is already skipped from the loop because it has not closed yet. 
                 Note: for Daily Files, this means that the last candle of each day will never be processed.
+
+                The first +1 is because array indexes are based on 0. 
+                The second +1 is because we need to compare the next candle (remember that the loops allways avoid the
+                last candle of the dataset available.)
                 */
-                if (tradingEngine.current.episode.candle.index.value === candles.length - 1) {
+                if (tradingEngine.current.episode.candle.index.value  + 1 + 1 === candles.length ) {
                     /*
                     When processing daily files, we need a mechanism to turn from one day to the next one.
                     That mechanism is the one implemented here. If we detect that the next candle is the last candle of 
                     the day, we will advance current process day one day. By doing so, during the next execution, the
                     simulation will receive the candles and indicators files of the next day. 
-
-                    The first +1 is because array indexes are based on 0. 
-                    The second +1 is because we need to compare the next candle (remember that the loops allways avoid the
-                    last candle of the dataset available.)
                     */
                     let candlesPerDay = global.ONE_DAY_IN_MILISECONDS / sessionParameters.timeFrame.config.value
                     if (
                         bot.processingDailyFiles &&
-                        tradingEngine.current.episode.candle.index.value + 1 + 1 === candlesPerDay 
+                        tradingEngine.current.episode.candle.index.value + 1 + 1 === candlesPerDay
                     ) {
                         /*
                         Here we found that the next candle of the dataset is the last candle of the day.

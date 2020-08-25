@@ -1,5 +1,5 @@
 
-function newEventsServerClient(host, port, hostName, networkNode) {
+function newEventsServerClient(networkNode) {
     /* Web Sockets Connection */
 
     const MODULE_NAME = 'System Event Handler'
@@ -8,10 +8,6 @@ function newEventsServerClient(host, port, hostName, networkNode) {
     const logger = newWebDebugLog()
     logger.fileName = MODULE_NAME
 
-    if (host === '' || host === undefined) { host = 'localhost' }
-    if (port === '' || port === undefined) { port = '8081' }
-
-    const WEB_SOCKETS_URL = 'ws://' + host + ':' + port + ''
     let WEB_SOCKETS_CONNECTION
 
     let thisObject = {
@@ -31,6 +27,7 @@ function newEventsServerClient(host, port, hostName, networkNode) {
     let commandsWaitingConfirmation = new Map()
     let commandsSentByTimestamp = new Map()
     let nonce = 0
+    let lastTryToReconnectDatetime 
 
     return thisObject
 
@@ -54,10 +51,10 @@ function newEventsServerClient(host, port, hostName, networkNode) {
     }
 
     function isConnected() {
-        if (WEB_SOCKETS_CONNECTION.readyState === 1) {
-            return true
-        } else {
-            return false
+        if (WEB_SOCKETS_CONNECTION !== undefined) {
+            if (WEB_SOCKETS_CONNECTION.readyState === 1) {
+                return true
+            }  
         }
     }
 
@@ -163,23 +160,46 @@ function newEventsServerClient(host, port, hostName, networkNode) {
 
     function physics() {
         if (WEB_SOCKETS_CONNECTION !== undefined) {
-            if (WEB_SOCKETS_CONNECTION.readyState === 3) { // Connection closed. May happen after computer goes to sleep.
-                setuptWebSockets(onOpen)
+            if (WEB_SOCKETS_CONNECTION.readyState === 3) { 
+                /*
+                Connection closed. May happen after computer goes to sleep.
+                We will try to reconnect, but we will do it no more that once 
+                a minute.
+                */
+                if (lastTryToReconnectDatetime === undefined) {
+                    setuptWebSockets(onOpen)
+                    lastTryToReconnectDatetime = (new Date()).valueOf()
+                } else {
+                    let now = (new Date()).valueOf()
+                    if (now - lastTryToReconnectDatetime > 60000) {
+                        setuptWebSockets(onOpen)
+                    }
+                }
+                
                 function onOpen() {
                     if (INFO_LOG === true) { logger.write('[INFO] setuptWebSockets -> Found Web Sockets Connection Closed. Reconnected to WebSockets Server.') }
                 }
             }
+        } else {
+            /* 
+            If there is a problem with the configuration then we go through 
+            this path, retrying this until the configuration is fixed.
+            */
+            setuptWebSockets(onOpen)
         }
 
-        if (thisObject.isConnected() !== true) {
-            if (networkNode !== undefined) {
-                if (networkNode.payload !== undefined) {
-                    if (networkNode.payload.uiObject !== undefined) {
-                        networkNode.payload.uiObject.setErrorMessage('Connecting to Superalgos Backend at ' + hostName + ' Network Node')
+        if (thisObject.isConnected() !== true ) {
+            if ( lastTryToReconnectDatetime !== undefined) {
+                if (networkNode !== undefined) {
+                    if (networkNode.payload !== undefined) {
+                        if (networkNode.payload.uiObject !== undefined) {
+                            networkNode.payload.uiObject.setErrorMessage('Failed to Connect to Superalgos Backend via WebSockets. Retrying in 1 minute.')
+                        }
                     }
                 }
             }
         } else {
+            networkNode.payload.uiObject.setStatus('Connected to Superalgos Backend via WebSockets.')
             retryCommandsPhysics()
         }
 
@@ -188,6 +208,30 @@ function newEventsServerClient(host, port, hostName, networkNode) {
 
     function setuptWebSockets(callBackFunction) {
         try {
+            let host
+            let port
+            /* At this point the node does not have the payload property yet, that is why we have to do this manually */
+            try {
+                let config = JSON.parse(networkNode.config)
+                host = config.host
+                port = config.webSocketsPort
+            } catch (err) {
+                networkNode.payload.uiObject.setErrorMessage('Bad configuration. Cannot know the host name or the webSocketsPort.')
+                return
+            }
+
+            if (host === undefined) {
+                networkNode.payload.uiObject.setErrorMessage('Bad configuration. You need to have a host property.')
+                return
+            }
+
+            if (port === undefined) {
+                networkNode.payload.uiObject.setErrorMessage('Bad configuration. You need to have a webSocketsPort property.')
+                return
+            }
+
+            const WEB_SOCKETS_URL = 'ws://' + host + ':' + port + ''
+
             WEB_SOCKETS_CONNECTION = new WebSocket(WEB_SOCKETS_URL)
             WEB_SOCKETS_CONNECTION.onerror = error => {
                 console.log('WebSocket error:' + JSON.stringify(error))

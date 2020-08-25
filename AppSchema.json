@@ -7310,6 +7310,12 @@
                 "autoAdd": true
             },
             {
+                "name": "heartbeats",
+                "type": "node",
+                "childType": "Heartbeats",
+                "autoAdd": true
+            },
+            {
                 "name": "userDefinedParameters",
                 "type": "node",
                 "childType": "User Defined Parameters",
@@ -7734,6 +7740,40 @@
         },
         "icon": "move-order",
         "propertyNameAtParent": "snapshots"
+    },
+    {
+        "type": "Heartbeats",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "settings",
+                "iconPathOff": "settings",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "initialValues": {
+            "config": "{ \n\"date\": true,\n\"candleIndex\": false\n}"
+        },
+        "addLeftIcons": true,
+        "editors": {
+            "config": true
+        },
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Parameters->"
+        },
+        "icon": "session-reference",
+        "propertyNameAtParent": "heartbeats"
     },
     {
         "type": "User Defined Parameters",

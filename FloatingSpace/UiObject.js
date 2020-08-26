@@ -1054,7 +1054,7 @@ function newUiObject() {
         if (thisObject.isOnFocus === false) {
             drawReferenceLine()
             drawChainLine()
-            drawBodyAndPicture()
+            
             if (isDragging === false && thisObject.isOnFocus === true) {
                 thisObject.menu.drawBackground()
             }
@@ -1067,6 +1067,7 @@ function newUiObject() {
 
     function drawMiddleground() {
         if (thisObject.isOnFocus === false) {
+            drawBodyAndPicture()
             drawErrorMessage()
             drawValue()
             drawPercentage()

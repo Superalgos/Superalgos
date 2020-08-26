@@ -151,28 +151,50 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
                     /* During the Second cycle we can not cancel orders. That is reserved for the First cycle. */
                     if (tradingEngine.current.episode.cycle.value === 'Second') { continue }
-                    /* 
-                    In the previous steps, we might have discovered that the order was cancelled 
-                    at the exchange, or filled, so  the order might still not be Open. 
-                    If the stage is closing or the order is not Open, we wont be cancelling orders 
-                    based on defined events. 
+
+                    /* Check if we need to cancel the order */
+                    await checkCancelOrderEvent(tradingEngineStage, executionAlgorithm, executionNode, tradingEngineOrder, tradingSystemOrder)
+                    /*
+                    If by this time the order is closed, we need to clone it and get the close 
+                    to the Last node at the Trading Engine data structure.
                     */
-                    if (tradingEngineStage.status.value !== 'Closing' && tradingEngineOrder.status.value === 'Open') {
-
-                        /* Check if we need to Cancel this Order */
-                        let situationName = checkOrderEvent(tradingSystemOrder.cancelOrderEvent, tradingSystemOrder, executionAlgorithm, executionNode)
-                        if (situationName !== undefined) {
-
-                            /* Simulate Order Cancelation, if needed. */
-                            simulateCancelOrder(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, 'Cancel Event')
-
-                            /* Cancel the order at the Exchange, if needed. */
-                            await exchangeCancelOrder(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, 'Cancel Event')
-
-                            updateEndsWithCycle(tradingEngineOrder)
+                    if (tradingEngineOrder.status.value === 'Closed') {
+                        switch (tradingEngineOrder.type) {
+                            case 'Market Order': {
+                                tradingEngineModule.cloneValues(tradingEngineOrder, tradingEngine.last.marketOrders)
+                                break
+                            }
+                            case 'Limit Order': {
+                                tradingEngineModule.cloneValues(tradingEngineOrder, tradingEngine.last.limitOrders)
+                                break
+                            }
                         }
                     }
                 }
+            }
+        }
+    }
+
+    async function checkCancelOrderEvent(tradingEngineStage, executionAlgorithm, executionNode, tradingEngineOrder, tradingSystemOrder) {
+        /* 
+        In the previous steps, we might have discovered that the order was cancelled 
+        at the exchange, or filled, so  the order might still not be Open. 
+        If the stage is closing or the order is not Open, we wont be cancelling orders 
+        based on defined events. 
+        */
+        if (tradingEngineStage.status.value !== 'Closing' && tradingEngineOrder.status.value === 'Open') {
+
+            /* Check if we need to Cancel this Order */
+            let situationName = checkOrderEvent(tradingSystemOrder.cancelOrderEvent, tradingSystemOrder, executionAlgorithm, executionNode)
+            if (situationName !== undefined) {
+
+                /* Simulate Order Cancelation, if needed. */
+                simulateCancelOrder(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, 'Cancel Event')
+
+                /* Cancel the order at the Exchange, if needed. */
+                await exchangeCancelOrder(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, 'Cancel Event')
+
+                updateEndsWithCycle(tradingEngineOrder)
             }
         }
     }

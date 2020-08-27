@@ -128,7 +128,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
                         at the Trading Engine Order the lock is Open or Closed. 
                         */
                         if (tradingSystemOrder.config.spawnMultipleOrders !== true) {
-                            if (tradingEngineOrder.identifier.value === 'Closed') {
+                            if (tradingEngineOrder.lock.value === 'Closed') {
                                 continue
                             }
                         }

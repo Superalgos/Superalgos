@@ -488,7 +488,7 @@ function newUiObject() {
                     }
                 }
                 if (foundCompatible === false) {
-                    if (distance < thisObject.container.frame.radius * 1.5 + floatingObject.container.frame.radius * 1.5) {
+                    if (distance < thisObject.payload.floatingObject.container.frame.radius * 1.5 + floatingObject.container.frame.radius * 1.5) {
                         nearbyNode.payload.uiObject.getReadyToChainAttach()
                         isChainAttaching = true
                         chainAttachToNode = nearbyNode
@@ -595,7 +595,7 @@ function newUiObject() {
             let nearbyNode = floatingObject.payload.node
             if (compatibleTypes.indexOf('->' + nearbyNode.type + '->') >= 0) {
                 if (foundCompatible === false) {
-                    if (distance < thisObject.container.frame.radius * 1.5 + floatingObject.container.frame.radius * 1.5) {
+                    if (distance < thisObject.payload.floatingObject.container.frame.radius * 1.5 + floatingObject.container.frame.radius * 1.5) {
                         nearbyNode.payload.uiObject.getReadyToReferenceAttach()
                         isReferenceAttaching = true
                         referenceAttachToNode = nearbyNode
@@ -1203,7 +1203,7 @@ function newUiObject() {
             position = canvas.floatingSpace.transformPointToMap(position)
         }
 
-        if (thisObject.container.frame.radius > 1) {
+        if (thisObject.payload.floatingObject.container.frame.radius > 1) {
             let LINE_STYLE = UI_COLOR.TITANIUM_YELLOW
             if (thisObject.payload.floatingObject.angleToParent !== ANGLE_TO_PARENT.NOT_FIXED) {
                 LINE_STYLE = UI_COLOR.GOLDEN_ORANGE
@@ -1243,7 +1243,7 @@ function newUiObject() {
             browserCanvasContext.setLineDash([0, 0])
         }
 
-        if (thisObject.container.frame.radius > 0.5) {
+        if (thisObject.payload.floatingObject.container.frame.radius > 0.5) {
             let radius = 1
 
             browserCanvasContext.beginPath()
@@ -1285,7 +1285,7 @@ function newUiObject() {
 
         let LINE_STYLE = UI_COLOR.GREY
 
-        if (thisObject.container.frame.radius > 1) {
+        if (thisObject.payload.floatingObject.container.frame.radius > 1) {
             browserCanvasContext.beginPath()
             browserCanvasContext.moveTo(position.x, position.y)
             browserCanvasContext.lineTo(targetPoint.x, targetPoint.y)
@@ -1305,7 +1305,7 @@ function newUiObject() {
             browserCanvasContext.setLineDash([0, 0])
         }
 
-        if (thisObject.container.frame.radius > 0.5) {
+        if (thisObject.payload.floatingObject.container.frame.radius > 0.5) {
             let radius = 1
 
             browserCanvasContext.beginPath()
@@ -1405,7 +1405,7 @@ function newUiObject() {
             position = canvas.floatingSpace.transformPointToMap(position)
         }
 
-        let radius = thisObject.container.frame.radius * 2.5
+        let radius = thisObject.payload.floatingObject.container.frame.radius * 2.5
         /* Label Text */
         let labelPoint
         let fontSize = thisObject.payload.floatingObject.currentFontSize * 3 / 4
@@ -1454,7 +1454,7 @@ function newUiObject() {
             position = canvas.floatingSpace.transformPointToMap(position)
         }
 
-        let radius = thisObject.container.frame.radius * 1.00
+        let radius = thisObject.payload.floatingObject.container.frame.radius * 1.00
         /* Label Text */
         let labelPoint
         let fontSize = thisObject.payload.floatingObject.currentFontSize * 8 / 7
@@ -1508,7 +1508,7 @@ function newUiObject() {
             position = canvas.floatingSpace.transformPointToMap(position)
         }
 
-        let radius = thisObject.container.frame.radius * 1.30
+        let radius = thisObject.payload.floatingObject.container.frame.radius * 1.30
         /* Label Text */
         let labelPoint
         let fontSize = thisObject.payload.floatingObject.currentFontSize * 6 / 4
@@ -1551,7 +1551,7 @@ function newUiObject() {
             position = canvas.floatingSpace.transformPointToMap(position)
         }
 
-        let radius = thisObject.container.frame.radius * 0.8
+        let radius = thisObject.payload.floatingObject.container.frame.radius * 0.8
         /* Label Text */
         let labelPoint
         let fontSize = thisObject.payload.floatingObject.currentFontSize * 6 / 4 / 2
@@ -1657,7 +1657,7 @@ function newUiObject() {
             position = canvas.floatingSpace.transformPointToMap(position)
         }
 
-        let radius = thisObject.container.frame.radius
+        let radius = thisObject.payload.floatingObject.container.frame.radius
 
         if (radius > 0.5) {
             let VISIBLE_RADIUS = 5
@@ -1701,7 +1701,7 @@ function newUiObject() {
 
             if (thisObject.isOnFocus === true) {
                 /* Black Translucent Background when node is in focus */
-                VISIBLE_RADIUS = thisObject.container.frame.radius
+                VISIBLE_RADIUS = thisObject.payload.floatingObject.container.frame.radius
                 browserCanvasContext.beginPath()
                 browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
                 browserCanvasContext.closePath()
@@ -1759,7 +1759,7 @@ function newUiObject() {
 
 
             if (thisObject.hasError === true) {
-                VISIBLE_RADIUS = thisObject.container.frame.radius
+                VISIBLE_RADIUS = thisObject.payload.floatingObject.container.frame.radius
                 if (canvas.floatingSpace.inMapMode === true) {
                     VISIBLE_RADIUS = canvas.floatingSpace.transformRadiusToMap(VISIBLE_RADIUS)
                 }
@@ -1774,7 +1774,7 @@ function newUiObject() {
             }
 
             if (isHighlighted === true) {
-                VISIBLE_RADIUS = thisObject.container.frame.radius
+                VISIBLE_RADIUS = thisObject.payload.floatingObject.container.frame.radius
                 let OPACITY = highlightCounter / 10
 
                 browserCanvasContext.beginPath()
@@ -1789,7 +1789,7 @@ function newUiObject() {
             }
 
             if (isReadyToChainAttach === true) {
-                VISIBLE_RADIUS = thisObject.container.frame.radius * 2.5 + readyToChainAttachDisplayCounter - readyToChainAttachDisplayCounter / 2
+                VISIBLE_RADIUS = thisObject.payload.floatingObject.container.frame.radius * 2.5 + readyToChainAttachDisplayCounter - readyToChainAttachDisplayCounter / 2
                 let OPACITY = readyToChainAttachCounter / 10
 
                 browserCanvasContext.beginPath()
@@ -1818,7 +1818,7 @@ function newUiObject() {
             }
 
             if (isAvailableToChainAttach === true && isReadyToChainAttach === false) {
-                VISIBLE_RADIUS = thisObject.container.frame.radius * 2.5
+                VISIBLE_RADIUS = thisObject.payload.floatingObject.container.frame.radius * 2.5
                 let OPACITY = availableToChainAttachCounter / 10
 
                 browserCanvasContext.beginPath()
@@ -1839,7 +1839,7 @@ function newUiObject() {
             }
 
             if (isReadyToReferenceAttach === true) {
-                VISIBLE_RADIUS = thisObject.container.frame.radius * 2.5 + readyToReferenceAttachDisplayCounter - readyToReferenceAttachDisplayCounter / 2
+                VISIBLE_RADIUS = thisObject.payload.floatingObject.container.frame.radius * 2.5 + readyToReferenceAttachDisplayCounter - readyToReferenceAttachDisplayCounter / 2
                 let OPACITY = readyToReferenceAttachCounter / 10
 
                 browserCanvasContext.beginPath()
@@ -1868,7 +1868,7 @@ function newUiObject() {
             }
 
             if (isAvailableToReferenceAttach === true && isReadyToReferenceAttach === false) {
-                VISIBLE_RADIUS = thisObject.container.frame.radius * 2.5
+                VISIBLE_RADIUS = thisObject.payload.floatingObject.container.frame.radius * 2.5
                 let OPACITY = availableToReferenceAttachCounter / 10
 
                 browserCanvasContext.beginPath()
@@ -1921,8 +1921,8 @@ function newUiObject() {
         if (executingIcon !== undefined) {
             if (executingIcon.canDrawIcon === true) {
                 if (isRunningAtBackend === true) {
-                    const DISTANCE_FROM_CENTER = thisObject.container.frame.radius / 3 + 50
-                    const EXECUTING_ICON_SIZE = 20 + thisObject.container.frame.radius / 6
+                    const DISTANCE_FROM_CENTER = thisObject.payload.floatingObject.container.frame.radius / 3 + 50
+                    const EXECUTING_ICON_SIZE = 20 + thisObject.payload.floatingObject.container.frame.radius / 6
 
                     browserCanvasContext.drawImage(
                         executingIcon, position.x - EXECUTING_ICON_SIZE / 2,

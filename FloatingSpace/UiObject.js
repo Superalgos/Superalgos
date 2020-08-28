@@ -1075,7 +1075,7 @@ function newUiObject() {
         if (thisObject.isOnFocus === false) {
             drawReferenceLine()
             drawChainLine()
-            
+
             if (isDragging === false && thisObject.isOnFocus === true) {
                 thisObject.menu.drawBackground()
             }
@@ -1367,7 +1367,7 @@ function newUiObject() {
 
                 labelPoint = {
                     x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
-                    y: position.y + radius * 4 / 5 + fontSize * FONT_ASPECT_RATIO + 15
+                    y: position.y + radius * 2 / 3 + fontSize * FONT_ASPECT_RATIO + 15
                 }
 
                 if (canvas.floatingSpace.inMapMode === true) {
@@ -1694,40 +1694,14 @@ function newUiObject() {
             browserCanvasContext.fill()
 
             let nodeDefinition = getNodeDefinition(thisObject.payload.node)
-            if (nodeDefinition !== undefined) {
-                /* Hierarchy Head Ring */
-                if (nodeDefinition.isHierarchyHead === true) {
-                    VISIBLE_RADIUS = thisObject.payload.floatingObject.currentHierarchyRing * 3.8
-                    if (canvas.floatingSpace.inMapMode === true) {
-                        VISIBLE_RADIUS = canvas.floatingSpace.transformRadiusToMap(VISIBLE_RADIUS)
-                    }
-                    let OPACITY = 0.5
-
-                    browserCanvasContext.beginPath()
-                    browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
-                    browserCanvasContext.closePath()
-                    browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.LIGHT_GREY + ', ' + OPACITY + ')'
-                    browserCanvasContext.lineWidth = 10
-                    browserCanvasContext.setLineDash([1, 10])
-                    browserCanvasContext.stroke()
-
-                    browserCanvasContext.beginPath()
-                    browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
-                    browserCanvasContext.closePath()
-                    browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.LIGHT_GREY + ', ' + OPACITY + ')'
-                    browserCanvasContext.lineWidth = 1
-                    if (thisObject.payload.node.isIncluded === true) {
-                        browserCanvasContext.setLineDash([0, 0])
-                    } else {
-                        browserCanvasContext.setLineDash([10, 20])
-                    }
-                    browserCanvasContext.stroke()
-                }
+            if (nodeDefinition === undefined) {
+                console.log('Node ' + thisObject.payload.node + ' without Node Definition at APP SCHEMA.') 
+                return
             }
 
             if (thisObject.isOnFocus === true) {
                 /* Black Translucent Background when node is in focus */
-                VISIBLE_RADIUS = thisObject.container.frame.radius * 1.5
+                VISIBLE_RADIUS = thisObject.container.frame.radius
                 browserCanvasContext.beginPath()
                 browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
                 browserCanvasContext.closePath()
@@ -1742,7 +1716,7 @@ function newUiObject() {
                     browserCanvasContext.lineWidth = 3
                     browserCanvasContext.setLineDash([0, 0])
                     browserCanvasContext.stroke()
-                    
+
                     browserCanvasContext.beginPath()
                     browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS - 1, 0, Math.PI * 2, true)
                     browserCanvasContext.closePath()
@@ -1754,8 +1728,38 @@ function newUiObject() {
                 }
             }
 
+            /* Hierarchy Head Ring */
+            if (nodeDefinition.isHierarchyHead === true) {
+                VISIBLE_RADIUS = thisObject.payload.floatingObject.currentHierarchyRing * 3.8
+                if (canvas.floatingSpace.inMapMode === true) {
+                    VISIBLE_RADIUS = canvas.floatingSpace.transformRadiusToMap(VISIBLE_RADIUS)
+                }
+                let OPACITY = 0.5
+
+                browserCanvasContext.beginPath()
+                browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
+                browserCanvasContext.closePath()
+                browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.LIGHT_GREY + ', ' + OPACITY + ')'
+                browserCanvasContext.lineWidth = 10
+                browserCanvasContext.setLineDash([1, 10])
+                browserCanvasContext.stroke()
+
+                browserCanvasContext.beginPath()
+                browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
+                browserCanvasContext.closePath()
+                browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.LIGHT_GREY + ', ' + OPACITY + ')'
+                browserCanvasContext.lineWidth = 1
+                if (thisObject.payload.node.isIncluded === true) {
+                    browserCanvasContext.setLineDash([0, 0])
+                } else {
+                    browserCanvasContext.setLineDash([10, 20])
+                }
+                browserCanvasContext.stroke()
+            }
+
+
             if (thisObject.hasError === true) {
-                VISIBLE_RADIUS = thisObject.container.frame.radius * 1.5
+                VISIBLE_RADIUS = thisObject.container.frame.radius
                 if (canvas.floatingSpace.inMapMode === true) {
                     VISIBLE_RADIUS = canvas.floatingSpace.transformRadiusToMap(VISIBLE_RADIUS)
                 }
@@ -1770,7 +1774,7 @@ function newUiObject() {
             }
 
             if (isHighlighted === true) {
-                VISIBLE_RADIUS = thisObject.container.frame.radius * 1
+                VISIBLE_RADIUS = thisObject.container.frame.radius
                 let OPACITY = highlightCounter / 10
 
                 browserCanvasContext.beginPath()

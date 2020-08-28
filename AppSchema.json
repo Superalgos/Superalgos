@@ -2682,7 +2682,7 @@
                 "type": "node",
                 "childType": "Exit Type",
                 "autoAdd": true
-            }, 
+            },
             {
                 "name": "headOfTheMarket",
                 "type": "node",
@@ -2974,6 +2974,13 @@
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -3006,6 +3013,13 @@
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
             },
             {
                 "action": "Delete UI Object",
@@ -3042,6 +3056,13 @@
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -3074,6 +3095,13 @@
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
             },
             {
                 "action": "Delete UI Object",
@@ -3110,6 +3138,13 @@
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -3144,6 +3179,13 @@
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -3176,6 +3218,13 @@
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
             },
             {
                 "action": "Delete UI Object",
@@ -3289,6 +3338,13 @@
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -3343,6 +3399,13 @@
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -3391,6 +3454,13 @@
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -3423,6 +3493,13 @@
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
             },
             {
                 "action": "Delete UI Object",
@@ -3459,6 +3536,13 @@
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -3491,6 +3575,13 @@
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
             },
             {
                 "action": "Delete UI Object",
@@ -4179,6 +4270,13 @@
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -4221,6 +4319,13 @@
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -4253,6 +4358,13 @@
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
             },
             {
                 "action": "Delete UI Object",
@@ -4289,6 +4401,13 @@
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -4321,6 +4440,13 @@
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
             },
             {
                 "action": "Delete UI Object",
@@ -4357,6 +4483,13 @@
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -4389,6 +4522,13 @@
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
             },
             {
                 "action": "Delete UI Object",
@@ -4425,6 +4565,13 @@
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -4457,6 +4604,13 @@
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
             },
             {
                 "action": "Delete UI Object",
@@ -4493,6 +4647,13 @@
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -4525,6 +4686,13 @@
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
             },
             {
                 "action": "Delete UI Object",
@@ -4632,6 +4800,13 @@
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -4666,6 +4841,13 @@
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -4698,6 +4880,13 @@
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
             },
             {
                 "action": "Delete UI Object",
@@ -4817,6 +5006,13 @@
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -4849,6 +5045,13 @@
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
             },
             {
                 "action": "Delete UI Object",
@@ -4885,6 +5088,13 @@
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -4917,6 +5127,13 @@
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
             },
             {
                 "action": "Delete UI Object",
@@ -4953,6 +5170,13 @@
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -4985,6 +5209,13 @@
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
             },
             {
                 "action": "Delete UI Object",
@@ -5021,6 +5252,13 @@
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -5055,6 +5293,13 @@
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -5087,6 +5332,13 @@
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
             },
             {
                 "action": "Delete UI Object",
@@ -5528,6 +5780,13 @@
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -5560,6 +5819,13 @@
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
             },
             {
                 "action": "Delete UI Object",
@@ -5596,6 +5862,13 @@
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -5628,6 +5901,13 @@
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
             },
             {
                 "action": "Delete UI Object",
@@ -5664,6 +5944,13 @@
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -5696,6 +5983,13 @@
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
             },
             {
                 "action": "Delete UI Object",
@@ -5732,6 +6026,13 @@
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -5764,6 +6065,13 @@
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
             },
             {
                 "action": "Delete UI Object",
@@ -5800,6 +6108,13 @@
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -5832,6 +6147,13 @@
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
             },
             {
                 "action": "Delete UI Object",
@@ -5868,6 +6190,13 @@
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -5902,6 +6231,13 @@
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -5929,6 +6265,13 @@
         "type": "Open",
         "menuItems": [
             {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -5949,6 +6292,13 @@
     {
         "type": "Close",
         "menuItems": [
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
+            },
             {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
@@ -5971,6 +6321,13 @@
         "type": "Min",
         "menuItems": [
             {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -5991,6 +6348,13 @@
     {
         "type": "Max",
         "menuItems": [
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
+            },
             {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
@@ -6018,6 +6382,13 @@
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
             },
             {
                 "action": "Delete UI Object",
@@ -6052,6 +6423,13 @@
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
             },
             {
                 "action": "Delete UI Object",
@@ -6219,6 +6597,13 @@
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -6251,6 +6636,13 @@
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
             },
             {
                 "action": "Delete UI Object",
@@ -6287,6 +6679,13 @@
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -6319,6 +6718,13 @@
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
             },
             {
                 "action": "Delete UI Object",
@@ -6355,6 +6761,13 @@
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -6387,6 +6800,13 @@
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
             },
             {
                 "action": "Delete UI Object",
@@ -6423,6 +6843,13 @@
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -6455,6 +6882,13 @@
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
             },
             {
                 "action": "Delete UI Object",
@@ -6491,6 +6925,13 @@
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -6523,6 +6964,13 @@
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
             },
             {
                 "action": "Delete UI Object",
@@ -6559,6 +7007,13 @@
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -6591,6 +7046,13 @@
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
+                "actionFunction": "payload.onMenuItemClick"
             },
             {
                 "action": "Delete UI Object",
@@ -6749,6 +7211,13 @@
                 "action": "Add Missing Children",
                 "label": "Add Missing Children",
                 "relatedUiObject": "Parameters",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "poloniex",
+                "iconPathOff": "poloniex",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {

@@ -23,6 +23,7 @@ function newUiObject() {
         isRunning: undefined,
         shortcutKey: undefined,
         isShowing: undefined,
+        hasError: undefined,
         run: run,
         stop: stop,
         heartBeat: heartBeat,
@@ -74,7 +75,6 @@ function newUiObject() {
     let isRunningAtBackend
     let runningAtBackendCounter = 0
 
-    let hasError
     let errorMessageCounter = 0
 
     let hasValue
@@ -690,7 +690,7 @@ function newUiObject() {
         errorMessageCounter--
         if (errorMessageCounter < 0) {
             errorMessageCounter = 0
-            hasError = false
+            thisObject.hasError = false
         }
     }
 
@@ -735,7 +735,7 @@ function newUiObject() {
     function setErrorMessage(message, duration) {
         if (message !== undefined) {
             errorMessage = message
-            hasError = true
+            thisObject.hasError = true
             if (duration === undefined) { duration = 1 }
             errorMessageCounter = 100 * duration
         }
@@ -743,7 +743,7 @@ function newUiObject() {
 
     function resetErrorMessage() {
         errorMessage = undefined
-        hasError = false
+        thisObject.hasError = false
     }
 
     function setValue(value, counter, minDecimals) {
@@ -1367,7 +1367,7 @@ function newUiObject() {
     }
 
     function drawErrorMessage() {
-        if (hasError === false) { return }
+        if (thisObject.hasError === false) { return }
         if (canvas.floatingSpace.inMapMode === true) {
             return
         }
@@ -1713,7 +1713,7 @@ function newUiObject() {
                 browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.BLACK + ', 0.70)'
                 browserCanvasContext.fill()
                 /* Border when node is in focus */
-                if (hasError !== true && nodeDefinition.isHierarchyHead !== true && thisObject.circularProgressBar === undefined) {
+                if (thisObject.hasError !== true && nodeDefinition.isHierarchyHead !== true && thisObject.circularProgressBar === undefined) {
                     browserCanvasContext.beginPath()
                     browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
                     browserCanvasContext.closePath()
@@ -1733,7 +1733,7 @@ function newUiObject() {
                 }
             }
 
-            if (hasError === true) {
+            if (thisObject.hasError === true) {
                 VISIBLE_RADIUS = thisObject.container.frame.radius * 1.5
                 if (canvas.floatingSpace.inMapMode === true) {
                     VISIBLE_RADIUS = canvas.floatingSpace.transformRadiusToMap(VISIBLE_RADIUS)

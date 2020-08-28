@@ -53,10 +53,12 @@ function newAppLoader() {
                 'DesignSpace/Workspace/FunctionLibraries/CCXTFunctions.js',
                 'DesignSpace/Workspace/FunctionLibraries/WebhookFunctions.js',
                 'DesignSpace/Workspace/FunctionLibraries/DependenciesFilter.js',
+                'DesignSpace/Workspace/FunctionLibraries/NodePath.js',
 
                 'Utilities/CoordinateTransformations.js',
                 'Utilities/DateRateTransformations.js',
                 'Utilities/Download.js',
+                'Utilities/Clipboard.js',
                 'Utilities/DrawPrint.js',
                 'Utilities/LoadSaveFrame.js',
                 'Utilities/NodeConfig.js',

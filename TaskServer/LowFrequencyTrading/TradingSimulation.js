@@ -121,6 +121,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
                 }
 
                 if (checkInitialDatetime() === false) {
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Candle Before the Initia Date Time @ ' + (new Date(candle.begin)).toLocaleString()) }
                     continue
                 }
 
@@ -155,7 +156,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
                 had the chance to check for the status of placed orders or even cancel 
                 the ones that needed cancellation.
                 */
-                checkIfWeNeedToStop()
+                checkIfWeNeedToStopBetweenCycles()
 
                 /* Add new records to the process output */
                 tradingRecordsModule.appendRecords()
@@ -172,6 +173,8 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
                 tradingEngineModule.setCurrentCycle('Second')
                 await runCycle()
 
+                checkIfWeNeedToStopAfterBothCycles()
+
                 /* Add new records to the process output */
                 tradingRecordsModule.appendRecords()
 
@@ -186,8 +189,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
                     await tradingSystemModule.run()
                 }
 
-                function checkIfWeNeedToStop() {
-                    /* Checking if we should continue processing this loop or not. */
+                function checkIfWeNeedToStopBetweenCycles() {
                     if (bot.STOP_SESSION === true) {
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> controlLoop -> We are going to stop here bacause we were requested to stop processing this session.') }
                         updateEpisode('Session Stopped')
@@ -209,16 +211,18 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
                         return
                     }
 
-                    if (checkNextCandle() === false) {
-                        updateEpisode('All Available Candles Processed')
-                        breakLoop = true
-                        return
-                    }
-
                     if (checkMinimunAndMaximunBalance() === false) {
                         closeEpisode('Min or Max Balance Reached')
                         breakLoop = true
                         bot.SESSION.stop('Min or Max Balance Reached')
+                        return
+                    }
+                }
+
+                function checkIfWeNeedToStopAfterBothCycles() {
+                    if (checkNextCandle() === false) {
+                        updateEpisode('All Available Candles Processed')
+                        breakLoop = true
                         return
                     }
                 }

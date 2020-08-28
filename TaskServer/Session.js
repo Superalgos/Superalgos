@@ -185,7 +185,7 @@
                 }
 
                 /* Session Type Forced Values */
-                let today = new Date((new Date()).valueOf())
+                let today = (new Date()).valueOf()
                 let aYearAgo = today - global.ONE_YEAR_IN_MILISECONDS
                 let aYearFromNow = today + global.ONE_YEAR_IN_MILISECONDS
                 switch (bot.SESSION.type) {
@@ -214,7 +214,7 @@
                     */
 
                     /* Initial Datetime */
-                    if (bot.SESSION.parameters.timeRange.config.initialDatetime === undefined) {
+                    if (bot.SESSION.parameters.timeRange.config.initialDatetime === undefined || bot.SESSION.parameters.timeRange.config.allowStartingFromThePast !== true ) {
                         bot.SESSION.parameters.timeRange.config.initialDatetime = initialDefault
                     } else {
                         bot.SESSION.parameters.timeRange.config.initialDatetime = (new Date(bot.SESSION.parameters.timeRange.config.initialDatetime)).valueOf()

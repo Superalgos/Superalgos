@@ -110,7 +110,7 @@ function newCircularProgressBar() {
         if (canvas.floatingSpace.inMapMode === true) { return }
         if (needToDrawRing !== true) { return }
 
-        const VISIBLE_RADIUS = thisObject.container.frame.radius * 1.5
+        const VISIBLE_RADIUS = thisObject.container.frame.radius  
 
         let visiblePosition = {
             x: thisObject.container.frame.position.x,

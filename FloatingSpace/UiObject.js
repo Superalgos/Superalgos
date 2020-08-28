@@ -738,6 +738,27 @@ function newUiObject() {
             thisObject.hasError = true
             if (duration === undefined) { duration = 1 }
             errorMessageCounter = 100 * duration
+
+            /* 
+            Next, we are going to try to inform the parent that this 
+            node has an error, as a way to show the end user where the
+            node with error is. This is useful to detect errors in nodes
+            that are located at braches that are collapsed.
+            */
+
+            if (thisObject.payload !== undefined) {
+                if (thisObject.payload.parentNode !== undefined) {
+                    if (thisObject.payload.parentNode.payload !== undefined) {
+                        if (thisObject.payload.parentNode.payload.floatingObject !== undefined) {
+                            if (thisObject.payload.parentNode.payload.floatingObject.isCollapsed === true || thisObject.payload.parentNode.payload.floatingObject.isParentCollapsed === true) {
+                                if (thisObject.payload.parentNode.payload.uiObject !== true) {
+                                    thisObject.payload.parentNode.payload.uiObject.setErrorMessage('Error Inside this Branch')
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 

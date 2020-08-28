@@ -557,7 +557,12 @@
                     tradingProcessDate
                     )
 
-                bot.FIRST_EXECUTION = false // From here on, all other loops executions wont be the first execution.
+                /*
+                From here on, all other loops executions wont be the first execution and also
+                we will consider that it is not resuming a previous execution as well.
+                */
+                bot.FIRST_EXECUTION = false 
+                bot.RESUME = false
             }
 
             async function writeProcessFiles() {

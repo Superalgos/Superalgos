@@ -148,6 +148,15 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
                 tradingEngineModule.setCurrentCycle('First')
                 await runCycle()
 
+                /* 
+                We check if we need to stop before appending the records so that the stop 
+                reason is also propery recorded. Note also that we check this after the first
+                cycle, where orders have not been submitted to the exchange yet, but we
+                had the chance to check for the status of placed orders or even cancel 
+                the ones that needed cancellation.
+                */
+                checkIfWeNeedToStop()
+
                 /* Add new records to the process output */
                 tradingRecordsModule.appendRecords()
 
@@ -162,12 +171,6 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
                 */
                 tradingEngineModule.setCurrentCycle('Second')
                 await runCycle()
-
-                /* 
-                We check if we need to stop before appending the records so that the stop 
-                reason is also propery recorded. 
-                */
-                checkIfWeNeedToStop()
 
                 /* Add new records to the process output */
                 tradingRecordsModule.appendRecords()

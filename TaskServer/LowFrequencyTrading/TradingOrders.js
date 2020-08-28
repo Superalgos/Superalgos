@@ -128,7 +128,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
                         at the Trading Engine Order the lock is Open or Closed. 
                         */
                         if (tradingSystemOrder.config.spawnMultipleOrders !== true) {
-                            if (tradingEngineOrder.identifier.value === 'Closed') {
+                            if (tradingEngineOrder.lock.value === 'Closed') {
                                 continue
                             }
                         }
@@ -151,28 +151,50 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
                     /* During the Second cycle we can not cancel orders. That is reserved for the First cycle. */
                     if (tradingEngine.current.episode.cycle.value === 'Second') { continue }
-                    /* 
-                    In the previous steps, we might have discovered that the order was cancelled 
-                    at the exchange, or filled, so  the order might still not be Open. 
-                    If the stage is closing or the order is not Open, we wont be cancelling orders 
-                    based on defined events. 
+
+                    /* Check if we need to cancel the order */
+                    await checkCancelOrderEvent(tradingEngineStage, executionAlgorithm, executionNode, tradingEngineOrder, tradingSystemOrder)
+                    /*
+                    If by this time the order is closed, we need to clone it and get the close 
+                    to the Last node at the Trading Engine data structure.
                     */
-                    if (tradingEngineStage.status.value !== 'Closing' && tradingEngineOrder.status.value === 'Open') {
-
-                        /* Check if we need to Cancel this Order */
-                        let situationName = checkOrderEvent(tradingSystemOrder.cancelOrderEvent, tradingSystemOrder, executionAlgorithm, executionNode)
-                        if (situationName !== undefined) {
-
-                            /* Simulate Order Cancelation, if needed. */
-                            simulateCancelOrder(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, 'Cancel Event')
-
-                            /* Cancel the order at the Exchange, if needed. */
-                            await exchangeCancelOrder(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, 'Cancel Event')
-
-                            updateEndsWithCycle(tradingEngineOrder)
+                    if (tradingEngineOrder.status.value === 'Closed') {
+                        switch (tradingEngineOrder.type) {
+                            case 'Market Order': {
+                                tradingEngineModule.cloneValues(tradingEngineOrder, tradingEngine.last.marketOrders)
+                                break
+                            }
+                            case 'Limit Order': {
+                                tradingEngineModule.cloneValues(tradingEngineOrder, tradingEngine.last.limitOrders)
+                                break
+                            }
                         }
                     }
                 }
+            }
+        }
+    }
+
+    async function checkCancelOrderEvent(tradingEngineStage, executionAlgorithm, executionNode, tradingEngineOrder, tradingSystemOrder) {
+        /* 
+        In the previous steps, we might have discovered that the order was cancelled 
+        at the exchange, or filled, so  the order might still not be Open. 
+        If the stage is closing or the order is not Open, we wont be cancelling orders 
+        based on defined events. 
+        */
+        if (tradingEngineStage.status.value !== 'Closing' && tradingEngineOrder.status.value === 'Open') {
+
+            /* Check if we need to Cancel this Order */
+            let situationName = checkOrderEvent(tradingSystemOrder.cancelOrderEvent, tradingSystemOrder, executionAlgorithm, executionNode)
+            if (situationName !== undefined) {
+
+                /* Simulate Order Cancelation, if needed. */
+                simulateCancelOrder(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, 'Cancel Event')
+
+                /* Cancel the order at the Exchange, if needed. */
+                await exchangeCancelOrder(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, 'Cancel Event')
+
+                updateEndsWithCycle(tradingEngineOrder)
             }
         }
     }
@@ -397,65 +419,104 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
             /* Actual Rate Simulation */
             let calculatedBasedOnTradingSystem = false
 
-            /* Based on the Trading System Definition */
-            if (tradingSystemOrder.simulatedExchangeEvents !== undefined) {
-                if (tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate !== undefined) {
-                    if (tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate.formula !== undefined) {
-                        /* Calculate this only once for this order */
-                        if (tradingEngineOrder.orderStatistics.actualRate.value === tradingEngineOrder.orderStatistics.actualRate.config.initialValue) {
-                            tradingEngineOrder.orderStatistics.actualRate.value = tradingSystem.formulas.get(tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate.formula.id)
-                            if (tradingEngineOrder.orderStatistics.actualRate.value !== undefined) {
-                                calculatedBasedOnTradingSystem = true
+            basedOnTradingSystem()
+            basedOnSessionParameters()
+            considerBestMatchWithOrderBook()
+            recalculateQuotedAsset()
+            recalculateSizePlaced()
+
+            function basedOnTradingSystem() {
+                /* Based on the Trading System Definition */
+                if (tradingSystemOrder.simulatedExchangeEvents !== undefined) {
+                    if (tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate !== undefined) {
+                        if (tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate.formula !== undefined) {
+                            /* Calculate this only once for this order */
+                            if (tradingEngineOrder.orderStatistics.actualRate.value === tradingEngineOrder.orderStatistics.actualRate.config.initialValue) {
+                                tradingEngineOrder.orderStatistics.actualRate.value = tradingSystem.formulas.get(tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate.formula.id)
+                                if (tradingEngineOrder.orderStatistics.actualRate.value !== undefined) {
+                                    calculatedBasedOnTradingSystem = true
+                                }
                             }
                         }
                     }
                 }
             }
 
-            /* Based on the Session Parameters Definition */
-            if (calculatedBasedOnTradingSystem === false) {
-                switch (tradingEngineOrder.type) {
-                    case 'Market Order': {
-                        /* Actual Rate is simulated based on the Session Paremeters */
-                        let slippageAmount = tradingEngineOrder.rate.value * sessionParameters.slippage.config.positionRate / 100
-                        switch (tradingSystemOrder.type) {
-                            case 'Market Sell Order': {
-                                tradingEngineOrder.orderStatistics.actualRate.value = tradingEngineOrder.rate.value - slippageAmount
-                                break
+            function basedOnSessionParameters() {
+                /* Based on the Session Parameters Definition */
+                if (calculatedBasedOnTradingSystem === false) {
+                    switch (tradingEngineOrder.type) {
+                        case 'Market Order': {
+                            /* Actual Rate is simulated based on the Session Paremeters */
+                            let slippageAmount = tradingEngineOrder.rate.value * sessionParameters.slippage.config.positionRate / 100
+                            switch (tradingSystemOrder.type) {
+                                case 'Market Sell Order': {
+                                    tradingEngineOrder.orderStatistics.actualRate.value = tradingEngineOrder.rate.value - slippageAmount
+                                    break
+                                }
+                                case 'Market Buy Order': {
+                                    tradingEngineOrder.orderStatistics.actualRate.value = tradingEngineOrder.rate.value + slippageAmount
+                                    break
+                                }
                             }
-                            case 'Market Buy Order': {
-                                tradingEngineOrder.orderStatistics.actualRate.value = tradingEngineOrder.rate.value + slippageAmount
-                                break
-                            }
+                            break
                         }
-                        break
-                    }
-                    case 'Limit Order': {
-                        /* In Limit Orders the actual rate is the rate of the order, there is no slippage */
-                        tradingEngineOrder.orderStatistics.actualRate.value = tradingEngineOrder.rate.value
-                        break
+                        case 'Limit Order': {
+                            /* In Limit Orders the actual rate is the rate of the order, there is no slippage */
+                            tradingEngineOrder.orderStatistics.actualRate.value = tradingEngineOrder.rate.value
+                            break
+                        }
                     }
                 }
             }
-            tradingEngineOrder.orderStatistics.actualRate.value = global.PRECISE(tradingEngineOrder.orderStatistics.actualRate.value, 10)
 
-            /*
-            Recalculate the Quouted Asset Size based on the newly calculated Actual Rate.
-            */
-            tradingEngineOrder.orderQuotedAsset.size.value = tradingEngineOrder.orderBaseAsset.size.value * tradingEngineOrder.orderStatistics.actualRate.value
-            tradingEngineOrder.orderQuotedAsset.size.value = global.PRECISE(tradingEngineOrder.orderQuotedAsset.size.value, 10)
-            /*
-            Recaulculate the Size Placed Based on the newly calculated Quoted Asset Size.
-            */
-            tradingEngineStage.stageQuotedAsset.sizePlaced.value =
-                tradingEngineStage.stageQuotedAsset.sizePlaced.value -
-                previousQuotedAssetSize
+            function considerBestMatchWithOrderBook() {
+                /*
+                Until here we have got the rate based on the formula definition or based on session parameters slippage.
+                THe last check is about watching what happened in the market. Let's remember that the exchange will
+                fill the order with the best possible matches at it's order book. That means that if the rate
+                we set for the order was too low (for a sale order) or too hight (for a buy order), the actual rate 
+                should be better than expected.
+                */
+                switch (true) {
+                    case tradingSystemOrder.type === 'Market Buy Order' || tradingSystemOrder.type === 'Limit Buy Order': {
+                        if (tradingEngineOrder.orderStatistics.actualRate.value > tradingEngine.current.episode.candle.max.value) {
+                            tradingEngineOrder.orderStatistics.actualRate.value = tradingEngine.current.episode.candle.max.value
+                        }
+                        break
+                    }
+                    case tradingSystemOrder.type === 'Market Sell Order' || tradingSystemOrder.type === 'Limit Sell Order': {
+                        if (tradingEngineOrder.orderStatistics.actualRate.value < tradingEngine.current.episode.candle.min.value) {
+                            tradingEngineOrder.orderStatistics.actualRate.value = tradingEngine.current.episode.candle.min.value
+                        }
+                        break
+                    }
+                }
+                tradingEngineOrder.orderStatistics.actualRate.value = global.PRECISE(tradingEngineOrder.orderStatistics.actualRate.value, 10)
+            }
 
-            tradingEngineStage.stageQuotedAsset.sizePlaced.value =
-                tradingEngineStage.stageQuotedAsset.sizePlaced.value +
-                tradingEngineOrder.orderQuotedAsset.size.value
+            function recalculateQuotedAsset() {
+                /*
+                Recalculate the Quouted Asset Size based on the newly calculated Actual Rate.
+                */
+                tradingEngineOrder.orderQuotedAsset.size.value = tradingEngineOrder.orderBaseAsset.size.value * tradingEngineOrder.orderStatistics.actualRate.value
+                tradingEngineOrder.orderQuotedAsset.size.value = global.PRECISE(tradingEngineOrder.orderQuotedAsset.size.value, 10)
+            }
 
-            tradingEngineStage.stageQuotedAsset.sizePlaced.value = global.PRECISE(tradingEngineStage.stageQuotedAsset.sizePlaced.value, 10)
+            function recalculateSizePlaced(){
+                /*
+                Recaulculate the Size Placed Based on the newly calculated Quoted Asset Size.
+                */
+                tradingEngineStage.stageQuotedAsset.sizePlaced.value =
+                    tradingEngineStage.stageQuotedAsset.sizePlaced.value -
+                    previousQuotedAssetSize
+
+                tradingEngineStage.stageQuotedAsset.sizePlaced.value =
+                    tradingEngineStage.stageQuotedAsset.sizePlaced.value +
+                    tradingEngineOrder.orderQuotedAsset.size.value
+
+                tradingEngineStage.stageQuotedAsset.sizePlaced.value = global.PRECISE(tradingEngineStage.stageQuotedAsset.sizePlaced.value, 10)
+            }
         }
 
         function percentageFilledSimulation() {

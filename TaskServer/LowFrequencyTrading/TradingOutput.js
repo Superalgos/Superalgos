@@ -43,10 +43,34 @@ exports.newTradingOutput = function newTradingOutput(bot, logger, tradingEngineM
             let outputDatasets = bot.processNode.referenceParent.processOutput.outputDatasets
             let outputDatasetsMap = new Map()
 
-            if (bot.FIRST_EXECUTION === true && bot.RESUME === false) {
-                await initializeOutputs()
+            if (bot.processingDailyFiles === true) {
+                /*
+                For Daily Files, we are going to initialize the outputs at the first execution
+                if we are not resuming, but also at every following execution except when 
+                we are at the head of the market, because at the head of the market we need to 
+                append more data to the same output files that already exists.
+                */
+                if (bot.FIRST_EXECUTION === true && bot.RESUME === false) {
+                    await initializeOutputs()
+                } else {
+                    if (bot.simulationState.tradingEngine.current.episode.headOfTheMarket.value === true) {
+                        await readFiles()
+                    } else {
+                        await initializeOutputs()
+                    }
+                }
             } else {
-                await readFiles()
+                /*
+                Form Market Files, we are only going to initialize the outputs at the first run
+                and if we are not resuming execution. Subsequent runs means that we are at the 
+                head of the market. Remember that backtests finishes the session once the reach
+                the final datetime.
+                */
+                if (bot.FIRST_EXECUTION === true && bot.RESUME === false) {
+                    await initializeOutputs()
+                } else {
+                    await readFiles()
+                }
             }
 
             await tradingSimulation.runSimulation(

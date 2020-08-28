@@ -215,6 +215,9 @@ function newEventsServerClient(networkNode) {
                 let config = JSON.parse(networkNode.config)
                 host = config.host
                 port = config.webSocketsPort
+
+                /* Check if we really have to stablish the connection. */
+                if (config.autoConnect === false) {return}
             } catch (err) {
                 networkNode.payload.uiObject.setErrorMessage('Bad configuration. Cannot know the host name or the webSocketsPort.')
                 return

@@ -6656,6 +6656,18 @@
                 "type": "node",
                 "childType": "Strategy",
                 "autoAdd": true
+            },
+            {
+                "name": "limitOrders",
+                "type": "node",
+                "childType": "Limit Order",
+                "autoAdd": true
+            },
+            {
+                "name": "marketOrders",
+                "type": "node",
+                "childType": "Market Order",
+                "autoAdd": true
             }
         ]
     },
@@ -6907,7 +6919,7 @@
         "addLeftIcons": true,
         "level": 3,
         "chainAttachesTo": {
-            "compatibleTypes": "->Market Buy Orders->Market Sell Orders->"
+            "compatibleTypes": "->Market Buy Orders->Market Sell Orders->Last->"
         },
         "icon": "market-order",
         "propertyNameAtParent": "marketOrders",
@@ -7137,7 +7149,7 @@
         "addLeftIcons": true,
         "level": 3,
         "chainAttachesTo": {
-            "compatibleTypes": "->Limit Buy Orders->Limit Sell Orders->"
+            "compatibleTypes": "->Limit Buy Orders->Limit Sell Orders->Last->"
         },
         "icon": "menu-mobility-unfreeze",
         "propertyNameAtParent": "limitOrders",

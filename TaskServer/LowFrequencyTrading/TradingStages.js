@@ -891,11 +891,14 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
         either on Base Asset or Quoted Asset.
         This can happens at any time when we update the sizeFilled and the feesPaid values 
         when we see at the exchange that orders were filled. 
+        Note that the comparison is made with a Rounding Factor in order to avoid rounding problems.
         */
+       const ROUNDING_ERROR_CORRECTION_FACTOR = 1.0000001
+
         switch (tradingEngineStage.stageDefinedIn.value) {
             case 'Base Asset': {
                 if (
-                    tradingEngineStage.stageBaseAsset.sizeFilled.value
+                    tradingEngineStage.stageBaseAsset.sizeFilled.value * ROUNDING_ERROR_CORRECTION_FACTOR
                     >=
                     tradingEngineStage.stageBaseAsset.targetSize.value
                 ) {
@@ -907,7 +910,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
             }
             case 'Quoted Asset': {
                 if (
-                    tradingEngineStage.stageQuotedAsset.sizeFilled.value
+                    tradingEngineStage.stageQuotedAsset.sizeFilled.value * ROUNDING_ERROR_CORRECTION_FACTOR
                     >=
                     tradingEngineStage.stageQuotedAsset.targetSize.value
                 ) {

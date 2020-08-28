@@ -53,10 +53,10 @@ function newRecordValues() {
             The Product Root Node is the root of the node hiriarchy from where we are going to extract the record values.
             */
             let productRootNode = productRoot
-            scanProperties(productRootNode)
+            scanProperties(productDefinition, productRootNode)
         }
 
-        function scanProperties(productRootNode, index) {
+        function scanProperties(productDefinition, productRootNode, index) {
             for (let i = 0; i < productDefinition.record.properties.length; i++) {
                 let property = productDefinition.record.properties[i]
                 let key = property.id
@@ -64,7 +64,17 @@ function newRecordValues() {
                     key = property.id + '-' + index
                 }
                 if (property.config.nodePath !== undefined) {
-                    let propertyRoot = eval(property.config.nodePath)
+                    let propertyRoot
+                    try {
+                        propertyRoot = eval(property.config.nodePath)
+                    } catch(err) {
+                        console.log('Definition Error at Product ' + productDefinition.name)
+                        console.log('productDefinition.config = ' + JSON.stringify(productDefinition.config))
+                        console.log('Definition Error at Property ' + property.name)
+                        console.log('property.config = ' + JSON.stringify(property.config))
+                        console.log('property.config.nodePath = ' + property.config.nodePath)
+                        return
+                    }
                     propertyTargetNodeMap.set(key, propertyRoot)
                 } else {
                     propertyTargetNodeMap.set(key, productRootNode)

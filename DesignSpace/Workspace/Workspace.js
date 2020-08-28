@@ -64,6 +64,7 @@ function newWorkspace() {
     let functionLibraryCCXTFunctions = newCCXTFunctions()
     let functionLibraryWebhookFunctions = newWebhookFunctions()
     let functionLibraryDependenciesFilter = newDependenciesFilter()
+    let functionLibraryNodePath = newNodePath()
 
     thisObject.nodeChildren = newNodeChildren()
 
@@ -323,7 +324,7 @@ function newWorkspace() {
         if (stringifyReadyNodes.length > 0) {
             return JSON.stringify(workspace)
         } else {
-            return 
+            return
         }
     }
 
@@ -454,6 +455,17 @@ function newWorkspace() {
 
     async function onMenuItemClick(payload, action, relatedUiObject, callBackFunction) {
         switch (action) {
+            case 'Copy Node Path':
+                {
+                    let nodePath = functionLibraryNodePath.getNodePath(payload.node)
+
+                    copyTextToClipboard(nodePath)
+
+                    canvas.cockpitSpace.setStatus(
+                        nodePath + ' copied to the Clipboard.'
+                        , 50, canvas.cockpitSpace.statusTypes.ALL_GOOD)
+                }
+                break
             case 'Add UI Object':
                 {
                     functionLibraryUiObjectsFromNodes.addUIObject(payload.node, relatedUiObject)

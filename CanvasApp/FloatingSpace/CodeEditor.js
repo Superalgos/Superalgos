@@ -32,7 +32,7 @@ function newCodeEditor() {
     thisObject.container.frame.position.y = 0
 
     let isMouseOver = false
-    let SIZE_FACTOR = 1.4
+    let SIZE_FACTOR = 1.0
 
     return thisObject
 
@@ -113,7 +113,7 @@ function newCodeEditor() {
         thisObject.container.frame.position.x = 0
         thisObject.container.frame.position.y = 0
 
-        thisObject.container.frame.width = thisObject.container.frame.radius * 1.8 * SIZE_FACTOR
+        thisObject.container.frame.width = thisObject.container.frame.radius * 1 * SIZE_FACTOR
         thisObject.container.frame.height = thisObject.container.frame.radius * 1 * SIZE_FACTOR
 
         let textAreaPosition = {
@@ -150,19 +150,20 @@ function newCodeEditor() {
 
             if (radius > 0.5) {
                 browserCanvasContext.beginPath()
-                browserCanvasContext.arc(position.x, position.y, radius * 1.3 + 3, 0, Math.PI * 2, true)
+                browserCanvasContext.arc(position.x, position.y, radius  + 3, 0, Math.PI * 2, true)
                 browserCanvasContext.closePath()
                 browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + 1 + ')'
                 browserCanvasContext.fill()
 
                 browserCanvasContext.beginPath()
-                browserCanvasContext.arc(position.x, position.y, radius * 1.3, 0, Math.PI * 2, true)
+                browserCanvasContext.arc(position.x, position.y, radius , 0, Math.PI * 2, true)
                 browserCanvasContext.closePath()
                 browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + 1 + ')'
                 browserCanvasContext.fill()
             }
         }
     }
+
     function drawForeground() {
         let iconPosition = {
             x: 0,

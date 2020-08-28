@@ -58,8 +58,8 @@ function loadSuperalgos() {
         'font-size: 12px;' +
         'background-color: rgb(255, 255, 255);' +
         'color:rgb(255, 255, 255);' +
-        'width: ' + 800 + 'px;' +
-        'height: ' + 600 + 'px'
+        'width: ' + 600 + 'px;' +
+        'height: ' + 400 + 'px'
 
     let textAreaDiv = document.getElementById('textAreaDiv');
     textAreaDiv.appendChild(textArea);

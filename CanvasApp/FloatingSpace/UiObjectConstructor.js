@@ -488,7 +488,7 @@ function newUiObjectConstructor() {
         const FRICTION = 0.95
         const INITIAL_FRICTION = 0.97
         const INITIAL_FONT_SIZE = 12 * 1.5
-        const INITIAL_RADIOUS = 45 * 1.5
+        const INITIAL_RADIOUS = 100
         const INITIAL_IMAGE_SIZE = 80 * 1.2
         const INITIAL_HIERARCHY_RING = 20
 

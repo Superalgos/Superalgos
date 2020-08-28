@@ -156,8 +156,7 @@ function newCircularMenuItem() {
     function physics() {
         if (thisObject.dontShowAtFullscreen === true && AT_FULL_SCREEN_MODE === true) { return }
 
-        let INCREASE_STEP = 2 // (thisObject.targetRadius - thisObject.rawRadius) / 4
-        // if (INCREASE_STEP === 0) { INCREASE_STEP = 2 }
+        let INCREASE_STEP = 2
 
         if (Math.abs(thisObject.currentRadius - thisObject.targetRadius) >= INCREASE_STEP) {
             if (thisObject.currentRadius < thisObject.targetRadius) {
@@ -191,8 +190,17 @@ function newCircularMenuItem() {
             radiusGrowthFactor = 4
         }
 
-        thisObject.container.frame.position.x = thisObject.payload.floatingObject.targetRadius * radiusGrowthFactor / 7 * Math.cos(toRadians(thisObject.angle)) - thisObject.currentRadius * 1.5
-        thisObject.container.frame.position.y = thisObject.payload.floatingObject.targetRadius * radiusGrowthFactor / 7 * Math.sin(toRadians(thisObject.angle)) - thisObject.container.frame.height / 2
+        thisObject.container.frame.position.x =
+            thisObject.payload.floatingObject.targetRadius *
+            radiusGrowthFactor / 7
+            * Math.cos(toRadians(thisObject.angle)) -
+            thisObject.currentRadius * 1.5
+
+        thisObject.container.frame.position.y =
+            thisObject.payload.floatingObject.targetRadius *
+            radiusGrowthFactor / 7
+            * Math.sin(toRadians(thisObject.angle)) -
+            thisObject.container.frame.height / 2
 
         temporaryStatusPhysics()
 
@@ -428,7 +436,6 @@ function newCircularMenuItem() {
         menuPosition = thisObject.container.frame.frameThisPoint(menuPosition)
 
         /* Menu  Item */
-
         let iconSize
         if (isMouseOver === true) {
             iconSize = thisObject.currentRadius + EXTRA_MOUSE_OVER_ICON_SIZE
@@ -441,7 +448,6 @@ function newCircularMenuItem() {
             browserCanvasContext.drawImage(thisObject.icon, menuPosition.x - iconSize, menuPosition.y - iconSize, iconSize * 2, iconSize * 2)
 
             /* Menu Label */
-
             if (thisObject.type === 'Icon & Text') {
                 label = labelToPrint
                 if (thisObject.shorcutNumber !== undefined) {

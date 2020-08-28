@@ -86,6 +86,16 @@
                 /* We need to find at which network node is running the process that we need to hear from when it finished. */
                 let network = global.TASK_NETWORK
 
+                /* 
+                Notice that the first task that matches the dependency is going to be considered.
+                This means that if the same task, with the same process, pointing to the same
+                process definition in the same data mine, with the same exchange and market 
+                configured, is at two different network nodes at the same time, the current task
+                is going to depend on the first one found, not necesarily the one running at the 
+                same network node. If you need to control witch task specifically to depend on
+                and need to exactly the same task to exist, you should split the network in two
+                different networks, each one with unique tasks so as to avoid confussion. 
+                */
                 for (let i = 0; i < network.networkNodes.length; i++) {
                     let networkNode = network.networkNodes[i]
                     if (networkNode.dataMining !== undefined) {
@@ -111,13 +121,20 @@
                                                                 /* We found where the task that runs the process definition we are waiting for is located on the network. */
 
                                                                 thisObject.networkNode = networkNode
-                                                                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Connecting to Websockets Server " + networkNode.name + "  -> host = " + networkNode.config.host + ' -> port = ' + networkNode.config.webSocketsPort + '.'); }
+                                                                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { 
+                                                                    logger.write(MODULE_NAME, 
+                                                                        "[INFO] initialize -> Connecting to Websockets Server " + networkNode.name + 
+                                                                        "  -> host = " + networkNode.config.host + 
+                                                                        ' -> port = ' + networkNode.config.webSocketsPort + '.'); }
 
                                                                 eventServerClient = EVENT_SERVER_CLIENT.newEventsServerClient(networkNode.config.host, networkNode.config.webSocketsPort)
                                                                 eventServerClient.initialize(onConnected)
 
                                                                 function onConnected() {
-                                                                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Connected to Websockets Server " + networkNode.name + "  -> host = " + networkNode.config.host + ' -> port = ' + networkNode.config.webSocketsPort + '.'); }
+                                                                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { 
+                                                                        logger.write(MODULE_NAME, "[INFO] initialize -> Connected to Websockets Server " + networkNode.name + 
+                                                                        "  -> host = " + networkNode.config.host + 
+                                                                        ' -> port = ' + networkNode.config.webSocketsPort + '.'); }
 
                                                                     callBackFunction(global.DEFAULT_OK_RESPONSE);
                                                                     return

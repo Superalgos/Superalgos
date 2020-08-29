@@ -41,8 +41,10 @@
             global.EVENT_SERVER_CLIENT.listenToEvent(bot.sessionKey, 'Run Session', undefined, bot.sessionKey, undefined, onSessionRan)
             global.EVENT_SERVER_CLIENT.listenToEvent(bot.sessionKey, 'Stop Session', undefined, bot.sessionKey, undefined, onSessionStopped)
 
-            /* Errors sent to the UI */
+            /* Connect this here so that it is accesible from other places */
             bot.sessionError = sessionError
+            bot.sessionWarning = sessionWarning
+            bot.sessionInfo = sessionInfo
 
             /* Heartbeats sent to the UI */
             bot.sessionHeartBeat = sessionHeartBeat
@@ -113,7 +115,7 @@
                 socialBotsModule.sendMessage(bot.SESSION.type + " '" + bot.SESSION.name + "' is stopping " + commandOrigin)
                 socialBotsModule.finalize()
                 bot.STOP_SESSION = true
-                sessionError(bot.SESSION, commandOrigin)
+                sessionInfo(bot.SESSION, commandOrigin)
             }
 
             function setUpAppSchema() {
@@ -415,6 +417,48 @@
                     }
                 }
                 global.EVENT_SERVER_CLIENT.raiseEvent(bot.sessionKey, 'Error', event)
+
+                if (global.STOP_TASK_GRACEFULLY === true) {
+                    bot.STOP_SESSION = true
+                }
+            }
+
+            function sessionWarning(node, warningMessage) {
+                let event
+                if (node !== undefined) {
+                    event = {
+                        nodeName: node.name,
+                        nodeType: node.type,
+                        nodeId: node.id,
+                        warningMessage: warningMessage
+                    }
+                } else {
+                    event = {
+                        warningMessage: warningMessage
+                    }
+                }
+                global.EVENT_SERVER_CLIENT.raiseEvent(bot.sessionKey, 'Warning', event)
+
+                if (global.STOP_TASK_GRACEFULLY === true) {
+                    bot.STOP_SESSION = true
+                }
+            }
+
+            function sessionInfo(node, infoMessage) {
+                let event
+                if (node !== undefined) {
+                    event = {
+                        nodeName: node.name,
+                        nodeType: node.type,
+                        nodeId: node.id,
+                        infoMessage: infoMessage
+                    }
+                } else {
+                    event = {
+                        infoMessage: infoMessage
+                    }
+                }
+                global.EVENT_SERVER_CLIENT.raiseEvent(bot.sessionKey, 'Info', event)
 
                 if (global.STOP_TASK_GRACEFULLY === true) {
                     bot.STOP_SESSION = true

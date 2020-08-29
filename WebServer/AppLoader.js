@@ -121,6 +121,8 @@ function newAppLoader() {
                 'Plotting/Plotter.js',
                 'Plotting/NodesHighlights.js',
                 'Plotting/NodesErrors.js',
+                'Plotting/NodesWarnings.js',
+                'Plotting/NodesInfos.js',
                 'Plotting/NodesValues.js',
                 'Plotting/NodesStatus.js',
                 'Plotting/NodesProgress.js',

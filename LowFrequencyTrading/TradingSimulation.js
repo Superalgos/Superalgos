@@ -104,8 +104,9 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
             */
             for (let i = initialCandle; i < candles.length - 1; i++) {
                 tradingEngine.current.episode.candle.index.value = i
-                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Processing candle # ' + tradingEngine.current.episode.candle.index.value) }
-                let candle = candles[tradingEngine.current.episode.candle.index.value] // This is the current candle the Simulation is working at.
+
+                /* This is the current candle the Simulation is working at. */
+                let candle = candles[tradingEngine.current.episode.candle.index.value] 
 
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Candle Begin @ ' + (new Date(candle.begin)).toLocaleString()) }
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Candle End @ ' + (new Date(candle.end)).toLocaleString()) }
@@ -185,6 +186,10 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
                     tradingSystemModule.reset()
                     tradingEpisodeModule.reset()
                     tradingEngineModule.reset()
+
+                    let infoMessage = 'Processing candle # ' + tradingEngine.current.episode.candle.index.value + ' @ the ' + tradingEngine.current.episode.cycle.value + ' cycle.'
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> ' + infoMessage) }
+                    tradingSystem.infos.push([tradingSystem.id, infoMessage])
 
                     await tradingSystemModule.run()
                 }

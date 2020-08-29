@@ -214,10 +214,19 @@
                     */
 
                     /* Initial Datetime */
-                    if (bot.SESSION.parameters.timeRange.config.initialDatetime === undefined || bot.SESSION.parameters.timeRange.config.allowStartingFromThePast !== true ) {
-                        bot.SESSION.parameters.timeRange.config.initialDatetime = initialDefault
+                    if (bot.SESSION.type === 'Backtesting Session') {
+                        if (bot.SESSION.parameters.timeRange.config.initialDatetime === undefined ) {
+                            bot.SESSION.parameters.timeRange.config.initialDatetime = initialDefault
+                        } else {
+                            bot.SESSION.parameters.timeRange.config.initialDatetime = (new Date(bot.SESSION.parameters.timeRange.config.initialDatetime)).valueOf()
+                        }
                     } else {
-                        bot.SESSION.parameters.timeRange.config.initialDatetime = (new Date(bot.SESSION.parameters.timeRange.config.initialDatetime)).valueOf()
+                        /* Non backtest session can start from the past only if explicitly configured that way */
+                        if (bot.SESSION.parameters.timeRange.config.initialDatetime === undefined || bot.SESSION.parameters.timeRange.config.allowStartingFromThePast !== true ) {
+                            bot.SESSION.parameters.timeRange.config.initialDatetime = initialDefault
+                        } else {
+                            bot.SESSION.parameters.timeRange.config.initialDatetime = (new Date(bot.SESSION.parameters.timeRange.config.initialDatetime)).valueOf()
+                        }
                     }
 
                     /* Final Datetime */

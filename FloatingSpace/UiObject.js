@@ -242,6 +242,7 @@ function newUiObject() {
     }
 
     function getContainer(point) {
+
         let container
 
         if (isDragging === false && thisObject.isOnFocus === true) {

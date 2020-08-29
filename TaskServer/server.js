@@ -51,6 +51,57 @@ global.REMOVE_TIME = function (datetime) {
     return new Date(date.getUTCFullYear() + "-" + (date.getUTCMonth() + 1) + "-" + date.getUTCDate() + " " + "00:00" + GMT_SECONDS);
 }
 
+global.PROCESS_ERROR = function (processKey, node, errorMessage) {
+    let event
+    if (node !== undefined) {
+        event = {
+            nodeName: node.name,
+            nodeType: node.type,
+            nodeId: node.id,
+            errorMessage: errorMessage
+        }
+    } else {
+        event = {
+            errorMessage: errorMessage
+        }
+    }
+    global.EVENT_SERVER_CLIENT.raiseEvent(processKey, 'Error', event)
+}
+
+global.PROCESS_WARNING = function (processKey, node, warningMessage) {
+    let event
+    if (node !== undefined) {
+        event = {
+            nodeName: node.name,
+            nodeType: node.type,
+            nodeId: node.id,
+            warningMessage: warningMessage
+        }
+    } else {
+        event = {
+            warningMessage: warningMessage
+        }
+    }
+    global.EVENT_SERVER_CLIENT.raiseEvent(processKey, 'Warning', event)
+}
+
+global.PROCESS_INFO = function (processKey, node, infoMessage) {
+    let event
+    if (node !== undefined) {
+        event = {
+            nodeName: node.name,
+            nodeType: node.type,
+            nodeId: node.id,
+            infoMessage: infoMessage
+        }
+    } else {
+        event = {
+            infoMessage: infoMessage
+        }
+    }
+    global.EVENT_SERVER_CLIENT.raiseEvent(processKey, 'Info', event)
+}
+
 process.on('uncaughtException', function (err) {
     console.log('[ERROR] Task Server -> server -> uncaughtException -> err.message = ' + err.message)
     console.log('[ERROR] Task Server -> server -> uncaughtException -> err.stack = ' + err.stack)

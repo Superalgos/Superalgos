@@ -87,6 +87,8 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
 
         tradingSystem.highlights = undefined
         tradingSystem.errors = undefined
+        tradingSystem.warnings = undefined
+        tradingSystem.infos = undefined
         tradingSystem.values = undefined
         tradingSystem.status = undefined
         tradingSystem.progress = undefined
@@ -106,6 +108,8 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
 
         tradingSystem.highlights = []
         tradingSystem.errors = []
+        tradingSystem.warnings = []
+        tradingSystem.infos = []
         tradingSystem.values = []
         tradingSystem.status = []
         tradingSystem.progress = []

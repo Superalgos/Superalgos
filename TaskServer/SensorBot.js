@@ -85,9 +85,6 @@
         try {
             let fixedTimeLoopIntervalHandle;
 
-            /* Errors sent to the UI */
-            bot.processError = processError
-
             /* Heartbeats sent to the UI */
             bot.processHeartBeat = processHeartBeat
 
@@ -571,26 +568,9 @@
                 global.EVENT_SERVER_CLIENT.raiseEvent(bot.processKey, 'Heartbeat', event)
             }
 
-            function processError(node, errorMessage) {
-                let event
-                if (node !== undefined) {
-                    event = {
-                        nodeName: node.name,
-                        nodeType: node.type,
-                        nodeId: node.id,
-                        errorMessage: errorMessage
-                    }
-                } else {
-                    event = {
-                        errorMessage: errorMessage
-                    }
-                }
-                global.EVENT_SERVER_CLIENT.raiseEvent(bot.processKey, 'Error', event)
-            }
-
             function processStopped() {
                 if (global.unexpectedError !== undefined) {
-                    processError(undefined, "An unexpected error caused the Process to stop.")
+                    global.PROCESS_ERROR(bot.processKey, undefined, "An unexpected error caused the Process to stop.")
                 } else {
                     global.EVENT_SERVER_CLIENT.raiseEvent(bot.processKey, 'Stopped')
                 }

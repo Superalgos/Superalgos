@@ -177,7 +177,7 @@ function newLayer() {
                 'Image->Image Condition->Image Position->Point->' +
                 'Text->Text Condition->Text Position->Point->Text Formula->Text Style->' +
                 'Plotter Panel->Javascript Code->Panel Data->Data Formula->' +
-                'Nodes Highlights->Nodes Values->Nodes Errors->Nodes Status->Nodes Progress->Nodes Running->Nodes Announcements->Record Values->'
+                'Nodes Highlights->Nodes Values->Nodes Errors->Nodes Warnings->Nodes Infos->Nodes Status->Nodes Progress->Nodes Running->Nodes Announcements->Record Values->'
             thisObject.definition = functionLibraryProtocolNode.getProtocolNode(thisObject.payload.node, false, true, true, false, false, lightingPath)
 
             /* Here we validate that we have all the needed information */

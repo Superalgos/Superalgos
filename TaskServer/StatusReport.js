@@ -83,7 +83,7 @@
             function validationFailed(errorInNode, errorMessage) {
                 let nodeString = JSON.stringify(errorInNode)
                 logger.write(MODULE_NAME, "[ERROR] initialize -> " + errorMessage + ' -> nodeString = ' + nodeString)
-                bot.processError(errorInNode, errorMessage)
+                bot.global.PROCESS_ERROR(bot.processKey, errorInNode, errorMessage)
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
             }
 

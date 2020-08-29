@@ -405,6 +405,8 @@ function newLayersPanel() {
         function removeFromLocalLayers(id) {
             for (let i = 0; i < localLayers.length; i++) {
                 let layer = localLayers[i]
+                if (layer.payload === undefined) {continue}
+                if (layer.payload.node === undefined) {continue}
                 if (layer.payload.node.id === id) {
                     thisObject.layers.push(layer)
                     localLayers.splice(i, 1)

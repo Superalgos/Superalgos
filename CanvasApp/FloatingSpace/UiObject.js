@@ -24,6 +24,8 @@ function newUiObject() {
         shortcutKey: undefined,
         isShowing: undefined,
         hasError: undefined,
+        hasWarning: undefined,
+        hasInfo: undefined,
         run: run,
         stop: stop,
         heartBeat: heartBeat,
@@ -35,6 +37,10 @@ function newUiObject() {
         runningAtBackend: runningAtBackend,
         setErrorMessage: setErrorMessage,
         resetErrorMessage: resetErrorMessage,
+        setWarningMessage: setWarningMessage,
+        resetWarningMessage: resetWarningMessage,
+        setInfoMessage: setInfoMessage,
+        resetInfoMessage: resetInfoMessage,
         setValue: setValue,
         resetValue: resetValue,
         setPercentage: setPercentage,
@@ -76,6 +82,8 @@ function newUiObject() {
     let runningAtBackendCounter = 0
 
     let errorMessageCounter = 0
+    let warningMessageCounter = 0
+    let infoMessageCounter = 0
 
     let hasValue
     let valueCounter = 0
@@ -109,6 +117,9 @@ function newUiObject() {
     let isDragging = false
 
     let errorMessage = ''
+    let warningMessage = ''
+    let infoMessage = ''
+
     let currentValue = 0
     let valueMinDecimals = undefined
     let currentPercentage = ''
@@ -116,8 +127,11 @@ function newUiObject() {
     let rightDragging = false
 
     let eventSubscriptionIdOnError
+    let eventSubscriptionIdOnWarning
+    let eventSubscriptionIdOnInfo
     let eventSubscriptionIdOnRunning
     let eventSubscriptionIdOnStopped
+
     let lastHeartBeat
     let onRunningCallBackFunction
     let onRunningCallBackFunctionWasCalled = false
@@ -189,6 +203,12 @@ function newUiObject() {
             }
             if (eventSubscriptionIdOnError !== undefined) {
                 eventsServerClient.stopListening(key, eventSubscriptionIdOnError, 'UiObject')
+            }
+            if (eventSubscriptionIdOnWarning !== undefined) {
+                eventsServerClient.stopListening(key, eventSubscriptionIdOnWarning, 'UiObject')
+            }
+            if (eventSubscriptionIdOnInfo !== undefined) {
+                eventsServerClient.stopListening(key, eventSubscriptionIdOnInfo, 'UiObject')
             }
         }
     }
@@ -327,6 +347,8 @@ function newUiObject() {
         highlightPhisycs()
         runningAtBackendPhisycs()
         errorMessagePhisycs()
+        warningMessagePhisycs()
+        infoMessagePhisycs()
         valuePhisycs()
         percentagePhisycs()
         statusPhisycs()
@@ -694,6 +716,22 @@ function newUiObject() {
         }
     }
 
+    function warningMessagePhisycs() {
+        warningMessageCounter--
+        if (warningMessageCounter < 0) {
+            warningMessageCounter = 0
+            thisObject.hasWarning = false
+        }
+    }
+
+    function infoMessagePhisycs() {
+        infoMessageCounter--
+        if (infoMessageCounter < 0) {
+            infoMessageCounter = 0
+            thisObject.hasInfo = false
+        }
+    }
+
     function valuePhisycs() {
         valueCounter--
         if (valueCounter < 0) {
@@ -767,6 +805,76 @@ function newUiObject() {
         thisObject.hasError = false
     }
 
+    function setWarningMessage(message, duration) {
+        if (message !== undefined) {
+            warningMessage = message
+            thisObject.hasWarning = true
+            if (duration === undefined) { duration = 1 }
+            warningMessageCounter = 100 * duration
+
+            /* 
+            Next, we are going to try to inform the parent that this 
+            node has an warning, as a way to show the end user where the
+            node with warning is. This is useful to detect warnings in nodes
+            that are located at braches that are collapsed.
+            */
+
+            if (thisObject.payload !== undefined) {
+                if (thisObject.payload.parentNode !== undefined) {
+                    if (thisObject.payload.parentNode.payload !== undefined) {
+                        if (thisObject.payload.parentNode.payload.floatingObject !== undefined) {
+                            if (thisObject.payload.parentNode.payload.floatingObject.isCollapsed === true || thisObject.payload.parentNode.payload.floatingObject.isParentCollapsed === true) {
+                                if (thisObject.payload.parentNode.payload.uiObject !== true) {
+                                    thisObject.payload.parentNode.payload.uiObject.setWarningMessage('Warning Inside this Branch')
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    function resetWarningMessage() {
+        warningMessage = undefined
+        thisObject.hasWarning = false
+    }
+
+    function setInfoMessage(message, duration) {
+        if (message !== undefined) {
+            infoMessage = message
+            thisObject.hasInfo = true
+            if (duration === undefined) { duration = 1 }
+            infoMessageCounter = 100 * duration
+
+            /* 
+            Next, we are going to try to inform the parent that this 
+            node has an info, as a way to show the end user where the
+            node with info is. This is useful to detect infos in nodes
+            that are located at braches that are collapsed.
+            */
+
+            if (thisObject.payload !== undefined) {
+                if (thisObject.payload.parentNode !== undefined) {
+                    if (thisObject.payload.parentNode.payload !== undefined) {
+                        if (thisObject.payload.parentNode.payload.floatingObject !== undefined) {
+                            if (thisObject.payload.parentNode.payload.floatingObject.isCollapsed === true || thisObject.payload.parentNode.payload.floatingObject.isParentCollapsed === true) {
+                                if (thisObject.payload.parentNode.payload.uiObject !== true) {
+                                    thisObject.payload.parentNode.payload.uiObject.setInfoMessage('Info Inside this Branch')
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    function resetInfoMessage() {
+        infoMessage = undefined
+        thisObject.hasInfo = false
+    }
+
     function setValue(value, counter, minDecimals) {
         if (value !== undefined) {
             currentValue = value
@@ -837,6 +945,8 @@ function newUiObject() {
     function run(pEventsServerClient, callBackFunction) {
         finalizeEventsServerClient()
         resetErrorMessage()
+        resetWarningMessage()
+        resetInfoMessage()
         resetPercentage()
         resetValue()
         resetStatus()
@@ -854,6 +964,8 @@ function newUiObject() {
 
         setupRunningEventListener(callBackFunction)
         setupErrorEventListener(callBackFunction)
+        setupWarningEventListener()
+        setupInfoEventListener()
     }
 
     function setupRunningEventListener(callBackFunction) {
@@ -898,6 +1010,21 @@ function newUiObject() {
         stop(callBackFunction, event)
     }
 
+    function getTargetUiObject(message) {
+        let uiObject = thisObject
+        if (message.event.nodeId !== undefined) {
+            let targetNode = canvas.designSpace.workspace.getNodeById(message.event.nodeId)
+            if (targetNode !== undefined) {
+                if (targetNode.payload !== undefined) {
+                    if (targetNode.payload.uiObject !== undefined) {
+                        uiObject = targetNode.payload.uiObject
+                    }
+                }
+            }
+        }
+        return uiObject
+    }
+
     function setupErrorEventListener(callBackFunction) {
         let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
         eventsServerClient.listenToEvent(key, 'Error', undefined, key, onResponse, onError)
@@ -907,12 +1034,42 @@ function newUiObject() {
         }
 
         function onError(message) {
-            setErrorMessage(message.event.errorMessage, 10)
+
+            let uiObject = getTargetUiObject(message)
+            uiObject.setErrorMessage(message.event.errorMessage, 10)
 
             let event = {
                 type: 'Secondary Action Already Executed'
             }
             completeStop(callBackFunction, event)
+        }
+    }
+
+    function setupWarningEventListener() {
+        let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
+        eventsServerClient.listenToEvent(key, 'Warning', undefined, key, onResponse, onWarning)
+
+        function onResponse(message) {
+            eventSubscriptionIdOnWarning = message.eventSubscriptionId
+        }
+
+        function onWarning(message) {
+            let uiObject = getTargetUiObject(message)
+            uiObject.setWarningMessage(message.event.warningMessage, 10)
+        }
+    }
+
+    function setupInfoEventListener() {
+        let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
+        eventsServerClient.listenToEvent(key, 'Info', undefined, key, onResponse, onInfo)
+
+        function onResponse(message) {
+            eventSubscriptionIdOnInfo = message.eventSubscriptionId
+        }
+
+        function onInfo(message) {
+            let uiObject = getTargetUiObject(message)
+            uiObject.setInfoMessage(message.event.infoMessage, 10)
         }
     }
 
@@ -1090,6 +1247,8 @@ function newUiObject() {
         if (thisObject.isOnFocus === false) {
             drawBodyAndPicture()
             drawErrorMessage()
+            drawWarningMessage()
+            drawInfoMessage()
             drawValue()
             drawPercentage()
             drawStatus()
@@ -1170,6 +1329,8 @@ function newUiObject() {
             }
 
             drawErrorMessage()
+            drawWarningMessage()
+            drawInfoMessage()
             drawValue()
             drawPercentage()
             drawStatus()
@@ -1389,6 +1550,24 @@ function newUiObject() {
 
     function drawErrorMessage() {
         if (thisObject.hasError === false) { return }
+        drawMessage(errorMessage)
+    }
+
+    function drawWarningMessage() {
+        if (thisObject.hasError === true) { return }
+        if (thisObject.hasWarning !== true) { return }
+        drawMessage(warningMessage)
+    }
+
+    function drawInfoMessage() {
+        if (thisObject.hasError === true) { return }
+        if (thisObject.hasWarning === true) { return }
+        if (thisObject.hasInfo !== true) { return }
+        drawMessage(infoMessage)
+    }
+
+    function drawMessage(message) {
+
         if (canvas.floatingSpace.inMapMode === true) {
             return
         }
@@ -1414,7 +1593,7 @@ function newUiObject() {
         if (radius > 6) {
             const MAX_LABEL_LENGTH = 80
 
-            label = errorMessage
+            label = message
 
             if (label !== undefined && label !== null) {
                 if (label.length > MAX_LABEL_LENGTH) {
@@ -1695,7 +1874,7 @@ function newUiObject() {
 
             let nodeDefinition = getNodeDefinition(thisObject.payload.node)
             if (nodeDefinition === undefined) {
-                console.log('Node ' + thisObject.payload.node + ' without Node Definition at APP SCHEMA.') 
+                console.log('Node ' + thisObject.payload.node + ' without Node Definition at APP SCHEMA.')
                 return
             }
 
@@ -1708,7 +1887,13 @@ function newUiObject() {
                 browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.BLACK + ', 0.70)'
                 browserCanvasContext.fill()
                 /* Border when node is in focus */
-                if (thisObject.hasError !== true && nodeDefinition.isHierarchyHead !== true && thisObject.circularProgressBar === undefined) {
+                if (
+                    thisObject.hasError !== true &&
+                    thisObject.WarningError !== true &&
+                    thisObject.hasInfo !== true &&
+                    nodeDefinition.isHierarchyHead !== true &&
+                    thisObject.circularProgressBar === undefined
+                ) {
                     browserCanvasContext.beginPath()
                     browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
                     browserCanvasContext.closePath()
@@ -1757,7 +1942,39 @@ function newUiObject() {
                 browserCanvasContext.stroke()
             }
 
+            /* Info Ring */
+            if (thisObject.hasInfo === true) {
+                VISIBLE_RADIUS = thisObject.payload.floatingObject.container.frame.radius
+                if (canvas.floatingSpace.inMapMode === true) {
+                    VISIBLE_RADIUS = canvas.floatingSpace.transformRadiusToMap(VISIBLE_RADIUS)
+                }
+                let OPACITY = infoMessageCounter / 30
+                browserCanvasContext.beginPath()
+                browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
+                browserCanvasContext.closePath()
+                browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK_TURQUOISE + ', ' + OPACITY + ')'
+                browserCanvasContext.lineWidth = 5
+                browserCanvasContext.setLineDash([5, 10])
+                browserCanvasContext.stroke()
+            }
 
+            /* Warning Ring */
+            if (thisObject.hasWarning === true) {
+                VISIBLE_RADIUS = thisObject.payload.floatingObject.container.frame.radius
+                if (canvas.floatingSpace.inMapMode === true) {
+                    VISIBLE_RADIUS = canvas.floatingSpace.transformRadiusToMap(VISIBLE_RADIUS)
+                }
+                let OPACITY = warningMessageCounter / 30
+                browserCanvasContext.beginPath()
+                browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
+                browserCanvasContext.closePath()
+                browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', ' + OPACITY + ')'
+                browserCanvasContext.lineWidth = 5
+                browserCanvasContext.setLineDash([5, 10])
+                browserCanvasContext.stroke()
+            }
+
+            /* Error Ring */
             if (thisObject.hasError === true) {
                 VISIBLE_RADIUS = thisObject.payload.floatingObject.container.frame.radius
                 if (canvas.floatingSpace.inMapMode === true) {

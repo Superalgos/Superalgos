@@ -39,6 +39,18 @@
                 "autoAdd": false
             },
             {
+                "name": "nodesWarnings",
+                "type": "node",
+                "childType": "Nodes Warnings",
+                "autoAdd": false
+            },
+            {
+                "name": "nodesInfos",
+                "type": "node",
+                "childType": "Nodes Infos",
+                "autoAdd": false
+            },
+            {
                 "name": "nodesStatus",
                 "type": "node",
                 "childType": "Nodes Status",
@@ -192,6 +204,48 @@
         },
         "icon": "band",
         "propertyNameAtParent": "nodesErrors"
+    },
+    {
+        "type": "Nodes Warnings",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "actionFunction": "payload.onMenuItemClick",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Plotter Module->"
+        },
+        "icon": "pyramid",
+        "propertyNameAtParent": "nodesWarnings"
+    },
+    {
+        "type": "Nodes Infos",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "actionFunction": "payload.onMenuItemClick",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Plotter Module->"
+        },
+        "icon": "user-account",
+        "propertyNameAtParent": "nodesInfos"
     },
     {
         "type": "Nodes Status",

@@ -17,6 +17,7 @@ function newWorkspace() {
         getHierarchyHeadsById: getHierarchyHeadsById,
         getNodeThatIsOnFocus: getNodeThatIsOnFocus,
         getNodeByShortcutKey: getNodeByShortcutKey,
+        getNodeById: getNodeById,
         stopAllRunningTasks: stopAllRunningTasks,
         onMenuItemClick: onMenuItemClick,
         physics: physics,
@@ -224,6 +225,10 @@ function newWorkspace() {
                 canvas.cockpitSpace.setStatus('Could not save the Workspace at the Backend. Please check the Backend Console for more information.', 150, canvas.cockpitSpace.statusTypes.WARNING)
             }
         }
+    }
+
+    function getNodeById(nodeId) {
+        return functionLibraryUiObjectsFromNodes.getNodeById(nodeId)
     }
 
     function physics() {

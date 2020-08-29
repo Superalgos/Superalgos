@@ -347,8 +347,8 @@ function newUiObject() {
         highlightPhisycs()
         runningAtBackendPhisycs()
         errorMessagePhisycs()
-        warningMessagePhisycs() 
-        infoMessagePhisycs() 
+        warningMessagePhisycs()
+        infoMessagePhisycs()
         valuePhisycs()
         percentagePhisycs()
         statusPhisycs()
@@ -1010,6 +1010,21 @@ function newUiObject() {
         stop(callBackFunction, event)
     }
 
+    function getTargetUiObject(message) {
+        let uiObject = thisObject
+        if (message.event.nodeId !== undefined) {
+            let targetNode = canvas.designSpace.workspace.getNodeById(message.event.nodeId)
+            if (targetNode !== undefined) {
+                if (targetNode.payload !== undefined) {
+                    if (targetNode.payload.uiObject !== undefined) {
+                        uiObject = targetNode.payload.uiObject
+                    }
+                }
+            }
+        }
+        return uiObject
+    }
+
     function setupErrorEventListener(callBackFunction) {
         let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
         eventsServerClient.listenToEvent(key, 'Error', undefined, key, onResponse, onError)
@@ -1019,7 +1034,9 @@ function newUiObject() {
         }
 
         function onError(message) {
-            setErrorMessage(message.event.errorMessage, 10)
+
+            let uiObject = getTargetUiObject(message)
+            uiObject.setErrorMessage(message.event.errorMessage, 10)
 
             let event = {
                 type: 'Secondary Action Already Executed'
@@ -1037,7 +1054,8 @@ function newUiObject() {
         }
 
         function onWarning(message) {
-            setWarningMessage(message.event.warningMessage, 10)
+            let uiObject = getTargetUiObject(message)
+            uiObject.setWarningMessage(message.event.warningMessage, 10)
         }
     }
 
@@ -1050,7 +1068,8 @@ function newUiObject() {
         }
 
         function onInfo(message) {
-            setInfoMessage(message.event.infoMessage, 10)
+            let uiObject = getTargetUiObject(message)
+            uiObject.setInfoMessage(message.event.infoMessage, 10)
         }
     }
 
@@ -1531,20 +1550,20 @@ function newUiObject() {
 
     function drawErrorMessage() {
         if (thisObject.hasError === false) { return }
-        drawMessage(errorMessage) 
+        drawMessage(errorMessage)
     }
 
     function drawWarningMessage() {
         if (thisObject.hasError === true) { return }
         if (thisObject.hasWarning !== true) { return }
-        drawMessage(warningMessage) 
+        drawMessage(warningMessage)
     }
 
     function drawInfoMessage() {
         if (thisObject.hasError === true) { return }
         if (thisObject.hasWarning === true) { return }
         if (thisObject.hasInfo !== true) { return }
-        drawMessage(infoMessage) 
+        drawMessage(infoMessage)
     }
 
     function drawMessage(message) {
@@ -1869,12 +1888,12 @@ function newUiObject() {
                 browserCanvasContext.fill()
                 /* Border when node is in focus */
                 if (
-                    thisObject.hasError !== true && 
-                    thisObject.WarningError !== true && 
-                    thisObject.hasInfo !== true && 
-                    nodeDefinition.isHierarchyHead !== true && 
+                    thisObject.hasError !== true &&
+                    thisObject.WarningError !== true &&
+                    thisObject.hasInfo !== true &&
+                    nodeDefinition.isHierarchyHead !== true &&
                     thisObject.circularProgressBar === undefined
-                    ) {
+                ) {
                     browserCanvasContext.beginPath()
                     browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
                     browserCanvasContext.closePath()

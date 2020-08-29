@@ -3,6 +3,7 @@ function newUiObjectsFromNodes() {
         runTasks: runTasks,
         runSessions: runSessions,
         recreateWorkspace: recreateWorkspace,
+        getNodeById: getNodeById,
         tryToConnectChildrenWithReferenceParents: tryToConnectChildrenWithReferenceParents,
         createUiObjectFromNode: createUiObjectFromNode,
         addUIObject: addUIObject,
@@ -15,6 +16,10 @@ function newUiObjectsFromNodes() {
     let sessionsToRun
 
     return thisObject
+
+    function getNodeById(nodeId) {
+        return mapOfNodes.get(nodeId)
+    }
 
     function recreateWorkspace(node, callBackFunction) {
         mapOfNodes = new Map()

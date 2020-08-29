@@ -127,8 +127,11 @@ function newUiObject() {
     let rightDragging = false
 
     let eventSubscriptionIdOnError
+    let eventSubscriptionIdOnWarning
+    let eventSubscriptionIdOnInfo
     let eventSubscriptionIdOnRunning
     let eventSubscriptionIdOnStopped
+
     let lastHeartBeat
     let onRunningCallBackFunction
     let onRunningCallBackFunctionWasCalled = false
@@ -200,6 +203,12 @@ function newUiObject() {
             }
             if (eventSubscriptionIdOnError !== undefined) {
                 eventsServerClient.stopListening(key, eventSubscriptionIdOnError, 'UiObject')
+            }
+            if (eventSubscriptionIdOnWarning !== undefined) {
+                eventsServerClient.stopListening(key, eventSubscriptionIdOnWarning, 'UiObject')
+            }
+            if (eventSubscriptionIdOnInfo !== undefined) {
+                eventsServerClient.stopListening(key, eventSubscriptionIdOnInfo, 'UiObject')
             }
         }
     }
@@ -955,6 +964,8 @@ function newUiObject() {
 
         setupRunningEventListener(callBackFunction)
         setupErrorEventListener(callBackFunction)
+        setupWarningEventListener()
+        setupInfoEventListener()
     }
 
     function setupRunningEventListener(callBackFunction) {
@@ -1014,6 +1025,32 @@ function newUiObject() {
                 type: 'Secondary Action Already Executed'
             }
             completeStop(callBackFunction, event)
+        }
+    }
+
+    function setupWarningEventListener() {
+        let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
+        eventsServerClient.listenToEvent(key, 'Warning', undefined, key, onResponse, onWarning)
+
+        function onResponse(message) {
+            eventSubscriptionIdOnWarning = message.eventSubscriptionId
+        }
+
+        function onWarning(message) {
+            setWarningMessage(message.event.warningMessage, 10)
+        }
+    }
+
+    function setupInfoEventListener() {
+        let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
+        eventsServerClient.listenToEvent(key, 'Info', undefined, key, onResponse, onInfo)
+
+        function onResponse(message) {
+            eventSubscriptionIdOnInfo = message.eventSubscriptionId
+        }
+
+        function onInfo(message) {
+            setInfoMessage(message.event.infoMessage, 10)
         }
     }
 

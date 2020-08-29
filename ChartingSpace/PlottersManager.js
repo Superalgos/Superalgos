@@ -271,6 +271,30 @@ function newPlottersManager() {
                                 }
                                 connector.nodesErrors.onRecordChangeEventsSubscriptionId = connector.plotter.container.eventHandler.listenToEvent('Current Record Changed', connector.nodesErrors.onRecordChange)
                             }
+                            if (plotterModule.nodesWarnings !== undefined && plotterModule.config.connectTo !== undefined) {
+                                connector.nodesWarnings = newNodesWarnings()
+                                switch (plotterModule.config.connectTo) {
+                                    case 'Trading System':
+                                        connector.nodesWarnings.initialize(tradingSystem)
+                                        break
+                                    case 'Trading Engine':
+                                        connector.nodesWarnings.initialize(tradingEngine)
+                                        break
+                                }
+                                connector.nodesWarnings.onRecordChangeEventsSubscriptionId = connector.plotter.container.eventHandler.listenToEvent('Current Record Changed', connector.nodesWarnings.onRecordChange)
+                            }
+                            if (plotterModule.nodesInfos !== undefined && plotterModule.config.connectTo !== undefined) {
+                                connector.nodesInfos = newNodesInfos()
+                                switch (plotterModule.config.connectTo) {
+                                    case 'Trading System':
+                                        connector.nodesInfos.initialize(tradingSystem)
+                                        break
+                                    case 'Trading Engine':
+                                        connector.nodesInfos.initialize(tradingEngine)
+                                        break
+                                }
+                                connector.nodesInfos.onRecordChangeEventsSubscriptionId = connector.plotter.container.eventHandler.listenToEvent('Current Record Changed', connector.nodesInfos.onRecordChange)
+                            }
                             if (plotterModule.nodesRunning !== undefined && plotterModule.config.connectTo !== undefined) {
                                 connector.nodesRunning = newNodesRunning()
                                 switch (plotterModule.config.connectTo) {
@@ -391,6 +415,14 @@ function newPlottersManager() {
         if (connector.nodesErrors !== undefined) {
             connector.plotter.container.eventHandler.stopListening(connector.nodesErrors.onRecordChangeEventsSubscriptionId)
             connector.nodesErrors.finalize()
+        }
+        if (connector.nodesWarnings !== undefined) {
+            connector.plotter.container.eventHandler.stopListening(connector.nodesWarnings.onRecordChangeEventsSubscriptionId)
+            connector.nodesWarnings.finalize()
+        }
+        if (connector.nodesInfos !== undefined) {
+            connector.plotter.container.eventHandler.stopListening(connector.nodesInfos.onRecordChangeEventsSubscriptionId)
+            connector.nodesInfos.finalize()
         }
         if (connector.nodesStatus !== undefined) {
             connector.plotter.container.eventHandler.stopListening(connector.nodesStatus.onRecordChangeEventsSubscriptionId)

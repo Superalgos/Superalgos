@@ -37,7 +37,10 @@ function newTaskFunctions() {
             'Market Base Asset->Market Quoted Asset->Asset->' +
             'Backtesting Session->Live Trading Session->Paper Trading Session->Fordward Testing Session->' +
             'Process Definition->' +
-            'Process Output->Output Dataset->Dataset Definition->Product Definition->' +
+            'Process Output->' +
+            'Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->' +
+            'Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->' +
+            'Output Dataset->Dataset Definition->Product Definition->' +
             'Process Dependencies->' +
             'Status Dependency->Status Report->Process Definition->' +
             'Data Dependency->Dataset Definition->Product Definition->' +
@@ -73,6 +76,7 @@ function newTaskFunctions() {
         let networkDefinition = functionLibraryProtocolNode.getProtocolNode(networkNode.payload.parentNode, false, true, true, false, false, networkLightingPath)
 
         let event = {
+            appSchema: JSON.stringify(APP_SCHEMA_ARRAY),
             taskId: node.id,
             taskName: node.name,
             taskDefinition: JSON.stringify(taskDefinition),

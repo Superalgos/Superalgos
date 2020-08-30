@@ -164,6 +164,8 @@ function newLayer() {
                 'Product Definition->' +
                 'Sensor Bot->Indicator Bot->Trading Bot->' +
                 'Data Mine->' +
+                'Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->' +
+                'Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->' +                
                 'Dataset Definition->' +
                 'Record Definition->Record Property->Formula->' +
                 'Data Building Procedure->Procedure Loop->Javascript Code->Procedure Initialization->Javascript Code->' +

@@ -102,6 +102,10 @@ global.PROCESS_INFO = function (processKey, node, infoMessage) {
     global.EVENT_SERVER_CLIENT.raiseEvent(processKey, 'Info', event)
 }
 
+global.NODE_BRANCH_TO_ARRAY = function (node, nodeType) {
+
+}
+
 process.on('uncaughtException', function (err) {
     console.log('[ERROR] Task Server -> server -> uncaughtException -> err.message = ' + err.message)
     console.log('[ERROR] Task Server -> server -> uncaughtException -> err.stack = ' + err.stack)
@@ -230,7 +234,8 @@ function preLoader() {
             global.EVENT_SERVER_CLIENT.listenToEvent('Task Server - ' + taskId, 'Run Task', undefined, 'Task Server - ' + taskId, undefined, eventReceived)
             global.EVENT_SERVER_CLIENT.raiseEvent('Task Manager - ' + taskId, 'Nodejs Process Ready for Task')
             function eventReceived(message) {
-                global.TASK_NODE = message
+                global.APP_SCHEMA_ARRAY = JSON.parse(message.event.appSchema)
+                setUpAppSchema()
                 global.TASK_NODE = JSON.parse(message.event.taskDefinition)
                 global.TASK_NETWORK = JSON.parse(message.event.networkDefinition)
                 bootLoader()
@@ -245,7 +250,8 @@ function preLoader() {
             //console.log('[INFO] Task Server -> server -> preLoader -> Waiting for event to start debugging...')
             global.EVENT_SERVER_CLIENT.listenToEvent('Task Server', 'Debug Task Started', undefined, 'Task Server', undefined, startDebugging)
             function startDebugging(message) {
-                global.TASK_NODE = message
+                global.APP_SCHEMA_ARRAY = JSON.parse(message.event.appSchema)
+                setUpAppSchema()
                 global.TASK_NODE = JSON.parse(message.event.taskDefinition)
                 global.TASK_NETWORK = JSON.parse(message.event.networkDefinition)
                 bootLoader()
@@ -253,6 +259,16 @@ function preLoader() {
         } catch (err) {
             console.log('[ERROR] Task Server -> server -> preLoader -> global.TASK_NODE -> ' + err.stack)
             console.log('[ERROR] Task Server -> server -> preLoader -> global.TASK_NODE = ' + JSON.stringify(global.TASK_NODE).substring(0, 1000))
+        }
+    }
+
+    function setUpAppSchema() {
+        /* Setup the APP_SCHEMA_MAP based on the APP_SCHEMA_ARRAY */
+        global.APP_SCHEMA_MAP = new Map()
+        for (let i = 0; i < global.APP_SCHEMA_ARRAY.length; i++) {
+            let nodeDefinition = global.APP_SCHEMA_ARRAY[i]
+            let key = nodeDefinition.type
+            global.APP_SCHEMA_MAP.set(key, nodeDefinition)
         }
     }
 }

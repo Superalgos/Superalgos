@@ -66,6 +66,7 @@ function newWorkspace() {
     let functionLibraryWebhookFunctions = newWebhookFunctions()
     let functionLibraryDependenciesFilter = newDependenciesFilter()
     let functionLibraryNodePath = newNodePath()
+    let functionLibraryDataMineFunctions = newDataMineFunctions()
 
     thisObject.nodeChildren = newNodeChildren()
 
@@ -610,6 +611,11 @@ function newWorkspace() {
             case 'Add Missing Markets':
                 {
                     functionLibraryCCXTFunctions.addMissingMarkets(payload.node, functionLibraryUiObjectsFromNodes, functionLibraryNodeCloning)
+                }
+                break
+            case 'Add Missing Output Datasets':
+                {
+                    functionLibraryDataMineFunctions.addMissingOutputDatasets(payload.node, functionLibraryUiObjectsFromNodes, functionLibraryNodeCloning)
                 }
                 break
             case 'Send Webhook Test Message':

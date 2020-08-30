@@ -507,7 +507,7 @@
                 let dataDependencies = bot.processNode.referenceParent.processDependencies.dataDependencies
                 if (commons.validateDataDependencies(dataDependencies, callBackFunction) !== true) { return }
 
-                let outputDatasets = bot.processNode.referenceParent.processOutput.outputDatasets
+                let outputDatasets = global.NODE_BRANCH_TO_ARRAY(bot.processNode.referenceParent.processOutput, 'Output Dataset')
                 if (commons.validateOutputDatasets(outputDatasets, callBackFunction) !== true) { return }
 
                 /* The second phase is about transforming the inputs into a format that can be used to apply the user defined code. */
@@ -566,6 +566,7 @@
             }
 
             async function writeProcessFiles() {
+                let outputDatasets = global.NODE_BRANCH_TO_ARRAY(bot.processNode.referenceParent.processOutput, 'Output Dataset')
 
                 await writeTimeFramesFiles(currentTimeFrame, currentTimeFrameLabel)
                 await writeDataRanges()
@@ -579,10 +580,10 @@
                 async function writeDataRanges() {
                     for (
                             let outputDatasetIndex = 0; 
-                            outputDatasetIndex < bot.processNode.referenceParent.processOutput.outputDatasets.length; 
+                            outputDatasetIndex < outputDatasets.length; 
                             outputDatasetIndex++
                         ) {
-                        let productCodeName = bot.processNode.referenceParent.processOutput.outputDatasets[outputDatasetIndex].referenceParent.parentNode.config.codeName;
+                        let productCodeName = outputDatasets[outputDatasetIndex].referenceParent.parentNode.config.codeName;
                         await writeDataRange(productCodeName);
                     }
     
@@ -618,10 +619,10 @@
     
                     for (
                             let outputDatasetIndex = 0; 
-                            outputDatasetIndex < bot.processNode.referenceParent.processOutput.outputDatasets.length; 
+                            outputDatasetIndex < outputDatasets.length; 
                             outputDatasetIndex++
                         ) {
-                        let productCodeName = bot.processNode.referenceParent.processOutput.outputDatasets[outputDatasetIndex].referenceParent.parentNode.config.codeName;
+                        let productCodeName = outputDatasets[outputDatasetIndex].referenceParent.parentNode.config.codeName;
                         await writeTimeFramesFile( currentTimeFrameLabel, productCodeName, 'Multi-Period-Daily')
                         await writeTimeFramesFile( currentTimeFrameLabel, productCodeName, 'Multi-Period-Market')
     

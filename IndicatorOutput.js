@@ -56,7 +56,7 @@
             let dataDependencies = bot.processNode.referenceParent.processDependencies.dataDependencies
             if (commons.validateDataDependencies(dataDependencies, callBackFunction) !== true) { return }
 
-            let outputDatasets = bot.processNode.referenceParent.processOutput.outputDatasets
+            let outputDatasets = global.NODE_BRANCH_TO_ARRAY (bot.processNode.referenceParent.processOutput, 'Output Dataset')
             if (commons.validateOutputDatasets(outputDatasets, callBackFunction) !== true) { return }
 
             /* The second phase is about transforming the inputs into a format that can be used to apply the user defined code. */

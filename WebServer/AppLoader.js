@@ -54,6 +54,7 @@ function newAppLoader() {
                 'DesignSpace/Workspace/FunctionLibraries/WebhookFunctions.js',
                 'DesignSpace/Workspace/FunctionLibraries/DependenciesFilter.js',
                 'DesignSpace/Workspace/FunctionLibraries/NodePath.js',
+                'DesignSpace/Workspace/FunctionLibraries/DataMineFunctions.js',
 
                 'Utilities/CoordinateTransformations.js',
                 'Utilities/DateRateTransformations.js',

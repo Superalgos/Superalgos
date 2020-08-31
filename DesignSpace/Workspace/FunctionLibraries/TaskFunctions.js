@@ -39,7 +39,6 @@ function newTaskFunctions() {
             'Process Definition->' +
             'Process Output->' +
             'Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->' +
-            'Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->' +
             'Output Dataset->Dataset Definition->Product Definition->' +
             'Process Dependencies->' +
             'Status Dependency->Status Report->Process Definition->' +

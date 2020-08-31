@@ -15,6 +15,9 @@ function newLayer() {
         quotedAsset: undefined,
         market: undefined,
         exchange: undefined,
+        bot: undefined,
+        productDefinition: undefined,
+        dataMine: undefined,
         plotterModule: undefined,
         exchangeIcon: undefined,
         plotterTypeIcon: undefined,
@@ -130,6 +133,9 @@ function newLayer() {
         thisObject.baseAssetIcon = undefined
         thisObject.quotedAssetIcon = undefined
         thisObject.networkNode = undefined
+        thisObject.bot = undefined
+        thisObject.productDefinition = undefined
+        thisObject.dataMine = undefined
     }
 
     function initialize(callBackFunction) {
@@ -155,7 +161,6 @@ function newLayer() {
                 '->Layer->' +
                 'Data Product->' +
                 'Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->' +
-                'Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->' +
                 'Bot Products->Data Mine Products->' +
                 'Single Market Data->Exchange Data Products->' +
                 'Session Reference->Session Independent Data->Session Based Data->Exchange Sessions->Session Based Data->Data Storage->Network Node->' +
@@ -167,9 +172,8 @@ function newLayer() {
                 'Exchange Markets->Crypto Exchange->' +
                 'Product Definition->' +
                 'Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->' +
-                'Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->' +
                 'Sensor Bot->Indicator Bot->Trading Bot->' +
-                'Data Mine->' +             
+                'Data Mine->' +
                 'Dataset Definition->' +
                 'Record Definition->Record Property->Formula->' +
                 'Data Building Procedure->Procedure Loop->Javascript Code->Procedure Initialization->Javascript Code->' +
@@ -205,24 +209,40 @@ function newLayer() {
                 thisObject.payload.uiObject.setErrorMessage('Data Product not Found')
                 return
             }
-            if (findNodeInNodeBranch(thisObject.definition, 'Product Definition') === undefined) {
-                thisObject.payload.uiObject.setErrorMessage('Product Definition not Found')
-                return
-            }
-            if (findNodeInNodeBranch(thisObject.definition, 'Data Mine') === undefined) {
-                thisObject.payload.uiObject.setErrorMessage('Data Mine not Found')
-                return
-            }
             if (findNodeInNodeBranch(thisObject.definition, 'Market') === undefined) {
                 thisObject.payload.uiObject.setErrorMessage('Market not Found')
                 return
-            }  
+            }
+
+            thisObject.productDefinition = findNodeInNodeBranch(thisObject.definition, 'Product Definition')
+            if (thisObject.productDefinition === undefined) {
+                thisObject.payload.uiObject.setErrorMessage('Product Definition not Found')
+                return
+            }
+
+            thisObject.bot = findNodeInNodeBranch(thisObject.definition, 'Sensor Bot')
+            if (thisObject.bot === undefined) {
+                thisObject.bot = findNodeInNodeBranch(thisObject.definition, 'Indicator Bot') 
+            }
+            if (thisObject.bot === undefined) {
+                thisObject.bot = findNodeInNodeBranch(thisObject.definition, 'Trading Bot') 
+            }
+            if (thisObject.bot === undefined) {
+                thisObject.payload.uiObject.setErrorMessage('Bot not Found')
+                return
+            }
+
+            thisObject.dataMine = findNodeInNodeBranch(thisObject.definition, 'Data Mine')
+            if (thisObject.dataMine === undefined) {
+                thisObject.payload.uiObject.setErrorMessage('Data Mine not Found')
+                return
+            }
 
             thisObject.exchange = findNodeInNodeBranch(thisObject.definition, 'Crypto Exchange')
             if (thisObject.exchange === undefined) {
                 thisObject.payload.uiObject.setErrorMessage('Crypto Exchange not Found')
                 return
-            }  
+            }
 
             thisObject.baseAsset = findNodeInNodeBranch(thisObject.definition, 'Market Base Asset')
             if (thisObject.baseAsset !== undefined) {
@@ -240,19 +260,19 @@ function newLayer() {
             if (thisObject.quotedAsset === undefined) {
                 thisObject.payload.uiObject.setErrorMessage('Market Quoted Asset not Found')
                 return
-            }  
+            }
 
             thisObject.plotterModule = findNodeInNodeBranch(thisObject.definition, 'Plotter Module')
             if (thisObject.plotterModule === undefined) {
                 thisObject.payload.uiObject.setErrorMessage('Market Quoted Asset not Found')
                 return
-            }  
+            }
 
             thisObject.networkNode = findNodeInNodeBranch(thisObject.definition, 'Network Node')
             if (thisObject.networkNode === undefined) {
                 thisObject.payload.uiObject.setErrorMessage('Network Node not Found')
                 return
-            }  
+            }
 
             /* Lets listen to our own events to react when we have a Mouse Click */
             onMouseClickEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)

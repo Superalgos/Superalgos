@@ -125,17 +125,17 @@ function newPlottersManager() {
                 }
             }
 
-            let baseAsset = layer.definition.referenceParent.parentNode.referenceParent.baseAsset.referenceParent.config.codeName
-            let quotedAsset = layer.definition.referenceParent.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
+            let baseAsset = layer.baseAsset.config.codeName
+            let quotedAsset = layer.quotedAsset.config.codeName
             let market = {
                 baseAsset: baseAsset,
                 quotedAsset: quotedAsset
             }
-            let productDefinition = layer.definition.referenceParent.referenceParent
-            let bot = layer.definition.referenceParent.referenceParent.parentNode
-            let dataMine = layer.definition.referenceParent.referenceParent.parentNode.parentNode
-            let exchange = layer.definition.referenceParent.parentNode.referenceParent.parentNode.parentNode
-            let plotterModule = layer.definition.referenceParent.referenceParent.referenceParent
+            let productDefinition = layer.productDefinition
+            let bot = layer.bot
+            let dataMine = layer.dataMine
+            let exchange = layer.exchange
+            let plotterModule = layer.plotterModule
             let session
             let tradingSystem
             let tradingEngine
@@ -144,19 +144,17 @@ function newPlottersManager() {
             A layer can be referencing a Data Product in two different branches of the Network hiriatchy.
             In one of those braches we can get the Session node, at the other we Cannot.
             */
-            if (layer.definition.referenceParent.parentNode.parentNode !== undefined) {
-                if (layer.definition.referenceParent.parentNode.parentNode.type === 'Session Reference') {
-                    if (layer.definition.referenceParent.parentNode.parentNode.referenceParent !== undefined) {
-                        session = layer.definition.referenceParent.parentNode.parentNode.referenceParent
+            let sessionReference = findNodeInNodeBranch(layer.definition, 'Session Reference')
 
-                        /* From the session we might be able to reach the Trading System or the Trading Engine */
-                        if (session.tradingSystemReference !== undefined) {
-                            tradingSystem = session.tradingSystemReference.referenceParent
-                        }
-                        if (session.tradingEngineReference !== undefined) {
-                            tradingEngine = session.tradingEngineReference.referenceParent
-                        }
-                    }
+            if (sessionReference !== undefined) {
+                session = sessionReference.referenceParent
+
+                /* From the session we might be able to reach the Trading System or the Trading Engine */
+                if (session.tradingSystemReference !== undefined) {
+                    tradingSystem = session.tradingSystemReference.referenceParent
+                }
+                if (session.tradingEngineReference !== undefined) {
+                    tradingEngine = session.tradingEngineReference.referenceParent
                 }
             }
 

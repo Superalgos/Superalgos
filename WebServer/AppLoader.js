@@ -67,6 +67,7 @@ function newAppLoader() {
                 'Utilities/NodeConfig.js',
                 'Utilities/HiriarchyMap.js',
                 'Utilities/Folders.js',
+                'Utilities/Branches.js',
 
                 'Panels/LayersPanel.js',
                 'Panels/UpDownButton.js',

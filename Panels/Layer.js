@@ -153,7 +153,11 @@ function newLayer() {
             let functionLibraryProtocolNode = newProtocolNode()
             let lightingPath =
                 '->Layer->' +
-                'Data Product->Single Market Data->Exchange Data Products->' +
+                'Data Product->' +
+                'Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->' +
+                'Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->' +
+                'Bot Products->Data Mine Products->' +
+                'Single Market Data->Exchange Data Products->' +
                 'Session Reference->Session Independent Data->Session Based Data->Exchange Sessions->Session Based Data->Data Storage->Network Node->' +
                 'Data Storage->Network Node->' +
                 'Backtesting Session->Paper Trading Session->Fordward Testing Session->Live Trading Session->' +
@@ -162,6 +166,8 @@ function newLayer() {
                 'Market Quoted Asset->Asset->' +
                 'Exchange Markets->Crypto Exchange->' +
                 'Product Definition->' +
+                'Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->' +
+                'Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->' +
                 'Sensor Bot->Indicator Bot->Trading Bot->' +
                 'Data Mine->' +             
                 'Dataset Definition->' +
@@ -180,51 +186,80 @@ function newLayer() {
                 'Nodes Highlights->Nodes Values->Nodes Errors->Nodes Warnings->Nodes Infos->Nodes Status->Nodes Progress->Nodes Running->Nodes Announcements->Record Values->'
             thisObject.definition = functionLibraryProtocolNode.getProtocolNode(thisObject.payload.node, false, true, true, false, false, lightingPath)
 
+            /* Without this I can not continue, because I can not even show error. */
+            if (thisObject.payload === undefined) {
+                console.log(MODULE_NAME + ' ' + 'thisObject.payload === undefined')
+                return
+            }
+            if (thisObject.payload.uiObject === undefined) {
+                console.log(MODULE_NAME + ' ' + 'thisObject.payload.uiObject === undefined')
+                return
+            }
+            if (thisObject.payload.node === undefined) {
+                console.log(MODULE_NAME + ' ' + 'thisObject.payload.node === undefined')
+                return
+            }
+
             /* Here we validate that we have all the needed information */
-            if (thisObject.definition.referenceParent === undefined) { return } // Data Product
-            if (thisObject.definition.referenceParent.parentNode === undefined) { return } // Single Market Data
-            if (thisObject.definition.referenceParent.parentNode.referenceParent === undefined) { return }
-            if (thisObject.definition.referenceParent.parentNode.referenceParent.parentNode === undefined) { return }
-            if (thisObject.definition.referenceParent.parentNode.referenceParent.parentNode.parentNode === undefined) { return }
-            if (thisObject.definition.referenceParent.parentNode.referenceParent.baseAsset === undefined) { return }
-            if (thisObject.definition.referenceParent.parentNode.referenceParent.baseAsset.referenceParent === undefined) { return }
-            if (thisObject.definition.referenceParent.parentNode.referenceParent.quotedAsset === undefined) { return }
-            if (thisObject.definition.referenceParent.parentNode.referenceParent.quotedAsset.referenceParent === undefined) { return }
-            if (thisObject.definition.referenceParent.referenceParent === undefined) { return }
-            if (thisObject.definition.referenceParent.parentNode.parentNode === undefined) { return }
-            if (thisObject.definition.referenceParent.parentNode.parentNode.parentNode === undefined) { return }
-            if (thisObject.definition.referenceParent.parentNode.parentNode.parentNode.parentNode === undefined) { return }
-            if (thisObject.definition.referenceParent.parentNode.parentNode.parentNode.parentNode.parentNode === undefined) { return }
+            if (findNodeInNodeBranch(thisObject.definition, 'Data Product') === undefined) {
+                thisObject.payload.uiObject.setErrorMessage('Data Product not Found')
+                return
+            }
+            if (findNodeInNodeBranch(thisObject.definition, 'Product Definition') === undefined) {
+                thisObject.payload.uiObject.setErrorMessage('Product Definition not Found')
+                return
+            }
+            if (findNodeInNodeBranch(thisObject.definition, 'Data Mine') === undefined) {
+                thisObject.payload.uiObject.setErrorMessage('Data Mine not Found')
+                return
+            }
+            if (findNodeInNodeBranch(thisObject.definition, 'Market') === undefined) {
+                thisObject.payload.uiObject.setErrorMessage('Market not Found')
+                return
+            }  
+
+            thisObject.exchange = findNodeInNodeBranch(thisObject.definition, 'Crypto Exchange')
+            if (thisObject.exchange === undefined) {
+                thisObject.payload.uiObject.setErrorMessage('Crypto Exchange not Found')
+                return
+            }  
+
+            thisObject.baseAsset = findNodeInNodeBranch(thisObject.definition, 'Market Base Asset')
+            if (thisObject.baseAsset !== undefined) {
+                thisObject.baseAsset = thisObject.baseAsset.referenceParent
+            }
+            if (thisObject.baseAsset === undefined) {
+                thisObject.payload.uiObject.setErrorMessage('Market Base Asset not Found')
+                return
+            }
+
+            thisObject.quotedAsset = findNodeInNodeBranch(thisObject.definition, 'Market Quoted Asset')
+            if (thisObject.quotedAsset !== undefined) {
+                thisObject.quotedAsset = thisObject.quotedAsset.referenceParent
+            }
+            if (thisObject.quotedAsset === undefined) {
+                thisObject.payload.uiObject.setErrorMessage('Market Quoted Asset not Found')
+                return
+            }  
+
+            thisObject.plotterModule = findNodeInNodeBranch(thisObject.definition, 'Plotter Module')
+            if (thisObject.plotterModule === undefined) {
+                thisObject.payload.uiObject.setErrorMessage('Market Quoted Asset not Found')
+                return
+            }  
+
+            thisObject.networkNode = findNodeInNodeBranch(thisObject.definition, 'Network Node')
+            if (thisObject.networkNode === undefined) {
+                thisObject.payload.uiObject.setErrorMessage('Network Node not Found')
+                return
+            }  
 
             /* Lets listen to our own events to react when we have a Mouse Click */
             onMouseClickEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
 
             /* Get ready to draw this layer */
-            thisObject.baseAsset = thisObject.definition.referenceParent.parentNode.referenceParent.baseAsset.referenceParent
-            thisObject.quotedAsset = thisObject.definition.referenceParent.parentNode.referenceParent.quotedAsset.referenceParent
             thisObject.market = thisObject.baseAsset.config.codeName + '/' + thisObject.quotedAsset.config.codeName
-            thisObject.exchange = thisObject.definition.referenceParent.parentNode.referenceParent.parentNode.parentNode
 
-            /* Some basic validations. */
-            if (thisObject.definition.referenceParent === undefined) {
-                console.log('[WARN] Could not start plotter because ' + thisObject.definition.type + ' ' + thisObject.definition.name + ' does not have a Reference Parent.')
-                callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-                return
-            }
-
-            if (thisObject.definition.referenceParent.referenceParent === undefined) {
-                console.log('[WARN] Could not start plotter because ' + thisObject.definition.referenceParent.type + ' ' + thisObject.definition.referenceParent.name + ' does not have a Reference Parent.')
-                callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-                return
-            }
-
-            if (thisObject.definition.referenceParent.referenceParent.referenceParent === undefined) {
-                console.log('[WARN] Could not start plotter because ' + thisObject.definition.referenceParent.referenceParent.type + ' ' + thisObject.definition.referenceParent.referenceParent.name + ' does not have a Reference Parent.')
-                callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-                return
-            }
-
-            thisObject.plotterModule = thisObject.definition.referenceParent.referenceParent.referenceParent
             thisObject.exchangeIcon = getIcon(thisObject.exchange)
 
             if (thisObject.plotterModule.config.icon !== undefined) {
@@ -233,12 +268,6 @@ function newLayer() {
 
             thisObject.baseAssetIcon = getIcon(thisObject.baseAsset)
             thisObject.quotedAssetIcon = getIcon(thisObject.quotedAsset)
-
-            if (thisObject.definition.referenceParent.parentNode.parentNode.parentNode.parentNode.type === 'Data Storage') {
-                thisObject.networkNode = thisObject.definition.referenceParent.parentNode.parentNode.parentNode.parentNode.parentNode
-            } else {
-                thisObject.networkNode = thisObject.definition.referenceParent.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode
-            }
 
             function getIcon(node) {
                 let nodeDefinition = getNodeDefinition(node)

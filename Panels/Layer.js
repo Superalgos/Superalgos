@@ -163,9 +163,7 @@ function newLayer() {
                 'Exchange Markets->Crypto Exchange->' +
                 'Product Definition->' +
                 'Sensor Bot->Indicator Bot->Trading Bot->' +
-                'Data Mine->' +
-                'Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->' +
-                'Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->' +                
+                'Data Mine->' +             
                 'Dataset Definition->' +
                 'Record Definition->Record Property->Formula->' +
                 'Data Building Procedure->Procedure Loop->Javascript Code->Procedure Initialization->Javascript Code->' +
@@ -193,8 +191,6 @@ function newLayer() {
             if (thisObject.definition.referenceParent.parentNode.referenceParent.quotedAsset === undefined) { return }
             if (thisObject.definition.referenceParent.parentNode.referenceParent.quotedAsset.referenceParent === undefined) { return }
             if (thisObject.definition.referenceParent.referenceParent === undefined) { return }
-            if (thisObject.definition.referenceParent.referenceParent.parentNode === undefined) { return }
-            if (thisObject.definition.referenceParent.referenceParent.parentNode.parentNode === undefined) { return }
             if (thisObject.definition.referenceParent.parentNode.parentNode === undefined) { return }
             if (thisObject.definition.referenceParent.parentNode.parentNode.parentNode === undefined) { return }
             if (thisObject.definition.referenceParent.parentNode.parentNode.parentNode.parentNode === undefined) { return }

@@ -67,6 +67,8 @@ function newWorkspace() {
     let functionLibraryDependenciesFilter = newDependenciesFilter()
     let functionLibraryNodePath = newNodePath()
     let functionLibraryDataMineFunctions = newDataMineFunctions()
+    let functionLibraryDataStorageFunctions = newDataStorageFunctions()
+    let functionLibraryChartingSpaceFunctions = newChartingSpaceFunctions()
 
     thisObject.nodeChildren = newNodeChildren()
 
@@ -613,9 +615,24 @@ function newWorkspace() {
                     functionLibraryCCXTFunctions.addMissingMarkets(payload.node, functionLibraryUiObjectsFromNodes, functionLibraryNodeCloning)
                 }
                 break
-            case 'Add Missing Output Datasets':
+            case 'Add All Output Datasets':
                 {
-                    functionLibraryDataMineFunctions.addMissingOutputDatasets(payload.node, functionLibraryUiObjectsFromNodes, functionLibraryNodeCloning)
+                    functionLibraryDataMineFunctions.addAllOutputDatasets(payload.node, functionLibraryUiObjectsFromNodes)
+                }
+                break
+            case 'Add All Data Products':
+                {
+                    functionLibraryDataStorageFunctions.addAllDataProducts(payload.node, functionLibraryUiObjectsFromNodes)
+                }
+                break
+            case 'Add All Data Mine Products':
+                {
+                    functionLibraryDataStorageFunctions.addAllDataMineProducts(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
+                }
+                break
+            case 'Add All Data Mine Layers':
+                {
+                    functionLibraryChartingSpaceFunctions.addAllDataMineLayers(payload.node, functionLibraryUiObjectsFromNodes)
                 }
                 break
             case 'Send Webhook Test Message':

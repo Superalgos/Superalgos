@@ -503,7 +503,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
                 tradingEngineOrder.orderQuotedAsset.size.value = global.PRECISE(tradingEngineOrder.orderQuotedAsset.size.value, 10)
             }
 
-            function recalculateSizePlaced(){
+            function recalculateSizePlaced() {
                 /*
                 Recaulculate the Size Placed Based on the newly calculated Quoted Asset Size.
                 */
@@ -723,12 +723,14 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
     function syncWithExchange(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order) {
 
+        let previousBaseAssetSize = tradingEngineOrder.orderBaseAsset.size.value
         let previousQuotedAssetSize = tradingEngineOrder.orderQuotedAsset.size.value
         let previousBaseAssetSizeFilled = tradingEngineOrder.orderBaseAsset.sizeFilled.value
         let previousQuotedAssetSizeFilled = tradingEngineOrder.orderQuotedAsset.sizeFilled.value
         let previousBaseAssetFeesPaid = tradingEngineOrder.orderBaseAsset.feesPaid.value
         let previousQuotedAssetFeesPaid = tradingEngineOrder.orderQuotedAsset.feesPaid.value
 
+        actualSizeCalculation()
         actualRateCalculation()
         percentageFilledCalculation()
         feesPaidCalculation()
@@ -745,6 +747,51 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
         )
 
         return
+
+        function actualSizeCalculation() {
+            /* 
+            When we submit the order to the exchange, we do it specifying the order size
+            in Base Asset. The exchange might take that size or might change it a little 
+            bit if for example, it does not accept as many decimals as we are sending.
+            If we identify the situation in which the size accepted is different than the 
+            size we have accounted for, we need to make several adjustments so that the 
+            accounting syncronizes with reality.
+            */
+            if (tradingEngineOrder.orderBaseAsset.size.value === order.amount) { return }
+            /*
+            We will sync the Base Asset size, and recalculate the Quoted Asset size too.
+            */
+            tradingEngineOrder.orderBaseAsset.size.value = order.amount
+            tradingEngineOrder.orderQuotedAsset.size.value = tradingEngineOrder.orderBaseAsset.size.value * tradingEngineOrder.rate.value
+
+            tradingEngineOrder.orderBaseAsset.size.value = global.PRECISE(tradingEngineOrder.orderBaseAsset.size.value, 10)
+            tradingEngineOrder.orderQuotedAsset.size.value = global.PRECISE(tradingEngineOrder.orderQuotedAsset.size.value, 10)
+            /*
+            Finaly we need to unaccount the previous size placed and correctly account
+            for the the new sizes we know have.
+            */
+            tradingEngineStage.stageBaseAsset.sizePlaced.value =
+                tradingEngineStage.stageBaseAsset.sizePlaced.value -
+                previousBaseAssetSize
+
+            tradingEngineStage.stageBaseAsset.sizePlaced.value =
+                tradingEngineStage.stageBaseAsset.sizePlaced.value +
+                tradingEngineOrder.orderBaseAsset.size.value
+
+            tradingEngineStage.stageQuotedAsset.sizePlaced.value =
+                tradingEngineStage.stageQuotedAsset.sizePlaced.value -
+                previousQuotedAssetSize
+
+            tradingEngineStage.stageQuotedAsset.sizePlaced.value =
+                tradingEngineStage.stageQuotedAsset.sizePlaced.value +
+                tradingEngineOrder.orderQuotedAsset.size.value
+
+            tradingEngineStage.stageBaseAsset.sizePlaced.value = global.PRECISE(tradingEngineStage.stageBaseAsset.sizePlaced.value, 10)
+            tradingEngineStage.stageQuotedAsset.sizePlaced.value = global.PRECISE(tradingEngineStage.stageQuotedAsset.sizePlaced.value, 10)
+
+            previousBaseAssetSize = tradingEngineOrder.orderBaseAsset.size.value
+            previousQuotedAssetSize = tradingEngineOrder.orderQuotedAsset.size.value
+        }
 
         function actualRateCalculation() {
             /* 
@@ -772,9 +819,11 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
             }
 
             tradingEngineOrder.orderStatistics.actualRate.value = global.PRECISE(tradingEngineOrder.orderStatistics.actualRate.value, 10)
+
+            if (tradingEngineOrder.orderStatistics.actualRate.value === tradingEngineOrder.rate.value) {return}
             /*
             Now we know the Actual Rate at which the order was filled. Since the actual rate
-            might not be the same as the Rate we defined for the order, we need to syncronize 
+            is not the same as the Rate we defined for the order, we need to syncronize 
             the Order Size for Quoted Asset since it was calculated with the Order Size that we 
             now know it is not the once really used at the exchange. We will recalculate the
             Order Size in Quoted Asset and not in Base Asset, since the Order Size in Base Asset 

@@ -42,7 +42,7 @@ function newRecordValues() {
                 The Product Root Node is the root of the node hiriarchy from where we are going to extract the record values.
                 */
                 let productRootNode = productRoot[index]
-                scanProperties(productRootNode, index)
+                scanProperties(productDefinition, productRootNode, index)
             }
         } else {
             /*

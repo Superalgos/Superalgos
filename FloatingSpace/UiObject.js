@@ -1245,22 +1245,21 @@ function newUiObject() {
     }
 
     function drawMiddleground() {
-        if (thisObject.isOnFocus === false) {
-            drawBodyAndPicture()
+        if (thisObject.isOnFocus === false) {            
             drawErrorMessage()
             drawWarningMessage()
             drawInfoMessage()
             drawValue()
             drawPercentage()
             drawStatus()
-            drawText()
             thisObject.uiObjectTitle.draw()
+            drawText()
         }
     }
 
     function drawForeground() {
         if (thisObject.isOnFocus === false) {
-
+            drawBodyAndPicture()
             if (isDragging === false) {
                 thisObject.menu.drawForeground()
             }

@@ -205,46 +205,46 @@ function newLayer() {
             }
 
             /* Here we validate that we have all the needed information */
-            if (findNodeInNodeBranch(thisObject.definition, 'Data Product') === undefined) {
+            if (findNodeInNodeMesh(thisObject.definition, 'Data Product') === undefined) {
                 thisObject.payload.uiObject.setErrorMessage('Data Product not Found')
                 return
             }
-            if (findNodeInNodeBranch(thisObject.definition, 'Market') === undefined) {
+            if (findNodeInNodeMesh(thisObject.definition, 'Market') === undefined) {
                 thisObject.payload.uiObject.setErrorMessage('Market not Found')
                 return
             }
 
-            thisObject.productDefinition = findNodeInNodeBranch(thisObject.definition, 'Product Definition')
+            thisObject.productDefinition = findNodeInNodeMesh(thisObject.definition, 'Product Definition')
             if (thisObject.productDefinition === undefined) {
                 thisObject.payload.uiObject.setErrorMessage('Product Definition not Found')
                 return
             }
 
-            thisObject.bot = findNodeInNodeBranch(thisObject.definition, 'Sensor Bot')
+            thisObject.bot = findNodeInNodeMesh(thisObject.definition, 'Sensor Bot')
             if (thisObject.bot === undefined) {
-                thisObject.bot = findNodeInNodeBranch(thisObject.definition, 'Indicator Bot') 
+                thisObject.bot = findNodeInNodeMesh(thisObject.definition, 'Indicator Bot') 
             }
             if (thisObject.bot === undefined) {
-                thisObject.bot = findNodeInNodeBranch(thisObject.definition, 'Trading Bot') 
+                thisObject.bot = findNodeInNodeMesh(thisObject.definition, 'Trading Bot') 
             }
             if (thisObject.bot === undefined) {
                 thisObject.payload.uiObject.setErrorMessage('Bot not Found')
                 return
             }
 
-            thisObject.dataMine = findNodeInNodeBranch(thisObject.definition, 'Data Mine')
+            thisObject.dataMine = findNodeInNodeMesh(thisObject.definition, 'Data Mine')
             if (thisObject.dataMine === undefined) {
                 thisObject.payload.uiObject.setErrorMessage('Data Mine not Found')
                 return
             }
 
-            thisObject.exchange = findNodeInNodeBranch(thisObject.definition, 'Crypto Exchange')
+            thisObject.exchange = findNodeInNodeMesh(thisObject.definition, 'Crypto Exchange')
             if (thisObject.exchange === undefined) {
                 thisObject.payload.uiObject.setErrorMessage('Crypto Exchange not Found')
                 return
             }
 
-            thisObject.baseAsset = findNodeInNodeBranch(thisObject.definition, 'Market Base Asset')
+            thisObject.baseAsset = findNodeInNodeMesh(thisObject.definition, 'Market Base Asset')
             if (thisObject.baseAsset !== undefined) {
                 thisObject.baseAsset = thisObject.baseAsset.referenceParent
             }
@@ -253,7 +253,7 @@ function newLayer() {
                 return
             }
 
-            thisObject.quotedAsset = findNodeInNodeBranch(thisObject.definition, 'Market Quoted Asset')
+            thisObject.quotedAsset = findNodeInNodeMesh(thisObject.definition, 'Market Quoted Asset')
             if (thisObject.quotedAsset !== undefined) {
                 thisObject.quotedAsset = thisObject.quotedAsset.referenceParent
             }
@@ -262,13 +262,13 @@ function newLayer() {
                 return
             }
 
-            thisObject.plotterModule = findNodeInNodeBranch(thisObject.definition, 'Plotter Module')
+            thisObject.plotterModule = findNodeInNodeMesh(thisObject.definition, 'Plotter Module')
             if (thisObject.plotterModule === undefined) {
                 thisObject.payload.uiObject.setErrorMessage('Market Quoted Asset not Found')
                 return
             }
 
-            thisObject.networkNode = findNodeInNodeBranch(thisObject.definition, 'Network Node')
+            thisObject.networkNode = findNodeInNodeMesh(thisObject.definition, 'Network Node')
             if (thisObject.networkNode === undefined) {
                 thisObject.payload.uiObject.setErrorMessage('Network Node not Found')
                 return

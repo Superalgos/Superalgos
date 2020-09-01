@@ -62,7 +62,10 @@ function newTaskFunctions() {
 
         let networkLightingPath = '->Network->Network Node->' +
             'Data Storage->Session Independent Data->Exchange Data Products->' +
-            'Single Market Data->Data Product->Product Definition->' +
+            'Single Market Data->' +
+            'Data Mine Products->Bot Products->' +
+            'Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->' + 
+            'Data Product->Product Definition->' +
             'Data Mining->Testing Environment->Production Environment->' +
             'Exchange Tasks->Crypto Exchange->' +
             'Task Manager->Task->' +

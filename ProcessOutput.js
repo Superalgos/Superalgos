@@ -25,6 +25,14 @@
                 for (let j = 0; j < outputDatasets.length; j++) {
                     let outputDataset = outputDatasets[j]
 
+                    let botNode = global.FIND_NODE_IN_NODE_MESH(outputDataset, 'Indicator Bot')
+                    if (botNode === undefined) { 
+                        botNode = global.FIND_NODE_IN_NODE_MESH(outputDataset, 'Trading Bot')
+                    }
+                    if (botNode === undefined) { 
+                        botNode = global.FIND_NODE_IN_NODE_MESH(outputDataset, 'Sensor Bot')
+                    }
+
                     /* Some validations to verify that everything is in place. */
                     if (outputDataset.referenceParent !== undefined) {
                         if (outputDataset.referenceParent.config.codeName === undefined) {
@@ -38,20 +46,20 @@
                                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 return
                             }
-                            if (outputDataset.referenceParent.parentNode.parentNode !== undefined) {
-                                if (outputDataset.referenceParent.parentNode.parentNode.config.codeName === undefined) {
-                                    logger.write(MODULE_NAME, "[ERROR] raiseEvents -> codeName at Bot not defined. Bot = " + JSON.stringify(outputDataset.referenceParent.parentNode.parentNode));
+                            if (botNode !== undefined) {
+                                if (botNode.config.codeName === undefined) {
+                                    logger.write(MODULE_NAME, "[ERROR] raiseEvents -> codeName at Bot not defined. Bot = " + JSON.stringify(botNode));
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                     return
                                 }
-                                if (outputDataset.referenceParent.parentNode.parentNode.parentNode !== undefined) {
-                                    if (outputDataset.referenceParent.parentNode.parentNode.parentNode.config.codeName === undefined) {
-                                        logger.write(MODULE_NAME, "[ERROR] raiseEvents -> codeName at Data Mine not defined. Data Mine = " + JSON.stringify(outputDataset.referenceParent.parentNode.parentNode.parentNode));
+                                if (botNode.parentNode !== undefined) {
+                                    if (botNode.parentNode.config.codeName === undefined) {
+                                        logger.write(MODULE_NAME, "[ERROR] raiseEvents -> codeName at Data Mine not defined. Data Mine = " + JSON.stringify(botNode.parentNode));
                                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                         return
                                     }
                                 } else {
-                                    logger.write(MODULE_NAME, "[ERROR] raiseEvents -> Bot not attached to a Data Mine. Bot = " + JSON.stringify(outputDataset.referenceParent.parentNode.parentNode));
+                                    logger.write(MODULE_NAME, "[ERROR] raiseEvents -> Bot not attached to a Data Mine. Bot = " + JSON.stringify(botNode));
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                     return
                                 }
@@ -73,8 +81,8 @@
 
                     /* All good, lets emit the event. */
 
-                    let dataMine = outputDataset.referenceParent.parentNode.parentNode.parentNode.config.codeName
-                    let botName = outputDataset.referenceParent.parentNode.parentNode.config.codeName
+                    let dataMine = botNode.parentNode.config.codeName
+                    let botName = botNode.config.codeName
                     let product = outputDataset.referenceParent.parentNode.config.codeName
                     let dataset = outputDataset.referenceParent.config.codeName
 
@@ -104,6 +112,14 @@
             for (let j = 0; j < outputDatasets.length; j++) {
                 let outputDataset = outputDatasets[j]
 
+                let botNode = global.FIND_NODE_IN_NODE_MESH(outputDataset, 'Indicator Bot')
+                if (botNode === undefined) { 
+                    botNode = global.FIND_NODE_IN_NODE_MESH(outputDataset, 'Trading Bot')
+                }
+                if (botNode === undefined) { 
+                    botNode = global.FIND_NODE_IN_NODE_MESH(outputDataset, 'Sensor Bot')
+                }
+
                 /* Some validations to verify that everything is in place. */
                 if (outputDataset.referenceParent !== undefined) {
                     if (outputDataset.referenceParent.config.codeName === undefined) {
@@ -115,18 +131,18 @@
                             logger.write(MODULE_NAME, "[ERROR] raiseEvents -> codeName at Product not defined. Product = " + JSON.stringify(outputDataset.referenceParent.parentNode));
                             throw (global.DEFAULT_FAIL_RESPONSE);
                         }
-                        if (outputDataset.referenceParent.parentNode.parentNode !== undefined) {
-                            if (outputDataset.referenceParent.parentNode.parentNode.config.codeName === undefined) {
-                                logger.write(MODULE_NAME, "[ERROR] raiseEvents -> codeName at Bot not defined. Bot = " + JSON.stringify(outputDataset.referenceParent.parentNode.parentNode));
+                        if (botNode !== undefined) {
+                            if (botNode.config.codeName === undefined) {
+                                logger.write(MODULE_NAME, "[ERROR] raiseEvents -> codeName at Bot not defined. Bot = " + JSON.stringify(botNode));
                                 throw (global.DEFAULT_FAIL_RESPONSE);
                             }
-                            if (outputDataset.referenceParent.parentNode.parentNode.parentNode !== undefined) {
-                                if (outputDataset.referenceParent.parentNode.parentNode.parentNode.config.codeName === undefined) {
-                                    logger.write(MODULE_NAME, "[ERROR] raiseEvents -> codeName at Data Mine not defined. Data Mine = " + JSON.stringify(outputDataset.referenceParent.parentNode.parentNode.parentNode));
+                            if (botNode.parentNode !== undefined) {
+                                if (botNode.parentNode.config.codeName === undefined) {
+                                    logger.write(MODULE_NAME, "[ERROR] raiseEvents -> codeName at Data Mine not defined. Data Mine = " + JSON.stringify(botNode.parentNode));
                                     throw (global.DEFAULT_FAIL_RESPONSE);
                                 }
                             } else {
-                                logger.write(MODULE_NAME, "[ERROR] raiseEvents -> Bot not attached to a Data Mine. Bot = " + JSON.stringify(outputDataset.referenceParent.parentNode.parentNode));
+                                logger.write(MODULE_NAME, "[ERROR] raiseEvents -> Bot not attached to a Data Mine. Bot = " + JSON.stringify(botNode));
                                 throw (global.DEFAULT_FAIL_RESPONSE);
                             }
                         } else {
@@ -144,8 +160,8 @@
 
                 /* All good, lets emit the event. */
 
-                let dataMine = outputDataset.referenceParent.parentNode.parentNode.parentNode.config.codeName
-                let botName = outputDataset.referenceParent.parentNode.parentNode.config.codeName
+                let dataMine = botNode.parentNode.config.codeName
+                let botName = botNode.config.codeName
                 let product = outputDataset.referenceParent.parentNode.config.codeName
                 let dataset = outputDataset.referenceParent.config.codeName
 

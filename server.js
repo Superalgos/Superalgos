@@ -127,8 +127,10 @@ global.NODE_BRANCH_TO_ARRAY = function (node, nodeType) {
                     break
                 case 'array': {
                     let startingNodePropertyArray = startingNode[property.name]
-                    for (let m = 0; m < startingNodePropertyArray.length; m++) {
-                        scanNodeBranch(startingNodePropertyArray[m])
+                    if (startingNodePropertyArray !== undefined) {
+                        for (let m = 0; m < startingNodePropertyArray.length; m++) {
+                            scanNodeBranch(startingNodePropertyArray[m])
+                        }
                     }
                     break
                 }

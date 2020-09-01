@@ -130,8 +130,11 @@
 
                 contextSummary.dataset = outputDatasetNode.referenceParent.config.codeName
                 contextSummary.product = outputDatasetNode.referenceParent.parentNode.config.codeName
-                contextSummary.bot = outputDatasetNode.referenceParent.parentNode.parentNode.config.codeName
-                contextSummary.dataMine = outputDatasetNode.referenceParent.parentNode.parentNode.parentNode.config.codeName
+
+                let botNode = global.FIND_NODE_IN_NODE_MESH(outputDatasetNode, 'Indicator Bot')
+                contextSummary.bot = botNode.config.codeName
+                let dataMineNode = global.FIND_NODE_IN_NODE_MESH(outputDatasetNode, 'Data Mine')
+                contextSummary.dataMine = dataMineNode.config.codeName
 
                 let fileContent = commons.generateFileContent(outputData, outputDatasetNode.referenceParent.parentNode.record, resultsWithIrregularPeriods, processingDailyFiles, currentDay, callBackFunction)
                 commons.writeFile(contextSummary, fileContent, anotherFileWritten, processingDailyFiles, timeFrameLabel, currentDay, callBackFunction)

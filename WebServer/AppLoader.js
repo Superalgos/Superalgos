@@ -68,6 +68,7 @@ function newAppLoader() {
                 'Utilities/HiriarchyMap.js',
                 'Utilities/Folders.js',
                 'Utilities/Branches.js',
+                'Utilities/Meshes.js',
 
                 'Panels/LayersPanel.js',
                 'Panels/UpDownButton.js',

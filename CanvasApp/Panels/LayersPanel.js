@@ -375,8 +375,9 @@ function newLayersPanel() {
         function syncWithDesignerLayers() {
             if (thisObject.payload.node === undefined) { return }
             let layerManager = thisObject.payload.node
-            for (let p = 0; p < layerManager.layers.length; p++) {
-                let layerNode = layerManager.layers[p]
+            let layers = nodeBranchToArray(layerManager, 'Layer')
+            for (let p = 0; p < layers.length; p++) {
+                let layerNode = layers[p]
 
                 let found = removeFromLocalLayers(layerNode.id)
                 if (found !== true) {

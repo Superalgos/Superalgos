@@ -8331,7 +8331,7 @@
             }
         ],
         "initialValues": {
-            "config": "{ \n\"param1Name\": \"Choose your own names for your parameters. Also, you can add as many as you want.\",\n\"param2Name\": 0\n}"
+            "config": "{ \n\"param1Name\": \"A text string value example\",\n\"param2Name\": 0\n}"
         },
         "addLeftIcons": true,
         "editors": {
@@ -9057,6 +9057,21 @@
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
+                "action": "Add UI Object",
+                "label": "Add Output Dataset Folder",
+                "relatedUiObject": "Output Dataset Folder",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add All Output Datasets",
+                "label": "Add All Output Datasets",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Output Dataset",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -9077,7 +9092,13 @@
                 "name": "outputDatasets",
                 "type": "array",
                 "childType": "Output Dataset",
-                "autoAdd": true
+                "autoAdd": false
+            },
+            {
+                "name": "outputDatasetFolders",
+                "type": "array",
+                "childType": "Output Dataset Folder",
+                "autoAdd": false
             }
         ],
         "propertyNameAtParent": "processOutput"
@@ -9249,6 +9270,100 @@
         "propertyNameAtParent": "executionFinishedEvent"
     },
     {
+        "type": "Output Dataset Folder",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Output Dataset",
+                "relatedUiObject": "Output Dataset",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Output Dataset Folder",
+                "relatedUiObject": "Output Dataset Folder",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Process Output->Output Dataset Folder->"
+        },
+        "icon": "scripts-library",
+        "properties": [
+            {
+                "name": "outputDatasets",
+                "type": "array",
+                "childType": "Output Dataset",
+                "autoAdd": false
+            },
+            {
+                "name": "outputDatasetFolders",
+                "type": "array",
+                "childType": "Output Dataset Folder",
+                "autoAdd": false
+            }
+        ],
+        "propertyNameAtParent": "outputDatasetFolders"
+    },
+    {
+        "type": "Product Definition Folder",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Product Definition",
+                "relatedUiObject": "Product Definition",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Product Definition Folder",
+                "relatedUiObject": "Product Definition Folder",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Trading Bot->Product Definition Folder->"
+        },
+        "icon": "scripts-library",
+        "properties": [
+            {
+                "name": "products",
+                "type": "array",
+                "childType": "Product Definition",
+                "autoAdd": false
+            },
+            {
+                "name": "productDefinitionFolders",
+                "type": "array",
+                "childType": "Product Definition Folder",
+                "autoAdd": false
+            }
+        ],
+        "propertyNameAtParent": "productDefinitionFolders"
+    },
+    {
         "type": "Product Definition",
         "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#product-definition",
         "menuItems": [
@@ -9303,7 +9418,7 @@
             "compatibleTypes": "->Plotter Module->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Sensor Bot->Indicator Bot->Trading Bot->"
+            "compatibleTypes": "->Sensor Bot->Indicator Bot->Trading Bot->Product Definition Folder->"
         },
         "icon": "product-definition",
         "properties": [
@@ -9457,7 +9572,7 @@
             "compatibleTypes": "->Dataset Definition->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Process Output->"
+            "compatibleTypes": "->Process Output->Output Dataset Folder->"
         },
         "icon": "output-dataset",
         "propertyNameAtParent": "outputDatasets"
@@ -9855,6 +9970,12 @@
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
+                "action": "Add UI Object",
+                "label": "Add Product Definition Folder",
+                "relatedUiObject": "Product Definition Folder",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -9888,6 +10009,12 @@
                 "name": "products",
                 "type": "array",
                 "childType": "Product Definition",
+                "autoAdd": true
+            },
+            {
+                "name": "productDefinitionFolders",
+                "type": "array",
+                "childType": "Product Definition Folder",
                 "autoAdd": true
             }
         ],
@@ -13034,6 +13161,15 @@
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
+                "action": "Add All Data Mine Layers",
+                "label": "Add All Data Mine Layers",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Data Mine Products",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -13047,6 +13183,9 @@
         "editors": {
             "config": true
         },
+        "title": [
+            "Use Reference Parent"
+        ],
         "initialValues": {
             "config": "{ \n\"visibleLayers\": 5\n}"
         },
@@ -13055,13 +13194,22 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Timeline Chart->"
         },
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Data Mine Products->"
+        },
         "propertyNameAtParent": "layersManager",
         "properties": [
             {
                 "name": "layers",
                 "type": "array",
                 "childType": "Layer",
-                "autoAdd": true
+                "autoAdd": false
+            },
+            {
+                "name": "botLayers",
+                "type": "array",
+                "childType": "Bot Layers",
+                "autoAdd": false
             }
         ]
     },
@@ -13111,7 +13259,7 @@
             "compatibleTypes": "->Data Product->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Layer Manager->Layers Manager->"
+            "compatibleTypes": "->Layers Manager->Bot Layers->Layer Folder->"
         },
         "icon": "attractive",
         "propertyNameAtParent": "layers",
@@ -13120,6 +13268,100 @@
                 "name": "timeFrameScale",
                 "type": "node",
                 "childType": "Time Frame Scale"
+            }
+        ]
+    },
+    {
+        "type": "Bot Layers",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Layer",
+                "relatedUiObject": "Layer",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Layer Folder",
+                "relatedUiObject": "Layer Folder",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "icon": "brainstorming",
+        "chainAttachesTo": {
+            "compatibleTypes": "->Layers Manager->"
+        },
+        "propertyNameAtParent": "botLayers",
+        "properties": [
+            {
+                "name": "layers",
+                "type": "array",
+                "childType": "Layer",
+                "autoAdd": false
+            },
+            {
+                "name": "layerFolders",
+                "type": "array",
+                "childType": "Layer Folder",
+                "autoAdd": false
+            }
+        ]
+    },
+    {
+        "type": "Layer Folder",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Layer",
+                "relatedUiObject": "Layer",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Layer Folder",
+                "relatedUiObject": "Layer Folder",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "icon": "band",
+        "chainAttachesTo": {
+            "compatibleTypes": "->Layer Folder->Bot Layers->"
+        },
+        "propertyNameAtParent": "layerFolders",
+        "properties": [
+            {
+                "name": "layers",
+                "type": "array",
+                "childType": "Layer",
+                "autoAdd": false
+            },
+            {
+                "name": "layerFolders",
+                "type": "array",
+                "childType": "Layer Folder",
+                "autoAdd": false
             }
         ]
     },
@@ -13613,6 +13855,21 @@
         "menuItems": [
             {
                 "action": "Add UI Object",
+                "label": "Add Data Mine Products",
+                "relatedUiObject": "Data Mine Products",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add All Data Mine Products",
+                "label": "Add All Data Mine Products",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Data Mine Products",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
                 "label": "Add Data Product",
                 "relatedUiObject": "Data Product",
                 "actionFunction": "payload.onMenuItemClick"
@@ -13647,7 +13904,13 @@
                 "name": "dataProducts",
                 "type": "array",
                 "childType": "Data Product",
-                "autoAdd": true
+                "autoAdd": false
+            },
+            {
+                "name": "dataMineProducts",
+                "type": "array",
+                "childType": "Data Mine Products",
+                "autoAdd": false
             }
         ]
     },
@@ -13676,9 +13939,154 @@
             "compatibleTypes": "->Product Definition->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Single Market Data->"
+            "compatibleTypes": "->Single Market Data->Data Product Folder->Bot Products->"
         },
         "propertyNameAtParent": "dataProducts",
         "properties": []
+    },
+    {
+        "type": "Data Mine Products",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Bot Products",
+                "relatedUiObject": "Bot Products",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add All Data Products",
+                "label": "Add All Data Products",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Data Product",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "icon": "arrangement-horizontal-bottom",
+        "isTitleAllwaysVisible": true,
+        "title": [
+            "Use Reference Parent"
+        ],
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Data Mine->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Single Market Data->"
+        },
+        "propertyNameAtParent": "dataMineProducts",
+        "properties": [
+            {
+                "name": "botProducts",
+                "type": "array",
+                "childType": "Bot Products",
+                "autoAdd": false
+            }
+        ]
+    },
+    {
+        "type": "Bot Products",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Data Product",
+                "relatedUiObject": "Data Product",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Data Product Folder",
+                "relatedUiObject": "Data Product Folder",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "icon": "brainstorming",
+        "chainAttachesTo": {
+            "compatibleTypes": "->Data Mine Products->"
+        },
+        "propertyNameAtParent": "botProducts",
+        "properties": [
+            {
+                "name": "dataProducts",
+                "type": "array",
+                "childType": "Data Product",
+                "autoAdd": false
+            },
+            {
+                "name": "dataProductFolders",
+                "type": "array",
+                "childType": "Data Product Folder",
+                "autoAdd": false
+            }
+        ]
+    },
+    {
+        "type": "Data Product Folder",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Data Product",
+                "relatedUiObject": "Data Product",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Data Product Folder",
+                "relatedUiObject": "Data Product Folder",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "icon": "band",
+        "chainAttachesTo": {
+            "compatibleTypes": "->Data Product Folder->Bot Products->"
+        },
+        "propertyNameAtParent": "dataProductFolders",
+        "properties": [
+            {
+                "name": "dataProducts",
+                "type": "array",
+                "childType": "Data Product",
+                "autoAdd": false
+            },
+            {
+                "name": "dataProductFolders",
+                "type": "array",
+                "childType": "Data Product Folder",
+                "autoAdd": false
+            }
+        ]
     }
 ]

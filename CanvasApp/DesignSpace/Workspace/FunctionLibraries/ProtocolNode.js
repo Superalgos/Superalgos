@@ -78,6 +78,8 @@ function newProtocolNode() {
                 let newLightingPath = getNewLightingPath(lightingPath, node.type, node.payload.parentNode.type)
                 if (newLightingPath !== undefined) {
                     object.parentNode = getProtocolNode(node.payload.parentNode, removePersonalData, parseConfig, includeIds, includePayload, includeReferencesInSavedPayload, newLightingPath)
+                } else {
+                    let newLightingPath = getNewLightingPath(lightingPath, node.type, node.payload.parentNode.type)
                 }
             }
             if (node.payload.referenceParent !== undefined) {
@@ -120,6 +122,16 @@ function newProtocolNode() {
 
         let currentNodePosition = lightingPath.indexOf('->' + currentNodeType + '->')
         let nextNodePosition = lightingPath.indexOf('->' + nextNodeType + '->')
+
+        /* 
+        In some situations, the current and next node are of the same type.
+        When that happens, we need to search for the second instance of that type
+        at the lighting path.
+        */
+        if (currentNodeType === nextNodeType) {
+            let tempLightingPath = lightingPath.substring(currentNodePosition + currentNodeType.length, lightingPath.length + 1)
+            nextNodePosition = tempLightingPath.indexOf('->' + nextNodeType + '->')
+        }
 
         let newLightingPath = lightingPath.substring(nextNodePosition, lightingPath.length + 1)
 

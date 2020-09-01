@@ -141,17 +141,18 @@
             }
 
             function writeTimeFramesFiles(callBack) {
+                let outputDatasets = global.NODE_BRANCH_TO_ARRAY (bot.processNode.referenceParent.processOutput, 'Output Dataset')
                 let outputDatasetIndex = -1;
                 controlLoop()
 
                 function productLoopBody() {
-                    let productCodeName = bot.processNode.referenceParent.processOutput.outputDatasets[outputDatasetIndex].referenceParent.parentNode.config.codeName;
+                    let productCodeName = outputDatasets[outputDatasetIndex].referenceParent.parentNode.config.codeName;
                     writeTimeFramesFile(productCodeName, controlLoop)
                 }
 
                 function controlLoop() {
                     outputDatasetIndex++
-                    if (outputDatasetIndex < bot.processNode.referenceParent.processOutput.outputDatasets.length) {
+                    if (outputDatasetIndex < outputDatasets.length) {
                         productLoopBody()
                     } else {
                         callBack()

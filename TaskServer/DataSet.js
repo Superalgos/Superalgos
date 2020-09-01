@@ -79,77 +79,22 @@ exports.newDataSet = function newDataSet(BOT, logger) {
             let network = global.TASK_NETWORK
             let datasetProductDefinition = thisObject.node.parentNode
 
-            for (let i = 0; i < network.networkNodes.length; i++) {
-                let networkNode = network.networkNodes[i]
-                if (networkNode.dataStorage !== undefined) {
-                    if (networkNode.dataStorage.sessionIndependentData !== undefined) {
-                        for (let j = 0; j < networkNode.dataStorage.sessionIndependentData.exchangeDataProducts.length; j++) {
-                            let exchangeDataProduct = networkNode.dataStorage.sessionIndependentData.exchangeDataProducts[j]
-                            for (let k = 0; k < exchangeDataProduct.singleMarketData.length; k++) {
-                                let singleMarketData = exchangeDataProduct.singleMarketData[k]
-                                if (singleMarketData.referenceParent !== undefined) {
-                                    let market = singleMarketData.referenceParent
-                                    let currentProcessMarket = bot.processNode.marketReference.referenceParent
+            let nodeArray = global.NODE_MESH_TO_PATH_ARRAY(network, datasetProductDefinition.id)
+            let networkNode = global.FIND_NODE_IN_NODE_ARRAY(nodeArray, 'Network Node')
 
-                                    if (currentProcessMarket.id === market.id) {
-                                        for (let m = 0; m < singleMarketData.dataProducts.length; m++) {
-                                            let dataProduct = singleMarketData.dataProducts[m]
-                                            if (dataProduct.referenceParent !== undefined) {
-                                                let productDefinition = dataProduct.referenceParent
-                                                if (datasetProductDefinition.id === productDefinition.id) {
-
-                                                    /* We found where the data is located on the network. */
-                                                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Retrieving data from " + networkNode.name + "  -> host = " + networkNode.config.host + ' -> port = ' + networkNode.config.webPort + '.'); }
-
-                                                    fileStorage = FILE_STORAGE.newFileStorage(logger, networkNode.config.host, networkNode.config.webPort);
-                                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
-                                                    return
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    if (networkNode.dataStorage.sessionBasedData !== undefined) {
-                        for (let j = 0; j < networkNode.dataStorage.sessionBasedData.exchangeDataProducts.length; j++) {
-                            let exchangeDataProduct = networkNode.dataStorage.sessionBasedData.exchangeDataProducts[j]
-                            for (let s = 0; s < exchangeDataProduct.sessionReferences.length; s++) {
-                                let sessionReference = exchangeDataProduct.sessionReferences[s]
-                                let singleMarketData = sessionReference.singleMarketData
-                                if (singleMarketData.referenceParent !== undefined) {
-                                    let market = singleMarketData.referenceParent
-                                    let currentProcessMarket = bot.processNode.marketReference.referenceParent
-
-                                    if (currentProcessMarket.id === market.id) {
-                                        for (let m = 0; m < singleMarketData.dataProducts.length; m++) {
-                                            let dataProduct = singleMarketData.dataProducts[m]
-                                            if (dataProduct.referenceParent !== undefined) {
-                                                let productDefinition = dataProduct.referenceParent
-                                                if (datasetProductDefinition.id === productDefinition.id) {
-
-                                                    /* We found where the data is located on the network. */
-                                                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Retrieving data from " + networkNode.name + "  -> host = " + networkNode.config.host + ' -> port = ' + networkNode.config.webPort + '.'); }
-
-                                                    fileStorage = FILE_STORAGE.newFileStorage(logger, networkNode.config.host, networkNode.config.webPort);
-                                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
-                                                    return
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
+            if (networkNode === undefined) {
+                logger.write(MODULE_NAME, "[ERROR] initialize -> Network Node not found.")
+                logger.write(MODULE_NAME, "[ERROR] initialize -> Initialization Failed because we could not find where the data of this dataset is located within the network. Check the logs for more info.");
+                logger.write(MODULE_NAME, "[ERROR] initialize -> Could not find where " + datasetProductDefinition.name + " for " + bot.exchange + " " + bot.market.baseAsset + "/" + bot.market.quotedAsset + " is stored within the network.");    
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                return
             }
 
-            logger.write(MODULE_NAME, "[ERROR] initialize -> Initialization Failed because we could not find where the data of this dataset is located within the network. Check the logs for more info.");
-            logger.write(MODULE_NAME, "[ERROR] initialize -> Could not find where " + datasetProductDefinition.name + " for " + bot.exchange + " " + bot.market.baseAsset + "/" + bot.market.quotedAsset + " is stored within the network.");
+            /* We found where the data is located on the network. */
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Retrieving data from " + networkNode.name + "  -> host = " + networkNode.config.host + ' -> port = ' + networkNode.config.webPort + '.'); }
 
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+            fileStorage = FILE_STORAGE.newFileStorage(logger, networkNode.config.host, networkNode.config.webPort);
+            callBackFunction(global.DEFAULT_OK_RESPONSE);
 
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);

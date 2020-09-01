@@ -111,9 +111,12 @@ function newFloatingObject() {
     }
 
     function getContainer(point) {
+
+
         if (thisObject.payload === undefined) { return }
         if ((thisObject.isCollapsed === true && thisObject.collapsedManually === false) || thisObject.isParentCollapsed === true) { return }
         if (canvas.floatingSpace.inMapMode === true) { return }
+
         let container
 
         container = thisObject.payload.uiObject.getContainer(point)

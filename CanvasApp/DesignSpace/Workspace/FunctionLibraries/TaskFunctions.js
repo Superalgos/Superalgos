@@ -37,7 +37,9 @@ function newTaskFunctions() {
             'Market Base Asset->Market Quoted Asset->Asset->' +
             'Backtesting Session->Live Trading Session->Paper Trading Session->Fordward Testing Session->' +
             'Process Definition->' +
-            'Process Output->Output Dataset->Dataset Definition->Product Definition->' +
+            'Process Output->' +
+            'Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->' +
+            'Output Dataset->Dataset Definition->Product Definition->' +
             'Process Dependencies->' +
             'Status Dependency->Status Report->Process Definition->' +
             'Data Dependency->Dataset Definition->Product Definition->' +
@@ -52,6 +54,7 @@ function newTaskFunctions() {
             'Execution Finished Event->' +
             'Execution Started Event->Execution Finished Event->Process Definition->' +
             'Sensor Bot->' +
+            'Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->' + 
             'Indicator Bot->' +
             'Trading Bot->' +
             'Data Mine->'
@@ -60,7 +63,10 @@ function newTaskFunctions() {
 
         let networkLightingPath = '->Network->Network Node->' +
             'Data Storage->Session Independent Data->Exchange Data Products->' +
-            'Single Market Data->Data Product->Product Definition->' +
+            'Single Market Data->' +
+            'Data Mine Products->Bot Products->' +
+            'Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->' + 
+            'Data Product->Product Definition->' +
             'Data Mining->Testing Environment->Production Environment->' +
             'Exchange Tasks->Crypto Exchange->' +
             'Task Manager->Task->' +
@@ -73,6 +79,7 @@ function newTaskFunctions() {
         let networkDefinition = functionLibraryProtocolNode.getProtocolNode(networkNode.payload.parentNode, false, true, true, false, false, networkLightingPath)
 
         let event = {
+            appSchema: JSON.stringify(APP_SCHEMA_ARRAY),
             taskId: node.id,
             taskName: node.name,
             taskDefinition: JSON.stringify(taskDefinition),

@@ -54,6 +54,7 @@ function newTaskFunctions() {
             'Execution Finished Event->' +
             'Execution Started Event->Execution Finished Event->Process Definition->' +
             'Sensor Bot->' +
+            'Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->' + 
             'Indicator Bot->' +
             'Trading Bot->' +
             'Data Mine->'

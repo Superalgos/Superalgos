@@ -137,6 +137,140 @@ global.NODE_BRANCH_TO_ARRAY = function (node, nodeType) {
     }
 }
 
+global.FIND_NODE_IN_NODE_MESH = function (node, nodeType) {
+    /*
+    This function scans a node mesh for a certain node type and 
+    returns the first instance found. 
+    */
+    let nodeFound
+    scanNodeMesh(node, nodeType)
+    return nodeFound
+
+    function scanNodeMesh(startingNode) {
+        if (startingNode === undefined) { return }
+        if (nodeFound !== undefined) { return }
+
+        let nodeDefinition = APP_SCHEMA_MAP.get(startingNode.type)
+        if (nodeDefinition === undefined) { return }
+
+        if (startingNode.type === nodeType) {
+            nodeFound = startingNode
+            return
+        }
+
+        /* We scan through this node children */
+        if (nodeDefinition.properties !== undefined) {
+            for (let i = 0; i < nodeDefinition.properties.length; i++) {
+                let property = nodeDefinition.properties[i]
+
+                switch (property.type) {
+                    case 'node': {
+                        scanNodeMesh(startingNode[property.name])
+                    }
+                        break
+                    case 'array': {
+                        let startingNodePropertyArray = startingNode[property.name]
+                        if (startingNodePropertyArray !== undefined) {
+                            for (let m = 0; m < startingNodePropertyArray.length; m++) {
+                                scanNodeMesh(startingNodePropertyArray[m])
+                            }
+                        }
+                        break
+                    }
+                }
+            }
+        }
+        /* We scan parents nodes. */
+        if (startingNode.parentNode !== undefined) {
+            scanNodeMesh(startingNode.parentNode)
+        }
+        /* We scan reference parents too. */
+        if (startingNode.referenceParent !== undefined) {
+            scanNodeMesh(startingNode.referenceParent)
+        }
+    }
+}
+
+global.NODE_MESH_TO_PATH_ARRAY = function (node, nodeId) {
+    /*
+    This function scans a node mesh for a certain node if and 
+    returns an array with the path within that mesh to the
+    requested node. 
+    */
+    let nodeArray = []
+    scanNodeMesh(node)
+    return nodeArray
+
+    function scanNodeMesh(startingNode) {
+        if (startingNode === undefined) { return }
+
+        let nodeDefinition = APP_SCHEMA_MAP.get(startingNode.type)
+        if (nodeDefinition === undefined) { return }
+
+        if (startingNode.id === nodeId) {
+            nodeArray.push(startingNode)
+            return
+        }
+
+        /* We scan through this node children */
+        if (nodeDefinition.properties !== undefined) {
+            for (let i = 0; i < nodeDefinition.properties.length; i++) {
+                let property = nodeDefinition.properties[i]
+
+                switch (property.type) {
+                    case 'node': {
+                        scanNodeMesh(startingNode[property.name])
+                        if (nodeArray.length > 0) {
+                            nodeArray.unshift(startingNode)
+                            return
+                        }
+                    }
+                        break
+                    case 'array': {
+                        let startingNodePropertyArray = startingNode[property.name]
+                        if (startingNodePropertyArray !== undefined) {
+                            for (let m = 0; m < startingNodePropertyArray.length; m++) {
+                                scanNodeMesh(startingNodePropertyArray[m])
+                                if (nodeArray.length > 0) {
+                                    nodeArray.unshift(startingNode)
+                                    return
+                                }
+                            }
+                        }
+                        break
+                    }
+                }
+            }
+        }
+        /* We scan parents nodes. */
+        if (startingNode.parentNode !== undefined) {
+            scanNodeMesh(startingNode.parentNode)
+            if (nodeArray.length > 0) {
+                nodeArray.unshift(startingNode)
+                return
+            }
+        }
+        /* We scan reference parents too. */
+        if (startingNode.referenceParent !== undefined) {
+            scanNodeMesh(startingNode.referenceParent)
+            if (nodeArray.length > 0) {
+                nodeArray.unshift(startingNode)
+                return
+            }
+        }
+    }
+}
+
+global.FIND_NODE_IN_NODE_ARRAY = function (nodeArray, nodeType) {
+    for (let i=0; i < nodeArray.length; i++) {
+        let node = nodeArray[i]
+        if (node.type === nodeType) {
+            return node
+        } 
+    }
+}
+
+
 process.on('uncaughtException', function (err) {
     console.log('[ERROR] Task Server -> server -> uncaughtException -> err.message = ' + err.message)
     console.log('[ERROR] Task Server -> server -> uncaughtException -> err.stack = ' + err.stack)

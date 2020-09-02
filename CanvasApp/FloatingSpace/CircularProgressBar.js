@@ -68,6 +68,7 @@ function newCircularProgressBar() {
         if (thisObject.payload.uiObject === undefined) { return }
         opacityCounters[message.event.seconds] = 2000
         if (message.event.processingDate !== undefined) {
+            thisObject.payload.uiObject.valueAtAngle = false
             thisObject.payload.uiObject.setValue(message.event.processingDate, 2000)
         }
         if (message.event.percentage !== undefined) {

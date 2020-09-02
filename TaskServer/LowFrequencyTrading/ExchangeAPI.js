@@ -50,11 +50,11 @@
     async function getOrder(tradingSystemOrder, tradingEngineOrder) {
 
         let orderId = tradingEngineOrder.exchangeId.value
+        const symbol = bot.market.baseAsset + '/' + bot.market.quotedAsset
 
         /* Basic Logging */
-        logInfo("getOrder -> Entering function. orderId = " + orderId);
-
-        const symbol = bot.market.baseAsset + '/' + bot.market.quotedAsset
+        logInfo("getOrder -> orderId = " + orderId)
+        logInfo("getOrder -> symbol = " + symbol)
 
         /* Basic Validations */
         if (exchange.has['fetchOrder'] === false) {
@@ -64,9 +64,11 @@
 
         try {
             let order = await exchange.fetchOrder(orderId, symbol)
+
+            logInfo("getOrder -> Response from the Exchange: " + JSON.stringify(order));
             return order
         } catch (err) {
-            tradingSystem.errors.push([tradingSystemOrder.id, err.message])
+            tradingSystem.errors.push([tradingSystemOrder.id, "getOrder -> Error = " + err.message])
             logError("getOrder -> Error = " + err.message);
         }
     }
@@ -121,9 +123,11 @@
 
         try {
             let order = await (exchange.createOrder(symbol, type, side, amount, price))
+
+            logInfo("createOrder -> Response from the Exchange: " + JSON.stringify(order));
             return order.id
         } catch (err) {
-            tradingSystem.errors.push([tradingSystemOrder.id, err.message])
+            tradingSystem.errors.push([tradingSystemOrder.id, "createOrder -> Error = " + err.message])
             logError("createOrder -> Error = " + err.message);
         }
     }
@@ -145,9 +149,11 @@
 
         try {
             let order = await exchange.cancelOrder(orderId, symbol)
+
+            logInfo("cancelOrder -> Response from the Exchange: " + JSON.stringify(order));
             return true
         } catch (err) {
-            tradingSystem.errors.push([tradingSystemOrder.id, err.message])
+            tradingSystem.errors.push([tradingSystemOrder.id, "cancelOrder -> Error = " + err.message])
             logError("cancelOrder -> Error = " + err.message);
         }
     }

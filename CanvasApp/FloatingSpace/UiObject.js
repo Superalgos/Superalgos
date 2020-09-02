@@ -26,6 +26,7 @@ function newUiObject() {
         hasError: undefined,
         hasWarning: undefined,
         hasInfo: undefined,
+        valueAtAngle: true,
         run: run,
         stop: stop,
         heartBeat: heartBeat,
@@ -417,7 +418,7 @@ function newUiObject() {
                     }
                 }
                 if (totalRunning > 0) {
-                    setValue(totalRunning + ' / ' + children.length + ' Running')
+                    setStatus(totalRunning + ' / ' + children.length + ' Running')
                     thisObject.isRunning = true
                 } else {
                     thisObject.isRunning = false
@@ -1245,7 +1246,7 @@ function newUiObject() {
     }
 
     function drawMiddleground() {
-        if (thisObject.isOnFocus === false) {            
+        if (thisObject.isOnFocus === false) {
             drawErrorMessage()
             drawWarningMessage()
             drawInfoMessage()
@@ -1658,9 +1659,18 @@ function newUiObject() {
                     fontSize = fontSize * 2 / 3
                 }
 
-                labelPoint = {
-                    x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 10,
-                    y: position.y + radius * 7 / 5 + fontSize * FONT_ASPECT_RATIO + 15
+                if (thisObject.valueAtAngle === true && thisObject.payload.angle !== undefined) {
+                    labelPoint = {
+                        x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 10,
+                        y: position.y
+                    }
+                    labelPoint.x = labelPoint.x + radius * 7 / 3 * Math.cos(toRadians(thisObject.payload.angle))
+                    labelPoint.y = labelPoint.y + radius * 7 / 3 * Math.sin(toRadians(thisObject.payload.angle))
+                } else {
+                    labelPoint = {
+                        x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 10,
+                        y: position.y + radius * 7 / 5 + fontSize * FONT_ASPECT_RATIO + 15
+                    }
                 }
 
                 browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY

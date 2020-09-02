@@ -893,7 +893,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
         when we see at the exchange that orders were filled. 
         Note that the comparison is made with a Rounding Factor in order to avoid rounding problems.
         */
-       const ROUNDING_ERROR_CORRECTION_FACTOR = 1.0000001
+       const ROUNDING_ERROR_CORRECTION_FACTOR = 1.001
 
         switch (tradingEngineStage.stageDefinedIn.value) {
             case 'Base Asset': {

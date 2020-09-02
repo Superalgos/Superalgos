@@ -129,11 +129,12 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
                         */
                         if (tradingSystemOrder.config.spawnMultipleOrders !== true) {
                             if (tradingEngineOrder.lock.value === 'Closed') {
+                                tradingSystem.infos.push(['Order ' + tradingSystemOrder.name + ' skipped because lock was closed.'])
                                 continue
                             }
                         }
                         /* Check if we need to Create this Order */
-                        let situationName = checkOrderEvent(tradingSystemOrder.createOrderEvent, tradingSystemOrder, executionAlgorithm, executionNode)
+                        let situationName = await checkOrderEvent(tradingSystemOrder.createOrderEvent, tradingSystemOrder, executionAlgorithm, executionNode)
                         if (situationName !== undefined) {
 
                             /* Open a new order */
@@ -143,14 +144,25 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
                     break
                 }
                 case 'Open': {
+                    /* During the Second cycle we can not cancel orders. That is reserved for the First cycle. */
+                    if (tradingEngine.current.episode.cycle.value === 'Second') { continue }
+
                     /* Simulate Events that happens at the Exchange, if needed. */
                     simulateExchangeEvents(tradingEngineStage, tradingSystemOrder, tradingEngineOrder)
 
                     /* Check Events that happens at the Exchange, if needed. */
-                    await checkExchangeEvents(tradingEngineStage, tradingSystemOrder, tradingEngineOrder)
+                    let allGood = await checkExchangeEvents(tradingEngineStage, tradingSystemOrder, tradingEngineOrder)
 
-                    /* During the Second cycle we can not cancel orders. That is reserved for the First cycle. */
-                    if (tradingEngine.current.episode.cycle.value === 'Second') { continue }
+                    if (allGood !== true) {
+                        /*
+                        For some reason we could not check the order at the exchange, so we will not even check if we 
+                        need to cancel it, since we could end up with inconsisten information at the accounting level.
+                        */
+                        if (tradingSystemOrder.cancelOrderEvent !== undefined) {
+                            tradingSystem.warnings.push([tradingSystemOrder.cancelOrderEvent.id, 'Skipping Cancel Event Checking because cheking the order at the exchange failed.'])
+                        }
+                        return
+                    }
 
                     /* Check if we need to cancel the order */
                     await checkCancelOrderEvent(tradingEngineStage, executionAlgorithm, executionNode, tradingEngineOrder, tradingSystemOrder)
@@ -185,7 +197,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
         if (tradingEngineStage.status.value !== 'Closing' && tradingEngineOrder.status.value === 'Open') {
 
             /* Check if we need to Cancel this Order */
-            let situationName = checkOrderEvent(tradingSystemOrder.cancelOrderEvent, tradingSystemOrder, executionAlgorithm, executionNode)
+            let situationName = await checkOrderEvent(tradingSystemOrder.cancelOrderEvent, tradingSystemOrder, executionAlgorithm, executionNode)
             if (situationName !== undefined) {
 
                 /* Simulate Order Cancelation, if needed. */
@@ -194,7 +206,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
                 /* Cancel the order at the Exchange, if needed. */
                 await exchangeCancelOrder(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, 'Cancel Event')
 
-                updateEndsWithCycle(tradingEngineOrder)
+                await updateEndsWithCycle(tradingEngineOrder)
             }
         }
     }
@@ -232,15 +244,21 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
     async function tryToOpenOrder(tradingEngineStage, executionAlgorithm, tradingSystemOrder, tradingEngineOrder, situationName) {
 
-        calculateOrderRate()
-        calculateOrderSize()
+        await calculateOrderRate()
+        await calculateOrderSize()
 
         /* Check Size: We are not going to create Orders which size is equal or less to zero.  */
-        if (tradingEngineOrder.orderBaseAsset.size.value <= 0 || tradingEngineOrder.orderQuotedAsset.size.value <= 0) { return }
+        if (tradingEngineOrder.orderBaseAsset.size.value <= 0 || tradingEngineOrder.orderQuotedAsset.size.value <= 0) {
+            tradingSystem.warnings.push([tradingSystemOrder.id, 'Could not open this order because its size would be zero.'])
+            return
+        }
 
         /* Place Order at the Exchange, if needed. */
         let result = await createOrderAtExchange(tradingSystemOrder, tradingEngineOrder)
-        if (result !== true) { return }
+        if (result !== true) {
+            tradingSystem.warnings.push([tradingSystemOrder.id, 'Could not open this order because something failed placing the order at the Exchange.'])
+            return
+        }
 
         /* Update Stage Placed Size */
         tradingEngineStage.stageBaseAsset.sizePlaced.value = tradingEngineStage.stageBaseAsset.sizePlaced.value + tradingEngineOrder.orderBaseAsset.size.value
@@ -264,7 +282,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
         tradingEngineOrder.algorithmName.value = executionAlgorithm.name
         tradingEngineOrder.situationName.value = situationName
 
-        function calculateOrderRate() {
+        async function calculateOrderRate() {
 
             /* Optional Rate Definition */
             if (tradingSystemOrder.type === 'Limit Buy Order' || tradingSystemOrder.type === 'Limit Sell Order') {
@@ -289,7 +307,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
             }
         }
 
-        function calculateOrderSize() {
+        async function calculateOrderSize() {
             /* Validate that this config exists */
             if (executionAlgorithm.config.percentageOfStageTargetSize === undefined) { badDefinitionUnhandledException(undefined, 'executionAlgorithm.config.percentageOfStageTargetSize === undefined', executionAlgorithm) }
             if (isNaN(executionAlgorithm.config.percentageOfStageTargetSize) === true) { badDefinitionUnhandledException(undefined, 'isNaN(executionAlgorithm.config.percentageOfStageTargetSize) === true', executionAlgorithm) }
@@ -663,7 +681,10 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
         let order = await exchangeAPIModule.getOrder(tradingSystemOrder, tradingEngineOrder)
 
-        if (order === undefined) { return }
+        if (order === undefined) {
+            tradingSystem.warnings.push([tradingSystemOrder.id, 'Could not verify the status of this order at the exchange.'])
+            return false
+        }
 
         const AT_EXCHANGE_STATUS = {
             OPEN: 'open',
@@ -681,7 +702,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
             /* Initialize this */
             tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
 
-            updateEndsWithCycle(tradingEngineOrder)
+            await updateEndsWithCycle(tradingEngineOrder)
         }
         if (order.remaining > 0 && order.status === AT_EXCHANGE_STATUS.CLOSED) {
 
@@ -692,7 +713,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
             /* Initialize this */
             tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
 
-            updateEndsWithCycle(tradingEngineOrder)
+            await updateEndsWithCycle(tradingEngineOrder)
         }
         if (order.status === AT_EXCHANGE_STATUS.CANCELLED) {
 
@@ -703,7 +724,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
             /* Initialize this */
             tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
 
-            updateEndsWithCycle(tradingEngineOrder)
+            await updateEndsWithCycle(tradingEngineOrder)
         }
 
         /*
@@ -712,16 +733,18 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
         the Fees Paid and many other thing we need to account for.
         */
         if (order.filled > 0) {
-            syncWithExchange(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order)
+            await syncWithExchange(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order)
         }
 
         /* Forced Cancellation Check */
         if (tradingEngineStage.status.value === 'Closing' && tradingEngineOrder.status.value !== 'Closed') {
             await exchangeCancelOrder(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, 'Closing Stage')
         }
+
+        return true
     }
 
-    function syncWithExchange(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order) {
+    async function syncWithExchange(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order) {
 
         let previousBaseAssetSize = tradingEngineOrder.orderBaseAsset.size.value
         let previousQuotedAssetSize = tradingEngineOrder.orderQuotedAsset.size.value
@@ -730,13 +753,13 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
         let previousBaseAssetFeesPaid = tradingEngineOrder.orderBaseAsset.feesPaid.value
         let previousQuotedAssetFeesPaid = tradingEngineOrder.orderQuotedAsset.feesPaid.value
 
-        actualSizeCalculation()
-        actualRateCalculation()
-        percentageFilledCalculation()
-        feesPaidCalculation()
-        sizeFilledCalculation()
+        await actualSizeCalculation()
+        await actualRateCalculation()
+        await percentageFilledCalculation()
+        await feesPaidCalculation()
+        await sizeFilledCalculation()
 
-        doTheAccounting(
+        await doTheAccounting(
             tradingEngineStage,
             tradingSystemOrder,
             tradingEngineOrder,
@@ -748,11 +771,11 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
         return
 
-        function actualSizeCalculation() {
+        async function actualSizeCalculation() {
             /* 
             When we submit the order to the exchange, we do it specifying the order size
             in Base Asset. The exchange might take that size or might change it a little 
-            bit if for example, it does not accept as many decimals as we are sending.
+            bit if for example, if it does not accept as many decimals as we are sending.
             If we identify the situation in which the size accepted is different than the 
             size we have accounted for, we need to make several adjustments so that the 
             accounting syncronizes with reality.
@@ -768,7 +791,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
             tradingEngineOrder.orderQuotedAsset.size.value = global.PRECISE(tradingEngineOrder.orderQuotedAsset.size.value, 10)
             /*
             Finaly we need to unaccount the previous size placed and correctly account
-            for the the new sizes we know have.
+            for the the new sizes we now have.
             */
             tradingEngineStage.stageBaseAsset.sizePlaced.value =
                 tradingEngineStage.stageBaseAsset.sizePlaced.value -
@@ -793,7 +816,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
             previousQuotedAssetSize = tradingEngineOrder.orderQuotedAsset.size.value
         }
 
-        function actualRateCalculation() {
+        async function actualRateCalculation() {
             /* 
             Actual Rate Calculation: Let's remember that the exchange may not take the rate
             we send it with the order (in Limit orders) and for any reason change it a little bit.
@@ -820,7 +843,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
             tradingEngineOrder.orderStatistics.actualRate.value = global.PRECISE(tradingEngineOrder.orderStatistics.actualRate.value, 10)
 
-            if (tradingEngineOrder.orderStatistics.actualRate.value === tradingEngineOrder.rate.value) {return}
+            if (tradingEngineOrder.orderStatistics.actualRate.value === tradingEngineOrder.rate.value) { return }
             /*
             Now we know the Actual Rate at which the order was filled. Since the actual rate
             is not the same as the Rate we defined for the order, we need to syncronize 
@@ -851,13 +874,13 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
             tradingEngineStage.stageQuotedAsset.sizePlaced.value = global.PRECISE(tradingEngineStage.stageQuotedAsset.sizePlaced.value, 10)
         }
 
-        function percentageFilledCalculation() {
+        async function percentageFilledCalculation() {
             /* Percentage Filled Calculation */
             tradingEngineOrder.orderStatistics.percentageFilled.value = order.filled * 100 / (order.filled + order.remaining)
             tradingEngineOrder.orderStatistics.percentageFilled.value = global.PRECISE(tradingEngineOrder.orderStatistics.percentageFilled.value, 10)
         }
 
-        function feesPaidCalculation() {
+        async function feesPaidCalculation() {
             /*
             The exchange fees are taken from the Base Asset or the Quoted Asset depending if we 
             are buying or selling. Within the order information received we can not see the fees paid so we need to
@@ -865,17 +888,17 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
             */
             switch (tradingEngineOrder.type) {
                 case 'Market Order': {
-                    applyFeePercentage(tradingEngineOrder, tradingSystemOrder, sessionParameters.feeStructure.config.taker)
+                    await applyFeePercentage(tradingEngineOrder, tradingSystemOrder, sessionParameters.feeStructure.config.taker)
                     break
                 }
                 case 'Limit Order': {
-                    applyFeePercentage(tradingEngineOrder, tradingSystemOrder, sessionParameters.feeStructure.config.maker)
+                    await applyFeePercentage(tradingEngineOrder, tradingSystemOrder, sessionParameters.feeStructure.config.maker)
                     break
                 }
             }
         }
 
-        function sizeFilledCalculation() {
+        async function sizeFilledCalculation() {
             /* 
             CCXT returns order.filled with an amount denominated in Base Asset. We will
             take it from there for our Order Base Asset. The amount in order.filled does
@@ -896,7 +919,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
         }
     }
 
-    function doTheAccounting(
+    async function doTheAccounting(
         tradingEngineStage,
         tradingSystemOrder,
         tradingEngineOrder,
@@ -906,10 +929,10 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
         previousQuotedAssetFeesPaid
     ) {
 
-        updateStageAssets()
-        updateBalances()
+        await updateStageAssets()
+        await updateBalances()
 
-        function updateStageAssets() {
+        async function updateStageAssets() {
             /* Stage Base Asset: Undo the previous accounting */
             tradingEngineStage.stageBaseAsset.sizeFilled.value =
                 tradingEngineStage.stageBaseAsset.sizeFilled.value -
@@ -953,7 +976,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
             tradingEngineStage.stageQuotedAsset.feesPaid.value = global.PRECISE(tradingEngineStage.stageQuotedAsset.feesPaid.value, 10)
         }
 
-        function updateBalances() {
+        async function updateBalances() {
             /* Balances Update */
             switch (true) {
                 /*
@@ -1089,13 +1112,13 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
             if (order === undefined) { return }
 
-            syncWithExchange(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order)
+            await syncWithExchange(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order)
 
-            recalculateStageSize(tradingEngineStage, tradingEngineOrder)
+            await recalculateStageSize(tradingEngineStage, tradingEngineOrder)
         }
     }
 
-    function recalculateStageSize(tradingEngineStage, tradingEngineOrder) {
+    async function recalculateStageSize(tradingEngineStage, tradingEngineOrder) {
         /* 
         Since the order is Cancelled, we need to adjust the stage sizePlaced. Remember that the Stage 
         Size Placed accumulates for each asset, the order size placed at the exchange. A cancelation means that 
@@ -1123,7 +1146,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
         tradingEngineStage.stageQuotedAsset.sizePlaced.value = global.PRECISE(tradingEngineStage.stageQuotedAsset.sizePlaced.value, 10)
     }
 
-    function applyFeePercentage(tradingEngineOrder, tradingSystemOrder, feePercentage) {
+    async function applyFeePercentage(tradingEngineOrder, tradingSystemOrder, feePercentage) {
         switch (true) {
             case tradingSystemOrder.type === 'Market Buy Order' || tradingSystemOrder.type === 'Limit Buy Order': {
                 /*
@@ -1151,7 +1174,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
         tradingEngineOrder.orderQuotedAsset.feesPaid.value = global.PRECISE(tradingEngineOrder.orderQuotedAsset.feesPaid.value, 10)
     }
 
-    function checkOrderEvent(event, order, executionAlgorithm, executionNode) {
+    async function checkOrderEvent(event, order, executionAlgorithm, executionNode) {
         if (event !== undefined) {
             for (let k = 0; k < event.situations.length; k++) {
                 let situation = event.situations[k]
@@ -1183,7 +1206,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
         }
     }
 
-    function updateEndsWithCycle(tradingEngineOrder) {
+    async function updateEndsWithCycle(tradingEngineOrder) {
         tradingEngineOrder.end.value = tradingEngine.current.episode.cycle.end.value
     }
 

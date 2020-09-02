@@ -230,7 +230,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
         }
 
         try {
-            logger.write(MODULE_NAME, '[INFO] evalCondition -> code = ' + code)
+            logger.write(MODULE_NAME, '[INFO] evalCondition -> ' +  node.name + ' -> code = ' + code)
             value = eval(code)
         } catch (err) {
             /*
@@ -270,7 +270,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
         let error
 
         try {
-            logger.write(MODULE_NAME, '[INFO] evalFormula -> code = ' + node.code)
+            logger.write(MODULE_NAME, '[INFO] evalFormula -> ' +  node.name + ' -> code = ' + node.code)
             value = eval(node.code)
         } catch (err) {
             /*

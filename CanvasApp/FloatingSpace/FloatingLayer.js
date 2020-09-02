@@ -74,12 +74,6 @@ function newFloatingLayer() {
             if (container !== undefined) { return container }
         }
 
-        for (let i = 0; i < invisibleFloatingObjects.length; i++) {
-            let floatingObject = invisibleFloatingObjects[i]
-            container = floatingObject.getContainer(point)
-            if (container !== undefined) { return container }
-        }
-
         return container
     }
 

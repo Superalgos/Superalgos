@@ -54,6 +54,9 @@ function newAppLoader() {
                 'DesignSpace/Workspace/FunctionLibraries/WebhookFunctions.js',
                 'DesignSpace/Workspace/FunctionLibraries/DependenciesFilter.js',
                 'DesignSpace/Workspace/FunctionLibraries/NodePath.js',
+                'DesignSpace/Workspace/FunctionLibraries/DataMineFunctions.js',
+                'DesignSpace/Workspace/FunctionLibraries/DataStorageFunctions.js',
+                'DesignSpace/Workspace/FunctionLibraries/ChartingSpaceFunctions.js',
 
                 'Utilities/CoordinateTransformations.js',
                 'Utilities/DateRateTransformations.js',
@@ -63,6 +66,9 @@ function newAppLoader() {
                 'Utilities/LoadSaveFrame.js',
                 'Utilities/NodeConfig.js',
                 'Utilities/HiriarchyMap.js',
+                'Utilities/Folders.js',
+                'Utilities/Branches.js',
+                'Utilities/Meshes.js',
 
                 'Panels/LayersPanel.js',
                 'Panels/UpDownButton.js',

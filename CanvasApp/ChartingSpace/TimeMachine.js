@@ -672,8 +672,9 @@ function newTimeMachine() {
         for (let i = 0; i < thisObject.timelineCharts.length; i++) {
             let timelinechart = thisObject.timelineCharts[i]
             if (timelinechart.layersManager !== undefined) {
-                for (let j = 0; j < timelinechart.layersManager.layers.length; j++) {
-                    let layer = timelinechart.layersManager.layers[j]
+                let layers =  timelinechart.layersManager.layers 
+                for (let j = 0; j < layers.length; j++) {
+                    let layer = layers[j]
 
                     exchangeMarket = {
                         exchangeName: layer.exchange.name,

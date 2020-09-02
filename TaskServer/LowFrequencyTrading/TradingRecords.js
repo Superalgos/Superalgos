@@ -37,7 +37,8 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
             we have a pointer to the node that have the information we need to extract.
             Later, based on the product record definition we will extract each individual value.
        */
-        let outputDatasets = bot.processNode.referenceParent.processOutput.outputDatasets
+        let outputDatasets = global.NODE_BRANCH_TO_ARRAY(bot.processNode.referenceParent.processOutput, 'Output Dataset')
+
         for (let i = 0; i < outputDatasets.length; i++) {
             let outputDatasetNode = outputDatasets[i]
             let dataset = outputDatasetNode.referenceParent

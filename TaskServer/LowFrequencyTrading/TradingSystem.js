@@ -182,7 +182,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
         }
 
         /* Now we go down through all this node children */
-        let nodeDefinition = bot.APP_SCHEMA_MAP.get(node.type)
+        let nodeDefinition = global.APP_SCHEMA_MAP.get(node.type)
         if (nodeDefinition === undefined) { return }
 
         if (nodeDefinition.properties !== undefined) {

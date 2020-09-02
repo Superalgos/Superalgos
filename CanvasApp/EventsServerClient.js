@@ -199,8 +199,14 @@ function newEventsServerClient(networkNode) {
                 }
             }
         } else {
-            networkNode.payload.uiObject.setStatus('Connected to Superalgos Backend via WebSockets.')
-            retryCommandsPhysics()
+            if (networkNode !== undefined) {
+                if (networkNode.payload !== undefined) {
+                    if (networkNode.payload.uiObject !== undefined) {
+                        networkNode.payload.uiObject.setStatus('Connected to Superalgos Backend via WebSockets.')
+                        retryCommandsPhysics()
+                    }   
+                }   
+            }
         }
 
         DEBUG.variable4 = 'Commands Waiting For Confirmation from WS Server: ' + commandsWaitingConfirmation.size

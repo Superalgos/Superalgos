@@ -129,7 +129,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
                         */
                         if (tradingSystemOrder.config.spawnMultipleOrders !== true) {
                             if (tradingEngineOrder.lock.value === 'Closed') {
-                                tradingSystem.infos.push('Order ' + tradingSystemOrder.name + ' skipped because lock was closed.')
+                                tradingSystem.infos.push(['Order ' + tradingSystemOrder.name + ' skipped because lock was closed.'])
                                 continue
                             }
                         }
@@ -158,7 +158,9 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
                         For some reason we could not check the order at the exchange, so we will not even check if we 
                         need to cancel it, since we could end up with inconsisten information at the accounting level.
                         */
-                        tradingSystem.warnings.push(tradingSystemOrder.id, 'Skipping Cancel Event Checking because cheking the Exchange Events failed.')
+                        if (tradingSystemOrder.cancelOrderEvent !== undefined) {
+                            tradingSystem.warnings.push([tradingSystemOrder.cancelOrderEvent.id, 'Skipping Cancel Event Checking because cheking the order at the exchange failed.'])
+                        }
                         return
                     }
 
@@ -246,16 +248,16 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
         await calculateOrderSize()
 
         /* Check Size: We are not going to create Orders which size is equal or less to zero.  */
-        if (tradingEngineOrder.orderBaseAsset.size.value <= 0 || tradingEngineOrder.orderQuotedAsset.size.value <= 0) { 
-            tradingSystem.warnings.push(tradingSystemOrder.id, 'Could not open this order because its size would be zero.')
-            return 
+        if (tradingEngineOrder.orderBaseAsset.size.value <= 0 || tradingEngineOrder.orderQuotedAsset.size.value <= 0) {
+            tradingSystem.warnings.push([tradingSystemOrder.id, 'Could not open this order because its size would be zero.'])
+            return
         }
 
         /* Place Order at the Exchange, if needed. */
         let result = await createOrderAtExchange(tradingSystemOrder, tradingEngineOrder)
-        if (result !== true) { 
-            tradingSystem.warnings.push(tradingSystemOrder.id, 'Could not open this order because something failed placing the order at the Exchange.')
-            return 
+        if (result !== true) {
+            tradingSystem.warnings.push([tradingSystemOrder.id, 'Could not open this order because something failed placing the order at the Exchange.'])
+            return
         }
 
         /* Update Stage Placed Size */
@@ -679,7 +681,10 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
         let order = await exchangeAPIModule.getOrder(tradingSystemOrder, tradingEngineOrder)
 
-        if (order === undefined) { return false }
+        if (order === undefined) {
+            tradingSystem.warnings.push([tradingSystemOrder.id, 'Could not verify the status of this order at the exchange.'])
+            return false
+        }
 
         const AT_EXCHANGE_STATUS = {
             OPEN: 'open',

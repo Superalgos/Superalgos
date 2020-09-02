@@ -187,7 +187,7 @@ function newCircularMenuItem() {
                 }
             }
         } else {
-            radiusGrowthFactor = 4
+            radiusGrowthFactor = 3.2
         }
 
         thisObject.container.frame.position.x =

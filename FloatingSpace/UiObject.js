@@ -417,7 +417,7 @@ function newUiObject() {
                     }
                 }
                 if (totalRunning > 0) {
-                    setValue(totalRunning + ' / ' + children.length + ' Running')
+                    setStatus(totalRunning + ' / ' + children.length + ' Running')
                     thisObject.isRunning = true
                 } else {
                     thisObject.isRunning = false

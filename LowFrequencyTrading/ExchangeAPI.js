@@ -66,7 +66,7 @@
             let order = await exchange.fetchOrder(orderId, symbol)
             return order
         } catch (err) {
-            tradingSystem.errors.push([tradingSystemOrder.id, err.message])
+            tradingSystem.errors.push([tradingSystemOrder.id, "getOrder -> Error = " + err.message])
             logError("getOrder -> Error = " + err.message);
         }
     }
@@ -123,7 +123,7 @@
             let order = await (exchange.createOrder(symbol, type, side, amount, price))
             return order.id
         } catch (err) {
-            tradingSystem.errors.push([tradingSystemOrder.id, err.message])
+            tradingSystem.errors.push([tradingSystemOrder.id, "createOrder -> Error = " + err.message])
             logError("createOrder -> Error = " + err.message);
         }
     }
@@ -147,7 +147,7 @@
             let order = await exchange.cancelOrder(orderId, symbol)
             return true
         } catch (err) {
-            tradingSystem.errors.push([tradingSystemOrder.id, err.message])
+            tradingSystem.errors.push([tradingSystemOrder.id, "cancelOrder -> Error = " + err.message])
             logError("cancelOrder -> Error = " + err.message);
         }
     }

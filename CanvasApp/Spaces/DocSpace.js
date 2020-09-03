@@ -51,7 +51,7 @@ function newDocSpace() {
     }
 
     function resize() {
-        thisObject.container.frame.width = 900
+        thisObject.container.frame.width = 1200
         thisObject.container.frame.height = browserCanvas.height // - TOP_SPACE_HEIGHT
         thisObject.container.frame.position.x = browserCanvas.width
         thisObject.container.frame.position.y = 0 // TOP_SPACE_HEIGHT
@@ -86,7 +86,7 @@ function newDocSpace() {
                 y: 0
             }
             docAppDivPosition = thisObject.container.frame.frameThisPoint(docAppDivPosition)
-            docAppDiv.style = ' overflow-x: hidden;  ' + 
+            docAppDiv.style = '   ' + 
             'position:fixed; top:' + docAppDivPosition.y + 'px; ' + 
             'left:' + docAppDivPosition.x + 'px; z-index:1; ' + 
             'width: ' + thisObject.container.frame.width + 'px;' +
@@ -95,7 +95,7 @@ function newDocSpace() {
 
         function iFramePhysics() {
             let docIFrame = document.getElementById('docIFrame')
-            docIFrame.style = 'overflow-x: hidden; ' + 
+            docIFrame.style = '  ' + 
             'width: ' + thisObject.container.frame.width + 'px;' +
             'height: ' + thisObject.container.frame.height + 'px'
         }

@@ -3,6 +3,7 @@ function newDocSpace() {
     let thisObject = {
         sidePanelTab: undefined,
         container: undefined,
+        navigateTo: navigateTo,
         physics: physics,
         draw: draw,
         getContainer: getContainer,
@@ -43,8 +44,14 @@ function newDocSpace() {
         thisObject.sidePanelTab.container.eventHandler.stopListening(closedEventSubscriptionId)
     }
 
+    function navigateTo(url) {
+        let docIFrame = document.getElementById('docIFrame')
+        docIFrame.src = url
+        thisObject.sidePanelTab.open()
+    }
+
     function resize() {
-        thisObject.container.frame.width = SIDE_PANEL_WIDTH * 2
+        thisObject.container.frame.width = 900
         thisObject.container.frame.height = browserCanvas.height // - TOP_SPACE_HEIGHT
         thisObject.container.frame.position.x = browserCanvas.width
         thisObject.container.frame.position.y = 0 // TOP_SPACE_HEIGHT
@@ -69,6 +76,29 @@ function newDocSpace() {
 
     function physics() {
         thisObject.sidePanelTab.physics()
+        docAppDivPhysics()
+        iFramePhysics()
+
+        function docAppDivPhysics() {
+            let docAppDiv = document.getElementById('docApp')
+            docAppDivPosition = {
+                x: 0,
+                y: 0
+            }
+            docAppDivPosition = thisObject.container.frame.frameThisPoint(docAppDivPosition)
+            docAppDiv.style = ' overflow-x: hidden;  ' + 
+            'position:fixed; top:' + docAppDivPosition.y + 'px; ' + 
+            'left:' + docAppDivPosition.x + 'px; z-index:1; ' + 
+            'width: ' + thisObject.container.frame.width + 'px;' +
+            'height: ' + thisObject.container.frame.height + 'px'
+        }
+
+        function iFramePhysics() {
+            let docIFrame = document.getElementById('docIFrame')
+            docIFrame.style = 'overflow-x: hidden; ' + 
+            'width: ' + thisObject.container.frame.width + 'px;' +
+            'height: ' + thisObject.container.frame.height + 'px'
+        }
     }
 
     function draw() {

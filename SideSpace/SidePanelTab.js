@@ -4,6 +4,8 @@ function newSidePanelTab() {
         screenside: undefined,
         pointerDirection: undefined,
         container: undefined,
+        open: open,
+        close: close,
         resize: resize,
         physics: physics,
         draw: draw,
@@ -61,9 +63,17 @@ function newSidePanelTab() {
                 break
             }
         }
-        
+
         thisObject.container.frame.position.y = 69
         setClosed()
+    }
+
+    function open() {
+        animation = 'opening'
+    }
+
+    function close() {
+        animation = 'closing'
     }
 
     function onMouseClick(event) {

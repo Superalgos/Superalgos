@@ -685,8 +685,7 @@ function newWorkspace() {
                     let definition = getNodeDefinition(payload.node)
                     if (definition !== undefined) {
                         if (definition.docURL !== undefined) {
-                            let newTab = window.open(definition.docURL, '_blank')
-                            newTab.focus()
+                            canvas.docSpace.navigateTo(definition.docURL)
                         }
                     }
                 }

@@ -617,7 +617,7 @@ function newUiObject() {
             let distance = nearby[0]
             let floatingObject = nearby[1]
             let nearbyNode = floatingObject.payload.node
-            if (compatibleTypes.indexOf('->' + nearbyNode.type + '->') >= 0) {
+            if (compatibleTypes.indexOf('->' + nearbyNode.type + '->') >= 0 || compatibleTypes === "->*Any Node*->" ) {
                 if (foundCompatible === false) {
                     if (distance < thisObject.payload.floatingObject.container.frame.radius * 1.5 + floatingObject.container.frame.radius * 1.5) {
                         nearbyNode.payload.uiObject.getReadyToReferenceAttach()
@@ -1925,7 +1925,7 @@ function newUiObject() {
 
             /* Hierarchy Head Ring */
             if (nodeDefinition.isHierarchyHead === true) {
-                VISIBLE_RADIUS = thisObject.payload.floatingObject.currentHierarchyRing * 3.8
+                VISIBLE_RADIUS = thisObject.payload.floatingObject.currentHierarchyRing * 2.6
                 if (canvas.floatingSpace.inMapMode === true) {
                     VISIBLE_RADIUS = canvas.floatingSpace.transformRadiusToMap(VISIBLE_RADIUS)
                 }

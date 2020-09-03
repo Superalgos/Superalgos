@@ -35,7 +35,7 @@ function newTopSpace() {
             function onImageLoad() {
                 image.canDraw = true
             }
-            image.src = window.canvasApp.urlPrefix + PATH + name + '.png'
+            image.src = PATH + name + '.png'
         }
     }
 

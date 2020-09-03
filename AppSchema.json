@@ -554,9 +554,9 @@
         },
         "menuItems": [
             {
-                "action": "Edit Formula",
+                "action": "Edit",
                 "actionFunction": "uiObject.formulaEditor.activate",
-                "label": "Edit Formula",
+                "label": "Edit",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -589,9 +589,9 @@
         },
         "menuItems": [
             {
-                "action": "Edit Code",
+                "action": "Edit",
                 "actionFunction": "uiObject.codeEditor.activate",
-                "label": "Edit Code",
+                "label": "Edit",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -649,7 +649,6 @@
         "icon": "chart-point",
         "level": 4,
         "propertyNameAtParent": "points",
-        "isReferenceParent": true,
         "chainAttachesTo": {
             "compatibleTypes": "->Chart Points->"
         },
@@ -699,9 +698,9 @@
         },
         "menuItems": [
             {
-                "action": "Edit Formula",
+                "action": "Edit",
                 "actionFunction": "uiObject.formulaEditor.activate",
-                "label": "Edit Formula",
+                "label": "Edit",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -798,9 +797,9 @@
         "properties": [],
         "menuItems": [
             {
-                "action": "Edit Condition",
+                "action": "Edit",
                 "actionFunction": "uiObject.codeEditor.activate",
-                "label": "Edit Condition",
+                "label": "Edit",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -987,9 +986,9 @@
         "properties": [],
         "menuItems": [
             {
-                "action": "Edit Condition",
+                "action": "Edit",
                 "actionFunction": "uiObject.codeEditor.activate",
-                "label": "Edit Condition",
+                "label": "Edit",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -1062,9 +1061,9 @@
         },
         "menuItems": [
             {
-                "action": "Edit Formula",
+                "action": "Edit",
                 "actionFunction": "uiObject.formulaEditor.activate",
-                "label": "Edit Formula",
+                "label": "Edit",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -1175,9 +1174,9 @@
         "properties": [],
         "menuItems": [
             {
-                "action": "Edit Condition",
+                "action": "Edit",
                 "actionFunction": "uiObject.codeEditor.activate",
-                "label": "Edit Condition",
+                "label": "Edit",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -1316,9 +1315,9 @@
         ],
         "menuItems": [
             {
-                "action": "Edit Condition",
+                "action": "Edit",
                 "actionFunction": "uiObject.codeEditor.activate",
-                "label": "Edit Condition",
+                "label": "Edit",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -1418,6 +1417,13 @@
                 "ring": 1
             },
             {
+                "action": "Share Workspace",
+                "iconPathOn": "menu-share",
+                "iconPathOff": "menu-share",
+                "actionFunction": "payload.onMenuItemClick",
+                "ring": 1
+            },
+            {
                 "action": "Backup Workspace",
                 "iconPathOn": "menu-backup",
                 "iconPathOff": "menu-backup",
@@ -1462,10 +1468,9 @@
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
-                "action": "Share Workspace",
-                "label": "Share",
-                "iconPathOn": "menu-share",
-                "iconPathOff": "menu-share",
+                "action": "Add UI Object",
+                "label": "Add Tutorial",
+                "relatedUiObject": "Tutorial",
                 "actionFunction": "payload.onMenuItemClick"
             }
         ],
@@ -1532,9 +1537,9 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-trading-system.html#condition",
         "menuItems": [
             {
-                "action": "Edit Condition",
+                "action": "Edit",
                 "actionFunction": "uiObject.conditionEditor.activate",
-                "label": "Edit Condition",
+                "label": "Edit",
                 "relatedUiObject": "Condition"
             },
             {
@@ -9700,8 +9705,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-trading-system.html#formula",
         "menuItems": [
             {
-                "action": "Edit Formula",
-                "label": "Edit Formula",
+                "action": "Edit",
+                "label": "Edit",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -9735,8 +9740,8 @@
         "type": "Announcement Formula",
         "menuItems": [
             {
-                "action": "Edit Formula",
-                "label": "Edit Formula",
+                "action": "Edit",
+                "label": "Edit",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -14085,6 +14090,119 @@
                 "name": "dataProductFolders",
                 "type": "array",
                 "childType": "Data Product Folder",
+                "autoAdd": false
+            }
+        ]
+    },
+    {
+        "type": "Tutorial",
+        "menuItems": [
+            {
+                "action": "Play Tutorial",
+                "label": "Play",
+                "relatedUiObject": "Tutorial",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Resume Tutorial",
+                "label": "Resume",
+                "relatedUiObject": "Tutorial",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Configure",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Configure",
+                "iconPathOn": "html",
+                "iconPathOff": "html"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Tutorial Step",
+                "relatedUiObject": "Tutorial Step",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n}"
+        },
+        "isTitleAllwaysVisible": true,
+        "isHierarchyHead": true,
+        "addLeftIcons": true,
+        "level": 0,
+        "icon": "approve",
+        "propertyNameAtParent": "tutorials",
+        "properties": [
+            {
+                "name": "tutorialSteps",
+                "type": "array",
+                "childType": "Tutorial Step",
+                "autoAdd": false
+            }
+        ]
+    },
+    {
+        "type": "Tutorial Step",
+        "menuItems": [
+            {
+                "action": "Play Tutorial Step",
+                "label": "Play",
+                "relatedUiObject": "Tutorial",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Configure",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Configure",
+                "iconPathOn": "html",
+                "iconPathOff": "html"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Tutorial Step",
+                "relatedUiObject": "Tutorial Step",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n\"paragraphs\": \n[\n\"\",\n\"\",\n\"\" \n], \n\"done\": false\n}"
+        },
+        "referenceAttachesTo": {
+            "compatibleTypes": "->*Any Node*->"
+        },
+        "addLeftIcons": true,
+        "level": 1,
+        "icon": "cardano",
+        "propertyNameAtParent": "tutorials",
+        "properties": [
+            {
+                "name": "tutorialSteps",
+                "type": "array",
+                "childType": "Tutorial Step",
                 "autoAdd": false
             }
         ]

@@ -1,8 +1,11 @@
 function newSidePanelTab() {
     const MODULE_NAME = 'Side Panel Tab'
     let thisObject = {
-        pointerDirection: 'left',
+        screenside: undefined,
+        pointerDirection: undefined,
         container: undefined,
+        open: open,
+        close: close,
         resize: resize,
         physics: physics,
         draw: draw,
@@ -12,6 +15,7 @@ function newSidePanelTab() {
 
     const TAB_WIDTH = 25
     const TAB_HEIGHT = 60
+    const ANIMATION_STEP = 100
 
     let isInitialized = false
     let animation = 'none'
@@ -26,7 +30,18 @@ function newSidePanelTab() {
 
     return thisObject
 
-    function initialize() {
+    function initialize(screenside) {
+        thisObject.screenside = screenside
+        switch (thisObject.screenside) {
+            case 'left': {
+                thisObject.pointerDirection = 'left'
+                break
+            }
+            case 'right': {
+                thisObject.pointerDirection = 'right'
+                break
+            }
+        }
         thisObject.container.frame.width = TAB_WIDTH
         thisObject.container.frame.height = TAB_HEIGHT
 
@@ -38,18 +53,51 @@ function newSidePanelTab() {
     }
 
     function resize() {
-        thisObject.container.frame.position.x = 0 + thisObject.container.parentContainer.frame.width
+        switch (thisObject.screenside) {
+            case 'left': {
+                thisObject.container.frame.position.x = 0 + thisObject.container.parentContainer.frame.width
+                break
+            }
+            case 'right': {
+                thisObject.container.frame.position.x = 0 - TAB_WIDTH
+                break
+            }
+        }
+
         thisObject.container.frame.position.y = 69
         setClosed()
     }
 
+    function open() {
+        animation = 'opening'
+    }
+
+    function close() {
+        animation = 'closing'
+    }
+
     function onMouseClick(event) {
-        if (thisObject.pointerDirection === 'left') {
-            animation = 'opening'
-            thisObject.container.eventHandler.raiseEvent('opening')
-        } else {
-            animation = 'closing'
-            thisObject.container.eventHandler.raiseEvent('closing')
+        switch (thisObject.screenside) {
+            case 'left': {
+                if (thisObject.pointerDirection === 'left') {
+                    animation = 'opening'
+                    thisObject.container.eventHandler.raiseEvent('opening')
+                } else {
+                    animation = 'closing'
+                    thisObject.container.eventHandler.raiseEvent('closing')
+                }
+                break
+            }
+            case 'right': {
+                if (thisObject.pointerDirection === 'left') {
+                    animation = 'closing'
+                    thisObject.container.eventHandler.raiseEvent('closing')
+                } else {
+                    animation = 'opening'
+                    thisObject.container.eventHandler.raiseEvent('opening')
+                }
+                break
+            }
         }
     }
 
@@ -74,11 +122,20 @@ function newSidePanelTab() {
     }
 
     function animate() {
-        const STEP = 50
 
         if (animation === 'opening') {
-            xOffset = xOffset + STEP
-            thisObject.container.parentContainer.frame.position.x = ORIGINAL_PARENT_POSITON + xOffset
+            xOffset = xOffset + ANIMATION_STEP
+            switch (thisObject.screenside) {
+                case 'left': {
+                    thisObject.container.parentContainer.frame.position.x = ORIGINAL_PARENT_POSITON + xOffset
+                    break
+                }
+                case 'right': {
+                    thisObject.container.parentContainer.frame.position.x = ORIGINAL_PARENT_POSITON - xOffset
+                    break
+                }
+            }
+
             if (xOffset >= thisObject.container.parentContainer.frame.width) {
                 setOpened()
                 thisObject.container.eventHandler.raiseEvent('opened')
@@ -86,8 +143,18 @@ function newSidePanelTab() {
         }
 
         if (animation === 'closing') {
-            xOffset = xOffset - STEP
-            thisObject.container.parentContainer.frame.position.x = ORIGINAL_PARENT_POSITON + xOffset
+            xOffset = xOffset - ANIMATION_STEP
+            switch (thisObject.screenside) {
+                case 'left': {
+                    thisObject.container.parentContainer.frame.position.x = ORIGINAL_PARENT_POSITON + xOffset
+                    break
+                }
+                case 'right': {
+                    thisObject.container.parentContainer.frame.position.x = ORIGINAL_PARENT_POSITON - xOffset
+                    break
+                }
+            }
+
             if (xOffset <= 0) {
                 setClosed()
                 thisObject.container.eventHandler.raiseEvent('closed')
@@ -98,16 +165,36 @@ function newSidePanelTab() {
     function setOpened() {
         animation = 'none'
         xOffset = thisObject.container.parentContainer.frame.width
-        thisObject.container.parentContainer.frame.position.x = ORIGINAL_PARENT_POSITON + xOffset
         thisObject.container.parentContainer.status = 'visible'
-        thisObject.pointerDirection = 'right'
+        switch (thisObject.screenside) {
+            case 'left': {
+                thisObject.container.parentContainer.frame.position.x = ORIGINAL_PARENT_POSITON + xOffset
+                thisObject.pointerDirection = 'right'
+                break
+            }
+            case 'right': {
+                thisObject.container.parentContainer.frame.position.x = ORIGINAL_PARENT_POSITON - xOffset
+                thisObject.pointerDirection = 'left'
+                break
+            }
+        }
     }
     function setClosed() {
         animation = 'none'
         xOffset = 0
-        thisObject.container.parentContainer.frame.position.x = ORIGINAL_PARENT_POSITON
         thisObject.container.parentContainer.status = 'hidden'
-        thisObject.pointerDirection = 'left'
+        switch (thisObject.screenside) {
+            case 'left': {
+                thisObject.container.parentContainer.frame.position.x = ORIGINAL_PARENT_POSITON
+                thisObject.pointerDirection = 'left'
+                break
+            }
+            case 'right': {
+                thisObject.container.parentContainer.frame.position.x = ORIGINAL_PARENT_POSITON
+                thisObject.pointerDirection = 'right'
+                break
+            }
+        }
     }
 
     function arrow() {

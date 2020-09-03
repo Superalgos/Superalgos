@@ -733,9 +733,9 @@
         },
         "menuItems": [
             {
-                "action": "Edit Image",
+                "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Edit Image",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -839,9 +839,9 @@
         },
         "menuItems": [
             {
-                "action": "Edit This",
+                "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Edit This",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -1028,9 +1028,9 @@
         },
         "menuItems": [
             {
-                "action": "Edit Text",
+                "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Edit Text",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -11904,9 +11904,9 @@
         },
         "menuItems": [
             {
-                "action": "Edit This",
+                "action": "Configure",
                 "actionFunction": "uiObject.codeEditor.activate",
-                "label": "Edit This",
+                "label": "Configure",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },

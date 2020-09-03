@@ -719,8 +719,17 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
             /* Close this Order */
             tradingEngineOrder.status.value = 'Closed'
-            tradingEngineOrder.exitType.value = 'Cancelled at the Exchange'
 
+            /* 
+            We must be carefull here not to overide an already defined exitType. It can happen
+            for instance that the order was cancellerd from the bot, but veryfing the cancellation
+            was not possible because of a connection to the exchange problem. In that case
+            the exit type was defined but the order was kept open until the verification could be done.
+            */
+            if (tradingEngineOrder.exitType.value === tradingEngineOrder.exitType.config.initialValue) {
+                tradingEngineOrder.exitType.value = 'Cancelled at the Exchange'
+            }
+            
             /* Initialize this */
             tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
 
@@ -1096,12 +1105,9 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
         /* Check if we can cancel the order at the Exchange. */
         let result = await exchangeAPIModule.cancelOrder(tradingSystemOrder, tradingEngineOrder)
         if (result === true) {
-            /* Close this Order */
-            tradingEngineOrder.status.value = 'Closed'
-            tradingEngineOrder.exitType.value = exitType
 
-            /* Initialize this */
-            tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
+            /* At this point we know which is the exit type for this order */
+            tradingEngineOrder.exitType.value = exitType
 
             /* 
             Perhaps the order was filled a bit more between the last time we checked and when it was cancelled.
@@ -1110,7 +1116,21 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
             let order = await exchangeAPIModule.getOrder(tradingSystemOrder, tradingEngineOrder)
 
-            if (order === undefined) { return }
+            if (order === undefined) {
+                tradingSystem.warnings.push([tradingSystemOrder.id, 'Could not verify the status of this order at the exchange, and syncronize the accounting.'])
+                return false
+            }
+
+            /* 
+            Close this Order. Note that we are not closing the order until we have the exchange 
+            response with the order details that we can use to syncronize with our accoounting.
+            Otherwise if the connection to the exchange fails, we would have a closed order not 
+            accounted in any way. 
+            */
+            tradingEngineOrder.status.value = 'Closed'
+
+            /* Initialize this */
+            tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
 
             await syncWithExchange(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order)
 

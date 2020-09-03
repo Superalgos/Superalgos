@@ -43,9 +43,7 @@ function newSidePanelTab() {
             }
         }
         thisObject.container.frame.width = TAB_WIDTH
-        thisObject.container.frame.height = TAB_HEIGHT
-
-        ORIGINAL_PARENT_POSITON = thisObject.container.parentContainer.frame.position.x
+        thisObject.container.frame.height = TAB_HEIGHT        
 
         thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
         resize()
@@ -63,8 +61,9 @@ function newSidePanelTab() {
                 break
             }
         }
-
+        
         thisObject.container.frame.position.y = 69
+        ORIGINAL_PARENT_POSITON = thisObject.container.parentContainer.frame.position.x
         setClosed()
     }
 

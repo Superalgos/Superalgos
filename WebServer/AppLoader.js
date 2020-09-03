@@ -88,6 +88,7 @@ function newAppLoader() {
                 'Spaces/FloatingSpace.js',
                 'Spaces/DesignSpace.js',
                 'Spaces/SideSpace.js',
+                'Spaces/DocSpace.js',
 
                 'Files/SingleFile.js',
                 'Files/FileCloud.js',
@@ -154,13 +155,9 @@ function newAppLoader() {
             modulesArray = modulesArray.concat(plotters)
 
             let downloadedCounter = 0
-            let versionParam = window.canvasApp.version
-            if (versionParam === undefined) { versionParam = '' } else {
-                versionParam = '?' + versionParam
-            }
 
             for (let i = 0; i < modulesArray.length; i++) {
-                let path = window.canvasApp.urlPrefix + modulesArray[i] + versionParam
+                let path = modulesArray[i] 
 
                 REQUIREJS([path], onRequired)
 

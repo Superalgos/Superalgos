@@ -88,10 +88,10 @@ function loadSuperalgos() {
     browserCanvas = document.getElementById('canvas');
 
     browserCanvas.width = window.innerWidth;
-    browserCanvas.height = window.innerHeight - window.canvasApp.topMargin;
+    browserCanvas.height = window.innerHeight;
     browserCanvas.style.border = "none";
 
-    browserCanvas.style.top = window.canvasApp.topMargin + 'px';
+    browserCanvas.style.top = 0 + 'px';
 
 
 
@@ -102,7 +102,7 @@ function loadSuperalgos() {
         try {
             if (INFO_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + " : " + "[INFO] loadDebugModule -> Entering function."); }
 
-            let path = window.canvasApp.urlPrefix + "WebDebugLog.js";
+            let path = "WebDebugLog.js";
 
             REQUIREJS([path], onRequired);
 
@@ -127,7 +127,7 @@ function loadSuperalgos() {
 
             if (INFO_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + " : " + "[INFO] loadModules -> Entering function."); }
 
-            let path = window.canvasApp.urlPrefix + "WebServer/AppLoader.js";
+            let path = "WebServer/AppLoader.js";
 
             REQUIREJS([path], onRequired);
 

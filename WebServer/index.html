@@ -12,10 +12,6 @@
 
     <script type="text/javascript">
         function loadCanvas() {
-            window.canvasApp = {
-                urlPrefix: ''
-            };
-
             try {
                 loadSuperalgos();
             } catch (err) {
@@ -40,8 +36,10 @@
     onresize="onResize()">
     <div id="masterApp"></div>
     <div id="canvasApp"></div>
+    <div id="docs">
+        <iframe src="https://docs.superalgos.org/" style="border:none;" height="1000" width="700"></iframe>
+    </div>
     <div id="textAreaDiv"></div>
     <div id="inputDiv" style="font-family:saira condensed;">&nbsp;</div>
 </body>
-
 </html>

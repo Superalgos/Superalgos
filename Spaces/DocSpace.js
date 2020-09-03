@@ -1,5 +1,5 @@
-function newSideSpace() {
-    const MODULE_NAME = 'Side Space'
+function newDocSpace() {
+    const MODULE_NAME = 'Doc Space'
     let thisObject = {
         sidePanelTab: undefined,
         container: undefined,
@@ -20,8 +20,6 @@ function newSideSpace() {
     thisObject.container.detectMouseOver = true
     thisObject.container.status = 'hidden'
 
-    let listView
-
     resize()
 
     let openingEventSubscriptionId
@@ -32,11 +30,10 @@ function newSideSpace() {
     function initialize() {
         thisObject.sidePanelTab = newSidePanelTab()
         thisObject.sidePanelTab.container.connectToParent(thisObject.container, false, false)
-        thisObject.sidePanelTab.initialize('left')
+        thisObject.sidePanelTab.initialize('right')
 
         browserResizedEventSubscriptionId = canvas.eventHandler.listenToEvent('Browser Resized', resize)
 
-        initializeListView()
         isInitialized = true
     }
 
@@ -46,23 +43,11 @@ function newSideSpace() {
         thisObject.sidePanelTab.container.eventHandler.stopListening(closedEventSubscriptionId)
     }
 
-    function initializeListView() {
-        listView = newListView()
-        listView.initialize()
-        listView.container.connectToParent(thisObject.container, false, false)
-        openingEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('opening', listView.turnOn)
-        closedEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('closed', listView.turnOff)
-    }
-
     function resize() {
-        thisObject.container.frame.width = SIDE_PANEL_WIDTH
+        thisObject.container.frame.width = SIDE_PANEL_WIDTH * 2
         thisObject.container.frame.height = browserCanvas.height // - TOP_SPACE_HEIGHT
-        thisObject.container.frame.position.x = -SIDE_PANEL_WIDTH
+        thisObject.container.frame.position.x = browserCanvas.width
         thisObject.container.frame.position.y = 0 // TOP_SPACE_HEIGHT
-
-        if (listView !== undefined) {
-            listView.resize()
-        }
 
         if (thisObject.sidePanelTab !== undefined) {
             thisObject.sidePanelTab.resize()
@@ -75,9 +60,6 @@ function newSideSpace() {
         container = thisObject.sidePanelTab.getContainer(point, purpose)
         if (container !== undefined) { return container }
 
-        container = listView.getContainer(point, purpose)
-        if (container !== undefined) { return container }
-
         if (thisObject.container.frame.isThisPointHere(point, true) === true) {
             return thisObject.container
         } else {
@@ -87,7 +69,6 @@ function newSideSpace() {
 
     function physics() {
         thisObject.sidePanelTab.physics()
-        listView.physics()
     }
 
     function draw() {
@@ -95,7 +76,6 @@ function newSideSpace() {
         if (isInitialized === false) { return }
         borders()
         thisObject.sidePanelTab.draw()
-        listView.draw()
     }
 
     function borders() {

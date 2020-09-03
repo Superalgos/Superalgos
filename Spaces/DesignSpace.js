@@ -312,7 +312,7 @@ function newDesignSpace() {
             function onImageLoad() {
                 image.canDrawIcon = true
             }
-            image.src = window.canvasApp.urlPrefix + PATH + name + '.png'
+            image.src = PATH + name + '.png'
             thisObject.iconCollection.set(name, image)
         }
     }

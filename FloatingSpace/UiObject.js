@@ -1925,7 +1925,7 @@ function newUiObject() {
 
             /* Hierarchy Head Ring */
             if (nodeDefinition.isHierarchyHead === true) {
-                VISIBLE_RADIUS = thisObject.payload.floatingObject.currentHierarchyRing * 3.8
+                VISIBLE_RADIUS = thisObject.payload.floatingObject.currentHierarchyRing * 2.6
                 if (canvas.floatingSpace.inMapMode === true) {
                     VISIBLE_RADIUS = canvas.floatingSpace.transformRadiusToMap(VISIBLE_RADIUS)
                 }

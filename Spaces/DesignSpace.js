@@ -2,7 +2,6 @@
 function newDesignSpace() {
     const MODULE_NAME = 'Designe Space'
     let thisObject = {
-        sidePanel: undefined,
         container: undefined,
         iconCollection: undefined,
         iconByUiObjectType: undefined,
@@ -331,24 +330,11 @@ function newDesignSpace() {
     }
 
     function getContainer(point) {
-        let container
-
-        if (thisObject.sidePanel !== undefined) {
-            container = thisObject.sidePanel.getContainer(point)
-            if (container !== undefined) {
-                container.space = 'Design Space'
-                return container
-            }
-        }
-
-        return
+        
     }
 
     function draw() {
         if (canWeDraw === false) { return }
-        if (thisObject.sidePanel !== undefined) {
-            thisObject.sidePanel.draw()
-        }
         if (thisObject.workspace !== undefined) {
             thisObject.workspace.draw()
         }

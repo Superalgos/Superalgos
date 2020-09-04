@@ -69,6 +69,7 @@ function newWorkspace() {
     let functionLibraryDataMineFunctions = newDataMineFunctions()
     let functionLibraryDataStorageFunctions = newDataStorageFunctions()
     let functionLibraryChartingSpaceFunctions = newChartingSpaceFunctions()
+    let functionLibraryTutorialFunctions = newTutorialFunctions()
 
     thisObject.nodeChildren = newNodeChildren()
 
@@ -633,6 +634,11 @@ function newWorkspace() {
             case 'Add All Data Mine Layers':
                 {
                     functionLibraryChartingSpaceFunctions.addAllDataMineLayers(payload.node, functionLibraryUiObjectsFromNodes)
+                }
+                break
+            case 'Play Tutorial':
+                {
+                    functionLibraryTutorialFunctions.play(payload.node)
                 }
                 break
             case 'Send Webhook Test Message':

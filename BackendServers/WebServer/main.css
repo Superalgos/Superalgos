@@ -14,3 +14,150 @@
   src: local('Saira Condensed Light'), local('SairaCondensed-Light'), url(Fonts/Saira-Condensed.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+
+.tutorial-step {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 2px solid;
+  border-color: #1b998b;
+  border-radius: 8px;
+  background-color: #fdfdfd;
+}
+
+.tutorial-summary {
+  font-size:120%;
+  color: #808080;
+  margin:20px 0px 20px 0px;
+  border-left: 5px solid #fd6a33;
+  padding-left: 10px;
+
+}
+
+.tutorial-summary:before {
+  content: "Summary: ";
+  font-weight: bold;
+}
+
+.tutorial-definitionTable {
+  background-color: #f3f3f3;
+  border-top-color: #a6e1ec;
+  padding: 15px;
+  margin: 20px 0;
+  border: solid 0px;
+  vertical-align: middle;
+  min-width: 100px;
+  width: 100%;
+}
+
+.tutorial-alert-info {
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+  padding: 15px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  margin: 20px 0;
+  border-top-color: #a6e1ec;
+}
+
+.tutorial-alert-success {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  padding: 15px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  margin: 20px 0;
+  border-top-color: #c9e2b3
+}
+
+.tutorial-alert-warning {
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+  padding: 15px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  margin: 20px 0;
+  border-top-color: #f7e1b5
+}
+
+.tutorial-alert-danger {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+  padding: 15px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  margin: 20px 0;
+  border-top-color: #e4b9c0
+}
+
+.tutorial-callout {
+  padding: 20px;
+  margin: 20px 0;
+  border: 1px solid #eee;
+  border-left-width: 5px;
+  border-radius: 3px;
+  border-left-color: #bcd643;
+  font-weight: 500;
+}
+ 
+.tutorial-info-circle:before {
+  content:"\f05a"
+}
+
+.tutorial-check-square-o:before {
+  content:"\f046"
+}
+
+.tutorial-exclamation-circle:before { 
+  content:"\f06a"
+}
+
+.tutorial-warning:before,.fa-exclamation-triangle:before {
+  content:"\f071"
+}
+
+.tutorial-fa {
+  display:inline-block;
+  font:normal normal normal 14px/1 FontAwesome;
+  font-size:inherit;
+  text-rendering:auto;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale
+}
+
+.tutorial-saira-small {
+  display:inline-block;
+  font:normal normal normal 14px/1 "Saira";
+  font-size:inherit;
+  text-rendering:auto;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale
+}
+
+.tutorial-saira-medium {
+  display:inline-block;
+  font:normal normal normal 30px/1 "Saira";
+  text-rendering:auto;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale
+}
+
+.tutorial-saira-large {
+  display:inline-block;
+  font:bold normal normal 40px/1 "Saira";
+  text-rendering:auto;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale
+}
+
+.tutorial-saira-bold-small {
+  display:inline-block;
+  font:bold normal normal 14px/1 "Saira";
+  font-size:inherit;
+  text-rendering:auto;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale
+}

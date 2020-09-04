@@ -1551,23 +1551,23 @@ function newUiObject() {
 
     function drawErrorMessage() {
         if (thisObject.hasError === false) { return }
-        drawMessage(errorMessage)
+        drawMessage(errorMessage, UI_COLOR.RUSTED_RED)
     }
 
     function drawWarningMessage() {
         if (thisObject.hasError === true) { return }
         if (thisObject.hasWarning !== true) { return }
-        drawMessage(warningMessage)
+        drawMessage(warningMessage, UI_COLOR.TITANIUM_YELLOW)
     }
 
     function drawInfoMessage() {
         if (thisObject.hasError === true) { return }
         if (thisObject.hasWarning === true) { return }
         if (thisObject.hasInfo !== true) { return }
-        drawMessage(infoMessage)
+        drawMessage(infoMessage, UI_COLOR.TURQUOISE)
     }
 
-    function drawMessage(message) {
+    function drawMessage(message, textColor) {
 
         if (canvas.floatingSpace.inMapMode === true) {
             return
@@ -1603,11 +1603,12 @@ function newUiObject() {
 
                 labelPoint = {
                     x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
-                    y: position.y + radius * 2 / 5 + fontSize * FONT_ASPECT_RATIO + 15
+                    y: position.y + radius * 2 / 5 + fontSize * FONT_ASPECT_RATIO + 25
                 }
 
                 browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-                browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'
+
+                browserCanvasContext.fillStyle = 'rgba(' + textColor + ', 1)'
                 browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
             }
         }

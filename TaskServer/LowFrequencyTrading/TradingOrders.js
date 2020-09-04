@@ -607,6 +607,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
                     tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
 
                     updateEndsWithCycle(tradingEngineOrder)
+                    tradingSystem.infos.push([tradingSystemOrder.id, 'percentageFilledSimulation -> Closing Order with Exit Type ' + tradingEngineOrder.exitType.value])
                 }
             }
         }
@@ -703,6 +704,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
             tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
 
             await updateEndsWithCycle(tradingEngineOrder)
+            tradingSystem.infos.push([tradingSystemOrder.id, 'checkExchangeEvents -> Closing Order with Exit Type ' + tradingEngineOrder.exitType.value])
         }
         if (order.remaining > 0 && order.status === AT_EXCHANGE_STATUS.CLOSED) {
 
@@ -714,6 +716,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
             tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
 
             await updateEndsWithCycle(tradingEngineOrder)
+            tradingSystem.infos.push([tradingSystemOrder.id, 'checkExchangeEvents -> Closing Order with Exit Type ' + tradingEngineOrder.exitType.value])
         }
         if (order.status === AT_EXCHANGE_STATUS.CANCELLED) {
 
@@ -734,6 +737,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
             tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
 
             await updateEndsWithCycle(tradingEngineOrder)
+            tradingSystem.infos.push([tradingSystemOrder.id, 'checkExchangeEvents -> Closing Order with Exit Type ' + tradingEngineOrder.exitType.value])
         }
 
         /*
@@ -1081,6 +1085,9 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
         /* Initialize this */
         tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
 
+        await updateEndsWithCycle(tradingEngineOrder)
+        tradingSystem.infos.push([tradingSystemOrder.id, 'simulateCancelOrder -> Closing Order with Exit Type ' + tradingEngineOrder.exitType.value])
+
         recalculateStageSize(tradingEngineStage, tradingEngineOrder)
     }
 
@@ -1131,6 +1138,9 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
             /* Initialize this */
             tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
+
+            await updateEndsWithCycle(tradingEngineOrder)
+            tradingSystem.infos.push([tradingSystemOrder.id, 'exchangeCancelOrder -> Closing Order with Exit Type ' + tradingEngineOrder.exitType.value])
 
             await syncWithExchange(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order)
 

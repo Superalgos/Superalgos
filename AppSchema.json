@@ -8129,7 +8129,7 @@
             }
         ],
         "initialValues": {
-            "config": "{ \n\"initialDatetime\": \"2019-07-01T00:00:00.000Z\",\n\"finalDatetime\": \"2019-09-01T00:00:00.000Z\"\n}"
+            "config": "{ \n\"initialDatetime\": \"2019-07-01T00:00:00.000Z\",\n\"finalDatetime\": \"2019-09-01T00:00:00.000Z\",\n \"allowStartingFromThePast\": false\n}"
         },
         "addLeftIcons": true,
         "editors": {

@@ -1085,7 +1085,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
         /* Initialize this */
         tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
 
-        await updateEndsWithCycle(tradingEngineOrder)
+        updateEndsWithCycle(tradingEngineOrder)
         tradingSystem.infos.push([tradingSystemOrder.id, 'simulateCancelOrder -> Closing Order with Exit Type ' + tradingEngineOrder.exitType.value])
 
         recalculateStageSize(tradingEngineStage, tradingEngineOrder)

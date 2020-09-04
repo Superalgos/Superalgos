@@ -1603,7 +1603,7 @@ function newUiObject() {
 
                 labelPoint = {
                     x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
-                    y: position.y + radius * 2 / 5 + fontSize * FONT_ASPECT_RATIO + 25
+                    y: position.y + radius * 2 / 5 + fontSize * FONT_ASPECT_RATIO + 10
                 }
 
                 browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY

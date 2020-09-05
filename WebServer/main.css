@@ -58,6 +58,7 @@
   border-radius: 4px;
   margin: 20px 0;
   border-top-color: #a6e1ec;
+  width: 95%;
 }
 
 .tutorial-alert-success {
@@ -68,7 +69,8 @@
   border: 1px solid transparent;
   border-radius: 4px;
   margin: 20px 0;
-  border-top-color: #c9e2b3
+  border-top-color: #c9e2b3;
+  width: 95%;
 }
 
 .tutorial-alert-warning {
@@ -79,7 +81,8 @@
   border: 1px solid transparent;
   border-radius: 4px;
   margin: 20px 0;
-  border-top-color: #f7e1b5
+  border-top-color: #f7e1b5;
+  width: 95%;
 }
 
 .tutorial-alert-danger {
@@ -90,7 +93,8 @@
   border: 1px solid transparent;
   border-radius: 4px;
   margin: 20px 0;
-  border-top-color: #e4b9c0
+  border-top-color: #e4b9c0;
+  width: 95%;
 }
 
 .tutorial-callout {
@@ -101,6 +105,7 @@
   border-radius: 3px;
   border-left-color: #bcd643;
   font-weight: 500;
+  width: 92%;
 }
  
 .tutorial-info-circle:before {
@@ -120,7 +125,7 @@
 }
 
 .tutorial-fa {
-  display:inline-block;
+  
   font:normal normal normal 14px/1 FontAwesome;
   font-size:inherit;
   text-rendering:auto;
@@ -129,7 +134,7 @@
 }
 
 .tutorial-saira-small {
-  display:inline-block;
+  
   font:normal normal normal 14px/1 "Saira";
   font-size:inherit;
   text-rendering:auto;
@@ -138,7 +143,7 @@
 }
 
 .tutorial-saira-medium {
-  display:inline-block;
+  
   font:normal normal normal 30px/1 "Saira";
   text-rendering:auto;
   -webkit-font-smoothing:antialiased;
@@ -146,7 +151,7 @@
 }
 
 .tutorial-saira-large {
-  display:inline-block;
+  
   font:bold normal normal 40px/1 "Saira";
   text-rendering:auto;
   -webkit-font-smoothing:antialiased;
@@ -154,7 +159,7 @@
 }
 
 .tutorial-saira-bold-small {
-  display:inline-block;
+  
   font:bold normal normal 14px/1 "Saira";
   font-size:inherit;
   text-rendering:auto;

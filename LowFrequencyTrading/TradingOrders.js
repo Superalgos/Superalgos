@@ -695,7 +695,6 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
         /* Status Checks */
         if (order.remaining === 0 && order.status === AT_EXCHANGE_STATUS.CLOSED) {
-
             /* Close this Order */
             tradingEngineOrder.status.value = 'Closed'
             tradingEngineOrder.exitType.value = 'Filled'
@@ -705,24 +704,29 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
             await updateEndsWithCycle(tradingEngineOrder)
             tradingSystem.infos.push([tradingSystemOrder.id, 'checkExchangeEvents -> Closing Order with Exit Type ' + tradingEngineOrder.exitType.value])
+            
+            await syncWithExchange(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order)
+            return
         }
-        if (order.remaining > 0 && order.status === AT_EXCHANGE_STATUS.CLOSED) {
 
+        if (order.remaining > 0 && order.status === AT_EXCHANGE_STATUS.CLOSED) {
             /* Close this Order */
             tradingEngineOrder.status.value = 'Closed'
             tradingEngineOrder.exitType.value = 'Closed at the Exchange'
-
             /* Initialize this */
             tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
 
             await updateEndsWithCycle(tradingEngineOrder)
             tradingSystem.infos.push([tradingSystemOrder.id, 'checkExchangeEvents -> Closing Order with Exit Type ' + tradingEngineOrder.exitType.value])
-        }
-        if (order.status === AT_EXCHANGE_STATUS.CANCELLED) {
 
+            await syncWithExchange(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order)
+            await recalculateStageSize(tradingEngineStage, tradingEngineOrder)
+            return
+        }
+
+        if (order.status === AT_EXCHANGE_STATUS.CANCELLED) {
             /* Close this Order */
             tradingEngineOrder.status.value = 'Closed'
-
             /* 
             We must be carefull here not to overide an already defined exitType. It can happen
             for instance that the order was cancellerd from the bot, but veryfing the cancellation
@@ -732,12 +736,15 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
             if (tradingEngineOrder.exitType.value === tradingEngineOrder.exitType.config.initialValue) {
                 tradingEngineOrder.exitType.value = 'Cancelled at the Exchange'
             }
-            
             /* Initialize this */
             tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
 
             await updateEndsWithCycle(tradingEngineOrder)
             tradingSystem.infos.push([tradingSystemOrder.id, 'checkExchangeEvents -> Closing Order with Exit Type ' + tradingEngineOrder.exitType.value])
+
+            await syncWithExchange(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order)
+            await recalculateStageSize(tradingEngineStage, tradingEngineOrder)
+            return
         }
 
         /*
@@ -749,7 +756,10 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
             await syncWithExchange(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order)
         }
 
-        /* Forced Cancellation Check */
+        /* 
+        Forced Cancellation Check: Here we check if we need to cancel this order because the
+        stage is closing. 
+        */
         if (tradingEngineStage.status.value === 'Closing' && tradingEngineOrder.status.value !== 'Closed') {
             await exchangeCancelOrder(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, 'Closing Stage')
         }
@@ -1085,7 +1095,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
         /* Initialize this */
         tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
 
-        await updateEndsWithCycle(tradingEngineOrder)
+        updateEndsWithCycle(tradingEngineOrder)
         tradingSystem.infos.push([tradingSystemOrder.id, 'simulateCancelOrder -> Closing Order with Exit Type ' + tradingEngineOrder.exitType.value])
 
         recalculateStageSize(tradingEngineStage, tradingEngineOrder)

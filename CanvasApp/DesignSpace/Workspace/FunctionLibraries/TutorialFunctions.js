@@ -3,7 +3,7 @@ function newTutorialFunctions() {
         play: play
     }
     const HEIGHT = 800
-    const WIDTH = 600
+    const WIDTH = 500
     const MARGIN = 300
     return thisObject
 

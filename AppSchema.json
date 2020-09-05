@@ -14189,7 +14189,7 @@
             "config": true
         },
         "initialValues": {
-            "config": "{ \n\"paragraphs\": \n[\n\"\",\n\"\",\n\"\" \n], \n\"done\": false\n}"
+            "config": "{ \n\"title\": \"\",\n \"summary\": \"\",\n \"subTitle\": \"\",\n \"image\": \"\",\n \"definition\": \"\",\n \"bulletPointIntro\": \"\",\n \"bulletArray\": \n[\n [\"\", \"\"], \n[\"\", \"\"], \n[\"\", \"\"] \n],\n \"paragraph1\": \"\",\n \"callOut\": \"\",\n \"paragraph2\": \"\",\n \"note\": \"\",\n \"tip\": \"\",\n \"important\": \"\",\n \"note\": \"\" \n}"
         },
         "referenceAttachesTo": {
             "compatibleTypes": "->*Any Node*->"

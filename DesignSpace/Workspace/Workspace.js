@@ -638,7 +638,37 @@ function newWorkspace() {
                 break
             case 'Play Tutorial':
                 {
-                    functionLibraryTutorialFunctions.play(payload.node)
+                    canvas.tutorialSpace.playTutorial(payload.node)
+                }
+                break
+            case 'Play Tutorial Topic':
+                {
+                    canvas.tutorialSpace.playTutorialTopic(payload.node)
+                }
+                break
+            case 'Play Tutorial Step':
+                {
+                    canvas.tutorialSpace.playTutorialStep(payload.node)
+                }
+                break
+            case 'Resume Tutorial':
+                {
+                    canvas.tutorialSpace.resumeTutorial(payload.node)
+                }
+                break
+            case 'Resume Tutorial Topic':
+                {
+                    canvas.tutorialSpace.resumeTutorialTopic(payload.node)
+                }
+                break
+            case 'Resume Tutorial Step':
+                {
+                    canvas.tutorialSpace.resumeTutorialStep(payload.node)
+                }
+                break
+            case 'Reset Tutorial Progress':
+                {
+                    canvas.tutorialSpace.resetTutorialProgress(payload.node)
                 }
                 break
             case 'Send Webhook Test Message':

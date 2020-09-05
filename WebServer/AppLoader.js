@@ -90,6 +90,7 @@ function newAppLoader() {
                 'Spaces/DesignSpace.js',
                 'Spaces/SideSpace.js',
                 'Spaces/DocSpace.js',
+                'Spaces/TutorialSpace.js',
 
                 'Files/SingleFile.js',
                 'Files/FileCloud.js',

@@ -1,18 +1,15 @@
 function newTutorialSpace() {
     const MODULE_NAME = 'Tutorial Space'
     let thisObject = {
+        stop: stop,
+        skip: skip,
+        done: done,
         playTutorial: playTutorial,
         resumeTutorial: resumeTutorial,
-        stopTutorial: stopTutorial,
         playTutorialTopic: playTutorialTopic,
         resumeTutorialTopic: resumeTutorialTopic,
-        stopTutorialTopic: stopTutorialTopic,
         playTutorialStep: playTutorialStep,
         resumeTutorialStep: resumeTutorialStep,
-        stopTutorialStep: stopTutorialStep,
-        skipTutorialTopic: skipTutorialTopic,
-        skipTutorialStep: skipTutorialStep,
-        tutorialDone: tutorialDone,
         tutorialTopicDone: tutorialTopicDone,
         tutorialStepDone: tutorialStepDone,
         resetTutorialProgress: resetTutorialProgress,
@@ -41,9 +38,11 @@ function newTutorialSpace() {
     let currentTutorialNode
     let currentTutorialTopicNode
     let currentTutorialStepNode
+    let currentNode
     let currentStatus = 'Stopped'
 
-    let docAppDiv = document.getElementById('tutorialStepDiv')
+    let tutorialDiv = document.getElementById('tutorialDiv')
+    let tutorialFormDiv = document.getElementById('tutorialFormDiv')
 
     return thisObject
 
@@ -58,8 +57,9 @@ function newTutorialSpace() {
         currentTutorialNode = undefined
         currentTutorialTopicNode = undefined
         currentTutorialStepNode = undefined
+        currentNode = undefined
 
-        docAppDiv = undefined
+        tutorialDiv = undefined
     }
 
     function resize() {
@@ -93,17 +93,25 @@ function newTutorialSpace() {
         function makeInvisible() {
             const HEIGHT = 0
             const WIDTH = 0
+            const FORM_HEIGHT = 0
 
             tutorialPosition = {
                 x: 100000,
                 y: 100000
             }
 
-            docAppDiv.style = '   ' +
+            tutorialDiv.style = '   ' +
                 'position:fixed; top:' + tutorialPosition.y + 'px; ' +
                 'left:' + tutorialPosition.x + 'px; ' +
                 'width: ' + WIDTH + 'px;' +
                 'height: ' + HEIGHT + 'px;' +
+                'z-index:1;'
+
+            tutorialFormDiv.style = '   ' +
+                'position:fixed; top:' + (tutorialPosition.y) + 'px; ' +
+                'left:' + tutorialPosition.x + 'px; ' +
+                'width: ' + WIDTH + 'px;' +
+                'height: ' + FORM_HEIGHT + 'px;' +
                 'z-index:1;'
         }
 
@@ -111,23 +119,34 @@ function newTutorialSpace() {
             const HEIGHT = 800
             const WIDTH = 500
             const MARGIN = 300
+            const FORM_HEIGHT = 80
 
             tutorialPosition = {
                 x: MARGIN,
                 y: (browserCanvas.height - HEIGHT) / 2
             }
 
-            docAppDiv.style = '   ' +
+            tutorialDiv.style = '   ' +
                 'position:fixed; top:' + tutorialPosition.y + 'px; ' +
                 'left:' + tutorialPosition.x + 'px; ' +
                 'width: ' + WIDTH + 'px;' +
                 'height: ' + HEIGHT + 'px;' +
+                'z-index:1;'
+
+            buildHTML()
+
+            tutorialFormDiv.style = '   ' +
+                'position:fixed; top:' + (tutorialPosition.y + HEIGHT - FORM_HEIGHT) + 'px; ' +
+                'left:' + tutorialPosition.x + 'px; ' +
+                'width: ' + WIDTH + 'px;' +
+                'height: ' + FORM_HEIGHT + 'px;' +
                 'z-index:1;'
         }
     }
 
     function playTutorial(node) {
         currentTutorialNode = node
+        currentNode = node
         currentStatus = 'Playing Tutorial'
     }
 
@@ -135,11 +154,20 @@ function newTutorialSpace() {
 
     }
 
-    function stopTutorial() {
+    function stop() {
         currentTutorialNode = undefined
         currentTutorialTopicNode = undefined
         currentTutorialStepNode = undefined
         currentStatus = 'Stopped'
+    }
+
+
+    function skip() {
+
+    }
+
+    function done() {
+
     }
 
     function playTutorialTopic(node) {
@@ -150,31 +178,11 @@ function newTutorialSpace() {
 
     }
 
-    function stopTutorialTopic() {
-
-    }
-
     function playTutorialStep(node) {
 
     }
 
     function resumeTutorialStep(node) {
-
-    }
-
-    function stopTutorialStep() {
-
-    }
-
-    function skipTutorialTopic() {
-
-    }
-
-    function skipTutorialStep() {
-
-    }
-
-    function tutorialDone() {
 
     }
 
@@ -188,6 +196,76 @@ function newTutorialSpace() {
 
     function resetTutorialProgress() {
 
+    }
+
+    function buildHTML() {
+
+        let nodeConfig = JSON.parse(currentNode.config)
+        let html = ''
+        if (nodeConfig.title !== undefined && nodeConfig.title !== '') {
+            html = html + '<div><h1 class="tutorial-saira-large">' + nodeConfig.title + '</h1></div>'
+        }
+        html = html + '<div>'
+        if (nodeConfig.summary !== undefined && nodeConfig.summary !== '') {
+            html = html + '<div class="tutorial-summary">' + nodeConfig.summary + '</div>'
+        }
+        if (nodeConfig.subTitle !== undefined && nodeConfig.subTitle !== '') {
+            html = html + '<h2 class="tutorial-saira-medium">' + nodeConfig.subTitle + '</h2>'
+        }
+        if (nodeConfig.definition !== undefined && nodeConfig.definition !== '') {
+            html = html + '<table class="tutorial-definitionTable">'
+            html = html + '<tr>'
+            html = html + '<td>'
+            if (nodeConfig.image !== undefined && nodeConfig.image !== '') {
+                html = html + '<img width="150" height="150" src="Images/Icons/style-01/' + nodeConfig.image + '.png" />'
+            }
+            html = html + '</td>'
+            html = html + '<td>'
+            html = html + '<strong class="tutorial-saira-bold-small">' + nodeConfig.definition + '</strong>'
+            html = html + '</td>'
+            html = html + '</tr>'
+            html = html + '</table>'
+        }
+        if (nodeConfig.bulletListIntro !== undefined && nodeConfig.bulletListIntro !== '') {
+            html = html + '<p class="tutorial-saira-small">' + nodeConfig.bulletListIntro + '</p>'
+        }
+        if (nodeConfig.bulletArray !== undefined) {
+            html = html + '<ul>'
+            for (let i = 0; i < nodeConfig.bulletArray.length; i++) {
+                let bullet = nodeConfig.bulletArray[i]
+                html = html + '<li>'
+                html = html + '<p class="tutorial-saira-small"><strong class="tutorial-saira-bold-small">' + bullet[0] + ':</strong> ' + bullet[1] + '</p>'
+                html = html + '</li>'
+            }
+            html = html + '</ul>'
+        }
+        if (nodeConfig.paragraph1 !== undefined && nodeConfig.paragraph1 !== '') {
+            html = html + '<p class="tutorial-saira-small">' + nodeConfig.paragraph1 + '</p>'
+        }
+        if (nodeConfig.callOut !== undefined && nodeConfig.callOut !== '') {
+            html = html + '<div class="tutorial-saira-bold-small tutorial-callout" > ' + nodeConfig.callOut + '</div>'
+        }
+        if (nodeConfig.paragraph2 !== undefined && nodeConfig.paragraph2 !== '') {
+            html = html + '<p class="tutorial-saira-small">' + nodeConfig.paragraph2 + '</p>'
+        }
+        if (nodeConfig.paragraph2 !== undefined && nodeConfig.paragraph2 !== '') {
+            html = html + '<p class="tutorial-saira-small">' + nodeConfig.paragraph2 + '</p>'
+        }
+        if (nodeConfig.note !== undefined && nodeConfig.note !== '') {
+            html = html + '<div class="tutorial-saira-bold-small tutorial-alert-info" role="alert"><i class="tutorial-fa tutorial-info-circle"></i> <b>Note:</b> ' + nodeConfig.note + '</div>'
+        }
+        if (nodeConfig.tip !== undefined && nodeConfig.tip !== '') {
+            html = html + '<div class="tutorial-saira-bold-small tutorial-alert-success" role="alert"><i class="tutorial-fa tutorial-check-square-o"></i> <b>Tip:</b> ' + nodeConfig.tip + '</div>'
+        }
+        if (nodeConfig.important !== undefined && nodeConfig.important !== '') {
+            html = html + '<div class="tutorial-saira-bold-small tutorial-alert-warning" role="alert"><i class="tutorial-fa tutorial-warning"></i> <b>Important:</b> ' + nodeConfig.important + '</div>'
+        }
+        if (nodeConfig.warning !== undefined && nodeConfig.warning !== '') {
+            html = html + '<div class="tutorial-saira-bold-small tutorial-alert-warning" role="alert"><i class="tutorial-fa tutorial-warning"></i> <b>Important:</b> ' + nodeConfig.warning + '</div>'
+        }
+        html = html + '</div>'
+
+        tutorialDiv.innerHTML = html
     }
 
     function draw() {

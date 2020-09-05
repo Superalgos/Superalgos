@@ -24,6 +24,12 @@
   background-color: #fdfdfd;
 }
 
+.tutorial-form {
+  padding: 15px;
+  margin-bottom: 20px;
+  width: 115%;
+}
+
 .tutorial-summary {
   font-size:120%;
   color: #808080;
@@ -177,4 +183,38 @@
   margin: 20px 0;
   border-top-color: #e4b9c0;
   width: 20%;
+}
+
+.tutorial-skip-button {
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+  padding: 15px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  margin: 20px 0;
+  border-top-color: #f7e1b5;
+  width: 20%;
+}
+
+.tutorial-done-button {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  padding: 15px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  margin: 20px 0;
+  border-top-color: #c9e2b3;
+  width: 20%;
+}
+
+.tutorial-buttonsTable {
+  border-top-color: #a6e1ec;
+  padding: 15px;
+  margin: 20px 0;
+  border: solid 0px;
+  vertical-align: middle;
+  min-width: 100px;
+  width: 115%;
 }

@@ -88,6 +88,14 @@ function newTutorialSpace() {
                 makeVsible()
                 break
             }
+            case 'Playing Topic': {
+                makeVsible()
+                break
+            }
+            case 'Playing Step': {
+                makeVsible()
+                break
+            }
         }
 
         function makeInvisible() {
@@ -116,8 +124,8 @@ function newTutorialSpace() {
         }
 
         function makeVsible() {
-            const HEIGHT = 800
-            const WIDTH = 500
+            const HEIGHT = 650
+            const WIDTH = 400
             const MARGIN = 300
             const FORM_HEIGHT = 80
 
@@ -167,11 +175,14 @@ function newTutorialSpace() {
     }
 
     function done() {
-
+        /* If we are standing at the Tutorial Node, we do this. */
+        advance()
     }
 
     function playTutorialTopic(node) {
-
+        currentTopicNode = node
+        currentNode = node
+        currentStatus = 'Playing Topic'
     }
 
     function resumeTutorialTopic(node) {
@@ -179,7 +190,9 @@ function newTutorialSpace() {
     }
 
     function playTutorialStep(node) {
-
+        currentStepNode = node
+        currentNode = node
+        currentStatus = 'Playing Step'
     }
 
     function resumeTutorialStep(node) {
@@ -196,6 +209,70 @@ function newTutorialSpace() {
 
     function resetTutorialProgress() {
 
+    }
+
+    function advance() {
+        let found
+        let advanced
+
+        switch (currentStatus) {
+            case 'Playing Tutorial': {
+                found = true
+                findNextNode(currentTutorialNode)
+                break
+            }
+            case 'Playing Topic': {
+                found = false
+                findNextNode(currentTutorialNode)
+                break
+            }
+            case 'Playing Step': {
+                found = false
+                findNextNode(currentTutorialNode)
+                break
+            }
+        }
+
+        if (advanced === undefined) {
+            stop()
+        }
+
+        function findNextNode(node) {
+          
+            for (let i = 0; i < node.tutorialSteps.length; i++) {
+            
+                let tutorialStep = node.tutorialSteps[i]
+                if (found === true) {
+                    currentNode = tutorialStep
+                    currentStatus = 'Playing Step'
+                    advanced = true
+                    return
+                }
+                if (tutorialStep.id === currentNode.id) {
+                    found = true
+                }
+            }
+
+            for (let i = 0; i < node.tutorialTopics.length; i++) {
+
+                if (advanced === true) {
+                    return
+                }
+
+                let tutorialTopic = node.tutorialTopics[i]
+                if (found === true) {
+                    currentNode = tutorialTopic
+                    currentStatus = 'Playing Topic'
+                    advanced = true
+                    return
+                }
+                if (tutorialTopic.id === currentNode.id) {
+                    found = true
+                }
+
+                findNextNode(tutorialTopic, found)
+            }
+        }
     }
 
     function buildHTML() {
@@ -217,7 +294,7 @@ function newTutorialSpace() {
             html = html + '<tr>'
             html = html + '<td>'
             if (nodeConfig.image !== undefined && nodeConfig.image !== '') {
-                html = html + '<img width="150" height="150" src="Images/Icons/style-01/' + nodeConfig.image + '.png" />'
+                html = html + '<img width="100" height="100" src="Images/Icons/style-01/' + nodeConfig.image + '.png" />'
             }
             html = html + '</td>'
             html = html + '<td>'

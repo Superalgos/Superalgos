@@ -29,6 +29,7 @@ function newFloatingObject() {
         isParentCollapsed: false,
         frozenManually: false,
         collapsedManually: false,
+        unCollapseParent: unCollapseParent, 
         getPinStatus: getPinStatus,
         getFreezeStatus: getFreezeStatus,
         getCollapseStatus: getCollapseStatus,
@@ -149,6 +150,21 @@ function newFloatingObject() {
 
     function getCollapseStatus() {
         return thisObject.isCollapsed
+    }
+
+    function unCollapseParent() {
+        if (thisObject.payload !== undefined) {
+            if (thisObject.payload.parentNode !== undefined) {
+                if (thisObject.payload.parentNode.payload !== undefined) {
+                    if (thisObject.payload.parentNode.payload.floatingObject !== undefined) {
+                        if (thisObject.payload.parentNode.payload.floatingObject.isCollapsed === true) {
+                            thisObject.payload.parentNode.payload.floatingObject.isCollapsed = false
+                            thisObject.payload.parentNode.payload.floatingObject.unCollapseParent()
+                        }
+                    }
+                }
+            }
+        }
     }
 
     function getAngleToParent() {

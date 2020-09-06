@@ -35,9 +35,7 @@ function newTutorialSpace() {
 
     let browserResizedEventSubscriptionId
 
-    let currentTutorialNode
-    let currentTutorialTopicNode
-    let currentTutorialStepNode
+    let tutorialRootNode
     let currentNode
     let currentStatus = 'Stopped'
 
@@ -54,9 +52,7 @@ function newTutorialSpace() {
     function finalize() {
         canvas.eventHandler.stopListening(browserResizedEventSubscriptionId)
 
-        currentTutorialNode = undefined
-        currentTutorialTopicNode = undefined
-        currentTutorialStepNode = undefined
+        tutorialRootNode = undefined
         currentNode = undefined
 
         tutorialDiv = undefined
@@ -78,10 +74,12 @@ function newTutorialSpace() {
     }
 
     function physics() {
+        if (currentNode === undefined) { return }
 
         switch (currentStatus) {
             case 'Stopped': {
                 makeInvisible()
+                currentNode = undefined
                 break
             }
             case 'Playing Tutorial': {
@@ -95,6 +93,24 @@ function newTutorialSpace() {
             case 'Playing Step': {
                 makeVsible()
                 break
+            }
+        }
+
+        /* 
+        If there is a reference parent defined, we will highlight it 
+        and move the designer so that that node be at the center of the screen.
+        */
+
+        if (currentNode !== undefined) {
+            if (currentNode.payload !== undefined) {
+                if (currentNode.payload.referenceParent !== undefined) {
+                    if (currentNode.payload.referenceParent.payload !== undefined) {
+                        if (currentNode.payload.referenceParent.payload.uiObject !== undefined) {
+                            canvas.floatingSpace.positionAtNode(currentNode.payload.referenceParent)
+                            currentNode.payload.referenceParent.payload.uiObject.highlight()
+                        }
+                    }
+                }
             }
         }
 
@@ -153,7 +169,7 @@ function newTutorialSpace() {
     }
 
     function playTutorial(node) {
-        currentTutorialNode = node
+        tutorialRootNode = node
         currentNode = node
         currentStatus = 'Playing Tutorial'
     }
@@ -163,9 +179,7 @@ function newTutorialSpace() {
     }
 
     function stop() {
-        currentTutorialNode = undefined
-        currentTutorialTopicNode = undefined
-        currentTutorialStepNode = undefined
+        tutorialRootNode = undefined
         currentStatus = 'Stopped'
     }
 
@@ -183,6 +197,7 @@ function newTutorialSpace() {
         currentTopicNode = node
         currentNode = node
         currentStatus = 'Playing Topic'
+        findTutorialNode(node)
     }
 
     function resumeTutorialTopic(node) {
@@ -193,6 +208,7 @@ function newTutorialSpace() {
         currentStepNode = node
         currentNode = node
         currentStatus = 'Playing Step'
+        findTutorialNode(node)
     }
 
     function resumeTutorialStep(node) {
@@ -211,6 +227,19 @@ function newTutorialSpace() {
 
     }
 
+    function findTutorialNode(node) {
+        /* 
+        We will consider the tutorialRootNode the head of the hirierchy
+        */
+        tutorialRootNode = node
+
+        if (node.payload !== undefined) {
+            if (node.payload.parentNode !== undefined) {
+                findTutorialNode(node.payload.parentNode)
+            }
+        }
+    }
+
     function advance() {
         let found
         let advanced
@@ -218,29 +247,44 @@ function newTutorialSpace() {
         switch (currentStatus) {
             case 'Playing Tutorial': {
                 found = true
-                findNextNode(currentTutorialNode)
+                findNextNode(tutorialRootNode)
                 break
             }
             case 'Playing Topic': {
                 found = false
-                findNextNode(currentTutorialNode)
+                findNextNode(tutorialRootNode)
                 break
             }
             case 'Playing Step': {
                 found = false
-                findNextNode(currentTutorialNode)
+                findNextNode(tutorialRootNode)
                 break
             }
         }
 
+        /* 
+        If we can not find a next node, then we stop the tutorial.
+        */
         if (advanced === undefined) {
             stop()
+            return
+        }
+
+        /* 
+        If there is a reference parent defined, we will uncollape the brach where it belongs.
+        */
+        if (currentNode.payload.referenceParent !== undefined) {
+            if (currentNode.payload.referenceParent.payload !== undefined) {
+                if (currentNode.payload.referenceParent.payload.floatingObject !== undefined) {
+                    currentNode.payload.referenceParent.payload.floatingObject.unCollapseParent()
+                }
+            }
         }
 
         function findNextNode(node) {
-          
+
             for (let i = 0; i < node.tutorialSteps.length; i++) {
-            
+
                 let tutorialStep = node.tutorialSteps[i]
                 if (found === true) {
                     currentNode = tutorialStep

@@ -42,8 +42,12 @@ function newTutorialSpace() {
     let tutorialDiv = document.getElementById('tutorialDiv')
     let tutorialFormDiv = document.getElementById('tutorialFormDiv')
     let htmlImage = document.createElement("IMG")
-    let currentImageName  = 'Never Set'
+    let currentImageName = 'Never Set'
     let newImageName = 'Never Set'
+    let currentConfig
+    let newConfig
+    let newDocumentationURL
+    let currentDocumentationURL
 
     return thisObject
 
@@ -102,6 +106,7 @@ function newTutorialSpace() {
         }
 
         checkImage()
+        checkDocumentation()
         checkReference()
         return
 
@@ -110,12 +115,25 @@ function newTutorialSpace() {
             if (tutorialImageDiv !== null && tutorialImageDiv !== undefined) {
                 tutorialImageDiv.appendChild(htmlImage)
             }
-            
-            if (currentImageName === newImageName) {return}
+
+            if (currentImageName === newImageName) { return }
             currentImageName = newImageName
             htmlImage.src = 'Images/Icons/style-01/' + currentImageName + '.png'
             htmlImage.width = "100"
             htmlImage.height = "100"
+        }
+
+        function checkDocumentation() {
+            if (currentNode === undefined) {return}
+            let config = JSON.parse(currentNode.config)
+            let newDocumentationURL = config.documentationURL
+            if (newDocumentationURL === undefined || newDocumentationURL === "") {
+                canvas.docSpace.sidePanelTab.close()
+            }
+            if (newDocumentationURL === currentDocumentationURL) { return }
+            
+            currentDocumentationURL = newDocumentationURL
+            canvas.docSpace.navigateTo(currentDocumentationURL)
         }
 
         function checkReference() {
@@ -169,11 +187,37 @@ function newTutorialSpace() {
             const MARGIN = 300
             const FORM_HEIGHT = 80
 
-            tutorialPosition = {
-                x: MARGIN,
-                y: (browserCanvas.height - HEIGHT) / 2
+            let nodeConfig = JSON.parse(currentNode.config)
+            switch (nodeConfig.position) {
+                case 'Left': {
+                    tutorialPosition = {
+                        x: MARGIN,
+                        y: (browserCanvas.height - HEIGHT) / 2
+                    }
+                    break
+                }
+                case 'Center': {
+                    tutorialPosition = {
+                        x: browserCanvas.width / 2 - WIDTH / 2,
+                        y: (browserCanvas.height - HEIGHT) / 2
+                    }
+                    break
+                }
+                case 'Right': {
+                    tutorialPosition = {
+                        x: browserCanvas.width - WIDTH - MARGIN,
+                        y: (browserCanvas.height - HEIGHT) / 2
+                    }
+                    break
+                }
+                default: {
+                    tutorialPosition = {
+                        x: browserCanvas.width / 2 - WIDTH / 2,
+                        y: (browserCanvas.height - HEIGHT) / 2
+                    }
+                    break
+                }
             }
-
             tutorialDiv.style = '   ' +
                 'position:fixed; top:' + tutorialPosition.y + 'px; ' +
                 'left:' + tutorialPosition.x + 'px; ' +
@@ -344,6 +388,10 @@ function newTutorialSpace() {
 
     function buildHTML() {
 
+        newConfig = currentNode.config
+        if (newConfig === currentConfig) { return }
+        currentConfig = newConfig
+
         let nodeConfig = JSON.parse(currentNode.config)
         let html = ''
         if (nodeConfig.title !== undefined && nodeConfig.title !== '') {
@@ -388,7 +436,11 @@ function newTutorialSpace() {
             html = html + '<p class="tutorial-saira-small">' + nodeConfig.paragraph1 + '</p>'
         }
         if (nodeConfig.callOut !== undefined && nodeConfig.callOut !== '') {
-            html = html + '<div class="tutorial-saira-bold-small tutorial-callout" > ' + nodeConfig.callOut + '</div>'
+            html = html + '<div class="tutorial-saira-bold-small tutorial-callout" > ' + nodeConfig.callOut + ''
+            if (nodeConfig.externalLink !== undefined) {
+                html = html + '<a href="' + nodeConfig.externalLink[1] + '" target="_blank">' + nodeConfig.externalLink[0] + '</a>'
+            }
+            html = html + '</div>'
         }
         if (nodeConfig.paragraph2 !== undefined && nodeConfig.paragraph2 !== '') {
             html = html + '<p class="tutorial-saira-small">' + nodeConfig.paragraph2 + '</p>'

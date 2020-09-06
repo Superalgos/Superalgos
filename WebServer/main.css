@@ -27,7 +27,7 @@
 .tutorial-form {
   padding: 15px;
   margin-bottom: 20px;
-  width: 115%;
+  width: 105%;
 }
 
 .tutorial-summary {
@@ -64,7 +64,7 @@
   border-radius: 4px;
   margin: 20px 0;
   border-top-color: #a6e1ec;
-  width: 95%;
+  width: 90%;
 }
 
 .tutorial-alert-success {
@@ -76,7 +76,7 @@
   border-radius: 4px;
   margin: 20px 0;
   border-top-color: #c9e2b3;
-  width: 95%;
+  width: 90%;
 }
 
 .tutorial-alert-warning {
@@ -88,7 +88,7 @@
   border-radius: 4px;
   margin: 20px 0;
   border-top-color: #f7e1b5;
-  width: 95%;
+  width: 90%;
 }
 
 .tutorial-alert-danger {
@@ -100,7 +100,7 @@
   border-radius: 4px;
   margin: 20px 0;
   border-top-color: #e4b9c0;
-  width: 95%;
+  width: 90%;
 }
 
 .tutorial-callout {
@@ -111,7 +111,7 @@
   border-radius: 3px;
   border-left-color: #bcd643;
   font-weight: 500;
-  width: 92%;
+  width: 90%;
 }
  
 .tutorial-info-circle:before {
@@ -216,5 +216,5 @@
   border: solid 0px;
   vertical-align: middle;
   min-width: 100px;
-  width: 115%;
+  width: 105%;
 }

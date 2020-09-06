@@ -41,6 +41,9 @@ function newTutorialSpace() {
 
     let tutorialDiv = document.getElementById('tutorialDiv')
     let tutorialFormDiv = document.getElementById('tutorialFormDiv')
+    let htmlImage = document.createElement("IMG")
+    let currentImageName  = 'Never Set'
+    let newImageName = 'Never Set'
 
     return thisObject
 
@@ -56,6 +59,8 @@ function newTutorialSpace() {
         currentNode = undefined
 
         tutorialDiv = undefined
+        tutorialFormDiv = undefined
+        image = undefined
     }
 
     function resize() {
@@ -96,18 +101,37 @@ function newTutorialSpace() {
             }
         }
 
-        /* 
-        If there is a reference parent defined, we will highlight it 
-        and move the designer so that that node be at the center of the screen.
-        */
+        checkImage()
+        checkReference()
+        return
 
-        if (currentNode !== undefined) {
-            if (currentNode.payload !== undefined) {
-                if (currentNode.payload.referenceParent !== undefined) {
-                    if (currentNode.payload.referenceParent.payload !== undefined) {
-                        if (currentNode.payload.referenceParent.payload.uiObject !== undefined) {
-                            canvas.floatingSpace.positionAtNode(currentNode.payload.referenceParent)
-                            currentNode.payload.referenceParent.payload.uiObject.highlight()
+        function checkImage() {
+            let tutorialImageDiv = document.getElementById('tutorialImageDiv')
+            if (tutorialImageDiv !== null && tutorialImageDiv !== undefined) {
+                tutorialImageDiv.appendChild(htmlImage)
+            }
+            
+            if (currentImageName === newImageName) {return}
+            currentImageName = newImageName
+            htmlImage.src = 'Images/Icons/style-01/' + currentImageName + '.png'
+            htmlImage.width = "100"
+            htmlImage.height = "100"
+        }
+
+        function checkReference() {
+            /* 
+            If there is a reference parent defined, we will highlight it 
+            and move the designer so that that node be at the center of the screen.
+            */
+
+            if (currentNode !== undefined) {
+                if (currentNode.payload !== undefined) {
+                    if (currentNode.payload.referenceParent !== undefined) {
+                        if (currentNode.payload.referenceParent.payload !== undefined) {
+                            if (currentNode.payload.referenceParent.payload.uiObject !== undefined) {
+                                canvas.floatingSpace.positionAtNode(currentNode.payload.referenceParent)
+                                currentNode.payload.referenceParent.payload.uiObject.highlight()
+                            }
                         }
                     }
                 }
@@ -182,7 +206,6 @@ function newTutorialSpace() {
         tutorialRootNode = undefined
         currentStatus = 'Stopped'
     }
-
 
     function skip() {
 
@@ -338,7 +361,8 @@ function newTutorialSpace() {
             html = html + '<tr>'
             html = html + '<td>'
             if (nodeConfig.image !== undefined && nodeConfig.image !== '') {
-                html = html + '<img width="100" height="100" src="Images/Icons/style-01/' + nodeConfig.image + '.png" />'
+                html = html + '<div id="tutorialImageDiv" width="100" height="100"/>'
+                newImageName = nodeConfig.image
             }
             html = html + '</td>'
             html = html + '<td>'

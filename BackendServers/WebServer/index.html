@@ -41,48 +41,30 @@
     <div id="masterApp"></div>
     <div id="canvasApp"></div>
     <div id="docApp" style="position:fixed; top:100000px; left:100000px">
-        <iframe id="docIFrame" src="https://julian-molina.github.io/Documentation/" style="border:none; " height="2000"
-            width="900"></iframe>
-    </div>
+        <iframe id="docIFrame" style="border:none; " height="2000" 
+            width="900" src="https://julian-molina.github.io/Documentation/"></iframe>
+    </div> <!--    -->
     <div id="textAreaDiv"></div>
     <div id="inputDiv" style="font-family:saira condensed;">&nbsp;</div>
 
     <!-- Tutorial Step Template -->
-    <div id="tutorialStepDiv" class="tutorial-step" style="position:fixed; top:100000px; left:100000px;">
-
-        <div>
-            <h1 class="tutorial-saira-large">Trading Engine</h1>
-        </div>
-        <div>
-            <div class="tutorial-summary">Summary</div>
-            <h2 class="tutorial-saira-medium">Sub-Title</h2>
-            <table class="tutorial-definitionTable">
+    <div id="tutorialDiv" class="tutorial-step" style="position:fixed; top:100000px; left:100000px;"></div>
+    <div id="tutorialFormDiv" class="tutorial-form" style="position:fixed; top:100000px; left:100000px;">
+        <form>
+            <table class="tutorial-buttonsTable">
                 <tr>
                     <td>
-                        <img width="150" height="150" src="Images/Icons/style-01/crypto-exchanges.png" />
+                        <label class="tutorial-stop-button" onclick="canvas.tutorialSpace.stop()" value="">Stop Tutorial</label>
                     </td>
                     <td>
-                        <strong class="tutorial-saira-bold-small">The trading engine hierarchy is t ible and exposed to others.</strong>
+                        <label class="tutorial-skip-button" onclick="canvas.tutorialSpace.skip()" value="">Skip / Later</label>
+                    </td>
+                    <td>
+                        <label class="tutorial-done-button" onclick="canvas.tutorialSpace.done()" value="">Done / Next</label>
                     </td>
                 </tr>
             </table>
-            <p class="tutorial-saira-small">You will use th purposes:</p>
-            <ul>
-                <li>
-                    <p class="tutorial-saira-small"><strong class="tutorial-saira-bold-small">To let your trading systems:</strong> This allows stratrunning.</p>
-                </li>
-                <li>
-                    <p class="tutorial-saira-small"><strong class="tutorial-saira-bold-small">To keep track of the actions:</strong> By analyzing runtiading session.</p>
-                </li>
-            </ul>
-            <p class="tutorial-saira-small">The hierarchyusers.</p>
-            <div class="tutorial-saira-bold-small tutorial-callout" > callout text.</div>
-            <p class="tutorial-saira-small">The hiera feedback capabilities to users.</p>
-            <div class="tutorial-saira-bold-small tutorial-alert-info" role="alert"><i class="tutorial-fa tutorial-info-circle"></i> <b>Note:</b> Esto es una nota, algonoteworthy.</div>
-            <div class="tutorial-saira-bold-small tutorial-alert-success" role="alert"><i class="tutorial-fa tutorial-check-square-o"></i> <b>Tip:</b> Esto es un tip. </div>
-            <div class="tutorial-saira-bold-small tutorial-alert-warning" role="alert"><i class="tutorial-fa tutorial-warning"></i> <b>Important:</b> Esto es  algo importante.</div>
-            <div class="tutorial-saira-bold-small tutorial-alert-danger" role="alert"><i class="tutorial-fa tutorial-exclamation-circle"></i> <b>Warning:</b>  Esto es una aviso de alerta.</div>
-        </div>
+          </form>
     </div>
 </body>
 

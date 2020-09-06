@@ -14123,6 +14123,21 @@
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
+                "action": "Add UI Object",
+                "label": "Add Tutorial Topic",
+                "relatedUiObject": "Tutorial Topic",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Reset Tutorial Progress",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Reset",
+                "label": "Reset Tutorial Progress",
+                "iconPathOn": "shapes-polygon-body",
+                "iconPathOff": "shapes-polygon-body",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -14136,13 +14151,13 @@
             "config": true
         },
         "initialValues": {
-            "config": "{ \n}"
+            "config": "{ \n\"title\": \"\",\n \"summary\": \"\",\n \"subTitle\": \"\",\n \"image\": \"\",\n \"definition\": \"\",\n \"bulletListIntro\": \"\",\n \"bulletArray\": \n[\n [\"\", \"\"], \n[\"\", \"\"], \n[\"\", \"\"] \n],\n \"paragraph1\": \"\",\n \"callOut\": \"\",\n \"externalLink\": [\"\", \"\"],\n \"paragraph2\": \"\",\n \"note\": \"\",\n \"tip\": \"\",\n \"important\": \"\",\n \"warning\": \"\", \n \"position\": \"\",\n \"documentationURL\": \"\" \n}"
         },
         "isTitleAllwaysVisible": true,
         "isHierarchyHead": true,
         "addLeftIcons": true,
         "level": 0,
-        "icon": "approve",
+        "icon": "us-dollar",
         "propertyNameAtParent": "tutorials",
         "properties": [
             {
@@ -14150,16 +14165,28 @@
                 "type": "array",
                 "childType": "Tutorial Step",
                 "autoAdd": false
+            },
+            {
+                "name": "tutorialTopics",
+                "type": "array",
+                "childType": "Tutorial Topic",
+                "autoAdd": false
             }
         ]
     },
     {
-        "type": "Tutorial Step",
+        "type": "Tutorial Topic",
         "menuItems": [
             {
-                "action": "Play Tutorial Step",
+                "action": "Play Tutorial Topic",
                 "label": "Play",
-                "relatedUiObject": "Tutorial",
+                "relatedUiObject": "Tutorial Topic",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Resume Tutorial Topic",
+                "label": "Resume",
+                "relatedUiObject": "Tutorial Topic",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -14176,6 +14203,12 @@
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
+                "action": "Add UI Object",
+                "label": "Add Tutorial Topic",
+                "relatedUiObject": "Tutorial Topic",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -14189,22 +14222,82 @@
             "config": true
         },
         "initialValues": {
-            "config": "{ \n\"title\": \"\",\n \"summary\": \"\",\n \"subTitle\": \"\",\n \"image\": \"\",\n \"definition\": \"\",\n \"bulletPointIntro\": \"\",\n \"bulletArray\": \n[\n [\"\", \"\"], \n[\"\", \"\"], \n[\"\", \"\"] \n],\n \"paragraph1\": \"\",\n \"callOut\": \"\",\n \"paragraph2\": \"\",\n \"note\": \"\",\n \"tip\": \"\",\n \"important\": \"\",\n \"note\": \"\" \n}"
+            "config": "{ \n\"title\": \"\",\n \"summary\": \"\",\n \"image\": \"\",\n \"definition\": \"\",\n \"bulletListIntro\": \"\",\n \"bulletArray\": \n[\n [\"\", \"\"], \n[\"\", \"\"], \n[\"\", \"\"] \n],\n \"paragraph1\": \"\",\n \"callOut\": \"\",\n \"externalLink\": [\"\", \"\"],\n \"paragraph2\": \"\",\n \"note\": \"\",\n \"tip\": \"\",\n \"important\": \"\",\n \"warning\": \"\", \n \"position\": \"\",\n \"documentationURL\": \"\" \n}"
         },
         "referenceAttachesTo": {
             "compatibleTypes": "->*Any Node*->"
         },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Tutorial->"
+        },
         "addLeftIcons": true,
         "level": 1,
         "icon": "cardano",
-        "propertyNameAtParent": "tutorials",
+        "propertyNameAtParent": "tutorialTopics",
         "properties": [
             {
                 "name": "tutorialSteps",
                 "type": "array",
                 "childType": "Tutorial Step",
                 "autoAdd": false
+            },
+            {
+                "name": "tutorialTopics",
+                "type": "array",
+                "childType": "Tutorial Topic",
+                "autoAdd": false
             }
+        ]
+    },
+    {
+        "type": "Tutorial Step",
+        "menuItems": [
+            {
+                "action": "Play Tutorial Step",
+                "label": "Play",
+                "relatedUiObject": "Tutorial",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Resume Tutorial Step",
+                "label": "Resume",
+                "relatedUiObject": "Tutorial",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Configure",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Configure",
+                "iconPathOn": "html",
+                "iconPathOff": "html"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n  \"subTitle\": \"\",\n \"image\": \"\",\n \"definition\": \"\",\n \"bulletListIntro\": \"\",\n \"bulletArray\": \n[\n [\"\", \"\"], \n[\"\", \"\"], \n[\"\", \"\"] \n],\n \"paragraph1\": \"\",\n \"callOut\": \"\",\n \"externalLink\": [\"\", \"\"],\n \"paragraph2\": \"\",\n \"note\": \"\",\n \"tip\": \"\",\n \"important\": \"\",\n \"warning\": \"\", \n \"position\": \"\",\n \"documentationURL\": \"\" \n}"
+        },
+        "referenceAttachesTo": {
+            "compatibleTypes": "->*Any Node*->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Tutorial->Tutorial Topic->"
+        },
+        "addLeftIcons": true,
+        "level": 2,
+        "icon": "tron",
+        "propertyNameAtParent": "tutorialSteps",
+        "properties": [
         ]
     }
 ]

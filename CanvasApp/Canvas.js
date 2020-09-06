@@ -33,6 +33,7 @@ function newCanvas() {
         topSpace: undefined,
         sideSpace: undefined,
         docSpace: undefined,
+        tutorialSpace: undefined,
         chartingSpace: undefined,
         floatingSpace: undefined,
         panelsSpace: undefined,
@@ -62,6 +63,7 @@ function newCanvas() {
 
     function finalize() {
         try {
+            thisObject.tutorialSpace.finalize()
             thisObject.docSpace.finalize()
             thisObject.sideSpace.finalize()
             thisObject.chartingSpace.finalize()
@@ -127,6 +129,9 @@ function newCanvas() {
             thisObject.docSpace = newDocSpace()
             thisObject.docSpace.initialize()
 
+            thisObject.tutorialSpace = newTutorialSpace()
+            thisObject.tutorialSpace.initialize()
+
             thisObject.splashScreen = newSplashScreen()
 
             let animation = newAnimation()
@@ -142,6 +147,7 @@ function newCanvas() {
             animation.addCallBackFunction('Panels Space Physics', thisObject.panelsSpace.physics)
             animation.addCallBackFunction('Side Space Physics', thisObject.sideSpace.physics)
             animation.addCallBackFunction('Doc Space Physics', thisObject.docSpace.physics)
+            animation.addCallBackFunction('Tutorial Space Physics', thisObject.tutorialSpace.physics)
 
             /* Spcaces Drawing */
             animation.addCallBackFunction('Floating Space Draw', thisObject.floatingSpace.draw)
@@ -152,6 +158,7 @@ function newCanvas() {
             animation.addCallBackFunction('Top Space Draw', thisObject.topSpace.draw)
             animation.addCallBackFunction('Side Space Draw', thisObject.sideSpace.draw)
             animation.addCallBackFunction('Doc Space Draw', thisObject.docSpace.draw)
+            animation.addCallBackFunction('Tutorial Space Draw', thisObject.tutorialSpace.draw)
             animation.addCallBackFunction('Splash Screen Draw', thisObject.splashScreen.draw)
             animation.start()
         } catch (err) {
@@ -573,6 +580,20 @@ function newCanvas() {
             let container
 
             /* We check if the mouse is over an element of the Doc Space / */
+            container = thisObject.tutorialSpace.getContainer(point)
+
+            if (container !== undefined && container.isDraggeable === true) {
+                containerBeingDragged = container
+                containerDragStarted = true
+                containerBeingDragged.eventHandler.raiseEvent('onDragStarted', point)
+                return
+            }
+
+            if (container !== undefined && container.isDraggeable === false) {
+                return
+            }
+
+            /* We check if the mouse is over an element of the Doc Space / */
             container = thisObject.docSpace.getContainer(point)
 
             if (container !== undefined && container.isDraggeable === true) {
@@ -714,6 +735,14 @@ function newCanvas() {
             point.y = event.pageY - CURRENT_TOP_MARGIN
 
             let container
+
+            /* We check if the mouse is over an element of the Tutorial Space / */
+            container = thisObject.tutorialSpace.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_CLICK)
+
+            if (container !== undefined && container.isClickeable === true) {
+                container.eventHandler.raiseEvent('onMouseClick', point)
+                return
+            }
 
             /* We check if the mouse is over an element of the Doc Space / */
             container = thisObject.docSpace.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_CLICK)
@@ -865,6 +894,16 @@ function newCanvas() {
 
             let container
 
+            /* We check if the mouse is over an element of the Tutorial Space / */
+            if (thisObject.tutorialSpace !== undefined) {
+                container = thisObject.tutorialSpace.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_OVER)
+
+                if (container !== undefined && container.detectMouseOver === true) {
+                    containerFound()
+                    return
+                }
+            }
+
             /* We check if the mouse is over an element of the Doc Space / */
             if (thisObject.docSpace !== undefined) {
                 container = thisObject.docSpace.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_OVER)
@@ -982,6 +1021,14 @@ function newCanvas() {
 
             event.mousePosition = point
             let container
+
+            /* Doc Space */
+            container = canvas.tutorialSpace.getContainer({ x: point.x, y: point.y })
+
+            if (container !== undefined && container.isWheelable === true) {
+                container.eventHandler.raiseEvent('onMouseWheel', event)
+                return false  // This instructs the browser not to take the event and scroll the page.
+            }
 
             /* Doc Space */
             container = canvas.docSpace.getContainer({ x: point.x, y: point.y })

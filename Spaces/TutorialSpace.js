@@ -39,6 +39,9 @@ function newTutorialSpace() {
 
     let tutorialDiv = document.getElementById('tutorialDiv')
     let tutorialFormDiv = document.getElementById('tutorialFormDiv')
+    let htmlGif = document.createElement("IMG")
+    let currentGifName = 'Never Set'
+    let newGifName = 'Never Set'
     let htmlImage = document.createElement("IMG")
     let currentImageName = 'Never Set'
     let newImageName = 'Never Set'
@@ -64,6 +67,7 @@ function newTutorialSpace() {
         tutorialDiv = undefined
         tutorialFormDiv = undefined
         image = undefined
+        gif = undefined
     }
 
     function resize() {
@@ -104,10 +108,24 @@ function newTutorialSpace() {
             }
         }
 
+        checkGif()
         checkImage()
         checkDocumentation()
         checkReference()
         return
+
+        function checkGif() {
+            let tutorialGifDiv = document.getElementById('tutorialGifDiv')
+            if (tutorialGifDiv !== null && tutorialGifDiv !== undefined) {
+                tutorialGifDiv.appendChild(htmlGif)
+            }
+
+            if (currentGifName === newGifName) { return }
+            currentGifName = newGifName
+            htmlGif.src = 'Images/Tutorial/Gifs/' + currentGifName + '.gif'
+            htmlGif.width = "400"
+            //htmlGif.height = "100"
+        }
 
         function checkImage() {
             let tutorialImageDiv = document.getElementById('tutorialImageDiv')
@@ -462,6 +480,10 @@ function newTutorialSpace() {
         }
         if (nodeConfig.subTitle !== undefined && nodeConfig.subTitle !== '') {
             html = html + '<h2 class="tutorial-saira-medium">' + nodeConfig.subTitle + '</h2>'
+        }
+        if (nodeConfig.gif !== undefined && nodeConfig.gif !== '') {
+            html = html + '<div id="tutorialGifDiv" width="400"/>'
+            newGifName = nodeConfig.gif
         }
         if (nodeConfig.definition !== undefined && nodeConfig.definition !== '') {
             html = html + '<table class="tutorial-definitionTable">'

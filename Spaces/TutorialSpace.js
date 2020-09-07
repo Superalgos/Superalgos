@@ -111,6 +111,7 @@ function newTutorialSpace() {
         checkGif()
         checkImage()
         checkDocumentation()
+        checkSlider()
         checkReference()
         return
 
@@ -141,16 +142,61 @@ function newTutorialSpace() {
         }
 
         function checkDocumentation() {
-            if (currentNode === undefined) {return}
+            if (currentNode === undefined) { return }
             let config = JSON.parse(currentNode.config)
             let newDocumentationURL = config.documentationURL
-            if (newDocumentationURL === undefined || newDocumentationURL === "") {
+            if (newDocumentationURL === undefined) {
+                /*
+                The doc panel will remain as it is, and the user will be free to open or close it at will.
+                */
+                return
+            }
+            if (newDocumentationURL === "") {
+                /*
+                This forces the tutorial to close the documentation panel and to keep it closed.
+                */
                 canvas.docSpace.sidePanelTab.close()
+                return
             }
             if (newDocumentationURL === currentDocumentationURL) { return }
-            
+
             currentDocumentationURL = newDocumentationURL
             canvas.docSpace.navigateTo(currentDocumentationURL)
+        }
+
+        function checkSlider() {
+            if (currentNode === undefined) { return }
+            let config = JSON.parse(currentNode.config)
+            if (config.slider === undefined) {
+                /*
+                The cockpit space will remain where it is. The user is free to move it.
+                */
+                return
+            }
+            switch (config.slider) {
+                case "toTop": {
+                    /*
+                    This forces the tutorial to close the charting space and to keep it closed.
+                    */
+                    canvas.cockpitSpace.toTop()
+                    return
+                }
+                case "toMiddle": {
+                    /*
+                    This forces the tutorial to share the screen half with the designer and half 
+                    with the charting space and force it in that way.
+                    */
+                    canvas.cockpitSpace.toMiddle()
+                    return
+                }
+                case "toBottom": {
+                    /*
+                    This forces the tutorial to fully open the charting space and to keep it open.
+                    */
+                    canvas.cockpitSpace.toBottom()
+                    return
+                }
+            }
         }
 
         function checkReference() {
@@ -275,7 +321,7 @@ function newTutorialSpace() {
 
     function skip() {
         let tutorial = {
-            status:'Skipped'
+            status: 'Skipped'
         }
         saveTutorial(currentNode.payload, tutorial)
         advance()
@@ -283,7 +329,7 @@ function newTutorialSpace() {
 
     function done() {
         let tutorial = {
-            status:'Done'
+            status: 'Done'
         }
         saveTutorial(currentNode.payload, tutorial)
         advance()
@@ -329,7 +375,7 @@ function newTutorialSpace() {
             for (let i = 0; i < node.tutorialSteps.length; i++) {
                 let tutorialStep = node.tutorialSteps[i]
                 let tutorial = {
-                    status:'Reset'
+                    status: 'Reset'
                 }
                 saveTutorial(tutorialStep.payload, tutorial)
             }
@@ -337,7 +383,7 @@ function newTutorialSpace() {
             for (let i = 0; i < node.tutorialTopics.length; i++) {
                 let tutorialTopic = node.tutorialTopics[i]
                 let tutorial = {
-                    status:'Reset'
+                    status: 'Reset'
                 }
                 saveTutorial(tutorialTopic.payload, tutorial)
                 resetNextNode(tutorialTopic)
@@ -472,14 +518,14 @@ function newTutorialSpace() {
         let nodeConfig = JSON.parse(currentNode.config)
         let html = ''
         if (nodeConfig.title !== undefined && nodeConfig.title !== '') {
-            html = html + '<div><h1 class="tutorial-saira-large">' + nodeConfig.title + '</h1></div>'
+            html = html + '<div><h1 class="tutorial-font-large">' + nodeConfig.title + '</h1></div>'
         }
         html = html + '<div>'
         if (nodeConfig.summary !== undefined && nodeConfig.summary !== '') {
-            html = html + '<div class="tutorial-summary">' + nodeConfig.summary + '</div>'
+            html = html + '<div class="tutorial-font-small tutorial-summary">' + nodeConfig.summary + '</div>'
         }
         if (nodeConfig.subTitle !== undefined && nodeConfig.subTitle !== '') {
-            html = html + '<h2 class="tutorial-saira-medium">' + nodeConfig.subTitle + '</h2>'
+            html = html + '<h2 class="tutorial-font-medium">' + nodeConfig.subTitle + '</h2>'
         }
         if (nodeConfig.gif !== undefined && nodeConfig.gif !== '') {
             html = html + '<div id="tutorialGifDiv" width="400"/>'
@@ -495,51 +541,51 @@ function newTutorialSpace() {
             }
             html = html + '</td>'
             html = html + '<td>'
-            html = html + '<strong class="tutorial-saira-bold-small">' + nodeConfig.definition + '</strong>'
+            html = html + '<strong class="tutorial-font-bold-small">' + nodeConfig.definition + '</strong>'
             html = html + '</td>'
             html = html + '</tr>'
             html = html + '</table>'
         }
         if (nodeConfig.bulletListIntro !== undefined && nodeConfig.bulletListIntro !== '') {
-            html = html + '<p class="tutorial-saira-small">' + nodeConfig.bulletListIntro + '</p>'
+            html = html + '<p class="tutorial-font-small">' + nodeConfig.bulletListIntro + '</p>'
         }
         if (nodeConfig.bulletArray !== undefined) {
             html = html + '<ul>'
             for (let i = 0; i < nodeConfig.bulletArray.length; i++) {
                 let bullet = nodeConfig.bulletArray[i]
                 html = html + '<li>'
-                html = html + '<p class="tutorial-saira-small"><strong class="tutorial-saira-bold-small">' + bullet[0] + ':</strong> ' + bullet[1] + '</p>'
+                html = html + '<p class="tutorial-font-small"><strong class="tutorial-font-bold-small">' + bullet[0] + ':</strong> ' + bullet[1] + '</p>'
                 html = html + '</li>'
             }
             html = html + '</ul>'
         }
         if (nodeConfig.paragraph1 !== undefined && nodeConfig.paragraph1 !== '') {
-            html = html + '<p class="tutorial-saira-small">' + nodeConfig.paragraph1 + '</p>'
+            html = html + '<p class="tutorial-font-small">' + nodeConfig.paragraph1 + '</p>'
         }
         if (nodeConfig.callOut !== undefined && nodeConfig.callOut !== '') {
-            html = html + '<div class="tutorial-saira-bold-small tutorial-callout" > ' + nodeConfig.callOut + ''
+            html = html + '<div class="tutorial-font-bold-small tutorial-callout" > ' + nodeConfig.callOut + ''
             if (nodeConfig.externalLink !== undefined) {
                 html = html + '<a href="' + nodeConfig.externalLink[1] + '" target="_blank">' + nodeConfig.externalLink[0] + '</a>'
             }
             html = html + '</div>'
         }
         if (nodeConfig.paragraph2 !== undefined && nodeConfig.paragraph2 !== '') {
-            html = html + '<p class="tutorial-saira-small">' + nodeConfig.paragraph2 + '</p>'
+            html = html + '<p class="tutorial-font-small">' + nodeConfig.paragraph2 + '</p>'
         }
         if (nodeConfig.paragraph2 !== undefined && nodeConfig.paragraph2 !== '') {
-            html = html + '<p class="tutorial-saira-small">' + nodeConfig.paragraph2 + '</p>'
+            html = html + '<p class="tutorial-font-small">' + nodeConfig.paragraph2 + '</p>'
         }
         if (nodeConfig.note !== undefined && nodeConfig.note !== '') {
-            html = html + '<div class="tutorial-saira-bold-small tutorial-alert-info" role="alert"><i class="tutorial-fa tutorial-info-circle"></i> <b>Note:</b> ' + nodeConfig.note + '</div>'
+            html = html + '<div class="tutorial-font-bold-small tutorial-alert-info" role="alert"><i class="tutorial-fa tutorial-info-circle"></i> <b>Note:</b> ' + nodeConfig.note + '</div>'
         }
         if (nodeConfig.tip !== undefined && nodeConfig.tip !== '') {
-            html = html + '<div class="tutorial-saira-bold-small tutorial-alert-success" role="alert"><i class="tutorial-fa tutorial-check-square-o"></i> <b>Tip:</b> ' + nodeConfig.tip + '</div>'
+            html = html + '<div class="tutorial-font-bold-small tutorial-alert-success" role="alert"><i class="tutorial-fa tutorial-check-square-o"></i> <b>Tip:</b> ' + nodeConfig.tip + '</div>'
         }
         if (nodeConfig.important !== undefined && nodeConfig.important !== '') {
-            html = html + '<div class="tutorial-saira-bold-small tutorial-alert-warning" role="alert"><i class="tutorial-fa tutorial-warning"></i> <b>Important:</b> ' + nodeConfig.important + '</div>'
+            html = html + '<div class="tutorial-font-bold-small tutorial-alert-warning" role="alert"><i class="tutorial-fa tutorial-warning"></i> <b>Important:</b> ' + nodeConfig.important + '</div>'
         }
         if (nodeConfig.warning !== undefined && nodeConfig.warning !== '') {
-            html = html + '<div class="tutorial-saira-bold-small tutorial-alert-warning" role="alert"><i class="tutorial-fa tutorial-warning"></i> <b>Important:</b> ' + nodeConfig.warning + '</div>'
+            html = html + '<div class="tutorial-font-bold-small tutorial-alert-warning" role="alert"><i class="tutorial-fa tutorial-warning"></i> <b>Important:</b> ' + nodeConfig.warning + '</div>'
         }
         html = html + '</div>'
 

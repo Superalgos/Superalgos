@@ -65,6 +65,7 @@ function newAppLoader() {
                 'Utilities/Clipboard.js',
                 'Utilities/DrawPrint.js',
                 'Utilities/LoadSaveFrame.js',
+                'Utilities/LoadSaveTutorial.js',
                 'Utilities/NodeConfig.js',
                 'Utilities/HiriarchyMap.js',
                 'Utilities/Folders.js',

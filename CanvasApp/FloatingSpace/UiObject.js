@@ -618,6 +618,11 @@ function newUiObject() {
             let floatingObject = nearby[1]
             let nearbyNode = floatingObject.payload.node
             if (compatibleTypes.indexOf('->' + nearbyNode.type + '->') >= 0 || compatibleTypes === "->*Any Node*->" ) {
+                if (nodeDefinition.referenceAttachesTo.incompatibleTypes !== undefined) {
+                    if (nodeDefinition.referenceAttachesTo.incompatibleTypes.indexOf('->' + nearbyNode.type + '->') >= 0) {
+                        continue
+                    }
+                }
                 if (foundCompatible === false) {
                     if (distance < thisObject.payload.floatingObject.container.frame.radius * 1.5 + floatingObject.container.frame.radius * 1.5) {
                         nearbyNode.payload.uiObject.getReadyToReferenceAttach()

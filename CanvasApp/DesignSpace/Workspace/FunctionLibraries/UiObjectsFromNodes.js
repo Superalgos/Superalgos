@@ -576,6 +576,12 @@ function newUiObjectsFromNodes() {
                 frame.radius = node.savedPayload.frame.radius
                 saveFrame(payload, frame)
             }
+            if (node.savedPayload.tutorial !== undefined) {
+                let tutorial = {
+                    status: node.savedPayload.tutorial.status
+                }
+                saveTutorial(payload, tutorial)
+            }
         }
 
         /* Now we mount the floating object where the UIOBject will be laying on top of */

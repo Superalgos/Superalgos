@@ -10,8 +10,6 @@ function newTutorialSpace() {
         resumeTutorialTopic: resumeTutorialTopic,
         playTutorialStep: playTutorialStep,
         resumeTutorialStep: resumeTutorialStep,
-        tutorialTopicDone: tutorialTopicDone,
-        tutorialStepDone: tutorialStepDone,
         resetTutorialProgress: resetTutorialProgress,
         container: undefined,
         physics: physics,
@@ -48,6 +46,7 @@ function newTutorialSpace() {
     let newConfig
     let newDocumentationURL
     let currentDocumentationURL
+    let resumeModeActivated // In this mode, we skip all the node which status is 'Done'
 
     return thisObject
 
@@ -240,10 +239,15 @@ function newTutorialSpace() {
         tutorialRootNode = node
         currentNode = node
         currentStatus = 'Playing Tutorial'
+        resumeModeActivated = false
     }
 
     function resumeTutorial(node) {
-
+        tutorialRootNode = node
+        currentNode = node
+        currentStatus = 'Playing Tutorial'
+        resumeModeActivated = true
+        advance()
     }
 
     function stop() {
@@ -252,11 +256,18 @@ function newTutorialSpace() {
     }
 
     function skip() {
-
+        let tutorial = {
+            status:'Skipped'
+        }
+        saveTutorial(currentNode.payload, tutorial)
+        advance()
     }
 
     function done() {
-        /* If we are standing at the Tutorial Node, we do this. */
+        let tutorial = {
+            status:'Done'
+        }
+        saveTutorial(currentNode.payload, tutorial)
         advance()
     }
 
@@ -264,34 +275,56 @@ function newTutorialSpace() {
         currentTopicNode = node
         currentNode = node
         currentStatus = 'Playing Topic'
+        resumeModeActivated = false
         findTutorialNode(node)
     }
 
     function resumeTutorialTopic(node) {
-
+        currentTopicNode = node
+        currentNode = node
+        currentStatus = 'Playing Topic'
+        resumeModeActivated = true
+        findTutorialNode(node)
     }
 
     function playTutorialStep(node) {
         currentStepNode = node
         currentNode = node
         currentStatus = 'Playing Step'
+        resumeModeActivated = false
         findTutorialNode(node)
     }
 
     function resumeTutorialStep(node) {
-
+        currentStepNode = node
+        currentNode = node
+        currentStatus = 'Playing Step'
+        resumeModeActivated = true
+        findTutorialNode(node)
     }
 
-    function tutorialTopicDone() {
+    function resetTutorialProgress(node) {
+        resetNextNode(node)
 
-    }
+        function resetNextNode(node) {
 
-    function tutorialStepDone() {
+            for (let i = 0; i < node.tutorialSteps.length; i++) {
+                let tutorialStep = node.tutorialSteps[i]
+                let tutorial = {
+                    status:'Reset'
+                }
+                saveTutorial(tutorialStep.payload, tutorial)
+            }
 
-    }
-
-    function resetTutorialProgress() {
-
+            for (let i = 0; i < node.tutorialTopics.length; i++) {
+                let tutorialTopic = node.tutorialTopics[i]
+                let tutorial = {
+                    status:'Reset'
+                }
+                saveTutorial(tutorialTopic.payload, tutorial)
+                resetNextNode(tutorialTopic)
+            }
+        }
     }
 
     function findTutorialNode(node) {
@@ -354,10 +387,23 @@ function newTutorialSpace() {
 
                 let tutorialStep = node.tutorialSteps[i]
                 if (found === true) {
-                    currentNode = tutorialStep
-                    currentStatus = 'Playing Step'
-                    advanced = true
-                    return
+                    if (resumeModeActivated !== true) {
+                        currentNode = tutorialStep
+                        currentStatus = 'Playing Step'
+                        advanced = true
+                        return
+                    } else {
+                        let tutorial = {
+                            status: undefined
+                        }
+                        loadTutorial(tutorialStep.payload, tutorial)
+                        if (tutorial.status !== 'Done') {
+                            currentNode = tutorialStep
+                            currentStatus = 'Playing Step'
+                            advanced = true
+                            return
+                        }
+                    }
                 }
                 if (tutorialStep.id === currentNode.id) {
                     found = true
@@ -372,10 +418,23 @@ function newTutorialSpace() {
 
                 let tutorialTopic = node.tutorialTopics[i]
                 if (found === true) {
-                    currentNode = tutorialTopic
-                    currentStatus = 'Playing Topic'
-                    advanced = true
-                    return
+                    if (resumeModeActivated !== true) {
+                        currentNode = tutorialTopic
+                        currentStatus = 'Playing Topic'
+                        advanced = true
+                        return
+                    } else {
+                        let tutorial = {
+                            status: undefined
+                        }
+                        loadTutorial(tutorialTopic.payload, tutorial)
+                        if (tutorial.status !== 'Done') {
+                            currentNode = tutorialTopic
+                            currentStatus = 'Playing Topic'
+                            advanced = true
+                            return
+                        }
+                    }
                 }
                 if (tutorialTopic.id === currentNode.id) {
                     found = true

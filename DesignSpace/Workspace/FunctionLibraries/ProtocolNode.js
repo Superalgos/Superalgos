@@ -179,6 +179,12 @@ function newProtocolNode() {
             }
         }
 
+        if (node.payload.tutorial !== undefined) {
+            savedPayload.tutorial = {
+                status: node.payload.tutorial.status
+            }
+        }
+
         if (includeReferencesInSavedPayload) {
             /* Next for the ones that have a reference parent, we include it */
             if (node.payload.referenceParent !== undefined) {

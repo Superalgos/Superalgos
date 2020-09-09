@@ -39,8 +39,12 @@ function newDesignSpace() {
             for (let i = 0; i < APP_SCHEMA_ARRAY.length; i++) {
                 let nodeDefinition = APP_SCHEMA_ARRAY[i]
                 let iconName = nodeDefinition.icon
-                if (iconName !== undefined) {
-                    let icon = thisObject.iconCollection.get(iconName)
+                if (iconName === undefined) {
+                    iconName = nodeDefinition.type.toLowerCase()
+                    iconName = iconName.split(" ").join("-")
+                }
+                let icon = thisObject.iconCollection.get(iconName)
+                if (icon !== undefined) {
                     thisObject.iconByUiObjectType.set(nodeDefinition.type, icon)
                 }
             }

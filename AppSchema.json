@@ -12131,7 +12131,6 @@
         "isTitleAllwaysVisible": true,
         "addLeftIcons": true,
         "level": 1,
-        "icon": "crypto-exchanges",
         "chainAttachesTo": {
             "compatibleTypes": "->Crypto Ecosystem->"
         },

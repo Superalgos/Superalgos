@@ -795,7 +795,7 @@ function newUiObject() {
                 if (thisObject.payload.parentNode !== undefined) {
                     if (thisObject.payload.parentNode.payload !== undefined) {
                         if (thisObject.payload.parentNode.payload.floatingObject !== undefined) {
-                            if (thisObject.payload.parentNode.payload.floatingObject.isCollapsed === true || thisObject.payload.parentNode.payload.floatingObject.isParentCollapsed === true) {
+                            if (thisObject.payload.floatingObject.isCollapsed === true || thisObject.payload.floatingObject.isParentCollapsed === true) {
                                 if (thisObject.payload.parentNode.payload.uiObject.hasError !== true) {
                                     thisObject.payload.parentNode.payload.uiObject.setErrorMessage('Error Inside this Branch')
                                 }

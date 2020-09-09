@@ -444,6 +444,17 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                 }
                 break
 
+            case 'ImagesNames':
+                {
+                    const folder =  process.env.PATH_TO_WEB_SERVER + 'WebServer/Images/Icons/style-01/'
+                    const fs = require('fs')
+
+                    fs.readdir(folder, (err, files) => {
+                        respondWithContent(JSON.stringify(files), response)
+                    })
+                }
+                break
+
             case 'AppSchema.js':
                 {
                     let fs = require('fs')

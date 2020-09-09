@@ -67,7 +67,7 @@ function newAppLoader() {
                 'Utilities/LoadSaveFrame.js',
                 'Utilities/LoadSaveTutorial.js',
                 'Utilities/NodeConfig.js',
-                'Utilities/HiriarchyMap.js',
+                'Utilities/Hiriarchy.js',
                 'Utilities/Folders.js',
                 'Utilities/Branches.js',
                 'Utilities/Meshes.js',

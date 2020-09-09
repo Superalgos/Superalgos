@@ -45,3 +45,19 @@ function getHiriarchyMap(rootNode) {
         }
     }
 }
+
+function getHiriarchyHead(initialNode) { 
+    let headNode
+    stepBackwards(initialNode)
+    return headNode
+
+    function stepBackwards(node) {
+        if (node === undefined) {return}
+        if (node.payload === undefined) {return}
+        if (node.payload.parentNode === undefined) {
+            headNode = node
+        } else {
+            stepBackwards(node.payload.parentNode)
+        }
+    }
+}

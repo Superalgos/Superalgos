@@ -28,6 +28,8 @@ const UI_FONT = {
     SECONDARY: "Source Code Pro"
 };
 
+const DOCUMENTATION_URL_PREFIX = 'https://julian-molina.github.io/Documentation/'
+
 const MAC_AMOUNT_FACTOR = 5
 const IS_MAC = navigator.platform.toUpperCase().indexOf('MAC') >= 0
 

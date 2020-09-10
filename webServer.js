@@ -43,7 +43,6 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
             if (isHttpServerStarted === false) {
                 gWebServer = http.createServer(onBrowserRequest).listen(port)
                 isHttpServerStarted = true
-
                 /* Starting the browser now is optional */
                 if (process.argv[4] !== 'noBrowser') {
                     open('http://localhost:' + port)

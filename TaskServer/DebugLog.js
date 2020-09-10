@@ -101,7 +101,7 @@ exports.newDebugLog = function newDebugLog() {
             writeLog();
 
             /* This is the implementation of the mechanism to auto-mantain logs. */
-            if (contentToPersist.indexOf('[ERROR]') < 0 && contentToPersist.indexOf('[PERSIST]') < 0) {
+            if (contentToPersist.indexOf('[ERROR]') < 0 && contentToPersist.indexOf('[PERSIST]') < 0 && contentToPersist.indexOf('[IMPORTANT]') < 0) {
                 thisObject.bot.LOGS_TO_DELETE_QUEUE.push(filePath + '/' + fileName)
             }
             if (thisObject.bot.LOGS_TO_DELETE_QUEUE.length > thisObject.bot.DELETE_QUEUE_SIZE) {

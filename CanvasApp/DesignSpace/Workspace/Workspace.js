@@ -726,10 +726,10 @@ function newWorkspace() {
                             let headName = getHiriarchyHead(payload.node).type
                             headName = headName.toLowerCase()
                             headName = headName.split(" ").join("-")
-                            let nodeName =  payload.node.type
+                            let nodeName = payload.node.type
                             nodeName = nodeName.toLowerCase()
                             nodeName = nodeName.split(" ").join("-")
-                            url = DOCUMENTATION_URL_PREFIX + "suite-hierarchy-" +  headName + ".html#"  + nodeName 
+                            url = DOCUMENTATION_URL_PREFIX + "suite-hierarchy-" + headName + ".html#" + nodeName
                             canvas.docSpace.navigateTo(url)
                         }
                     }

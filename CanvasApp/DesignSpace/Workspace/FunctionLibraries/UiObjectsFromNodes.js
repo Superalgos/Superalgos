@@ -32,7 +32,7 @@ function newUiObjectsFromNodes() {
             let blobService = newFileStorage()
 
             // if (node.config === undefined) {
-            node.config = '{ \n"includeDataMines": ["Masters", "Sparta", "Masters-Trading"],\n"includeTradingSystems": ["Sparta-WHB-BTC-USDT", "Example-ETH-USDT", "Sparta-BRR-BTC-USDT"],\n"includeSuperScripts": ["Masters"]\n }'
+            node.config = '{ \n"includeDataMines": ["Masters", "Sparta", "Masters-Trading"],\n"includeTradingSystems": ["Sparta-WHB-BTC-USDT", "Sparta-BRR-BTC-USDT"],\n"includeSuperScripts": ["Masters"]\n }'
             // }
 
             let config = JSON.parse(node.config)
@@ -63,7 +63,7 @@ function newUiObjectsFromNodes() {
                         }
                     }
                     receivedNode.isIncluded = true
-                    node.rootNodes.push(receivedNode)
+                    node.rootNodes.unshift(receivedNode)
                     totalIncluded++
                     if (totalIncluded === includeDataMines.length + includeTradingSystems.length + includeSuperScripts.length) {
                         addUserDefinedNodes()
@@ -92,7 +92,7 @@ function newUiObjectsFromNodes() {
                         }
                     }
                     receivedNode.isIncluded = true
-                    node.rootNodes.push(receivedNode)
+                    node.rootNodes.unshift(receivedNode)
                     totalIncluded++
                     if (totalIncluded === includeDataMines.length + includeTradingSystems.length + includeSuperScripts.length) {
                         addUserDefinedNodes()
@@ -121,7 +121,7 @@ function newUiObjectsFromNodes() {
                         }
                     }
                     receivedNode.isIncluded = true
-                    node.rootNodes.push(receivedNode)
+                    node.rootNodes.unshift(receivedNode)
                     totalIncluded++
                     if (totalIncluded === includeDataMines.length + includeTradingSystems.length + includeSuperScripts.length) {
                         addUserDefinedNodes()
@@ -167,10 +167,16 @@ function newUiObjectsFromNodes() {
     function tryToConnectChildrenWithReferenceParents() {
         /* We reconstruct here the reference relationships. */
         for (const [key, node] of mapOfNodes) {
+            if (node.id === "54854f90-d121-4365-8f40-9a26e7af1097") {
+                console.log('ACA')
+            }
             if (node.payload === undefined) { continue }
             if (node.payload.referenceParent !== undefined) {
                 if (node.payload.referenceParent.cleaned === true) {
                     node.payload.referenceParent = mapOfNodes.get(node.payload.referenceParent.id)
+                    if (node.payload.referenceParent === undefined) {
+                        console.log(node.type + ' ' + node.name + ' reference parent lost during re-binding phase.')
+                    }
                     continue  // We were referencing a deleted node, so we replace it potentially with a newly created one.
                 } else {
                     continue  // In this case the reference is already good.
@@ -179,6 +185,9 @@ function newUiObjectsFromNodes() {
             if (node.savedPayload !== undefined) {
                 if (node.savedPayload.referenceParent !== undefined) { // these are children recreated
                     node.payload.referenceParent = mapOfNodes.get(node.savedPayload.referenceParent.id)
+                    if (node.payload.referenceParent === undefined) {
+                        console.log(node.type + ' ' + node.name + ' reference parent lost during re-binding phase.')
+                    }
                 }
             }
         }
@@ -460,8 +469,13 @@ function newUiObjectsFromNodes() {
         if (node.id === undefined) {
             node.id = newUniqueId()
         } else {
+            /*
+            We need to avoid nodes having the same id. If we add nodes to a workspace that already exist with the same Id,
+            the nodes being added will get a new id at this moment.
+            */
             let testNode = mapOfNodes.get(node.id)
             if (testNode !== undefined && testNode.cleaned !== true) {
+                console.log(testNode.name + ' already have the id of the node ' + node.name + ' being added.')
                 node.id = newUniqueId()
             }
         }
@@ -587,6 +601,7 @@ function newUiObjectsFromNodes() {
         /* Now we mount the floating object where the UIOBject will be laying on top of */
         canvas.floatingSpace.uiObjectConstructor.createUiObject(userAddingNew, payload)
 
+        /* This is the point where we build a map with all nodes present at the workspace */
         mapOfNodes.set(node.id, node)
 
         /* Check if there are tasks to run */

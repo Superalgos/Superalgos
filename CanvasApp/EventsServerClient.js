@@ -87,7 +87,7 @@ function newEventsServerClient(networkNode) {
         if (WEB_SOCKETS_CONNECTION.readyState === 1) {
             WEB_SOCKETS_CONNECTION.send(messageToWebSocketServer)
         } else {
-            console.log('WebSocket message could not be sent because the connection was not ready. Will retry soon. Message = ' + JSON.stringify(command))
+            //console.log('WebSocket message could not be sent because the connection was not ready. Will retry soon. Message = ' + JSON.stringify(command))
         }
     }
 

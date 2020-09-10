@@ -1,7 +1,6 @@
 [
     {
         "type": "Plotter Module",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-data-mine.html#plotter-module",
         "properties": [
             {
                 "name": "javascriptCode",
@@ -86,8 +85,8 @@
                 "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html"
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
             },
             {
                 "action": "Add UI Object",
@@ -139,7 +138,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Plotter->"
         },
-        "icon": "plotter-module",
         "propertyNameAtParent": "modules"
     },
     {
@@ -160,7 +158,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Plotter Module->"
         },
-        "icon": "band",
+        "icon": "expand",
         "propertyNameAtParent": "nodesValues"
     },
     {
@@ -181,7 +179,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Plotter Module->"
         },
-        "icon": "band",
+        "icon": "expand",
         "propertyNameAtParent": "nodesHighlights"
     },
     {
@@ -202,7 +200,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Plotter Module->"
         },
-        "icon": "band",
+        "icon": "expand",
         "propertyNameAtParent": "nodesErrors"
     },
     {
@@ -223,7 +221,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Plotter Module->"
         },
-        "icon": "pyramid",
+        "icon": "expand",
         "propertyNameAtParent": "nodesWarnings"
     },
     {
@@ -244,7 +242,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Plotter Module->"
         },
-        "icon": "user-account",
+        "icon": "expand",
         "propertyNameAtParent": "nodesInfos"
     },
     {
@@ -265,7 +263,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Plotter Module->"
         },
-        "icon": "mouse-wheel-click",
+        "icon": "expand",
         "propertyNameAtParent": "nodesStatus"
     },
     {
@@ -286,7 +284,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Plotter Module->"
         },
-        "icon": "trend",
+        "icon": "expand",
         "propertyNameAtParent": "nodesProgress"
     },
     {
@@ -307,7 +305,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Plotter Module->"
         },
-        "icon": "tools",
+        "icon": "expand",
         "propertyNameAtParent": "nodesRunning"
     },
     {
@@ -328,7 +326,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Plotter Module->"
         },
-        "icon": "scripts-library",
+        "icon": "expand",
         "propertyNameAtParent": "nodesAnnouncements"
     },
     {
@@ -349,13 +347,11 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Plotter Module->"
         },
-        "icon": "shapes-polygon-body",
+        "icon": "expand",
         "propertyNameAtParent": "recordValues"
     },
     {
         "type": "Shapes",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-data-mine.html#shapes",
-        "icon": "shapes",
         "level": 4,
         "propertyNameAtParent": "shapes",
         "chainAttachesTo": {
@@ -426,8 +422,6 @@
     },
     {
         "type": "Plotter Panel",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-data-mine.html#plotter-panel",
-        "icon": "plotter-panel",
         "level": 4,
         "propertyNameAtParent": "panels",
         "chainAttachesTo": {
@@ -457,8 +451,8 @@
                 "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html"
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
             },
             {
                 "action": "Add UI Object",
@@ -488,8 +482,6 @@
     },
     {
         "type": "Panel Data",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-data-mine.html#panel-data",
-        "icon": "data-entry",
         "level": 4,
         "propertyNameAtParent": "panelData",
         "editors": {
@@ -514,8 +506,8 @@
                 "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html"
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
             },
             {
                 "action": "Add UI Object",
@@ -539,8 +531,6 @@
     },
     {
         "type": "Data Formula",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-data-mine.html#data-formula",
-        "icon": "data-formula",
         "level": 4,
         "propertyNameAtParent": "dataFormula",
         "editors": {
@@ -557,8 +547,8 @@
                 "action": "Edit",
                 "actionFunction": "uiObject.formulaEditor.activate",
                 "label": "Edit",
-                "iconPathOn": "html",
-                "iconPathOff": "html"
+                "iconPathOn": "javascript-code",
+                "iconPathOff": "javascript-code"
             },
             {
                 "action": "Delete UI Object",
@@ -574,8 +564,6 @@
     },
     {
         "type": "Javascript Code",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-data-mine.html#javascript-code",
-        "icon": "html",
         "level": 4,
         "propertyNameAtParent": "javascriptCode",
         "editors": {
@@ -592,8 +580,8 @@
                 "action": "Edit",
                 "actionFunction": "uiObject.codeEditor.activate",
                 "label": "Edit",
-                "iconPathOn": "html",
-                "iconPathOff": "html"
+                "iconPathOn": "javascript-code",
+                "iconPathOff": "javascript-code"
             },
             {
                 "action": "Delete UI Object",
@@ -609,8 +597,6 @@
     },
     {
         "type": "Chart Points",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-data-mine.html#chart-points",
-        "icon": "chart-points",
         "level": 4,
         "propertyNameAtParent": "chartPoints",
         "chainAttachesTo": {
@@ -645,8 +631,6 @@
     },
     {
         "type": "Point",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-data-mine.html#point",
-        "icon": "chart-point",
         "level": 4,
         "propertyNameAtParent": "points",
         "chainAttachesTo": {
@@ -683,8 +667,6 @@
     },
     {
         "type": "Point Formula",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-data-mine.html#point-formula",
-        "icon": "chart-point-formula",
         "level": 4,
         "propertyNameAtParent": "pointFormula",
         "chainAttachesTo": {
@@ -701,8 +683,8 @@
                 "action": "Edit",
                 "actionFunction": "uiObject.formulaEditor.activate",
                 "label": "Edit",
-                "iconPathOn": "html",
-                "iconPathOff": "html"
+                "iconPathOn": "javascript-code",
+                "iconPathOff": "javascript-code"
             },
             {
                 "action": "Delete UI Object",
@@ -718,7 +700,6 @@
     },
     {
         "type": "Image",
-        "icon": "video-player",
         "level": 3,
         "propertyNameAtParent": "images",
         "chainAttachesTo": {
@@ -735,8 +716,8 @@
                 "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html"
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
             },
             {
                 "action": "Add UI Object",
@@ -782,7 +763,6 @@
     },
     {
         "type": "Image Condition",
-        "icon": "style-condition",
         "level": 4,
         "propertyNameAtParent": "imageCondition",
         "chainAttachesTo": {
@@ -800,8 +780,8 @@
                 "action": "Edit",
                 "actionFunction": "uiObject.codeEditor.activate",
                 "label": "Edit",
-                "iconPathOn": "html",
-                "iconPathOff": "html"
+                "iconPathOn": "javascript-code",
+                "iconPathOff": "javascript-code"
             },
             {
                 "action": "Delete UI Object",
@@ -817,7 +797,6 @@
     },
     {
         "type": "Image Position",
-        "icon": "tools",
         "level": 4,
         "propertyNameAtParent": "imagePosition",
         "chainAttachesTo": {
@@ -841,8 +820,8 @@
                 "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html"
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
             },
             {
                 "action": "Delete UI Object",
@@ -858,7 +837,6 @@
     },
     {
         "type": "Text",
-        "icon": "text",
         "level": 3,
         "propertyNameAtParent": "texts",
         "chainAttachesTo": {
@@ -937,7 +915,6 @@
     },
     {
         "type": "Text Style",
-        "icon": "bot-sensor",
         "level": 4,
         "propertyNameAtParent": "textStyle",
         "chainAttachesTo": {
@@ -954,8 +931,8 @@
                 "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html"
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
             },
             {
                 "action": "Delete UI Object",
@@ -971,7 +948,6 @@
     },
     {
         "type": "Text Condition",
-        "icon": "style-condition",
         "level": 4,
         "propertyNameAtParent": "textCondition",
         "chainAttachesTo": {
@@ -989,8 +965,8 @@
                 "action": "Edit",
                 "actionFunction": "uiObject.codeEditor.activate",
                 "label": "Edit",
-                "iconPathOn": "html",
-                "iconPathOff": "html"
+                "iconPathOn": "javascript-code",
+                "iconPathOff": "javascript-code"
             },
             {
                 "action": "Delete UI Object",
@@ -1006,7 +982,6 @@
     },
     {
         "type": "Text Position",
-        "icon": "tools",
         "level": 4,
         "propertyNameAtParent": "textPosition",
         "chainAttachesTo": {
@@ -1030,8 +1005,8 @@
                 "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html"
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
             },
             {
                 "action": "Delete UI Object",
@@ -1047,7 +1022,6 @@
     },
     {
         "type": "Text Formula",
-        "icon": "bot-indicator",
         "level": 4,
         "propertyNameAtParent": "textFormula",
         "chainAttachesTo": {
@@ -1064,8 +1038,8 @@
                 "action": "Edit",
                 "actionFunction": "uiObject.formulaEditor.activate",
                 "label": "Edit",
-                "iconPathOn": "html",
-                "iconPathOff": "html"
+                "iconPathOn": "javascript-code",
+                "iconPathOff": "javascript-code"
             },
             {
                 "action": "Delete UI Object",
@@ -1081,8 +1055,6 @@
     },
     {
         "type": "Polygon",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-data-mine.html#polygon",
-        "icon": "shapes-polygon",
         "level": 3,
         "propertyNameAtParent": "polygons",
         "chainAttachesTo": {
@@ -1159,7 +1131,6 @@
     },
     {
         "type": "Polygon Condition",
-        "icon": "style-condition",
         "level": 4,
         "propertyNameAtParent": "polygonCondition",
         "chainAttachesTo": {
@@ -1177,8 +1148,8 @@
                 "action": "Edit",
                 "actionFunction": "uiObject.codeEditor.activate",
                 "label": "Edit",
-                "iconPathOn": "html",
-                "iconPathOff": "html"
+                "iconPathOn": "javascript-code",
+                "iconPathOff": "javascript-code"
             },
             {
                 "action": "Delete UI Object",
@@ -1194,8 +1165,6 @@
     },
     {
         "type": "Polygon Body",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-data-mine.html#polygon-body",
-        "icon": "shapes-polygon-body",
         "level": 4,
         "propertyNameAtParent": "polygonBody",
         "chainAttachesTo": {
@@ -1243,8 +1212,6 @@
     },
     {
         "type": "Polygon Border",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-data-mine.html#polygon-border",
-        "icon": "shapes-polygon-border",
         "level": 4,
         "propertyNameAtParent": "polygonBorder",
         "chainAttachesTo": {
@@ -1292,8 +1259,6 @@
     },
     {
         "type": "Style Condition",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-data-mine.html#style-condition",
-        "icon": "style-condition",
         "level": 4,
         "propertyNameAtParent": "styleConditions",
         "chainAttachesTo": {
@@ -1318,8 +1283,8 @@
                 "action": "Edit",
                 "actionFunction": "uiObject.codeEditor.activate",
                 "label": "Edit",
-                "iconPathOn": "html",
-                "iconPathOff": "html"
+                "iconPathOn": "javascript-code",
+                "iconPathOff": "javascript-code"
             },
             {
                 "action": "Add UI Object",
@@ -1343,8 +1308,6 @@
     },
     {
         "type": "Style",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-data-mine.html#style",
-        "icon": "style",
         "level": 4,
         "propertyNameAtParent": "style",
         "chainAttachesTo": {
@@ -1361,8 +1324,8 @@
                 "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html"
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
             },
             {
                 "action": "Delete UI Object",
@@ -1378,8 +1341,6 @@
     },
     {
         "type": "Polygon Vertex",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-data-mine.html#polygon-vertex",
-        "icon": "shapes-polygon-vertex",
         "level": 4,
         "propertyNameAtParent": "polygonVertexes",
         "isReferenceChildren": true,
@@ -1411,31 +1372,31 @@
             {
                 "action": "Pin / Unpin",
                 "currentStatus": true,
-                "iconPathOn": "menu-fix-unpinned",
-                "iconPathOff": "menu-fix-pinned",
+                "iconPathOn": "unpinned",
+                "iconPathOff": "pinned",
                 "actionFunction": "payload.onMenuItemClick",
                 "ring": 1
             },
             {
                 "action": "Share Workspace",
-                "iconPathOn": "menu-share",
-                "iconPathOff": "menu-share",
+                "iconPathOn": "share",
+                "iconPathOff": "share",
                 "actionFunction": "payload.onMenuItemClick",
                 "ring": 1
             },
             {
                 "action": "Backup Workspace",
-                "iconPathOn": "menu-backup",
-                "iconPathOff": "menu-backup",
+                "iconPathOn": "backup",
+                "iconPathOff": "backup",
                 "actionFunction": "payload.onMenuItemClick",
                 "ring": 1
             },
             {
                 "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Configure Workspace",
-                "iconPathOn": "html",
-                "iconPathOff": "html"
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
             },
             {
                 "action": "Add UI Object",
@@ -1478,14 +1439,12 @@
         "addLeftIcons": false,
         "isPinned": true,
         "positionLocked": true,
-        "icon": "design-tool",
         "editors": {
             "config": true
         }
     },
     {
         "type": "Situation",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-trading-system.html#situation",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -1516,7 +1475,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Take Position Event->Trigger On Event->Trigger Off Event->Next Phase Event->Move To Phase Event->"
         },
-        "icon": "pyramid",
         "properties": [
             {
                 "name": "conditions",
@@ -1534,7 +1492,6 @@
     },
     {
         "type": "Condition",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-trading-system.html#condition",
         "menuItems": [
             {
                 "action": "Edit",
@@ -1580,7 +1537,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Situation->"
         },
-        "icon": "testing",
         "properties": [
             {
                 "name": "javascriptCode",
@@ -1593,14 +1549,13 @@
     },
     {
         "type": "Super Scripts",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-super-scripts.html#super-scripts",
         "menuItems": [
             {
                 "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html"
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
             },
             {
                 "action": "Add UI Object",
@@ -1624,7 +1579,6 @@
         "isHierarchyHead": true,
         "addLeftIcons": true,
         "level": 0,
-        "icon": "super-scripts",
         "editors": {
             "config": true
         },
@@ -1642,7 +1596,6 @@
     },
     {
         "type": "Scripts Library",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-super-scripts.html#scripts-library",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -1667,7 +1620,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Super Scripts->"
         },
-        "icon": "scripts-library",
         "properties": [
             {
                 "name": "masterScripts",
@@ -1679,7 +1631,6 @@
     },
     {
         "type": "Master Script",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-super-scripts.html#master-script",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -1712,7 +1663,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Scripts Library->"
         },
-        "icon": "master-script",
         "properties": [
             {
                 "name": "templateScripts",
@@ -1729,7 +1679,6 @@
     },
     {
         "type": "Template Script",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-super-scripts.html#template-script",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -1772,7 +1721,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Master Script->"
         },
-        "icon": "template-script",
         "properties": [
             {
                 "name": "templateStructure",
@@ -1796,7 +1744,6 @@
     },
     {
         "type": "Template Structure",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-super-scripts.html#template-structure",
         "menuItems": [
             {
                 "action": "Delete UI Object",
@@ -1815,7 +1762,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Template Script->"
         },
-        "icon": "template-structure",
         "properties": [
             {
                 "name": "taskManagers",
@@ -1841,7 +1787,6 @@
     },
     {
         "type": "Template Target",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-super-scripts.html#template-target",
         "menuItems": [
             {
                 "action": "Delete UI Object",
@@ -1863,12 +1808,10 @@
         "referenceAttachesTo": {
             "compatibleTypes": "->Dashboard->Session Independent Data->Session Based Data->Data Mining->Testing Environment->Production Environment->"
         },
-        "icon": "template-target",
         "properties": []
     },
     {
         "type": "Super Action",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-super-scripts.html#super-action",
         "menuItems": [
             {
                 "action": "Run Super Action",
@@ -1876,8 +1819,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Run",
                 "workDoneLabel": "Super Action Executed",
-                "iconPathOn": "paper-plane",
-                "iconPathOff": "paper-plane",
+                "iconPathOn": "run",
+                "iconPathOff": "run",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -1900,12 +1843,10 @@
         "referenceAttachesTo": {
             "compatibleTypes": "->Master Script->"
         },
-        "icon": "super-action",
         "properties": []
     },
     {
         "type": "Network",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-network.html#network",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -1927,7 +1868,6 @@
         "isHierarchyHead": true,
         "addLeftIcons": true,
         "level": 0,
-        "icon": "network",
         "properties": [
             {
                 "name": "networkNodes",
@@ -1938,13 +1878,12 @@
     },
     {
         "type": "Network Node",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-network.html#network-node",
         "menuItems": [
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "dontShowAtFullscreen": true,
                 "actionFunction": "uiObject.configEditor.activate"
             },
@@ -2002,7 +1941,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Network->"
         },
-        "icon": "network-node",
         "properties": [
             {
                 "name": "dataStorage",
@@ -2033,7 +1971,6 @@
     },
     {
         "type": "Task Manager",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-network.html#task-manager",
         "menuItems": [
             {
                 "action": "Run All Tasks",
@@ -2041,8 +1978,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Run",
                 "workDoneLabel": "Run Request Sent",
-                "iconPathOn": "paper-plane",
-                "iconPathOff": "paper-plane",
+                "iconPathOn": "run",
+                "iconPathOff": "run",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -2076,7 +2013,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Exchange Tasks->Template Structure->"
         },
-        "icon": "task-manager",
         "properties": [
             {
                 "name": "tasks",
@@ -2090,7 +2026,6 @@
     },
     {
         "type": "Task",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-network.html#task",
         "menuItems": [
             {
                 "action": "Run Task",
@@ -2104,8 +2039,8 @@
                 "secondaryWorkDoneLabel": "Task Stopped",
                 "secondaryWorkFailedLabel": "Task Cannot be Stopped",
                 "secondaryIcon": "stop",
-                "iconPathOn": "paper-plane",
-                "iconPathOff": "paper-plane",
+                "iconPathOn": "run",
+                "iconPathOff": "run",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -2158,7 +2093,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Task Manager->"
         },
-        "icon": "timeline",
         "properties": [
             {
                 "name": "bot",
@@ -2180,13 +2114,12 @@
     },
     {
         "type": "Trading Bot Instance",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-network.html#trading-bot-instance",
         "menuItems": [
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "dontShowAtFullscreen": true,
                 "actionFunction": "uiObject.configEditor.activate"
             },
@@ -2217,7 +2150,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Task->"
         },
-        "icon": "bot-trading",
         "properties": [
             {
                 "name": "processes",
@@ -2230,7 +2162,6 @@
     },
     {
         "type": "Sensor Process Instance",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-network.html#sensor-process-instance",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -2263,7 +2194,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Sensor Bot Instance->"
         },
-        "icon": "process",
         "properties": [
             {
                 "name": "marketReference",
@@ -2276,7 +2206,6 @@
     },
     {
         "type": "Indicator Process Instance",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-network.html#indicator-process-instance",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -2309,7 +2238,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Indicator Bot Instance->"
         },
-        "icon": "process",
         "properties": [
             {
                 "name": "marketReference",
@@ -2322,7 +2250,6 @@
     },
     {
         "type": "Trading Process Instance",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-network.html#trading-process-instance",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -2395,7 +2322,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Trading Bot Instance->"
         },
-        "icon": "process",
         "properties": [
             {
                 "name": "session",
@@ -2434,7 +2360,6 @@
     },
     {
         "type": "Backtesting Session",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-network.html#backtesting-session",
         "menuItems": [
             {
                 "action": "Run Session",
@@ -2448,8 +2373,8 @@
                 "secondaryWorkDoneLabel": "Session Stopped",
                 "secondaryWorkFailedLabel": "Session Cannot be Stopped",
                 "secondaryIcon": "stop",
-                "iconPathOn": "paper-plane",
-                "iconPathOff": "paper-plane",
+                "iconPathOn": "run",
+                "iconPathOff": "run",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -2464,15 +2389,15 @@
                 "secondaryWorkDoneLabel": "Session Stopped",
                 "secondaryWorkFailedLabel": "Session Cannot be Stopped",
                 "secondaryIcon": "stop",
-                "iconPathOn": "headphones",
-                "iconPathOff": "headphones",
+                "iconPathOn": "resume",
+                "iconPathOff": "resume",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "dontShowAtFullscreen": true,
                 "actionFunction": "uiObject.configEditor.activate"
             },
@@ -2504,7 +2429,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Trading Process Instance->"
         },
-        "icon": "session-backtesting",
         "properties": [
             {
                 "name": "parameters",
@@ -2554,7 +2478,6 @@
         "isHierarchyHead": true,
         "addLeftIcons": true,
         "level": 0,
-        "icon": "ethereum",
         "properties": [
             {
                 "name": "current",
@@ -2606,7 +2529,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Trading Engine->"
         },
-        "icon": "layer-manager",
         "propertyNameAtParent": "dynamicIndicators",
         "properties": [
             {
@@ -2623,8 +2545,8 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
@@ -2656,7 +2578,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Dynamic Indicators->"
         },
-        "icon": "html",
         "propertyNameAtParent": "indicatorFunctions",
         "properties": [
             {
@@ -2691,7 +2612,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Current->"
         },
-        "icon": "ethereum-classic",
         "propertyNameAtParent": "episode",
         "properties": [
             {
@@ -2828,7 +2748,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Episode->"
         },
-        "icon": "cardano",
         "propertyNameAtParent": "episodeCounters",
         "properties": [
             {
@@ -2907,7 +2826,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Position->"
         },
-        "icon": "cardano",
         "propertyNameAtParent": "positionCounters",
         "properties": [
             {
@@ -2956,7 +2874,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Strategy->"
         },
-        "icon": "cardano",
         "propertyNameAtParent": "strategyCounters",
         "properties": [
             {
@@ -3005,7 +2922,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Market Order->Limit Order->"
         },
-        "icon": "approve",
         "propertyNameAtParent": "orderCounters",
         "properties": [
             {
@@ -3028,15 +2944,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -3060,7 +2976,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Episode Counters->"
         },
-        "icon": "super-scripts",
         "propertyNameAtParent": "positions"
     },
     {
@@ -3069,15 +2984,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -3101,7 +3016,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Episode Counters->"
         },
-        "icon": "upbit",
         "propertyNameAtParent": "strategies"
     },
     {
@@ -3110,15 +3024,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -3142,7 +3056,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Episode Counters->"
         },
-        "icon": "binance-coin",
         "propertyNameAtParent": "orders"
     },
     {
@@ -3151,15 +3064,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -3183,7 +3096,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Episode Counters->Episode Base Asset->Episode Quoted Asset->"
         },
-        "icon": "liquid",
         "propertyNameAtParent": "fails"
     },
     {
@@ -3192,15 +3104,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -3224,7 +3136,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Episode Counters->Episode Base Asset->Episode Quoted Asset->"
         },
-        "icon": "hitbtc",
         "propertyNameAtParent": "hits"
     },
     {
@@ -3233,15 +3144,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -3265,7 +3176,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Episode Counters->Position Counters->Strategy Counters->Order Counters->"
         },
-        "icon": "us-dollar",
         "propertyNameAtParent": "periods"
     },
     {
@@ -3274,15 +3184,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -3306,7 +3216,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Episode Counters->Position Counters->Strategy Counters->"
         },
-        "icon": "cardano",
         "propertyNameAtParent": "userDefinedCounters"
     },
     {
@@ -3339,7 +3248,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Episode->"
         },
-        "icon": "tron",
         "propertyNameAtParent": "episodeStatistics",
         "properties": [
             {
@@ -3386,8 +3294,8 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
@@ -3399,8 +3307,8 @@
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -3424,7 +3332,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Position->"
         },
-        "icon": "shapes-polygon-body",
         "propertyNameAtParent": "stopLoss",
         "properties": [
             {
@@ -3447,8 +3354,8 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
@@ -3460,8 +3367,8 @@
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -3485,7 +3392,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Position->"
         },
-        "icon": "shapes-polygon-body",
         "propertyNameAtParent": "stopLoss",
         "properties": [
             {
@@ -3508,15 +3414,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -3540,7 +3446,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Stop Loss->"
         },
-        "icon": "volume",
         "propertyNameAtParent": "stopLossPhase"
     },
     {
@@ -3549,15 +3454,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -3581,7 +3486,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Take Profit->"
         },
-        "icon": "bitmex",
         "propertyNameAtParent": "takeProfitPhase"
     },
     {
@@ -3590,15 +3494,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -3622,7 +3526,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Take Profit->"
         },
-        "icon": "bitcoin-cash",
         "propertyNameAtParent": "takeProfitPosition"
     },
     {
@@ -3631,15 +3534,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -3663,7 +3566,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Stop Loss->"
         },
-        "icon": "bitcoin-cash",
         "propertyNameAtParent": "stopLossPosition"
     },
     {
@@ -3696,7 +3598,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Position->"
         },
-        "icon": "tron",
         "propertyNameAtParent": "positionStatistics",
         "properties": [
             {
@@ -3755,7 +3656,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Strategy Open Stage->Strategy Close Stage->"
         },
-        "icon": "tron",
         "propertyNameAtParent": "stageBaseAsset",
         "properties": [
             {
@@ -3808,7 +3708,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Strategy Open Stage->Strategy Close Stage->"
         },
-        "icon": "tron",
         "propertyNameAtParent": "stageQuotedAsset",
         "properties": [
             {
@@ -3861,7 +3760,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Episode->"
         },
-        "icon": "tron",
         "propertyNameAtParent": "episodeBaseAsset",
         "properties": [
             {
@@ -3950,7 +3848,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Episode->"
         },
-        "icon": "tron",
         "propertyNameAtParent": "episodeQuotedAsset",
         "properties": [
             {
@@ -4039,7 +3936,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Position->"
         },
-        "icon": "tron",
         "propertyNameAtParent": "positionBaseAsset",
         "properties": [
             {
@@ -4110,7 +4006,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Position->"
         },
-        "icon": "tron",
         "propertyNameAtParent": "positionQuotedAsset",
         "properties": [
             {
@@ -4187,7 +4082,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Market Order->Limit Order->"
         },
-        "icon": "brainstorming",
         "propertyNameAtParent": "orderStatistics",
         "properties": [
             {
@@ -4240,7 +4134,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Market Order->Limit Order->"
         },
-        "icon": "tron",
         "propertyNameAtParent": "orderBaseAsset",
         "properties": [
             {
@@ -4287,7 +4180,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Market Order->Limit Order->"
         },
-        "icon": "monero",
         "propertyNameAtParent": "orderQuotedAsset",
         "properties": [
             {
@@ -4316,8 +4208,8 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
@@ -4331,8 +4223,8 @@
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -4356,7 +4248,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Episode Statistics->Position Statistics->"
         },
-        "icon": "tron",
         "propertyNameAtParent": "userDefinedStatistics",
         "properties": [
             {
@@ -4373,15 +4264,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -4405,7 +4296,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Episode Statistics->Position Statistics->Position Base Asset->Position Quoted Asset->Episode Base Asset->Episode Quoted Asset->"
         },
-        "icon": "band",
         "propertyNameAtParent": "profitLoss"
     },
     {
@@ -4414,15 +4304,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -4446,7 +4336,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Episode Base Asset->Episode Quoted Asset->"
         },
-        "icon": "histogram",
         "propertyNameAtParent": "hitRatio"
     },
     {
@@ -4455,15 +4344,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -4487,7 +4376,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Episode Statistics->Position Statistics->Order Statistics->"
         },
-        "icon": "oscillator",
         "propertyNameAtParent": "days"
     },
     {
@@ -4496,15 +4384,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -4528,7 +4416,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Order Base Asset->Order Quoted Asset->Stage Base Asset->Stage Quoted Asset->"
         },
-        "icon": "bot-trading",
         "propertyNameAtParent": "sizeFilled"
     },
     {
@@ -4537,15 +4424,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -4569,7 +4456,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Order Statistics->"
         },
-        "icon": "menu-tensor-free-angles",
         "propertyNameAtParent": "percentageFilled"
     },
     {
@@ -4578,15 +4464,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -4610,7 +4496,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Order Statistics->"
         },
-        "icon": "startup",
         "propertyNameAtParent": "search"
     },
     {
@@ -4619,15 +4504,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -4651,7 +4536,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Order Base Asset->Order Quoted Asset->Stage Base Asset->Stage Quoted Asset->"
         },
-        "icon": "tap",
         "propertyNameAtParent": "feesPaid"
     },
     {
@@ -4660,15 +4544,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -4692,7 +4576,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Episode Statistics->Position Statistics->Position Base Asset->Position Quoted Asset->Episode Base Asset->Episode Quoted Asset->"
         },
-        "icon": "volume",
         "propertyNameAtParent": "ROI"
     },
     {
@@ -4701,15 +4584,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -4733,7 +4616,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Episode Statistics->Episode Base Asset->Episode Quoted Asset->"
         },
-        "icon": "bitmex",
         "propertyNameAtParent": "annualizedRateOfReturn"
     },
     {
@@ -4742,15 +4624,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -4774,7 +4656,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Episode Statistics->Position Statistics->Position Base Asset->Position Quoted Asset->Episode Base Asset->Episode Quoted Asset->"
         },
-        "icon": "super-scripts",
         "propertyNameAtParent": "hitFail"
     },
     {
@@ -4801,7 +4682,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Trading Engine->"
         },
-        "icon": "eos",
         "propertyNameAtParent": "current",
         "properties": [
             {
@@ -4854,15 +4734,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -4886,7 +4766,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Episode->"
         },
-        "icon": "bitfinex",
         "propertyNameAtParent": "balance"
     },
     {
@@ -4895,15 +4774,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -4927,7 +4806,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Episode Base Asset->Episode Quoted Asset->"
         },
-        "icon": "key-m",
         "propertyNameAtParent": "beginBalance"
     },
     {
@@ -4936,15 +4814,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -4968,7 +4846,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Episode Base Asset->Episode Quoted Asset->"
         },
-        "icon": "key-m",
         "propertyNameAtParent": "endBalance"
     },
     {
@@ -4995,7 +4872,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Episode->"
         },
-        "icon": "dash",
         "propertyNameAtParent": "distanceToEvent",
         "properties": [
             {
@@ -5060,15 +4936,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -5092,7 +4968,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Distance To Event->"
         },
-        "icon": "bitmex",
         "propertyNameAtParent": "triggerOn"
     },
     {
@@ -5101,15 +4976,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -5133,7 +5008,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Distance To Event->"
         },
-        "icon": "bitmex",
         "propertyNameAtParent": "triggerOff"
     },
     {
@@ -5142,15 +5016,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -5174,7 +5048,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Distance To Event->"
         },
-        "icon": "bitmex",
         "propertyNameAtParent": "takePosition"
     },
     {
@@ -5183,15 +5056,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -5215,7 +5088,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Distance To Event->"
         },
-        "icon": "bitmex",
         "propertyNameAtParent": "closePosition"
     },
     {
@@ -5224,15 +5096,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -5256,7 +5128,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Distance To Event->"
         },
-        "icon": "bitmex",
         "propertyNameAtParent": "nextPhase"
     },
     {
@@ -5265,15 +5136,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -5297,7 +5168,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Distance To Event->"
         },
-        "icon": "bitmex",
         "propertyNameAtParent": "moveToPhase"
     },
     {
@@ -5306,15 +5176,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -5338,7 +5208,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Distance To Event->"
         },
-        "icon": "bitmex",
         "propertyNameAtParent": "createOrder"
     },
     {
@@ -5347,15 +5216,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -5379,7 +5248,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Distance To Event->"
         },
-        "icon": "cancel-order",
         "propertyNameAtParent": "cancelOrder"
     },
     {
@@ -5388,15 +5256,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -5420,7 +5288,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Distance To Event->"
         },
-        "icon": "bitmex",
         "propertyNameAtParent": "closeOrder"
     },
     {
@@ -5447,7 +5314,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Current->"
         },
-        "icon": "dataset",
         "propertyNameAtParent": "strategyTriggerStage",
         "properties": [
             {
@@ -5512,7 +5378,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Current->"
         },
-        "icon": "dataset",
         "propertyNameAtParent": "strategyManageStage",
         "properties": [
             {
@@ -5577,7 +5442,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Current->"
         },
-        "icon": "dataset",
         "propertyNameAtParent": "strategyOpenStage",
         "properties": [
             {
@@ -5660,7 +5524,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Current->"
         },
-        "icon": "dataset",
         "propertyNameAtParent": "strategyCloseStage",
         "properties": [
             {
@@ -5723,14 +5586,6 @@
         "type": "Strategy",
         "menuItems": [
             {
-                "action": "Add UI Object",
-                "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "strategyCounters",
-                "label": "Add Counters",
-                "relatedUiObject": "Strategy Counters",
-                "actionFunction": "payload.onMenuItemClick"
-            },
-            {
                 "action": "Add Missing Children",
                 "label": "Add Missing Children",
                 "relatedUiObject": "Parameters",
@@ -5751,7 +5606,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Current->Last->"
         },
-        "icon": "poloniex",
         "propertyNameAtParent": "strategy",
         "properties": [
             {
@@ -5834,15 +5688,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -5866,7 +5720,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Strategy->"
         },
-        "icon": "litecoin",
         "propertyNameAtParent": "strategyName"
     },
     {
@@ -5875,15 +5728,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -5907,7 +5760,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Strategy->Candle->"
         },
-        "icon": "neo",
         "propertyNameAtParent": "index"
     },
     {
@@ -5916,15 +5768,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -5948,7 +5800,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Episode->Strategy->Position->Market Order->Limit Order->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->"
         },
-        "icon": "tron",
         "propertyNameAtParent": "status"
     },
     {
@@ -5957,15 +5808,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -5989,7 +5840,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Strategy->Position->"
         },
-        "icon": "tether",
         "propertyNameAtParent": "situationName"
     },
     {
@@ -5998,15 +5848,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -6030,7 +5880,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Market Order->Limit Order->"
         },
-        "icon": "login",
         "propertyNameAtParent": "algorithmName"
     },
     {
@@ -6039,15 +5888,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -6071,7 +5920,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Market Order->Limit Order->"
         },
-        "icon": "trend",
         "propertyNameAtParent": "orderName"
     },
     {
@@ -6080,15 +5928,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -6112,7 +5960,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Episode->Strategy->Position->Market Order->Limit Order->"
         },
-        "icon": "arrangement-horizontal-top",
         "propertyNameAtParent": "serialNumber"
     },
     {
@@ -6121,15 +5968,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -6153,7 +6000,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Episode->Strategy->Position->Market Order->Limit Order->"
         },
-        "icon": "support",
         "propertyNameAtParent": "identifier"
     },
     {
@@ -6162,15 +6008,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -6194,7 +6040,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Market Order->Limit Order->"
         },
-        "icon": "layer-manager",
         "propertyNameAtParent": "exchangeId"
     },
     {
@@ -6203,15 +6048,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -6235,7 +6080,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Market Order->Limit Order->"
         },
-        "icon": "plotter-panel",
         "propertyNameAtParent": "lock"
     },
     {
@@ -6244,15 +6088,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -6276,7 +6120,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Episode->Strategy->Position->Candle->Cycle->Market Order->Limit Order->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->"
         },
-        "icon": "monero",
         "propertyNameAtParent": "begin"
     },
     {
@@ -6285,15 +6128,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -6317,7 +6160,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Episode->Strategy->Position->Candle->Cycle->Market Order->Limit Order->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->"
         },
-        "icon": "upbit",
         "propertyNameAtParent": "end"
     },
     {
@@ -6326,8 +6168,8 @@
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -6345,7 +6187,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Candle->"
         },
-        "icon": "monero",
         "propertyNameAtParent": "open"
     },
     {
@@ -6354,8 +6195,8 @@
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -6373,7 +6214,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Candle->"
         },
-        "icon": "upbit",
         "propertyNameAtParent": "close"
     },
     {
@@ -6382,8 +6222,8 @@
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -6401,7 +6241,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Candle->"
         },
-        "icon": "monero",
         "propertyNameAtParent": "min"
     },
     {
@@ -6410,8 +6249,8 @@
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -6429,7 +6268,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Candle->"
         },
-        "icon": "upbit",
         "propertyNameAtParent": "max"
     },
     {
@@ -6438,15 +6276,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -6470,7 +6308,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Episode->Strategy->Position->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->"
         },
-        "icon": "poloniex",
         "propertyNameAtParent": "beginRate"
     },
     {
@@ -6479,15 +6316,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -6511,7 +6348,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Episode->Strategy->Position->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->"
         },
-        "icon": "kraken",
         "propertyNameAtParent": "endRate"
     },
     {
@@ -6538,7 +6374,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Current->Last->"
         },
-        "icon": "kucoin",
         "propertyNameAtParent": "position",
         "properties": [
             {
@@ -6651,15 +6486,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -6683,7 +6518,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Market Order->Limit Order->"
         },
-        "icon": "pantone",
         "propertyNameAtParent": "rate"
     },
     {
@@ -6692,15 +6526,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -6724,7 +6558,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Position->"
         },
-        "icon": "pantone",
         "propertyNameAtParent": "entryTargetRate"
     },
     {
@@ -6733,15 +6566,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -6765,7 +6598,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Position->"
         },
-        "icon": "pantone",
         "propertyNameAtParent": "exitTargetRate"
     },
     {
@@ -6774,15 +6606,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -6806,7 +6638,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Strategy Open Stage->Strategy Close Stage->"
         },
-        "icon": "pantone",
         "propertyNameAtParent": "stageDefinedIn"
     },
     {
@@ -6815,15 +6646,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -6847,7 +6678,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Order Base Asset->Order Quoted Asset->"
         },
-        "icon": "upload",
         "propertyNameAtParent": "size"
     },
     {
@@ -6856,15 +6686,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -6888,7 +6718,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Position Base Asset->Position Quoted Asset->"
         },
-        "icon": "upload",
         "propertyNameAtParent": "entryTargetSize"
     },
     {
@@ -6897,15 +6726,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -6929,7 +6758,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Position Base Asset->Position Quoted Asset->"
         },
-        "icon": "upload",
         "propertyNameAtParent": "exitTargetSize"
     },
     {
@@ -6938,15 +6766,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -6970,7 +6798,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Stage Base Asset->Stage Quoted Asset->"
         },
-        "icon": "menu-tree-plus",
         "propertyNameAtParent": "sizePlaced"
     },
     {
@@ -6979,15 +6806,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -7011,7 +6838,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Stage Base Asset->Stage Quoted Asset->"
         },
-        "icon": "stage-close",
         "propertyNameAtParent": "targetSize"
     },
     {
@@ -7020,15 +6846,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -7052,7 +6878,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Episode->Strategy->->Position->Market Order->Limit Order->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->"
         },
-        "icon": "quality",
         "propertyNameAtParent": "exitType"
     },
     {
@@ -7061,15 +6886,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -7093,7 +6918,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Episode->"
         },
-        "icon": "shapes",
         "propertyNameAtParent": "processDate"
     },
     {
@@ -7102,15 +6926,15 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -7134,18 +6958,15 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Episode->"
         },
-        "icon": "shapes",
         "propertyNameAtParent": "headOfTheMarket"
     },
     {
         "type": "Last",
         "menuItems": [
             {
-                "action": "Add UI Object",
-                "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "position",
-                "label": "Add Position",
-                "relatedUiObject": "Position",
+                "action": "Add Missing Children",
+                "label": "Add Missing Children",
+                "relatedUiObject": "Parameters",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -7163,7 +6984,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Trading Engine->"
         },
-        "icon": "bitfinex",
         "propertyNameAtParent": "last",
         "properties": [
             {
@@ -7216,7 +7036,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Episode->"
         },
-        "icon": "us-dollar",
         "propertyNameAtParent": "candle",
         "properties": [
             {
@@ -7275,8 +7094,8 @@
             {
                 "action": "Copy Node Path",
                 "label": "Copy Node Path",
-                "iconPathOn": "poloniex",
-                "iconPathOff": "poloniex",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -7294,7 +7113,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Episode->"
         },
-        "icon": "qtum",
         "propertyNameAtParent": "cycle",
         "properties": [
             {
@@ -7361,7 +7179,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Trading Engine->"
         },
-        "icon": "chat",
         "propertyNameAtParent": "exchangeOrders",
         "properties": [
             {
@@ -7414,7 +7231,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Exchange Orders->"
         },
-        "icon": "approve",
         "propertyNameAtParent": "marketBuyOrders",
         "properties": [
             {
@@ -7449,7 +7265,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Market Buy Orders->Market Sell Orders->Last->"
         },
-        "icon": "market-order",
         "propertyNameAtParent": "marketOrders",
         "properties": [
             {
@@ -7574,7 +7389,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Exchange Orders->"
         },
-        "icon": "chronometer",
         "propertyNameAtParent": "marketSellOrders",
         "properties": [
             {
@@ -7609,7 +7423,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Exchange Orders->"
         },
-        "icon": "menu-mobility-freeze",
         "propertyNameAtParent": "limitBuyOrders",
         "properties": [
             {
@@ -7644,7 +7457,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Exchange Orders->"
         },
-        "icon": "menu-tensor-fixed-angles",
         "propertyNameAtParent": "limitSellOrders",
         "properties": [
             {
@@ -7679,7 +7491,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Limit Buy Orders->Limit Sell Orders->Last->"
         },
-        "icon": "menu-mobility-unfreeze",
         "propertyNameAtParent": "limitOrders",
         "properties": [
             {
@@ -7782,7 +7593,6 @@
     },
     {
         "type": "Parameters",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-network.html#parameters",
         "menuItems": [
             {
                 "action": "Add Missing Children",
@@ -7805,7 +7615,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Backtesting Session->Live Trading Session->Paper Trading Session->Forward Testing Session->"
         },
-        "icon": "settings",
         "properties": [
             {
                 "name": "sessionBaseAsset",
@@ -7888,7 +7697,6 @@
         "referenceAttachesTo": {
             "compatibleTypes": "->Trading System->"
         },
-        "icon": "delink",
         "propertyNameAtParent": "tradingSystemReference"
     },
     {
@@ -7915,7 +7723,6 @@
         "referenceAttachesTo": {
             "compatibleTypes": "->Trading Engine->"
         },
-        "icon": "delink",
         "propertyNameAtParent": "tradingEngineReference"
     },
     {
@@ -7924,8 +7731,8 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
@@ -7953,7 +7760,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Parameters->"
         },
-        "icon": "asset",
         "alternativeIcons": "Use Reference Grandparent",
         "title": [
             "Use Reference Grandparent"
@@ -7966,8 +7772,8 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
@@ -7995,7 +7801,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Parameters->"
         },
-        "icon": "asset",
         "alternativeIcons": "Use Reference Grandparent",
         "title": [
             "Use Reference Grandparent"
@@ -8004,7 +7809,6 @@
     },
     {
         "type": "Market Base Asset",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-crypto-ecosystem.html#market-base-asset",
         "menuItems": [
             {
                 "action": "Delete UI Object",
@@ -8025,7 +7829,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Market->"
         },
-        "icon": "asset",
         "alternativeIcons": "Use Reference Parent",
         "title": [
             "Use Reference Parent"
@@ -8034,7 +7837,6 @@
     },
     {
         "type": "Market Quoted Asset",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-crypto-ecosystem.html#market-quoted-asset",
         "menuItems": [
             {
                 "action": "Delete UI Object",
@@ -8055,7 +7857,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Market->"
         },
-        "icon": "asset",
         "alternativeIcons": "Use Reference Parent",
         "title": [
             "Use Reference Parent"
@@ -8064,7 +7865,6 @@
     },
     {
         "type": "Market Reference",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-network.html#market-reference",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -8104,18 +7904,16 @@
                 "childType": "Key Reference"
             }
         ],
-        "icon": "market",
         "propertyNameAtParent": "marketReference"
     },
     {
         "type": "Time Range",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-network.html#time-range",
         "menuItems": [
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
@@ -8139,18 +7937,16 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Parameters->"
         },
-        "icon": "schedule",
         "propertyNameAtParent": "timeRange"
     },
     {
         "type": "Time Frame",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-network.html#time-frame",
         "menuItems": [
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
@@ -8174,18 +7970,16 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Parameters->"
         },
-        "icon": "time-period",
         "propertyNameAtParent": "timeFrame"
     },
     {
         "type": "Slippage",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-network.html#slippage",
         "menuItems": [
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
@@ -8209,18 +8003,16 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Parameters->"
         },
-        "icon": "support",
         "propertyNameAtParent": "slippage"
     },
     {
         "type": "Fee Structure",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-network.html#fee-structure",
         "menuItems": [
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
@@ -8244,7 +8036,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Parameters->"
         },
-        "icon": "sitemap",
         "propertyNameAtParent": "feeStructure"
     },
     {
@@ -8253,8 +8044,8 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
@@ -8278,7 +8069,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Parameters->"
         },
-        "icon": "move-order",
         "propertyNameAtParent": "snapshots"
     },
     {
@@ -8287,8 +8077,8 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
@@ -8312,7 +8102,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Parameters->"
         },
-        "icon": "session-reference",
         "propertyNameAtParent": "heartbeats"
     },
     {
@@ -8321,8 +8110,8 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
@@ -8346,7 +8135,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Parameters->"
         },
-        "icon": "settings",
         "propertyNameAtParent": "userDefinedParameters"
     },
     {
@@ -8355,8 +8143,8 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
@@ -8380,12 +8168,10 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Indicator Bot Instance->"
         },
-        "icon": "time-period",
         "propertyNameAtParent": "timeFramesFilter"
     },
     {
         "type": "Paper Trading Session",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-network.html#paper-trading-session",
         "menuItems": [
             {
                 "action": "Run Session",
@@ -8399,8 +8185,8 @@
                 "secondaryWorkDoneLabel": "Session Stopped",
                 "secondaryWorkFailedLabel": "Session Cannot be Stopped",
                 "secondaryIcon": "stop",
-                "iconPathOn": "paper-plane",
-                "iconPathOff": "paper-plane",
+                "iconPathOn": "run",
+                "iconPathOff": "run",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -8415,15 +8201,15 @@
                 "secondaryWorkDoneLabel": "Session Stopped",
                 "secondaryWorkFailedLabel": "Session Cannot be Stopped",
                 "secondaryIcon": "stop",
-                "iconPathOn": "headphones",
-                "iconPathOff": "headphones",
+                "iconPathOn": "resume",
+                "iconPathOff": "resume",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "dontShowAtFullscreen": true,
                 "actionFunction": "uiObject.configEditor.activate"
             },
@@ -8458,7 +8244,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Trading Process Instance->"
         },
-        "icon": "session-paper-trading",
         "properties": [
             {
                 "name": "parameters",
@@ -8488,7 +8273,6 @@
     },
     {
         "type": "Forward Testing Session",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-network.html#forward-testing-session",
         "menuItems": [
             {
                 "action": "Run Session",
@@ -8502,8 +8286,8 @@
                 "secondaryWorkDoneLabel": "Session Stopped",
                 "secondaryWorkFailedLabel": "Session Cannot be Stopped",
                 "secondaryIcon": "stop",
-                "iconPathOn": "paper-plane",
-                "iconPathOff": "paper-plane",
+                "iconPathOn": "run",
+                "iconPathOff": "run",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -8518,15 +8302,15 @@
                 "secondaryWorkDoneLabel": "Session Stopped",
                 "secondaryWorkFailedLabel": "Session Cannot be Stopped",
                 "secondaryIcon": "stop",
-                "iconPathOn": "headphones",
-                "iconPathOff": "headphones",
+                "iconPathOn": "resume",
+                "iconPathOff": "resume",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "dontShowAtFullscreen": true,
                 "actionFunction": "uiObject.configEditor.activate"
             },
@@ -8561,7 +8345,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Trading Process Instance->"
         },
-        "icon": "session-forward-testing",
         "properties": [
             {
                 "name": "parameters",
@@ -8613,12 +8396,10 @@
         "referenceAttachesTo": {
             "compatibleTypes": "->Exchange Account Key->"
         },
-        "icon": "login",
         "propertyNameAtParent": "keyReference"
     },
     {
         "type": "Live Trading Session",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-network.html#live-trading-session",
         "menuItems": [
             {
                 "action": "Run Session",
@@ -8632,8 +8413,8 @@
                 "secondaryWorkDoneLabel": "Session Stopped",
                 "secondaryWorkFailedLabel": "Session Cannot be Stopped",
                 "secondaryIcon": "stop",
-                "iconPathOn": "paper-plane",
-                "iconPathOff": "paper-plane",
+                "iconPathOn": "run",
+                "iconPathOff": "run",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -8648,15 +8429,15 @@
                 "secondaryWorkDoneLabel": "Session Stopped",
                 "secondaryWorkFailedLabel": "Session Cannot be Stopped",
                 "secondaryIcon": "stop",
-                "iconPathOn": "headphones",
-                "iconPathOff": "headphones",
+                "iconPathOn": "resume",
+                "iconPathOff": "resume",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "dontShowAtFullscreen": true,
                 "actionFunction": "uiObject.configEditor.activate"
             },
@@ -8691,7 +8472,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Trading Process Instance->"
         },
-        "icon": "session-live-trading",
         "properties": [
             {
                 "name": "parameters",
@@ -8721,13 +8501,12 @@
     },
     {
         "type": "Sensor Bot Instance",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-network.html#sensor-bot-instance",
         "menuItems": [
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "dontShowAtFullscreen": true,
                 "actionFunction": "uiObject.configEditor.activate"
             },
@@ -8759,7 +8538,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Task->"
         },
-        "icon": "bot-sensor",
         "properties": [
             {
                 "name": "processes",
@@ -8772,13 +8550,12 @@
     },
     {
         "type": "Indicator Bot Instance",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-network.html#indicator-bot-instance",
         "menuItems": [
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "dontShowAtFullscreen": true,
                 "actionFunction": "uiObject.configEditor.activate"
             },
@@ -8818,7 +8595,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Task->"
         },
-        "icon": "bot-indicator",
         "properties": [
             {
                 "name": "processes",
@@ -8836,13 +8612,12 @@
     },
     {
         "type": "Data Mine",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-data-mine.html#data-mine",
         "menuItems": [
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "dontShowAtFullscreen": true,
                 "actionFunction": "uiObject.configEditor.activate"
             },
@@ -8887,7 +8662,6 @@
             "config": true
         },
         "level": 0,
-        "icon": "data-mine",
         "initialValues": {
             "config": "{ \n\"codeName\": \"Type a name with no spaces or dashes\"\n}"
         },
@@ -8920,8 +8694,8 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "dontShowAtFullscreen": true,
                 "actionFunction": "uiObject.configEditor.activate"
             },
@@ -8959,7 +8733,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Data Mine->"
         },
-        "icon": "bot-sensor",
         "properties": [
             {
                 "name": "processes",
@@ -8978,13 +8751,12 @@
     },
     {
         "type": "Process Definition",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-data-mine.html#process-definition",
         "menuItems": [
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "dontShowAtFullscreen": true,
                 "actionFunction": "uiObject.configEditor.activate"
             },
@@ -9016,7 +8788,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Sensor Bot->Indicator Bot->Trading Bot->"
         },
-        "icon": "process-definition",
         "properties": [
             {
                 "name": "processOutput",
@@ -9053,7 +8824,6 @@
     },
     {
         "type": "Process Output",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-data-mine.html#process-output",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -9091,7 +8861,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Process Definition->"
         },
-        "icon": "process-output",
         "properties": [
             {
                 "name": "outputDatasets",
@@ -9110,7 +8879,6 @@
     },
     {
         "type": "Process Dependencies",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-data-mine.html#process-dependencies",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -9139,7 +8907,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Process Definition->"
         },
-        "icon": "process-dependencies",
         "properties": [
             {
                 "name": "statusDependencies",
@@ -9158,13 +8925,12 @@
     },
     {
         "type": "Status Dependency",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-data-mine.html#status-dependency",
         "menuItems": [
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "dontShowAtFullscreen": true,
                 "actionFunction": "uiObject.configEditor.activate"
             },
@@ -9197,12 +8963,10 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Process Dependencies->"
         },
-        "icon": "status-dependency",
         "propertyNameAtParent": "statusDependencies"
     },
     {
         "type": "Status Report",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-data-mine.html#status-report",
         "menuItems": [
             {
                 "action": "Delete UI Object",
@@ -9219,12 +8983,10 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Process Definition->"
         },
-        "icon": "status-report",
         "propertyNameAtParent": "statusReport"
     },
     {
         "type": "Execution Started Event",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-data-mine.html#execution-started-event",
         "menuItems": [
             {
                 "action": "Delete UI Object",
@@ -9249,12 +9011,10 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Process Definition->Trading Process Instance->"
         },
-        "icon": "execution-started-event",
         "propertyNameAtParent": "executionStartedEvent"
     },
     {
         "type": "Execution Finished Event",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-data-mine.html#execution-finished-event",
         "menuItems": [
             {
                 "action": "Delete UI Object",
@@ -9271,7 +9031,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Process Definition->"
         },
-        "icon": "execution-finished-event",
         "propertyNameAtParent": "executionFinishedEvent"
     },
     {
@@ -9304,7 +9063,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Process Output->Output Dataset Folder->"
         },
-        "icon": "scripts-library",
         "properties": [
             {
                 "name": "outputDatasets",
@@ -9351,7 +9109,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Trading Bot->Product Definition Folder->"
         },
-        "icon": "scripts-library",
         "properties": [
             {
                 "name": "products",
@@ -9370,13 +9127,12 @@
     },
     {
         "type": "Product Definition",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-data-mine.html#product-definition",
         "menuItems": [
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "dontShowAtFullscreen": true,
                 "actionFunction": "uiObject.configEditor.activate"
             },
@@ -9425,7 +9181,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Sensor Bot->Indicator Bot->Trading Bot->Product Definition Folder->"
         },
-        "icon": "product-definition",
         "properties": [
             {
                 "name": "datasets",
@@ -9454,13 +9209,12 @@
     },
     {
         "type": "Dataset Definition",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-data-mine.html#dataset-definition",
         "menuItems": [
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "dontShowAtFullscreen": true,
                 "actionFunction": "uiObject.configEditor.activate"
             },
@@ -9486,18 +9240,16 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Product Definition->"
         },
-        "icon": "dataset-definition",
         "propertyNameAtParent": "datasets"
     },
     {
         "type": "Indicator Bot",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-data-mine.html#indicator-bot",
         "menuItems": [
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "dontShowAtFullscreen": true,
                 "actionFunction": "uiObject.configEditor.activate"
             },
@@ -9535,7 +9287,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Data Mine->"
         },
-        "icon": "bot-indicator",
         "properties": [
             {
                 "name": "processes",
@@ -9554,7 +9305,6 @@
     },
     {
         "type": "Output Dataset",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-data-mine.html#output-dataset",
         "menuItems": [
             {
                 "action": "Delete UI Object",
@@ -9579,12 +9329,10 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Process Output->Output Dataset Folder->"
         },
-        "icon": "output-dataset",
         "propertyNameAtParent": "outputDatasets"
     },
     {
         "type": "Data Dependency",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-data-mine.html#data-dependency",
         "menuItems": [
             {
                 "action": "Delete UI Object",
@@ -9609,12 +9357,10 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Process Dependencies->"
         },
-        "icon": "data-dependency",
         "propertyNameAtParent": "dataDependencies"
     },
     {
         "type": "Record Definition",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-data-mine.html#record-definition",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -9637,7 +9383,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Product Definition->"
         },
-        "icon": "record-definition",
         "properties": [
             {
                 "name": "properties",
@@ -9650,13 +9395,12 @@
     },
     {
         "type": "Record Property",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-data-mine.html#record-property",
         "menuItems": [
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "dontShowAtFullscreen": true,
                 "actionFunction": "uiObject.configEditor.activate"
             },
@@ -9690,7 +9434,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Record Definition->"
         },
-        "icon": "record-property",
         "properties": [
             {
                 "name": "formula",
@@ -9702,13 +9445,12 @@
     },
     {
         "type": "Formula",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-trading-system.html#formula",
         "menuItems": [
             {
                 "action": "Edit",
                 "label": "Edit",
-                "iconPathOn": "html",
-                "iconPathOff": "html",
+                "iconPathOn": "javascript-code",
+                "iconPathOff": "javascript-code",
                 "dontShowAtFullscreen": true,
                 "actionFunction": "uiObject.formulaEditor.activate"
             },
@@ -9733,7 +9475,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Target Size In Base Asset->Target Size In Quoted Asset->Target Rate->Phase->Record Property->Simulated Actual Rate->Situation->Indicator Function->"
         },
-        "icon": "pipette",
         "propertyNameAtParent": "formula"
     },
     {
@@ -9742,8 +9483,8 @@
             {
                 "action": "Edit",
                 "label": "Edit",
-                "iconPathOn": "html",
-                "iconPathOff": "html",
+                "iconPathOn": "javascript-code",
+                "iconPathOff": "javascript-code",
                 "dontShowAtFullscreen": true,
                 "actionFunction": "uiObject.formulaEditor.activate"
             },
@@ -9768,12 +9509,10 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Announcement->"
         },
-        "icon": "rate-scale",
         "propertyNameAtParent": "announcementFormula"
     },
     {
         "type": "Calculations Procedure",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-data-mine.html#calculations-procedure",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -9806,7 +9545,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Product Definition->"
         },
-        "icon": "calculations-procedure",
         "properties": [
             {
                 "name": "initialization",
@@ -9825,7 +9563,6 @@
     },
     {
         "type": "Procedure Initialization",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-data-mine.html#procedure-initialization",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -9850,7 +9587,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Calculations Procedure->Data Building Procedure->"
         },
-        "icon": "procedure-initialization",
         "properties": [
             {
                 "name": "javascriptCode",
@@ -9863,7 +9599,6 @@
     },
     {
         "type": "Procedure Loop",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-data-mine.html#procedure-loop",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -9888,7 +9623,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Calculations Procedure->Data Building Procedure->"
         },
-        "icon": "procedure-loop",
         "properties": [
             {
                 "name": "javascriptCode",
@@ -9901,7 +9635,6 @@
     },
     {
         "type": "Data Building Procedure",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-data-mine.html#data-building-procedure",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -9934,7 +9667,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Product Definition->"
         },
-        "icon": "data-building-procedure",
         "properties": [
             {
                 "name": "loop",
@@ -9957,8 +9689,8 @@
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "dontShowAtFullscreen": true,
                 "actionFunction": "uiObject.configEditor.activate"
             },
@@ -10002,7 +9734,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Data Mine->"
         },
-        "icon": "bot-trading",
         "properties": [
             {
                 "name": "processes",
@@ -10027,13 +9758,12 @@
     },
     {
         "type": "Plotter",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-data-mine.html#plotter",
         "menuItems": [
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "dontShowAtFullscreen": true,
                 "actionFunction": "uiObject.configEditor.activate"
             },
@@ -10062,7 +9792,6 @@
             "config": "{ \n  \"codeName\": \"\"\n}"
         },
         "level": 2,
-        "icon": "plotter",
         "chainAttachesTo": {
             "compatibleTypes": "->Data Mine->"
         },
@@ -10078,14 +9807,13 @@
     },
     {
         "type": "Trading System",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-trading-system.html#trading-system",
         "menuItems": [
             {
                 "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html"
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
             },
             {
                 "action": "Add UI Object",
@@ -10107,7 +9835,6 @@
         "isHierarchyHead": true,
         "addLeftIcons": true,
         "level": 0,
-        "icon": "analysis",
         "editors": {
             "config": true
         },
@@ -10126,7 +9853,6 @@
     },
     {
         "type": "Trading Strategy",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-trading-system.html#strategy",
         "menuItems": [
             {
                 "action": "Add Missing Children",
@@ -10150,7 +9876,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Trading System->"
         },
-        "icon": "quality",
         "properties": [
             {
                 "name": "triggerStage",
@@ -10181,7 +9906,6 @@
     },
     {
         "type": "Trigger Stage",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-trading-system.html#trigger-stage",
         "menuItems": [
             {
                 "action": "Add Missing Children",
@@ -10210,7 +9934,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Trading Strategy->"
         },
-        "icon": "stage-trigger",
         "properties": [
             {
                 "name": "triggerOn",
@@ -10240,7 +9963,6 @@
     },
     {
         "type": "Trigger On Event",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-trading-system.html#trigger-on-event",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -10269,7 +9991,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Trigger Stage->"
         },
-        "icon": "stage-trigger-trigger-on",
         "properties": [
             {
                 "name": "situations",
@@ -10287,7 +10008,6 @@
     },
     {
         "type": "Trigger Off Event",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-trading-system.html#trigger-off-event",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -10316,7 +10036,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Trigger Stage->"
         },
-        "icon": "stage-trigger-trigger-off",
         "properties": [
             {
                 "name": "situations",
@@ -10334,7 +10053,6 @@
     },
     {
         "type": "Take Position Event",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-trading-system.html#take-position-event",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -10363,7 +10081,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Trigger Stage->"
         },
-        "icon": "stage-trigger-take-position",
         "properties": [
             {
                 "name": "situations",
@@ -10381,7 +10098,6 @@
     },
     {
         "type": "Open Stage",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-trading-system.html#open-stage",
         "menuItems": [
             {
                 "action": "Add Missing Children",
@@ -10410,7 +10126,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Trading Strategy->"
         },
-        "icon": "stage-open",
         "properties": [
             {
                 "name": "initialTargets",
@@ -10468,7 +10183,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Open Stage->Close Stage->"
         },
-        "icon": "liquid",
         "properties": [
             {
                 "name": "situations",
@@ -10508,7 +10222,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Open Stage->Close Stage->"
         },
-        "icon": "targeting",
         "properties": [
             {
                 "name": "targetRate",
@@ -10533,7 +10246,6 @@
     },
     {
         "type": "Managed Stop Loss",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-trading-system.html#stop",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -10556,7 +10268,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Manage Stage->Initial Definition->"
         },
-        "icon": "stop",
         "properties": [
             {
                 "name": "phases",
@@ -10569,7 +10280,6 @@
     },
     {
         "type": "Phase",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-trading-system.html#phase-0",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -10615,7 +10325,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Managed Stop->Managed Take Profit->Phase->"
         },
-        "icon": "placeholder",
         "properties": [
             {
                 "name": "formula",
@@ -10643,7 +10352,6 @@
     },
     {
         "type": "Next Phase Event",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-trading-system.html#next-phase-event",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -10672,7 +10380,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Phase->"
         },
-        "icon": "next-phase-event",
         "properties": [
             {
                 "name": "situations",
@@ -10722,7 +10429,6 @@
         "referenceAttachesTo": {
             "compatibleTypes": "->Phase->"
         },
-        "icon": "move-to-phase-event",
         "properties": [
             {
                 "name": "situations",
@@ -10740,7 +10446,6 @@
     },
     {
         "type": "Managed Take Profit",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-trading-system.html#take-profit",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -10763,7 +10468,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Manage Stage->Initial Definition->"
         },
-        "icon": "stage-open-take-profit",
         "properties": [
             {
                 "name": "phases",
@@ -10800,7 +10504,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Initial Targets->"
         },
-        "icon": "stage-open-position-size",
         "properties": [
             {
                 "name": "formula",
@@ -10837,7 +10540,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Initial Targets->"
         },
-        "icon": "stage-open-position-size",
         "properties": [
             {
                 "name": "formula",
@@ -10874,7 +10576,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Initial Targets->"
         },
-        "icon": "stage-open-postion-rate",
         "properties": [
             {
                 "name": "formula",
@@ -10911,7 +10612,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Limit Buy Order->Limit Sell Order->"
         },
-        "icon": "stage-open-postion-rate",
         "properties": [
             {
                 "name": "formula",
@@ -10924,7 +10624,6 @@
     },
     {
         "type": "Open Execution",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-trading-system.html#open-execution",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -10947,7 +10646,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Open Stage->"
         },
-        "icon": "open-execution",
         "propertyNameAtParent": "openExecution",
         "properties": [
             {
@@ -10964,8 +10662,8 @@
                 "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html"
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
             },
             {
                 "action": "Add UI Object",
@@ -11012,7 +10710,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Open Execution->Close Execution->"
         },
-        "icon": "execution-algorithm",
         "propertyNameAtParent": "executionAlgorithms",
         "properties": [
             {
@@ -11044,8 +10741,8 @@
                 "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html"
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
             },
             {
                 "action": "Add UI Object",
@@ -11087,7 +10784,6 @@
         "referenceAttachesTo": {
             "compatibleTypes": "->Market Order->"
         },
-        "icon": "market-buy-order",
         "propertyNameAtParent": "marketBuyOrders",
         "properties": [
             {
@@ -11111,8 +10807,8 @@
                 "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html"
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
             },
             {
                 "action": "Add UI Object",
@@ -11154,7 +10850,6 @@
         "referenceAttachesTo": {
             "compatibleTypes": "->Market Order->"
         },
-        "icon": "market-sell-order",
         "propertyNameAtParent": "marketSellOrders",
         "properties": [
             {
@@ -11178,8 +10873,8 @@
                 "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html"
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
             },
             {
                 "action": "Add UI Object",
@@ -11237,7 +10932,6 @@
         "referenceAttachesTo": {
             "compatibleTypes": "->Limit Order->"
         },
-        "icon": "limit-buy-order",
         "propertyNameAtParent": "limitBuyOrders",
         "properties": [
             {
@@ -11272,8 +10966,8 @@
                 "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html"
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
             },
             {
                 "action": "Add UI Object",
@@ -11331,7 +11025,6 @@
         "referenceAttachesTo": {
             "compatibleTypes": "->Limit Order->"
         },
-        "icon": "limit-sell-order",
         "propertyNameAtParent": "limitSellOrders",
         "properties": [
             {
@@ -11389,7 +11082,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Market Buy Order->Market Sell Order->Limit Buy Order->Limit Sell Order->"
         },
-        "icon": "menu-share",
         "properties": [
             {
                 "name": "situations",
@@ -11435,7 +11127,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Market Buy Order->Market Sell Order->Limit Buy Order->Limit Sell Order->"
         },
-        "icon": "cancel-order",
         "properties": [
             {
                 "name": "situations",
@@ -11493,7 +11184,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Market Buy Order->Market Sell Order->Limit Buy Order->Limit Sell Order->"
         },
-        "icon": "histogram",
         "properties": [
             {
                 "name": "simulatedPartialFill",
@@ -11523,8 +11213,8 @@
                 "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html"
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
             },
             {
                 "action": "Delete UI Object",
@@ -11547,7 +11237,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Simulated Exchange Events->"
         },
-        "icon": "hand-drag",
         "propertyNameAtParent": "simulatedPartialFill"
     },
     {
@@ -11576,7 +11265,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Simulated Exchange Events->"
         },
-        "icon": "distance-to-parent-000",
         "properties": [
             {
                 "name": "formula",
@@ -11594,8 +11282,8 @@
                 "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html"
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
             },
             {
                 "action": "Delete UI Object",
@@ -11618,12 +11306,10 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Simulated Exchange Events->"
         },
-        "icon": "session-reference",
         "propertyNameAtParent": "simulatedFeesPaid"
     },
     {
         "type": "Manage Stage",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-trading-system.html#manage-stage",
         "menuItems": [
             {
                 "action": "Add Missing Children",
@@ -11652,7 +11338,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Trading Strategy->"
         },
-        "icon": "video-player",
         "properties": [
             {
                 "name": "managedStopLoss",
@@ -11676,7 +11361,6 @@
     },
     {
         "type": "Close Stage",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-trading-system.html#close-stage",
         "menuItems": [
             {
                 "action": "Add Missing Children",
@@ -11705,7 +11389,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Trading Strategy->"
         },
-        "icon": "stage-close",
         "properties": [
             {
                 "name": "initialTargets",
@@ -11735,7 +11418,6 @@
     },
     {
         "type": "Close Execution",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-trading-system.html#close-execution",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -11758,7 +11440,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Close Stage->"
         },
-        "icon": "close-execution",
         "propertyNameAtParent": "closeExecution",
         "properties": [
             {
@@ -11792,7 +11473,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Backtesting Session->Live Trading Session->Paper Trading Session->Forward Testing Session->"
         },
-        "icon": "social-bot",
         "properties": [
             {
                 "name": "bots",
@@ -11813,8 +11493,8 @@
                 "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html"
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
             },
             {
                 "action": "Delete UI Object",
@@ -11834,7 +11514,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Social Bots->"
         },
-        "icon": "paper-plane",
         "properties": [],
         "propertyNameAtParent": "bots"
     },
@@ -11848,8 +11527,8 @@
                 "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html"
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
             },
             {
                 "action": "Add UI Object",
@@ -11899,7 +11578,6 @@
                 "autoAdd": true
             }
         ],
-        "icon": "promotion",
         "propertyNameAtParent": "announcements"
     },
     {
@@ -11912,8 +11590,8 @@
                 "action": "Configure",
                 "actionFunction": "uiObject.codeEditor.activate",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html"
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
             },
             {
                 "action": "Delete UI Object",
@@ -11933,12 +11611,10 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Announcement->"
         },
-        "icon": "bitcoin",
         "propertyNameAtParent": "announcementCondition"
     },
     {
         "type": "Crypto Ecosystem",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-crypto-ecosystem.html#crypto-ecosystem",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -11964,7 +11640,6 @@
         "isHierarchyHead": true,
         "addLeftIcons": true,
         "level": 0,
-        "icon": "image",
         "properties": [
             {
                 "name": "cryptoExchanges",
@@ -11985,7 +11660,6 @@
     },
     {
         "type": "Super Actions",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-super-scripts.html#super-actions",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -12010,7 +11684,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Crypto Ecosystem->"
         },
-        "icon": "super-action",
         "properties": [
             {
                 "name": "superActions",
@@ -12040,7 +11713,6 @@
         ],
         "addLeftIcons": true,
         "level": 1,
-        "icon": "targeting",
         "chainAttachesTo": {
             "compatibleTypes": "->Crypto Ecosystem->"
         },
@@ -12061,8 +11733,8 @@
                 "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html"
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
             },
             {
                 "action": "Send Webhook Test Message",
@@ -12070,8 +11742,8 @@
                 "workingLabel": "Sending Message",
                 "workDoneLabel": "Message Sent",
                 "workFailedLabel": "Message not Delived",
-                "iconPathOn": "paper-plane",
-                "iconPathOff": "paper-plane",
+                "iconPathOn": "run",
+                "iconPathOff": "run",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -12086,7 +11758,6 @@
         ],
         "addLeftIcons": true,
         "level": 2,
-        "icon": "template-target",
         "chainAttachesTo": {
             "compatibleTypes": "->Signals Providers->"
         },
@@ -12101,7 +11772,6 @@
     },
     {
         "type": "Crypto Exchanges",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-crypto-ecosystem.html#crypto-exchanges",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -12146,14 +11816,13 @@
     },
     {
         "type": "Crypto Exchange",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-crypto-ecosystem.html#crypto-exchange",
         "menuItems": [
             {
                 "action": "Configure Thise",
                 "actionFunction": "uiObject.configEditor.activate",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html"
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
             },
             {
                 "action": "Add UI Object",
@@ -12192,7 +11861,6 @@
         "isTitleAllwaysVisible": true,
         "addLeftIcons": true,
         "level": 2,
-        "icon": "crypto-exchange",
         "editors": {
             "config": true
         },
@@ -12268,14 +11936,13 @@
     },
     {
         "type": "Exchange Assets",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-crypto-ecosystem.html#exchange-assets",
         "menuItems": [
             {
                 "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html"
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
             },
             {
                 "action": "Add UI Object",
@@ -12310,7 +11977,6 @@
         },
         "addLeftIcons": true,
         "level": 3,
-        "icon": "exchange-assets",
         "chainAttachesTo": {
             "compatibleTypes": "->Crypto Exchange->"
         },
@@ -12325,14 +11991,13 @@
     },
     {
         "type": "Asset",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-crypto-ecosystem.html#asset",
         "menuItems": [
             {
                 "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html"
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
             },
             {
                 "action": "Delete UI Object",
@@ -12347,7 +12012,6 @@
         "isTitleAllwaysVisible": true,
         "addLeftIcons": true,
         "level": 4,
-        "icon": "asset",
         "editors": {
             "config": true
         },
@@ -12427,7 +12091,6 @@
     },
     {
         "type": "Exchange Markets",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-crypto-ecosystem.html#exchange-markets",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -12456,7 +12119,6 @@
         ],
         "addLeftIcons": true,
         "level": 3,
-        "icon": "exchange-markets",
         "chainAttachesTo": {
             "compatibleTypes": "->Crypto Exchange->"
         },
@@ -12471,14 +12133,13 @@
     },
     {
         "type": "Market",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-crypto-ecosystem.html#market",
         "menuItems": [
             {
                 "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html"
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
             },
             {
                 "action": "Add UI Object",
@@ -12534,7 +12195,6 @@
         "addLeftIcons": true,
         "isTitleAllwaysVisible": true,
         "level": 4,
-        "icon": "market",
         "editors": {
             "config": true
         },
@@ -12548,7 +12208,6 @@
     },
     {
         "type": "Exchange Accounts",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-crypto-ecosystem.html#exchange-accounts",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -12568,7 +12227,6 @@
         ],
         "addLeftIcons": true,
         "level": 3,
-        "icon": "exchange-accounts",
         "chainAttachesTo": {
             "compatibleTypes": "->Crypto Exchange->"
         },
@@ -12585,7 +12243,6 @@
     },
     {
         "type": "User Account",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-crypto-ecosystem.html#user-account",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -12615,7 +12272,6 @@
         ],
         "addLeftIcons": true,
         "level": 3,
-        "icon": "user-account",
         "chainAttachesTo": {
             "compatibleTypes": "->Exchange Accounts->"
         },
@@ -12638,7 +12294,6 @@
     },
     {
         "type": "User Assets",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-crypto-ecosystem.html#user-assets",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -12658,7 +12313,6 @@
         ],
         "addLeftIcons": true,
         "level": 3,
-        "icon": "user-assets",
         "chainAttachesTo": {
             "compatibleTypes": "->User Account->"
         },
@@ -12674,7 +12328,6 @@
     },
     {
         "type": "User Keys",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-crypto-ecosystem.html#user-keys",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -12694,7 +12347,6 @@
         ],
         "addLeftIcons": true,
         "level": 3,
-        "icon": "user-keys",
         "chainAttachesTo": {
             "compatibleTypes": "->User Account->"
         },
@@ -12711,7 +12363,6 @@
     },
     {
         "type": "Exchange Account Asset",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-crypto-ecosystem.html#exchange-account-asset",
         "menuItems": [
             {
                 "action": "Delete UI Object",
@@ -12732,7 +12383,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->User Assets->"
         },
-        "icon": "exchange-account-asset",
         "title": [
             "Use Reference Parent"
         ],
@@ -12742,13 +12392,12 @@
     },
     {
         "type": "Exchange Account Key",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-crypto-ecosystem.html#exchange-account-key",
         "menuItems": [
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "dontShowAtFullscreen": true,
                 "actionFunction": "uiObject.configEditor.activate"
             },
@@ -12773,13 +12422,11 @@
         "chainAttachesTo": {
             "compatibleTypes": "->User Keys->"
         },
-        "icon": "exchange-account-key",
         "propertyNameAtParent": "keys",
         "isPersonalData": true
     },
     {
         "type": "Charting Space",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-charting-space.html#charting-space",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -12799,7 +12446,6 @@
         "isHierarchyHead": true,
         "addLeftIcons": true,
         "level": 0,
-        "icon": "charting-space",
         "properties": [
             {
                 "name": "viewport",
@@ -12816,7 +12462,6 @@
     },
     {
         "type": "Dashboard",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-charting-space.html#dashboard",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -12837,7 +12482,6 @@
         "isTitleAllwaysVisible": true,
         "addLeftIcons": true,
         "level": 1,
-        "icon": "dashboard",
         "chainAttachesTo": {
             "compatibleTypes": "->Charting Space->"
         },
@@ -12852,13 +12496,12 @@
     },
     {
         "type": "Time Machine",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-charting-space.html#time-machine",
         "menuItems": [
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "dontShowAtFullscreen": true,
                 "actionFunction": "uiObject.configEditor.activate"
             },
@@ -12911,7 +12554,6 @@
         },
         "level": 1,
         "isTitleAllwaysVisible": true,
-        "icon": "time-machine",
         "chainAttachesTo": {
             "compatibleTypes": "->Dashboard->Template Structure->"
         },
@@ -12945,13 +12587,12 @@
     },
     {
         "type": "Viewport",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-charting-space.html#viewport",
         "menuItems": [
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "dontShowAtFullscreen": true,
                 "actionFunction": "uiObject.configEditor.activate"
             }
@@ -12964,7 +12605,6 @@
             "config": true
         },
         "level": 2,
-        "icon": "viewport",
         "chainAttachesTo": {
             "compatibleTypes": "->Charting Space->"
         },
@@ -12972,13 +12612,12 @@
     },
     {
         "type": "Time Scale",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-charting-space.html#time-scale",
         "menuItems": [
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "dontShowAtFullscreen": true,
                 "actionFunction": "uiObject.configEditor.activate"
             },
@@ -13000,7 +12639,6 @@
             "config": true
         },
         "level": 2,
-        "icon": "time-scale",
         "chainAttachesTo": {
             "compatibleTypes": "->Time Machine->"
         },
@@ -13008,13 +12646,12 @@
     },
     {
         "type": "Rate Scale",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-charting-space.html#rate-scale",
         "menuItems": [
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "dontShowAtFullscreen": true,
                 "actionFunction": "uiObject.configEditor.activate"
             },
@@ -13036,7 +12673,6 @@
             "config": true
         },
         "level": 2,
-        "icon": "rate-scale",
         "chainAttachesTo": {
             "compatibleTypes": "->Time Machine->Timeline Chart->"
         },
@@ -13044,13 +12680,12 @@
     },
     {
         "type": "Time Frame Scale",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-charting-space.html#time-frame-scale",
         "menuItems": [
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "dontShowAtFullscreen": true,
                 "actionFunction": "uiObject.configEditor.activate"
             },
@@ -13072,7 +12707,6 @@
             "config": true
         },
         "level": 2,
-        "icon": "time-frame-scale",
         "chainAttachesTo": {
             "compatibleTypes": "->Time Machine->Timeline Chart->"
         },
@@ -13080,7 +12714,6 @@
     },
     {
         "type": "Timeline Chart",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-charting-space.html#timeline-chart",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -13119,7 +12752,6 @@
         "addLeftIcons": true,
         "level": 2,
         "isTitleAllwaysVisible": true,
-        "icon": "time-line-chart",
         "referenceAttachesTo": {
             "compatibleTypes": "->Market->"
         },
@@ -13148,13 +12780,12 @@
     },
     {
         "type": "Layers Manager",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-charting-space.html#layers-manager",
         "menuItems": [
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "dontShowAtFullscreen": true,
                 "actionFunction": "uiObject.configEditor.activate"
             },
@@ -13194,7 +12825,6 @@
             "config": "{ \n\"visibleLayers\": 5\n}"
         },
         "level": 3,
-        "icon": "layer-manager",
         "chainAttachesTo": {
             "compatibleTypes": "->Timeline Chart->"
         },
@@ -13219,13 +12849,12 @@
     },
     {
         "type": "Layer",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-charting-space.html#layer",
         "menuItems": [
             {
                 "action": "Configure",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
                 "dontShowAtFullscreen": true,
                 "actionFunction": "uiObject.configEditor.activate"
             },
@@ -13265,7 +12894,6 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Layers Manager->Bot Layers->Layer Folder->"
         },
-        "icon": "attractive",
         "propertyNameAtParent": "layers",
         "properties": [
             {
@@ -13302,7 +12930,6 @@
         ],
         "addLeftIcons": true,
         "level": 3,
-        "icon": "brainstorming",
         "chainAttachesTo": {
             "compatibleTypes": "->Layers Manager->"
         },
@@ -13349,7 +12976,6 @@
         ],
         "addLeftIcons": true,
         "level": 3,
-        "icon": "band",
         "chainAttachesTo": {
             "compatibleTypes": "->Layer Folder->Bot Layers->"
         },
@@ -13371,7 +12997,6 @@
     },
     {
         "type": "Data Storage",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-network.html#data-storage",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -13401,7 +13026,6 @@
         ],
         "addLeftIcons": true,
         "level": 2,
-        "icon": "data-storage",
         "chainAttachesTo": {
             "compatibleTypes": "->Network Node->"
         },
@@ -13430,8 +13054,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Run",
                 "workDoneLabel": "Run Request Sent",
-                "iconPathOn": "paper-plane",
-                "iconPathOff": "paper-plane",
+                "iconPathOn": "run",
+                "iconPathOff": "run",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -13462,7 +13086,6 @@
         ],
         "addLeftIcons": true,
         "level": 2,
-        "icon": "crypto-exchange",
         "referenceAttachesTo": {
             "compatibleTypes": "->Crypto Exchange->"
         },
@@ -13486,7 +13109,6 @@
     },
     {
         "type": "Data Mining",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-network.html#data-mining",
         "menuItems": [
             {
                 "action": "Run All Exchange Tasks",
@@ -13494,8 +13116,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Run",
                 "workDoneLabel": "Run Request Sent",
-                "iconPathOn": "paper-plane",
-                "iconPathOff": "paper-plane",
+                "iconPathOn": "run",
+                "iconPathOff": "run",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -13526,7 +13148,6 @@
         ],
         "addLeftIcons": true,
         "level": 2,
-        "icon": "data-mining",
         "chainAttachesTo": {
             "compatibleTypes": "->Network Node->"
         },
@@ -13542,7 +13163,6 @@
     },
     {
         "type": "Testing Environment",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-network.html#testing-environment",
         "menuItems": [
             {
                 "action": "Run All Exchange Tasks",
@@ -13550,8 +13170,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Run",
                 "workDoneLabel": "Run Request Sent",
-                "iconPathOn": "paper-plane",
-                "iconPathOff": "paper-plane",
+                "iconPathOn": "run",
+                "iconPathOff": "run",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -13582,7 +13202,6 @@
         ],
         "addLeftIcons": true,
         "level": 2,
-        "icon": "testing-environment",
         "chainAttachesTo": {
             "compatibleTypes": "->Network Node->"
         },
@@ -13598,7 +13217,6 @@
     },
     {
         "type": "Production Environment",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-network.html#production-environment",
         "menuItems": [
             {
                 "action": "Run All Exchange Tasks",
@@ -13606,8 +13224,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Run",
                 "workDoneLabel": "Run Request Sent",
-                "iconPathOn": "paper-plane",
-                "iconPathOff": "paper-plane",
+                "iconPathOn": "run",
+                "iconPathOff": "run",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -13638,7 +13256,6 @@
         ],
         "addLeftIcons": true,
         "level": 2,
-        "icon": "production-environment",
         "chainAttachesTo": {
             "compatibleTypes": "->Network Node->"
         },
@@ -13678,7 +13295,6 @@
         "isTitleAllwaysVisible": true,
         "addLeftIcons": true,
         "level": 3,
-        "icon": "crypto-exchange",
         "referenceAttachesTo": {
             "compatibleTypes": "->Crypto Exchange->"
         },
@@ -13696,7 +13312,6 @@
     },
     {
         "type": "Session Independent Data",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-network.html#session-independent-data",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -13716,7 +13331,6 @@
         ],
         "addLeftIcons": true,
         "level": 3,
-        "icon": "session-independent-data",
         "chainAttachesTo": {
             "compatibleTypes": "->Data Storage->"
         },
@@ -13755,7 +13369,6 @@
         "isTitleAllwaysVisible": true,
         "addLeftIcons": true,
         "level": 3,
-        "icon": "crypto-exchange",
         "referenceAttachesTo": {
             "compatibleTypes": "->Crypto Exchange->"
         },
@@ -13773,7 +13386,6 @@
     },
     {
         "type": "Session Based Data",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-network.html#session-based-data",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -13793,7 +13405,6 @@
         ],
         "addLeftIcons": true,
         "level": 3,
-        "icon": "session-based-data",
         "chainAttachesTo": {
             "compatibleTypes": "->Data Storage->"
         },
@@ -13808,7 +13419,6 @@
     },
     {
         "type": "Session Reference",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-network.html#session-reference",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -13835,7 +13445,6 @@
         ],
         "addLeftIcons": true,
         "level": 3,
-        "icon": "session-reference",
         "alternativeIcons": "Use Reference Parent",
         "referenceAttachesTo": {
             "compatibleTypes": "->Backtesting Session->Paper Trading Session->Forward Testing Session->Live Trading Session->"
@@ -13855,7 +13464,6 @@
     },
     {
         "type": "Single Market Data",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-network.html#single-market-data",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -13895,7 +13503,6 @@
             "Use Reference Parent Parent Parent",
             "Use Reference Parent"
         ],
-        "icon": "single-market-data",
         "referenceAttachesTo": {
             "compatibleTypes": "->Market->"
         },
@@ -13920,7 +13527,6 @@
     },
     {
         "type": "Data Product",
-        "docURL": "https://julian-molina.github.io/Documentation/suite-hierarchy-network.html#data-product",
         "menuItems": [
             {
                 "action": "Delete UI Object",
@@ -13934,7 +13540,6 @@
         ],
         "addLeftIcons": true,
         "level": 3,
-        "icon": "data-product",
         "isTitleAllwaysVisible": true,
         "title": [
             "Use Reference Parent"
@@ -13978,7 +13583,6 @@
         ],
         "addLeftIcons": true,
         "level": 3,
-        "icon": "arrangement-horizontal-bottom",
         "isTitleAllwaysVisible": true,
         "title": [
             "Use Reference Parent"
@@ -14026,7 +13630,6 @@
         ],
         "addLeftIcons": true,
         "level": 3,
-        "icon": "brainstorming",
         "chainAttachesTo": {
             "compatibleTypes": "->Data Mine Products->"
         },
@@ -14073,7 +13676,6 @@
         ],
         "addLeftIcons": true,
         "level": 3,
-        "icon": "band",
         "chainAttachesTo": {
             "compatibleTypes": "->Data Product Folder->Bot Products->"
         },
@@ -14112,8 +13714,8 @@
                 "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html"
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
             },
             {
                 "action": "Add UI Object",
@@ -14156,7 +13758,6 @@
         "isHierarchyHead": true,
         "addLeftIcons": true,
         "level": 0,
-        "icon": "us-dollar",
         "propertyNameAtParent": "tutorials",
         "properties": [
             {
@@ -14192,8 +13793,8 @@
                 "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html"
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
             },
             {
                 "action": "Add UI Object",
@@ -14232,7 +13833,6 @@
         },
         "addLeftIcons": true,
         "level": 1,
-        "icon": "cardano",
         "propertyNameAtParent": "tutorialTopics",
         "properties": [
             {
@@ -14268,8 +13868,8 @@
                 "action": "Configure",
                 "actionFunction": "uiObject.configEditor.activate",
                 "label": "Configure",
-                "iconPathOn": "html",
-                "iconPathOff": "html"
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
             },
             {
                 "action": "Delete UI Object",
@@ -14296,7 +13896,6 @@
         },
         "addLeftIcons": true,
         "level": 2,
-        "icon": "tron",
         "propertyNameAtParent": "tutorialSteps",
         "properties": [
         ]

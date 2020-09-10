@@ -241,6 +241,12 @@
                     return false
                 }
                 bot.SESSION.parameters.timeFrame.config.value = getTimeFrameFromLabel(bot.SESSION.parameters.timeFrame.config.label)
+                if (bot.SESSION.parameters.timeFrame.config.value === undefined) {
+                    let errorMessage = "Config error: label value not recognized. Try 01-min or 01-hs for example."
+                    parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
+                    bot.sessionError(bot.SESSION.parameters.timeFrame, errorMessage)
+                    return false
+                }
 
                 /* Session Base Asset */
                 if (bot.SESSION.parameters.sessionBaseAsset === undefined) {

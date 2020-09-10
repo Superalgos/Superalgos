@@ -44,10 +44,10 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                 gWebServer = http.createServer(onBrowserRequest).listen(port)
                 isHttpServerStarted = true
                 /* Starting the browser now is optional */
-                if (process.argv[4] !== 'noBrowser') {
-                    open('http://localhost:' + port)
-                } else {
+                if (process.argv.includes("noBrowser")) {
                     console.log('Running Backend only with no UI.')
+                } else {
+                    open('http://localhost:' + port)
                 }
 
                 console.log('Web Server Started.')

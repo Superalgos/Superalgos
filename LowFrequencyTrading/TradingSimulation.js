@@ -73,6 +73,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
                     meaning that the dataSet needs to be updated with more up-to-date data. 
                     */
                     bot.SESSION.stop('Data is not up-to-date enough. Please start the Masters Data Mining Operation.')
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, '[IMPORTANT] runSimulation -> Data is not up-to-date enough. Stopping the Session now. ' ) }
                     return
                 }
             } else {
@@ -213,6 +214,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
                         closeEpisode('Final Datetime Reached')
                         breakLoop = true
                         bot.SESSION.stop('Final Datetime Reached')
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[IMPORTANT] runSimulation -> Final Datetime Reached. Stopping the Session now. ' ) }
                         return
                     }
 
@@ -220,6 +222,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
                         closeEpisode('Min or Max Balance Reached')
                         breakLoop = true
                         bot.SESSION.stop('Min or Max Balance Reached')
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[IMPORTANT] runSimulation -> Min or Max Balance Reached. Stopping the Session now. ' ) }
                         return
                     }
                 }

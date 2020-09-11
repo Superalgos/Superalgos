@@ -8878,6 +8878,21 @@
             },
             {
                 "action": "Add UI Object",
+                "label": "Add Data Mine Dependencies",
+                "relatedUiObject": "Data Mine Data Dependencies",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add All Data Mine Dependencies",
+                "label": "Add All Data Mine Dependencies",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Data Mine Data Dependencies",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
                 "label": "Add Data Dependency",
                 "relatedUiObject": "Data Dependency",
                 "actionFunction": "payload.onMenuItemClick"
@@ -8908,7 +8923,13 @@
                 "name": "dataDependencies",
                 "type": "array",
                 "childType": "Data Dependency",
-                "autoAdd": true
+                "autoAdd": false
+            },
+            {
+                "name": "dataMineDataDependencies",
+                "type": "array",
+                "childType": "Data Mine Data Dependencies",
+                "autoAdd": false
             }
         ],
         "propertyNameAtParent": "processDependencies"
@@ -13889,5 +13910,150 @@
         "propertyNameAtParent": "tutorialSteps",
         "properties": [
         ]
+    },
+    {
+        "type": "Data Mine Data Dependencies",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Bot Data Dependencies",
+                "relatedUiObject": "Bot Data Dependencies",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add All Data Dependencies",
+                "label": "Add All Data Dependencies",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Data Dependency",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "isTitleAllwaysVisible": true,
+        "title": [
+            "Use Reference Parent"
+        ],
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Data Mine->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Process Dependencies->"
+        },
+        "propertyNameAtParent": "dataMineDataDependencies",
+        "properties": [
+            {
+                "name": "botDataDependencies",
+                "type": "array",
+                "childType": "Bot Data Dependencies",
+                "autoAdd": false
+            }
+        ],
+        "icon": "stellar"
+    },
+    {
+        "type": "Bot Data Dependencies",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Data Dependency",
+                "relatedUiObject": "Data Dependency",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Dependency Product Folder",
+                "relatedUiObject": "Dependency Product Folder",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Data Mine Data Dependencies->"
+        },
+        "propertyNameAtParent": "botDataDependencies",
+        "properties": [
+            {
+                "name": "dataDependencies",
+                "type": "array",
+                "childType": "Data Dependency",
+                "autoAdd": false
+            },
+            {
+                "name": "dataDependencyFolders",
+                "type": "array",
+                "childType": "Data Dependency Folder",
+                "autoAdd": false
+            }
+        ],
+        "icon": "stop"
+    },
+    {
+        "type": "Data Dependency Folder",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Data Dependency",
+                "relatedUiObject": "Data Dependency",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Data Dependency Folder",
+                "relatedUiObject": "Data Dependency Folder",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Data Dependency Folder->Bot Data Dependencies->"
+        },
+        "propertyNameAtParent": "dataDependencyFolders",
+        "properties": [
+            {
+                "name": "dataDependencies",
+                "type": "array",
+                "childType": "Data Dependency",
+                "autoAdd": false
+            },
+            {
+                "name": "dataDependencyFolders",
+                "type": "array",
+                "childType": "Data Dependency Folder",
+                "autoAdd": false
+            }
+        ],
+        "icon": "status"
     }
 ]

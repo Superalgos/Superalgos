@@ -631,6 +631,16 @@ function newWorkspace() {
                     functionLibraryDataStorageFunctions.addAllDataMineProducts(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
                 }
                 break
+            case 'Add All Data Dependencies':
+                {
+                    functionLibraryDataMineFunctions.addAllDataDependencies(payload.node, functionLibraryUiObjectsFromNodes)
+                }
+                break
+            case 'Add All Data Mine Dependencies':
+                {
+                    functionLibraryDataMineFunctions.addAllDataMineDataDependencies(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
+                }
+                break
             case 'Add All Data Mine Layers':
                 {
                     functionLibraryChartingSpaceFunctions.addAllDataMineLayers(payload.node, functionLibraryUiObjectsFromNodes)

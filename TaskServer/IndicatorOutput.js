@@ -53,7 +53,8 @@
             }
 
             /* The first phase here is about checking that we have everything we need at the definition level. */
-            let dataDependencies = bot.processNode.referenceParent.processDependencies.dataDependencies
+            let dataDependencies = global.NODE_BRANCH_TO_ARRAY(bot.processNode.referenceParent.processDependencies, 'Data Dependency')
+
             if (commons.validateDataDependencies(dataDependencies, callBackFunction) !== true) { return }
 
             let outputDatasets = global.NODE_BRANCH_TO_ARRAY (bot.processNode.referenceParent.processOutput, 'Output Dataset')

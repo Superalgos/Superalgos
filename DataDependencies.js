@@ -19,13 +19,11 @@
     return thisObject;
 
     function initialize(callBackFunction) {
-
         try {
             /* Basic Valdidations */
             if (bot.processNode.referenceParent.processDependencies !== undefined) {
-                if (bot.processNode.referenceParent.processDependencies.dataDependencies !== undefined) {
-                    thisObject.nodeArray = bot.processNode.referenceParent.processDependencies.dataDependencies
-                } else {
+                thisObject.nodeArray = global.NODE_BRANCH_TO_ARRAY(bot.processNode.referenceParent.processDependencies, 'Data Dependency')
+                if (thisObject.nodeArray.length === 0) {
                     logger.write(MODULE_NAME, "[ERROR] initialize -> onInitilized -> It is not possible to not have data dependencies at all.");
                     callBackFunction(global.DEFAULT_OK_RESPONSE)
                     return

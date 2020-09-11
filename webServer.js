@@ -44,10 +44,10 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                 gWebServer = http.createServer(onBrowserRequest).listen(port)
                 isHttpServerStarted = true
                 /* Starting the browser now is optional */
-                if (process.argv[4] !== 'noBrowser') {
-                    open('http://localhost:' + port)
-                } else {
+                if (process.argv.includes("noBrowser")) {
                     console.log('Running Backend only with no UI.')
+                } else {
+                    open('http://localhost:' + port)
                 }
 
                 console.log('Web Server Started.')
@@ -445,11 +445,37 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
 
             case 'ImagesNames':
                 {
-                    const folder =  process.env.PATH_TO_WEB_SERVER + 'WebServer/Images/Icons/style-01/'
+                    const folder = process.env.PATH_TO_WEB_SERVER + 'WebServer/Images/Icons/style-01/'
                     const fs = require('fs')
 
                     fs.readdir(folder, (err, files) => {
                         respondWithContent(JSON.stringify(files), response)
+                    })
+                }
+                break
+
+            case 'IncludedNames':
+                {
+                    const fs = require('fs')
+                    let folder
+                    let includedNames = { 
+                        includedDataMines: [],
+                        includedTradingSystems: [],
+                        includedSuperScripts: []
+                    }
+
+                    folder = process.env.DATA_MINES_PATH + '/'
+                    fs.readdir(folder, (err, files) => {
+                        includedNames.includedDataMines = files
+                        folder = process.env.TRADING_SYSTEMS_PATH + '/'
+                        fs.readdir(folder, (err, files) => {
+                            includedNames.includedTradingSystems = files
+                            folder = process.env.SUPER_SCRIPTS_PATH + '/'
+                            fs.readdir(folder, (err, files) => {
+                                includedNames.includedSuperScripts = files
+                                respondWithContent(JSON.stringify(includedNames), response)
+                            })
+                        })
                     })
                 }
                 break
@@ -575,19 +601,19 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
 
             case 'DataMines':
                 {
-                    respondWithFile(process.env.DATA_MINES_PATH + '/' + requestParameters[2] + '.json', response)
+                    respondWithFile(process.env.DATA_MINES_PATH + '/' + requestParameters[2], response)
                 }
                 break
 
             case 'TradingSystems':
                 {
-                    respondWithFile(process.env.TRADING_SYSTEMS_PATH + '/' + requestParameters[2] + '.json', response)
+                    respondWithFile(process.env.TRADING_SYSTEMS_PATH + '/' + requestParameters[2], response)
                 }
                 break
 
             case 'SuperScripts':
                 {
-                    respondWithFile(process.env.SUPER_SCRIPTS_PATH + '/' + requestParameters[2] + '.json', response)
+                    respondWithFile(process.env.SUPER_SCRIPTS_PATH + '/' + requestParameters[2], response)
                 }
                 break
 

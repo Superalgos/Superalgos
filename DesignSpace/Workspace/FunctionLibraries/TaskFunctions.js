@@ -42,6 +42,8 @@ function newTaskFunctions() {
             'Output Dataset->Dataset Definition->Product Definition->' +
             'Process Dependencies->' +
             'Status Dependency->Status Report->Process Definition->' +
+            'Data Mine Data Dependencies->Bot Data Dependencies->' + 
+            'Data Dependency Folder->Data Dependency Folder->Data Dependency Folder->Data Dependency Folder->Data Dependency Folder->' + 
             'Data Dependency->Dataset Definition->Product Definition->' +
             'Record Definition->Record Property->Formula->' +
             'Data Building Procedure->' +

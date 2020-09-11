@@ -1392,13 +1392,6 @@
                 "ring": 1
             },
             {
-                "action": "Configure",
-                "actionFunction": "uiObject.configEditor.activate",
-                "label": "Configure",
-                "iconPathOn": "configuration",
-                "iconPathOff": "configuration"
-            },
-            {
                 "action": "Add UI Object",
                 "label": "Add Trading System",
                 "relatedUiObject": "Trading System",
@@ -1438,10 +1431,7 @@
         "isTitleAllwaysVisible": true,
         "addLeftIcons": false,
         "isPinned": true,
-        "positionLocked": true,
-        "editors": {
-            "config": true
-        }
+        "positionLocked": true
     },
     {
         "type": "Situation",

@@ -26,24 +26,33 @@ function newUiObjectsFromNodes() {
         tasksToRun = []
         sessionsToRun = []
 
-        addIncludedNodes()
+        getIncludedNames()
+        
+        function getIncludedNames() {
 
-        function addIncludedNodes() {
+            callServer(undefined, 'IncludedNames', onResponse)
+    
+            function onResponse(err, data) {
+                if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                    console.log('Failed to Fetch Inclided Names from the Backend')
+                    return
+                }
+    
+                let includedNames = JSON.parse(data) 
+                addIncludedNodes(includedNames)
+            }
+        }
+
+        function addIncludedNodes(includedNames) {
             let blobService = newFileStorage()
-
-            // if (node.config === undefined) {
-            node.config = '{ \n"includeDataMines": ["Masters", "Sparta", "Masters-Trading"],\n"includeTradingSystems": ["Sparta-WHB-BTC-USDT", "Sparta-BBTB-BTC-USDT"],\n"includeSuperScripts": ["Masters"]\n }'
-            // }
-
-            let config = JSON.parse(node.config)
-            let includeDataMines = config.includeDataMines
-            let includeTradingSystems = config.includeTradingSystems
-            let includeSuperScripts = config.includeSuperScripts
+            let includedDataMines = includedNames.includedDataMines
+            let includedTradingSystems = includedNames.includedTradingSystems
+            let includedSuperScripts = includedNames.includedSuperScripts
 
             let totalIncluded = 0
 
-            for (let i = 0; i < includeDataMines.length; i++) {
-                let name = includeDataMines[i]
+            for (let i = 0; i < includedDataMines.length; i++) {
+                let name = includedDataMines[i]
                 blobService.getFileFromHost('DataMines' + '/' + name, onFileReceived, true)
                 function onFileReceived(err, text, response) {
                     if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
@@ -65,14 +74,14 @@ function newUiObjectsFromNodes() {
                     receivedNode.isIncluded = true
                     node.rootNodes.unshift(receivedNode)
                     totalIncluded++
-                    if (totalIncluded === includeDataMines.length + includeTradingSystems.length + includeSuperScripts.length) {
+                    if (totalIncluded === includedDataMines.length + includedTradingSystems.length + includedSuperScripts.length) {
                         addUserDefinedNodes()
                     }
                 }
             }
 
-            for (let i = 0; i < includeTradingSystems.length; i++) {
-                let name = includeTradingSystems[i]
+            for (let i = 0; i < includedTradingSystems.length; i++) {
+                let name = includedTradingSystems[i]
                 blobService.getFileFromHost('TradingSystems' + '/' + name, onFileReceived, true)
                 function onFileReceived(err, text, response) {
                     if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
@@ -94,14 +103,14 @@ function newUiObjectsFromNodes() {
                     receivedNode.isIncluded = true
                     node.rootNodes.unshift(receivedNode)
                     totalIncluded++
-                    if (totalIncluded === includeDataMines.length + includeTradingSystems.length + includeSuperScripts.length) {
+                    if (totalIncluded === includedDataMines.length + includedTradingSystems.length + includedSuperScripts.length) {
                         addUserDefinedNodes()
                     }
                 }
             }
 
-            for (let i = 0; i < includeSuperScripts.length; i++) {
-                let name = includeSuperScripts[i]
+            for (let i = 0; i < includedSuperScripts.length; i++) {
+                let name = includedSuperScripts[i]
                 blobService.getFileFromHost('SuperScripts' + '/' + name, onFileReceived, true)
                 function onFileReceived(err, text, response) {
                     if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
@@ -123,7 +132,7 @@ function newUiObjectsFromNodes() {
                     receivedNode.isIncluded = true
                     node.rootNodes.unshift(receivedNode)
                     totalIncluded++
-                    if (totalIncluded === includeDataMines.length + includeTradingSystems.length + includeSuperScripts.length) {
+                    if (totalIncluded === includedDataMines.length + includedTradingSystems.length + includedSuperScripts.length) {
                         addUserDefinedNodes()
                     }
                 }

@@ -6,8 +6,11 @@ function newTaskFunctions() {
         stopAllTasks: stopAllTasks,
         runAllTaskManagers: runAllTaskManagers,
         stopAllTaskManagers: stopAllTaskManagers,
-        runAllExchangeTasks: runAllExchangeTasks,
-        stopAllExchangeTasks: stopAllExchangeTasks
+        runAllExchangeDataTasks: runAllExchangeDataTasks,
+        stopAllExchangeDataTasks: stopAllExchangeDataTasks,
+        runAllExchangeTradingTasks: runAllExchangeTradingTasks,
+        stopAllExchangeTradingTasks: stopAllExchangeTradingTasks,
+        addMissingExchangeDataTasks: addMissingExchangeDataTasks
     }
 
     return thisObject
@@ -42,8 +45,8 @@ function newTaskFunctions() {
             'Output Dataset->Dataset Definition->Product Definition->' +
             'Process Dependencies->' +
             'Status Dependency->Status Report->Process Definition->' +
-            'Data Mine Data Dependencies->Bot Data Dependencies->' + 
-            'Data Dependency Folder->Data Dependency Folder->Data Dependency Folder->Data Dependency Folder->Data Dependency Folder->' + 
+            'Data Mine Data Dependencies->Bot Data Dependencies->' +
+            'Data Dependency Folder->Data Dependency Folder->Data Dependency Folder->Data Dependency Folder->Data Dependency Folder->' +
             'Data Dependency->Dataset Definition->Product Definition->' +
             'Record Definition->Record Property->Formula->' +
             'Data Building Procedure->' +
@@ -56,7 +59,7 @@ function newTaskFunctions() {
             'Execution Finished Event->' +
             'Execution Started Event->Execution Finished Event->Process Definition->' +
             'Sensor Bot->' +
-            'Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->' + 
+            'Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->' +
             'Indicator Bot->' +
             'Trading Bot->' +
             'Data Mine->'
@@ -67,7 +70,7 @@ function newTaskFunctions() {
             'Data Storage->Session Independent Data->Exchange Data Products->' +
             'Single Market Data->' +
             'Data Mine Products->Bot Products->' +
-            'Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->' + 
+            'Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->' +
             'Data Product->Product Definition->' +
             'Data Mining->Testing Environment->Production Environment->' +
             'Exchange Tasks->Crypto Exchange->' +
@@ -215,7 +218,7 @@ function newTaskFunctions() {
             menu.internalClick('Stop All Tasks')
         }
     }
-    function runAllExchangeTasks(parent, functionLibraryProtocolNode) {
+    function runAllExchangeDataTasks(parent, functionLibraryProtocolNode) {
         for (let i = 0; i < parent.exchangeTasks.length; i++) {
             let node = parent.exchangeTasks[i]
             let menu = node.payload.uiObject.menu
@@ -225,13 +228,52 @@ function newTaskFunctions() {
         }
     }
 
-    function stopAllExchangeTasks(parent, functionLibraryProtocolNode) {
+    function stopAllExchangeDataTasks(parent, functionLibraryProtocolNode) {
         for (let i = 0; i < parent.exchangeTasks.length; i++) {
             let node = parent.exchangeTasks[i]
             let menu = node.payload.uiObject.menu
 
             menu.internalClick('Stop All Task Managers')
             menu.internalClick('Stop All Task Managers')
+        }
+    }
+
+    function runAllExchangeTradingTasks(parent, functionLibraryProtocolNode) {
+        for (let i = 0; i < parent.exchangeTasks.length; i++) {
+            let node = parent.exchangeTasks[i]
+            let menu = node.payload.uiObject.menu
+
+            menu.internalClick('Run All Task Managers')
+            menu.internalClick('Run All Task Managers')
+        }
+    }
+
+    function stopAllExchangeTradingTasks(parent, functionLibraryProtocolNode) {
+        for (let i = 0; i < parent.exchangeTasks.length; i++) {
+            let node = parent.exchangeTasks[i]
+            let menu = node.payload.uiObject.menu
+
+            menu.internalClick('Stop All Task Managers')
+            menu.internalClick('Stop All Task Managers')
+        }
+    }
+
+    function addMissingExchangeDataTasks(node, rootNodes, functionLibraryUiObjectsFromNodes) {
+        for (let i = 0; i < rootNodes.length; i++) {
+            let rootNode = rootNodes[i]
+            if (rootNode.type === 'Crypto Ecosystem') {
+                cryptoEcosystem = rootNode
+                for (let j = 0; j < cryptoEcosystem.cryptoExchanges.length; j++) {
+                    let cryptoExchanges = cryptoEcosystem.cryptoExchanges[j]
+                    for (let k=0; k < cryptoExchanges.exchanges.length; k++) {
+                        let cryptoExchange = cryptoExchanges.exchanges[j]
+                        if (isMissingChildren(node, cryptoExchange, true) === true) {
+                            let exchangeDataTasks = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Exchange Data Tasks')
+                            exchangeDataTasks.payload.referenceParent = cryptoExchange
+                        }
+                    }
+                }
+            }
         }
     }
 }

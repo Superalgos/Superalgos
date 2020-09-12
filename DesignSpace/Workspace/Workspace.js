@@ -591,14 +591,29 @@ function newWorkspace() {
                     functionLibraryTaskFunctions.stopAllTaskManagers(payload.node, functionLibraryProtocolNode)
                 }
                 break
-            case 'Run All Exchange Tasks':
+            case 'Run All Exchange Data Tasks':
                 {
-                    functionLibraryTaskFunctions.runAllExchangeTasks(payload.node, functionLibraryProtocolNode)
+                    functionLibraryTaskFunctions.runAllExchangeDataTasks(payload.node, functionLibraryProtocolNode)
                 }
                 break
-            case 'Stop All Exchange Tasks':
+            case 'Stop All Exchange Data Tasks':
                 {
-                    functionLibraryTaskFunctions.stopAllExchangeTasks(payload.node, functionLibraryProtocolNode)
+                    functionLibraryTaskFunctions.stopAllExchangeDataTasks(payload.node, functionLibraryProtocolNode)
+                }
+                break
+            case 'Run All Exchange Trading Tasks':
+                {
+                    functionLibraryTaskFunctions.runAllExchangeTradingTasks(payload.node, functionLibraryProtocolNode)
+                }
+                break
+            case 'Stop All Exchange Trading Tasks':
+                {
+                    functionLibraryTaskFunctions.stopAllExchangeTradingTasks(payload.node, functionLibraryProtocolNode)
+                }
+                break
+            case 'Add Missing Exchange Data Tasks':
+                {
+                    functionLibraryTaskFunctions.addMissingExchangeDataTasks(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
                 }
                 break
             case 'Add Missing Crypto Exchanges':

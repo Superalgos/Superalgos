@@ -299,7 +299,7 @@ function newCircularMenuItem() {
 
             /* The first click ask for confirmation. */
             if (temporaryStatus === STATUS_NO_ACTION_TAKEN_YET) {
-                setStatus(thisObject.confirmationLabel, UI_COLOR.GOLDEN_ORANGE, 20, STATUS_WAITING_CONFIRMATION)
+                setStatus(thisObject.confirmationLabel, UI_COLOR.GOLDEN_ORANGE, 100, STATUS_WAITING_CONFIRMATION)
                 return
             }
             /* A Click during confirmation executes the pre-defined action. */

@@ -26,6 +26,19 @@ function newUiObjectsFromNodes() {
         tasksToRun = []
         sessionsToRun = []
 
+        removeNullRootNodes()
+
+        function removeNullRootNodes() {
+            for (let i = 0; i < node.rootNodes.length; i++) {
+                let rootNode = node.rootNodes[i]
+                if (rootNode === null) {
+                    node.rootNodes.splice(i, 1)
+                    removeNullRootNodes()
+                    return
+                }
+            }
+        }
+
         getIncludedNames()
 
         function getIncludedNames() {

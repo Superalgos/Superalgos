@@ -973,48 +973,96 @@ function newUiObject() {
         setupErrorEventListener(callBackFunction)
         setupWarningEventListener()
         setupInfoEventListener()
-    }
 
-    function setupRunningEventListener(callBackFunction) {
-        /* We will wait to hear the Running event in order to confirm the execution was really started */
-        let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
-        eventsServerClient.listenToEvent(key, 'Running', undefined, 'UiObject', onResponse, onRunning)
-
-        onRunningCallBackFunction = callBackFunction
-
-        function onResponse(message) {
-            eventSubscriptionIdOnRunning = message.eventSubscriptionId
+        function setupRunningEventListener(callBackFunction) {
+            /* We will wait to hear the Running event in order to confirm the execution was really started */
+            let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
+            eventsServerClient.listenToEvent(key, 'Running', undefined, 'UiObject', onResponse, onRunning)
+    
+            onRunningCallBackFunction = callBackFunction
+    
+            function onResponse(message) {
+                eventSubscriptionIdOnRunning = message.eventSubscriptionId
+            }
+    
+            function onRunning() {
+                if (thisObject.payload === undefined) { return }
+    
+                let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
+                eventsServerClient.stopListening(key, eventSubscriptionIdOnRunning, 'UiObject')
+    
+                thisObject.isRunning = true
+    
+                if (callBackFunction !== undefined) {
+                    callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
+                    onRunningCallBackFunctionWasCalled = true
+                }
+            }
+    
+            /*
+            While it is running, it can happen that it naturally stops or is stopped not from the UI but from other means.
+            In those cases, the stop function would never be called (from the UI). So what we will do is to call it from
+            here with and event, and passing our own callBackFunction. In case there is an external source stopping this,
+            this will produce an execution of the callback with our event, which will produce that the menu item is restored
+            to its default stage.
+        
+            If on the other side, it is executed from the UI, then we will be processing the Stopped event twice, which in
+            both cases will reset the menu item to its default state.
+            */
+    
+            let event = {
+                type: 'Secondary Action Already Executed'
+            }
+            stop(callBackFunction, event)
         }
 
-        function onRunning() {
-            if (thisObject.payload === undefined) { return }
-
+        function setupErrorEventListener(callBackFunction) {
             let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
-            eventsServerClient.stopListening(key, eventSubscriptionIdOnRunning, 'UiObject')
-
-            thisObject.isRunning = true
-
-            if (callBackFunction !== undefined) {
-                callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
-                onRunningCallBackFunctionWasCalled = true
+            eventsServerClient.listenToEvent(key, 'Error', undefined, key, onResponse, onError)
+    
+            function onResponse(message) {
+                eventSubscriptionIdOnError = message.eventSubscriptionId
+            }
+    
+            function onError(message) {
+    
+                let uiObject = getTargetUiObject(message)
+                uiObject.setErrorMessage(message.event.errorMessage, 10)
+    
+                let event = {
+                    type: 'Secondary Action Already Executed'
+                }
+                completeStop(callBackFunction, event)
             }
         }
-
-        /*
-        While it is running, it can happen that it naturally stops or is stopped not from the UI but from other means.
-        In those cases, the stop function would never be called (from the UI). So what we will do is to call it from
-        here with and event, and passing our own callBackFunction. In case there is an external source stopping this,
-        this will produce an execution of the callback with our event, which will produce that the menu item is restored
-        to its default stage.
     
-        If on the other side, it is executed from the UI, then we will be processing the Stopped event twice, which in
-        both cases will reset the menu item to its default state.
-        */
-
-        let event = {
-            type: 'Secondary Action Already Executed'
+        function setupWarningEventListener() {
+            let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
+            eventsServerClient.listenToEvent(key, 'Warning', undefined, key, onResponse, onWarning)
+    
+            function onResponse(message) {
+                eventSubscriptionIdOnWarning = message.eventSubscriptionId
+            }
+    
+            function onWarning(message) {
+                let uiObject = getTargetUiObject(message)
+                uiObject.setWarningMessage(message.event.warningMessage, 10)
+            }
         }
-        stop(callBackFunction, event)
+    
+        function setupInfoEventListener() {
+            let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
+            eventsServerClient.listenToEvent(key, 'Info', undefined, key, onResponse, onInfo)
+    
+            function onResponse(message) {
+                eventSubscriptionIdOnInfo = message.eventSubscriptionId
+            }
+    
+            function onInfo(message) {
+                let uiObject = getTargetUiObject(message)
+                uiObject.setInfoMessage(message.event.infoMessage, 10)
+            }
+        }
     }
 
     function getTargetUiObject(message) {
@@ -1030,54 +1078,6 @@ function newUiObject() {
             }
         }
         return uiObject
-    }
-
-    function setupErrorEventListener(callBackFunction) {
-        let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
-        eventsServerClient.listenToEvent(key, 'Error', undefined, key, onResponse, onError)
-
-        function onResponse(message) {
-            eventSubscriptionIdOnError = message.eventSubscriptionId
-        }
-
-        function onError(message) {
-
-            let uiObject = getTargetUiObject(message)
-            uiObject.setErrorMessage(message.event.errorMessage, 10)
-
-            let event = {
-                type: 'Secondary Action Already Executed'
-            }
-            completeStop(callBackFunction, event)
-        }
-    }
-
-    function setupWarningEventListener() {
-        let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
-        eventsServerClient.listenToEvent(key, 'Warning', undefined, key, onResponse, onWarning)
-
-        function onResponse(message) {
-            eventSubscriptionIdOnWarning = message.eventSubscriptionId
-        }
-
-        function onWarning(message) {
-            let uiObject = getTargetUiObject(message)
-            uiObject.setWarningMessage(message.event.warningMessage, 10)
-        }
-    }
-
-    function setupInfoEventListener() {
-        let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
-        eventsServerClient.listenToEvent(key, 'Info', undefined, key, onResponse, onInfo)
-
-        function onResponse(message) {
-            eventSubscriptionIdOnInfo = message.eventSubscriptionId
-        }
-
-        function onInfo(message) {
-            let uiObject = getTargetUiObject(message)
-            uiObject.setInfoMessage(message.event.infoMessage, 10)
-        }
     }
 
     function stop(callBackFunction, event) {

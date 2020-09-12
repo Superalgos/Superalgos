@@ -822,8 +822,12 @@ function newPlotter() {
                     imagePosition.x = dataPoint.x
                     imagePosition.y = dataPoint.y
                     let imageToDraw = canvas.designSpace.iconCollection.get(imageName)
-                    if (imageToDraw.canDrawIcon === true) {
-                        browserCanvasContext.drawImage(imageToDraw, imagePosition.x - imageSize / 2 + offsetX, imagePosition.y - imageSize / 2 - offsetY, imageSize, imageSize)
+                    if (imageToDraw !== undefined) {
+                        if (imageToDraw.canDrawIcon === true) {
+                            browserCanvasContext.drawImage(imageToDraw, imagePosition.x - imageSize / 2 + offsetX, imagePosition.y - imageSize / 2 - offsetY, imageSize, imageSize)
+                        }
+                    } else {
+                        console.log('Can not plot image named '+ imageName + ' of product ' + productDefinition.name + ' because it does not exist.')
                     }
                 }
 

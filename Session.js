@@ -54,7 +54,11 @@
 
             function onSessionRan(message) {
                 try {
-                    if (bot.SESSION_STATUS === 'Idle' || bot.SESSION_STATUS === 'Running') { return } // This happens when the UI is reloaded, the session was running and tries to run it again.
+                    /* This happens when the UI is reloaded, the session was running and tries to run it again. */
+                    if (bot.SESSION_STATUS === 'Idle' || bot.SESSION_STATUS === 'Running') { 
+                        parentLogger.write(MODULE_NAME, "[WARN] onSessionRan -> Event receive to run the Session while it was already running. ")
+                        return 
+                    } 
 
                     /* We are going to run the Definition comming at the event. */
                     bot.TRADING_SYSTEM = JSON.parse(message.event.tradingSystem)
@@ -96,6 +100,7 @@
                         bot.STOP_SESSION = false
                     } else {
                         bot.STOP_SESSION = true
+                        if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, '[IMPORTANT] onSessionRan -> Stopping the Session now. ') }
                     }
 
                     socialBotsModule.sendMessage(bot.SESSION.type + " '" + bot.SESSION.name + "' is starting.")
@@ -109,10 +114,11 @@
             }
 
             function stopSession(commandOrigin) {
-   
+
                 socialBotsModule.sendMessage(bot.SESSION.type + " '" + bot.SESSION.name + "' is stopping " + commandOrigin)
                 socialBotsModule.finalize()
                 bot.STOP_SESSION = true
+                if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, '[IMPORTANT] stopSession -> Stopping the Session now. ') }
                 sessionInfo(bot.SESSION, commandOrigin)
             }
 
@@ -128,7 +134,7 @@
                     if (config.folderName === undefined) {
                         bot.SESSION.folderName = bot.processNode.session.type.replace(' ', '-').replace(' ', '-') + '-' + bot.SESSION.id
                     } else {
-                        bot.SESSION.folderName = bot.processNode.session.type.replace(' ', '-').replace(' ', '-') + '-' + bot.processNode.session.config.folderName                   
+                        bot.SESSION.folderName = bot.processNode.session.type.replace(' ', '-').replace(' ', '-') + '-' + bot.processNode.session.config.folderName
                     }
                 }
             }
@@ -159,14 +165,14 @@
                 } else {
                     /* Check that we received valid dates */
                     if (bot.SESSION.type === 'Backtesting Session') {
-                        if(isNaN(new Date(bot.SESSION.parameters.timeRange.config.initialDatetime)).valueOf()) {
+                        if (isNaN(new Date(bot.SESSION.parameters.timeRange.config.initialDatetime)).valueOf()) {
                             let errorMessage = "sessionParameters.timeRange.config.initialDatetime is not a valid date."
                             parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
                             bot.sessionError(bot.SESSION.parameters, errorMessage)
                             return false
                         }
                     }
-                    if(isNaN(new Date(bot.SESSION.parameters.timeRange.config.finalDatetime)).valueOf()) {
+                    if (isNaN(new Date(bot.SESSION.parameters.timeRange.config.finalDatetime)).valueOf()) {
                         let errorMessage = "sessionParameters.timeRange.config.initialDatetime is not a valid date."
                         parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
                         bot.sessionError(bot.SESSION.parameters, errorMessage)
@@ -205,14 +211,14 @@
 
                     /* Initial Datetime */
                     if (bot.SESSION.type === 'Backtesting Session') {
-                        if (bot.SESSION.parameters.timeRange.config.initialDatetime === undefined ) {
+                        if (bot.SESSION.parameters.timeRange.config.initialDatetime === undefined) {
                             bot.SESSION.parameters.timeRange.config.initialDatetime = initialDefault
                         } else {
                             bot.SESSION.parameters.timeRange.config.initialDatetime = (new Date(bot.SESSION.parameters.timeRange.config.initialDatetime)).valueOf()
                         }
                     } else {
                         /* Non backtest session can start from the past only if explicitly configured that way */
-                        if (bot.SESSION.parameters.timeRange.config.initialDatetime === undefined || bot.SESSION.parameters.timeRange.config.allowStartingFromThePast !== true ) {
+                        if (bot.SESSION.parameters.timeRange.config.initialDatetime === undefined || bot.SESSION.parameters.timeRange.config.allowStartingFromThePast !== true) {
                             bot.SESSION.parameters.timeRange.config.initialDatetime = initialDefault
                         } else {
                             bot.SESSION.parameters.timeRange.config.initialDatetime = (new Date(bot.SESSION.parameters.timeRange.config.initialDatetime)).valueOf()
@@ -393,6 +399,7 @@
 
                 if (global.STOP_TASK_GRACEFULLY === true) {
                     bot.STOP_SESSION = true
+                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, '[IMPORTANT] sessionHeartBeat -> Stopping the Session now. ') }
                 }
             }
 
@@ -414,6 +421,7 @@
 
                 if (global.STOP_TASK_GRACEFULLY === true) {
                     bot.STOP_SESSION = true
+                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, '[IMPORTANT] sessionError -> Stopping the Session now. ') }
                 }
             }
 
@@ -435,6 +443,7 @@
 
                 if (global.STOP_TASK_GRACEFULLY === true) {
                     bot.STOP_SESSION = true
+                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, '[IMPORTANT] sessionWarning -> Stopping the Session now. ') }
                 }
             }
 
@@ -456,6 +465,7 @@
 
                 if (global.STOP_TASK_GRACEFULLY === true) {
                     bot.STOP_SESSION = true
+                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, '[IMPORTANT] sessionInfo -> Stopping the Session now. ') }
                 }
             }
 

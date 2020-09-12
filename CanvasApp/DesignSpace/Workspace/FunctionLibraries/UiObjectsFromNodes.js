@@ -27,18 +27,18 @@ function newUiObjectsFromNodes() {
         sessionsToRun = []
 
         getIncludedNames()
-        
+
         function getIncludedNames() {
 
             callServer(undefined, 'IncludedNames', onResponse)
-    
+
             function onResponse(err, data) {
                 if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
                     console.log('Failed to Fetch Inclided Names from the Backend')
                     return
                 }
-    
-                let includedNames = JSON.parse(data) 
+
+                let includedNames = JSON.parse(data)
                 addIncludedNodes(includedNames)
             }
         }
@@ -48,6 +48,7 @@ function newUiObjectsFromNodes() {
             let includedDataMines = includedNames.includedDataMines
             let includedTradingSystems = includedNames.includedTradingSystems
             let includedSuperScripts = includedNames.includedSuperScripts
+            let includedTradingEngines = includedNames.includedTradingEngines
 
             let totalIncluded = 0
 
@@ -74,7 +75,7 @@ function newUiObjectsFromNodes() {
                     receivedNode.isIncluded = true
                     node.rootNodes.unshift(receivedNode)
                     totalIncluded++
-                    if (totalIncluded === includedDataMines.length + includedTradingSystems.length + includedSuperScripts.length) {
+                    if (totalIncluded === includedDataMines.length + includedTradingSystems.length + includedSuperScripts.length + includedTradingEngines.length) {
                         addUserDefinedNodes()
                     }
                 }
@@ -85,7 +86,7 @@ function newUiObjectsFromNodes() {
                 blobService.getFileFromHost('TradingSystems' + '/' + name, onFileReceived, true)
                 function onFileReceived(err, text, response) {
                     if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                        console.log('Cannot load included Data Mine ' + name + '. The workspace can not be loaded.')
+                        console.log('Cannot load included Trading System ' + name + '. The workspace can not be loaded.')
                         return
                     }
                     let receivedNode = JSON.parse(text)
@@ -103,7 +104,7 @@ function newUiObjectsFromNodes() {
                     receivedNode.isIncluded = true
                     node.rootNodes.unshift(receivedNode)
                     totalIncluded++
-                    if (totalIncluded === includedDataMines.length + includedTradingSystems.length + includedSuperScripts.length) {
+                    if (totalIncluded === includedDataMines.length + includedTradingSystems.length + includedSuperScripts.length + includedTradingEngines.length) {
                         addUserDefinedNodes()
                     }
                 }
@@ -114,7 +115,7 @@ function newUiObjectsFromNodes() {
                 blobService.getFileFromHost('SuperScripts' + '/' + name, onFileReceived, true)
                 function onFileReceived(err, text, response) {
                     if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                        console.log('Cannot load included Data Mine ' + name + '. The workspace can not be loaded.')
+                        console.log('Cannot load included Super Script ' + name + '. The workspace can not be loaded.')
                         return
                     }
                     let receivedNode = JSON.parse(text)
@@ -132,7 +133,33 @@ function newUiObjectsFromNodes() {
                     receivedNode.isIncluded = true
                     node.rootNodes.unshift(receivedNode)
                     totalIncluded++
-                    if (totalIncluded === includedDataMines.length + includedTradingSystems.length + includedSuperScripts.length) {
+                    if (totalIncluded === includedDataMines.length + includedTradingSystems.length + includedSuperScripts.length + includedTradingEngines.length) {
+                        addUserDefinedNodes()
+                    }
+                }
+            }
+
+            for (let i = 0; i < includedTradingEngines.length; i++) {
+                let name = includedTradingEngines[i]
+                blobService.getFileFromHost('TradingEngines' + '/' + name, onFileReceived, true)
+                function onFileReceived(err, text, response) {
+                    if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                        console.log('Cannot load included Trading Engine ' + name + '. The workspace can not be loaded.')
+                        return
+                    }
+                    let receivedNode = JSON.parse(text)
+                    for (let i = 0; i < node.rootNodes.length; i++) {
+                        let rootNode = node.rootNodes[i]
+                        if (rootNode.type === 'Trading Engine') {
+                            if (rootNode.name === name) {
+                                rootNodes.splice(i, 1)
+                            }
+                        }
+                    }
+                    receivedNode.isIncluded = true
+                    node.rootNodes.unshift(receivedNode)
+                    totalIncluded++
+                    if (totalIncluded === includedDataMines.length + includedTradingSystems.length + includedSuperScripts.length + includedTradingEngines.length) {
                         addUserDefinedNodes()
                     }
                 }

@@ -124,7 +124,7 @@
             This is the Data Structure used at the Simulation with all indicator data.
             We start creating it right here.
             */
-            let chart = {} 
+            let chart = {}
             /*
                 Here we check if we need to get Daily Files or not. As an optimization, when 
                 we are running on a Time Frame of 1hs or above, we are not going to load 
@@ -146,8 +146,8 @@
             } else {
                 /* We are processing Daily Files */
                 do {
-                    if (checkStopTaskGracefully() === false) {break}
-                    if (checkStopProcessing() === false) {break}
+                    if (checkStopTaskGracefully() === false) { break }
+                    if (checkStopProcessing() === false) { break }
 
                     /* 
                     We update the Trading Process Date with the date calculated at the simulation.
@@ -170,15 +170,15 @@
                     /*
                     If for any reason the session was stopped, we will break this loop and exit the process.
                     */
-                    if (bot.STOP_SESSION === true) {break}
+                    if (bot.STOP_SESSION === true) { break }
                     /* 
                     When we get to the end of the market, we need to break this process loop in order
                     to let time pass, new information be collected from the exchange, new data built 
                     into indicators, and eventually a new execution of this process.
                     */
-                    if (checkStopHeadOfTheMarket() === false) {break}
-                  }
-                  while (true)
+                    if (checkStopHeadOfTheMarket() === false) { break }
+                }
+                while (true)
             }
 
             checkIfSessionMustStop()
@@ -289,7 +289,7 @@
                 for (let dependencyIndex = 0; dependencyIndex < dataDependenciesModule.nodeArray.length; dependencyIndex++) {
                     let dependency = dataDependenciesModule.nodeArray[dependencyIndex];
                     let datasetModule = dataDependenciesModule.dataSetsModulesArray[dependencyIndex];
- 
+
                     if (datasetModule.node.config.codeName !== "Single-File") {
                         continue
                     }
@@ -302,10 +302,10 @@
                     let filePath = datasetModule.node.parentNode.config.codeName + '/' + datasetModule.node.config.codeName;
 
                     /* We cut the async calls via callBacks at this point, so as to have a clearer code upstream */
-                    let response = await asyncGetDatasetFile(datasetModule, filePath, fileName) 
+                    let response = await asyncGetDatasetFile(datasetModule, filePath, fileName)
 
                     if (response.err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                        throw(response.err)
+                        throw (response.err)
                     }
 
                     let dataFile = JSON.parse(response.text);
@@ -351,12 +351,12 @@
                         let filePath = dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName + "/" + timeFrameLabel;
 
                         /* We cut the async calls via callBacks at this point, so as to have a clearer code upstream */
-                        let response = await asyncGetDatasetFile(datasetModule, filePath, fileName) 
+                        let response = await asyncGetDatasetFile(datasetModule, filePath, fileName)
 
                         if (response.err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                            throw(response.err)
+                            throw (response.err)
                         }
-    
+
                         let dataFile = JSON.parse(response.text);
                         let trimmedDataFile = trimDataFile(dataFile, datasetModule.node.parentNode.record)
                         dataFiles.set(dependency.id, trimmedDataFile);
@@ -402,7 +402,7 @@
                 /*  Telling the world we are alive and doing well and which date we are processing right now. */
                 let processingDateString = tradingProcessDate.getUTCFullYear() + '-' + utilities.pad(tradingProcessDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(tradingProcessDate.getUTCDate(), 2);
                 bot.processHeartBeat(processingDateString)
- 
+
                 /*
                 We will iterate through all posible timeFrames.
                 */
@@ -456,10 +456,10 @@
                         let fileName = "Data.json";
 
                         /* We cut the async calls via callBacks at this point, so as to have a clearer code upstream */
-                        let response = await asyncGetDatasetFile(datasetModule, filePath, fileName) 
-                        
+                        let response = await asyncGetDatasetFile(datasetModule, filePath, fileName)
+
                         if (response.err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                            throw(response.err)
+                            throw (response.err)
                         }
 
                         let dataFile = JSON.parse(response.text);
@@ -471,7 +471,7 @@
                 }
             }
 
-            function checkStopHeadOfTheMarket() {                
+            function checkStopHeadOfTheMarket() {
                 /*  
                 We need to check if we have reached the head of the market in order to know 
                 when to break the Daily Files Process loop and give time for a new candles /
@@ -556,13 +556,13 @@
                     currentTimeFrame,
                     currentTimeFrameLabel,
                     tradingProcessDate
-                    )
+                )
 
                 /*
                 From here on, all other loops executions wont be the first execution and also
                 we will consider that it is not resuming a previous execution as well.
                 */
-                bot.FIRST_EXECUTION = false 
+                bot.FIRST_EXECUTION = false
                 bot.RESUME = false
             }
 
@@ -571,7 +571,7 @@
 
                 await writeTimeFramesFiles(currentTimeFrame, currentTimeFrameLabel)
                 await writeDataRanges()
- 
+
                 if (currentTimeFrame > global.dailyFilePeriods[0][0]) {
                     await writeMarketStatusReport(currentTimeFrameLabel)
                 } else {
@@ -580,30 +580,30 @@
 
                 async function writeDataRanges() {
                     for (
-                            let outputDatasetIndex = 0; 
-                            outputDatasetIndex < outputDatasets.length; 
-                            outputDatasetIndex++
-                        ) {
+                        let outputDatasetIndex = 0;
+                        outputDatasetIndex < outputDatasets.length;
+                        outputDatasetIndex++
+                    ) {
                         let productCodeName = outputDatasets[outputDatasetIndex].referenceParent.parentNode.config.codeName;
                         await writeDataRange(productCodeName);
                     }
-    
+
                     async function writeDataRange(productCodeName) {
                         let dataRange = {
                             begin: contextVariables.dateBeginOfMarket.valueOf(),
                             end: tradingProcessDate.valueOf() + global.ONE_DAY_IN_MILISECONDS
                         }
-        
+
                         let fileContent = JSON.stringify(dataRange);
                         let fileName = '/Data.Range.json';
                         let filePath = bot.filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + productCodeName + "/" + 'Multi-Period-Daily' + fileName;
-                
+
                         let response = await fileStorage.asyncCreateTextFile(filePath, fileContent + '\n')
-        
+
                         if (response.err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                            throw(response.err)
+                            throw (response.err)
                         }
-        
+
                         /* 
                         Raise the event that the Data Range was Updated.
                         */
@@ -611,59 +611,59 @@
                         let event = {
                             dateRange: dataRange
                         }
-        
+
                         global.EVENT_SERVER_CLIENT.raiseEvent(key, 'Data Range Updated', event)
                     }
                 }
-    
+
                 async function writeTimeFramesFiles(currentTimeFrame, currentTimeFrameLabel) {
-    
+
                     for (
-                            let outputDatasetIndex = 0; 
-                            outputDatasetIndex < outputDatasets.length; 
-                            outputDatasetIndex++
-                        ) {
+                        let outputDatasetIndex = 0;
+                        outputDatasetIndex < outputDatasets.length;
+                        outputDatasetIndex++
+                    ) {
                         let productCodeName = outputDatasets[outputDatasetIndex].referenceParent.parentNode.config.codeName;
-                        await writeTimeFramesFile( currentTimeFrameLabel, productCodeName, 'Multi-Period-Daily')
-                        await writeTimeFramesFile( currentTimeFrameLabel, productCodeName, 'Multi-Period-Market')
-    
+                        await writeTimeFramesFile(currentTimeFrameLabel, productCodeName, 'Multi-Period-Daily')
+                        await writeTimeFramesFile(currentTimeFrameLabel, productCodeName, 'Multi-Period-Market')
+
                         async function writeTimeFramesFile(currentTimeFrameLabel, productCodeName, processType) {
-    
+
                             let timeFramesArray = []
                             timeFramesArray.push(currentTimeFrameLabel)
-            
+
                             let fileContent = JSON.stringify(timeFramesArray)
                             let fileName = '/Time.Frames.json';
-            
+
                             let filePath = bot.filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + productCodeName + "/" + processType + fileName;
-            
+
                             let response = await fileStorage.asyncCreateTextFile(filePath, fileContent + '\n')
                             if (response.err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                throw(response.err)
+                                throw (response.err)
                             }
                         }
                     }
                 }
 
-                async function writeDailyStatusReport( currentTimeFrameLabel) {
+                async function writeDailyStatusReport(currentTimeFrameLabel) {
                     let reportKey = bot.dataMine + "-" + bot.codeName + "-" + bot.processNode.referenceParent.config.codeName
                     let thisReport = statusDependencies.statusReports.get(reportKey)
-    
+
                     thisReport.file.lastExecution = bot.currentDaytime
                     thisReport.file.lastFile = tradingProcessDate
                     thisReport.file.simulationState = bot.simulationState
                     thisReport.file.timeFrames = currentTimeFrameLabel
                     await thisReport.asyncSave()
                 }
-    
+
                 async function writeMarketStatusReport(currentTimeFrameLabel) {
                     let reportKey = bot.dataMine + "-" + bot.codeName + "-" + bot.processNode.referenceParent.config.codeName
                     let thisReport = statusDependencies.statusReports.get(reportKey);
-    
+
                     thisReport.file.lastExecution = bot.processDatetime
                     thisReport.file.simulationState = bot.simulationState
                     thisReport.file.timeFrames = currentTimeFrameLabel
-    
+
                     logger.newInternalLoop(bot.codeName, bot.process, tradingProcessDate)
                     await thisReport.asyncSave()
                 }
@@ -675,6 +675,7 @@
                     /*
                     Backtests needs only one execution of this process to complete.
                     */
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, '[IMPORTANT] checkIfSessionMustStop -> Backtesting Session Finished. Stopping the Session now. ') }
                     bot.SESSION.stop('Backtesting Session Finished.')
                 }
             }
@@ -714,14 +715,14 @@
 
             datasetModule.getTextFile(filePath, fileName, onFileReceived);
             function onFileReceived(err, text) {
- 
+
                 let response = {
                     err: err,
                     text: text
                 }
                 resolve(response)
             }
-          });
+        });
 
         return promise
     }

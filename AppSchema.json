@@ -13959,8 +13959,7 @@
                 "childType": "Bot Data Dependencies",
                 "autoAdd": false
             }
-        ],
-        "icon": "stellar"
+        ]
     },
     {
         "type": "Bot Data Dependencies",
@@ -14006,8 +14005,7 @@
                 "childType": "Data Dependency Folder",
                 "autoAdd": false
             }
-        ],
-        "icon": "stop"
+        ]
     },
     {
         "type": "Data Dependency Folder",
@@ -14053,7 +14051,6 @@
                 "childType": "Data Dependency Folder",
                 "autoAdd": false
             }
-        ],
-        "icon": "status"
+        ]
     }
 ]

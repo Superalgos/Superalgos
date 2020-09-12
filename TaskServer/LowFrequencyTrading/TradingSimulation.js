@@ -229,7 +229,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
 
                 function checkIfWeNeedToStopAfterBothCycles() {
                     if (checkNextCandle() === false) {
-                        updateEpisode('All Available Candles Processed')
+                        updateEpisode('All Candles Processed')
                         breakLoop = true
                         return
                     }

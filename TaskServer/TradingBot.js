@@ -44,6 +44,7 @@
             /* Some initial values*/
             let fixedTimeLoopIntervalHandle;
             bot.STOP_SESSION = true;
+            if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, '[IMPORTANT] run -> Stopping the Session now. ') }
 
             /* Heartbeats sent to the UI */
             bot.processHeartBeat = processHeartBeat

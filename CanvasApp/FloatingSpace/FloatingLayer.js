@@ -52,17 +52,18 @@ function newFloatingLayer() {
 
     let maxTargetRepulsionForce = 0.001
     let currentHandle = 0
+    let invisiblePhysicsIntervalId
 
     return thisObject
 
     function finalize() {
+        clearInterval(invisiblePhysicsIntervalId)
         invisibleFloatingObjects = []
         visibleFloatingObjects = []
     }
 
     function initialize() {
-
-        /* We dont need to initialize anything right now. */
+        invisiblePhysicsIntervalId = setInterval(invisiblePhysics, 1000)
     }
 
     function getContainer(point) {
@@ -241,6 +242,17 @@ function newFloatingLayer() {
     /*                                        */
     /******************************************/
 
+    function invisiblePhysics() {
+        /* 
+        Note that the Physics for invisible objects is called with a fixed time interval, 
+        since it does not need the high intensity physics called during the animation.
+        */
+        for (let i = 0; i < invisibleFloatingObjects.length; i++) {
+            let floatingObject = invisibleFloatingObjects[i]
+            floatingObject.invisiblePhysics()
+        }
+    }
+
     function physics() {
         /*
         The Physics engine is hooked at the animation loop, so it executes very very often. According to this Physics engine, each
@@ -259,16 +271,8 @@ function newFloatingLayer() {
         try {
             makeVisible()
             makeInvisible()
-            invisiblePhysics()
             visiblePhysics()
             applyPhysics()
-
-            function invisiblePhysics() {
-                for (let i = 0; i < invisibleFloatingObjects.length; i++) {
-                    let floatingObject = invisibleFloatingObjects[i]
-                    floatingObject.invisiblePhysics()
-                }
-            }
 
             function visiblePhysics() {
                 for (let i = 0; i < visibleFloatingObjects.length; i++) {

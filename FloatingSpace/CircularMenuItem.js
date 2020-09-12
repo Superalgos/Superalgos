@@ -275,7 +275,7 @@ function newCircularMenuItem() {
     function internalClick() {
         if (thisObject.shorcutNumber !== undefined) {
             let label = thisObject.payload.node.name + ' ' + labelToPrint
-            canvas.cockpitSpace.setStatus(label, 40, canvas.cockpitSpace.statusTypes.ALL_GOOD)
+            canvas.cockpitSpace.setStatus(label, 4, canvas.cockpitSpace.statusTypes.ALL_GOOD)
         }
 
         onMouseClick()
@@ -299,16 +299,16 @@ function newCircularMenuItem() {
 
             /* The first click ask for confirmation. */
             if (temporaryStatus === STATUS_NO_ACTION_TAKEN_YET) {
-                setStatus(thisObject.confirmationLabel, UI_COLOR.GOLDEN_ORANGE, 200, STATUS_WAITING_CONFIRMATION)
+                setStatus(thisObject.confirmationLabel, UI_COLOR.GOLDEN_ORANGE, 20, STATUS_WAITING_CONFIRMATION)
                 return
             }
             /* A Click during confirmation executes the pre-defined action. */
             if (temporaryStatus === STATUS_WAITING_CONFIRMATION || temporaryStatus === STATUS_PRIMARY_WORK_DONE) {
                 executeAction()
                 if (thisObject.workDoneLabel !== undefined) {
-                    setStatus(thisObject.workDoneLabel, UI_COLOR.PATINATED_TURQUOISE, 50, STATUS_SECONDARY_WORK_DONE)
+                    setStatus(thisObject.workDoneLabel, UI_COLOR.PATINATED_TURQUOISE, 5, STATUS_SECONDARY_WORK_DONE)
                 } else {
-                    setStatus('Done', UI_COLOR.PATINATED_TURQUOISE, 50, STATUS_SECONDARY_WORK_DONE)
+                    setStatus('Done', UI_COLOR.PATINATED_TURQUOISE, 5, STATUS_SECONDARY_WORK_DONE)
                 }
                 return
             }
@@ -342,7 +342,7 @@ function newCircularMenuItem() {
 
                 if (event !== undefined) {
                     if (event.type === 'Secondary Action Already Executed') {
-                        setStatus(thisObject.secondaryWorkDoneLabel, UI_COLOR.PATINATED_TURQUOISE, 50, STATUS_SECONDARY_WORK_DONE)
+                        setStatus(thisObject.secondaryWorkDoneLabel, UI_COLOR.PATINATED_TURQUOISE, 5, STATUS_SECONDARY_WORK_DONE)
                         return
                     }
                 }
@@ -351,11 +351,11 @@ function newCircularMenuItem() {
                 if (thisObject.secondaryAction === undefined) { // This means there are no more possible actions.
                     if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
                         if (thisObject.workDoneLabel !== undefined) {
-                            setStatus(thisObject.workDoneLabel, UI_COLOR.PATINATED_TURQUOISE, 50, STATUS_PRIMARY_WORK_DONE)
+                            setStatus(thisObject.workDoneLabel, UI_COLOR.PATINATED_TURQUOISE, 5, STATUS_PRIMARY_WORK_DONE)
                         }
                     } else {
                         if (thisObject.workFailedLabel != undefined) {
-                            setStatus(thisObject.workFailedLabel, UI_COLOR.TITANIUM_YELLOW, 50, STATUS_PRIMARY_WORK_FAILED)
+                            setStatus(thisObject.workFailedLabel, UI_COLOR.TITANIUM_YELLOW, 5, STATUS_PRIMARY_WORK_FAILED)
                         }
                     }
                 } else {
@@ -366,7 +366,7 @@ function newCircularMenuItem() {
                         }
                     } else {
                         if (thisObject.workFailedLabel != undefined) {
-                            setStatus(thisObject.workFailedLabel, UI_COLOR.TITANIUM_YELLOW, 50, STATUS_PRIMARY_WORK_FAILED)
+                            setStatus(thisObject.workFailedLabel, UI_COLOR.TITANIUM_YELLOW, 5, STATUS_PRIMARY_WORK_FAILED)
                         }
                     }
                 }
@@ -374,11 +374,11 @@ function newCircularMenuItem() {
             function onSecondaryCallBack(err) {
                 if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
                     if (thisObject.secondaryWorkDoneLabel !== undefined) {
-                        setStatus(thisObject.secondaryWorkDoneLabel, UI_COLOR.PATINATED_TURQUOISE, 50, STATUS_SECONDARY_WORK_DONE)
+                        setStatus(thisObject.secondaryWorkDoneLabel, UI_COLOR.PATINATED_TURQUOISE, 5, STATUS_SECONDARY_WORK_DONE)
                     }
                 } else {
                     if (thisObject.secondaryWorkFailedLabel != undefined) {
-                        setStatus(thisObject.secondaryWorkFailedLabel, UI_COLOR.TITANIUM_YELLOW, 50, STATUS_SECONDARY_WORK_FAILED)
+                        setStatus(thisObject.secondaryWorkFailedLabel, UI_COLOR.TITANIUM_YELLOW, 5, STATUS_SECONDARY_WORK_FAILED)
                     }
                 }
             }

@@ -345,16 +345,16 @@ function newWorkspace() {
                     for (let j = 0; j < rootNode.networkNodes.length; j++) {
                         let networkNode = rootNode.networkNodes[j]
                         if (networkNode.dataMining !== undefined && networkNode.dataMining.payload !== undefined) {
-                            networkNode.dataMining.payload.uiObject.menu.internalClick('Stop All Exchange Tasks')
-                            networkNode.dataMining.payload.uiObject.menu.internalClick('Stop All Exchange Tasks')
+                            networkNode.dataMining.payload.uiObject.menu.internalClick('Stop All Exchange Data Tasks')
+                            networkNode.dataMining.payload.uiObject.menu.internalClick('Stop All Exchange Data Tasks')
                         }
                         if (networkNode.testingEnvironment !== undefined && networkNode.testingEnvironment.payload !== undefined) {
-                            networkNode.testingEnvironment.payload.uiObject.menu.internalClick('Stop All Exchange Tasks')
-                            networkNode.testingEnvironment.payload.uiObject.menu.internalClick('Stop All Exchange Tasks')
+                            networkNode.testingEnvironment.payload.uiObject.menu.internalClick('Stop All Exchange Trading Tasks')
+                            networkNode.testingEnvironment.payload.uiObject.menu.internalClick('Stop All Exchange Trading Tasks')
                         }
                         if (networkNode.productionEnvironment !== undefined && networkNode.productionEnvironment.payload !== undefined) {
-                            networkNode.productionEnvironment.payload.uiObject.menu.internalClick('Stop All Exchange Tasks')
-                            networkNode.productionEnvironment.payload.uiObject.menu.internalClick('Stop All Exchange Tasks')
+                            networkNode.productionEnvironment.payload.uiObject.menu.internalClick('Stop All Exchange Trading Tasks')
+                            networkNode.productionEnvironment.payload.uiObject.menu.internalClick('Stop All Exchange Trading Tasks')
                         }
                     }
                 }

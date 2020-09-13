@@ -42,6 +42,10 @@ function newTaskFunctions() {
             'Sensor Process Instance->Indicator Process Instance->Trading Process Instance->' +
             'Execution Started Event->' +
             'Key Reference->Exchange Account Key->' +
+            'Task Manager->' +
+            'Data Mine Tasks->Trading Mine Tasks->'
+            'Market Data Tasks->Market Trading Tasks->' +
+            'Exchange Data Tasks->Exchange Trading Tasks->' + 
             'Market->Exchange Markets->Crypto Exchange->' +
             'Market Base Asset->Market Quoted Asset->Asset->' +
             'Backtesting Session->Live Trading Session->Paper Trading Session->Fordward Testing Session->' +
@@ -68,7 +72,7 @@ function newTaskFunctions() {
             'Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->' +
             'Indicator Bot->' +
             'Trading Bot->' +
-            'Data Mine->'
+            'Data Mine->Trading Mine->'
 
         let taskDefinition = functionLibraryProtocolNode.getProtocolNode(node, false, true, true, false, false, taskLightingPath)
 
@@ -79,7 +83,9 @@ function newTaskFunctions() {
             'Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->' +
             'Data Product->Product Definition->' +
             'Data Mining->Testing Environment->Production Environment->' +
-            'Exchange Tasks->Crypto Exchange->' +
+            'Exchange Data Tasks->Exchange Mining Tasks->Crypto Exchange->' +
+            'Market Data Tasks->Market Mining Tasks->' + 
+            'Data Mine Tasks->Trading Mine Tasks->'
             'Task Manager->Task->' +
             'Indicator Bot Instance->Sensor Bot Instance->Trading Bot Instance->' +
             'Indicator Process Instance->Sensor Process Instance->Trading Process Instance->' +
@@ -148,23 +154,30 @@ function newTaskFunctions() {
             return
         }
 
-        if (node.payload.parentNode.payload.parentNode === undefined) {
+        let taskManager = node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode
+
+        if (taskManager.payload.parentNode === undefined) {
+            node.payload.uiObject.setErrorMessage('Task needs to be inside Mine Tasks.')
+            return
+        }
+
+        if (taskManager.payload.parentNode.payload.parentNode === undefined) {
+            node.payload.uiObject.setErrorMessage('Task needs to be inside Market Tasks.')
+            return
+        }
+
+        if (taskManager.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
             node.payload.uiObject.setErrorMessage('Task needs to be inside Exchange Tasks.')
             return
         }
 
-        if (node.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
-            node.payload.uiObject.setErrorMessage('Task needs to be inside a Testing or Production Environment or a Data Mining node.')
+        if (taskManager.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
+            node.payload.uiObject.setErrorMessage('Task needs to be inside a Testing or Production Environment.')
             return
         }
 
-        if (node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
+        if (taskManager.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
             node.payload.uiObject.setErrorMessage('Task needs to be inside a Network Node.')
-            return
-        }
-
-        if (node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
-            node.payload.uiObject.setErrorMessage('Task needs to be inside a Network.')
             return
         }
 
@@ -224,6 +237,7 @@ function newTaskFunctions() {
             menu.internalClick('Stop All Tasks')
         }
     }
+
     function runAllExchangeDataTasks(parent, functionLibraryProtocolNode) {
         for (let i = 0; i < parent.exchangeTasks.length; i++) {
             let node = parent.exchangeTasks[i]

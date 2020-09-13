@@ -148,17 +148,29 @@ function newSessionFunctions() {
             return
         }
 
-        if (node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
+        let taskManager = node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode
+
+        if (taskManager.payload.parentNode === undefined) {
+            node.payload.uiObject.setErrorMessage('Session needs to be inside Mine Tasks.')
+            return
+        }
+
+        if (taskManager.payload.parentNode.payload.parentNode === undefined) {
+            node.payload.uiObject.setErrorMessage('Session needs to be inside Market Tasks.')
+            return
+        }
+
+        if (taskManager.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
             node.payload.uiObject.setErrorMessage('Session needs to be inside Exchange Tasks.')
             return
         }
 
-        if (node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
+        if (taskManager.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
             node.payload.uiObject.setErrorMessage('Session needs to be inside a Testing or Production Environment.')
             return
         }
 
-        if (node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
+        if (taskManager.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
             node.payload.uiObject.setErrorMessage('Session needs to be inside a Network Node.')
             return
         }

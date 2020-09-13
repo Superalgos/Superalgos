@@ -2386,7 +2386,7 @@
         ],
         "isTitleAllwaysVisible": true,
         "initialValues": {
-            "config": "{ \n\"folderName\": \"Type the name of the folder where you wish to store the logs of this process\"\n}"
+            "config": "{ \n\"folderName\": \"\"\n}"
         },
         "addLeftIcons": true,
         "editors": {

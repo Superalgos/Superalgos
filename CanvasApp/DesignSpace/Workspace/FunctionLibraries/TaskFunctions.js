@@ -450,90 +450,104 @@ function newTaskFunctions() {
         if (node.payload === undefined) { return }
         if (node.payload.referenceParent === undefined) { return }
 
-        let dataMine = node.payload.referenceParent
-
         let taskManager = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Task Manager')
+        taskManager.name = node.name
 
-        addTasksForBotArray(dataMine.sensorBots)
-        addTasksForBotArray(dataMine.indicatorBots)
-        addTasksForBotArray(dataMine.tradingBots)
+        for (let i=0; i< rootNodes.length; i++) {
+            let rootNode = rootNodes[i]
+            if (rootNode.type === 'Trading System') {
+                addTaskForTradinSystem(rootNode)
+            }
+        }
 
-        function addTasksForBotArray(botsArray) {
-            if (botsArray === undefined) { return }
-
-            for (let i = 0; i < botsArray.length; i++) {
-                let bot = botsArray[i]
-
-                let task = functionLibraryUiObjectsFromNodes.addUIObject(taskManager, 'Task')
-                task.name = bot.name
-
-                let botInstance
-                switch (bot.type) {
-                    case 'Sensor Bot': {
-                        botInstance = functionLibraryUiObjectsFromNodes.addUIObject(task, 'Sensor Bot Instance')
-                        botInstance.name = bot.name
-                        break
-                    }
-                    case 'Indicator Bot': {
-                        botInstance = functionLibraryUiObjectsFromNodes.addUIObject(task, 'Indicator Bot Instance')
-                        botInstance.name = bot.name
-                        break
-                    }
-                    case 'Trading Bot': {
-                        botInstance = functionLibraryUiObjectsFromNodes.addUIObject(task, 'Trading Bot Instance')
-                        botInstance.name = bot.name
-                        break
-                    }
-                }
-
-                for (let j = 0; j < bot.processes.length; j++) {
-                    let process = bot.processes[j]
-                    let processInstance
+        function addTaskForTradinSystem(tradingSystem) {
+            let mine = node.payload.referenceParent
+    
+            addTasksForBotArray(mine.sensorBots)
+            addTasksForBotArray(mine.indicatorBots)
+            addTasksForBotArray(mine.tradingBots)
+    
+            function addTasksForBotArray(botsArray) {
+                if (botsArray === undefined) { return }
+    
+                for (let i = 0; i < botsArray.length; i++) {
+                    let bot = botsArray[i]
+    
+                    let task = functionLibraryUiObjectsFromNodes.addUIObject(taskManager, 'Task')
+                    task.name = tradingSystem.name + ' ' + bot.name
+    
+                    let botInstance
                     switch (bot.type) {
                         case 'Sensor Bot': {
-                            processInstance = functionLibraryUiObjectsFromNodes.addUIObject(botInstance, 'Sensor Process Instance')
-                            processInstance.payload.referenceParent = process
+                            botInstance = functionLibraryUiObjectsFromNodes.addUIObject(task, 'Sensor Bot Instance')
+                            botInstance.name = bot.name
                             break
                         }
                         case 'Indicator Bot': {
-                            processInstance = functionLibraryUiObjectsFromNodes.addUIObject(botInstance, 'Indicator Process Instance')
-                            processInstance.payload.referenceParent = process
+                            botInstance = functionLibraryUiObjectsFromNodes.addUIObject(task, 'Indicator Bot Instance')
+                            botInstance.name = bot.name
                             break
                         }
                         case 'Trading Bot': {
-                            processInstance = functionLibraryUiObjectsFromNodes.addUIObject(botInstance, 'Trading Process Instance')
-                            processInstance.payload.referenceParent = process
-
-                            if (node.payload.parentNode === undefined) { return }
-                            if (node.payload.parentNode.payload === undefined) { return }
-                            if (node.payload.parentNode.payload.parentNode === undefined) { return }
-                            if (node.payload.parentNode.payload.parentNode.payload === undefined) { return }
-                            if (node.payload.parentNode.payload.parentNode.payload.parentNode === undefined) { return }
-
-                            let environment = node.payload.parentNode.payload.parentNode.payload.parentNode
-                            let session
-
-                            switch (environment.type) {
-                                case 'Testing Environment': {
-                                    addSession('Backtesting Session')
-                                    break
-                                }
-                                case 'Production Environment': {
-                                    addSession('Live Trading Session')
-                                    break
-                                }
-                            }
+                            botInstance = functionLibraryUiObjectsFromNodes.addUIObject(task, 'Trading Bot Instance')
+                            botInstance.name = bot.name
                             break
+                        }
+                    }
+    
+                    for (let j = 0; j < bot.processes.length; j++) {
+                        let process = bot.processes[j]
+                        let processInstance
+                        switch (bot.type) {
+                            case 'Sensor Bot': {
+                                processInstance = functionLibraryUiObjectsFromNodes.addUIObject(botInstance, 'Sensor Process Instance')
+                                processInstance.payload.referenceParent = process
+                                break
+                            }
+                            case 'Indicator Bot': {
+                                processInstance = functionLibraryUiObjectsFromNodes.addUIObject(botInstance, 'Indicator Process Instance')
+                                processInstance.payload.referenceParent = process
+                                break
+                            }
+                            case 'Trading Bot': {
+                                processInstance = functionLibraryUiObjectsFromNodes.addUIObject(botInstance, 'Trading Process Instance')
+                                processInstance.payload.referenceParent = process
+    
+                                if (node.payload.parentNode === undefined) { return }
+                                if (node.payload.parentNode.payload === undefined) { return }
+                                if (node.payload.parentNode.payload.parentNode === undefined) { return }
+                                if (node.payload.parentNode.payload.parentNode.payload === undefined) { return }
+                                if (node.payload.parentNode.payload.parentNode.payload.parentNode === undefined) { return }
+    
+                                let environment = node.payload.parentNode.payload.parentNode.payload.parentNode
+                                let session
+    
+                                switch (environment.type) {
+                                    case 'Testing Environment': {
+                                        addSession('Backtesting Session')
+                                        break
+                                    }
+                                    case 'Production Environment': {
+                                        addSession('Live Trading Session')
+                                        break
+                                    }
+                                }
+                                break
+    
+                                function addSession(sessionType) {
+                                    session = functionLibraryUiObjectsFromNodes.addUIObject(processInstance, sessionType)
+                                    session.name = task.name + ' ' + session.type
+                                    let config = JSON.parse(session.config)
+                                    config.folderName = session.name.split(" ").join("-")
+                                    session.config = JSON.stringify(config)
 
-                            function addSession(sessionType) {
-                                session = functionLibraryUiObjectsFromNodes.addUIObject(processInstance, sessionType)
-                                session.name = task.name + ' ' + session.type
-
-                                for (let m = 0; m < rootNodes.length; m++) {
-                                    let rootNode = rootNodes[m]
-                                    if (rootNode.type === 'Trading Engine' && rootNode.isIncluded === true) {
-                                        let tradingEngine = rootNode
-                                        session.tradingEngineReference.payload.referenceParent = tradingEngine
+                                    for (let m = 0; m < rootNodes.length; m++) {
+                                        let rootNode = rootNodes[m]
+                                        if (rootNode.type === 'Trading Engine' && rootNode.isIncluded === true) {
+                                            let tradingEngine = rootNode
+                                            session.tradingEngineReference.payload.referenceParent = tradingEngine
+                                            session.tradingSystemReference.payload.referenceParent = tradingSystem
+                                        }
                                     }
                                 }
                             }

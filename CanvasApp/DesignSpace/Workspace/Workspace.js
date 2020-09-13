@@ -345,16 +345,16 @@ function newWorkspace() {
                     for (let j = 0; j < rootNode.networkNodes.length; j++) {
                         let networkNode = rootNode.networkNodes[j]
                         if (networkNode.dataMining !== undefined && networkNode.dataMining.payload !== undefined) {
-                            networkNode.dataMining.payload.uiObject.menu.internalClick('Stop All Exchange Tasks')
-                            networkNode.dataMining.payload.uiObject.menu.internalClick('Stop All Exchange Tasks')
+                            networkNode.dataMining.payload.uiObject.menu.internalClick('Stop All Exchange Data Tasks')
+                            networkNode.dataMining.payload.uiObject.menu.internalClick('Stop All Exchange Data Tasks')
                         }
                         if (networkNode.testingEnvironment !== undefined && networkNode.testingEnvironment.payload !== undefined) {
-                            networkNode.testingEnvironment.payload.uiObject.menu.internalClick('Stop All Exchange Tasks')
-                            networkNode.testingEnvironment.payload.uiObject.menu.internalClick('Stop All Exchange Tasks')
+                            networkNode.testingEnvironment.payload.uiObject.menu.internalClick('Stop All Exchange Trading Tasks')
+                            networkNode.testingEnvironment.payload.uiObject.menu.internalClick('Stop All Exchange Trading Tasks')
                         }
                         if (networkNode.productionEnvironment !== undefined && networkNode.productionEnvironment.payload !== undefined) {
-                            networkNode.productionEnvironment.payload.uiObject.menu.internalClick('Stop All Exchange Tasks')
-                            networkNode.productionEnvironment.payload.uiObject.menu.internalClick('Stop All Exchange Tasks')
+                            networkNode.productionEnvironment.payload.uiObject.menu.internalClick('Stop All Exchange Trading Tasks')
+                            networkNode.productionEnvironment.payload.uiObject.menu.internalClick('Stop All Exchange Trading Tasks')
                         }
                     }
                 }
@@ -591,14 +591,99 @@ function newWorkspace() {
                     functionLibraryTaskFunctions.stopAllTaskManagers(payload.node, functionLibraryProtocolNode)
                 }
                 break
-            case 'Run All Exchange Tasks':
+            case 'Run All Exchange Data Tasks':
                 {
-                    functionLibraryTaskFunctions.runAllExchangeTasks(payload.node, functionLibraryProtocolNode)
+                    functionLibraryTaskFunctions.runAllExchangeDataTasks(payload.node, functionLibraryProtocolNode)
                 }
                 break
-            case 'Stop All Exchange Tasks':
+            case 'Stop All Exchange Data Tasks':
                 {
-                    functionLibraryTaskFunctions.stopAllExchangeTasks(payload.node, functionLibraryProtocolNode)
+                    functionLibraryTaskFunctions.stopAllExchangeDataTasks(payload.node, functionLibraryProtocolNode)
+                }
+                break
+            case 'Run All Exchange Trading Tasks':
+                {
+                    functionLibraryTaskFunctions.runAllExchangeTradingTasks(payload.node, functionLibraryProtocolNode)
+                }
+                break
+            case 'Stop All Exchange Trading Tasks':
+                {
+                    functionLibraryTaskFunctions.stopAllExchangeTradingTasks(payload.node, functionLibraryProtocolNode)
+                }
+                break
+            case 'Run All Market Data Tasks':
+                {
+                    functionLibraryTaskFunctions.runAllMarketDataTasks(payload.node, functionLibraryProtocolNode)
+                }
+                break
+            case 'Stop All Market Data Tasks':
+                {
+                    functionLibraryTaskFunctions.stopAllMarketDataTasks(payload.node, functionLibraryProtocolNode)
+                }
+                break
+            case 'Run All Market Trading Tasks':
+                {
+                    functionLibraryTaskFunctions.runAllMarketTradingTasks(payload.node, functionLibraryProtocolNode)
+                }
+                break
+            case 'Stop All Market Trading Tasks':
+                {
+                    functionLibraryTaskFunctions.stopAllMarketTradingTasks(payload.node, functionLibraryProtocolNode)
+                }
+                break
+            case 'Run All Data Mine Tasks':
+                {
+                    functionLibraryTaskFunctions.runAllDataMineTasks(payload.node, functionLibraryProtocolNode)
+                }
+                break
+            case 'Stop All Data Mine Tasks':
+                {
+                    functionLibraryTaskFunctions.stopAllDataMineTasks(payload.node, functionLibraryProtocolNode)
+                }
+                break
+            case 'Run All Trading Mine Tasks':
+                {
+                    functionLibraryTaskFunctions.runAllTradingMineTasks(payload.node, functionLibraryProtocolNode)
+                }
+                break
+            case 'Stop All Trading Mine Tasks':
+                {
+                    functionLibraryTaskFunctions.stopAllTradingMineTasks(payload.node, functionLibraryProtocolNode)
+                }
+                break
+            case 'Add Missing Exchange Data Tasks':
+                {
+                    functionLibraryTaskFunctions.addMissingExchangeDataTasks(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
+                }
+                break
+            case 'Add Missing Market Data Tasks':
+                {
+                    functionLibraryTaskFunctions.addMissingMarketDataTasks(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
+                }
+                break
+            case 'Add Missing Data Mine Tasks':
+                {
+                    functionLibraryTaskFunctions.addMissingDataMineTasks(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
+                }
+                break
+            case 'Add Missing Exchange Trading Tasks':
+                {
+                    functionLibraryTaskFunctions.addMissingExchangeTradingTasks(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
+                }
+                break
+            case 'Add Missing Market Trading Tasks':
+                {
+                    functionLibraryTaskFunctions.addMissingMarketTradingTasks(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
+                }
+                break
+            case 'Add Missing Trading Mine Tasks':
+                {
+                    functionLibraryTaskFunctions.addMissingTradingMineTasks(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
+                }
+                break
+            case 'Add All Tasks':
+                {
+                    functionLibraryTaskFunctions.addAllTasks(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
                 }
                 break
             case 'Add Missing Crypto Exchanges':
@@ -629,6 +714,16 @@ function newWorkspace() {
             case 'Add All Data Mine Products':
                 {
                     functionLibraryDataStorageFunctions.addAllDataMineProducts(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
+                }
+                break
+            case 'Add All Trading Mine Products':
+                {
+                    functionLibraryDataStorageFunctions.addAllTradingMineProducts(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
+                }
+                break
+            case 'Add Missing Session References':
+                {
+                    functionLibraryDataStorageFunctions.addMissingSessionReferences(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
                 }
                 break
             case 'Add All Data Dependencies':

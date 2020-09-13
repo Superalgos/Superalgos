@@ -64,7 +64,7 @@ exports.newDataSet = function newDataSet(BOT, logger) {
             }
 
             if (thisObject.node.parentNode.parentNode.parentNode === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] initialize -> Bot not attached to a Data Mine. Bot = " + JSON.stringify(thisObject.node.parentNode.parentNode));
+                logger.write(MODULE_NAME, "[ERROR] initialize -> Bot not attached to a Data Mine or Trading Mine. Bot = " + JSON.stringify(thisObject.node.parentNode.parentNode));
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return
             }

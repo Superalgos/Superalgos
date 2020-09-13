@@ -26,6 +26,19 @@ function newUiObjectsFromNodes() {
         tasksToRun = []
         sessionsToRun = []
 
+        removeNullRootNodes()
+
+        function removeNullRootNodes() {
+            for (let i = 0; i < node.rootNodes.length; i++) {
+                let rootNode = node.rootNodes[i]
+                if (rootNode === null) {
+                    node.rootNodes.splice(i, 1)
+                    removeNullRootNodes()
+                    return
+                }
+            }
+        }
+
         getIncludedNames()
 
         function getIncludedNames() {
@@ -46,6 +59,7 @@ function newUiObjectsFromNodes() {
         function addIncludedNodes(includedNames) {
             let blobService = newFileStorage()
             let includedDataMines = includedNames.includedDataMines
+            let includedTradingMines = includedNames.includedTradingMines
             let includedTradingSystems = includedNames.includedTradingSystems
             let includedSuperScripts = includedNames.includedSuperScripts
             let includedTradingEngines = includedNames.includedTradingEngines
@@ -75,7 +89,36 @@ function newUiObjectsFromNodes() {
                     receivedNode.isIncluded = true
                     node.rootNodes.unshift(receivedNode)
                     totalIncluded++
-                    if (totalIncluded === includedDataMines.length + includedTradingSystems.length + includedSuperScripts.length + includedTradingEngines.length) {
+                    if (totalIncluded === includedDataMines.length + includedTradingSystems.length + includedSuperScripts.length + includedTradingEngines.length + includedTradingMines.length) {
+                        addUserDefinedNodes()
+                    }
+                }
+            }
+
+            for (let i = 0; i < includedTradingMines.length; i++) {
+                let name = includedTradingMines[i]
+                blobService.getFileFromHost('TradingMines' + '/' + name, onFileReceived, true)
+                function onFileReceived(err, text, response) {
+                    if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                        console.log('Cannot load included Trading Mine ' + name + '. The workspace can not be loaded.')
+                        return
+                    }
+                    let receivedNode = JSON.parse(text)
+                    for (let i = 0; i < node.rootNodes.length; i++) {
+                        let rootNode = node.rootNodes[i]
+                        if (rootNode.type === 'Trading Mine') {
+                            if (rootNode.config !== undefined) {
+                                let config = JSON.parse(rootNode.config)
+                                if (config.name === name) {
+                                    rootNodes.splice(i, 1)
+                                }
+                            }
+                        }
+                    }
+                    receivedNode.isIncluded = true
+                    node.rootNodes.unshift(receivedNode)
+                    totalIncluded++
+                    if (totalIncluded === includedDataMines.length + includedTradingSystems.length + includedSuperScripts.length + includedTradingEngines.length + includedTradingMines.length) {
                         addUserDefinedNodes()
                     }
                 }
@@ -104,7 +147,7 @@ function newUiObjectsFromNodes() {
                     receivedNode.isIncluded = true
                     node.rootNodes.unshift(receivedNode)
                     totalIncluded++
-                    if (totalIncluded === includedDataMines.length + includedTradingSystems.length + includedSuperScripts.length + includedTradingEngines.length) {
+                    if (totalIncluded === includedDataMines.length + includedTradingSystems.length + includedSuperScripts.length + includedTradingEngines.length + includedTradingMines.length) {
                         addUserDefinedNodes()
                     }
                 }
@@ -133,7 +176,7 @@ function newUiObjectsFromNodes() {
                     receivedNode.isIncluded = true
                     node.rootNodes.unshift(receivedNode)
                     totalIncluded++
-                    if (totalIncluded === includedDataMines.length + includedTradingSystems.length + includedSuperScripts.length + includedTradingEngines.length) {
+                    if (totalIncluded === includedDataMines.length + includedTradingSystems.length + includedSuperScripts.length + includedTradingEngines.length + includedTradingMines.length) {
                         addUserDefinedNodes()
                     }
                 }
@@ -159,7 +202,7 @@ function newUiObjectsFromNodes() {
                     receivedNode.isIncluded = true
                     node.rootNodes.unshift(receivedNode)
                     totalIncluded++
-                    if (totalIncluded === includedDataMines.length + includedTradingSystems.length + includedSuperScripts.length + includedTradingEngines.length) {
+                    if (totalIncluded === includedDataMines.length + includedTradingSystems.length + includedSuperScripts.length + includedTradingEngines.length + includedTradingMines.length) {
                         addUserDefinedNodes()
                     }
                 }

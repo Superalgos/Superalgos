@@ -34,7 +34,7 @@
                 return
             }
 
-            let filePath = bot.dataMine + "/" + "bots" + "/" + bot.repo + "/" + pProcessConfig.codeName
+            let filePath = bot.dataMine + "/" + "bots" + "/" + bot.processNode.referenceParent.parentNode.config.repo + "/" + pProcessConfig.codeName
             filePath += "/User.Bot.js"
 
             fileStorage.getTextFile(filePath, onBotDownloaded);
@@ -56,7 +56,7 @@
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
 
-                filePath = bot.dataMine + "/" + "bots" + "/" + bot.repo;
+                filePath = bot.dataMine + "/" + "bots" + "/" + bot.processNode.referenceParent.parentNode.config.repo;
                 filePath += "/Commons.js"
 
                 fileStorage.getTextFile(filePath, onCommonsDownloaded);

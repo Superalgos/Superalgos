@@ -96,33 +96,42 @@
             }
 
             let botNode = global.FIND_NODE_IN_NODE_MESH(outputDatasetNode, 'Indicator Bot')
-            if (botNode === undefined) { 
+            if (botNode === undefined) {
                 botNode = global.FIND_NODE_IN_NODE_MESH(outputDatasetNode, 'Trading Bot')
             }
             if (botNode === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] start -> Product Definition not attached to a Bot. Product Definition = " );
+                logger.write(MODULE_NAME, "[ERROR] start -> Product Definition not attached to a Bot. Product Definition = ");
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return
             }
 
             if (botNode.config.codeName === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] start -> Bot witn no codeName defined." );
+                logger.write(MODULE_NAME, "[ERROR] start -> Bot witn no codeName defined.");
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return
             }
 
             let dataMineNode = global.FIND_NODE_IN_NODE_MESH(outputDatasetNode, 'Data Mine')
             if (dataMineNode === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] start -> Bot not attached to a Data Mine.");
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                return
-            }
-
-            if (dataMineNode.config.codeName === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] start -> Data Mine witn no codeName defined." );
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                return
-            }
+                let tradingMineNode = global.FIND_NODE_IN_NODE_MESH(outputDatasetNode, 'Trading Mine')
+                if (tradingMineNode === undefined) {
+                    logger.write(MODULE_NAME, "[ERROR] start -> Bot not attached to a Data Mine or a Trading Mine.");
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    return
+                } else {
+                    if (tradingMineNode.config.codeName === undefined) {
+                        logger.write(MODULE_NAME, "[ERROR] start -> Trading Mine witn no codeName defined.");
+                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                        return
+                    }
+                }  
+            } else {
+                if (dataMineNode.config.codeName === undefined) {
+                    logger.write(MODULE_NAME, "[ERROR] start -> Data Mine witn no codeName defined.");
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    return
+                }
+            }            
         }
         return true
     }

@@ -7,12 +7,13 @@ function newSessionFunctions() {
     return thisObject
 
     function runSession(node, functionLibraryProtocolNode, functionLibraryDependenciesFilter, resume, callBackFunction) {
-        if (validations(node) !== true) {
+        let networkNode = validations(node)
+        if (networkNode === undefined) {
+            /* This means that the validations failed. */
             callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
             return
         }
 
-        let networkNode = node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode
         let eventsServerClient = canvas.designSpace.workspace.eventsServerClients.get(networkNode.id)
 
         node.payload.uiObject.run(eventsServerClient, callBackFunction)
@@ -113,12 +114,13 @@ function newSessionFunctions() {
     }
 
     function stopSession(node, functionLibraryProtocolNode, callBackFunction) {
-        if (validations(node) !== true) {
+        let networkNode = validations(node)
+        if (networkNode === undefined) {
+            /* This means that the validations failed. */
             callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
             return
         }
-
-        let networkNode = node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode
+        
         let eventsServerClient = canvas.designSpace.workspace.eventsServerClients.get(networkNode.id)
 
         let key = node.name + '-' + node.type + '-' + node.id
@@ -148,20 +150,34 @@ function newSessionFunctions() {
             return
         }
 
-        if (node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
+        let taskManager = node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode
+
+        if (taskManager.payload.parentNode === undefined) {
+            node.payload.uiObject.setErrorMessage('Session needs to be inside Mine Tasks.')
+            return
+        }
+
+        if (taskManager.payload.parentNode.payload.parentNode === undefined) {
+            node.payload.uiObject.setErrorMessage('Session needs to be inside Market Tasks.')
+            return
+        }
+
+        if (taskManager.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
             node.payload.uiObject.setErrorMessage('Session needs to be inside Exchange Tasks.')
             return
         }
 
-        if (node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
+        if (taskManager.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
             node.payload.uiObject.setErrorMessage('Session needs to be inside a Testing or Production Environment.')
             return
         }
 
-        if (node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
+        if (taskManager.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
             node.payload.uiObject.setErrorMessage('Session needs to be inside a Network Node.')
             return
         }
+
+        let networkNode = taskManager.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode
 
         if (node.payload.parentNode.payload.uiObject.isRunning !== true) {
             node.payload.uiObject.setErrorMessage('Session needs a Process Instance parent to be running.')
@@ -187,6 +203,6 @@ function newSessionFunctions() {
             node.payload.uiObject.setErrorMessage('Trading Engine Reference needs to reference a Trading Engine.')
             return
         }
-        return true
+        return networkNode
     }
 }

@@ -144,11 +144,14 @@ function newPlottersManager() {
             A layer can be referencing a Data Product in two different branches of the Network hiriatchy.
             In one of those braches we can get the Session node, at the other we Cannot.
             */
-            let sessionReference = findNodeInNodeMesh(layer.definition, 'Session Reference')
+            let sessionReference = findNodeInNodeMesh(layer.definition, 'Session Reference', false, true, true, true)
 
             if (sessionReference !== undefined) {
                 session = sessionReference.referenceParent
-
+                if (session === undefined) {
+                    logger.write('[ERROR] initializePlotter -> Sessioin is Undefined at Session Reference -> Plotter will not be loaded. ')
+                    return
+                }
                 /* From the session we might be able to reach the Trading System or the Trading Engine */
                 if (session.tradingSystemReference !== undefined) {
                     tradingSystem = session.tradingSystemReference.referenceParent

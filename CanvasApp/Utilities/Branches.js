@@ -3,11 +3,15 @@ function nodeBranchToArray(node, nodeType) {
     This function scans a node branch for a certain node type and 
     return an array of with all the nodes of that type found. 
     */
+    if (node === undefined) { return }
+    if (nodeType === undefined) { return }
     let resultArray = []
     scanNodeBranch(node, nodeType)
     return resultArray
 
     function scanNodeBranch(startingNode) {
+        if (startingNode === undefined) {return}
+        
         let nodeDefinition = APP_SCHEMA_MAP.get(startingNode.type)
         if (nodeDefinition === undefined) { return }
 

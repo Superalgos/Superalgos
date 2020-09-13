@@ -1411,6 +1411,12 @@
             },
             {
                 "action": "Add UI Object",
+                "label": "Add Trading Mine",
+                "relatedUiObject": "Trading Mine",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
                 "label": "Add Super Scripts",
                 "relatedUiObject": "Super Scripts",
                 "actionFunction": "payload.onMenuItemClick"
@@ -1999,16 +2005,16 @@
             }
         ],
         "addLeftIcons": true,
-        "level": 1,
+        "level": 2,
         "chainAttachesTo": {
-            "compatibleTypes": "->Exchange Tasks->Template Structure->"
+            "compatibleTypes": "->Data Mine Tasks->Trading Mine Tasks->"
         },
         "properties": [
             {
                 "name": "tasks",
                 "type": "array",
                 "childType": "Task",
-                "autoAdd": true,
+                "autoAdd": false,
                 "monitorChildrenRunning": true
             }
         ],
@@ -2068,6 +2074,14 @@
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "keyReference",
+                "label": "Add Key Reference",
+                "relatedUiObject": "Key Reference",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -2079,7 +2093,7 @@
         ],
         "isTitleAllwaysVisible": true,
         "addLeftIcons": true,
-        "level": 1,
+        "level": 0,
         "chainAttachesTo": {
             "compatibleTypes": "->Task Manager->"
         },
@@ -2098,6 +2112,11 @@
                 "name": "bot",
                 "type": "node",
                 "childType": "Indicator Bot Instance"
+            },
+            {
+                "name": "keyReference",
+                "type": "node",
+                "childType": "Key Reference"
             }
         ],
         "propertyNameAtParent": "tasks"
@@ -2145,7 +2164,7 @@
                 "name": "processes",
                 "type": "array",
                 "childType": "Trading Process Instance",
-                "autoAdd": true
+                "autoAdd": false
             }
         ],
         "propertyNameAtParent": "bot"
@@ -2153,14 +2172,6 @@
     {
         "type": "Sensor Process Instance",
         "menuItems": [
-            {
-                "action": "Add UI Object",
-                "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "marketReference",
-                "label": "Add Market Reference",
-                "relatedUiObject": "Market Reference",
-                "actionFunction": "payload.onMenuItemClick"
-            },
             {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
@@ -2185,26 +2196,12 @@
             "compatibleTypes": "->Sensor Bot Instance->"
         },
         "properties": [
-            {
-                "name": "marketReference",
-                "type": "node",
-                "childType": "Market Reference",
-                "autoAdd": true
-            }
         ],
         "propertyNameAtParent": "processes"
     },
     {
         "type": "Indicator Process Instance",
         "menuItems": [
-            {
-                "action": "Add UI Object",
-                "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "marketReference",
-                "label": "Add Market Reference",
-                "relatedUiObject": "Market Reference",
-                "actionFunction": "payload.onMenuItemClick"
-            },
             {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
@@ -2229,26 +2226,12 @@
             "compatibleTypes": "->Indicator Bot Instance->"
         },
         "properties": [
-            {
-                "name": "marketReference",
-                "type": "node",
-                "childType": "Market Reference",
-                "autoAdd": true
-            }
         ],
         "propertyNameAtParent": "processes"
     },
     {
         "type": "Trading Process Instance",
         "menuItems": [
-            {
-                "action": "Add UI Object",
-                "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "marketReference",
-                "label": "Add Market Reference",
-                "relatedUiObject": "Market Reference",
-                "actionFunction": "payload.onMenuItemClick"
-            },
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
@@ -2332,12 +2315,6 @@
                 "name": "session",
                 "type": "node",
                 "childType": "Live Trading Session"
-            },
-            {
-                "name": "marketReference",
-                "type": "node",
-                "childType": "Market Reference",
-                "autoAdd": true
             },
             {
                 "name": "executionStartedEvent",
@@ -7854,49 +7831,6 @@
         "propertyNameAtParent": "quotedAsset"
     },
     {
-        "type": "Market Reference",
-        "menuItems": [
-            {
-                "action": "Add UI Object",
-                "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "keyReference",
-                "label": "Add Key Reference",
-                "relatedUiObject": "Key Reference",
-                "actionFunction": "payload.onMenuItemClick"
-            },
-            {
-                "action": "Delete UI Object",
-                "askConfirmation": true,
-                "confirmationLabel": "Confirm to Delete",
-                "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
-                "actionFunction": "payload.onMenuItemClick"
-            }
-        ],
-        "isTitleAllwaysVisible": true,
-        "title": [
-            "Use Reference Parent Parent Parent",
-            "Use Reference Parent"
-        ],
-        "addLeftIcons": true,
-        "level": 3,
-        "referenceAttachesTo": {
-            "compatibleTypes": "->Market->"
-        },
-        "chainAttachesTo": {
-            "compatibleTypes": "->Sensor Process Instance->Indicator Process Instance->Trading Process Instance->"
-        },
-        "properties": [
-            {
-                "name": "keyReference",
-                "type": "node",
-                "childType": "Key Reference"
-            }
-        ],
-        "propertyNameAtParent": "marketReference"
-    },
-    {
         "type": "Time Range",
         "menuItems": [
             {
@@ -7917,7 +7851,7 @@
             }
         ],
         "initialValues": {
-            "config": "{ \n\"initialDatetime\": \"2019-07-01T00:00:00.000Z\",\n\"finalDatetime\": \"2019-09-01T00:00:00.000Z\",\n \"allowStartingFromThePast\": false\n}"
+            "config": "{ \n\"initialDatetime\": \"2020-09-01\",\n\"finalDatetime\": \"2020-09-02\",\n \"allowStartingFromThePast\": false\n}"
         },
         "addLeftIcons": true,
         "editors": {
@@ -8221,7 +8155,7 @@
         ],
         "isTitleAllwaysVisible": true,
         "initialValues": {
-            "config": "{ \n\"folderName\": \"Type the name of the folder where you wish to store the logs of this process\"\n}"
+            "config": "{ \n\"folderName\": \"\"\n}"
         },
         "addLeftIcons": true,
         "editors": {
@@ -8381,7 +8315,7 @@
         "addLeftIcons": true,
         "level": 5,
         "chainAttachesTo": {
-            "compatibleTypes": "->Market Reference->"
+            "compatibleTypes": "->Task->"
         },
         "referenceAttachesTo": {
             "compatibleTypes": "->Exchange Account Key->"
@@ -8533,7 +8467,7 @@
                 "name": "processes",
                 "type": "array",
                 "childType": "Sensor Process Instance",
-                "autoAdd": true
+                "autoAdd": false
             }
         ],
         "propertyNameAtParent": "bot"
@@ -8590,7 +8524,7 @@
                 "name": "processes",
                 "type": "array",
                 "childType": "Indicator Process Instance",
-                "autoAdd": true
+                "autoAdd": false
             },
             {
                 "name": "timeFramesFilter",
@@ -8621,12 +8555,6 @@
                 "action": "Add UI Object",
                 "label": "Add Indicator Bot",
                 "relatedUiObject": "Indicator Bot",
-                "actionFunction": "payload.onMenuItemClick"
-            },
-            {
-                "action": "Add UI Object",
-                "label": "Add Trading Bot",
-                "relatedUiObject": "Trading Bot",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -8667,6 +8595,57 @@
                 "childType": "Indicator Bot"
             },
             {
+                "name": "plotters",
+                "type": "array",
+                "childType": "Plotter"
+            }
+        ]
+    },
+    {
+        "type": "Trading Mine",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Trading Bot",
+                "relatedUiObject": "Trading Bot",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Plotter",
+                "relatedUiObject": "Plotter",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "isHierarchyHead": true,
+        "addLeftIcons": true,
+        "editors": {
+            "config": true
+        },
+        "level": 0,
+        "initialValues": {
+            "config": "{ \n\"codeName\": \"Type a name with no spaces or dashes\"\n}"
+        },
+        "properties": [
+            {
                 "name": "tradingBots",
                 "type": "array",
                 "childType": "Trading Bot"
@@ -8676,7 +8655,8 @@
                 "type": "array",
                 "childType": "Plotter"
             }
-        ]
+        ],
+        "icon": "bitcoin"
     },
     {
         "type": "Sensor Bot",
@@ -13057,7 +13037,7 @@
         ]
     },
     {
-        "type": "Exchange Tasks",
+        "type": "Data Mine Tasks",
         "menuItems": [
             {
                 "action": "Run All Task Managers",
@@ -13086,6 +13066,303 @@
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
+                "action": "Add All Tasks",
+                "label": "Add All Tasks",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Task",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 2,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Data Mine->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Market Data Tasks->"
+        },
+        "alternativeIcons": "Use Reference Parent",
+        "title": [
+            "Use Reference Parent"
+        ],
+        "isTitleAllwaysVisible": true,
+        "propertyNameAtParent": "dataMineTasks",
+        "properties": [
+            {
+                "name": "taskManagers",
+                "type": "array",
+                "childType": "Task Manager",
+                "monitorChildrenRunning": true
+            }
+        ],
+        "icon": "bitcoin"
+    },
+    {
+        "type": "Trading Mine Tasks",
+        "menuItems": [
+            {
+                "action": "Run All Task Managers",
+                "label": "Run All Task Managers",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Run",
+                "workDoneLabel": "Run Request Sent",
+                "iconPathOn": "run",
+                "iconPathOff": "run",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Stop All Task Managers",
+                "label": "Stop All Task Managers",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Stop",
+                "workDoneLabel": "Stop Request Sent",
+                "iconPathOn": "stop",
+                "iconPathOff": "stop",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Task Manager",
+                "relatedUiObject": "Task Manager",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add All Tasks",
+                "label": "Add All Tasks",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Task",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 2,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Trading Mine->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Market Trading Tasks->"
+        },
+        "alternativeIcons": "Use Reference Parent",
+        "title": [
+            "Use Reference Parent"
+        ],
+        "isTitleAllwaysVisible": true,
+        "propertyNameAtParent": "tradingMineTasks",
+        "properties": [
+            {
+                "name": "taskManagers",
+                "type": "array",
+                "childType": "Task Manager",
+                "monitorChildrenRunning": true
+            }
+        ],
+        "icon": "bitcoin"
+    },
+    {
+        "type": "Market Data Tasks",
+        "menuItems": [
+            {
+                "action": "Run All Data Mine Tasks",
+                "label": "Run All Data Mine Tasks",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Run",
+                "workDoneLabel": "Run Request Sent",
+                "iconPathOn": "run",
+                "iconPathOff": "run",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Stop All Data Mine Tasks",
+                "label": "Stop All Data Mine Tasks",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Stop",
+                "workDoneLabel": "Stop Request Sent",
+                "iconPathOn": "stop",
+                "iconPathOff": "stop",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Data Mine Tasks",
+                "relatedUiObject": "Data Mine Tasks",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add Missing Data Mine Tasks",
+                "label": "Add Missing Data Mine Tasks",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Data Mine Tasks",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 2,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Market->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Exchange Data Tasks->"
+        },
+        "alternativeIcons": "Use Reference Parent",
+        "title": [
+            "Use Reference Parent"
+        ],
+        "isTitleAllwaysVisible": true,
+        "propertyNameAtParent": "marketDataTasks",
+        "properties": [
+            {
+                "name": "dataMineTasks",
+                "type": "array",
+                "childType": "Data Mine Tasks",
+                "monitorChildrenRunning": true
+            }
+        ],
+        "icon": "bitcoin"
+    },
+    {
+        "type": "Market Trading Tasks",
+        "menuItems": [
+            {
+                "action": "Run All Trading Mine Tasks",
+                "label": "Run All Trading Mine Tasks",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Run",
+                "workDoneLabel": "Run Request Sent",
+                "iconPathOn": "run",
+                "iconPathOff": "run",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Stop All Trading Mine Tasks",
+                "label": "Stop All Trading Mine Tasks",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Stop",
+                "workDoneLabel": "Stop Request Sent",
+                "iconPathOn": "stop",
+                "iconPathOff": "stop",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Trading Mine Tasks",
+                "relatedUiObject": "Trading Mine Tasks",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add Missing Trading Mine Tasks",
+                "label": "Add Missing Trading Mine Tasks",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Trading Mine Tasks",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 2,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Market->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Exchange Trading Tasks->"
+        },
+        "alternativeIcons": "Use Reference Parent",
+        "title": [
+            "Use Reference Parent"
+        ],
+        "isTitleAllwaysVisible": true,
+        "propertyNameAtParent": "marketTradingTasks",
+        "properties": [
+            {
+                "name": "tradingMineTasks",
+                "type": "array",
+                "childType": "Trading Mine Tasks",
+                "monitorChildrenRunning": true
+            }
+        ],
+        "icon": "bitcoin"
+    },
+    {
+        "type": "Exchange Data Tasks",
+        "menuItems": [
+            {
+                "action": "Run All Market Data Tasks",
+                "label": "Run All Market Data Tasks",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Run",
+                "workDoneLabel": "Run Request Sent",
+                "iconPathOn": "run",
+                "iconPathOff": "run",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Stop All Market Data Tasks",
+                "label": "Stop All Market Data Tasks",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Stop",
+                "workDoneLabel": "Stop Request Sent",
+                "iconPathOn": "stop",
+                "iconPathOff": "stop",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Market Data Tasks",
+                "relatedUiObject": "Market Data Tasks",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add Missing Market Data Tasks",
+                "label": "Add Missing Market Data Tasks",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Market Data Tasks",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -13101,29 +13378,30 @@
             "compatibleTypes": "->Crypto Exchange->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Data Mining->Testing Environment->Production Environment->Template Structure->"
+            "compatibleTypes": "->Data Mining->"
         },
         "alternativeIcons": "Use Reference Parent",
         "title": [
             "Use Reference Parent"
         ],
         "isTitleAllwaysVisible": true,
-        "propertyNameAtParent": "exchangeTasks",
+        "propertyNameAtParent": "exchangeDataTasks",
         "properties": [
             {
-                "name": "taskManagers",
+                "name": "marketDataTasks",
                 "type": "array",
-                "childType": "Task Manager",
+                "childType": "Market Data Tasks",
                 "monitorChildrenRunning": true
             }
-        ]
+        ],
+        "icon": "bitcoin"
     },
     {
-        "type": "Data Mining",
+        "type": "Exchange Trading Tasks",
         "menuItems": [
             {
-                "action": "Run All Exchange Tasks",
-                "label": "Run All Exchange Tasks",
+                "action": "Run All Market Trading Tasks",
+                "label": "Run All Market Trading Tasks",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Run",
                 "workDoneLabel": "Run Request Sent",
@@ -13132,8 +13410,8 @@
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
-                "action": "Stop All Exchange Tasks",
-                "label": "Stop All Exchange Tasks",
+                "action": "Stop All Market Trading Tasks",
+                "label": "Stop All Market Trading Tasks",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Stop",
                 "workDoneLabel": "Stop Request Sent",
@@ -13143,8 +13421,89 @@
             },
             {
                 "action": "Add UI Object",
-                "label": "Add Exchange Tasks",
-                "relatedUiObject": "Exchange Tasks",
+                "label": "Add Market Trading Tasks",
+                "relatedUiObject": "Market Trading Tasks",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add Missing Market Trading Tasks",
+                "label": "Add Missing Market Trading Tasks",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Market Trading Tasks",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 2,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Crypto Exchange->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Testing Environment->Production Environment->"
+        },
+        "alternativeIcons": "Use Reference Parent",
+        "title": [
+            "Use Reference Parent"
+        ],
+        "isTitleAllwaysVisible": true,
+        "propertyNameAtParent": "exchangeTradingTasks",
+        "properties": [
+            {
+                "name": "marketTradingTasks",
+                "type": "array",
+                "childType": "Market Trading Tasks",
+                "monitorChildrenRunning": true
+            }
+        ],
+        "icon": "bitcoin"
+    },
+    {
+        "type": "Data Mining",
+        "menuItems": [
+            {
+                "action": "Run All Exchange Data Tasks",
+                "label": "Run All Exchange Data Tasks",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Run",
+                "workDoneLabel": "Run Request Sent",
+                "iconPathOn": "run",
+                "iconPathOff": "run",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Stop All Exchange Data Tasks",
+                "label": "Stop All Exchange Data Tasks",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Stop",
+                "workDoneLabel": "Stop Request Sent",
+                "iconPathOn": "stop",
+                "iconPathOff": "stop",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Exchange Data Tasks",
+                "relatedUiObject": "Exchange Data Tasks",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add Missing Exchange Data Tasks",
+                "label": "Add Missing Exchange Data Tasks",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Exchange Data Tasks",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -13165,9 +13524,9 @@
         "propertyNameAtParent": "dataMining",
         "properties": [
             {
-                "name": "exchangeTasks",
+                "name": "exchangeDataTasks",
                 "type": "array",
-                "childType": "Exchange Tasks",
+                "childType": "Exchange Data Tasks",
                 "monitorChildrenRunning": true
             }
         ]
@@ -13176,8 +13535,8 @@
         "type": "Testing Environment",
         "menuItems": [
             {
-                "action": "Run All Exchange Tasks",
-                "label": "Run All Exchange Tasks",
+                "action": "Run All Exchange Trading Tasks",
+                "label": "Run All Exchange Trading Tasks",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Run",
                 "workDoneLabel": "Run Request Sent",
@@ -13186,8 +13545,8 @@
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
-                "action": "Stop All Exchange Tasks",
-                "label": "Stop All Exchange Tasks",
+                "action": "Stop All Exchange Trading Tasks",
+                "label": "Stop All Exchange Trading Tasks",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Stop",
                 "workDoneLabel": "Stop Request Sent",
@@ -13197,8 +13556,17 @@
             },
             {
                 "action": "Add UI Object",
-                "label": "Add Exchange Tasks",
-                "relatedUiObject": "Exchange Tasks",
+                "label": "Add Exchange Trading Tasks",
+                "relatedUiObject": "Exchange Trading Tasks",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add Missing Exchange Trading Tasks",
+                "label": "Add Missing Exchange Trading Tasks",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Exchange Trading Tasks",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -13212,16 +13580,16 @@
             }
         ],
         "addLeftIcons": true,
-        "level": 2,
+        "level": 0,
         "chainAttachesTo": {
             "compatibleTypes": "->Network Node->"
         },
         "propertyNameAtParent": "testingEnvironment",
         "properties": [
             {
-                "name": "exchangeTasks",
+                "name": "exchangeTradingTasks",
                 "type": "array",
-                "childType": "Exchange Tasks",
+                "childType": "Exchange Trading Tasks",
                 "monitorChildrenRunning": true
             }
         ]
@@ -13230,8 +13598,8 @@
         "type": "Production Environment",
         "menuItems": [
             {
-                "action": "Run All Exchange Tasks",
-                "label": "Run All Exchange Tasks",
+                "action": "Run All Exchange Trading Tasks",
+                "label": "Run All Exchange Trading Tasks",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Run",
                 "workDoneLabel": "Run Request Sent",
@@ -13240,8 +13608,8 @@
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
-                "action": "Stop All Exchange Tasks",
-                "label": "Stop All Exchange Tasks",
+                "action": "Stop All Exchange Trading Tasks",
+                "label": "Stop All Exchange Trading Tasks",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Stop",
                 "workDoneLabel": "Stop Request Sent",
@@ -13251,8 +13619,17 @@
             },
             {
                 "action": "Add UI Object",
-                "label": "Add Exchange Tasks",
-                "relatedUiObject": "Exchange Tasks",
+                "label": "Add Exchange Trading Tasks",
+                "relatedUiObject": "Exchange Trading Tasks",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add Missing Exchange Trading Tasks",
+                "label": "Add Missing Exchange Trading Tasks",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Exchange Trading Tasks",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -13266,16 +13643,16 @@
             }
         ],
         "addLeftIcons": true,
-        "level": 2,
+        "level": 0,
         "chainAttachesTo": {
             "compatibleTypes": "->Network Node->"
         },
         "propertyNameAtParent": "productionEnvironment",
         "properties": [
             {
-                "name": "exchangeTasks",
+                "name": "exchangeTradingTasks",
                 "type": "array",
-                "childType": "Exchange Tasks",
+                "childType": "Exchange Trading Tasks",
                 "monitorChildrenRunning": true
             }
         ]
@@ -13364,6 +13741,15 @@
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
+                "action": "Add Missing Session References",
+                "label": "Add Missing Session References",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Session Reference",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -13433,10 +13819,10 @@
         "menuItems": [
             {
                 "action": "Add UI Object",
-                "label": "Add Single Market Data",
+                "label": "Add Single Market Trading Data",
                 "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "singleMarketData",
-                "relatedUiObject": "Single Market Data",
+                "propertyToCheckFor": "singleMarketTradingData",
+                "relatedUiObject": "Single Market Trading Data",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -13461,14 +13847,14 @@
             "compatibleTypes": "->Backtesting Session->Paper Trading Session->Forward Testing Session->Live Trading Session->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Exchange Sessions->Template Structure->"
+            "compatibleTypes": "->Exchange Sessions->"
         },
         "propertyNameAtParent": "sessionReferences",
         "properties": [
             {
-                "name": "singleMarketData",
+                "name": "singleMarketTradingData",
                 "type": "node",
-                "childType": "Single Market Data",
+                "childType": "Single Market Trading Data",
                 "autoAdd": true
             }
         ]
@@ -13518,7 +13904,7 @@
             "compatibleTypes": "->Market->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Exchange Data Products->Session Reference->Template Structure->"
+            "compatibleTypes": "->Exchange Data Products->"
         },
         "propertyNameAtParent": "singleMarketData",
         "properties": [
@@ -13535,6 +13921,70 @@
                 "autoAdd": false
             }
         ]
+    },
+    {
+        "type": "Single Market Trading Data",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Trading Mine Products",
+                "relatedUiObject": "Trading Mine Products",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add All Trading Mine Products",
+                "label": "Add All Trading Mine Products",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Trading Mine Products",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Data Product",
+                "relatedUiObject": "Data Product",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "isTitleAllwaysVisible": true,
+        "title": [
+            "Use Reference Parent Parent Parent",
+            "Use Reference Parent"
+        ],
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Market->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Session Reference->"
+        },
+        "propertyNameAtParent": "singleMarketTradingData",
+        "properties": [
+            {
+                "name": "dataProducts",
+                "type": "array",
+                "childType": "Data Product",
+                "autoAdd": false
+            },
+            {
+                "name": "tradingMineProducts",
+                "type": "array",
+                "childType": "Trading Mine Products",
+                "autoAdd": false
+            }
+        ],
+        "icon": "bitcoin"
     },
     {
         "type": "Data Product",
@@ -13613,6 +14063,57 @@
                 "autoAdd": false
             }
         ]
+    },
+    {
+        "type": "Trading Mine Products",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Bot Products",
+                "relatedUiObject": "Bot Products",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add All Data Products",
+                "label": "Add All Data Products",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Data Product",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "isTitleAllwaysVisible": true,
+        "title": [
+            "Use Reference Parent"
+        ],
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Trading Mine->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Single Market Trading Data->"
+        },
+        "propertyNameAtParent": "tradingMineProducts",
+        "properties": [
+            {
+                "name": "botProducts",
+                "type": "array",
+                "childType": "Bot Products",
+                "autoAdd": false
+            }
+        ],
+        "icon":"bitcoin"
     },
     {
         "type": "Bot Products",

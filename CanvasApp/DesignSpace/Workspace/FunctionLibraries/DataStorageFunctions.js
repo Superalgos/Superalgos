@@ -1,7 +1,9 @@
 function newDataStorageFunctions() {
     thisObject = {
         addAllDataProducts: addAllDataProducts,
-        addAllDataMineProducts: addAllDataMineProducts
+        addAllDataMineProducts: addAllDataMineProducts,
+        addAllTradingMineProducts: addAllTradingMineProducts, 
+        addMissingSessionReferences: addMissingSessionReferences
     }
 
     return thisObject
@@ -26,12 +28,14 @@ function newDataStorageFunctions() {
         we will create a Data Product. In case we find Product Definition Folders, we will recreate that structure
         too, using in this case Data Product Folders.
         */
-        let dataMine = node.payload.referenceParent
-        scanBotArray(dataMine.sensorBots)
-        scanBotArray(dataMine.indicatorBots)
-        scanBotArray(dataMine.tradingBots)
+        let mine = node.payload.referenceParent
+        scanBotArray(mine.sensorBots)
+        scanBotArray(mine.indicatorBots)
+        scanBotArray(mine.tradingBots)
 
         function scanBotArray(botArray) {
+            if (botArray === undefined) {return}
+
             for (let i = 0; i < botArray.length; i++) {
                 let bot = botArray[i]
                 let botProducts = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Bot Products')
@@ -55,10 +59,52 @@ function newDataStorageFunctions() {
     function addAllDataMineProducts(node, rootNodes, functionLibraryUiObjectsFromNodes) {
         for (let i = 0; i < rootNodes.length; i++) {
             let rootNode = rootNodes[i]
-            
+
             if (rootNode.type === 'Data Mine') {
                 let dataMineProducts = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Data Mine Products')
                 dataMineProducts.payload.referenceParent = rootNode
+            }
+        }
+    }
+
+    function addAllTradingMineProducts(node, rootNodes, functionLibraryUiObjectsFromNodes) {
+        for (let i = 0; i < rootNodes.length; i++) {
+            let rootNode = rootNodes[i]
+
+            if (rootNode.type === 'Trading Mine') {
+                let tradingMineProducts = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Trading Mine Products')
+                tradingMineProducts.payload.referenceParent = rootNode
+            }
+        }
+    }
+
+    function addMissingSessionReferences(node, rootNodes, functionLibraryUiObjectsFromNodes) {
+        let networkNode = findNodeInNodeMesh(node, 'Network Node', true, false, true, false)
+        if (networkNode === undefined) {return}
+
+        let backtestingSessionsArray = nodeBranchToArray(networkNode, 'Backtesting Session')
+        let fordwardTestingSessionsArray = nodeBranchToArray(networkNode, 'Fordward Testing Session')
+        let paperTradingSessionsArray = nodeBranchToArray(networkNode, 'Paper Trading Session')
+        let liveTradingSessionsArray = nodeBranchToArray(networkNode, 'Live Trading Session')
+
+        addMissingSession(backtestingSessionsArray)
+        addMissingSession(fordwardTestingSessionsArray)
+        addMissingSession(paperTradingSessionsArray)
+        addMissingSession(liveTradingSessionsArray)
+
+        function addMissingSession(sessionsArray) {
+            for (let i = 0; i < sessionsArray.length; i++) {
+                let session = sessionsArray[i]
+                if (isMissingChildren(node, session, true) === true) {
+                    let sessionReference = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Session Reference')
+                    sessionReference.payload.referenceParent = session
+                    /*
+                    Now I will connect the Session Reference child that is auto created with the market 
+                    where the Session was found.
+                    */
+                    let marketTradingTasks = findNodeInNodeMesh(session, 'Market Trading Tasks', true, false, true, false)
+                    sessionReference.singleMarketTradingData.payload.referenceParent = marketTradingTasks.payload.referenceParent
+                }
             }
         }
     }

@@ -173,7 +173,7 @@ function newLayer() {
                 'Product Definition->' +
                 'Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->' +
                 'Sensor Bot->Indicator Bot->Trading Bot->' +
-                'Data Mine->' +
+                'Data Mine->Trading Mine->' +
                 'Dataset Definition->' +
                 'Record Definition->Record Property->Formula->' +
                 'Data Building Procedure->Procedure Loop->Javascript Code->Procedure Initialization->Javascript Code->' +
@@ -222,10 +222,10 @@ function newLayer() {
 
             thisObject.bot = findNodeInNodeMesh(thisObject.definition, 'Sensor Bot')
             if (thisObject.bot === undefined) {
-                thisObject.bot = findNodeInNodeMesh(thisObject.definition, 'Indicator Bot') 
+                thisObject.bot = findNodeInNodeMesh(thisObject.definition, 'Indicator Bot')
             }
             if (thisObject.bot === undefined) {
-                thisObject.bot = findNodeInNodeMesh(thisObject.definition, 'Trading Bot') 
+                thisObject.bot = findNodeInNodeMesh(thisObject.definition, 'Trading Bot')
             }
             if (thisObject.bot === undefined) {
                 thisObject.payload.uiObject.setErrorMessage('Bot not Found')
@@ -234,8 +234,11 @@ function newLayer() {
 
             thisObject.dataMine = findNodeInNodeMesh(thisObject.definition, 'Data Mine')
             if (thisObject.dataMine === undefined) {
-                thisObject.payload.uiObject.setErrorMessage('Data Mine not Found')
-                return
+                thisObject.dataMine = findNodeInNodeMesh(thisObject.definition, 'Trading Mine')
+                if (thisObject.dataMine === undefined) {
+                    thisObject.payload.uiObject.setErrorMessage('Data Mine or Trading Mine not Found')
+                    return
+                }
             }
 
             thisObject.exchange = findNodeInNodeMesh(thisObject.definition, 'Crypto Exchange')

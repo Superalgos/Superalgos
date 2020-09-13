@@ -716,6 +716,11 @@ function newWorkspace() {
                     functionLibraryDataStorageFunctions.addAllDataMineProducts(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
                 }
                 break
+            case 'Add Missing Session References':
+                {
+                    functionLibraryDataStorageFunctions.addMissingSessionReferences(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
+                }
+                break
             case 'Add All Data Dependencies':
                 {
                     functionLibraryDataMineFunctions.addAllDataDependencies(payload.node, functionLibraryUiObjectsFromNodes)

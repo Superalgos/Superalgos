@@ -144,7 +144,7 @@ function newPlottersManager() {
             A layer can be referencing a Data Product in two different branches of the Network hiriatchy.
             In one of those braches we can get the Session node, at the other we Cannot.
             */
-            let sessionReference = findNodeInNodeMesh(layer.definition, 'Session Reference')
+            let sessionReference = findNodeInNodeMesh(layer.definition, 'Session Reference', false, true, true, true)
 
             if (sessionReference !== undefined) {
                 session = sessionReference.referenceParent

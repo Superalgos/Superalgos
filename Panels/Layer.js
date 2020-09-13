@@ -205,49 +205,49 @@ function newLayer() {
             }
 
             /* Here we validate that we have all the needed information */
-            if (findNodeInNodeMesh(thisObject.definition, 'Data Product') === undefined) {
+            if (findNodeInNodeMesh(thisObject.definition, 'Data Product', false, true, true, true) === undefined) {
                 thisObject.payload.uiObject.setErrorMessage('Data Product not Found')
                 return
             }
-            if (findNodeInNodeMesh(thisObject.definition, 'Market') === undefined) {
+            if (findNodeInNodeMesh(thisObject.definition, 'Market', false, true, true, true) === undefined) {
                 thisObject.payload.uiObject.setErrorMessage('Market not Found')
                 return
             }
 
-            thisObject.productDefinition = findNodeInNodeMesh(thisObject.definition, 'Product Definition')
+            thisObject.productDefinition = findNodeInNodeMesh(thisObject.definition, 'Product Definition', false, true, true, true)
             if (thisObject.productDefinition === undefined) {
                 thisObject.payload.uiObject.setErrorMessage('Product Definition not Found')
                 return
             }
 
-            thisObject.bot = findNodeInNodeMesh(thisObject.definition, 'Sensor Bot')
+            thisObject.bot = findNodeInNodeMesh(thisObject.definition, 'Sensor Bot', false, true, true, true)
             if (thisObject.bot === undefined) {
-                thisObject.bot = findNodeInNodeMesh(thisObject.definition, 'Indicator Bot')
+                thisObject.bot = findNodeInNodeMesh(thisObject.definition, 'Indicator Bot', false, true, true, true)
             }
             if (thisObject.bot === undefined) {
-                thisObject.bot = findNodeInNodeMesh(thisObject.definition, 'Trading Bot')
+                thisObject.bot = findNodeInNodeMesh(thisObject.definition, 'Trading Bot', false, true, true, true)
             }
             if (thisObject.bot === undefined) {
                 thisObject.payload.uiObject.setErrorMessage('Bot not Found')
                 return
             }
 
-            thisObject.dataMine = findNodeInNodeMesh(thisObject.definition, 'Data Mine')
+            thisObject.dataMine = findNodeInNodeMesh(thisObject.definition, 'Data Mine', false, true, true, true)
             if (thisObject.dataMine === undefined) {
-                thisObject.dataMine = findNodeInNodeMesh(thisObject.definition, 'Trading Mine')
+                thisObject.dataMine = findNodeInNodeMesh(thisObject.definition, 'Trading Mine', false, true, true, true)
                 if (thisObject.dataMine === undefined) {
                     thisObject.payload.uiObject.setErrorMessage('Data Mine or Trading Mine not Found')
                     return
                 }
             }
 
-            thisObject.exchange = findNodeInNodeMesh(thisObject.definition, 'Crypto Exchange')
+            thisObject.exchange = findNodeInNodeMesh(thisObject.definition, 'Crypto Exchange', false, true, true, true)
             if (thisObject.exchange === undefined) {
                 thisObject.payload.uiObject.setErrorMessage('Crypto Exchange not Found')
                 return
             }
 
-            thisObject.baseAsset = findNodeInNodeMesh(thisObject.definition, 'Market Base Asset')
+            thisObject.baseAsset = findNodeInNodeMesh(thisObject.definition, 'Market Base Asset', false, true, true, true)
             if (thisObject.baseAsset !== undefined) {
                 thisObject.baseAsset = thisObject.baseAsset.referenceParent
             }
@@ -256,7 +256,7 @@ function newLayer() {
                 return
             }
 
-            thisObject.quotedAsset = findNodeInNodeMesh(thisObject.definition, 'Market Quoted Asset')
+            thisObject.quotedAsset = findNodeInNodeMesh(thisObject.definition, 'Market Quoted Asset', false, true, true, true)
             if (thisObject.quotedAsset !== undefined) {
                 thisObject.quotedAsset = thisObject.quotedAsset.referenceParent
             }
@@ -265,13 +265,13 @@ function newLayer() {
                 return
             }
 
-            thisObject.plotterModule = findNodeInNodeMesh(thisObject.definition, 'Plotter Module')
+            thisObject.plotterModule = findNodeInNodeMesh(thisObject.definition, 'Plotter Module', false, true, true, true)
             if (thisObject.plotterModule === undefined) {
                 thisObject.payload.uiObject.setErrorMessage('Market Quoted Asset not Found')
                 return
             }
 
-            thisObject.networkNode = findNodeInNodeMesh(thisObject.definition, 'Network Node')
+            thisObject.networkNode = findNodeInNodeMesh(thisObject.definition, 'Network Node', false, true, true, true)
             if (thisObject.networkNode === undefined) {
                 thisObject.payload.uiObject.setErrorMessage('Network Node not Found')
                 return

@@ -1,8 +1,9 @@
-/*
-This function scans a node hiriatchy recursively and creates a Map by Id of all the nodes of it.
-*/
+
 
 function getHiriarchyMap(rootNode) {
+    /*
+    This function scans a node hiriatchy recursively and creates a Map by Id of all the nodes of it.
+    */
     let hiriatchyMap = new Map()
     evalNode(rootNode)
     return hiriatchyMap

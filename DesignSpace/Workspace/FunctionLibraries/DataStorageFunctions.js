@@ -1,7 +1,8 @@
 function newDataStorageFunctions() {
     thisObject = {
         addAllDataProducts: addAllDataProducts,
-        addAllDataMineProducts: addAllDataMineProducts
+        addAllDataMineProducts: addAllDataMineProducts,
+        addMissingSessionReferences: addMissingSessionReferences
     }
 
     return thisObject
@@ -55,10 +56,35 @@ function newDataStorageFunctions() {
     function addAllDataMineProducts(node, rootNodes, functionLibraryUiObjectsFromNodes) {
         for (let i = 0; i < rootNodes.length; i++) {
             let rootNode = rootNodes[i]
-            
+
             if (rootNode.type === 'Data Mine') {
                 let dataMineProducts = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Data Mine Products')
                 dataMineProducts.payload.referenceParent = rootNode
+            }
+        }
+    }
+
+    function addMissingSessionReferences(node, rootNodes, functionLibraryUiObjectsFromNodes) {
+        let networkNode = findNodeInNodeMesh(node, 'Network Node', true, false, true, false)
+        if (networkNode === undefined) {return}
+
+        let backtestingSessionsArray = nodeBranchToArray(networkNode, 'Backtesting Session')
+        let fordwardTestingSessionsArray = nodeBranchToArray(networkNode, 'Fordward Testing Session')
+        let paperTradingSessionsArray = nodeBranchToArray(networkNode, 'Paper Trading Session')
+        let liveTradingSessionsArray = nodeBranchToArray(networkNode, 'Live Trading Session')
+
+        addMissingSession(backtestingSessionsArray)
+        addMissingSession(fordwardTestingSessionsArray)
+        addMissingSession(paperTradingSessionsArray)
+        addMissingSession(liveTradingSessionsArray)
+
+        function addMissingSession(sessionsArray) {
+            for (let i = 0; i < sessionsArray.length; i++) {
+                let session = sessionsArray[i]
+                if (isMissingChildren(node, session, true) === true) {
+                    let sessionReference = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Session Reference')
+                    sessionReference.payload.referenceParent = session
+                }
             }
         }
     }

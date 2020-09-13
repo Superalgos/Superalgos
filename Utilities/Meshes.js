@@ -1,10 +1,10 @@
-function findNodeInNodeMesh(node, nodeType) {
+function findNodeInNodeMesh(node, nodeType, connectedViaPayload, findInChildren, findInParents, findInReferenceParents) {
     /*
     This function scans a node mesh for a certain node type and 
     returns the first instance found. 
     */
     let nodeFound
-    scanNodeMesh(node, nodeType)
+    scanNodeMesh(node)
     return nodeFound
 
     function scanNodeMesh(startingNode) {
@@ -20,34 +20,54 @@ function findNodeInNodeMesh(node, nodeType) {
         }
 
         /* We scan through this node children */
-        if (nodeDefinition.properties !== undefined) {
-            for (let i = 0; i < nodeDefinition.properties.length; i++) {
-                let property = nodeDefinition.properties[i]
+        if (findInChildren === true) {
+            if (nodeDefinition.properties !== undefined) {
+                for (let i = 0; i < nodeDefinition.properties.length; i++) {
+                    let property = nodeDefinition.properties[i]
 
-                switch (property.type) {
-                    case 'node': {
-                        scanNodeMesh(startingNode[property.name])
-                    }
-                        break
-                    case 'array': {
-                        let startingNodePropertyArray = startingNode[property.name]
-                        if (startingNodePropertyArray !== undefined) {
-                            for (let m = 0; m < startingNodePropertyArray.length; m++) {
-                                scanNodeMesh(startingNodePropertyArray[m])
-                            }
+                    switch (property.type) {
+                        case 'node': {
+                            scanNodeMesh(startingNode[property.name])
                         }
-                        break
+                            break
+                        case 'array': {
+                            let startingNodePropertyArray = startingNode[property.name]
+                            if (startingNodePropertyArray !== undefined) {
+                                for (let m = 0; m < startingNodePropertyArray.length; m++) {
+                                    scanNodeMesh(startingNodePropertyArray[m])
+                                }
+                            }
+                            break
+                        }
                     }
                 }
             }
         }
+
         /* We scan parents nodes. */
-        if (startingNode.parentNode !== undefined) {
-            scanNodeMesh(startingNode.parentNode)
+        if (findInParents === true) {
+            if (connectedViaPayload === true) {
+                if (startingNode.payload.parentNode !== undefined) {
+                    scanNodeMesh(startingNode.payload.parentNode)
+                }
+            } else {
+                if (startingNode.parentNode !== undefined) {
+                    scanNodeMesh(startingNode.parentNode)
+                }
+            }
         }
+
         /* We scan reference parents too. */
-        if (startingNode.referenceParent !== undefined) {
-            scanNodeMesh(startingNode.referenceParent)
+        if (findInReferenceParents === true) {
+            if (connectedViaPayload === true) {
+                if (startingNode.payload.referenceParent !== undefined) {
+                    scanNodeMesh(startingNode.payload.referenceParent)
+                }
+            } else {
+                if (startingNode.referenceParent !== undefined) {
+                    scanNodeMesh(startingNode.referenceParent)
+                }
+            }
         }
     }
 }

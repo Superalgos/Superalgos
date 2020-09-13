@@ -7,12 +7,13 @@ function newSessionFunctions() {
     return thisObject
 
     function runSession(node, functionLibraryProtocolNode, functionLibraryDependenciesFilter, resume, callBackFunction) {
-        if (validations(node) !== true) {
+        let networkNode = validations(node)
+        if (networkNode === undefined) {
+            /* This means that the validations failed. */
             callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
             return
         }
 
-        let networkNode = node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode
         let eventsServerClient = canvas.designSpace.workspace.eventsServerClients.get(networkNode.id)
 
         node.payload.uiObject.run(eventsServerClient, callBackFunction)
@@ -113,12 +114,13 @@ function newSessionFunctions() {
     }
 
     function stopSession(node, functionLibraryProtocolNode, callBackFunction) {
-        if (validations(node) !== true) {
+        let networkNode = validations(node)
+        if (networkNode === undefined) {
+            /* This means that the validations failed. */
             callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
             return
         }
-
-        let networkNode = node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode
+        
         let eventsServerClient = canvas.designSpace.workspace.eventsServerClients.get(networkNode.id)
 
         let key = node.name + '-' + node.type + '-' + node.id
@@ -175,6 +177,8 @@ function newSessionFunctions() {
             return
         }
 
+        let networkNode = taskManager.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode
+
         if (node.payload.parentNode.payload.uiObject.isRunning !== true) {
             node.payload.uiObject.setErrorMessage('Session needs a Process Instance parent to be running.')
             return
@@ -199,6 +203,6 @@ function newSessionFunctions() {
             node.payload.uiObject.setErrorMessage('Trading Engine Reference needs to reference a Trading Engine.')
             return
         }
-        return true
+        return networkNode
     }
 }

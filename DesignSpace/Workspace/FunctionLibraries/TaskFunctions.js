@@ -6,10 +6,22 @@ function newTaskFunctions() {
         stopAllTasks: stopAllTasks,
         runAllTaskManagers: runAllTaskManagers,
         stopAllTaskManagers: stopAllTaskManagers,
+
         runAllExchangeDataTasks: runAllExchangeDataTasks,
         stopAllExchangeDataTasks: stopAllExchangeDataTasks,
         runAllExchangeTradingTasks: runAllExchangeTradingTasks,
         stopAllExchangeTradingTasks: stopAllExchangeTradingTasks,
+
+        runAllMarketDataTasks: runAllMarketDataTasks,
+        stopAllMarketDataTasks: stopAllMarketDataTasks,
+        runAllMarketTradingTasks: runAllMarketTradingTasks,
+        stopAllMarketTradingTasks: stopAllMarketTradingTasks,
+
+        runAllDataMineTasks: runAllDataMineTasks,
+        stopAllDataMineTasks: stopAllDataMineTasks, 
+        runAllTradingMineTasks: runAllTradingMineTasks,
+        stopAllTradingMineTasks: stopAllTradingMineTasks,
+
         addMissingExchangeDataTasks: addMissingExchangeDataTasks,
         addMissingMarketDataTasks: addMissingMarketDataTasks,
         addMissingDataMineTasks: addMissingDataMineTasks,
@@ -241,28 +253,88 @@ function newTaskFunctions() {
     }
 
     function runAllExchangeDataTasks(parent, functionLibraryProtocolNode) {
-        for (let i = 0; i < parent.exchangeTasks.length; i++) {
-            let node = parent.exchangeTasks[i]
+        for (let i = 0; i < parent.exchangeDataTasks.length; i++) {
+            let node = parent.exchangeDataTasks[i]
             let menu = node.payload.uiObject.menu
 
-            menu.internalClick('Run All Task Managers')
-            menu.internalClick('Run All Task Managers')
+            menu.internalClick('Run All Market Data Tasks')
+            menu.internalClick('Run All Market Data Tasks')
         }
     }
 
     function stopAllExchangeDataTasks(parent, functionLibraryProtocolNode) {
-        for (let i = 0; i < parent.exchangeTasks.length; i++) {
-            let node = parent.exchangeTasks[i]
+        for (let i = 0; i < parent.exchangeDataTasks.length; i++) {
+            let node = parent.exchangeDataTasks[i]
             let menu = node.payload.uiObject.menu
 
-            menu.internalClick('Stop All Task Managers')
-            menu.internalClick('Stop All Task Managers')
+            menu.internalClick('Stop All Market Data Tasks')
+            menu.internalClick('Stop All Market Data Tasks')
         }
     }
 
     function runAllExchangeTradingTasks(parent, functionLibraryProtocolNode) {
-        for (let i = 0; i < parent.exchangeTasks.length; i++) {
-            let node = parent.exchangeTasks[i]
+        for (let i = 0; i < parent.exchangeTradingTasks.length; i++) {
+            let node = parent.exchangeTradingTasks[i]
+            let menu = node.payload.uiObject.menu
+
+            menu.internalClick('Run All Market Trading Tasks')
+            menu.internalClick('Run All Market Trading Tasks')
+        }
+    }
+
+    function stopAllExchangeTradingTasks(parent, functionLibraryProtocolNode) {
+        for (let i = 0; i < parent.exchangeTradingTasks.length; i++) {
+            let node = parent.exchangeTradingTasks[i]
+            let menu = node.payload.uiObject.menu
+
+            menu.internalClick('Stop All Market Trading Tasks')
+            menu.internalClick('Stop All Market Trading Tasks')
+        }
+    }
+
+    function runAllMarketDataTasks(parent, functionLibraryProtocolNode) {
+        for (let i = 0; i < parent.marketDataTasks.length; i++) {
+            let node = parent.marketDataTasks[i]
+            let menu = node.payload.uiObject.menu
+
+            menu.internalClick('Run All Data Mine Tasks')
+            menu.internalClick('Run All Data Mine Tasks')
+        }
+    }
+
+    function stopAllMarketDataTasks(parent, functionLibraryProtocolNode) {
+        for (let i = 0; i < parent.marketDataTasks.length; i++) {
+            let node = parent.marketDataTasks[i]
+            let menu = node.payload.uiObject.menu
+
+            menu.internalClick('Stop All Data Mine Tasks')
+            menu.internalClick('Stop All Data Mine Tasks')
+        }
+    }
+
+    function runAllMarketTradingTasks(parent, functionLibraryProtocolNode) {
+        for (let i = 0; i < parent.marketTradingTasks.length; i++) {
+            let node = parent.marketTradingTasks[i]
+            let menu = node.payload.uiObject.menu
+
+            menu.internalClick('Run All Trading Mine Tasks')
+            menu.internalClick('Run All Trading Mine Tasks')
+        }
+    }
+
+    function stopAllMarketTradingTasks(parent, functionLibraryProtocolNode) {
+        for (let i = 0; i < parent.marketTradingTasks.length; i++) {
+            let node = parent.marketTradingTasks[i]
+            let menu = node.payload.uiObject.menu
+
+            menu.internalClick('Stop All Trading Mine Tasks')
+            menu.internalClick('Stop All Trading Mine Tasks')
+        }
+    }
+
+    function runAllDataMineTasks(parent, functionLibraryProtocolNode) {
+        for (let i = 0; i < parent.dataMineTasks.length; i++) {
+            let node = parent.dataMineTasks[i]
             let menu = node.payload.uiObject.menu
 
             menu.internalClick('Run All Task Managers')
@@ -270,9 +342,29 @@ function newTaskFunctions() {
         }
     }
 
-    function stopAllExchangeTradingTasks(parent, functionLibraryProtocolNode) {
-        for (let i = 0; i < parent.exchangeTasks.length; i++) {
-            let node = parent.exchangeTasks[i]
+    function stopAllDataMineTasks(parent, functionLibraryProtocolNode) {
+        for (let i = 0; i < parent.dataMineTasks.length; i++) {
+            let node = parent.dataMineTasks[i]
+            let menu = node.payload.uiObject.menu
+
+            menu.internalClick('Stop All Task Managers')
+            menu.internalClick('Stop All Task Managers')
+        }
+    }
+
+    function runAllTradingMineTasks(parent, functionLibraryProtocolNode) {
+        for (let i = 0; i < parent.tradingMineTasks.length; i++) {
+            let node = parent.tradingMineTasks[i]
+            let menu = node.payload.uiObject.menu
+
+            menu.internalClick('Run All Task Managers')
+            menu.internalClick('Run All Task Managers')
+        }
+    }
+
+    function stopAllTradingMineTasks(parent, functionLibraryProtocolNode) {
+        for (let i = 0; i < parent.tradingMineTasks.length; i++) {
+            let node = parent.tradingMineTasks[i]
             let menu = node.payload.uiObject.menu
 
             menu.internalClick('Stop All Task Managers')

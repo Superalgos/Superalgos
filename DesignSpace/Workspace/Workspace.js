@@ -611,6 +611,46 @@ function newWorkspace() {
                     functionLibraryTaskFunctions.stopAllExchangeTradingTasks(payload.node, functionLibraryProtocolNode)
                 }
                 break
+            case 'Run All Market Data Tasks':
+                {
+                    functionLibraryTaskFunctions.runAllMarketDataTasks(payload.node, functionLibraryProtocolNode)
+                }
+                break
+            case 'Stop All Market Data Tasks':
+                {
+                    functionLibraryTaskFunctions.stopAllMarketDataTasks(payload.node, functionLibraryProtocolNode)
+                }
+                break
+            case 'Run All Market Trading Tasks':
+                {
+                    functionLibraryTaskFunctions.runAllMarketTradingTasks(payload.node, functionLibraryProtocolNode)
+                }
+                break
+            case 'Stop All Market Trading Tasks':
+                {
+                    functionLibraryTaskFunctions.stopAllMarketTradingTasks(payload.node, functionLibraryProtocolNode)
+                }
+                break
+            case 'Run All Data Mine Tasks':
+                {
+                    functionLibraryTaskFunctions.runAllDataMineTasks(payload.node, functionLibraryProtocolNode)
+                }
+                break
+            case 'Stop All Data Mine Tasks':
+                {
+                    functionLibraryTaskFunctions.stopAllDataMineTasks(payload.node, functionLibraryProtocolNode)
+                }
+                break
+            case 'Run All Trading Mine Tasks':
+                {
+                    functionLibraryTaskFunctions.runAllTradingMineTasks(payload.node, functionLibraryProtocolNode)
+                }
+                break
+            case 'Stop All Trading Mine Tasks':
+                {
+                    functionLibraryTaskFunctions.stopAllTradingMineTasks(payload.node, functionLibraryProtocolNode)
+                }
+                break
             case 'Add Missing Exchange Data Tasks':
                 {
                     functionLibraryTaskFunctions.addMissingExchangeDataTasks(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)

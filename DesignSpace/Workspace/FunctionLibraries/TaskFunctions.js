@@ -22,12 +22,14 @@ function newTaskFunctions() {
     return thisObject
 
     function runTask(node, functionLibraryProtocolNode, isDebugging, callBackFunction) {
-        if (validations(node) !== true) {
+
+        let networkNode = validations(node)
+        if (networkNode === undefined) {
+            /* This means that the validations failed. */
             callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
             return
         }
 
-        let networkNode = node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode
         let eventsServerClient = canvas.designSpace.workspace.eventsServerClients.get(networkNode.id)
 
         for (let i = 0; i < node.bot.processes.length; i++) {
@@ -43,7 +45,7 @@ function newTaskFunctions() {
             'Execution Started Event->' +
             'Key Reference->Exchange Account Key->' +
             'Task Manager->' +
-            'Data Mine Tasks->Trading Mine Tasks->'
+            'Data Mine Tasks->Trading Mine Tasks->' +
             'Market Data Tasks->Market Trading Tasks->' +
             'Exchange Data Tasks->Exchange Trading Tasks->' + 
             'Market->Exchange Markets->Crypto Exchange->' +
@@ -83,9 +85,9 @@ function newTaskFunctions() {
             'Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->' +
             'Data Product->Product Definition->' +
             'Data Mining->Testing Environment->Production Environment->' +
-            'Exchange Data Tasks->Exchange Mining Tasks->Crypto Exchange->' +
-            'Market Data Tasks->Market Mining Tasks->' + 
-            'Data Mine Tasks->Trading Mine Tasks->'
+            'Exchange Data Tasks->Exchange Trading Tasks->Crypto Exchange->' +
+            'Market Data Tasks->Market Trading Tasks->Market->' + 
+            'Data Mine Tasks->Trading Mine Tasks->' + 
             'Task Manager->Task->' +
             'Indicator Bot Instance->Sensor Bot Instance->Trading Bot Instance->' +
             'Indicator Process Instance->Sensor Process Instance->Trading Process Instance->' +
@@ -114,12 +116,12 @@ function newTaskFunctions() {
     }
 
     function stopTask(node, functionLibraryProtocolNode, callBackFunction) {
-        if (validations(node) !== true) {
+        let networkNode = validations(node)
+        if (networkNode === undefined) {
+            /* This means that the validations failed. */
             callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
             return
         }
-
-        let networkNode = node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode
         let eventsServerClient = canvas.designSpace.workspace.eventsServerClients.get(networkNode.id)
 
         let event = {
@@ -154,7 +156,7 @@ function newTaskFunctions() {
             return
         }
 
-        let taskManager = node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode
+        let taskManager = node.payload.parentNode 
 
         if (taskManager.payload.parentNode === undefined) {
             node.payload.uiObject.setErrorMessage('Task needs to be inside Mine Tasks.')
@@ -172,7 +174,7 @@ function newTaskFunctions() {
         }
 
         if (taskManager.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
-            node.payload.uiObject.setErrorMessage('Task needs to be inside a Testing or Production Environment.')
+            node.payload.uiObject.setErrorMessage('Task needs to be inside a Data Mining, Testing or Production Environment.')
             return
         }
 
@@ -181,7 +183,7 @@ function newTaskFunctions() {
             return
         }
 
-        let networkNode = node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode
+        let networkNode = taskManager.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode
         if (loadPropertyFromNodeConfig(networkNode.payload, 'host') === undefined) {
             node.payload.uiObject.setErrorMessage('Network Node needs to have a valid Host property at its config.')
             return
@@ -197,7 +199,7 @@ function newTaskFunctions() {
             return
         }
 
-        return true
+        return networkNode
     }
 
     function runAllTasks(taskManager, functionLibraryProtocolNode) {

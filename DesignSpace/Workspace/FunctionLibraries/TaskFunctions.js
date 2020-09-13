@@ -13,6 +13,9 @@ function newTaskFunctions() {
         addMissingExchangeDataTasks: addMissingExchangeDataTasks,
         addMissingMarketDataTasks: addMissingMarketDataTasks,
         addMissingDataMineTasks: addMissingDataMineTasks,
+        addMissingExchangeTradingTasks: addMissingExchangeTradingTasks,
+        addMissingMarketTradingTasks: addMissingMarketTradingTasks,
+        addMissingTradingMineTasks: addMissingTradingMineTasks,
         addAllTasks: addAllTasks
     }
 
@@ -262,6 +265,14 @@ function newTaskFunctions() {
     }
 
     function addMissingExchangeDataTasks(node, rootNodes, functionLibraryUiObjectsFromNodes) {
+        addMissingExchangeTasks(node, rootNodes, 'Exchange Data Tasks', functionLibraryUiObjectsFromNodes)
+    }
+
+    function addMissingExchangeTradingTasks(node, rootNodes, functionLibraryUiObjectsFromNodes) {
+        addMissingExchangeTasks(node, rootNodes, 'Exchange Trading Tasks', functionLibraryUiObjectsFromNodes)
+    }
+
+    function addMissingExchangeTasks(node, rootNodes, newNodeType, functionLibraryUiObjectsFromNodes) {
         for (let i = 0; i < rootNodes.length; i++) {
             let rootNode = rootNodes[i]
             if (rootNode.type === 'Crypto Ecosystem') {
@@ -271,7 +282,7 @@ function newTaskFunctions() {
                     for (let k = 0; k < cryptoExchanges.exchanges.length; k++) {
                         let cryptoExchange = cryptoExchanges.exchanges[k]
                         if (isMissingChildren(node, cryptoExchange, true) === true) {
-                            let exchangeDataTasks = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Exchange Data Tasks')
+                            let exchangeDataTasks = functionLibraryUiObjectsFromNodes.addUIObject(node, newNodeType)
                             exchangeDataTasks.payload.referenceParent = cryptoExchange
                         }
                     }
@@ -281,6 +292,14 @@ function newTaskFunctions() {
     }
 
     function addMissingMarketDataTasks(node, rootNodes, functionLibraryUiObjectsFromNodes) {
+        addMissingMarketTasks(node, rootNodes, 'Market Data Tasks', functionLibraryUiObjectsFromNodes)
+    }
+
+    function addMissingMarketTradingTasks(node, rootNodes, functionLibraryUiObjectsFromNodes) {
+        addMissingMarketTasks(node, rootNodes, 'Market Trading Tasks', functionLibraryUiObjectsFromNodes)
+    }
+
+    function addMissingMarketTasks(node, rootNodes, newNodeType, functionLibraryUiObjectsFromNodes) {
         if (node.payload === undefined) { return }
         if (node.payload.referenceParent === undefined) { return }
         if (node.payload.referenceParent.exchangeMarkets === undefined) { return }
@@ -291,20 +310,28 @@ function newTaskFunctions() {
             let market = markets[i]
 
             if (isMissingChildren(node, market, true) === true) {
-                let marketDataTasks = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Market Data Tasks')
+                let marketDataTasks = functionLibraryUiObjectsFromNodes.addUIObject(node, newNodeType)
                 marketDataTasks.payload.referenceParent = market
             }
         }
     }
 
     function addMissingDataMineTasks(node, rootNodes, functionLibraryUiObjectsFromNodes) {
+        addMissingMineTasks(node, rootNodes, 'Data Mine', 'Data Mine Tasks', functionLibraryUiObjectsFromNodes)
+    }
+
+    function addMissingTradingMineTasks(node, rootNodes, functionLibraryUiObjectsFromNodes) {
+        addMissingMineTasks(node, rootNodes, 'Trading Mine', 'Trading Mine Tasks', functionLibraryUiObjectsFromNodes)
+    }
+
+    function addMissingMineTasks(node, rootNodes, rootNodeType, newNodeType, functionLibraryUiObjectsFromNodes) {
         for (let i = 0; i < rootNodes.length; i++) {
             let rootNode = rootNodes[i]
-            if (rootNode.type === 'Data Mine') {
+            if (rootNode.type === rootNodeType) {
                 let dataMine = rootNode
 
                 if (isMissingChildren(node, dataMine, true) === true) {
-                    let dataMineTasks = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Data Mine Tasks')
+                    let dataMineTasks = functionLibraryUiObjectsFromNodes.addUIObject(node, newNodeType)
                     dataMineTasks.payload.referenceParent = dataMine
                 }
             }
@@ -319,10 +346,13 @@ function newTaskFunctions() {
 
         let taskManager = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Task Manager')
 
-        addTasksForBotArray(dataMine.sensorBots) 
-        addTasksForBotArray(dataMine.indicatorBots) 
+        addTasksForBotArray(dataMine.sensorBots)
+        addTasksForBotArray(dataMine.indicatorBots)
+        addTasksForBotArray(dataMine.tradingBots)
 
         function addTasksForBotArray(botsArray) {
+            if (botsArray === undefined) { return }
+
             for (let i = 0; i < botsArray.length; i++) {
                 let bot = botsArray[i]
 
@@ -365,7 +395,40 @@ function newTaskFunctions() {
                         case 'Trading Bot': {
                             processInstance = functionLibraryUiObjectsFromNodes.addUIObject(botInstance, 'Trading Process Instance')
                             processInstance.payload.referenceParent = process
+
+                            if (node.payload.parentNode === undefined) { return }
+                            if (node.payload.parentNode.payload === undefined) { return }
+                            if (node.payload.parentNode.payload.parentNode === undefined) { return }
+                            if (node.payload.parentNode.payload.parentNode.payload === undefined) { return }
+                            if (node.payload.parentNode.payload.parentNode.payload.parentNode === undefined) { return }
+
+                            let environment = node.payload.parentNode.payload.parentNode.payload.parentNode
+                            let session
+
+                            switch (environment.type) {
+                                case 'Testing Environment': {
+                                    addSession('Backtesting Session')
+                                    break
+                                }
+                                case 'Production Environment': {
+                                    addSession('Live Trading Session')
+                                    break
+                                }
+                            }
                             break
+
+                            function addSession(sessionType) {
+                                session = functionLibraryUiObjectsFromNodes.addUIObject(processInstance, sessionType)
+                                session.name = task.name + ' ' + session.type
+
+                                for (let m = 0; m < rootNodes.length; m++) {
+                                    let rootNode = rootNodes[m]
+                                    if (rootNode.type === 'Trading Engine' && rootNode.isIncluded === true) {
+                                        let tradingEngine = rootNode
+                                        session.tradingEngineReference.payload.referenceParent = tradingEngine
+                                    }
+                                }
+                            }
                         }
                     }
                 }

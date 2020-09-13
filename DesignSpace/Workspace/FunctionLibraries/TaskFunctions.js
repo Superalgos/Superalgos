@@ -18,7 +18,7 @@ function newTaskFunctions() {
         stopAllMarketTradingTasks: stopAllMarketTradingTasks,
 
         runAllDataMineTasks: runAllDataMineTasks,
-        stopAllDataMineTasks: stopAllDataMineTasks, 
+        stopAllDataMineTasks: stopAllDataMineTasks,
         runAllTradingMineTasks: runAllTradingMineTasks,
         stopAllTradingMineTasks: stopAllTradingMineTasks,
 
@@ -59,7 +59,7 @@ function newTaskFunctions() {
             'Task Manager->' +
             'Data Mine Tasks->Trading Mine Tasks->' +
             'Market Data Tasks->Market Trading Tasks->' +
-            'Exchange Data Tasks->Exchange Trading Tasks->' + 
+            'Exchange Data Tasks->Exchange Trading Tasks->' +
             'Market->Exchange Markets->Crypto Exchange->' +
             'Market Base Asset->Market Quoted Asset->Asset->' +
             'Backtesting Session->Live Trading Session->Paper Trading Session->Fordward Testing Session->' +
@@ -98,8 +98,8 @@ function newTaskFunctions() {
             'Data Product->Product Definition->' +
             'Data Mining->Testing Environment->Production Environment->' +
             'Exchange Data Tasks->Exchange Trading Tasks->Crypto Exchange->' +
-            'Market Data Tasks->Market Trading Tasks->Market->' + 
-            'Data Mine Tasks->Trading Mine Tasks->' + 
+            'Market Data Tasks->Market Trading Tasks->Market->' +
+            'Data Mine Tasks->Trading Mine Tasks->' +
             'Task Manager->Task->' +
             'Indicator Bot Instance->Sensor Bot Instance->Trading Bot Instance->' +
             'Indicator Process Instance->Sensor Process Instance->Trading Process Instance->' +
@@ -168,7 +168,7 @@ function newTaskFunctions() {
             return
         }
 
-        let taskManager = node.payload.parentNode 
+        let taskManager = node.payload.parentNode
 
         if (taskManager.payload.parentNode === undefined) {
             node.payload.uiObject.setErrorMessage('Task needs to be inside Mine Tasks.')
@@ -453,29 +453,51 @@ function newTaskFunctions() {
         let taskManager = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Task Manager')
         taskManager.name = node.name
 
-        for (let i=0; i< rootNodes.length; i++) {
-            let rootNode = rootNodes[i]
-            if (rootNode.type === 'Trading System') {
-                addTaskForTradinSystem(rootNode)
+        switch (node.type) {
+            case 'Data Mine Tasks': {
+                addDataTasks()
+                break
+            }
+            case 'Trading Mine Tasks': {
+                addTradingTasks()
+                break
+            }
+        }
+
+        function addDataTasks() {
+            addTaskForTradinSystem()
+        }
+
+        function addTradingTasks() {
+            for (let i = 0; i < rootNodes.length; i++) {
+                let rootNode = rootNodes[i]
+                if (rootNode.type === 'Trading System') {
+                    addTaskForTradinSystem(rootNode)
+                }
             }
         }
 
         function addTaskForTradinSystem(tradingSystem) {
             let mine = node.payload.referenceParent
-    
+
             addTasksForBotArray(mine.sensorBots)
             addTasksForBotArray(mine.indicatorBots)
             addTasksForBotArray(mine.tradingBots)
-    
+
             function addTasksForBotArray(botsArray) {
                 if (botsArray === undefined) { return }
-    
+
                 for (let i = 0; i < botsArray.length; i++) {
                     let bot = botsArray[i]
-    
+
                     let task = functionLibraryUiObjectsFromNodes.addUIObject(taskManager, 'Task')
-                    task.name = tradingSystem.name + ' ' + bot.name
-    
+
+                    if (tradingSystem !== undefined) {
+                        task.name = tradingSystem.name + ' ' + bot.name
+                    } else {
+                        task.name = bot.name
+                    }
+
                     let botInstance
                     switch (bot.type) {
                         case 'Sensor Bot': {
@@ -494,7 +516,7 @@ function newTaskFunctions() {
                             break
                         }
                     }
-    
+
                     for (let j = 0; j < bot.processes.length; j++) {
                         let process = bot.processes[j]
                         let processInstance
@@ -512,16 +534,16 @@ function newTaskFunctions() {
                             case 'Trading Bot': {
                                 processInstance = functionLibraryUiObjectsFromNodes.addUIObject(botInstance, 'Trading Process Instance')
                                 processInstance.payload.referenceParent = process
-    
+
                                 if (node.payload.parentNode === undefined) { return }
                                 if (node.payload.parentNode.payload === undefined) { return }
                                 if (node.payload.parentNode.payload.parentNode === undefined) { return }
                                 if (node.payload.parentNode.payload.parentNode.payload === undefined) { return }
                                 if (node.payload.parentNode.payload.parentNode.payload.parentNode === undefined) { return }
-    
+
                                 let environment = node.payload.parentNode.payload.parentNode.payload.parentNode
                                 let session
-    
+
                                 switch (environment.type) {
                                     case 'Testing Environment': {
                                         addSession('Backtesting Session')
@@ -533,7 +555,7 @@ function newTaskFunctions() {
                                     }
                                 }
                                 break
-    
+
                                 function addSession(sessionType) {
                                     session = functionLibraryUiObjectsFromNodes.addUIObject(processInstance, sessionType)
                                     session.name = task.name + ' ' + session.type

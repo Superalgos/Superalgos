@@ -36,7 +36,7 @@
             }
 
             /* This bot is not ready for taking its code from the UI, then we need to load it from its repo. */
-            let filePath = bot.dataMine + "/" + "bots" + "/" + bot.repo + "/" + pProcessConfig.codeName
+            let filePath = bot.dataMine + "/" + "bots" + "/" + bot.processNode.referenceParent.parentNode.config.repo + "/" + pProcessConfig.codeName
             filePath += "/User.Bot.js"
 
             fileStorage.getTextFile(filePath, onBotDownloaded);
@@ -54,7 +54,7 @@
                 USER_BOT_MODULE = {}
                 USER_BOT_MODULE.newUserBot = eval(text); // TODO This needs to be changed function
 
-                filePath = bot.dataMine + "/" + "bots" + "/" + bot.repo;
+                filePath = bot.dataMine + "/" + "bots" + "/" + bot.processNode.referenceParent.parentNode.config.repo 
                 filePath += "/Commons.js"
 
                 fileStorage.getTextFile(filePath, onCommonsDownloaded);

@@ -59,7 +59,7 @@
                                         return
                                     }
                                 } else {
-                                    logger.write(MODULE_NAME, "[ERROR] raiseEvents -> Bot not attached to a Data Mine. Bot = " + JSON.stringify(botNode));
+                                    logger.write(MODULE_NAME, "[ERROR] raiseEvents -> Bot not attached to a Data Mine or Trading Mine. Bot = " + JSON.stringify(botNode));
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                     return
                                 }
@@ -142,7 +142,7 @@
                                     throw (global.DEFAULT_FAIL_RESPONSE);
                                 }
                             } else {
-                                logger.write(MODULE_NAME, "[ERROR] raiseEvents -> Bot not attached to a Data Mine. Bot = " + JSON.stringify(botNode));
+                                logger.write(MODULE_NAME, "[ERROR] raiseEvents -> Bot not attached to a Data Mine or Trading Mine. Bot = " + JSON.stringify(botNode));
                                 throw (global.DEFAULT_FAIL_RESPONSE);
                             }
                         } else {

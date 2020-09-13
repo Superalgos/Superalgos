@@ -11,7 +11,9 @@ function newTaskFunctions() {
         runAllExchangeTradingTasks: runAllExchangeTradingTasks,
         stopAllExchangeTradingTasks: stopAllExchangeTradingTasks,
         addMissingExchangeDataTasks: addMissingExchangeDataTasks,
-        addMissingMarketDataTasks: addMissingMarketDataTasks
+        addMissingMarketDataTasks: addMissingMarketDataTasks,
+        addMissingDataMineTasks: addMissingDataMineTasks,
+        addAllTasks: addAllTasks
     }
 
     return thisObject
@@ -35,7 +37,7 @@ function newTaskFunctions() {
             'Indicator Bot Instance->Time Frames Filter->' +
             'Trading Bot Instance->' +
             'Sensor Process Instance->Indicator Process Instance->Trading Process Instance->' +
-            'Market Reference->Execution Started Event->' +
+            'Execution Started Event->' +
             'Key Reference->Exchange Account Key->' +
             'Market->Exchange Markets->Crypto Exchange->' +
             'Market Base Asset->Market Quoted Asset->Asset->' +
@@ -79,7 +81,7 @@ function newTaskFunctions() {
             'Indicator Bot Instance->Sensor Bot Instance->Trading Bot Instance->' +
             'Indicator Process Instance->Sensor Process Instance->Trading Process Instance->' +
             'Paper Trading Session->Forward Testing Session->Backtesting Session->Live Trading Session->' +
-            'Market Reference->Market->' +
+            'Market->' +
             'Process Definition->'
 
         let networkDefinition = functionLibraryProtocolNode.getProtocolNode(networkNode.payload.parentNode, false, true, true, false, false, networkLightingPath)
@@ -263,7 +265,7 @@ function newTaskFunctions() {
         for (let i = 0; i < rootNodes.length; i++) {
             let rootNode = rootNodes[i]
             if (rootNode.type === 'Crypto Ecosystem') {
-                cryptoEcosystem = rootNode
+                let cryptoEcosystem = rootNode
                 for (let j = 0; j < cryptoEcosystem.cryptoExchanges.length; j++) {
                     let cryptoExchanges = cryptoEcosystem.cryptoExchanges[j]
                     for (let k = 0; k < cryptoExchanges.exchanges.length; k++) {
@@ -291,6 +293,82 @@ function newTaskFunctions() {
             if (isMissingChildren(node, market, true) === true) {
                 let marketDataTasks = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Market Data Tasks')
                 marketDataTasks.payload.referenceParent = market
+            }
+        }
+    }
+
+    function addMissingDataMineTasks(node, rootNodes, functionLibraryUiObjectsFromNodes) {
+        for (let i = 0; i < rootNodes.length; i++) {
+            let rootNode = rootNodes[i]
+            if (rootNode.type === 'Data Mine') {
+                let dataMine = rootNode
+
+                if (isMissingChildren(node, dataMine, true) === true) {
+                    let dataMineTasks = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Data Mine Tasks')
+                    dataMineTasks.payload.referenceParent = dataMine
+                }
+            }
+        }
+    }
+
+    function addAllTasks(node, rootNodes, functionLibraryUiObjectsFromNodes) {
+        if (node.payload === undefined) { return }
+        if (node.payload.referenceParent === undefined) { return }
+
+        let dataMine = node.payload.referenceParent
+
+        let taskManager = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Task Manager')
+
+        addTasksForBotArray(dataMine.sensorBots) 
+        addTasksForBotArray(dataMine.indicatorBots) 
+
+        function addTasksForBotArray(botsArray) {
+            for (let i = 0; i < botsArray.length; i++) {
+                let bot = botsArray[i]
+
+                let task = functionLibraryUiObjectsFromNodes.addUIObject(taskManager, 'Task')
+                task.name = bot.name
+
+                let botInstance
+                switch (bot.type) {
+                    case 'Sensor Bot': {
+                        botInstance = functionLibraryUiObjectsFromNodes.addUIObject(task, 'Sensor Bot Instance')
+                        botInstance.name = bot.name
+                        break
+                    }
+                    case 'Indicator Bot': {
+                        botInstance = functionLibraryUiObjectsFromNodes.addUIObject(task, 'Indicator Bot Instance')
+                        botInstance.name = bot.name
+                        break
+                    }
+                    case 'Trading Bot': {
+                        botInstance = functionLibraryUiObjectsFromNodes.addUIObject(task, 'Trading Bot Instance')
+                        botInstance.name = bot.name
+                        break
+                    }
+                }
+
+                for (let j = 0; j < bot.processes.length; j++) {
+                    let process = bot.processes[j]
+                    let processInstance
+                    switch (bot.type) {
+                        case 'Sensor Bot': {
+                            processInstance = functionLibraryUiObjectsFromNodes.addUIObject(botInstance, 'Sensor Process Instance')
+                            processInstance.payload.referenceParent = process
+                            break
+                        }
+                        case 'Indicator Bot': {
+                            processInstance = functionLibraryUiObjectsFromNodes.addUIObject(botInstance, 'Indicator Process Instance')
+                            processInstance.payload.referenceParent = process
+                            break
+                        }
+                        case 'Trading Bot': {
+                            processInstance = functionLibraryUiObjectsFromNodes.addUIObject(botInstance, 'Trading Process Instance')
+                            processInstance.payload.referenceParent = process
+                            break
+                        }
+                    }
+                }
             }
         }
     }

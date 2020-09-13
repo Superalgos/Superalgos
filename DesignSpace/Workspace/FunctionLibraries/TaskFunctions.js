@@ -10,7 +10,8 @@ function newTaskFunctions() {
         stopAllExchangeDataTasks: stopAllExchangeDataTasks,
         runAllExchangeTradingTasks: runAllExchangeTradingTasks,
         stopAllExchangeTradingTasks: stopAllExchangeTradingTasks,
-        addMissingExchangeDataTasks: addMissingExchangeDataTasks
+        addMissingExchangeDataTasks: addMissingExchangeDataTasks,
+        addMissingMarketDataTasks: addMissingMarketDataTasks
     }
 
     return thisObject
@@ -265,14 +266,31 @@ function newTaskFunctions() {
                 cryptoEcosystem = rootNode
                 for (let j = 0; j < cryptoEcosystem.cryptoExchanges.length; j++) {
                     let cryptoExchanges = cryptoEcosystem.cryptoExchanges[j]
-                    for (let k=0; k < cryptoExchanges.exchanges.length; k++) {
-                        let cryptoExchange = cryptoExchanges.exchanges[j]
+                    for (let k = 0; k < cryptoExchanges.exchanges.length; k++) {
+                        let cryptoExchange = cryptoExchanges.exchanges[k]
                         if (isMissingChildren(node, cryptoExchange, true) === true) {
                             let exchangeDataTasks = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Exchange Data Tasks')
                             exchangeDataTasks.payload.referenceParent = cryptoExchange
                         }
                     }
                 }
+            }
+        }
+    }
+
+    function addMissingMarketDataTasks(node, rootNodes, functionLibraryUiObjectsFromNodes) {
+        if (node.payload === undefined) { return }
+        if (node.payload.referenceParent === undefined) { return }
+        if (node.payload.referenceParent.exchangeMarkets === undefined) { return }
+
+        let markets = node.payload.referenceParent.exchangeMarkets.markets
+
+        for (let i = 0; i < markets.length; i++) {
+            let market = markets[i]
+
+            if (isMissingChildren(node, market, true) === true) {
+                let marketDataTasks = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Market Data Tasks')
+                marketDataTasks.payload.referenceParent = market
             }
         }
     }

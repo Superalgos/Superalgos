@@ -148,7 +148,10 @@ function newPlottersManager() {
 
             if (sessionReference !== undefined) {
                 session = sessionReference.referenceParent
-
+                if (session === undefined) {
+                    logger.write('[ERROR] initializePlotter -> Sessioin is Undefined at Session Reference -> Plotter will not be loaded. ')
+                    return
+                }
                 /* From the session we might be able to reach the Trading System or the Trading Engine */
                 if (session.tradingSystemReference !== undefined) {
                     tradingSystem = session.tradingSystemReference.referenceParent

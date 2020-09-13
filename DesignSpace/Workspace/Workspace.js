@@ -616,6 +616,11 @@ function newWorkspace() {
                     functionLibraryTaskFunctions.addMissingExchangeDataTasks(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
                 }
                 break
+            case 'Add Missing Market Data Tasks':
+                {
+                    functionLibraryTaskFunctions.addMissingMarketDataTasks(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
+                }
+                break
             case 'Add Missing Crypto Exchanges':
                 {
                     functionLibraryCCXTFunctions.addMissingExchanges(payload.node, functionLibraryUiObjectsFromNodes)

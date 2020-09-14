@@ -21,12 +21,14 @@ function nodeBranchToArray(node, nodeType) {
         }
 
         if (nodeDefinition.properties === undefined) { return }
+        let lastNodePropertyName
         for (let i = 0; i < nodeDefinition.properties.length; i++) {
             let property = nodeDefinition.properties[i]
-
+            if (lastNodePropertyName === property.name) {continue} // Some nodes have a single property por multiple child node types. We need to check repeated properties only once so as no to duplicate results.
             switch (property.type) {
                 case 'node': {
                     scanNodeBranch(startingNode[property.name])
+                    lastNodePropertyName = property.name
                 }
                     break
                 case 'array': {

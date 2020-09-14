@@ -89,6 +89,8 @@ function newChartingSpaceFunctions() {
             function scanSessionArray(sessionsArray) {
                 for (let i = 0; i < sessionsArray.length; i++) {
                     let session = sessionsArray[i]
+                    let market = findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
+                    if (market.payload.referenceParent === undefined) { continue }
                     if (isMissingChildren(node, session, true) === true) {
                         let mineProducts
                         let timeMachine = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Time Machine')
@@ -102,6 +104,12 @@ function newChartingSpaceFunctions() {
                         mineProducts = nodeBranchToArray(networkNode, 'Data Mine Products')
                         for (let j = 0; j < mineProducts.length; j++) {
                             let mineProduct = mineProducts[j]
+                            /*
+                            We need to filter out the ones that do not belong to the market where 
+                            the session is running at. 
+                            */
+                            if (mineProduct.payload.parentNode.payload.referenceParent === undefined) { continue }
+                            if (mineProduct.payload.parentNode.payload.referenceParent.id !== market.payload.referenceParent.id) { continue }
 
                             let timelineChart = functionLibraryUiObjectsFromNodes.addUIObject(timeMachine, 'Timeline Chart')
                             timelineChart.name = mineProduct.name
@@ -122,7 +130,6 @@ function newChartingSpaceFunctions() {
                             that are not the one we are interested in, we do the following:
                             */
                             if (mineProduct.payload.parentNode === undefined) { continue }
-                            if (mineProduct.payload.parentNode.payload.referenceParent === undefined) { continue }
                             if (mineProduct.payload.parentNode.payload.parentNode.payload.referenceParent === undefined) { continue }
                             if (mineProduct.payload.parentNode.payload.parentNode.payload.referenceParent.id !== session.id) { continue }
                             /*

@@ -8655,8 +8655,7 @@
                 "type": "array",
                 "childType": "Plotter"
             }
-        ],
-        "icon": "bitcoin"
+        ] 
     },
     {
         "type": "Sensor Bot",
@@ -13092,8 +13091,7 @@
                 "childType": "Task Manager",
                 "monitorChildrenRunning": true
             }
-        ],
-        "icon": "bitcoin"
+        ] 
     },
     {
         "type": "Trading Mine Tasks",
@@ -13164,8 +13162,7 @@
                 "childType": "Task Manager",
                 "monitorChildrenRunning": true
             }
-        ],
-        "icon": "bitcoin"
+        ] 
     },
     {
         "type": "Market Data Tasks",
@@ -13236,8 +13233,7 @@
                 "childType": "Data Mine Tasks",
                 "monitorChildrenRunning": true
             }
-        ],
-        "icon": "bitcoin"
+        ] 
     },
     {
         "type": "Market Trading Tasks",
@@ -13308,8 +13304,7 @@
                 "childType": "Trading Mine Tasks",
                 "monitorChildrenRunning": true
             }
-        ],
-        "icon": "bitcoin"
+        ] 
     },
     {
         "type": "Exchange Data Tasks",
@@ -13380,8 +13375,7 @@
                 "childType": "Market Data Tasks",
                 "monitorChildrenRunning": true
             }
-        ],
-        "icon": "bitcoin"
+        ] 
     },
     {
         "type": "Exchange Trading Tasks",
@@ -13452,8 +13446,7 @@
                 "childType": "Market Trading Tasks",
                 "monitorChildrenRunning": true
             }
-        ],
-        "icon": "bitcoin"
+        ] 
     },
     {
         "type": "Data Mining",
@@ -13649,7 +13642,7 @@
         "menuItems": [
             {
                 "action": "Add UI Object",
-                "label": "Add Single Market Data",
+                "label": "Add Market Data",
                 "relatedUiObject": "Single Market Data",
                 "actionFunction": "payload.onMenuItemClick"
             },
@@ -13747,7 +13740,7 @@
             },
             {
                 "action": "Add Missing Session References",
-                "label": "Add Missing Session References",
+                "label": "Add Missing Sessions",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Proceed",
                 "workDoneLabel": "Done",
@@ -13833,7 +13826,7 @@
         "menuItems": [
             {
                 "action": "Add UI Object",
-                "label": "Add Single Market Trading Data",
+                "label": "Add Market Trading Data",
                 "disableIfPropertyIsDefined": true,
                 "propertyToCheckFor": "singleMarketTradingData",
                 "relatedUiObject": "Single Market Trading Data",
@@ -13852,6 +13845,7 @@
         "isTitleAllwaysVisible": true,
         "title": [
             "Use Reference Parent",
+            "Use Reference Parent Type",
             "Use Child @singleMarketData"
         ],
         "addLeftIcons": true,
@@ -13997,8 +13991,7 @@
                 "childType": "Trading Mine Products",
                 "autoAdd": false
             }
-        ],
-        "icon": "bitcoin"
+        ] 
     },
     {
         "type": "Data Product",
@@ -14126,8 +14119,7 @@
                 "childType": "Bot Products",
                 "autoAdd": false
             }
-        ],
-        "icon":"bitcoin"
+        ] 
     },
     {
         "type": "Bot Products",

@@ -101,15 +101,14 @@ function newDataStorageFunctions() {
                 let session = sessionsArray[i]
                 if (isMissingChildren(node, session, true) === true) {
                     let sessionReference = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Session Reference')
-                    sessionReference.payload.referenceParent = session
+                    sessionReference.payload.referenceParent = session 
                     /*
                     Now I will connect the Session Reference child that is auto created with the market 
                     where the Session was found.
                     */
                     let marketTradingTasks = findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
                     sessionReference.singleMarketTradingData.payload.referenceParent = marketTradingTasks.payload.referenceParent
-                    timelineChart.payload.floatingObject.collapseToggle()
-                    timelineChart.singleMarketTradingData.payload.floatingObject.collapseToggle()
+                    marketTradingTasks.payload.floatingObject.collapseToggle()
                 }
             }
         }

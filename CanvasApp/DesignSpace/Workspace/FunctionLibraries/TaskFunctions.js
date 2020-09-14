@@ -62,7 +62,7 @@ function newTaskFunctions() {
             'Exchange Data Tasks->Exchange Trading Tasks->' +
             'Market->Exchange Markets->Crypto Exchange->' +
             'Market Base Asset->Market Quoted Asset->Asset->' +
-            'Backtesting Session->Live Trading Session->Paper Trading Session->Fordward Testing Session->' +
+            'Backtesting Session->Live Trading Session->Paper Trading Session->Forward Testing Session->' +
             'Process Definition->' +
             'Process Output->' +
             'Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->' +

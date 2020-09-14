@@ -77,7 +77,7 @@ function newChartingSpaceFunctions() {
             if (networkNode === undefined) { return }
 
             let backtestingSessionsArray = nodeBranchToArray(networkNode, 'Backtesting Session')
-            let fordwardTestingSessionsArray = nodeBranchToArray(networkNode, 'Fordward Testing Session')
+            let fordwardTestingSessionsArray = nodeBranchToArray(networkNode, 'Forward Testing Session')
             let paperTradingSessionsArray = nodeBranchToArray(networkNode, 'Paper Trading Session')
             let liveTradingSessionsArray = nodeBranchToArray(networkNode, 'Live Trading Session')
 
@@ -93,7 +93,7 @@ function newChartingSpaceFunctions() {
                         let mineProducts
                         let timeMachine = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Time Machine')
                         timeMachine.payload.referenceParent = session
-                        timeMachine.name = session.name
+                        timeMachine.name = session.name + ' ' + session.type
                         timeMachine.payload.floatingObject.collapseToggle()
 
                         /*

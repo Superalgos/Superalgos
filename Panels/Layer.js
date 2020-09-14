@@ -161,8 +161,8 @@ function newLayer() {
                 '->Layer->' +
                 'Data Product->' +
                 'Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->' +
-                'Bot Products->Data Mine Products->' +
-                'Single Market Data->Exchange Data Products->' +
+                'Bot Products->Data Mine Products->Trading Mine Products->' +
+                'Single Market Data->Single Market Trading Data->Exchange Data Products->' +
                 'Session Reference->Session Independent Data->Session Based Data->Exchange Sessions->Session Based Data->Data Storage->Network Node->' +
                 'Data Storage->Network Node->' +
                 'Backtesting Session->Paper Trading Session->Fordward Testing Session->Live Trading Session->' +
@@ -265,9 +265,9 @@ function newLayer() {
                 return
             }
 
-            thisObject.plotterModule = findNodeInNodeMesh(thisObject.definition, 'Plotter Module', undefined, false, true, true, true)
+            thisObject.plotterModule = findNodeInNodeMesh(thisObject.definition, 'Plotter Module', undefined, false, false, false, true)
             if (thisObject.plotterModule === undefined) {
-                thisObject.payload.uiObject.setErrorMessage('Market Quoted Asset not Found')
+                thisObject.payload.uiObject.setErrorMessage('Plotter Module not Found')
                 return
             }
 

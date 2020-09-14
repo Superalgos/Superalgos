@@ -742,7 +742,7 @@ function newWorkspace() {
                 break
             case 'Add All Mine Layers':
                 {
-                    functionLibraryChartingSpaceFunctions.addAllMineLayers(payload.node, functionLibraryUiObjectsFromNodes)
+                    functionLibraryChartingSpaceFunctions.addAllMineLayers(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
                 }
                 break
             case 'Add Missing Time Machines':

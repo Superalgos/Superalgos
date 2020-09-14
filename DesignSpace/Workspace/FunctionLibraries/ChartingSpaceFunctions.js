@@ -6,7 +6,7 @@ function newChartingSpaceFunctions() {
 
     return thisObject
 
-    function addAllMineLayers(node, functionLibraryUiObjectsFromNodes) {
+    function addAllMineLayers(node, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter) {
 
         /* Validations to see if we can do this or not. */
         if (node.payload === undefined) { return }
@@ -45,6 +45,20 @@ function newChartingSpaceFunctions() {
                     undefined,
                     functionLibraryUiObjectsFromNodes
                 )
+                /*
+                There are some layers that should not exist, for example the ones related to Data Products
+                that do not have a plotter module. Since our previous action created all layers no matter
+                what, we need now to delete all the ones that do not have a plotter module.
+                */
+                let allLayers = nodeBranchToArray(botLayers, 'Layer')
+                for (let j = 0; j < allLayers.length; j++) {
+                    let layer = allLayers[j]
+
+                    let plotterModule = findNodeInNodeMesh(layer, 'Plotter Module', undefined, true, false, false, true)
+                    if (plotterModule === undefined) {
+                        functionLibraryNodeDeleter.deleteUIObject(layer, rootNodes)
+                    }
+                }
             }
         }
     }
@@ -120,7 +134,7 @@ function newChartingSpaceFunctions() {
 
                             for (let k = 0; k < 3; k++) {
                                 let timelineChart = functionLibraryUiObjectsFromNodes.addUIObject(timeMachine, 'Timeline Chart')
-                                
+
                                 timelineChart.layersManager.payload.referenceParent = mineProduct
                                 timelineChart.payload.floatingObject.collapseToggle()
                                 timelineChart.layersManager.payload.floatingObject.collapseToggle()

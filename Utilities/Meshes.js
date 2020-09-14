@@ -1,7 +1,8 @@
-function findNodeInNodeMesh(node, nodeType, connectedViaPayload, findInChildren, findInParents, findInReferenceParents) {
+function findNodeInNodeMesh(node, nodeType, nodeName, connectedViaPayload, findInChildren, findInParents, findInReferenceParents) {
     /*
     This function scans a node mesh for a certain node type and 
-    returns the first instance found. 
+    returns the first instance found. Please specify either nodeType
+    or nodeName.
     */
     let nodeFound
     scanNodeMesh(node)
@@ -14,9 +15,18 @@ function findNodeInNodeMesh(node, nodeType, connectedViaPayload, findInChildren,
         let nodeDefinition = APP_SCHEMA_MAP.get(startingNode.type)
         if (nodeDefinition === undefined) { return }
 
-        if (startingNode.type === nodeType) {
-            nodeFound = startingNode
-            return
+        if (nodeType !== undefined) {
+            if (startingNode.type === nodeType) {
+                nodeFound = startingNode
+                return
+            }
+        }
+
+        if (nodeName !== undefined) {
+            if (startingNode.name === nodeName) {
+                nodeFound = startingNode
+                return
+            }
         }
 
         /* We scan through this node children */

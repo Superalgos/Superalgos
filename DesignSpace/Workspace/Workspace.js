@@ -740,9 +740,14 @@ function newWorkspace() {
                     functionLibraryDataMineFunctions.addAllDataMineDataDependencies(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
                 }
                 break
-            case 'Add All Data Mine Layers':
+            case 'Add All Mine Layers':
                 {
-                    functionLibraryChartingSpaceFunctions.addAllDataMineLayers(payload.node, functionLibraryUiObjectsFromNodes)
+                    functionLibraryChartingSpaceFunctions.addAllMineLayers(payload.node, functionLibraryUiObjectsFromNodes)
+                }
+                break
+            case 'Add Missing Time Machines':
+                {
+                    functionLibraryChartingSpaceFunctions.addMissingTimeMachines(payload.node, thisObject.workspaceNode.rootNodes,functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
                 }
                 break
             case 'Play Tutorial':

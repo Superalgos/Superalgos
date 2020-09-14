@@ -460,6 +460,7 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                     let folder
                     let includedNames = {
                         includedDataMines: [],
+                        includedTradingMines: [],
                         includedTradingSystems: [],
                         includedSuperScripts: [],
                         includedTradingEngines: []
@@ -477,7 +478,11 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                                 folder = process.env.TRADING_ENGINES_PATH + '/'
                                 fs.readdir(folder, (err, files) => {
                                     includedNames.includedTradingEngines = files
-                                    respondWithContent(JSON.stringify(includedNames), response)
+                                    folder = process.env.TRADING_MINES_PATH + '/'
+                                    fs.readdir(folder, (err, files) => {
+                                        includedNames.includedTradingMines = files
+                                        respondWithContent(JSON.stringify(includedNames), response)
+                                    })
                                 })
                             })
                         })
@@ -607,6 +612,12 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
             case 'DataMines':
                 {
                     respondWithFile(process.env.DATA_MINES_PATH + '/' + requestParameters[2], response)
+                }
+                break
+
+            case 'TradingMines':
+                {
+                    respondWithFile(process.env.TRADING_MINES_PATH + '/' + requestParameters[2], response)
                 }
                 break
 

@@ -725,6 +725,11 @@ function newWorkspace() {
                     functionLibraryDataStorageFunctions.addMissingSessionReferences(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
                 }
                 break
+            case 'Add Missing Single Market Datas':
+                {
+                    functionLibraryDataStorageFunctions.addMissingAddMissingSingleMarketDatas(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
+                }
+                break
             case 'Add All Data Dependencies':
                 {
                     functionLibraryDataMineFunctions.addAllDataDependencies(payload.node, functionLibraryUiObjectsFromNodes)

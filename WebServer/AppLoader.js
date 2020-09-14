@@ -50,7 +50,7 @@ function newAppLoader() {
                 'DesignSpace/Workspace/FunctionLibraries/ShortcutKeys.js',
                 'DesignSpace/Workspace/FunctionLibraries/OnFocus.js',
                 'DesignSpace/Workspace/FunctionLibraries/SuperScripts.js',
-                'DesignSpace/Workspace/FunctionLibraries/CCXTFunctions.js',
+                'DesignSpace/Workspace/FunctionLibraries/CryptoEcosystemFunctions.js',
                 'DesignSpace/Workspace/FunctionLibraries/WebhookFunctions.js',
                 'DesignSpace/Workspace/FunctionLibraries/DependenciesFilter.js',
                 'DesignSpace/Workspace/FunctionLibraries/NodePath.js',

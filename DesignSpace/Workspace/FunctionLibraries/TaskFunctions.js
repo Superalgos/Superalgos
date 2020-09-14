@@ -390,8 +390,8 @@ function newTaskFunctions() {
                     for (let k = 0; k < cryptoExchanges.exchanges.length; k++) {
                         let cryptoExchange = cryptoExchanges.exchanges[k]
                         if (isMissingChildren(node, cryptoExchange, true) === true) {
-                            let exchangeDataTasks = functionLibraryUiObjectsFromNodes.addUIObject(node, newNodeType)
-                            exchangeDataTasks.payload.referenceParent = cryptoExchange
+                            let exchangeTasks = functionLibraryUiObjectsFromNodes.addUIObject(node, newNodeType)
+                            exchangeTasks.payload.referenceParent = cryptoExchange
                         }
                     }
                 }

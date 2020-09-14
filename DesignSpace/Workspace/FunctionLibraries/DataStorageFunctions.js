@@ -4,7 +4,9 @@ function newDataStorageFunctions() {
         addAllDataMineProducts: addAllDataMineProducts,
         addAllTradingMineProducts: addAllTradingMineProducts,
         addMissingSessionReferences: addMissingSessionReferences,
-        addMissingAddMissingSingleMarketDatas: addMissingAddMissingSingleMarketDatas
+        addMissingSingleMarketData: addMissingSingleMarketData,
+        addMissingExchangeSessions: addMissingExchangeSessions,
+        addMissingExchangeDataProducts: addMissingExchangeDataProducts
     }
 
     return thisObject
@@ -113,7 +115,7 @@ function newDataStorageFunctions() {
         }
     }
 
-    function addMissingAddMissingSingleMarketDatas(node, rootNodes, functionLibraryUiObjectsFromNodes) {
+    function addMissingSingleMarketData(node, rootNodes, functionLibraryUiObjectsFromNodes) {
         if (node.payload.referenceParent === undefined) { return }
         if (node.payload.referenceParent.exchangeMarkets === undefined) { return }
         let marketsArray = node.payload.referenceParent.exchangeMarkets.markets
@@ -123,6 +125,33 @@ function newDataStorageFunctions() {
             if (isMissingChildren(node, market, true) === true) {
                 let singleMarketData = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Single Market Data')
                 singleMarketData.payload.referenceParent = market
+            }
+        }
+    }
+
+    function addMissingExchangeSessions(node, rootNodes, functionLibraryUiObjectsFromNodes) {
+        addMissingExchange(node, rootNodes, 'Exchange Sessions', functionLibraryUiObjectsFromNodes)
+    }
+
+    function addMissingExchangeDataProducts(node, rootNodes, functionLibraryUiObjectsFromNodes) {
+        addMissingExchange(node, rootNodes, 'Exchange Data Products', functionLibraryUiObjectsFromNodes)
+    }
+
+    function addMissingExchange(node, rootNodes, newNodeType, functionLibraryUiObjectsFromNodes) {
+        for (let i = 0; i < rootNodes.length; i++) {
+            let rootNode = rootNodes[i]
+            if (rootNode.type === 'Crypto Ecosystem') {
+                let cryptoEcosystem = rootNode
+                for (let j = 0; j < cryptoEcosystem.cryptoExchanges.length; j++) {
+                    let cryptoExchanges = cryptoEcosystem.cryptoExchanges[j]
+                    for (let k = 0; k < cryptoExchanges.exchanges.length; k++) {
+                        let cryptoExchange = cryptoExchanges.exchanges[k]
+                        if (isMissingChildren(node, cryptoExchange, true) === true) {
+                            let exchange = functionLibraryUiObjectsFromNodes.addUIObject(node, newNodeType)
+                            exchange.payload.referenceParent = cryptoExchange
+                        }
+                    }
+                }
             }
         }
     }

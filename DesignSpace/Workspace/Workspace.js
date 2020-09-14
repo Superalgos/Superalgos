@@ -725,9 +725,24 @@ function newWorkspace() {
                     functionLibraryDataStorageFunctions.addMissingSessionReferences(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
                 }
                 break
-            case 'Add Missing Single Market Datas':
+            case 'Add Missing Single Market Data':
                 {
-                    functionLibraryDataStorageFunctions.addMissingAddMissingSingleMarketDatas(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
+                    functionLibraryDataStorageFunctions.addMissingSingleMarketData(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
+                }
+                break
+            case 'Add Missing Single Market Trading Data':
+                {
+                    functionLibraryDataStorageFunctions.addMissingSingleMarketTradingData(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
+                }
+                break
+            case 'Add Missing Exchange Sessions':
+                {
+                    functionLibraryDataStorageFunctions.addMissingExchangeSessions(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
+                }
+                break
+            case 'Add Missing Exchange Data Products':
+                {
+                    functionLibraryDataStorageFunctions.addMissingExchangeDataProducts(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
                 }
                 break
             case 'Add All Data Dependencies':
@@ -747,7 +762,7 @@ function newWorkspace() {
                 break
             case 'Add Missing Time Machines':
                 {
-                    functionLibraryChartingSpaceFunctions.addMissingTimeMachines(payload.node, thisObject.workspaceNode.rootNodes,functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
+                    functionLibraryChartingSpaceFunctions.addMissingTimeMachines(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
                 }
                 break
             case 'Play Tutorial':

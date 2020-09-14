@@ -725,6 +725,11 @@ function newWorkspace() {
                     functionLibraryDataStorageFunctions.addMissingSessionReferences(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
                 }
                 break
+            case 'Add Missing Single Market Datas':
+                {
+                    functionLibraryDataStorageFunctions.addMissingAddMissingSingleMarketDatas(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
+                }
+                break
             case 'Add All Data Dependencies':
                 {
                     functionLibraryDataMineFunctions.addAllDataDependencies(payload.node, functionLibraryUiObjectsFromNodes)
@@ -735,9 +740,14 @@ function newWorkspace() {
                     functionLibraryDataMineFunctions.addAllDataMineDataDependencies(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
                 }
                 break
-            case 'Add All Data Mine Layers':
+            case 'Add All Mine Layers':
                 {
-                    functionLibraryChartingSpaceFunctions.addAllDataMineLayers(payload.node, functionLibraryUiObjectsFromNodes)
+                    functionLibraryChartingSpaceFunctions.addAllMineLayers(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
+                }
+                break
+            case 'Add Missing Time Machines':
+                {
+                    functionLibraryChartingSpaceFunctions.addMissingTimeMachines(payload.node, thisObject.workspaceNode.rootNodes,functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
                 }
                 break
             case 'Play Tutorial':

@@ -493,7 +493,7 @@ function newTaskFunctions() {
                     let task = functionLibraryUiObjectsFromNodes.addUIObject(taskManager, 'Task')
 
                     if (tradingSystem !== undefined) {
-                        task.name = tradingSystem.name + ' ' + bot.name
+                        task.name = tradingSystem.name 
                     } else {
                         task.name = bot.name
                     }
@@ -558,7 +558,7 @@ function newTaskFunctions() {
 
                                 function addSession(sessionType) {
                                     session = functionLibraryUiObjectsFromNodes.addUIObject(processInstance, sessionType)
-                                    session.name = task.name + ' ' + session.type
+                                    session.name = task.name
                                     let config = JSON.parse(session.config)
                                     config.folderName = session.name.split(" ").join("-")
                                     session.config = JSON.stringify(config)

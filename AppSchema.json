@@ -12461,6 +12461,15 @@
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
+                "action": "Add Missing Time Machines",
+                "label": "Add Missing Time Machines",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Time Machine",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -12470,7 +12479,6 @@
                 "actionFunction": "payload.onMenuItemClick"
             }
         ],
-        "isTitleAllwaysVisible": true,
         "addLeftIcons": true,
         "level": 1,
         "chainAttachesTo": {
@@ -12545,6 +12553,9 @@
         },
         "level": 1,
         "isTitleAllwaysVisible": true,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Backtesting Session->Paper Trading Session->Forward Testing Session->Live Trading Session->"
+        },
         "chainAttachesTo": {
             "compatibleTypes": "->Dashboard->Template Structure->"
         },
@@ -12572,7 +12583,7 @@
                 "name": "timelineCharts",
                 "type": "array",
                 "childType": "Timeline Chart",
-                "autoAdd": true
+                "autoAdd": false
             }
         ]
     },
@@ -12787,8 +12798,8 @@
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
-                "action": "Add All Data Mine Layers",
-                "label": "Add All Data Mine Layers",
+                "action": "Add All Mine Layers",
+                "label": "Add All Mine Layers",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Proceed",
                 "workDoneLabel": "Done",
@@ -13664,6 +13675,15 @@
                 "action": "Add UI Object",
                 "label": "Add Single Market Data",
                 "relatedUiObject": "Single Market Data",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add Missing Single Market Datas",
+                "label": "Add Missing Single Market Datas",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Session Reference",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {

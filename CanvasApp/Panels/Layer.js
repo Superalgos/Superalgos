@@ -161,8 +161,8 @@ function newLayer() {
                 '->Layer->' +
                 'Data Product->' +
                 'Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->' +
-                'Bot Products->Data Mine Products->' +
-                'Single Market Data->Exchange Data Products->' +
+                'Bot Products->Data Mine Products->Trading Mine Products->' +
+                'Single Market Data->Single Market Trading Data->Exchange Data Products->' +
                 'Session Reference->Session Independent Data->Session Based Data->Exchange Sessions->Session Based Data->Data Storage->Network Node->' +
                 'Data Storage->Network Node->' +
                 'Backtesting Session->Paper Trading Session->Fordward Testing Session->Live Trading Session->' +
@@ -205,49 +205,49 @@ function newLayer() {
             }
 
             /* Here we validate that we have all the needed information */
-            if (findNodeInNodeMesh(thisObject.definition, 'Data Product', false, true, true, true) === undefined) {
+            if (findNodeInNodeMesh(thisObject.definition, 'Data Product', undefined, false, true, true, true) === undefined) {
                 thisObject.payload.uiObject.setErrorMessage('Data Product not Found')
                 return
             }
-            if (findNodeInNodeMesh(thisObject.definition, 'Market', false, true, true, true) === undefined) {
+            if (findNodeInNodeMesh(thisObject.definition, 'Market', undefined, false, true, true, true) === undefined) {
                 thisObject.payload.uiObject.setErrorMessage('Market not Found')
                 return
             }
 
-            thisObject.productDefinition = findNodeInNodeMesh(thisObject.definition, 'Product Definition', false, true, true, true)
+            thisObject.productDefinition = findNodeInNodeMesh(thisObject.definition, 'Product Definition', undefined, false, true, true, true)
             if (thisObject.productDefinition === undefined) {
                 thisObject.payload.uiObject.setErrorMessage('Product Definition not Found')
                 return
             }
 
-            thisObject.bot = findNodeInNodeMesh(thisObject.definition, 'Sensor Bot', false, true, true, true)
+            thisObject.bot = findNodeInNodeMesh(thisObject.definition, 'Sensor Bot', undefined, false, true, true, true)
             if (thisObject.bot === undefined) {
-                thisObject.bot = findNodeInNodeMesh(thisObject.definition, 'Indicator Bot', false, true, true, true)
+                thisObject.bot = findNodeInNodeMesh(thisObject.definition, 'Indicator Bot', undefined, false, true, true, true)
             }
             if (thisObject.bot === undefined) {
-                thisObject.bot = findNodeInNodeMesh(thisObject.definition, 'Trading Bot', false, true, true, true)
+                thisObject.bot = findNodeInNodeMesh(thisObject.definition, 'Trading Bot', undefined, false, true, true, true)
             }
             if (thisObject.bot === undefined) {
                 thisObject.payload.uiObject.setErrorMessage('Bot not Found')
                 return
             }
 
-            thisObject.dataMine = findNodeInNodeMesh(thisObject.definition, 'Data Mine', false, true, true, true)
+            thisObject.dataMine = findNodeInNodeMesh(thisObject.definition, 'Data Mine', undefined, false, true, true, true)
             if (thisObject.dataMine === undefined) {
-                thisObject.dataMine = findNodeInNodeMesh(thisObject.definition, 'Trading Mine', false, true, true, true)
+                thisObject.dataMine = findNodeInNodeMesh(thisObject.definition, 'Trading Mine', undefined, false, true, true, true)
                 if (thisObject.dataMine === undefined) {
                     thisObject.payload.uiObject.setErrorMessage('Data Mine or Trading Mine not Found')
                     return
                 }
             }
 
-            thisObject.exchange = findNodeInNodeMesh(thisObject.definition, 'Crypto Exchange', false, true, true, true)
+            thisObject.exchange = findNodeInNodeMesh(thisObject.definition, 'Crypto Exchange', undefined, false, true, true, true)
             if (thisObject.exchange === undefined) {
                 thisObject.payload.uiObject.setErrorMessage('Crypto Exchange not Found')
                 return
             }
 
-            thisObject.baseAsset = findNodeInNodeMesh(thisObject.definition, 'Market Base Asset', false, true, true, true)
+            thisObject.baseAsset = findNodeInNodeMesh(thisObject.definition, 'Market Base Asset', undefined, false, true, true, true)
             if (thisObject.baseAsset !== undefined) {
                 thisObject.baseAsset = thisObject.baseAsset.referenceParent
             }
@@ -256,7 +256,7 @@ function newLayer() {
                 return
             }
 
-            thisObject.quotedAsset = findNodeInNodeMesh(thisObject.definition, 'Market Quoted Asset', false, true, true, true)
+            thisObject.quotedAsset = findNodeInNodeMesh(thisObject.definition, 'Market Quoted Asset', undefined, false, true, true, true)
             if (thisObject.quotedAsset !== undefined) {
                 thisObject.quotedAsset = thisObject.quotedAsset.referenceParent
             }
@@ -265,13 +265,13 @@ function newLayer() {
                 return
             }
 
-            thisObject.plotterModule = findNodeInNodeMesh(thisObject.definition, 'Plotter Module', false, true, true, true)
+            thisObject.plotterModule = findNodeInNodeMesh(thisObject.definition, 'Plotter Module', undefined, false, false, false, true)
             if (thisObject.plotterModule === undefined) {
-                thisObject.payload.uiObject.setErrorMessage('Market Quoted Asset not Found')
+                thisObject.payload.uiObject.setErrorMessage('Plotter Module not Found')
                 return
             }
 
-            thisObject.networkNode = findNodeInNodeMesh(thisObject.definition, 'Network Node', false, true, true, true)
+            thisObject.networkNode = findNodeInNodeMesh(thisObject.definition, 'Network Node', undefined, false, true, true, true)
             if (thisObject.networkNode === undefined) {
                 thisObject.payload.uiObject.setErrorMessage('Network Node not Found')
                 return

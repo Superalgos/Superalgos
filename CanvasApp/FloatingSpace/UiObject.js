@@ -309,6 +309,7 @@ function newUiObject() {
     function invisiblePhysics() {
         thisObject.menu.invisiblePhysics()
         childrenRunningPhysics()
+        thisObject.uiObjectTitle.physics()
     }
 
     function physics() {

@@ -2,8 +2,9 @@ function newDataStorageFunctions() {
     thisObject = {
         addAllDataProducts: addAllDataProducts,
         addAllDataMineProducts: addAllDataMineProducts,
-        addAllTradingMineProducts: addAllTradingMineProducts, 
-        addMissingSessionReferences: addMissingSessionReferences
+        addAllTradingMineProducts: addAllTradingMineProducts,
+        addMissingSessionReferences: addMissingSessionReferences,
+        addMissingAddMissingSingleMarketDatas: addMissingAddMissingSingleMarketDatas
     }
 
     return thisObject
@@ -34,12 +35,13 @@ function newDataStorageFunctions() {
         scanBotArray(mine.tradingBots)
 
         function scanBotArray(botArray) {
-            if (botArray === undefined) {return}
+            if (botArray === undefined) { return }
 
             for (let i = 0; i < botArray.length; i++) {
                 let bot = botArray[i]
                 let botProducts = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Bot Products')
                 botProducts.name = bot.name
+                botProducts.payload.floatingObject.collapseToggle()
 
                 asymetricalFolderStructureCloning(
                     bot,
@@ -79,8 +81,8 @@ function newDataStorageFunctions() {
     }
 
     function addMissingSessionReferences(node, rootNodes, functionLibraryUiObjectsFromNodes) {
-        let networkNode = findNodeInNodeMesh(node, 'Network Node', true, false, true, false)
-        if (networkNode === undefined) {return}
+        let networkNode = findNodeInNodeMesh(node, 'Network Node', undefined, true, false, true, false)
+        if (networkNode === undefined) { return }
 
         let backtestingSessionsArray = nodeBranchToArray(networkNode, 'Backtesting Session')
         let fordwardTestingSessionsArray = nodeBranchToArray(networkNode, 'Fordward Testing Session')
@@ -102,9 +104,25 @@ function newDataStorageFunctions() {
                     Now I will connect the Session Reference child that is auto created with the market 
                     where the Session was found.
                     */
-                    let marketTradingTasks = findNodeInNodeMesh(session, 'Market Trading Tasks', true, false, true, false)
+                    let marketTradingTasks = findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
                     sessionReference.singleMarketTradingData.payload.referenceParent = marketTradingTasks.payload.referenceParent
+                    timelineChart.payload.floatingObject.collapseToggle()
+                    timelineChart.singleMarketTradingData.payload.floatingObject.collapseToggle()
                 }
+            }
+        }
+    }
+
+    function addMissingAddMissingSingleMarketDatas(node, rootNodes, functionLibraryUiObjectsFromNodes) {
+        if (node.payload.referenceParent === undefined) { return }
+        if (node.payload.referenceParent.exchangeMarkets === undefined) { return }
+        let marketsArray = node.payload.referenceParent.exchangeMarkets.markets
+
+        for (let i = 0; i < marketsArray.length; i++) {
+            let market = marketsArray[i]
+            if (isMissingChildren(node, market, true) === true) {
+                let singleMarketData = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Single Market Data')
+                singleMarketData.payload.referenceParent = market
             }
         }
     }

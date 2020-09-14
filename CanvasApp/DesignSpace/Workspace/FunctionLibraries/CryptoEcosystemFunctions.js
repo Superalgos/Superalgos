@@ -1,4 +1,4 @@
-function newCCXTFunctions() {
+function newCryptoEcosystemFunctions() {
     thisObject = {
         addMissingExchanges: addMissingExchanges,
         addMissingAssets: addMissingAssets,
@@ -129,7 +129,6 @@ function newCCXTFunctions() {
         if (node.payload.parentNode.exchangeAssets === undefined) { return }
         if (node.payload.parentNode.payload.parentNode === undefined) { return }
         if (node.payload.parentNode.payload.parentNode.payload.parentNode === undefined) { return }
-        if (node.payload.parentNode.payload.parentNode.payload.parentNode.superActions === undefined) { return }
 
         let currentAssets = new Map()
         let exchangeAssets = node.payload.parentNode.exchangeAssets
@@ -184,35 +183,18 @@ function newCCXTFunctions() {
                         newMarket.name = name
                         newMarket.config = '{ \n\"codeName\": \"' + name + '\"\n}'
                         newMarket.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
-                        newMarket.payload.floatingObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_050X
+                        newMarket.payload.floatingObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_100X
                         newMarket.payload.floatingObject.arrangementStyle = ARRANGEMENT_STYLE.CONCAVE
                         newMarket.baseAsset.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_45
                         newMarket.quotedAsset.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_45
                         newMarket.baseAsset.payload.floatingObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_100X
-                        newMarket.quotedAsset.payload.floatingObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_150X
+                        newMarket.quotedAsset.payload.floatingObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_100X
                         newMarket.baseAsset.payload.floatingObject.arrangementStyle = ARRANGEMENT_STYLE.CONCAVE
                         newMarket.quotedAsset.payload.floatingObject.arrangementStyle = ARRANGEMENT_STYLE.CONCAVE
                         newMarket.baseAsset.payload.referenceParent = baseAsset
                         newMarket.quotedAsset.payload.referenceParent = quotedAsset
 
                         currentMarkets.set(name, newMarket)
-
-                        let superActions = node.payload.parentNode.payload.parentNode.payload.parentNode.superActions
-
-                        for (let j = 0; j < superActions.superActions.length; j++) {
-                            let superAction = superActions.superActions[j]
-                            let clone = functionLibraryNodeCloning.getNodeClone(superAction)
-                            functionLibraryUiObjectsFromNodes.createUiObjectFromNode(clone, newMarket, newMarket)
-                            newMarket.superActions.push(clone)
-                            switch (j) {
-                                case 0:
-                                    clone.payload.floatingObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_025X
-                                    break
-                                case 1:
-                                    clone.payload.floatingObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_050X
-                                    break
-                            }
-                        }
                     }
                 }
             }

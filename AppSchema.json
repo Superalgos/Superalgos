@@ -11618,15 +11618,7 @@
                 "label": "Add Signals Providers",
                 "relatedUiObject": "Signals Providers",
                 "actionFunction": "payload.onMenuItemClick"
-            },
-            {
-                "action": "Add UI Object",
-                "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "superActions",
-                "label": "Add Super Actions",
-                "relatedUiObject": "Super Actions",
-                "actionFunction": "payload.onMenuItemClick"
-            }
+            } 
         ],
         "isHierarchyHead": true,
         "addLeftIcons": true,
@@ -11641,12 +11633,7 @@
                 "name": "signalsProviders",
                 "type": "array",
                 "childType": "Signals Providers"
-            },
-            {
-                "name": "superActions",
-                "type": "node",
-                "childType": "Super Actions"
-            }
+            } 
         ]
     },
     {
@@ -12149,12 +12136,6 @@
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
-                "action": "Add UI Object",
-                "label": "Add Super Action",
-                "relatedUiObject": "Super Action",
-                "actionFunction": "payload.onMenuItemClick"
-            },
-            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -12176,11 +12157,6 @@
                 "type": "node",
                 "childType": "Market Quoted Asset",
                 "autoAdd": true
-            },
-            {
-                "name": "superActions",
-                "type": "array",
-                "childType": "Super Action"
             }
         ],
         "addLeftIcons": true,
@@ -13366,7 +13342,7 @@
             },
             {
                 "action": "Add Missing Market Data Tasks",
-                "label": "Add Missing Market Data Tasks",
+                "label": "Add Missing Markets",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Proceed",
                 "workDoneLabel": "Done",
@@ -13438,7 +13414,7 @@
             },
             {
                 "action": "Add Missing Market Trading Tasks",
-                "label": "Add Missing Market Trading Tasks",
+                "label": "Add Missing Markets",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Proceed",
                 "workDoneLabel": "Done",
@@ -13510,7 +13486,7 @@
             },
             {
                 "action": "Add Missing Exchange Data Tasks",
-                "label": "Add Missing Exchange Data Tasks",
+                "label": "Add Missing Exchanges",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Proceed",
                 "workDoneLabel": "Done",
@@ -13573,7 +13549,7 @@
             },
             {
                 "action": "Add Missing Exchange Trading Tasks",
-                "label": "Add Missing Exchange Trading Tasks",
+                "label": "Add Missing Exchanges",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Proceed",
                 "workDoneLabel": "Done",
@@ -13636,7 +13612,7 @@
             },
             {
                 "action": "Add Missing Exchange Trading Tasks",
-                "label": "Add Missing Exchange Trading Tasks",
+                "label": "Add Missing Exchanges",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Proceed",
                 "workDoneLabel": "Done",
@@ -13678,12 +13654,12 @@
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
-                "action": "Add Missing Single Market Datas",
-                "label": "Add Missing Single Market Datas",
+                "action": "Add Missing Single Market Data",
+                "label": "Add Missing Markets",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Proceed",
                 "workDoneLabel": "Done",
-                "relatedUiObject": "Session Reference",
+                "relatedUiObject": "Single Market Data",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -13723,7 +13699,16 @@
         "menuItems": [
             {
                 "action": "Add UI Object",
-                "label": "Add Exchange",
+                "label": "Add Exchange Data Products",
+                "relatedUiObject": "Exchange Data Products",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add Missing Exchange Data Products",
+                "label": "Add Missing Exchanges",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
                 "relatedUiObject": "Exchange Data Products",
                 "actionFunction": "payload.onMenuItemClick"
             },
@@ -13807,6 +13792,15 @@
             {
                 "action": "Add UI Object",
                 "label": "Add Exchange Sessions",
+                "relatedUiObject": "Exchange Sessions",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add Missing Exchange Sessions",
+                "label": "Add Missing Exchanges",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
                 "relatedUiObject": "Exchange Sessions",
                 "actionFunction": "payload.onMenuItemClick"
             },

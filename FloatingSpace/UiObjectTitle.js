@@ -116,6 +116,14 @@ function newUiObjectTitle() {
                         }
                         break
                     }
+                    case 'Use Reference Parent Type': {
+                        let nodeToUse = thisObject.payload.node.payload.referenceParent
+                        if (nodeToUse !== undefined && nodeToUse.payload !== undefined) {
+                            thisObject.payload.title = thisObject.payload.title + separator + nodeToUse.type
+                            thisObject.payload.node.name = thisObject.payload.node.name + separator + nodeToUse.type
+                        }
+                        break
+                    }
                     case 'Use Reference Grandparent': {
                         let nodeToUse = thisObject.payload.node.payload.referenceParent
                         if (nodeToUse !== undefined && nodeToUse.payload !== undefined) {

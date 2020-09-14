@@ -165,7 +165,7 @@ function newLayer() {
                 'Single Market Data->Single Market Trading Data->Exchange Data Products->' +
                 'Session Reference->Session Independent Data->Session Based Data->Exchange Sessions->Session Based Data->Data Storage->Network Node->' +
                 'Data Storage->Network Node->' +
-                'Backtesting Session->Paper Trading Session->Fordward Testing Session->Live Trading Session->' +
+                'Backtesting Session->Paper Trading Session->Forward Testing Session->Live Trading Session->' +
                 'Trading System Reference->Trading Engine Reference->Trading System->Trading Engine->' +
                 'Market->Market Base Asset->Asset->' +
                 'Market Quoted Asset->Asset->' +

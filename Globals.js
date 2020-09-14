@@ -1,8 +1,6 @@
 
 /* User Interface Colors */
 
-const CANVAS_APP_NAME = 'Canvas App'
-
 const UI_COLOR = {
     DARK: "48, 48, 54",
     LIGHT: "234, 226, 222",

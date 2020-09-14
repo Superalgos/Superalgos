@@ -203,7 +203,6 @@ function newWorkspace() {
             return
         }
 
-        window.localStorage.setItem(CANVAS_APP_NAME + '.' + 'Workspace', textToSave)
         window.localStorage.setItem('Session Timestamp', sessionTimestamp)
 
         /* Validation Workspace has a name */

@@ -62,7 +62,7 @@ function newWorkspace() {
     let functionLibraryShortcutKeys = newShortcutKeys()
     let functionLibraryOnFocus = newOnFocus()
     let functionLibrarySuperScripts = newSuperScriptsFunctions()
-    let functionLibraryCCXTFunctions = newCCXTFunctions()
+    let functionLibraryCryptoEcosystemFunctions = newCryptoEcosystemFunctions()
     let functionLibraryWebhookFunctions = newWebhookFunctions()
     let functionLibraryDependenciesFilter = newDependenciesFilter()
     let functionLibraryNodePath = newNodePath()
@@ -687,17 +687,17 @@ function newWorkspace() {
                 break
             case 'Add Missing Crypto Exchanges':
                 {
-                    functionLibraryCCXTFunctions.addMissingExchanges(payload.node, functionLibraryUiObjectsFromNodes)
+                    functionLibraryCryptoEcosystemFunctions.addMissingExchanges(payload.node, functionLibraryUiObjectsFromNodes)
                 }
                 break
             case 'Add Missing Assets':
                 {
-                    functionLibraryCCXTFunctions.addMissingAssets(payload.node, functionLibraryUiObjectsFromNodes)
+                    functionLibraryCryptoEcosystemFunctions.addMissingAssets(payload.node, functionLibraryUiObjectsFromNodes)
                 }
                 break
             case 'Add Missing Markets':
                 {
-                    functionLibraryCCXTFunctions.addMissingMarkets(payload.node, functionLibraryUiObjectsFromNodes, functionLibraryNodeCloning)
+                    functionLibraryCryptoEcosystemFunctions.addMissingMarkets(payload.node, functionLibraryUiObjectsFromNodes, functionLibraryNodeCloning)
                 }
                 break
             case 'Add All Output Datasets':
@@ -728,11 +728,6 @@ function newWorkspace() {
             case 'Add Missing Single Market Data':
                 {
                     functionLibraryDataStorageFunctions.addMissingSingleMarketData(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
-                }
-                break
-            case 'Add Missing Single Market Trading Data':
-                {
-                    functionLibraryDataStorageFunctions.addMissingSingleMarketTradingData(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
                 }
                 break
             case 'Add Missing Exchange Sessions':

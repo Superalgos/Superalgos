@@ -1,4 +1,4 @@
-function newCCXTFunctions() {
+function newCryptoEcosystemFunctions() {
     thisObject = {
         addMissingExchanges: addMissingExchanges,
         addMissingAssets: addMissingAssets,

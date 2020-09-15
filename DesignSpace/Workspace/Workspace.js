@@ -770,6 +770,11 @@ function newWorkspace() {
                     functionLibraryChartingSpaceFunctions.addMissingTimeMachines(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
                 }
                 break
+            case 'Add Missing Dashboards':
+                {
+                    functionLibraryChartingSpaceFunctions.addMissingDashboards(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
+                }
+                break
             case 'Play Tutorial':
                 {
                     canvas.tutorialSpace.playTutorial(payload.node)

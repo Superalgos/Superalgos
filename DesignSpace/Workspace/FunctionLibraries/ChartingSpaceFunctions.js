@@ -1,6 +1,7 @@
 function newChartingSpaceFunctions() {
     thisObject = {
         addAllMineLayers: addAllMineLayers,
+        addMissingDashboards: addMissingDashboards,
         addMissingTimeMachines: addMissingTimeMachines
     }
 
@@ -64,6 +65,10 @@ function newChartingSpaceFunctions() {
     }
 
     function addMissingTimeMachines(node, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter) {
+        if (node.payload.referenceParent === undefined) {
+            node.payload.uiObject.setErrorMessage('This node needs to have a Reference Parent for this command tu run.')
+            return
+        }
 
         for (let i = 0; i < rootNodes.length; i++) {
             let rootNode = rootNodes[i]
@@ -89,6 +94,9 @@ function newChartingSpaceFunctions() {
             function scanSessionArray(sessionsArray) {
                 for (let i = 0; i < sessionsArray.length; i++) {
                     let session = sessionsArray[i]
+                    let environment = findNodeInNodeMesh(session, node.payload.referenceParent.type, undefined, true, false, true, false)
+                    if (environment === undefined) { continue }
+                    if (environment.id !== node.payload.referenceParent.id) { continue }
                     let market = findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
                     if (market.payload.referenceParent === undefined) { continue }
                     if (isMissingChildren(node, session, true) === true) {
@@ -97,7 +105,7 @@ function newChartingSpaceFunctions() {
                         timeMachine.payload.referenceParent = session
                         timeMachine.name = session.name + ' ' + session.type
                         timeMachine.payload.floatingObject.collapseToggle()
-
+                        timeMachine.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
                         /*
                         We need to create a Timeline Chart for each Data Mine Indicators.
                         */
@@ -178,6 +186,42 @@ function newChartingSpaceFunctions() {
                             }
                         }
                     }
+                }
+            }
+        }
+    }
+
+    function addMissingDashboards(node, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter) {
+        for (let i = 0; i < rootNodes.length; i++) {
+            let rootNode = rootNodes[i]
+            if (rootNode.type === 'Network') {
+                let network = rootNode
+                scanNetwork(network)
+            }
+        }
+
+        function scanNetwork(network) {
+            if (network === undefined) { return }
+
+            for (let j = 0; j < network.networkNodes.length; j++) {
+                let networkNode = network.networkNodes[j]
+                scanNetworkNode(networkNode)
+            }
+
+            function scanNetworkNode(networkNode) {
+                let testingEnvironment = findInBranch(networkNode, 'Testing Environment', node, true)
+                let productionEnvironment = findInBranch(networkNode, 'Production Environment', node, true)
+
+                if (isMissingChildren(node, testingEnvironment, true) === true) {
+                    let dashboard = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Dashboard')
+                    dashboard.payload.referenceParent = testingEnvironment
+                    dashboard.name = testingEnvironment.type + ' ' + networkNode.name
+                }
+
+                if (isMissingChildren(node, productionEnvironment, true) === true) {
+                    let dashboard = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Dashboard')
+                    dashboard.payload.referenceParent = productionEnvironment
+                    dashboard.name = productionEnvironment.type + ' ' + networkNode.name
                 }
             }
         }

@@ -214,6 +214,7 @@ function newCryptoEcosystemFunctions() {
             node.payload.uiObject.setErrorMessage('Market must be a descendant of a Crypto Exchange')
             return
         }
+        let environmentArray = []
 
         for (let i = 0; i < rootNodes.length; i++) {
             let rootNode = rootNodes[i]
@@ -241,7 +242,10 @@ function newCryptoEcosystemFunctions() {
                 Here we complete the missing stuff at Data Mining
                 */
                 let dataMining = findInBranch(networkNode, 'Data Mining', node, true)
-                if (dataMining === undefined) { return }
+                if (dataMining === undefined) {
+                    node.payload.uiObject.setErrorMessage('Data Mining node not found at Network Node ' + networkNode.name)
+                    return
+                }
 
                 let exchangeDataTasks = findOrCreateChildWithReference(dataMining, 'Exchange Data Tasks', cryptoExchange, functionLibraryUiObjectsFromNodes)
                 exchangeDataTasks.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
@@ -259,10 +263,19 @@ function newCryptoEcosystemFunctions() {
                 installEnvironment('Production Environment')
 
                 function installEnvironment(environment) {
-                    let tradingMining = findInBranch(networkNode, environment, node, true)
-                    if (tradingMining === undefined) { return }
+                    /*
+                    Now we install the environmnet at the current Network Node
+                    */
+                    let environmentFound = findInBranch(networkNode, environment, node, true)
+                    if (environmentFound === undefined) {
+                        node.payload.uiObject.setErrorMessage(environment + ' node not found at Network Node ' + networkNode.name)
+                        return
+                    }
 
-                    let exchangeTradingTasks = findOrCreateChildWithReference(tradingMining, 'Exchange Trading Tasks', cryptoExchange, functionLibraryUiObjectsFromNodes)
+                    /* This will be needed at the charging space, for creating Dashboards */
+                    environmentArray.push({ environmentNode: environmentFound, networkNode: networkNode})
+
+                    let exchangeTradingTasks = findOrCreateChildWithReference(environmentFound, 'Exchange Trading Tasks', cryptoExchange, functionLibraryUiObjectsFromNodes)
                     exchangeTradingTasks.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
                     let marketTradingTask = findAndRecreateChildWithReference(exchangeTradingTasks, 'Market Trading Tasks', market, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
 
@@ -273,7 +286,10 @@ function newCryptoEcosystemFunctions() {
                 Here we complete the missing stuff at Session Independent Data
                 */
                 let sessionIndependentData = findInBranch(networkNode, 'Session Independent Data', node, true)
-                if (sessionIndependentData === undefined) { return }
+                if (sessionIndependentData === undefined) {
+                    node.payload.uiObject.setErrorMessage('Session Independent Data node not found at Network Node ' + networkNode.name)
+                    return
+                }
 
                 let exchangeDataProducts = findOrCreateChildWithReference(sessionIndependentData, 'Exchange Data Products', cryptoExchange, functionLibraryUiObjectsFromNodes)
                 exchangeDataProducts.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
@@ -286,7 +302,10 @@ function newCryptoEcosystemFunctions() {
                 Finally we complete the missing stuff at Session Based Data
                 */
                 let sessionBasedData = findInBranch(networkNode, 'Session Based Data', node, true)
-                if (sessionBasedData === undefined) { return }
+                if (sessionBasedData === undefined) {
+                    node.payload.uiObject.setErrorMessage('Session Based Data node not found at Network Node ' + networkNode.name)
+                    return
+                }
 
                 let exchangeSessions = findOrCreateChildWithReference(sessionBasedData, 'Exchange Sessions', cryptoExchange, functionLibraryUiObjectsFromNodes)
                 exchangeSessions.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
@@ -303,12 +322,15 @@ function newCryptoEcosystemFunctions() {
         }
 
         function installInChartingSpace(chartingSpace) {
-            let dashboard = findNodeInNodeMesh(chartingSpace, undefined, 'Installed Charts', true, true, false, false)
-            if (dashboard === undefined) {
-                node.payload.uiObject.setErrorMessage('Could not find Dashboard named Installed Charts at the Charting Space.')
-                return
-            }
 
+            for (let i = 0; i < environmentArray.length; i++) {
+                let environment = environmentArray[i]
+                if (isMissingChildren(chartingSpace, environment.environmentNode, true) === true) {
+                    let dashboard = functionLibraryUiObjectsFromNodes.addUIObject(chartingSpace, 'Dashboard')
+                    dashboard.payload.referenceParent = environment.environmentNode
+                    dashboard.name = environment.environmentNode.type + ' ' + environment.networkNode.name
+                }
+            }
         }
     }
 

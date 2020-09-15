@@ -12425,6 +12425,15 @@
                 "label": "Add Dashboard",
                 "relatedUiObject": "Dashboard",
                 "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add Missing Dashboards",
+                "label": "Add Missing Dashboards",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Dashboard",
+                "actionFunction": "payload.onMenuItemClick"
             }
         ],
         "isHierarchyHead": true,
@@ -12474,6 +12483,9 @@
         ],
         "addLeftIcons": true,
         "level": 1,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Testing Environment->Production Environment->"
+        },
         "chainAttachesTo": {
             "compatibleTypes": "->Charting Space->"
         },

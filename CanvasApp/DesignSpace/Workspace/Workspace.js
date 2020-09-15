@@ -702,12 +702,12 @@ function newWorkspace() {
                 break
             case 'Install Market':
                 {
-                    functionLibraryCryptoEcosystemFunctions.installMarket(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
+                    functionLibraryCryptoEcosystemFunctions.installMarket(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter, functionLibraryChartingSpaceFunctions, functionLibraryDataStorageFunctions)
                 }
                 break
             case 'Uninstall Market':
                 {
-                    functionLibraryCryptoEcosystemFunctions.uninstallMarket(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
+                    functionLibraryCryptoEcosystemFunctions.uninstallMarket(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter, functionLibraryChartingSpaceFunctions, functionLibraryDataStorageFunctions)
                 }
                 break
             case 'Add All Output Datasets':
@@ -768,6 +768,11 @@ function newWorkspace() {
             case 'Add Missing Time Machines':
                 {
                     functionLibraryChartingSpaceFunctions.addMissingTimeMachines(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
+                }
+                break
+            case 'Add Missing Dashboards':
+                {
+                    functionLibraryChartingSpaceFunctions.addMissingDashboards(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
                 }
                 break
             case 'Play Tutorial':

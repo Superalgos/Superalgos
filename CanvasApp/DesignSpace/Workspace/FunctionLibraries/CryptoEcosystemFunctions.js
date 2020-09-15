@@ -206,7 +206,7 @@ function newCryptoEcosystemFunctions() {
         }
     }
 
-    function installMarket(node, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter) {
+    function installMarket(node, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter, functionLibraryChartingSpaceFunctions, functionLibraryDataStorageFunctions) {
 
         let market = node
         let cryptoExchange = findNodeInNodeMesh(node, 'Crypto Exchange', undefined, true, false, true, false)
@@ -214,6 +214,7 @@ function newCryptoEcosystemFunctions() {
             node.payload.uiObject.setErrorMessage('Market must be a descendant of a Crypto Exchange')
             return
         }
+        let dashboardsArray = []
 
         for (let i = 0; i < rootNodes.length; i++) {
             let rootNode = rootNodes[i]
@@ -222,73 +223,179 @@ function newCryptoEcosystemFunctions() {
             }
         }
 
-        function installInNetwork(network) {
-            /*
-            Here we complete the missing stuff at Data Mining
-            */
-            let dataMining = findInBranch(network, 'Data Mining', node, true)
-            if (dataMining === undefined) { return }
-
-            let exchangeDataTasks = findOrCreateChildWithReference(dataMining, 'Exchange Data Tasks', cryptoExchange, functionLibraryUiObjectsFromNodes)
-            exchangeDataTasks.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
-            let marketDataTask = findAndRecreateChildWithReference(exchangeDataTasks, 'Market Data Tasks', market, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
-
-            menuClick(marketDataTask, 'Add Missing Data Mine Tasks', true)
-            menuClickOfNodeArray(marketDataTask.dataMineTasks, 'Add All Tasks', true)
-            /*
-            Next we complete the missing stuff at Testing Environment
-            */
-            installEnvironment('Testing Environment')
-            /*
-            Next we complete the missing stuff at Production Environment
-            */
-            installEnvironment('Production Environment')
-
-            function installEnvironment(environment) {
-                let tradingMining = findInBranch(network, environment, node, true)
-                if (tradingMining === undefined) { return }
-
-                let exchangeTradingTasks = findOrCreateChildWithReference(tradingMining, 'Exchange Trading Tasks', cryptoExchange, functionLibraryUiObjectsFromNodes)
-                exchangeTradingTasks.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
-                let marketTradingTask = findAndRecreateChildWithReference(exchangeTradingTasks, 'Market Trading Tasks', market, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
-
-                menuClick(marketTradingTask, 'Add Missing Trading Mine Tasks', true)
-                menuClickOfNodeArray(marketTradingTask.tradingMineTasks, 'Add All Tasks', true)
+        for (let i = 0; i < rootNodes.length; i++) {
+            let rootNode = rootNodes[i]
+            if (rootNode.type === 'Charting Space') {
+                installInChartingSpace(rootNode)
             }
-            /*
-            Here we complete the missing stuff at Session Independent Data
-            */
-            let sessionIndependentData = findInBranch(network, 'Session Independent Data', node, true)
-            if (sessionIndependentData === undefined) { return }
+        }
 
-            let exchangeDataProducts = findOrCreateChildWithReference(sessionIndependentData, 'Exchange Data Products', cryptoExchange, functionLibraryUiObjectsFromNodes)
-            exchangeDataProducts.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
-            let singleMarketData = findAndRecreateChildWithReference(exchangeDataProducts, 'Single Market Data', market, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
-            singleMarketData.payload.floatingObject.collapseToggle()
+        function installInNetwork(network) {
 
-            menuClick(singleMarketData, 'Add All Data Mine Products', true)
-            menuClickOfNodeArray(singleMarketData.dataMineProducts, 'Add All Data Products', true)
-            /*
-            Finally we complete the missing stuff at Session Based Data
-            */
-            let sessionBasedData = findInBranch(network, 'Session Based Data', node, true)
-            if (sessionBasedData === undefined) { return }
+            for (let j = 0; j < network.networkNodes.length; j++) {
+                let networkNode = network.networkNodes[j]
+                installInNetworkNode(networkNode)
+            }
 
-            let exchangeSessions = findOrCreateChildWithReference(sessionBasedData, 'Exchange Sessions', cryptoExchange, functionLibraryUiObjectsFromNodes)
-            exchangeSessions.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+            function installInNetworkNode(networkNode) {
+                /*
+                Here we complete the missing stuff at Data Mining
+                */
+                let dataMining = findInBranch(networkNode, 'Data Mining', node, true)
+                if (dataMining === undefined) {
+                    node.payload.uiObject.setErrorMessage('Data Mining node not found at Network Node ' + networkNode.name)
+                    return
+                }
 
-            menuClick(exchangeSessions, 'Add Missing Session References', true)
+                let exchangeDataTasks = findOrCreateChildWithReference(dataMining, 'Exchange Data Tasks', cryptoExchange, functionLibraryUiObjectsFromNodes)
+                exchangeDataTasks.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+                let marketDataTask = findAndRecreateChildWithReference(exchangeDataTasks, 'Market Data Tasks', market, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
 
-            for (let j = 0; j < exchangeSessions.sessionReferences.length; j++) {
-                sessionReference = exchangeSessions.sessionReferences[j]
-                menuClick(sessionReference.singleMarketTradingData, 'Add All Trading Mine Products', true)
-                menuClickOfNodeArray(sessionReference.singleMarketTradingData.tradingMineProducts, 'Add All Data Products', true)
-                sessionReference.singleMarketTradingData.payload.floatingObject.collapseToggle()
+                menuClick(marketDataTask, 'Add Missing Data Mine Tasks', true)
+                menuClickOfNodeArray(marketDataTask.dataMineTasks, 'Add All Tasks', true)
+
+                let sessionsCreatedArray = []
+                /*
+                Next we complete the missing stuff at Testing Environment
+                */
+                installEnvironment('Testing Environment')
+                /*
+                Next we complete the missing stuff at Production Environment
+                */
+                installEnvironment('Production Environment')
+
+                function installEnvironment(environment) {
+                    /*
+                    Now we install the environmnet at the current Network Node
+                    */
+                    let environmentFound = findInBranch(networkNode, environment, node, true)
+                    if (environmentFound === undefined) {
+                        node.payload.uiObject.setErrorMessage(environment + ' node not found at Network Node ' + networkNode.name)
+                        return
+                    }
+
+                    let exchangeTradingTasks = findOrCreateChildWithReference(environmentFound, 'Exchange Trading Tasks', cryptoExchange, functionLibraryUiObjectsFromNodes)
+                    exchangeTradingTasks.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+                    let marketTradingTask = findAndRecreateChildWithReference(exchangeTradingTasks, 'Market Trading Tasks', market, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
+
+                    menuClick(marketTradingTask, 'Add Missing Trading Mine Tasks', true)
+                    menuClickOfNodeArray(marketTradingTask.tradingMineTasks, 'Add All Tasks', true)
+
+                    /* This will be needed at the charging space, for creating Dashboards */
+                    let backtestingSessionsArray = nodeBranchToArray(marketTradingTask, 'Backtesting Session')
+                    let liveTradingSessionsArray = nodeBranchToArray(marketTradingTask, 'Live Trading Session')
+                    let allSessionsArray = backtestingSessionsArray.concat(liveTradingSessionsArray)
+                    sessionsCreatedArray = sessionsCreatedArray.concat(allSessionsArray)
+
+                    dashboardsArray.push({ environmentNode: environmentFound, networkNode: networkNode, sessionsArray: allSessionsArray })
+                }
+                /*
+                Here we complete the missing stuff at Session Independent Data
+                */
+                let sessionIndependentData = findInBranch(networkNode, 'Session Independent Data', node, true)
+                if (sessionIndependentData === undefined) {
+                    node.payload.uiObject.setErrorMessage('Session Independent Data node not found at Network Node ' + networkNode.name)
+                    return
+                }
+
+                let exchangeDataProducts = findOrCreateChildWithReference(sessionIndependentData, 'Exchange Data Products', cryptoExchange, functionLibraryUiObjectsFromNodes)
+                exchangeDataProducts.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+                let singleMarketData = findAndRecreateChildWithReference(exchangeDataProducts, 'Single Market Data', market, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
+                singleMarketData.payload.floatingObject.collapseToggle()
+
+                menuClick(singleMarketData, 'Add All Data Mine Products', true)
+                menuClickOfNodeArray(singleMarketData.dataMineProducts, 'Add All Data Products', true)
+                /*
+                Finally we complete the missing stuff at Session Based Data
+                */
+                let sessionBasedData = findInBranch(networkNode, 'Session Based Data', node, true)
+                if (sessionBasedData === undefined) {
+                    node.payload.uiObject.setErrorMessage('Session Based Data node not found at Network Node ' + networkNode.name)
+                    return
+                }
+
+                let exchangeSessions = findOrCreateChildWithReference(sessionBasedData, 'Exchange Sessions', cryptoExchange, functionLibraryUiObjectsFromNodes)
+                exchangeSessions.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+                /*
+                We need to delete all the session references related to the market we are installing.
+                We make a copy of the array so that if we need to delete some nodes it does not 
+                affect the loop evaluating the nodes.
+                */
+                let sessionReferencesArray = []
+                for (let i = 0; i < exchangeSessions.sessionReferences.length; i++) {
+                    sessionReference = exchangeSessions.sessionReferences[i]
+                    sessionReferencesArray.push(sessionReference)
+                }
+                for (let i = 0; i < sessionReferencesArray.length; i++) {
+                    sessionReference = sessionReferencesArray[i]
+                    if (sessionReference.singleMarketTradingData === undefined) { continue }
+                    if (sessionReference.singleMarketTradingData.payload.referenceParent === undefined) { continue }
+                    if (sessionReference.singleMarketTradingData.payload.referenceParent.id === node.id) {
+                        functionLibraryNodeDeleter.deleteUIObject(sessionReference, rootNodes)
+                    }
+                }
+                /*
+                Create the new session references.
+                */
+                for (let i = 0; i < sessionsCreatedArray.length; i++) {
+                    let session = sessionsCreatedArray[i]
+                    if (isMissingChildren(exchangeSessions, session, true) === true) {
+                        functionLibraryDataStorageFunctions.createSessionReference(exchangeSessions, session, functionLibraryUiObjectsFromNodes)
+                    }
+                }
+                /*
+                Create everything inside the session references.
+                */
+                for (let j = 0; j < exchangeSessions.sessionReferences.length; j++) {
+                    sessionReference = exchangeSessions.sessionReferences[j]
+                    menuClick(sessionReference.singleMarketTradingData, 'Add All Trading Mine Products', true)
+                    menuClickOfNodeArray(sessionReference.singleMarketTradingData.tradingMineProducts, 'Add All Data Products', true)
+                    sessionReference.singleMarketTradingData.payload.floatingObject.collapseToggle()
+                }
+            }
+        }
+
+        function installInChartingSpace(chartingSpace) {
+
+            for (let i = 0; i < dashboardsArray.length; i++) {
+                /*
+                If the Dashboard we need is not already there we create a new one. 
+                */
+                let arrayItem = dashboardsArray[i]
+                let dashboard = findOrCreateChildWithReference(chartingSpace, 'Dashboard', arrayItem.environmentNode, functionLibraryUiObjectsFromNodes)
+                dashboard.name = arrayItem.environmentNode.type + ' ' + arrayItem.networkNode.name
+                /*
+                We delete all the existing Time Machines related to the market we are currently installing. 
+                For that, we make a new array with the existing Time Machines so that the deleting
+                of each node does not affect the proccessing of the whole set.
+                */
+                let timeMachines = []
+                for (let i = 0; i < dashboard.timeMachines.length; i++) {
+                    let timeMachine = dashboard.timeMachines[i]
+                    timeMachines.push(timeMachine)
+                }
+                for (let i = 0; i < timeMachines.length; i++) {
+                    let timeMachine = timeMachines[i]
+                    let session = timeMachine.payload.referenceParent
+                    if (session === undefined) {continue}
+                    let marketTradingTasks = findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
+                    if (marketTradingTasks.payload.referenceParent === undefined) {continue}
+                    if (marketTradingTasks.payload.referenceParent.id === market.id) {
+                        functionLibraryNodeDeleter.deleteUIObject(timeMachine, rootNodes)
+                    }
+                }
+                /*
+                We create a time machine for each session added during the previous processing. 
+                */
+                for (let j = 0; j < arrayItem.sessionsArray.length; j++) {
+                    let session = arrayItem.sessionsArray[j]
+                    functionLibraryChartingSpaceFunctions.createTimeMachine(dashboard, session, node, arrayItem.networkNode, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
+                }
             }
         }
     }
 
-    function uninstallMarket(node, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter) {
+    function uninstallMarket(node, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter, functionLibraryChartingSpaceFunctions, functionLibraryDataStorageFunctions) {
 
     }
 }

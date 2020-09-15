@@ -377,9 +377,19 @@ function newCryptoEcosystemFunctions() {
                 for (let i = 0; i < timeMachines.length; i++) {
                     let timeMachine = timeMachines[i]
                     let session = timeMachine.payload.referenceParent
-                    if (session === undefined) {continue}
+                    if (session === undefined) {
+                        /* 
+                        This is what usually happens, that the intall process make these 
+                        time machines to lose their reference parent since the install
+                        process deletes them.
+                        */
+                        functionLibraryNodeDeleter.deleteUIObject(timeMachine, rootNodes)
+                        continue
+                    }
                     let marketTradingTasks = findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
-                    if (marketTradingTasks.payload.referenceParent === undefined) {continue}
+                    if (marketTradingTasks === undefined) {continue}
+                    if (marketTradingTasks.payload === undefined) {continue}
+                    if (marketTradingTasks.payload.referenceParent === undefined) { continue }
                     if (marketTradingTasks.payload.referenceParent.id === market.id) {
                         functionLibraryNodeDeleter.deleteUIObject(timeMachine, rootNodes)
                     }

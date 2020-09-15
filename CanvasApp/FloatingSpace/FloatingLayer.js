@@ -207,6 +207,7 @@ function newFloatingLayer() {
     }
 
     function makeVisible() {
+        let newInvisibleArray = []
         for (let i = 0; i < invisibleFloatingObjects.length; i++) {
             let floatingObject = invisibleFloatingObjects[i]
 
@@ -214,14 +215,15 @@ function newFloatingLayer() {
 
             if (floatingObject.isParentCollapsed === false) {
                 visibleFloatingObjects.push(floatingObject)
-                invisibleFloatingObjects.splice(i, 1)  // Delete item from array.
-                makeVisible()
-                return                     // Only one at the time.
+            } else {
+                newInvisibleArray.push(floatingObject)
             }
         }
+        invisibleFloatingObjects = newInvisibleArray
     }
 
     function makeInvisible() {
+        let newVisibleArray = []
         for (let i = 0; i < visibleFloatingObjects.length; i++) {
             let floatingObject = visibleFloatingObjects[i]
 
@@ -229,11 +231,11 @@ function newFloatingLayer() {
 
             if (floatingObject.isParentCollapsed === true) {
                 invisibleFloatingObjects.push(floatingObject)
-                visibleFloatingObjects.splice(i, 1)  // Delete item from array.
-                makeInvisible()
-                return                     // Only one at the time.
+            } else {
+                newVisibleArray.push(floatingObject)
             }
         }
+        visibleFloatingObjects = newVisibleArray
     }
 
     /******************************************/

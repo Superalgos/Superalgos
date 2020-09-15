@@ -43,4 +43,15 @@ function nodeBranchToArray(node, nodeType) {
     }
 }
 
-
+function findInBranch(startingNode, nodeType, errorNode, connectedViaPayload) {
+    /*
+    This function finds a node in a brach and reports an error if it could not be found.
+    */
+    let nodeFound = findNodeInNodeMesh(startingNode, nodeType, undefined, connectedViaPayload, true, false, false)
+    if (nodeFound === undefined) {
+        errorNode.payload.uiObject.setErrorMessage('Could not find ' + nodeType + ' at ' + startingNode.type + ' ' + startingNode.name)
+        return
+    } else {
+        return nodeFound
+    }
+}

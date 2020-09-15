@@ -2,7 +2,9 @@ function newCryptoEcosystemFunctions() {
     thisObject = {
         addMissingExchanges: addMissingExchanges,
         addMissingAssets: addMissingAssets,
-        addMissingMarkets: addMissingMarkets
+        addMissingMarkets: addMissingMarkets,
+        installMarket: installMarket,
+        uninstallMarket: uninstallMarket
     }
 
     return thisObject
@@ -202,5 +204,53 @@ function newCryptoEcosystemFunctions() {
             node.payload.uiObject.setErrorMessage('Failed to Fetch Assets from the Exchange')
             console.log(err.stack)
         }
+    }
+
+    function installMarket(node, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter) {
+
+        let market = node
+        let cryptoExchange = findNodeInNodeMesh(node, 'Crypto Exchange', undefined, true, false, true, false)
+        if (cryptoExchange === undefined) {
+            node.payload.uiObject.setErrorMessage('Market must be a descendant of a Crypto Exchange')
+            return
+        }
+
+        for (let i = 0; i < rootNodes.length; i++) {
+            let rootNode = rootNodes[i]
+            if (rootNode.type === 'Network') {
+                installInNetwork(rootNode)
+            }
+        }
+
+        function installInNetwork(network) {
+            /*
+            Here we complete the missing stuff at Data Mining
+            */
+            let dataMining = findInBranch(network, 'Data Mining', node, true)
+            if (dataMining === undefined) { return }
+
+            let exchangeDataTasks = findOrCreateChildWithReference(dataMining, 'Exchange Data Tasks', cryptoExchange, functionLibraryUiObjectsFromNodes)
+            exchangeDataTasks.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+            let marketDataTask = findAndRecreateChildWithReference(exchangeDataTasks, 'Market Data Tasks', market, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
+
+            menuClick(marketDataTask, 'Add Missing Data Mine Tasks', true)
+            menuClickOfNodeArray(marketDataTask.dataMineTasks, 'Add All Tasks', true)
+            /*
+            Here we complete the missing stuff at Session Independent Data
+            */
+            let sessionIndependentData = findInBranch(network, 'Session Independent Data', node, true)
+            if (sessionIndependentData === undefined) { return }
+
+            let exchangeDataProducts = findOrCreateChildWithReference(sessionIndependentData, 'Exchange Data Products', cryptoExchange, functionLibraryUiObjectsFromNodes)
+            exchangeDataProducts.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+            let singleMarketData = findAndRecreateChildWithReference(exchangeDataProducts, 'Single Market Data', market, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
+
+            menuClick(singleMarketData, 'Add All Data Mine Products', true)
+            menuClickOfNodeArray(singleMarketData.dataMineProducts, 'Add All Data Products', true)
+        }
+    }
+
+    function uninstallMarket(node, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter) {
+
     }
 }

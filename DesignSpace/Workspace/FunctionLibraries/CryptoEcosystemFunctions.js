@@ -321,7 +321,7 @@ function newCryptoEcosystemFunctions() {
                 We make a copy of the array so that if we need to delete some nodes it does not 
                 affect the loop evaluating the nodes.
                 */
-               let sessionReferencesArray = []
+                let sessionReferencesArray = []
                 for (let i = 0; i < exchangeSessions.sessionReferences.length; i++) {
                     sessionReference = exchangeSessions.sessionReferences[i]
                     sessionReferencesArray.push(sessionReference)
@@ -358,10 +358,35 @@ function newCryptoEcosystemFunctions() {
         function installInChartingSpace(chartingSpace) {
 
             for (let i = 0; i < dashboardsArray.length; i++) {
+                /*
+                If the Dashboard we need is not already there we create a new one. 
+                */
                 let arrayItem = dashboardsArray[i]
                 let dashboard = findOrCreateChildWithReference(chartingSpace, 'Dashboard', arrayItem.environmentNode, functionLibraryUiObjectsFromNodes)
                 dashboard.name = arrayItem.environmentNode.type + ' ' + arrayItem.networkNode.name
-
+                /*
+                We delete all the existing Time Machines related to the market we are currently installing. 
+                For that, we make a new array with the existing Time Machines so that the deleting
+                of each node does not affect the proccessing of the whole set.
+                */
+                let timeMachines = []
+                for (let i = 0; i < dashboard.timeMachines.length; i++) {
+                    let timeMachine = dashboard.timeMachines[i]
+                    timeMachines.push(timeMachine)
+                }
+                for (let i = 0; i < timeMachines.length; i++) {
+                    let timeMachine = timeMachines[i]
+                    let session = timeMachine.payload.referenceParent
+                    if (session === undefined) {continue}
+                    let marketTradingTasks = findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
+                    if (marketTradingTasks.payload.referenceParent === undefined) {continue}
+                    if (marketTradingTasks.payload.referenceParent.id === market.id) {
+                        functionLibraryNodeDeleter.deleteUIObject(timeMachine, rootNodes)
+                    }
+                }
+                /*
+                We create a time machine for each session added during the previous processing. 
+                */
                 for (let j = 0; j < arrayItem.sessionsArray.length; j++) {
                     let session = arrayItem.sessionsArray[j]
                     functionLibraryChartingSpaceFunctions.createTimeMachine(dashboard, session, node, arrayItem.networkNode, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)

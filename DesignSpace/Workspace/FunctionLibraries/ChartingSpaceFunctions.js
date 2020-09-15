@@ -2,7 +2,8 @@ function newChartingSpaceFunctions() {
     thisObject = {
         addAllMineLayers: addAllMineLayers,
         addMissingDashboards: addMissingDashboards,
-        addMissingTimeMachines: addMissingTimeMachines
+        addMissingTimeMachines: addMissingTimeMachines,
+        createTimeMachine: createTimeMachine
     }
 
     return thisObject
@@ -100,92 +101,96 @@ function newChartingSpaceFunctions() {
                     let market = findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
                     if (market.payload.referenceParent === undefined) { continue }
                     if (isMissingChildren(node, session, true) === true) {
-                        let mineProducts
-                        let timeMachine = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Time Machine')
-                        timeMachine.payload.referenceParent = session
-                        timeMachine.name = session.name + ' ' + session.type
-                        timeMachine.payload.floatingObject.collapseToggle()
-                        timeMachine.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
-                        /*
-                        We need to create a Timeline Chart for each Data Mine Indicators.
-                        */
-                        mineProducts = nodeBranchToArray(networkNode, 'Data Mine Products')
-                        for (let j = 0; j < mineProducts.length; j++) {
-                            let mineProduct = mineProducts[j]
-                            /*
-                            We need to filter out the ones that do not belong to the market where 
-                            the session is running at. 
-                            */
-                            if (mineProduct.payload.parentNode.payload.referenceParent === undefined) { continue }
-                            if (mineProduct.payload.parentNode.payload.referenceParent.id !== market.payload.referenceParent.id) { continue }
-
-                            let timelineChart = functionLibraryUiObjectsFromNodes.addUIObject(timeMachine, 'Timeline Chart')
-                            timelineChart.name = mineProduct.name
-                            timelineChart.layersManager.payload.referenceParent = mineProduct
-                            timelineChart.payload.floatingObject.collapseToggle()
-                            timelineChart.layersManager.payload.floatingObject.collapseToggle()
-
-                            let menu = timelineChart.layersManager.payload.uiObject.menu
-                            menu.internalClick('Add All Mine Layers')
-                            menu.internalClick('Add All Mine Layers')
-                        }
-
-                        mineProducts = nodeBranchToArray(networkNode, 'Trading Mine Products')
-                        for (let j = 0; j < mineProducts.length; j++) {
-                            let mineProduct = mineProducts[j]
-                            /*
-                            The mine products found so far, belongs to any session. To filer all the sessions
-                            that are not the one we are interested in, we do the following:
-                            */
-                            if (mineProduct.payload.parentNode === undefined) { continue }
-                            if (mineProduct.payload.parentNode.payload.parentNode.payload.referenceParent === undefined) { continue }
-                            if (mineProduct.payload.parentNode.payload.parentNode.payload.referenceParent.id !== session.id) { continue }
-                            /*
-                            At the current version of Superalgos, beta 6, there is only one Trading Mine,
-                            with only one bot, and it has so many data products that we want to put them
-                            in 3 different timeline charts. So we will create 3 charts, connect them, 
-                            and delete from each one 1/3 of the layers. We do all that next:
-                            */
-
-                            for (let k = 0; k < 3; k++) {
-                                let timelineChart = functionLibraryUiObjectsFromNodes.addUIObject(timeMachine, 'Timeline Chart')
-
-                                timelineChart.layersManager.payload.referenceParent = mineProduct
-                                timelineChart.payload.floatingObject.collapseToggle()
-                                timelineChart.layersManager.payload.floatingObject.collapseToggle()
-
-                                let menu = timelineChart.layersManager.payload.uiObject.menu
-                                menu.internalClick('Add All Mine Layers')
-                                menu.internalClick('Add All Mine Layers')
-
-                                switch (k) {
-                                    case 0: {
-                                        timelineChart.name = 'Trading Engine'
-                                        deleteNodeByName('Trading System')
-                                        deleteNodeByName('Objects')
-                                        break
-                                    }
-                                    case 1: {
-                                        timelineChart.name = 'Trading System'
-                                        deleteNodeByName('Trading Engine')
-                                        deleteNodeByName('Objects')
-                                        break
-                                    }
-                                    case 2: {
-                                        timelineChart.name = 'Objects'
-                                        deleteNodeByName('Trading Engine')
-                                        deleteNodeByName('Trading System')
-                                        break
-                                    }
-                                }
-                                function deleteNodeByName(nodeName) {
-                                    let nodeToDelete = findNodeInNodeMesh(timelineChart.layersManager, undefined, nodeName, true, true, false, false)
-                                    if (nodeToDelete === undefined) { return }
-                                    functionLibraryNodeDeleter.deleteUIObject(nodeToDelete, rootNodes)
-                                }
-                            }
-                        }
+                        createTimeMachine(node, session, market.payload.referenceParent, networkNode, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
                     }
+                }
+            }
+        }
+    }
+
+    function createTimeMachine(dashboard, session, market, networkNode, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter) {
+        let mineProducts
+        let timeMachine = functionLibraryUiObjectsFromNodes.addUIObject(dashboard, 'Time Machine')
+        timeMachine.payload.referenceParent = session
+        timeMachine.name = session.name + ' ' + session.type
+        timeMachine.payload.floatingObject.collapseToggle()
+        timeMachine.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+        /*
+        We need to create a Timeline Chart for each Data Mine Indicators.
+        */
+        mineProducts = nodeBranchToArray(networkNode, 'Data Mine Products')
+        for (let j = 0; j < mineProducts.length; j++) {
+            let mineProduct = mineProducts[j]
+            /*
+            We need to filter out the ones that do not belong to the market where 
+            the session is running at. 
+            */
+            if (mineProduct.payload.parentNode.payload.referenceParent === undefined) { continue }
+            if (mineProduct.payload.parentNode.payload.referenceParent.id !== market.id) { continue }
+
+            let timelineChart = functionLibraryUiObjectsFromNodes.addUIObject(timeMachine, 'Timeline Chart')
+            timelineChart.name = mineProduct.name
+            timelineChart.layersManager.payload.referenceParent = mineProduct
+            timelineChart.payload.floatingObject.collapseToggle()
+            timelineChart.layersManager.payload.floatingObject.collapseToggle()
+
+            let menu = timelineChart.layersManager.payload.uiObject.menu
+            menu.internalClick('Add All Mine Layers')
+            menu.internalClick('Add All Mine Layers')
+        }
+
+        mineProducts = nodeBranchToArray(networkNode, 'Trading Mine Products')
+        for (let j = 0; j < mineProducts.length; j++) {
+            let mineProduct = mineProducts[j]
+            /*
+            The mine products found so far, belongs to any session. To filer all the sessions
+            that are not the one we are interested in, we do the following:
+            */
+            if (mineProduct.payload.parentNode === undefined) { continue }
+            if (mineProduct.payload.parentNode.payload.parentNode.payload.referenceParent === undefined) { continue }
+            if (mineProduct.payload.parentNode.payload.parentNode.payload.referenceParent.id !== session.id) { continue }
+            /*
+            At the current version of Superalgos, beta 6, there is only one Trading Mine,
+            with only one bot, and it has so many data products that we want to put them
+            in 3 different timeline charts. So we will create 3 charts, connect them, 
+            and delete from each one 1/3 of the layers. We do all that next:
+            */
+
+            for (let k = 0; k < 3; k++) {
+                let timelineChart = functionLibraryUiObjectsFromNodes.addUIObject(timeMachine, 'Timeline Chart')
+
+                timelineChart.layersManager.payload.referenceParent = mineProduct
+                timelineChart.payload.floatingObject.collapseToggle()
+                timelineChart.layersManager.payload.floatingObject.collapseToggle()
+
+                let menu = timelineChart.layersManager.payload.uiObject.menu
+                menu.internalClick('Add All Mine Layers')
+                menu.internalClick('Add All Mine Layers')
+
+                switch (k) {
+                    case 0: {
+                        timelineChart.name = 'Trading Engine'
+                        deleteNodeByName('Trading System')
+                        deleteNodeByName('Objects')
+                        break
+                    }
+                    case 1: {
+                        timelineChart.name = 'Trading System'
+                        deleteNodeByName('Trading Engine')
+                        deleteNodeByName('Objects')
+                        break
+                    }
+                    case 2: {
+                        timelineChart.name = 'Objects'
+                        deleteNodeByName('Trading Engine')
+                        deleteNodeByName('Trading System')
+                        break
+                    }
+                }
+                function deleteNodeByName(nodeName) {
+                    let nodeToDelete = findNodeInNodeMesh(timelineChart.layersManager, undefined, nodeName, true, true, false, false)
+                    if (nodeToDelete === undefined) { return }
+                    functionLibraryNodeDeleter.deleteUIObject(nodeToDelete, rootNodes)
                 }
             }
         }

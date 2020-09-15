@@ -274,6 +274,9 @@ function newFloatingObject() {
     }
 
     function invisiblePhysics() {
+        if (thisObject.payload === undefined) {return}
+        if (thisObject.payload.uiObject === undefined) {return}
+            
         if (thisObject.payload.uiObject !== undefined) {
             thisObject.payload.uiObject.invisiblePhysics()
         }
@@ -589,6 +592,9 @@ function newFloatingObject() {
     }
 
     function drawBackground() {
+        if (thisObject.payload === undefined) {return}
+        if (thisObject.payload.uiObject === undefined) {return}
+
         if (canvas.floatingSpace.isItFar(thisObject.payload) && thisObject.payload.uiObject.isShowing === false) { return }
         if ((thisObject.isCollapsed === true && thisObject.collapsedManually === false) || thisObject.isParentCollapsed === true) {
             if (thisObject.payload.uiObject.isShowing !== true) {
@@ -599,6 +605,9 @@ function newFloatingObject() {
     }
 
     function drawMiddleground() {
+        if (thisObject.payload === undefined) {return}
+        if (thisObject.payload.uiObject === undefined) {return}
+
         if (canvas.floatingSpace.isItFar(thisObject.payload) && thisObject.payload.uiObject.isShowing === false) { return }
         if ((thisObject.isCollapsed === true && thisObject.collapsedManually === false) || thisObject.isParentCollapsed === true) {
             if (thisObject.payload.uiObject.isShowing !== true) {
@@ -609,6 +618,9 @@ function newFloatingObject() {
     }
 
     function drawForeground() {
+        if (thisObject.payload === undefined) {return}
+        if (thisObject.payload.uiObject === undefined) {return}
+
         if (canvas.floatingSpace.isItFar(thisObject.payload) && thisObject.payload.uiObject.isShowing === false) { return }
         if ((thisObject.isCollapsed === true && thisObject.collapsedManually === false) || thisObject.isParentCollapsed === true) {
             if (thisObject.payload.uiObject.isShowing !== true) {
@@ -619,6 +631,9 @@ function newFloatingObject() {
     }
 
     function drawOnFocus() {
+        if (thisObject.payload === undefined) {return}
+        if (thisObject.payload.uiObject === undefined) {return}
+
         thisObject.payload.uiObject.drawOnFocus()
     }
 

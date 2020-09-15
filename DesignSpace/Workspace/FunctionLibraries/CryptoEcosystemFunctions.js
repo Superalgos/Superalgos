@@ -206,7 +206,7 @@ function newCryptoEcosystemFunctions() {
         }
     }
 
-    function installMarket(node, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter) {
+    function installMarket(node, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter, functionLibraryChartingSpaceFunctions, functionLibraryDataStorageFunctions) {
 
         let market = node
         let cryptoExchange = findNodeInNodeMesh(node, 'Crypto Exchange', undefined, true, false, true, false)
@@ -214,7 +214,7 @@ function newCryptoEcosystemFunctions() {
             node.payload.uiObject.setErrorMessage('Market must be a descendant of a Crypto Exchange')
             return
         }
-        let environmentArray = []
+        let dashboardsArray = []
 
         for (let i = 0; i < rootNodes.length; i++) {
             let rootNode = rootNodes[i]
@@ -253,6 +253,8 @@ function newCryptoEcosystemFunctions() {
 
                 menuClick(marketDataTask, 'Add Missing Data Mine Tasks', true)
                 menuClickOfNodeArray(marketDataTask.dataMineTasks, 'Add All Tasks', true)
+
+                let sessionsCreatedArray = []
                 /*
                 Next we complete the missing stuff at Testing Environment
                 */
@@ -272,15 +274,20 @@ function newCryptoEcosystemFunctions() {
                         return
                     }
 
-                    /* This will be needed at the charging space, for creating Dashboards */
-                    environmentArray.push({ environmentNode: environmentFound, networkNode: networkNode})
-
                     let exchangeTradingTasks = findOrCreateChildWithReference(environmentFound, 'Exchange Trading Tasks', cryptoExchange, functionLibraryUiObjectsFromNodes)
                     exchangeTradingTasks.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
                     let marketTradingTask = findAndRecreateChildWithReference(exchangeTradingTasks, 'Market Trading Tasks', market, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
 
                     menuClick(marketTradingTask, 'Add Missing Trading Mine Tasks', true)
                     menuClickOfNodeArray(marketTradingTask.tradingMineTasks, 'Add All Tasks', true)
+
+                    /* This will be needed at the charging space, for creating Dashboards */
+                    let backtestingSessionsArray = nodeBranchToArray(marketTradingTask, 'Backtesting Session')
+                    let liveTradingSessionsArray = nodeBranchToArray(marketTradingTask, 'Live Trading Session')
+                    let allSessionsArray = backtestingSessionsArray.concat(liveTradingSessionsArray)
+                    sessionsCreatedArray = sessionsCreatedArray.concat(allSessionsArray)
+
+                    dashboardsArray.push({ environmentNode: environmentFound, networkNode: networkNode, sessionsArray: allSessionsArray })
                 }
                 /*
                 Here we complete the missing stuff at Session Independent Data
@@ -309,9 +316,36 @@ function newCryptoEcosystemFunctions() {
 
                 let exchangeSessions = findOrCreateChildWithReference(sessionBasedData, 'Exchange Sessions', cryptoExchange, functionLibraryUiObjectsFromNodes)
                 exchangeSessions.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
-
-                menuClick(exchangeSessions, 'Add Missing Session References', true)
-
+                /*
+                We need to delete all the session references related to the market we are installing.
+                We make a copy of the array so that if we need to delete some nodes it does not 
+                affect the loop evaluating the nodes.
+                */
+               let sessionReferencesArray = []
+                for (let i = 0; i < exchangeSessions.sessionReferences.length; i++) {
+                    sessionReference = exchangeSessions.sessionReferences[i]
+                    sessionReferencesArray.push(sessionReference)
+                }
+                for (let i = 0; i < sessionReferencesArray.length; i++) {
+                    sessionReference = sessionReferencesArray[i]
+                    if (sessionReference.singleMarketTradingData === undefined) { continue }
+                    if (sessionReference.singleMarketTradingData.payload.referenceParent === undefined) { continue }
+                    if (sessionReference.singleMarketTradingData.payload.referenceParent.id === node.id) {
+                        functionLibraryNodeDeleter.deleteUIObject(sessionReference, rootNodes)
+                    }
+                }
+                /*
+                Create the new session references.
+                */
+                for (let i = 0; i < sessionsCreatedArray.length; i++) {
+                    let session = sessionsCreatedArray[i]
+                    if (isMissingChildren(exchangeSessions, session, true) === true) {
+                        functionLibraryDataStorageFunctions.createSessionReference(exchangeSessions, session, functionLibraryUiObjectsFromNodes)
+                    }
+                }
+                /*
+                Create everything inside the session references.
+                */
                 for (let j = 0; j < exchangeSessions.sessionReferences.length; j++) {
                     sessionReference = exchangeSessions.sessionReferences[j]
                     menuClick(sessionReference.singleMarketTradingData, 'Add All Trading Mine Products', true)
@@ -323,18 +357,20 @@ function newCryptoEcosystemFunctions() {
 
         function installInChartingSpace(chartingSpace) {
 
-            for (let i = 0; i < environmentArray.length; i++) {
-                let environment = environmentArray[i]
-                if (isMissingChildren(chartingSpace, environment.environmentNode, true) === true) {
-                    let dashboard = functionLibraryUiObjectsFromNodes.addUIObject(chartingSpace, 'Dashboard')
-                    dashboard.payload.referenceParent = environment.environmentNode
-                    dashboard.name = environment.environmentNode.type + ' ' + environment.networkNode.name
+            for (let i = 0; i < dashboardsArray.length; i++) {
+                let arrayItem = dashboardsArray[i]
+                let dashboard = findOrCreateChildWithReference(chartingSpace, 'Dashboard', arrayItem.environmentNode, functionLibraryUiObjectsFromNodes)
+                dashboard.name = arrayItem.environmentNode.type + ' ' + arrayItem.networkNode.name
+
+                for (let j = 0; j < arrayItem.sessionsArray.length; j++) {
+                    let session = arrayItem.sessionsArray[j]
+                    functionLibraryChartingSpaceFunctions.createTimeMachine(dashboard, session, node, arrayItem.networkNode, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
                 }
             }
         }
     }
 
-    function uninstallMarket(node, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter) {
+    function uninstallMarket(node, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter, functionLibraryChartingSpaceFunctions, functionLibraryDataStorageFunctions) {
 
     }
 }

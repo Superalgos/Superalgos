@@ -6,7 +6,8 @@ function newDataStorageFunctions() {
         addMissingSessionReferences: addMissingSessionReferences,
         addMissingSingleMarketData: addMissingSingleMarketData,
         addMissingExchangeSessions: addMissingExchangeSessions,
-        addMissingExchangeDataProducts: addMissingExchangeDataProducts
+        addMissingExchangeDataProducts: addMissingExchangeDataProducts, 
+        createSessionReference: createSessionReference
     }
 
     return thisObject
@@ -100,18 +101,22 @@ function newDataStorageFunctions() {
             for (let i = 0; i < sessionsArray.length; i++) {
                 let session = sessionsArray[i]
                 if (isMissingChildren(node, session, true) === true) {
-                    let sessionReference = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Session Reference')
-                    sessionReference.payload.referenceParent = session 
-                    /*
-                    Now I will connect the Session Reference child that is auto created with the market 
-                    where the Session was found.
-                    */
-                    let marketTradingTasks = findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
-                    sessionReference.singleMarketTradingData.payload.referenceParent = marketTradingTasks.payload.referenceParent
-                    marketTradingTasks.payload.floatingObject.collapseToggle()
+                    createSessionReference(node, session, functionLibraryUiObjectsFromNodes)
                 }
             }
         }
+    }
+
+    function createSessionReference(node, session, functionLibraryUiObjectsFromNodes) {
+        let sessionReference = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Session Reference')
+        sessionReference.payload.referenceParent = session
+        /*
+        Now I will connect the Session Reference child that is auto created with the market 
+        where the Session was found.
+        */
+        let marketTradingTasks = findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
+        sessionReference.singleMarketTradingData.payload.referenceParent = marketTradingTasks.payload.referenceParent
+        marketTradingTasks.payload.floatingObject.collapseToggle()
     }
 
     function addMissingSingleMarketData(node, rootNodes, functionLibraryUiObjectsFromNodes) {

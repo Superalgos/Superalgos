@@ -451,7 +451,8 @@ function newTaskFunctions() {
         if (node.payload.referenceParent === undefined) { return }
 
         let taskManager = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Task Manager')
-        taskManager.name = node.name
+        taskManager.name = node.payload.referenceParent.name
+        taskManager.payload.floatingObject.collapseToggle()
 
         switch (node.type) {
             case 'Data Mine Tasks': {

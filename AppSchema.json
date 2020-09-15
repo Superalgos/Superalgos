@@ -12135,6 +12135,24 @@
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
+                "action": "Install Market",
+                "label": "Install Market",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Market",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Uninstall Market",
+                "label": "Uninstall Market",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Market",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",

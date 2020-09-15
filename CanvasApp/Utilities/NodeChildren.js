@@ -59,3 +59,87 @@ function isMissingChildren(startingNode, checkNode, checkReferenceParent) {
         return true
     }
 }
+
+function findChildReferencingThisNode(startingNode, checkNode) {
+    /*
+    This functioin scan all the children of a node and returns the child
+    that is referencing the checkNode. 
+    */
+    if (startingNode === undefined) { return }
+    if (checkNode === undefined) { return }
+
+    let nodeDefinition = APP_SCHEMA_MAP.get(startingNode.type)
+    if (nodeDefinition === undefined) { return }
+
+    /* We scan through this node children */
+    if (nodeDefinition.properties !== undefined) {
+        for (let i = 0; i < nodeDefinition.properties.length; i++) {
+            let property = nodeDefinition.properties[i]
+
+            switch (property.type) {
+                case 'node': {
+                    let child = startingNode[property.name]
+
+                    if (child.payload !== undefined) {
+                        if (child.payload.referenceParent !== undefined) {
+                            if (child.payload.referenceParent.id === checkNode.id) {
+                                return child
+                            }
+                        }
+                    }
+                }
+                    break
+                case 'array': {
+                    let startingNodePropertyArray = startingNode[property.name]
+                    if (startingNodePropertyArray !== undefined) {
+                        for (let m = 0; m < startingNodePropertyArray.length; m++) {
+                            let arrayItem = startingNodePropertyArray[m]
+
+                            if (arrayItem.payload !== undefined) {
+                                if (arrayItem.payload.referenceParent !== undefined) {
+                                    if (arrayItem.payload.referenceParent.id === checkNode.id) {
+                                        return arrayItem
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    break
+                }
+            }
+        }
+        return true
+    }
+}
+
+function findOrCreateChildWithReference(startingNode, childType, referencedNode, functionLibraryUiObjectsFromNodes) {
+    /*
+    This function find the child node of starting node that references
+    refereced node. If there is none, then it creates a child and stablish
+    the referecen.
+    */
+    let child
+    if (isMissingChildren(startingNode, referencedNode, true) === true) {
+        child = functionLibraryUiObjectsFromNodes.addUIObject(startingNode, childType)
+        child.payload.referenceParent = referencedNode
+    } else {
+        child = findChildReferencingThisNode(startingNode, referencedNode)
+    }
+    return child
+}
+
+function findAndRecreateChildWithReference(startingNode, childType, referencedNode, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter) {
+    /* 
+    This function finds the child of the starting node that references
+    the reference node and if found it deletes it. Existing or not
+    it creates it again with the child type specified.
+    */
+    let child
+    child = findChildReferencingThisNode(startingNode, referencedNode)
+    if (child !== undefined) {
+        functionLibraryNodeDeleter.deleteUIObject(child, rootNodes)
+    }
+    child = functionLibraryUiObjectsFromNodes.addUIObject(startingNode, childType)
+    child.payload.referenceParent = referencedNode
+    return child
+}

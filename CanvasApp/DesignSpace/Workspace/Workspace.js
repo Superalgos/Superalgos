@@ -700,6 +700,16 @@ function newWorkspace() {
                     functionLibraryCryptoEcosystemFunctions.addMissingMarkets(payload.node, functionLibraryUiObjectsFromNodes, functionLibraryNodeCloning)
                 }
                 break
+            case 'Install Market':
+                {
+                    functionLibraryCryptoEcosystemFunctions.installMarket(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
+                }
+                break
+            case 'Uninstall Market':
+                {
+                    functionLibraryCryptoEcosystemFunctions.uninstallMarket(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
+                }
+                break
             case 'Add All Output Datasets':
                 {
                     functionLibraryDataMineFunctions.addAllOutputDatasets(payload.node, functionLibraryUiObjectsFromNodes)

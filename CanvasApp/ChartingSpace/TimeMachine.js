@@ -160,17 +160,13 @@ function newTimeMachine() {
     }
 
     function setInitialPosition() {
-        let centerOfScreenX = browserCanvas.width / 2 - browserCanvas.width / TIME_MACHINE_WIDTH / 2
-        let centerOfScreenY = browserCanvas.height / 2 - (browserCanvas.height - TOP_SPACE_HEIGHT - COCKPIT_SPACE_HEIGHT) / TIME_MACHINE_HEIGHT / 2
- 
+
         if (thisObject.container.frame.position.x === 0 && thisObject.container.frame.position.y === 0) {
             let timeMachineIndex = findChildIndexAtParentNode(thisObject.payload.node)
             let dashboardIndex = findChildIndexAtParentNode(thisObject.payload.parentNode)
-            let timeMachinesCount = thisObject.payload.parentNode.timeMachines.length
-            let dashboardsCount = thisObject.payload.parentNode.payload.parentNode.dashboards.length
 
-            thisObject.container.frame.position.x = centerOfScreenX + thisObject.container.frame.width * timeMachineIndex * 2 - timeMachinesCount * thisObject.container.frame.width
-            thisObject.container.frame.position.y = centerOfScreenY + thisObject.container.frame.height * dashboardIndex * 2 - dashboardsCount * thisObject.container.frame.height
+            thisObject.container.frame.position.x = thisObject.container.frame.width * timeMachineIndex * 2  
+            thisObject.container.frame.position.y = thisObject.container.frame.height * dashboardIndex * 2  
         } 
     }
 

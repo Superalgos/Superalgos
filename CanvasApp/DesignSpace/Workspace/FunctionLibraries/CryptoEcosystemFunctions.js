@@ -371,8 +371,8 @@ function newCryptoEcosystemFunctions() {
                         continue
                     }
                     let marketTradingTasks = findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
-                    if (marketTradingTasks === undefined) {continue}
-                    if (marketTradingTasks.payload === undefined) {continue}
+                    if (marketTradingTasks === undefined) { continue }
+                    if (marketTradingTasks.payload === undefined) { continue }
                     if (marketTradingTasks.payload.referenceParent === undefined) { continue }
                     if (marketTradingTasks.payload.referenceParent.id === market.id) {
                         functionLibraryNodeDeleter.deleteUIObject(timeMachine, rootNodes)
@@ -390,6 +390,71 @@ function newCryptoEcosystemFunctions() {
     }
 
     function uninstallMarket(node, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter, functionLibraryChartingSpaceFunctions, functionLibraryDataStorageFunctions) {
+        let market = node
+        for (let i = 0; i < rootNodes.length; i++) {
+            let rootNode = rootNodes[i]
+            if (rootNode.type === 'Charting Space') {
+                uninstallInChartingSpace(rootNode)
+            }
+        }
 
+        function uninstallInChartingSpace(chartingSpace) {
+
+            /* Delete all time machines which are referencing sessions inside the market being unistalled. */
+            let timeMachines = nodeBranchToArray(chartingSpace, 'Time Machine')
+            for (let i = 0; i < timeMachines.length; i++) {
+                let timeMachine = timeMachines[i]
+                let session = timeMachine.payload.referenceParent
+                if (session === undefined) { continue }
+                let marketTradingTasks = findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
+                if (marketTradingTasks === undefined) { continue }
+                if (marketTradingTasks.payload === undefined) { continue }
+                if (marketTradingTasks.payload.referenceParent === undefined) { continue }
+                if (marketTradingTasks.payload.referenceParent.id === market.id) {
+                    functionLibraryNodeDeleter.deleteUIObject(timeMachine, rootNodes)
+                }
+            }
+
+            /* Delete all Dashboards that does not have time machines inside. */
+            let dashboardArray = nodeBranchToArray(chartingSpace, 'Dashboard')
+            for (let i = 0; i < dashboardArray.length; i++) {
+                let dashboard = dashboardArray[i]
+                if (dashboard.timeMachines.length === 0) {
+                    functionLibraryNodeDeleter.deleteUIObject(dashboard, rootNodes)
+                }
+            }
+
+            /* Scan Networks for the market being unistalled to delete it. */
+            for (let i = 0; i < rootNodes.length; i++) {
+                let rootNode = rootNodes[i]
+                if (rootNode.type === 'Network') {
+                    uninstallInNetwork(rootNode)
+                }
+            }
+        }
+
+        function uninstallInNetwork(network) {
+
+            let marketDataTasksArray = nodeBranchToArray(network, 'Market Data Tasks')
+            let marketTradingTasksArray = nodeBranchToArray(network, 'Market Trading Tasks')
+            let marketDataProductsArray = nodeBranchToArray(network, 'Market Data Products')
+            let marketTradingProductsArray = nodeBranchToArray(network, 'Market Trading Products')
+
+            uninstalMarketArray(marketDataTasksArray)
+            uninstalMarketArray(marketTradingTasksArray)
+            uninstalMarketArray(marketDataProductsArray)
+            uninstalMarketArray(marketTradingProductsArray)
+
+            function uninstalMarketArray(marketArray) {
+                for (let i = 0; i < marketArray.length; i++) {
+                    let marketReference = marketArray[i]
+                    if (marketReference.payload === undefined) { continue }
+                    if (marketReference.payload.referenceParent === undefined) { continue }
+                    if (marketReference.payload.referenceParent.id === market.id) {
+                        functionLibraryNodeDeleter.deleteUIObject(marketReference, rootNodes)
+                    }
+                }
+            }
+        }
     }
 }

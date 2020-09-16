@@ -143,3 +143,45 @@ function findAndRecreateChildWithReference(startingNode, childType, referencedNo
     child.payload.referenceParent = referencedNode
     return child
 }
+
+function findChildIndexAtParentNode(startingNode) {
+    /*
+    This functioin scan all the children of a node's parent and returns the child
+    index at the node property array that contains it. 
+    */
+    if (startingNode === undefined) { return }
+    if (startingNode.payload === undefined) { return }
+    if (startingNode.payload.parentNode === undefined) { return }
+
+    let parentNode = startingNode.payload.parentNode
+
+    let nodeDefinition = APP_SCHEMA_MAP.get(parentNode.type)
+    if (nodeDefinition === undefined) { return }
+
+    /* We scan through this parent node children */
+    if (nodeDefinition.properties !== undefined) {
+        for (let i = 0; i < nodeDefinition.properties.length; i++) {
+            let property = nodeDefinition.properties[i]
+
+            switch (property.type) {
+                case 'node': {
+                    /* We ignore these types of children. */
+                }
+                    break
+                case 'array': {
+                    let startingNodePropertyArray = parentNode[property.name]
+                    if (startingNodePropertyArray !== undefined) {
+                        for (let m = 0; m < startingNodePropertyArray.length; m++) {
+                            let arrayItem = startingNodePropertyArray[m]
+
+                            if (arrayItem.id === startingNode.id) {
+                                return m
+                            }
+                        }
+                    }
+                    break
+                }
+            }
+        }
+    }
+}

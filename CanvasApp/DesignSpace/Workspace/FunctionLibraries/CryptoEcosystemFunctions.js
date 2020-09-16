@@ -377,7 +377,7 @@ function newCryptoEcosystemFunctions() {
                 for (let i = 0; i < timeMachines.length; i++) {
                     let timeMachine = timeMachines[i]
                     let session = timeMachine.payload.referenceParent
-                    if (session === undefined) {
+                    if (session === undefined || session.cleaned === true) {
                         /* 
                         This is what usually happens, that the intall process make these 
                         time machines to lose their reference parent since the install

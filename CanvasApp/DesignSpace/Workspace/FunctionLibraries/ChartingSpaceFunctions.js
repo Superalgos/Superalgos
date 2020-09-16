@@ -112,7 +112,7 @@ function newChartingSpaceFunctions() {
         let mineProducts
         let timeMachine = functionLibraryUiObjectsFromNodes.addUIObject(dashboard, 'Time Machine')
         timeMachine.payload.referenceParent = session
-        timeMachine.name = session.name + ' ' + session.type
+        timeMachine.name = session.name + ' ' + session.type + ' ' + networkNode.name
         timeMachine.payload.floatingObject.collapseToggle()
         timeMachine.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
         /*

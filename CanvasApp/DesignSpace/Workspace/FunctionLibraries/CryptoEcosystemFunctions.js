@@ -316,41 +316,25 @@ function newCryptoEcosystemFunctions() {
 
                 let exchangeTradingProducts = findOrCreateChildWithReference(tradingMinesData, 'Exchange Trading Products', cryptoExchange, functionLibraryUiObjectsFromNodes)
                 exchangeTradingProducts.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
-                /*
-                We need to delete all the session references related to the market we are installing.
-                We make a copy of the array so that if we need to delete some nodes it does not 
-                affect the loop evaluating the nodes.
-                */
-                let sessionReferencesArray = []
-                for (let i = 0; i < exchangeTradingProducts.sessionReferences.length; i++) {
-                    sessionReference = exchangeTradingProducts.sessionReferences[i]
-                    sessionReferencesArray.push(sessionReference)
-                }
-                for (let i = 0; i < sessionReferencesArray.length; i++) {
-                    sessionReference = sessionReferencesArray[i]
-                    if (sessionReference.marketTradingProducts === undefined) { continue }
-                    if (sessionReference.marketTradingProducts.payload.referenceParent === undefined) { continue }
-                    if (sessionReference.marketTradingProducts.payload.referenceParent.id === node.id) {
-                        functionLibraryNodeDeleter.deleteUIObject(sessionReference, rootNodes)
-                    }
-                }
+                let marketTradingProducts = findAndRecreateChildWithReference(exchangeTradingProducts, 'Market Trading Products', market, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
+                marketTradingProducts.payload.floatingObject.collapseToggle()
                 /*
                 Create the new session references.
                 */
                 for (let i = 0; i < sessionsCreatedArray.length; i++) {
                     let session = sessionsCreatedArray[i]
-                    if (isMissingChildren(exchangeTradingProducts, session, true) === true) {
-                        functionLibraryDataStorageFunctions.createSessionReference(exchangeTradingProducts, session, functionLibraryUiObjectsFromNodes)
+                    if (isMissingChildren(marketTradingProducts, session, true) === true) {
+                        functionLibraryDataStorageFunctions.createSessionReference(marketTradingProducts, session, functionLibraryUiObjectsFromNodes)
                     }
                 }
                 /*
                 Create everything inside the session references.
                 */
-                for (let j = 0; j < exchangeTradingProducts.sessionReferences.length; j++) {
-                    sessionReference = exchangeTradingProducts.sessionReferences[j]
-                    menuClick(sessionReference.marketTradingProducts, 'Add All Trading Mine Products', true)
-                    menuClickOfNodeArray(sessionReference.marketTradingProducts.tradingMineProducts, 'Add All Data Products', true)
-                    sessionReference.marketTradingProducts.payload.floatingObject.collapseToggle()
+                for (let j = 0; j < marketTradingProducts.sessionReferences.length; j++) {
+                    sessionReference = marketTradingProducts.sessionReferences[j]
+                    menuClick(sessionReference, 'Add All Trading Mine Products', true)
+                    menuClickOfNodeArray(sessionReference.tradingMineProducts, 'Add All Data Products', true)
+                    sessionReference.payload.floatingObject.collapseToggle()
                 }
             }
         }

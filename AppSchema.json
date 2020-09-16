@@ -1886,14 +1886,6 @@
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "dataStorage",
-                "label": "Add Data Storage",
-                "relatedUiObject": "Data Storage",
-                "actionFunction": "payload.onMenuItemClick"
-            },
-            {
-                "action": "Add UI Object",
-                "disableIfPropertyIsDefined": true,
                 "propertyToCheckFor": "dataMining",
                 "label": "Add Data Mining",
                 "relatedUiObject": "Data Mining",
@@ -1913,6 +1905,14 @@
                 "propertyToCheckFor": "productionEnvironment",
                 "label": "Add Production Environment",
                 "relatedUiObject": "Production Environment",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "dataStorage",
+                "label": "Add Data Storage",
+                "relatedUiObject": "Data Storage",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -1939,12 +1939,6 @@
         },
         "properties": [
             {
-                "name": "dataStorage",
-                "type": "node",
-                "childType": "Data Storage",
-                "autoAdd": true
-            },
-            {
                 "name": "dataMining",
                 "type": "node",
                 "childType": "Data Mining",
@@ -1960,6 +1954,12 @@
                 "name": "productionEnvironment",
                 "type": "node",
                 "childType": "Production Environment",
+                "autoAdd": true
+            },
+            {
+                "name": "dataStorage",
+                "type": "node",
+                "childType": "Data Storage",
                 "autoAdd": true
             }
         ],
@@ -13674,7 +13674,7 @@
         "menuItems": [
             {
                 "action": "Add UI Object",
-                "label": "Add Market Data",
+                "label": "Add Market Data Products",
                 "relatedUiObject": "Market Data Products",
                 "actionFunction": "payload.onMenuItemClick"
             },
@@ -13766,17 +13766,19 @@
         "menuItems": [
             {
                 "action": "Add UI Object",
-                "label": "Add Session Reference",
-                "relatedUiObject": "Session Reference",
+                "label": "Add Market Trading Products",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "marketTradingProducts",
+                "relatedUiObject": "Market Trading Products",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
-                "action": "Add Missing Session References",
-                "label": "Add Missing Sessions",
+                "action": "Add Missing Market Trading Products",
+                "label": "Add Missing Markets",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Proceed",
                 "workDoneLabel": "Done",
-                "relatedUiObject": "Session Reference",
+                "relatedUiObject": "Market Trading Products",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -13805,9 +13807,10 @@
         "propertyNameAtParent": "exchangeTradingProducts",
         "properties": [
             {
-                "name": "sessionReferences",
+                "name": "marketTradingProducts",
                 "type": "array",
-                "childType": "Session Reference"
+                "childType": "Market Trading Products",
+                "autoAdd": false
             }
         ]
     },
@@ -13858,10 +13861,23 @@
         "menuItems": [
             {
                 "action": "Add UI Object",
-                "label": "Add Market Trading Data",
-                "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "marketTradingProducts",
-                "relatedUiObject": "Market Trading Products",
+                "label": "Add Data Product",
+                "relatedUiObject": "Data Product",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Trading Mine Products",
+                "relatedUiObject": "Trading Mine Products",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add All Trading Mine Products",
+                "label": "Add All Trading Mine Products",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Trading Mine Products",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -13887,15 +13903,21 @@
             "compatibleTypes": "->Backtesting Session->Paper Trading Session->Forward Testing Session->Live Trading Session->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Exchange Trading Products->"
+            "compatibleTypes": "->Market Trading Products->"
         },
         "propertyNameAtParent": "sessionReferences",
         "properties": [
             {
-                "name": "marketTradingProducts",
-                "type": "node",
-                "childType": "Market Trading Products",
-                "autoAdd": true
+                "name": "dataProducts",
+                "type": "array",
+                "childType": "Data Product",
+                "autoAdd": false
+            },
+            {
+                "name": "tradingMineProducts",
+                "type": "array",
+                "childType": "Trading Mine Products",
+                "autoAdd": false
             }
         ]
     },
@@ -13967,23 +13989,17 @@
         "menuItems": [
             {
                 "action": "Add UI Object",
-                "label": "Add Trading Mine Products",
-                "relatedUiObject": "Trading Mine Products",
+                "label": "Add Session Reference",
+                "relatedUiObject": "Session Reference",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
-                "action": "Add All Trading Mine Products",
-                "label": "Add All Trading Mine Products",
+                "action": "Add Missing Session References",
+                "label": "Add Missing Sessions",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Proceed",
                 "workDoneLabel": "Done",
-                "relatedUiObject": "Trading Mine Products",
-                "actionFunction": "payload.onMenuItemClick"
-            },
-            {
-                "action": "Add UI Object",
-                "label": "Add Data Product",
-                "relatedUiObject": "Data Product",
+                "relatedUiObject": "Session Reference",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -14007,21 +14023,14 @@
             "compatibleTypes": "->Market->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Session Reference->"
+            "compatibleTypes": "->Exchange Trading Products->"
         },
         "propertyNameAtParent": "marketTradingProducts",
         "properties": [
             {
-                "name": "dataProducts",
+                "name": "sessionReferences",
                 "type": "array",
-                "childType": "Data Product",
-                "autoAdd": false
-            },
-            {
-                "name": "tradingMineProducts",
-                "type": "array",
-                "childType": "Trading Mine Products",
-                "autoAdd": false
+                "childType": "Session Reference"
             }
         ] 
     },
@@ -14048,7 +14057,7 @@
             "compatibleTypes": "->Product Definition->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Market Data Products->Data Product Folder->Bot Products->"
+            "compatibleTypes": "->Market Data Products->Data Product Folder->Bot Products->Session Reference->"
         },
         "propertyNameAtParent": "dataProducts",
         "properties": []
@@ -14141,7 +14150,7 @@
             "compatibleTypes": "->Trading Mine->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Market Trading Products->"
+            "compatibleTypes": "->Session Reference->"
         },
         "propertyNameAtParent": "tradingMineProducts",
         "properties": [

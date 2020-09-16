@@ -740,6 +740,11 @@ function newWorkspace() {
                     functionLibraryDataStorageFunctions.addMissingMarketDataProducts(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
                 }
                 break
+            case 'Add Missing Market Trading Products':
+                {
+                    functionLibraryDataStorageFunctions.addMissingMarketTradingProducts(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
+                }
+                break
             case 'Add Missing Exchange Trading Products':
                 {
                     functionLibraryDataStorageFunctions.addMissingExchangeTradingProducts(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)

@@ -5,6 +5,7 @@ function newDataStorageFunctions() {
         addAllTradingMineProducts: addAllTradingMineProducts,
         addMissingSessionReferences: addMissingSessionReferences,
         addMissingMarketDataProducts: addMissingMarketDataProducts,
+        addMissingMarketTradingProducts: addMissingMarketTradingProducts,
         addMissingExchangeTradingProducts: addMissingExchangeTradingProducts,
         addMissingExchangeDataProducts: addMissingExchangeDataProducts, 
         createSessionReference: createSessionReference
@@ -100,6 +101,9 @@ function newDataStorageFunctions() {
         function addMissingSession(sessionsArray) {
             for (let i = 0; i < sessionsArray.length; i++) {
                 let session = sessionsArray[i]
+                /* We will filter out all the sessions that does not belong to the market we are in */
+                let marketTradingTasks = findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
+                if (node.payload.referenceParent.id !== marketTradingTasks.payload.referenceParent.id) { continue }
                 if (isMissingChildren(node, session, true) === true) {
                     createSessionReference(node, session, functionLibraryUiObjectsFromNodes)
                 }
@@ -110,16 +114,17 @@ function newDataStorageFunctions() {
     function createSessionReference(node, session, functionLibraryUiObjectsFromNodes) {
         let sessionReference = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Session Reference')
         sessionReference.payload.referenceParent = session
-        /*
-        Now I will connect the Session Reference child that is auto created with the market 
-        where the Session was found.
-        */
-        let marketTradingTasks = findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
-        sessionReference.marketTradingProducts.payload.referenceParent = marketTradingTasks.payload.referenceParent
-        marketTradingTasks.payload.floatingObject.collapseToggle()
     }
 
     function addMissingMarketDataProducts(node, rootNodes, functionLibraryUiObjectsFromNodes) {
+        addMissingMarketProducts(node, rootNodes, 'Market Data Products', functionLibraryUiObjectsFromNodes)
+    }
+
+    function addMissingMarketTradingProducts(node, rootNodes, functionLibraryUiObjectsFromNodes) {
+        addMissingMarketProducts(node, rootNodes, 'Market Trading Products', functionLibraryUiObjectsFromNodes)
+    }
+
+    function addMissingMarketProducts(node, rootNodes, newNodeType, functionLibraryUiObjectsFromNodes) {
         if (node.payload.referenceParent === undefined) { return }
         if (node.payload.referenceParent.exchangeMarkets === undefined) { return }
         let marketsArray = node.payload.referenceParent.exchangeMarkets.markets
@@ -127,7 +132,7 @@ function newDataStorageFunctions() {
         for (let i = 0; i < marketsArray.length; i++) {
             let market = marketsArray[i]
             if (isMissingChildren(node, market, true) === true) {
-                let marketDataProducts = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Market Data Products')
+                let marketDataProducts = functionLibraryUiObjectsFromNodes.addUIObject(node, newNodeType)
                 marketDataProducts.payload.referenceParent = market
             }
         }

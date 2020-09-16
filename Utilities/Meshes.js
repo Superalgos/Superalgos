@@ -11,7 +11,9 @@ function findNodeInNodeMesh(node, nodeType, nodeName, connectedViaPayload, findI
 
     function scanNodeMesh(startingNode, depth) {
         if (startingNode === undefined) { return }
-        if (startingNode.payload === undefined) { return }
+        if (connectedViaPayload === true) {
+            if (startingNode.payload === undefined) { return }
+        }
         if (nodeFound !== undefined) { return }
         if (depth >= MAX_DEPTH) {return}
 

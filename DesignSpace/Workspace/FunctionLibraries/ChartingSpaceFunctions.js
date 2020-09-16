@@ -147,8 +147,7 @@ function newChartingSpaceFunctions() {
             that are not the one we are interested in, we do the following:
             */
             if (mineProduct.payload.parentNode === undefined) { continue }
-            if (mineProduct.payload.parentNode.payload.parentNode.payload.referenceParent === undefined) { continue }
-            if (mineProduct.payload.parentNode.payload.parentNode.payload.referenceParent.id !== session.id) { continue }
+            if (mineProduct.payload.parentNode.payload.referenceParent.id !== session.id) { continue }
             /*
             At the current version of Superalgos, beta 6, there is only one Trading Mine,
             with only one bot, and it has so many data products that we want to put them

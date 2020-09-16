@@ -63,7 +63,7 @@ function newFloatingLayer() {
     }
 
     function initialize() {
-        invisiblePhysicsIntervalId = setInterval(invisiblePhysics, 1000)
+        invisiblePhysicsIntervalId = setInterval(invisiblePhysics, 10000)
     }
 
     function getContainer(point) {

@@ -91,8 +91,8 @@ function newTaskFunctions() {
         let taskDefinition = functionLibraryProtocolNode.getProtocolNode(node, false, true, true, false, false, taskLightingPath)
 
         let networkLightingPath = '->Network->Network Node->' +
-            'Data Storage->Session Independent Data->Exchange Data Products->' +
-            'Single Market Data->' +
+            'Data Storage->Data Mines Data->Exchange Data Products->' +
+            'Market Data Products->' +
             'Data Mine Products->Bot Products->' +
             'Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->' +
             'Data Product->Product Definition->' +

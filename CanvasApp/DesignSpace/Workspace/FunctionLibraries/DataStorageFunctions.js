@@ -4,8 +4,8 @@ function newDataStorageFunctions() {
         addAllDataMineProducts: addAllDataMineProducts,
         addAllTradingMineProducts: addAllTradingMineProducts,
         addMissingSessionReferences: addMissingSessionReferences,
-        addMissingSingleMarketData: addMissingSingleMarketData,
-        addMissingExchangeSessions: addMissingExchangeSessions,
+        addMissingMarketDataProducts: addMissingMarketDataProducts,
+        addMissingExchangeTradingProducts: addMissingExchangeTradingProducts,
         addMissingExchangeDataProducts: addMissingExchangeDataProducts, 
         createSessionReference: createSessionReference
     }
@@ -115,11 +115,11 @@ function newDataStorageFunctions() {
         where the Session was found.
         */
         let marketTradingTasks = findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
-        sessionReference.singleMarketTradingData.payload.referenceParent = marketTradingTasks.payload.referenceParent
+        sessionReference.marketTradingProducts.payload.referenceParent = marketTradingTasks.payload.referenceParent
         marketTradingTasks.payload.floatingObject.collapseToggle()
     }
 
-    function addMissingSingleMarketData(node, rootNodes, functionLibraryUiObjectsFromNodes) {
+    function addMissingMarketDataProducts(node, rootNodes, functionLibraryUiObjectsFromNodes) {
         if (node.payload.referenceParent === undefined) { return }
         if (node.payload.referenceParent.exchangeMarkets === undefined) { return }
         let marketsArray = node.payload.referenceParent.exchangeMarkets.markets
@@ -127,14 +127,14 @@ function newDataStorageFunctions() {
         for (let i = 0; i < marketsArray.length; i++) {
             let market = marketsArray[i]
             if (isMissingChildren(node, market, true) === true) {
-                let singleMarketData = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Single Market Data')
-                singleMarketData.payload.referenceParent = market
+                let marketDataProducts = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Market Data Products')
+                marketDataProducts.payload.referenceParent = market
             }
         }
     }
 
-    function addMissingExchangeSessions(node, rootNodes, functionLibraryUiObjectsFromNodes) {
-        addMissingExchange(node, rootNodes, 'Exchange Sessions', functionLibraryUiObjectsFromNodes)
+    function addMissingExchangeTradingProducts(node, rootNodes, functionLibraryUiObjectsFromNodes) {
+        addMissingExchange(node, rootNodes, 'Exchange Trading Products', functionLibraryUiObjectsFromNodes)
     }
 
     function addMissingExchangeDataProducts(node, rootNodes, functionLibraryUiObjectsFromNodes) {

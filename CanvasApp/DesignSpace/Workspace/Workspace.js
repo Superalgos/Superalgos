@@ -735,14 +735,14 @@ function newWorkspace() {
                     functionLibraryDataStorageFunctions.addMissingSessionReferences(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
                 }
                 break
-            case 'Add Missing Single Market Data':
+            case 'Add Missing Market Data Products':
                 {
-                    functionLibraryDataStorageFunctions.addMissingSingleMarketData(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
+                    functionLibraryDataStorageFunctions.addMissingMarketDataProducts(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
                 }
                 break
-            case 'Add Missing Exchange Sessions':
+            case 'Add Missing Exchange Trading Products':
                 {
-                    functionLibraryDataStorageFunctions.addMissingExchangeSessions(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
+                    functionLibraryDataStorageFunctions.addMissingExchangeTradingProducts(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
                 }
                 break
             case 'Add Missing Exchange Data Products':

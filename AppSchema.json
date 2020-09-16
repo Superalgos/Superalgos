@@ -1765,9 +1765,9 @@
                 "childType": "Task Manager"
             },
             {
-                "name": "singleMarketData",
+                "name": "marketDataProducts",
                 "type": "node",
-                "childType": "Single Market Data"
+                "childType": "Market Data Products"
             },
             {
                 "name": "sessionReferences",
@@ -1802,7 +1802,7 @@
             "compatibleTypes": "->Template Script->"
         },
         "referenceAttachesTo": {
-            "compatibleTypes": "->Dashboard->Session Independent Data->Session Based Data->Data Mining->Testing Environment->Production Environment->"
+            "compatibleTypes": "->Dashboard->Data Mines Data->Trading Mines Data->Data Mining->Testing Environment->Production Environment->"
         },
         "properties": []
     },
@@ -13008,17 +13008,17 @@
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "sessionIndependentData",
+                "propertyToCheckFor": "dataMinesData",
                 "label": "Add Session Ind Data",
-                "relatedUiObject": "Session Independent Data",
+                "relatedUiObject": "Data Mines Data",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "sessionBasedData",
-                "label": "Add Session Based Data",
-                "relatedUiObject": "Session Based Data",
+                "propertyToCheckFor": "tradingMinesData",
+                "label": "Add Trading Mines Data",
+                "relatedUiObject": "Trading Mines Data",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -13039,15 +13039,15 @@
         "propertyNameAtParent": "dataStorage",
         "properties": [
             {
-                "name": "sessionIndependentData",
+                "name": "dataMinesData",
                 "type": "node",
-                "childType": "Session Independent Data",
+                "childType": "Data Mines Data",
                 "autoAdd": true
             },
             {
-                "name": "sessionBasedData",
+                "name": "tradingMinesData",
                 "type": "node",
-                "childType": "Session Based Data",
+                "childType": "Trading Mines Data",
                 "autoAdd": true
             }
         ]
@@ -13673,16 +13673,16 @@
             {
                 "action": "Add UI Object",
                 "label": "Add Market Data",
-                "relatedUiObject": "Single Market Data",
+                "relatedUiObject": "Market Data Products",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
-                "action": "Add Missing Single Market Data",
+                "action": "Add Missing Market Data Products",
                 "label": "Add Missing Markets",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Proceed",
                 "workDoneLabel": "Done",
-                "relatedUiObject": "Single Market Data",
+                "relatedUiObject": "Market Data Products",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -13706,19 +13706,19 @@
             "compatibleTypes": "->Crypto Exchange->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Session Independent Data->"
+            "compatibleTypes": "->Data Mines Data->"
         },
         "propertyNameAtParent": "exchangeDataProducts",
         "properties": [
             {
-                "name": "singleMarketData",
+                "name": "marketDataProducts",
                 "type": "array",
-                "childType": "Single Market Data"
+                "childType": "Market Data Products"
             }
         ]
     },
     {
-        "type": "Session Independent Data",
+        "type": "Data Mines Data",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -13750,7 +13750,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Data Storage->"
         },
-        "propertyNameAtParent": "sessionIndependentData",
+        "propertyNameAtParent": "dataMinesData",
         "properties": [
             {
                 "name": "exchangeDataProducts",
@@ -13760,7 +13760,7 @@
         ]
     },
     {
-        "type": "Exchange Sessions",
+        "type": "Exchange Trading Products",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -13798,9 +13798,9 @@
             "compatibleTypes": "->Crypto Exchange->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Session Based Data->"
+            "compatibleTypes": "->Trading Mines Data->"
         },
-        "propertyNameAtParent": "exchangeSessions",
+        "propertyNameAtParent": "exchangeTradingProducts",
         "properties": [
             {
                 "name": "sessionReferences",
@@ -13810,21 +13810,21 @@
         ]
     },
     {
-        "type": "Session Based Data",
+        "type": "Trading Mines Data",
         "menuItems": [
             {
                 "action": "Add UI Object",
-                "label": "Add Exchange Sessions",
-                "relatedUiObject": "Exchange Sessions",
+                "label": "Add Exchange Trading Products",
+                "relatedUiObject": "Exchange Trading Products",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
-                "action": "Add Missing Exchange Sessions",
+                "action": "Add Missing Exchange Trading Products",
                 "label": "Add Missing Exchanges",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Proceed",
                 "workDoneLabel": "Done",
-                "relatedUiObject": "Exchange Sessions",
+                "relatedUiObject": "Exchange Trading Products",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -13842,12 +13842,12 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Data Storage->"
         },
-        "propertyNameAtParent": "sessionBasedData",
+        "propertyNameAtParent": "tradingMinesData",
         "properties": [
             {
-                "name": "exchangeSessions",
+                "name": "exchangeTradingProducts",
                 "type": "array",
-                "childType": "Exchange Sessions"
+                "childType": "Exchange Trading Products"
             }
         ]
     },
@@ -13858,8 +13858,8 @@
                 "action": "Add UI Object",
                 "label": "Add Market Trading Data",
                 "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "singleMarketTradingData",
-                "relatedUiObject": "Single Market Trading Data",
+                "propertyToCheckFor": "marketTradingProducts",
+                "relatedUiObject": "Market Trading Products",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -13876,7 +13876,7 @@
         "title": [
             "Use Reference Parent",
             "Use Reference Parent Type",
-            "Use Child @singleMarketData"
+            "Use Child @marketDataProducts"
         ],
         "addLeftIcons": true,
         "level": 3,
@@ -13885,20 +13885,20 @@
             "compatibleTypes": "->Backtesting Session->Paper Trading Session->Forward Testing Session->Live Trading Session->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Exchange Sessions->"
+            "compatibleTypes": "->Exchange Trading Products->"
         },
         "propertyNameAtParent": "sessionReferences",
         "properties": [
             {
-                "name": "singleMarketTradingData",
+                "name": "marketTradingProducts",
                 "type": "node",
-                "childType": "Single Market Trading Data",
+                "childType": "Market Trading Products",
                 "autoAdd": true
             }
         ]
     },
     {
-        "type": "Single Market Data",
+        "type": "Market Data Products",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -13944,7 +13944,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Exchange Data Products->"
         },
-        "propertyNameAtParent": "singleMarketData",
+        "propertyNameAtParent": "marketDataProducts",
         "properties": [
             {
                 "name": "dataProducts",
@@ -13961,7 +13961,7 @@
         ]
     },
     {
-        "type": "Single Market Trading Data",
+        "type": "Market Trading Products",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -14007,7 +14007,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Session Reference->"
         },
-        "propertyNameAtParent": "singleMarketTradingData",
+        "propertyNameAtParent": "marketTradingProducts",
         "properties": [
             {
                 "name": "dataProducts",
@@ -14046,7 +14046,7 @@
             "compatibleTypes": "->Product Definition->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Single Market Data->Data Product Folder->Bot Products->"
+            "compatibleTypes": "->Market Data Products->Data Product Folder->Bot Products->"
         },
         "propertyNameAtParent": "dataProducts",
         "properties": []
@@ -14089,7 +14089,7 @@
             "compatibleTypes": "->Data Mine->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Single Market Data->"
+            "compatibleTypes": "->Market Data Products->"
         },
         "propertyNameAtParent": "dataMineProducts",
         "properties": [
@@ -14139,7 +14139,7 @@
             "compatibleTypes": "->Trading Mine->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Single Market Trading Data->"
+            "compatibleTypes": "->Market Trading Products->"
         },
         "propertyNameAtParent": "tradingMineProducts",
         "properties": [

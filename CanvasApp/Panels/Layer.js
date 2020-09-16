@@ -162,8 +162,8 @@ function newLayer() {
                 'Data Product->' +
                 'Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->' +
                 'Bot Products->Data Mine Products->Trading Mine Products->' +
-                'Single Market Data->Single Market Trading Data->Exchange Data Products->' +
-                'Session Reference->Session Independent Data->Session Based Data->Exchange Sessions->Session Based Data->Data Storage->Network Node->' +
+                'Market Data Products->Single Market Trading Data->Exchange Data Products->' +
+                'Session Reference->Data Mines Data->Trading Mines Data->Exchange Trading Products->Trading Mines Data->Data Storage->Network Node->' +
                 'Data Storage->Network Node->' +
                 'Backtesting Session->Paper Trading Session->Forward Testing Session->Live Trading Session->' +
                 'Trading System Reference->Trading Engine Reference->Trading System->Trading Engine->' +

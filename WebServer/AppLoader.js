@@ -72,6 +72,7 @@ function newAppLoader() {
                 'Utilities/Branches.js',
                 'Utilities/Meshes.js',
                 'Utilities/NodeChildren.js',
+                'Utilities/Menu.js',
 
                 'Panels/LayersPanel.js',
                 'Panels/UpDownButton.js',

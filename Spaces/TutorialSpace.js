@@ -328,11 +328,22 @@ function newTutorialSpace() {
     }
 
     function done() {
+        if (ckeckGoingToAnotherTutorial() === true ) {return}
         let tutorial = {
             status: 'Done'
         }
         saveTutorial(currentNode.payload, tutorial)
         advance()
+    }
+
+    function ckeckGoingToAnotherTutorial() {
+        if (currentNode.payload !== undefined) {
+            if (currentNode.payload.referenceParent !== undefined) {
+                if (currentNode.payload.referenceParent.type === 'Tutorial') {
+                    playTutorial(currentNode.payload.referenceParent)
+                }
+            }
+        }
     }
 
     function playTutorialTopic(node) {
@@ -446,7 +457,6 @@ function newTutorialSpace() {
         }
 
         function findNextNode(node) {
-
             for (let i = 0; i < node.tutorialSteps.length; i++) {
 
                 let tutorialStep = node.tutorialSteps[i]
@@ -519,6 +529,10 @@ function newTutorialSpace() {
         let html = ''
         if (nodeConfig.title !== undefined && nodeConfig.title !== '') {
             html = html + '<div><h1 class="tutorial-font-large">' + nodeConfig.title + '</h1></div>'
+        } else {
+            if (currentNode.name !== 'New ' + currentNode.type) {
+                html = html + '<div><h1 class="tutorial-font-large">' + currentNode.name + '</h1></div>'
+            }
         }
         html = html + '<div>'
         if (nodeConfig.summary !== undefined && nodeConfig.summary !== '') {
@@ -554,7 +568,7 @@ function newTutorialSpace() {
             for (let i = 0; i < nodeConfig.bulletArray.length; i++) {
                 let bullet = nodeConfig.bulletArray[i]
                 html = html + '<li>'
-                html = html + '<p class="tutorial-font-small"><strong class="tutorial-font-bold-small">' + bullet[0] + ':</strong> ' + bullet[1] + '</p>'
+                html = html + '<p class="tutorial-font-small"><strong class="tutorial-font-bold-small">' + bullet[0] + '</strong> ' + bullet[1] + '</p>'
                 html = html + '</li>'
             }
             html = html + '</ul>'

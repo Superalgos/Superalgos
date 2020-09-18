@@ -1432,6 +1432,12 @@
                 "label": "Add Tutorial",
                 "relatedUiObject": "Tutorial",
                 "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Includes",
+                "relatedUiObject": "Includes",
+                "actionFunction": "payload.onMenuItemClick"
             }
         ],
         "isTitleAllwaysVisible": true,
@@ -14255,6 +14261,62 @@
         ]
     },
     {
+        "type": "Includes",
+        "menuItems": [
+            {
+                "action": "Add Missing Children",
+                "label": "Add Missing Children",
+                "relatedUiObject": "Includes",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "isHierarchyHead": true,
+        "addLeftIcons": true,
+        "level": 0,
+        "propertyNameAtParent": "includes",
+        "properties": [
+            {
+                "name": "includedDataMines",
+                "type": "node",
+                "childType": "Included Data Mines",
+                "autoAdd": false
+            },
+            {
+                "name": "includedTradingMines",
+                "type": "node",
+                "childType": "Included Trading Mines",
+                "autoAdd": false
+            },
+            {
+                "name": "includedTradingSystems",
+                "type": "node",
+                "childType": "Included Trading Mines",
+                "autoAdd": false
+            },
+            {
+                "name": "includedTradingEngines",
+                "type": "node",
+                "childType": "Included Trading Mines",
+                "autoAdd": false
+            },
+            {
+                "name": "includedSuperScripts",
+                "type": "node",
+                "childType": "Included Trading Mines",
+                "autoAdd": false
+            }
+        ]
+    },
+    {
         "type": "Tutorial",
         "menuItems": [
             {
@@ -14448,7 +14510,7 @@
         },
         "referenceAttachesTo": {
             "compatibleTypes": "->*Any Node*->",
-            "incompatibleTypes": "->Tutorial->Tutorial Topic->Tutorial Step->"
+            "incompatibleTypes": "->Tutorial Topic->Tutorial Step->"
         },
         "chainAttachesTo": {
             "compatibleTypes": "->Tutorial->Tutorial Topic->"

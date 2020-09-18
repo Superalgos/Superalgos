@@ -57,7 +57,8 @@ function newAppLoader() {
                 'DesignSpace/Workspace/FunctionLibraries/DataMineFunctions.js',
                 'DesignSpace/Workspace/FunctionLibraries/DataStorageFunctions.js',
                 'DesignSpace/Workspace/FunctionLibraries/ChartingSpaceFunctions.js',
-                'DesignSpace/Workspace/FunctionLibraries/TutorialFunctions.js',
+                'DesignSpace/Workspace/FunctionLibraries/TutorialFunctions.js',   
+                'DesignSpace/Workspace/FunctionLibraries/IncludesFunctions.js',  
 
                 'Utilities/CoordinateTransformations.js',
                 'Utilities/DateRateTransformations.js',

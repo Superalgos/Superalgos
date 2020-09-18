@@ -490,6 +490,43 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                 }
                 break
 
+                case 'IncludedFileNames':
+                    {
+                        const fs = require('fs')
+                        let folder
+                        switch (requestParameters[2]) {
+                            case 'Data-Mines': {
+                                folder = process.env.DATA_MINES_PATH + '/'
+                                break
+                            }
+                            case 'Trading-Mines': {
+                                folder = process.env.TRADING_MINES_PATH + '/'
+                                break
+                            }
+                            case 'Trading-Systems': {
+                                folder = process.env.TRADING_SYSTEMS_PATH + '/'
+                                break
+                            }
+                            case 'Trading-Engines': {
+                                folder = process.env.TRADING_MINES_PATH + '/'
+                                break
+                            }
+                            case 'Super-Scripts': {
+                                folder = process.env.SUPER_SCRIPTS_PATH + '/'
+                                break
+                            }
+                            case 'Tutorials': {
+                                folder = process.env.TUTORIALS_PATH + '/'
+                                break
+                            }
+                        }
+
+                        fs.readdir(folder, (err, files) => {
+                            respondWithContent(JSON.stringify(files), response)
+                        })
+                    }
+                    break
+
             case 'AppSchema.js':
                 {
                     let fs = require('fs')

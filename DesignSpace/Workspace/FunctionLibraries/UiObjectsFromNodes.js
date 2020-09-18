@@ -47,7 +47,7 @@ function newUiObjectsFromNodes() {
 
             function onResponse(err, data) {
                 if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                    console.log('Failed to Fetch Inclided Names from the Backend')
+                    console.log('Failed to Fetch Included Names from the Backend')
                     return
                 }
 

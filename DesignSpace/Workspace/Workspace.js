@@ -70,6 +70,7 @@ function newWorkspace() {
     let functionLibraryDataStorageFunctions = newDataStorageFunctions()
     let functionLibraryChartingSpaceFunctions = newChartingSpaceFunctions()
     let functionLibraryTutorialFunctions = newTutorialFunctions()
+    let functionLibraryIncludesFunctions = newIncludesFunctions()
 
     thisObject.nodeChildren = newNodeChildren()
 
@@ -877,6 +878,36 @@ function newWorkspace() {
                             canvas.docSpace.navigateTo(url)
                         }
                     }
+                }
+                break
+            case 'Include Missing Data Mines':
+                {
+                    functionLibraryIncludesFunctions.includeMissingDataMines(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
+                }
+                break
+            case 'Include Missing Trading Mines':
+                {
+                    functionLibraryIncludesFunctions.includeMissingTradingMines(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
+                }
+                break
+            case 'Include Missing Trading Systems':
+                {
+                    functionLibraryIncludesFunctions.includeMissingTradingSystems(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
+                }
+                break
+            case 'Include Missing Trading Engines':
+                {
+                    functionLibraryIncludesFunctions.includeMissingTradingEngines(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
+                }
+                break
+            case 'Include Missing Super Scripts':
+                {
+                    functionLibraryIncludesFunctions.includeMissingSuperScripts(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
+                }
+                break
+            case 'Include Missing Tutorials':
+                {
+                    functionLibraryIncludesFunctions.includeMissingTutorials(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
                 }
                 break
         }

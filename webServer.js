@@ -472,7 +472,7 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                             break
                         }
                         case 'Trading-Engines': {
-                            folder = process.env.TRADING_MINES_PATH + '/'
+                            folder = process.env.TRADING_ENGINES_PATH + '/'
                             break
                         }
                         case 'Super-Scripts': {
@@ -729,6 +729,7 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                     if (!err) {
                         respondWithContent(file.toString(), response)
                     } else {
+                        console.log('File requested not found: ' + fileName)
                         respondWithContent(undefined, response)
                     }
                 }

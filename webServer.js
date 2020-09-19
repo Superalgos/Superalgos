@@ -454,78 +454,42 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                 }
                 break
 
-            case 'IncludedNames':
+            case 'IncludedFileNames':
                 {
                     const fs = require('fs')
                     let folder
-                    let includedNames = {
-                        includedDataMines: [],
-                        includedTradingMines: [],
-                        includedTradingSystems: [],
-                        includedSuperScripts: [],
-                        includedTradingEngines: []
+                    switch (requestParameters[2]) {
+                        case 'Data-Mines': {
+                            folder = process.env.DATA_MINES_PATH + '/'
+                            break
+                        }
+                        case 'Trading-Mines': {
+                            folder = process.env.TRADING_MINES_PATH + '/'
+                            break
+                        }
+                        case 'Trading-Systems': {
+                            folder = process.env.TRADING_SYSTEMS_PATH + '/'
+                            break
+                        }
+                        case 'Trading-Engines': {
+                            folder = process.env.TRADING_MINES_PATH + '/'
+                            break
+                        }
+                        case 'Super-Scripts': {
+                            folder = process.env.SUPER_SCRIPTS_PATH + '/'
+                            break
+                        }
+                        case 'Tutorials': {
+                            folder = process.env.TUTORIALS_PATH + '/'
+                            break
+                        }
                     }
 
-                    folder = process.env.DATA_MINES_PATH + '/'
                     fs.readdir(folder, (err, files) => {
-                        includedNames.includedDataMines = files
-                        folder = process.env.TRADING_SYSTEMS_PATH + '/'
-                        fs.readdir(folder, (err, files) => {
-                            includedNames.includedTradingSystems = files
-                            folder = process.env.SUPER_SCRIPTS_PATH + '/'
-                            fs.readdir(folder, (err, files) => {
-                                includedNames.includedSuperScripts = files
-                                folder = process.env.TRADING_ENGINES_PATH + '/'
-                                fs.readdir(folder, (err, files) => {
-                                    includedNames.includedTradingEngines = files
-                                    folder = process.env.TRADING_MINES_PATH + '/'
-                                    fs.readdir(folder, (err, files) => {
-                                        includedNames.includedTradingMines = files
-                                        respondWithContent(JSON.stringify(includedNames), response)
-                                    })
-                                })
-                            })
-                        })
+                        respondWithContent(JSON.stringify(files), response)
                     })
                 }
                 break
-
-                case 'IncludedFileNames':
-                    {
-                        const fs = require('fs')
-                        let folder
-                        switch (requestParameters[2]) {
-                            case 'Data-Mines': {
-                                folder = process.env.DATA_MINES_PATH + '/'
-                                break
-                            }
-                            case 'Trading-Mines': {
-                                folder = process.env.TRADING_MINES_PATH + '/'
-                                break
-                            }
-                            case 'Trading-Systems': {
-                                folder = process.env.TRADING_SYSTEMS_PATH + '/'
-                                break
-                            }
-                            case 'Trading-Engines': {
-                                folder = process.env.TRADING_MINES_PATH + '/'
-                                break
-                            }
-                            case 'Super-Scripts': {
-                                folder = process.env.SUPER_SCRIPTS_PATH + '/'
-                                break
-                            }
-                            case 'Tutorials': {
-                                folder = process.env.TUTORIALS_PATH + '/'
-                                break
-                            }
-                        }
-
-                        fs.readdir(folder, (err, files) => {
-                            respondWithContent(JSON.stringify(files), response)
-                        })
-                    }
-                    break
 
             case 'AppSchema.js':
                 {
@@ -646,33 +610,39 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                 }
                 break
 
-            case 'DataMines':
+            case 'Data-Mines':
                 {
                     respondWithFile(process.env.DATA_MINES_PATH + '/' + requestParameters[2], response)
                 }
                 break
 
-            case 'TradingMines':
+            case 'Trading-Mines':
                 {
                     respondWithFile(process.env.TRADING_MINES_PATH + '/' + requestParameters[2], response)
                 }
                 break
 
-            case 'TradingSystems':
+            case 'Trading-Systems':
                 {
                     respondWithFile(process.env.TRADING_SYSTEMS_PATH + '/' + requestParameters[2], response)
                 }
                 break
 
-            case 'SuperScripts':
+            case 'Super-Scripts':
                 {
                     respondWithFile(process.env.SUPER_SCRIPTS_PATH + '/' + requestParameters[2], response)
                 }
                 break
 
-            case 'TradingEngines':
+            case 'Trading-Engines':
                 {
                     respondWithFile(process.env.TRADING_ENGINES_PATH + '/' + requestParameters[2], response)
+                }
+                break
+
+            case 'Tutorials':
+                {
+                    respondWithFile(process.env.TUTORIALS_PATH + '/' + requestParameters[2], response)
                 }
                 break
 

@@ -3,7 +3,8 @@ function newTutorialSpace() {
     let thisObject = {
         stop: stop,
         skip: skip,
-        done: done,
+        previous: previous,
+        next: next,
         playTutorial: playTutorial,
         resumeTutorial: resumeTutorial,
         playTutorialTopic: playTutorialTopic,
@@ -36,6 +37,7 @@ function newTutorialSpace() {
     let tutorialRootNode
     let currentNode
     let currentStatus = 'Stopped'
+    let navigationStack
 
     let tutorialDiv = document.getElementById('tutorialDiv')
     let tutorialFormDiv = document.getElementById('tutorialFormDiv')
@@ -63,6 +65,7 @@ function newTutorialSpace() {
 
         tutorialRootNode = undefined
         currentNode = undefined
+        navigationStack = undefined
 
         tutorialDiv = undefined
         tutorialFormDiv = undefined
@@ -293,27 +296,10 @@ function newTutorialSpace() {
             tutorialFormDiv.style = '   ' +
                 'position:fixed; top:' + (tutorialPosition.y + HEIGHT - FORM_HEIGHT) + 'px; ' +
                 'left:' + tutorialPosition.x + 'px; ' +
-                'width: ' + WIDTH + 'px;' +
+                'width: ' + (WIDTH + 20) + 'px;' +
                 'height: ' + FORM_HEIGHT + 'px;' +
                 'z-index:1;'
         }
-    }
-
-    function playTutorial(node) {
-        node.payload.uiObject.isPlaying = true
-        tutorialRootNode = node
-        currentNode = node
-        currentStatus = 'Playing Tutorial'
-        resumeModeActivated = false
-    }
-
-    function resumeTutorial(node) {
-        node.payload.uiObject.isPlaying = true
-        tutorialRootNode = node
-        currentNode = node
-        currentStatus = 'Playing Tutorial'
-        resumeModeActivated = true
-        advance()
     }
 
     function stop() {
@@ -330,8 +316,37 @@ function newTutorialSpace() {
         advance()
     }
 
-    function done() {
-        if (ckeckGoingToAnotherTutorial() === true ) {return}
+    function previous() {
+        if (navigationStack.length > 1) {
+            let previousNode = navigationStack[navigationStack.length - 2]
+            switch (previousNode.type) {
+                case 'Tutorial': {
+                    currentNode = previousNode
+                    findTutorialNode(currentNode)
+                    currentStatus = 'Playing Tutorial'
+                    navigationStack.splice(navigationStack.length - 1) 
+                    break
+                }
+                case 'Tutorial Topic': {
+                    currentNode = previousNode
+                    findTutorialNode(currentNode)
+                    currentStatus = 'Playing Topic'
+                    navigationStack.splice(navigationStack.length - 1) 
+                    break
+                }
+                case 'Tutorial Step': {
+                    currentNode = previousNode
+                    findTutorialNode(currentNode)
+                    currentStatus = 'Playing Step'
+                    navigationStack.splice(navigationStack.length - 1) 
+                    break
+                }
+            }
+        }
+    }
+
+    function next() {
+        if (ckeckGoingToAnotherTutorial() === true) { return }
         let tutorial = {
             status: 'Done'
         }
@@ -343,41 +358,76 @@ function newTutorialSpace() {
         if (currentNode.payload !== undefined) {
             if (currentNode.payload.referenceParent !== undefined) {
                 if (currentNode.payload.referenceParent.type === 'Tutorial') {
-                    playTutorial(currentNode.payload.referenceParent)
+                    tutorialRootNode = currentNode.payload.referenceParent
+                    currentNode = currentNode.payload.referenceParent
+                    currentStatus = 'Playing Tutorial'
+                    resumeModeActivated = false
+                    navigationStack.push(currentNode)
+                    findTutorialNode(currentNode)
+                    return true
                 }
             }
         }
     }
 
+    function playTutorial(node) {
+        navigationStack = []
+        node.payload.uiObject.isPlaying = true
+        tutorialRootNode = node
+        currentNode = node
+        currentStatus = 'Playing Tutorial'
+        resumeModeActivated = false
+        navigationStack.push(currentNode)
+    }
+
+    function resumeTutorial(node) {
+        navigationStack = []
+        node.payload.uiObject.isPlaying = true
+        tutorialRootNode = node
+        currentNode = node
+        currentStatus = 'Playing Tutorial'
+        resumeModeActivated = true
+        navigationStack.push(currentNode)
+        advance()
+    }
+
     function playTutorialTopic(node) {
+        navigationStack = []
         currentTopicNode = node
         currentNode = node
         currentStatus = 'Playing Topic'
         resumeModeActivated = false
+        navigationStack.push(currentNode)
         findTutorialNode(node)
     }
 
     function resumeTutorialTopic(node) {
+        navigationStack = []
         currentTopicNode = node
         currentNode = node
         currentStatus = 'Playing Topic'
         resumeModeActivated = true
+        navigationStack.push(currentNode)
         findTutorialNode(node)
     }
 
     function playTutorialStep(node) {
+        navigationStack = []
         currentStepNode = node
         currentNode = node
         currentStatus = 'Playing Step'
         resumeModeActivated = false
+        navigationStack.push(currentNode)
         findTutorialNode(node)
     }
 
     function resumeTutorialStep(node) {
+        navigationStack = []
         currentStepNode = node
         currentNode = node
         currentStatus = 'Playing Step'
         resumeModeActivated = true
+        navigationStack.push(currentNode)
         findTutorialNode(node)
     }
 
@@ -468,6 +518,8 @@ function newTutorialSpace() {
                         currentNode = tutorialStep
                         currentStatus = 'Playing Step'
                         advanced = true
+                        navigationStack.push(currentNode)
+                        findTutorialNode(currentNode)
                         return
                     } else {
                         let tutorial = {
@@ -478,6 +530,8 @@ function newTutorialSpace() {
                             currentNode = tutorialStep
                             currentStatus = 'Playing Step'
                             advanced = true
+                            navigationStack.push(currentNode)
+                            findTutorialNode(currentNode)
                             return
                         }
                     }
@@ -499,6 +553,8 @@ function newTutorialSpace() {
                         currentNode = tutorialTopic
                         currentStatus = 'Playing Topic'
                         advanced = true
+                        navigationStack.push(currentNode)
+                        findTutorialNode(currentNode)
                         return
                     } else {
                         let tutorial = {
@@ -509,6 +565,8 @@ function newTutorialSpace() {
                             currentNode = tutorialTopic
                             currentStatus = 'Playing Topic'
                             advanced = true
+                            navigationStack.push(currentNode)
+                            findTutorialNode(currentNode)
                             return
                         }
                     }
@@ -593,16 +651,16 @@ function newTutorialSpace() {
             html = html + '<p class="tutorial-font-small">' + nodeConfig.paragraph2 + '</p>'
         }
         if (nodeConfig.note !== undefined && nodeConfig.note !== '') {
-            html = html + '<div class="tutorial-font-bold-small tutorial-alert-info" role="alert"><i class="tutorial-fa tutorial-info-circle"></i> <b>Note:</b> ' + nodeConfig.note + '</div>'
+            html = html + '<div class="tutorial-font-small tutorial-alert-info" role="alert"><i class="tutorial-fa tutorial-info-circle"></i> <b>Note:</b> ' + nodeConfig.note + '</div>'
         }
         if (nodeConfig.tip !== undefined && nodeConfig.tip !== '') {
-            html = html + '<div class="tutorial-font-bold-small tutorial-alert-success" role="alert"><i class="tutorial-fa tutorial-check-square-o"></i> <b>Tip:</b> ' + nodeConfig.tip + '</div>'
+            html = html + '<div class="tutorial-font-small tutorial-alert-success" role="alert"><i class="tutorial-fa tutorial-check-square-o"></i> <b>Tip:</b> ' + nodeConfig.tip + '</div>'
         }
         if (nodeConfig.important !== undefined && nodeConfig.important !== '') {
-            html = html + '<div class="tutorial-font-bold-small tutorial-alert-warning" role="alert"><i class="tutorial-fa tutorial-warning"></i> <b>Important:</b> ' + nodeConfig.important + '</div>'
+            html = html + '<div class="tutorial-font-small tutorial-alert-warning" role="alert"><i class="tutorial-fa tutorial-warning"></i> <b>Important:</b> ' + nodeConfig.important + '</div>'
         }
         if (nodeConfig.warning !== undefined && nodeConfig.warning !== '') {
-            html = html + '<div class="tutorial-font-bold-small tutorial-alert-warning" role="alert"><i class="tutorial-fa tutorial-warning"></i> <b>Important:</b> ' + nodeConfig.warning + '</div>'
+            html = html + '<div class="tutorial-font-small tutorial-alert-warning" role="alert"><i class="tutorial-fa tutorial-warning"></i> <b>Important:</b> ' + nodeConfig.warning + '</div>'
         }
         html = html + '</div>'
 

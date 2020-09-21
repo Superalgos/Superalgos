@@ -28,6 +28,13 @@
                     callBackFunction(global.DEFAULT_OK_RESPONSE)
                     return
                 }
+                /* 
+                We will filter ourt declared dependencies that are not present in the workspace.
+                This will allow the user to have less Data Mines loaded at the workspace
+                that the ones that a Trading Mine depends on.
+                */
+                thisObject.nodeArray = global.FILTER_OUT_NODES_WITHOUT_REFERENCE_PARENT_FROM_NODE_ARRAY(thisObject.nodeArray)
+
             } else {
                 logger.write(MODULE_NAME, "[ERROR] initialize -> onInitilized -> It is not possible to not have process dependencies, which means not data dependencies.");
                 callBackFunction(global.DEFAULT_OK_RESPONSE)
@@ -57,9 +64,7 @@
             let addCount = 0;
 
             for (let i = 0; i < thisObject.nodeArray.length; i++) {
-
                 let dataSetModule = DATA_SET.newDataSet(BOT, logger);
-
                 dataSetModule.initialize(thisObject.nodeArray[i], onInitilized);
 
                 function onInitilized(err) {
@@ -71,7 +76,6 @@
                         callBackFunction(err);
                         return;
                     }
-
                     addDataSet();
                 }
 

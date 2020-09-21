@@ -272,6 +272,19 @@ global.FIND_NODE_IN_NODE_ARRAY = function (nodeArray, nodeType) {
     }
 }
 
+global.FILTER_OUT_NODES_WITHOUT_REFERENCE_PARENT_FROM_NODE_ARRAY = function (nodeArray) {
+    let filteredNodeArray = []
+    for (let i = 0; i < nodeArray.length; i++) {
+        let arrayItem = nodeArray[i]
+        if (arrayItem.referenceParent === undefined) {
+            continue
+        } else {
+            filteredNodeArray.push(arrayItem)
+        }
+    }
+    return filteredNodeArray
+}
+
 
 process.on('uncaughtException', function (err) {
     console.log('[ERROR] Task Server -> server -> uncaughtException -> err.message = ' + err.message)

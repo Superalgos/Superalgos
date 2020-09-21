@@ -647,9 +647,6 @@ function newTutorialSpace() {
         if (nodeConfig.paragraph2 !== undefined && nodeConfig.paragraph2 !== '') {
             html = html + '<p class="tutorial-font-small">' + nodeConfig.paragraph2 + '</p>'
         }
-        if (nodeConfig.paragraph2 !== undefined && nodeConfig.paragraph2 !== '') {
-            html = html + '<p class="tutorial-font-small">' + nodeConfig.paragraph2 + '</p>'
-        }
         if (nodeConfig.note !== undefined && nodeConfig.note !== '') {
             html = html + '<div class="tutorial-font-small tutorial-alert-info" role="alert"><i class="tutorial-fa tutorial-info-circle"></i> <b>Note:</b> ' + nodeConfig.note + '</div>'
         }

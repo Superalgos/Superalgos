@@ -551,7 +551,12 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                                     respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
                                     return
                                 } else {
-                                    allWorkspaces = allWorkspaces.concat(fileList)
+                                    let updatedFileList = []
+                                    for (let i = 0; i < fileList.length; i++) {
+                                        let name = 'Included -> ' + fileList[i]
+                                        updatedFileList.push(name)
+                                    }
+                                    allWorkspaces = allWorkspaces.concat(updatedFileList)
                                     readMyWorkspaces()
                                     return
                                 }
@@ -593,6 +598,14 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                 {
                     let fileName = unescape(requestParameters[2])
                     let filePath = process.env.MY_WORKSPACES_PATH + '/' + fileName + '.json'
+                    respondWithFile(filePath, response)
+                }
+                break
+
+            case 'LoadIncludedWorkspace':
+                {
+                    let fileName = unescape(requestParameters[2])
+                    let filePath = process.env.WORKSPACES_PATH + '/' + fileName + '.json'
                     respondWithFile(filePath, response)
                 }
                 break

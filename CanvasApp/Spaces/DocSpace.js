@@ -23,15 +23,19 @@ function newDocSpace() {
 
     resize()
 
-    let openingEventSubscriptionId
-    let closedEventSubscriptionId
     let browserResizedEventSubscriptionId
+    let openingEventSubscriptionId
+    let closingEventSubscriptionId
+
+    const DEFAULT_URL = 'https://julian-molina.github.io/Documentation/'
     return thisObject
 
     function initialize() {
         thisObject.sidePanelTab = newSidePanelTab()
         thisObject.sidePanelTab.container.connectToParent(thisObject.container, false, false)
         thisObject.sidePanelTab.initialize('right')
+        openingEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('opening', onOpening)
+        closingEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('closing', onClosing)
 
         browserResizedEventSubscriptionId = canvas.eventHandler.listenToEvent('Browser Resized', resize)
 
@@ -41,7 +45,18 @@ function newDocSpace() {
     function finalize() {
         canvas.eventHandler.stopListening(browserResizedEventSubscriptionId)
         thisObject.sidePanelTab.container.eventHandler.stopListening(openingEventSubscriptionId)
-        thisObject.sidePanelTab.container.eventHandler.stopListening(closedEventSubscriptionId)
+        thisObject.sidePanelTab.container.eventHandler.stopListening(closingEventSubscriptionId)
+    }
+
+    function onOpening() {
+        let docIFrame = document.getElementById('docIFrame')
+        if (docIFrame.src === "") {
+            docIFrame.src = DEFAULT_URL
+        }
+    }
+
+    function onClosing() {
+
     }
 
     function navigateTo(url) {

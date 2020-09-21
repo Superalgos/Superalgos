@@ -300,6 +300,7 @@ function newTutorialSpace() {
     }
 
     function playTutorial(node) {
+        node.payload.uiObject.isPlaying = true
         tutorialRootNode = node
         currentNode = node
         currentStatus = 'Playing Tutorial'
@@ -307,6 +308,7 @@ function newTutorialSpace() {
     }
 
     function resumeTutorial(node) {
+        node.payload.uiObject.isPlaying = true
         tutorialRootNode = node
         currentNode = node
         currentStatus = 'Playing Tutorial'
@@ -315,6 +317,7 @@ function newTutorialSpace() {
     }
 
     function stop() {
+        tutorialRootNode.payload.uiObject.isPlaying = false
         tutorialRootNode = undefined
         currentStatus = 'Stopped'
     }

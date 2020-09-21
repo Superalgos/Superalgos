@@ -140,10 +140,14 @@ function newWorkspace() {
             setTimeout(functionLibraryUiObjectsFromNodes.runTasks, 70000)
             // We give a few seconds for the tasks to start
             setTimeout(functionLibraryUiObjectsFromNodes.runSessions, 80000)
+            // We give a few seconds 
+            setTimeout(functionLibraryUiObjectsFromNodes.playTutorials, 3000)
         } else {
             functionLibraryUiObjectsFromNodes.runTasks()
             // We give a few seconds for the tasks to start
             setTimeout(functionLibraryUiObjectsFromNodes.runSessions, 10000)
+            // We give a few seconds 
+            setTimeout(functionLibraryUiObjectsFromNodes.playTutorials, 1000)
         }
     }
 
@@ -412,7 +416,7 @@ function newWorkspace() {
 
     function replaceWorkspaceByLoadingOne(name) {
 
-        let webCommand 
+        let webCommand
         if (name.indexOf('Included -> ') >= 0) {
             name = name.replace('Included -> ', '')
             webCommand = 'LoadIncludedWorkspace'
@@ -420,7 +424,7 @@ function newWorkspace() {
             webCommand = 'LoadWorkspace'
         }
 
-        let blobService = newFileStorage()        
+        let blobService = newFileStorage()
         blobService.getFileFromHost(webCommand + '/' + name, onFileReceived, true)
         function onFileReceived(err, text, response) {
             if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {

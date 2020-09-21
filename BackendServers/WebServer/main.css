@@ -34,7 +34,7 @@
 .tutorial-form {
   padding: 15px;
   margin-bottom: 20px;
-  width: 105%;
+  width: 100%;
 }
 
 .tutorial-summary {
@@ -193,7 +193,7 @@
   border-radius: 4px;
   margin: 20px 0;
   border-top-color: #e4b9c0;
-  width: 20%;
+  min-width: 100px;
 }
 
 .tutorial-skip-button {
@@ -205,7 +205,7 @@
   border-radius: 4px;
   margin: 20px 0;
   border-top-color: #f7e1b5;
-  width: 20%;
+  min-width: 100px;
 }
 
 .tutorial-done-button {
@@ -217,7 +217,7 @@
   border-radius: 4px;
   margin: 20px 0;
   border-top-color: #c9e2b3;
-  width: 20%;
+  min-width: 100px;
 }
 
 .tutorial-buttonsTable {
@@ -227,5 +227,5 @@
   border: solid 0px;
   vertical-align: middle;
   min-width: 100px;
-  width: 105%;
+  width: 100%;
 }

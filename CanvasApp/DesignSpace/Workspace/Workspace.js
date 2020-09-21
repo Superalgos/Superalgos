@@ -413,7 +413,7 @@ function newWorkspace() {
     function replaceWorkspaceByLoadingOne(name) {
 
         let webCommand 
-        if (name.indexOf('Included -> ' >= 0)) {
+        if (name.indexOf('Included -> ') >= 0) {
             name = name.replace('Included -> ', '')
             webCommand = 'LoadIncludedWorkspace'
         } else {

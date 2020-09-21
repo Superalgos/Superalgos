@@ -309,36 +309,46 @@ function newFloatingObject() {
     function positionContraintsPhysics() {
         const MAX_DISTANCE_TO_PARENT = 5000
         const MIN_DISTANCE_TO_PARENT = 100
+        const DEFAULT_NODE_TO_NODE_DISTANCE = 400
 
         if (thisObject.angleToParent !== ANGLE_TO_PARENT.NOT_FIXED && thisObject.isOnFocus !== true) {
             let parent = thisObject.payload.chainParent
-            if (parent === undefined) { return }
-            if (parent.payload === undefined) { return }
-            if (parent.payload.position === undefined) { return }
+            let distanceToParent 
+            let parentChildren
+            let parentDistanceToGarndParent
+            if (parent === undefined) { 
+                parentDistanceToGarndParent = DEFAULT_NODE_TO_NODE_DISTANCE
+                distanceToParent =  DEFAULT_NODE_TO_NODE_DISTANCE  
+                parentChildren = 1
+             } else {
+                if (parent.payload === undefined) { return }
+                if (parent.payload.position === undefined) { return }
+                distanceToParent = Math.sqrt(Math.pow(parent.payload.position.x - thisObject.container.frame.position.x, 2) + Math.pow(parent.payload.position.y - thisObject.container.frame.position.y, 2))  // ... we calculate the distance ...
+                parentChildren = canvas.designSpace.workspace.nodeChildren.childrenCount(parent, thisObject.payload.node)
+                parentDistanceToGarndParent = parent.payload.distance
+             }
 
-            let distanceToParent = Math.sqrt(Math.pow(parent.payload.position.x - thisObject.container.frame.position.x, 2) + Math.pow(parent.payload.position.y - thisObject.container.frame.position.y, 2))  // ... we calculate the distance ...
-            let parentChildren = canvas.designSpace.workspace.nodeChildren.childrenCount(parent, thisObject.payload.node)
             let axisCount = parentChildren.childrenCount
             let axisIndex = parentChildren.childIndex
             let baseAngle = 0
             let angleToParentAngle
 
-            if (parent.payload.distance !== undefined) {
+            if (parentDistanceToGarndParent !== undefined) {
                 switch (thisObject.distanceToParent) {
                     case DISTANCE_TO_PARENT.PARENT_025X:
-                        distanceToParent = parent.payload.distance / 4
+                        distanceToParent = parentDistanceToGarndParent / 4
                         break
                     case DISTANCE_TO_PARENT.PARENT_050X:
-                        distanceToParent = parent.payload.distance / 2
+                        distanceToParent = parentDistanceToGarndParent / 2
                         break
                     case DISTANCE_TO_PARENT.PARENT_100X:
-                        distanceToParent = parent.payload.distance
+                        distanceToParent = parentDistanceToGarndParent
                         break
                     case DISTANCE_TO_PARENT.PARENT_150X:
-                        distanceToParent = parent.payload.distance * 1.5
+                        distanceToParent = parentDistanceToGarndParent * 1.5
                         break
                     case DISTANCE_TO_PARENT.PARENT_200X:
-                        distanceToParent = parent.payload.distance * 2
+                        distanceToParent = parentDistanceToGarndParent * 2
                         break
                 }
             }
@@ -371,16 +381,18 @@ function newFloatingObject() {
                 axisIndex = axisCount
             }
 
-            if (parent.payload.chainParent !== undefined && parent.payload.angle !== undefined) {
-                axisCount++
-                axisIndex++
-                baseAngle = parent.payload.angle + 180
-                lastParentAngle = parent.payload.angle
-            } else {
-                if (lastParentAngle !== undefined) {
+            if (parent !== undefined) {
+                if (parent.payload.chainParent !== undefined && parent.payload.angle !== undefined) {
                     axisCount++
                     axisIndex++
-                    baseAngle = lastParentAngle + 180
+                    baseAngle = parent.payload.angle + 180
+                    lastParentAngle = parent.payload.angle
+                } else {
+                    if (lastParentAngle !== undefined) {
+                        axisCount++
+                        axisIndex++
+                        baseAngle = lastParentAngle + 180
+                    }
                 }
             }
 

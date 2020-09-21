@@ -1866,7 +1866,6 @@
                 "actionFunction": "payload.onMenuItemClick"
             }
         ],
-        "isTitleAllwaysVisible": true,
         "isHierarchyHead": true,
         "addLeftIcons": true,
         "level": 0,
@@ -14629,8 +14628,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Reset",
                 "label": "Reset Tutorial Progress",
-                "iconPathOn": "shapes-polygon-body",
-                "iconPathOff": "shapes-polygon-body",
+                "iconPathOn": "bitcoin",
+                "iconPathOff": "bitcoin",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {

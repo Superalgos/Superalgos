@@ -454,38 +454,39 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                 }
                 break
 
-            case 'IncludedNames':
+            case 'IncludedFileNames':
                 {
                     const fs = require('fs')
                     let folder
-                    let includedNames = {
-                        includedDataMines: [],
-                        includedTradingMines: [],
-                        includedTradingSystems: [],
-                        includedSuperScripts: [],
-                        includedTradingEngines: []
+                    switch (requestParameters[2]) {
+                        case 'Data-Mines': {
+                            folder = process.env.DATA_MINES_PATH + '/'
+                            break
+                        }
+                        case 'Trading-Mines': {
+                            folder = process.env.TRADING_MINES_PATH + '/'
+                            break
+                        }
+                        case 'Trading-Systems': {
+                            folder = process.env.TRADING_SYSTEMS_PATH + '/'
+                            break
+                        }
+                        case 'Trading-Engines': {
+                            folder = process.env.TRADING_ENGINES_PATH + '/'
+                            break
+                        }
+                        case 'Super-Scripts': {
+                            folder = process.env.SUPER_SCRIPTS_PATH + '/'
+                            break
+                        }
+                        case 'Tutorials': {
+                            folder = process.env.TUTORIALS_PATH + '/'
+                            break
+                        }
                     }
 
-                    folder = process.env.DATA_MINES_PATH + '/'
                     fs.readdir(folder, (err, files) => {
-                        includedNames.includedDataMines = files
-                        folder = process.env.TRADING_SYSTEMS_PATH + '/'
-                        fs.readdir(folder, (err, files) => {
-                            includedNames.includedTradingSystems = files
-                            folder = process.env.SUPER_SCRIPTS_PATH + '/'
-                            fs.readdir(folder, (err, files) => {
-                                includedNames.includedSuperScripts = files
-                                folder = process.env.TRADING_ENGINES_PATH + '/'
-                                fs.readdir(folder, (err, files) => {
-                                    includedNames.includedTradingEngines = files
-                                    folder = process.env.TRADING_MINES_PATH + '/'
-                                    fs.readdir(folder, (err, files) => {
-                                        includedNames.includedTradingMines = files
-                                        respondWithContent(JSON.stringify(includedNames), response)
-                                    })
-                                })
-                            })
-                        })
+                        respondWithContent(JSON.stringify(files), response)
                     })
                 }
                 break
@@ -517,7 +518,7 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                     let fs = require('fs')
 
                     try {
-                        let filePath = process.env.WORKSPACE_PATH + 'Workspace.json'
+                        let filePath = process.env.DEFAULT_WORKSPACE_PATH + '/Default.json'
                         fs.readFile(filePath, onFileRead)
                     } catch (e) {
                         console.log('[ERROR] Error reading the Workspace.', e)
@@ -536,30 +537,60 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
 
             case 'ListWorkspaces':
                 {
-                    let dirPath = process.env.MY_WORKSPACES_PATH
+                    let allWorkspaces = []
+                    readIncludedWorkspaces()
+                    function readIncludedWorkspaces() {
+                        let dirPath = process.env.WORKSPACES_PATH
+                        try {
+                            let fs = require('fs')
+                            fs.readdir(dirPath, onDirRead)
 
-                    try {
-                        let fs = require('fs')
-
-                        fs.readdir(dirPath, onDirRead)
-
-                        function onDirRead(err, fileList) {
-                            if (err) {
-                                if (CONSOLE_LOG === true) { console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath) }
-                                respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
-                                return
-                            } else {
-                                respondWithContent(JSON.stringify(fileList), response)
-                                return
+                            function onDirRead(err, fileList) {
+                                if (err) {
+                                    if (CONSOLE_LOG === true) { console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath) }
+                                    respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
+                                    return
+                                } else {
+                                    let updatedFileList = []
+                                    for (let i = 0; i < fileList.length; i++) {
+                                        let name = 'Included -> ' + fileList[i]
+                                        updatedFileList.push(name)
+                                    }
+                                    allWorkspaces = allWorkspaces.concat(updatedFileList)
+                                    readMyWorkspaces()
+                                    return
+                                }
                             }
+                        } catch (err) {
+                            if (CONSOLE_LOG === true) { console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath) }
+                            respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
+                            return
                         }
-
-                    } catch (err) {
-                        if (CONSOLE_LOG === true) { console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath) }
-                        respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
-                        return
                     }
 
+                    function readMyWorkspaces() {
+                        let dirPath = process.env.MY_WORKSPACES_PATH
+                        try {
+                            let fs = require('fs')
+                            fs.readdir(dirPath, onDirRead)
+
+                            function onDirRead(err, fileList) {
+                                if (err) {
+                                    if (CONSOLE_LOG === true) { console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath) }
+                                    respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
+                                    return
+                                } else {
+                                    allWorkspaces = allWorkspaces.concat(fileList)
+                                    respondWithContent(JSON.stringify(allWorkspaces), response)
+                                    return
+                                }
+                            }
+                        } catch (err) {
+                            if (CONSOLE_LOG === true) { console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath) }
+                            respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
+                            return
+                        }
+                    }
                 }
                 break
 
@@ -567,6 +598,14 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                 {
                     let fileName = unescape(requestParameters[2])
                     let filePath = process.env.MY_WORKSPACES_PATH + '/' + fileName + '.json'
+                    respondWithFile(filePath, response)
+                }
+                break
+
+            case 'LoadIncludedWorkspace':
+                {
+                    let fileName = unescape(requestParameters[2])
+                    let filePath = process.env.WORKSPACES_PATH + '/' + fileName + '.json'
                     respondWithFile(filePath, response)
                 }
                 break
@@ -609,33 +648,39 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                 }
                 break
 
-            case 'DataMines':
+            case 'Data-Mines':
                 {
                     respondWithFile(process.env.DATA_MINES_PATH + '/' + requestParameters[2], response)
                 }
                 break
 
-            case 'TradingMines':
+            case 'Trading-Mines':
                 {
                     respondWithFile(process.env.TRADING_MINES_PATH + '/' + requestParameters[2], response)
                 }
                 break
 
-            case 'TradingSystems':
+            case 'Trading-Systems':
                 {
                     respondWithFile(process.env.TRADING_SYSTEMS_PATH + '/' + requestParameters[2], response)
                 }
                 break
 
-            case 'SuperScripts':
+            case 'Super-Scripts':
                 {
                     respondWithFile(process.env.SUPER_SCRIPTS_PATH + '/' + requestParameters[2], response)
                 }
                 break
 
-            case 'TradingEngines':
+            case 'Trading-Engines':
                 {
                     respondWithFile(process.env.TRADING_ENGINES_PATH + '/' + requestParameters[2], response)
+                }
+                break
+
+            case 'Tutorials':
+                {
+                    respondWithFile(process.env.TUTORIALS_PATH + '/' + requestParameters[2], response)
                 }
                 break
 
@@ -722,6 +767,7 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                     if (!err) {
                         respondWithContent(file.toString(), response)
                     } else {
+                        console.log('File requested not found: ' + fileName)
                         respondWithContent(undefined, response)
                     }
                 }

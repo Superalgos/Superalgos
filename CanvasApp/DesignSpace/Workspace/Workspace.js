@@ -70,6 +70,7 @@ function newWorkspace() {
     let functionLibraryDataStorageFunctions = newDataStorageFunctions()
     let functionLibraryChartingSpaceFunctions = newChartingSpaceFunctions()
     let functionLibraryTutorialFunctions = newTutorialFunctions()
+    let functionLibraryIncludesFunctions = newIncludesFunctions()
 
     thisObject.nodeChildren = newNodeChildren()
 
@@ -184,6 +185,14 @@ function newWorkspace() {
 
         /* Validation if it is too early to save. */
         if (isInitialized === false) { return }
+
+        /* Validation of that the user changed the workspace name at least once. */
+        if (workspace.name === 'Default') {
+            canvas.cockpitSpace.setStatus(
+                'Could not save the Workspace. Please rename the Workspace so that it can be saved.'
+                , 150, canvas.cockpitSpace.statusTypes.WARNING)
+            return
+        }
 
         /* Validation of 2 sessions opened at the same time. */
         let savedSessionTimestamp = window.localStorage.getItem('Session Timestamp')
@@ -402,8 +411,17 @@ function newWorkspace() {
     }
 
     function replaceWorkspaceByLoadingOne(name) {
-        let blobService = newFileStorage()
-        blobService.getFileFromHost('LoadWorkspace' + '/' + name, onFileReceived, true)
+
+        let webCommand 
+        if (name.indexOf('Included -> ' >= 0)) {
+            name = name.replace('Included -> ', '')
+            webCommand = 'LoadIncludedWorkspace'
+        } else {
+            webCommand = 'LoadWorkspace'
+        }
+
+        let blobService = newFileStorage()        
+        blobService.getFileFromHost(webCommand + '/' + name, onFileReceived, true)
         function onFileReceived(err, text, response) {
             if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
                 canvas.cockpitSpace.setStatus('Could not load the Workspace called "' + name + '". ', 500, canvas.cockpitSpace.statusTypes.WARNING)
@@ -877,6 +895,36 @@ function newWorkspace() {
                             canvas.docSpace.navigateTo(url)
                         }
                     }
+                }
+                break
+            case 'Include Missing Data Mines':
+                {
+                    functionLibraryIncludesFunctions.includeMissingDataMines(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
+                }
+                break
+            case 'Include Missing Trading Mines':
+                {
+                    functionLibraryIncludesFunctions.includeMissingTradingMines(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
+                }
+                break
+            case 'Include Missing Trading Systems':
+                {
+                    functionLibraryIncludesFunctions.includeMissingTradingSystems(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
+                }
+                break
+            case 'Include Missing Trading Engines':
+                {
+                    functionLibraryIncludesFunctions.includeMissingTradingEngines(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
+                }
+                break
+            case 'Include Missing Super Scripts':
+                {
+                    functionLibraryIncludesFunctions.includeMissingSuperScripts(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
+                }
+                break
+            case 'Include Missing Tutorials':
+                {
+                    functionLibraryIncludesFunctions.includeMissingTutorials(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
                 }
                 break
         }

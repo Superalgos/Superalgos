@@ -14299,22 +14299,296 @@
             {
                 "name": "includedTradingSystems",
                 "type": "node",
-                "childType": "Included Trading Mines",
+                "childType": "Included Trading Systems",
                 "autoAdd": false
             },
             {
                 "name": "includedTradingEngines",
                 "type": "node",
-                "childType": "Included Trading Mines",
+                "childType": "Included Trading Engines",
                 "autoAdd": false
             },
             {
                 "name": "includedSuperScripts",
                 "type": "node",
-                "childType": "Included Trading Mines",
+                "childType": "Included Super Scripts",
+                "autoAdd": false
+            },
+            {
+                "name": "includedTutorials",
+                "type": "node",
+                "childType": "Included Tutorials",
                 "autoAdd": false
             }
-        ]
+        ],
+        "icon": "bitcoin"
+    },
+    {
+        "type": "Included Data Mines",
+        "menuItems": [
+            {
+                "action": "Include Missing Data Mines",
+                "label": "Include Missing Data Mines",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Data Mine",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 1,
+        "propertyNameAtParent": "includedDataMines",
+        "properties": [
+            {
+                "name": "includedFiles",
+                "type": "array",
+                "childType": "Included File",
+                "autoAdd": false
+            }
+        ],
+        "icon": "bitcoin"
+    },
+    {
+        "type": "Included Trading Mines",
+        "menuItems": [
+            {
+                "action": "Include Missing Trading Mines",
+                "label": "Include Missing Trading Mines",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Trading Mine",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 1,
+        "propertyNameAtParent": "includedTradingMines",
+        "properties": [
+            {
+                "name": "includedFiles",
+                "type": "array",
+                "childType": "Included File",
+                "autoAdd": false
+            }
+        ],
+        "icon": "bitcoin"
+    },
+    {
+        "type": "Included Trading Systems",
+        "menuItems": [
+            {
+                "action": "Include Missing Trading Systems",
+                "label": "Include Missing Trading Systems",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Trading System",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 1,
+        "propertyNameAtParent": "includedTradingSystems",
+        "properties": [
+            {
+                "name": "includedFiles",
+                "type": "array",
+                "childType": "Included File",
+                "autoAdd": false
+            }
+        ],
+        "icon": "bitcoin"
+    },
+    {
+        "type": "Included Trading Engines",
+        "menuItems": [
+            {
+                "action": "Include Missing Trading Engines",
+                "label": "Include Missing Trading Engines",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Trading Engine",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 1,
+        "propertyNameAtParent": "includedTradingEngines",
+        "properties": [
+            {
+                "name": "includedFiles",
+                "type": "array",
+                "childType": "Included File",
+                "autoAdd": false
+            }
+        ],
+        "icon": "bitcoin"
+    },
+    {
+        "type": "Included Super Scripts",
+        "menuItems": [
+            {
+                "action": "Include Missing Super Scripts",
+                "label": "Include Missing Super Scripts",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Super Scripts",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 1,
+        "propertyNameAtParent": "includedSuperScripts",
+        "properties": [
+            {
+                "name": "includedFiles",
+                "type": "array",
+                "childType": "Included File",
+                "autoAdd": false
+            }
+        ],
+        "icon": "bitcoin"
+    },
+    {
+        "type": "Included Tutorials",
+        "menuItems": [
+            {
+                "action": "Include Missing Tutorials",
+                "label": "Include Missing Tutorials",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Tutorial",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 1,
+        "propertyNameAtParent": "includedTutorials",
+        "properties": [
+            {
+                "name": "includedFiles",
+                "type": "array",
+                "childType": "Included File",
+                "autoAdd": false
+            }
+        ],
+        "icon": "bitcoin"
+    },
+    {
+        "type": "Included File",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "includedFilePosition",
+                "actionFunction": "payload.onMenuItemClick",
+                "label": "Add Included File Position",
+                "relatedUiObject": "Included File Position",
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 2,
+        "propertyNameAtParent": "includedFiles",
+        "properties": [
+            {
+                "name": "includedFilePosition",
+                "type": "node",
+                "childType": "Included File Position",
+                "autoAdd": false
+            }
+        ],
+        "icon": "bitcoin"
+    },
+    {
+        "type": "Included File Position",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "title": [
+            "Use Parent"
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "propertyNameAtParent": "includedFilePosition",
+        "properties": [
+        ],
+        "icon": "bitcoin"
     },
     {
         "type": "Tutorial",

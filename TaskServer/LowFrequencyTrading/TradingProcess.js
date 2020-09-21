@@ -505,6 +505,12 @@
 
                 /* The first phase here is about checking that we have everything we need at the definition level. */
                 let dataDependencies = global.NODE_BRANCH_TO_ARRAY(bot.processNode.referenceParent.processDependencies, 'Data Dependency')
+                /* 
+                We will filter ourt declared dependencies that are not present in the workspace.
+                This will allow the user to have less Data Mines loaded at the workspace
+                that the ones that a Trading Mine depends on.
+                */
+                dataDependencies = global.FILTER_OUT_NODES_WITHOUT_REFERENCE_PARENT_FROM_NODE_ARRAY(dataDependencies)
 
                 if (commons.validateDataDependencies(dataDependencies, callBackFunction) !== true) { return }
 

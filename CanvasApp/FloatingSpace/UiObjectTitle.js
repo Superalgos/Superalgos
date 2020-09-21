@@ -108,6 +108,14 @@ function newUiObjectTitle() {
             for (let i = 0; i < nodeDefinition.title.length; i++) {
                 let titleReference = nodeDefinition.title[i]
                 switch (titleReference) {
+                    case 'Use Parent': {
+                        let nodeToUse = thisObject.payload.parentNode
+                        if (nodeToUse !== undefined && nodeToUse.payload !== undefined) {
+                            thisObject.payload.title = thisObject.payload.title + separator + nodeToUse.payload.title
+                            thisObject.payload.node.name = thisObject.payload.node.name + separator + nodeToUse.payload.node.name
+                        }
+                        break
+                    }
                     case 'Use Reference Parent': {
                         let nodeToUse = thisObject.payload.node.payload.referenceParent
                         if (nodeToUse !== undefined && nodeToUse.payload !== undefined) {

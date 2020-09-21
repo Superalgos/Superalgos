@@ -174,7 +174,7 @@ function newUiObjectsFromNodes() {
                 if (node.payload.referenceParent.cleaned === true) {
                     node.payload.referenceParent = mapOfNodes.get(node.payload.referenceParent.id)
                     if (node.payload.referenceParent === undefined) {
-                        console.log(node.type + ' ' + node.name + ' reference parent lost during re-binding phase.')
+                        //console.log('[WARN]' + node.type + ' ' + node.name + ' reference parent lost during re-binding phase.')
                     }
                     continue  // We were referencing a deleted node, so we replace it potentially with a newly created one.
                 } else {
@@ -185,7 +185,7 @@ function newUiObjectsFromNodes() {
                 if (node.savedPayload.referenceParent !== undefined) { // these are children recreated
                     node.payload.referenceParent = mapOfNodes.get(node.savedPayload.referenceParent.id)
                     if (node.payload.referenceParent === undefined) {
-                        console.log(node.type + ' ' + node.name + ' reference parent lost during re-binding phase.')
+                        //console.log('[WARN]' + node.type + ' ' + node.name + ' reference parent lost during re-binding phase.')
                     }
                 }
             }

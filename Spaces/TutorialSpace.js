@@ -250,7 +250,7 @@ function newTutorialSpace() {
         function makeVsible() {
             const HEIGHT = 650
             const WIDTH = 400
-            const MARGIN = 300
+            const MARGIN = 100
             const FORM_HEIGHT = 40
 
             let nodeConfig = JSON.parse(currentNode.config)

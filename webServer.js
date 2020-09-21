@@ -518,7 +518,7 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                     let fs = require('fs')
 
                     try {
-                        let filePath = process.env.WORKSPACE_PATH + 'Workspace.json'
+                        let filePath = process.env.DEFAULT_WORKSPACE_PATH + '/Default.json'
                         fs.readFile(filePath, onFileRead)
                     } catch (e) {
                         console.log('[ERROR] Error reading the Workspace.', e)
@@ -537,30 +537,55 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
 
             case 'ListWorkspaces':
                 {
-                    let dirPath = process.env.MY_WORKSPACES_PATH
+                    let allWorkspaces = []
+                    readIncludedWorkspaces()
+                    function readIncludedWorkspaces() {
+                        let dirPath = process.env.WORKSPACES_PATH
+                        try {
+                            let fs = require('fs')
+                            fs.readdir(dirPath, onDirRead)
 
-                    try {
-                        let fs = require('fs')
-
-                        fs.readdir(dirPath, onDirRead)
-
-                        function onDirRead(err, fileList) {
-                            if (err) {
-                                if (CONSOLE_LOG === true) { console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath) }
-                                respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
-                                return
-                            } else {
-                                respondWithContent(JSON.stringify(fileList), response)
-                                return
+                            function onDirRead(err, fileList) {
+                                if (err) {
+                                    if (CONSOLE_LOG === true) { console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath) }
+                                    respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
+                                    return
+                                } else {
+                                    allWorkspaces = allWorkspaces.concat(fileList)
+                                    readMyWorkspaces()
+                                    return
+                                }
                             }
+                        } catch (err) {
+                            if (CONSOLE_LOG === true) { console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath) }
+                            respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
+                            return
                         }
-
-                    } catch (err) {
-                        if (CONSOLE_LOG === true) { console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath) }
-                        respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
-                        return
                     }
 
+                    function readMyWorkspaces() {
+                        let dirPath = process.env.MY_WORKSPACES_PATH
+                        try {
+                            let fs = require('fs')
+                            fs.readdir(dirPath, onDirRead)
+
+                            function onDirRead(err, fileList) {
+                                if (err) {
+                                    if (CONSOLE_LOG === true) { console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath) }
+                                    respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
+                                    return
+                                } else {
+                                    allWorkspaces = allWorkspaces.concat(fileList)
+                                    respondWithContent(JSON.stringify(allWorkspaces), response)
+                                    return
+                                }
+                            }
+                        } catch (err) {
+                            if (CONSOLE_LOG === true) { console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath) }
+                            respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
+                            return
+                        }
+                    }
                 }
                 break
 

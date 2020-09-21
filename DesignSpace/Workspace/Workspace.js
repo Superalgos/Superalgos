@@ -411,8 +411,17 @@ function newWorkspace() {
     }
 
     function replaceWorkspaceByLoadingOne(name) {
-        let blobService = newFileStorage()
-        blobService.getFileFromHost('LoadWorkspace' + '/' + name, onFileReceived, true)
+
+        let webCommand 
+        if (name.indexOf('Included -> ' >= 0)) {
+            name = name.replace('Included -> ', '')
+            webCommand = 'LoadIncludedWorkspace'
+        } else {
+            webCommand = 'LoadWorkspace'
+        }
+
+        let blobService = newFileStorage()        
+        blobService.getFileFromHost(webCommand + '/' + name, onFileReceived, true)
         function onFileReceived(err, text, response) {
             if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
                 canvas.cockpitSpace.setStatus('Could not load the Workspace called "' + name + '". ', 500, canvas.cockpitSpace.statusTypes.WARNING)

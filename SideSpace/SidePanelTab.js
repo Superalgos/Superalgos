@@ -69,10 +69,12 @@ function newSidePanelTab() {
 
     function open() {
         animation = 'opening'
+        thisObject.container.eventHandler.raiseEvent('opening')
     }
 
     function close() {
         animation = 'closing'
+        thisObject.container.eventHandler.raiseEvent('closing')
     }
 
     function onMouseClick(event) {

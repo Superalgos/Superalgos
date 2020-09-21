@@ -205,7 +205,7 @@ function newListView() {
     }
 
     function drawBackground() {
-        let label = 'Your Workspaces'
+        let label = 'Available Workspaces'
 
         let backgroundColor = UI_COLOR.WHITE
         let params = {

@@ -692,7 +692,13 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
 
             case 'main.css':
                 {
-                    mainCSS()
+                    sendStyleSheet('main.css')
+                }
+                break
+
+            case 'font-awasome.css':
+                {
+                    sendStyleSheet('font-awasome.css')
                 }
                 break
 
@@ -702,11 +708,11 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                 }
         }
 
-        function mainCSS() {
+        function sendStyleSheet(fileName) {
             let fs = require('fs')
             try {
-                let fileName = process.env.PATH_TO_WEB_SERVER + 'WebServer/main.css'
-                fs.readFile(fileName, onFileRead)
+                let filePath = process.env.PATH_TO_WEB_SERVER + 'WebServer/' + fileName
+                fs.readFile(filePath, onFileRead)
 
                 function onFileRead(err, file) {
                     try {

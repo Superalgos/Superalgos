@@ -29,7 +29,7 @@ function newFloatingObject() {
         isParentCollapsed: false,
         frozenManually: false,
         collapsedManually: false,
-        unCollapseParent: unCollapseParent, 
+        unCollapseParent: unCollapseParent,
         getPinStatus: getPinStatus,
         getFreezeStatus: getFreezeStatus,
         getCollapseStatus: getCollapseStatus,
@@ -274,9 +274,9 @@ function newFloatingObject() {
     }
 
     function invisiblePhysics() {
-        if (thisObject.payload === undefined) {return}
-        if (thisObject.payload.uiObject === undefined) {return}
-            
+        if (thisObject.payload === undefined) { return }
+        if (thisObject.payload.uiObject === undefined) { return }
+
         if (thisObject.payload.uiObject !== undefined) {
             thisObject.payload.uiObject.invisiblePhysics()
         }
@@ -313,20 +313,20 @@ function newFloatingObject() {
 
         if (thisObject.angleToParent !== ANGLE_TO_PARENT.NOT_FIXED && thisObject.isOnFocus !== true) {
             let parent = thisObject.payload.chainParent
-            let distanceToParent 
+            let distanceToParent
             let parentChildren
             let parentDistanceToGarndParent
-            if (parent === undefined) { 
+            if (parent === undefined) {
                 parentDistanceToGarndParent = DEFAULT_NODE_TO_NODE_DISTANCE
-                distanceToParent =  DEFAULT_NODE_TO_NODE_DISTANCE  
+                distanceToParent = DEFAULT_NODE_TO_NODE_DISTANCE
                 parentChildren = 1
-             } else {
+            } else {
                 if (parent.payload === undefined) { return }
                 if (parent.payload.position === undefined) { return }
                 distanceToParent = Math.sqrt(Math.pow(parent.payload.position.x - thisObject.container.frame.position.x, 2) + Math.pow(parent.payload.position.y - thisObject.container.frame.position.y, 2))  // ... we calculate the distance ...
                 parentChildren = canvas.designSpace.workspace.nodeChildren.childrenCount(parent, thisObject.payload.node)
                 parentDistanceToGarndParent = parent.payload.distance
-             }
+            }
 
             let axisCount = parentChildren.childrenCount
             let axisIndex = parentChildren.childIndex
@@ -419,9 +419,14 @@ function newFloatingObject() {
                 return
             }
 
-            let newPosition = {
-                x: parent.payload.position.x,
-                y: parent.payload.position.y
+            let newPosition
+            if (parent !== undefined) {
+                newPosition = {
+                    x: parent.payload.position.x,
+                    y: parent.payload.position.y
+                }
+            } else {
+                return
             }
 
             let displacement
@@ -604,8 +609,8 @@ function newFloatingObject() {
     }
 
     function drawBackground() {
-        if (thisObject.payload === undefined) {return}
-        if (thisObject.payload.uiObject === undefined) {return}
+        if (thisObject.payload === undefined) { return }
+        if (thisObject.payload.uiObject === undefined) { return }
 
         if (canvas.floatingSpace.isItFar(thisObject.payload) && thisObject.payload.uiObject.isShowing === false) { return }
         if ((thisObject.isCollapsed === true && thisObject.collapsedManually === false) || thisObject.isParentCollapsed === true) {
@@ -617,8 +622,8 @@ function newFloatingObject() {
     }
 
     function drawMiddleground() {
-        if (thisObject.payload === undefined) {return}
-        if (thisObject.payload.uiObject === undefined) {return}
+        if (thisObject.payload === undefined) { return }
+        if (thisObject.payload.uiObject === undefined) { return }
 
         if (canvas.floatingSpace.isItFar(thisObject.payload) && thisObject.payload.uiObject.isShowing === false) { return }
         if ((thisObject.isCollapsed === true && thisObject.collapsedManually === false) || thisObject.isParentCollapsed === true) {
@@ -630,8 +635,8 @@ function newFloatingObject() {
     }
 
     function drawForeground() {
-        if (thisObject.payload === undefined) {return}
-        if (thisObject.payload.uiObject === undefined) {return}
+        if (thisObject.payload === undefined) { return }
+        if (thisObject.payload.uiObject === undefined) { return }
 
         if (canvas.floatingSpace.isItFar(thisObject.payload) && thisObject.payload.uiObject.isShowing === false) { return }
         if ((thisObject.isCollapsed === true && thisObject.collapsedManually === false) || thisObject.isParentCollapsed === true) {
@@ -643,8 +648,8 @@ function newFloatingObject() {
     }
 
     function drawOnFocus() {
-        if (thisObject.payload === undefined) {return}
-        if (thisObject.payload.uiObject === undefined) {return}
+        if (thisObject.payload === undefined) { return }
+        if (thisObject.payload.uiObject === undefined) { return }
 
         thisObject.payload.uiObject.drawOnFocus()
     }

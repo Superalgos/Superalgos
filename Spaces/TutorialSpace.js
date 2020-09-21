@@ -251,7 +251,7 @@ function newTutorialSpace() {
             const HEIGHT = 650
             const WIDTH = 400
             const MARGIN = 300
-            const FORM_HEIGHT = 80
+            const FORM_HEIGHT = 40
 
             let nodeConfig = JSON.parse(currentNode.config)
             switch (nodeConfig.position) {
@@ -294,7 +294,7 @@ function newTutorialSpace() {
             buildHTML()
 
             tutorialFormDiv.style = '   ' +
-                'position:fixed; top:' + (tutorialPosition.y + HEIGHT - FORM_HEIGHT) + 'px; ' +
+                'position:fixed; top:' + (tutorialPosition.y + HEIGHT - 30) + 'px; ' +
                 'left:' + tutorialPosition.x + 'px; ' +
                 'width: ' + (WIDTH + 20) + 'px;' +
                 'height: ' + FORM_HEIGHT + 'px;' +

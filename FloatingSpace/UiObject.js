@@ -21,6 +21,7 @@ function newUiObject() {
         uiObjectTitle: undefined,
         circularProgressBar: undefined,
         isRunning: undefined,
+        isPlaying: undefined,
         shortcutKey: undefined,
         isShowing: undefined,
         hasError: undefined,

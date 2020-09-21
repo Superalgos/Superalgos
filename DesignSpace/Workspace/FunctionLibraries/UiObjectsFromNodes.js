@@ -2,6 +2,7 @@ function newUiObjectsFromNodes() {
     thisObject = {
         runTasks: runTasks,
         runSessions: runSessions,
+        playTutorials: playTutorials,
         recreateWorkspace: recreateWorkspace,
         getNodeById: getNodeById,
         tryToConnectChildrenWithReferenceParents: tryToConnectChildrenWithReferenceParents,
@@ -14,6 +15,7 @@ function newUiObjectsFromNodes() {
     let mapOfNodes
     let tasksToRun
     let sessionsToRun
+    let tutorialsToPlay
 
     return thisObject
 
@@ -25,6 +27,7 @@ function newUiObjectsFromNodes() {
         mapOfNodes = new Map()
         tasksToRun = []
         sessionsToRun = []
+        tutorialsToPlay = []
 
         removeNullRootNodes()
 
@@ -161,6 +164,14 @@ function newUiObjectsFromNodes() {
             node.payload.uiObject.menu.internalClick('Run Session')
         }
         sessionsToRun = undefined
+    }
+
+    function playTutorials() {
+        for (let i = 0; i < tutorialsToPlay.length; i++) {
+            let node = tutorialsToPlay[i]
+            node.payload.uiObject.menu.internalClick('Play Tutorial')
+        }
+        tutorialsToPlay = undefined
     }
 
     function tryToConnectChildrenWithReferenceParents() {
@@ -633,6 +644,17 @@ function newUiObjectsFromNodes() {
                         if (sessionsToRun !== undefined) { // it might be undefined when you are spawning a session that was running while backed up
                             sessionsToRun.push(node)
                         }
+                    }
+                }
+            }
+        }
+
+        /* Check if there are tutorials to play */
+        if (userAddingNew === false && node.savedPayload !== undefined) {
+            if (uiObjectType === 'Tutorial') {
+                if (node.savedPayload.uiObject.isPlaying === true) {
+                    if (tutorialsToPlay !== undefined) { // it might be undefined when you are spawning a tutorial that was playing while backed up
+                        tutorialsToPlay.push(node)
                     }
                 }
             }

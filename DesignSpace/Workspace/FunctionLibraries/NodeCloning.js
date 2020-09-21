@@ -152,6 +152,7 @@ function newNodeCloning() {
                 arrangementStyle: (node.payload.floatingObject.arrangementStyle)
             },
             uiObject: {
+                isPlaying: node.payload.uiObject.isPlaying,
                 isRunning: node.payload.uiObject.isRunning,
                 shortcutKey: node.payload.uiObject.shortcutKey
             }

@@ -28,6 +28,7 @@ function newAppLoader() {
                 'Globals.js',
 
                 'AppSchema.js',
+                'DocSchema.js',
                 'Workspace.js',
 
                 'ChartingSpace/EdgeEditor.js',

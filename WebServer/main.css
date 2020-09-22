@@ -255,11 +255,11 @@
 /* Tooltip text */
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 120px;
-  background-color: #555;
+  width: 240px;
+  background-color: #0295aa;
   color: #fff;
   text-align: center;
-  padding: 5px 0;
+  padding: 5px 10;
   border-radius: 6px;
 
   /* Position the tooltip text */
@@ -267,7 +267,8 @@
   z-index: 1;
   bottom: 125%;
   left: 50%;
-  margin-left: -60px;
+  margin-left: -120px;
+   
 
   /* Fade in tooltip */
   opacity: 0;
@@ -283,7 +284,7 @@
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
-  border-color: #555 transparent transparent transparent;
+  border-color: #0295aa transparent transparent transparent;
 }
 
 /* Show the tooltip text when you mouse over the tooltip container */

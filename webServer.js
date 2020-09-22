@@ -493,23 +493,13 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
 
             case 'AppSchema.js':
                 {
-                    let fs = require('fs')
+                    sendSchema(process.env.APP_SCHEMA_PATH, 'AppSchema', 'getAppSchema')
+                }
+                break
 
-                    try {
-                        let filePath = process.env.APP_SCHEMA_PATH + 'AppSchema.json'
-                        fs.readFile(filePath, onFileRead)
-                    } catch (e) {
-                        console.log('[ERROR] Error reading the App Schema.', e)
-                    }
-
-                    function onFileRead(err, appSchema) {
-                        if (err) {
-                            respondWithContent(undefined, response)
-                        } else {
-                            let responseContent = 'function getAppSchema(){ return ' + appSchema + '}'
-                            respondWithContent(responseContent, response)
-                        }
-                    }
+            case 'DocSchema.js':
+                {
+                    sendSchema(process.env.DOC_SCHEMA_PATH, 'DocSchema', 'getDocSchema')
                 }
                 break
 
@@ -706,6 +696,26 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                 {
                     homePage()
                 }
+        }
+
+        function sendSchema(filePath, fileName, functionName) {
+            let fs = require('fs')
+
+            try {
+                filePath = filePath + fileName + '.json'
+                fs.readFile(filePath, onFileRead)
+            } catch (e) {
+                console.log('[ERROR] Error reading the ' + fileName, e)
+            }
+
+            function onFileRead(err, schema) {
+                if (err) {
+                    respondWithContent(undefined, response)
+                } else {
+                    let responseContent = 'function ' + functionName + '(){ return ' + schema + '}'
+                    respondWithContent(responseContent, response)
+                }
+            }
         }
 
         function sendStyleSheet(fileName) {

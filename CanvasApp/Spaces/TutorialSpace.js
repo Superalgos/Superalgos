@@ -704,7 +704,7 @@ function newTutorialSpace() {
                 if (nodeType === undefined  ) {return resultingText + firstPart}
                 let definitionNode = DOC_SCHEMA_MAP.get(nodeType)
                 if (definitionNode === undefined) {
-                    currentNode.setErrorMessage(nodeType + ' not found at Doc Schema.')  
+                    currentNode.payload.uiObject.setErrorMessage(nodeType + ' not found at Doc Schema.')  
                     return
                 }
                 let definition = definitionNode.definition

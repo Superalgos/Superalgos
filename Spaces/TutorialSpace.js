@@ -324,21 +324,21 @@ function newTutorialSpace() {
                     currentNode = previousNode
                     findTutorialNode(currentNode)
                     currentStatus = 'Playing Tutorial'
-                    navigationStack.splice(navigationStack.length - 1) 
+                    navigationStack.splice(navigationStack.length - 1)
                     break
                 }
                 case 'Tutorial Topic': {
                     currentNode = previousNode
                     findTutorialNode(currentNode)
                     currentStatus = 'Playing Topic'
-                    navigationStack.splice(navigationStack.length - 1) 
+                    navigationStack.splice(navigationStack.length - 1)
                     break
                 }
                 case 'Tutorial Step': {
                     currentNode = previousNode
                     findTutorialNode(currentNode)
                     currentStatus = 'Playing Step'
-                    navigationStack.splice(navigationStack.length - 1) 
+                    navigationStack.splice(navigationStack.length - 1)
                     break
                 }
             }
@@ -597,7 +597,7 @@ function newTutorialSpace() {
         }
         html = html + '<div>'
         if (nodeConfig.summary !== undefined && nodeConfig.summary !== '') {
-            html = html + '<div class="tutorial-font-small tutorial-summary">' + nodeConfig.summary + '</div>'
+            html = html + '<div class="tutorial-font-small tutorial-summary">' + addToolTips(nodeConfig.summary) + '</div>'
         }
         if (nodeConfig.subTitle !== undefined && nodeConfig.subTitle !== '') {
             html = html + '<h2 class="tutorial-font-medium">' + nodeConfig.subTitle + '</h2>'
@@ -606,6 +606,7 @@ function newTutorialSpace() {
             html = html + '<div id="tutorialGifDiv" width="400"/>'
             newGifName = nodeConfig.gif
         }
+
         if (nodeConfig.definition !== undefined && nodeConfig.definition !== '') {
             html = html + '<table class="tutorial-definitionTable">'
             html = html + '<tr>'
@@ -616,52 +617,67 @@ function newTutorialSpace() {
             }
             html = html + '</td>'
             html = html + '<td>'
-            html = html + '<strong class="tutorial-font-bold-small">' + nodeConfig.definition + '</strong>'
+            html = html + '<strong class="tutorial-font-bold-small">' + addToolTips(nodeConfig.definition) + '</strong>'
             html = html + '</td>'
             html = html + '</tr>'
             html = html + '</table>'
         }
         if (nodeConfig.bulletListIntro !== undefined && nodeConfig.bulletListIntro !== '') {
-            html = html + '<p class="tutorial-font-small">' + nodeConfig.bulletListIntro + '</p>'
+            html = html + '<p class="tutorial-font-small">' + addToolTips(nodeConfig.bulletListIntro) + '</p>'
         }
         if (nodeConfig.bulletArray !== undefined) {
             html = html + '<ul>'
             for (let i = 0; i < nodeConfig.bulletArray.length; i++) {
                 let bullet = nodeConfig.bulletArray[i]
                 html = html + '<li>'
-                html = html + '<p class="tutorial-font-small"><strong class="tutorial-font-bold-small">' + bullet[0] + '</strong> ' + bullet[1] + '</p>'
+                html = html + '<p class="tutorial-font-small"><strong class="tutorial-font-bold-small">' + addToolTips(bullet[0]) + '</strong> ' + addToolTips(bullet[1]) + '</p>'
                 html = html + '</li>'
             }
             html = html + '</ul>'
         }
         if (nodeConfig.paragraph1 !== undefined && nodeConfig.paragraph1 !== '') {
-            html = html + '<p class="tutorial-font-small">' + nodeConfig.paragraph1 + '</p>'
+            html = html + '<p class="tutorial-font-small">' + addToolTips(nodeConfig.paragraph1) + '</p>'
         }
         if (nodeConfig.callOut !== undefined && nodeConfig.callOut !== '') {
-            html = html + '<div class="tutorial-font-bold-small tutorial-callout" > ' + nodeConfig.callOut + ''
+            html = html + '<div class="tutorial-font-bold-small tutorial-callout" > ' + addToolTips(nodeConfig.callOut) + ''
             if (nodeConfig.externalLink !== undefined) {
                 html = html + '<a href="' + nodeConfig.externalLink[1] + '" target="_blank">' + nodeConfig.externalLink[0] + '</a>'
             }
             html = html + '</div>'
         }
         if (nodeConfig.paragraph2 !== undefined && nodeConfig.paragraph2 !== '') {
-            html = html + '<p class="tutorial-font-small">' + nodeConfig.paragraph2 + '</p>'
+            html = html + '<p class="tutorial-font-small">' + addToolTips(nodeConfig.paragraph2) + '</p>'
         }
         if (nodeConfig.note !== undefined && nodeConfig.note !== '') {
-            html = html + '<div class="tutorial-font-small tutorial-alert-info" role="alert"><i class="tutorial-fa tutorial-info-circle"></i> <b>Note:</b> ' + nodeConfig.note + '</div>'
+            html = html + '<div class="tutorial-font-small tutorial-alert-info" role="alert"><i class="tutorial-fa tutorial-info-circle"></i> <b>Note:</b> ' + addToolTips(nodeConfig.note) + '</div>'
         }
         if (nodeConfig.tip !== undefined && nodeConfig.tip !== '') {
-            html = html + '<div class="tutorial-font-small tutorial-alert-success" role="alert"><i class="tutorial-fa tutorial-check-square-o"></i> <b>Tip:</b> ' + nodeConfig.tip + '</div>'
+            html = html + '<div class="tutorial-font-small tutorial-alert-success" role="alert"><i class="tutorial-fa tutorial-check-square-o"></i> <b>Tip:</b> ' + addToolTips(nodeConfig.tip) + '</div>'
         }
         if (nodeConfig.important !== undefined && nodeConfig.important !== '') {
-            html = html + '<div class="tutorial-font-small tutorial-alert-warning" role="alert"><i class="tutorial-fa tutorial-warning"></i> <b>Important:</b> ' + nodeConfig.important + '</div>'
+            html = html + '<div class="tutorial-font-small tutorial-alert-warning" role="alert"><i class="tutorial-fa tutorial-warning"></i> <b>Important:</b> ' + addToolTips(nodeConfig.important) + '</div>'
         }
         if (nodeConfig.warning !== undefined && nodeConfig.warning !== '') {
-            html = html + '<div class="tutorial-font-small tutorial-alert-warning" role="alert"><i class="tutorial-fa tutorial-warning"></i> <b>Important:</b> ' + nodeConfig.warning + '</div>'
+            html = html + '<div class="tutorial-font-small tutorial-alert-warning" role="alert"><i class="tutorial-fa tutorial-warning"></i> <b>Important:</b> ' + addToolTips(nodeConfig.warning) + '</div>'
         }
         html = html + '</div>'
 
         tutorialDiv.innerHTML = html
+
+        function addToolTips(text) {
+            const TOOL_TIP_HTML = '<div class="tooltip"><I>NODE_TYPE</I><span class="tooltiptext">NODE_DEFINITION</span></div>'
+            let resultingText = ''
+            let splittedText = text.split('->')
+
+            for (let i = 0; i < splittedText.length; i = i + 2) {
+                let firstPart = splittedText[i]
+                let nodeType = splittedText[i + 1]
+                if (nodeType === undefined  ) {return resultingText + firstPart}
+                let tooltip = TOOL_TIP_HTML.replace('NODE_TYPE', nodeType).replace('NODE_DEFINITION', 'La concha del mono, lo logre!')
+                resultingText = resultingText + firstPart + tooltip 
+            }
+            return resultingText
+        }
     }
 
     function draw() {

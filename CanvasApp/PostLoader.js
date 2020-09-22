@@ -3,6 +3,8 @@ let markets
 
 let APP_SCHEMA_MAP = new Map()
 let APP_SCHEMA_ARRAY = []
+let DOC_SCHEMA_MAP = new Map()
+let DOC_SCHEMA_ARRAY = []
 
 function newDashboard() {
     const MODULE_NAME = 'Dashboard'
@@ -22,14 +24,20 @@ function newDashboard() {
     function start() {
         try {
             setBrowserEvents()
-            setUpAppSchema()
+            setUpSchemas()
 
-            function setUpAppSchema() {
+            function setUpSchemas() {
                 APP_SCHEMA_ARRAY = getAppSchema()
                 for (let i = 0; i < APP_SCHEMA_ARRAY.length; i++) {
                     let nodeDefinition = APP_SCHEMA_ARRAY[i]
                     let key = nodeDefinition.type
                     APP_SCHEMA_MAP.set(key, nodeDefinition)
+                }
+                DOC_SCHEMA_ARRAY = getDocSchema()
+                for (let i = 0; i < DOC_SCHEMA_ARRAY.length; i++) {
+                    let nodeDefinition = DOC_SCHEMA_ARRAY[i]
+                    let key = nodeDefinition.type
+                    DOC_SCHEMA_MAP.set(key, nodeDefinition)
                 }
                 startCanvas()
             }

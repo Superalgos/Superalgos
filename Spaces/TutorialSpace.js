@@ -111,12 +111,41 @@ function newTutorialSpace() {
             }
         }
 
+        checkPressButton()
         checkGif()
         checkImage()
         checkDocumentation()
         checkSlider()
         checkReference()
         return
+
+        function checkPressButton() {
+            if (currentNode === undefined) { return }
+            let config = JSON.parse(currentNode.config)
+            if (config.pressButton === undefined || config.pressButton ==="") {
+                return
+            }
+            /* Remove this item from the navigation stack. */
+            navigationStack.splice(navigationStack.length - 1)
+            switch (config.pressButton) {
+                case "Stop": {
+                    stop()
+                    return
+                }
+                case "Skip": {
+                    skip()
+                    return
+                }
+                case "Previous": {
+                    previous()
+                    return
+                }
+                case "Next": {
+                    next()
+                    return
+                }
+            }
+        }
 
         function checkGif() {
             let tutorialGifDiv = document.getElementById('tutorialGifDiv')
@@ -673,8 +702,18 @@ function newTutorialSpace() {
                 let firstPart = splittedText[i]
                 let nodeType = splittedText[i + 1]
                 if (nodeType === undefined  ) {return resultingText + firstPart}
-                let tooltip = TOOL_TIP_HTML.replace('NODE_TYPE', nodeType).replace('NODE_DEFINITION', 'La concha del mono, lo logre!')
-                resultingText = resultingText + firstPart + tooltip 
+                let definitionNode = DOC_SCHEMA_MAP.get(nodeType)
+                if (definitionNode === undefined) {
+                    currentNode.setErrorMessage(nodeType + ' not found at Doc Schema.')  
+                    return
+                }
+                let definition = definitionNode.definition
+                if (definition === undefined || definition === "") {
+                    resultingText = resultingText + firstPart + nodeType 
+                } else {
+                    let tooltip = TOOL_TIP_HTML.replace('NODE_TYPE', nodeType).replace('NODE_DEFINITION', definition)
+                    resultingText = resultingText + firstPart + tooltip 
+                }
             }
             return resultingText
         }

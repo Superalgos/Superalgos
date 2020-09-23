@@ -29,6 +29,10 @@ function newFloatingObject() {
         isParentCollapsed: false,
         frozenManually: false,
         collapsedManually: false,
+        forceFocus: forceFocus,
+        removeForceFocus: removeForceFocus,
+        setFocus: setFocus,
+        removeFocus: removeFocus,
         unCollapseParent: unCollapseParent,
         getPinStatus: getPinStatus,
         getFreezeStatus: getFreezeStatus,
@@ -78,6 +82,7 @@ function newFloatingObject() {
     let spaceMouseOverEventSubscriptionId
     let spaceFocusAquiredEventSubscriptionId
     let lastParentAngle
+    let forcedFocusCounter = 0
 
     return thisObject
 
@@ -291,6 +296,14 @@ function newFloatingObject() {
             thisObject.payload.uiObject.physics()
         }
         positionContraintsPhysics()
+        focusPhysics()
+    }
+
+    function focusPhysics() {
+        forcedFocusCounter--
+        if (forcedFocusCounter < 0) {
+            forcedFocusCounter = 0
+        }
     }
 
     function frozenPhysics() {
@@ -551,19 +564,11 @@ function newFloatingObject() {
         thisObject.payload.position.y = thisObject.container.frame.position.y
     }
 
+
+
     function onMouseOver(point) {
         if (thisObject.isOnFocus === false) {
-            thisObject.targetRadius = thisObject.rawRadius * 6.0
-            thisObject.targetImageSize = thisObject.rawImageSize * 2.0
-            thisObject.targetFontSize = thisObject.rawFontSize * 2.0
-            thisObject.targetHierarchyRing = thisObject.rawHierarchyRing * 8.0
-
-            thisObject.payload.uiObject.container.eventHandler.raiseEvent('onFocus', point)
-
-            thisObject.positionLocked = true
-
-            canvas.floatingSpace.container.eventHandler.raiseEvent('onFocusAquired', thisObject)
-            thisObject.isOnFocus = true
+            setFocus(point)
         }
     }
 
@@ -583,7 +588,34 @@ function newFloatingObject() {
         }
     }
 
+    function forceFocus() {
+        forcedFocusCounter = 10
+        setFocus()
+    }
+
+    function removeForceFocus() {
+        forcedFocusCounter = 0
+        removeFocus()
+    }
+
+    function setFocus(point) {
+        thisObject.targetRadius = thisObject.rawRadius * 6.0
+        thisObject.targetImageSize = thisObject.rawImageSize * 2.0
+        thisObject.targetFontSize = thisObject.rawFontSize * 2.0
+        thisObject.targetHierarchyRing = thisObject.rawHierarchyRing * 8.0
+
+        thisObject.payload.uiObject.container.eventHandler.raiseEvent('onFocus', point)
+
+        thisObject.positionLocked = true
+
+        canvas.floatingSpace.container.eventHandler.raiseEvent('onFocusAquired', thisObject)
+        thisObject.isOnFocus = true
+    }
+
     function removeFocus() {
+        if (forcedFocusCounter > 0) {
+            return
+        }
         if (thisObject.payload === undefined) { return }
         if (thisObject.isOnFocus === true) {
             thisObject.targetRadius = thisObject.rawRadius * 1

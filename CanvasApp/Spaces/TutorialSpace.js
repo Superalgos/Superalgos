@@ -53,6 +53,8 @@ function newTutorialSpace() {
     let currentDocumentationURL
     let resumeModeActivated // In this mode, we skip all the node which status is 'Done'
     let lastExecutedAction = ''
+    let actionCounter = 0
+    let forcingFocus = false
 
     return thisObject
 
@@ -295,11 +297,24 @@ function newTutorialSpace() {
                                     currentNode.payload.referenceParent.payload.uiObject.setStatus(config.setStatusReferenceParent)
                                 }
                                 if (
+                                    config.setFocusReferenceParent === true
+                                ) {
+                                    currentNode.payload.referenceParent.payload.floatingObject.forceFocus()
+                                    forcingFocus = true
+                                }
+                                if (
                                     config.menuActionReferenceParent !== undefined
                                 ) {
-                                    if (config.menuActionReferenceParent  + currentNode.id !== lastExecutedAction) {
-                                        currentNode.payload.referenceParent.payload.uiObject.menu.internalClick(config.menuActionReferenceParent)
-                                        lastExecutedAction = config.menuActionReferenceParent + currentNode.id
+                                    /* 
+                                    Some actions needs a little delay because they depend on animations to happen.
+                                    For that reason, we will count until 10 before executing actions from tutorial.
+                                    */
+                                    actionCounter++
+                                    if (actionCounter > 10) {
+                                        if (config.menuActionReferenceParent + currentNode.id !== lastExecutedAction) {
+                                            currentNode.payload.referenceParent.payload.uiObject.menu.internalClick(config.menuActionReferenceParent)
+                                            lastExecutedAction = config.menuActionReferenceParent + currentNode.id
+                                        }
                                     }
                                 } else {
                                     lastExecutedAction = ""
@@ -392,13 +407,16 @@ function newTutorialSpace() {
     }
 
     function stop() {
+        checkForceFocus()
+        resetActions()
         tutorialRootNode.payload.uiObject.isPlaying = false
         tutorialRootNode = undefined
         currentStatus = 'Stopped'
     }
 
     function skip() {
-        lastExecutedAction = ""
+        checkForceFocus()
+        resetActions()
         let tutorial = {
             status: 'Skipped'
         }
@@ -407,7 +425,8 @@ function newTutorialSpace() {
     }
 
     function previous() {
-        lastExecutedAction = ""
+        checkForceFocus()
+        resetActions()
         if (navigationStack.length > 1) {
             let previousNode = navigationStack[navigationStack.length - 2]
             switch (previousNode.type) {
@@ -437,13 +456,26 @@ function newTutorialSpace() {
     }
 
     function next() {
-        lastExecutedAction = ""
+        checkForceFocus()
+        resetActions()
         if (ckeckGoingToAnotherTutorial() === true) { return }
         let tutorial = {
             status: 'Done'
         }
         saveTutorial(currentNode.payload, tutorial)
         advance()
+    }
+
+    function resetActions() {
+        lastExecutedAction = ""
+        actionCounter = 0
+    }
+
+    function checkForceFocus() {
+        if (forcingFocus === true) {
+            currentNode.payload.referenceParent.payload.floatingObject.removeForceFocus()
+            forcingFocus = false
+        }
     }
 
     function ckeckGoingToAnotherTutorial() {

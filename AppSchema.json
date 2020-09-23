@@ -14646,7 +14646,7 @@
             "config": true
         },
         "initialValues": {
-            "config": "{ \n\"title\": \"\",\n \"summary\": \"\",\n \"subTitle\": \"\",\n \"gif\": \"\",\n \"image\": \"\",\n \"definition\": \"\",\n \"bulletListIntro\": \"\",\n \"bulletArray\": \n[\n [\"\", \"\"], \n[\"\", \"\"], \n[\"\", \"\"] \n],\n \"paragraph1\": \"\",\n \"callOut\": \"\",\n \"externalLink\": [\"\", \"\"],\n \"paragraph2\": \"\",\n \"note\": \"\",\n \"tip\": \"\",\n \"important\": \"\",\n \"warning\": \"\", \n \"position\": \"\",\n \"slider\": \"toTop\",\n \"pressButton\": \"\",\n \"documentationURL\": \"\" \n}"
+            "config": "{ \n\"title\": \"\",\n \"summary\": \"\",\n \"subTitle\": \"\",\n \"gif\": \"\",\n \"image\": \"\",\n \"definition\": \"\",\n \"bulletListIntro\": \"\",\n \"bulletArray\": \n[\n [\"\", \"\"], \n[\"\", \"\"], \n[\"\", \"\"] \n],\n \"paragraph1\": \"\",\n \"callOut\": \"\",\n \"externalLink\": [\"\", \"\"],\n \"paragraph2\": \"\",\n \"note\": \"\",\n \"tip\": \"\",\n \"important\": \"\",\n \"warning\": \"\", \n \"position\": \"\",\n \"slider\": \"toTop\",\n \"pressButton\": \"\",\n \"useReferenceParentTo\": \"\",\n \"documentationURL\": \"\" \n}"
         },
         "isTitleAllwaysVisible": true,
         "isHierarchyHead": true,
@@ -14716,7 +14716,7 @@
             "config": true
         },
         "initialValues": {
-            "config": "{ \n\"title\": \"\",\n \"summary\": \"\",\n \"gif\": \"\",\n \"image\": \"\",\n \"definition\": \"\",\n \"bulletListIntro\": \"\",\n \"bulletArray\": \n[\n [\"\", \"\"], \n[\"\", \"\"], \n[\"\", \"\"] \n],\n \"paragraph1\": \"\",\n \"callOut\": \"\",\n \"externalLink\": [\"\", \"\"],\n \"paragraph2\": \"\",\n \"note\": \"\",\n \"tip\": \"\",\n \"important\": \"\",\n \"warning\": \"\", \n \"position\": \"\",\n \"slider\": \"toTop\",\n \"pressButton\": \"\",\n \"documentationURL\": \"\" \n}"
+            "config": "{ \n\"title\": \"\",\n \"summary\": \"\",\n \"gif\": \"\",\n \"image\": \"\",\n \"definition\": \"\",\n \"bulletListIntro\": \"\",\n \"bulletArray\": \n[\n [\"\", \"\"], \n[\"\", \"\"], \n[\"\", \"\"] \n],\n \"paragraph1\": \"\",\n \"callOut\": \"\",\n \"externalLink\": [\"\", \"\"],\n \"paragraph2\": \"\",\n \"note\": \"\",\n \"tip\": \"\",\n \"important\": \"\",\n \"warning\": \"\", \n \"position\": \"\",\n \"slider\": \"toTop\",\n \"pressButton\": \"\",\n \"useReferenceParentTo\": \"\",\n \"documentationURL\": \"\" \n}"
         },
         "referenceAttachesTo": {
             "compatibleTypes": "->*Any Node*->",
@@ -14779,7 +14779,7 @@
             "config": true
         },
         "initialValues": {
-            "config": "{ \n  \"subTitle\": \"\",\n \"gif\": \"\",\n \"image\": \"\",\n \"definition\": \"\",\n \"bulletListIntro\": \"\",\n \"bulletArray\": \n[\n [\"\", \"\"], \n[\"\", \"\"], \n[\"\", \"\"] \n],\n \"paragraph1\": \"\",\n \"callOut\": \"\",\n \"externalLink\": [\"\", \"\"],\n \"paragraph2\": \"\",\n \"note\": \"\",\n \"tip\": \"\",\n \"important\": \"\",\n \"warning\": \"\", \n \"position\": \"\",\n \"slider\": \"toTop\",\n \"pressButton\": \"\",\n \"documentationURL\": \"\" \n}"
+            "config": "{ \n  \"subTitle\": \"\",\n \"gif\": \"\",\n \"image\": \"\",\n \"definition\": \"\",\n \"bulletListIntro\": \"\",\n \"bulletArray\": \n[\n [\"\", \"\"], \n[\"\", \"\"], \n[\"\", \"\"] \n],\n \"paragraph1\": \"\",\n \"callOut\": \"\",\n \"externalLink\": [\"\", \"\"],\n \"paragraph2\": \"\",\n \"note\": \"\",\n \"tip\": \"\",\n \"important\": \"\",\n \"warning\": \"\", \n \"position\": \"\",\n \"slider\": \"toTop\",\n \"pressButton\": \"\",\n \"useReferenceParentTo\": \"\",\n \"documentationURL\": \"\" \n}"
         },
         "referenceAttachesTo": {
             "compatibleTypes": "->*Any Node*->",

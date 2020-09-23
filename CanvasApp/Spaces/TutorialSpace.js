@@ -49,7 +49,6 @@ function newTutorialSpace() {
     let newImageName = 'Never Set'
     let currentConfig
     let newConfig
-    let newDocumentationURL
     let currentDocumentationURL
     let resumeModeActivated // In this mode, we skip all the node which status is 'Done'
     let lastExecutedAction = ''
@@ -407,16 +406,16 @@ function newTutorialSpace() {
     }
 
     function stop() {
+        resetAfterButtonPressed()
         checkForceFocus()
-        resetActions()
         tutorialRootNode.payload.uiObject.isPlaying = false
         tutorialRootNode = undefined
         currentStatus = 'Stopped'
     }
 
     function skip() {
+        resetAfterButtonPressed()
         checkForceFocus()
-        resetActions()
         let tutorial = {
             status: 'Skipped'
         }
@@ -425,8 +424,8 @@ function newTutorialSpace() {
     }
 
     function previous() {
+        resetAfterButtonPressed()
         checkForceFocus()
-        resetActions()
         if (navigationStack.length > 1) {
             let previousNode = navigationStack[navigationStack.length - 2]
             switch (previousNode.type) {
@@ -456,8 +455,8 @@ function newTutorialSpace() {
     }
 
     function next() {
+        resetAfterButtonPressed()
         checkForceFocus()
-        resetActions()
         if (ckeckGoingToAnotherTutorial() === true) { return }
         let tutorial = {
             status: 'Done'
@@ -466,9 +465,18 @@ function newTutorialSpace() {
         advance()
     }
 
+    function resetAfterButtonPressed() {
+        resetActions()
+        resetDocumentation()
+    }
+
     function resetActions() {
         lastExecutedAction = ""
         actionCounter = 0
+    }
+
+    function resetDocumentation() {
+        currentDocumentationURL = ''
     }
 
     function checkForceFocus() {

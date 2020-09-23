@@ -11955,7 +11955,7 @@
             "config": true
         },
         "initialValues": {
-            "config": "{ \n\"addMissingAssets\": { \"quotedAsset\": \"USDT\"} \n}"
+            "config": "{ \n\"addMissingAssetsFilter\": { \"quotedAsset\": \"USDT\"} \n}"
         },
         "addLeftIcons": true,
         "level": 3,

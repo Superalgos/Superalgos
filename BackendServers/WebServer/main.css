@@ -245,6 +245,14 @@
   margin-right: auto;
 }
 
+.tutorial-image-container {
+  padding: 5px;
+  border: solid 0px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
 /* Tooltip container */
 .tooltip {
   position: relative;

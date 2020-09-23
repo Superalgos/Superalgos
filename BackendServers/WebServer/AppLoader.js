@@ -75,6 +75,7 @@ function newAppLoader() {
                 'Utilities/Meshes.js',
                 'Utilities/NodeChildren.js',
                 'Utilities/Menu.js',
+                'Utilities/Dates.js',
 
                 'Panels/LayersPanel.js',
                 'Panels/UpDownButton.js',

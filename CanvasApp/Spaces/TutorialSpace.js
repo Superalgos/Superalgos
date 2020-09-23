@@ -641,7 +641,7 @@ function newTutorialSpace() {
             html = html + '<tr>'
             html = html + '<td>'
             if (nodeConfig.image !== undefined && nodeConfig.image !== '') {
-                html = html + '<div id="tutorialImageDiv" width="100" height="100"/>'
+                html = html + '<div id="tutorialImageDiv" class="tutorial-image-container"/>'
                 newImageName = nodeConfig.image
             }
             html = html + '</td>'

@@ -83,10 +83,10 @@ exports.newDataSet = function newDataSet(BOT, logger) {
             let networkNode = global.FIND_NODE_IN_NODE_ARRAY(nodeArray, 'Network Node')
 
             if (networkNode === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] initialize -> Network Node not found.")
-                logger.write(MODULE_NAME, "[ERROR] initialize -> Initialization Failed because we could not find where the data of this dataset is located within the network. Check the logs for more info.");
-                logger.write(MODULE_NAME, "[ERROR] initialize -> Could not find where " + datasetProductDefinition.name + " for " + bot.exchange + " " + bot.market.baseAsset + "/" + bot.market.quotedAsset + " is stored within the network.");    
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                logger.write(MODULE_NAME, "[WARN] initialize -> Network Node not found.")
+                logger.write(MODULE_NAME, "[WARN] initialize -> Initialization Failed because we could not find where the data of this dataset is located within the network. Check the logs for more info.");
+                logger.write(MODULE_NAME, "[WARN] initialize -> Could not find where " + datasetProductDefinition.name + " for " + bot.exchange + " " + bot.market.baseAsset + "/" + bot.market.quotedAsset + " is stored within the network.");    
+                callBackFunction(global.DEFAULT_OK_RESPONSE, false);
                 return
             }
 
@@ -94,7 +94,7 @@ exports.newDataSet = function newDataSet(BOT, logger) {
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Retrieving data from " + networkNode.name + "  -> host = " + networkNode.config.host + ' -> port = ' + networkNode.config.webPort + '.'); }
 
             fileStorage = FILE_STORAGE.newFileStorage(logger, networkNode.config.host, networkNode.config.webPort);
-            callBackFunction(global.DEFAULT_OK_RESPONSE);
+            callBackFunction(global.DEFAULT_OK_RESPONSE, true);
 
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);

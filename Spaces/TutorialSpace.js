@@ -781,7 +781,7 @@ function newTutorialSpace() {
             html = html + '</div>'
         }
         if (nodeConfig.paragraph2 !== undefined && nodeConfig.paragraph2 !== '') {
-            html = html + '<p class="tutorial-font-small">' + addToolTips(nodeConfig.paragraph2) + '</p>'
+            html = html + '<div class="tutorial-font-small">' + addToolTips(nodeConfig.paragraph2) + '</div>'
         }
         if (nodeConfig.note !== undefined && nodeConfig.note !== '') {
             html = html + '<div class="tutorial-font-small tutorial-alert-info" role="alert"><i class="tutorial-fa tutorial-info-circle"></i> <b>Note:</b> ' + addToolTips(nodeConfig.note) + '</div>'

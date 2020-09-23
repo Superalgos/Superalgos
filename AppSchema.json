@@ -14595,13 +14595,15 @@
             {
                 "action": "Play Tutorial",
                 "label": "Play",
-                "relatedUiObject": "Tutorial",
+                "iconPathOn": "play",
+                "iconPathOff": "play",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
                 "action": "Resume Tutorial",
                 "label": "Resume",
-                "relatedUiObject": "Tutorial",
+                "iconPathOn": "resume",
+                "iconPathOff": "resume",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {

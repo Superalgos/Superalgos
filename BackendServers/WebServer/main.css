@@ -150,9 +150,13 @@
   line-height: 150%
 }
 
+li > .tutorial-font-small {
+  margin-bottom:7px;
+}
+
 .tutorial-font-medium {
   
-  font:normal normal normal 30px/1 "segoeui";
+  font:normal normal normal 32px/1 "segoeui";
   text-rendering:auto;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
@@ -182,7 +186,7 @@
   color: #a94442;
   background-color: #f2dede;
   border-color: #ebccd1;
-  padding: 15px;
+  padding: 12px;
   border: 1px solid transparent;
   border-radius: 4px;
   margin: 20px 0;
@@ -194,7 +198,7 @@
   color: #8a6d3b;
   background-color: #fcf8e3;
   border-color: #faebcc;
-  padding: 15px;
+  padding: 12px;
   border: 1px solid transparent;
   border-radius: 4px;
   margin: 20px 0;
@@ -206,7 +210,7 @@
   color: #31708f;
   background-color: #d9edf7;
   border-color: #bce8f1;
-  padding: 15px;
+  padding: 12px;
   border: 1px solid transparent;
   border-radius: 4px;
   margin: 20px 0;
@@ -218,7 +222,7 @@
   color: #3c763d;
   background-color: #dff0d8;
   border-color: #d6e9c6;
-  padding: 15px;
+  padding: 12px;
   border: 1px solid transparent;
   border-radius: 4px;
   margin: 20px 0;
@@ -246,7 +250,7 @@
 }
 
 .tutorial-image-container {
-  padding: 5px;
+  padding: 5px 15px 5px 5px;
   border: solid 0px;
   margin-left: auto;
   margin-right: auto;
@@ -266,8 +270,11 @@
   width: 240px;
   background-color: #0295aa;
   color: #fff;
+  font-weight: normal;
+  font-size: 92%;
+  line-height: 130%;
   text-align: center;
-  padding: 5px 10;
+  padding: 15px;
   border-radius: 6px;
 
   /* Position the tooltip text */
@@ -300,3 +307,4 @@
   visibility: visible;
   opacity: 1;
 }
+

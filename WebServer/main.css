@@ -31,12 +31,6 @@
   background-color: #fdfdfd;
 }
 
-.tutorial-form {
-  padding: 15px;
-  margin-bottom: 20px;
-  width: 105%;
-}
-
 .tutorial-summary {
   font-size:120%;
   color: #808080;
@@ -156,9 +150,13 @@
   line-height: 150%
 }
 
+li > .tutorial-font-small {
+  margin-bottom:7px;
+}
+
 .tutorial-font-medium {
   
-  font:normal normal normal 30px/1 "segoeui";
+  font:normal normal normal 32px/1 "segoeui";
   text-rendering:auto;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
@@ -188,44 +186,125 @@
   color: #a94442;
   background-color: #f2dede;
   border-color: #ebccd1;
-  padding: 15px;
+  padding: 12px;
   border: 1px solid transparent;
   border-radius: 4px;
   margin: 20px 0;
   border-top-color: #e4b9c0;
-  width: 20%;
+  min-width: 100px;
 }
 
 .tutorial-skip-button {
   color: #8a6d3b;
   background-color: #fcf8e3;
   border-color: #faebcc;
-  padding: 15px;
+  padding: 12px;
   border: 1px solid transparent;
   border-radius: 4px;
   margin: 20px 0;
   border-top-color: #f7e1b5;
-  width: 20%;
+  min-width: 100px;
 }
 
-.tutorial-done-button {
-  color: #3c763d;
-  background-color: #dff0d8;
-  border-color: #d6e9c6;
-  padding: 15px;
+.tutorial-previous-button {
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+  padding: 12px;
   border: 1px solid transparent;
   border-radius: 4px;
   margin: 20px 0;
   border-top-color: #c9e2b3;
-  width: 20%;
+  min-width: 100px;
+}
+
+.tutorial-next-button {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  padding: 12px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  margin: 20px 0;
+  border-top-color: #c9e2b3;
+  min-width: 100px;
+}
+
+.tutorial-form {
+  padding: 5px;
+  border: solid 0px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  width: 100%;
 }
 
 .tutorial-buttonsTable {
   border-top-color: #a6e1ec;
-  padding: 15px;
-  margin: 20px 0;
   border: solid 0px;
   vertical-align: middle;
   min-width: 100px;
-  width: 105%;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
 }
+
+.tutorial-image-container {
+  padding: 5px 15px 5px 5px;
+  border: solid 0px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 240px;
+  background-color: #0295aa;
+  color: #fff;
+  font-weight: normal;
+  font-size: 92%;
+  line-height: 130%;
+  text-align: center;
+  padding: 15px;
+  border-radius: 6px;
+
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -120px;
+   
+
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Tooltip arrow */
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #0295aa transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+

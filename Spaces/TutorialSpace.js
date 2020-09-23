@@ -800,7 +800,7 @@ function newTutorialSpace() {
         tutorialDiv.innerHTML = html
 
         function addToolTips(text) {
-            const TOOL_TIP_HTML = '<div class="tooltip"><I>NODE_TYPE</I><span class="tooltiptext">NODE_DEFINITION</span></div>'
+            const TOOL_TIP_HTML = '<div class="tooltip">NODE_TYPE<span class="tooltiptext">NODE_DEFINITION</span></div>'
             let resultingText = ''
             let splittedText = text.split('->')
 

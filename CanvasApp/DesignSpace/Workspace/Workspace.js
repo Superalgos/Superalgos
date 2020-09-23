@@ -276,38 +276,34 @@ function newWorkspace() {
 
             switch (workingAtTask) {
                 case 1:
-                    stopAllRunningTasks()
-                    workingAtTask++
-                    break
-                case 2:
                     functionLibraryNodeDeleter.deleteWorkspace(thisObject.workspaceNode, thisObject.workspaceNode.rootNodes)
                     workingAtTask++
                     break
-                case 3:
+                case 2:
                     finalizeEventsServerClients()
                     thisObject.eventsServerClients = new Map()
                     workingAtTask++
                     break
-                case 4:
+                case 3:
                     clearInterval(savingWorkspaceIntervalId)
                     workingAtTask++
                     break
-                case 5:
+                case 4:
                     thisObject.workspaceNode = loadedWorkspaceNode
                     loadedWorkspaceNode = undefined
                     workingAtTask++
                     break
-                case 6:
+                case 5:
                     functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode)
                     setupEventsServerClients()
                     runTasksAndSessions(true)
                     workingAtTask++
                     break
-                case 7:
+                case 6:
                     canvas.chartingSpace.reset()
                     workingAtTask++
                     break
-                case 8:
+                case 7:
                     workingAtTask = 0
                     circularProgressBar.visible = false
                     break

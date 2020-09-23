@@ -52,6 +52,7 @@ function newTutorialSpace() {
     let newDocumentationURL
     let currentDocumentationURL
     let resumeModeActivated // In this mode, we skip all the node which status is 'Done'
+    let lastExecutedAction = ''
 
     return thisObject
 
@@ -244,13 +245,64 @@ function newTutorialSpace() {
                         if (currentNode.payload.referenceParent.payload !== undefined) {
                             if (currentNode.payload.referenceParent.payload.uiObject !== undefined) {
                                 let config = JSON.parse(currentNode.config)
-                                if (config.useReferenceParentTo === 'Position at Node' || config.useReferenceParentTo === 'Position at Node & Start Tutorial') {
+                                if (
+                                    config.positionAtReferenceParent === true ||
+                                    config.positionAtReferenceParent === undefined
+                                ) {
                                     /*
                                     This moves the Designs Space so that the referenced node is at the center of the screen.
                                     */
                                     canvas.floatingSpace.positionAtNode(currentNode.payload.referenceParent)
+                                }
+                                if (
+                                    config.highlightReferenceParent === true
+                                ) {
                                     currentNode.payload.referenceParent.payload.uiObject.highlight()
-                                    return
+                                }
+                                if (
+                                    config.highlightReferenceParent === true
+                                ) {
+                                    currentNode.payload.referenceParent.payload.uiObject.highlight()
+                                }
+                                if (
+                                    config.setErrorMessageReferenceParent !== undefined
+                                ) {
+                                    currentNode.payload.referenceParent.payload.uiObject.setErrorMessage(config.setErrorMessageReferenceParent)
+                                }
+                                if (
+                                    config.setWarningMessageReferenceParent !== undefined
+                                ) {
+                                    currentNode.payload.referenceParent.payload.uiObject.setWarningMessage(config.setWarningMessageReferenceParent)
+                                }
+                                if (
+                                    config.setInfoMessageReferenceParent !== undefined
+                                ) {
+                                    currentNode.payload.referenceParent.payload.uiObject.setInfoMessage(config.setInfoMessageReferenceParent)
+                                }
+                                if (
+                                    config.setValueReferenceParent !== undefined
+                                ) {
+                                    currentNode.payload.referenceParent.payload.uiObject.setValue(config.setValueReferenceParent)
+                                }
+                                if (
+                                    config.setPercentageReferenceParent !== undefined
+                                ) {
+                                    currentNode.payload.referenceParent.payload.uiObject.setPercentage(config.setPercentageReferenceParent)
+                                }
+                                if (
+                                    config.setStatusReferenceParent !== undefined
+                                ) {
+                                    currentNode.payload.referenceParent.payload.uiObject.setStatus(config.setStatusReferenceParent)
+                                }
+                                if (
+                                    config.menuActionReferenceParent !== undefined
+                                ) {
+                                    if (config.menuActionReferenceParent  + currentNode.id !== lastExecutedAction) {
+                                        currentNode.payload.referenceParent.payload.uiObject.menu.internalClick(config.menuActionReferenceParent)
+                                        lastExecutedAction = config.menuActionReferenceParent + currentNode.id
+                                    }
+                                } else {
+                                    lastExecutedAction = ""
                                 }
                             }
                         }
@@ -346,6 +398,7 @@ function newTutorialSpace() {
     }
 
     function skip() {
+        lastExecutedAction = ""
         let tutorial = {
             status: 'Skipped'
         }
@@ -354,6 +407,7 @@ function newTutorialSpace() {
     }
 
     function previous() {
+        lastExecutedAction = ""
         if (navigationStack.length > 1) {
             let previousNode = navigationStack[navigationStack.length - 2]
             switch (previousNode.type) {
@@ -383,6 +437,7 @@ function newTutorialSpace() {
     }
 
     function next() {
+        lastExecutedAction = ""
         if (ckeckGoingToAnotherTutorial() === true) { return }
         let tutorial = {
             status: 'Done'
@@ -395,7 +450,7 @@ function newTutorialSpace() {
         if (currentNode.payload !== undefined) {
             if (currentNode.payload.referenceParent !== undefined) {
                 let config = JSON.parse(currentNode.config)
-                if (config.useReferenceParentTo === 'Start Tutorial' || config.useReferenceParentTo === 'Position at Node & Start Tutorial') {
+                if (config.startTutorialReferenceParent === true) {
                     if (currentNode.payload.referenceParent.type === 'Tutorial') {
                         tutorialRootNode = currentNode.payload.referenceParent
                         currentNode = currentNode.payload.referenceParent
@@ -663,20 +718,20 @@ function newTutorialSpace() {
             html = html + '</table>'
         }
         if (nodeConfig.bulletListIntro !== undefined && nodeConfig.bulletListIntro !== '') {
-            html = html + '<p class="tutorial-font-small">' + addToolTips(nodeConfig.bulletListIntro) + '</p>'
+            html = html + '<div class="tutorial-font-small">' + addToolTips(nodeConfig.bulletListIntro) + '</div>'
         }
         if (nodeConfig.bulletArray !== undefined) {
             html = html + '<ul>'
             for (let i = 0; i < nodeConfig.bulletArray.length; i++) {
                 let bullet = nodeConfig.bulletArray[i]
                 html = html + '<li>'
-                html = html + '<p class="tutorial-font-small"><strong class="tutorial-font-bold-small">' + addToolTips(bullet[0]) + '</strong> ' + addToolTips(bullet[1]) + '</p>'
+                html = html + '<div class="tutorial-font-small"><strong class="tutorial-font-bold-small">' + addToolTips(bullet[0]) + '</strong> ' + addToolTips(bullet[1]) + '</div>'
                 html = html + '</li>'
             }
             html = html + '</ul>'
         }
         if (nodeConfig.paragraph1 !== undefined && nodeConfig.paragraph1 !== '') {
-            html = html + '<p class="tutorial-font-small">' + addToolTips(nodeConfig.paragraph1) + '</p>'
+            html = html + '<div class="tutorial-font-small">' + addToolTips(nodeConfig.paragraph1) + '</div>'
         }
         if (nodeConfig.callOut !== undefined && nodeConfig.callOut !== '') {
             html = html + '<div class="tutorial-font-bold-small tutorial-callout" > ' + addToolTips(nodeConfig.callOut) + ''
@@ -712,7 +767,9 @@ function newTutorialSpace() {
             for (let i = 0; i < splittedText.length; i = i + 2) {
                 let firstPart = splittedText[i]
                 let nodeType = splittedText[i + 1]
-                if (nodeType === undefined) { return resultingText + firstPart }
+                if (nodeType === undefined) {
+                    return resultingText + firstPart
+                }
                 let definitionNode = DOC_SCHEMA_MAP.get(nodeType)
                 if (definitionNode === undefined) {
                     currentNode.payload.uiObject.setErrorMessage(nodeType + ' not found at Doc Schema.')

@@ -28,6 +28,7 @@ function newAppLoader() {
                 'Globals.js',
 
                 'AppSchema.js',
+                'DocSchema.js',
                 'Workspace.js',
 
                 'ChartingSpace/EdgeEditor.js',
@@ -57,7 +58,8 @@ function newAppLoader() {
                 'DesignSpace/Workspace/FunctionLibraries/DataMineFunctions.js',
                 'DesignSpace/Workspace/FunctionLibraries/DataStorageFunctions.js',
                 'DesignSpace/Workspace/FunctionLibraries/ChartingSpaceFunctions.js',
-                'DesignSpace/Workspace/FunctionLibraries/TutorialFunctions.js',
+                'DesignSpace/Workspace/FunctionLibraries/TutorialFunctions.js',   
+                'DesignSpace/Workspace/FunctionLibraries/IncludesFunctions.js',  
 
                 'Utilities/CoordinateTransformations.js',
                 'Utilities/DateRateTransformations.js',
@@ -73,6 +75,7 @@ function newAppLoader() {
                 'Utilities/Meshes.js',
                 'Utilities/NodeChildren.js',
                 'Utilities/Menu.js',
+                'Utilities/Dates.js',
 
                 'Panels/LayersPanel.js',
                 'Panels/UpDownButton.js',

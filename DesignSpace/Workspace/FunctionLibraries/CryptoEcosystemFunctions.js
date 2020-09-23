@@ -86,7 +86,7 @@ function newCryptoEcosystemFunctions() {
                     node.payload.uiObject.setErrorMessage('Failed to Fetch Assets from the Exchange')
                     return
                 }
-                let queryParams = loadPropertyFromNodeConfig(node.payload, 'addMissingAssets')
+                let queryParams = loadPropertyFromNodeConfig(node.payload, 'addMissingAssetsFilter')
 
                 let markets = JSON.parse(data)
                 for (let i = 0; i < markets.length; i++) {

@@ -783,7 +783,7 @@ function newUiObject() {
         if (message !== undefined) {
             errorMessage = message
             thisObject.hasError = true
-            if (duration === undefined) { duration = 1 }
+            if (duration === undefined) { duration = 2 }
             errorMessageCounter = 100 * duration
 
             /* 

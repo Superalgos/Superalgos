@@ -122,7 +122,7 @@ function newTutorialSpace() {
         function checkPressButton() {
             if (currentNode === undefined) { return }
             let config = JSON.parse(currentNode.config)
-            if (config.pressButton === undefined || config.pressButton ==="") {
+            if (config.pressButton === undefined || config.pressButton === "") {
                 return
             }
             /* Remove this item from the navigation stack. */
@@ -190,6 +190,7 @@ function newTutorialSpace() {
                 canvas.docSpace.sidePanelTab.close()
                 return
             }
+            canvas.docSpace.sidePanelTab.open()
             if (newDocumentationURL === currentDocumentationURL) { return }
 
             currentDocumentationURL = newDocumentationURL
@@ -242,8 +243,15 @@ function newTutorialSpace() {
                     if (currentNode.payload.referenceParent !== undefined) {
                         if (currentNode.payload.referenceParent.payload !== undefined) {
                             if (currentNode.payload.referenceParent.payload.uiObject !== undefined) {
-                                canvas.floatingSpace.positionAtNode(currentNode.payload.referenceParent)
-                                currentNode.payload.referenceParent.payload.uiObject.highlight()
+                                let config = JSON.parse(currentNode.config)
+                                if (config.useReferenceParentTo === 'Position at Node' || config.useReferenceParentTo === 'Position at Node & Start Tutorial') {
+                                    /*
+                                    This moves the Designs Space so that the referenced node is at the center of the screen.
+                                    */
+                                    canvas.floatingSpace.positionAtNode(currentNode.payload.referenceParent)
+                                    currentNode.payload.referenceParent.payload.uiObject.highlight()
+                                    return
+                                }
                             }
                         }
                     }
@@ -386,14 +394,17 @@ function newTutorialSpace() {
     function ckeckGoingToAnotherTutorial() {
         if (currentNode.payload !== undefined) {
             if (currentNode.payload.referenceParent !== undefined) {
-                if (currentNode.payload.referenceParent.type === 'Tutorial') {
-                    tutorialRootNode = currentNode.payload.referenceParent
-                    currentNode = currentNode.payload.referenceParent
-                    currentStatus = 'Playing Tutorial'
-                    resumeModeActivated = false
-                    navigationStack.push(currentNode)
-                    findTutorialNode(currentNode)
-                    return true
+                let config = JSON.parse(currentNode.config)
+                if (config.useReferenceParentTo === 'Start Tutorial' || config.useReferenceParentTo === 'Position at Node & Start Tutorial') {
+                    if (currentNode.payload.referenceParent.type === 'Tutorial') {
+                        tutorialRootNode = currentNode.payload.referenceParent
+                        currentNode = currentNode.payload.referenceParent
+                        currentStatus = 'Playing Tutorial'
+                        resumeModeActivated = false
+                        navigationStack.push(currentNode)
+                        findTutorialNode(currentNode)
+                        return true
+                    }
                 }
             }
         }
@@ -641,7 +652,7 @@ function newTutorialSpace() {
             html = html + '<tr>'
             html = html + '<td>'
             if (nodeConfig.image !== undefined && nodeConfig.image !== '') {
-                html = html + '<div id="tutorialImageDiv" width="100" height="100"/>'
+                html = html + '<div id="tutorialImageDiv" class="tutorial-image-container"/>'
                 newImageName = nodeConfig.image
             }
             html = html + '</td>'
@@ -701,18 +712,18 @@ function newTutorialSpace() {
             for (let i = 0; i < splittedText.length; i = i + 2) {
                 let firstPart = splittedText[i]
                 let nodeType = splittedText[i + 1]
-                if (nodeType === undefined  ) {return resultingText + firstPart}
+                if (nodeType === undefined) { return resultingText + firstPart }
                 let definitionNode = DOC_SCHEMA_MAP.get(nodeType)
                 if (definitionNode === undefined) {
-                    currentNode.setErrorMessage(nodeType + ' not found at Doc Schema.')  
+                    currentNode.payload.uiObject.setErrorMessage(nodeType + ' not found at Doc Schema.')
                     return
                 }
                 let definition = definitionNode.definition
                 if (definition === undefined || definition === "") {
-                    resultingText = resultingText + firstPart + nodeType 
+                    resultingText = resultingText + firstPart + nodeType
                 } else {
                     let tooltip = TOOL_TIP_HTML.replace('NODE_TYPE', nodeType).replace('NODE_DEFINITION', definition)
-                    resultingText = resultingText + firstPart + tooltip 
+                    resultingText = resultingText + firstPart + tooltip
                 }
             }
             return resultingText

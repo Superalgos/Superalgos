@@ -5,6 +5,8 @@ let APP_SCHEMA_MAP = new Map()
 let APP_SCHEMA_ARRAY = []
 let DOC_SCHEMA_MAP = new Map()
 let DOC_SCHEMA_ARRAY = []
+let CONCEPT_SCHEMA_MAP = new Map()
+let CONCEPT_SCHEMA_ARRAY = []
 
 function newDashboard() {
     const MODULE_NAME = 'Dashboard'
@@ -38,6 +40,12 @@ function newDashboard() {
                     let nodeDefinition = DOC_SCHEMA_ARRAY[i]
                     let key = nodeDefinition.type
                     DOC_SCHEMA_MAP.set(key, nodeDefinition)
+                }
+                CONCEPT_SCHEMA_ARRAY = getConceptSchema()
+                for (let i = 0; i < CONCEPT_SCHEMA_ARRAY.length; i++) {
+                    let nodeDefinition = CONCEPT_SCHEMA_ARRAY[i]
+                    let key = nodeDefinition.type
+                    CONCEPT_SCHEMA_MAP.set(key, nodeDefinition)
                 }
                 startCanvas()
             }

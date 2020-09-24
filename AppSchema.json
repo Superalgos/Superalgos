@@ -499,6 +499,12 @@
                 "type": "node",
                 "childType": "Data Formula",
                 "autoAdd": true
+            },
+            {
+                "name": "textStyle",
+                "type": "node",
+                "childType": "Text Style",
+                "autoAdd": true
             }
         ],
         "menuItems": [
@@ -516,6 +522,14 @@
                 "actionFunction": "payload.onMenuItemClick",
                 "label": "Add Data Formula",
                 "relatedUiObject": "Data Formula"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "textStyle",
+                "actionFunction": "payload.onMenuItemClick",
+                "label": "Add Text Style",
+                "relatedUiObject": "Text Style"
             },
             {
                 "action": "Delete UI Object",
@@ -918,7 +932,7 @@
         "level": 4,
         "propertyNameAtParent": "textStyle",
         "chainAttachesTo": {
-            "compatibleTypes": "->Text->"
+            "compatibleTypes": "->Text->Panel Data->"
         },
         "editors": {
             "config": true

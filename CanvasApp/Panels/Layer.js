@@ -187,7 +187,7 @@ function newLayer() {
                 'Polygon Vertex->Point->' +
                 'Image->Image Condition->Image Position->Point->' +
                 'Text->Text Condition->Text Position->Point->Text Formula->Text Style->' +
-                'Plotter Panel->Javascript Code->Panel Data->Data Formula->' +
+                'Plotter Panel->Javascript Code->Panel Data->Data Formula->Text Style->' +
                 'Nodes Highlights->Nodes Values->Nodes Errors->Nodes Warnings->Nodes Infos->Nodes Status->Nodes Progress->Nodes Running->Nodes Announcements->Record Values->'
             thisObject.definition = functionLibraryProtocolNode.getProtocolNode(thisObject.payload.node, false, true, true, false, false, lightingPath)
 

@@ -154,6 +154,10 @@ li > .tutorial-font-small {
   margin-bottom:7px;
 }
 
+div.tutorial-font-small {
+  margin-bottom:7px;
+}
+
 .tutorial-font-medium {
   
   font:normal normal normal 32px/1 "segoeui";

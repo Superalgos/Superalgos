@@ -19,6 +19,7 @@ function newChartingSpace() {
         timeMachines: undefined,
         viewport: undefined,
         payload: undefined,
+        findTimeMachine: findTimeMachine,
         onKeyPressed: onKeyPressed,
         reset: reset,
         oneScreenUp: oneScreenUp,
@@ -293,6 +294,15 @@ function newChartingSpace() {
                 timeMachine.onKeyPressed(event)
             }
         }
+    }
+
+    function findTimeMachine(node) {
+        for (let i = 0; i < thisObject.timeMachines.length; i++) {
+            let timeMachine = thisObject.timeMachines[i]
+            if (timeMachine.payload.node.id === node.id) {
+                return timeMachine
+            }
+        } 
     }
 
     function syncWithDesigner() {

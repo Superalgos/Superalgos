@@ -914,10 +914,10 @@ function newTutorialSpace() {
             html = html + '<div class="tutorial-font-small tutorial-alert-success" role="alert"><i class="tutorial-fa tutorial-check-square-o"></i> <b>Tip:</b> ' + addToolTips(nodeConfig.tip) + '</div>'
         }
         if (nodeConfig.important !== undefined && nodeConfig.important !== '') {
-            html = html + '<div class="tutorial-font-small tutorial-alert-warning" role="alert"><i class="tutorial-fa tutorial-warning"></i> <b>Important:</b> ' + addToolTips(nodeConfig.important) + '</div>'
+            html = html + '<div class="tutorial-font-small tutorial-alert-important" role="alert"><i class="tutorial-fa tutorial-warning"></i> <b>Important:</b> ' + addToolTips(nodeConfig.important) + '</div>'
         }
         if (nodeConfig.warning !== undefined && nodeConfig.warning !== '') {
-            html = html + '<div class="tutorial-font-small tutorial-alert-warning" role="alert"><i class="tutorial-fa tutorial-warning"></i> <b>Important:</b> ' + addToolTips(nodeConfig.warning) + '</div>'
+            html = html + '<div class="tutorial-font-small tutorial-alert-warning" role="alert"><i class="tutorial-fa tutorial-warning"></i> <b>Warning:</b> ' + addToolTips(nodeConfig.warning) + '</div>'
         }
         html = html + '</div>'
 

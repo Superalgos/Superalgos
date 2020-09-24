@@ -1,5 +1,7 @@
 function newTaskFunctions() {
     thisObject = {
+        getReady: getReady,
+
         runTask: runTask,
         stopTask: stopTask,
         runAllTasks: runAllTasks,
@@ -32,6 +34,39 @@ function newTaskFunctions() {
     }
 
     return thisObject
+
+    function getReady(node) {
+        let networkNode = validations(node)
+        if (networkNode === undefined) {
+            /* Nodes that do not belong to a network can not get ready. */
+            return
+        }
+
+        let eventsServerClient = canvas.designSpace.workspace.eventsServerClients.get(networkNode.id)
+
+        /* First we setup everything so as to listen to the response from the Task Manger */
+        let eventSubscriptionIdOnStatus
+        let key = 'Task Client - ' + node.id
+        eventsServerClient.listenToEvent(key, 'Task Status', undefined, node.id, onResponse, onStatus)
+
+        function onResponse(message) {
+            eventSubscriptionIdOnStatus = message.eventSubscriptionId
+        }
+
+        function onStatus(message) {
+            eventsServerClient.stopListening(key, eventSubscriptionIdOnStatus, node.id)
+            if (message.event.status === 'Task Process Running' ) {
+                node.payload.uiObject.run()
+            }
+        }
+
+        /* Second we ask the Task Manager if this Task has a process Running. */
+        let event = {
+            taskId: node.id
+        }
+
+        eventsServerClient.raiseEvent('Task Manager', 'Task Status', event)
+    }
 
     function runTask(node, functionLibraryProtocolNode, isDebugging, callBackFunction) {
 
@@ -494,7 +529,7 @@ function newTaskFunctions() {
                     let task = functionLibraryUiObjectsFromNodes.addUIObject(taskManager, 'Task')
 
                     if (tradingSystem !== undefined) {
-                        task.name = tradingSystem.name 
+                        task.name = tradingSystem.name
                     } else {
                         task.name = bot.name
                     }

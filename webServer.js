@@ -503,6 +503,12 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                 }
                 break
 
+            case 'ConceptSchema.js':
+                {
+                    sendSchema(process.env.CONCEPT_SCHEMA_PATH, 'ConceptSchema', 'getConceptSchema')
+                }
+                break
+
             case 'Workspace.js':
                 {
                     let fs = require('fs')

@@ -29,6 +29,7 @@ function newAppLoader() {
 
                 'AppSchema.js',
                 'DocSchema.js',
+                'ConceptSchema.js',
                 'Workspace.js',
 
                 'ChartingSpace/EdgeEditor.js',

@@ -38,6 +38,7 @@
         eventsServerClient.createEventHandler('Task Manager')
         eventsServerClient.listenToEvent('Task Manager', 'Run Task', undefined, undefined, undefined, runTask)
         eventsServerClient.listenToEvent('Task Manager', 'Stop Task', undefined, undefined, undefined, stopTask)
+        eventsServerClient.listenToEvent('Task Manager', 'Task Status', undefined, undefined, undefined, taskStatus)
 
         console.log('Task Manager Server Started.')
       
@@ -146,6 +147,32 @@
                 //console.log('[INFO] BackendServers -> Task Manager Server -> stopTask -> Child Process instructed to finish.')
             } else {
                 console.log('[WARN] BackendServers -> Task Manager Server -> stopTask -> Cannot delete Task that does not exist.')
+            }
+        }
+
+        function taskStatus(message) {
+            //console.log('[INFO] BackendServers -> Task Manager Server -> taskStatus -> Entering function.')
+            if (message.event === undefined) {
+                console.log('[WARN] BackendServers -> Task Manager Server -> taskStatus -> Message Received Without Event -> message = ' + JSON.stringify(message).substring(0, 1000))
+                return
+            }
+
+            if (message.event.taskId === undefined) {
+                console.log('[WARN] BackendServers -> Task Manager Server -> taskStatus -> Message Received Without taskId -> message = ' + JSON.stringify(message).substring(0, 1000))
+                return
+            }
+            //console.log('[INFO] BackendServers -> Task Manager Server -> taskStatus -> Task Name = ' + message.event.taskName)
+            //console.log('[INFO] BackendServers -> Task Manager Server -> taskStatus -> Task Id = ' + message.event.taskId) 
+
+            let task = tasksMap.get(message.event.taskId)
+
+            let event = {status: 'Undefined'}
+            if (task) {
+                event.status = 'Task Process Running'
+                eventsServerClient.raiseEvent('Task Client - ' + task.id, 'Task Status', event.status)
+            } else {
+                event.status = 'Task Process Not Running'
+                eventsServerClient.raiseEvent('Task Client - ' + task.id, 'Task Status', event.status)
             }
         }
     }

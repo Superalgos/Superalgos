@@ -54,6 +54,8 @@ function newTutorialSpace() {
     let lastExecutedAction = ''
     let actionCounter = 0
     let forcingFocus = false
+    let currentZoomStep = 0
+    let viewportCentered = false
 
     return thisObject
 
@@ -119,7 +121,44 @@ function newTutorialSpace() {
         checkDocumentation()
         checkSlider()
         checkReference()
+        checkViewportZoom()
+        checkViewportZoomAtCenter()
         return
+
+        function checkViewportZoom() {
+            if (currentNode === undefined) { return }
+            let config = JSON.parse(currentNode.config)
+            if (config.viewportZoom !== undefined) {
+                let totalZoomSteps = config.viewportZoom
+                let delta
+                if (totalZoomSteps > 0) {
+                    delta = 1
+                } else {
+                    delta = -1
+                }
+                currentZoomStep = currentZoomStep + delta
+                let event = {
+                    delta: delta
+                }
+                if (totalZoomSteps > 0) {
+                    if (currentZoomStep < totalZoomSteps) {
+                        canvas.chartingSpace.viewport.onMouseWheel(event)
+                    }
+                } else {
+                    if (currentZoomStep > totalZoomSteps) {
+                        canvas.chartingSpace.viewport.onMouseWheel(event)
+                    }
+                }
+            }
+        }
+
+        function checkViewportZoomAtCenter() {
+            if (currentNode === undefined) { return }
+            let config = JSON.parse(currentNode.config)
+            if (config.viewportZoomAtCenter !== undefined) {
+                canvas.chartingSpace.viewport.zoomAtCenter(config.viewportZoomAtCenter)
+            }
+        }
 
         function checkPressButton() {
             if (currentNode === undefined) { return }
@@ -239,7 +278,6 @@ function newTutorialSpace() {
             If there is a reference parent defined, we will highlight it 
             and move the designer so that that node be at the center of the screen.
             */
-
             if (currentNode !== undefined) {
                 if (currentNode.payload !== undefined) {
                     if (currentNode.payload.referenceParent !== undefined) {
@@ -317,6 +355,17 @@ function newTutorialSpace() {
                                     }
                                 } else {
                                     lastExecutedAction = ""
+                                }
+                                if (
+                                    config.viewportCenterReferenceParent === true
+                                ) {
+                                    if (currentNode.payload.referenceParent.type === 'Time Machine') {
+                                        let timeMachine = canvas.chartingSpace.findTimeMachine(currentNode.payload.referenceParent)
+                                        if (timeMachine !== undefined && viewportCentered === false) {
+                                            canvas.chartingSpace.viewport.displaceToContainer(timeMachine.container)
+                                            viewportCentered = true
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -466,6 +515,7 @@ function newTutorialSpace() {
     }
 
     function resetAfterButtonPressed() {
+        resetViewport()
         resetActions()
         resetDocumentation()
     }
@@ -473,6 +523,11 @@ function newTutorialSpace() {
     function resetActions() {
         lastExecutedAction = ""
         actionCounter = 0
+    }
+
+    function resetViewport() {
+        currentZoomStep = 0
+        viewportCentered = false
     }
 
     function resetDocumentation() {

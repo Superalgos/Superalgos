@@ -250,19 +250,18 @@ function newTutorialSpace() {
             }
             if (config.workspaces === "" || config.workspaces === "Close") {
                 /*
-                This forces the tutorial to close the documentation panel and to keep it closed.
+                This forces the tutorial to close the workspaces panel and to keep it closed.
                 */
                 canvas.sideSpace.sidePanelTab.close()
                 return
             }
             if (config.workspaces === "Open") {
                 /*
-                This forces the tutorial to close the documentation panel and to keep it closed.
+                This forces the tutorial to close the workspaces panel and to keep it closed.
                 */
                 canvas.sideSpace.sidePanelTab.open()
                 return
             }
-            canvas.docSpace.sidePanelTab.open()
         }
 
         function checkSlider() {

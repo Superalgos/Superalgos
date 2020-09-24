@@ -420,7 +420,7 @@ function newTutorialSpace() {
             status: 'Skipped'
         }
         saveTutorial(currentNode.payload, tutorial)
-        advance()
+        advance(true)
     }
 
     function previous() {
@@ -603,7 +603,7 @@ function newTutorialSpace() {
         }
     }
 
-    function advance() {
+    function advance(isSkipping) {
         let found
         let advanced
 
@@ -615,7 +615,11 @@ function newTutorialSpace() {
             }
             case 'Playing Topic': {
                 found = false
-                findNextNode(tutorialRootNode)
+                if (isSkipping === true) {
+                    findNextTopic(tutorialRootNode)
+                } else {
+                    findNextNode(tutorialRootNode)
+                }
                 break
             }
             case 'Playing Step': {
@@ -711,6 +715,45 @@ function newTutorialSpace() {
                 }
 
                 findNextNode(tutorialTopic, found)
+            }
+        }
+
+        function findNextTopic(node) {
+            for (let i = 0; i < node.tutorialTopics.length; i++) {
+
+                if (advanced === true) {
+                    return
+                }
+
+                let tutorialTopic = node.tutorialTopics[i]
+                if (found === true) {
+                    if (resumeModeActivated !== true) {
+                        currentNode = tutorialTopic
+                        currentStatus = 'Playing Topic'
+                        advanced = true
+                        navigationStack.push(currentNode)
+                        findTutorialNode(currentNode)
+                        return
+                    } else {
+                        let tutorial = {
+                            status: undefined
+                        }
+                        loadTutorial(tutorialTopic.payload, tutorial)
+                        if (tutorial.status !== 'Done') {
+                            currentNode = tutorialTopic
+                            currentStatus = 'Playing Topic'
+                            advanced = true
+                            navigationStack.push(currentNode)
+                            findTutorialNode(currentNode)
+                            return
+                        }
+                    }
+                }
+                if (tutorialTopic.id === currentNode.id) {
+                    found = true
+                } else {
+                    findNextTopic(tutorialTopic, found)
+                }
             }
         }
     }

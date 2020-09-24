@@ -308,3 +308,14 @@ li > .tutorial-font-small {
   opacity: 1;
 }
 
+kbd {
+  padding: 2px 8px;
+  font-size: 125%;
+  font-weight: 500;
+  color: #000;
+  background-color: #bcd643;
+  border-radius: 5px;
+  border-style: outset;
+  border-width: 1px;
+}
+

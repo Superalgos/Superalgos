@@ -14676,13 +14676,15 @@
             {
                 "action": "Play Tutorial Topic",
                 "label": "Play",
-                "relatedUiObject": "Tutorial Topic",
+                "iconPathOn": "play",
+                "iconPathOff": "play",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
                 "action": "Resume Tutorial Topic",
                 "label": "Resume",
-                "relatedUiObject": "Tutorial Topic",
+                "iconPathOn": "resume",
+                "iconPathOff": "resume",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -14751,13 +14753,15 @@
             {
                 "action": "Play Tutorial Step",
                 "label": "Play",
-                "relatedUiObject": "Tutorial",
+                "iconPathOn": "play",
+                "iconPathOff": "play",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
                 "action": "Resume Tutorial Step",
                 "label": "Resume",
-                "relatedUiObject": "Tutorial",
+                "iconPathOn": "resume",
+                "iconPathOff": "resume",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {

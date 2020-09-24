@@ -119,6 +119,7 @@ function newTutorialSpace() {
         checkGif()
         checkImage()
         checkDocumentation()
+        checkWorkspaces()
         checkSlider()
         checkReference()
         checkViewportZoom()
@@ -236,6 +237,32 @@ function newTutorialSpace() {
 
             currentDocumentationURL = newDocumentationURL
             canvas.docSpace.navigateTo(currentDocumentationURL)
+        }
+
+        function checkWorkspaces() {
+            if (currentNode === undefined) { return }
+            let config = JSON.parse(currentNode.config)        
+            if (config.workspaces === undefined) {
+                /*
+                The worspaces panel will remain as it is, and the user will be free to open or close it at will.
+                */
+                return
+            }
+            if (config.workspaces === "" || config.workspaces === "Close") {
+                /*
+                This forces the tutorial to close the documentation panel and to keep it closed.
+                */
+                canvas.sideSpace.sidePanelTab.close()
+                return
+            }
+            if (config.workspaces === "Open") {
+                /*
+                This forces the tutorial to close the documentation panel and to keep it closed.
+                */
+                canvas.sideSpace.sidePanelTab.open()
+                return
+            }
+            canvas.docSpace.sidePanelTab.open()
         }
 
         function checkSlider() {

@@ -910,8 +910,11 @@ function newTutorialSpace() {
                 }
                 let definitionNode = DOC_SCHEMA_MAP.get(nodeType)
                 if (definitionNode === undefined) {
-                    currentNode.payload.uiObject.setErrorMessage(nodeType + ' not found at Doc Schema.')
-                    return
+                    definitionNode = CONCEPT_SCHEMA_MAP.get(nodeType)
+                    if (definitionNode === undefined) {
+                        currentNode.payload.uiObject.setErrorMessage(nodeType + ' not found at Doc Schema or Concept Schema.')
+                        return
+                    }                    
                 }
                 let definition = definitionNode.definition
                 if (definition === undefined || definition === "") {

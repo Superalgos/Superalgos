@@ -80,7 +80,7 @@
   width: 90%;
 }
 
-.tutorial-alert-warning {
+.tutorial-alert-important {
   color: #8a6d3b;
   background-color: #fcf8e3;
   border-color: #faebcc;
@@ -92,7 +92,7 @@
   width: 90%;
 }
 
-.tutorial-alert-danger {
+.tutorial-alert-warning {
   color: #a94442;
   background-color: #f2dede;
   border-color: #ebccd1;
@@ -128,7 +128,7 @@
 }
 
 .tutorial-warning:before,.fa-exclamation-triangle:before {
-  content:"\f071"
+  content:"\f06a"
 }
 
 .tutorial-fa {

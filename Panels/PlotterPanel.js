@@ -167,8 +167,18 @@ function newPlotterPanel() {
                 valuePosition = panelData.config.valuePosition
             }
 
+            let opacity = '1.00'
+            let fontSize = 14
+            let paletteColor 
+
+            if (panelData.textStyle !== undefined) {
+                if (panelData.textStyle.config.fontSize !== undefined) { fontSize = panelData.textStyle.config.fontSize }
+                if (panelData.textStyle.config.opacity !== undefined) { opacity = panelData.textStyle.config.opacity }
+                if (panelData.textStyle.config.paletteColor !== undefined) { paletteColor = eval(panelData.textStyle.config.paletteColor) }
+            }
+
             printLabel(labelText, X_AXIS, UI_PANEL.HEIGHT.NORMAL * labelPosition / 100 / heightFactor, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction)
-            printLabel(value, X_AXIS, UI_PANEL.HEIGHT.NORMAL * valuePosition / 100 / heightFactor, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction, false, true)
+            printLabel(value, X_AXIS, UI_PANEL.HEIGHT.NORMAL * valuePosition / 100 / heightFactor, opacity, fontSize, paletteColor, true, thisObject.container, thisObject.fitFunction, false, true)
         }
     }
 }

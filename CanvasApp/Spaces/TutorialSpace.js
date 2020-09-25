@@ -58,6 +58,7 @@ function newTutorialSpace() {
     let viewportCentered = false
     let repositionAtTimeMachineCounter = 0
     let positionAtNodeCounter = 0
+    let timeMachineKeyPressedCounter = 0
 
     return thisObject
 
@@ -321,8 +322,7 @@ function newTutorialSpace() {
                             if (currentNode.payload.referenceParent.payload.uiObject !== undefined) {
                                 let config = JSON.parse(currentNode.config)
                                 if (
-                                    config.positionAtReferenceParent === true ||
-                                    config.positionAtReferenceParent === undefined
+                                    config.positionAtReferenceParent === true 
                                 ) {
                                     /*
                                     This moves the Designs Space so that the referenced node is at the center of the screen.
@@ -397,6 +397,25 @@ function newTutorialSpace() {
                                     }
                                 } else {
                                     lastExecutedAction = ""
+                                }
+                                if (
+                                    config.keyPressedTimeMachineReferenceParent !== undefined
+                                ) {
+                                    if (currentNode.payload.referenceParent.type === 'Time Machine') {
+                                        let timeMachine = canvas.chartingSpace.findTimeMachine(currentNode.payload.referenceParent)
+                                        if (timeMachine !== undefined) {
+                                            timeMachineKeyPressedCounter++
+                                            if (timeMachineKeyPressedCounter === 10) {
+                                                let event = {
+                                                    shiftKey: config.keyPressedTimeMachineReferenceParent.shiftKey,
+                                                    ctrlKey: config.keyPressedTimeMachineReferenceParent.ctrlKey,
+                                                    code: config.keyPressedTimeMachineReferenceParent.code,
+                                                    key: config.keyPressedTimeMachineReferenceParent.key
+                                                }
+                                                timeMachine.edgeEditor.onKeyPressed(event, true)
+                                            }
+                                        }
+                                    }
                                 }
                                 if (
                                     config.viewportCenterReferenceParent === true
@@ -589,17 +608,18 @@ function newTutorialSpace() {
         resetDocumentation()
         resetRepositionAtTimeMachine()
         resetPositionAtNode()
+        resetTimeMachineKeyPressed()
 
         function resetActions() {
             lastExecutedAction = ""
             actionCounter = 0
         }
-    
+
         function resetViewport() {
             currentZoomStep = 0
             viewportCentered = false
         }
-    
+
         function resetDocumentation() {
             currentDocumentationURL = ''
         }
@@ -610,6 +630,10 @@ function newTutorialSpace() {
 
         function resetPositionAtNode() {
             positionAtNodeCounter = 0
+        }
+
+        function resetTimeMachineKeyPressed() {
+            timeMachineKeyPressedCounter = 0
         }
     }
 

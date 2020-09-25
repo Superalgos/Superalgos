@@ -1,6 +1,6 @@
 function newUiObjectsFromNodes() {
     thisObject = {
-        runTasks: runTasks,
+        syncronizeTasksFoundAtWorkspaceWithBackEnd: syncronizeTasksFoundAtWorkspaceWithBackEnd,
         runSessions: runSessions,
         playTutorials: playTutorials,
         recreateWorkspace: recreateWorkspace,
@@ -13,7 +13,7 @@ function newUiObjectsFromNodes() {
 
     let mapOfReferenceChildren = new Map()
     let mapOfNodes
-    let tasksToRun
+    let tasksFoundAtWorkspace
     let sessionsToRun
     let tutorialsToPlay
 
@@ -25,7 +25,7 @@ function newUiObjectsFromNodes() {
 
     function recreateWorkspace(node, callBackFunction) {
         mapOfNodes = new Map()
-        tasksToRun = []
+        tasksFoundAtWorkspace = []
         sessionsToRun = []
         tutorialsToPlay = []
 
@@ -150,12 +150,12 @@ function newUiObjectsFromNodes() {
         }
     }
 
-    function runTasks() {
-        for (let i = 0; i < tasksToRun.length; i++) {
-            let node = tasksToRun[i]
-            node.payload.uiObject.menu.internalClick('Run Task')
+    function syncronizeTasksFoundAtWorkspaceWithBackEnd(functionLibraryTaskFunctions) {
+        for (let i = 0; i < tasksFoundAtWorkspace.length; i++) {
+            let node = tasksFoundAtWorkspace[i]
+            functionLibraryTaskFunctions.syncronizeTaskWithBackEnd(node)
         }
-        tasksToRun = undefined
+        tasksFoundAtWorkspace = undefined
     }
 
     function runSessions() {
@@ -625,14 +625,10 @@ function newUiObjectsFromNodes() {
         /* This is the point where we build a map with all nodes present at the workspace */
         mapOfNodes.set(node.id, node)
 
-        /* Check if there are tasks to run */
+        /* We will collect all tasks at the workspace in order to later syncronize them with the backend */
         if (userAddingNew === false && uiObjectType === 'Task' && node.savedPayload !== undefined) {
-            if (node.savedPayload.uiObject.isRunning === true) {
-                if (node.payload.parentNode !== undefined) {
-                    if (tasksToRun !== undefined) { // it might be undefined when you are spawning a task that was running while backed up
-                        tasksToRun.push(node)
-                    }
-                }
+            if (tasksFoundAtWorkspace !== undefined) { // it might be undefined when you are spawning a task that was backed up
+                tasksFoundAtWorkspace.push(node)
             }
         }
 

@@ -137,13 +137,13 @@ function newWorkspace() {
     function runTasksAndSessions(replacingCurrentWorkspace) {
         if (replacingCurrentWorkspace === true) {
             // We need to wait all tasks that were potentially running to stop
-            setTimeout(functionLibraryUiObjectsFromNodes.runTasks, 70000)
+            setTimeout(functionLibraryUiObjectsFromNodes.syncronizeTasksFoundAtWorkspaceWithBackEnd, 70000)
             // We give a few seconds for the tasks to start
             setTimeout(functionLibraryUiObjectsFromNodes.runSessions, 80000)
             // We give a few seconds 
             setTimeout(functionLibraryUiObjectsFromNodes.playTutorials, 3000)
         } else {
-            functionLibraryUiObjectsFromNodes.runTasks()
+            functionLibraryUiObjectsFromNodes.syncronizeTasksFoundAtWorkspaceWithBackEnd(functionLibraryTaskFunctions)
             // We give a few seconds for the tasks to start
             setTimeout(functionLibraryUiObjectsFromNodes.runSessions, 10000)
             // We give a few seconds 

@@ -59,6 +59,8 @@ function newTutorialSpace() {
     let repositionAtTimeMachineCounter = 0
     let positionAtNodeCounter = 0
     let timeMachineKeyPressedCounter = 0
+    let keyPressedCounter = 0
+    let sliderPositioned = 0
 
     return thisObject
 
@@ -118,6 +120,7 @@ function newTutorialSpace() {
             }
         }
 
+        keyPressed()
         checkPressButton()
         checkGif()
         checkImage()
@@ -128,6 +131,26 @@ function newTutorialSpace() {
         checkViewportZoom()
         checkViewportZoomAtCenter()
         return
+
+        function keyPressed() {
+            if (currentNode === undefined) { return }
+            let config = JSON.parse(currentNode.config)
+            if (
+                config.keyPressed !== undefined
+            ) {
+                keyPressedCounter++
+                if (keyPressedCounter === 10) {
+                    let event = {
+                        metaKey: config.keyPressed.metaKey,
+                        shiftKey: config.keyPressed.shiftKey,
+                        ctrlKey: config.keyPressed.ctrlKey,
+                        code: config.keyPressed.code,
+                        key: config.keyPressed.key
+                    }
+                    canvas.onKeyDown(event, true)
+                }
+            }
+        }
 
         function checkViewportZoom() {
             if (currentNode === undefined) { return }
@@ -284,28 +307,31 @@ function newTutorialSpace() {
                 */
                 return
             }
-            switch (config.slider) {
-                case "toTop": {
-                    /*
-                    This forces the tutorial to close the charting space and to keep it closed.
-                    */
-                    canvas.cockpitSpace.toTop()
-                    return
-                }
-                case "toMiddle": {
-                    /*
-                    This forces the tutorial to share the screen half with the designer and half 
-                    with the charting space and force it in that way.
-                    */
-                    canvas.cockpitSpace.toMiddle()
-                    return
-                }
-                case "toBottom": {
-                    /*
-                    This forces the tutorial to fully open the charting space and to keep it open.
-                    */
-                    canvas.cockpitSpace.toBottom()
-                    return
+            if (sliderPositioned === false) {
+                sliderPositioned = true
+                switch (config.slider) {
+                    case "toTop": {
+                        /*
+                        This forces the tutorial to close the charting space and to keep it closed.
+                        */
+                        canvas.cockpitSpace.toTop()
+                        return
+                    }
+                    case "toMiddle": {
+                        /*
+                        This forces the tutorial to share the screen half with the designer and half 
+                        with the charting space and force it in that way.
+                        */
+                        canvas.cockpitSpace.toMiddle()
+                        return
+                    }
+                    case "toBottom": {
+                        /*
+                        This forces the tutorial to fully open the charting space and to keep it open.
+                        */
+                        canvas.cockpitSpace.toBottom()
+                        return
+                    }
                 }
             }
         }
@@ -322,7 +348,7 @@ function newTutorialSpace() {
                             if (currentNode.payload.referenceParent.payload.uiObject !== undefined) {
                                 let config = JSON.parse(currentNode.config)
                                 if (
-                                    config.positionAtReferenceParent === true 
+                                    config.positionAtReferenceParent === true
                                 ) {
                                     /*
                                     This moves the Designs Space so that the referenced node is at the center of the screen.
@@ -407,6 +433,7 @@ function newTutorialSpace() {
                                             timeMachineKeyPressedCounter++
                                             if (timeMachineKeyPressedCounter === 10) {
                                                 let event = {
+                                                    metaKey: config.keyPressedTimeMachineReferenceParent.metaKey,
                                                     shiftKey: config.keyPressedTimeMachineReferenceParent.shiftKey,
                                                     ctrlKey: config.keyPressedTimeMachineReferenceParent.ctrlKey,
                                                     code: config.keyPressedTimeMachineReferenceParent.code,
@@ -609,6 +636,8 @@ function newTutorialSpace() {
         resetRepositionAtTimeMachine()
         resetPositionAtNode()
         resetTimeMachineKeyPressed()
+        resetKeyPressed()
+        resetSlider()
 
         function resetActions() {
             lastExecutedAction = ""
@@ -634,6 +663,14 @@ function newTutorialSpace() {
 
         function resetTimeMachineKeyPressed() {
             timeMachineKeyPressedCounter = 0
+        }
+
+        function resetKeyPressed() {
+            keyPressedCounter = 0
+        }
+
+        function resetSlider() {
+            sliderPositioned = false
         }
     }
 

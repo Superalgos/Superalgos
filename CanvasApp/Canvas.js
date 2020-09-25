@@ -43,6 +43,7 @@ function newCanvas() {
         animation: undefined,
         mouse: undefined,
         shorcutNumbers: new Map(),
+        onKeyDown: onKeyDown, 
         initialize: initialize,
         finalize: finalize
     }
@@ -311,7 +312,9 @@ function newCanvas() {
 
         if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && (event.key === 'S' || event.key === 's')) {
             canvas.designSpace.workspace.save()
-            event.preventDefault()
+            if (event.preventDefault !== undefined) {
+                event.preventDefault()
+            }
             return
         }
 

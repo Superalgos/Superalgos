@@ -789,7 +789,7 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                     if (!err) {
                         respondWithContent(file.toString(), response)
                     } else {
-                        console.log('File requested not found: ' + fileName)
+                        //console.log('File requested not found: ' + fileName)
                         respondWithContent(undefined, response)
                     }
                 }

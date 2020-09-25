@@ -1,10 +1,40 @@
 function newSessionFunctions() {
     thisObject = {
+        syncronizeSessionWithBackEnd: syncronizeSessionWithBackEnd, 
         runSession: runSession,
         stopSession: stopSession
     }
 
     return thisObject
+
+    function syncronizeSessionWithBackEnd(node) {
+        let networkNode = validations(node)
+        if (networkNode === undefined) {
+            /* Nodes that do not belong to a network can not get ready. */
+            return
+        }
+
+        let eventsServerClient = canvas.designSpace.workspace.eventsServerClients.get(networkNode.id)
+
+        /* First we setup everything so as to listen to the response from the Task Server */
+        let eventSubscriptionIdOnStatus
+        let key = node.name + '-' + node.type + '-' + node.id
+        eventsServerClient.listenToEvent(key, 'Status Response', undefined, node.id, onResponse, onStatus)
+
+        function onResponse(message) {
+            eventSubscriptionIdOnStatus = message.eventSubscriptionId
+        }
+
+        function onStatus(message) {
+            eventsServerClient.stopListening(key, eventSubscriptionIdOnStatus, node.id)
+            if (message.event.status === 'Session Runnning' ) {
+                node.payload.uiObject.menu.internalClick('Run Session')
+            }
+        }
+
+        /* Second we ask the Task Server if this Session is Running. */
+        eventsServerClient.raiseEvent(key, 'Session Status')
+    }
 
     function runSession(node, functionLibraryProtocolNode, functionLibraryDependenciesFilter, resume, callBackFunction) {
         let networkNode = validations(node)
@@ -178,11 +208,6 @@ function newSessionFunctions() {
         }
 
         let networkNode = taskManager.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode
-
-        if (node.payload.parentNode.payload.uiObject.isRunning !== true) {
-            node.payload.uiObject.setErrorMessage('Session needs a Process Instance parent to be running.')
-            return
-        }
 
         if (node.tradingSystemReference === undefined) {
             node.payload.uiObject.setErrorMessage('Session needs a child Trading System Reference.')

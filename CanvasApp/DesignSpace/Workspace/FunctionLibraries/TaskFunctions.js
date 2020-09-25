@@ -1,6 +1,6 @@
 function newTaskFunctions() {
     thisObject = {
-        getReady: getReady,
+        syncronizeTaskWithBackEnd: syncronizeTaskWithBackEnd,
 
         runTask: runTask,
         stopTask: stopTask,
@@ -35,7 +35,7 @@ function newTaskFunctions() {
 
     return thisObject
 
-    function getReady(node) {
+    function syncronizeTaskWithBackEnd(node) {
         let networkNode = validations(node)
         if (networkNode === undefined) {
             /* Nodes that do not belong to a network can not get ready. */
@@ -56,7 +56,7 @@ function newTaskFunctions() {
         function onStatus(message) {
             eventsServerClient.stopListening(key, eventSubscriptionIdOnStatus, node.id)
             if (message.event.status === 'Task Process Running' ) {
-                node.payload.uiObject.run()
+                node.payload.uiObject.menu.internalClick('Run Task')
             }
         }
 

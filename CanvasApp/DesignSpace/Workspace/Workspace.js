@@ -122,7 +122,7 @@ function newWorkspace() {
 
             function finishInitialization() {
                 setupEventsServerClients()
-                runTasksAndSessions(false)
+                runTasksAndSessions()
                 thisObject.enabled = true
                 canvas.cockpitSpace.initializePosition()
                 canvas.splashScreen.initialize()
@@ -134,21 +134,13 @@ function newWorkspace() {
         }
     }
 
-    function runTasksAndSessions(replacingCurrentWorkspace) {
-        if (replacingCurrentWorkspace === true) {
-            // We need to wait all tasks that were potentially running to stop
-            setTimeout(functionLibraryUiObjectsFromNodes.runTasks, 70000)
-            // We give a few seconds for the tasks to start
-            setTimeout(functionLibraryUiObjectsFromNodes.runSessions, 80000)
-            // We give a few seconds 
-            setTimeout(functionLibraryUiObjectsFromNodes.playTutorials, 3000)
-        } else {
-            functionLibraryUiObjectsFromNodes.runTasks()
-            // We give a few seconds for the tasks to start
-            setTimeout(functionLibraryUiObjectsFromNodes.runSessions, 10000)
-            // We give a few seconds 
-            setTimeout(functionLibraryUiObjectsFromNodes.playTutorials, 1000)
-        }
+    function runTasksAndSessions() {
+
+        functionLibraryUiObjectsFromNodes.syncronizeTasksFoundAtWorkspaceWithBackEnd(functionLibraryTaskFunctions)
+        functionLibraryUiObjectsFromNodes.syncronizeSessionsFoundAtWorkspaceWithBackEnd(functionLibrarySessionFunctions)
+ 
+        setTimeout(functionLibraryUiObjectsFromNodes.playTutorials, 5000)
+   
     }
 
     function setupEventsServerClients() {
@@ -294,9 +286,11 @@ function newWorkspace() {
                     workingAtTask++
                     break
                 case 5:
-                    functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode)
-                    setupEventsServerClients()
-                    runTasksAndSessions(true)
+                    functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode, finishInitialization)
+                    function finishInitialization() {
+                        setupEventsServerClients()
+                        runTasksAndSessions()
+                    }
                     workingAtTask++
                     break
                 case 6:

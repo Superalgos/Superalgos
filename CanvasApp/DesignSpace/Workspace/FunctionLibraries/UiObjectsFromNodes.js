@@ -1,7 +1,7 @@
 function newUiObjectsFromNodes() {
     thisObject = {
-        runTasks: runTasks,
-        runSessions: runSessions,
+        syncronizeTasksFoundAtWorkspaceWithBackEnd: syncronizeTasksFoundAtWorkspaceWithBackEnd,
+        syncronizeSessionsFoundAtWorkspaceWithBackEnd: syncronizeSessionsFoundAtWorkspaceWithBackEnd,
         playTutorials: playTutorials,
         recreateWorkspace: recreateWorkspace,
         getNodeById: getNodeById,
@@ -13,8 +13,8 @@ function newUiObjectsFromNodes() {
 
     let mapOfReferenceChildren = new Map()
     let mapOfNodes
-    let tasksToRun
-    let sessionsToRun
+    let tasksFoundAtWorkspace
+    let sessionsFoundAtWorkspace
     let tutorialsToPlay
 
     return thisObject
@@ -25,8 +25,8 @@ function newUiObjectsFromNodes() {
 
     function recreateWorkspace(node, callBackFunction) {
         mapOfNodes = new Map()
-        tasksToRun = []
-        sessionsToRun = []
+        tasksFoundAtWorkspace = []
+        sessionsFoundAtWorkspace = []
         tutorialsToPlay = []
 
         removeNullRootNodes()
@@ -150,20 +150,20 @@ function newUiObjectsFromNodes() {
         }
     }
 
-    function runTasks() {
-        for (let i = 0; i < tasksToRun.length; i++) {
-            let node = tasksToRun[i]
-            node.payload.uiObject.menu.internalClick('Run Task')
+    function syncronizeTasksFoundAtWorkspaceWithBackEnd(functionLibraryTaskFunctions) {
+        for (let i = 0; i < tasksFoundAtWorkspace.length; i++) {
+            let node = tasksFoundAtWorkspace[i]
+            functionLibraryTaskFunctions.syncronizeTaskWithBackEnd(node)
         }
-        tasksToRun = undefined
+        tasksFoundAtWorkspace = undefined
     }
 
-    function runSessions() {
-        for (let i = 0; i < sessionsToRun.length; i++) {
-            let node = sessionsToRun[i]
-            node.payload.uiObject.menu.internalClick('Run Session')
+    function syncronizeSessionsFoundAtWorkspaceWithBackEnd(functionLibrarySessionFunctions) {
+        for (let i = 0; i < sessionsFoundAtWorkspace.length; i++) {
+            let node = sessionsFoundAtWorkspace[i]
+            functionLibrarySessionFunctions.syncronizeSessionWithBackEnd(node)
         }
-        sessionsToRun = undefined
+        sessionsFoundAtWorkspace = undefined
     }
 
     function playTutorials() {
@@ -625,26 +625,18 @@ function newUiObjectsFromNodes() {
         /* This is the point where we build a map with all nodes present at the workspace */
         mapOfNodes.set(node.id, node)
 
-        /* Check if there are tasks to run */
+        /* We will collect all tasks at the workspace in order to later syncronize them with the backend */
         if (userAddingNew === false && uiObjectType === 'Task' && node.savedPayload !== undefined) {
-            if (node.savedPayload.uiObject.isRunning === true) {
-                if (node.payload.parentNode !== undefined) {
-                    if (tasksToRun !== undefined) { // it might be undefined when you are spawning a task that was running while backed up
-                        tasksToRun.push(node)
-                    }
-                }
+            if (tasksFoundAtWorkspace !== undefined) { // it might be undefined when you are spawning a task that was backed up
+                tasksFoundAtWorkspace.push(node)
             }
         }
 
         /* Check if there are sessions to run */
         if (userAddingNew === false && node.savedPayload !== undefined) {
             if (uiObjectType === 'Live Trading Session' || uiObjectType === 'Forward Testing Session' || uiObjectType === 'Backtesting Session' || uiObjectType === 'Paper Trading Session') {
-                if (node.savedPayload.uiObject.isRunning === true) {
-                    if (node.payload.parentNode !== undefined) {
-                        if (sessionsToRun !== undefined) { // it might be undefined when you are spawning a session that was running while backed up
-                            sessionsToRun.push(node)
-                        }
-                    }
+                if (sessionsFoundAtWorkspace !== undefined) { // it might be undefined when you are spawning a session that was running while backed up
+                    sessionsFoundAtWorkspace.push(node)
                 }
             }
         }

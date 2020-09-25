@@ -38,8 +38,9 @@
             bot.sessionKey = bot.processNode.session.name + '-' + bot.processNode.session.type + '-' + bot.processNode.session.id
             global.SESSION_MAP.set(bot.sessionKey, bot.sessionKey)
 
-            global.EVENT_SERVER_CLIENT.listenToEvent(bot.sessionKey, 'Run Session', undefined, bot.sessionKey, undefined, onSessionRan)
-            global.EVENT_SERVER_CLIENT.listenToEvent(bot.sessionKey, 'Stop Session', undefined, bot.sessionKey, undefined, onSessionStopped)
+            global.EVENT_SERVER_CLIENT.listenToEvent(bot.sessionKey, 'Session Status', undefined, bot.sessionKey, undefined, onSessionStatus)
+            global.EVENT_SERVER_CLIENT.listenToEvent(bot.sessionKey, 'Run Session', undefined, bot.sessionKey, undefined, onSessionRun)
+            global.EVENT_SERVER_CLIENT.listenToEvent(bot.sessionKey, 'Stop Session', undefined, bot.sessionKey, undefined, onSessionStop)
 
             /* Connect this here so that it is accesible from other places */
             bot.sessionError = sessionError
@@ -52,11 +53,25 @@
             callBackFunction(global.DEFAULT_OK_RESPONSE)
             return
 
-            function onSessionRan(message) {
+            function onSessionStatus() {
+                if (bot.SESSION_STATUS === 'Running') {
+                    let event = {
+                        status: 'Session Runnning' 
+                    }
+                    global.EVENT_SERVER_CLIENT.raiseEvent(bot.sessionKey, 'Status Response', event)
+                } else {
+                    let event = {
+                        status: 'Not Session Runnning' 
+                    }
+                    global.EVENT_SERVER_CLIENT.raiseEvent(bot.sessionKey, 'Status Response', event)
+                }
+            }
+
+            function onSessionRun(message) {
                 try {
                     /* This happens when the UI is reloaded, the session was running and tries to run it again. */
                     if (bot.SESSION_STATUS === 'Idle' || bot.SESSION_STATUS === 'Running') { 
-                        parentLogger.write(MODULE_NAME, "[WARN] onSessionRan -> Event receive to run the Session while it was already running. ")
+                        parentLogger.write(MODULE_NAME, "[WARN] onSessionRun -> Event receive to run the Session while it was already running. ")
                         return 
                     } 
 
@@ -100,16 +115,16 @@
                         bot.STOP_SESSION = false
                     } else {
                         bot.STOP_SESSION = true
-                        if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, '[IMPORTANT] onSessionRan -> Stopping the Session now. ') }
+                        if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, '[IMPORTANT] onSessionRun -> Stopping the Session now. ') }
                     }
 
                     socialBotsModule.sendMessage(bot.SESSION.type + " '" + bot.SESSION.name + "' is starting.")
                 } catch (err) {
-                    parentLogger.write(MODULE_NAME, "[ERROR] initialize -> onSessionRan -> err = " + err.stack);
+                    parentLogger.write(MODULE_NAME, "[ERROR] initialize -> onSessionRun -> err = " + err.stack);
                 }
             }
 
-            function onSessionStopped() {
+            function onSessionStop() {
                 stopSession('Session Stopped From the User Interface.')
             }
 

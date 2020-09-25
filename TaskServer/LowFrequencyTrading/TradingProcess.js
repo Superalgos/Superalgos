@@ -146,6 +146,8 @@
             } else {
                 /* We are processing Daily Files */
                 do {
+                    global.EMIT_SESSION_STATUS (bot.SESSION_STATUS, bot.sessionKey)
+
                     if (checkStopTaskGracefully() === false) { break }
                     if (checkStopProcessing() === false) { break }
 
@@ -401,7 +403,7 @@
             async function processDailyFiles() {
                 /*  Telling the world we are alive and doing well and which date we are processing right now. */
                 let processingDateString = tradingProcessDate.getUTCFullYear() + '-' + utilities.pad(tradingProcessDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(tradingProcessDate.getUTCDate(), 2);
-                bot.processHeartBeat(processingDateString)
+                bot.processHeartBeat(processingDateString, undefined, "Running...")
 
                 /*
                 We will iterate through all posible timeFrames.

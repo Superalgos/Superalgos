@@ -74,7 +74,7 @@
                     let nextWaitTime;
 
                     /* We tell the UI that we are running. */
-                    processHeartBeat()
+                    processHeartBeat(undefined, undefined, "Running...")
 
                     /* We define here all the modules that the rest of the infraestructure, including the bots themselves can consume. */
                     const UTILITIES = require(global.ROOT_DIR + 'CloudUtilities');
@@ -94,14 +94,14 @@
 
                     /* Checking if we need to need to emit any event */
                     if (bot.SESSION_STATUS === 'Idle' && bot.STOP_SESSION === false) {
-                        global.EVENT_SERVER_CLIENT.raiseEvent(bot.sessionKey, 'Running')
                         bot.SESSION_STATUS = 'Running'
                     }
 
                     if (bot.SESSION_STATUS === 'Running' && bot.STOP_SESSION === true) {
-                        global.EVENT_SERVER_CLIENT.raiseEvent(bot.sessionKey, 'Stopped')
                         bot.SESSION_STATUS = 'Stopped'
-                    }
+                    } 
+
+                    global.EMIT_SESSION_STATUS (bot.SESSION_STATUS, bot.sessionKey)
 
                     /* Checking if we should process this loop or not.*/
                     if (bot.STOP_SESSION === true) {
@@ -523,7 +523,7 @@
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> nextWaitTime = " + nextWaitTime); }
 
                         /* We show we reached the end of the loop. */
-                        processHeartBeat()
+                        processHeartBeat(undefined, undefined, "Running...")
 
                         /* Here we check if we must stop the loop gracefully. */
                         shallWeStop(onStop, onContinue);

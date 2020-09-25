@@ -285,6 +285,18 @@ global.FILTER_OUT_NODES_WITHOUT_REFERENCE_PARENT_FROM_NODE_ARRAY = function (nod
     return filteredNodeArray
 }
 
+global.EMIT_SESSION_STATUS = function (status, key) {
+    switch(status) {
+        case 'Running': {
+            global.EVENT_SERVER_CLIENT.raiseEvent(key, 'Running')
+            break
+        }
+        case 'Stopped': {
+            global.EVENT_SERVER_CLIENT.raiseEvent(key, 'Stopped')
+            break
+        }
+    }
+}
 
 process.on('uncaughtException', function (err) {
     console.log('[ERROR] Task Server -> server -> uncaughtException -> err.message = ' + err.message)

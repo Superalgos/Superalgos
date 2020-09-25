@@ -41,7 +41,7 @@
         eventsServerClient.listenToEvent('Task Manager', 'Task Status', undefined, undefined, undefined, taskStatus)
 
         console.log('Task Manager Server Started.')
-      
+
         function runTask(message) {
             //console.log('[INFO] BackendServers -> Task Manager Server -> runTask -> Entering function.') 
 
@@ -165,14 +165,13 @@
             //console.log('[INFO] BackendServers -> Task Manager Server -> taskStatus -> Task Id = ' + message.event.taskId) 
 
             let task = tasksMap.get(message.event.taskId)
-
-            let event = {status: 'Undefined'}
+            let event = {}
             if (task) {
                 event.status = 'Task Process Running'
-                eventsServerClient.raiseEvent('Task Client - ' + task.id, 'Task Status', event.status)
+                eventsServerClient.raiseEvent('Task Client - ' + message.event.taskId, 'Task Status', event)
             } else {
                 event.status = 'Task Process Not Running'
-                eventsServerClient.raiseEvent('Task Client - ' + task.id, 'Task Status', event.status)
+                eventsServerClient.raiseEvent('Task Client - ' + message.event.taskId, 'Task Status', event)
             }
         }
     }

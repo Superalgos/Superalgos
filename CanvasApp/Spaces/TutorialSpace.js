@@ -61,6 +61,7 @@ function newTutorialSpace() {
     let timeMachineKeyPressedCounter = 0
     let keyPressedCounter = 0
     let sliderPositioned = 0
+    let changeNodeConfigCounter = 0
 
     return thisObject
 
@@ -408,6 +409,18 @@ function newTutorialSpace() {
                                     forcingFocus = true
                                 }
                                 if (
+                                    config.changeNodeConfigReferenceParent !== undefined
+                                ) {
+                                    changeNodeConfigCounter++
+                                    if (changeNodeConfigCounter === 5) {
+                                        let nodeConfig = JSON.parse(currentNode.payload.referenceParent.config)
+                                        for (const property in config.changeNodeConfigReferenceParent) {                                            
+                                            nodeConfig[property] = config.changeNodeConfigReferenceParent[property]
+                                        }
+                                        currentNode.payload.referenceParent.config = JSON.stringify(nodeConfig)
+                                    }
+                                }
+                                if (
                                     config.menuActionReferenceParent !== undefined
                                 ) {
                                     /* 
@@ -638,6 +651,7 @@ function newTutorialSpace() {
         resetTimeMachineKeyPressed()
         resetKeyPressed()
         resetSlider()
+        changeNodeConfig()
 
         function resetActions() {
             lastExecutedAction = ""
@@ -671,6 +685,10 @@ function newTutorialSpace() {
 
         function resetSlider() {
             sliderPositioned = false
+        }
+
+        function changeNodeConfig() {
+            changeNodeConfigCounter = 0
         }
     }
 

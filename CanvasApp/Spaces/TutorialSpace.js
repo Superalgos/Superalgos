@@ -56,6 +56,8 @@ function newTutorialSpace() {
     let forcingFocus = false
     let currentZoomStep = 0
     let viewportCentered = false
+    let repositionAtTimeMachineCounter = 0
+    let positionAtNodeCounter = 0
 
     return thisObject
 
@@ -161,6 +163,14 @@ function newTutorialSpace() {
             }
         }
 
+        function checkViewportZoomAtCenter() {
+            if (currentNode === undefined) { return }
+            let config = JSON.parse(currentNode.config)
+            if (config.viewportZoomAtCenter !== undefined) {
+                canvas.chartingSpace.viewport.zoomAtCenter(config.viewportZoomAtCenter)
+            }
+        }
+
         function checkPressButton() {
             if (currentNode === undefined) { return }
             let config = JSON.parse(currentNode.config)
@@ -241,7 +251,7 @@ function newTutorialSpace() {
 
         function checkWorkspaces() {
             if (currentNode === undefined) { return }
-            let config = JSON.parse(currentNode.config)        
+            let config = JSON.parse(currentNode.config)
             if (config.workspaces === undefined) {
                 /*
                 The worspaces panel will remain as it is, and the user will be free to open or close it at will.
@@ -317,7 +327,13 @@ function newTutorialSpace() {
                                     /*
                                     This moves the Designs Space so that the referenced node is at the center of the screen.
                                     */
-                                    canvas.floatingSpace.positionAtNode(currentNode.payload.referenceParent)
+                                    positionAtNodeCounter++
+                                    if (positionAtNodeCounter === 1) {
+                                        currentNode.payload.referenceParent.payload.floatingObject.unCollapseParent()
+                                    }
+                                    if (positionAtNodeCounter < 100) {
+                                        canvas.floatingSpace.positionAtNode(currentNode.payload.referenceParent)
+                                    }
                                 }
                                 if (
                                     config.highlightReferenceParent === true
@@ -390,6 +406,33 @@ function newTutorialSpace() {
                                         if (timeMachine !== undefined && viewportCentered === false) {
                                             canvas.chartingSpace.viewport.displaceToContainer(timeMachine.container)
                                             viewportCentered = true
+                                        }
+                                    }
+                                }
+                                if (
+                                    config.repositionAtTimeMachineReferenceParent === true
+                                ) {
+                                    if (currentNode.payload.referenceParent.type === 'Time Machine') {
+                                        let timeMachine = canvas.chartingSpace.findTimeMachine(currentNode.payload.referenceParent)
+                                        if (timeMachine !== undefined) {
+                                            repositionAtTimeMachineCounter++
+                                            switch (true) {
+                                                case (repositionAtTimeMachineCounter > 10 && repositionAtTimeMachineCounter < 20): {
+                                                    let event = {
+                                                        delta: -1
+                                                    }
+                                                    canvas.chartingSpace.viewport.onMouseWheel(event)
+                                                    break
+                                                }
+                                                case (repositionAtTimeMachineCounter === 30): {
+                                                    canvas.chartingSpace.viewport.displaceToContainer(timeMachine.container)
+                                                    break
+                                                }
+                                                case (repositionAtTimeMachineCounter === 40): {
+                                                    canvas.chartingSpace.viewport.zoomAtCenter(8)
+                                                    break
+                                                }
+                                            }
                                         }
                                     }
                                 }
@@ -544,20 +587,30 @@ function newTutorialSpace() {
         resetViewport()
         resetActions()
         resetDocumentation()
-    }
+        resetRepositionAtTimeMachine()
+        resetPositionAtNode()
 
-    function resetActions() {
-        lastExecutedAction = ""
-        actionCounter = 0
-    }
+        function resetActions() {
+            lastExecutedAction = ""
+            actionCounter = 0
+        }
+    
+        function resetViewport() {
+            currentZoomStep = 0
+            viewportCentered = false
+        }
+    
+        function resetDocumentation() {
+            currentDocumentationURL = ''
+        }
 
-    function resetViewport() {
-        currentZoomStep = 0
-        viewportCentered = false
-    }
+        function resetRepositionAtTimeMachine() {
+            repositionAtTimeMachineCounter = 0
+        }
 
-    function resetDocumentation() {
-        currentDocumentationURL = ''
+        function resetPositionAtNode() {
+            positionAtNodeCounter = 0
+        }
     }
 
     function checkForceFocus() {
@@ -718,16 +771,6 @@ function newTutorialSpace() {
             return
         }
 
-        /* 
-        If there is a reference parent defined, we will uncollape the brach where it belongs.
-        */
-        if (currentNode.payload.referenceParent !== undefined) {
-            if (currentNode.payload.referenceParent.payload !== undefined) {
-                if (currentNode.payload.referenceParent.payload.floatingObject !== undefined) {
-                    currentNode.payload.referenceParent.payload.floatingObject.unCollapseParent()
-                }
-            }
-        }
 
         function findNextNode(node) {
             for (let i = 0; i < node.tutorialSteps.length; i++) {
@@ -940,7 +983,7 @@ function newTutorialSpace() {
                     if (definitionNode === undefined) {
                         currentNode.payload.uiObject.setErrorMessage(nodeType + ' not found at Doc Schema or Concept Schema.')
                         return
-                    }                    
+                    }
                 }
                 let definition = definitionNode.definition
                 if (definition === undefined || definition === "") {

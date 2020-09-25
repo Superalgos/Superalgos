@@ -1,7 +1,7 @@
 function newUiObjectsFromNodes() {
     thisObject = {
         syncronizeTasksFoundAtWorkspaceWithBackEnd: syncronizeTasksFoundAtWorkspaceWithBackEnd,
-        runSessions: runSessions,
+        syncronizeSessionsFoundAtWorkspaceWithBackEnd: syncronizeSessionsFoundAtWorkspaceWithBackEnd,
         playTutorials: playTutorials,
         recreateWorkspace: recreateWorkspace,
         getNodeById: getNodeById,
@@ -14,7 +14,7 @@ function newUiObjectsFromNodes() {
     let mapOfReferenceChildren = new Map()
     let mapOfNodes
     let tasksFoundAtWorkspace
-    let sessionsToRun
+    let sessionsFoundAtWorkspace
     let tutorialsToPlay
 
     return thisObject
@@ -26,7 +26,7 @@ function newUiObjectsFromNodes() {
     function recreateWorkspace(node, callBackFunction) {
         mapOfNodes = new Map()
         tasksFoundAtWorkspace = []
-        sessionsToRun = []
+        sessionsFoundAtWorkspace = []
         tutorialsToPlay = []
 
         removeNullRootNodes()
@@ -158,12 +158,12 @@ function newUiObjectsFromNodes() {
         tasksFoundAtWorkspace = undefined
     }
 
-    function runSessions() {
-        for (let i = 0; i < sessionsToRun.length; i++) {
-            let node = sessionsToRun[i]
-            node.payload.uiObject.menu.internalClick('Run Session')
+    function syncronizeSessionsFoundAtWorkspaceWithBackEnd(functionLibrarySessionFunctions) {
+        for (let i = 0; i < sessionsFoundAtWorkspace.length; i++) {
+            let node = sessionsFoundAtWorkspace[i]
+            functionLibrarySessionFunctions.syncronizeSessionWithBackEnd(node)
         }
-        sessionsToRun = undefined
+        sessionsFoundAtWorkspace = undefined
     }
 
     function playTutorials() {
@@ -635,12 +635,8 @@ function newUiObjectsFromNodes() {
         /* Check if there are sessions to run */
         if (userAddingNew === false && node.savedPayload !== undefined) {
             if (uiObjectType === 'Live Trading Session' || uiObjectType === 'Forward Testing Session' || uiObjectType === 'Backtesting Session' || uiObjectType === 'Paper Trading Session') {
-                if (node.savedPayload.uiObject.isRunning === true) {
-                    if (node.payload.parentNode !== undefined) {
-                        if (sessionsToRun !== undefined) { // it might be undefined when you are spawning a session that was running while backed up
-                            sessionsToRun.push(node)
-                        }
-                    }
+                if (sessionsFoundAtWorkspace !== undefined) { // it might be undefined when you are spawning a session that was running while backed up
+                    sessionsFoundAtWorkspace.push(node)
                 }
             }
         }

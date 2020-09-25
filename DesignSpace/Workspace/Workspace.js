@@ -122,7 +122,7 @@ function newWorkspace() {
 
             function finishInitialization() {
                 setupEventsServerClients()
-                runTasksAndSessions(false)
+                runTasksAndSessions()
                 thisObject.enabled = true
                 canvas.cockpitSpace.initializePosition()
                 canvas.splashScreen.initialize()
@@ -134,20 +134,13 @@ function newWorkspace() {
         }
     }
 
-    function runTasksAndSessions(replacingCurrentWorkspace) {
-        if (replacingCurrentWorkspace === true) {
-            functionLibraryUiObjectsFromNodes.syncronizeTasksFoundAtWorkspaceWithBackEnd(functionLibraryTaskFunctions)
-            // We give a few seconds for the tasks to start
-            setTimeout(functionLibraryUiObjectsFromNodes.runSessions, 80000)
-            // We give a few seconds 
-            setTimeout(functionLibraryUiObjectsFromNodes.playTutorials, 3000)
-        } else {
-            functionLibraryUiObjectsFromNodes.syncronizeTasksFoundAtWorkspaceWithBackEnd(functionLibraryTaskFunctions)
-            // We give a few seconds for the tasks to start
-            setTimeout(functionLibraryUiObjectsFromNodes.runSessions, 10000)
-            // We give a few seconds 
-            setTimeout(functionLibraryUiObjectsFromNodes.playTutorials, 1000)
-        }
+    function runTasksAndSessions() {
+
+        functionLibraryUiObjectsFromNodes.syncronizeTasksFoundAtWorkspaceWithBackEnd(functionLibraryTaskFunctions)
+        functionLibraryUiObjectsFromNodes.syncronizeSessionsFoundAtWorkspaceWithBackEnd(functionLibrarySessionFunctions)
+ 
+        setTimeout(functionLibraryUiObjectsFromNodes.playTutorials, 5000)
+   
     }
 
     function setupEventsServerClients() {
@@ -294,9 +287,9 @@ function newWorkspace() {
                     break
                 case 5:
                     functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode, finishInitialization)
-                    function finishInitialization(){
+                    function finishInitialization() {
                         setupEventsServerClients()
-                        runTasksAndSessions(true)
+                        runTasksAndSessions()
                     }
                     workingAtTask++
                     break

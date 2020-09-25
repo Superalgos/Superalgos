@@ -980,7 +980,7 @@ function newUiObject() {
             /* We will wait to hear the Running event in order to confirm the execution was really started */
             let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
             eventsServerClient.listenToEvent(key, 'Running', undefined, 'UiObject', onResponse, onRunning)
-    
+
             onRunningCallBackFunction = callBackFunction
     
             function onResponse(message) {
@@ -988,6 +988,7 @@ function newUiObject() {
             }
     
             function onRunning() {
+
                 if (thisObject.payload === undefined) { return }
     
                 let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id

@@ -136,8 +136,7 @@ function newWorkspace() {
 
     function runTasksAndSessions(replacingCurrentWorkspace) {
         if (replacingCurrentWorkspace === true) {
-            // We need to wait all tasks that were potentially running to stop
-            setTimeout(functionLibraryUiObjectsFromNodes.syncronizeTasksFoundAtWorkspaceWithBackEnd, 70000)
+            functionLibraryUiObjectsFromNodes.syncronizeTasksFoundAtWorkspaceWithBackEnd(functionLibraryTaskFunctions)
             // We give a few seconds for the tasks to start
             setTimeout(functionLibraryUiObjectsFromNodes.runSessions, 80000)
             // We give a few seconds 
@@ -294,9 +293,11 @@ function newWorkspace() {
                     workingAtTask++
                     break
                 case 5:
-                    functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode)
-                    setupEventsServerClients()
-                    runTasksAndSessions(true)
+                    functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode, finishInitialization)
+                    function finishInitialization(){
+                        setupEventsServerClients()
+                        runTasksAndSessions(true)
+                    }
                     workingAtTask++
                     break
                 case 6:

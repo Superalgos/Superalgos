@@ -293,6 +293,7 @@ function newCanvas() {
         }
 
         function centerCanvar() {
+            return
             let top = (window.innerHeight - browserCanvas.height) / 2
             let left = (window.innerWidth - browserCanvas.width) / 2
             browserCanvas.style = "position:absolute; top:"+ top + "px; left:"+ left + "px; z-index:1"

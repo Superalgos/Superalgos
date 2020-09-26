@@ -7870,7 +7870,7 @@
             }
         ],
         "initialValues": {
-            "config": "{ \n\"initialDatetime\": \"2020-09-01\",\n\"finalDatetime\": \"2020-09-02\",\n \"allowStartingFromThePast\": false\n}"
+            "config": "{ \n\"initialDatetime\": \"2020-09-01\",\n\"finalDatetime\": \"2020-09-02\" \n}"
         },
         "addLeftIcons": true,
         "editors": {

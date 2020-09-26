@@ -234,7 +234,7 @@ function newTutorialSpace() {
             currentGifName = newGifName
             htmlGif.src = 'Images/Tutorial/Gifs/' + currentGifName + '.gif'
             htmlGif.width = "400"
-            //htmlGif.height = "100"
+            htmlGif.height = "580"
         }
 
         function checkImage() {
@@ -414,7 +414,7 @@ function newTutorialSpace() {
                                     changeNodeConfigCounter++
                                     if (changeNodeConfigCounter === 5) {
                                         let nodeConfig = JSON.parse(currentNode.payload.referenceParent.config)
-                                        for (const property in config.changeNodeConfigReferenceParent) {                                            
+                                        for (const property in config.changeNodeConfigReferenceParent) {
                                             nodeConfig[property] = config.changeNodeConfigReferenceParent[property]
                                         }
                                         currentNode.payload.referenceParent.config = JSON.stringify(nodeConfig)
@@ -533,7 +533,13 @@ function newTutorialSpace() {
             const MARGIN = 100
             const FORM_HEIGHT = 40
 
-            let nodeConfig = JSON.parse(currentNode.config)
+            let nodeConfig
+            try {
+                nodeConfig = JSON.parse(currentNode.config)
+            } catch (err) {
+                return
+            }
+
             switch (nodeConfig.position) {
                 case 'Left': {
                     tutorialPosition = {
@@ -972,7 +978,7 @@ function newTutorialSpace() {
         if (nodeConfig.title !== undefined && nodeConfig.title !== '') {
             html = html + '<div><h1 class="tutorial-font-large">' + nodeConfig.title + '</h1></div>'
         } else {
-            if (currentNode.name !== 'New ' + currentNode.type) {
+            if (currentNode.name !== 'New ' + currentNode.type && currentNode.name !== 'My ' + currentNode.type) {
                 html = html + '<div><h1 class="tutorial-font-large">' + currentNode.name + '</h1></div>'
             }
         }
@@ -984,7 +990,7 @@ function newTutorialSpace() {
             html = html + '<h2 class="tutorial-font-medium">' + nodeConfig.subTitle + '</h2>'
         }
         if (nodeConfig.gif !== undefined && nodeConfig.gif !== '') {
-            html = html + '<div id="tutorialGifDiv" width="400"/>'
+            html = html + '<div id="tutorialGifDiv" width="200" width="290"/>'
             newGifName = nodeConfig.gif
         }
 

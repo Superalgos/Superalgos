@@ -274,7 +274,7 @@ function newCanvas() {
                     break
                 }
                 case 120: { //  F9
-                    constructorParams = { format: 'gif', workersPath: 'externalScripts/', framerate: 12, name: 'Superalgos.Video.Capture' }
+                    constructorParams = { format: 'gif', workersPath: 'externalScripts/', framerate: ANIMATION_FRAME_PER_SECONDS, name: 'Superalgos.Video.Capture' }
                     break
                 }
                 case 121: { //  F10

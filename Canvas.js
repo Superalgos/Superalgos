@@ -43,7 +43,7 @@ function newCanvas() {
         animation: undefined,
         mouse: undefined,
         shorcutNumbers: new Map(),
-        onKeyDown: onKeyDown, 
+        onKeyDown: onKeyDown,
         initialize: initialize,
         finalize: finalize
     }
@@ -216,12 +216,48 @@ function newCanvas() {
 
         browserCanvas.width = window.innerWidth
         browserCanvas.height = window.innerHeight - CURRENT_TOP_MARGIN
+        browserCanvas.style = "position:absolute; top:0px; left:0px; z-index:1"
     }
 
     function checkMediaRecording(event) {
         if ((event.ctrlKey === true || event.metaKey === true)) {
             let constructorParams
             switch (event.keyCode) {
+                case 113: { //  F2
+                    browserCanvas.width = 400 * 3
+                    browserCanvas.height = 580 * 3
+                    centerCanvar()
+                    return
+                    break
+                }
+                case 114: { //  F2
+                    browserCanvas.width = 400 * 2
+                    browserCanvas.height = 580 * 2
+                    centerCanvar()
+                    return
+                    break
+                }
+                case 115: { //  F3
+                    browserCanvas.width = 400 * 1.5
+                    browserCanvas.height = 580 * 1.5
+                    centerCanvar()
+                    return
+                    break
+                }
+                case 116: { //  F5
+                    browserCanvas.width = 400 * 1
+                    browserCanvas.height = 580 * 1
+                    centerCanvar()
+                    return
+                    break
+                }
+                case 117: { //  F6
+                    browserCanvas.width = window.innerWidth
+                    browserCanvas.height = window.innerHeight - CURRENT_TOP_MARGIN
+                    centerCanvar()
+                    return
+                    break
+                }
                 case 118: { //  F7
                     downloadPanorama('Superalgos.Market.Panorama')
                     return
@@ -254,6 +290,12 @@ function newCanvas() {
                 mediaRecorder.stop()
                 mediaRecorder.save()
             }
+        }
+
+        function centerCanvar() {
+            let top = (window.innerHeight - browserCanvas.height) / 2
+            let left = (window.innerWidth - browserCanvas.width) / 2
+            browserCanvas.style = "position:absolute; top:"+ top + "px; left:"+ left + "px; z-index:1"
         }
     }
 

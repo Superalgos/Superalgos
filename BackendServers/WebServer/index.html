@@ -27,6 +27,7 @@
             try {
                 if (canvas === undefined) { return }
                 if (canvas.eventHandler === undefined) { return }
+                if (DISABLE_BROWSER_RESIZE_EVENT === true) {return}
                 canvas.eventHandler.raiseEvent('Browser Resized')
             } catch (err) {
                 console.log('Error Resizing. ' + err.stack)

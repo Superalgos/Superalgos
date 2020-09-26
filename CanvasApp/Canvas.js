@@ -226,35 +226,40 @@ function newCanvas() {
                 case 113: { //  F2
                     browserCanvas.width = 400 * 3
                     browserCanvas.height = 580 * 3
-                    centerCanvar()
+                    centerCanvas()
+                    DISABLE_BROWSER_RESIZE_EVENT = true
                     return
                     break
                 }
                 case 114: { //  F2
                     browserCanvas.width = 400 * 2
                     browserCanvas.height = 580 * 2
-                    centerCanvar()
+                    centerCanvas()
+                    DISABLE_BROWSER_RESIZE_EVENT = true
                     return
                     break
                 }
                 case 115: { //  F3
                     browserCanvas.width = 400 * 1.5
                     browserCanvas.height = 580 * 1.5
-                    centerCanvar()
+                    centerCanvas()
+                    DISABLE_BROWSER_RESIZE_EVENT = true
                     return
                     break
                 }
                 case 116: { //  F5
                     browserCanvas.width = 400 * 1
                     browserCanvas.height = 580 * 1
-                    centerCanvar()
+                    centerCanvas()
+                    DISABLE_BROWSER_RESIZE_EVENT = true
                     return
                     break
                 }
                 case 117: { //  F6
                     browserCanvas.width = window.innerWidth
                     browserCanvas.height = window.innerHeight - CURRENT_TOP_MARGIN
-                    centerCanvar()
+                    centerCanvas()
+                    DISABLE_BROWSER_RESIZE_EVENT = false
                     return
                     break
                 }
@@ -292,7 +297,7 @@ function newCanvas() {
             }
         }
 
-        function centerCanvar() {
+        function centerCanvas() {
             return
             let top = (window.innerHeight - browserCanvas.height) / 2
             let left = (window.innerWidth - browserCanvas.width) / 2

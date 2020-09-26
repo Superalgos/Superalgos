@@ -216,6 +216,7 @@ function newPlotter() {
                 } else {
                     fileCursor = dailyFiles.getFileCursor(pTimeFrame)
                 }
+                recalculate()
             }
         } catch (err) {
             if (ERROR_LOG === true) { logger.write('[ERROR] setTimeFrame -> err = ' + err.stack) }

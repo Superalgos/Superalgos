@@ -274,11 +274,13 @@ function newCanvas() {
                     break
                 }
                 case 120: { //  F9
-                    constructorParams = { format: 'gif', workersPath: 'externalScripts/', framerate: ANIMATION_FRAME_PER_SECONDS, name: 'Superalgos.Video.Capture' }
+                    console.log('Recording gid with framerate = ' + 24)
+                    constructorParams = { format: 'gif', workersPath: 'externalScripts/', framerate: 24, name: 'Superalgos.Video.Capture' }
                     break
                 }
                 case 121: { //  F10
-                    constructorParams = { format: 'webm', framerate: 8, name: 'Superalgos.Video.Capture' }
+                    console.log('Recording gid with framerate = ' + 24)
+                    constructorParams = { format: 'webm', framerate: 24, name: 'Superalgos.Video.Capture' }
                     break
                 }
                 default: return

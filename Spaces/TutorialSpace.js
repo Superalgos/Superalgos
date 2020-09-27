@@ -495,6 +495,29 @@ function newTutorialSpace() {
                                         }
                                     }
                                 }
+                                if (
+                                    config.repositionAtTimeMachineNoZoomReferenceParent === true
+                                ) {
+                                    if (currentNode.payload.referenceParent.type === 'Time Machine') {
+                                        let timeMachine = canvas.chartingSpace.findTimeMachine(currentNode.payload.referenceParent)
+                                        if (timeMachine !== undefined) {
+                                            repositionAtTimeMachineCounter++
+                                            switch (true) {
+                                                case (repositionAtTimeMachineCounter > 10 && repositionAtTimeMachineCounter < 20): {
+                                                    let event = {
+                                                        delta: -1
+                                                    }
+                                                    canvas.chartingSpace.viewport.onMouseWheel(event)
+                                                    break
+                                                }
+                                                case (repositionAtTimeMachineCounter === 30): {
+                                                    canvas.chartingSpace.viewport.displaceToContainer(timeMachine.container)
+                                                    break
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         }
                     }

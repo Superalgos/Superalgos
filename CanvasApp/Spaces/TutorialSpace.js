@@ -496,7 +496,7 @@ function newTutorialSpace() {
                                     }
                                 }
                                 if (
-                                    config.repositionAtTimeMachineReferenceParentNoZoom === true
+                                    config.repositionAtTimeMachineNoZoomReferenceParent === true
                                 ) {
                                     if (currentNode.payload.referenceParent.type === 'Time Machine') {
                                         let timeMachine = canvas.chartingSpace.findTimeMachine(currentNode.payload.referenceParent)

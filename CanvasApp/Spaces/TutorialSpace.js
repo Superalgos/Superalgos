@@ -977,11 +977,7 @@ function newTutorialSpace() {
         let html = ''
         if (nodeConfig.title !== undefined && nodeConfig.title !== '') {
             html = html + '<div><h1 class="tutorial-font-large">' + nodeConfig.title + '</h1></div>'
-        } else {
-            if (currentNode.name !== 'New ' + currentNode.type && currentNode.name !== 'My ' + currentNode.type) {
-                html = html + '<div><h1 class="tutorial-font-large">' + currentNode.name + '</h1></div>'
-            }
-        }
+        }  
         html = html + '<div>'
         if (nodeConfig.summary !== undefined && nodeConfig.summary !== '') {
             html = html + '<div class="tutorial-font-small tutorial-summary">' + addToolTips(nodeConfig.summary) + '</div>'

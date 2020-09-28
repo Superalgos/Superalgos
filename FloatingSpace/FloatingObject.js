@@ -322,7 +322,7 @@ function newFloatingObject() {
     function positionContraintsPhysics() {
         const MAX_DISTANCE_TO_PARENT = 5000
         const MIN_DISTANCE_TO_PARENT = 100
-        const DEFAULT_NODE_TO_NODE_DISTANCE = 400
+        const DEFAULT_NODE_TO_NODE_DISTANCE = 500
 
         if (thisObject.angleToParent !== ANGLE_TO_PARENT.NOT_FIXED && thisObject.isOnFocus !== true) {
             let parent = thisObject.payload.chainParent

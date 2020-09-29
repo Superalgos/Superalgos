@@ -116,7 +116,7 @@
             Here is the point where we sync one and the other.
             */
             let tradingProcessDate = global.REMOVE_TIME(bot.simulationState.tradingEngine.current.episode.processDate.value)
-
+            console.log("1 tradingProcessDate ", tradingProcessDate)
             await processSingleFiles()
             await processMarketFiles()
 
@@ -147,10 +147,6 @@
                 /* We are processing Daily Files */
                 do {
                     global.EMIT_SESSION_STATUS (bot.SESSION_STATUS, bot.sessionKey)
-
-                    if (checkStopTaskGracefully() === false) { break }
-                    if (checkStopProcessing() === false) { break }
-
                     /* 
                     We update the Trading Process Date with the date calculated at the simulation.
                     We will use this date to load indicator and output files. After that we will 
@@ -158,6 +154,10 @@
                     the date calculated by the Simulation is applied at the Trading Process Level.
                     */
                     tradingProcessDate = global.REMOVE_TIME(bot.simulationState.tradingEngine.current.episode.processDate.value)
+                    console.log("2 tradingProcessDate ", tradingProcessDate)
+                    if (checkStopTaskGracefully() === false) { break }
+                    if (checkStopProcessing() === false) { break }
+
                     await processDailyFiles()
                     /*
                     With all the indicators data files loaded, we will build the chart object 

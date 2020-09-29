@@ -41,6 +41,7 @@
             global.EVENT_SERVER_CLIENT.listenToEvent(bot.sessionKey, 'Session Status', undefined, bot.sessionKey, undefined, onSessionStatus)
             global.EVENT_SERVER_CLIENT.listenToEvent(bot.sessionKey, 'Run Session', undefined, bot.sessionKey, undefined, onSessionRun)
             global.EVENT_SERVER_CLIENT.listenToEvent(bot.sessionKey, 'Stop Session', undefined, bot.sessionKey, undefined, onSessionStop)
+            global.EVENT_SERVER_CLIENT.listenToEvent(bot.sessionKey, 'Resume Session', undefined, bot.sessionKey, undefined, onSessionResume)
 
             /* Connect this here so that it is accesible from other places */
             bot.sessionError = sessionError
@@ -71,7 +72,7 @@
                 try {
                     /* This happens when the UI is reloaded, the session was running and tries to run it again. */
                     if (bot.SESSION_STATUS === 'Idle' || bot.SESSION_STATUS === 'Running') { 
-                        parentLogger.write(MODULE_NAME, "[WARN] onSessionRun -> Event receive to run the Session while it was already running. ")
+                        parentLogger.write(MODULE_NAME, "[WARN] onSessionRun -> Event received to run the Session while it was already running. ")
                         return 
                     } 
 
@@ -80,7 +81,7 @@
                     bot.TRADING_ENGINE = JSON.parse(message.event.tradingEngine)
                     bot.SESSION = JSON.parse(message.event.session)
                     bot.DEPENDENCY_FILTER = JSON.parse(message.event.dependencyFilter)
-                    bot.RESUME = message.event.resume
+                    bot.RESUME = false
                     bot.FIRST_EXECUTION = true
                     bot.SESSION.stop = stopSession // stop function
 
@@ -126,6 +127,28 @@
 
             function onSessionStop() {
                 stopSession('Session Stopped From the User Interface.')
+            }
+
+            function onSessionResume(message) {
+                try {
+                    if (bot.SESSION.stop === undefined) { 
+                        parentLogger.write(MODULE_NAME, "[WARN] onSessionResume -> Event received to resume the Session that have never be ran before. ")
+                        return 
+                    }
+
+                    /* This happens when the UI is reloaded, the session was running and tries to run it again. */
+                    if (bot.SESSION_STATUS === 'Idle' || bot.SESSION_STATUS === 'Running') { 
+                        parentLogger.write(MODULE_NAME, "[WARN] onSessionResume -> Event received to resume the Session while it was already running. ")
+                        return 
+                    } 
+
+                    bot.RESUME = true
+                    bot.STOP_SESSION = false
+
+                    socialBotsModule.sendMessage(bot.SESSION.type + " '" + bot.SESSION.name + "' is resuming.")
+                } catch (err) {
+                    parentLogger.write(MODULE_NAME, "[ERROR] initialize -> onSessionResume -> err = " + err.stack);
+                }
             }
 
             function stopSession(commandOrigin) {

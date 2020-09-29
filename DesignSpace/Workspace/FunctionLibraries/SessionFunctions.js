@@ -135,7 +135,11 @@ function newSessionFunctions() {
             resume: resume
         }
 
-        eventsServerClient.raiseEvent(key, 'Run Session', event)
+        if (resume !== true) {
+            eventsServerClient.raiseEvent(key, 'Run Session', event)
+        } else {
+            eventsServerClient.raiseEvent(key, 'Resume Session', event)
+        }
 
         if (node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
             callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)

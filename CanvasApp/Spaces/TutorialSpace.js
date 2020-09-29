@@ -62,6 +62,8 @@ function newTutorialSpace() {
     let keyPressedCounter = 0
     let sliderPositioned = 0
     let changeNodeConfigCounter = 0
+    let documentationCounter = 0
+    let batchConfigChangesCounter = 0
 
     return thisObject
 
@@ -254,24 +256,27 @@ function newTutorialSpace() {
             if (currentNode === undefined) { return }
             let config = JSON.parse(currentNode.config)
             let newDocumentationURL = config.documentationURL
-            if (newDocumentationURL === undefined) {
-                /*
-                The doc panel will remain as it is, and the user will be free to open or close it at will.
-                */
-                return
-            }
-            if (newDocumentationURL === "") {
-                /*
-                This forces the tutorial to close the documentation panel and to keep it closed.
-                */
-                canvas.docSpace.sidePanelTab.close()
-                return
-            }
-            canvas.docSpace.sidePanelTab.open()
-            if (newDocumentationURL === currentDocumentationURL) { return }
+            documentationCounter++
+            if (documentationCounter === 10) {
+                if (newDocumentationURL === undefined) {
+                    /*
+                    The doc panel will remain as it is, and the user will be free to open or close it at will.
+                    */
+                    return
+                }
+                if (newDocumentationURL === "") {
+                    /*
+                    This forces the tutorial to close the documentation panel and to keep it closed.
+                    */
+                    canvas.docSpace.sidePanelTab.close()
+                    return
+                }
+                canvas.docSpace.sidePanelTab.open()
+                if (newDocumentationURL === currentDocumentationURL) { return }
 
-            currentDocumentationURL = newDocumentationURL
-            canvas.docSpace.navigateTo(currentDocumentationURL)
+                currentDocumentationURL = newDocumentationURL
+                canvas.docSpace.navigateTo(currentDocumentationURL)
+            }
         }
 
         function checkWorkspaces() {
@@ -407,6 +412,33 @@ function newTutorialSpace() {
                                 ) {
                                     currentNode.payload.referenceParent.payload.floatingObject.forceFocus()
                                     forcingFocus = true
+                                }
+                                if (
+                                    config.batchConfigChangesReferenceParent !== undefined
+                                ) {
+                                    batchConfigChangesCounter++
+                                    if (batchConfigChangesCounter === 5) {
+                                        /* 
+                                        Here we are going to process an array of different changes to descendents
+                                        of the reference parent. The end user needs to specify a nodePath to the 
+                                        descendent and an object with the properties and new values that want to 
+                                        change at each descendent. The nodePath route starts at the object
+                                        referenceParent.
+                                        */
+                                        let referenceParent = currentNode.payload.referenceParent 
+                                        for (let i = 0; i < config.batchConfigChangesReferenceParent.length; i++) {
+                                            let arrayItem = config.batchConfigChangesReferenceParent[i]
+                                            let nodePath = arrayItem.nodePath 
+                                            let properties = arrayItem.properties
+
+                                            let childNode = eval(nodePath)
+                                            let nodeConfig = JSON.parse(childNode.config)
+                                            for (const property in properties) {
+                                                nodeConfig[property] = properties[property]
+                                            }
+                                            childNode.config = JSON.stringify(nodeConfig, undefined, 5)
+                                        }
+                                    }
                                 }
                                 if (
                                     config.changeNodeConfigReferenceParent !== undefined
@@ -681,6 +713,7 @@ function newTutorialSpace() {
         resetKeyPressed()
         resetSlider()
         changeNodeConfig()
+        batchConfigChanges()
 
         function resetActions() {
             lastExecutedAction = ""
@@ -694,6 +727,7 @@ function newTutorialSpace() {
 
         function resetDocumentation() {
             currentDocumentationURL = ''
+            documentationCounter = 0
         }
 
         function resetRepositionAtTimeMachine() {
@@ -718,6 +752,10 @@ function newTutorialSpace() {
 
         function changeNodeConfig() {
             changeNodeConfigCounter = 0
+        }
+
+        function batchConfigChanges() {
+            batchConfigChangesCounter = 0
         }
     }
 
@@ -1000,7 +1038,7 @@ function newTutorialSpace() {
         let html = ''
         if (nodeConfig.title !== undefined && nodeConfig.title !== '') {
             html = html + '<div><h1 class="tutorial-font-large">' + nodeConfig.title + '</h1></div>'
-        }  
+        }
         html = html + '<div>'
         if (nodeConfig.summary !== undefined && nodeConfig.summary !== '') {
             html = html + '<div class="tutorial-font-small tutorial-summary">' + addToolTips(nodeConfig.summary) + '</div>'

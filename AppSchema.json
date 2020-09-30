@@ -2482,12 +2482,6 @@
                 "type": "node",
                 "childType": "Exchange Orders",
                 "autoAdd": true
-            },
-            {
-                "name": "dynamicIndicators",
-                "type": "node",
-                "childType": "Dynamic Indicators",
-                "autoAdd": true
             }
         ]
     },
@@ -2523,7 +2517,8 @@
                 "childType": "Indicator Function",
                 "autoAdd": true
             }
-        ]
+        ],
+        "icon": "bitcoin"
     },
     {
         "type": "Indicator Function",
@@ -9831,6 +9826,14 @@
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "dynamicIndicators",
+                "label": "Add Dynamic Indicators",
+                "relatedUiObject": "Dynamic Indicators",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -9855,6 +9858,12 @@
                 "name": "tradingStrategies",
                 "type": "array",
                 "childType": "Trading Strategy",
+                "autoAdd": true
+            },
+            {
+                "name": "dynamicIndicators",
+                "type": "node",
+                "childType": "Dynamic Indicators",
                 "autoAdd": true
             }
         ],

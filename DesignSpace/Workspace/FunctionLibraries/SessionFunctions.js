@@ -52,9 +52,7 @@ function newSessionFunctions() {
 
         let lightingPath = '' +
             'Trading System->' +
-            'Parameters->' +
-            'Base Asset->Quoted Asset->Time Range->Time Frame->Slippage->Fee Structure->' +
-            'Exchange Account Asset->Asset->' +
+            'Dynamic Indicators->Indicator Function->Formula->' +
             'Trading Strategy->' +
             'Trigger Stage->Trigger On Event->Trigger Off Event->Take Position Event->' +
             'Announcement->Announcement Formula->' +

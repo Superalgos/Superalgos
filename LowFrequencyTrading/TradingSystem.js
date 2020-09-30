@@ -17,6 +17,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
     let tradingSystem
     let tradingEngine
     let sessionParameters
+    let dynamicIndicators 
 
     const TRADING_STAGES_MODULE = require('./TradingStages.js')
     let tradingStagesModule = TRADING_STAGES_MODULE.newTradingStages(bot, logger, tradingEngineModule)
@@ -122,8 +123,26 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
         tradingStagesModule.updateChart(pChart)
     }
 
+    function buildDynamicIndicators() {
+        if (tradingSystem.dynamicIndicators !== undefined) {
+            dynamicIndicators = {}
+            /* Eval Dynamic Indicators */
+            tradingSystem.evalFormulas(tradingSystem.dynamicIndicators, 'Indicator Function')
+
+            for (let i = 0; i < tradingSystem.dynamicIndicators.indicatorFunctions.length; i++) {
+                let indicatorFunction = tradingSystem.dynamicIndicators.indicatorFunctions[i]
+                if (indicatorFunction.formula === undefined) { return}
+                if (indicatorFunction.config.codeName === undefined) { return}
+                dynamicIndicators[indicatorFunction.config.codeName] = tradingSystem.formulas.get(indicatorFunction.formula.id)
+            }
+        }
+    }
+
     async function run() {
         try {
+            /* Dynamic Indicators */
+            buildDynamicIndicators()
+
             /* Run the Trigger Stage */
             tradingStagesModule.runTriggerStage()
 
@@ -230,7 +249,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
         }
 
         try {
-            logger.write(MODULE_NAME, '[INFO] evalCondition -> ' +  node.name + ' -> code = ' + code)
+            logger.write(MODULE_NAME, '[INFO] evalCondition -> ' + node.name + ' -> code = ' + code)
             value = eval(code)
         } catch (err) {
             /*
@@ -270,7 +289,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
         let error
 
         try {
-            logger.write(MODULE_NAME, '[INFO] evalFormula -> ' +  node.name + ' -> code = ' + node.code)
+            logger.write(MODULE_NAME, '[INFO] evalFormula -> ' + node.name + ' -> code = ' + node.code)
             value = eval(node.code)
         } catch (err) {
             /*

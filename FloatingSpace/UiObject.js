@@ -619,7 +619,7 @@ function newUiObject() {
             let distance = nearby[0]
             let floatingObject = nearby[1]
             let nearbyNode = floatingObject.payload.node
-            if (compatibleTypes.indexOf('->' + nearbyNode.type + '->') >= 0 || compatibleTypes === "->*Any Node*->" ) {
+            if (compatibleTypes.indexOf('->' + nearbyNode.type + '->') >= 0 || compatibleTypes === "->*Any Node*->") {
                 if (nodeDefinition.referenceAttachesTo.incompatibleTypes !== undefined) {
                     if (nodeDefinition.referenceAttachesTo.incompatibleTypes.indexOf('->' + nearbyNode.type + '->') >= 0) {
                         continue
@@ -982,26 +982,26 @@ function newUiObject() {
             eventsServerClient.listenToEvent(key, 'Running', undefined, 'UiObject', onResponse, onRunning)
 
             onRunningCallBackFunction = callBackFunction
-    
+
             function onResponse(message) {
                 eventSubscriptionIdOnRunning = message.eventSubscriptionId
             }
-    
+
             function onRunning() {
 
                 if (thisObject.payload === undefined) { return }
-    
+
                 let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
                 eventsServerClient.stopListening(key, eventSubscriptionIdOnRunning, 'UiObject')
-    
+
                 thisObject.isRunning = true
-    
+
                 if (callBackFunction !== undefined) {
                     callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
                     onRunningCallBackFunctionWasCalled = true
                 }
             }
-    
+
             /*
             While it is running, it can happen that it naturally stops or is stopped not from the UI but from other means.
             In those cases, the stop function would never be called (from the UI). So what we will do is to call it from
@@ -1012,7 +1012,7 @@ function newUiObject() {
             If on the other side, it is executed from the UI, then we will be processing the Stopped event twice, which in
             both cases will reset the menu item to its default state.
             */
-    
+
             let event = {
                 type: 'Secondary Action Already Executed'
             }
@@ -1022,45 +1022,45 @@ function newUiObject() {
         function setupErrorEventListener(callBackFunction) {
             let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
             eventsServerClient.listenToEvent(key, 'Error', undefined, key, onResponse, onError)
-    
+
             function onResponse(message) {
                 eventSubscriptionIdOnError = message.eventSubscriptionId
             }
-    
+
             function onError(message) {
-    
+
                 let uiObject = getTargetUiObject(message)
                 uiObject.setErrorMessage(message.event.errorMessage, 10)
-    
+
                 let event = {
                     type: 'Secondary Action Already Executed'
                 }
                 completeStop(callBackFunction, event)
             }
         }
-    
+
         function setupWarningEventListener() {
             let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
             eventsServerClient.listenToEvent(key, 'Warning', undefined, key, onResponse, onWarning)
-    
+
             function onResponse(message) {
                 eventSubscriptionIdOnWarning = message.eventSubscriptionId
             }
-    
+
             function onWarning(message) {
                 let uiObject = getTargetUiObject(message)
                 uiObject.setWarningMessage(message.event.warningMessage, 10)
             }
         }
-    
+
         function setupInfoEventListener() {
             let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
             eventsServerClient.listenToEvent(key, 'Info', undefined, key, onResponse, onInfo)
-    
+
             function onResponse(message) {
                 eventSubscriptionIdOnInfo = message.eventSubscriptionId
             }
-    
+
             function onInfo(message) {
                 let uiObject = getTargetUiObject(message)
                 uiObject.setInfoMessage(message.event.infoMessage, 10)
@@ -1600,13 +1600,16 @@ function newUiObject() {
         let label
 
         if (radius > 6) {
-            const MAX_LABEL_LENGTH = 80
+            const IDEAL_LABEL_LENGTH = 80
 
             label = message
 
             if (label !== undefined && label !== null) {
-                if (label.length > MAX_LABEL_LENGTH) {
-                    label = label.substring(0, MAX_LABEL_LENGTH) + '...'
+                if (label.length > IDEAL_LABEL_LENGTH) {
+                    if (label.length > IDEAL_LABEL_LENGTH * 3) {
+                        label = label.substring(0, IDEAL_LABEL_LENGTH * 3) + '...'
+                    }
+                    fontSize = thisObject.payload.floatingObject.currentFontSize * 2 / 4
                 }
 
                 labelPoint = {

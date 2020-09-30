@@ -507,6 +507,7 @@ function newCanvas() {
 
         if (event.code === 'Period') {
             if (nodeOnFocus !== undefined) {
+                nodeOnFocus.payload.uiObject.valueAtAngle = false
                 nodeOnFocus.payload.uiObject.setValue('Id: ' + nodeOnFocus.id)
                 return
             }
@@ -530,6 +531,7 @@ function newCanvas() {
                 if (nodeUsingThisKey !== undefined && nodeOnFocus !== undefined) {
                     if (nodeUsingThisKey.id === nodeOnFocus.id) {
                         nodeOnFocus.payload.uiObject.shortcutKey = ''
+                        nodeOnFocus.payload.uiObject.valueAtAngle = false
                         nodeOnFocus.payload.uiObject.setValue('Shortcut Key Removed ')
                         return
                     } else {
@@ -537,6 +539,7 @@ function newCanvas() {
                         nodeUsingThisKey.payload.uiObject.shortcutKey = ''
                         nodeUsingThisKey === undefined
                         nodeOnFocus.payload.uiObject.shortcutKey = event.key
+                        nodeOnFocus.payload.uiObject.valueAtAngle = false
                         nodeOnFocus.payload.uiObject.setValue('Shortcut Key: Ctrl + Alt + ' + event.key)
                     }
                 }
@@ -546,6 +549,7 @@ function newCanvas() {
 
         if (event.ctrlKey === true && event.altKey === true && nodeOnFocus !== undefined) {
             if (nodeOnFocus.payload.uiObject.shortcutKey !== undefined && nodeOnFocus.payload.uiObject.shortcutKey !== '') {
+                nodeOnFocus.payload.uiObject.valueAtAngle = false
                 nodeOnFocus.payload.uiObject.setValue('Shortcut Key: Ctrl + Alt + ' + nodeOnFocus.payload.uiObject.shortcutKey)
             }
         }

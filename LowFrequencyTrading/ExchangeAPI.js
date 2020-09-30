@@ -35,7 +35,7 @@
             'timeout': 30000,
             'enableRateLimit': true,
             verbose: false,
-            'adjustForTimeDifference': True, 
+            'adjustForTimeDifference': true, 
             options: options
         }
         exchange = new exchangeClass(exchangeConstructorParams)

@@ -106,7 +106,7 @@ function newUiObjectsFromNodes() {
                             for (let i = 0; i < node.rootNodes.length; i++) {
                                 let rootNode = node.rootNodes[i]
                                 if (rootNode.id === receivedNode.id) {
-                                    rootNodes.splice(i, 1)
+                                    node.rootNodes.splice(i, 1)
                                     break
                                 }
                             }

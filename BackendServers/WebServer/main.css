@@ -22,6 +22,18 @@
   font-style: normal;
 }
 
+.credits {
+  padding: 15px;
+  margin-top: 100px;
+  margin-bottom: 20px;
+  border: 2px solid;
+  border-color: #1b998b;
+  border-radius: 8px;
+  background-color: #fdfdfd;
+  width: 400px;
+  margin: auto;
+}
+
 .tutorial-step {
   padding: 15px;
   margin-bottom: 20px;

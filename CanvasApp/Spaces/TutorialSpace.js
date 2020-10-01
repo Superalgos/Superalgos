@@ -417,7 +417,7 @@ function newTutorialSpace() {
                                     config.batchConfigChangesReferenceParent !== undefined
                                 ) {
                                     batchConfigChangesCounter++
-                                    if (batchConfigChangesCounter === 5) {
+                                    if (batchConfigChangesCounter === 5 || batchConfigChangesCounter === 10) {
                                         /* 
                                         Here we are going to process an array of different changes to descendents
                                         of the reference parent. The end user needs to specify a nodePath to the 
@@ -441,9 +441,20 @@ function newTutorialSpace() {
                                                 let separator = ''
                                                 for (let j = 0; j < splittedPath.length; j++) {
                                                     let part = splittedPath[j]
+                                                    let partialNode
+                                                    let splittedParts = part.split('[')
+                                                    if (splittedParts.length > 1) {
+                                                        partialNode = eval(partialPath + separator + splittedParts[0])
+                                                        if (partialNode === undefined) {
+                                                            console.log(MODULE_NAME + ' -> This part can not be undefined -> part = ' + splittedParts[0])
+                                                            currentNode.payload.uiObject.setErrorMessage('Node Path is incorrect. See console log for details.')
+                                                            break
+                                                        }
+                                                    } 
                                                     partialPath = partialPath + separator + part
                                                     separator = '.'
-                                                    let partialNode = eval(partialPath)
+                                                   
+                                                    partialNode = eval(partialPath)
                                                     if (partialNode === undefined) {
                                                         console.log(MODULE_NAME + ' -> This part can not be undefined -> part = ' + part)
                                                         currentNode.payload.uiObject.setErrorMessage('Node Path is incorrect. See console log for details.')

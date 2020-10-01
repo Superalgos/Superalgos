@@ -16,6 +16,15 @@
 
     <script type="text/javascript">
         function loadCanvas() {
+            // Prevent click-jacking
+            try {
+                if (window == window.top || window.chrome && chrome.app && chrome.app.window) {
+                    document.documentElement.style.display = 'block'
+                } else {
+                    top.location = self.location
+                }
+            } catch (e) { console.error('CJ protection', e) }
+
             try {
                 loadSuperalgos();
             } catch (err) {
@@ -27,7 +36,7 @@
             try {
                 if (canvas === undefined) { return }
                 if (canvas.eventHandler === undefined) { return }
-                if (DISABLE_BROWSER_RESIZE_EVENT === true) {return}
+                if (DISABLE_BROWSER_RESIZE_EVENT === true) { return }
                 canvas.eventHandler.raiseEvent('Browser Resized')
             } catch (err) {
                 console.log('Error Resizing. ' + err.stack)
@@ -40,16 +49,21 @@
     style="overflow:hidden; background: url(Images/superalgos-platform.jpg); background-size: cover;"
     onresize="onResize()">
     <div id="contributors" class="credits">
-        <p class="tutorial-alert-success">This project is open source and free thanks to the efforts and time of it's contributors:</p>
-        <p class="tutorial-callout">Luis Fernando Molina, Julian Molina, Andreja Cobeljic, Matías Benitez, Ira Miller, Eduardo Remis, Jeff Braun, Barry Low, Nikola Bjelogrlic and Francisco J. Santillán.</p>
-        <p class="tutorial-alert-info">If you find it useful, please consider giving back to the community by becoming a contributor.</p>
+        <p class="tutorial-alert-success">This project is open source and free thanks to the efforts and time of it's
+            contributors:</p>
+        <p class="tutorial-callout">Luis Fernando Molina, Julian Molina, Andreja Cobeljic, Matías Benitez, Ira Miller,
+            Eduardo Remis, Jeff Braun, Barry Low, Nikola Bjelogrlic, Hirajin Koizuko and Francisco J. Santillán.</p>
+        <p class="tutorial-alert-info">If you find it useful, please consider giving back to the community by becoming a
+            contributor.</p>
     </div>
     <div id="masterApp"></div>
     <div id="canvasApp"></div>
     <div id="docApp" style="position:fixed; top:100000px; left:100000px">
-        <iframe id="docIFrame" style="border:none; " height="2000" 
-            width="900"></iframe>
-    </div> <!--    -->
+        <iframe id="docIFrame" style="border:none; " height="2000" width="900"></iframe>
+    </div>
+    <div id="chatApp" style="position:fixed; top:100000px; left:100000px">
+        <iframe id="chatIFrame" style="border:none; " height="2000" width="900"></iframe>
+    </div>
     <div id="textAreaDiv"></div>
     <div id="inputDiv" style="font-family:saira condensed;">&nbsp;</div>
 
@@ -59,19 +73,19 @@
         <form>
             <table class="tutorial-buttonsTable">
                 <tr>
-                    <td align = "center">
+                    <td align="center">
                         <label class="tutorial-font-small tutorial-stop-button" onclick="canvas.tutorialSpace.stop()"
                             value="">&nbsp;&nbsp;Stop&nbsp;&nbsp;&nbsp;</label>
                     </td>
-                    <td align = "center">
+                    <td align="center">
                         <label class="tutorial-font-small tutorial-skip-button" onclick="canvas.tutorialSpace.skip()"
                             value="">&nbsp;&nbsp;Skip&nbsp;&nbsp;&nbsp;</label>
                     </td>
-                    <td align = "center">
-                        <label class="tutorial-font-small tutorial-previous-button" onclick="canvas.tutorialSpace.previous()"
-                            value="">Previous</label>
+                    <td align="center">
+                        <label class="tutorial-font-small tutorial-previous-button"
+                            onclick="canvas.tutorialSpace.previous()" value="">Previous</label>
                     </td>
-                    <td align = "center">
+                    <td align="center">
                         <label class="tutorial-font-small tutorial-next-button" onclick="canvas.tutorialSpace.next()"
                             value="">&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;</label>
                     </td>

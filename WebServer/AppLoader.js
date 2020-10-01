@@ -97,6 +97,7 @@ function newAppLoader() {
                 'Spaces/DesignSpace.js',
                 'Spaces/SideSpace.js',
                 'Spaces/DocSpace.js',
+                'Spaces/ChatSpace.js',
                 'Spaces/TutorialSpace.js',
 
                 'Files/SingleFile.js',

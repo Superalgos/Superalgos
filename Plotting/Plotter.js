@@ -589,12 +589,21 @@ function newPlotter() {
                                 The information we store in files is independent from the charing system and its coordinate systems.
                                 That means that the first thing we allways need to do is to trasform these points to the coordinate system of the timeline.
                                 */
-                                let dataPoint
+                                let dataPoint                                
                                 dataPoint = coordinateSystem.transformThisPoint(rawPoint)
                                 dataPoint = transformThisPoint(dataPoint, thisObject.container)
+                                let testPoint = {
+                                    x: dataPoint.x,
+                                    y: dataPoint.y
+                                }
                                 dataPoint = canvas.chartingSpace.viewport.fitIntoVisibleArea(dataPoint)
                                 dataPoint = thisObject.fitFunction(dataPoint)
 
+                                if (testPoint.x === dataPoint.x) {
+                                    dataPoint.isInViewPort = true
+                                } else {
+                                    dataPoint.isInViewPort = false
+                                }
                                 /* Store the data point at the local map */
                                 dataPoint.rawPoint = rawPoint
                                 dataPoints.set(point.id, dataPoint)
@@ -738,13 +747,9 @@ function newPlotter() {
                         if (polygonVertex.referenceParent !== undefined) {
                             let dataPointObject = dataPoints.get(polygonVertex.referenceParent.id)
                             if (dataPointObject === undefined) {
+                                polygonVertex.payload.uiObject.setErrorMessage('Vertex not referencing any Point')
                                 console.log('[WARN] You have a Polygon Vertex not referencing any Point.')
                                 continue
-                            }
-
-                            /* Contributing to Auto-Scale */
-                            if (dataPointObject.rawPoint.y > 1 && dataPointObject.rawPoint.y !== undefined && isNaN(dataPointObject.rawPoint.y) === false) {
-                                coordinateSystem.reportYValue(dataPointObject.rawPoint.y)
                             }
 
                             let dataPoint = {
@@ -754,6 +759,20 @@ function newPlotter() {
                             /* We make sure the points do not fall outside the viewport visible area. This step allways need to be done.  */
                             dataPoint = canvas.chartingSpace.viewport.fitIntoVisibleArea(dataPoint)
                             dataPoint = thisObject.fitFunction(dataPoint)
+
+                            /* 
+                            Contributing to Auto-Scale: A point will contribute to the y coordinate only if the x coordinate is plotted in the screen.
+                            It can happen that objects that span through a long period of time could have its begin point inside the visible 
+                            viewport but not its end point. In those cases, the end point should not be reported. 
+                            */
+                            
+                            if (dataPointObject.rawPoint.y > 1 && dataPointObject.rawPoint.y !== undefined && isNaN(dataPointObject.rawPoint.y) === false) {
+                                let rawPoint = coordinateSystem.transformThisPoint(dataPointObject.rawPoint)
+                                if (dataPointObject.isInViewPort === true) {
+                                    coordinateSystem.reportYValue(dataPointObject.rawPoint.y)
+                                }
+                            }
+
                             if (k === 0) {
                                 browserCanvasContext.moveTo(dataPoint.x, dataPoint.y)
                             } else {
@@ -828,7 +847,7 @@ function newPlotter() {
                             browserCanvasContext.drawImage(imageToDraw, imagePosition.x - imageSize / 2 + offsetX, imagePosition.y - imageSize / 2 - offsetY, imageSize, imageSize)
                         }
                     } else {
-                        console.log('Can not plot image named '+ imageName + ' of product ' + productDefinition.name + ' because it does not exist.')
+                        console.log('Can not plot image named ' + imageName + ' of product ' + productDefinition.name + ' because it does not exist.')
                     }
                 }
 

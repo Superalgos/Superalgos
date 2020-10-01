@@ -425,13 +425,33 @@ function newTutorialSpace() {
                                         change at each descendent. The nodePath route starts at the object
                                         referenceParent.
                                         */
-                                        let referenceParent = currentNode.payload.referenceParent 
+                                        let referenceParent = currentNode.payload.referenceParent
                                         for (let i = 0; i < config.batchConfigChangesReferenceParent.length; i++) {
                                             let arrayItem = config.batchConfigChangesReferenceParent[i]
-                                            let nodePath = arrayItem.nodePath 
+                                            let nodePath = arrayItem.nodePath
                                             let properties = arrayItem.properties
 
-                                            let childNode = eval(nodePath)
+                                            let childNode
+                                            try {
+                                                childNode = eval(nodePath)
+                                            } catch (err) {
+                                                console.log(MODULE_NAME + ' -> The nodePath provided is not good. -> nodePath = ' + nodePath)
+                                                let splittedPath = nodePath.split('.')
+                                                let partialPath = ''
+                                                let separator = ''
+                                                for (let j = 0; j < splittedPath.length; j++) {
+                                                    let part = splittedPath[j]
+                                                    partialPath = partialPath + separator + part
+                                                    separator = '.'
+                                                    let partialNode = eval(partialPath)
+                                                    if (partialNode === undefined) {
+                                                        console.log(MODULE_NAME + ' -> This part can not be undefined -> part = ' + part)
+                                                        currentNode.payload.uiObject.setErrorMessage('Node Path is incorrect. See console log for details.')
+                                                        break
+                                                    }
+                                                }
+                                                continue
+                                            }
                                             let nodeConfig = JSON.parse(childNode.config)
                                             for (const property in properties) {
                                                 nodeConfig[property] = properties[property]

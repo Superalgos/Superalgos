@@ -4,6 +4,7 @@ function newSidePanelTab() {
         screenside: undefined,
         pointerDirection: undefined,
         container: undefined,
+        index: 0,
         open: open,
         close: close,
         resize: resize,
@@ -30,8 +31,11 @@ function newSidePanelTab() {
 
     return thisObject
 
-    function initialize(screenside) {
+    function initialize(screenside, index) {
         thisObject.screenside = screenside
+        if (index !== undefined) [
+            thisObject.index = index
+        ]
         switch (thisObject.screenside) {
             case 'left': {
                 thisObject.pointerDirection = 'left'
@@ -43,7 +47,7 @@ function newSidePanelTab() {
             }
         }
         thisObject.container.frame.width = TAB_WIDTH
-        thisObject.container.frame.height = TAB_HEIGHT        
+        thisObject.container.frame.height = TAB_HEIGHT
 
         thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
         resize()
@@ -61,8 +65,8 @@ function newSidePanelTab() {
                 break
             }
         }
-        
-        thisObject.container.frame.position.y = 69
+
+        thisObject.container.frame.position.y = 69 + 69 * thisObject.index
         ORIGINAL_PARENT_POSITON = thisObject.container.parentContainer.frame.position.x
         setClosed()
     }

@@ -80,7 +80,7 @@ function newConditionEditor() {
     function activate(payload) {
         thisObject.visible = true
         thisObject.payload = payload
-        thisObject.payload.uiObject.setErrorMessage('', 0)
+        thisObject.payload.uiObject.resetErrorMessage()
 
         conditionStructure = {
             code: '',

@@ -509,7 +509,7 @@ function newLayer() {
 
             if (storedValue !== undefined) {
                 if (storedValue !== thisObject.status) {
-                    if (storedValue === LAYER_STATUS.ON) {
+                    if (storedValue === LAYER_STATUS.ON && thisObject.status === LAYER_STATUS.OFF) {
                         resetProgressBars()
                         changeStatusTo(LAYER_STATUS.LOADING)
                     }
@@ -526,7 +526,6 @@ function newLayer() {
             // we ignore errors here since most likely they will be parsing errors.
         }
 
-        /* Check when the loading finishes */
         if (
             thisObject.status === LAYER_STATUS.LOADING &&
             marketFileProgressBar.value === 100 &&

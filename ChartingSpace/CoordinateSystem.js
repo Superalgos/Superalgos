@@ -24,7 +24,7 @@ function newCoordinateSystem() {
         autoMinYScale: true,
         autoMaxYScale: true,
         HORIZONTAL_MARGIN_FACTOR: 1,
-        VERTICAL_MARGIN_FACTOR: 0.9,
+        VERTICAL_MARGIN_FACTOR: 1,
         HORIZONTAL_MARGIN_INVERSE_FACTOR: 0,
         VERTICAL_MARGIN_INVERSE_FACTOR: 0,
         physics: physics,

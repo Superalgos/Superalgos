@@ -417,7 +417,7 @@ function newTutorialSpace() {
                                     config.batchConfigChangesReferenceParent !== undefined
                                 ) {
                                     batchConfigChangesCounter++
-                                    if (batchConfigChangesCounter === 5) {
+                                    if (batchConfigChangesCounter === 5 || batchConfigChangesCounter === 10) {
                                         /* 
                                         Here we are going to process an array of different changes to descendents
                                         of the reference parent. The end user needs to specify a nodePath to the 

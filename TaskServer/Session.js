@@ -197,7 +197,7 @@
                         type: 'Time Range',
                         config: {
                             initialDatetime: (new Date()).valueOf(),
-                            finalDatetime: (new Date()).valueOf()
+                            finalDatetime: (new Date()).valueOf() + global.ONE_YEAR_IN_MILISECONDS
                         }
                     }
                 } else {
@@ -428,10 +428,12 @@
                 }
             }
 
-            function sessionHeartBeat(processingDate) {
+            function sessionHeartBeat(processingDate, percentage, status) {
                 let event = {
                     seconds: (new Date()).getSeconds(),
-                    processingDate: processingDate
+                    processingDate: processingDate,
+                    percentage: percentage,
+                    status: status
                 }
                 global.EVENT_SERVER_CLIENT.raiseEvent(bot.sessionKey, 'Heartbeat', event)
 

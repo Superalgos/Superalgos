@@ -116,10 +116,13 @@
             Here is the point where we sync one and the other.
             */
             let tradingProcessDate = global.REMOVE_TIME(bot.simulationState.tradingEngine.current.episode.processDate.value)
-            console.log("1 tradingProcessDate ", tradingProcessDate)
             await processSingleFiles()
-            await processMarketFiles()
 
+            if (await processMarketFiles() === false) {
+                bot.sessionHeartBeat(undefined, undefined, 'Waiting for Data Mining to be run')
+                callBackFunction(global.DEFAULT_RETRY_RESPONSE)
+                return
+            }
             /*
             This is the Data Structure used at the Simulation with all indicator data.
             We start creating it right here.
@@ -138,15 +141,25 @@
                 With all the indicators data files loaded, we will build the chart object 
                 data structure that will be used in user-defied conditions and formulas.
                 */
+                bot.sessionHeartBeat(undefined, undefined, 'Waking up')
                 buildCharts(chart)
 
-                await generateOutput(chart)
-                await writeProcessFiles()
+                if (checkThereAreCandles(chart) === true) {
+                    bot.sessionHeartBeat(undefined, undefined, 'Running')
+                    await generateOutput(chart)
+                    bot.sessionHeartBeat(undefined, undefined, 'Saving')
+                    await writeProcessFiles()
+                    bot.sessionHeartBeat(undefined, undefined, 'Sleeping')
+                } else {
+                    bot.sessionHeartBeat(undefined, undefined, 'Waiting for Data Mining to be up to date')
+                    callBackFunction(global.DEFAULT_RETRY_RESPONSE)
+                    return
+                }
 
             } else {
                 /* We are processing Daily Files */
                 do {
-                    global.EMIT_SESSION_STATUS (bot.SESSION_STATUS, bot.sessionKey)
+                    global.EMIT_SESSION_STATUS(bot.SESSION_STATUS, bot.sessionKey)
                     /* 
                     We update the Trading Process Date with the date calculated at the simulation.
                     We will use this date to load indicator and output files. After that we will 
@@ -154,11 +167,16 @@
                     the date calculated by the Simulation is applied at the Trading Process Level.
                     */
                     tradingProcessDate = global.REMOVE_TIME(bot.simulationState.tradingEngine.current.episode.processDate.value)
-                    console.log("2 tradingProcessDate ", tradingProcessDate)
+
                     if (checkStopTaskGracefully() === false) { break }
                     if (checkStopProcessing() === false) { break }
 
-                    await processDailyFiles()
+                    bot.sessionHeartBeat(undefined, undefined, 'Waking up')
+                    if (await processDailyFiles() === false) {
+                        bot.sessionHeartBeat(undefined, undefined, 'Waiting for Data Mining to be run')
+                        callBackFunction(global.DEFAULT_RETRY_RESPONSE)
+                        return
+                    }
                     /*
                     With all the indicators data files loaded, we will build the chart object 
                     data structure that will be used in user-defied conditions and formulas.
@@ -167,8 +185,17 @@
                     /*
                     The process of generating the output includes the trading simulation.
                     */
-                    await generateOutput(chart)
-                    await writeProcessFiles()
+                    if (checkThereAreCandles(chart) === true) {
+                        bot.sessionHeartBeat(undefined, undefined, 'Running')
+                        await generateOutput(chart)
+                        bot.sessionHeartBeat(undefined, undefined, 'Saving')
+                        await writeProcessFiles()
+                        bot.sessionHeartBeat(undefined, undefined, 'Sleeping')
+                    } else {
+                        bot.sessionHeartBeat(undefined, undefined, 'Waiting for Data Mining to be up to date')
+                        callBackFunction(global.DEFAULT_RETRY_RESPONSE)
+                        return
+                    }
                     /*
                     If for any reason the session was stopped, we will break this loop and exit the process.
                     */
@@ -179,6 +206,7 @@
                     into indicators, and eventually a new execution of this process.
                     */
                     if (checkStopHeadOfTheMarket() === false) { break }
+
                 }
                 while (true)
             }
@@ -189,6 +217,18 @@
             the Bot Loop to call us again later. 
             */
             callBackFunction(global.DEFAULT_OK_RESPONSE)
+
+            function checkThereAreCandles(chart) {
+                let sessionParameters = bot.SESSION.parameters
+                let propertyName = 'at' + sessionParameters.timeFrame.config.label.replace('-', '')
+                let candles = chart[propertyName].candles
+
+                if (candles.length === 0) {
+                    return false
+                } else {
+                    return true
+                }
+            }
 
             function getContextVariables() {
                 try {
@@ -355,6 +395,10 @@
                         /* We cut the async calls via callBacks at this point, so as to have a clearer code upstream */
                         let response = await asyncGetDatasetFile(datasetModule, filePath, fileName)
 
+                        if (response.err.message === 'File does not exist.') {
+                            return false
+                        }
+
                         if (response.err.result !== global.DEFAULT_OK_RESPONSE.result) {
                             throw (response.err)
                         }
@@ -398,6 +442,7 @@
                     let mapKey = global.marketFilesPeriods[n][1];
                     multiPeriodDataFiles.set(mapKey, dataFiles)
                 }
+                return true
             }
 
             async function processDailyFiles() {
@@ -460,6 +505,9 @@
                         /* We cut the async calls via callBacks at this point, so as to have a clearer code upstream */
                         let response = await asyncGetDatasetFile(datasetModule, filePath, fileName)
 
+                        if (response.err.message === 'File does not exist.') {
+                            return false
+                        }
                         if (response.err.result !== global.DEFAULT_OK_RESPONSE.result) {
                             throw (response.err)
                         }
@@ -471,6 +519,7 @@
                     let mapKey = global.dailyFilePeriods[n][1];
                     multiPeriodDataFiles.set(mapKey, dataFiles)
                 }
+                return true
             }
 
             function checkStopHeadOfTheMarket() {

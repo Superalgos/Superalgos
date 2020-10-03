@@ -23,15 +23,24 @@
 }
 
 .credits {
-  padding: 15px;
-  margin-top: 100px;
-  margin-bottom: 20px;
-  border: 2px solid;
-  border-color: #1b998b;
-  border-radius: 8px;
-  background-color: #fdfdfd;
-  width: 400px;
+  width: 100%;
   margin: auto;
+  margin-bottom: 50;
+  text-align: center;
+  position:absolute;
+  bottom:0;
+}
+
+.credits p {
+  font-family: 'Saira Condensed';
+  font-size: 140%;
+  color: whitesmoke;
+  padding: 0 100;
+}
+
+.red {
+  color: #e3493c;
+  font-weight: 700;
 }
 
 .tutorial-step {

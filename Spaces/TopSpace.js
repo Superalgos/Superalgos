@@ -101,7 +101,7 @@ function newTopSpace() {
                 browserCanvasContext.drawImage(
                     logoImage, imagePosition.x,
                     imagePosition.y,
-                    150,
+                    215,
                     TOP_SPACE_HEIGHT - 2)
             }
         }

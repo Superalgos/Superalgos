@@ -14653,8 +14653,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Reset",
                 "label": "Reset Tutorial Progress",
-                "iconPathOn": "bitcoin",
-                "iconPathOff": "bitcoin",
+                "iconPathOn": "reset",
+                "iconPathOff": "reset",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {

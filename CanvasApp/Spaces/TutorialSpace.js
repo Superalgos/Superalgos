@@ -60,7 +60,7 @@ function newTutorialSpace() {
     let positionAtNodeCounter = 0
     let timeMachineKeyPressedCounter = 0
     let keyPressedCounter = 0
-    let sliderPositioned = 0
+    let sliderCounter = 0
     let changeNodeConfigCounter = 0
     let changeNodeConfigCounterWithEval = 0
     let documentationCounter = 0
@@ -314,8 +314,9 @@ function newTutorialSpace() {
                 */
                 return
             }
-            if (sliderPositioned === false) {
-                sliderPositioned = true
+            sliderCounter++
+            if (sliderCounter === 10 || sliderCounter === 100) {
+                
                 switch (config.slider) {
                     case "toTop": {
                         /*
@@ -791,7 +792,7 @@ function newTutorialSpace() {
         }
 
         function resetSlider() {
-            sliderPositioned = false
+            sliderCounter = 0
         }
 
         function changeNodeConfig() {

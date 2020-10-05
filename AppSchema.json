@@ -8669,7 +8669,7 @@
                 "type": "array",
                 "childType": "Plotter"
             }
-        ] 
+        ]
     },
     {
         "type": "Sensor Bot",
@@ -11645,7 +11645,7 @@
                 "label": "Add Signals Providers",
                 "relatedUiObject": "Signals Providers",
                 "actionFunction": "payload.onMenuItemClick"
-            } 
+            }
         ],
         "isHierarchyHead": true,
         "addLeftIcons": true,
@@ -11660,7 +11660,7 @@
                 "name": "signalsProviders",
                 "type": "array",
                 "childType": "Signals Providers"
-            } 
+            }
         ]
     },
     {
@@ -13149,7 +13149,7 @@
                 "childType": "Task Manager",
                 "monitorChildrenRunning": true
             }
-        ] 
+        ]
     },
     {
         "type": "Trading Mine Tasks",
@@ -13220,7 +13220,7 @@
                 "childType": "Task Manager",
                 "monitorChildrenRunning": true
             }
-        ] 
+        ]
     },
     {
         "type": "Market Data Tasks",
@@ -13292,7 +13292,7 @@
                 "childType": "Data Mine Tasks",
                 "monitorChildrenRunning": true
             }
-        ] 
+        ]
     },
     {
         "type": "Market Trading Tasks",
@@ -13364,7 +13364,7 @@
                 "childType": "Trading Mine Tasks",
                 "monitorChildrenRunning": true
             }
-        ] 
+        ]
     },
     {
         "type": "Exchange Data Tasks",
@@ -13435,7 +13435,7 @@
                 "childType": "Market Data Tasks",
                 "monitorChildrenRunning": true
             }
-        ] 
+        ]
     },
     {
         "type": "Exchange Trading Tasks",
@@ -13506,7 +13506,7 @@
                 "childType": "Market Trading Tasks",
                 "monitorChildrenRunning": true
             }
-        ] 
+        ]
     },
     {
         "type": "Data Mining",
@@ -14060,7 +14060,7 @@
                 "type": "array",
                 "childType": "Session Reference"
             }
-        ] 
+        ]
     },
     {
         "type": "Data Product",
@@ -14188,7 +14188,7 @@
                 "childType": "Bot Products",
                 "autoAdd": false
             }
-        ] 
+        ]
     },
     {
         "type": "Bot Products",

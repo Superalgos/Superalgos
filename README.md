@@ -4,9 +4,9 @@ Touch base with the Community and talk to the admins in our [Community Telegram]
 
 # Superalgos
 
-Superalgos provides a toolbox with several integrated tools to design, test, and deploy automated crypto trading strategies, as well as research crypto markets. You can use Superalgos to download market data from crypto exchanges, make arbitrary calculations (including indicators), plot the results of your calculations over the charts, design trading strategies in a visual scripting environment that does not require coding, while still empowering developers by allowing it, and more. 
+Superalgos provides a toolbox with several integrated tools to design, test, and deploy automated crypto trading strategies, as well as research crypto markets. You can use Superalgos to download market data from crypto exchanges, make arbitrary calculations (including indicators), plot the results of your calculations over the charts, design trading strategies in a visual scripting environment that does not require coding, while still empowering developers by allowing it, and more.
 
-You may use individual features or the whole package, and reuse all information gathered and generated&mdash;standardized in multiple time frames, stored in text files sorted by exchange/market&mdash;as input for your own software/systems. 
+You may use individual features or the whole package, and reuse all information gathered and generated&mdash;standardized in multiple time frames, stored in text files sorted by exchange/market&mdash;as input for your own software/systems.
 
 Superalgos runs on your computer, it is free and open source.
 
@@ -18,7 +18,7 @@ Please refer to the [documentation site](https://docs.superalgos.org/).
 
 ## Contributing
 
-Your help may be essential to the project's success and we want you in! 
+Your help may be essential to the project's success and we want you in!
 
 [There is something you may do](https://docs.superalgos.org/contributing-to-superalgos.html) to help the project regardless of what your skillset may be. We appreciate all contributions!
 

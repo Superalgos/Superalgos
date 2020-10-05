@@ -7,6 +7,14 @@ assignees: ''
 
 ---
 
+## Before you open an issue
+
+There are two requirements to open an issue:
+
+1. You must first follow the [Troubleshooting Guide](https://docs.superalgos.org/suite-how-to-troubleshoot-an-issue.html)
+
+2. If your issue hasn't been resolved by following the Troubleshooting Guide, then follow the guide on [How to Report an Issue](https://docs.superalgos.org/suite-how-to-report-an-issue.html).
+
 ## Context
 
 *Complete and adjust the contents leaving the information that fits your case and deleting the information that doesn't.*
@@ -21,18 +29,38 @@ assignees: ''
 
 ## Explain your issue
 
-1. Clearly explain what you wish to accomplish.
+### 1. Explain what the problem seems to be.
 
-2. Explain, step by step, what you've done to achieve the goal. The Team will follow these steps to reproduce the issue, so be precise.
+Type your explanation here.
 
-3. Explain what is the result you expect from your actions.
+### 2. Clearly explain what you wish to accomplish.
 
-4. Explain what happens instead of the expected results.
+Type your explanation here.
 
-5. Explain what errors you have found on-screen, on the browser console application, or in the ```Log-Files``` folder.
+### 3. Explain, step by step, what you've done to achieve the goal. The Team will follow these steps to reproduce the issue, so be precise.
+
+Type your explanation here.
+
+### 4. Explain what is the result you expect from your actions.
+
+Type your explanation here.
+
+### 5. Explain what happens instead of the expected results.
+
+Type your explanation here.
+
+### 6. Explain what errors you have found on-screen, on the browser console application, or in the ```Log-Files``` folder.
+
+Type your explanation here.
 
 ## Attach a video reproducing the issue
 
+Attach video here.
+
 ## Attach relevant log files and error screenshots
 
+Attach logs here.
+
 ## Attach you custom workspace if any
+
+Attach custom workspace here.

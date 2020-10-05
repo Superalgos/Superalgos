@@ -62,6 +62,7 @@ function newTutorialSpace() {
     let keyPressedCounter = 0
     let sliderPositioned = 0
     let changeNodeConfigCounter = 0
+    let changeNodeConfigCounterWithEval = 0
     let documentationCounter = 0
     let batchConfigChangesCounter = 0
 
@@ -484,6 +485,18 @@ function newTutorialSpace() {
                                     }
                                 }
                                 if (
+                                    config.changeNodeConfigWithEvalReferenceParent !== undefined
+                                ) {
+                                    changeNodeConfigCounterWithEval++
+                                    if (changeNodeConfigCounterWithEval === 5) {
+                                        let nodeConfig = JSON.parse(currentNode.payload.referenceParent.config)
+                                        for (const property in config.changeNodeConfigWithEvalReferenceParent) {
+                                            nodeConfig[property] = eval(config.changeNodeConfigWithEvalReferenceParent[property])
+                                        }
+                                        currentNode.payload.referenceParent.config = JSON.stringify(nodeConfig)
+                                    }
+                                }
+                                if (
                                     config.menuActionReferenceParent !== undefined
                                 ) {
                                     /* 
@@ -783,6 +796,7 @@ function newTutorialSpace() {
 
         function changeNodeConfig() {
             changeNodeConfigCounter = 0
+            changeNodeConfigCounterWithEval = 0
         }
 
         function batchConfigChanges() {

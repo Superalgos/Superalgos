@@ -488,7 +488,7 @@ function newTutorialSpace() {
                                     config.changeNodeConfigWithEvalReferenceParent !== undefined
                                 ) {
                                     changeNodeConfigCounterWithEval++
-                                    if (changeNodeConfigCounterWithEval === 5) {
+                                    if (changeNodeConfigCounterWithEval === 5 || batchConfigChangesCounter === 10) {
                                         let nodeConfig = JSON.parse(currentNode.payload.referenceParent.config)
                                         for (const property in config.changeNodeConfigWithEvalReferenceParent) {
                                             nodeConfig[property] = eval(config.changeNodeConfigWithEvalReferenceParent[property])

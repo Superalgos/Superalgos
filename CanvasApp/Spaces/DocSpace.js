@@ -27,7 +27,6 @@ function newDocSpace() {
     let openingEventSubscriptionId
     let closingEventSubscriptionId
 
-    const DEFAULT_URL = 'https://julian-molina.github.io/Documentation/'
     return thisObject
 
     function initialize() {
@@ -51,7 +50,7 @@ function newDocSpace() {
     function onOpening() {
         let docIFrame = document.getElementById('docIFrame')
         if (docIFrame.src === "") {
-            docIFrame.src = DEFAULT_URL
+            docIFrame.src = DOCUMENTATION_URL_PREFIX
         }
     }
 

@@ -1,185 +1,235 @@
-function newSessionFunctions () {
-  thisObject = {
-    runSession: runSession,
-    stopSession: stopSession
-  }
-
-  return thisObject
-
-  function runSession (node, functionLibraryProtocolNode, functionLibraryDependenciesFilter, resume, callBackFunction) {
-    if (validations(node) !== true) {
-      callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-      return
+function newSessionFunctions() {
+    thisObject = {
+        syncronizeSessionWithBackEnd: syncronizeSessionWithBackEnd, 
+        runSession: runSession,
+        stopSession: stopSession
     }
 
-    let networkNode = node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode
-    let eventsServerClient = canvas.designSpace.workspace.eventsServerClients.get(networkNode.id)
+    return thisObject
 
-    node.payload.uiObject.run(eventsServerClient, callBackFunction)
+    function syncronizeSessionWithBackEnd(node) {
+        let networkNode = validations(node)
+        if (networkNode === undefined) {
+            /* Nodes that do not belong to a network can not get ready. */
+            return
+        }
 
-    let key = node.name + '-' + node.type + '-' + node.id
+        let eventsServerClient = canvas.designSpace.workspace.eventsServerClients.get(networkNode.id)
 
-    let lightingPath = '' +
-    'Trading System->' +
-    'Parameters->' +
-    'Base Asset->Quoted Asset->Time Range->Time Frame->Slippage->Fee Structure->' +
-    'Exchange Account Asset->Asset->' +
-    'Trading Strategy->' +
-    'Trigger Stage->Trigger On Event->Trigger Off Event->Take Position Event->' +
-    'Announcement->Formula->' +
-    'Open Stage->Initial Definition->Open Execution->' +
-    'Position Size->Position Rate->Formula->' +
-    'Initial Stop->Initial Take Profit->' +
-    'Manage Stage->' +
-    'Managed Stop Loss->Managed Take Profit->' +
-    'Phase->Formula->Next Phase Event->Move To Phase Event->Phase->' +
-    'Situation->Condition->Javascript Code->' +
-    'Close Stage->Close Execution->' +
-    'Announcement->Formula->' +
-    'Execution Algorithm->Market Buy Order->Market Sell Order->Limit Buy Order->Limit Sell Order->' +
-    'Create Order Event->Cancel Order Event->' +
-    'Position Size->Position Rate->Formula->' +
-    'Situation->Condition->Javascript Code->' +
-    'Market Order->Limit Order->' +
-    'Simulated Exchange Events->Simulated Partial Fill->Simulated Actual Rate->Simulated Fees Paid->Formula->'
+        /* First we setup everything so as to listen to the response from the Task Server */
+        let eventSubscriptionIdOnStatus
+        let key = node.name + '-' + node.type + '-' + node.id
+        eventsServerClient.listenToEvent(key, 'Status Response', undefined, node.id, onResponse, onStatus)
 
-    let tradingSystem = functionLibraryProtocolNode.getProtocolNode(node.tradingSystemReference.payload.referenceParent, false, true, true, false, false, lightingPath)
+        function onResponse(message) {
+            eventSubscriptionIdOnStatus = message.eventSubscriptionId
+        }
 
-    lightingPath = '' +
-    'Trading Engine->' +
-    'Dynamic Indicators->Indicator Function->Formula->' +
-    'Episode->Current->Last->Previous->' +
-    'Episode Counters->Episode Statistics->' +
-    'Periods->Strategies->Positions->Orders->Hits->Fails->' +
-    'Profit Loss->Hit Ratio->Days->ROI->Anualized Rate Of Return->User Defined Statistic->' +
-    'Formula->' +
-    'Candle->' +
-    'Begin->End->Open->Close->Min->Max->Index->' +
-    'Balance->Base Asset->Quoted Asset->' +
-    'Distance To Event->' +
-    'Trigger On->Trigger Off->Take Position->Close Position->Next Phase->Move To Phase->Create Order->Cancel Order->Close Order->' +
-    'Strategy->' +
-    'Serial Number->Identifier->Begin->End->Strategy Name->Index->Trigger Stage Status->Open Stage Status->Manage Stage Status->Close Stage Status->Status->Begin Rate->End Rate->Situation Name->' +
-    'Strategy Counters->Periods->' +
-    'Position->' +
-    'Serial Number->Identifier->Begin->End->Rate->Size->Open Stage Orders Size->Open Stage Filled Size->Close Stage Orders Size->Close Stage Filled Size->Exit Type->Status->Begin Rate->End Rate->Situation Name->' +
-    'Stop Loss->Stop Loss Stage->Stop Loss Phase->' +
-    'Take Profit->Take Profit Stage->Take Profit Phase->' +
-    'Position Counters->Periods->' +
-    'Position Statistics->Profit Loss->Days->ROI->Hit Fail->User Defined Statistic->' +
-    'Formula->' +
-    'Exchange Orders->Market Buy Orders->Market Sell Orders->Limit Buy Orders->Limit Sell Orders->' +
-    'Market Order->Limit Order->' +
-    'Serial Number->Identifier->Exchange Id->Begin->End->Rate->Size->Exit Type->Status->Order Name->Algorithm Name->Situation Name->' +
-    'Order Counters->Periods->' +
-    'Order Statistics->Size Filled->Percentage Filled->Amount Received->Actual Rate->Fees Paid->Days->User Defined Statistic->'
+        function onStatus(message) {
+            eventsServerClient.stopListening(key, eventSubscriptionIdOnStatus, node.id)
+            if (message.event.status === 'Session Runnning' ) {
+                node.payload.uiObject.menu.internalClick('Run Session')
+            }
+        }
 
-    let tradingEngine = functionLibraryProtocolNode.getProtocolNode(node.tradingEngineReference.payload.referenceParent, false, true, true, false, false, lightingPath)
-
-    lightingPath = '' +
-    'Backtesting Session->Paper Trading Session->Fordward Testing Session->Live Trading Session->' +
-    'Parameters->' +
-    'Session Base Asset->Session Quoted Asset->Time Range->Time Frame->Slippage->Fee Structure->Snapshots->User Defined Parameters->' +
-    'Exchange Account Asset->Asset->' +
-    'Social Bots->Telegram Bot->'
-
-    let session = functionLibraryProtocolNode.getProtocolNode(node, false, true, true, false, false, lightingPath)
-
-    let dependencyFilter = functionLibraryDependenciesFilter.createFilter(node.tradingSystemReference.payload.referenceParent)
-
-    /* Raise event to run the session */
-    let event = {
-      appSchema: JSON.stringify(APP_SCHEMA_ARRAY),
-      session: JSON.stringify(session),
-      tradingSystem: JSON.stringify(tradingSystem),
-      tradingEngine: JSON.stringify(tradingEngine),
-      dependencyFilter: JSON.stringify(dependencyFilter),
-      resume: resume
+        /* Second we ask the Task Server if this Session is Running. */
+        eventsServerClient.raiseEvent(key, 'Session Status')
     }
 
-    eventsServerClient.raiseEvent(key, 'Run Session', event)
+    function runSession(node, functionLibraryProtocolNode, functionLibraryDependenciesFilter, resume, callBackFunction) {
+        let networkNode = validations(node)
+        if (networkNode === undefined) {
+            /* This means that the validations failed. */
+            callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+            return
+        }
 
-    if (node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
-      callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-      return
+        let eventsServerClient = canvas.designSpace.workspace.eventsServerClients.get(networkNode.id)
+
+        node.payload.uiObject.run(eventsServerClient, callBackFunction)
+
+        let key = node.name + '-' + node.type + '-' + node.id
+
+        let lightingPath = '' +
+            'Trading System->' +
+            'Dynamic Indicators->Indicator Function->Formula->' +
+            'Trading Strategy->' +
+            'Trigger Stage->Trigger On Event->Trigger Off Event->Take Position Event->' +
+            'Announcement->Announcement Formula->' +
+            'Open Stage->' +
+            'Manage Stage->' +
+            'Managed Stop Loss->Managed Take Profit->' +
+            'Phase->Formula->Next Phase Event->Move To Phase Event->Phase->' +
+            'Situation->Condition->Javascript Code->' +
+            'Close Stage->' +
+            'Initial Targets->Target Size In Base Asset->Target Size In Quoted Asset->Target Rate->Formula->' +
+            'Announcement->Announcement Formula->' +
+            'Open Execution->Close Execution->' +
+            'Execution Algorithm->Market Buy Order->Market Sell Order->Limit Buy Order->Limit Sell Order->' +
+            'Order Rate->Formula->' +
+            'Create Order Event->Cancel Order Event->' +
+            'Size In Base Asset->Size In Quoted Asset->Position Rate->Formula->' +
+            'Situation->Condition->Javascript Code->' +
+            'Market Order->Limit Order->' +
+            'Simulated Exchange Events->Simulated Partial Fill->Simulated Actual Rate->Simulated Fees Paid->Formula->'
+
+        let tradingSystem = functionLibraryProtocolNode.getProtocolNode(node.tradingSystemReference.payload.referenceParent, false, true, true, false, false, lightingPath)
+
+        lightingPath = '' +
+            'Trading Engine->' +
+            'Dynamic Indicators->Indicator Function->' +
+            'Current->Last->Previous->' +
+            'Episode->' +
+            'Episode Base Asset->Episode Quoted Asset->Episode Counters->Episode Statistics->' +
+            'Strategies->Positions->Orders->Hits->Fails->' +
+            'Profit Loss->Hit Ratio->Hit Fail->Days->ROI->Annualized Rate Of Return->User Defined Statistic->' +
+            'Candle->Cycle->' +
+            'Begin->End->Open->Close->Min->Max->Index->' +
+            'Distance To Event->' +
+            'Head Of The Market->Process Date->' +
+            'Trigger On->Trigger Off->Take Position->Close Position->Next Phase->Move To Phase->Create Order->Cancel Order->Close Order->' +
+            'Strategy->' +
+            'Strategy Counters->' +
+            'Position->' +
+            'Entry Target Rate->Exit Target Rate->' +
+            'Stop Loss->Stop Loss Phase->Stop Loss Position->' +
+            'Take Profit->Take Profit Phase->Take Profit Position->' +
+            'Position Counters->' +
+            'Position Statistics->Days->User Defined Statistic->' +
+            'Position Base Asset->Position Quoted Asset->Entry Target Size->Exit Target Size->' +
+            'Profit Loss->ROI->Hit Fail->' +
+            'Exchange Orders->Market Buy Orders->Market Sell Orders->Limit Buy Orders->Limit Sell Orders->' +
+            'Market Order->Limit Order->' +
+            'Exchange Id->Rate->Order Name->Algorithm Name->Lock->' +
+            'Order Counters->' +
+            'Order Base Asset->Order Quoted Asset->' +
+            'Size->Size Filled->Fees Paid->' +
+            'Order Statistics->Percentage Filled->Actual Rate->Days->User Defined Statistic->' +
+            'Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->' +
+            'Begin->End->Exit Type->Status->Begin Rate->End Rate->Stage Base Asset->Stage Quoted Asset->Size Placed->Target Size->Size Filled->Fees Paid->Stage Defined In->' +
+            'Serial Number->Identifier->Begin->End->Begin Rate->End Rate->Strategy Name->Status->Exit Type->' +
+            'Balance->Begin Balance->End Balance->' +
+            'Index->Situation Name->Formula->Periods->'
+
+        let tradingEngine = functionLibraryProtocolNode.getProtocolNode(node.tradingEngineReference.payload.referenceParent, false, true, true, false, false, lightingPath)
+
+        lightingPath = '' +
+            'Backtesting Session->Paper Trading Session->Forward Testing Session->Live Trading Session->' +
+            'Parameters->' +
+            'Session Base Asset->Session Quoted Asset->Time Range->Time Frame->Slippage->Fee Structure->Snapshots->Heartbeats->User Defined Parameters->' +
+            'Exchange Account Asset->Asset->' +
+            'Social Bots->Telegram Bot->'
+
+        let session = functionLibraryProtocolNode.getProtocolNode(node, false, true, true, false, false, lightingPath)
+
+        let dependencyFilter = functionLibraryDependenciesFilter.createFilter(node.tradingSystemReference.payload.referenceParent)
+
+        /* Raise event to run the session */
+        let event = {
+            session: JSON.stringify(session),
+            tradingSystem: JSON.stringify(tradingSystem),
+            tradingEngine: JSON.stringify(tradingEngine),
+            dependencyFilter: JSON.stringify(dependencyFilter),
+            resume: resume
+        }
+
+        if (resume !== true) {
+            eventsServerClient.raiseEvent(key, 'Run Session', event)
+        } else {
+            eventsServerClient.raiseEvent(key, 'Resume Session', event)
+        }
+
+        if (node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
+            callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+            return
+        }
     }
-  }
 
-  function stopSession (node, functionLibraryProtocolNode, callBackFunction) {
-    if (validations(node) !== true) {
-      callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-      return
+    function stopSession(node, functionLibraryProtocolNode, callBackFunction) {
+        let networkNode = validations(node)
+        if (networkNode === undefined) {
+            /* This means that the validations failed. */
+            callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+            return
+        }
+        
+        let eventsServerClient = canvas.designSpace.workspace.eventsServerClients.get(networkNode.id)
+
+        let key = node.name + '-' + node.type + '-' + node.id
+        eventsServerClient.raiseEvent(key, 'Stop Session')
+
+        node.payload.uiObject.stop(callBackFunction)
     }
 
-    let networkNode = node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode
-    let eventsServerClient = canvas.designSpace.workspace.eventsServerClients.get(networkNode.id)
+    function validations(node) {
+        if (node.payload.parentNode === undefined) {
+            node.payload.uiObject.setErrorMessage('Session needs a Process Instance parent to be able to run.')
+            return
+        }
 
-    let key = node.name + '-' + node.type + '-' + node.id
-    eventsServerClient.raiseEvent(key, 'Stop Session')
+        if (node.payload.parentNode.payload.parentNode === undefined) {
+            node.payload.uiObject.setErrorMessage('Session needs to be inside a Trading Process Instance.')
+            return
+        }
 
-    node.payload.uiObject.stop(callBackFunction)
-  }
+        if (node.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
+            node.payload.uiObject.setErrorMessage('Session needs to be inside a Task.')
+            return
+        }
 
-  function validations (node) {
-    if (node.payload.parentNode === undefined) {
-      node.payload.uiObject.setErrorMessage('Session needs a Process Instance parent to be able to run.')
-      return
+        if (node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
+            node.payload.uiObject.setErrorMessage('Session needs to be inside a Task Manager.')
+            return
+        }
+
+        let taskManager = node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode
+
+        if (taskManager.payload.parentNode === undefined) {
+            node.payload.uiObject.setErrorMessage('Session needs to be inside Mine Tasks.')
+            return
+        }
+
+        if (taskManager.payload.parentNode.payload.parentNode === undefined) {
+            node.payload.uiObject.setErrorMessage('Session needs to be inside Market Tasks.')
+            return
+        }
+
+        if (taskManager.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
+            node.payload.uiObject.setErrorMessage('Session needs to be inside Exchange Tasks.')
+            return
+        }
+
+        if (taskManager.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
+            node.payload.uiObject.setErrorMessage('Session needs to be inside a Testing or Production Environment.')
+            return
+        }
+
+        if (taskManager.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
+            node.payload.uiObject.setErrorMessage('Session needs to be inside a Network Node.')
+            return
+        }
+
+        let networkNode = taskManager.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode
+
+        if (node.tradingSystemReference === undefined) {
+            node.payload.uiObject.setErrorMessage('Session needs a child Trading System Reference.')
+            return
+        }
+
+        if (node.tradingEngineReference === undefined) {
+            node.payload.uiObject.setErrorMessage('Session needs a child Trading Engine Reference.')
+            return
+        }
+
+        if (node.tradingSystemReference.payload.referenceParent === undefined) {
+            node.payload.uiObject.setErrorMessage('Trading System Reference needs to reference a Trading System.')
+            return
+        }
+
+        if (node.tradingEngineReference.payload.referenceParent === undefined) {
+            node.payload.uiObject.setErrorMessage('Trading Engine Reference needs to reference a Trading Engine.')
+            return
+        }
+        return networkNode
     }
-
-    if (node.payload.parentNode.payload.parentNode === undefined) {
-      node.payload.uiObject.setErrorMessage('Session needs to be inside a Trading Process Instance.')
-      return
-    }
-
-    if (node.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
-      node.payload.uiObject.setErrorMessage('Session needs to be inside a Task.')
-      return
-    }
-
-    if (node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
-      node.payload.uiObject.setErrorMessage('Session needs to be inside a Task Manager.')
-      return
-    }
-
-    if (node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
-      node.payload.uiObject.setErrorMessage('Session needs to be inside Exchange Tasks.')
-      return
-    }
-
-    if (node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
-      node.payload.uiObject.setErrorMessage('Session needs to be inside a Testing or Production Environment.')
-      return
-    }
-
-    if (node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
-      node.payload.uiObject.setErrorMessage('Session needs to be inside a Network Node.')
-      return
-    }
-
-    if (node.payload.parentNode.payload.uiObject.isRunning !== true) {
-      node.payload.uiObject.setErrorMessage('Session needs a Process Instance parent to be running.')
-      return
-    }
-
-    if (node.tradingSystemReference === undefined) {
-      node.payload.uiObject.setErrorMessage('Session needs a child Trading System Reference.')
-      return
-    }
-
-    if (node.tradingEngineReference === undefined) {
-      node.payload.uiObject.setErrorMessage('Session needs a child Trading Engine Reference.')
-      return
-    }
-
-    if (node.tradingSystemReference.payload.referenceParent === undefined) {
-      node.payload.uiObject.setErrorMessage('Trading System Reference needs to reference a Trading System.')
-      return
-    }
-
-    if (node.tradingEngineReference.payload.referenceParent === undefined) {
-      node.payload.uiObject.setErrorMessage('Trading Engine Reference needs to reference a Trading Engine.')
-      return
-    }
-    return true
-  }
 }

@@ -56,50 +56,29 @@
             /* Global control of logging. */
 
             global.LOG_CONTROL = {
-                "Assistant": {
-                    logInfo: true,
-                    logWarnings: false,
-                    logErrors: true,
-                    logContent: false,
-                    intensiveLogging: false
-                },
-                "Exchange API": {
-                    logInfo: true,
-                    logWarnings: false,
-                    logErrors: true,
-                    logContent: false,
-                    intensiveLogging: false
-                },
                 "Status Report": {
-                    logInfo: true,
+                    logInfo: false,
                     logWarnings: false,
                     logErrors: true,
                     logContent: false,
                     intensiveLogging: false
                 },
                 "Dataset": {
-                    logInfo: true,
-                    logWarnings: false,
-                    logErrors: true,
-                    logContent: false,
-                    intensiveLogging: false
-                },
-                "Context": {
-                    logInfo: true,
+                    logInfo: false,
                     logWarnings: false,
                     logErrors: true,
                     logContent: false,
                     intensiveLogging: false
                 },
                 "Process Execution Events": {
-                    logInfo: true,
+                    logInfo: false,
                     logWarnings: false,
                     logErrors: true,
                     logContent: false,
                     intensiveLogging: false
                 },
                 "Process Output": {
-                    logInfo: true,
+                    logInfo: false,
                     logWarnings: false,
                     logErrors: true,
                     logContent: false,
@@ -161,7 +140,7 @@
                     const FILE_STORAGE = require('./FileStorage.js');
                     let fileStorage = FILE_STORAGE.newFileStorage();
 
-                    let filePath = global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + '/bots/' + global.TASK_NODE.bot.config.repo + '/this.bot.config.json';
+                    let filePath = global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + '/bots/' + processInstance.referenceParent.parentNode.config.repo + '/this.bot.config.json';
 
                     fileStorage.getTextFile(filePath, onFileReceived);
 
@@ -204,11 +183,11 @@
 
                     /* Simplifying the access to basic info */
                     botConfig.dataMine = global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName
-                    botConfig.exchange = global.TASK_NODE.bot.processes[processIndex].marketReference.referenceParent.parentNode.parentNode.name
-                    botConfig.exchangeNode = global.TASK_NODE.bot.processes[processIndex].marketReference.referenceParent.parentNode.parentNode
+                    botConfig.exchange = global.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name
+                    botConfig.exchangeNode = global.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode
                     botConfig.market = {
-                        baseAsset: global.TASK_NODE.bot.processes[processIndex].marketReference.referenceParent.baseAsset.referenceParent.config.codeName,
-                        quotedAsset: global.TASK_NODE.bot.processes[processIndex].marketReference.referenceParent.quotedAsset.referenceParent.config.codeName
+                        baseAsset: global.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName,
+                        quotedAsset: global.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
                     }
                     botConfig.uiStartDate = global.TASK_NODE.bot.config.startDate
                     botConfig.config = global.TASK_NODE.bot.config
@@ -231,16 +210,12 @@
                         botConfig.marketTimeFrames = global.TASK_NODE.bot.timeFramesFilter.config.marketTimeFrames
                     }
 
-                    if (botConfig.processNode) {
-                        if (botConfig.processNode.marketReference) {
-                            if (botConfig.processNode.marketReference.keyReference !== undefined) {
-                                if (botConfig.processNode.marketReference.keyReference.referenceParent !== undefined) {
-                                    let key = botConfig.processNode.marketReference.keyReference.referenceParent
+                    if (global.TASK_NODE.keyReference !== undefined) {
+                        if (global.TASK_NODE.keyReference.referenceParent !== undefined) {
+                            let key = global.TASK_NODE.keyReference.referenceParent
 
-                                    botConfig.KEY = key.config.codeName
-                                    botConfig.SECRET = key.config.secret
-                                }
-                            }
+                            botConfig.KEY = key.config.codeName
+                            botConfig.SECRET = key.config.secret
                         }
                     }
 

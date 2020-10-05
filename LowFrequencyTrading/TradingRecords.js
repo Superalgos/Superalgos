@@ -37,7 +37,8 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
             we have a pointer to the node that have the information we need to extract.
             Later, based on the product record definition we will extract each individual value.
        */
-        let outputDatasets = bot.processNode.referenceParent.processOutput.outputDatasets
+        let outputDatasets = global.NODE_BRANCH_TO_ARRAY(bot.processNode.referenceParent.processOutput, 'Output Dataset')
+
         for (let i = 0; i < outputDatasets.length; i++) {
             let outputDatasetNode = outputDatasets[i]
             let dataset = outputDatasetNode.referenceParent
@@ -53,9 +54,17 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
             }
 
             function persistRecords() {
+                /*
+                There are a few products configured to be saved only at an specific cycle.
+                */
+                if (product.config.saveAtCycle !== undefined) {
+                    if (tradingEngine.current.episode.cycle.value !== product.config.saveAtCycle) {
+                        return
+                    }
+                }
 
                 /* Clean the file from information of previous executions */
-                pruneOutputFile(product, outputDatasetArray)
+                //pruneOutputFile(product, outputDatasetArray, tradingEngine.current.episode.candle.end.value)
 
                 /* Clean Open Records */
                 if (product.config.saveAsObjects === true) {
@@ -64,6 +73,7 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                         if (recordProperty.config.codeName === product.config.propertyNameThatDefinesObject) {
                             /* Remove Open Records */
                             spliceOpenRecords(j, product, outputDatasetArray)
+                            break
                         }
                     }
                 }
@@ -71,7 +81,12 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                 /*
                 The product root can be a node or a node property of type array.
                 */
-                let productRoot = eval(product.config.nodePath)
+                let productRoot
+                try {
+                    productRoot = eval(product.config.nodePath)
+                } catch (err) {
+                    badDefinitionUnhandledException(err, 'Cannot get productRoot -> nodePath = ' + product.config.nodePath, product, undefined)
+                }
 
                 if (product.config.nodePathType === 'array') {
                     /* 
@@ -84,7 +99,14 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                         */
                         let productRootNode = productRoot[index]
                         let record = scanRecordDefinition(product, productRootNode, index)
-                        persistIndividualRecord(record, product, outputDatasetArray)
+                        if (record !== undefined) {
+                            /*
+                            We will add the index value to the record itself, so that the plotter can know to which 
+                            brach of the trading engine data structure it belongs. 
+                            */
+                            record.push(index)
+                            persistIndividualRecord(record, product, outputDatasetArray)
+                        }
                     }
                 } else {
                     /*
@@ -96,7 +118,9 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                     */
                     let productRootNode = productRoot
                     let record = scanRecordDefinition(product, productRootNode)
-                    persistIndividualRecord(record, product, outputDatasetArray)
+                    if (record !== undefined) {
+                        persistIndividualRecord(record, product, outputDatasetArray)
+                    }
                 }
             }
         }
@@ -122,10 +146,7 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                     try {
                         propertyRootNode = eval(recordProperty.config.nodePath)
                     } catch (err) {
-                        logger.write(MODULE_NAME, "[ERROR] appendRecords -> scanRecordDefinition -> Error at Record Property Definition -> recordProperty.name = " + recordProperty.name);
-                        logger.write(MODULE_NAME, "[ERROR] appendRecords -> scanRecordDefinition -> Error at Record Property Definition -> recordProperty.config.nodePath = " + recordProperty.config.nodePath);
-                        logger.write(MODULE_NAME, "[ERROR] appendRecords -> scanRecordDefinition -> Error at Record Property Definition -> err.stack = " + err.stack);
-                        throw 'Can not continue with a Definition Error like this.'
+                        badDefinitionUnhandledException(err, 'Error Evaluation Record Property nodePath -> nodePath = ' + recordProperty.config.nodePath, product, recordProperty)
                     }
                 }
                 /* 
@@ -133,7 +154,12 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                 We will use the codeName of the Record Property to match it with 
                 the any of the properties of the Root Node to get the Target Node.  
                 */
-                let targetNode = propertyRootNode[recordProperty.config.codeName]
+                let targetNode
+                try {
+                    targetNode = propertyRootNode[recordProperty.config.codeName]
+                } catch (err) {
+                    badDefinitionUnhandledException(err, 'Error setting Target Node.', product, recordProperty)
+                }
                 /*
                 If the codeName of the Record Property can not match the name of the property at
                 the target node, the user can explicitly specify the property name at the configuration,
@@ -149,7 +175,11 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                 we use the Index value we find at the configuration of the Record Property.
                 */
                 if (recordProperty.config.index !== undefined) {
-                    targetNode = targetNode[recordProperty.config.index]
+                    try {
+                        targetNode = targetNode[recordProperty.config.index]
+                    } catch (err) {
+                        badDefinitionUnhandledException(err, 'Error setting Target Node.', product, recordProperty)
+                    }
                 }
                 /* 
                 By Default the value is extracted from the value property of the Target Node.
@@ -167,7 +197,11 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                         value = targetNode.value
 
                         if (recordProperty.config.decimals !== undefined) {
-                            value = Number(value.toFixed(recordProperty.config.decimals))
+                            try {
+                                value = Number(value.toFixed(recordProperty.config.decimals))
+                            } catch (err) {
+                                badDefinitionUnhandledException(err, 'Error applying configured decimals.', product, recordProperty)
+                            }
                         }
                     } else {
                         /*
@@ -177,6 +211,13 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                         value = targetNode
                     }
                 }
+
+                /* We are not going to add records where the begin or end are missing */
+                if (
+                    recordProperty.config.codeName === 'begin' && value === 0 ||
+                    recordProperty.config.codeName === 'end' && value === 0
+                ) { return }
+
                 if (recordProperty.config.isString !== true && Array.isArray(value) !== true) {
                     value = safeNumericValue(value)
                 }
@@ -198,27 +239,36 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                         let propertyValue = record[j]
 
                         if (bot.processingDailyFiles) {
-                            /*
-                            When dealing with Daily Files, we need to avoid to write an open object at the last 'candle' of the day,
-                            since the object will be duplicated on the next day. How do we know we are positioned at the last candle
-                            of the day? Easy: the end of the candle must be 1 millisecod before the next day. That happens at any 
-                            time frame. 
-                            */
-                            let currentDay = new Date(tradingEngine.current.candle.end.value)
-                            let nextDay = new Date(tradingEngine.current.candle.end.value + 1)
-                            if (currentDay.getUTCDate() !== nextDay.getUTCDate()) {
-                                /*
-                                We will save the object only if it is closed, becasuse we are at the last candle of the day.
+                            if (product.config.doNotCutObjectInDays !== true) {
+                                /* 
+                                By default we will cut objects in days.
                                 */
-                                if (propertyValue === product.config.propertyValueThatClosesObject) {
+                                if (propertyValue !== product.config.propertyValueThatPreventsSavingObject) {
                                     outputDatasetArray.push(record)
                                 }
                             } else {
                                 /*
-                                When we are not at the end of the day, we will save the object normally, like in market files.
+                                When dealing with Daily Files, we need to avoid to write an open object at the last 'candle' of the day,
+                                since the object will be duplicated on the next day. How do we know we are positioned at the last candle
+                                of the day? Easy: the end of the candle must be 1 millisecod before the next day. That happens at any 
+                                time frame. 
                                 */
-                                if (propertyValue !== product.config.propertyValueThatPreventsSavingObject) {
-                                    outputDatasetArray.push(record)
+                                let currentDay = new Date(tradingEngine.current.episode.candle.end.value)
+                                let nextDay = new Date(tradingEngine.current.episode.candle.end.value + 1)
+                                if (currentDay.getUTCDate() !== nextDay.getUTCDate()) {
+                                    /*
+                                    We will save the object only if it is closed, becasuse we are at the last candle of the day.
+                                    */
+                                    if (propertyValue === product.config.propertyValueThatClosesObject) {
+                                        outputDatasetArray.push(record)
+                                    }
+                                } else {
+                                    /*
+                                    When we are not at the end of the day, we will save the object normally, like in market files.
+                                    */
+                                    if (propertyValue !== product.config.propertyValueThatPreventsSavingObject) {
+                                        outputDatasetArray.push(record)
+                                    }
                                 }
                             }
                         }
@@ -273,7 +323,7 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
             return value
         }
 
-        function pruneOutputFile(product, outputFile) {
+        function pruneOutputFile(product, outputFile, currentEnd) {
             if (outputFile.isPrunned === true) { return }
             /*
             When a session is resumed, we will be potentially reading output files belonging to a previous session execution. 
@@ -287,9 +337,14 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                     let recordProperty = product.record.properties[j]
                     if (recordProperty.config.codeName === 'end') {
                         let end = record[j]
-                        if (end >= tradingEngine.current.candle.end.value) {
+                        if (end >= currentEnd) {
                             outputFile.splice(i, 1)
-                            pruneOutputFile(product, outputFile)
+                            /*
+                            This will execute the next prune call in the next iteration of the NodeJs event loop 
+                            allowing for other callbacks to be executed. It also prevents the error
+                            'Maximum call stack size exceeded', since the call is not placed at the call stack.
+                            */
+                            setImmediate(pruneOutputFile, product, outputFile, currentEnd)
                             return
                         }
                     }
@@ -317,5 +372,22 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                 }
             }
         }
+    }
+
+    function badDefinitionUnhandledException(err, message, product, recordProperty) {
+        logger.write(MODULE_NAME, "[ERROR] appendRecords -> " + message);
+        logger.write(MODULE_NAME, "[ERROR] appendRecords -> product.name = " + product.name);
+        logger.write(MODULE_NAME, "[ERROR] appendRecords -> product.config = " + JSON.stringify(product.config));
+
+        if (recordProperty) {
+            logger.write(MODULE_NAME, "[ERROR] appendRecords -> recordProperty.name = " + recordProperty.name);
+            logger.write(MODULE_NAME, "[ERROR] appendRecords -> recordProperty.config.codeName = " + recordProperty.config.codeName);
+            logger.write(MODULE_NAME, "[ERROR] appendRecords -> recordProperty.config = " + JSON.stringify(recordProperty.config));
+        }
+
+        if (err) {
+            logger.write(MODULE_NAME, "[ERROR] appendRecords -> err.stack = " + err.stack);
+        }
+        throw 'Can not continue with a Definition Error like this.'
     }
 }

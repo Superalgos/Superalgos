@@ -5,7 +5,7 @@ exports.newSnapshots = function newSnapshots(bot, logger) {
     const MODULE_NAME = 'Snapshots'
 
     let thisObject = {
-        reset: reset,
+        updateChart: updateChart,
         strategyEntry: strategyEntry,
         strategyExit: strategyExit,
         positionEntry: positionEntry,
@@ -60,9 +60,8 @@ exports.newSnapshots = function newSnapshots(bot, logger) {
         chart = undefined
     }
 
-    function reset(pChart) {
-        /* This function helps reset data structures at every cycle of the simulation loop/=. */
-        chart = pChart // We need chat to be a local object accessible from conditions and formulas.
+    function updateChart(pChart) {
+        chart = pChart
     }
 
     function strategyEntry() {
@@ -125,7 +124,7 @@ exports.newSnapshots = function newSnapshots(bot, logger) {
         }
 
         /* Now we go down through all this node children */
-        let nodeDefinition = bot.APP_SCHEMA_MAP.get(node.type)
+        let nodeDefinition = global.APP_SCHEMA_MAP.get(node.type)
         if (nodeDefinition === undefined) { return }
 
         if (nodeDefinition.properties !== undefined) {
@@ -237,8 +236,13 @@ exports.newSnapshots = function newSnapshots(bot, logger) {
                                 snapshots.headers.push(key)
                             }
 
-                            let value = eval(instruction)
-                            values.push(value)
+                            try {
+                                let value = eval(instruction)
+                                values.push(value)
+                            } catch (err) {
+                                tradingSystem.errors.push([nodeWithCode.id, 'Instruction ' + instruction + ' evalueates with error ' + err.message])
+                                values.push(0)
+                            }
                         }
                     }
                 }
@@ -252,16 +256,18 @@ exports.newSnapshots = function newSnapshots(bot, logger) {
 
     function getResults(openDatetime, closeDatetime) {
 
-        let closeHeaders = ['Trade Number', 'Open Datetime', 'Close Datetime', 'Strategy Name', 'Trigger On Situation', 'Take Position Situation', 'Result', 'ROI', 'Exit Type']
+        let closeHeaders = ['Trade Number', 'Open Datetime', 'Close Datetime', 'Strategy Name', 'Trigger On Situation', 'Take Position Situation', 'Result In Base Asset', 'Result In Quoted Asset', 'ROI in Base Asset', 'ROI in Quoted Asset', 'Exit Type']
         closeValues = [
-            tradingEngine.episode.episodeCounters.positions.value,                                             // Position Number
+            tradingEngine.current.episode.episodeCounters.positions.value,                                     // Position Number
             (new Date(openDatetime)).toISOString(),                                                            // Open Datetime
             (new Date(closeDatetime)).toISOString(),                                                           // Open Datetime
             tradingEngine.current.strategy.strategyName.value,                                                 // Strategy Name
             tradingEngine.current.strategy.situationName.value,                                                // Trigger On Situation
             tradingEngine.current.position.situationName.value,                                                // Take Position Situation
-            tradingEngine.current.position.positionStatistics.hitFail.value,                                   // Result
-            tradingEngine.current.position.positionStatistics.ROI.value,                                       // ROI
+            tradingEngine.current.position.positionBaseAsset.hitFail.value,                                    // Result in Base Asset
+            tradingEngine.current.position.positionQuotedAsset.hitFail.value,                                  // Result in Base Asset
+            tradingEngine.current.position.positionBaseAsset.ROI.value,                                        // ROI in Base Asseet
+            tradingEngine.current.position.positionQuotedAsset.ROI.value,                                      // ROI in Quoted Asset
             tradingEngine.current.position.exitType.value                                                      // Exit Type
         ]
 

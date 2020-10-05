@@ -35,6 +35,7 @@
             'timeout': 30000,
             'enableRateLimit': true,
             verbose: false,
+            'adjustForTimeDifference': true, 
             options: options
         }
         exchange = new exchangeClass(exchangeConstructorParams)
@@ -50,11 +51,11 @@
     async function getOrder(tradingSystemOrder, tradingEngineOrder) {
 
         let orderId = tradingEngineOrder.exchangeId.value
+        const symbol = bot.market.baseAsset + '/' + bot.market.quotedAsset
 
         /* Basic Logging */
-        logInfo("getOrder -> Entering function. orderId = " + orderId);
-
-        const symbol = bot.market.baseAsset + '/' + bot.market.quotedAsset
+        logInfo("getOrder -> orderId = " + orderId)
+        logInfo("getOrder -> symbol = " + symbol)
 
         /* Basic Validations */
         if (exchange.has['fetchOrder'] === false) {
@@ -64,9 +65,11 @@
 
         try {
             let order = await exchange.fetchOrder(orderId, symbol)
+
+            logInfo("getOrder -> Response from the Exchange: " + JSON.stringify(order));
             return order
         } catch (err) {
-            tradingSystem.errors.push([tradingSystemOrder.id, err.message])
+            tradingSystem.errors.push([tradingSystemOrder.id, "getOrder -> Error = " + err.message])
             logError("getOrder -> Error = " + err.message);
         }
     }
@@ -74,10 +77,10 @@
     async function createOrder(tradingSystemOrder, tradingEngineOrder) {
 
         let price = tradingEngineOrder.rate.value                           // CCXT: how much quote currency you are willing to pay for a trade lot of base currency (for limit orders only)
-        let amount = tradingEngineOrder.size.value                          // CCXT: how much of currency you want to trade
         let type                                                            // CCXT: a string literal type of order, ccxt currently unifies market and limit orders only
         let side                                                            // CCXT: a string literal for the direction of your order, buy or sell
         let symbol = bot.market.baseAsset + '/' + bot.market.quotedAsset    // CCXT: a string literal symbol of the market you wish to trade on, like BTC/USD, ZEC/ETH, DOGE/DASH, etc
+        let amount = tradingEngineOrder.orderBaseAsset.size.value           // CCXT: how much of currency you want to trade, in Base Asset.
 
         switch (tradingSystemOrder.type) {
             case 'Market Buy Order': {
@@ -121,10 +124,12 @@
 
         try {
             let order = await (exchange.createOrder(symbol, type, side, amount, price))
+
+            logInfo("createOrder -> Response from the Exchange: " + JSON.stringify(order));
             return order.id
         } catch (err) {
-            tradingSystem.errors.push([tradingSystemOrder.id, err.message])
-            logError("getOrder -> Error = " + err.message);
+            tradingSystem.errors.push([tradingSystemOrder.id, "createOrder -> Error = " + err.message])
+            logError("createOrder -> Error = " + err.message);
         }
     }
 
@@ -133,22 +138,24 @@
         let orderId = tradingEngineOrder.exchangeId.value
 
         /* Basic Logging */
-        logInfo("getOrder -> Entering function. orderId = " + orderId);
+        logInfo("cancelOrder -> Entering function. orderId = " + orderId);
 
         const symbol = bot.market.baseAsset + '/' + bot.market.quotedAsset
 
         /* Basic Validations */
         if (exchange.has['fetchOrder'] === false) {
-            logError("getOrder -> Exchange does not support fetchOrder command.");
+            logError("cancelOrder -> Exchange does not support fetchOrder command.");
             return
         }
 
         try {
             let order = await exchange.cancelOrder(orderId, symbol)
+
+            logInfo("cancelOrder -> Response from the Exchange: " + JSON.stringify(order));
             return true
         } catch (err) {
-            tradingSystem.errors.push([tradingSystemOrder.id, err.message])
-            logError("getOrder -> Error = " + err.message);
+            tradingSystem.errors.push([tradingSystemOrder.id, "cancelOrder -> Error = " + err.message])
+            logError("cancelOrder -> Error = " + err.message);
         }
     }
 

@@ -75,7 +75,7 @@
                 return
             }
             if (outputDatasetNode.referenceParent.parentNode.dataBuilding === undefined) {
-                logger.write(MODULE_NAME, "[WARN] start -> Product Definition " + outputDatasetNode.referenceParent.parentNode.name + " without a Data Building Procedure. Product Definition = " + JSON.stringify(outputDatasetNode.referenceParent.parentNode));
+                logger.write(MODULE_NAME, "[WARN] start -> Product Definition " + outputDatasetNode.referenceParent.parentNode.name + " without a Data Building Procedure. Product Definition Name = " + outputDatasetNode.referenceParent.parentNode.name);
             }
             if (outputDatasetNode.referenceParent.config.codeName === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] start -> Dataset witn no codeName defined. Product Dataset = " + JSON.stringify(outputDatasetNode.referenceParent));
@@ -95,29 +95,43 @@
                 return
             }
 
-            if (outputDatasetNode.referenceParent.parentNode.parentNode === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] start -> Product Definition not attached to a Bot. Product Definition = " + JSON.stringify(outputDatasetNode.referenceParent.parentNode));
+            let botNode = global.FIND_NODE_IN_NODE_MESH(outputDatasetNode, 'Indicator Bot')
+            if (botNode === undefined) {
+                botNode = global.FIND_NODE_IN_NODE_MESH(outputDatasetNode, 'Trading Bot')
+            }
+            if (botNode === undefined) {
+                logger.write(MODULE_NAME, "[ERROR] start -> Product Definition not attached to a Bot. Product Definition = ");
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return
             }
 
-            if (outputDatasetNode.referenceParent.parentNode.parentNode.config.codeName === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] start -> Bot witn no codeName defined. Bot = " + JSON.stringify(outputDatasetNode.referenceParent.parentNode.parentNode));
+            if (botNode.config.codeName === undefined) {
+                logger.write(MODULE_NAME, "[ERROR] start -> Bot witn no codeName defined.");
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return
             }
 
-            if (outputDatasetNode.referenceParent.parentNode.parentNode.parentNode === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] start -> Bot not attached to a Data Mine. Bot = " + JSON.stringify(outputDatasetNode.referenceParent.parentNode.parentNode));
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                return
-            }
-
-            if (outputDatasetNode.referenceParent.parentNode.parentNode.parentNode.config.codeName === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] start -> Data Mine witn no codeName defined. Data Mine = " + JSON.stringify(outputDatasetNode.referenceParent.parentNode.parentNode.parentNode));
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                return
-            }
+            let dataMineNode = global.FIND_NODE_IN_NODE_MESH(outputDatasetNode, 'Data Mine')
+            if (dataMineNode === undefined) {
+                let tradingMineNode = global.FIND_NODE_IN_NODE_MESH(outputDatasetNode, 'Trading Mine')
+                if (tradingMineNode === undefined) {
+                    logger.write(MODULE_NAME, "[ERROR] start -> Bot not attached to a Data Mine or a Trading Mine.");
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    return
+                } else {
+                    if (tradingMineNode.config.codeName === undefined) {
+                        logger.write(MODULE_NAME, "[ERROR] start -> Trading Mine witn no codeName defined.");
+                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                        return
+                    }
+                }  
+            } else {
+                if (dataMineNode.config.codeName === undefined) {
+                    logger.write(MODULE_NAME, "[ERROR] start -> Data Mine witn no codeName defined.");
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    return
+                }
+            }            
         }
         return true
     }

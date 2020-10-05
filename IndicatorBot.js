@@ -36,7 +36,7 @@
             }
 
             /* This bot is not ready for taking its code from the UI, then we need to load it from its repo. */
-            let filePath = bot.dataMine + "/" + "bots" + "/" + bot.repo + "/" + pProcessConfig.codeName
+            let filePath = bot.dataMine + "/" + "bots" + "/" + bot.processNode.referenceParent.parentNode.config.repo + "/" + pProcessConfig.codeName
             filePath += "/User.Bot.js"
 
             fileStorage.getTextFile(filePath, onBotDownloaded);
@@ -54,7 +54,7 @@
                 USER_BOT_MODULE = {}
                 USER_BOT_MODULE.newUserBot = eval(text); // TODO This needs to be changed function
 
-                filePath = bot.dataMine + "/" + "bots" + "/" + bot.repo;
+                filePath = bot.dataMine + "/" + "bots" + "/" + bot.processNode.referenceParent.parentNode.config.repo 
                 filePath += "/Commons.js"
 
                 fileStorage.getTextFile(filePath, onCommonsDownloaded);
@@ -80,9 +80,6 @@
     function run(callBackFunction) {
         try {
             let fixedTimeLoopIntervalHandle;
-
-            /* Errors sent to the UI */
-            bot.processError = processError
 
             /* Heartbeats sent to the UI */
             bot.processHeartBeat = processHeartBeat
@@ -145,7 +142,7 @@
                     function initializeProcessExecutionEvents() {
                         try {
                             processExecutionEvents = PROCESS_EXECUTION_EVENTS.newProcessExecutionEvents(bot, logger)
-                            processExecutionEvents.initialize(onInizialized);
+                            processExecutionEvents.initialize(processConfig, onInizialized);
 
                             function onInizialized(err) {
                                 try {
@@ -763,26 +760,9 @@
                 global.EVENT_SERVER_CLIENT.raiseEvent(bot.processKey, 'Heartbeat', event)
             }
 
-            function processError(node, errorMessage) {
-                let event
-                if (node !== undefined) {
-                    event = {
-                        nodeName: node.name,
-                        nodeType: node.type,
-                        nodeId: node.id,
-                        errorMessage: errorMessage
-                    }
-                } else {
-                    event = {
-                        errorMessage: errorMessage
-                    }
-                }
-                global.EVENT_SERVER_CLIENT.raiseEvent(bot.processKey, 'Error', event)
-            }
-
             function processStopped() {
                 if (global.unexpectedError !== undefined) {
-                    processError(undefined, "An unexpected error caused the Process to stop.")
+                    global.PROCESS_ERROR(bot.processKey, undefined, "An unexpected error caused the Process to stop.")
                 } else {
                     global.EVENT_SERVER_CLIENT.raiseEvent(bot.processKey, 'Stopped')
                 }

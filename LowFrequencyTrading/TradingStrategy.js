@@ -4,13 +4,10 @@ exports.newTradingStrategy = function newTradingStrategy(bot, logger, tradingEng
     */
     const MODULE_NAME = 'Trading Strategy'
     let thisObject = {
+        mantain: mantain,
+        reset: reset,
         openStrategy: openStrategy,
         closeStrategy: closeStrategy,
-        updateEnds: updateEnds,
-        updateStageStatus: updateStageStatus,
-        updateStatus: updateStatus,
-        updateCounters: updateCounters,
-        resetStrategy: resetStrategy,
         initialize: initialize,
         finalize: finalize
     }
@@ -27,66 +24,52 @@ exports.newTradingStrategy = function newTradingStrategy(bot, logger, tradingEng
         tradingEngine = undefined
     }
 
+    function mantain() {
+        updateCounters()
+        updateEnds()
+    }
+
+    function reset() {
+        resetTradingEngineDataStructure()
+    }
+
     function openStrategy(index, situationName, strategyName) {
         tradingEngine.current.strategy.status.value = 'Open'
-        tradingEngine.current.strategy.serialNumber.value = tradingEngine.episode.episodeCounters.strategies.value
+        tradingEngine.current.strategy.serialNumber.value = tradingEngine.current.episode.episodeCounters.strategies.value
         tradingEngine.current.strategy.identifier.value = global.UNIQUE_ID()
-        tradingEngine.current.strategy.begin.value = tradingEngine.current.candle.begin.value
-        tradingEngine.current.strategy.end.value = tradingEngine.current.candle.end.value
-        tradingEngine.current.strategy.beginRate.value = tradingEngine.current.candle.min.value
-        tradingEngine.current.strategy.endRate.value = tradingEngine.current.candle.min.value
+        tradingEngine.current.strategy.begin.value = tradingEngine.current.episode.candle.end.value
+        tradingEngine.current.strategy.end.value = tradingEngine.current.episode.candle.end.value
+        tradingEngine.current.strategy.beginRate.value = tradingEngine.current.episode.candle.min.value
 
         tradingEngine.current.strategy.index.value = index
         tradingEngine.current.strategy.situationName.value = situationName
         tradingEngine.current.strategy.strategyName.value = strategyName
+
+        /* Updating Episode Counters */
+        tradingEngine.current.episode.episodeCounters.strategies.value++
     }
 
     function closeStrategy(exitType) {
         tradingEngine.current.strategy.status.value = 'Closed'
         tradingEngine.current.strategy.exitType.value = exitType
-        tradingEngine.current.strategy.end.value = tradingEngine.current.candle.end.value
-        tradingEngine.current.strategy.endRate.value = tradingEngine.current.candle.min.value
+        tradingEngine.current.strategy.end.value = tradingEngine.current.episode.candle.end.value
+        tradingEngine.current.strategy.endRate.value = tradingEngine.current.episode.candle.min.value
         /*
         Now that the strategy is closed, it is the right time to move this strategy from current to last at the Trading Engine data structure.
         */
         tradingEngineModule.cloneValues(tradingEngine.current.strategy, tradingEngine.last.strategy)
     }
 
-    function resetStrategy() {
-        tradingEngine.current.strategy.initialize(tradingEngine.current.strategy)
-    }
-
     function updateEnds() {
         if (tradingEngine.current.strategy.status.value === 'Open') {
-            tradingEngine.current.strategy.end.value = tradingEngine.current.candle.end.value
-            tradingEngine.current.strategy.endRate.value = tradingEngine.current.candle.min.value
+            tradingEngine.current.strategy.end.value = tradingEngine.current.episode.candle.end.value
+            tradingEngine.current.strategy.endRate.value = tradingEngine.current.episode.candle.close.value
         }
     }
 
-    function updateStageStatus(stage, status) {
-        switch (stage) {
-            case 'Trigger Stage': {
-                tradingEngine.current.strategy.triggerStageStatus.value = status
-                break
-            }
-            case 'Open Stage': {
-                tradingEngine.current.strategy.openStageStatus.value = status
-                break
-            }
-            case 'Manage Stage': {
-                tradingEngine.current.strategy.manageStageStatus.value = status
-                break
-            }
-            case 'Close Stage': {
-                tradingEngine.current.strategy.closeStageStatus.value = status
-                break
-            }
-        }
-    }
-
-    function updateStatus() {
+    function resetTradingEngineDataStructure() {
         if (tradingEngine.current.strategy.status.value === 'Closed') {
-            resetStrategy()
+            tradingEngineModule.initializeNode(tradingEngine.current.strategy)
         }
     }
 

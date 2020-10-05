@@ -276,8 +276,18 @@
                 }
 
                 function timeFramesLoopBody() {
+
                     const timeFrame = global.dailyFilePeriods[n][0]
                     const timeFrameLabel = global.dailyFilePeriods[n][1]
+
+                    /* Check Time Frames Filter */
+                    if (bot.dailyTimeFrames !== undefined) {
+                        if (bot.dailyTimeFrames.includes(timeFrameLabel) === false) {
+                            /* We are not going to process this Time Frame */
+                            timeFramesControlLoop()
+                            return
+                        }
+                    }
 
                     if (processConfig.framework.validPeriods !== undefined) {
                         let validPeriod = false;
@@ -417,8 +427,6 @@
                         }
 
                         function generateOutput() {
-                            const timeFrame = global.dailyFilePeriods[n][0]
-                            const timeFrameLabel = global.dailyFilePeriods[n][1]
 
                             indicatorOutputModule.start(
                                 dataFiles,
@@ -461,17 +469,18 @@
             }
 
             function writeDataRanges(callBack) {
+                let outputDatasets = global.NODE_BRANCH_TO_ARRAY (bot.processNode.referenceParent.processOutput, 'Output Dataset')
                 let outputDatasetIndex = -1;
                 controlLoop()
 
                 function productLoopBody() {
-                    let productCodeName = bot.processNode.referenceParent.processOutput.outputDatasets[outputDatasetIndex].referenceParent.parentNode.config.codeName;
+                    let productCodeName = outputDatasets[outputDatasetIndex].referenceParent.parentNode.config.codeName;
                     writeDataRange(contextVariables.dateBeginOfMarket, bot.multiPeriodDailyProcessDatetime, productCodeName, controlLoop)
                 }
 
                 function controlLoop() {
                     outputDatasetIndex++
-                    if (outputDatasetIndex < bot.processNode.referenceParent.processOutput.outputDatasets.length) {
+                    if (outputDatasetIndex < outputDatasets.length) {
                         productLoopBody()
                     } else {
                         callBack(global.DEFAULT_OK_RESPONSE)
@@ -482,7 +491,7 @@
             function writeDataRange(pBegin, pEnd, productCodeName, callBack) {
                 let dataRange = {
                     begin: pBegin.valueOf(),
-                    end: pEnd.valueOf()
+                    end: pEnd.valueOf() + ONE_DAY_IN_MILISECONDS
                 };
                 let fileContent = JSON.stringify(dataRange)
                 let fileName = '/Data.Range.json';
@@ -502,6 +511,38 @@
                     }
 
                     global.EVENT_SERVER_CLIENT.raiseEvent(key, 'Data Range Updated', event)
+                    writeTimeFramesFile(productCodeName, callBack)
+                }
+            }
+
+            function writeTimeFramesFile(productCodeName, callBack) {
+
+                let timeFramesArray = []
+                for (let n = 0; n < global.dailyFilePeriods.length; n++) {
+                    let timeFrameLabel = global.dailyFilePeriods[n][1]
+
+                    /* Check Time Frames Filter */
+                    if (bot.dailyTimeFrames !== undefined) {
+                        if (bot.dailyTimeFrames.includes(timeFrameLabel) === true) {
+                            timeFramesArray.push(timeFrameLabel)
+                        }
+                    } else {
+                        timeFramesArray.push(timeFrameLabel)
+                    }
+                }
+
+                let fileContent = JSON.stringify(timeFramesArray)
+                let fileName = '/Time.Frames.json';
+                let filePath = bot.filePathRoot + "/Output/" + productCodeName + "/" + bot.process + fileName;
+
+                fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated)
+
+                function onFileCreated(err) {
+                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                        logger.write(MODULE_NAME, "[ERROR] start -> writeTimeFramesFiles -> onFileCreated -> err = " + err.stack)
+                        callBack(err)
+                        return
+                    }
                     callBack(global.DEFAULT_OK_RESPONSE)
                 }
             }
@@ -514,6 +555,9 @@
                 thisReport.file.lastFile = lastFileDate;
                 thisReport.file.interExecutionMemoryArray = interExecutionMemoryArray;
                 thisReport.file.beginingOfMarket = beginingOfMarket.toUTCString()
+                if (bot.dailyTimeFrames !== undefined) {
+                    thisReport.file.timeFrames = bot.dailyTimeFrames
+                }
                 thisReport.save(callBack)
 
                 bot.hasTheBotJustStarted = false;

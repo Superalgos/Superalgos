@@ -22,9 +22,9 @@
 
             /* Set the folderName for early logging */
             if (bot.processNode.session.config.folderName === undefined) {
-                bot.SESSION.folderName = bot.SESSION.id
+                bot.SESSION.folderName = bot.processNode.session.type.replace(' ', '-').replace(' ', '-') + '-' + bot.SESSION.id
             } else {
-                bot.SESSION.folderName = bot.processNode.session.config.folderName + "-" + bot.SESSION.id
+                bot.SESSION.folderName = bot.processNode.session.type.replace(' ', '-').replace(' ', '-') + '-' + bot.processNode.session.config.folderName
             }
 
             /* Check if there is a session */
@@ -38,11 +38,15 @@
             bot.sessionKey = bot.processNode.session.name + '-' + bot.processNode.session.type + '-' + bot.processNode.session.id
             global.SESSION_MAP.set(bot.sessionKey, bot.sessionKey)
 
-            global.EVENT_SERVER_CLIENT.listenToEvent(bot.sessionKey, 'Run Session', undefined, bot.sessionKey, undefined, runSession)
-            global.EVENT_SERVER_CLIENT.listenToEvent(bot.sessionKey, 'Stop Session', undefined, bot.sessionKey, undefined, stopSession)
+            global.EVENT_SERVER_CLIENT.listenToEvent(bot.sessionKey, 'Session Status', undefined, bot.sessionKey, undefined, onSessionStatus)
+            global.EVENT_SERVER_CLIENT.listenToEvent(bot.sessionKey, 'Run Session', undefined, bot.sessionKey, undefined, onSessionRun)
+            global.EVENT_SERVER_CLIENT.listenToEvent(bot.sessionKey, 'Stop Session', undefined, bot.sessionKey, undefined, onSessionStop)
+            global.EVENT_SERVER_CLIENT.listenToEvent(bot.sessionKey, 'Resume Session', undefined, bot.sessionKey, undefined, onSessionResume)
 
-            /* Errors sent to the UI */
+            /* Connect this here so that it is accesible from other places */
             bot.sessionError = sessionError
+            bot.sessionWarning = sessionWarning
+            bot.sessionInfo = sessionInfo
 
             /* Heartbeats sent to the UI */
             bot.sessionHeartBeat = sessionHeartBeat
@@ -50,23 +54,40 @@
             callBackFunction(global.DEFAULT_OK_RESPONSE)
             return
 
-            function runSession(message) {
+            function onSessionStatus() {
+                if (bot.SESSION_STATUS === 'Running') {
+                    let event = {
+                        status: 'Session Runnning' 
+                    }
+                    global.EVENT_SERVER_CLIENT.raiseEvent(bot.sessionKey, 'Status Response', event)
+                } else {
+                    let event = {
+                        status: 'Not Session Runnning' 
+                    }
+                    global.EVENT_SERVER_CLIENT.raiseEvent(bot.sessionKey, 'Status Response', event)
+                }
+            }
+
+            function onSessionRun(message) {
                 try {
-                    if (bot.SESSION_STATUS === 'Idle' || bot.SESSION_STATUS === 'Running') { return } // This happens when the UI is reloaded, the session was running and tries to run it again.
+                    /* This happens when the UI is reloaded, the session was running and tries to run it again. */
+                    if (bot.SESSION_STATUS === 'Idle' || bot.SESSION_STATUS === 'Running') { 
+                        parentLogger.write(MODULE_NAME, "[WARN] onSessionRun -> Event received to run the Session while it was already running. ")
+                        return 
+                    } 
 
                     /* We are going to run the Definition comming at the event. */
-                    bot.APP_SCHEMA_ARRAY = JSON.parse(message.event.appSchema)
                     bot.TRADING_SYSTEM = JSON.parse(message.event.tradingSystem)
                     bot.TRADING_ENGINE = JSON.parse(message.event.tradingEngine)
                     bot.SESSION = JSON.parse(message.event.session)
                     bot.DEPENDENCY_FILTER = JSON.parse(message.event.dependencyFilter)
-                    bot.RESUME = message.event.resume
+                    bot.RESUME = false
                     bot.FIRST_EXECUTION = true
                     bot.SESSION.stop = stopSession // stop function
 
-                    setUpAppSchema()
                     setUpSessionFolderName()
 
+                    /* We validate all parameters received and complete some that might be missing if needed. */
                     if (checkParemeters() === false) { return }
 
                     socialBotsModule.initialize()
@@ -95,44 +116,63 @@
                         bot.STOP_SESSION = false
                     } else {
                         bot.STOP_SESSION = true
+                        if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, '[IMPORTANT] onSessionRun -> Stopping the Session now. ') }
                     }
 
                     socialBotsModule.sendMessage(bot.SESSION.type + " '" + bot.SESSION.name + "' is starting.")
                 } catch (err) {
-                    parentLogger.write(MODULE_NAME, "[ERROR] initialize -> runSession -> err = " + err.stack);
+                    parentLogger.write(MODULE_NAME, "[ERROR] initialize -> onSessionRun -> err = " + err.stack);
+                }
+            }
+
+            function onSessionStop() {
+                stopSession('Session Stopped From the User Interface.')
+            }
+
+            function onSessionResume(message) {
+                try {
+                    if (bot.SESSION.stop === undefined) { 
+                        parentLogger.write(MODULE_NAME, "[WARN] onSessionResume -> Event received to resume the Session that have never be ran before. ")
+                        return 
+                    }
+
+                    /* This happens when the UI is reloaded, the session was running and tries to run it again. */
+                    if (bot.SESSION_STATUS === 'Idle' || bot.SESSION_STATUS === 'Running') { 
+                        parentLogger.write(MODULE_NAME, "[WARN] onSessionResume -> Event received to resume the Session while it was already running. ")
+                        return 
+                    } 
+
+                    bot.RESUME = true
+                    bot.STOP_SESSION = false
+
+                    socialBotsModule.sendMessage(bot.SESSION.type + " '" + bot.SESSION.name + "' is resuming.")
+                } catch (err) {
+                    parentLogger.write(MODULE_NAME, "[ERROR] initialize -> onSessionResume -> err = " + err.stack);
                 }
             }
 
             function stopSession(commandOrigin) {
-                try {
-                    if (commandOrigin === undefined) { commandOrigin = ' from the User Interface.' }
-                    socialBotsModule.sendMessage(bot.SESSION.type + " '" + bot.SESSION.name + "' is stopping " + commandOrigin)
-                    socialBotsModule.finalize()
-                    bot.STOP_SESSION = true
-                } catch (err) {
-                    parentLogger.write(MODULE_NAME, "[ERROR] initialize -> stopSession -> err = " + err.stack);
-                }
-            }
 
-            function setUpAppSchema() {
-                /* Setup the APP_SCHEMA_MAP based on the APP_SCHEMA_ARRAY */
-                bot.APP_SCHEMA_MAP = new Map()
-                for (let i = 0; i < bot.APP_SCHEMA_ARRAY.length; i++) {
-                    let nodeDefinition = bot.APP_SCHEMA_ARRAY[i]
-                    let key = nodeDefinition.type
-                    bot.APP_SCHEMA_MAP.set(key, nodeDefinition)
-                }
+                socialBotsModule.sendMessage(bot.SESSION.type + " '" + bot.SESSION.name + "' is stopping " + commandOrigin)
+                socialBotsModule.finalize()
+                bot.STOP_SESSION = true
+                if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, '[IMPORTANT] stopSession -> Stopping the Session now. ') }
+                sessionInfo(bot.SESSION, commandOrigin)
             }
 
             function setUpSessionFolderName() {
-                /* Set the folderName for logging, reports, context and data output */
+                /* 
+                The session object is overwritten when the session is run. For that reason we 
+                need to setup again the folder name at the Session level.
+                Set the folderName for logging, reports, context and data output 
+                */
                 let config
                 if (bot.SESSION.config !== undefined) {
                     config = bot.SESSION.config
                     if (config.folderName === undefined) {
-                        bot.SESSION.folderName = bot.SESSION.id
+                        bot.SESSION.folderName = bot.processNode.session.type.replace(' ', '-').replace(' ', '-') + '-' + bot.SESSION.id
                     } else {
-                        bot.SESSION.folderName = config.folderName + "-" + bot.SESSION.id
+                        bot.SESSION.folderName = bot.processNode.session.type.replace(' ', '-').replace(' ', '-') + '-' + bot.processNode.session.config.folderName
                     }
                 }
             }
@@ -157,13 +197,29 @@
                         type: 'Time Range',
                         config: {
                             initialDatetime: (new Date()).valueOf(),
-                            finalDatetime: (new Date()).valueOf()
+                            finalDatetime: (new Date()).valueOf() + global.ONE_YEAR_IN_MILISECONDS
                         }
+                    }
+                } else {
+                    /* Check that we received valid dates */
+                    if (bot.SESSION.type === 'Backtesting Session') {
+                        if (isNaN(new Date(bot.SESSION.parameters.timeRange.config.initialDatetime)).valueOf()) {
+                            let errorMessage = "sessionParameters.timeRange.config.initialDatetime is not a valid date."
+                            parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
+                            bot.sessionError(bot.SESSION.parameters, errorMessage)
+                            return false
+                        }
+                    }
+                    if (isNaN(new Date(bot.SESSION.parameters.timeRange.config.finalDatetime)).valueOf()) {
+                        let errorMessage = "sessionParameters.timeRange.config.initialDatetime is not a valid date."
+                        parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
+                        bot.sessionError(bot.SESSION.parameters, errorMessage)
+                        return false
                     }
                 }
 
                 /* Session Type Forced Values */
-                let today = new Date((new Date()).valueOf())
+                let today = (new Date()).valueOf()
                 let aYearAgo = today - global.ONE_YEAR_IN_MILISECONDS
                 let aYearFromNow = today + global.ONE_YEAR_IN_MILISECONDS
                 switch (bot.SESSION.type) {
@@ -186,11 +242,25 @@
                 }
 
                 function useDefaultDatetimes(initialDefault, finalDefault) {
+                    /* 
+                    Note that inside the system, we are going to deal with these
+                    dates in their numeric value representation.
+                    */
+
                     /* Initial Datetime */
-                    if (bot.SESSION.parameters.timeRange.config.initialDatetime === undefined) {
-                        bot.SESSION.parameters.timeRange.config.initialDatetime = initialDefault
+                    if (bot.SESSION.type === 'Backtesting Session') {
+                        if (bot.SESSION.parameters.timeRange.config.initialDatetime === undefined) {
+                            bot.SESSION.parameters.timeRange.config.initialDatetime = initialDefault
+                        } else {
+                            bot.SESSION.parameters.timeRange.config.initialDatetime = (new Date(bot.SESSION.parameters.timeRange.config.initialDatetime)).valueOf()
+                        }
                     } else {
-                        bot.SESSION.parameters.timeRange.config.initialDatetime = (new Date(bot.SESSION.parameters.timeRange.config.initialDatetime)).valueOf()
+                        /* Non backtest session can start from the past only if explicitly configured that way */
+                        if (bot.SESSION.parameters.timeRange.config.initialDatetime === undefined || bot.SESSION.parameters.timeRange.config.allowStartingFromThePast !== true) {
+                            bot.SESSION.parameters.timeRange.config.initialDatetime = initialDefault
+                        } else {
+                            bot.SESSION.parameters.timeRange.config.initialDatetime = (new Date(bot.SESSION.parameters.timeRange.config.initialDatetime)).valueOf()
+                        }
                     }
 
                     /* Final Datetime */
@@ -215,6 +285,12 @@
                     return false
                 }
                 bot.SESSION.parameters.timeFrame.config.value = getTimeFrameFromLabel(bot.SESSION.parameters.timeFrame.config.label)
+                if (bot.SESSION.parameters.timeFrame.config.value === undefined) {
+                    let errorMessage = "Config error: label value not recognized. Try 01-min or 01-hs for example."
+                    parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
+                    bot.sessionError(bot.SESSION.parameters.timeFrame, errorMessage)
+                    return false
+                }
 
                 /* Session Base Asset */
                 if (bot.SESSION.parameters.sessionBaseAsset === undefined) {
@@ -229,12 +305,6 @@
                     bot.sessionError(bot.SESSION.parameters.sessionBaseAsset, errorMessage)
                     return false
                 }
-                if (bot.SESSION.parameters.sessionBaseAsset.config.minimumBalance === undefined) {
-                    bot.SESSION.parameters.sessionBaseAsset.config.minimumBalance = 0
-                }
-                if (bot.SESSION.parameters.sessionBaseAsset.config.maximumBalance === undefined) {
-                    bot.SESSION.parameters.sessionBaseAsset.config.maximumBalance = Number.MAX_SAFE_INTEGER
-                }
 
                 /* Session Quoted Asset */
                 if (bot.SESSION.parameters.sessionQuotedAsset === undefined) {
@@ -248,12 +318,6 @@
                     parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
                     bot.sessionError(bot.SESSION.parameters.sessionQuotedAsset, errorMessage)
                     return false
-                }
-                if (bot.SESSION.parameters.sessionQuotedAsset.config.minimumBalance === undefined) {
-                    bot.SESSION.parameters.sessionQuotedAsset.config.minimumBalance = 0
-                }
-                if (bot.SESSION.parameters.sessionQuotedAsset.config.maximumBalance === undefined) {
-                    bot.SESSION.parameters.sessionQuotedAsset.config.maximumBalance = Number.MAX_SAFE_INTEGER
                 }
 
                 /* Slippage */
@@ -300,7 +364,6 @@
             }
 
             function startBackTesting(message) {
-                bot.tradingProcessDate = new Date(bot.SESSION.parameters.timeRange.config.initialDatetime.valueOf()) //  Here we initialize the date of the process.
                 return true
             }
 
@@ -309,9 +372,6 @@
                     if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[ERROR] initialize -> startLiveTrading -> Key 'codeName' or 'secret' not provided. Plese check that and try again."); }
                     return false
                 }
-
-                bot.tradingProcessDate = new Date(bot.SESSION.parameters.timeRange.config.initialDatetime.valueOf())
-                pProcessConfig.liveWaitTime = bot.SESSION.parameters.timeFrame.config.value
                 return true
             }
 
@@ -321,8 +381,6 @@
                     console.log("Key 'codeName' or 'secret' not provided. Plese check that and try again.")
                     return false
                 }
-
-                bot.tradingProcessDate = new Date(bot.SESSION.parameters.timeRange.config.initialDatetime.valueOf())
 
                 /* Reduce the balance */
                 let balancePercentage = 1 // This is the default value
@@ -346,8 +404,6 @@
             }
 
             function startPaperTrading(message) {
-                bot.tradingProcessDate = new Date(bot.SESSION.parameters.timeRange.config.initialDatetime.valueOf())
-                pProcessConfig.normalWaitTime = bot.SESSION.parameters.timeFrame.config.value
                 return true
             }
 
@@ -372,15 +428,18 @@
                 }
             }
 
-            function sessionHeartBeat(processingDate) {
+            function sessionHeartBeat(processingDate, percentage, status) {
                 let event = {
                     seconds: (new Date()).getSeconds(),
-                    processingDate: processingDate
+                    processingDate: processingDate,
+                    percentage: percentage,
+                    status: status
                 }
                 global.EVENT_SERVER_CLIENT.raiseEvent(bot.sessionKey, 'Heartbeat', event)
 
                 if (global.STOP_TASK_GRACEFULLY === true) {
                     bot.STOP_SESSION = true
+                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, '[IMPORTANT] sessionHeartBeat -> Stopping the Session now. ') }
                 }
             }
 
@@ -402,6 +461,51 @@
 
                 if (global.STOP_TASK_GRACEFULLY === true) {
                     bot.STOP_SESSION = true
+                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, '[IMPORTANT] sessionError -> Stopping the Session now. ') }
+                }
+            }
+
+            function sessionWarning(node, warningMessage) {
+                let event
+                if (node !== undefined) {
+                    event = {
+                        nodeName: node.name,
+                        nodeType: node.type,
+                        nodeId: node.id,
+                        warningMessage: warningMessage
+                    }
+                } else {
+                    event = {
+                        warningMessage: warningMessage
+                    }
+                }
+                global.EVENT_SERVER_CLIENT.raiseEvent(bot.sessionKey, 'Warning', event)
+
+                if (global.STOP_TASK_GRACEFULLY === true) {
+                    bot.STOP_SESSION = true
+                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, '[IMPORTANT] sessionWarning -> Stopping the Session now. ') }
+                }
+            }
+
+            function sessionInfo(node, infoMessage) {
+                let event
+                if (node !== undefined) {
+                    event = {
+                        nodeName: node.name,
+                        nodeType: node.type,
+                        nodeId: node.id,
+                        infoMessage: infoMessage
+                    }
+                } else {
+                    event = {
+                        infoMessage: infoMessage
+                    }
+                }
+                global.EVENT_SERVER_CLIENT.raiseEvent(bot.sessionKey, 'Info', event)
+
+                if (global.STOP_TASK_GRACEFULLY === true) {
+                    bot.STOP_SESSION = true
+                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, '[IMPORTANT] sessionInfo -> Stopping the Session now. ') }
                 }
             }
 

@@ -24,13 +24,9 @@
     }
 
     function initialize(callBackFunction) {
-
         try {
-
             logger.fileName = MODULE_NAME;
             logger.initialize();
-
-            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
             callBackFunction(global.DEFAULT_OK_RESPONSE);
 
@@ -57,10 +53,11 @@
             }
 
             /* The first phase here is about checking that we have everything we need at the definition level. */
-            let dataDependencies = bot.processNode.referenceParent.processDependencies.dataDependencies
+            let dataDependencies = global.NODE_BRANCH_TO_ARRAY(bot.processNode.referenceParent.processDependencies, 'Data Dependency')
+
             if (commons.validateDataDependencies(dataDependencies, callBackFunction) !== true) { return }
 
-            let outputDatasets = bot.processNode.referenceParent.processOutput.outputDatasets
+            let outputDatasets = global.NODE_BRANCH_TO_ARRAY (bot.processNode.referenceParent.processOutput, 'Output Dataset')
             if (commons.validateOutputDatasets(outputDatasets, callBackFunction) !== true) { return }
 
             /* The second phase is about transforming the inputs into a format that can be used to apply the user defined code. */
@@ -134,8 +131,11 @@
 
                 contextSummary.dataset = outputDatasetNode.referenceParent.config.codeName
                 contextSummary.product = outputDatasetNode.referenceParent.parentNode.config.codeName
-                contextSummary.bot = outputDatasetNode.referenceParent.parentNode.parentNode.config.codeName
-                contextSummary.dataMine = outputDatasetNode.referenceParent.parentNode.parentNode.parentNode.config.codeName
+
+                let botNode = global.FIND_NODE_IN_NODE_MESH(outputDatasetNode, 'Indicator Bot')
+                contextSummary.bot = botNode.config.codeName
+                let dataMineNode = global.FIND_NODE_IN_NODE_MESH(outputDatasetNode, 'Data Mine')
+                contextSummary.dataMine = dataMineNode.config.codeName
 
                 let fileContent = commons.generateFileContent(outputData, outputDatasetNode.referenceParent.parentNode.record, resultsWithIrregularPeriods, processingDailyFiles, currentDay, callBackFunction)
                 commons.writeFile(contextSummary, fileContent, anotherFileWritten, processingDailyFiles, timeFrameLabel, currentDay, callBackFunction)

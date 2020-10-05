@@ -3,9 +3,6 @@
     const MODULE_NAME = "Trading Bot";
     const FULL_LOG = true;
 
-    let USER_BOT_MODULE;
-    let USER_BOT_COMMONS;
-
     const TRADING_PROCESS_MODULE = require(global.ROOT_DIR + '/LowFrequencyTrading/TradingProcess.js');
     const FILE_STORAGE = require('./FileStorage.js');
     const SESSION = require(global.ROOT_DIR + 'Session');
@@ -33,53 +30,9 @@
             processConfig = pProcessConfig;
             if (bot.definedByUI === true) {
                 /* The code of the bot is defined at the UI. No need to load a file with the code. */
-                session.initialize(processConfig, onSessionInitialized)
-
-                function onSessionInitialized(err) {
-                    callBackFunction(err);
-                }
-                return
+                session.initialize(processConfig, callBackFunction)
             }
 
-            let filePath = bot.dataMine + "/" + "bots" + "/" + bot.repo + "/" + pProcessConfig.codeName
-            filePath += "/User.Bot.js"
-
-            fileStorage.getTextFile(filePath, onBotDownloaded);
-
-            function onBotDownloaded(err, text) {
-                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-
-                    parentLogger.write(MODULE_NAME, "[ERROR] initialize -> onInizialized -> onBotDownloaded -> err = " + err.message);
-                    parentLogger.write(MODULE_NAME, "[ERROR] initialize -> onInizialized -> onBotDownloaded -> filePath = " + filePath);
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                    return;
-                }
-
-                USER_BOT_MODULE = {}
-                USER_BOT_MODULE.newUserBot = eval(text); // Use this for production
-
-                filePath = bot.dataMine + "/" + "bots" + "/" + bot.repo;
-                filePath += "/Commons.js"
-
-                fileStorage.getTextFile(filePath, onCommonsDownloaded);
-
-                function onCommonsDownloaded(err, text) {
-                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                        parentLogger.write(MODULE_NAME, "[WARN] initialize -> onBotDownloaded -> onCommonsDownloaded -> Commons not found: " + err.code || err.message);
-                        callBackFunction(global.DEFAULT_OK_RESPONSE);
-                        return;
-                    }
-
-                    USER_BOT_COMMONS = {}
-                    USER_BOT_COMMONS.newCommons = eval(text); // Use this for production
-
-                    session.initialize(onSessionInitialized)
-
-                    function onSessionInitialized(err) {
-                        callBackFunction(err);
-                    }
-                }
-            }
         } catch (err) {
             parentLogger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
@@ -91,9 +44,7 @@
             /* Some initial values*/
             let fixedTimeLoopIntervalHandle;
             bot.STOP_SESSION = true;
-
-            /* Errors sent to the UI */
-            bot.processError = processError
+            if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, '[IMPORTANT] run -> Stopping the Session now. ') }
 
             /* Heartbeats sent to the UI */
             bot.processHeartBeat = processHeartBeat
@@ -123,7 +74,7 @@
                     let nextWaitTime;
 
                     /* We tell the UI that we are running. */
-                    processHeartBeat()
+                    processHeartBeat(undefined, undefined, "Running...")
 
                     /* We define here all the modules that the rest of the infraestructure, including the bots themselves can consume. */
                     const UTILITIES = require(global.ROOT_DIR + 'CloudUtilities');
@@ -143,14 +94,14 @@
 
                     /* Checking if we need to need to emit any event */
                     if (bot.SESSION_STATUS === 'Idle' && bot.STOP_SESSION === false) {
-                        global.EVENT_SERVER_CLIENT.raiseEvent(bot.sessionKey, 'Running')
                         bot.SESSION_STATUS = 'Running'
                     }
 
                     if (bot.SESSION_STATUS === 'Running' && bot.STOP_SESSION === true) {
-                        global.EVENT_SERVER_CLIENT.raiseEvent(bot.sessionKey, 'Stopped')
                         bot.SESSION_STATUS = 'Stopped'
-                    }
+                    } 
+
+                    global.EMIT_SESSION_STATUS (bot.SESSION_STATUS, bot.sessionKey)
 
                     /* Checking if we should process this loop or not.*/
                     if (bot.STOP_SESSION === true) {
@@ -178,7 +129,7 @@
                     function initializeProcessExecutionEvents() {
                         try {
                             processExecutionEvents = PROCESS_EXECUTION_EVENTS.newProcessExecutionEvents(bot, logger)
-                            processExecutionEvents.initialize(onInizialized);
+                            processExecutionEvents.initialize(processConfig, onInizialized);
 
                             function onInizialized(err) {
                                 try {
@@ -337,7 +288,7 @@
                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeDataDependencies -> onInizialized -> Execution finished well."); }
                                             switch (processConfig.framework.name) {
                                                 case 'Low-Frequency-Trading-Process': {
-                                                    processFramework = TRADING_PROCESS_MODULE.newTradingProcess(bot, logger, UTILITIES, USER_BOT_MODULE, USER_BOT_COMMONS);
+                                                    processFramework = TRADING_PROCESS_MODULE.newTradingProcess(bot, logger, UTILITIES);
                                                     intitializeProcessFramework();
                                                     break;
                                                 }
@@ -572,7 +523,7 @@
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> nextWaitTime = " + nextWaitTime); }
 
                         /* We show we reached the end of the loop. */
-                        processHeartBeat()
+                        processHeartBeat(undefined, undefined, "Running...")
 
                         /* Here we check if we must stop the loop gracefully. */
                         shallWeStop(onStop, onContinue);
@@ -607,23 +558,27 @@
                                     break
                                 case 'Normal': {
                                     let waitTime
-                                    switch (bot.SESSION.type) {
-                                        case 'Live Trading Session': {
-                                            waitTime = processConfig.liveTradingWaitTime
+                                    if (processConfig.waitsForExecutionFinishedEvent === true) {
+                                        waitTime = 0
+                                    } else {
+                                        switch (bot.SESSION.type) {
+                                            case 'Live Trading Session': {
+                                                waitTime = bot.SESSION.parameters.timeFrame.config.value
+                                                break
+                                            }
+                                            case 'Fordward Tessting Session': {
+                                                waitTime = bot.SESSION.parameters.timeFrame.config.value
+                                                break
+                                            }
+                                            case 'Paper Trading Session': {
+                                                waitTime = bot.SESSION.parameters.timeFrame.config.value
+                                                break
+                                            }
+                                            case 'Backtesting Session': {
+                                                waitTime = 0
+                                                break
+                                            }
                                         }
-                                            break
-                                        case 'Fordward Tessting Session': {
-                                            waitTime = processConfig.fordwardTestingWaitTime
-                                        }
-                                            break
-                                        case 'Paper Trading Session': {
-                                            waitTime = processConfig.paperTradingWaitTime
-                                        }
-                                            break
-                                        case 'Backtesting Session': {
-                                            waitTime = processConfig.backtestingWaitTime
-                                        }
-                                            break
                                     }
 
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (waitTime / 1000 / 60) + " minute/s."); }
@@ -697,26 +652,9 @@
                 global.EVENT_SERVER_CLIENT.raiseEvent(bot.processKey, 'Heartbeat', event)
             }
 
-            function processError(node, errorMessage) {
-                let event
-                if (node !== undefined) {
-                    event = {
-                        nodeName: node.name,
-                        nodeType: node.type,
-                        nodeId: node.id,
-                        errorMessage: errorMessage
-                    }
-                } else {
-                    event = {
-                        errorMessage: errorMessage
-                    }
-                }
-                global.EVENT_SERVER_CLIENT.raiseEvent(bot.processKey, 'Error', event)
-            }
-
             function processStopped() {
                 if (global.unexpectedError !== undefined) {
-                    processError(undefined, "An unexpected error caused the Process to stop.")
+                    global.PROCESS_ERROR(bot.processKey, undefined, "An unexpected error caused the Process to stop.")
                 } else {
                     global.EVENT_SERVER_CLIENT.raiseEvent(bot.processKey, 'Stopped')
                 }

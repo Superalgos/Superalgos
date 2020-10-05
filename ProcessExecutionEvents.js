@@ -1,12 +1,9 @@
 ﻿exports.newProcessExecutionEvents = function newProcessExecutionEvents(BOT, logger) {
-
     /*
-
-    Here we manage the process execution events. This allow us to emit events when the process starts and finishes. Also to wait for a dependent event
+    Here we manage the process execution events. This allow us to emit events 
+    when the process starts and finishes. Also to wait for a dependent event
     of another process.
-
     */
-
     const MODULE_NAME = "Process Execution Events";
     logger.fileName = MODULE_NAME
 
@@ -28,12 +25,8 @@
 
     return thisObject;
 
-    function initialize(callBackFunction) {
-
+    function initialize(processConfig, callBackFunction) {
         try {
-
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
-
             let name = 'Not Depends on any Process'
             logger.fileName = MODULE_NAME + "." + name;
 
@@ -46,63 +39,108 @@
             let market = bot.market.baseAsset + '/' + bot.market.quotedAsset
             currentProcessKey = bot.processNode.referenceParent.name + "-" + bot.processNode.referenceParent.type + "-" + bot.processNode.referenceParent.id + "-" + bot.exchange + "-" + market
 
+            /*
+            A process can depend for its own execution on another process to finish, and
+            this can be achieved in two different ways. The first one is by referencing
+            the Execution Started Event node from a Process Definition node to a Execution
+            Ended Event node of another Process Definition. The second way is when there is
+            a Execution Started Event node at a Process Instance. This allows the user to
+            override the definition created by the Data Mine for an specific task.
+            */
+
+            /*
+            Here we check if we can find this relationship at the Data Mine level.
+            */
             if (bot.processNode.referenceParent.executionStartedEvent !== undefined) {
                 if (bot.processNode.referenceParent.executionStartedEvent.referenceParent !== undefined) {
                     if (bot.processNode.referenceParent.executionStartedEvent.referenceParent.parentNode !== undefined) {
                         processThisDependsOn = bot.processNode.referenceParent.executionStartedEvent.referenceParent.parentNode
 
                         name = processThisDependsOn.name
-                        if (processThisDependsOn.config.monthlyInstances === true) {
-                            logger.fileName = MODULE_NAME + "." + name;
-                        }
-                        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> " + currentProcessKey + " depends on " + name); }
+                        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> " + currentProcessKey + " based on the Data Mine depends on " + name); }
+                    }
+                }
+            }
+
+            /*
+            Here we check if at the task level if there is an overriding configuration.
+            */
+            if (bot.processNode.executionStartedEvent !== undefined) {
+                if (bot.processNode.executionStartedEvent.referenceParent !== undefined) {
+                    if (bot.processNode.executionStartedEvent.referenceParent.parentNode !== undefined) {
+                        processThisDependsOn = bot.processNode.executionStartedEvent.referenceParent.parentNode
+
+                        name = processThisDependsOn.name
+                        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> " + currentProcessKey + " based on the User's Task depends on " + name); }
                     }
                 }
             }
 
             if (processThisDependsOn !== undefined) {
 
+                /* We need to remember that this process waits for another process in order to start. */
+                processConfig.waitsForExecutionFinishedEvent = true
+
                 /* We need to find at which network node is running the process that we need to hear from when it finished. */
                 let network = global.TASK_NETWORK
 
+                /* 
+                Notice that the first task that matches the dependency is going to be considered.
+                This means that if the same task, with the same process, pointing to the same
+                process definition in the same data mine, with the same exchange and market 
+                configured, is at two different network nodes at the same time, the current task
+                is going to depend on the first one found, not necesarily the one running at the 
+                same network node. If you need to control witch task specifically to depend on
+                and need to exactly the same task to exist, you should split the network in two
+                different networks, each one with unique tasks so as to avoid confussion. 
+                */
                 for (let i = 0; i < network.networkNodes.length; i++) {
                     let networkNode = network.networkNodes[i]
                     if (networkNode.dataMining !== undefined) {
-                        for (let j = 0; j < networkNode.dataMining.exchangeTasks.length; j++) {
-                            let exchangeTasks = networkNode.dataMining.exchangeTasks[j]
-                            for (let k = 0; k < exchangeTasks.taskManagers.length; k++) {
-                                let taskManager = exchangeTasks.taskManagers[k]
-                                for (let m = 0; m < taskManager.tasks.length; m++) {
-                                    let task = taskManager.tasks[m]
-                                    if (task.bot !== undefined) {
-                                        for (let n = 0; n < task.bot.processes.length; n++) {
-                                            let process = task.bot.processes[n]
-                                            if (process.marketReference !== undefined) {
-                                                if (process.marketReference.referenceParent !== undefined) {
-                                                    let market = process.marketReference.referenceParent
-                                                    let currentProcessMarket = bot.processNode.marketReference.referenceParent
+                        for (let j = 0; j < networkNode.dataMining.exchangeDataTasks.length; j++) {
+                            let exchangeTasks = networkNode.dataMining.exchangeDataTasks[j]
+                            for (let p = 0; p < exchangeTasks.marketDataTasks.length; p++) {
+                                let marketTasks = exchangeTasks.marketDataTasks[p]
+                                if (marketTasks.referenceParent === undefined) { continue }
+                                if (marketTasks.referenceParent.id !== global.MARKET_NODE.id) { continue }
+                                for (let q = 0; q < marketTasks.dataMineTasks.length; q++) {
+                                    let mineTasks = marketTasks.dataMineTasks[q]
+                                    for (let k = 0; k < mineTasks.taskManagers.length; k++) {
+                                        let taskManager = mineTasks.taskManagers[k]
+                                        for (let m = 0; m < taskManager.tasks.length; m++) {
+                                            let task = taskManager.tasks[m]
+                                            if (task.bot !== undefined) {
+                                                for (let n = 0; n < task.bot.processes.length; n++) {
+                                                    let process = task.bot.processes[n]
+                                                    if (process.referenceParent !== undefined) {
+                                                        let processDefinition = process.referenceParent
+                                                        if (processThisDependsOn.id === processDefinition.id) {
+                                                            /* 
+                                                            We found where the task that runs the process definition 
+                                                            we are waiting for is located on the network. 
+                                                            */
+                                                            thisObject.networkNode = networkNode
+                                                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) {
+                                                                logger.write(MODULE_NAME,
+                                                                    "[INFO] initialize -> Connecting to Websockets Server " + networkNode.name +
+                                                                    "  -> host = " + networkNode.config.host +
+                                                                    ' -> port = ' + networkNode.config.webSocketsPort + '.');
+                                                            }
 
-                                                    if (currentProcessMarket.id === market.id) {
-                                                        if (process.referenceParent !== undefined) {
-                                                            let processDefinition = process.referenceParent
-                                                            if (processThisDependsOn.id === processDefinition.id) {
+                                                            eventServerClient = EVENT_SERVER_CLIENT.newEventsServerClient(networkNode.config.host, networkNode.config.webSocketsPort)
+                                                            eventServerClient.initialize(onConnected)
 
-                                                                /* We found where the task that runs the process definition we are waiting for is located on the network. */
-
-                                                                thisObject.networkNode = networkNode
-                                                                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Connecting to Websockets Server " + networkNode.name + "  -> host = " + networkNode.config.host + ' -> port = ' + networkNode.config.webSocketsPort + '.'); }
-
-                                                                eventServerClient = EVENT_SERVER_CLIENT.newEventsServerClient(networkNode.config.host, networkNode.config.webSocketsPort)
-                                                                eventServerClient.initialize(onConnected)
-
-                                                                function onConnected() {
-                                                                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Connected to Websockets Server " + networkNode.name + "  -> host = " + networkNode.config.host + ' -> port = ' + networkNode.config.webSocketsPort + '.'); }
-
-                                                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
-                                                                    return
+                                                            function onConnected() {
+                                                                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) {
+                                                                    logger.write(MODULE_NAME, "[INFO] initialize -> Connected to Websockets Server " + networkNode.name +
+                                                                        "  -> host = " + networkNode.config.host +
+                                                                        ' -> port = ' + networkNode.config.webSocketsPort + '.');
                                                                 }
+
+                                                                callBackFunction(global.DEFAULT_OK_RESPONSE);
                                                                 return
                                                             }
+                                                            return
                                                         }
                                                     }
                                                 }

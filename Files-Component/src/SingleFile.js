@@ -30,7 +30,7 @@ function newSingleFile () {
     callBackFunction) {
     try {
       if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
-      if (INFO_LOG === true) { logger.write('[INFO] initialize -> key = ' + pDataMine.code.codeName + '-' + pBot.code.codeName + '-' + pProduct.code.codeName) }
+      if (INFO_LOG === true) { logger.write('[INFO] initialize -> key = ' + pDataMine.config.codeName + '-' + pBot.config.codeName + '-' + pProduct.config.codeName) }
 
       let exchange = pExchange
 
@@ -39,7 +39,7 @@ function newSingleFile () {
 
             /* Now we will get the file */
 
-      fileCloud.getFile(pDataMine, pBot, pSession, pProduct, pDataset, exchange, pMarket, undefined, undefined, undefined, undefined, onFileReceived)
+      fileCloud.getFile(pDataMine, pBot, pSession, pProduct, pDataset, exchange, pMarket, undefined, undefined, undefined, undefined, undefined, onFileReceived)
 
       function onFileReceived (err, pFile) {
         try {

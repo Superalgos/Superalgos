@@ -1,5 +1,5 @@
 
-function newFileCursor () {
+function newFileCursor() {
   const MODULE_NAME = 'File Cursor'
   const INFO_LOG = false
   const ERROR_LOG = true
@@ -43,7 +43,7 @@ function newFileCursor () {
 
   return thisObject
 
-  function finalize () {
+  function finalize() {
     try {
       eventsServerClient.stopListening('Dataset Updated', eventSubscriptionIdDatasetUpdated)
       eventsServerClient.stopListening('Data Range Updated', eventSubscriptionIdDataRangeUpdated)
@@ -75,7 +75,7 @@ function newFileCursor () {
     }
   }
 
-  function initialize (
+  function initialize(
     pFileCloud,
     pDataMine,
     pBot,
@@ -108,21 +108,21 @@ function newFileCursor () {
       endDateRange = pEndDateRange
       eventsServerClient = pEventsServerClient
 
-      let key = dataMine.code.codeName + '-' + bot.code.codeName + '-' + product.code.codeName + '-' + dataset.code.codeName + '-' + exchange.name + '-' + market.baseAsset + '/' + market.quotedAsset
+      let key = dataMine.config.codeName + '-' + bot.config.codeName + '-' + product.config.codeName + '-' + dataset.config.codeName + '-' + exchange.name + '-' + market.baseAsset + '/' + market.quotedAsset
       let callerId = key + '-' + periodName + newUniqueId()
       eventsServerClient.listenToEvent(key, 'Dataset Updated', undefined, callerId, onResponseDataSet, updateFiles)
 
-      key = dataMine.code.codeName + '-' + bot.code.codeName + '-' + product.code.codeName + '-' + exchange.name + '-' + market.baseAsset + '/' + market.quotedAsset
+      key = dataMine.config.codeName + '-' + bot.config.codeName + '-' + product.config.codeName + '-' + exchange.name + '-' + market.baseAsset + '/' + market.quotedAsset
       callerId = key + '-' + periodName + newUniqueId()
       eventsServerClient.listenToEvent(key, 'Data Range Updated', undefined, callerId, onResponseDataRange, updateDataRange)
 
       callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
 
-      function onResponseDataSet (message) {
+      function onResponseDataSet(message) {
         eventSubscriptionIdDatasetUpdated = message.eventSubscriptionId
       }
 
-      function onResponseDataRange (message) {
+      function onResponseDataRange(message) {
         eventSubscriptionIdDataRangeUpdated = message.eventSubscriptionId
       }
     } catch (err) {
@@ -131,7 +131,7 @@ function newFileCursor () {
     }
   }
 
-  function updateDataRange (message) {
+  function updateDataRange(message) {
     try {
       if (finalized === true) { return }
 
@@ -156,7 +156,7 @@ function newFileCursor () {
     }
   }
 
-  function updateFiles (message) {
+  function updateFiles(message) {
     try {
       if (finalized === true) { return }
 
@@ -168,9 +168,9 @@ function newFileCursor () {
 
       dateString = targetDate.getUTCFullYear() + '-' + pad(targetDate.getUTCMonth() + 1, 2) + '-' + pad(targetDate.getUTCDate(), 2)
 
-      fileCloud.getFile(dataMine, bot, session, product, dataset, exchange, market, periodName, targetDate, undefined, undefined, onFileReceived)
+      fileCloud.getFile(dataMine, bot, session, product, dataset, exchange, market, periodName, targetDate, undefined, undefined, undefined, onFileReceived)
 
-      function onFileReceived (err, file) {
+      function onFileReceived(err, file) {
         try {
           if (finalized === true) { return }
 
@@ -188,7 +188,7 @@ function newFileCursor () {
     }
   }
 
-  function setTimeFrame (pTimeFrame, pDatetime) {
+  function setTimeFrame(pTimeFrame, pDatetime) {
     try {
       if (finalized === true) { return }
 
@@ -225,7 +225,7 @@ function newFileCursor () {
         enterSavingMode()
       }
 
-      function enterSavingMode () {
+      function enterSavingMode() {
         try {
           switch (timeFrame) {
 
@@ -302,7 +302,7 @@ function newFileCursor () {
         }
       }
 
-      function exitSavingMode () {
+      function exitSavingMode() {
         try {
           switch (timeFrame) {
 
@@ -383,7 +383,7 @@ function newFileCursor () {
     }
   }
 
-  function setDatetime (pDatetime) {
+  function setDatetime(pDatetime) {
     try {
       if (finalized === true) { return }
 
@@ -398,7 +398,7 @@ function newFileCursor () {
     }
   }
 
-  function reload (callBackFunction) {
+  function reload(callBackFunction) {
     try {
       if (finalized === true) { return }
 
@@ -411,7 +411,7 @@ function newFileCursor () {
     }
   }
 
-  function getFiles (callBackFunction) {
+  function getFiles(callBackFunction) {
     try {
       if (finalized === true) { return }
 
@@ -422,7 +422,7 @@ function newFileCursor () {
 
       getNextFile()
 
-      function getNextFile () {
+      function getNextFile() {
         try {
           let targetDate = new Date(cursorDate)
           targetDate.setUTCDate(targetDate.getUTCDate() + j)
@@ -442,7 +442,7 @@ function newFileCursor () {
           if (beginDateRange !== undefined) {
             let compareBeginDate = removeTime(beginDateRange)
 
-            if (compareTargetDate.valueOf() < compareBeginDate) {
+            if (compareTargetDate.valueOf() < compareBeginDate.valueOf()) {
               controlLoop()
               return
             }
@@ -451,7 +451,7 @@ function newFileCursor () {
           if (endDateRange !== undefined) {
             let compareEndDate = removeTime(endDateRange)
 
-            if (compareTargetDate.valueOf() > compareEndDate) {
+            if (compareTargetDate.valueOf() >= compareEndDate.valueOf()) {
               controlLoop()
               return
             }
@@ -468,7 +468,7 @@ function newFileCursor () {
             if (thisObject.files.get(dateString) === undefined) {
               // We dont reload files we already have.
 
-              fileCloud.getFile(dataMine, bot, session, product, dataset, exchange, market, periodName, targetDate, undefined, undefined, onFileReceived)
+              fileCloud.getFile(dataMine, bot, session, product, dataset, exchange, market, periodName, targetDate, undefined, undefined, undefined, onFileReceived)
             } else {
               controlLoop()
             }
@@ -479,7 +479,7 @@ function newFileCursor () {
         }
       }
 
-      function onFileReceived (err, file) {
+      function onFileReceived(err, file) {
         try {
           if (INFO_LOG === true) { logger.write('[INFO] getFiles -> onFileReceived -> Entering function.') }
 
@@ -524,7 +524,7 @@ function newFileCursor () {
         }
       }
 
-      function controlLoop () {
+      function controlLoop() {
         try {
           if (INFO_LOG === true) { logger.write('[INFO] getFiles -> controlLoop -> Entering function.') }
 
@@ -548,7 +548,7 @@ function newFileCursor () {
     }
   }
 
-  function collectGarbage (callBackFunction) {
+  function collectGarbage(callBackFunction) {
     try {
       if (finalized === true) { return }
 
@@ -570,7 +570,7 @@ function newFileCursor () {
     }
   }
 
-  function getExpectedFiles () {
+  function getExpectedFiles() {
     if (finalized === true) { return }
     if (INFO_LOG === true) { logger.write('[INFO] getExpectedFiles -> Entering function.') }
 

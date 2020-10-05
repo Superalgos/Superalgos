@@ -2,8 +2,6 @@
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
-    const ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000;
-    const ONE_MIN_IN_MILISECONDS = 60 * 1000;
 
     const MODULE_NAME = "Commons";
 
@@ -12,7 +10,7 @@
         validateOutputDatasets: validateOutputDatasets,
         inflateDatafiles: inflateDatafiles,
         dataBuildingProcedure: dataBuildingProcedure,
-        calculationsProcedure: calculationsProcedure, 
+        calculationsProcedure: calculationsProcedure,
         generateFileContent: generateFileContent,
         writeFile: writeFile
     };
@@ -25,15 +23,15 @@
     function validateDataDependencies(dataDependencies, callBackFunction) {
         for (let i = 0; i < dataDependencies.length; i++) {
 
-            let dataDependencyNode = dataDependencies[i] 
+            let dataDependencyNode = dataDependencies[i]
 
             /* Basic validations to see if we have everything we need. */
-            if (dataDependencyNode.referenceParent.parentNode.code.singularVariableName === undefined) {
+            if (dataDependencyNode.referenceParent.parentNode.config.singularVariableName === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] start -> Product Definition without a Single Variable Name defined. Product Definition = " + JSON.stringify(dataDependencyNode.referenceParent.parentNode));
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return
             }
-            if (dataDependencyNode.referenceParent.parentNode.code.pluralVariableName === undefined) {
+            if (dataDependencyNode.referenceParent.parentNode.config.pluralVariableName === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] start -> Product Definition without a Plural Variable Name defined. Product Definition = " + JSON.stringify(dataDependencyNode.referenceParent.parentNode));
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return
@@ -61,12 +59,12 @@
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return
             }
-            if (outputDatasetNode.referenceParent.parentNode.code.singularVariableName === undefined) {
+            if (outputDatasetNode.referenceParent.parentNode.config.singularVariableName === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] start -> Product Definition without a Single Variable Name defined. Product Definition = " + JSON.stringify(outputDatasetNode.referenceParent.parentNode));
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return
             }
-            if (outputDatasetNode.referenceParent.parentNode.code.pluralVariableName === undefined) {
+            if (outputDatasetNode.referenceParent.parentNode.config.pluralVariableName === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] start -> Product Definition without a Plural Variable Name defined. Product Definition = " + JSON.stringify(outputDatasetNode.referenceParent.parentNode));
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return
@@ -77,9 +75,9 @@
                 return
             }
             if (outputDatasetNode.referenceParent.parentNode.dataBuilding === undefined) {
-                logger.write(MODULE_NAME, "[WARN] start -> Product Definition " + outputDatasetNode.referenceParent.parentNode.name + " without a Data Building Procedure. Product Definition = " + JSON.stringify(outputDatasetNode.referenceParent.parentNode));
+                logger.write(MODULE_NAME, "[WARN] start -> Product Definition " + outputDatasetNode.referenceParent.parentNode.name + " without a Data Building Procedure. Product Definition Name = " + outputDatasetNode.referenceParent.parentNode.name);
             }
-            if (outputDatasetNode.referenceParent.code.codeName === undefined) {
+            if (outputDatasetNode.referenceParent.config.codeName === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] start -> Dataset witn no codeName defined. Product Dataset = " + JSON.stringify(outputDatasetNode.referenceParent));
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return
@@ -91,35 +89,49 @@
                 return
             }
 
-            if (outputDatasetNode.referenceParent.parentNode.code.codeName === undefined) {
+            if (outputDatasetNode.referenceParent.parentNode.config.codeName === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] start -> Product Definition witn no codeName defined. Product Definition = " + JSON.stringify(outputDatasetNode.referenceParent.parentNode));
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return
             }
 
-            if (outputDatasetNode.referenceParent.parentNode.parentNode === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] start -> Product Definition not attached to a Bot. Product Definition = " + JSON.stringify(outputDatasetNode.referenceParent.parentNode));
+            let botNode = global.FIND_NODE_IN_NODE_MESH(outputDatasetNode, 'Indicator Bot')
+            if (botNode === undefined) {
+                botNode = global.FIND_NODE_IN_NODE_MESH(outputDatasetNode, 'Trading Bot')
+            }
+            if (botNode === undefined) {
+                logger.write(MODULE_NAME, "[ERROR] start -> Product Definition not attached to a Bot. Product Definition = ");
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return
             }
 
-            if (outputDatasetNode.referenceParent.parentNode.parentNode.code.codeName === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] start -> Bot witn no codeName defined. Bot = " + JSON.stringify(outputDatasetNode.referenceParent.parentNode.parentNode));
+            if (botNode.config.codeName === undefined) {
+                logger.write(MODULE_NAME, "[ERROR] start -> Bot witn no codeName defined.");
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return
             }
 
-            if (outputDatasetNode.referenceParent.parentNode.parentNode.parentNode === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] start -> Bot not attached to a Data Mine. Bot = " + JSON.stringify(outputDatasetNode.referenceParent.parentNode.parentNode));
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                return
-            }
-
-            if (outputDatasetNode.referenceParent.parentNode.parentNode.parentNode.code.codeName === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] start -> Data Mine witn no codeName defined. Data Mine = " + JSON.stringify(outputDatasetNode.referenceParent.parentNode.parentNode.parentNode));
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                return
-            }
+            let dataMineNode = global.FIND_NODE_IN_NODE_MESH(outputDatasetNode, 'Data Mine')
+            if (dataMineNode === undefined) {
+                let tradingMineNode = global.FIND_NODE_IN_NODE_MESH(outputDatasetNode, 'Trading Mine')
+                if (tradingMineNode === undefined) {
+                    logger.write(MODULE_NAME, "[ERROR] start -> Bot not attached to a Data Mine or a Trading Mine.");
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    return
+                } else {
+                    if (tradingMineNode.config.codeName === undefined) {
+                        logger.write(MODULE_NAME, "[ERROR] start -> Trading Mine witn no codeName defined.");
+                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                        return
+                    }
+                }  
+            } else {
+                if (dataMineNode.config.codeName === undefined) {
+                    logger.write(MODULE_NAME, "[ERROR] start -> Data Mine witn no codeName defined.");
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    return
+                }
+            }            
         }
         return true
     }
@@ -132,19 +144,19 @@
         */
         for (let i = 0; i < dataDependencies.length; i++) {
 
-            let dataFile 
+            let dataFile
             let jsonData        // Datafile converted into Json objects
             let inputData       // Includes calculated properties
             let singularVariableName    // name of the variable for this product
             let recordDefinition
 
-            let dataDependencyNode = dataDependencies[i] 
+            let dataDependencyNode = dataDependencies[i]
             dataFile = dataFiles.get(dataDependencyNode.id)
 
             if (dataFile === undefined) { continue } // When a datafile is not found it might be because we are processing market or daily and at the dependency array there are both types mixed up.
 
             recordDefinition = dataDependencyNode.referenceParent.parentNode.record
-            singularVariableName = dataDependencyNode.referenceParent.parentNode.code.singularVariableName
+            singularVariableName = dataDependencyNode.referenceParent.parentNode.config.singularVariableName
             /* Transform the raw data into JSON objects */
             jsonData = jsonifyDataFile(dataFile, recordDefinition)
             /* Add the calculated properties */
@@ -153,7 +165,7 @@
             } else {
                 inputData = jsonData
             }
-            products[dataDependencyNode.referenceParent.parentNode.code.pluralVariableName] = inputData
+            products[dataDependencyNode.referenceParent.parentNode.config.pluralVariableName] = inputData
 
             /* The main dependency is defined as the first dependency processed. */
             if (mainDependency.records === undefined) {
@@ -177,8 +189,8 @@
             let record = {}
             for (let j = 0; j < recordDefinition.properties.length; j++) {
                 let property = recordDefinition.properties[j]
-                if (property.code.isCalculated !== true) {
-                    record[property.code.codeName] = dataFile[i][j]
+                if (property.config.isCalculated !== true) {
+                    record[property.config.codeName] = dataFile[i][j]
                 }
             }
 
@@ -199,7 +211,7 @@
 
         let system = { // These are the available system variables to be used in User Code and Formulas
             timeFrame: timeFrame,
-            ONE_DAY_IN_MILISECONDS: ONE_DAY_IN_MILISECONDS
+            ONE_DAY_IN_MILISECONDS: global.ONE_DAY_IN_MILISECONDS
         }
         let variable = {} // This is the structure where the user will define its own variables that will be shared across different code blocks and formulas.
         let results = []
@@ -238,13 +250,13 @@
                     /* For each calculated property we apply its formula*/
                     for (let j = 0; j < recordDefinition.properties.length; j++) {
                         let property = recordDefinition.properties[j]
-                        if (property.code.isCalculated === true) {
+                        if (property.config.isCalculated === true) {
                             if (property.formula !== undefined) {
                                 if (property.formula.code !== undefined) {
                                     try {
                                         let newValue = eval(property.formula.code)
                                         let currentRecord = product[variableName]
-                                        currentRecord[property.code.codeName] = newValue
+                                        currentRecord[property.config.codeName] = newValue
                                     } catch (err) {
                                         logger.write(MODULE_NAME, "[ERROR] calculationsProcedure -> loop -> formula -> Error executing User Code. Error = " + err.stack)
                                         logger.write(MODULE_NAME, "[ERROR] calculationsProcedure -> loop -> formula -> Error executing User Code. product = " + JSON.stringify(product))
@@ -277,7 +289,7 @@
         interExecutionMemory,
         processingDailyFiles,
         currentDay
-        ) {
+    ) {
 
         /* 
             This function has as an input the products object, with all the information
@@ -286,12 +298,12 @@
             a new set of information.
         */
 
-        let lastInstantOfTheDay 
+        let lastInstantOfTheDay
         let yesterday = {}
         let system = { // These are the available system variables to be used in User Code and Formulas
             timeFrame: timeFrame,
-            ONE_DAY_IN_MILISECONDS: ONE_DAY_IN_MILISECONDS,
-            ONE_MIN_IN_MILISECONDS: ONE_MIN_IN_MILISECONDS
+            ONE_DAY_IN_MILISECONDS: global.ONE_DAY_IN_MILISECONDS,
+            ONE_MIN_IN_MILISECONDS: global.ONE_MIN_IN_MILISECONDS
         }
         let variable = {} // This is the structure where the user will define its own variables that will be shared across different code blocks and formulas.
         let results = []
@@ -313,7 +325,7 @@
                 let dataDependencyMap = new Map()
                 for (let j = 0; j < dataDependecyArray.length; j++) {
                     let record = dataDependecyArray[j]
-                    let key = record.begin.toString() + '-' + record.end.toString()  
+                    let key = record.begin.toString() + '-' + record.end.toString()
                     dataDependencyMap.set(key, record)
                 }
                 dataDependencies[dataDependencyName] = dataDependencyMap
@@ -321,7 +333,7 @@
         }
 
         function getElement(dependencyName, currentRecordPrimaryDataDependency) {
-            let key = currentRecordPrimaryDataDependency.begin.toString() + '-' + currentRecordPrimaryDataDependency.end.toString()  
+            let key = currentRecordPrimaryDataDependency.begin.toString() + '-' + currentRecordPrimaryDataDependency.end.toString()
             return dataDependencies[dependencyName].get(key)
         }
 
@@ -340,7 +352,7 @@
 
         if (processingDailyFiles) {
             /* Initialization of Last Instance */
-            lastInstantOfTheDay = currentDay.valueOf() + ONE_DAY_IN_MILISECONDS - 1;
+            lastInstantOfTheDay = currentDay.valueOf() + global.ONE_DAY_IN_MILISECONDS - 1;
 
             if (interExecutionMemory[productName] === undefined) {
                 /* The first time the intialization variables goes to the Inter Execution Memory. */
@@ -349,7 +361,7 @@
             }
             else {
                 /* We override the initialization, since the valid stuff is already at the Inter Execution Memory */
-                variable = JSON.parse(JSON.stringify(interExecutionMemory[productName].variable)) 
+                variable = JSON.parse(JSON.stringify(interExecutionMemory[productName].variable))
             }
         }
 
@@ -387,13 +399,13 @@
                     /* For each non-calculated property we apply its formula*/
                     for (let j = 0; j < recordDefinition.properties.length; j++) {
                         let property = recordDefinition.properties[j]
-                        if (property.code.isCalculated !== true) {
+                        if (property.config.isCalculated !== true) {
                             if (property.formula !== undefined) {
                                 if (property.formula.code !== undefined) {
                                     try {
                                         let newValue = eval(property.formula.code)
                                         let currentRecord = product[variableName]
-                                        currentRecord[property.code.codeName] = newValue
+                                        currentRecord[property.config.codeName] = newValue
                                     } catch (err) {
                                         logger.write(MODULE_NAME, "[ERROR] dataBuildingProcedure -> loop -> formula -> Error executing User Code. Error = " + err.stack)
                                         logger.write(MODULE_NAME, "[ERROR] dataBuildingProcedure -> loop -> formula -> Error executing User Code. product = " + JSON.stringify(product))
@@ -411,7 +423,7 @@
                         results.push(product[variableName]);
                     }
 
-                    /* While we are positioned at Yesterday, we keey updating this data structure. */
+                    /* While we are positioned at Yesterday, we keep updating this data structure. */
                     if (processingDailyFiles) {
                         if (positionedAtYesterday) {
                             yesterday.variable = JSON.parse(JSON.stringify(variable))
@@ -457,7 +469,7 @@
                             at the next day, in whole, even if it starts in the previous day.
                         */
 
-                        let lastInstantOdDay = currentDay.valueOf() + ONE_DAY_IN_MILISECONDS - 1;
+                        let lastInstantOdDay = currentDay.valueOf() + global.ONE_DAY_IN_MILISECONDS - 1;
 
                         if (record.end < currentDay.valueOf() - 1) { continue; }
                         if (record.end === lastInstantOdDay) { continue; }
@@ -474,13 +486,13 @@
                 let propertySeparator = ""
                 for (let j = 0; j < recordDefinition.properties.length; j++) {
                     let property = recordDefinition.properties[j]
-                    if (property.code.isCalculated !== true) {
+                    if (property.config.isCalculated !== true) {
                         fileContent = fileContent + propertySeparator
-                        if (property.code.isString === true) {
+                        if (property.config.isString === true) {
                             fileContent = fileContent + '"'
                         }
-                        fileContent = fileContent + record[property.code.codeName]
-                        if (property.code.isString === true) {
+                        fileContent = fileContent + record[property.config.codeName]
+                        if (property.config.isString === true) {
                             fileContent = fileContent + '"'
                         }
                         if (propertySeparator === "") { propertySeparator = ","; }

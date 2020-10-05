@@ -1,7 +1,5 @@
 
- ﻿/* User Interface Colors */
-
-const CANVAS_APP_NAME = 'Canvas App'
+/* User Interface Colors */
 
 const UI_COLOR = {
     DARK: "48, 48, 54",
@@ -28,6 +26,8 @@ const UI_FONT = {
     SECONDARY: "Source Code Pro"
 };
 
+const DOCUMENTATION_URL_PREFIX = 'https://docs.superalgos.org/'
+
 const MAC_AMOUNT_FACTOR = 5
 const IS_MAC = navigator.platform.toUpperCase().indexOf('MAC') >= 0
 
@@ -48,37 +48,39 @@ const ZOOM_OUT_THRESHOLD_FOR_DISPLAYING_SCALES = 3
 let FONT_ASPECT_RATIO = 0.32;
 let ANIMATION_FRAME_PER_SECONDS
 
+let DISABLE_BROWSER_RESIZE_EVENT = false
+
 const GET_CONTAINER_PURPOSE = {
-  MOUSE_OVER: 1,
-  MOUSE_WHEEL: 2,
-  MOUSE_CLICK: 3,
-  DRAGGING: 4
+    MOUSE_OVER: 1,
+    MOUSE_WHEEL: 2,
+    MOUSE_CLICK: 3,
+    DRAGGING: 4
 }
 
 const ANGLE_TO_PARENT = {
-  NOT_FIXED: 0,
-  RANGE_360: 1,
-  RANGE_180: 2,
-  RANGE_90: 3,
-  RANGE_45: 4
+    NOT_FIXED: 0,
+    RANGE_360: 1,
+    RANGE_180: 2,
+    RANGE_90: 3,
+    RANGE_45: 4
 }
 
 const DISTANCE_TO_PARENT = {
-  NOT_FIXED: 0,
-  PARENT_025X: 1,
-  PARENT_050X: 2,
-  PARENT_100X: 3,
-  PARENT_150X: 4,
-  PARENT_200X: 5
+    NOT_FIXED: 0,
+    PARENT_025X: 1,
+    PARENT_050X: 2,
+    PARENT_100X: 3,
+    PARENT_150X: 4,
+    PARENT_200X: 5
 }
 
 const ARRANGEMENT_STYLE = {
-  CONCAVE: 0,
-  CONVEX: 1,
-  VERTICAL_RIGHT: 2,
-  VERTICAL_LEFT: 3,
-  HORIZONTAL_BOTTOM: 4,
-  HORIZONTAL_TOP: 5
+    CONCAVE: 0,
+    CONVEX: 1,
+    VERTICAL_RIGHT: 2,
+    VERTICAL_LEFT: 3,
+    HORIZONTAL_BOTTOM: 4,
+    HORIZONTAL_TOP: 5
 }
 
 /* User Interface Panels */
@@ -138,11 +140,11 @@ let LOGGED_IN_USER_LOCAL_STORAGE_KEY
 let LOGGED_IN_ACCESS_TOKEN_LOCAL_STORAGE_KEY
 
 if (testUser !== null) {
-   LOGGED_IN_USER_LOCAL_STORAGE_KEY = "test_user"
-   LOGGED_IN_ACCESS_TOKEN_LOCAL_STORAGE_KEY =  "test_access_token"
+    LOGGED_IN_USER_LOCAL_STORAGE_KEY = "test_user"
+    LOGGED_IN_ACCESS_TOKEN_LOCAL_STORAGE_KEY = "test_access_token"
 } else {
-  LOGGED_IN_USER_LOCAL_STORAGE_KEY =  "user"
-  LOGGED_IN_ACCESS_TOKEN_LOCAL_STORAGE_KEY = "access_token"
+    LOGGED_IN_USER_LOCAL_STORAGE_KEY = "user"
+    LOGGED_IN_ACCESS_TOKEN_LOCAL_STORAGE_KEY = "access_token"
 }
 
 const MAX_DEFAULT_RATE_SCALE_VALUE = 35000; // This is needed to know the scale of the market time line.
@@ -178,7 +180,8 @@ let INITIAL_ZOOM_LEVEL = -28.25       // This is the zoom level at the view port
 let INITIAL_TIME_PERIOD = ONE_DAY_IN_MILISECONDS  // This value will be overwritten at the canvas.chartingSpace.viewport.initialize if the user had a prevous session with this same browser.
 let VERY_LARGE_NUMBER = 100000000000000
 
-let CURRENT_TOP_MARGIN = window.canvasApp.topMargin
+const TOP_MARGIN = 0
+let CURRENT_TOP_MARGIN = TOP_MARGIN
 let AT_FULL_SCREEN_MODE = false
 
 let maxDate = new Date();
@@ -221,7 +224,7 @@ const TIME_MACHINE_WIDTH = 8;
 const TIME_MACHINE_HEIGHT = 8;
 
 let mediaRecorder // to downloadText canvas animation as a mediaRecorder
-let marketPanoramaCanvas 
+let marketPanoramaCanvas
 let ARE_WE_RECORDING_A_VIDEO = false
 let ARE_WE_RECORDING_A_MARKET_PANORAMA = false
 let PANORAMA_WAS_PANNED = false

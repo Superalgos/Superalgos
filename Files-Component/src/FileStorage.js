@@ -1,4 +1,4 @@
-function newFileStorage (host, port) {
+function newFileStorage(host, port) {
   const MODULE_NAME = 'File Storage'
   const INFO_LOG = false
   const logger = newWebDebugLog()
@@ -27,12 +27,9 @@ function newFileStorage (host, port) {
     getFileFromHost: getFileFromHost
   }
 
-  if (host === '' || host === undefined) { host = 'localhost' }
-  if (port === '' || port === undefined) { port = '34247' }
-
   return thisObject
 
-  async function getFileFromHost (filePath, callBackFunction, pathComplete) {
+  async function getFileFromHost(filePath, callBackFunction, pathComplete) {
     try {
       if (INFO_LOG === true) { logger.write('[INFO] getFileFromHost -> Entering function.') }
 
@@ -41,8 +38,10 @@ function newFileStorage (host, port) {
         folder = 'Storage/'
       }
       let url = folder + filePath
-      if (host !== undefined) {
+      if (host !== undefined && port !== undefined) {
         url = 'http://' + host + ':' + port + '/' + folder + filePath
+      } else {
+        url = folder + filePath
       }
 
       callServer(undefined, url, (response, fileContent) => {
@@ -67,7 +66,7 @@ function newFileStorage (host, port) {
     }
   }
 
-  function verifyRetry (errorCode) {
+  function verifyRetry(errorCode) {
     for (let i = 0; i < recoverableErrors.length; i++) {
       const error = recoverableErrors[i]
       if (error === errorCode) {

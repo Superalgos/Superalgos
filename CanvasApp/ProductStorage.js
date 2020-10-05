@@ -1,9 +1,9 @@
- ﻿
-function newProductStorage (name) {
-  const MODULE_NAME = 'Product Storage'
-  const ERROR_LOG = true
-  const logger = newWebDebugLog()
-  logger.fileName = MODULE_NAME
+
+function newProductStorage(name) {
+    const MODULE_NAME = 'Product Storage'
+    const ERROR_LOG = true
+    const logger = newWebDebugLog()
+    logger.fileName = MODULE_NAME
 
     /*
 
@@ -24,310 +24,310 @@ function newProductStorage (name) {
 
     */
 
-  let thisObject = {
-    eventHandler: undefined,
-    marketFiles: [],
-    dailyFiles: [],
-    singleFile: [],
-    fileSequences: [],
-    setDatetime: setDatetime,
-    setTimeFrame: setTimeFrame,
-    initialize: initialize,
-    finalize: finalize
-  }
+    let thisObject = {
+        eventHandler: undefined,
+        marketFiles: [],
+        dailyFiles: [],
+        singleFile: [],
+        fileSequences: [],
+        setDatetime: setDatetime,
+        setTimeFrame: setTimeFrame,
+        initialize: initialize,
+        finalize: finalize
+    }
 
-  thisObject.eventHandler = newEventHandler()
+    thisObject.eventHandler = newEventHandler()
 
     /* We name the event Handler to easy debugging. */
 
-  thisObject.eventHandler.name = 'Storage-' + name
+    thisObject.eventHandler.name = 'Storage-' + name
 
-  let datetime
-  let timeFrame
+    let datetime
+    let timeFrame
 
-  return thisObject
+    return thisObject
 
-  function finalize () {
-    try {
-      for (let i = 0; i < thisObject.marketFiles.length; i++) {
-        let marketFile = thisObject.marketFiles[i]
-        marketFile.finalize()
-      }
+    function finalize() {
+        try {
+            for (let i = 0; i < thisObject.marketFiles.length; i++) {
+                let marketFile = thisObject.marketFiles[i]
+                marketFile.finalize()
+            }
 
-      thisObject.marketFiles = undefined
+            thisObject.marketFiles = undefined
 
-      for (let i = 0; i < thisObject.dailyFiles.length; i++) {
-        let dailyFile = thisObject.dailyFiles[i]
-        dailyFile.finalize()
-      }
+            for (let i = 0; i < thisObject.dailyFiles.length; i++) {
+                let dailyFile = thisObject.dailyFiles[i]
+                dailyFile.finalize()
+            }
 
-      thisObject.dailyFiles = undefined
+            thisObject.dailyFiles = undefined
 
-      for (let i = 0; i < thisObject.fileSequences.length; i++) {
-        let fileSequence = thisObject.fileSequences[i]
-        fileSequence.finalize()
-      }
+            for (let i = 0; i < thisObject.fileSequences.length; i++) {
+                let fileSequence = thisObject.fileSequences[i]
+                fileSequence.finalize()
+            }
 
-      thisObject.fileSequences = undefined
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack) }
+            thisObject.fileSequences = undefined
+        } catch (err) {
+            if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack) }
+        }
     }
-  }
 
-  function initialize (dataMine, bot, session, product, exchange, market, pDatetime, pTimeFrame, host, port, eventsServerClient, callBackFunction) {
-    try {
-      datetime = pDatetime
-      timeFrame = pTimeFrame
+    function initialize(dataMine, bot, session, product, exchange, market, pDatetime, pTimeFrame, host, port, eventsServerClient, callBackFunction) {
+        try {
+            datetime = pDatetime
+            timeFrame = pTimeFrame
 
-      let dataSetsToLoad = 0
-      let dataSetsLoaded = 0
+            let dataSetsToLoad = 0
+            let dataSetsLoaded = 0
 
-      for (let i = 0; i < product.datasets.length; i++) {
-        let dataset = product.datasets[i]
+            for (let i = 0; i < product.datasets.length; i++) {
+                let dataset = product.datasets[i]
 
-        switch (dataset.code.type) {
-          case 'Market Files': {
-            dataSetsToLoad++
+                switch (dataset.config.type) {
+                    case 'Market Files': {
+                        dataSetsToLoad++
 
-            let marketFiles = newMarketFiles()
-            marketFiles.initialize(dataMine, bot, session, product, dataset, exchange, market, host, port, eventsServerClient, onMarketFileReady)
-            thisObject.marketFiles.push(marketFiles)
-          }
-            break
+                        let marketFiles = newMarketFiles()
+                        marketFiles.initialize(dataMine, bot, session, product, dataset, exchange, market, host, port, eventsServerClient, onMarketFileReady)
+                        thisObject.marketFiles.push(marketFiles)
+                    }
+                        break
 
-          case 'Daily Files': {
-            dataSetsToLoad++
+                    case 'Daily Files': {
+                        dataSetsToLoad++
 
-            let dailyFiles = newDailyFiles()
-            dailyFiles.initialize(dataMine, bot, session, product, dataset, exchange, market, pDatetime, pTimeFrame, host, port, eventsServerClient, onDailyFileReady)
-            thisObject.dailyFiles.push(dailyFiles)
-          }
-            break
+                        let dailyFiles = newDailyFiles()
+                        dailyFiles.initialize(dataMine, bot, session, product, dataset, exchange, market, pDatetime, pTimeFrame, host, port, eventsServerClient, onDailyFileReady)
+                        thisObject.dailyFiles.push(dailyFiles)
+                    }
+                        break
 
-          case 'Single File': {
-            dataSetsToLoad++
+                    case 'Single File': {
+                        dataSetsToLoad++
 
-            let singleFile = newSingleFile()
-            singleFile.initialize(dataMine, bot, session, product, dataset, exchange, market, host, port, eventsServerClient, onSingleFileReady)
-            thisObject.singleFile.push(singleFile)
-          }
-            break
+                        let singleFile = newSingleFile()
+                        singleFile.initialize(dataMine, bot, session, product, dataset, exchange, market, host, port, eventsServerClient, onSingleFileReady)
+                        thisObject.singleFile.push(singleFile)
+                    }
+                        break
 
-          case 'File Sequence': {
-            dataSetsToLoad++
+                    case 'File Sequence': {
+                        dataSetsToLoad++
 
-            let fileSequences = newFileSequence()
-            fileSequences.initialize(dataMine, bot, session, product, dataset, exchange, market, host, port, eventsServerClient, onFileSequenceReady)
-            thisObject.fileSequences.push(fileSequences)
-          }
-            break
-          default:
-            if (ERROR_LOG === true) { logger.write('[WARN] initialize -> dataset with no type defined or type not supported -> dataset.code.type = ' + dataset.code.type) }
-        }
-
-        function onMarketFileReady (err, pCaller) {
-          try {
-            switch (err.result) {
-              case GLOBAL.DEFAULT_OK_RESPONSE.result: {
-                break
-              }
-              case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
-                callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-                return
-              }
-            }
-            let event = {
-              totalValue: pCaller.getExpectedFiles(),
-              currentValue: pCaller.getFilesLoaded(),
-              filesNotLoaded: pCaller.getFilesNotLoaded()
-            }
-
-            thisObject.eventHandler.raiseEvent('Market File Loaded', event)
-
-            if (event.filesNotLoaded === event.totalValue) {
-              dataSetsToLoad--
-              checkInitializeComplete()
-              return
-            }
-
-            if (event.currentValue + event.filesNotLoaded === event.totalValue) {
-              dataSetsLoaded++
-              checkInitializeComplete()
-            }
-          } catch (err) {
-            callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-          }
-        }
-
-        function onDailyFileReady (err, pCaller) {
-          try {
-            switch (err.result) {
-              case GLOBAL.DEFAULT_OK_RESPONSE.result: {
-                break
-              }
-
-              case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
-                callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-                return
-              }
-
-              case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
-                if (err.message === 'Dataset Unavailable.') {
-                  dataSetsToLoad--
-                  checkInitializeComplete()
-                  return
-                } else {
-                  callBackFunction(err)
-                  return
+                        let fileSequences = newFileSequence()
+                        fileSequences.initialize(dataMine, bot, session, product, dataset, exchange, market, host, port, eventsServerClient, onFileSequenceReady)
+                        thisObject.fileSequences.push(fileSequences)
+                    }
+                        break
+                    default:
+                        if (ERROR_LOG === true) { logger.write('[WARN] initialize -> dataset with no type defined or type not supported -> dataset.config.type = ' + dataset.config.type) }
                 }
-              }
-              default: {
-                callBackFunction(err)
-                return
-              }
-            }
 
-            let event = {
-              totalValue: pCaller.getExpectedFiles(),
-              currentValue: pCaller.getFilesLoaded()
-            }
+                function onMarketFileReady(err, pCaller) {
+                    try {
+                        switch (err.result) {
+                            case GLOBAL.DEFAULT_OK_RESPONSE.result: {
+                                break
+                            }
+                            case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
+                                callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+                                return
+                            }
+                        }
+                        let event = {
+                            totalValue: pCaller.getExpectedFiles(),
+                            currentValue: pCaller.getFilesLoaded(),
+                            filesNotLoaded: pCaller.getFilesNotLoaded()
+                        }
 
-            thisObject.eventHandler.raiseEvent('Daily File Loaded', event)
+                        thisObject.eventHandler.raiseEvent('Market File Loaded', event)
 
-            if (event.currentValue === event.totalValue) {
-              dataSetsLoaded++
-              checkInitializeComplete()
+                        if (event.filesNotLoaded === event.totalValue) {
+                            dataSetsToLoad--
+                            checkInitializeComplete()
+                            return
+                        }
+
+                        if (event.currentValue + event.filesNotLoaded === event.totalValue) {
+                            dataSetsLoaded++
+                            checkInitializeComplete()
+                        }
+                    } catch (err) {
+                        callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+                    }
+                }
+
+                function onDailyFileReady(err, pCaller) {
+                    try {
+                        switch (err.result) {
+                            case GLOBAL.DEFAULT_OK_RESPONSE.result: {
+                                break
+                            }
+
+                            case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
+                                callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+                                return
+                            }
+
+                            case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
+                                if (err.message === 'Dataset Unavailable.') {
+                                    dataSetsToLoad--
+                                    checkInitializeComplete()
+                                    return
+                                } else {
+                                    callBackFunction(err)
+                                    return
+                                }
+                            }
+                            default: {
+                                callBackFunction(err)
+                                return
+                            }
+                        }
+
+                        let event = {
+                            totalValue: pCaller.getExpectedFiles(),
+                            currentValue: pCaller.getFilesLoaded()
+                        }
+
+                        thisObject.eventHandler.raiseEvent('Daily File Loaded', event)
+
+                        if (event.currentValue === event.totalValue) {
+                            dataSetsLoaded++
+                            checkInitializeComplete()
+                        }
+                    } catch (err) {
+                        callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+                    }
+                }
+
+                function onSingleFileReady(err, pCaller) {
+                    try {
+                        switch (err.result) {
+                            case GLOBAL.DEFAULT_OK_RESPONSE.result: {
+                                break
+                            }
+
+                            case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
+                                callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+                                return
+                            }
+
+                            case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
+                                callBackFunction(err)
+                                return
+                            }
+
+                            default: {
+                                callBackFunction(err)
+                                return
+                            }
+                        }
+                        let event = {
+                            totalValue: 1,
+                            currentValue: 1
+                        }
+                        thisObject.eventHandler.raiseEvent('Single File Loaded', event)
+
+                        if (event.currentValue === event.totalValue) {
+                            dataSetsLoaded++
+                            checkInitializeComplete()
+                        }
+                    } catch (err) {
+                        callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+                    }
+                }
+
+                function onFileSequenceReady(err, pCaller) {
+                    try {
+                        switch (err.result) {
+                            case GLOBAL.DEFAULT_OK_RESPONSE.result: {
+                                break
+                            }
+                            case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
+                                callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+                                return
+                            }
+                            case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
+                                callBackFunction(err)
+                                return
+                            }
+                            default: {
+                                callBackFunction(err)
+                                return
+                            }
+                        }
+                        let event
+                        if (pCaller !== undefined) {
+                            event = {
+                                totalValue: pCaller.getExpectedFiles(),
+                                currentValue: pCaller.getFilesLoaded()
+                            }
+                        } else { // When there are no data the reference to the caller wont arrive here.
+                            event = {
+                                totalValue: 1,
+                                currentValue: 1
+                            }
+                        }
+
+                        thisObject.eventHandler.raiseEvent('File Sequence Loaded', event)
+
+                        if (event.currentValue === event.totalValue) {
+                            dataSetsLoaded++
+                            checkInitializeComplete()
+                        }
+                    } catch (err) {
+                        callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+                    }
+                }
+
+                function checkInitializeComplete() {
+                    try {
+                        if (dataSetsLoaded === dataSetsToLoad) {
+                            callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
+                        }
+                    } catch (err) {
+                        if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> checkInitializeComplete -> err = ' + err.stack) }
+                        callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+                    }
+                }
             }
-          } catch (err) {
+        } catch (err) {
+            if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
             callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-          }
         }
-
-        function onSingleFileReady (err, pCaller) {
-          try {
-            switch (err.result) {
-              case GLOBAL.DEFAULT_OK_RESPONSE.result: {
-                break
-              }
-
-              case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
-                callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-                return
-              }
-
-              case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
-                callBackFunction(err)
-                return
-              }
-
-              default: {
-                callBackFunction(err)
-                return
-              }
-            }
-            let event = {
-              totalValue: 1,
-              currentValue: 1
-            }
-            thisObject.eventHandler.raiseEvent('Single File Loaded', event)
-
-            if (event.currentValue === event.totalValue) {
-              dataSetsLoaded++
-              checkInitializeComplete()
-            }
-          } catch (err) {
-            callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-          }
-        }
-
-        function onFileSequenceReady (err, pCaller) {
-          try {
-            switch (err.result) {
-              case GLOBAL.DEFAULT_OK_RESPONSE.result: {
-                break
-              }
-              case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
-                callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-                return
-              }
-              case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
-                callBackFunction(err)
-                return
-              }
-              default: {
-                callBackFunction(err)
-                return
-              }
-            }
-            let event
-            if (pCaller !== undefined) {
-              event = {
-                totalValue: pCaller.getExpectedFiles(),
-                currentValue: pCaller.getFilesLoaded()
-              }
-            } else { // When there are no data the reference to the caller wont arrive here.
-              event = {
-                totalValue: 1,
-                currentValue: 1
-              }
-            }
-
-            thisObject.eventHandler.raiseEvent('File Sequence Loaded', event)
-
-            if (event.currentValue === event.totalValue) {
-              dataSetsLoaded++
-              checkInitializeComplete()
-            }
-          } catch (err) {
-            callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-          }
-        }
-
-        function checkInitializeComplete () {
-          try {
-            if (dataSetsLoaded === dataSetsToLoad) {
-              callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
-            }
-          } catch (err) {
-            if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> checkInitializeComplete -> err = ' + err.stack) }
-            callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-          }
-        }
-      }
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
-      callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
     }
-  }
 
-  function setDatetime (pDatetime) {
+    function setDatetime(pDatetime) {
         /* If there is a change in the day, then we take some actions, otherwise, we dont. */
 
-    let currentDate = Math.trunc(datetime.valueOf() / ONE_DAY_IN_MILISECONDS)
-    let newDate = Math.trunc(pDatetime.valueOf() / ONE_DAY_IN_MILISECONDS)
+        let currentDate = Math.trunc(datetime.valueOf() / ONE_DAY_IN_MILISECONDS)
+        let newDate = Math.trunc(pDatetime.valueOf() / ONE_DAY_IN_MILISECONDS)
 
-    datetime = new Date(pDatetime)
+        datetime = new Date(pDatetime)
 
-    if (currentDate !== newDate) {
-      if (timeFrame <= _1_HOUR_IN_MILISECONDS) {
-        for (let i = 0; i < thisObject.dailyFiles.length; i++) {
-          thisObject.dailyFiles[i].setDatetime(pDatetime)
+        if (currentDate !== newDate) {
+            if (timeFrame <= _1_HOUR_IN_MILISECONDS) {
+                for (let i = 0; i < thisObject.dailyFiles.length; i++) {
+                    thisObject.dailyFiles[i].setDatetime(pDatetime)
+                }
+            }
         }
-      }
     }
-  }
 
-  function setTimeFrame (pTimeFrame) {
+    function setTimeFrame(pTimeFrame) {
         /* We are going to filter out the cases in which the timeFrame received is the same that the one we already know. */
 
-    if (timeFrame !== pTimeFrame) {
-      timeFrame = pTimeFrame
+        if (timeFrame !== pTimeFrame) {
+            timeFrame = pTimeFrame
 
-      if (timeFrame <= _1_HOUR_IN_MILISECONDS) {
-        for (let i = 0; i < thisObject.dailyFiles.length; i++) {
-          thisObject.dailyFiles[i].setTimeFrame(pTimeFrame, datetime)
+            if (timeFrame <= _1_HOUR_IN_MILISECONDS) {
+                for (let i = 0; i < thisObject.dailyFiles.length; i++) {
+                    thisObject.dailyFiles[i].setTimeFrame(pTimeFrame, datetime)
+                }
+            }
         }
-      }
     }
-  }
 }

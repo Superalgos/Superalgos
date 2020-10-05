@@ -88,7 +88,7 @@
 
                     /* We look first for Exchange Raw Data in order to get when the market starts. */
 
-                    reportKey = "Masters" + "-" + "Exchange-Raw-Data" + "-" + "Historic-OHLCVs" + "-" + "dataSet.V1";
+                    reportKey = "Masters" + "-" + "Exchange-Raw-Data" + "-" + "Historic-OHLCVs" 
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     statusReport = statusDependencies.statusReports.get(reportKey);
@@ -124,7 +124,7 @@
 
                     /* Second, we get the report from Candles Volumes, to know when the marted ends. */
 
-                    reportKey = "Masters" + "-" + "Candles-Volumes" + "-" + "Multi-Period-Daily" + "-" + "dataSet.V1";
+                    reportKey = "Masters" + "-" + "Candles-Volumes" + "-" + "Multi-Period-Daily" 
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     statusReport = statusDependencies.statusReports.get(reportKey);
@@ -159,7 +159,7 @@
 
                     /* Finally we get our own Status Report. */
 
-                    reportKey = "Masters" + "-" + "Bollinger-Bands" + "-" + "Multi-Period-Daily" + "-" + "dataSet.V1";
+                    reportKey = "Masters" + "-" + "Bollinger-Bands" + "-" + "Multi-Period-Daily"
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     statusReport = statusDependencies.statusReports.get(reportKey);
@@ -826,7 +826,7 @@
 
                     let dataRange = {
                         begin: pBegin.valueOf(),
-                        end: pEnd.valueOf()
+                        end: pEnd.valueOf() + ONE_DAY_IN_MILISECONDS
                     };
 
                     let fileContent = JSON.stringify(dataRange);
@@ -868,7 +868,7 @@
 
                 try {
 
-                    let reportKey = "Masters" + "-" + "Bollinger-Bands" + "-" + "Multi-Period-Daily" + "-" + "dataSet.V1";
+                    let reportKey = "Masters" + "-" + "Bollinger-Bands" + "-" + "Multi-Period-Daily" 
                     let thisReport = statusDependencies.statusReports.get(reportKey);
 
                     thisReport.file.lastExecution = bot.processDatetime;

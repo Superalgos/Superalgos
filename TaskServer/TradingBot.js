@@ -1,1041 +1,686 @@
-﻿exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STORAGE) {
-
-    const FULL_LOG = true;
-    const LOG_FILE_CONTENT = false;
-    const ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000;
+﻿exports.newTradingBot = function newTradingBot(bot, parentLogger) {
 
     const MODULE_NAME = "Trading Bot";
+    const FULL_LOG = true;
+
+    const TRADING_PROCESS_MODULE = require(global.ROOT_DIR + '/LowFrequencyTrading/TradingProcess.js');
+    const FILE_STORAGE = require('./FileStorage.js');
+    const SESSION = require(global.ROOT_DIR + 'Session');
+
+    let fileStorage = FILE_STORAGE.newFileStorage(parentLogger);
+    let session = SESSION.newSession(bot, parentLogger)
+
+    const DEBUG_MODULE = require(global.ROOT_DIR + 'DebugLog');
+    let logger; // We need this here in order for the loopHealth function to work and be able to rescue the loop when it gets in trouble.
+
+    let nextLoopTimeoutHandle;
 
     let thisObject = {
         initialize: initialize,
-        finalize: finalize,
-        start: start
+        run: run
     };
 
-    let utilities = UTILITIES.newCloudUtilities(logger);
-    let fileStorage = FILE_STORAGE.newFileStorage(logger);
-
-    const COMMONS = require('./Commons.js');
-    let commons = COMMONS.newCommons(bot, logger, UTILITIES, FILE_STORAGE);
-
-    let exchangeAPI;
+    let processConfig;
 
     return thisObject;
 
-    function finalize() {
-        thisObject = undefined
-        utilities = undefined
-        fileStorage = undefined
-        commons = undefined
-    }
-
-    function initialize(pExchangeAPI, callBackFunction) {
-
+    function initialize(pProcessConfig, callBackFunction) {
+        /*  This function is exactly the same in the 3 modules representing the 2 different bot types loops. */
         try {
-
-            logger.fileName = MODULE_NAME;
-            logger.initialize();
-
-            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
-
-            exchangeAPI = pExchangeAPI;
-            callBackFunction(global.DEFAULT_OK_RESPONSE);
+            processConfig = pProcessConfig;
+            if (bot.definedByUI === true) {
+                /* The code of the bot is defined at the UI. No need to load a file with the code. */
+                session.initialize(processConfig, callBackFunction)
+            }
 
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
+            parentLogger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 
-    function start(multiPeriodDataFiles, timeFrame, timeFrameLabel, currentDay, interExecutionMemory, callBackFunction) {
-
+    function run(callBackFunction) {
         try {
+            /* Some initial values*/
+            let fixedTimeLoopIntervalHandle;
+            bot.STOP_SESSION = true;
+            if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, '[IMPORTANT] run -> Stopping the Session now. ') }
 
-            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> Entering function."); }
+            /* Heartbeats sent to the UI */
+            bot.processHeartBeat = processHeartBeat
 
-            let chart = {}
-            let mainDependency = {}
+            loop();
 
-            /* The first phase here is about checking that we have everything we need at the definition level. */
-            let dataDependencies = bot.processNode.referenceParent.processDependencies.dataDependencies
-            if (commons.validateDataDependencies(dataDependencies, callBackFunction) !== true) {return} 
+            function loop() {
+                try {
+                    processHeartBeat(undefined, undefined, "Running...")
+                    function pad(str, max) {
+                        str = str.toString();
+                        return str.length < max ? pad(" " + str, max) : str;
+                    }
 
-            let outputDatasets = bot.processNode.referenceParent.processOutput.outputDatasets
-            if (commons.validateOutputDatasets(outputDatasets, callBackFunction) !== true) { return } 
+                    /* For each loop we want to create a new log file. */
+                    if (logger !== undefined) {
+                        logger.finalize()
+                    }
+                    logger = DEBUG_MODULE.newDebugLog();
+                    global.LOGGER_MAP.set(MODULE_NAME, logger)
+                    logger.bot = bot;
+                    logger.initialize();
 
-            /* The second phase is about transforming the inputs into a format that can be used to apply the user defined code. */
-            for (let j = 0; j < global.marketFilesPeriods.length; j++) {
+                    bot.loopCounter++;
+                    bot.loopStartTime = new Date().valueOf();
 
-                let timeFrameLabel = marketFilesPeriods[j][1]
-                let dataFiles = multiPeriodDataFiles.get(timeFrameLabel)
-                let products = {}
+                    let nextWaitTime;
 
-                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> Inflating Data Files for timeFrame = " + timeFrameLabel); }
+                    /* We tell the UI that we are running. */
+                    processHeartBeat(undefined, undefined, "Running...")
 
-                if (dataFiles !== undefined) {
-                    commons.inflateDatafiles(dataFiles, dataDependencies, products, mainDependency, timeFrame)
+                    /* We define here all the modules that the rest of the infraestructure, including the bots themselves can consume. */
+                    const UTILITIES = require(global.ROOT_DIR + 'CloudUtilities');
+                    const STATUS_REPORT = require(global.ROOT_DIR + 'StatusReport');
+                    const STATUS_DEPENDENCIES = require(global.ROOT_DIR + 'StatusDependencies');
+                    const DATA_DEPENDENCIES = require(global.ROOT_DIR + 'DataDependencies');
+                    const DATA_SET = require(global.ROOT_DIR + 'DataSet');
+                    const PROCESS_EXECUTION_EVENTS = require(global.ROOT_DIR + 'ProcessExecutionEvents');
+                    const PROCESS_OUTPUT = require(global.ROOT_DIR + 'ProcessOutput');
 
-                    let propertyName = 'at' + timeFrameLabel.replace('-', '');
-                    chart[propertyName] = products
+                    /* We define the datetime for the process that we are running now. This will be the official processing time for both the infraestructure and the bot. */
+                    bot.processDatetime = new Date();           // This will be considered the process date and time, so as to have it consistenly all over the execution.
+
+                    /* High level log entry  */
+                    console.log(new Date().toISOString() + " " + pad(bot.exchange, 20) + " " + pad(bot.market.baseAsset + '/' + bot.market.quotedAsset, 10) + " " + pad(bot.codeName, 30) + " " + pad(bot.process, 30)
+                        + "      Main Loop     # " + pad(Number(bot.loopCounter), 8) + " " + bot.processNode.session.type + " " + bot.processNode.session.name)
+
+                    /* Checking if we need to need to emit any event */
+                    if (bot.SESSION_STATUS === 'Idle' && bot.STOP_SESSION === false) {
+                        bot.SESSION_STATUS = 'Running'
+                    }
+
+                    if (bot.SESSION_STATUS === 'Running' && bot.STOP_SESSION === true) {
+                        bot.SESSION_STATUS = 'Stopped'
+                    } 
+
+                    global.EMIT_SESSION_STATUS (bot.SESSION_STATUS, bot.sessionKey)
+
+                    /* Checking if we should process this loop or not.*/
+                    if (bot.STOP_SESSION === true) {
+
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> Waiting for " + bot.processNode.session.type + " " + bot.processNode.session.name + " to be ran."); }
+
+                        console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30)
+                            + " Waiting for " + bot.processNode.session.type + " " + bot.processNode.session.name + " to be ran. ");
+
+                        nextWaitTime = 'Waiting for Session';
+                        loopControl(nextWaitTime);
+                        return
+                    }
+
+                    /* We will prepare first the infraestructure needed for the bot to run. There are 3 modules we need to sucessfullly initialize first. */
+
+                    let processExecutionEvents
+                    let userBot;
+                    let processFramework;
+                    let statusDependencies;
+                    let dataDependencies;
+
+                    initializeProcessExecutionEvents();
+
+                    function initializeProcessExecutionEvents() {
+                        try {
+                            processExecutionEvents = PROCESS_EXECUTION_EVENTS.newProcessExecutionEvents(bot, logger)
+                            processExecutionEvents.initialize(processConfig, onInizialized);
+
+                            function onInizialized(err) {
+                                try {
+                                    switch (err.result) {
+                                        case global.DEFAULT_OK_RESPONSE.result: {
+                                            logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeProcessExecutionEvents -> onInizialized -> Execution finished well.");
+                                            startProcessExecutionEvents()
+                                            return;
+                                        }
+                                        case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                                            logger.write(MODULE_NAME, "[WARN] run -> loop -> initializeProcessExecutionEvents -> onInizialized -> Retry Later. Requesting Execution Retry.");
+                                            nextWaitTime = 'Retry';
+                                            loopControl(nextWaitTime);
+                                            return;
+                                        }
+                                        case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeProcessExecutionEvents -> onInizialized -> Operation Failed. Aborting the process.");
+                                            global.unexpectedError = err.message
+                                            processStopped()
+                                            return
+                                        }
+                                        default: {
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeProcessExecutionEvents -> onInizialized -> Unhandled err.result received. -> err.result = " + err.result);
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeProcessExecutionEvents -> onInizialized -> Unhandled err.result received. -> err = " + err.message);
+                                            global.unexpectedError = err.message
+                                            processStopped()
+                                            return
+                                        }
+                                    }
+                                } catch (err) {
+                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeProcessExecutionEvents -> onInizialized -> err = " + err.stack);
+                                    global.unexpectedError = err.message
+                                    processStopped()
+                                    return
+                                }
+                            }
+                        } catch (err) {
+                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeProcessExecutionEvents -> err = " + err.stack);
+                            global.unexpectedError = err.message
+                            processStopped()
+                            return
+                        }
+                    }
+
+                    function startProcessExecutionEvents() {
+                        try {
+                            processExecutionEvents.start(onStarted);
+
+                            function onStarted(err) {
+                                try {
+                                    switch (err.result) {
+                                        case global.DEFAULT_OK_RESPONSE.result: {
+                                            logger.write(MODULE_NAME, "[INFO] run -> loop -> startProcessExecutionEvents -> onStarted -> Execution finished well.");
+
+                                            if (global.STOP_TASK_GRACEFULLY === true) {
+                                                loopControl()
+                                                return
+                                            }
+
+                                            initializeStatusDependencies();
+                                            return;
+                                        }
+                                        case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                                            logger.write(MODULE_NAME, "[WARN] run -> loop -> startProcessExecutionEvents -> onStarted -> Retry Later. Requesting Execution Retry.");
+                                            nextWaitTime = 'Retry';
+                                            loopControl(nextWaitTime);
+                                            return;
+                                        }
+                                        case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessExecutionEvents -> onStarted -> Operation Failed. Aborting the process.");
+                                            global.unexpectedError = err.message
+                                            processStopped()
+                                            return
+                                        }
+                                        default: {
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessExecutionEvents -> onStarted -> Unhandled err.result received. -> err.result = " + err.result);
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessExecutionEvents -> onStarted -> Unhandled err.result received. -> err = " + err.message);
+                                            global.unexpectedError = err.message
+                                            processStopped()
+                                            return
+                                        }
+                                    }
+                                } catch (err) {
+                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessExecutionEvents -> onStarted -> err = " + err.stack);
+                                    global.unexpectedError = err.message
+                                    processStopped()
+                                    return
+                                }
+                            }
+                        } catch (err) {
+                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessExecutionEvents -> err = " + err.stack);
+                            global.unexpectedError = err.message
+                            processStopped()
+                            return
+                        }
+                    }
+
+                    function initializeStatusDependencies() {
+                        try {
+                            statusDependencies = STATUS_DEPENDENCIES.newStatusDependencies(bot, logger, STATUS_REPORT, UTILITIES, PROCESS_OUTPUT);
+                            statusDependencies.initialize(onInizialized);
+
+                            function onInizialized(err) {
+                                try {
+                                    switch (err.result) {
+                                        case global.DEFAULT_OK_RESPONSE.result: {
+                                            logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeStatusDependencies -> onInizialized -> Execution finished well.");
+                                            initializeDataDependencies();
+                                            return;
+                                        }
+                                        case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                                            logger.write(MODULE_NAME, "[WARN] run -> loop -> initializeStatusDependencies -> onInizialized -> Retry Later. Requesting Execution Retry.");
+                                            nextWaitTime = 'Retry';
+                                            loopControl(nextWaitTime);
+                                            return;
+                                        }
+                                        case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> Operation Failed. Aborting the process.");
+                                            global.unexpectedError = err.message
+                                            processStopped()
+                                            return
+                                            return;
+                                        }
+                                        default: {
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> Unhandled err.result received. -> err.result = " + err.result);
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> Unhandled err.result received. -> err = " + err.message);
+                                            global.unexpectedError = err.message
+                                            processStopped()
+                                            return
+                                        }
+                                    }
+                                } catch (err) {
+                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> err = " + err.stack);
+                                    global.unexpectedError = err.message
+                                    processStopped()
+                                    return
+                                }
+                            }
+                        } catch (err) {
+                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeStatusDependencies -> err = " + err.stack);
+                            global.unexpectedError = err.message
+                            processStopped()
+                            return
+                        }
+                    }
+
+                    function initializeDataDependencies() {
+                        try {
+                            dataDependencies = DATA_DEPENDENCIES.newDataDependencies(bot, logger, DATA_SET);
+                            dataDependencies.initialize(onInizialized);
+
+                            function onInizialized(err) {
+                                try {
+                                    switch (err.result) {
+                                        case global.DEFAULT_OK_RESPONSE.result: {
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeDataDependencies -> onInizialized -> Execution finished well."); }
+                                            switch (processConfig.framework.name) {
+                                                case 'Low-Frequency-Trading-Process': {
+                                                    processFramework = TRADING_PROCESS_MODULE.newTradingProcess(bot, logger, UTILITIES);
+                                                    intitializeProcessFramework();
+                                                    break;
+                                                }
+                                                default: {
+                                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeDataDependencies -> onInizialized -> Process Framework not Supported.");
+                                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeDataDependencies -> onInizialized -> Process Framework Name = " + processConfig.framework.name);
+                                                    global.unexpectedError = err.message
+                                                    processStopped()
+                                                    return
+                                                }
+                                            }
+                                            return;
+                                        }
+                                        case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                                            logger.write(MODULE_NAME, "[WARN] run -> loop -> initializeDataDependencies -> onInizialized -> Retry Later. Requesting Execution Retry.");
+                                            nextWaitTime = 'Retry';
+                                            loopControl(nextWaitTime);
+                                            return;
+                                        }
+                                        case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeDataDependencies -> onInizialized -> Operation Failed. Aborting the process.");
+                                            global.unexpectedError = err.message
+                                            processStopped()
+                                            return
+                                        }
+                                        default: {
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeDataDependencies -> onInizialized -> Unhandled err.result received. -> err.result = " + err.result);
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeDataDependencies -> onInizialized -> Unhandled err.result received. -> err = " + err.message);
+                                            global.unexpectedError = err.message
+                                            processStopped()
+                                            return
+                                        }
+                                    }
+                                } catch (err) {
+                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeDataDependencies ->  onInizialized -> err = " + err.stack);
+                                    global.unexpectedError = err.message
+                                    processStopped()
+                                    return
+                                }
+                            }
+                        } catch (err) {
+                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeDataDependencies -> err = " + err.stack);
+                            global.unexpectedError = err.message
+                            processStopped()
+                            return
+                        }
+                    }
+
+                    function intitializeProcessFramework() {
+                        try {
+                            processFramework.initialize(processConfig, statusDependencies, dataDependencies, onInizialized);
+
+                            function onInizialized(err) {
+                                try {
+                                    switch (err.result) {
+                                        case global.DEFAULT_OK_RESPONSE.result: {
+                                            logger.write(MODULE_NAME, "[INFO] run -> loop -> intitializeProcessFramework -> onInizialized -> Execution finished well.");
+                                            startProcessFramework();
+                                            return;
+                                        }
+                                        case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                                            logger.write(MODULE_NAME, "[WARN] run -> loop -> intitializeProcessFramework -> onInizialized -> Retry Later. Requesting Execution Retry.");
+                                            nextWaitTime = 'Retry';
+                                            loopControl(nextWaitTime);
+                                            return;
+                                        }
+                                        case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeProcessFramework -> onInizialized -> Operation Failed. Aborting the process.");
+                                            global.unexpectedError = err.message
+                                            processStopped()
+                                            return
+                                        }
+                                        case global.CUSTOM_OK_RESPONSE.result: {
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeProcessFramework -> onInizialized > Unhandled custom response received. -> err = " + err.message);
+                                            global.unexpectedError = err.message
+                                            processStopped()
+                                            return
+                                        }
+                                        default: {
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeProcessFramework -> onInizialized -> Unhandled err.result received. -> err.result = " + err.result);
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeProcessFramework -> onInizialized -> Unhandled err.result received. -> err = " + err.message);
+                                            global.unexpectedError = err.message
+                                            processStopped()
+                                            return
+                                        }
+                                    }
+                                } catch (err) {
+                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeProcessFramework ->  onInizialized -> err = " + err.stack);
+                                    global.unexpectedError = err.message
+                                    processStopped()
+                                    return
+                                }
+                            }
+                        } catch (err) {
+                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeProcessFramework -> err = " + err.stack);
+                            global.unexpectedError = err.message
+                            processStopped()
+                            return
+                        }
+                    }
+
+                    function startProcessFramework() {
+                        try {
+                            processFramework.start(onFinished);
+
+                            function onFinished(err) {
+                                try {
+                                    processFramework.finalize()
+                                    processFramework = undefined
+                                    dataDependencies.finalize()
+                                    dataDependencies = undefined
+                                    statusDependencies.finalize()
+                                    statusDependencies = undefined
+
+                                    switch (err.result) {
+                                        case global.DEFAULT_OK_RESPONSE.result: {
+                                            logger.write(MODULE_NAME, "[INFO] run -> loop -> startProcessFramework -> onFinished -> Execution finished well.");
+                                            nextWaitTime = 'Normal';
+                                            finishProcessExecutionEvents()
+                                            return;
+                                        }
+                                        case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                                            logger.write(MODULE_NAME, "[WARN] run -> loop -> startProcessFramework -> onFinished -> Retry Later. Requesting Execution Retry.");
+                                            nextWaitTime = 'Retry';
+                                            loopControl(nextWaitTime);
+                                            return;
+                                        }
+                                        case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessFramework -> onFinished -> Operation Failed. Aborting the process.");
+                                            global.unexpectedError = err.message
+                                            processStopped()
+                                            return
+                                        }
+                                        case global.CUSTOM_OK_RESPONSE.result: {
+
+                                            switch (err.message) {
+                                                case "Dependency does not exist.": {
+                                                    logger.write(MODULE_NAME, "[WARN] run -> loop -> startProcessFramework -> onFinished -> Dependency does not exist. This Loop will go to sleep.");
+                                                    nextWaitTime = 'Sleep';
+                                                    loopControl(nextWaitTime);
+                                                    return;
+                                                }
+                                                case "Dependency not ready.": {
+                                                    logger.write(MODULE_NAME, "[WARN] run -> loop -> startProcessFramework -> onFinished -> Dependency not ready. This Loop will go to sleep.");
+                                                    nextWaitTime = 'Sleep';
+                                                    loopControl(nextWaitTime);
+                                                    return;
+                                                }
+                                                default: {
+                                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessFramework -> onFinished -> Unhandled custom response received. -> err = " + err.message);
+                                                    global.unexpectedError = err.message
+                                                    processStopped()
+                                                    return
+                                                }
+                                            }
+                                        }
+                                        default: {
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessFramework -> onFinished -> Unhandled err.result received. -> err.result = " + err.result);
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessFramework -> onFinished -> Unhandled err.result received. -> err = " + err.message);
+                                            global.unexpectedError = err.message
+                                            processStopped()
+                                            return
+                                        }
+                                    }
+                                } catch (err) {
+                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessFramework -> onFinished -> err = " + err.stack);
+                                    global.unexpectedError = err.message
+                                    processStopped()
+                                    return
+                                }
+                            }
+                        } catch (err) {
+                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessFramework -> err = " + err.stack);
+                            global.unexpectedError = err.message
+                            processStopped()
+                            return
+                        }
+                    }
+
+                    function finishProcessExecutionEvents() {
+                        try {
+                            processExecutionEvents.finish(onFinished);
+
+                            function onFinished(err) {
+                                try {
+                                    processExecutionEvents.finalize()
+                                    processExecutionEvents = undefined
+
+                                    switch (err.result) {
+                                        case global.DEFAULT_OK_RESPONSE.result: {
+                                            logger.write(MODULE_NAME, "[INFO] run -> loop -> finishProcessExecutionEvents -> onFinished -> Execution finished well.");
+                                            nextWaitTime = 'Normal';
+                                            loopControl(nextWaitTime);
+                                            return;
+                                        }
+                                        case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                                            logger.write(MODULE_NAME, "[WARN] run -> loop -> finishProcessExecutionEvents -> onFinished -> Retry Later. Requesting Execution Retry.");
+                                            nextWaitTime = 'Retry';
+                                            loopControl(nextWaitTime);
+                                            return;
+                                        }
+                                        case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> finishProcessExecutionEvents -> onFinished -> Operation Failed. Aborting the process.");
+                                            global.unexpectedError = err.message
+                                            processStopped()
+                                            return
+                                        }
+                                        default: {
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> finishProcessExecutionEvents -> onFinished -> Unhandled err.result received. -> err.result = " + err.result);
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> finishProcessExecutionEvents -> onFinished -> Unhandled err.result received. -> err = " + err.message);
+                                            global.unexpectedError = err.message
+                                            processStopped()
+                                            return
+                                        }
+                                    }
+                                } catch (err) {
+                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> finishProcessExecutionEvents -> onFinished -> err = " + err.stack);
+                                    global.unexpectedError = err.message
+                                    processStopped()
+                                    return
+                                }
+                            }
+                        } catch (err) {
+                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> finishProcessExecutionEvents -> err = " + err.stack);
+                            global.unexpectedError = err.message
+                            processStopped()
+                            return
+                        }
+                    }
+
+                    function loopControl(nextWaitTime) {
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> nextWaitTime = " + nextWaitTime); }
+
+                        /* We show we reached the end of the loop. */
+                        processHeartBeat(undefined, undefined, "Running...")
+
+                        /* Here we check if we must stop the loop gracefully. */
+                        shallWeStop(onStop, onContinue);
+
+                        function onStop() {
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> onStop -> Stopping the Loop Gracefully. See you next time!"); }
+
+                            if (global.WRITE_LOGS_TO_FILES === 'true') {
+                                logger.persist();
+                            }
+
+                            global.EVENT_SERVER_CLIENT.raiseEvent(bot.sessionKey, 'Stopped')
+                            processStopped()
+                            return;
+                        }
+
+                        function onContinue() {
+                            /* Indicator bots are going to be executed after a configured period of time after the last execution ended. This is to avoid overlapping executions. */
+                            switch (nextWaitTime) {
+                                case 'Waiting for Session': {
+                                    let waitTime = processConfig.sessionRunWaitTime
+                                    nextLoopTimeoutHandle = setTimeout(loop, waitTime);
+                                    let waitingTime = waitTime / 1000 / 60
+                                    let label = 'minute/s'
+                                    if (waitingTime < 1) {
+                                        waitingTime = waitTime / 1000
+                                        label = 'seconds'
+                                    }
+                                    processHeartBeat(undefined, undefined, "Waiting " + waitingTime + " " + label + " for " + bot.processNode.session.type + " " + bot.processNode.session.name + " to be ran. ")
+                                    logger.persist();
+                                }
+                                    break
+                                case 'Normal': {
+                                    let waitTime
+                                    if (processConfig.waitsForExecutionFinishedEvent === true) {
+                                        waitTime = 0
+                                    } else {
+                                        switch (bot.SESSION.type) {
+                                            case 'Live Trading Session': {
+                                                waitTime = bot.SESSION.parameters.timeFrame.config.value
+                                                break
+                                            }
+                                            case 'Fordward Tessting Session': {
+                                                waitTime = bot.SESSION.parameters.timeFrame.config.value
+                                                break
+                                            }
+                                            case 'Paper Trading Session': {
+                                                waitTime = bot.SESSION.parameters.timeFrame.config.value
+                                                break
+                                            }
+                                            case 'Backtesting Session': {
+                                                waitTime = 0
+                                                break
+                                            }
+                                        }
+                                    }
+
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (waitTime / 1000 / 60) + " minute/s."); }
+                                    nextLoopTimeoutHandle = setTimeout(loop, waitTime);
+                                    let waitingTime = waitTime / 1000 / 60
+                                    let label = 'minute/s'
+                                    if (waitingTime < 1) {
+                                        waitingTime = waitTime / 1000
+                                        label = 'seconds'
+                                    }
+                                    processHeartBeat(undefined, undefined, "Waiting " + waitingTime + " " + label + " for next execution.")
+                                    logger.persist();
+                                }
+                                    break;
+                                case 'Retry': {
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.retryWaitTime / 1000) + " seconds."); }
+                                    nextLoopTimeoutHandle = setTimeout(loop, processConfig.retryWaitTime);
+                                    processHeartBeat(undefined, undefined, "Trying to recover from some problem. Waiting " + processConfig.retryWaitTime / 1000 + " seconds for next execution.")
+                                    logger.persist();
+                                }
+                                    break;
+                                case 'Sleep': {
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.sleepWaitTime / 60000) + " minutes."); }
+                                    nextLoopTimeoutHandle = setTimeout(loop, processConfig.sleepWaitTime);
+                                    processHeartBeat(undefined, undefined, "Waiting " + processConfig.sleepWaitTime / 60000 + " minutes for next execution.")
+                                    logger.persist();
+                                }
+                                    break;
+                                case 'Coma': {
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.comaWaitTime / 3600000) + " hours."); }
+                                    nextLoopTimeoutHandle = setTimeout(loop, processConfig.comaWaitTime);
+                                    processHeartBeat(undefined, undefined, "Waiting " + processConfig.comaWaitTime / 3600000 + " hours for next execution.")
+                                    logger.persist();
+                                }
+                                    break;
+                            }
+                        }
+                    }
+
+                    function shallWeStop(stopCallBack, continueCallBack) {
+                        try {
+                            /* IMPORTANT: This function is exactly the same on the 3 modules. */
+                            if (!global.STOP_TASK_GRACEFULLY) {
+                                continueCallBack();
+                            } else {
+                                stopCallBack();
+                            }
+                        } catch (err) {
+                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> shallWeStop -> err = " + err.stack);
+                            global.unexpectedError = err.message
+                            processStopped()
+                            return
+                        }
+                    }
+
+                } catch (err) {
+                    parentLogger.write(MODULE_NAME, "[ERROR] run -> loop -> err = " + err.stack);
+                    global.unexpectedError = err.message
+                    processStopped()
+                    return
                 }
             }
 
-            for (let j = 0; j < global.dailyFilePeriods.length; j++) {
-
-                let timeFrameLabel = global.dailyFilePeriods[j][1]
-                let dataFiles = multiPeriodDataFiles.get(timeFrameLabel)
-                let products = {}
-
-                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> Inflating Data Files for timeFrame = " + timeFrameLabel); }
-
-                if (dataFiles !== undefined) {
-                    commons.inflateDatafiles(dataFiles, dataDependencies, products, mainDependency, timeFrame)
-
-                    let propertyName = 'at' + timeFrameLabel.replace('-', '');
-                    chart[propertyName] = products
+            function processHeartBeat(processingDate, percentage, status) {
+                let event = {
+                    seconds: (new Date()).getSeconds(),
+                    processingDate: processingDate,
+                    percentage: percentage,
+                    status: status
                 }
+                global.EVENT_SERVER_CLIENT.raiseEvent(bot.processKey, 'Heartbeat', event)
             }
 
-            /* Single Files */
-
-            let dataFiles = multiPeriodDataFiles.get('Single Files')
-            let products = {}
-
-            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> Inflating Data Files from Single Files."); }
-
-            if (dataFiles !== undefined) {
-                commons.inflateDatafiles(dataFiles, dataDependencies, products, mainDependency, timeFrame)
-
-                let propertyName = 'atAnyTimeFrame';
-                chart[propertyName] = products
-            }
-
-            /* Simulation */
-           
-            const TRADING_SIMULATION = require('./TradingSimulation.js');
-            let tradingSimulation = TRADING_SIMULATION.newTradingSimulation(bot, logger, UTILITIES);
-
-            let market = bot.market;
-
-            const SIMULATED_RECORDS_FOLDER_NAME = "Trading-Simulation";
-            const CONDITIONS_FOLDER_NAME = "Simulation-Conditions";
-            const STRATEGIES_FOLDER_NAME = "Simulation-Strategies";
-            const TRADES_FOLDER_NAME = "Simulation-Trades";
-            const SNAPSHOTS_FOLDER_NAME = "Snapshots";
-
-            const ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000;
-
-            let recordsArray
-            let conditionsArray
-            let strategiesArray
-            let tradesArray
-
-            let snapshotHeaders
-            let triggerOnSnapshot 
-            let takePositionSnapshot  
-
-            let tradingSystem = {};
-
-            tradingSimulation.runSimulation(
-                chart,
-                dataDependencies,
-                timeFrame,
-                timeFrameLabel,
-                currentDay,
-                interExecutionMemory,
-                exchangeAPI,
-                writeFiles,
-                callBackFunction)
-
-            function writeFiles(pTradingSystem, pRecordsArray, pConditionsArray, pStrategiesArray, pTradesArray, pSnapshotHeaders, pTriggerOnSnapshot, pTakePositionSnapshot) {
-
-                tradingSystem = pTradingSystem
-                recordsArray = pRecordsArray
-                conditionsArray = pConditionsArray
-                strategiesArray = pStrategiesArray
-                tradesArray = pTradesArray
-
-                snapshotHeaders = pSnapshotHeaders
-                triggerOnSnapshot = pTriggerOnSnapshot
-                takePositionSnapshot = pTakePositionSnapshot
-
-                if (timeFrame > global.dailyFilePeriods[0][0]) {
-                    writeMarketFiles()
+            function processStopped() {
+                if (global.unexpectedError !== undefined) {
+                    global.PROCESS_ERROR(bot.processKey, undefined, "An unexpected error caused the Process to stop.")
                 } else {
-                    writeDailyFiles()
+                    global.EVENT_SERVER_CLIENT.raiseEvent(bot.processKey, 'Stopped')
                 }
-
-            }
-
-            function writeMarketFiles() {
-                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDailyFiles -> Entering function."); }
-
-                writeRecordsFile();
-
-                function writeRecordsFile() {
-
-                    try {
-
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeMarketFiles -> writeRecordsFile -> Entering function."); }
-
-                        let separator = "";
-                        let fileRecordCounter = 0;
-
-                        let fileContent = "";
-
-                        for (let i = 0; i < recordsArray.length; i++) {
-
-                            let record = recordsArray[i];
-
-                            fileContent = fileContent + separator + '[' +
-                                record.begin + "," +
-                                record.end + "," +
-                                record.type + "," +
-                                record.marketRate + "," +
-                                record.amount + "," +
-                                record.balanceA + "," +
-                                record.balanceB + "," +
-                                record.profit + "," +
-                                record.lastTradeProfitLoss + "," +
-                                record.stopLoss + "," +
-                                record.roundtrips + "," +
-                                record.hits + "," +
-                                record.fails + "," +
-                                record.hitRatio + "," +
-                                record.ROI + "," +
-                                record.periods + "," +
-                                record.days + "," +
-                                record.anualizedRateOfReturn + "," +
-                                record.positionRate + "," +
-                                record.lastTradeROI + "," +
-                                record.strategy + "," +
-                                record.strategyStageNumber + "," +
-                                record.takeProfit + "," +
-                                record.stopLossPhase + "," +
-                                record.takeProfitPhase + "," +
-                                JSON.stringify(record.executionRecord) + "," +
-                                record.positionSize + "," +
-                                record.initialBalanceA + "," +
-                                record.minimumBalanceA + "," +
-                                record.maximumBalanceA + "," +
-                                record.initialBalanceB + "," +
-                                record.minimumBalanceB + "," +
-                                record.maximumBalanceB + "," +
-                                record.baseAsset + "," +
-                                record.quotedAsset + "," +
-                                record.marketBaseAsset + "," +
-                                record.marketQuotedAsset + "," +
-                                record.positionPeriods + "," +
-                                record.positionDays + "," +
-                                record.distanceToLastTriggerOn + "," +
-                                record.distanceToLastTriggerOff + "," +
-                                record.distanceToLastTakePosition + "," +
-                                record.distanceToLastClosePosition + "]";
-
-                            if (separator === "") { separator = ","; }
-
-                            fileRecordCounter++;
-
-                        }
-
-                        fileContent = "[" + fileContent + "]";
-
-                        let fileName = 'Data.json';
-                        let filePath = bot.filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + SIMULATED_RECORDS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrameLabel;
-                        filePath += '/' + fileName
-
-                        fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
-
-                        function onFileCreated(err) {
-
-                            try {
-
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeMarketFiles -> writeRecordsFile -> onFileCreated -> Entering function."); }
-                                if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> writeMarketFiles -> writeRecordsFile -> onFileCreated -> fileContent = " + fileContent); }
-
-                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-
-                                    logger.write(MODULE_NAME, "[ERROR] start -> writeMarketFiles -> writeRecordsFile -> onFileCreated -> err = " + err.stack);
-                                    logger.write(MODULE_NAME, "[ERROR] start -> writeMarketFiles -> writeRecordsFile -> onFileCreated -> filePath = " + filePath);
-                                    logger.write(MODULE_NAME, "[ERROR] start -> writeMarketFiles -> writeRecordsFile -> onFileCreated -> market = " + market.baseAsset + "_" + market.quotedAsset);
-
-                                    callBackFunction(err);
-                                    return;
-
-                                }
-
-                                writeConditionsFile();
-
-                            }
-                            catch (err) {
-                                logger.write(MODULE_NAME, "[ERROR] start -> writeMarketFiles -> writeRecordsFile -> onFileCreated -> err = " + err.stack);
-                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                            }
-                        }
-                    }
-                    catch (err) {
-                        logger.write(MODULE_NAME, "[ERROR] start -> writeMarketFiles -> writeRecordsFile -> err = " + err.stack);
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                    }
-                }
-
-                function writeConditionsFile() {
-
-                    try {
-
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeMarketFiles -> writeConditionsFile -> Entering function."); }
-
-                        let separator = "";
-                        let fileRecordCounter = 0;
-
-                        let fileContent = "";
-
-                        for (let i = 0; i < conditionsArray.length; i++) {
-
-                            let record = conditionsArray[i];
-
-                            let conditions = "";
-                            let conditionsSeparator = "";
-
-                            for (let j = 0; j < record.length - 3; j++) {
-                                conditions = conditions + conditionsSeparator + record[j];
-                                if (conditionsSeparator === "") { conditionsSeparator = ","; }
-                            }
-
-                            conditions = conditions + conditionsSeparator + '[' + record[record.length - 3] + ']';   // The last item contains an Array of condition values.
-                            conditions = conditions + conditionsSeparator + '[' + record[record.length - 2] + ']';   // The last item contains an Array of formulaErrors.
-                            conditions = conditions + conditionsSeparator + '[' + record[record.length - 1] + ']';   // The last item contains an Array of formulaValues.
-
-                            fileContent = fileContent + separator + '[' + conditions + ']';
-
-                            if (separator === "") { separator = ","; }
-
-                            fileRecordCounter++;
-
-                        }
-
-                        fileContent = "[" + fileContent + "]";
-                        fileContent = "[" + JSON.stringify(tradingSystem) + "," + fileContent + "]";
-
-                        let fileName = 'Data.json';
-                        let filePath = bot.filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + CONDITIONS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrameLabel;
-                        filePath += '/' + fileName
-
-                        fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
-
-                        function onFileCreated(err) {
-
-                            try {
-
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeMarketFiles -> writeConditionsFile -> onFileCreated -> Entering function."); }
-                                if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> writeMarketFiles -> writeConditionsFile -> onFileCreated -> fileContent = " + fileContent); }
-
-                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-
-                                    logger.write(MODULE_NAME, "[ERROR] start -> writeMarketFiles -> writeConditionsFile -> onFileCreated -> err = " + err.stack);
-                                    logger.write(MODULE_NAME, "[ERROR] start -> writeMarketFiles -> writeConditionsFile -> onFileCreated -> filePath = " + filePath);
-                                    logger.write(MODULE_NAME, "[ERROR] start -> writeMarketFiles -> writeConditionsFile -> onFileCreated -> market = " + market.baseAsset + "_" + market.quotedAsset);
-
-                                    callBackFunction(err);
-                                    return;
-
-                                }
-
-                                writeStrategiesFile();
-
-                            }
-                            catch (err) {
-                                logger.write(MODULE_NAME, "[ERROR] start -> writeMarketFiles -> writeConditionsFile -> onFileCreated -> err = " + err.stack);
-                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                            }
-                        }
-                    }
-                    catch (err) {
-                        logger.write(MODULE_NAME, "[ERROR] start -> writeMarketFiles -> writeConditionsFile -> err = " + err.stack);
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                    }
-                }
-
-                function writeStrategiesFile() {
-
-                    try {
-
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeMarketFiles -> writeStrategiesFile -> Entering function."); }
-
-                        let separator = "";
-                        let fileRecordCounter = 0;
-
-                        let fileContent = "";
-
-                        for (let i = 0; i < strategiesArray.length; i++) {
-                            let record = strategiesArray[i];
-
-                            fileContent = fileContent + separator + '[' +
-                                record.begin + "," +
-                                record.end + "," +
-                                record.status + "," +
-                                record.number + "," +
-                                record.beginRate + "," +
-                                record.endRate + "," +
-                                '"' + record.triggerOnSituation + '"' + "," +
-                                '"' + record.name + '"' + "]";
-
-                            if (separator === "") { separator = ","; }
-
-                            fileRecordCounter++;
-
-                        }
-
-                        fileContent = "[" + fileContent + "]";
-
-                        let fileName = 'Data.json';
-                        let filePath = bot.filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + STRATEGIES_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrameLabel;
-                        filePath += '/' + fileName
-
-                        fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
-
-                        function onFileCreated(err) {
-
-                            try {
-
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeMarketFiles -> writeStrategiesFile -> onFileCreated -> Entering function."); }
-                                if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> writeMarketFiles -> writeStrategiesFile -> onFileCreated -> fileContent = " + fileContent); }
-
-                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-
-                                    logger.write(MODULE_NAME, "[ERROR] start -> writeMarketFiles -> writeStrategiesFile -> onFileCreated -> err = " + err.stack);
-                                    logger.write(MODULE_NAME, "[ERROR] start -> writeMarketFiles -> writeStrategiesFile -> onFileCreated -> filePath = " + filePath);
-                                    logger.write(MODULE_NAME, "[ERROR] start -> writeMarketFiles -> writeStrategiesFile -> onFileCreated -> market = " + market.baseAsset + "_" + market.quotedAsset);
-
-                                    callBackFunction(err);
-                                    return;
-
-                                }
-
-                                writeTradesFile();
-
-                            }
-                            catch (err) {
-                                logger.write(MODULE_NAME, "[ERROR] start -> writeMarketFiles -> writeStrategiesFile -> onFileCreated -> err = " + err.stack);
-                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                            }
-                        }
-                    }
-                    catch (err) {
-                        logger.write(MODULE_NAME, "[ERROR] start -> writeMarketFiles -> writeStrategiesFile -> err = " + err.stack);
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                    }
-                }
-
-                function writeTradesFile() {
-
-                    try {
-
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeMarketFiles -> writeTradesFile -> Entering function."); }
-
-                        let separator = "";
-                        let fileRecordCounter = 0;
-
-                        let fileContent = "";
-
-                        for (let i = 0; i < tradesArray.length; i++) {
-
-                            let record = tradesArray[i];
-                            if (record.stopRate === undefined) { record.stopRate = 0 }
-
-                            fileContent = fileContent + separator + '[' +
-                                record.begin + "," +
-                                record.end + "," +
-                                record.status + "," +
-                                record.lastTradeROI + "," +
-                                record.beginRate + "," +
-                                record.endRate + "," +
-                                record.exitType + "," +
-                                '"' + record.takePositionSituation + '"' + "]";
-
-                            if (separator === "") { separator = ","; }
-
-                            fileRecordCounter++;
-
-                        }
-
-                        fileContent = "[" + fileContent + "]";
-
-                        let fileName = 'Data.json';
-                        let filePath = bot.filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + TRADES_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrameLabel;
-                        filePath += '/' + fileName
-
-                        fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
-
-                        function onFileCreated(err) {
-
-                            try {
-
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeMarketFiles -> writeTradesFile -> onFileCreated -> Entering function."); }
-                                if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> writeMarketFiles -> writeTradesFile -> onFileCreated -> fileContent = " + fileContent); }
-
-                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-
-                                    logger.write(MODULE_NAME, "[ERROR] start -> writeMarketFiles -> writeTradesFile -> onFileCreated -> err = " + err.stack);
-                                    logger.write(MODULE_NAME, "[ERROR] start -> writeMarketFiles -> writeTradesFile -> onFileCreated -> filePath = " + filePath);
-                                    logger.write(MODULE_NAME, "[ERROR] start -> writeMarketFiles -> writeTradesFile -> onFileCreated -> market = " + market.baseAsset + "_" + market.quotedAsset);
-
-                                    callBackFunction(err);
-                                    return;
-
-                                }
-
-                                writeSnapshotFiles();
-
-                            }
-                            catch (err) {
-                                logger.write(MODULE_NAME, "[ERROR] start -> writeMarketFiles -> writeTradesFile -> onFileCreated -> err = " + err.stack);
-                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                            }
-                        }
-                    }
-                    catch (err) {
-                        logger.write(MODULE_NAME, "[ERROR] start -> writeMarketFiles -> writeTradesFile -> err = " + err.stack);
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                    }
-                }
-
-                function writeSnapshotFiles() {
-
-                    writeSnapshotFile(triggerOnSnapshot, 'Trigger-On', onFinish)
-
-                    function onFinish() {
-                        writeSnapshotFile(takePositionSnapshot, 'Take-Position', callBackFunction)
-                    }
-                    
-                }
-
-                function writeSnapshotFile(snapshotArray, pFileName, callBack) {
-
-                    try {
-
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeMarketFiles -> writeSnapshotFile -> Entering function."); }
-
-                        let fileRecordCounter = 0;
-
-                        let fileContent = "";
-                        let separator = "\r\n";
-
-                        parseRecord(snapshotHeaders)
-
-                        for (let i = 0; i < snapshotArray.length; i++) {
-                            let record = snapshotArray[i];
-                            parseRecord(record)
-                            fileRecordCounter++;
-                        }
-
-                        function parseRecord(record) {
-                            for (let j = 0; j < record.length; j++) {
-                                let property = record[j]
- 
-                                fileContent = fileContent  + '' + property
-                                if (j !== record.length - 1) {
-                                    fileContent = fileContent + ","
-                                }
-                            }
-                            fileContent = fileContent + separator
-
-                        }
-
-                        fileContent = "" + fileContent + "";
-
-                        let fileName = pFileName +  '.csv';
-                        let filePath = bot.filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + SNAPSHOTS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrameLabel;
-                        filePath += '/' + fileName
-
-                        fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
-
-                        function onFileCreated(err) {
-
-                            try {
-
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeMarketFiles -> writeSnapshotFile -> onFileCreated -> Entering function."); }
-                                if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> writeMarketFiles -> writeSnapshotFile -> onFileCreated -> fileContent = " + fileContent); }
-
-                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-
-                                    logger.write(MODULE_NAME, "[ERROR] start -> writeMarketFiles -> writeSnapshotFile -> onFileCreated -> err = " + err.stack);
-                                    logger.write(MODULE_NAME, "[ERROR] start -> writeMarketFiles -> writeSnapshotFile -> onFileCreated -> filePath = " + filePath);
-                                    logger.write(MODULE_NAME, "[ERROR] start -> writeMarketFiles -> writeSnapshotFile -> onFileCreated -> market = " + market.baseAsset + "_" + market.quotedAsset);
-
-                                    callBackFunction(err);
-                                    return;
-
-                                }
-
-                                callBack(global.DEFAULT_OK_RESPONSE);
-
-                            }
-                            catch (err) {
-                                logger.write(MODULE_NAME, "[ERROR] start -> writeMarketFiles -> writeSnapshotFile -> onFileCreated -> err = " + err.stack);
-                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                            }
-                        }
-                    }
-                    catch (err) {
-                        logger.write(MODULE_NAME, "[ERROR] start -> writeMarketFiles -> writeSnapshotFile -> err = " + err.stack);
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                    }
-                }
-
-            }
-
-            function writeDailyFiles() {
-                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDailyFiles -> Entering function."); }
-
-                writeRecordsFile();
-
-                function writeRecordsFile() {
-
-                    try {
-
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDailyFiles -> writeRecordsFile -> Entering function."); }
-
-                        let separator = "";
-                        let fileRecordCounter = 0;
-
-                        let fileContent = "";
-
-                        for (let i = 0; i < recordsArray.length; i++) {
-
-                            let record = recordsArray[i];
-
-                            /* Will only add to the file the records of the current day */
-
-                            if (record.begin < currentDay.valueOf()) { continue; }
-
-                            fileContent = fileContent + separator + '[' +
-                                record.begin + "," +
-                                record.end + "," +
-                                record.type + "," +
-                                record.marketRate + "," +
-                                record.amount + "," +
-                                record.balanceA + "," +
-                                record.balanceB + "," +
-                                record.profit + "," +
-                                record.lastTradeProfitLoss + "," +
-                                record.stopLoss + "," +
-                                record.roundtrips + "," +
-                                record.hits + "," +
-                                record.fails + "," +
-                                record.hitRatio + "," +
-                                record.ROI + "," +
-                                record.periods + "," +
-                                record.days + "," +
-                                record.anualizedRateOfReturn + "," +
-                                record.positionRate + "," +
-                                record.lastTradeROI + "," +
-                                record.strategy + "," +
-                                record.strategyStageNumber + "," +
-                                record.takeProfit + "," +
-                                record.stopLossPhase + "," +
-                                record.takeProfitPhase + "," +
-                                JSON.stringify(record.executionRecord) + "," +
-                                record.positionSize + "," +
-                                record.initialBalanceA + "," +
-                                record.minimumBalanceA + "," +
-                                record.maximumBalanceA + "," +
-                                record.initialBalanceB + "," +
-                                record.minimumBalanceB + "," +
-                                record.maximumBalanceB + "," +
-                                record.baseAsset + "," +
-                                record.quotedAsset + "," +
-                                record.marketBaseAsset + "," +
-                                record.marketQuotedAsset + "," +
-                                record.positionPeriods + "," +
-                                record.positionDays + "," +
-                                record.distanceToLastTriggerOn + "," +
-                                record.distanceToLastTriggerOff + "," +
-                                record.distanceToLastTakePosition + "," +
-                                record.distanceToLastClosePosition + "]";
-
-                            if (separator === "") { separator = ","; }
-
-                            fileRecordCounter++;
-
-                        }
-
-                        fileContent = "[" + fileContent + "]";
-
-                        let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
-                        let fileName = 'Data.json';
-                        let filePath = bot.filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + SIMULATED_RECORDS_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + timeFrameLabel + "/" + dateForPath;
-                        filePath += '/' + fileName
-
-                        fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
-
-                        function onFileCreated(err) {
-
-                            try {
-
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDailyFiles -> writeRecordsFile -> onFileCreated -> Entering function."); }
-                                if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDailyFiles -> writeRecordsFile -> onFileCreated -> fileContent = " + fileContent); }
-
-                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-
-                                    logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeRecordsFile -> onFileCreated -> err = " + err.stack);
-                                    logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeRecordsFile -> onFileCreated -> filePath = " + filePath);
-                                    logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeRecordsFile -> onFileCreated -> market = " + market.baseAsset + "_" + market.quotedAsset);
-
-                                    callBackFunction(err);
-                                    return;
-
-                                }
-
-                                writeConditionsFile();
-
-                            }
-                            catch (err) {
-                                logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeRecordsFile -> onFileCreated -> err = " + err.stack);
-                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                            }
-                        }
-                    }
-                    catch (err) {
-                        logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeRecordsFile -> err = " + err.stack);
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                    }
-                }
-
-                function writeConditionsFile() {
-
-                    try {
-
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDailyFiles -> writeConditionsFile -> Entering function."); }
-
-                        let separator = "";
-                        let fileRecordCounter = 0;
-
-                        let fileContent = "";
-
-                        for (let i = 0; i < conditionsArray.length; i++) {
-
-                            let record = conditionsArray[i];
-
-                            /* Will only add to the file the records of the current day */
-
-                            if (record.begin < currentDay.valueOf()) { continue; }
-
-                            let conditions = "";
-                            let conditionsSeparator = "";
-
-                            /* Will only add to the file the records of the current day */
-
-                            if (record.begin < currentDay.valueOf()) { continue; }
-
-                            for (let j = 0; j < record.length - 3; j++) {
-                                conditions = conditions + conditionsSeparator + record[j];
-                                if (conditionsSeparator === "") { conditionsSeparator = ","; }
-                            }
-
-                            conditions = conditions + conditionsSeparator + '[' + record[record.length - 3] + ']';   // The last item contains an Array of condition values.
-                            conditions = conditions + conditionsSeparator + '[' + record[record.length - 2] + ']';   // The last item contains an Array of formulaErrors.
-                            conditions = conditions + conditionsSeparator + '[' + record[record.length - 1] + ']';   // The last item contains an Array of formulaValues.
-
-                            fileContent = fileContent + separator + '[' + conditions + ']';
-
-                            if (separator === "") { separator = ","; }
-
-                            fileRecordCounter++;
-
-                        }
-
-                        fileContent = "[" + fileContent + "]";
-                        fileContent = "[" + JSON.stringify(tradingSystem) + "," + fileContent + "]";
-
-                        let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
-                        let fileName = 'Data.json';
-                        let filePath = bot.filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + CONDITIONS_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + timeFrameLabel + "/" + dateForPath;
-                        filePath += '/' + fileName
-
-                        fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
-
-                        function onFileCreated(err) {
-
-                            try {
-
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDailyFiles -> writeConditionsFile -> onFileCreated -> Entering function."); }
-                                if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDailyFiles -> writeConditionsFile -> onFileCreated -> fileContent = " + fileContent); }
-
-                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-
-                                    logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeConditionsFile -> onFileCreated -> err = " + err.stack);
-                                    logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeConditionsFile -> onFileCreated -> filePath = " + filePath);
-                                    logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeConditionsFile -> onFileCreated -> market = " + market.baseAsset + "_" + market.quotedAsset);
-
-                                    callBackFunction(err);
-                                    return;
-
-                                }
-
-                                writeStrategiesFile();
-
-                            }
-                            catch (err) {
-                                logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeConditionsFile -> onFileCreated -> err = " + err.stack);
-                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                            }
-                        }
-                    }
-                    catch (err) {
-                        logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeConditionsFile -> err = " + err.stack);
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                    }
-                }
-
-                function writeStrategiesFile() {
-
-                    try {
-
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDailyFiles -> writeStrategiesFile -> Entering function."); }
-
-                        let separator = "";
-                        let fileRecordCounter = 0;
-
-                        let fileContent = "";
-
-                        for (let i = 0; i < strategiesArray.length; i++) {
-                            let record = strategiesArray[i];
-
-                            /* Will only add to the file the records of the current day. In this case since objects can span more than one day, we add all of the objects that ends
-                            at the current date. */
-
-                            if (record.end < currentDay.valueOf()) { continue; }
-
-                            fileContent = fileContent + separator + '[' +
-                                record.begin + "," +
-                                record.end + "," +
-                                record.status + "," +
-                                record.number + "," +
-                                record.beginRate + "," +
-                                record.endRate + "," +
-                                '"' + record.triggerOnSituation + '"' + "," +
-                                '"' + record.name + '"' + "]";
-
-                            if (separator === "") { separator = ","; }
-
-                            fileRecordCounter++;
-
-                        }
-
-                        fileContent = "[" + fileContent + "]";
-
-                        let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
-                        let fileName = 'Data.json';
-                        let filePath = bot.filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + STRATEGIES_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + timeFrameLabel + "/" + dateForPath;
-                        filePath += '/' + fileName
-
-                        fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
-
-                        function onFileCreated(err) {
-
-                            try {
-
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDailyFiles -> writeStrategiesFile -> onFileCreated -> Entering function."); }
-                                if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDailyFiles -> writeStrategiesFile -> onFileCreated -> fileContent = " + fileContent); }
-
-                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-
-                                    logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeStrategiesFile -> onFileCreated -> err = " + err.stack);
-                                    logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeStrategiesFile -> onFileCreated -> filePath = " + filePath);
-                                    logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeStrategiesFile -> onFileCreated -> market = " + market.baseAsset + "_" + market.quotedAsset);
-
-                                    callBackFunction(err);
-                                    return;
-
-                                }
-
-                                writeTradesFile();
-
-                            }
-                            catch (err) {
-                                logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeStrategiesFile -> onFileCreated -> err = " + err.stack);
-                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                            }
-                        }
-                    }
-                    catch (err) {
-                        logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeStrategiesFile -> err = " + err.stack);
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                    }
-                }
-
-                function writeTradesFile() {
-
-                    try {
-
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDailyFiles -> writeTradesFile -> Entering function."); }
-
-                        let separator = "";
-                        let fileRecordCounter = 0;
-
-                        let fileContent = "";
-
-                        for (let i = 0; i < tradesArray.length; i++) {
-
-                            let record = tradesArray[i];
-
-                            /* Will only add to the file the records of the current day. In this case since objects can span more than one day, we add all of the objects that ends
-                            at the current date. */
-
-                            if (record.end < currentDay.valueOf()) { continue; }
-                            if (record.stopRate === undefined) { record.stopRate = 0 }
-
-                            fileContent = fileContent + separator + '[' +
-                                record.begin + "," +
-                                record.end + "," +
-                                record.status + "," +
-                                record.lastTradeROI + "," +
-                                record.beginRate + "," +
-                                record.endRate + "," +
-                                record.exitType + "," +
-                                '"' + record.takePositionSituation + '"' + "]";
-
-                            if (separator === "") { separator = ","; }
-
-                            fileRecordCounter++;
-
-                        }
-
-                        fileContent = "[" + fileContent + "]";
-
-                        let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
-                        let fileName = 'Data.json';
-                        let filePath = bot.filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + TRADES_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + timeFrameLabel + "/" + dateForPath;
-                        filePath += '/' + fileName
-
-                        fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
-
-                        function onFileCreated(err) {
-
-                            try {
-
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDailyFiles -> writeTradesFile -> onFileCreated -> Entering function."); }
-                                if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDailyFiles -> writeTradesFile -> onFileCreated -> fileContent = " + fileContent); }
-
-                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-
-                                    logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeTradesFile -> onFileCreated -> err = " + err.stack);
-                                    logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeTradesFile -> onFileCreated -> filePath = " + filePath);
-                                    logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeTradesFile -> onFileCreated -> market = " + market.baseAsset + "_" + market.quotedAsset);
-
-                                    callBackFunction(err);
-                                    return;
-
-                                }
-
-                                writeSnapshotFiles() 
-
-                            }
-                            catch (err) {
-                                logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeTradesFile -> onFileCreated -> err = " + err.stack);
-                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                            }
-                        }
-                    }
-                    catch (err) {
-                        logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeTradesFile -> err = " + err.stack);
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                    }
-                }
-
-                function writeSnapshotFiles() {
-
-                    writeSnapshotFile(triggerOnSnapshot, 'Trigger-On', onFinish)
-
-                    function onFinish() {
-                        writeSnapshotFile(takePositionSnapshot, 'Take-Position', callBackFunction)
-                    }
-
-                }
-
-                function writeSnapshotFile(snapshotArray, pFileName, callBack) {
-                    if (bot.startMode !== 'Backtest') {
-                    callBack(global.DEFAULT_OK_RESPONSE);
-                    return;
-                    }
-                    try {
-
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDailyFiles -> writeSnapshotFile -> Entering function."); }
-
-                        let fileRecordCounter = 0;
-
-                        let fileContent = "";
-                        let separator = "\r\n";
-
-                        parseRecord(snapshotHeaders)
-
-                        for (let i = 0; i < snapshotArray.length; i++) {
-                            let record = snapshotArray[i];
-                            parseRecord(record)
-                            fileRecordCounter++;
-                        }
-
-                        function parseRecord(record) {
-                            for (let j = 0; j < record.length; j++) {
-                                let property = record[j]
-
-                                fileContent = fileContent + '' + property
-                                if (j !== record.length - 1) {
-                                    fileContent = fileContent + ","
-                                }
-                            }
-                            fileContent = fileContent + separator
-
-                        }
-
-                        fileContent = "" + fileContent + "";
-
-                        let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
-                        let fileName = pFileName + '.csv';
-                        let filePath = bot.filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + SNAPSHOTS_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + timeFrameLabel + "/" + dateForPath;
-                        filePath += '/' + fileName
-
-                        fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
-
-                        function onFileCreated(err) {
-
-                            try {
-
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDailyFiles -> writeSnapshotFile -> onFileCreated -> Entering function."); }
-                                if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDailyFiles -> writeSnapshotFile -> onFileCreated -> fileContent = " + fileContent); }
-
-                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-
-                                    logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeSnapshotFile -> onFileCreated -> err = " + err.stack);
-                                    logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeSnapshotFile -> onFileCreated -> filePath = " + filePath);
-                                    logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeSnapshotFile -> onFileCreated -> market = " + market.baseAsset + "_" + market.quotedAsset);
-
-                                    callBackFunction(err);
-                                    return;
-
-                                }
-
-                                callBack(global.DEFAULT_OK_RESPONSE);
-
-                            }
-                            catch (err) {
-                                logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeSnapshotFile -> onFileCreated -> err = " + err.stack);
-                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                            }
-                        }
-                    }
-                    catch (err) {
-                        logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeSnapshotFile -> err = " + err.stack);
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                    }
+                sessionStopped()
+                logger.persist();
+                clearInterval(fixedTimeLoopIntervalHandle);
+                clearTimeout(nextLoopTimeoutHandle);
+                if (global.unexpectedError !== undefined) {
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE)
+                } else {
+                    callBackFunction(global.DEFAULT_OK_RESPONSE)
                 }
             }
-        }
-        catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] start -> err = " + err.stack);
+
+            function sessionStopped() {
+                if (bot.SESSION_STATUS === 'Running') {
+                    global.EVENT_SERVER_CLIENT.raiseEvent(bot.sessionKey, 'Stopped')
+                    bot.SESSION_STATUS = 'Stopped'
+                }
+            }
+
+        } catch (err) {
+            parentLogger.write(MODULE_NAME, "[ERROR] run -> err = " + err.stack);
+            clearInterval(fixedTimeLoopIntervalHandle);
+            clearTimeout(nextLoopTimeoutHandle);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 };
-

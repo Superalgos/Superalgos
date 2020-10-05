@@ -1,45 +1,34 @@
-﻿<!doctype html>
-<html lang="en">
+﻿<html lang="en">
 
 <head>
     <meta charset="utf-8">
     <title>Superalgos</title>
-    <meta name="description"
-          content="Crypto Trading on an Industrial Scale">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <link href="https://fonts.googleapis.com/css?family=Saira+Condensed:300,600|Saira:300,600&amp;subset=latin-ext,vietnamese"
-          rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
-          integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <meta name="description" content="Free and Open Source Crypto Trading Tools">
+    <link rel="stylesheet" href="main.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="font-awasome.css" type="text/css" />
     <link rel="shortcut icon" type="image/png/ico" href="Images/favicon.ico" />
-
     <script type="text/javascript" src="WebServer/require.js"></script>
     <script type="text/javascript" src="WebServer/AppPreLoader.js"></script>
     <script src="externalScripts/CCapture.all.min.js"></script>
 
+    <!-- Documentation Style Sheets -->
+    <!-- -->
+
     <script type="text/javascript">
         function loadCanvas() {
-            if (window.canvasApp.visible === undefined) {
-                window.canvasApp = {
-                    version: '',  // This is used to avoid catching problems at the browser level.
-                    sessionToken: '',
-                    visible: true,
-                    topMargin: 0,
-                    urlPrefix: 'http://localhost:WEB_SERVER_PORT/',
-                    graphQL: {
-                        masterAppApiUrl: 'https://demo-api-dev.superalgos.org/graphql',
-                    },
-                    context: {}
-                };
-
-                try {
-                    loadSuperalgos();
-                } catch (err) {
-                    console.log("[ERROR] CanvasApp can not be started. Please check that WebServer is running.", err);
+            // Prevent click-jacking
+            try {
+                if (window == window.top || window.chrome && chrome.app && chrome.app.window) {
+                    document.documentElement.style.display = 'block'
+                } else {
+                    top.location = self.location
                 }
+            } catch (e) { console.error('CJ protection', e) }
+
+            try {
+                loadSuperalgos();
+            } catch (err) {
+                console.log("[ERROR] CanvasApp can not be started. Please check that WebServer is running.", err);
             }
         }
 
@@ -47,23 +36,60 @@
             try {
                 if (canvas === undefined) { return }
                 if (canvas.eventHandler === undefined) { return }
+                if (DISABLE_BROWSER_RESIZE_EVENT === true) { return }
                 canvas.eventHandler.raiseEvent('Browser Resized')
             } catch (err) {
-
+                console.log('Error Resizing. ' + err.stack)
             }
-
         }
     </script>
 </head>
 
 <body id="body" onload="loadCanvas()"
-      style="overflow:hidden; background: url(Images/superalgos-platform.jpg); background-size: cover;"
-      onresize="onResize()">
-     
+    style="overflow:hidden; background: url(Images/superalgos-platform.jpg); background-size: cover;"
+    onresize="onResize()">
+    <div id="contributors" class="credits">
+        <p>Superalgos is <span class="red">open-source</span> and <span class="red">free</span> thanks to the generosity of contributors:</p>
+        <p>Luis Fernando Molina, Julian Molina, Andreja Cobeljic, Matías Benitez, Ira Miller, Eduardo Remis, Jeff Braun, rico4dev, Barry Low, Nikola Bjelogrlic, Hirajin Koizuko, and Francisco J. Santillán.</p>
+        <p><span class="red">Help us keep Superalgos free for all. Become a contributor!</span></p>
+    </div>
     <div id="masterApp"></div>
     <div id="canvasApp"></div>
+    <div id="docApp" style="position:fixed; top:100000px; left:100000px">
+        <iframe id="docIFrame" style="border:none; " height="2000" width="900"></iframe>
+    </div>
+    <div id="chatApp" style="position:fixed; top:100000px; left:100000px">
+        <iframe id="chatIFrame" style="border:none; " height="2000" width="900"></iframe>
+    </div>
     <div id="textAreaDiv"></div>
     <div id="inputDiv" style="font-family:saira condensed;">&nbsp;</div>
+
+    <!-- Tutorial Template Divs -->
+    <div id="tutorialDiv" class="tutorial-step" style="position:fixed; top:100000px; left:100000px;"></div>
+    <div id="tutorialFormDiv" class="tutorial-form" style="position:fixed; top:100000px; left:100000px;">
+        <form>
+            <table class="tutorial-buttonsTable">
+                <tr>
+                    <td align="center">
+                        <label class="tutorial-font-small tutorial-stop-button" onclick="canvas.tutorialSpace.stop()"
+                            value="">&nbsp;&nbsp;Stop&nbsp;&nbsp;&nbsp;</label>
+                    </td>
+                    <td align="center">
+                        <label class="tutorial-font-small tutorial-skip-button" onclick="canvas.tutorialSpace.skip()"
+                            value="">&nbsp;&nbsp;Skip&nbsp;&nbsp;&nbsp;</label>
+                    </td>
+                    <td align="center">
+                        <label class="tutorial-font-small tutorial-previous-button"
+                            onclick="canvas.tutorialSpace.previous()" value="">Previous</label>
+                    </td>
+                    <td align="center">
+                        <label class="tutorial-font-small tutorial-next-button" onclick="canvas.tutorialSpace.next()"
+                            value="">&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;</label>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
 </body>
 
 </html>

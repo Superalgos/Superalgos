@@ -4,7 +4,7 @@
     const LOG_FILE_CONTENT = false;
     const MODULE_NAME = "Status Dependencies";
 
-    let bot = BOT 
+    let bot = BOT
 
     let thisObject = {
         nodeArray: undefined,
@@ -18,11 +18,7 @@
     return thisObject;
 
     function initialize(callBackFunction) {
-
         try {
-
-            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
-
             /* Basic Valdidations */
             if (bot.processNode.referenceParent.processDependencies !== undefined) {
                 if (bot.processNode.referenceParent.processDependencies.statusDependencies !== undefined) {
@@ -47,7 +43,7 @@
                 let statusDependency = {
                     dependency: thisObject.nodeArray[i]
                 }
-                    
+
                 dependenciesToProcess.push(statusDependency)
 
             }
@@ -88,9 +84,6 @@
 
                         switch (err.message) {
                             case global.DEFAULT_OK_RESPONSE.message: {
-
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> onLoad -> Execution finished well. -> Status Dependency = " + JSON.stringify(statusDependency.dependency)) }
-
                                 addReport();
                                 return;
                             }
@@ -124,7 +117,7 @@
                         }
                     }
                     catch (err) {
-                        logger.write(MODULE_NAME, "[ERROR] initialize -> onLoad -> err = "+ err.stack);
+                        logger.write(MODULE_NAME, "[ERROR] initialize -> onLoad -> err = " + err.stack);
                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     }
                 }
@@ -137,14 +130,14 @@
                     loadCount++;
                     logger.write(MODULE_NAME, "[INFO] initialize -> addReport -> Total Added = " + loadCount);
 
-                    let key = statusDependency.dependency.dataMine + "-" + statusDependency.dependency.bot + "-" + statusDependency.dependency.process + "-" + statusDependency.dependency.dataSetVersion;
+                    let key = statusDependency.dependency.dataMine + "-" + statusDependency.dependency.bot + "-" + statusDependency.dependency.process
 
                     thisObject.keys.push(key);
                     thisObject.statusReports.set(key, statusReportModule);
 
                     if (statusReportModule.mainUtility !== undefined) {
                         thisObject.reportsByMainUtility.set(statusReportModule.mainUtility, statusReportModule)
-                    } 
+                    }
 
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> addReport -> Report added to Map. -> key = " + key); }
 
@@ -161,7 +154,7 @@
             }
 
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] initialize -> err = "+ err.stack);
+            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }

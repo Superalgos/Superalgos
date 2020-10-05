@@ -4,7 +4,7 @@ const path = require('path')
 exports.newFileStorage = function newFileStorage(logger, host, port) {
 
     const MODULE_NAME = 'FileStorage'
-    const MAX_RETRY = 30
+    const MAX_RETRY = 10
     const FAST_RETRY_TIME_IN_MILISECONDS = 500
     const SLOW_RETRY_TIME_IN_MILISECONDS = 2000
 
@@ -17,23 +17,57 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
     }
 
     let thisObject = {
+        asyncGetTextFile: asyncGetTextFile,
+        asyncCreateTextFile: asyncCreateTextFile, 
         getTextFile: getTextFile,
         createTextFile: createTextFile,
         deleteTextFile: deleteTextFile
     }
 
-  return thisObject
+    return thisObject
+
+    async function asyncGetTextFile(filePath, noRetry, canUsePrevious) {
+        /* This function allows its caller to work with async / await instead of callbacks */
+        let promise = new Promise((resolve, reject) => {
+
+            getTextFile(filePath, onFileRead, noRetry, canUsePrevious) 
+            function onFileRead(err, text) {
+ 
+                let response = {
+                    err: err,
+                    text: text
+                }
+                resolve(response)
+            }
+          })
+
+        return promise
+    }
+
+    async function asyncCreateTextFile(filePath, fileContent, keepPrevious, noTemp) {
+        /* This function allows its caller to work with async / await instead of callbacks */
+        let promise = new Promise((resolve, reject) => {
+
+            createTextFile(filePath, fileContent, onFileWriten, keepPrevious, noTemp) 
+            function onFileWriten(err) {
+ 
+                let response = {
+                    err: err
+                }
+                resolve(response)
+            }
+          })
+
+        return promise
+    }
 
     function getTextFile(filePath, callBackFunction, noRetry, canUsePrevious) {
 
-      let currentRetryGetTextFile = 0
+        let currentRetryGetTextFile = 0
 
         recursiveGetTextFile(filePath, callBackFunction, noRetry, canUsePrevious)
 
         function recursiveGetTextFile(filePath, callBackFunction, noRetry, canUsePrevious) {
-
-            logger.write(MODULE_NAME, '[INFO] FileStorage -> getTextFile -> Entering Function.')
-
             let fileDoesNotExist = false
 
             /* Choose path for either bots or data */
@@ -77,7 +111,7 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
                                 }
                                 callBackFunction(customResponse)
                                 return
-                            } 
+                            }
 
                             fileDoesNotExist = true
                             logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> onFileRead -> File does not exist. Retrying. ')
@@ -106,7 +140,7 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
                     if (mustBeJason === false) {
                         /* In this case there is nothing else to check. */
                         callBackFunction(global.DEFAULT_OK_RESPONSE, text.toString())
-                        return 
+                        return
                     }
 
                     /*
@@ -117,7 +151,7 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
 
                         /* The file was correctly read and could be parsed. */
                         callBackFunction(global.DEFAULT_OK_RESPONSE, text.toString())
-                        return 
+                        return
 
                     } catch (err) {
 
@@ -140,11 +174,11 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
                                     logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> onFileRead -> canUsePrevious -> err = ' + err.stack)
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE)
                                     return
-                                } 
+                                }
 
                                 /* Returning the previous file */
                                 callBackFunction(global.DEFAULT_OK_RESPONSE, text.toString())
-                                return 
+                                return
                             }
                         } else {
                             logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> onFileRead -> Could read the file, but could not parse it as it is not a valid JSON.')
@@ -153,17 +187,17 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
                             setTimeout(retry, retryTimeToUse)
                             return
                         }
-                    }                    
+                    }
                 }
 
             } catch (err) {
-                logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> Error writing file -> file = ' + fileLocation)
-                logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> Error writing file -> err = ' + err.stack)
+                logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> Error reading file -> file = ' + fileLocation)
+                logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> Error reading file -> err = ' + err.stack)
                 retry()
             }
 
             function retry() {
-                //console.log(new Date(), ' Retry #: ' + currentRetryGetTextFile, fileLocation )
+                console.log(new Date(), '[WARN] Read File Retry #: ' + currentRetryGetTextFile, fileLocation)
                 if (currentRetryGetTextFile < MAX_RETRY) {
                     currentRetryGetTextFile++
                     logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> retry -> Will try to read the file again -> Retry #: ' + currentRetryGetTextFile)
@@ -191,16 +225,13 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
         }
     }
 
-    function createTextFile(filePath, fileContent, callBackFunction, keepPrevious) {
+    function createTextFile(filePath, fileContent, callBackFunction, keepPrevious, noTemp) {
 
         let currentRetryWriteTextFile = 0
 
-        recursiveCreateTextFile(filePath, fileContent, callBackFunction, keepPrevious)
+        recursiveCreateTextFile(filePath, fileContent, callBackFunction, keepPrevious, noTemp)
 
-        function recursiveCreateTextFile(filePath, fileContent, callBackFunction, keepPrevious) {
-
-            logger.write(MODULE_NAME, '[INFO] FileStorage -> createTextFile -> Entering Function.')
-
+        function recursiveCreateTextFile(filePath, fileContent, callBackFunction, keepPrevious, noTemp) {
             /* Choose path for either logs or data */
             let fileLocation
             if (filePath.indexOf("/Logs/") > 0) {
@@ -210,7 +241,6 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
             }
 
             try {
-
                 logger.write(MODULE_NAME, '[INFO] FileStorage -> createTextFile -> fileLocation: ' + fileLocation)
 
                 /* If necesary a folder or folders are created before writing the file to disk. */
@@ -222,9 +252,13 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
                 Then we delete the original file, if exists, and finally we rename the temporary into the original name.
                 */
                 const fs = require('fs')
-                fs.writeFile(fileLocation + '.tmp', fileContent, onFileWritenn)
+                if (noTemp === true) {
+                    fs.writeFile(fileLocation, fileContent, onFileWriten)
+                } else {
+                    fs.writeFile(fileLocation + '.tmp', fileContent, onFileWriten)
+                }
 
-                function onFileWritenn(err) {
+                function onFileWriten(err) {
                     let retryTimeToUse = FAST_RETRY_TIME_IN_MILISECONDS
                     if (currentRetryWriteTextFile > MAX_RETRY - 2) {
                         retryTimeToUse = SLOW_RETRY_TIME_IN_MILISECONDS
@@ -235,6 +269,10 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
                         setTimeout(retry, retryTimeToUse)
                     } else {
 
+                        if (noTemp === true) {
+                            callBackFunction(global.DEFAULT_OK_RESPONSE)
+                            return
+                        }
                         if (keepPrevious === true) {
                             /*
                             In some cases, we are going to keep a copy of the previous version of the file being written. This will be usefull to recover from crashes
@@ -252,7 +290,7 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
                                     logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> onFileWriten -> onUnlinked -> Error deleting file -> err = ' + err.stack)
                                     setTimeout(retry, retryTimeToUse)
                                     return
-                                }  
+                                }
 
                                 /* Rename de Original into Previous */
                                 fs.rename(fileLocation, fileLocation + '.Previous.json', onOriginalRenamed)
@@ -266,7 +304,7 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
                                         logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> onFileWriten -> onUnlinked -> onOriginalRenamed -> Error renaming original file -> file = ' + fileLocation)
                                         logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> onFileWriten -> onUnlinked -> onOriginalRenamed -> Error renaming original file -> err = ' + err.stack)
                                         setTimeout(retry, retryTimeToUse)
-                                        return 
+                                        return
                                     }
 
                                     /* Rename de Temp into Original */
@@ -282,13 +320,13 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
                                             callBackFunction(global.DEFAULT_OK_RESPONSE)
 
                                         }
-                                    }                                        
+                                    }
                                 }
                             }
                         } else {
 
                             /* In this case, there is no need to keep a copy of the file being replaced, so we just delete and that's it. */
-                            fs.unlink(fileLocation , onUnlinked)
+                            fs.unlink(fileLocation, onUnlinked)
 
                             function onUnlinked(err) {
                                 let code = ''
@@ -296,11 +334,11 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
                                     code = err.code
                                 }
                                 if (code !== '' && code !== 'ENOENT') {
-                                    logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> onFileWriten -> onUnlinked -> Error deleting file -> file = ' + fileLocation )
+                                    logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> onFileWriten -> onUnlinked -> Error deleting file -> file = ' + fileLocation)
                                     logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> onFileWriten -> onUnlinked -> Error deleting file -> err = ' + err.stack)
                                     setTimeout(retry, retryTimeToUse)
                                     return
-                                } 
+                                }
 
                                 /* Rename de Temp into Original */
                                 fs.rename(fileLocation + '.tmp', fileLocation, onTempRenamed)
@@ -406,33 +444,33 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
 
     /* Function to create folders of missing folders at any path. */
     function mkDirByPathSync(targetDir, { isRelativeToScript = false } = {}) {
-    const sep = '/';
-    const initDir = path.isAbsolute(targetDir) ? sep : '';
-    const baseDir = isRelativeToScript ? __dirname : '.';
+        const sep = '/';
+        const initDir = path.isAbsolute(targetDir) ? sep : '';
+        const baseDir = isRelativeToScript ? __dirname : '.';
 
-    return targetDir.split(sep).reduce((parentDir, childDir) => {
-      const curDir = path.resolve(baseDir, parentDir, childDir);
-      try {
-        const fs = require('fs')
-        fs.mkdirSync(curDir);
-      } catch (err) {
-        if (err.code === 'EEXIST') { // curDir already exists!
-          return curDir;
-        }
+        return targetDir.split(sep).reduce((parentDir, childDir) => {
+            const curDir = path.resolve(baseDir, parentDir, childDir);
+            try {
+                const fs = require('fs')
+                fs.mkdirSync(curDir);
+            } catch (err) {
+                if (err.code === 'EEXIST') { // curDir already exists!
+                    return curDir;
+                }
 
-        // To avoid `EISDIR` error on Mac and `EACCES`-->`ENOENT` and `EPERM` on Windows.
-        if (err.code === 'ENOENT') { // Throw the original parentDir error on curDir `ENOENT` failure.
-          throw new Error(`EACCES: permission denied, mkdir '${parentDir}'`);
-        }
+                // To avoid `EISDIR` error on Mac and `EACCES`-->`ENOENT` and `EPERM` on Windows.
+                if (err.code === 'ENOENT') { // Throw the original parentDir error on curDir `ENOENT` failure.
+                    throw new Error(`EACCES: permission denied, mkdir '${parentDir}'`);
+                }
 
-        const caughtErr = ['EACCES', 'EPERM', 'EISDIR'].indexOf(err.code) > -1;
-        if (!caughtErr || caughtErr && curDir === path.resolve(targetDir)) {
-          throw err; // Throw if it's just the last created dir.
-        }
-      }
+                const caughtErr = ['EACCES', 'EPERM', 'EISDIR'].indexOf(err.code) > -1;
+                if (!caughtErr || caughtErr && curDir === path.resolve(targetDir)) {
+                    throw err; // Throw if it's just the last created dir.
+                }
+            }
 
-      return curDir;
-    }, initDir);
+            return curDir;
+        }, initDir);
     }
 
     function getFileViaHTTP(filePath, callback, callBackFunction) {
@@ -455,7 +493,7 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
                 logger.write(MODULE_NAME, "[ERROR] getFileViaHTTP -> onError -> err = " + err.stack);
                 logger.write(MODULE_NAME, "[ERROR] getFileViaHTTP -> onError -> Failed to fetch file via HTTP. Will retry later. ");
                 callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-            }) 
+            })
 
             function onResponse(response) {
 

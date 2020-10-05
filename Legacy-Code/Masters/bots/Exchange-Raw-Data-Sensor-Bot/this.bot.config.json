@@ -2,14 +2,8 @@
   "displayName": "Exchange Raw Data",
   "codeName": "Exchange-Raw-Data",
   "type": "Sensor Bot",
-  "version": {
-    "major": 1,
-    "minor": 0,
-    "patch": 0
-  },
   "dataMine": "Masters",
   "profilePicture": "Exchange Raw Data.png",
-  "dataSetVersion": "dataSet.V1",
   "processes": [
     {
       "name": "Live-Trades",
@@ -42,12 +36,7 @@
         {
           "dataMine": "Masters",
           "bot": "Exchange-Raw-Data",
-          "botVersion": {
-            "major": 1,
-            "minor": 0
-          },
-          "process": "Live-Trades",
-          "dataSetVersion": "dataSet.V1"
+          "process": "Live-Trades"
         }
       ]
     },
@@ -82,22 +71,12 @@
         {
           "dataMine": "Masters",
           "bot": "Exchange-Raw-Data",
-          "botVersion": {
-            "major": 1,
-            "minor": 0
-          },
-          "process": "Live-Trades",
-          "dataSetVersion": "dataSet.V1"
+          "process": "Live-Trades"
         },
         {
           "dataMine": "Masters",
           "bot": "Exchange-Raw-Data",
-          "botVersion": {
-            "major": 1,
-            "minor": 0
-          },
-          "process": "Historic-Trades",
-          "dataSetVersion": "dataSet.V1"
+          "process": "Historic-Trades"
         }
       ]
     },
@@ -132,44 +111,24 @@
         {
           "dataMine": "Masters",
           "bot": "Exchange-Raw-Data",
-          "botVersion": {
-            "major": 1,
-            "minor": 0
-          },
           "process": "Live-Trades",
-          "dataSetVersion": "dataSet.V1",
           "waitUntilNextUpdate": true
         },
         {
           "dataMine": "Masters",
           "bot": "Exchange-Raw-Data",
-          "botVersion": {
-            "major": 1,
-            "minor": 0
-          },
-          "process": "Historic-Trades",
-          "dataSetVersion": "dataSet.V1"
+          "process": "Historic-Trades"
         },
         {
           "dataMine": "Masters",
           "bot": "Exchange-Raw-Data",
-          "botVersion": {
-            "major": 1,
-            "minor": 0
-          },
           "process": "Hole-Fixing",
-          "dataSetVersion": "dataSet.V1",
           "dataSetSection": "Month"
         },
         {
           "dataMine": "Masters",
           "bot": "Exchange-Raw-Data",
-          "botVersion": {
-            "major": 1,
-            "minor": 0
-          },
-          "process": "Hole-Fixing",
-          "dataSetVersion": "dataSet.V1"
+          "process": "Hole-Fixing"
         }
       ]
     }

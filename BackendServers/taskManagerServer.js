@@ -9,16 +9,14 @@
     }
 
     /*
-
     This server creates and destroys Task Servers according to what is going on at the UI. Each of these created servers will do their own
     work. The responsibility of this server is to manage those children processes in order to be in sync with what the end user want and is defining
     at the user interface.
-
     */
 
     const { fork } = require('child_process')
     require('dotenv').config()
-    tasks = new Map()
+    tasksMap = new Map()
 
     return thisObject
 
@@ -31,22 +29,19 @@
     }
 
     function run() {
-
         /*
-        
         Here we will create an Event Handler for this server. After that we will listen to events happening here. Elements of the UI will raise events here,
         as a way to communicate what is going on with the user interacting with UI components. That is the way this server will know for example when a new
         task needs to be created or destroyed.
-        
         */
-
         let eventsServerClient = newEventsServerClient()
         eventsServerClient.createEventHandler('Task Manager')
         eventsServerClient.listenToEvent('Task Manager', 'Run Task', undefined, undefined, undefined, runTask)
         eventsServerClient.listenToEvent('Task Manager', 'Stop Task', undefined, undefined, undefined, stopTask)
+        eventsServerClient.listenToEvent('Task Manager', 'Task Status', undefined, undefined, undefined, taskStatus)
 
         console.log('Task Manager Server Started.')
-      
+
         function runTask(message) {
             //console.log('[INFO] BackendServers -> Task Manager Server -> runTask -> Entering function.') 
 
@@ -65,7 +60,7 @@
                 return
             }
 
-            if (tasks.get(message.event.taskId) !== undefined) {
+            if (tasksMap.get(message.event.taskId) !== undefined) {
                 let key = message.event.taskName + '-' + 'Task' + '-' + message.event.taskId
                 eventsServerClient.raiseEvent(key, 'Running') // Meaning Task Running
                 return
@@ -82,29 +77,45 @@
                     process.execArgv[i] = ''
                 }
             }
+            /* 
+            Forking this process: 
 
-            /* Forking this process. */
+            The Task Server is going to run at a fork of this process. In this way we have a some communication capabilities
+            between processes, which is kind of limited but good enough for what we need. We send to the forked process
+            the taskId and taskName at the same time we create the process. Once the process is up and running it will 
+            emit an event that is ready, and at that point we will send all the information needed to run the task.
+            */
             let task = {
                 childProcess: fork(path, [message.event.taskId], { stdio: 'inherit' }),
                 id: message.event.taskId,
                 name: message.event.taskName
             }
-
-            tasks.set(message.event.taskId, task)
-
+            /* Remember this is a running task now */
+            tasksMap.set(message.event.taskId, task)
+            /* If the Task Server crashes, we remove it from our task map */
             task.childProcess.on('error', (err) => {
                 console.log('[ERROR] BackendServers -> Task Manager Server -> runTask -> Problem with Task Name = ' + task.name)
                 console.log('[ERROR] BackendServers -> Task Manager Server -> runTask -> Problem with Task Id = ' + task.id)
-                console.log(`[ERROR] BackendServers -> Task Manager Server -> runTask -> Task Manager exited with error ${err}`)
+                console.log(`[ERROR] BackendServers -> Task Manager Server -> runTask -> Task Server exited with error ${err}`)
+                tasksMap.delete(task.id)
             })
+            /* If the Tast Server stops, we remove it from our task map */
             task.childProcess.on('close', (code, signal) => {
                 //console.log('[INFO] BackendServers -> Task Manager Server -> runTask -> Task Terminated. -> Task Name = ' + task.name)
                 //console.log('[INFO] BackendServers -> Task Manager Server -> runTask -> Task Terminated. -> Task Id = ' + task.id)
-                tasks.delete(task.id)
+                tasksMap.delete(task.id)
             })
-
+            /* 
+            We listen to the newly created Task Server events, waiting until it is up and ready to receive all the Task specific
+            instruction, to know what kind of task to execute. 
+            */
             eventsServerClient.listenToEvent('Task Manager - ' + message.event.taskId, 'Nodejs Process Ready for Task', undefined, undefined, undefined, sendStartingEvent)
-
+            /*
+            Here we do send the rest of the task information we have, which is what defines what the Task Server is actually 
+            going to do. From there on, here at the Task Manager, we have nothing to do until either the Task Server crashes or exit,
+            or the end users requests to stop it. Note that the due to the size of the instructions can not be sent via 
+            intra-process communications.
+            */
             function sendStartingEvent() {
                 //console.log('[INFO] BackendServers -> Task Manager Server -> runTask -> Emitting Event -> key = ' + 'Task Server - ' + task.id)
                 eventsServerClient.raiseEvent('Task Server - ' + task.id, 'Run Task', message.event)
@@ -112,9 +123,7 @@
         }
 
         function stopTask(message) {
-
             //console.log('[INFO] BackendServers -> Task Manager Server -> stopTask -> Entering function.')
-
             if (message.event === undefined) {
                 console.log('[WARN] BackendServers -> Task Manager Server -> stopTask -> Message Received Without Event -> message = ' + JSON.stringify(message).substring(0, 1000))
                 return
@@ -124,17 +133,45 @@
                 console.log('[WARN] BackendServers -> Task Manager Server -> stopTask -> Message Received Without taskId -> message = ' + JSON.stringify(message).substring(0, 1000))
                 return
             }
-
             //console.log('[INFO] BackendServers -> Task Manager Server -> stopTask -> Task Name = ' + message.event.taskName)
             //console.log('[INFO] BackendServers -> Task Manager Server -> stopTask -> Task Id = ' + message.event.taskId) 
 
-            let task = tasks.get(message.event.taskId)
+            let task = tasksMap.get(message.event.taskId)
 
+            /*
+            The instruction to stop the Task Server process is sent via intra-process messaging. We will remove this task from
+            our map once we received the onClose event of our forked process.
+            */
             if (task) {
                 task.childProcess.send('Stop this Task');
                 //console.log('[INFO] BackendServers -> Task Manager Server -> stopTask -> Child Process instructed to finish.')
             } else {
                 console.log('[WARN] BackendServers -> Task Manager Server -> stopTask -> Cannot delete Task that does not exist.')
+            }
+        }
+
+        function taskStatus(message) {
+            //console.log('[INFO] BackendServers -> Task Manager Server -> taskStatus -> Entering function.')
+            if (message.event === undefined) {
+                console.log('[WARN] BackendServers -> Task Manager Server -> taskStatus -> Message Received Without Event -> message = ' + JSON.stringify(message).substring(0, 1000))
+                return
+            }
+
+            if (message.event.taskId === undefined) {
+                console.log('[WARN] BackendServers -> Task Manager Server -> taskStatus -> Message Received Without taskId -> message = ' + JSON.stringify(message).substring(0, 1000))
+                return
+            }
+            //console.log('[INFO] BackendServers -> Task Manager Server -> taskStatus -> Task Name = ' + message.event.taskName)
+            //console.log('[INFO] BackendServers -> Task Manager Server -> taskStatus -> Task Id = ' + message.event.taskId) 
+
+            let task = tasksMap.get(message.event.taskId)
+            let event = {}
+            if (task) {
+                event.status = 'Task Process Running'
+                eventsServerClient.raiseEvent('Task Client - ' + message.event.taskId, 'Task Status', event)
+            } else {
+                event.status = 'Task Process Not Running'
+                eventsServerClient.raiseEvent('Task Client - ' + message.event.taskId, 'Task Status', event)
             }
         }
     }

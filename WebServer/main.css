@@ -3,7 +3,7 @@
   font-family: 'Saira';
   font-style: normal;
   font-weight: 300;
-  src: local('Saira Light'), local('Saira-Light'), url(http://localhost:WEB_SERVER_PORT/Fonts/Saira.woff2) format('woff2');
+  src: local('Saira Light'), local('Saira-Light'), url(Fonts/Saira.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 /* latin */
@@ -11,6 +11,336 @@
   font-family: 'Saira Condensed';
   font-style: normal;
   font-weight: 300;
-  src: local('Saira Condensed Light'), local('SairaCondensed-Light'), url(http://localhost:WEB_SERVER_PORT/Fonts/Saira-Condensed.woff2) format('woff2');
+  src: local('Saira Condensed Light'), local('SairaCondensed-Light'), url(Fonts/Saira-Condensed.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+
+@font-face {
+  font-family: segoeui;
+  src: url(Fonts/segoeui.woff) format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.credits {
+  width: 100%;
+  margin: auto;
+  margin-bottom: 50;
+  text-align: center;
+  position:absolute;
+  bottom:0;
+}
+
+.credits p {
+  font-family: 'Saira Condensed';
+  font-size: 140%;
+  color: whitesmoke;
+  padding: 0 100;
+}
+
+.red {
+  color: #e3493c;
+  font-weight: 700;
+}
+
+.tutorial-step {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 2px solid;
+  border-color: #1b998b;
+  border-radius: 8px;
+  background-color: #fdfdfd;
+}
+
+.tutorial-summary {
+  font-size:120%;
+  color: #808080;
+  margin:20px 0px 20px 0px;
+  border-left: 5px solid #fd6a33;
+  padding-left: 10px;
+
+}
+
+.tutorial-summary:before {
+  content: "Summary: ";
+  font-weight: bold;
+}
+
+.tutorial-definitionTable {
+  background-color: #f3f3f3;
+  border-top-color: #a6e1ec;
+  padding: 15px;
+  margin: 20px 0;
+  border: solid 0px;
+  vertical-align: middle;
+  min-width: 100px;
+  width: 100%;
+}
+
+.tutorial-alert-info {
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+  padding: 15px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  margin: 20px 0;
+  border-top-color: #a6e1ec;
+  width: 90%;
+}
+
+.tutorial-alert-success {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  padding: 15px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  margin: 20px 0;
+  border-top-color: #c9e2b3;
+  width: 90%;
+}
+
+.tutorial-alert-important {
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+  padding: 15px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  margin: 20px 0;
+  border-top-color: #f7e1b5;
+  width: 90%;
+}
+
+.tutorial-alert-warning {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+  padding: 15px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  margin: 20px 0;
+  border-top-color: #e4b9c0;
+  width: 90%;
+}
+
+.tutorial-callout {
+  padding: 20px;
+  margin: 20px 0;
+  border: 1px solid #eee;
+  border-left-width: 5px;
+  border-radius: 3px;
+  border-left-color: #bcd643;
+  font-weight: 500;
+  width: 90%;
+}
+ 
+.tutorial-info-circle:before {
+  content:"\f05a"
+}
+
+.tutorial-check-square-o:before {
+  content:"\f046"
+}
+
+.tutorial-exclamation-circle:before { 
+  content:"\f06a"
+}
+
+.tutorial-warning:before,.fa-exclamation-triangle:before {
+  content:"\f06a"
+}
+
+.tutorial-fa {
+  
+  font:normal normal normal 14px/1 FontAwesome;
+  font-size:inherit;
+  text-rendering:auto;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale
+}
+
+.tutorial-font-small {
+  
+  font:normal normal normal 14px/1 "segoeui";
+  font-size:inherit;
+  text-rendering:auto;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height: 150%
+}
+
+li > .tutorial-font-small {
+  margin-bottom:7px;
+}
+
+div.tutorial-font-small {
+  margin-bottom:7px;
+}
+
+.tutorial-font-medium {
+  
+  font:normal normal normal 32px/1 "segoeui";
+  text-rendering:auto;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height: 150%
+}
+
+.tutorial-font-large {
+  
+  font:bold normal normal 40px/1 "segoeui";
+  text-rendering:auto;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height: 150%
+}
+
+.tutorial-font-bold-small {
+  
+  font:bold normal normal 14px/1 "segoeui";
+  font-size:inherit;
+  text-rendering:auto;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height: 150%
+}
+
+.tutorial-stop-button {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+  padding: 12px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  margin: 20px 0;
+  border-top-color: #e4b9c0;
+  min-width: 100px;
+}
+
+.tutorial-skip-button {
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+  padding: 12px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  margin: 20px 0;
+  border-top-color: #f7e1b5;
+  min-width: 100px;
+}
+
+.tutorial-previous-button {
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+  padding: 12px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  margin: 20px 0;
+  border-top-color: #c9e2b3;
+  min-width: 100px;
+}
+
+.tutorial-next-button {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  padding: 12px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  margin: 20px 0;
+  border-top-color: #c9e2b3;
+  min-width: 100px;
+}
+
+.tutorial-form {
+  padding: 5px;
+  border: solid 0px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.tutorial-buttonsTable {
+  border-top-color: #a6e1ec;
+  border: solid 0px;
+  vertical-align: middle;
+  min-width: 100px;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tutorial-image-container {
+  padding: 5px 15px 5px 5px;
+  border: solid 0px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 240px;
+  background-color: #0295aa;
+  color: #fff;
+  font-weight: normal;
+  font-size: 92%;
+  line-height: 130%;
+  text-align: center;
+  padding: 15px;
+  border-radius: 6px;
+
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -120px;
+   
+
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Tooltip arrow */
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #0295aa transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+kbd {
+  padding: 2px 8px;
+  font-size: 125%;
+  font-weight: 500;
+  color: #000;
+  background-color: #bcd643;
+  border-radius: 5px;
+  border-style: outset;
+  border-width: 1px;
+}
+

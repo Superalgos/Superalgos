@@ -39,109 +39,83 @@ function loadSuperalgos() {
 
     const MODULE_NAME = "App Pre-Loader";
     const INFO_LOG = false;
-    const ERROR_LOG = true;
 
-    if (INFO_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + " : " + "[INFO] loadSuperalgos -> Entering function."); }
+    setupHTMLTextArea()
+    setupHTMLInput()
+    setupHTMLCanvas()
+    loadDebugModule()
 
-    /* The first thing to do here is to add the canvas where all the action is going to happen. */
+    function setupHTMLTextArea() {
+        let textArea = document.createElement('textarea');
+        textArea.id = "textArea";
+        textArea.spellcheck = false;
+        textArea.style = 'resize: none;' +
+            ' border: none;' +
+            ' outline: none;' +
+            'box-shadow: none;' +
+            'overflow:hidden;' +
+            'font-family: ' + 'Saira' + ';' +
+            'font-size: 12px;' +
+            'background-color: rgb(255, 255, 255);' +
+            'color:rgb(255, 255, 255);' +
+            'width: ' + 600 + 'px;' +
+            'height: ' + 400 + 'px'
 
+        let textAreaDiv = document.getElementById('textAreaDiv');
+        textAreaDiv.appendChild(textArea);
+        textAreaDiv.style = 'position:fixed; top:' + -1500 + 'px; left:' + 500 + 'px; z-index:10; '
+    }
 
-    let textArea = document.createElement('textarea');
-    textArea.id = "textArea";
-    textArea.spellcheck = false;
-    textArea.style = 'resize: none;' +
-        ' border: none;' +
-        ' outline: none;' +
-        'box-shadow: none;' +
-        'overflow:hidden;' +
-        'font-family: ' + 'Saira' + ';' +
-        'font-size: 12px;' +
-        'background-color: rgb(255, 255, 255);' +
-        'color:rgb(255, 255, 255);' +
-        'width: ' + 800 + 'px;' +
-        'height: ' + 600 + 'px'
+    function setupHTMLInput() {
+        let input = document.createElement('input');
+        input.id = "input";
+        input.spellcheck = false;
+        input.style = "border: none; outline: none; box-shadow: none; overflow:hidden;  width: 0px; height: 0px;";
 
-    let textAreaDiv = document.getElementById('textAreaDiv');
-    textAreaDiv.appendChild(textArea);
-    textAreaDiv.style = 'position:fixed; top:' + -1500 + 'px; left:' + 500 + 'px; z-index:10; '
+        let inputDiv = document.getElementById('inputDiv');
+        inputDiv.appendChild(input);
+    }
 
-    let input = document.createElement('input');
-    input.id = "input";
-    input.spellcheck = false;
-    input.style = "border: none; outline: none; box-shadow: none; overflow:hidden;  width: 0px; height: 0px;";
+    function setupHTMLCanvas() {
+        let canvas = document.createElement('canvas');
 
-    let inputDiv = document.getElementById('inputDiv');
-    inputDiv.appendChild(input);
+        canvas.id = "canvas";
+        canvas.width = 1400;
+        canvas.height = 600;
+        canvas.style.border = "0";
+        canvas.style = "position:absolute; top:0px; left:0px; z-index:1";
 
+        let canvasApp = document.getElementById('canvasApp');
+        canvasApp.appendChild(canvas);
 
-    let canvas = document.createElement('canvas');
+        browserCanvas = document.getElementById('canvas');
 
-    canvas.id = "canvas";
-    canvas.width = 1400;
-    canvas.height = 600;
-    canvas.style.border = "0";
-    canvas.style = "position:absolute; top:0px; left:0px; z-index:1";
+        browserCanvas.width = window.innerWidth;
+        browserCanvas.height = window.innerHeight;
+        browserCanvas.style.border = "none";
 
-    let canvasApp = document.getElementById('canvasApp');
-    canvasApp.appendChild(canvas);
-
-    browserCanvas = document.getElementById('canvas');
-
-    browserCanvas.width = window.innerWidth;
-    browserCanvas.height = window.innerHeight - window.canvasApp.topMargin;
-    browserCanvas.style.border = "none";
-
-    browserCanvas.style.top = window.canvasApp.topMargin + 'px';
-
-
-
-    loadDebugModule();
+        browserCanvas.style.top = 0 + 'px';
+    }
 
     function loadDebugModule() {
+        let path = "WebDebugLog.js";
+        REQUIREJS([path], onRequired);
 
-        try {
-            if (INFO_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + " : " + "[INFO] loadDebugModule -> Entering function."); }
-
-            let path = window.canvasApp.urlPrefix + "WebDebugLog.js";
-
-            REQUIREJS([path], onRequired);
-
-            function onRequired(pModule) {
-
-                if (INFO_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + " : " + "[INFO] " + path + " downloaded."); }
-
-                loadModules();
-
-            }
-        }
-        catch (err) {
-            console.log(spacePad(MODULE_NAME, 50) + " : " + "[ERROR]  loadDebugModule --> " + path + " --> err = " + err.stack);
+        function onRequired(pModule) {
+            if (INFO_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + " : " + "[INFO] " + path + " downloaded."); }
+            loadModules();
         }
     }
 
     /* And Finally, we start loading all the scripts we will inmediatelly need. */
-
     function loadModules() {
+        let path = "WebServer/AppLoader.js";
+        REQUIREJS([path], onRequired);
 
-        try {
-
-            if (INFO_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + " : " + "[INFO] loadModules -> Entering function."); }
-
-            let path = window.canvasApp.urlPrefix + "WebServer/AppLoader.js";
-
-            REQUIREJS([path], onRequired);
-
-            function onRequired(pModule) {
-
-                if (INFO_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + " : " + "[INFO] " + path + " downloaded."); }
-
-                let APP_LOADER_MODULE = newAppLoader();
-                APP_LOADER_MODULE.loadModules();
-
-            }
-        }
-        catch (err) {
-            console.log(spacePad(MODULE_NAME, 50) + " : " + "[ERROR]  loadModules --> " + path + " --> err = " + err.stack);
+        function onRequired(pModule) {
+            if (INFO_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + " : " + "[INFO] " + path + " downloaded."); }
+            let APP_LOADER_MODULE = newAppLoader();
+            APP_LOADER_MODULE.loadModules();
         }
     }
 }

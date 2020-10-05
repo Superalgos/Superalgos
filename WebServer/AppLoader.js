@@ -28,6 +28,8 @@ function newAppLoader() {
                 'Globals.js',
 
                 'AppSchema.js',
+                'DocSchema.js',
+                'ConceptSchema.js',
                 'Workspace.js',
 
                 'ChartingSpace/EdgeEditor.js',
@@ -50,17 +52,31 @@ function newAppLoader() {
                 'DesignSpace/Workspace/FunctionLibraries/ShortcutKeys.js',
                 'DesignSpace/Workspace/FunctionLibraries/OnFocus.js',
                 'DesignSpace/Workspace/FunctionLibraries/SuperScripts.js',
-                'DesignSpace/Workspace/FunctionLibraries/CCXTFunctions.js',
+                'DesignSpace/Workspace/FunctionLibraries/CryptoEcosystemFunctions.js',
                 'DesignSpace/Workspace/FunctionLibraries/WebhookFunctions.js',
                 'DesignSpace/Workspace/FunctionLibraries/DependenciesFilter.js',
+                'DesignSpace/Workspace/FunctionLibraries/NodePath.js',
+                'DesignSpace/Workspace/FunctionLibraries/DataMineFunctions.js',
+                'DesignSpace/Workspace/FunctionLibraries/DataStorageFunctions.js',
+                'DesignSpace/Workspace/FunctionLibraries/ChartingSpaceFunctions.js',
+                'DesignSpace/Workspace/FunctionLibraries/TutorialFunctions.js',   
+                'DesignSpace/Workspace/FunctionLibraries/IncludesFunctions.js',  
 
                 'Utilities/CoordinateTransformations.js',
                 'Utilities/DateRateTransformations.js',
                 'Utilities/Download.js',
+                'Utilities/Clipboard.js',
                 'Utilities/DrawPrint.js',
                 'Utilities/LoadSaveFrame.js',
+                'Utilities/LoadSaveTutorial.js',
                 'Utilities/NodeConfig.js',
-                'Utilities/HiriarchyMap.js',
+                'Utilities/Hiriarchy.js',
+                'Utilities/Folders.js',
+                'Utilities/Branches.js',
+                'Utilities/Meshes.js',
+                'Utilities/NodeChildren.js',
+                'Utilities/Menu.js',
+                'Utilities/Dates.js',
 
                 'Panels/LayersPanel.js',
                 'Panels/UpDownButton.js',
@@ -80,6 +96,9 @@ function newAppLoader() {
                 'Spaces/FloatingSpace.js',
                 'Spaces/DesignSpace.js',
                 'Spaces/SideSpace.js',
+                'Spaces/DocSpace.js',
+                'Spaces/ChatSpace.js',
+                'Spaces/TutorialSpace.js',
 
                 'Files/SingleFile.js',
                 'Files/FileCloud.js',
@@ -119,6 +138,8 @@ function newAppLoader() {
                 'Plotting/Plotter.js',
                 'Plotting/NodesHighlights.js',
                 'Plotting/NodesErrors.js',
+                'Plotting/NodesWarnings.js',
+                'Plotting/NodesInfos.js',
                 'Plotting/NodesValues.js',
                 'Plotting/NodesStatus.js',
                 'Plotting/NodesProgress.js',
@@ -144,13 +165,9 @@ function newAppLoader() {
             modulesArray = modulesArray.concat(plotters)
 
             let downloadedCounter = 0
-            let versionParam = window.canvasApp.version
-            if (versionParam === undefined) { versionParam = '' } else {
-                versionParam = '?' + versionParam
-            }
 
             for (let i = 0; i < modulesArray.length; i++) {
-                let path = window.canvasApp.urlPrefix + modulesArray[i] + versionParam
+                let path = modulesArray[i] 
 
                 REQUIREJS([path], onRequired)
 

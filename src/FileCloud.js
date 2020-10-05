@@ -1,15 +1,12 @@
 
 function newFileCloud () {
   const MODULE_NAME = 'File Cloud'
-  const INFO_LOG = false
   const ERROR_LOG = true
   const logger = newWebDebugLog()
   logger.fileName = MODULE_NAME
 
   /*
-
   This is the module in the system that actually connects to the cloud storage and grabs from there the needed files.
-
   */
 
   let thisObject = {
@@ -18,47 +15,64 @@ function newFileCloud () {
   }
 
   let fileStorage
-
   return thisObject
 
   function initialize (pBot, pHost, pPort) {
     fileStorage = newFileStorage(pHost, pPort)
   }
 
-  function getFile (pDataMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction) {
+  function getFile (pDataMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, pTimeFrames, callBackFunction) {
     try {
-      if (INFO_LOG === true) { logger.write('[INFO] getFile -> Entering function.') }
-
       const MAX_RETRIES = 3
+      getFileRecursively(0, pDataMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, pTimeFrames, callBackFunction)
 
-      getFileRecursively(0, pDataMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction)
-
-      function getFileRecursively (pRetryCounter, pDataMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction) {
+      function getFileRecursively (pRetryCounter, pDataMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, pTimeFrames, callBackFunction) {
         try {
-          if (INFO_LOG === true) { logger.write('[INFO] getFile -> getFileRecursively -> Entering function.') }
-          if (INFO_LOG === true) { logger.write('[INFO] getFile -> getFileRecursively -> key = ' + pDataMine.config.codeName + '-' + pBot.config.codeName + '-' + pDataset.config.filePath + '-' + pDataset.config.fileName) }
-
           let fileName
           let filePath
 
-          if (pDataRange === undefined) {
+          if (pDataRange === undefined && pTimeFrames === undefined) {
             fileName = pDataset.config.fileName
             filePath = pDataset.config.filePath
           } else {
-            if (pDataset.config.dataRange !== undefined) {
-              fileName = pDataset.config.dataRange.fileName
-              filePath = pDataset.config.dataRange.filePath
-            } else {
-              let customErr = {
-                result: GLOBAL.CUSTOM_FAIL_RESPONSE.result,
-                message: 'Missing Configuration.'
+            if (pDataRange !== undefined) {
+              if (pDataset.config.dataRange !== undefined) {
+                fileName = pDataset.config.dataRange.fileName
+                filePath = pDataset.config.dataRange.filePath
+              } else {
+                let customErr = {
+                  result: GLOBAL.CUSTOM_FAIL_RESPONSE.result,
+                  message: 'Missing Configuration.'
+                }
+                if (ERROR_LOG === true) { logger.write('[WARN] getFile -> getFileRecursively -> onFileReceived -> customErr.message = ' + customErr.message) }
+                if (ERROR_LOG === true) { logger.write('[WARN] getFile -> getFileRecursively -> onFileReceived -> Data Range configuration could not be found at Dataset ' + pDataset.name) }
+                callBackFunction(customErr)
+                return
               }
-
-              if (ERROR_LOG === true) { logger.write('[WARN] getFile -> getFileRecursively -> onFileReceived -> customErr.message = ' + customErr.message) }
-              if (ERROR_LOG === true) { logger.write('[WARN] getFile -> getFileRecursively -> onFileReceived -> Data Range configuration could not be found. ') }
-
-              callBackFunction(customErr)
-              return
+            }
+            if (pTimeFrames !== undefined) {
+              if (pDataset.config.timeFrames !== undefined) {
+                if (pDataset.config.timeFrames.fileName !== '') {
+                  fileName = pDataset.config.timeFrames.fileName
+                  filePath = pDataset.config.timeFrames.filePath
+                } else {
+                  let customErr = {
+                    result: GLOBAL.CUSTOM_FAIL_RESPONSE.result,
+                    message: 'Configured to not Support This.'
+                  }
+                  callBackFunction(customErr)
+                  return
+                }
+              } else {
+                let customErr = {
+                  result: GLOBAL.CUSTOM_FAIL_RESPONSE.result,
+                  message: 'Missing Configuration.'
+                }
+                if (ERROR_LOG === true) { logger.write('[WARN] getFile -> getFileRecursively -> onFileReceived -> customErr.message = ' + customErr.message) }
+                if (ERROR_LOG === true) { logger.write('[WARN] getFile -> getFileRecursively -> onFileReceived -> Time Frames configuration could not be found at Dataset ' + pDataset.name) }
+                callBackFunction(customErr)
+                return
+              }
             }
           }
 
@@ -89,10 +103,10 @@ function newFileCloud () {
 
           if (pSession !== undefined) {
             let config
-            let sessionFolderName = pSession.id
+            let sessionFolderName = pSession.type.replace(' ', '-').replace(' ', '-') + '-' + pSession.id    
             if (pSession.config !== undefined) {
               if (pSession.config.folderName !== undefined) {
-                sessionFolderName = pSession.config.folderName + '-' + pSession.id
+                sessionFolderName = pSession.type.replace(' ', '-').replace(' ', '-') + '-' + pSession.config.folderName
               }
             }
             filePath = filePath.replace('@Session', sessionFolderName)
@@ -118,17 +132,10 @@ function newFileCloud () {
             fileName = fileName.replace('@Sequence', pSequence)
           }
 
-          if (INFO_LOG === true) { logger.write('[INFO] getFile -> getFileRecursively -> filePath = ' + filePath) }
-          if (INFO_LOG === true) { logger.write('[INFO] getFile -> getFileRecursively -> fileName = ' + fileName) }
-
           fileStorage.getFileFromHost(filePath + '/' + fileName, onFileReceived)
 
           function onFileReceived (err, text, response) {
             try {
-              if (INFO_LOG === true) { logger.write('[INFO] getFile -> getFileRecursively -> onFileReceived -> Entering function.') }
-              if (INFO_LOG === true) { logger.write('[INFO] getFile -> getFileRecursively -> onFileReceived -> filePath = ' + filePath) }
-              if (INFO_LOG === true) { logger.write('[INFO] getFile -> getFileRecursively -> onFileReceived -> fileName = ' + fileName) }
-
               let data
 
               if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
@@ -137,9 +144,6 @@ function newFileCloud () {
                     result: GLOBAL.CUSTOM_FAIL_RESPONSE.result,
                     message: 'File does not exist.'
                   }
-
-                  if (INFO_LOG === true) { logger.write('[WARN] getFile -> getFileRecursively -> onFileReceived -> customErr.message = ' + customErr.message) }
-
                   callBackFunction(customErr)
                   return
                 }
@@ -171,9 +175,6 @@ function newFileCloud () {
               } else {
                 try {
                   data = JSON.parse(text)
-
-                  if (INFO_LOG === true) { logger.write('[INFO] getFile -> getFileRecursively -> onFileReceived -> Data received is valid JSON.') }
-
                   callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, data)
                   return
                 } catch (err) {

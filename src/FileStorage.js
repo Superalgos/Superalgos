@@ -27,9 +27,6 @@ function newFileStorage(host, port) {
     getFileFromHost: getFileFromHost
   }
 
-  if (host === '' || host === undefined) { host = 'localhost' }
-  if (port === '' || port === undefined) { port = '34248' }
-
   return thisObject
 
   async function getFileFromHost(filePath, callBackFunction, pathComplete) {
@@ -41,8 +38,10 @@ function newFileStorage(host, port) {
         folder = 'Storage/'
       }
       let url = folder + filePath
-      if (host !== undefined) {
+      if (host !== undefined && port !== undefined) {
         url = 'http://' + host + ':' + port + '/' + folder + filePath
+      } else {
+        url = folder + filePath
       }
 
       callServer(undefined, url, (response, fileContent) => {

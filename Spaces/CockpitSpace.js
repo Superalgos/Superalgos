@@ -72,7 +72,7 @@ function newCockpitSpace() {
                 storage = JSON.parse(localStorage)
                 thisObject.container.frame.position.y = storage.spacePosition
             } else {
-                INITIAL_POSITION = 55
+                INITIAL_POSITION = browserCanvas.height - 55
                 thisObject.container.frame.position.y = browserCanvas.height * INITIAL_POSITION / 100 - COCKPIT_SPACE_HEIGHT
             }
         } else {
@@ -109,7 +109,7 @@ function newCockpitSpace() {
     }
 
     function toTop() {
-        thisObject.container.frame.position.y = COCKPIT_SPACE_HEIGHT
+        thisObject.container.frame.position.y = TOP_SPACE_HEIGHT
     }
 
     function toBottom() {

@@ -60,7 +60,7 @@ function newTutorialSpace() {
     let positionAtNodeCounter = 0
     let timeMachineKeyPressedCounter = 0
     let keyPressedCounter = 0
-    let sliderPositioned = 0
+    let sliderCounter = 0
     let changeNodeConfigCounter = 0
     let changeNodeConfigCounterWithEval = 0
     let documentationCounter = 0
@@ -314,8 +314,9 @@ function newTutorialSpace() {
                 */
                 return
             }
-            if (sliderPositioned === false) {
-                sliderPositioned = true
+            sliderCounter++
+            if (sliderCounter === 10 || sliderCounter === 100) {
+                
                 switch (config.slider) {
                     case "toTop": {
                         /*
@@ -791,7 +792,7 @@ function newTutorialSpace() {
         }
 
         function resetSlider() {
-            sliderPositioned = false
+            sliderCounter = 0
         }
 
         function changeNodeConfig() {
@@ -964,35 +965,37 @@ function newTutorialSpace() {
 
 
         function findNextNode(node) {
-            for (let i = 0; i < node.tutorialSteps.length; i++) {
+            if (node.tutorialSteps !== undefined) {
+                for (let i = 0; i < node.tutorialSteps.length; i++) {
 
-                let tutorialStep = node.tutorialSteps[i]
-                if (found === true) {
-                    if (resumeModeActivated !== true) {
-                        currentNode = tutorialStep
-                        currentStatus = 'Playing Step'
-                        advanced = true
-                        navigationStack.push(currentNode)
-                        findTutorialNode(currentNode)
-                        return
-                    } else {
-                        let tutorial = {
-                            status: undefined
-                        }
-                        loadTutorial(tutorialStep.payload, tutorial)
-                        if (tutorial.status !== 'Done') {
+                    let tutorialStep = node.tutorialSteps[i]
+                    if (found === true) {
+                        if (resumeModeActivated !== true) {
                             currentNode = tutorialStep
                             currentStatus = 'Playing Step'
                             advanced = true
                             navigationStack.push(currentNode)
                             findTutorialNode(currentNode)
                             return
+                        } else {
+                            let tutorial = {
+                                status: undefined
+                            }
+                            loadTutorial(tutorialStep.payload, tutorial)
+                            if (tutorial.status !== 'Done') {
+                                currentNode = tutorialStep
+                                currentStatus = 'Playing Step'
+                                advanced = true
+                                navigationStack.push(currentNode)
+                                findTutorialNode(currentNode)
+                                return
+                            }
                         }
                     }
-                }
-                if (tutorialStep.id === currentNode.id) {
-                    found = true
-                }
+                    if (tutorialStep.id === currentNode.id) {
+                        found = true
+                    }
+                }    
             }
 
             for (let i = 0; i < node.tutorialTopics.length; i++) {

@@ -1890,7 +1890,7 @@ function newUiObject() {
             browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS - 2, 0, Math.PI * 2, true)
             browserCanvasContext.closePath()
 
-            browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.BLACK + ', 1)'
+            browserCanvasContext.fillStyle = 'rgba(' + canvas.floatingSpace.style.backgroundColor + ', 1)'
 
             browserCanvasContext.fill()
 
@@ -1906,7 +1906,7 @@ function newUiObject() {
                 browserCanvasContext.beginPath()
                 browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
                 browserCanvasContext.closePath()
-                browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.BLACK + ', 0.70)'
+                browserCanvasContext.fillStyle = 'rgba(' + canvas.floatingSpace.style.backgroundColor + ', 0.70)'
                 browserCanvasContext.fill()
                 /* Border when node is in focus */
                 if (

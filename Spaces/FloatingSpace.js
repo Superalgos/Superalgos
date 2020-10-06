@@ -14,6 +14,7 @@ function newFloatingSpace() {
         inMapMode: false,
         drawReferenceLines: false,
         drawChainLines: true,
+        style: undefined, 
         toggleDrawChainLines: toggleDrawChainLines,
         toggleDrawReferenceLines: toggleDrawReferenceLines,
         toggleMapMode: toggleMapMode,
@@ -62,6 +63,11 @@ function newFloatingSpace() {
     const PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT = 25
     let onDragStartedEventSubscriptionId
     let spaceFocusAquiredEventSubscriptionId
+    
+    /* Default Style */
+    thisObject.style = {
+        backgroundColor: UI_COLOR.BLACK
+    }
 
     return thisObject
 
@@ -385,9 +391,20 @@ function newFloatingSpace() {
 
     function physics() {
         if (visible === false) { return }
+        syncStylePhysics()
         browserZoomPhysics()
         positionContraintsPhysics()
         thisObject.floatingLayer.physics()
+    }
+
+    function syncStylePhysics(){
+        if (canvas.designSpace === undefined) {return}
+        if (canvas.designSpace.workspace === undefined) {return}
+        let designSpaceNode = canvas.designSpace.workspace.getHierarchyHeadsByType('Design Space')
+        if (designSpaceNode.spaceStyle !== undefined) {
+            configStyle = JSON.parse(designSpaceNode.spaceStyle.config)
+            thisObject.style.backgroundColor = eval(configStyle.backgroundColor)
+        }
     }
 
     function positionContraintsPhysics() {
@@ -425,7 +442,7 @@ function newFloatingSpace() {
         browserCanvasContext.beginPath()
 
         browserCanvasContext.rect(thisObject.container.frame.position.x, thisObject.container.frame.position.y, thisObject.container.frame.width, thisObject.container.frame.height)
-        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.BLACK + ', 1)'
+        browserCanvasContext.fillStyle = 'rgba(' + thisObject.style.backgroundColor + ', 1)'
 
         browserCanvasContext.closePath()
         browserCanvasContext.fill()

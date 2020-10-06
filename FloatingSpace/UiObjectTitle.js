@@ -307,8 +307,8 @@ function newUiObjectTitle() {
                 cornerRadius: 3,
                 lineWidth: 0.1,
                 container: thisObject.container,
-                borderColor: UI_COLOR.BLACK,
-                backgroundColor: UI_COLOR.BLACK,
+                borderColor: canvas.floatingSpace.style.backgroundColor,
+                backgroundColor: canvas.floatingSpace.style.backgroundColor,
                 castShadow: false,
                 opacity: 0.25
             }

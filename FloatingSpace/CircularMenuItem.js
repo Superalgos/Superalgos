@@ -215,6 +215,11 @@ function newCircularMenuItem() {
             }
         }
         iconPhysics()
+        backgroundColorPhysics()
+    }
+
+    function backgroundColorPhysics(){
+        defaultBackgroudColor = canvas.floatingSpace.style.backgroundColor
     }
 
     function iconPhysics() {
@@ -408,7 +413,7 @@ function newCircularMenuItem() {
                     cornerRadius: 5,
                     lineWidth: 0.1,
                     container: thisObject.container,
-                    borderColor: UI_COLOR.DARK,
+                    borderColor: backgroundColor,
                     backgroundColor: backgroundColor,
                     castShadow: false,
                     xOffset: 60

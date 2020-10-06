@@ -207,8 +207,14 @@ function newUiObjectTitle() {
         const FRAME_HEIGHT = 25
         const Y_OFFSET = -20
         const FRAME_WIDTH = (title.length + 2) / 2 * thisObject.payload.floatingObject.currentFontSize * FONT_ASPECT_RATIO * 1.2 * 2
-        thisObject.container.frame.position.x = 0 - FRAME_WIDTH / 2
-        thisObject.container.frame.position.y = 0 - thisObject.container.frame.radius * 1 / 2 - thisObject.payload.floatingObject.currentFontSize * FONT_ASPECT_RATIO + Y_OFFSET - FRAME_HEIGHT
+
+        if (thisObject.isOnFocus === true) {
+            thisObject.container.frame.position.x = 0 - FRAME_WIDTH / 2
+            thisObject.container.frame.position.y = 0 - thisObject.container.frame.radius * 1 / 2 - thisObject.payload.floatingObject.currentFontSize * FONT_ASPECT_RATIO + Y_OFFSET - FRAME_HEIGHT
+        } else {
+            thisObject.container.frame.position.x = 0 - FRAME_WIDTH / 2
+            thisObject.container.frame.position.y = 0 - thisObject.payload.floatingObject.currentImageSize / 2 - FRAME_HEIGHT
+        }
 
         thisObject.container.frame.width = FRAME_WIDTH
         thisObject.container.frame.height = FRAME_HEIGHT
@@ -307,8 +313,8 @@ function newUiObjectTitle() {
                 cornerRadius: 3,
                 lineWidth: 0.1,
                 container: thisObject.container,
-                borderColor: UI_COLOR.BLACK,
-                backgroundColor: UI_COLOR.BLACK,
+                borderColor: canvas.floatingSpace.style.backgroundColor,
+                backgroundColor: canvas.floatingSpace.style.backgroundColor,
                 castShadow: false,
                 opacity: 0.25
             }
@@ -325,7 +331,7 @@ function newUiObjectTitle() {
             let label
 
             if (radius > 6 && (thisObject.isOnFocus === true || thisObject.allwaysVisible === true || thisObject.isDefault === false)) {
-                browserCanvasContext.strokeStyle = thisObject.payload.floatingObject.labelStrokeStyle
+                browserCanvasContext.strokeStyle = thisObject.payload.floatingObject.typeStrokeStyle
 
                 browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
 
@@ -355,7 +361,7 @@ function newUiObjectTitle() {
                     }
 
                     browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-                    browserCanvasContext.fillStyle = thisObject.payload.floatingObject.labelStrokeStyle
+                    browserCanvasContext.fillStyle = thisObject.payload.floatingObject.typeStrokeStyle
                     browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
                 }
             }

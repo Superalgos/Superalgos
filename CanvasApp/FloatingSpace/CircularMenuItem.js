@@ -215,6 +215,11 @@ function newCircularMenuItem() {
             }
         }
         iconPhysics()
+        backgroundColorPhysics()
+    }
+
+    function backgroundColorPhysics(){
+        defaultBackgroudColor = canvas.floatingSpace.style.node.menuItem.backgroundColor
     }
 
     function iconPhysics() {
@@ -408,7 +413,7 @@ function newCircularMenuItem() {
                     cornerRadius: 5,
                     lineWidth: 0.1,
                     container: thisObject.container,
-                    borderColor: UI_COLOR.DARK,
+                    borderColor: backgroundColor,
                     backgroundColor: backgroundColor,
                     castShadow: false,
                     xOffset: 60
@@ -455,7 +460,7 @@ function newCircularMenuItem() {
                 }
 
                 let labelPoint
-                let fontSize = 15
+                let fontSize = canvas.floatingSpace.style.node.menuItem.fontSize
 
                 browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
 
@@ -466,7 +471,7 @@ function newCircularMenuItem() {
                     }
 
                     browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-                    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
+                    browserCanvasContext.fillStyle = 'rgba(' + canvas.floatingSpace.style.node.menuItem.fontColor + ', 1)'
                     browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
                 }
             }

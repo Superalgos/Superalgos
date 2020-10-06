@@ -163,7 +163,7 @@ function newPlottersManager() {
 
             let host = layer.networkNode.config.host
             let webPort = layer.networkNode.config.webPort
-            if (host === undefined) { host = 'localhost' }
+            if (host === undefined) { host = window.location.hostname }
             if (webPort === undefined) { webPort = window.location.port }
 
             let eventsServerClient = canvas.designSpace.workspace.eventsServerClients.get(layer.networkNode.id)

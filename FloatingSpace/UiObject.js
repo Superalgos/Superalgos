@@ -1522,6 +1522,7 @@ function newUiObject() {
         /* Label Text */
         let labelPoint
         let fontSize = thisObject.payload.floatingObject.currentFontSize
+        let lineSeparator = thisObject.payload.floatingObject.currentFontSize * 1.2
         let label
 
         if (radius > 6) {
@@ -1535,9 +1536,16 @@ function newUiObject() {
                     label = label.substring(0, MAX_LABEL_LENGTH) + '...'
                 }
 
-                labelPoint = {
-                    x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
-                    y: position.y + radius * 2 / 3 + fontSize * FONT_ASPECT_RATIO + 15
+                if (thisObject.isOnFocus === true) {
+                    labelPoint = {
+                        x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
+                        y: position.y + radius * 2 / 3 + lineSeparator * 1 + 15
+                    }
+                } else {
+                    labelPoint = {
+                        x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
+                        y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 1  
+                    }
                 }
 
                 if (canvas.floatingSpace.inMapMode === true) {
@@ -1551,7 +1559,7 @@ function newUiObject() {
                 }
 
                 browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-                browserCanvasContext.fillStyle = thisObject.payload.floatingObject.labelStrokeStyle
+                browserCanvasContext.fillStyle = thisObject.payload.floatingObject.nameStrokeStyle
                 browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
             }
         }
@@ -1593,10 +1601,11 @@ function newUiObject() {
             position = canvas.floatingSpace.transformPointToMap(position)
         }
 
-        let radius = thisObject.payload.floatingObject.container.frame.radius * 2.5
+        let radius = thisObject.payload.floatingObject.container.frame.radius  
         /* Label Text */
         let labelPoint
         let fontSize = thisObject.payload.floatingObject.currentFontSize * 3 / 4
+        let lineSeparator = thisObject.payload.floatingObject.currentFontSize * 1.2
         let label
 
         if (radius > 6) {
@@ -1612,9 +1621,16 @@ function newUiObject() {
                     fontSize = thisObject.payload.floatingObject.currentFontSize * 2 / 4
                 }
 
-                labelPoint = {
-                    x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
-                    y: position.y + radius * 2 / 5 + fontSize * FONT_ASPECT_RATIO + 10
+                if (thisObject.isOnFocus === true) {
+                    labelPoint = {
+                        x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
+                        y: position.y + radius * 2 / 3 + lineSeparator * 5 + 15
+                    }
+                } else {
+                    labelPoint = {
+                        x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
+                        y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 5
+                    }
                 }
 
                 browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
@@ -1646,10 +1662,11 @@ function newUiObject() {
             position = canvas.floatingSpace.transformPointToMap(position)
         }
 
-        let radius = thisObject.payload.floatingObject.container.frame.radius * 1.00
+        let radius = thisObject.payload.floatingObject.container.frame.radius  
         /* Label Text */
         let labelPoint
-        let fontSize = thisObject.payload.floatingObject.currentFontSize * 8 / 7
+        let fontSize = thisObject.payload.floatingObject.currentFontSize  
+        let lineSeparator = thisObject.payload.floatingObject.currentFontSize * 1.2
         let label
 
         if (radius > 6) {
@@ -1679,9 +1696,16 @@ function newUiObject() {
                     labelPoint.x = labelPoint.x + radius * 7 / 3 * Math.cos(toRadians(thisObject.payload.angle))
                     labelPoint.y = labelPoint.y + radius * 7 / 3 * Math.sin(toRadians(thisObject.payload.angle))
                 } else {
-                    labelPoint = {
-                        x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 10,
-                        y: position.y + radius * 7 / 5 + fontSize * FONT_ASPECT_RATIO + 15
+                    if (thisObject.isOnFocus === true) {
+                        labelPoint = {
+                            x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 10,
+                            y: position.y + radius * 2 / 3 + lineSeparator * 3 + 15
+                        }
+                    } else {
+                        labelPoint = {
+                            x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 10,
+                            y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 3
+                        }
                     }
                 }
 
@@ -1709,10 +1733,11 @@ function newUiObject() {
             position = canvas.floatingSpace.transformPointToMap(position)
         }
 
-        let radius = thisObject.payload.floatingObject.container.frame.radius * 1.30
+        let radius = thisObject.payload.floatingObject.container.frame.radius  
         /* Label Text */
         let labelPoint
-        let fontSize = thisObject.payload.floatingObject.currentFontSize * 6 / 4
+        let fontSize = thisObject.payload.floatingObject.currentFontSize  
+        let lineSeparator = thisObject.payload.floatingObject.currentFontSize * 1.2
         let label
 
         if (radius > 6) {
@@ -1725,9 +1750,16 @@ function newUiObject() {
                     label = label.substring(0, MAX_LABEL_LENGTH) + '...'
                 }
 
-                labelPoint = {
-                    x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
-                    y: position.y + radius * 7 / 5 + fontSize * FONT_ASPECT_RATIO + 15
+                if (thisObject.isOnFocus === true) {
+                    labelPoint = {
+                        x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
+                        y: position.y + radius * 2 / 3 + lineSeparator * 4 + 15
+                    }
+                } else {
+                    labelPoint = {
+                        x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 10,
+                        y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 4
+                    }
                 }
 
                 browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
@@ -1752,10 +1784,11 @@ function newUiObject() {
             position = canvas.floatingSpace.transformPointToMap(position)
         }
 
-        let radius = thisObject.payload.floatingObject.container.frame.radius * 0.8
+        let radius = thisObject.payload.floatingObject.container.frame.radius  
         /* Label Text */
         let labelPoint
         let fontSize = thisObject.payload.floatingObject.currentFontSize * 6 / 4 / 2
+        let lineSeparator = thisObject.payload.floatingObject.currentFontSize * 1.2
         let label
 
         if (radius > 6) {
@@ -1768,9 +1801,16 @@ function newUiObject() {
                     label = label.substring(0, MAX_LABEL_LENGTH) + '...'
                 }
 
-                labelPoint = {
-                    x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 10,
-                    y: position.y + radius * 7 / 5 + fontSize * FONT_ASPECT_RATIO + 15
+                if (thisObject.isOnFocus === true) {
+                    labelPoint = {
+                        x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 10,
+                        y: position.y + radius * 2 / 3 + lineSeparator * 2 + 15
+                    }
+                } else {
+                    labelPoint = {
+                        x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 10,
+                        y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 2
+                    }
                 }
 
                 browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY

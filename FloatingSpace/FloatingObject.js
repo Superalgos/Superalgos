@@ -29,6 +29,8 @@ function newFloatingObject() {
         isParentCollapsed: false,
         frozenManually: false,
         collapsedManually: false,
+        typeStrokeStyle: undefined, 
+        nameStrokeStyle: undefined, 
         forceFocus: forceFocus,
         removeForceFocus: removeForceFocus,
         setFocus: setFocus,
@@ -76,6 +78,8 @@ function newFloatingObject() {
     thisObject.container.frame.radius = 0
     thisObject.container.frame.position.x = 0
     thisObject.container.frame.position.y = 0
+    thisObject.typeStrokeStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
+    thisObject.nameStrokeStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
 
     let selfMouseOverEventSubscriptionId
     let selfMouseClickEventSubscriptionId
@@ -83,7 +87,7 @@ function newFloatingObject() {
     let spaceFocusAquiredEventSubscriptionId
     let lastParentAngle
     let forcedFocusCounter = 0
-
+    
     return thisObject
 
     function finalize() {
@@ -297,6 +301,20 @@ function newFloatingObject() {
         }
         positionContraintsPhysics()
         focusPhysics()
+        syncStylePhysics() 
+    }
+
+    function syncStylePhysics() {
+        if (thisObject.rawFontSize !== canvas.floatingSpace.style.node.fontSize) {
+            thisObject.rawFontSize = canvas.floatingSpace.style.node.fontSize
+            thisObject.targetFontSize = thisObject.rawFontSize * 1
+        }
+        if (thisObject.rawImageSize !== canvas.floatingSpace.style.node.imageSize) {
+            thisObject.rawImageSize = canvas.floatingSpace.style.node.imageSize
+            thisObject.targetImageSize = thisObject.rawImageSize * 1
+        }
+        thisObject.typeStrokeStyle = 'rgba(' + canvas.floatingSpace.style.node.type.fontColor + ', 1)'
+        thisObject.nameStrokeStyle = 'rgba(' + canvas.floatingSpace.style.node.name.fontColor + ', 1)'
     }
 
     function focusPhysics() {
@@ -563,8 +581,6 @@ function newFloatingObject() {
         thisObject.payload.position.x = thisObject.container.frame.position.x
         thisObject.payload.position.y = thisObject.container.frame.position.y
     }
-
-
 
     function onMouseOver(point) {
         if (thisObject.isOnFocus === false) {

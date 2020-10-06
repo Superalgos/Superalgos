@@ -632,8 +632,6 @@ function newUiObjectConstructor() {
 
             floatingObject.fillStyle = 'rgba(' + UI_COLOR.RED + ', 1)'
         }
-
-        floatingObject.labelStrokeStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
     }
 
     function destroyUiObject(payload) {

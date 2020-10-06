@@ -14,7 +14,7 @@ function newFloatingSpace() {
         inMapMode: false,
         drawReferenceLines: false,
         drawChainLines: true,
-        style: undefined, 
+        style: undefined,
         toggleDrawChainLines: toggleDrawChainLines,
         toggleDrawReferenceLines: toggleDrawReferenceLines,
         toggleMapMode: toggleMapMode,
@@ -63,10 +63,25 @@ function newFloatingSpace() {
     const PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT = 25
     let onDragStartedEventSubscriptionId
     let spaceFocusAquiredEventSubscriptionId
-    
+
     /* Default Style */
     thisObject.style = {
-        backgroundColor: UI_COLOR.BLACK
+        backgroundColor: UI_COLOR.BLACK,
+        node: {
+            imageSize: 96,
+            fontSize: 18,
+            type: {
+                fontColor: UI_COLOR.WHITE
+            },
+            name: {
+                fontColor: UI_COLOR.WHITE
+            },
+            menuItem: {
+                backgroundColor: UI_COLOR.BLACK,
+                fontColor: UI_COLOR.WHITE,
+                fontSize: 15
+            }
+        }
     }
 
     return thisObject
@@ -397,14 +412,53 @@ function newFloatingSpace() {
         thisObject.floatingLayer.physics()
     }
 
-    function syncStylePhysics(){
-        if (canvas.designSpace === undefined) {return}
-        if (canvas.designSpace.workspace === undefined) {return}
+    function syncStylePhysics() {
+        if (canvas.designSpace === undefined) { return }
+        if (canvas.designSpace.workspace === undefined) { return }
         let designSpaceNode = canvas.designSpace.workspace.getHierarchyHeadsByType('Design Space')
-        if (designSpaceNode.spaceStyle !== undefined) {
+        if (designSpaceNode === undefined) { return }
+        if (designSpaceNode.spaceStyle === undefined) { return }
+        try {
             configStyle = JSON.parse(designSpaceNode.spaceStyle.config)
+        } catch (err) {
+            if (thisObject.payload !== undefined) {
+                thisObject.payload.uiObject.setErrorMessage(err.message)
+            }
+            return
+        }
+        if (configStyle.backgroundColor !== undefined) {
             thisObject.style.backgroundColor = eval(configStyle.backgroundColor)
         }
+        if (configStyle.node !== undefined) {
+            if (configStyle.node.fontSize !== undefined) {
+                thisObject.style.node.fontSize = configStyle.node.fontSize
+            }
+            if (configStyle.node.imageSize !== undefined) {
+                thisObject.style.node.imageSize = configStyle.node.imageSize
+            }
+            if (configStyle.node.name !== undefined) {
+                if (configStyle.node.name.fontColor !== undefined) {
+                    thisObject.style.node.name.fontColor = eval(configStyle.node.name.fontColor)
+                }
+            }
+            if (configStyle.node.type !== undefined) {
+                if (configStyle.node.type.fontColor !== undefined) {
+                    thisObject.style.node.type.fontColor = eval(configStyle.node.type.fontColor)
+                }
+            }
+            if (configStyle.node.menuItem !== undefined) {
+                if (configStyle.node.menuItem.fontColor !== undefined) {
+                    thisObject.style.node.menuItem.fontColor = eval(configStyle.node.menuItem.fontColor)
+                }
+                if (configStyle.node.menuItem.backgroundColor !== undefined) {
+                    thisObject.style.node.menuItem.backgroundColor = eval(configStyle.node.menuItem.backgroundColor)
+                }
+                if (configStyle.node.menuItem.fontSize !== undefined) {
+                    thisObject.style.node.menuItem.fontSize = configStyle.node.menuItem.fontSize
+                }
+            }
+        }
+
     }
 
     function positionContraintsPhysics() {

@@ -1995,7 +1995,7 @@ function newUiObject() {
                 browserCanvasContext.closePath()
                 browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.LIGHT_GREY + ', ' + OPACITY + ')'
                 browserCanvasContext.lineWidth = 1
-                if (thisObject.payload.node.isIncluded === true) {
+                if (thisObject.payload.node.isPlugin === true) {
                     browserCanvasContext.setLineDash([0, 0])
                 } else {
                     browserCanvasContext.setLineDash([10, 20])

@@ -601,7 +601,7 @@ function newTaskFunctions() {
 
                                     for (let m = 0; m < rootNodes.length; m++) {
                                         let rootNode = rootNodes[m]
-                                        if (rootNode.type === 'Trading Engine' && rootNode.isIncluded === true) {
+                                        if (rootNode.type === 'Trading Engine' && rootNode.isPlugin === true) {
                                             let tradingEngine = rootNode
                                             session.tradingEngineReference.payload.referenceParent = tradingEngine
                                             session.tradingSystemReference.payload.referenceParent = tradingSystem

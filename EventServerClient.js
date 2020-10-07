@@ -1,7 +1,7 @@
 ﻿exports.newEventsServerClient = function newEventsServerClient(host, port) {
 
     const MODULE = "Task Server "
-    const ERROR_LOG = true
+
     const INFO_LOG = false
 
     let thisObject = {
@@ -27,6 +27,8 @@
         port = process.env.WEB_SOCKETS_SERVER_PORT  
     }
      
+    let messageCounter = 0
+    let commandCounter = 0 
 
     return thisObject
 
@@ -39,25 +41,32 @@
     function setuptWebSockets(callBackFunction) {
         try {
 
+            if (INFO_LOG === true) {
+                console.log('setuptWebSockets at ' + host + ':' + port)
+            }
             WEB_SOCKETS_CLIENT = new WEB_SOCKET('ws://' + host + ':' + port ) 
 
-            WEB_SOCKETS_CLIENT.onerror = error => {
-                console.log('[ERROR] Task Server -> Event Server Client -> setuptWebSockets -> On connection error -> error = ' + JSON.stringify(error))
+            WEB_SOCKETS_CLIENT.onerror = err => {
+                console.log('[ERROR] Task Server -> Event Server Client -> setuptWebSockets -> On connection error -> error = ' + err.stack)
+                console.log('[ERROR] This could mean that the port '+ port +' is taken by some other app running at your system. To resolve this issue, please pick another port number and change it at the .ENV file inside the Superalgos folder AND at the .ENV file inside the TaskServer folder. After that run the app again. ')
             }
             WEB_SOCKETS_CLIENT.onopen = () => {
-                if (INFO_LOG === true) {
-                    console.log('Websocket connection opened.')
-                }
-
-                if (callBackFunction !== undefined) {
-                    callBackFunction()
+                try {
+                    if (INFO_LOG === true) {
+                        console.log('Websocket connection opened.')
+                    }
+    
+                    if (callBackFunction !== undefined) {
+                        callBackFunction()
+                    }
+                } catch(err) {
+                    console.log('[ERROR] Task Server -> Event Server Client -> setuptWebSockets ->  onopen -> err = ' + err.stack) 
                 }
             }
             WEB_SOCKETS_CLIENT.onmessage = e => {
-                
                 try {
                     if (INFO_LOG === true) {
-                        console.log('Websocket Message Received: ' + e.data)
+                        console.log('Websocket Message Received: ' + e.data.substring(0, 1000))
                     }
 
                     let message = JSON.parse(e.data)
@@ -84,11 +93,11 @@
                         return
                     }
                 } catch (err) {
-                    if (ERROR_LOG === true) { logger.write('[ERROR] Task Server -> Event Server Client -> setuptWebSockets ->  onmessage -> err = ' + err.stack) }
+                     console.log('[ERROR] Task Server -> Event Server Client -> setuptWebSockets ->  onmessage -> err = ' + err.stack) 
                 }
             }
         } catch (err) {
-            if (ERROR_LOG === true) { logger.write('[ERROR] Task Server -> Event Server Client -> setuptWebSockets ->  err = ' + err.stack) }
+             console.log('[ERROR] Task Server -> Event Server Client -> setuptWebSockets ->  err = ' + err.stack) 
         }
     }
 
@@ -109,30 +118,35 @@
     }
 
     function sendCommand(command, responseCallBack, eventsCallBack) {
-
-        if (command.action === 'listenToEvent') {
-            let key
-            if (command.callerId) {
-                key = command.eventHandlerName + '-' + command.eventType + '-' + command.callerId
+        try {
+            if (command.action === 'listenToEvent') {
+                let key
+                if (command.callerId) {
+                    key = command.eventHandlerName + '-' + command.eventType + '-' + command.callerId
+                } else {
+                    key = command.eventHandlerName + '-' + command.eventType
+                }
+                let handler = {
+                    eventHandlerName: command.eventHandlerName,
+                    eventType: command.eventType,
+                    callerId: command.callerId,
+                    callBack: eventsCallBack
+                }
+                eventListeners.set(key, handler)
+            }
+            if (command.callerId && responseCallBack) {
+                responseWaiters.set(command.callerId, responseCallBack)
+            }
+    
+            if (WEB_SOCKETS_CLIENT.readyState === 1) { // 1 means connected and ready.
+    
+                WEB_SOCKETS_CLIENT.send("Task Server" + "|*|" + "|*|"  + JSON.stringify(command))
+    
             } else {
-                key = command.eventHandlerName + '-' + command.eventType
+                console.log('[ERROR] Task Server -> Event Server Client -> setuptWebSockets -> sendCommand -> WebSocket message could not be sent because the connection was not ready. Message = ' + JSON.stringify(command))
             }
-            let handler = {
-                eventHandlerName: command.eventHandlerName,
-                eventType: command.eventType,
-                callerId: command.callerId,
-                callBack: eventsCallBack
-            }
-            eventListeners.set(key, handler)
-        }
-        if (command.callerId && responseCallBack) {
-            responseWaiters.set(command.callerId, responseCallBack)
-        }
-
-        if (WEB_SOCKETS_CLIENT.readyState === 1) { // 1 means connected and ready.
-            WEB_SOCKETS_CLIENT.send("Task Server" + "|*|" + "|*|"  + JSON.stringify(command))
-        } else {
-            console.log('[ERROR] Task Server -> Event Server Client -> setuptWebSockets -> sendCommand -> WebSocket message could not be sent because the connection was not ready. Message = ' + JSON.stringify(command))
+        } catch(err) {
+             console.log('[ERROR] Task Server -> Event Server Client -> sendCommand ->  err = ' + err.stack) 
         }
     }
 

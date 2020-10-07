@@ -93,7 +93,9 @@ function newFloatingSpace() {
             radiusPercentage: 100,
             massPercentage: 100,
             menuItem: {
-                widthPercentage: 100
+                widthPercentage: 100,
+                heightPercentage: 100,
+                radiusPercentage: 100
             }
         },
         physics: true
@@ -508,6 +510,12 @@ function newFloatingSpace() {
             if (configSettings.node.menuItem !== undefined) {
                 if (configSettings.node.menuItem.widthPercentage !== undefined) {
                     thisObject.settings.node.menuItem.widthPercentage = configSettings.node.menuItem.widthPercentage
+                }
+                if (configSettings.node.menuItem.heightPercentage !== undefined) {
+                    thisObject.settings.node.menuItem.heightPercentage = configSettings.node.menuItem.heightPercentage
+                } 
+                if (configSettings.node.menuItem.radiusPercentage !== undefined) {
+                    thisObject.settings.node.menuItem.radiusPercentage = configSettings.node.menuItem.radiusPercentage
                 }
             }
         }

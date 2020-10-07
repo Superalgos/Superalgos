@@ -59,7 +59,7 @@ function newCircularMenuItem() {
     thisObject.container.frame.position.x = 0
     thisObject.container.frame.position.y = 0
     thisObject.container.frame.width = 0
-    thisObject.container.frame.height = 40
+    thisObject.container.frame.height = 0
 
     let isMouseOver = false
 
@@ -222,8 +222,10 @@ function newCircularMenuItem() {
         if (thisObject.type === 'Icon & Text') {
             thisObject.container.frame.width = 220 * canvas.floatingSpace.settings.node.menuItem.widthPercentage / 100
         } else {
-            thisObject.container.frame.width = 50
+            thisObject.container.frame.width = 50 * canvas.floatingSpace.settings.node.menuItem.widthPercentage / 100
         }
+
+        thisObject.container.frame.height = 40 * canvas.floatingSpace.settings.node.menuItem.heightPercentage / 100
     }
 
     function backgroundColorPhysics() {

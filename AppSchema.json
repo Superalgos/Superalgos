@@ -1449,8 +1449,8 @@
             },
             {
                 "action": "Add UI Object",
-                "label": "Add Includes",
-                "relatedUiObject": "Includes",
+                "label": "Add Plugins",
+                "relatedUiObject": "Plugins",
                 "actionFunction": "payload.onMenuItemClick"
             }
         ],
@@ -14418,12 +14418,12 @@
         ]
     },
     {
-        "type": "Includes",
+        "type": "Plugins",
         "menuItems": [
             {
                 "action": "Add Missing Children",
                 "label": "Add Missing Children",
-                "relatedUiObject": "Includes",
+                "relatedUiObject": "Plugins",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -14439,53 +14439,53 @@
         "isHierarchyHead": true,
         "addLeftIcons": true,
         "level": 0,
-        "propertyNameAtParent": "includes",
+        "propertyNameAtParent": "plugins",
         "properties": [
             {
-                "name": "includedDataMines",
+                "name": "pluginDataMines",
                 "type": "node",
-                "childType": "Included Data Mines",
+                "childType": "Plugin Data Mines",
                 "autoAdd": false
             },
             {
-                "name": "includedTradingMines",
+                "name": "pluginTradingMines",
                 "type": "node",
-                "childType": "Included Trading Mines",
+                "childType": "Plugin Trading Mines",
                 "autoAdd": false
             },
             {
-                "name": "includedTradingSystems",
+                "name": "pluginTradingSystems",
                 "type": "node",
-                "childType": "Included Trading Systems",
+                "childType": "Plugin Trading Systems",
                 "autoAdd": false
             },
             {
-                "name": "includedTradingEngines",
+                "name": "pluginTradingEngines",
                 "type": "node",
-                "childType": "Included Trading Engines",
+                "childType": "Plugin Trading Engines",
                 "autoAdd": false
             },
             {
-                "name": "includedSuperScripts",
+                "name": "pluginSuperScripts",
                 "type": "node",
-                "childType": "Included Super Scripts",
+                "childType": "Plugin Super Scripts",
                 "autoAdd": false
             },
             {
-                "name": "includedTutorials",
+                "name": "pluginTutorials",
                 "type": "node",
-                "childType": "Included Tutorials",
+                "childType": "Plugin Tutorials",
                 "autoAdd": false
             }
         ],
         "icon": "bitcoin"
     },
     {
-        "type": "Included Data Mines",
+        "type": "Plugin Data Mines",
         "menuItems": [
             {
-                "action": "Include Missing Data Mines",
-                "label": "Include Missing Data Mines",
+                "action": "Add Missing Data Mines",
+                "label": "Add Missing Data Mines",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Proceed",
                 "workDoneLabel": "Done",
@@ -14504,23 +14504,23 @@
         ],
         "addLeftIcons": true,
         "level": 1,
-        "propertyNameAtParent": "includedDataMines",
+        "propertyNameAtParent": "pluginDataMines",
         "properties": [
             {
-                "name": "includedFiles",
+                "name": "pluginFiles",
                 "type": "array",
-                "childType": "Included File",
+                "childType": "Plugin File",
                 "autoAdd": false
             }
         ],
         "icon": "bitcoin"
     },
     {
-        "type": "Included Trading Mines",
+        "type": "Plugin Trading Mines",
         "menuItems": [
             {
-                "action": "Include Missing Trading Mines",
-                "label": "Include Missing Trading Mines",
+                "action": "Add Missing Trading Mines",
+                "label": "Add Missing Trading Mines",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Proceed",
                 "workDoneLabel": "Done",
@@ -14539,23 +14539,23 @@
         ],
         "addLeftIcons": true,
         "level": 1,
-        "propertyNameAtParent": "includedTradingMines",
+        "propertyNameAtParent": "pluginTradingMines",
         "properties": [
             {
-                "name": "includedFiles",
+                "name": "pluginFiles",
                 "type": "array",
-                "childType": "Included File",
+                "childType": "Plugin File",
                 "autoAdd": false
             }
         ],
         "icon": "bitcoin"
     },
     {
-        "type": "Included Trading Systems",
+        "type": "Plugin Trading Systems",
         "menuItems": [
             {
-                "action": "Include Missing Trading Systems",
-                "label": "Include Missing Trading Systems",
+                "action": "Add Missing Trading Systems",
+                "label": "Add Missing Trading Systems",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Proceed",
                 "workDoneLabel": "Done",
@@ -14574,23 +14574,23 @@
         ],
         "addLeftIcons": true,
         "level": 1,
-        "propertyNameAtParent": "includedTradingSystems",
+        "propertyNameAtParent": "pluginTradingSystems",
         "properties": [
             {
-                "name": "includedFiles",
+                "name": "pluginFiles",
                 "type": "array",
-                "childType": "Included File",
+                "childType": "Plugin File",
                 "autoAdd": false
             }
         ],
         "icon": "bitcoin"
     },
     {
-        "type": "Included Trading Engines",
+        "type": "Plugin Trading Engines",
         "menuItems": [
             {
-                "action": "Include Missing Trading Engines",
-                "label": "Include Missing Trading Engines",
+                "action": "Add Missing Trading Engines",
+                "label": "Add Missing Trading Engines",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Proceed",
                 "workDoneLabel": "Done",
@@ -14609,23 +14609,23 @@
         ],
         "addLeftIcons": true,
         "level": 1,
-        "propertyNameAtParent": "includedTradingEngines",
+        "propertyNameAtParent": "pluginTradingEngines",
         "properties": [
             {
-                "name": "includedFiles",
+                "name": "pluginFiles",
                 "type": "array",
-                "childType": "Included File",
+                "childType": "Plugin File",
                 "autoAdd": false
             }
         ],
         "icon": "bitcoin"
     },
     {
-        "type": "Included Super Scripts",
+        "type": "Plugin Super Scripts",
         "menuItems": [
             {
-                "action": "Include Missing Super Scripts",
-                "label": "Include Missing Super Scripts",
+                "action": "Add Missing Super Scripts",
+                "label": "Add Missing Super Scripts",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Proceed",
                 "workDoneLabel": "Done",
@@ -14644,23 +14644,23 @@
         ],
         "addLeftIcons": true,
         "level": 1,
-        "propertyNameAtParent": "includedSuperScripts",
+        "propertyNameAtParent": "pluginSuperScripts",
         "properties": [
             {
-                "name": "includedFiles",
+                "name": "pluginFiles",
                 "type": "array",
-                "childType": "Included File",
+                "childType": "Plugin File",
                 "autoAdd": false
             }
         ],
         "icon": "bitcoin"
     },
     {
-        "type": "Included Tutorials",
+        "type": "Plugin Tutorials",
         "menuItems": [
             {
-                "action": "Include Missing Tutorials",
-                "label": "Include Missing Tutorials",
+                "action": "Add Missing Tutorials",
+                "label": "Add Missing Tutorials",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Proceed",
                 "workDoneLabel": "Done",
@@ -14679,27 +14679,27 @@
         ],
         "addLeftIcons": true,
         "level": 1,
-        "propertyNameAtParent": "includedTutorials",
+        "propertyNameAtParent": "pluginTutorials",
         "properties": [
             {
-                "name": "includedFiles",
+                "name": "pluginFiles",
                 "type": "array",
-                "childType": "Included File",
+                "childType": "Plugin File",
                 "autoAdd": false
             }
         ],
         "icon": "bitcoin"
     },
     {
-        "type": "Included File",
+        "type": "Plugin File",
         "menuItems": [
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "includedFilePosition",
+                "propertyToCheckFor": "pluginFilePosition",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Add Included File Position",
-                "relatedUiObject": "Included File Position"
+                "label": "Add Plugin File Position",
+                "relatedUiObject": "Plugin File Position"
             },
             {
                 "action": "Delete UI Object",
@@ -14713,19 +14713,19 @@
         ],
         "addLeftIcons": true,
         "level": 2,
-        "propertyNameAtParent": "includedFiles",
+        "propertyNameAtParent": "pluginFiles",
         "properties": [
             {
-                "name": "includedFilePosition",
+                "name": "pluginFilePosition",
                 "type": "node",
-                "childType": "Included File Position",
+                "childType": "Plugin File Position",
                 "autoAdd": false
             }
         ],
         "icon": "bitcoin"
     },
     {
-        "type": "Included File Position",
+        "type": "Plugin File Position",
         "menuItems": [
             {
                 "action": "Delete UI Object",
@@ -14742,7 +14742,7 @@
         ],
         "addLeftIcons": true,
         "level": 3,
-        "propertyNameAtParent": "includedFilePosition",
+        "propertyNameAtParent": "pluginFilePosition",
         "properties": [
         ],
         "icon": "bitcoin"

@@ -15,6 +15,7 @@ function newFloatingSpace() {
         drawReferenceLines: false,
         drawChainLines: true,
         style: undefined,
+        settings: undefined,
         toggleDrawChainLines: toggleDrawChainLines,
         toggleDrawReferenceLines: toggleDrawReferenceLines,
         toggleMapMode: toggleMapMode,
@@ -79,9 +80,25 @@ function newFloatingSpace() {
             menuItem: {
                 backgroundColor: UI_COLOR.BLACK,
                 fontColor: UI_COLOR.WHITE,
-                fontSize: 15
+                fontSize: 15,
+                imageSize: 50
             }
         }
+    }
+
+    /* Default Settings */
+    thisObject.settings = {
+        node: {
+            distancePercentage: 100,
+            radiusPercentage: 100,
+            massPercentage: 100,
+            menuItem: {
+                widthPercentage: 100,
+                heightPercentage: 100,
+                radiusPercentage: 100
+            }
+        },
+        physics: true
     }
 
     return thisObject
@@ -407,6 +424,7 @@ function newFloatingSpace() {
     function physics() {
         if (visible === false) { return }
         syncStylePhysics()
+        syncSettingsPhysics()
         browserZoomPhysics()
         positionContraintsPhysics()
         thisObject.floatingLayer.physics()
@@ -418,6 +436,7 @@ function newFloatingSpace() {
         let designSpaceNode = canvas.designSpace.workspace.getHierarchyHeadsByType('Design Space')
         if (designSpaceNode === undefined) { return }
         if (designSpaceNode.spaceStyle === undefined) { return }
+        let configStyle
         try {
             configStyle = JSON.parse(designSpaceNode.spaceStyle.config)
         } catch (err) {
@@ -456,9 +475,54 @@ function newFloatingSpace() {
                 if (configStyle.node.menuItem.fontSize !== undefined) {
                     thisObject.style.node.menuItem.fontSize = configStyle.node.menuItem.fontSize
                 }
+                if (configStyle.node.menuItem.imageSize !== undefined) {
+                    thisObject.style.node.menuItem.imageSize = configStyle.node.menuItem.imageSize
+                }
+            }
+        }
+    }
+
+    function syncSettingsPhysics() {
+        if (canvas.designSpace === undefined) { return }
+        if (canvas.designSpace.workspace === undefined) { return }
+        let designSpaceNode = canvas.designSpace.workspace.getHierarchyHeadsByType('Design Space')
+        if (designSpaceNode === undefined) { return }
+        if (designSpaceNode.spaceSettings === undefined) { return }
+        let configSettings
+        try {
+            configSettings = JSON.parse(designSpaceNode.spaceSettings.config)
+        } catch (err) {
+            if (thisObject.payload !== undefined) {
+                thisObject.payload.uiObject.setErrorMessage(err.message)
+            }
+            return
+        }
+        if (configSettings.node !== undefined) {
+            if (configSettings.node.distancePercentage !== undefined) {
+                thisObject.settings.node.distancePercentage = configSettings.node.distancePercentage
+            }
+            if (configSettings.node.radiusPercentage !== undefined) {
+                thisObject.settings.node.radiusPercentage = configSettings.node.radiusPercentage
+            }
+            if (configSettings.node.massPercentage !== undefined) {
+                thisObject.settings.node.massPercentage = configSettings.node.massPercentage
+            }
+            if (configSettings.node.menuItem !== undefined) {
+                if (configSettings.node.menuItem.widthPercentage !== undefined) {
+                    thisObject.settings.node.menuItem.widthPercentage = configSettings.node.menuItem.widthPercentage
+                }
+                if (configSettings.node.menuItem.heightPercentage !== undefined) {
+                    thisObject.settings.node.menuItem.heightPercentage = configSettings.node.menuItem.heightPercentage
+                } 
+                if (configSettings.node.menuItem.radiusPercentage !== undefined) {
+                    thisObject.settings.node.menuItem.radiusPercentage = configSettings.node.menuItem.radiusPercentage
+                }
             }
         }
 
+        if (configSettings.physics !== undefined) {
+            thisObject.settings.physics = configSettings.physics
+        }
     }
 
     function positionContraintsPhysics() {

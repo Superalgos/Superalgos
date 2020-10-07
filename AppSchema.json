@@ -12521,7 +12521,7 @@
             "config": true
         },
         "initialValues": {
-            "config": "{ \n\"xxx\": \"\"\n}"
+            "config": "{ \n\"distanceBetweenNodes\": 500\n}"
         },
         "menuItems": [
             {
@@ -14699,7 +14699,7 @@
                 "propertyToCheckFor": "includedFilePosition",
                 "actionFunction": "payload.onMenuItemClick",
                 "label": "Add Included File Position",
-                "relatedUiObject": "Included File Position",
+                "relatedUiObject": "Included File Position"
             },
             {
                 "action": "Delete UI Object",

@@ -1,5 +1,4 @@
 
-
 /* Callbacks default responses. */
 global.DEFAULT_OK_RESPONSE = {
     result: "Ok",
@@ -316,7 +315,9 @@ function finalizeLoggers() {
     global.LOGGER_MAP.forEach(forEachLogger)
 
     function forEachLogger(logger) {
-        logger.finalize()
+        if (logger !== undefined) {
+            logger.finalize()
+        }
     }
 }
 
@@ -375,12 +376,14 @@ global.EXIT_NODE_PROCESS = function exitProcess() {
     /* Cleaning Before Exiting. */
     clearInterval(global.HEARTBEAT_INTERVAL_HANDLER)
 
-    for (let i = 0; i < global.TASK_NODE.bot.processes.length; i++) {
-        let config = global.TASK_NODE.bot.processes[i].config
-        let process = global.TASK_NODE.bot.processes[i]
-
-        key = process.name + '-' + process.type + '-' + process.id
-        global.EVENT_SERVER_CLIENT.raiseEvent(key, 'Stopped') // Meaning Process Stopped
+    if (global.TASK_NODE !== undefined) {
+        for (let i = 0; i < global.TASK_NODE.bot.processes.length; i++) {
+            let config = global.TASK_NODE.bot.processes[i].config
+            let process = global.TASK_NODE.bot.processes[i]
+    
+            key = process.name + '-' + process.type + '-' + process.id
+            global.EVENT_SERVER_CLIENT.raiseEvent(key, 'Stopped') // Meaning Process Stopped
+        }
     }
 
     finalizeLoggers()
@@ -426,11 +429,15 @@ function preLoader() {
             global.EVENT_SERVER_CLIENT.listenToEvent('Task Server - ' + taskId, 'Run Task', undefined, 'Task Server - ' + taskId, undefined, eventReceived)
             global.EVENT_SERVER_CLIENT.raiseEvent('Task Manager - ' + taskId, 'Nodejs Process Ready for Task')
             function eventReceived(message) {
-                global.APP_SCHEMA_ARRAY = JSON.parse(message.event.appSchema)
-                setUpAppSchema()
-                global.TASK_NODE = JSON.parse(message.event.taskDefinition)
-                global.TASK_NETWORK = JSON.parse(message.event.networkDefinition)
-                bootLoader()
+                try {
+                    global.APP_SCHEMA_ARRAY = JSON.parse(message.event.appSchema)
+                    setUpAppSchema()
+                    global.TASK_NODE = JSON.parse(message.event.taskDefinition)
+                    global.TASK_NETWORK = JSON.parse(message.event.networkDefinition)
+                    bootLoader()
+                } catch(err) {
+                    console.log('[ERROR] Task Server -> server -> preLoader -> eventReceived -> ' + err.stack)
+                }
             }
         } catch (err) {
             console.log('[ERROR] Task Server -> server -> preLoader -> global.TASK_NODE -> ' + err.stack)
@@ -442,11 +449,16 @@ function preLoader() {
             //console.log('[INFO] Task Server -> server -> preLoader -> Waiting for event to start debugging...')
             global.EVENT_SERVER_CLIENT.listenToEvent('Task Server', 'Debug Task Started', undefined, 'Task Server', undefined, startDebugging)
             function startDebugging(message) {
-                global.APP_SCHEMA_ARRAY = JSON.parse(message.event.appSchema)
-                setUpAppSchema()
-                global.TASK_NODE = JSON.parse(message.event.taskDefinition)
-                global.TASK_NETWORK = JSON.parse(message.event.networkDefinition)
-                bootLoader()
+                try {
+                    global.APP_SCHEMA_ARRAY = JSON.parse(message.event.appSchema)
+                    setUpAppSchema()
+                    global.TASK_NODE = JSON.parse(message.event.taskDefinition)
+                    global.TASK_NETWORK = JSON.parse(message.event.networkDefinition)
+                    bootLoader()
+                    
+                } catch(err) {
+                    console.log('[ERROR] Task Server -> server -> preLoader -> startDebugging -> ' + err.stack)
+                }
             }
         } catch (err) {
             console.log('[ERROR] Task Server -> server -> preLoader -> global.TASK_NODE -> ' + err.stack)
@@ -502,6 +514,7 @@ function bootLoader() {
         global.EVENT_SERVER_CLIENT.raiseEvent(key, 'Error', event)
     }
 
+ 
     for (let processIndex = 0; processIndex < global.TASK_NODE.bot.processes.length; processIndex++) {
         let config = global.TASK_NODE.bot.processes[processIndex].config
 

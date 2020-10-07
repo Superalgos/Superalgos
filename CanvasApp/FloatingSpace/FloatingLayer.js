@@ -290,6 +290,8 @@ function newFloatingLayer() {
                     DEBUG.variable1 = 'Invisible Floating Objets: ' + invisibleFloatingObjects.length
                     DEBUG.variable2 = 'Visible Floating Objets: ' + visibleFloatingObjects.length
 
+                    if (canvas.floatingSpace.settings.physics !== true) {return}
+
                     for (let i = 0; i < visibleFloatingObjects.length; i++) {
                         let floatingObject = visibleFloatingObjects[i]
                         if (floatingObject.isFrozen === true) { continue }

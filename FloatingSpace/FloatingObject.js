@@ -340,7 +340,7 @@ function newFloatingObject() {
     function positionContraintsPhysics() {
         const MAX_DISTANCE_TO_PARENT = 5000
         const MIN_DISTANCE_TO_PARENT = 100
-        const DEFAULT_NODE_TO_NODE_DISTANCE = 500
+        const DEFAULT_NODE_TO_NODE_DISTANCE = 500 * canvas.floatingSpace.settings.node.distancePercentage / 100
 
         if (thisObject.angleToParent !== ANGLE_TO_PARENT.NOT_FIXED && thisObject.isOnFocus !== true) {
             let parent = thisObject.payload.chainParent
@@ -615,7 +615,8 @@ function newFloatingObject() {
     }
 
     function setFocus(point) {
-        thisObject.targetRadius = thisObject.rawRadius * 6.0
+        thisObject.targetRadius = thisObject.rawRadius * 6.0 * canvas.floatingSpace.settings.node.radiusPercentage / 100
+        thisObject.currentMass = thisObject.rawMass * canvas.floatingSpace.settings.node.massPercentage / 100
         thisObject.targetImageSize = thisObject.rawImageSize * 2.0
         thisObject.targetFontSize = thisObject.rawFontSize * 2.0
         thisObject.targetHierarchyRing = thisObject.rawHierarchyRing * 8.0
@@ -634,7 +635,8 @@ function newFloatingObject() {
         }
         if (thisObject.payload === undefined) { return }
         if (thisObject.isOnFocus === true) {
-            thisObject.targetRadius = thisObject.rawRadius * 1
+            thisObject.targetRadius = thisObject.rawRadius * 1 * canvas.floatingSpace.settings.node.radiusPercentage / 100
+            thisObject.currentMass = thisObject.rawMass * canvas.floatingSpace.settings.node.massPercentage / 100
             thisObject.targetImageSize = thisObject.rawImageSize * 1
             thisObject.targetFontSize = thisObject.rawFontSize * 1
             thisObject.targetHierarchyRing = thisObject.rawHierarchyRing * 1
@@ -719,7 +721,7 @@ function newFloatingObject() {
         }
 
         thisObject.rawRadius = radius
-        thisObject.targetRadius = radius
+        thisObject.targetRadius = radius * canvas.floatingSpace.settings.node.radiusPercentage / 100
         thisObject.container.frame.radius = radius
 
         thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)

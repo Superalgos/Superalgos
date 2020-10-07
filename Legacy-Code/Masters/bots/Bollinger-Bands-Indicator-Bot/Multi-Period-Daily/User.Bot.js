@@ -587,7 +587,7 @@
 
                                     let fileContent = "";
 
-                                    for (i = 0; i < pBands.length; i++) {
+                                    for (let i = 0; i < pBands.length; i++) {
 
                                         let band = pBands[i];
 
@@ -657,7 +657,7 @@
 
                                     let fileContent = "";
 
-                                    for (i = 0; i < pPercentageBandwidths.length; i++) {
+                                    for (let i = 0; i < pPercentageBandwidths.length; i++) {
 
                                         let pB = pPercentageBandwidths[i];
 

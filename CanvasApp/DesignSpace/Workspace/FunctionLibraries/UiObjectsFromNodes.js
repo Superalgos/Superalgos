@@ -335,6 +335,7 @@ function newUiObjectsFromNodes() {
 
         if (nodeDefinition === undefined) {
             console.log('Cannot addUIOBject of ' + type + ' because that type it is not defined at the APP_SCHEMA.')
+            return
         }
 
         if (nodeDefinition.initialValues !== undefined) {
@@ -384,14 +385,12 @@ function newUiObjectsFromNodes() {
             }
         }
 
-        if (nodeDefinition !== undefined) {
-            if (nodeDefinition.initialValues !== undefined) {
-                if (nodeDefinition.initialValues.code !== undefined) {
-                    object.code = nodeDefinition.initialValues.code
-                }
-                if (nodeDefinition.initialValues.config !== undefined) {
-                    object.config = nodeDefinition.initialValues.config
-                }
+        if (nodeDefinition.initialValues !== undefined) {
+            if (nodeDefinition.initialValues.code !== undefined) {
+                object.code = nodeDefinition.initialValues.code
+            }
+            if (nodeDefinition.initialValues.config !== undefined) {
+                object.config = nodeDefinition.initialValues.config
             }
         }
 

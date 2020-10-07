@@ -1446,13 +1446,7 @@
                 "label": "Add Tutorial",
                 "relatedUiObject": "Tutorial",
                 "actionFunction": "payload.onMenuItemClick"
-            },
-            {
-                "action": "Add UI Object",
-                "label": "Add Plugins",
-                "relatedUiObject": "Plugins",
-                "actionFunction": "payload.onMenuItemClick"
-            }
+            } 
         ],
         "isTitleAllwaysVisible": true,
         "addLeftIcons": false,
@@ -14424,15 +14418,6 @@
                 "action": "Add Missing Children",
                 "label": "Add Missing Children",
                 "relatedUiObject": "Plugins",
-                "actionFunction": "payload.onMenuItemClick"
-            },
-            {
-                "action": "Delete UI Object",
-                "askConfirmation": true,
-                "confirmationLabel": "Confirm to Delete",
-                "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
             }
         ],

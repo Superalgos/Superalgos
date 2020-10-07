@@ -310,6 +310,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
 
         if (error !== undefined) {
             tradingSystem.errors.push([node.id, error])
+            logger.write(MODULE_NAME, '[INFO] evalFormula -> error = ' + error)
             return
         }
         if (value !== undefined) {
@@ -323,7 +324,6 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
         }
 
         logger.write(MODULE_NAME, '[INFO] evalFormula -> value = ' + value)
-        logger.write(MODULE_NAME, '[INFO] evalFormula -> error = ' + error)
     }
 }
 

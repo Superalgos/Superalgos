@@ -73,29 +73,30 @@ function newCanvas() {
             thisObject.floatingSpace.finalize()
             thisObject.shorcutNumbers = undefined
 
-            browserCanvas.removeEventListener('mousedown', onMouseDown, false)
-            browserCanvas.removeEventListener('mouseup', onMouseUp, false)
-            browserCanvas.removeEventListener('mousemove', onMouseMove, false)
-            browserCanvas.removeEventListener('click', onMouseClick, false)
-            browserCanvas.removeEventListener('mouseout', onMouseOut, false)
-
             if (browserCanvas.removeEventListener) {
                 browserCanvas.removeEventListener('mousewheel', onMouseWheel, false)// IE9, Chrome, Safari, Opera
                 browserCanvas.removeEventListener('DOMMouseScroll', onMouseWheel, false) // Firefox
-            } else browserCanvas.detachEvent('onmousewheel', onMouseWheel)  // IE 6/7/8
-
-            browserCanvas.removeEventListener('dragenter', onDragEnter, false)
-            browserCanvas.removeEventListener('dragleave', onDragLeave, false)
-            browserCanvas.removeEventListener('dragover', onDragOver, false)
-            browserCanvas.removeEventListener('drop', onDragDrop, false)
-
-            browserCanvas.removeEventListener('keydown', onKeyDown, false)
-            browserCanvas.removeEventListener('keyup', onKeyUp, false)
+                browserCanvas.removeEventListener('mousedown', onMouseDown, false)
+                browserCanvas.removeEventListener('mouseup', onMouseUp, false)
+                browserCanvas.removeEventListener('mousemove', onMouseMove, false)
+                browserCanvas.removeEventListener('click', onMouseClick, false)
+                browserCanvas.removeEventListener('mouseout', onMouseOut, false)
+                
+                browserCanvas.removeEventListener('dragenter', onDragEnter, false)
+                browserCanvas.removeEventListener('dragleave', onDragLeave, false)
+                browserCanvas.removeEventListener('dragover', onDragOver, false)
+                browserCanvas.removeEventListener('drop', onDragDrop, false)
+    
+                browserCanvas.removeEventListener('keydown', onKeyDown, false)
+                browserCanvas.removeEventListener('keyup', onKeyUp, false)
+            } else {
+                browserCanvas.detachEvent('onmousewheel', onMouseWheel)  // IE 6/7/8
+            }
 
             thisObject.splashScreen = undefined
             lastContainerMouseOver = undefined
 
-            hisObject.mouse = undefined
+            thisObject.mouse = undefined
         } catch (err) {
             if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack) }
         }
@@ -544,7 +545,7 @@ function newCanvas() {
                     } else {
                         /* After the warning, we allow the key to be re-assigned */
                         nodeUsingThisKey.payload.uiObject.shortcutKey = ''
-                        nodeUsingThisKey === undefined
+                        nodeUsingThisKey = undefined
                         nodeOnFocus.payload.uiObject.shortcutKey = event.key
                         nodeOnFocus.payload.uiObject.valueAtAngle = false
                         nodeOnFocus.payload.uiObject.setValue('Shortcut Key: Ctrl + Alt + ' + event.key)

@@ -182,8 +182,6 @@ function newListView() {
 
     function physics() {
         if (isInitialized === false || thisObject.isVisible === false) { return }
-        if (isInitialized === false) { return }
-        if (thisObject.isVisible === false) { return }
         childrenPhysics()
     }
 

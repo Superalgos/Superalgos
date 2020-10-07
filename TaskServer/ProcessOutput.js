@@ -86,7 +86,7 @@
                     let product = outputDataset.referenceParent.parentNode.config.codeName
                     let dataset = outputDataset.referenceParent.config.codeName
 
-                    key = dataMine + "-" + botName + "-" + product + "-" + dataset + "-" + bot.exchange + "-" + bot.market.baseAsset + '/' + bot.market.quotedAsset
+                    let key = dataMine + "-" + botName + "-" + product + "-" + dataset + "-" + bot.exchange + "-" + bot.market.baseAsset + '/' + bot.market.quotedAsset
                     let event = {
                         lastFile: lastFile,
                         timeFrames: timeFrames
@@ -165,7 +165,7 @@
                 let product = outputDataset.referenceParent.parentNode.config.codeName
                 let dataset = outputDataset.referenceParent.config.codeName
 
-                key = dataMine + "-" + botName + "-" + product + "-" + dataset + "-" + bot.exchange + "-" + bot.market.baseAsset + '/' + bot.market.quotedAsset
+                let key = dataMine + "-" + botName + "-" + product + "-" + dataset + "-" + bot.exchange + "-" + bot.market.baseAsset + '/' + bot.market.quotedAsset
                 let event = {
                     lastFile: lastFile,
                     timeFrames: timeFrames

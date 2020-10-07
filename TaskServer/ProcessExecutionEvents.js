@@ -11,7 +11,7 @@
 
     let thisObject = {
         networkNode: undefined,
-        initialize, initialize,
+        initialize: initialize,
         finalize: finalize,
         start: start,
         finish: finish

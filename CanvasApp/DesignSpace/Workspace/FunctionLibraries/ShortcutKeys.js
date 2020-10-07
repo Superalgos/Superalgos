@@ -24,8 +24,7 @@ function newShortcutKeys() {
                             case 'node': {
                                 if (property.name !== previousPropertyName) {
                                     if (node[property.name] !== undefined) {
-                                        let child
-                                        child = getNodeByShortcutKey(node[property.name], searchingKey)
+                                        let  child = getNodeByShortcutKey(node[property.name], searchingKey)
                                         if (child !== undefined) {
                                             return child
                                         }
@@ -38,7 +37,7 @@ function newShortcutKeys() {
                                 let nodePropertyArray = node[property.name]
                                 if (nodePropertyArray !== undefined) {
                                     for (let m = 0; m < nodePropertyArray.length; m++) {
-                                        child = getNodeByShortcutKey(nodePropertyArray[m], searchingKey)
+                                        let child = getNodeByShortcutKey(nodePropertyArray[m], searchingKey)
                                         if (child !== undefined) {
                                             return child
                                         }

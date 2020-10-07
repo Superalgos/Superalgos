@@ -381,7 +381,7 @@ global.EXIT_NODE_PROCESS = function exitProcess() {
             let config = global.TASK_NODE.bot.processes[i].config
             let process = global.TASK_NODE.bot.processes[i]
     
-            key = process.name + '-' + process.type + '-' + process.id
+            let key = process.name + '-' + process.type + '-' + process.id
             global.EVENT_SERVER_CLIENT.raiseEvent(key, 'Stopped') // Meaning Process Stopped
         }
     }

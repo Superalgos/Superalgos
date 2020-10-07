@@ -119,8 +119,8 @@ function newNodeDeleter() {
     }
 
     function cleanNode(node) {
-        if (node.payload === undefined) { return }
         if (node === undefined) { return }
+        if (node.payload === undefined) { return }
 
         node.payload.targetPosition.x = undefined
         node.payload.targetPosition.y = undefined

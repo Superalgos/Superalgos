@@ -392,7 +392,7 @@
                     let outputCandles = [];
                     let outputVolumes = [];
 
-                    for (n = 0; n < global.marketFilesPeriods.length; n++) {
+                    for (let n = 0; n < global.marketFilesPeriods.length; n++) {
 
                         const emptyArray1 = [];
                         const emptyArray2 = [];
@@ -799,7 +799,7 @@
                         let fileRecordCounter = 0;
                         let fileContent = "";
 
-                        for (i = 0; i < candles.length; i++) {
+                        for (let i = 0; i < candles.length; i++) {
 
                             let candle = candles[i];
 
@@ -849,7 +849,7 @@
                         let fileRecordCounter = 0;
                         let fileContent = "";
 
-                        for (i = 0; i < volumes.length; i++) {
+                        for (let i = 0; i < volumes.length; i++) {
 
                             let candle = volumes[i];
 

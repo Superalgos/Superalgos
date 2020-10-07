@@ -189,7 +189,7 @@ function newCircularMenu() {
     function onFocus() {
         for (let i = 0; i < menuItems.length; i++) {
             let menuItem = menuItems[i]
-            menuItem.targetRadius = menuItem.rawRadius * 1.5 * canvas.floatingSpace.settings.node.menuItem.radiusPercentage / 100
+            menuItem.targetRadius = Math.trunc(menuItem.rawRadius * 1.5)
             menuItem.isDeployed = true
         }
         thisObject.isDeployed = true

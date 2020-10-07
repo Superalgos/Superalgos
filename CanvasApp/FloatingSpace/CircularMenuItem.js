@@ -191,6 +191,7 @@ function newCircularMenuItem() {
         } else {
             radiusGrowthFactor = 3.2
         }
+        radiusGrowthFactor = radiusGrowthFactor * canvas.floatingSpace.settings.node.menuItem.radiusPercentage / 100
 
         thisObject.container.frame.position.x =
             thisObject.payload.floatingObject.targetRadius *
@@ -201,8 +202,8 @@ function newCircularMenuItem() {
         thisObject.container.frame.position.y =
             thisObject.payload.floatingObject.targetRadius *
             radiusGrowthFactor / 7
-            * Math.sin(toRadians(thisObject.angle)) -
-            thisObject.container.frame.height / 2
+            * Math.sin(toRadians(thisObject.angle))
+            - thisObject.container.frame.height / 2
     }
 
     function disablePhysics() {

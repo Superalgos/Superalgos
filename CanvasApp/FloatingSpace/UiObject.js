@@ -564,7 +564,6 @@ function newUiObject() {
 
     function chainDetachingPhysics() {
         if (isDragging !== true) { return }
-        if (thisObject.payload.floatingObject.isFrozen === true) { return }
         if (rightDragging === false) { return }
 
         let distanceToChainParent = Math.sqrt(Math.pow(thisObject.payload.position.x - thisObject.payload.targetPosition.x, 2) + Math.pow(thisObject.payload.position.y - thisObject.payload.targetPosition.y, 2))
@@ -1977,7 +1976,7 @@ function newUiObject() {
 
             /* Hierarchy Head Ring */
             if (nodeDefinition.isHierarchyHead === true) {
-                VISIBLE_RADIUS = thisObject.payload.floatingObject.currentHierarchyRing * 2.6
+                VISIBLE_RADIUS = thisObject.payload.floatingObject.container.frame.radius
                 if (canvas.floatingSpace.inMapMode === true) {
                     VISIBLE_RADIUS = canvas.floatingSpace.transformRadiusToMap(VISIBLE_RADIUS)
                 }

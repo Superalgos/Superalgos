@@ -56,7 +56,6 @@ function newFloatingObject() {
         initializeRadius: initializeRadius,
         initializeImageSize: initializeImageSize,
         initializeFontSize: initializeFontSize,
-        initializeHierarchyRing: initializeHierarchyRing,
         initializeCurrentPosition: initializeCurrentPosition,
         radomizeCurrentSpeed: radomizeCurrentSpeed,
         drawBackground: drawBackground,
@@ -567,16 +566,6 @@ function newFloatingObject() {
             thisObject.currentFontSize = thisObject.targetFontSize
         }
 
-        if (Math.abs(thisObject.currentHierarchyRing - thisObject.targetHierarchyRing) >= ANIMATION_STEP) {
-            if (thisObject.currentHierarchyRing < thisObject.targetHierarchyRing) {
-                thisObject.currentHierarchyRing = thisObject.currentHierarchyRing + ANIMATION_STEP
-            } else {
-                thisObject.currentHierarchyRing = thisObject.currentHierarchyRing - ANIMATION_STEP
-            }
-        } else {
-            thisObject.currentHierarchyRing = thisObject.targetHierarchyRing
-        }
-
         /* Floating object position in screen coordinates */
         thisObject.payload.position.x = thisObject.container.frame.position.x
         thisObject.payload.position.y = thisObject.container.frame.position.y
@@ -619,7 +608,6 @@ function newFloatingObject() {
         thisObject.currentMass = thisObject.rawMass * canvas.floatingSpace.settings.node.massPercentage / 100
         thisObject.targetImageSize = thisObject.rawImageSize * 2.0
         thisObject.targetFontSize = thisObject.rawFontSize * 2.0
-        thisObject.targetHierarchyRing = thisObject.rawHierarchyRing * 8.0
 
         thisObject.payload.uiObject.container.eventHandler.raiseEvent('onFocus', point)
 
@@ -639,7 +627,6 @@ function newFloatingObject() {
             thisObject.currentMass = thisObject.rawMass * canvas.floatingSpace.settings.node.massPercentage / 100
             thisObject.targetImageSize = thisObject.rawImageSize * 1
             thisObject.targetFontSize = thisObject.rawFontSize * 1
-            thisObject.targetHierarchyRing = thisObject.rawHierarchyRing * 1
 
             thisObject.payload.uiObject.container.eventHandler.raiseEvent('onNotFocus', thisObject.container)
 
@@ -747,17 +734,6 @@ function newFloatingObject() {
         thisObject.rawFontSize = size
         thisObject.targetFontSize = size
         thisObject.currentFontSize = size / 3
-    }
-
-    function initializeHierarchyRing(suggestedValue) {
-        let radius = suggestedValue
-        if (radius < 3) {
-            radius = 3
-        }
-
-        thisObject.rawHierarchyRing = radius
-        thisObject.targetHierarchyRing = radius
-        thisObject.currentHierarchyRing = radius
     }
 
     function initializeCurrentPosition(arroundPoint) {

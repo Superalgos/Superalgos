@@ -490,7 +490,6 @@ function newUiObjectConstructor() {
         const INITIAL_FONT_SIZE = 12 * 1.5
         const INITIAL_RADIOUS = 70
         const INITIAL_IMAGE_SIZE = 80 * 1.2
-        const INITIAL_HIERARCHY_RING = 20
 
         switch (payload.node.type) {
             case 'Workspace': {
@@ -538,7 +537,6 @@ function newUiObjectConstructor() {
 
             floatingObject.initializeMass(500)
             floatingObject.initializeRadius(INITIAL_RADIOUS)
-            floatingObject.initializeHierarchyRing(INITIAL_HIERARCHY_RING)
             floatingObject.initializeImageSize(INITIAL_IMAGE_SIZE)
             floatingObject.initializeFontSize(INITIAL_FONT_SIZE)
 
@@ -550,7 +548,6 @@ function newUiObjectConstructor() {
 
             floatingObject.initializeMass(600)
             floatingObject.initializeRadius(INITIAL_RADIOUS)
-            floatingObject.initializeHierarchyRing(INITIAL_HIERARCHY_RING)
             floatingObject.initializeImageSize(INITIAL_IMAGE_SIZE)
             floatingObject.initializeFontSize(INITIAL_FONT_SIZE)
 
@@ -566,7 +563,6 @@ function newUiObjectConstructor() {
 
             floatingObject.initializeMass(300)
             floatingObject.initializeRadius(INITIAL_RADIOUS - 2)
-            floatingObject.initializeHierarchyRing(INITIAL_HIERARCHY_RING)
             floatingObject.initializeImageSize(INITIAL_IMAGE_SIZE - 10)
             floatingObject.initializeFontSize(INITIAL_FONT_SIZE)
 
@@ -582,7 +578,6 @@ function newUiObjectConstructor() {
 
             floatingObject.initializeMass(150)
             floatingObject.initializeRadius(INITIAL_RADIOUS - 4)
-            floatingObject.initializeHierarchyRing(INITIAL_HIERARCHY_RING)
             floatingObject.initializeImageSize(INITIAL_IMAGE_SIZE - 20)
             floatingObject.initializeFontSize(INITIAL_FONT_SIZE)
 
@@ -598,7 +593,6 @@ function newUiObjectConstructor() {
 
             floatingObject.initializeMass(75)
             floatingObject.initializeRadius(INITIAL_RADIOUS - 6)
-            floatingObject.initializeHierarchyRing(INITIAL_HIERARCHY_RING)
             floatingObject.initializeImageSize(INITIAL_IMAGE_SIZE - 30)
             floatingObject.initializeFontSize(INITIAL_FONT_SIZE)
 
@@ -614,7 +608,6 @@ function newUiObjectConstructor() {
 
             floatingObject.initializeMass(50)
             floatingObject.initializeRadius(INITIAL_RADIOUS - 8)
-            floatingObject.initializeHierarchyRing(INITIAL_HIERARCHY_RING)
             floatingObject.initializeImageSize(INITIAL_IMAGE_SIZE - 40)
             floatingObject.initializeFontSize(INITIAL_FONT_SIZE)
 
@@ -626,7 +619,6 @@ function newUiObjectConstructor() {
 
             floatingObject.initializeMass(25)
             floatingObject.initializeRadius(INITIAL_RADIOUS - 10)
-            floatingObject.initializeHierarchyRing(INITIAL_HIERARCHY_RING)
             floatingObject.initializeImageSize(INITIAL_IMAGE_SIZE - 50)
             floatingObject.initializeFontSize(INITIAL_FONT_SIZE)
 

@@ -186,7 +186,7 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
                         const message = 'Target Size In Base Asset cannot be undefined. Fix this please.'
                         badDefinitionUnhandledException(undefined, message, tradingSystemStageNode.initialTargets.targetSizeInBaseAsset.formula)
                     }
-                    if (value === undefined) {
+                    if (value === 0) {
                         const message = 'Target Size In Base Asset cannot be zero. Fix this please.'
                         badDefinitionUnhandledException(undefined, message, tradingSystemStageNode.initialTargets.targetSizeInBaseAsset.formula)
                     }
@@ -222,7 +222,7 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
                         const message = 'Target Size In Quoted Asset cannot be undefined. Fix this please.'
                         badDefinitionUnhandledException(undefined, message, tradingSystemStageNode.initialTargets.targetSizeInQuotedAsset.formula)
                     }
-                    if (value === undefined) {
+                    if (value === 0) {
                         const message = 'Target Size In Quoted Asset cannot be zero. Fix this please.'
                         badDefinitionUnhandledException(undefined, message, tradingSystemStageNode.initialTargets.targetSizeInQuotedAsset.formula)
                     }
@@ -244,8 +244,8 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
                     /* Remember how the end user defined this stage. */
                     tradingEngineStageNode.stageDefinedIn.value = 'Quoted Asset'
                 } else {
-                    const errorText = 'You need to specify a Formula for this.'
-                    badDefinitionUnhandledException(undefined, message, tradingSystemStageNode.initialTargets.targetSizeInQuotedAsset.formula)
+                    const message = 'You need to specify a Formula for this.'
+                    badDefinitionUnhandledException(undefined, message, tradingSystemStageNode.initialTargets.targetSizeInQuotedAsset)
                 }
             }
         }

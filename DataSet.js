@@ -24,14 +24,16 @@ exports.newDataSet = function newDataSet(BOT, logger) {
 
         try {
             thisObject.node = dataDependency.referenceParent;
-            logger.fileName = MODULE_NAME + "." + thisObject.node.type + "." + thisObject.node.name + "." + thisObject.node.id;
-
+            logger.fileName = MODULE_NAME
+            
             /* Some very basic validations that we have all the information needed. */
             if (thisObject.node === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] initialize -> Data Dependency without Reference Parent -> dataDependency = " + JSON.stringify(dataDependency));
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return
             }
+
+            logger.fileName = MODULE_NAME + "." + thisObject.node.type + "." + thisObject.node.name + "." + thisObject.node.id;
 
             if (thisObject.node.config.codeName === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] initialize -> Dataset witn no codeName defined -> Product Dataset = " + JSON.stringify(thisObject.node));

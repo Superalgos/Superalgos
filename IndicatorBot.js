@@ -61,7 +61,7 @@
 
                 function onCommonsDownloaded(err, text) {
                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                        parentLogger.write(MODULE_NAME, "[WARN] initialize -> onBotDownloaded -> onCommonsDownloaded -> Commons not found: " + err.code || err.message);
+                        parentLogger.write(MODULE_NAME, "[WARN] initialize -> onBotDownloaded -> onCommonsDownloaded -> Commons not found: " + err.message);
                         callBackFunction(global.DEFAULT_OK_RESPONSE);
                         return;
                     }

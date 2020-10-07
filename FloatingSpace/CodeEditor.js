@@ -185,7 +185,7 @@ function newCodeEditor() {
 
             browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
 
-            if (label !== undefined && thisObject.currentRadius >= thisObject.targetRadius) {
+            if (thisObject.currentRadius >= thisObject.targetRadius) {
                 labelPoint = {
                     x: iconPosition.x + thisObject.currentRadius + 10,
                     y: iconPosition.y + fontSize * FONT_ASPECT_RATIO

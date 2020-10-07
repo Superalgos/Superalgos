@@ -891,7 +891,7 @@ function newPlotter() {
                 }
             }
 
-            if (coordinateSystem.autoMinYScale === true || coordinateSystem.autoMinYScale === true) {
+            if (coordinateSystem.autoMinYScale === true || coordinateSystem.autoMaxYScale === true) {
                 mustRecalculateDataPoints = true
             } else {
                 mustRecalculateDataPoints = false

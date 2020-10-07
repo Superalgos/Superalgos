@@ -63,7 +63,7 @@ function newVideoRecorder() {
                     let key = canvas.mouse.event.key
                     if (key === undefined) { break }
                     switch (key.toLowerCase()) {
-                        case 'Escape':
+                        case 'escape':
                             {
                                 pointerIcon = canvas.designSpace.iconCollection.get('key-m')
                                 break

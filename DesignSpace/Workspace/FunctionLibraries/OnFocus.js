@@ -25,8 +25,7 @@ function newOnFocus() {
                             case 'node': {
                                 if (property.name !== previousPropertyName) {
                                     if (node[property.name] !== undefined) {
-                                        let child
-                                        child = getNodeThatIsOnFocus(node[property.name])
+                                        let child = getNodeThatIsOnFocus(node[property.name])
                                         if (child !== undefined) {
                                             return child
                                         }
@@ -39,7 +38,7 @@ function newOnFocus() {
                                 let nodePropertyArray = node[property.name]
                                 if (nodePropertyArray !== undefined) {
                                     for (let m = 0; m < nodePropertyArray.length; m++) {
-                                        child = getNodeThatIsOnFocus(nodePropertyArray[m])
+                                        let child = getNodeThatIsOnFocus(nodePropertyArray[m])
                                         if (child !== undefined) {
                                             return child
                                         }

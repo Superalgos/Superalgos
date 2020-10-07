@@ -580,10 +580,8 @@ function newUiObject() {
 
         let THRESHOLD = 1.15
 
-        if (previousDistanceToChainParent !== undefined) {
-            if (ratio > THRESHOLD) {
-                canvas.designSpace.workspace.chainDetachNode(thisObject.payload.node)
-            }
+        if (ratio > THRESHOLD) {
+            canvas.designSpace.workspace.chainDetachNode(thisObject.payload.node)
         }
     }
 
@@ -675,9 +673,10 @@ function newUiObject() {
 
     function referenceDetachingPhysics() {
         if (isDragging !== true) { return }
+        if (thisObject.payload === undefined) { return }
         if (thisObject.payload.floatingObject.isFrozen === true) { return }
         if (rightDragging === false) { return }
-        if (thisObject.payload === undefined) { return }
+
         if (thisObject.payload.referenceParent === undefined) { return }
 
         let distanceToReferenceParent = Math.sqrt(Math.pow(thisObject.payload.position.x - thisObject.payload.referenceParent.payload.position.x, 2) + Math.pow(thisObject.payload.position.y - thisObject.payload.referenceParent.payload.position.y, 2))
@@ -689,14 +688,11 @@ function newUiObject() {
         previousDistanceToReferenceParent = distanceToReferenceParent
 
         if (thisObject.isOnFocus !== true) { return }
-        if (thisObject.payload.referenceParent === undefined) { return }
 
         let THRESHOLD = 1.15
 
-        if (previousDistanceToReferenceParent !== undefined) {
-            if (ratio > THRESHOLD) {
-                canvas.designSpace.workspace.referenceDetachNode(thisObject.payload.node)
-            }
+        if (ratio > THRESHOLD) {
+            canvas.designSpace.workspace.referenceDetachNode(thisObject.payload.node)
         }
     }
 
@@ -1531,6 +1527,16 @@ function newUiObject() {
             label = addIndexNumber(label)
 
             if (label !== undefined) {
+                
+                if (canvas.floatingSpace.inMapMode === true) {
+                    let nodeDefinition = getNodeDefinition(thisObject.payload.node)
+                    if (nodeDefinition !== undefined) {
+                        if (nodeDefinition.isHierarchyHead !== true) {
+                            return
+                        }
+                    }
+                }
+
                 if (label.length > MAX_LABEL_LENGTH) {
                     label = label.substring(0, MAX_LABEL_LENGTH) + '...'
                 }
@@ -1543,18 +1549,12 @@ function newUiObject() {
                 } else {
                     labelPoint = {
                         x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
-                        y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 1  
+                        y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 1
                     }
                 }
 
                 if (canvas.floatingSpace.inMapMode === true) {
-                    labelPoint.y = labelPoint.y - 20
-                    let nodeDefinition = getNodeDefinition(thisObject.payload.node)
-                    if (nodeDefinition !== undefined) {
-                        if (nodeDefinition.isHierarchyHead !== true) {
-                            return
-                        }
-                    }
+                    labelPoint.y = position.y + 50 / 2 + lineSeparator * 1 
                 }
 
                 browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
@@ -1600,7 +1600,7 @@ function newUiObject() {
             position = canvas.floatingSpace.transformPointToMap(position)
         }
 
-        let radius = thisObject.payload.floatingObject.container.frame.radius  
+        let radius = thisObject.payload.floatingObject.container.frame.radius
         /* Label Text */
         let labelPoint
         let fontSize = thisObject.payload.floatingObject.currentFontSize * 3 / 4
@@ -1661,10 +1661,10 @@ function newUiObject() {
             position = canvas.floatingSpace.transformPointToMap(position)
         }
 
-        let radius = thisObject.payload.floatingObject.container.frame.radius  
+        let radius = thisObject.payload.floatingObject.container.frame.radius
         /* Label Text */
         let labelPoint
-        let fontSize = thisObject.payload.floatingObject.currentFontSize  
+        let fontSize = thisObject.payload.floatingObject.currentFontSize
         let lineSeparator = thisObject.payload.floatingObject.currentFontSize * 1.2
         let label
 
@@ -1732,10 +1732,10 @@ function newUiObject() {
             position = canvas.floatingSpace.transformPointToMap(position)
         }
 
-        let radius = thisObject.payload.floatingObject.container.frame.radius  
+        let radius = thisObject.payload.floatingObject.container.frame.radius
         /* Label Text */
         let labelPoint
-        let fontSize = thisObject.payload.floatingObject.currentFontSize  
+        let fontSize = thisObject.payload.floatingObject.currentFontSize
         let lineSeparator = thisObject.payload.floatingObject.currentFontSize * 1.2
         let label
 
@@ -1744,27 +1744,26 @@ function newUiObject() {
 
             label = Number(currentPercentage).toFixed(0) + '%'
 
-            if (label !== undefined) {
-                if (label.length > MAX_LABEL_LENGTH) {
-                    label = label.substring(0, MAX_LABEL_LENGTH) + '...'
-                }
-
-                if (thisObject.isOnFocus === true) {
-                    labelPoint = {
-                        x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
-                        y: position.y + radius * 2 / 3 + lineSeparator * 4 + 15
-                    }
-                } else {
-                    labelPoint = {
-                        x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 10,
-                        y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 4
-                    }
-                }
-
-                browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-                browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TURQUOISE + ', 1)'
-                browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
+            if (label.length > MAX_LABEL_LENGTH) {
+                label = label.substring(0, MAX_LABEL_LENGTH) + '...'
             }
+
+            if (thisObject.isOnFocus === true) {
+                labelPoint = {
+                    x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
+                    y: position.y + radius * 2 / 3 + lineSeparator * 4 + 15
+                }
+            } else {
+                labelPoint = {
+                    x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 10,
+                    y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 4
+                }
+            }
+
+            browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
+            browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TURQUOISE + ', 1)'
+            browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
+
         }
     }
 
@@ -1783,7 +1782,7 @@ function newUiObject() {
             position = canvas.floatingSpace.transformPointToMap(position)
         }
 
-        let radius = thisObject.payload.floatingObject.container.frame.radius  
+        let radius = thisObject.payload.floatingObject.container.frame.radius
         /* Label Text */
         let labelPoint
         let fontSize = thisObject.payload.floatingObject.currentFontSize * 6 / 4 / 2
@@ -2174,15 +2173,17 @@ function newUiObject() {
                 let additionalImageSize = 0
                 if (isRunningAtBackend === true || isReadyToReferenceAttach === true || isReadyToChainAttach === true) { additionalImageSize = 20 }
                 let totalImageSize = additionalImageSize + thisObject.payload.floatingObject.currentImageSize
+
+                let nodeDefinition = getNodeDefinition(thisObject.payload.node)
+                if (nodeDefinition === undefined) { return }
+
                 if (canvas.floatingSpace.inMapMode === true) {
-                    totalImageSize = canvas.floatingSpace.transformImagesizeToMap(totalImageSize)
-                    let nodeDefinition = getNodeDefinition(thisObject.payload.node)
-                    if (nodeDefinition !== undefined) {
-                        if (nodeDefinition.isHierarchyHead !== true) {
-                            totalImageSize = totalImageSize / 4
-                        }
+                    if (nodeDefinition.isHierarchyHead === true) {
+                        totalImageSize = 50
+                    } else {
+                        totalImageSize = canvas.floatingSpace.transformImagesizeToMap(totalImageSize)
                     }
-                }
+                }  
 
                 if (thisObject.isShowing === true) {
                     totalImageSize = 50

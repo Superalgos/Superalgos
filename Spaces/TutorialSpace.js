@@ -191,14 +191,6 @@ function newTutorialSpace() {
             }
         }
 
-        function checkViewportZoomAtCenter() {
-            if (currentNode === undefined) { return }
-            let config = JSON.parse(currentNode.config)
-            if (config.viewportZoomAtCenter !== undefined) {
-                canvas.chartingSpace.viewport.zoomAtCenter(config.viewportZoomAtCenter)
-            }
-        }
-
         function checkPressButton() {
             if (currentNode === undefined) { return }
             let config = JSON.parse(currentNode.config)

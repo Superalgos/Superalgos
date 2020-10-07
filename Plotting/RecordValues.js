@@ -115,7 +115,6 @@ function newRecordValues() {
     function applyValue(node, value, minDecimals) {
         if (canvas.chartingSpace.visible !== true) { return }
         if (node === undefined) { return }
-        if (node === undefined) { return }
         if (node.payload === undefined) { return }
         if (node.payload.uiObject === undefined) { return }
         if (value === true) { value = 'true' }

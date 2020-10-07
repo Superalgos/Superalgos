@@ -261,6 +261,11 @@ function newTimeFrameScale() {
                     return
                 }
             } else {
+                if (event.shiftKey === true) {
+                    sensitivity = 20
+                } else {
+                    sensitivity = 5
+                }
                 if (wheelDeltaDirection === 1) {
                     wheelDeltaCounter++
                     if (wheelDeltaCounter < sensitivity) {

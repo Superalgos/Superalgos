@@ -60,7 +60,7 @@ function newPanelsVisibleButton() {
 
     function setPanelVisibility() {
         for (let i = 0; i < thisObject.panels.length; i++) {
-            panel = canvas.panelsSpace.getPanel(thisObject.panels[i])
+            let panel = canvas.panelsSpace.getPanel(thisObject.panels[i])
             panel.isVisible = thisObject.showPanels
         }
     }

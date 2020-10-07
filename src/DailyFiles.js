@@ -150,7 +150,7 @@ function newDailyFiles() {
       function createFileCursors() {
         try {
           /* Now we will get the daily files */
-          for (i = 0; i < dailyFilePeriods.length; i++) {
+          for (let i = 0; i < dailyFilePeriods.length; i++) {
             let periodTime = dailyFilePeriods[i][0]
             let periodName = dailyFilePeriods[i][1]
 
@@ -198,7 +198,7 @@ function newDailyFiles() {
 
       function loadThemAll() {
         try {
-          for (i = 0; i < dailyFilePeriods.length; i++) {
+          for (let i = 0; i < dailyFilePeriods.length; i++) {
             let periodTime = dailyFilePeriods[i][0]
             let periodName = dailyFilePeriods[i][1]
 

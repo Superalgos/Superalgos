@@ -115,7 +115,7 @@ function newAnimation() {
                 row = 0
                 for (const [key, timeConsumed] of performanceMap.entries()) {
                     row++
-                    labelToPrint = key + '   ' + timeConsumed.toFixed(4)
+                    let labelToPrint = key + '   ' + timeConsumed.toFixed(4)
                     printLabel(labelToPrint, 10, 100 + row * 30, 1, 20, UI_COLOR.RED)
                     let percentage = timeConsumed * 100 / totalTimeConsumed
                     labelToPrint = key + '   ' + percentage.toFixed(1) + '%'

@@ -191,14 +191,6 @@ function newTutorialSpace() {
             }
         }
 
-        function checkViewportZoomAtCenter() {
-            if (currentNode === undefined) { return }
-            let config = JSON.parse(currentNode.config)
-            if (config.viewportZoomAtCenter !== undefined) {
-                canvas.chartingSpace.viewport.zoomAtCenter(config.viewportZoomAtCenter)
-            }
-        }
-
         function checkPressButton() {
             if (currentNode === undefined) { return }
             let config = JSON.parse(currentNode.config)
@@ -965,35 +957,37 @@ function newTutorialSpace() {
 
 
         function findNextNode(node) {
-            for (let i = 0; i < node.tutorialSteps.length; i++) {
+            if (node.tutorialSteps !== undefined) {
+                for (let i = 0; i < node.tutorialSteps.length; i++) {
 
-                let tutorialStep = node.tutorialSteps[i]
-                if (found === true) {
-                    if (resumeModeActivated !== true) {
-                        currentNode = tutorialStep
-                        currentStatus = 'Playing Step'
-                        advanced = true
-                        navigationStack.push(currentNode)
-                        findTutorialNode(currentNode)
-                        return
-                    } else {
-                        let tutorial = {
-                            status: undefined
-                        }
-                        loadTutorial(tutorialStep.payload, tutorial)
-                        if (tutorial.status !== 'Done') {
+                    let tutorialStep = node.tutorialSteps[i]
+                    if (found === true) {
+                        if (resumeModeActivated !== true) {
                             currentNode = tutorialStep
                             currentStatus = 'Playing Step'
                             advanced = true
                             navigationStack.push(currentNode)
                             findTutorialNode(currentNode)
                             return
+                        } else {
+                            let tutorial = {
+                                status: undefined
+                            }
+                            loadTutorial(tutorialStep.payload, tutorial)
+                            if (tutorial.status !== 'Done') {
+                                currentNode = tutorialStep
+                                currentStatus = 'Playing Step'
+                                advanced = true
+                                navigationStack.push(currentNode)
+                                findTutorialNode(currentNode)
+                                return
+                            }
                         }
                     }
-                }
-                if (tutorialStep.id === currentNode.id) {
-                    found = true
-                }
+                    if (tutorialStep.id === currentNode.id) {
+                        found = true
+                    }
+                }    
             }
 
             for (let i = 0; i < node.tutorialTopics.length; i++) {

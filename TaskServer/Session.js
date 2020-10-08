@@ -322,7 +322,7 @@
 
                 /* Slippage */
                 if (bot.SESSION.parameters.slippage === undefined) { // if the Slippage is missing we create a default one.
-                    bot.SESSION.parameters.timeRange = {
+                    bot.SESSION.parameters.slippage = {
                         name: 'Missing Slippage',
                         type: 'Slippage',
                         config: {

@@ -29,6 +29,8 @@ function newFloatingObject() {
         isParentCollapsed: false,
         frozenManually: false,
         collapsedManually: false,
+        typeStrokeStyle: undefined, 
+        nameStrokeStyle: undefined, 
         forceFocus: forceFocus,
         removeForceFocus: removeForceFocus,
         setFocus: setFocus,
@@ -54,7 +56,6 @@ function newFloatingObject() {
         initializeRadius: initializeRadius,
         initializeImageSize: initializeImageSize,
         initializeFontSize: initializeFontSize,
-        initializeHierarchyRing: initializeHierarchyRing,
         initializeCurrentPosition: initializeCurrentPosition,
         radomizeCurrentSpeed: radomizeCurrentSpeed,
         drawBackground: drawBackground,
@@ -76,6 +77,8 @@ function newFloatingObject() {
     thisObject.container.frame.radius = 0
     thisObject.container.frame.position.x = 0
     thisObject.container.frame.position.y = 0
+    thisObject.typeStrokeStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
+    thisObject.nameStrokeStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
 
     let selfMouseOverEventSubscriptionId
     let selfMouseClickEventSubscriptionId
@@ -83,7 +86,7 @@ function newFloatingObject() {
     let spaceFocusAquiredEventSubscriptionId
     let lastParentAngle
     let forcedFocusCounter = 0
-
+    
     return thisObject
 
     function finalize() {
@@ -297,6 +300,20 @@ function newFloatingObject() {
         }
         positionContraintsPhysics()
         focusPhysics()
+        syncStylePhysics() 
+    }
+
+    function syncStylePhysics() {
+        if (thisObject.rawFontSize !== canvas.floatingSpace.style.node.fontSize) {
+            thisObject.rawFontSize = canvas.floatingSpace.style.node.fontSize
+            thisObject.targetFontSize = thisObject.rawFontSize * 1
+        }
+        if (thisObject.rawImageSize !== canvas.floatingSpace.style.node.imageSize) {
+            thisObject.rawImageSize = canvas.floatingSpace.style.node.imageSize
+            thisObject.targetImageSize = thisObject.rawImageSize * 1
+        }
+        thisObject.typeStrokeStyle = 'rgba(' + canvas.floatingSpace.style.node.type.fontColor + ', 1)'
+        thisObject.nameStrokeStyle = 'rgba(' + canvas.floatingSpace.style.node.name.fontColor + ', 1)'
     }
 
     function focusPhysics() {
@@ -322,7 +339,7 @@ function newFloatingObject() {
     function positionContraintsPhysics() {
         const MAX_DISTANCE_TO_PARENT = 5000
         const MIN_DISTANCE_TO_PARENT = 100
-        const DEFAULT_NODE_TO_NODE_DISTANCE = 500
+        const DEFAULT_NODE_TO_NODE_DISTANCE = 500 * canvas.floatingSpace.settings.node.distancePercentage / 100
 
         if (thisObject.angleToParent !== ANGLE_TO_PARENT.NOT_FIXED && thisObject.isOnFocus !== true) {
             let parent = thisObject.payload.chainParent
@@ -549,22 +566,10 @@ function newFloatingObject() {
             thisObject.currentFontSize = thisObject.targetFontSize
         }
 
-        if (Math.abs(thisObject.currentHierarchyRing - thisObject.targetHierarchyRing) >= ANIMATION_STEP) {
-            if (thisObject.currentHierarchyRing < thisObject.targetHierarchyRing) {
-                thisObject.currentHierarchyRing = thisObject.currentHierarchyRing + ANIMATION_STEP
-            } else {
-                thisObject.currentHierarchyRing = thisObject.currentHierarchyRing - ANIMATION_STEP
-            }
-        } else {
-            thisObject.currentHierarchyRing = thisObject.targetHierarchyRing
-        }
-
         /* Floating object position in screen coordinates */
         thisObject.payload.position.x = thisObject.container.frame.position.x
         thisObject.payload.position.y = thisObject.container.frame.position.y
     }
-
-
 
     function onMouseOver(point) {
         if (thisObject.isOnFocus === false) {
@@ -599,10 +604,10 @@ function newFloatingObject() {
     }
 
     function setFocus(point) {
-        thisObject.targetRadius = thisObject.rawRadius * 6.0
+        thisObject.targetRadius = thisObject.rawRadius * 6.0 * canvas.floatingSpace.settings.node.radiusPercentage / 100
+        thisObject.currentMass = thisObject.rawMass * canvas.floatingSpace.settings.node.massPercentage / 100
         thisObject.targetImageSize = thisObject.rawImageSize * 2.0
         thisObject.targetFontSize = thisObject.rawFontSize * 2.0
-        thisObject.targetHierarchyRing = thisObject.rawHierarchyRing * 8.0
 
         thisObject.payload.uiObject.container.eventHandler.raiseEvent('onFocus', point)
 
@@ -618,10 +623,10 @@ function newFloatingObject() {
         }
         if (thisObject.payload === undefined) { return }
         if (thisObject.isOnFocus === true) {
-            thisObject.targetRadius = thisObject.rawRadius * 1
+            thisObject.targetRadius = thisObject.rawRadius * 1 * canvas.floatingSpace.settings.node.radiusPercentage / 100
+            thisObject.currentMass = thisObject.rawMass * canvas.floatingSpace.settings.node.massPercentage / 100
             thisObject.targetImageSize = thisObject.rawImageSize * 1
             thisObject.targetFontSize = thisObject.rawFontSize * 1
-            thisObject.targetHierarchyRing = thisObject.rawHierarchyRing * 1
 
             thisObject.payload.uiObject.container.eventHandler.raiseEvent('onNotFocus', thisObject.container)
 
@@ -703,7 +708,7 @@ function newFloatingObject() {
         }
 
         thisObject.rawRadius = radius
-        thisObject.targetRadius = radius
+        thisObject.targetRadius = radius * canvas.floatingSpace.settings.node.radiusPercentage / 100
         thisObject.container.frame.radius = radius
 
         thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
@@ -729,17 +734,6 @@ function newFloatingObject() {
         thisObject.rawFontSize = size
         thisObject.targetFontSize = size
         thisObject.currentFontSize = size / 3
-    }
-
-    function initializeHierarchyRing(suggestedValue) {
-        let radius = suggestedValue
-        if (radius < 3) {
-            radius = 3
-        }
-
-        thisObject.rawHierarchyRing = radius
-        thisObject.targetHierarchyRing = radius
-        thisObject.currentHierarchyRing = radius
     }
 
     function initializeCurrentPosition(arroundPoint) {

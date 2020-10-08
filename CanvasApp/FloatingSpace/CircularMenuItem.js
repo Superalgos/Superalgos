@@ -59,7 +59,7 @@ function newCircularMenuItem() {
     thisObject.container.frame.position.x = 0
     thisObject.container.frame.position.y = 0
     thisObject.container.frame.width = 0
-    thisObject.container.frame.height = 40
+    thisObject.container.frame.height = 0
 
     let isMouseOver = false
 
@@ -72,8 +72,6 @@ function newCircularMenuItem() {
     let backgroundColorToUse = UI_COLOR.RED
     let temporaryStatus = 0
     let temporaryStatusCounter = 0
-
-    const EXTRA_MOUSE_OVER_ICON_SIZE = 6
 
     const STATUS_NO_ACTION_TAKEN_YET = 0
     const STATUS_PRIMARY_ACTION_WORKING = -1
@@ -113,11 +111,7 @@ function newCircularMenuItem() {
         selfMouseClickEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
         selfMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
 
-        if (thisObject.type === 'Icon & Text') {
-            thisObject.container.frame.width = 220
-        } else {
-            thisObject.container.frame.width = 50
-        }
+        containerPhysics()
 
         thisObject.nextAction = thisObject.action
     }
@@ -155,7 +149,15 @@ function newCircularMenuItem() {
 
     function physics() {
         if (thisObject.dontShowAtFullscreen === true && AT_FULL_SCREEN_MODE === true) { return }
+        positionPhysics()
+        temporaryStatusPhysics()
+        disablePhysics()
+        iconPhysics()
+        backgroundColorPhysics()
+        containerPhysics()
+    }
 
+    function positionPhysics() {
         let INCREASE_STEP = 2
 
         if (Math.abs(thisObject.currentRadius - thisObject.targetRadius) >= INCREASE_STEP) {
@@ -189,6 +191,7 @@ function newCircularMenuItem() {
         } else {
             radiusGrowthFactor = 3.2
         }
+        radiusGrowthFactor = radiusGrowthFactor * canvas.floatingSpace.settings.node.menuItem.radiusPercentage / 100
 
         thisObject.container.frame.position.x =
             thisObject.payload.floatingObject.targetRadius *
@@ -199,11 +202,11 @@ function newCircularMenuItem() {
         thisObject.container.frame.position.y =
             thisObject.payload.floatingObject.targetRadius *
             radiusGrowthFactor / 7
-            * Math.sin(toRadians(thisObject.angle)) -
-            thisObject.container.frame.height / 2
+            * Math.sin(toRadians(thisObject.angle))
+            - thisObject.container.frame.height / 2
+    }
 
-        temporaryStatusPhysics()
-
+    function disablePhysics() {
         /* Here we will check if we need to monitor a property that influences the status of the Menu Item. */
         if (thisObject.disableIfPropertyIsDefined === true) {
             if (thisObject.payload.node[thisObject.propertyToCheckFor] === undefined) {
@@ -214,7 +217,20 @@ function newCircularMenuItem() {
                 thisObject.isEnabled = false
             }
         }
-        iconPhysics()
+    }
+
+    function containerPhysics() {
+        if (thisObject.type === 'Icon & Text') {
+            thisObject.container.frame.width = 220 * canvas.floatingSpace.settings.node.menuItem.widthPercentage / 100
+        } else {
+            thisObject.container.frame.width = 50 * canvas.floatingSpace.settings.node.menuItem.widthPercentage / 100
+        }
+
+        thisObject.container.frame.height = 40 * canvas.floatingSpace.settings.node.menuItem.heightPercentage / 100
+    }
+
+    function backgroundColorPhysics() {
+        defaultBackgroudColor = canvas.floatingSpace.style.node.menuItem.backgroundColor
     }
 
     function iconPhysics() {
@@ -408,7 +424,7 @@ function newCircularMenuItem() {
                     cornerRadius: 5,
                     lineWidth: 0.1,
                     container: thisObject.container,
-                    borderColor: UI_COLOR.DARK,
+                    borderColor: backgroundColor,
                     backgroundColor: backgroundColor,
                     castShadow: false,
                     xOffset: 60
@@ -438,9 +454,9 @@ function newCircularMenuItem() {
         /* Menu  Item */
         let iconSize
         if (isMouseOver === true) {
-            iconSize = thisObject.currentRadius + EXTRA_MOUSE_OVER_ICON_SIZE
+            iconSize = canvas.floatingSpace.style.node.menuItem.imageSize * 150 / 100
         } else {
-            iconSize = thisObject.currentRadius
+            iconSize = canvas.floatingSpace.style.node.menuItem.imageSize
         }
 
         if (thisObject.icon === undefined) { return }
@@ -455,7 +471,7 @@ function newCircularMenuItem() {
                 }
 
                 let labelPoint
-                let fontSize = 15
+                let fontSize = canvas.floatingSpace.style.node.menuItem.fontSize
 
                 browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
 
@@ -466,7 +482,7 @@ function newCircularMenuItem() {
                     }
 
                     browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-                    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
+                    browserCanvasContext.fillStyle = 'rgba(' + canvas.floatingSpace.style.node.menuItem.fontColor + ', 1)'
                     browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
                 }
             }

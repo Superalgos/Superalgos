@@ -645,8 +645,8 @@ function newTimeMachine() {
     }
 
     function drawLabel() {
-        if (thisObject.payload.node === undefined) { return }
         if (thisObject.payload === undefined) { return }
+        if (thisObject.payload.node === undefined) { return }
         /* Draw Title Above the Container */
         let position = {
             x: 0,
@@ -688,7 +688,7 @@ function newTimeMachine() {
                 for (let j = 0; j < layers.length; j++) {
                     let layer = layers[j]
 
-                    exchangeMarket = {
+                    let exchangeMarket = {
                         exchangeName: layer.exchange.name,
                         marketName: layer.market,
                         exchangeIcon: layer.exchangeIcon,

@@ -274,7 +274,7 @@ Read the candles and volumes from Exchange Raw Data and produce a file for each 
                         outputCandles = [];
                         outputVolumes = [];
 
-                        for (n = 0; n < global.dailyFilePeriods.length; n++) {
+                        for (let n = 0; n < global.dailyFilePeriods.length; n++) {
 
                             const emptyArray1 = [];
                             const emptyArray2 = [];
@@ -589,7 +589,7 @@ Read the candles and volumes from Exchange Raw Data and produce a file for each 
                         let fileRecordCounter = 0;
                         let fileContent = "";
 
-                        for (i = 0; i < candles.length; i++) {
+                        for (let i = 0; i < candles.length; i++) {
 
                             let candle = candles[i];
 
@@ -640,7 +640,7 @@ Read the candles and volumes from Exchange Raw Data and produce a file for each 
                         let fileRecordCounter = 0;
                         let fileContent = "";
 
-                        for (i = 0; i < volumes.length; i++) {
+                        for (let i = 0; i < volumes.length; i++) {
 
                             let candle = volumes[i];
 

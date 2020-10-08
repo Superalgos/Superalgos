@@ -296,9 +296,10 @@ function newLayer() {
             function getIcon(node) {
                 let nodeDefinition = getNodeDefinition(node)
                 let iconName
+                let icon
                 if (nodeDefinition.alternativeIcons !== undefined) {
                     for (let i = 0; i < nodeDefinition.alternativeIcons.length; i++) {
-                        alternativeIcon = nodeDefinition.alternativeIcons[i]
+                        let alternativeIcon = nodeDefinition.alternativeIcons[i]
                         if (alternativeIcon.codeName === node.config.codeName) {
                             iconName = alternativeIcon.iconName
                         }

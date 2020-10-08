@@ -251,7 +251,6 @@
                                             global.unexpectedError = err.message
                                             processStopped()
                                             return
-                                            return;
                                         }
                                         default: {
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> Unhandled err.result received. -> err.result = " + err.result);

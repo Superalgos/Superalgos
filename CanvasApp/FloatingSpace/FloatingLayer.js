@@ -274,7 +274,8 @@ function newFloatingLayer() {
             makeVisible()
             makeInvisible()
             visiblePhysics()
-            applyPhysics()
+            enginePhysics()
+            proximityPhysics()
 
             function visiblePhysics() {
                 for (let i = 0; i < visibleFloatingObjects.length; i++) {
@@ -283,12 +284,20 @@ function newFloatingLayer() {
                 }
             }
 
-            function applyPhysics() {
+            function proximityPhysics(){
+                for (let i = 0; i < visibleFloatingObjects.length; i++) {
+                    proximityBetweenFloatingObjects(i)
+                }
+            }
+
+            function enginePhysics() {
                 /* This function makes all the calculations to apply phisycs on all visible floatingObjects in this layer. */
 
                 try {
                     DEBUG.variable1 = 'Invisible Floating Objets: ' + invisibleFloatingObjects.length
                     DEBUG.variable2 = 'Visible Floating Objets: ' + visibleFloatingObjects.length
+
+                    if (canvas.floatingSpace.settings.physics !== true) {return}
 
                     for (let i = 0; i < visibleFloatingObjects.length; i++) {
                         let floatingObject = visibleFloatingObjects[i]
@@ -376,7 +385,6 @@ function newFloatingLayer() {
 
                         gravityForce(floatingObject, payload)
 
-                        proximityBetweenFloatingObjects(i)
                     }
                 } catch (err) {
                     if (ERROR_LOG === true) { logger.write('[ERROR] physics -> applyPhysics -> err= ' + err.stack) }

@@ -331,7 +331,7 @@ function newCryptoEcosystemFunctions() {
                 Create everything inside the session references.
                 */
                 for (let j = 0; j < marketTradingProducts.sessionReferences.length; j++) {
-                    sessionReference = marketTradingProducts.sessionReferences[j]
+                    let sessionReference = marketTradingProducts.sessionReferences[j]
                     menuClick(sessionReference, 'Add All Trading Mine Products', true)
                     menuClickOfNodeArray(sessionReference.tradingMineProducts, 'Add All Data Products', true)
                     sessionReference.payload.floatingObject.collapseToggle()

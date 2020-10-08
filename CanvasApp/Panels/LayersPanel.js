@@ -381,7 +381,7 @@ function newLayersPanel() {
 
                 let found = removeFromLocalLayers(layerNode.id)
                 if (found !== true) {
-                    layer = addLayer(layerNode)
+                    let layer = addLayer(layerNode)
                     if (layer !== undefined) {
                         onLayerStatusChanged(layer)
                     }

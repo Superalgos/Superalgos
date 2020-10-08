@@ -71,10 +71,6 @@ function newPicker() {
         isMouseOver = false
     }
 
-    function getSelected() {
-        return optionsList[selected]
-    }
-
     function setSelected(pOptionsList, pCurrent, pParent, pSelected) {
         if (pOptionsList !== undefined) {
             optionsList = pOptionsList

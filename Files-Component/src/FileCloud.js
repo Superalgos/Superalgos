@@ -139,7 +139,7 @@ function newFileCloud () {
               let data
 
               if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                if (err.code === 'BlobNotFound' | err.code === 'FileNotFound' | err.code === 'ParentNotFound' | err.code === 'The specified key does not exist.') {
+                if (err.code === 'BlobNotFound' || err.code === 'FileNotFound' || err.code === 'ParentNotFound' || err.code === 'The specified key does not exist.') {
                   let customErr = {
                     result: GLOBAL.CUSTOM_FAIL_RESPONSE.result,
                     message: 'File does not exist.'

@@ -42,66 +42,66 @@ function newUiObjectsFromNodes() {
             }
         }
 
-        addIncludedNodes()
+        addPluginNodes()
 
-        function addIncludedNodes(includedNames) {
+        function addPluginNodes(pluginNames) {
             let blobService = newFileStorage()
-            let totalIncluded = 0
+            let totalPlugin = 0
             let totalRead = 0
 
             for (let i = 0; i < node.rootNodes.length; i++) {
                 let rootNode = node.rootNodes[i]
-                if (rootNode.type === 'Includes') {
-                    let includes = rootNode
-                    if (includes.includedDataMines !== undefined) {
-                        totalIncluded = totalIncluded + includes.includedDataMines.includedFiles.length
-                        includeAllTheseFiles(includes.includedDataMines.includedFiles, 'Data-Mines')
+                if (rootNode.type === 'Plugins') {
+                    let plugins = rootNode
+                    if (plugins.pluginDataMines !== undefined) {
+                        totalPlugin = totalPlugin + plugins.pluginDataMines.pluginFiles.length
+                        pluginAllTheseFiles(plugins.pluginDataMines.pluginFiles, 'Data-Mines')
                     }
-                    if (includes.includedTradingMines !== undefined) {
-                        totalIncluded = totalIncluded + includes.includedTradingMines.includedFiles.length
-                        includeAllTheseFiles(includes.includedTradingMines.includedFiles, 'Trading-Mines')
+                    if (plugins.pluginTradingMines !== undefined) {
+                        totalPlugin = totalPlugin + plugins.pluginTradingMines.pluginFiles.length
+                        pluginAllTheseFiles(plugins.pluginTradingMines.pluginFiles, 'Trading-Mines')
                     }
-                    if (includes.includedTradingSystems !== undefined) {
-                        totalIncluded = totalIncluded + includes.includedTradingSystems.includedFiles.length
-                        includeAllTheseFiles(includes.includedTradingSystems.includedFiles, 'Trading-Systems')
+                    if (plugins.pluginTradingSystems !== undefined) {
+                        totalPlugin = totalPlugin + plugins.pluginTradingSystems.pluginFiles.length
+                        pluginAllTheseFiles(plugins.pluginTradingSystems.pluginFiles, 'Trading-Systems')
                     }
-                    if (includes.includedTradingEngines !== undefined) {
-                        totalIncluded = totalIncluded + includes.includedTradingEngines.includedFiles.length
-                        includeAllTheseFiles(includes.includedTradingEngines.includedFiles, 'Trading-Engines')
+                    if (plugins.pluginTradingEngines !== undefined) {
+                        totalPlugin = totalPlugin + plugins.pluginTradingEngines.pluginFiles.length
+                        pluginAllTheseFiles(plugins.pluginTradingEngines.pluginFiles, 'Trading-Engines')
                     }
-                    if (includes.includedSuperScripts !== undefined) {
-                        totalIncluded = totalIncluded + includes.includedSuperScripts.includedFiles.length
-                        includeAllTheseFiles(includes.includedSuperScripts.includedFiles, 'Super-Scripts')
+                    if (plugins.pluginSuperScripts !== undefined) {
+                        totalPlugin = totalPlugin + plugins.pluginSuperScripts.pluginFiles.length
+                        pluginAllTheseFiles(plugins.pluginSuperScripts.pluginFiles, 'Super-Scripts')
                     }
-                    if (includes.includedTutorials !== undefined) {
-                        totalIncluded = totalIncluded + includes.includedTutorials.includedFiles.length
-                        includeAllTheseFiles(includes.includedTutorials.includedFiles, 'Tutorials')
+                    if (plugins.pluginTutorials !== undefined) {
+                        totalPlugin = totalPlugin + plugins.pluginTutorials.pluginFiles.length
+                        pluginAllTheseFiles(plugins.pluginTutorials.pluginFiles, 'Tutorials')
                     }
                 }
             }
 
             /*
-            If there is no Includes node at the workspace, we load it anyways here.
+            If there is no Plugins node at the workspace, we load it anyways here.
             */
-            if (totalIncluded === 0) {
+            if (totalPlugin === 0) {
                 addUserDefinedNodes()
             }
 
-            function includeAllTheseFiles(includedFiles, includedType) {
-                for (let i = 0; i < includedFiles.length; i++) {
-                    let includedFile = includedFiles[i]
-                    let name = includedFile.name
-                    blobService.getFileFromHost(includedType + '/' + name + '.json', onFileReceived, true)
+            function pluginAllTheseFiles(pluginFiles, pluginType) {
+                for (let i = 0; i < pluginFiles.length; i++) {
+                    let pluginFile = pluginFiles[i]
+                    let name = pluginFile.name
+                    blobService.getFileFromHost(pluginType + '/' + name + '.json', onFileReceived, true)
 
                     function onFileReceived(err, text, response) {
 
                         if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                            console.log('[WARN] Cannot load included ' + includedType + ' ' + name + '. The workspace will be loaded with this included file missing.')
+                            console.log('[WARN] Cannot load plugin ' + pluginType + ' ' + name + '. The workspace will be loaded with this plugin file missing.')
                         } else {
                             let receivedNode = JSON.parse(text)
                             /* 
                             If the workspace already contains a root node with the id of the head of the hirierchy
-                            we are loading, we remove it because the included file has precedende.
+                            we are loading, we remove it because the plugin file has precedende.
                             */
                             for (let i = 0; i < node.rootNodes.length; i++) {
                                 let rootNode = node.rootNodes[i]
@@ -110,12 +110,12 @@ function newUiObjectsFromNodes() {
                                     break
                                 }
                             }
-                            receivedNode.isIncluded = true
+                            receivedNode.isPlugin = true
 
-                            if (includedFile.includedFilePosition !== undefined) {
+                            if (pluginFile.pluginFilePosition !== undefined) {
                                 let positionOffset = {
-                                    x: includedFile.includedFilePosition.savedPayload.position.x - receivedNode.savedPayload.position.x,
-                                    y: includedFile.includedFilePosition.savedPayload.position.y - receivedNode.savedPayload.position.y
+                                    x: pluginFile.pluginFilePosition.savedPayload.position.x - receivedNode.savedPayload.position.x,
+                                    y: pluginFile.pluginFilePosition.savedPayload.position.y - receivedNode.savedPayload.position.y
                                 }
                                 receivedNode.positionOffset = positionOffset
                             }
@@ -124,7 +124,7 @@ function newUiObjectsFromNodes() {
                         }
 
                         totalRead++
-                        if (totalIncluded === totalRead) {
+                        if (totalPlugin === totalRead) {
                             addUserDefinedNodes()
                         }
                     }
@@ -335,6 +335,7 @@ function newUiObjectsFromNodes() {
 
         if (nodeDefinition === undefined) {
             console.log('Cannot addUIOBject of ' + type + ' because that type it is not defined at the APP_SCHEMA.')
+            return
         }
 
         if (nodeDefinition.initialValues !== undefined) {
@@ -384,14 +385,12 @@ function newUiObjectsFromNodes() {
             }
         }
 
-        if (nodeDefinition !== undefined) {
-            if (nodeDefinition.initialValues !== undefined) {
-                if (nodeDefinition.initialValues.code !== undefined) {
-                    object.code = nodeDefinition.initialValues.code
-                }
-                if (nodeDefinition.initialValues.config !== undefined) {
-                    object.config = nodeDefinition.initialValues.config
-                }
+        if (nodeDefinition.initialValues !== undefined) {
+            if (nodeDefinition.initialValues.code !== undefined) {
+                object.code = nodeDefinition.initialValues.code
+            }
+            if (nodeDefinition.initialValues.config !== undefined) {
+                object.config = nodeDefinition.initialValues.config
             }
         }
 

@@ -15,6 +15,7 @@ function newWorkspace() {
         save: saveWorkspace,
         getHierarchyHeads: getHierarchyHeads,
         getHierarchyHeadsById: getHierarchyHeadsById,
+        getHierarchyHeadsByType: getHierarchyHeadsByType,
         getNodeThatIsOnFocus: getNodeThatIsOnFocus,
         getNodeByShortcutKey: getNodeByShortcutKey,
         getNodeById: getNodeById,
@@ -70,7 +71,7 @@ function newWorkspace() {
     let functionLibraryDataStorageFunctions = newDataStorageFunctions()
     let functionLibraryChartingSpaceFunctions = newChartingSpaceFunctions()
     let functionLibraryTutorialFunctions = newTutorialFunctions()
-    let functionLibraryIncludesFunctions = newIncludesFunctions()
+    let functionLibraryPluginsFunctions = newPluginsFunctions()
 
     thisObject.nodeChildren = newNodeChildren()
 
@@ -316,7 +317,7 @@ function newWorkspace() {
         for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
             let rootNode = thisObject.workspaceNode.rootNodes[i]
 
-            if (rootNode.isIncluded !== true) {
+            if (rootNode.isPlugin !== true) {
                 let node = functionLibraryProtocolNode.getProtocolNode(rootNode, removePersonalData, false, true, true, true)
                 stringifyReadyNodes.push(node)
             }
@@ -404,12 +405,22 @@ function newWorkspace() {
         }
     }
 
+    function getHierarchyHeadsByType(nodeType) {
+        let hiriatchyHeads = getHierarchyHeads()
+        for (let i = 0; i < hiriatchyHeads.length; i++) {
+            let hiriatchyHead = hiriatchyHeads[i]
+            if (hiriatchyHead.type === nodeType) {
+                return hiriatchyHead
+            }
+        }
+    }
+
     function replaceWorkspaceByLoadingOne(name) {
 
         let webCommand
-        if (name.indexOf('Included -> ') >= 0) {
-            name = name.replace('Included -> ', '')
-            webCommand = 'LoadIncludedWorkspace'
+        if (name.indexOf('Plugin -> ') >= 0) {
+            name = name.replace('Plugin -> ', '')
+            webCommand = 'LoadPluginWorkspace'
         } else {
             webCommand = 'LoadWorkspace'
         }
@@ -891,34 +902,34 @@ function newWorkspace() {
                     }
                 }
                 break
-            case 'Include Missing Data Mines':
+            case 'Add Missing Data Mines':
                 {
-                    functionLibraryIncludesFunctions.includeMissingDataMines(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
+                    functionLibraryPluginsFunctions.pluginMissingDataMines(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
                 }
                 break
-            case 'Include Missing Trading Mines':
+            case 'Add Missing Trading Mines':
                 {
-                    functionLibraryIncludesFunctions.includeMissingTradingMines(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
+                    functionLibraryPluginsFunctions.pluginMissingTradingMines(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
                 }
                 break
-            case 'Include Missing Trading Systems':
+            case 'Add Missing Trading Systems':
                 {
-                    functionLibraryIncludesFunctions.includeMissingTradingSystems(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
+                    functionLibraryPluginsFunctions.pluginMissingTradingSystems(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
                 }
                 break
-            case 'Include Missing Trading Engines':
+            case 'Add Missing Trading Engines':
                 {
-                    functionLibraryIncludesFunctions.includeMissingTradingEngines(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
+                    functionLibraryPluginsFunctions.pluginMissingTradingEngines(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
                 }
                 break
-            case 'Include Missing Super Scripts':
+            case 'Add Missing Super Scripts':
                 {
-                    functionLibraryIncludesFunctions.includeMissingSuperScripts(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
+                    functionLibraryPluginsFunctions.pluginMissingSuperScripts(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
                 }
                 break
-            case 'Include Missing Tutorials':
+            case 'Add Missing Tutorials':
                 {
-                    functionLibraryIncludesFunctions.includeMissingTutorials(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
+                    functionLibraryPluginsFunctions.pluginMissingTutorials(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
                 }
                 break
         }

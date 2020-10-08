@@ -19,7 +19,7 @@ function newReferenceAttachDetach() {
     }
 
     function completeDetachment(node) {
-        if (node.payload !== undefined !== undefined) {
+        if (node.payload !== undefined) {
             if (node.payload.referenceParent !== undefined) {
                 if (node.payload.referenceParent.payload !== undefined) {
                     if (node.payload.referenceParent.payload.uiObject !== undefined) {

@@ -29,8 +29,8 @@ function newFloatingObject() {
         isParentCollapsed: false,
         frozenManually: false,
         collapsedManually: false,
-        typeStrokeStyle: undefined, 
-        nameStrokeStyle: undefined, 
+        typeStrokeStyle: undefined,
+        nameStrokeStyle: undefined,
         forceFocus: forceFocus,
         removeForceFocus: removeForceFocus,
         setFocus: setFocus,
@@ -86,7 +86,10 @@ function newFloatingObject() {
     let spaceFocusAquiredEventSubscriptionId
     let lastParentAngle
     let forcedFocusCounter = 0
-    
+
+    const ON_FOCUS_RADIUS_FACTOR = 6
+    const ANIMATION_STEPS = 4
+
     return thisObject
 
     function finalize() {
@@ -300,7 +303,7 @@ function newFloatingObject() {
         }
         positionContraintsPhysics()
         focusPhysics()
-        syncStylePhysics() 
+        syncStylePhysics()
     }
 
     function syncStylePhysics() {
@@ -527,48 +530,67 @@ function newFloatingObject() {
     }
 
     function thisObjectPhysics() {
-        // The radius also have a target.
-        let ANIMATION_STEP = Math.abs(thisObject.targetRadius - thisObject.rawRadius) / 2
 
-        if (ANIMATION_STEP === 0) { ANIMATION_STEP = thisObject.rawRadius }
-
-        if (Math.abs(thisObject.container.frame.radius - thisObject.targetRadius) >= ANIMATION_STEP) {
-            if (thisObject.container.frame.radius < thisObject.targetRadius) {
-                thisObject.container.frame.radius = thisObject.container.frame.radius + ANIMATION_STEP
-            } else {
-                thisObject.container.frame.radius = thisObject.container.frame.radius - ANIMATION_STEP
-            }
-
-            thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
-        } else {
-            thisObject.container.frame.radius = thisObject.targetRadius
-        }
-
-        // The imageSize also have a target.
-        if (Math.abs(thisObject.currentImageSize - thisObject.targetImageSize) >= ANIMATION_STEP) {
-            if (thisObject.currentImageSize < thisObject.targetImageSize) {
-                thisObject.currentImageSize = thisObject.currentImageSize + ANIMATION_STEP
-            } else {
-                thisObject.currentImageSize = thisObject.currentImageSize - ANIMATION_STEP
-            }
-        } else {
-            thisObject.currentImageSize = thisObject.targetImageSize
-        }
-
-        // The fontSize also have a target.
-        if (Math.abs(thisObject.currentFontSize - thisObject.targetFontSize) >= ANIMATION_STEP / 10) {
-            if (thisObject.currentFontSize < thisObject.targetFontSize) {
-                thisObject.currentFontSize = thisObject.currentFontSize + ANIMATION_STEP / 10
-            } else {
-                thisObject.currentFontSize = thisObject.currentFontSize - ANIMATION_STEP / 10
-            }
-        } else {
-            thisObject.currentFontSize = thisObject.targetFontSize
-        }
+        imageSizePhysics()
+        fontSizePhysics()
+        radiusPhysics()
 
         /* Floating object position in screen coordinates */
         thisObject.payload.position.x = thisObject.container.frame.position.x
         thisObject.payload.position.y = thisObject.container.frame.position.y
+
+        function imageSizePhysics() {
+            // The imageSize also have a target.
+            let imageSizeStep = (thisObject.targetImageSize - thisObject.currentImageSize) / ANIMATION_STEPS
+            thisObject.currentImageSize = thisObject.currentImageSize + imageSizeStep
+            if (thisObject.isOnFocus === true) {
+                if (thisObject.currentImageSize > thisObject.targetImageSize) {
+                    thisObject.currentImageSize = thisObject.targetImageSize
+                }
+            } else {
+                if (thisObject.currentImageSize < thisObject.targetImageSize) {
+                    thisObject.currentImageSize = thisObject.targetImageSize
+                }
+            }
+        }
+
+        function fontSizePhysics() {
+            // The fontSize also have a target.
+            let fontSizeStep = (thisObject.targetFontSize - thisObject.currentFontSize) / ANIMATION_STEPS
+            thisObject.currentFontSize = thisObject.currentFontSize + fontSizeStep
+            if (thisObject.isOnFocus === true) {
+                if (thisObject.currentFontSize > thisObject.targetFontSize) {
+                    thisObject.currentFontSize = thisObject.targetFontSize
+                }
+            } else {
+                if (thisObject.currentFontSize < thisObject.targetFontSize) {
+                    thisObject.currentFontSize = thisObject.targetFontSize
+                }
+            }
+        }
+
+        function radiusPhysics() {
+            let animationStepSize
+
+            if (thisObject.isOnFocus === true) {
+                animationStepSize = (targetRadiusWithFocus() - targetRadiusWithoutFocus()) / ANIMATION_STEPS
+                if (thisObject.container.frame.radius >= targetRadiusWithFocus()) { return }
+                thisObject.container.frame.radius = thisObject.container.frame.radius + animationStepSize
+                if (thisObject.container.frame.radius >= targetRadiusWithFocus()) {
+                    thisObject.container.frame.radius = targetRadiusWithFocus()
+                }
+                thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
+            } else {
+                animationStepSize = (targetRadiusWithoutFocus() - targetRadiusWithFocus()) / ANIMATION_STEPS
+                if (thisObject.container.frame.radius <= targetRadiusWithoutFocus()) { return }
+                thisObject.container.frame.radius = thisObject.container.frame.radius + animationStepSize
+                if (thisObject.container.frame.radius <= targetRadiusWithoutFocus()) {
+                    thisObject.container.frame.radius = targetRadiusWithoutFocus()
+                }
+                thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
+            }
+
+        }
     }
 
     function onMouseOver(point) {
@@ -603,8 +625,16 @@ function newFloatingObject() {
         removeFocus()
     }
 
+    function targetRadiusWithFocus() {
+        return thisObject.rawRadius * ON_FOCUS_RADIUS_FACTOR * canvas.floatingSpace.settings.node.radiusPercentage / 100
+    }
+
+    function targetRadiusWithoutFocus() {
+        return thisObject.rawRadius * 1 * canvas.floatingSpace.settings.node.radiusPercentage / 100
+    }
+
     function setFocus(point) {
-        thisObject.targetRadius = thisObject.rawRadius * 6.0 * canvas.floatingSpace.settings.node.radiusPercentage / 100
+        thisObject.targetRadius = targetRadiusWithFocus()
         thisObject.currentMass = thisObject.rawMass * canvas.floatingSpace.settings.node.massPercentage / 100
         thisObject.targetImageSize = thisObject.rawImageSize * 2.0
         thisObject.targetFontSize = thisObject.rawFontSize * 2.0
@@ -623,7 +653,7 @@ function newFloatingObject() {
         }
         if (thisObject.payload === undefined) { return }
         if (thisObject.isOnFocus === true) {
-            thisObject.targetRadius = thisObject.rawRadius * 1 * canvas.floatingSpace.settings.node.radiusPercentage / 100
+            thisObject.targetRadius = targetRadiusWithoutFocus()
             thisObject.currentMass = thisObject.rawMass * canvas.floatingSpace.settings.node.massPercentage / 100
             thisObject.targetImageSize = thisObject.rawImageSize * 1
             thisObject.targetFontSize = thisObject.rawFontSize * 1

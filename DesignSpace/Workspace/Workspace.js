@@ -418,8 +418,8 @@ function newWorkspace() {
     function replaceWorkspaceByLoadingOne(name) {
 
         let webCommand
-        if (name.indexOf('Plugin -> ') >= 0) {
-            name = name.replace('Plugin -> ', '')
+        if (name.indexOf('Plugin \u2192 ') >= 0) {
+            name = name.replace('Plugin \u2192 ', '')
             webCommand = 'LoadPluginWorkspace'
         } else {
             webCommand = 'LoadWorkspace'

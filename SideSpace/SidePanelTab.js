@@ -33,9 +33,10 @@ function newSidePanelTab() {
 
     function initialize(screenside, index) {
         thisObject.screenside = screenside
-        if (index !== undefined) [
+        if (index !== undefined) {
             thisObject.index = index
-        ]
+        }
+            
         switch (thisObject.screenside) {
             case 'left': {
                 thisObject.pointerDirection = 'left'

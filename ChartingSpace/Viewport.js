@@ -47,7 +47,7 @@ function newViewport() {
         initialize: initialize,
         finalize: finalize
     }
-    let increment = 0.035
+   
     let position = {
         x: 0,
         y: 0

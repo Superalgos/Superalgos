@@ -128,7 +128,6 @@ function newLeftRightButton() {
     }
 
     function getContainer(point, purpose) {
-        let container
         if (thisObject.container.frame.isThisPointHere(point, true) === true) {
             return thisObject.container
         }

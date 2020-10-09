@@ -20,7 +20,6 @@ function newTimeFrameScale() {
 
     const FILES_PERIOD_DEFAULT_VALUE = 0
     const TIME_PERIOD_DEFAULT_VALUE = 0
-    const MIN_HEIGHT = 50
 
     let displayingRealTimeFrame = true
     let greyOutCoverLayer = false

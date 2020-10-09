@@ -547,7 +547,7 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                                 } else {
                                     let updatedFileList = []
                                     for (let i = 0; i < fileList.length; i++) {
-                                        let name = 'Plugin -> ' + fileList[i]
+                                        let name = 'Plugin \u2192 ' + fileList[i]
                                         updatedFileList.push(name)
                                     }
                                     allWorkspaces = allWorkspaces.concat(updatedFileList)

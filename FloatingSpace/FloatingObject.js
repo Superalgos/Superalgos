@@ -88,7 +88,6 @@ function newFloatingObject() {
     let forcedFocusCounter = 0
 
     const ON_FOCUS_RADIUS_FACTOR = 6
-    const ANIMATION_STEPS = 4
 
     return thisObject
 
@@ -530,6 +529,8 @@ function newFloatingObject() {
     }
 
     function thisObjectPhysics() {
+
+        const ANIMATION_STEPS = canvas.floatingSpace.settings.node.animationSteps
 
         imageSizePhysics()
         fontSizePhysics()

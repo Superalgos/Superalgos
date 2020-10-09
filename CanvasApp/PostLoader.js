@@ -11,7 +11,6 @@ let CONCEPT_SCHEMA_ARRAY = []
 function newDashboard() {
     const MODULE_NAME = 'Dashboard'
     const ERROR_LOG = true
-    const INTENSIVE_LOG = false
     const logger = newWebDebugLog()
     logger.fileName = MODULE_NAME
 
@@ -89,9 +88,9 @@ function newDashboard() {
         /* handles backspace and refresh(F5) from keyboard */
         window.manageBackRefresh = function (event) {
             var tag = event.target.tagName.toLowerCase()
-            if (event.keyCode == 8 && tag != 'input' && tag != 'textarea') { // Backbutton pressed
+            if (event.keyCode === 8 && tag !== 'input' && tag !== 'textarea') { // Backbutton pressed
                 saveWorkspace()
-            } else if (event.keyCode == 116) { // F5 pressed
+            } else if (event.keyCode === 116) { // F5 pressed
                 saveWorkspace()
             }
         }

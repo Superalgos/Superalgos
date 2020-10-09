@@ -92,8 +92,7 @@ function newAutoScaleButton() {
         }
     }
     function onMouseWheel(event) {
-        let factor
-        let delta = event.wheelDelta
+         let delta = event.wheelDelta
         if (delta < 0) {
             delta = -1
         } else {

@@ -680,7 +680,7 @@ function newWorkspace() {
                 break
             case 'Add Missing Market Data Tasks':
                 {
-                    functionLibraryTaskFunctions.addMissingMarketDataTasks(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
+                    functionLibraryTaskFunctions.addMissingMarketDataTasks(payload.node, functionLibraryUiObjectsFromNodes)
                 }
                 break
             case 'Add Missing Data Mine Tasks':
@@ -695,7 +695,7 @@ function newWorkspace() {
                 break
             case 'Add Missing Market Trading Tasks':
                 {
-                    functionLibraryTaskFunctions.addMissingMarketTradingTasks(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
+                    functionLibraryTaskFunctions.addMissingMarketTradingTasks(payload.node, functionLibraryUiObjectsFromNodes)
                 }
                 break
             case 'Add Missing Trading Mine Tasks':

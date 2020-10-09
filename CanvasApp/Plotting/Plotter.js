@@ -1,7 +1,6 @@
 function newPlotter() {
     const MODULE_NAME = 'Plotter'
     const ERROR_LOG = true
-    const INTENSIVE_LOG = false
     const logger = newWebDebugLog()
     logger.fileName = MODULE_NAME
 

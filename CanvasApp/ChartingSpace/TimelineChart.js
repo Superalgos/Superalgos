@@ -1,8 +1,6 @@
 function newTimelineChart() {
     const MODULE_NAME = 'Timeline Chart'
-    const INFO_LOG = false
-    const INTENSIVE_LOG = false
-    const ERROR_LOG = true
+
     let logger = newWebDebugLog()
     logger.fileName = MODULE_NAME
 

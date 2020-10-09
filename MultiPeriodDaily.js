@@ -138,7 +138,7 @@
                     statusReport = statusDependencies.reportsByMainUtility.get("Self Reference")
 
                     if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
-                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Self Reference -> Status Report does not exist or Self Reference not defined. Retrying Later. ")
+                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Self Reference -> Status Report does not exist or Self Reference not defined or badly configured. Check that at the Status Dependency you have chosen Self Reference at the config. Retrying Later. ")
                         callBackFunction(global.DEFAULT_RETRY_RESPONSE)
                         return
                     }

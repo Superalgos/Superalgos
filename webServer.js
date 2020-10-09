@@ -1,7 +1,5 @@
 exports.newWebServer = function newWebServer(EVENTS_SERVER) {
 
-    const MODULE = "Web Server"
-
     let thisObject = {
         initialize: initialize,
         finalize: finalize,
@@ -19,7 +17,7 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
 
     let http = require('http')
     let isHttpServerStarted = false
-    let cloneExecutorChildProcess
+  
     let webhook = new Map()
 
     return thisObject

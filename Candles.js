@@ -445,9 +445,8 @@
 
                 if (
                     (candle.begin >= leftDate.valueOf() && candle.end <= rightDate.valueOf()) &&
-                    (candle.begin >= coordinateSystem.min.x && candle.end <= coordinateSystem.max.x) 
-                    )
-                {
+                    (candle.begin >= coordinateSystem.min.x && candle.end <= coordinateSystem.max.x)
+                ) {
 
                     candles.push(candle);
 
@@ -478,6 +477,10 @@
             }
 
             if (candles.length > 0) {
+
+                /* On screen candles */
+                let onScreenCandles = []
+                let mouseCandle
 
                 /* Now we calculate all the points. */
                 for (let i = 0; i < candles.length; i++) {
@@ -513,6 +516,15 @@
                     candle.candlePoint2 = transformThisPoint(candle.candlePoint2, thisObject.container);
                     candle.candlePoint3 = transformThisPoint(candle.candlePoint3, thisObject.container);
                     candle.candlePoint4 = transformThisPoint(candle.candlePoint4, thisObject.container);
+
+                    /* Skip the first candle with zero at open */
+                    if (candle.open === 0) { continue }
+
+                    if (candle.candlePoint2.x < canvas.chartingSpace.viewport.visibleArea.bottomLeft.x || candle.candlePoint1.x > canvas.chartingSpace.viewport.visibleArea.bottomRight.x) {
+                        continue
+                    }
+
+                    addToOnScreenCandles(candle)
 
                     candle.stickPoint1 = {
                         x: candle.begin + timeFrame / 7 * 3.2,
@@ -591,23 +603,11 @@
                     candle.stickPoint2 = thisObject.fitFunction(candle.stickPoint2);
                     candle.stickPoint3 = thisObject.fitFunction(candle.stickPoint3);
                     candle.stickPoint4 = thisObject.fitFunction(candle.stickPoint4);
-
                 }
 
-                /* On screen candles */
-                let onScreenCandles = []
-                let mouseCandle
 
-                for (let i = 0; i < candles.length; i++) {
-                    
-                    candle = candles[i];
 
-                    /* Skip the first candle with zero at open */
-                    if (candle.open === 0) { continue }
-
-                    if (candle.candlePoint2.x < canvas.chartingSpace.viewport.visibleArea.bottomLeft.x || candle.candlePoint1.x > canvas.chartingSpace.viewport.visibleArea.bottomRight.x) {
-                        continue
-                    }
+                function addToOnScreenCandles(candle) {
 
                     /* Contributing to Auto-Scale*/
                     coordinateSystem.reportYValue(candle.max)
@@ -615,7 +615,7 @@
 
 
                     //if (onScreenCandles.length < 15000) {
-                        onScreenCandles.push(candle)
+                    onScreenCandles.push(candle)
                     //}
 
                     if (userPositionDate >= candle.begin && userPositionDate <= candle.end) {
@@ -641,7 +641,7 @@
                 if (lowResolution === false) {
                     browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', 1)';
                     browserCanvasContext.fill();
-                
+
                     browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.LIGHT + ', 1)';
                     browserCanvasContext.lineWidth = 1;
                     browserCanvasContext.setLineDash([0, 0])
@@ -697,7 +697,7 @@
 
                         elementsPlotted++
                     }
-                    
+
                     browserCanvasContext.closePath();
 
                     if (lowResolution === false) {
@@ -716,7 +716,7 @@
                     browserCanvasContext.lineWidth = 1;
                     browserCanvasContext.setLineDash([0, 0])
                     browserCanvasContext.stroke();
-                    
+
                 }
 
                 /* Draw mouse candel and Raise Event. */

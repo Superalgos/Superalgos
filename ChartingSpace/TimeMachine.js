@@ -652,8 +652,8 @@ function newTimeMachine() {
             x: 0,
             y: 0
         }
-        let imageSize = 13
-        let fontSize = 15
+        let imageSize = 12
+        let fontSize = 12
         let opacity = 1
         let icon = canvas.designSpace.iconByUiObjectType.get(thisObject.payload.node.type)
 
@@ -671,7 +671,7 @@ function newTimeMachine() {
             if (icon.canDrawIcon === true) {
                 browserCanvasContext.drawImage(
                     icon, position.x + 5,
-                    position.y - 22,
+                    position.y - 18,
                     imageSize,
                     imageSize)
             }

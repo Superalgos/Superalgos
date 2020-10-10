@@ -55,6 +55,7 @@ function newChartingSpaceFunctions() {
                 let allLayers = nodeBranchToArray(botLayers, 'Layer')
                 for (let j = 0; j < allLayers.length; j++) {
                     let layer = allLayers[j]
+                    layer.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_45
 
                     let plotterModule = findNodeInNodeMesh(layer, 'Plotter Module', undefined, true, false, false, true)
                     if (plotterModule === undefined) {
@@ -115,6 +116,9 @@ function newChartingSpaceFunctions() {
         timeMachine.name = session.name + ' ' + session.type + ' ' + networkNode.name
         timeMachine.payload.floatingObject.collapseToggle()
         timeMachine.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+        timeMachine.timeFrameScale.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+        timeMachine.timeScale.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+        timeMachine.rateScale.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
         /*
         We need to create a Timeline Chart for each Data Mine Indicators.
         */
@@ -139,6 +143,8 @@ function newChartingSpaceFunctions() {
             timelineChart.layersManager.payload.referenceParent = mineProduct
             timelineChart.payload.floatingObject.collapseToggle()
             timelineChart.layersManager.payload.floatingObject.collapseToggle()
+            timelineChart.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+            timelineChart.layersManager.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
 
             let menu = timelineChart.layersManager.payload.uiObject.menu
             menu.internalClick('Add All Mine Layers')
@@ -167,6 +173,8 @@ function newChartingSpaceFunctions() {
                 timelineChart.layersManager.payload.referenceParent = mineProduct
                 timelineChart.payload.floatingObject.collapseToggle()
                 timelineChart.layersManager.payload.floatingObject.collapseToggle()
+                timelineChart.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+                timelineChart.layersManager.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
 
                 let menu = timelineChart.layersManager.payload.uiObject.menu
                 menu.internalClick('Add All Mine Layers')
@@ -176,17 +184,17 @@ function newChartingSpaceFunctions() {
                     case 0: {
                         timelineChart.name = 'Trading Engine'
                         deleteNodeByName('Trading System')
-                        deleteNodeByName('Objects')
+                        deleteNodeByName('Simulation Objects')
                         break
                     }
                     case 1: {
                         timelineChart.name = 'Trading System'
                         deleteNodeByName('Trading Engine')
-                        deleteNodeByName('Objects')
+                        deleteNodeByName('Simulation Objects')
                         break
                     }
                     case 2: {
-                        timelineChart.name = 'Objects'
+                        timelineChart.name = 'Simulation Objects'
                         deleteNodeByName('Trading Engine')
                         deleteNodeByName('Trading System')
                         break

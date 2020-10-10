@@ -129,6 +129,12 @@ function newChartingSpaceFunctions() {
             if (mineProduct.payload.parentNode.payload.referenceParent.id !== market.id) { continue }
 
             let timelineChart = functionLibraryUiObjectsFromNodes.addUIObject(timeMachine, 'Timeline Chart')
+            /* 
+            The Mine Product Node might be collapesd and since its creation it never 
+            received the physics call, so we will do the call so that it properly
+            sets its own name, which we are going to reuse here.
+            */
+            mineProduct.payload.uiObject.invisiblePhysics()
             timelineChart.name = mineProduct.name
             timelineChart.layersManager.payload.referenceParent = mineProduct
             timelineChart.payload.floatingObject.collapseToggle()

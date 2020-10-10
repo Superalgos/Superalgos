@@ -562,7 +562,7 @@ function newUiObjectConstructor() {
             floatingObject.friction = INITIAL_FRICTION
 
             floatingObject.initializeMass(300)
-            floatingObject.initializeRadius(INITIAL_RADIOUS - 2)
+            floatingObject.initializeRadius(INITIAL_RADIOUS - 1)
             floatingObject.initializeImageSize(INITIAL_IMAGE_SIZE - 10)
             floatingObject.initializeFontSize(INITIAL_FONT_SIZE)
 
@@ -577,7 +577,7 @@ function newUiObjectConstructor() {
             floatingObject.friction = INITIAL_FRICTION
 
             floatingObject.initializeMass(150)
-            floatingObject.initializeRadius(INITIAL_RADIOUS - 4)
+            floatingObject.initializeRadius(INITIAL_RADIOUS - 2)
             floatingObject.initializeImageSize(INITIAL_IMAGE_SIZE - 20)
             floatingObject.initializeFontSize(INITIAL_FONT_SIZE)
 
@@ -592,7 +592,7 @@ function newUiObjectConstructor() {
             floatingObject.friction = INITIAL_FRICTION
 
             floatingObject.initializeMass(75)
-            floatingObject.initializeRadius(INITIAL_RADIOUS - 6)
+            floatingObject.initializeRadius(INITIAL_RADIOUS - 3)
             floatingObject.initializeImageSize(INITIAL_IMAGE_SIZE - 30)
             floatingObject.initializeFontSize(INITIAL_FONT_SIZE)
 
@@ -607,7 +607,7 @@ function newUiObjectConstructor() {
             floatingObject.friction = INITIAL_FRICTION
 
             floatingObject.initializeMass(50)
-            floatingObject.initializeRadius(INITIAL_RADIOUS - 8)
+            floatingObject.initializeRadius(INITIAL_RADIOUS - 4)
             floatingObject.initializeImageSize(INITIAL_IMAGE_SIZE - 40)
             floatingObject.initializeFontSize(INITIAL_FONT_SIZE)
 
@@ -618,7 +618,7 @@ function newUiObjectConstructor() {
             floatingObject.friction = INITIAL_FRICTION
 
             floatingObject.initializeMass(25)
-            floatingObject.initializeRadius(INITIAL_RADIOUS - 10)
+            floatingObject.initializeRadius(INITIAL_RADIOUS - 5)
             floatingObject.initializeImageSize(INITIAL_IMAGE_SIZE - 50)
             floatingObject.initializeFontSize(INITIAL_FONT_SIZE)
 

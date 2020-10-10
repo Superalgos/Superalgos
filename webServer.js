@@ -1,7 +1,5 @@
 exports.newWebServer = function newWebServer(EVENTS_SERVER) {
 
-    const MODULE = "Web Server"
-
     let thisObject = {
         initialize: initialize,
         finalize: finalize,
@@ -19,7 +17,7 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
 
     let http = require('http')
     let isHttpServerStarted = false
-    let cloneExecutorChildProcess
+  
     let webhook = new Map()
 
     return thisObject
@@ -454,7 +452,7 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                 }
                 break
 
-            case 'IncludedFileNames':
+            case 'PluginFileNames':
                 {
                     const fs = require('fs')
                     let folder
@@ -534,8 +532,8 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
             case 'ListWorkspaces':
                 {
                     let allWorkspaces = []
-                    readIncludedWorkspaces()
-                    function readIncludedWorkspaces() {
+                    readPluginWorkspaces()
+                    function readPluginWorkspaces() {
                         let dirPath = process.env.WORKSPACES_PATH
                         try {
                             let fs = require('fs')
@@ -549,7 +547,7 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                                 } else {
                                     let updatedFileList = []
                                     for (let i = 0; i < fileList.length; i++) {
-                                        let name = 'Included -> ' + fileList[i]
+                                        let name = 'Plugin \u2192 ' + fileList[i]
                                         updatedFileList.push(name)
                                     }
                                     allWorkspaces = allWorkspaces.concat(updatedFileList)
@@ -598,7 +596,7 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                 }
                 break
 
-            case 'LoadIncludedWorkspace':
+            case 'LoadPluginWorkspace':
                 {
                     let fileName = unescape(requestParameters[2])
                     let filePath = process.env.WORKSPACES_PATH + '/' + fileName + '.json'

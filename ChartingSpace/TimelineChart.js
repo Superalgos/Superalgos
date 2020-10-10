@@ -13,7 +13,7 @@ function newTimelineChart() {
         rateScale: undefined,
         timeFrameScale: undefined,
         payload: undefined,
-        layersManager: undefined,
+        layerManager: undefined,
         plotterManager: undefined,
         upstreamTimeFrame: undefined,
         setDatetime: setDatetime,
@@ -64,8 +64,8 @@ function newTimelineChart() {
     function finalize() {
         timeMachineCoordinateSystem.eventHandler.stopListening(scaleChangedEventSubscriptionId)
 
-        if (thisObject.layersManager !== undefined) {
-            finalizeLayersManager()
+        if (thisObject.layerManager !== undefined) {
+            finalizeLayerManager()
         }
 
         if (thisObject.rateScale !== undefined) {
@@ -93,12 +93,12 @@ function newTimelineChart() {
         layersPanelHandle = undefined
     }
 
-    function finalizeLayersManager() {
+    function finalizeLayerManager() {
         if (thisObject.plotterManager !== undefined) {
             thisObject.plotterManager.finalize()
         }
         thisObject.plotterManager = undefined
-        thisObject.layersManager = undefined
+        thisObject.layerManager = undefined
 
         canvas.panelsSpace.destroyPanel(layersPanelHandle)
     }
@@ -171,12 +171,12 @@ function newTimelineChart() {
         )
     }
 
-    function initializeLayersManager() {
+    function initializeLayerManager() {
         let owner = thisObject.payload.node.payload.parentNode.id // The real owner is the Time Machine
         layersPanelHandle = canvas.panelsSpace.createNewPanel('Layers Panel', undefined, owner)
-        thisObject.layersManager = canvas.panelsSpace.getPanel(layersPanelHandle)
-        thisObject.layersManager.payload = thisObject.payload.node.layersManager.payload
-        thisObject.layersManager.initialize()
+        thisObject.layerManager = canvas.panelsSpace.getPanel(layersPanelHandle)
+        thisObject.layerManager.payload = thisObject.payload.node.layerManager.payload
+        thisObject.layerManager.initialize()
 
         /* Initialize the Plotter Manager */
         thisObject.plotterManager = newPlottersManager()
@@ -188,7 +188,7 @@ function newTimelineChart() {
 
         thisObject.plotterManager.fitFunction = thisObject.fitFunction
         thisObject.plotterManager.payload = thisObject.payload
-        thisObject.plotterManager.initialize(thisObject.layersManager)
+        thisObject.plotterManager.initialize(thisObject.layerManager)
         thisObject.plotterManager.setTimeFrame(timeFrame)
         thisObject.plotterManager.setDatetime(datetime)
         thisObject.plotterManager.setCoordinateSystem(coordinateSystem)
@@ -314,7 +314,7 @@ function newTimelineChart() {
         thisObjectPhysics()
         childrenPhysics()
         syncWithDesignerScales()
-        syncWithDesignerLayersManager()
+        syncWithDesignerLayerManager()
     }
 
     function thisObjectPhysics() {
@@ -328,17 +328,17 @@ function newTimelineChart() {
         }
     }
 
-    function syncWithDesignerLayersManager() {
+    function syncWithDesignerLayerManager() {
         if (thisObject.payload.node === undefined) {
-            finalizeLayersManager()
+            finalizeLayerManager()
             return
         }
 
-        if (thisObject.payload.node.layersManager === undefined && thisObject.layersManager !== undefined) {
-            finalizeLayersManager()
+        if (thisObject.payload.node.layerManager === undefined && thisObject.layerManager !== undefined) {
+            finalizeLayerManager()
         }
-        if (thisObject.payload.node.layersManager !== undefined && thisObject.layersManager === undefined) {
-            initializeLayersManager()
+        if (thisObject.payload.node.layerManager !== undefined && thisObject.layerManager === undefined) {
+            initializeLayerManager()
         }
     }
 

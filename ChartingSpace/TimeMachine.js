@@ -683,8 +683,8 @@ function newTimeMachine() {
 
         for (let i = 0; i < thisObject.timelineCharts.length; i++) {
             let timelinechart = thisObject.timelineCharts[i]
-            if (timelinechart.layersManager !== undefined) {
-                let layers = timelinechart.layersManager.layers
+            if (timelinechart.layerManager !== undefined) {
+                let layers = timelinechart.layerManager.layers
                 for (let j = 0; j < layers.length; j++) {
                     let layer = layers[j]
 

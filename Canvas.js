@@ -763,9 +763,7 @@ function newCanvas() {
                     return
                 } else {
                     if (container.isClickeable === false) {
-                        if (event.buttons === 2) {
-                            viewPortBeingDragged = true
-                        }
+                        viewPortBeingDragged = true
                     }
                     return
                 }

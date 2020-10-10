@@ -735,7 +735,6 @@ function newPlotter() {
                             /* We make sure the points do not fall outside the viewport visible area. This step allways need to be done.  */
                             dataPoint = canvas.chartingSpace.viewport.fitIntoVisibleArea(dataPoint)
                             dataPoint = thisObject.fitFunction(dataPoint)
-
                             /* 
                             Contributing to Auto-Scale: A point will contribute to the y coordinate only if the x coordinate is plotted in the screen.
                             It can happen that objects that span through a long period of time could have its begin point inside the visible 
@@ -815,6 +814,7 @@ function newPlotter() {
                     }
                     dataPoint = canvas.chartingSpace.viewport.fitIntoVisibleArea(dataPoint)
                     dataPoint = thisObject.fitFunction(dataPoint)
+
                     imagePosition.x = dataPoint.x
                     imagePosition.y = dataPoint.y
                     let imageToDraw = canvas.designSpace.iconCollection.get(imageName)
@@ -858,6 +858,7 @@ function newPlotter() {
                     }
                     dataPoint = canvas.chartingSpace.viewport.fitIntoVisibleArea(dataPoint)
                     dataPoint = thisObject.fitFunction(dataPoint)
+
                     textPosition.x = dataPoint.x
                     textPosition.y = dataPoint.y
 

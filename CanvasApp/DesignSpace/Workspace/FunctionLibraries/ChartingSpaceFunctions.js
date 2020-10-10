@@ -140,13 +140,13 @@ function newChartingSpaceFunctions() {
             */
             mineProduct.payload.uiObject.invisiblePhysics()
             timelineChart.name = mineProduct.name
-            timelineChart.layersManager.payload.referenceParent = mineProduct
+            timelineChart.layerManager.payload.referenceParent = mineProduct
             timelineChart.payload.floatingObject.collapseToggle()
-            timelineChart.layersManager.payload.floatingObject.collapseToggle()
+            timelineChart.layerManager.payload.floatingObject.collapseToggle()
             timelineChart.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
-            timelineChart.layersManager.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+            timelineChart.layerManager.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
 
-            let menu = timelineChart.layersManager.payload.uiObject.menu
+            let menu = timelineChart.layerManager.payload.uiObject.menu
             menu.internalClick('Add All Mine Layers')
             menu.internalClick('Add All Mine Layers')
         }
@@ -170,13 +170,13 @@ function newChartingSpaceFunctions() {
             for (let k = 0; k < 3; k++) {
                 let timelineChart = functionLibraryUiObjectsFromNodes.addUIObject(timeMachine, 'Timeline Chart')
 
-                timelineChart.layersManager.payload.referenceParent = mineProduct
+                timelineChart.layerManager.payload.referenceParent = mineProduct
                 timelineChart.payload.floatingObject.collapseToggle()
-                timelineChart.layersManager.payload.floatingObject.collapseToggle()
+                timelineChart.layerManager.payload.floatingObject.collapseToggle()
                 timelineChart.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
-                timelineChart.layersManager.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+                timelineChart.layerManager.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
 
-                let menu = timelineChart.layersManager.payload.uiObject.menu
+                let menu = timelineChart.layerManager.payload.uiObject.menu
                 menu.internalClick('Add All Mine Layers')
                 menu.internalClick('Add All Mine Layers')
 
@@ -201,7 +201,7 @@ function newChartingSpaceFunctions() {
                     }
                 }
                 function deleteNodeByName(nodeName) {
-                    let nodeToDelete = findNodeInNodeMesh(timelineChart.layersManager, undefined, nodeName, true, true, false, false)
+                    let nodeToDelete = findNodeInNodeMesh(timelineChart.layerManager, undefined, nodeName, true, true, false, false)
                     if (nodeToDelete === undefined) { return }
                     functionLibraryNodeDeleter.deleteUIObject(nodeToDelete, rootNodes)
                 }

@@ -12898,9 +12898,9 @@
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "layersManager",
-                "label": "Add Layers Manager",
-                "relatedUiObject": "Layers Manager",
+                "propertyToCheckFor": "layerManager",
+                "label": "Add Layer Manager",
+                "relatedUiObject": "Layer Manager",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -12935,15 +12935,15 @@
                 "childType": "Time Frame Scale"
             },
             {
-                "name": "layersManager",
+                "name": "layerManager",
                 "type": "node",
-                "childType": "Layers Manager",
+                "childType": "Layer Manager",
                 "autoAdd": true
             }
         ]
     },
     {
-        "type": "Layers Manager",
+        "type": "Layer Manager",
         "menuItems": [
             {
                 "action": "Configure",
@@ -12995,7 +12995,7 @@
         "referenceAttachesTo": {
             "compatibleTypes": "->Data Mine Products->"
         },
-        "propertyNameAtParent": "layersManager",
+        "propertyNameAtParent": "layerManager",
         "properties": [
             {
                 "name": "layers",
@@ -13056,7 +13056,7 @@
             "compatibleTypes": "->Data Product->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Layers Manager->Bot Layers->Layer Folder->"
+            "compatibleTypes": "->Layer Manager->Bot Layers->Layer Folder->"
         },
         "propertyNameAtParent": "layers",
         "properties": [
@@ -13095,7 +13095,7 @@
         "addLeftIcons": true,
         "level": 3,
         "chainAttachesTo": {
-            "compatibleTypes": "->Layers Manager->"
+            "compatibleTypes": "->Layer Manager->"
         },
         "propertyNameAtParent": "botLayers",
         "properties": [

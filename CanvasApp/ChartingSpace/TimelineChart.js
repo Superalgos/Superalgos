@@ -167,7 +167,7 @@ function newTimelineChart() {
             minValue,
             maxValue,
             thisObject.container.frame.width,
-            thisObject.container.frame.height
+            thisObject.container.frame.heigh  
         )
     }
 

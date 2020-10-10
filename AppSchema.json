@@ -8321,7 +8321,7 @@
             "Use Reference Parent"
         ],
         "addLeftIcons": true,
-        "level": 5,
+        "level": 4,
         "chainAttachesTo": {
             "compatibleTypes": "->Task->"
         },
@@ -9617,7 +9617,7 @@
             }
         ],
         "addLeftIcons": true,
-        "level": 5,
+        "level": 4,
         "chainAttachesTo": {
             "compatibleTypes": "->Calculations Procedure->Data Building Procedure->"
         },
@@ -9661,7 +9661,7 @@
             }
         ],
         "addLeftIcons": true,
-        "level": 5,
+        "level": 4,
         "chainAttachesTo": {
             "compatibleTypes": "->Product Definition->"
         },
@@ -10584,7 +10584,7 @@
             }
         ],
         "addLeftIcons": true,
-        "level": 5,
+        "level": 4,
         "chainAttachesTo": {
             "compatibleTypes": "->Initial Targets->"
         },
@@ -10620,7 +10620,7 @@
             }
         ],
         "addLeftIcons": true,
-        "level": 5,
+        "level": 4,
         "chainAttachesTo": {
             "compatibleTypes": "->Limit Buy Order->Limit Sell Order->"
         },
@@ -10654,7 +10654,7 @@
             }
         ],
         "addLeftIcons": true,
-        "level": 5,
+        "level": 4,
         "chainAttachesTo": {
             "compatibleTypes": "->Open Stage->"
         },

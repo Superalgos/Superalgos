@@ -165,9 +165,9 @@ function newTimeMachine() {
             let timeMachineIndex = findChildIndexAtParentNode(thisObject.payload.node)
             let dashboardIndex = findChildIndexAtParentNode(thisObject.payload.parentNode)
 
-            thisObject.container.frame.position.x = thisObject.container.frame.width * timeMachineIndex * 2  
-            thisObject.container.frame.position.y = thisObject.container.frame.height * dashboardIndex * 2  
-        } 
+            thisObject.container.frame.position.x = thisObject.container.frame.width * timeMachineIndex * 2
+            thisObject.container.frame.position.y = thisObject.container.frame.height * dashboardIndex * 2
+        }
     }
 
     function onKeyPressed(event) {
@@ -684,7 +684,7 @@ function newTimeMachine() {
         for (let i = 0; i < thisObject.timelineCharts.length; i++) {
             let timelinechart = thisObject.timelineCharts[i]
             if (timelinechart.layersManager !== undefined) {
-                let layers =  timelinechart.layersManager.layers 
+                let layers = timelinechart.layersManager.layers
                 for (let j = 0; j < layers.length; j++) {
                     let layer = layers[j]
 
@@ -829,7 +829,7 @@ function newTimeMachine() {
             minValue,
             maxValue,
             thisObject.container.frame.width,
-            thisObject.container.frame.height
+            thisObject.container.frame.height  
         )
     }
 }

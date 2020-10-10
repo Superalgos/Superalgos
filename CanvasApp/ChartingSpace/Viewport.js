@@ -7,9 +7,10 @@ function newViewport() {
 
     let ANIMATION_INCREMENT = 0.25
     let ANIMATION_STEPS = 5
+    let MARGIN_AMOUNT = 40
 
-    let TOP_MARGIN = 40 + TOP_SPACE_HEIGHT
-    let BOTTOM_MARGIN = 10 + 2 + COCKPIT_SPACE_HEIGHT
+    let TOP_MARGIN = TOP_SPACE_HEIGHT
+    let BOTTOM_MARGIN = COCKPIT_SPACE_HEIGHT + MARGIN_AMOUNT
     let LEFT_MARGIN = 0
     let RIGHT_MARGIN = 0
     let MARGINS = {
@@ -28,6 +29,7 @@ function newViewport() {
         zoomTargetLevel: undefined,
         zoomLevel: undefined,
         mousePosition: undefined,
+        marginAmount: MARGIN_AMOUNT,
         margins: MARGINS,
         payload: undefined,
         zoomAtCenter: zoomAtCenter,
@@ -47,7 +49,7 @@ function newViewport() {
         initialize: initialize,
         finalize: finalize
     }
-   
+
     let position = {
         x: 0,
         y: 0
@@ -98,8 +100,8 @@ function newViewport() {
     }
 
     function resize() {
-        TOP_MARGIN = 40 + TOP_SPACE_HEIGHT
-        BOTTOM_MARGIN = 10 + 2 + browserCanvas.height - COCKPIT_SPACE_POSITION
+        TOP_MARGIN = TOP_SPACE_HEIGHT + MARGIN_AMOUNT
+        BOTTOM_MARGIN = browserCanvas.height - COCKPIT_SPACE_POSITION + MARGIN_AMOUNT
         LEFT_MARGIN = 0
         RIGHT_MARGIN = 0
         MARGINS = {

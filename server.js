@@ -65,7 +65,7 @@ try {
     WEB_SERVER.initialize()
     WEB_SERVER.run()
 
-    console.log("You are running Superalgos Backend Beta 6.")
+    console.log("You are running Superalgos Beta 6 SP2.")
 
 } catch (err) {
     console.log('[ERROR] BackendServers -> Task Manager -> server -> Error = ' + err.stack)

@@ -65,6 +65,7 @@ function newTutorialSpace() {
     let changeNodeConfigCounterWithEval = 0
     let documentationCounter = 0
     let batchConfigChangesCounter = 0
+    let workspacesCounter = 0
 
     return thisObject
 
@@ -275,6 +276,7 @@ function newTutorialSpace() {
         function checkWorkspaces() {
             if (currentNode === undefined) { return }
             let config = JSON.parse(currentNode.config)
+            workspacesCounter++
             if (config.workspaces === undefined) {
                 /*
                 The worspaces panel will remain as it is, and the user will be free to open or close it at will.
@@ -285,14 +287,18 @@ function newTutorialSpace() {
                 /*
                 This forces the tutorial to close the workspaces panel and to keep it closed.
                 */
-                canvas.sideSpace.sidePanelTab.close()
+                if (workspacesCounter === 5) {
+                    canvas.sideSpace.sidePanelTab.close()
+                }
                 return
             }
             if (config.workspaces === "Open") {
                 /*
-                This forces the tutorial to close the workspaces panel and to keep it closed.
+                This forces the tutorial to open the workspaces panel and to keep it closed.
                 */
-                canvas.sideSpace.sidePanelTab.open()
+                if (workspacesCounter === 5) {
+                    canvas.sideSpace.sidePanelTab.open()
+                }
                 return
             }
         }
@@ -308,7 +314,7 @@ function newTutorialSpace() {
             }
             sliderCounter++
             if (sliderCounter === 10 || sliderCounter === 100) {
-                
+
                 switch (config.slider) {
                     case "toTop": {
                         /*
@@ -444,10 +450,10 @@ function newTutorialSpace() {
                                                             currentNode.payload.uiObject.setErrorMessage('Node Path is incorrect. See console log for details.')
                                                             break
                                                         }
-                                                    } 
+                                                    }
                                                     partialPath = partialPath + separator + part
                                                     separator = '.'
-                                                   
+
                                                     partialNode = eval(partialPath)
                                                     if (partialNode === undefined) {
                                                         console.log(MODULE_NAME + ' -> This part can not be undefined -> part = ' + part)
@@ -743,6 +749,7 @@ function newTutorialSpace() {
     function resetAfterButtonPressed() {
         resetViewport()
         resetActions()
+        resetWorkspaces()
         resetDocumentation()
         resetRepositionAtTimeMachine()
         resetPositionAtNode()
@@ -760,6 +767,10 @@ function newTutorialSpace() {
         function resetViewport() {
             currentZoomStep = 0
             viewportCentered = false
+        }
+
+        function resetWorkspaces() {
+            workspacesCounter = 0
         }
 
         function resetDocumentation() {
@@ -987,7 +998,7 @@ function newTutorialSpace() {
                     if (tutorialStep.id === currentNode.id) {
                         found = true
                     }
-                }    
+                }
             }
 
             for (let i = 0; i < node.tutorialTopics.length; i++) {

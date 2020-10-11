@@ -183,14 +183,6 @@ function newWorkspace() {
         /* Validation if it is too early to save. */
         if (isInitialized === false) { return }
 
-        /* Validation of that the user changed the workspace name at least once. */
-        if (workspace.name === 'Default') {
-            canvas.cockpitSpace.setStatus(
-                'Could not save the Workspace. Please rename the Workspace so that it can be saved.'
-                , 150, canvas.cockpitSpace.statusTypes.WARNING)
-            return
-        }
-
         /* Validation of 2 sessions opened at the same time. */
         let savedSessionTimestamp = window.localStorage.getItem('Session Timestamp')
         if (Number(savedSessionTimestamp) !== sessionTimestamp) {

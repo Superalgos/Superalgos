@@ -610,7 +610,7 @@ function newTaskFunctions() {
                                 }
                             }
                         }
-                        processInstance.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_45
+                        processInstance.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_90
                     }
                 }
             }

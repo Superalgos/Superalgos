@@ -169,6 +169,7 @@ function newFloatingObject() {
                     if (thisObject.payload.parentNode.payload.floatingObject !== undefined) {
                         if (thisObject.payload.parentNode.payload.floatingObject.isCollapsed === true) {
                             thisObject.payload.parentNode.payload.floatingObject.isCollapsed = false
+                            thisObject.payload.parentNode.payload.floatingObject.collapsedManually = false
                             thisObject.payload.parentNode.payload.floatingObject.unCollapseParent()
                         }
                     }

@@ -2,7 +2,7 @@
 
 # What is Superalgos?
 
-Superalgos is a platform to automate crypto-tarding. It is a Nodejs + Web App that runs at your hardware and scales from a single Raspberry Pi to a Trading Farm.
+Superalgos is a platform to automate crypto-tarding. It is a Nodejs + Web App that runs at your hardware and scales from a single Raspberry Pi to a Trading Farm. Superalgos is Free and Open Source.
 
 ## Superalgos allows you to:
 

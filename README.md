@@ -85,14 +85,6 @@ Superalgos is well documented. Please visit the [Documentation Site](https://doc
 
 Some topics have video tutorials. Please visit the [Superalgos You Tube Channel](https://www.youtube.com/channel/UCmYSGbB151xFQPNxj7KfKBg) to learn more about Superalgos.
 
-# Contributing
-
-Superalgos is a Community Project. Learn [how to become a Contributor](https://docs.superalgos.org/contributing-to-superalgos.html).
-
-## Contributors 
-
-Luis Fernando Molina, Julian Molina, Andreja Cobeljic, Matías Benitez, Ira Miller, Eduardo Remis, Jeff Braun, rico4dev, Barry Low, Nikola Bjelogrlic, Hirajin Koizuko, Francisco J. Santillán, Viktoria B., Javier A., Gustavo J., Romina, Pedro P., Thais M., Loui M., Natalia M., Bashar A., Carlos V., Diego M., Sebastian E., Bogdan P., Marko V., Igor S., Niksa K., Rodrigo M. and Nicanor M.
-
 # Other Resources
 
 ### Web Site
@@ -110,6 +102,14 @@ To stay up-to-date, follow [Superalgos on Twitter] (https://twitter.com/superalg
 ### Superalgos on Facebook
 
 To stay up-to-date, follow [Superalgos on Facebook] (https://www.facebook.com/superalgos)
+
+# Contributing
+
+Superalgos is a Community Project. Learn [how to become a Contributor](https://docs.superalgos.org/contributing-to-superalgos.html).
+
+## Contributors 
+
+Luis Fernando Molina, Julian Molina, Andreja Cobeljic, Matías Benitez, Ira Miller, Eduardo Remis, Jeff Braun, rico4dev, Barry Low, Nikola Bjelogrlic, Hirajin Koizuko, Francisco J. Santillán, Viktoria B., Javier A., Gustavo J., Romina, Pedro P., Thais M., Loui M., Natalia M., Bashar A., Carlos V., Diego M., Sebastian E., Bogdan P., Marko V., Igor S., Niksa K., Rodrigo M. and Nicanor M.
 
 # License
 

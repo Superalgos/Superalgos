@@ -1,27 +1,57 @@
-# Get in Touch
-
-Touch base with the Community and talk to the admins in our [Community Telegram](https://t.me/superalgoscommunity).
-
-# Superalgos
-
-Superalgos provides a toolbox with several integrated tools to design, test, and deploy automated crypto trading strategies, as well as research crypto markets. You can use Superalgos to download market data from crypto exchanges, make arbitrary calculations (including indicators), plot the results of your calculations over the charts, design trading strategies in a visual scripting environment that does not require coding, while still empowering developers by allowing it, and more.
-
-You may use individual features or the whole package, and reuse all information gathered and generated&mdash;standardized in multiple time frames, stored in text files sorted by exchange/market&mdash;as input for your own software/systems.
-
-Superalgos runs on your computer, it is free and open source.
-
 ![Superalgos video capture (16)](https://user-images.githubusercontent.com/9479367/77251218-76d25980-6c4d-11ea-8e47-be7db2e8abdb.gif)
 
-## Documentation & FAQs
+# What is Superalgos?
 
-Please refer to the [documentation site](https://docs.superalgos.org/).
+Superalgos is a platform to automate crypto-tarding. It is a Nodejs + Web App that runs at your hardware and scales from a single Raspberry Pi to a Trading Farm.
 
-## Contributing
+## Superalgos allows you to:
 
-Your help may be essential to the project's success and we want you in!
+* Design trading strategies.
+* Download historical market data from crypto exchanges.
+* Backtest your designs against historical data.
+* Run live trading sessions.
+* Create your own indicators.
+* Create your own plotters to visualize at the charts your indicators.
 
-[There is something you may do](https://docs.superalgos.org/contributing-to-superalgos.html) to help the project regardless of what your skillset may be. We appreciate all contributions!
+## Superalgos Features:
 
-## License
+* A Visual Scripting Designer.
+* Integrated Charting System.
+* Task Magagment across a Trading Farm.
+
+# Superalgos for Developers:
+
+* You are free to custumize Superalgos for your customers. No royalties, no license fees.
+* Everything extra your customers might need you can code it yourself or request it as a new feature.
+* You can use Superalgos as a platform or a component of a larger system.
+* No propietary code / libraries. All open source and free.
+* Already available a set of community contributed plugins (workspaces, strategies, indicators, plotters, tutorials, etc.)
+
+## Superalgos saves you time:
+
+* No need to code the download of historical data from crypto exchanges.
+* No need to code the streming of market data from crypto exchanges.
+* No need to hardcode strategies, use the visual designer for a more flexible approach.
+* No need to debug what went wrong line by line or diving into log files with tons of data. You can see each variable of the state of the Trading Engine at every candle by hovering the mouse over the charts.
+* No need to integrate a charing library, Superalgos has its own integrated Charting System.
+* No need to manage task data or execution dependencies by yourself. Superalgos allows you to define Tasks and distribute them acrross a Trading Farm, and it takes cares of the data depencies and execution dependencies, so that each task automatically starts when their dependencies are ready.
+
+# Documentation
+
+Superalgos is well documented. Please refer to the [Documentation Site](https://docs.superalgos.org/).
+
+# Support
+
+We give support through our [Telegram Community](https://t.me/superalgoscommunity).
+
+# Contributing
+
+Superalgos is a Community Project. Learn [How to become a Contributor](https://docs.superalgos.org/contributing-to-superalgos.html).
+
+## Contributors 
+
+Luis Fernando Molina, Julian Molina, Andreja Cobeljic, Matías Benitez, Ira Miller, Eduardo Remis, Jeff Braun, rico4dev, Barry Low, Nikola Bjelogrlic, Hirajin Koizuko, and Francisco J. Santillán.
+
+# License
 
 Superalgos is open-source software released under [Apache License 2.0](LICENSE).

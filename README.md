@@ -76,11 +76,11 @@ Just delete the folder Superalgos.
 
 ### Via Telegram
 
-We give online support to users through our [Superalgos Telegram Community](https://t.me/superalgoscommunity).
+Users online support through our [Superalgos Telegram Community](https://t.me/superalgoscommunity).
 
-We give support to developers through our [Superalgos Telegram Developer's Group](https://t.me/superalgosdevelop).
+Developers online support to through our [Superalgos Telegram Developer's Group](https://t.me/superalgosdevelop).
 
-We give support in Spanish through our [Superalgos en Español Telegram Group](https://t.me/superalgos_es).
+Support in Spanish through our [Superalgos en Español Telegram Group](https://t.me/superalgos_es).
  
 ### Via Documentation Site
 

@@ -33,7 +33,7 @@ Superalgos is a platform to automate crypto-tarding. It is a Nodejs + Web App th
 * Everything extra your customers might need you can code it yourself or request it as new features.
 * You can use Superalgos as a platform or a component of a larger system.
 * No propietary code / libraries. All open source and free.
-* Already available a set of community-contributed plugins (workspaces, strategies, indicators, plotters, tutorials, etc.)
+* Already available a set of community-contributed plugins (workspaces, strategies, indicators, plotters, tutorials, etc.).
 
 ## Superalgos saves you time
 
@@ -89,19 +89,19 @@ Self Service support via video tutorials at the [Superalgos You Tube Channel](ht
 
 ### Web Site
 
-For an overview of what Superalgos can do for you, please check the [Superalgos Website] (https://superalgos.org/).
+For an overview of what Superalgos can do for you, please check the [Superalgos Website](https://superalgos.org/).
 
 ### Superalgos Blog
 
-You can find everything we have written at the [Superalgos Blog] (https://medium.com/superalgos).
+You can find everything we have written at the [Superalgos Blog](https://medium.com/superalgos).
 
 ### Superalgos on Twitter
 
-To stay up-to-date, follow [Superalgos on Twitter] (https://twitter.com/superalgos).
+To stay up-to-date, follow [Superalgos on Twitter](https://twitter.com/superalgos).
 
 ### Superalgos on Facebook
 
-To stay up-to-date, follow [Superalgos on Facebook] (https://www.facebook.com/superalgos).
+To stay up-to-date, follow [Superalgos on Facebook](https://www.facebook.com/superalgos).
 
 # Contributing
 

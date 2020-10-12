@@ -4,21 +4,21 @@
 
 Superalgos is a platform to automate crypto-tarding. It is a Nodejs + Web App that runs at your hardware and scales from a single Raspberry Pi to a Trading Farm. Superalgos is Free and Open Source.
 
-## Superalgos allows you to
-
-* Design trading strategies.
-* Download historical market data from crypto exchanges.
-* Backtest your designs against historical data.
-* Run live trading sessions.
-* Visually design your own indicators.
-* Visually design your own plotters to visualize your indicators.
-
 ## Superalgos Features
 
 * A Visual Scripting Designer.
 * Integrated Charting System.
 * Task Managment across a Trading Farm.
 * Community built strategies to learn and start from.
+
+## Superalgos allows you to
+
+* Visually design your own trading strategies.
+* Visually design your own indicators.
+* Visually design your own plotters to visualize your indicators.
+* Download historical market data from crypto exchanges.
+* Backtest your strategies against historical data.
+* Run live trading sessions.
 
 # Superalgos for Developers
 

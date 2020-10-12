@@ -140,7 +140,7 @@ function newWorkspace() {
         functionLibraryUiObjectsFromNodes.syncronizeTasksFoundAtWorkspaceWithBackEnd(functionLibraryTaskFunctions)
         functionLibraryUiObjectsFromNodes.syncronizeSessionsFoundAtWorkspaceWithBackEnd(functionLibrarySessionFunctions)
  
-        setTimeout(functionLibraryUiObjectsFromNodes.playTutorials, 5000)
+        setTimeout(functionLibraryUiObjectsFromNodes.playTutorials, 1000)
    
     }
 

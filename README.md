@@ -66,11 +66,11 @@ Just delete the folder Superalgos.
 
 We give support through our [Telegram Community](https://t.me/superalgoscommunity).
 
-# Self Service via Documentation Site
+## Self Service via Documentation Site
 
 Superalgos is well documented. Please visit the [Documentation Site](https://docs.superalgos.org/) to learn about Superalgos.
 
-# Self Service via Video Tutorials
+## Self Service via Video Tutorials
 
 Some topics have video tutorials. Please visit the [Superalgos You Tube Channel](https://www.youtube.com/channel/UCmYSGbB151xFQPNxj7KfKBg) to learn more about Superalgos.
 

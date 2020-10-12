@@ -165,9 +165,9 @@ function newTimeMachine() {
             let timeMachineIndex = findChildIndexAtParentNode(thisObject.payload.node)
             let dashboardIndex = findChildIndexAtParentNode(thisObject.payload.parentNode)
 
-            thisObject.container.frame.position.x = thisObject.container.frame.width * timeMachineIndex * 2  
-            thisObject.container.frame.position.y = thisObject.container.frame.height * dashboardIndex * 2  
-        } 
+            thisObject.container.frame.position.x = thisObject.container.frame.width * timeMachineIndex * 2
+            thisObject.container.frame.position.y = thisObject.container.frame.height * dashboardIndex * 2
+        }
     }
 
     function onKeyPressed(event) {
@@ -652,8 +652,8 @@ function newTimeMachine() {
             x: 0,
             y: 0
         }
-        let imageSize = 13
-        let fontSize = 15
+        let imageSize = 12
+        let fontSize = 12
         let opacity = 1
         let icon = canvas.designSpace.iconByUiObjectType.get(thisObject.payload.node.type)
 
@@ -671,7 +671,7 @@ function newTimeMachine() {
             if (icon.canDrawIcon === true) {
                 browserCanvasContext.drawImage(
                     icon, position.x + 5,
-                    position.y - 22,
+                    position.y - 18,
                     imageSize,
                     imageSize)
             }
@@ -683,8 +683,8 @@ function newTimeMachine() {
 
         for (let i = 0; i < thisObject.timelineCharts.length; i++) {
             let timelinechart = thisObject.timelineCharts[i]
-            if (timelinechart.layersManager !== undefined) {
-                let layers =  timelinechart.layersManager.layers 
+            if (timelinechart.layerManager !== undefined) {
+                let layers = timelinechart.layerManager.layers
                 for (let j = 0; j < layers.length; j++) {
                     let layer = layers[j]
 
@@ -829,7 +829,7 @@ function newTimeMachine() {
             minValue,
             maxValue,
             thisObject.container.frame.width,
-            thisObject.container.frame.height
+            thisObject.container.frame.height  
         )
     }
 }

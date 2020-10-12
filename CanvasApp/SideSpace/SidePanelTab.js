@@ -15,7 +15,7 @@ function newSidePanelTab() {
     }
 
     const TAB_WIDTH = 25
-    const TAB_HEIGHT = 60
+    const TAB_HEIGHT = TOP_SPACE_HEIGHT * 2
     const ANIMATION_STEP = 100
 
     let isInitialized = false
@@ -33,9 +33,10 @@ function newSidePanelTab() {
 
     function initialize(screenside, index) {
         thisObject.screenside = screenside
-        if (index !== undefined) [
+        if (index !== undefined) {
             thisObject.index = index
-        ]
+        }
+            
         switch (thisObject.screenside) {
             case 'left': {
                 thisObject.pointerDirection = 'left'
@@ -66,7 +67,6 @@ function newSidePanelTab() {
             }
         }
 
-        thisObject.container.frame.position.y = 69 + 69 * thisObject.index
         ORIGINAL_PARENT_POSITON = thisObject.container.parentContainer.frame.position.x
         setClosed()
     }
@@ -117,7 +117,14 @@ function newSidePanelTab() {
 
     function physics() {
         if (isInitialized === false) { return }
+        positionPhysics()
         animate()
+    }
+
+    function positionPhysics() {
+        if (canvas.chartingSpace.viewport !== undefined) {
+            thisObject.container.frame.position.y = browserCanvas.height / 2 - TAB_HEIGHT / 2 //  TOP_SPACE_HEIGHT + canvas.chartingSpace.viewport.marginAmount + TAB_HEIGHT * thisObject.index
+        }
     }
 
     function draw() {

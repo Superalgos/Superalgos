@@ -1544,7 +1544,7 @@ function newUiObject() {
                 if (thisObject.isOnFocus === true) {
                     labelPoint = {
                         x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
-                        y: position.y + radius * 2 / 3 + lineSeparator * 1 + 15
+                        y: position.y + radius * 2 / 3 + lineSeparator * 1+ 30
                     }
                 } else {
                     labelPoint = {
@@ -1554,7 +1554,7 @@ function newUiObject() {
                 }
 
                 if (canvas.floatingSpace.inMapMode === true) {
-                    labelPoint.y = position.y + 50 / 2 + lineSeparator * 1 
+                    labelPoint.y = position.y + 50 / 2 + lineSeparator * 2 
                 }
 
                 browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
@@ -1623,7 +1623,7 @@ function newUiObject() {
                 if (thisObject.isOnFocus === true) {
                     labelPoint = {
                         x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
-                        y: position.y + radius * 2 / 3 + lineSeparator * 5 + 15
+                        y: position.y + radius * 2 / 3 + lineSeparator * 6+ 30
                     }
                 } else {
                     labelPoint = {
@@ -1698,7 +1698,7 @@ function newUiObject() {
                     if (thisObject.isOnFocus === true) {
                         labelPoint = {
                             x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 10,
-                            y: position.y + radius * 2 / 3 + lineSeparator * 3 + 15
+                            y: position.y + radius * 2 / 3 + lineSeparator * 4+ 30
                         }
                     } else {
                         labelPoint = {
@@ -1751,7 +1751,7 @@ function newUiObject() {
             if (thisObject.isOnFocus === true) {
                 labelPoint = {
                     x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
-                    y: position.y + radius * 2 / 3 + lineSeparator * 4 + 15
+                    y: position.y + radius * 2 / 3 + lineSeparator * 5+ 30
                 }
             } else {
                 labelPoint = {
@@ -1802,7 +1802,7 @@ function newUiObject() {
                 if (thisObject.isOnFocus === true) {
                     labelPoint = {
                         x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 10,
-                        y: position.y + radius * 2 / 3 + lineSeparator * 2 + 15
+                        y: position.y + radius * 2 / 3 + lineSeparator * 3+ 30
                     }
                 } else {
                     labelPoint = {

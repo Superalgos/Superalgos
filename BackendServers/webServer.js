@@ -1,7 +1,5 @@
 exports.newWebServer = function newWebServer(EVENTS_SERVER) {
 
-    const MODULE = "Web Server"
-
     let thisObject = {
         initialize: initialize,
         finalize: finalize,
@@ -19,7 +17,7 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
 
     let http = require('http')
     let isHttpServerStarted = false
-    let cloneExecutorChildProcess
+  
     let webhook = new Map()
 
     return thisObject
@@ -514,7 +512,7 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                     let fs = require('fs')
 
                     try {
-                        let filePath = process.env.DEFAULT_WORKSPACE_PATH + '/Default.json'
+                        let filePath = process.env.DEFAULT_WORKSPACE_PATH + '/Getting-Started.json'
                         fs.readFile(filePath, onFileRead)
                     } catch (e) {
                         console.log('[ERROR] Error reading the Workspace.', e)
@@ -549,7 +547,7 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                                 } else {
                                     let updatedFileList = []
                                     for (let i = 0; i < fileList.length; i++) {
-                                        let name = 'Plugin -> ' + fileList[i]
+                                        let name = 'Plugin \u2192 ' + fileList[i]
                                         updatedFileList.push(name)
                                     }
                                     allWorkspaces = allWorkspaces.concat(updatedFileList)

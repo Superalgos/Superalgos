@@ -140,7 +140,7 @@ function newWorkspace() {
         functionLibraryUiObjectsFromNodes.syncronizeTasksFoundAtWorkspaceWithBackEnd(functionLibraryTaskFunctions)
         functionLibraryUiObjectsFromNodes.syncronizeSessionsFoundAtWorkspaceWithBackEnd(functionLibrarySessionFunctions)
  
-        setTimeout(functionLibraryUiObjectsFromNodes.playTutorials, 5000)
+        setTimeout(functionLibraryUiObjectsFromNodes.playTutorials, 1000)
    
     }
 
@@ -182,14 +182,6 @@ function newWorkspace() {
 
         /* Validation if it is too early to save. */
         if (isInitialized === false) { return }
-
-        /* Validation of that the user changed the workspace name at least once. */
-        if (workspace.name === 'Default') {
-            canvas.cockpitSpace.setStatus(
-                'Could not save the Workspace. Please rename the Workspace so that it can be saved.'
-                , 150, canvas.cockpitSpace.statusTypes.WARNING)
-            return
-        }
 
         /* Validation of 2 sessions opened at the same time. */
         let savedSessionTimestamp = window.localStorage.getItem('Session Timestamp')
@@ -269,6 +261,7 @@ function newWorkspace() {
 
             switch (workingAtTask) {
                 case 1:
+                    canvas.tutorialSpace.stop()
                     functionLibraryNodeDeleter.deleteWorkspace(thisObject.workspaceNode, thisObject.workspaceNode.rootNodes)
                     workingAtTask++
                     break
@@ -418,8 +411,8 @@ function newWorkspace() {
     function replaceWorkspaceByLoadingOne(name) {
 
         let webCommand
-        if (name.indexOf('Plugin -> ') >= 0) {
-            name = name.replace('Plugin -> ', '')
+        if (name.indexOf('Plugin \u2192 ') >= 0) {
+            name = name.replace('Plugin \u2192 ', '')
             webCommand = 'LoadPluginWorkspace'
         } else {
             webCommand = 'LoadWorkspace'
@@ -680,7 +673,7 @@ function newWorkspace() {
                 break
             case 'Add Missing Market Data Tasks':
                 {
-                    functionLibraryTaskFunctions.addMissingMarketDataTasks(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
+                    functionLibraryTaskFunctions.addMissingMarketDataTasks(payload.node, functionLibraryUiObjectsFromNodes)
                 }
                 break
             case 'Add Missing Data Mine Tasks':
@@ -695,7 +688,7 @@ function newWorkspace() {
                 break
             case 'Add Missing Market Trading Tasks':
                 {
-                    functionLibraryTaskFunctions.addMissingMarketTradingTasks(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
+                    functionLibraryTaskFunctions.addMissingMarketTradingTasks(payload.node, functionLibraryUiObjectsFromNodes)
                 }
                 break
             case 'Add Missing Trading Mine Tasks':

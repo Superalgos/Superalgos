@@ -27,11 +27,10 @@ function newReferenceAttachDetach() {
                     }
                 }
             }
-        }
-
-        node.payload.referenceParent = undefined
-        if (node.savedPayload !== undefined) {
-            node.savedPayload.referenceParent = undefined
+            node.payload.referenceParent = undefined
+            if (node.savedPayload !== undefined) {
+                node.savedPayload.referenceParent = undefined
+            }
         }
     }
 }

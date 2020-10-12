@@ -434,15 +434,15 @@ function newTaskFunctions() {
         }
     }
 
-    function addMissingMarketDataTasks(node, rootNodes, functionLibraryUiObjectsFromNodes) {
-        addMissingMarketTasks(node, rootNodes, 'Market Data Tasks', functionLibraryUiObjectsFromNodes)
+    function addMissingMarketDataTasks(node, functionLibraryUiObjectsFromNodes) {
+        addMissingMarketTasks(node, 'Market Data Tasks', functionLibraryUiObjectsFromNodes)
     }
 
-    function addMissingMarketTradingTasks(node, rootNodes, functionLibraryUiObjectsFromNodes) {
-        addMissingMarketTasks(node, rootNodes, 'Market Trading Tasks', functionLibraryUiObjectsFromNodes)
+    function addMissingMarketTradingTasks(node, functionLibraryUiObjectsFromNodes) {
+        addMissingMarketTasks(node, 'Market Trading Tasks', functionLibraryUiObjectsFromNodes)
     }
 
-    function addMissingMarketTasks(node, rootNodes, newNodeType, functionLibraryUiObjectsFromNodes) {
+    function addMissingMarketTasks(node,  newNodeType, functionLibraryUiObjectsFromNodes) {
         if (node.payload === undefined) { return }
         if (node.payload.referenceParent === undefined) { return }
         if (node.payload.referenceParent.exchangeMarkets === undefined) { return }
@@ -610,6 +610,7 @@ function newTaskFunctions() {
                                 }
                             }
                         }
+                        processInstance.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_90
                     }
                 }
             }

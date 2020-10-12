@@ -128,7 +128,7 @@
             /* Get ready for plotting. */
 
             recalculate();
- 
+
             dimmensionsChangedEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('Dimmensions Changed', function () {
                 recalculate();
             })
@@ -567,7 +567,6 @@
                             volumePointB2 = transformThisPoint(volumePointB2, thisObject.container);
                             volumePointB3 = transformThisPoint(volumePointB3, thisObject.container);
                             volumePointB4 = transformThisPoint(volumePointB4, thisObject.container);
-
                         }
 
                         calculateSells(coordinateSystem, thisObject.container.frame.height); // We try to see if it fits in the visible area.
@@ -661,7 +660,7 @@
                         browserCanvasContext.lineWidth = 1;
                         browserCanvasContext.setLineDash([0, 0])
                         browserCanvasContext.stroke();
-                        
+
                         browserCanvasContext.beginPath();
 
                         browserCanvasContext.moveTo(volumePointB1.x, volumePointB1.y);
@@ -686,7 +685,7 @@
                         browserCanvasContext.lineWidth = 1;
                         browserCanvasContext.setLineDash([0, 0])
                         browserCanvasContext.stroke();
-                        
+
                         if (userPositionDate >= volume.begin && userPositionDate <= volume.end) {
 
                             let buyInfo = {

@@ -1,7 +1,6 @@
 function newPlotter() {
     const MODULE_NAME = 'Plotter'
     const ERROR_LOG = true
-    const INTENSIVE_LOG = false
     const logger = newWebDebugLog()
     logger.fileName = MODULE_NAME
 
@@ -294,18 +293,20 @@ function newPlotter() {
                 record.index = dataFile[i][recordDefinition.properties.length]
             }
 
-            if (
-                (record.begin >= farLeftDate.valueOf() || record.end <= farRightDate.valueOf()) &&
-                (record.end >= coordinateSystem.min.x && record.begin <= coordinateSystem.max.x)
-            ) {
-                record.previous = previous
-                jsonifiedArray.push(record)
-                previous = record
-
-                if (record.begin === undefined || record.end === undefined) {
-                    console.log('Could not find the property begin or end which are needed for the plotter to work. productDefinition.config.codeName = ' + productDefinition.config.codeName)
-                }
+            if (record.begin === undefined || record.end === undefined) {
+                console.log('Could not find the property begin or end which are needed for the plotter to work. productDefinition.config.codeName = ' + productDefinition.config.codeName)
+                continue
             }
+
+            if (record.end <= farLeftDate.valueOf()) { continue }
+            if (record.begin >= farRightDate.valueOf()) { continue }
+
+            if (record.end < coordinateSystem.min.x) { continue }
+            if (record.begin > coordinateSystem.max.x) { continue }
+
+            record.previous = previous
+            jsonifiedArray.push(record)
+            previous = record
         }
 
         return jsonifiedArray
@@ -472,31 +473,6 @@ function newPlotter() {
         }
     }
 
-    function recalculateScale() {
-        try {
-            if (coordinateSystem.maxValue > 0) { return } // Already calculated.
-            /* First we calculate the default scale */
-            let minValue = {
-                x: MIN_PLOTABLE_DATE.valueOf(),
-                y: 0
-            }
-
-            let maxValue = {
-                x: MAX_PLOTABLE_DATE.valueOf(),
-                y: nextPorwerOf10(MAX_DEFAULT_RATE_SCALE_VALUE) / 4 // TODO: This 4 is temporary
-            }
-
-            coordinateSystem.initialize(
-                minValue,
-                maxValue,
-                thisObject.container.frame.width,
-                thisObject.container.frame.height
-            )
-        } catch (err) {
-            if (ERROR_LOG === true) { logger.write('[ERROR] recalculateScale -> err = ' + err.stack) }
-        }
-    }
-
     function plot() {
         try {
             /* Clean the pannel at places where there is no record. */
@@ -589,7 +565,7 @@ function newPlotter() {
                                 The information we store in files is independent from the charing system and its coordinate systems.
                                 That means that the first thing we allways need to do is to trasform these points to the coordinate system of the timeline.
                                 */
-                                let dataPoint                                
+                                let dataPoint
                                 dataPoint = coordinateSystem.transformThisPoint(rawPoint)
                                 dataPoint = transformThisPoint(dataPoint, thisObject.container)
                                 let testPoint = {
@@ -759,13 +735,12 @@ function newPlotter() {
                             /* We make sure the points do not fall outside the viewport visible area. This step allways need to be done.  */
                             dataPoint = canvas.chartingSpace.viewport.fitIntoVisibleArea(dataPoint)
                             dataPoint = thisObject.fitFunction(dataPoint)
-
                             /* 
                             Contributing to Auto-Scale: A point will contribute to the y coordinate only if the x coordinate is plotted in the screen.
                             It can happen that objects that span through a long period of time could have its begin point inside the visible 
                             viewport but not its end point. In those cases, the end point should not be reported. 
                             */
-                            
+
                             if (dataPointObject.rawPoint.y > 1 && dataPointObject.rawPoint.y !== undefined && isNaN(dataPointObject.rawPoint.y) === false) {
                                 let rawPoint = coordinateSystem.transformThisPoint(dataPointObject.rawPoint)
                                 if (dataPointObject.isInViewPort === true) {
@@ -839,6 +814,7 @@ function newPlotter() {
                     }
                     dataPoint = canvas.chartingSpace.viewport.fitIntoVisibleArea(dataPoint)
                     dataPoint = thisObject.fitFunction(dataPoint)
+
                     imagePosition.x = dataPoint.x
                     imagePosition.y = dataPoint.y
                     let imageToDraw = canvas.designSpace.iconCollection.get(imageName)
@@ -882,6 +858,7 @@ function newPlotter() {
                     }
                     dataPoint = canvas.chartingSpace.viewport.fitIntoVisibleArea(dataPoint)
                     dataPoint = thisObject.fitFunction(dataPoint)
+
                     textPosition.x = dataPoint.x
                     textPosition.y = dataPoint.y
 

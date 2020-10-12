@@ -374,10 +374,7 @@ function newPlottersManager() {
                 }
             }
             if (found === false) {
-                initializePlotter(layer, onProductPlotterInitialized)
-                function onProductPlotterInitialized(err) {
-                    /* There is no policy yet of what to do if this fails. */
-                }
+                initializePlotter(layer)
             }
         }
         if (layer.status === LAYER_STATUS.OFF) {

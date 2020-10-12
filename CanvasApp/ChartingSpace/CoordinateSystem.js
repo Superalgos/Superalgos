@@ -94,7 +94,7 @@ function newCoordinateSystem() {
         thisObject.eventHandler = undefined
     }
 
-    function initialize(minValue, maxValue, pMaxWidth, pMaxHeight) {
+    function initialize(minValue, maxValue, maxWidth, maxHeight) {
         /* Defines the min and max value of rate that we are going to transport to the available screen at the center position. */
         thisObject.min.x = minValue.x
         thisObject.max.x = maxValue.x
@@ -102,8 +102,8 @@ function newCoordinateSystem() {
         thisObject.min.y = minValue.y
         thisObject.max.y = maxValue.y
 
-        thisObject.maxWidth = pMaxWidth
-        thisObject.maxHeight = pMaxHeight
+        thisObject.maxWidth = maxWidth
+        thisObject.maxHeight = maxHeight
 
         recalculateScale()
     }
@@ -122,14 +122,18 @@ function newCoordinateSystem() {
     }
 
     function reportYValue(value) {
+        /* We will try to create a margin on the y axis so that in auto mode the charts dont get into the scales */
+        const TOP_MARGIN_FACTOR = 1.01
+        const BOTTOM_MARGIN_FACTOR = 0.99
+
         if (thisObject.autoMinYScale === true) {
-            if (value < newYMin) {
-                newYMin = value
+            if (value  * BOTTOM_MARGIN_FACTOR < newYMin) {
+                newYMin = value * BOTTOM_MARGIN_FACTOR
             }
         }
         if (thisObject.autoMaxYScale === true) {
-            if (value > newYMax) {
-                newYMax = value
+            if (value * TOP_MARGIN_FACTOR> newYMax) {
+                newYMax = value * TOP_MARGIN_FACTOR
             }
         }
     }

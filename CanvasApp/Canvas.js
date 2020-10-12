@@ -14,7 +14,6 @@ function newCanvas() {
 
     let containerDragStarted = false
     let floatingObjectDragStarted = false
-    let floatingObjectBeingDragged
     let containerBeingDragged
     let viewPortBeingDragged = false
     let ignoreNextClick = false
@@ -81,12 +80,12 @@ function newCanvas() {
                 browserCanvas.removeEventListener('mousemove', onMouseMove, false)
                 browserCanvas.removeEventListener('click', onMouseClick, false)
                 browserCanvas.removeEventListener('mouseout', onMouseOut, false)
-                
+
                 browserCanvas.removeEventListener('dragenter', onDragEnter, false)
                 browserCanvas.removeEventListener('dragleave', onDragLeave, false)
                 browserCanvas.removeEventListener('dragover', onDragOver, false)
                 browserCanvas.removeEventListener('drop', onDragDrop, false)
-    
+
                 browserCanvas.removeEventListener('keydown', onKeyDown, false)
                 browserCanvas.removeEventListener('keyup', onKeyUp, false)
             } else {
@@ -186,29 +185,30 @@ function newCanvas() {
 
     function addCanvasEvents() {
         try {
-            canvas.eventHandler.listenToEvent('Browser Resized', browserResized)
-
             /* Keyboard events */
             window.addEventListener('keydown', onKeyDown, true)
             window.addEventListener('keyup', onKeyUp, true)
 
-            /* Mouse Events */
-            browserCanvas.addEventListener('mousedown', onMouseDown, false)
-            browserCanvas.addEventListener('mouseup', onMouseUp, false)
-            browserCanvas.addEventListener('mousemove', onMouseMove, false)
-            browserCanvas.addEventListener('click', onMouseClick, false)
-            browserCanvas.addEventListener('mouseout', onMouseOut, false)
-
             if (browserCanvas.addEventListener) {
+                canvas.eventHandler.listenToEvent('Browser Resized', browserResized)
+
+                /* Mouse Events */
+                browserCanvas.addEventListener('mousedown', onMouseDown, false)
+                browserCanvas.addEventListener('mouseup', onMouseUp, false)
+                browserCanvas.addEventListener('mousemove', onMouseMove, false)
+                browserCanvas.addEventListener('click', onMouseClick, false)
+                browserCanvas.addEventListener('mouseout', onMouseOut, false)
+
                 browserCanvas.addEventListener('mousewheel', onMouseWheel, false) // IE9, Chrome, Safari, Opera
                 browserCanvas.addEventListener('DOMMouseScroll', onMouseWheel, false)  // Firefox
-            } else browserCanvas.attachEvent('onmousewheel', onMouseWheel)// IE 6/7/8
 
-            /* Dragging Files Over the Canvas */
-            browserCanvas.addEventListener('dragenter', onDragEnter, false)
-            browserCanvas.addEventListener('dragleave', onDragLeave, false)
-            browserCanvas.addEventListener('dragover', onDragOver, false)
-            browserCanvas.addEventListener('drop', onDragDrop, false)
+                /* Dragging Files Over the Canvas */
+                browserCanvas.addEventListener('dragenter', onDragEnter, false)
+                browserCanvas.addEventListener('dragleave', onDragLeave, false)
+                browserCanvas.addEventListener('dragover', onDragOver, false)
+                browserCanvas.addEventListener('drop', onDragDrop, false)
+
+            } else browserCanvas.attachEvent('onmousewheel', onMouseWheel)// IE 6/7/8
 
             //  Disables the context menu when you right mouse click the canvas.
             browserCanvas.oncontextmenu = function (e) {
@@ -529,12 +529,6 @@ function newCanvas() {
 
                 let nodeUsingThisKey = canvas.designSpace.workspace.getNodeByShortcutKey(event.key)
 
-                if (nodeOnFocus === undefined && nodeUsingThisKey !== undefined) {
-                    /* Then we displace the whole workspace to center it at the node using this key */
-                    nodeUsingThisKey = canvas.floatingSpace.positionAtNode(nodeUsingThisKey)
-                    return
-                }
-
                 /* If there is a node in focus, we try to assign the key to it. */
                 if (nodeUsingThisKey !== undefined && nodeOnFocus !== undefined) {
                     if (nodeUsingThisKey.id === nodeOnFocus.id) {
@@ -769,9 +763,7 @@ function newCanvas() {
                     return
                 } else {
                     if (container.isClickeable === false) {
-                        if (event.buttons === 2) {
-                            viewPortBeingDragged = true
-                        }
+                        viewPortBeingDragged = true
                     }
                     return
                 }

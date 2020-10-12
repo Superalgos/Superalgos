@@ -17,6 +17,7 @@ function isMissingChildren(startingNode, checkNode, checkReferenceParent) {
             switch (property.type) {
                 case 'node': {
                     let child = startingNode[property.name]
+                    if (child === undefined) { continue }
                     if (checkReferenceParent !== true) {
                         if (child.id === checkNode.id) {
                             return false

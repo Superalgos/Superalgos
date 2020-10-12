@@ -572,7 +572,6 @@
                     bandPoint5 = thisObject.fitFunction(bandPoint5);
                     bandPoint6 = thisObject.fitFunction(bandPoint6);
 
-
                     /* First we are drawing a semi-transparent background */
 
                     browserCanvasContext.beginPath();
@@ -592,9 +591,9 @@
                     }
 
                     if (
-                        bandPoint1.x < canvas.chartingSpace.viewport.visibleArea.topLeft.x + 50
+                        bandPoint1.x < canvas.chartingSpace.viewport.visibleArea.topLeft.x + 150
                         ||
-                        bandPoint1.x > canvas.chartingSpace.viewport.visibleArea.bottomRight.x - 50
+                        bandPoint1.x > canvas.chartingSpace.viewport.visibleArea.bottomRight.x - 150
                     ) {
                         // we leave this bands without fill.
                     } else {

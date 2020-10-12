@@ -34,7 +34,6 @@ function newMarketFiles() {
 
   thisObject.eventHandler = newEventHandler()
 
-  let intervalHandle
   let finalized = false
 
   let eventSubscriptionIdDatasetUpdated = []

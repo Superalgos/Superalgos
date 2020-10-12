@@ -73,35 +73,35 @@ Just delete the folder Superalgos.
 
 We give online support to users through our [Superalgos Telegram Community](https://t.me/superalgoscommunity).
 
-We give support to developers through our [Superalgos Telegram Developer's Group](https://t.me/superalgosdevelop)
+We give support to developers through our [Superalgos Telegram Developer's Group](https://t.me/superalgosdevelop).
 
-We give support in Spanish through our [Superalgos en Español Telegram Developer's Group](https://t.me/superalgos_es)
+We give support in Spanish through our [Superalgos en Español Telegram Developer's Group](https://t.me/superalgos_es).
  
 ### via Documentation Site
 
-Self Service support available via the [Documentation Site](https://docs.superalgos.org/) to learn about Superalgos.
+Self Service support available via the [Superalgos Documentation Site](https://docs.superalgos.org/).
 
 ### via Video Tutorials
 
-Self Service support via video tutorials at the [Superalgos You Tube Channel](https://www.youtube.com/channel/UCmYSGbB151xFQPNxj7KfKBg) to learn more about Superalgos.
+Self Service support via video tutorials at the [Superalgos You Tube Channel](https://www.youtube.com/channel/UCmYSGbB151xFQPNxj7KfKBg).
 
 # Other Resources
 
 ### Web Site
 
-For an overview of what Superalgos can do for you, please check the [Superalgos Website] (https://superalgos.org/)
+For an overview of what Superalgos can do for you, please check the [Superalgos Website] (https://superalgos.org/).
 
 ### Superalgos Blog
 
-You can find everything we wrote during the history of the project at the [Superalgos Blog] (https://medium.com/superalgos)
+You can find everything we have written at the [Superalgos Blog] (https://medium.com/superalgos).
 
 ### Superalgos on Twitter
 
-To stay up-to-date, follow [Superalgos on Twitter] (https://twitter.com/superalgos)
+To stay up-to-date, follow [Superalgos on Twitter] (https://twitter.com/superalgos).
 
 ### Superalgos on Facebook
 
-To stay up-to-date, follow [Superalgos on Facebook] (https://www.facebook.com/superalgos)
+To stay up-to-date, follow [Superalgos on Facebook] (https://www.facebook.com/superalgos).
 
 # Contributing
 

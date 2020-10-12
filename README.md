@@ -60,7 +60,7 @@ git clone https://github.com/Superalgos/Superalgos
 
 ## Usage
 
-1. Change to the Superalgos directory and type:
+1. Change to the Superalgos directory / folder and type:
 ```
 node run
 ```

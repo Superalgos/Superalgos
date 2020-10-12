@@ -80,7 +80,7 @@ We give online support to users through our [Superalgos Telegram Community](http
 
 We give support to developers through our [Superalgos Telegram Developer's Group](https://t.me/superalgosdevelop).
 
-We give support in Spanish through our [Superalgos en Español Telegram Developer's Group](https://t.me/superalgos_es).
+We give support in Spanish through our [Superalgos en Español Telegram Group](https://t.me/superalgos_es).
  
 ### Via Documentation Site
 

@@ -62,10 +62,14 @@ Just delete the folder Superalgos.
 
 # Support
 
-### Online Support via Telegram Community
+### Via Telegram
 
-We give support through our [Telegram Community](https://t.me/superalgoscommunity).
+We give online support to users through our [Superalgos Telegram Community](https://t.me/superalgoscommunity).
 
+We give support to developers through our [Superalgos Telegram Developer's Group](https://t.me/superalgosdevelop)
+
+We give support in Spanish through our [Superalgos en Español Telegram Developer's Group](https://t.me/superalgos_es)
+ 
 ### Self Service via Documentation Site
 
 Superalgos is well documented. Please visit the [Documentation Site](https://docs.superalgos.org/) to learn about Superalgos.
@@ -81,6 +85,24 @@ Superalgos is a Community Project. Learn [how to become a Contributor](https://d
 ## Contributors 
 
 Luis Fernando Molina, Julian Molina, Andreja Cobeljic, Matías Benitez, Ira Miller, Eduardo Remis, Jeff Braun, rico4dev, Barry Low, Nikola Bjelogrlic, Hirajin Koizuko, Francisco J. Santillán, Viktoria B., Javier A., Gustavo J., Romina, Pedro P., Thais M., Loui M., Natalia M., Bashar A., Carlos V., Diego M., Sebastian E., Bogdan P., Marko V., Igor S., Niksa K., Rodrigo M. and Nicanor M.
+
+# Other Resources
+
+### Web Site
+
+For an overview of what Superalgos can do for you, please check the [Superalgos Website] (https://superalgos.org/)
+
+### Superalgos Blog
+
+You can find everything we wrote during the history of the project at the [Superalgos Blog] (https://medium.com/superalgos)
+
+### Superalgos on Twitter
+
+To stay up-to-date, follow [Superalgos on Twitter] (https://twitter.com/superalgos)
+
+### Superalgos on Facebook
+
+To stay up-to-date, follow [Superalgos on Facebook] (https://www.facebook.com/superalgos)
 
 # License
 

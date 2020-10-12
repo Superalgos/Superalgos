@@ -79,11 +79,11 @@ We give support in Spanish through our [Superalgos en Español Telegram Develope
  
 ### via Documentation Site
 
-Self Service support available via the [Superalgos Documentation Site](https://docs.superalgos.org/).
+Self service support available via the [Superalgos Documentation Site](https://docs.superalgos.org/).
 
 ### via Video Tutorials
 
-Self Service support via video tutorials at the [Superalgos You Tube Channel](https://www.youtube.com/channel/UCmYSGbB151xFQPNxj7KfKBg).
+Self service support via video tutorials at the [Superalgos You Tube Channel](https://www.youtube.com/channel/UCmYSGbB151xFQPNxj7KfKBg).
 
 # Other Resources
 

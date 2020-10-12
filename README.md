@@ -77,11 +77,11 @@ We give support to developers through our [Superalgos Telegram Developer's Group
 
 We give support in Spanish through our [Superalgos en Español Telegram Developer's Group](https://t.me/superalgos_es).
  
-### via Documentation Site
+### Via Documentation Site
 
 Self service support available via the [Superalgos Documentation Site](https://docs.superalgos.org/).
 
-### via Video Tutorials
+### Via Video Tutorials
 
 Self service support via video tutorials at the [Superalgos You Tube Channel](https://www.youtube.com/channel/UCmYSGbB151xFQPNxj7KfKBg).
 

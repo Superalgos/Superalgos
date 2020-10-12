@@ -49,6 +49,8 @@ Superalgos is a platform to automate crypto-tarding. It is a Nodejs + Web App th
 
 # Getting Started
 
+All procedures are the same for Windows, Linux or Mac OS. Note: only tested with Google Chrome.
+
 ## Instalation
 
 1. If you don't have it yet, [install Node.js.](https://nodejs.org/en/download/)

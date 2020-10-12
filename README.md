@@ -41,7 +41,7 @@ Superalgos is a platform to automate crypto-tarding. It is a Nodejs + Web App th
 
 ## Instalation
 
-1. If you don't have it yet, install Node.js.
+1. If you don't have it yet, [install Node.js.](https://nodejs.org/en/download/)
 2. Open a command prompt or terminal and type:
 
 ```
@@ -60,13 +60,19 @@ node run
 
 Just delete the folder Superalgos.
 
-# Documentation
-
-Superalgos is well documented. Please refer to the [Documentation Site](https://docs.superalgos.org/).
-
 # Support
 
+## Online Support via Telegram Community
+
 We give support through our [Telegram Community](https://t.me/superalgoscommunity).
+
+# Self Service via Documentation Site
+
+Superalgos is well documented. Please visit the [Documentation Site](https://docs.superalgos.org/) to learn about Superalgos.
+
+# Self Service via Video Tutorials
+
+Some topics have video tutorials. Please visit the [Superalgos You Tube Channel](https://www.youtube.com/channel/UCmYSGbB151xFQPNxj7KfKBg) to learn more about Superalgos.
 
 # Contributing
 

@@ -17,7 +17,7 @@ Superalgos is a platform to automate crypto-tarding. It is a Nodejs + Web App th
 
 * A Visual Scripting Designer.
 * Integrated Charting System.
-* Task Magagment across a Trading Farm.
+* Task Managment across a Trading Farm.
 
 # Superalgos for Developers:
 
@@ -46,7 +46,7 @@ We give support through our [Telegram Community](https://t.me/superalgoscommunit
 
 # Contributing
 
-Superalgos is a Community Project. Learn [How to become a Contributor](https://docs.superalgos.org/contributing-to-superalgos.html).
+Superalgos is a Community Project. Learn [how to become a Contributor](https://docs.superalgos.org/contributing-to-superalgos.html).
 
 ## Contributors 
 

@@ -50,10 +50,11 @@ git clone https://github.com/Superalgos/Superalgos
 
 ## Usage
 
-Change to the Superalgos directory and type:
+1. Change to the Superalgos directory and type:
 ```
 node run
 ```
+2. Follow the in-app Welcome Tutorial to learn the basics.
 
 ## Uninstall
 

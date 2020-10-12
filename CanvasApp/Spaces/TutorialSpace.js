@@ -562,6 +562,17 @@ function newTutorialSpace() {
                                                     canvas.chartingSpace.viewport.displaceToContainer(timeMachine.container)
                                                     break
                                                 }
+                                                case (repositionAtTimeMachineCounter === 35): {
+                                                    let event = {
+                                                        metaKey: true,
+                                                        shiftKey: true,
+                                                        ctrlKey: true,
+                                                        code: undefined,
+                                                        key: 'A'
+                                                    }
+                                                    timeMachine.edgeEditor.onKeyPressed(event, true)
+                                                    break
+                                                }
                                                 case (repositionAtTimeMachineCounter === 40): {
                                                     canvas.chartingSpace.viewport.zoomAtCenter(8)
                                                     break

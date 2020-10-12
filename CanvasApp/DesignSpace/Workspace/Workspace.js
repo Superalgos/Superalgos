@@ -140,7 +140,7 @@ function newWorkspace() {
         functionLibraryUiObjectsFromNodes.syncronizeTasksFoundAtWorkspaceWithBackEnd(functionLibraryTaskFunctions)
         functionLibraryUiObjectsFromNodes.syncronizeSessionsFoundAtWorkspaceWithBackEnd(functionLibrarySessionFunctions)
  
-        setTimeout(functionLibraryUiObjectsFromNodes.playTutorials, 5000)
+        setTimeout(functionLibraryUiObjectsFromNodes.playTutorials, 1000)
    
     }
 
@@ -261,6 +261,7 @@ function newWorkspace() {
 
             switch (workingAtTask) {
                 case 1:
+                    canvas.tutorialSpace.stop()
                     functionLibraryNodeDeleter.deleteWorkspace(thisObject.workspaceNode, thisObject.workspaceNode.rootNodes)
                     workingAtTask++
                     break

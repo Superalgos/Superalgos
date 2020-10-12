@@ -96,15 +96,15 @@ Self service support via video tutorials at the [Superalgos You Tube Channel](ht
 
 For an overview of what Superalgos can do for you, please check the [Superalgos Website](https://superalgos.org/).
 
-### Superalgos Blog
+### Blog
 
 You can find everything we have written at the [Superalgos Blog](https://medium.com/superalgos).
 
-### Superalgos on Twitter
+### Twitter
 
 To stay up-to-date, follow [Superalgos on Twitter](https://twitter.com/superalgos).
 
-### Superalgos on Facebook
+### Facebook
 
 To stay up-to-date, follow [Superalgos on Facebook](https://www.facebook.com/superalgos).
 

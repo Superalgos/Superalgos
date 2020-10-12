@@ -261,6 +261,7 @@ function newWorkspace() {
 
             switch (workingAtTask) {
                 case 1:
+                    canvas.tutorialSpace.stop()
                     functionLibraryNodeDeleter.deleteWorkspace(thisObject.workspaceNode, thisObject.workspaceNode.rootNodes)
                     workingAtTask++
                     break

@@ -19,7 +19,7 @@ Superalgos is a platform to automate crypto-tarding. It is a Nodejs + Web App th
 * Integrated Charting System.
 * Task Managment across a Trading Farm.
 
-# Superalgos for Developers:
+# Superalgos for Developers
 
 * You are free to custumize Superalgos for your customers. No royalties, no license fees.
 * Everything extra your customers might need you can code it yourself or request it as a new feature.
@@ -27,7 +27,7 @@ Superalgos is a platform to automate crypto-tarding. It is a Nodejs + Web App th
 * No propietary code / libraries. All open source and free.
 * Already available a set of community contributed plugins (workspaces, strategies, indicators, plotters, tutorials, etc.)
 
-## Superalgos saves you time:
+## Superalgos saves you time
 
 * No need to code the download of historical data from crypto exchanges.
 * No need to code the streming of market data from crypto exchanges.
@@ -36,9 +36,9 @@ Superalgos is a platform to automate crypto-tarding. It is a Nodejs + Web App th
 * No need to integrate a charing library, Superalgos has its own integrated Charting System.
 * No need to manage task data or execution dependencies by yourself. Superalgos allows you to define Tasks and distribute them acrross a Trading Farm, and it takes cares of the data depencies and execution dependencies, so that each task automatically starts when their dependencies are ready.
 
-# Getting Started:
+# Getting Started
 
-## Instalation:
+## Instalation
 
 1. If you don't have it yet, install Node.js.
 2. Open a command prompt or terminal and type:
@@ -54,7 +54,7 @@ Change to the Superalgos directory and type:
 node run
 ```
 
-## Uninstall:
+## Uninstall
 
 Just delete the folder Superalgos.
 

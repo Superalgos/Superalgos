@@ -551,7 +551,7 @@ function newTutorialSpace() {
                                         if (timeMachine !== undefined) {
                                             repositionAtTimeMachineCounter++
                                             switch (true) {
-                                                case (repositionAtTimeMachineCounter > 0 && repositionAtTimeMachineCounter < 10): {
+                                                case (repositionAtTimeMachineCounter > 0 && repositionAtTimeMachineCounter < 20): {
                                                     let event = {
                                                         delta: -1
                                                     }

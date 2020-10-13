@@ -12962,7 +12962,7 @@
             {
                 "action": "Add UI Object",
                 "label": "Add Bot Layers",
-                "relatedUiObject": "Bot Layer",
+                "relatedUiObject": "Bot Layers",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {

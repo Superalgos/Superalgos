@@ -574,6 +574,10 @@ function newTutorialSpace() {
                                                     break
                                                 }
                                                 case (repositionAtTimeMachineCounter === 90): {
+                                                    canvas.chartingSpace.viewport.displaceToContainer(timeMachine.container)
+                                                    break
+                                                }
+                                                case (repositionAtTimeMachineCounter === 120): {
                                                     canvas.chartingSpace.viewport.zoomAtCenter(8)
                                                     break
                                                 }

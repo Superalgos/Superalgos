@@ -12960,6 +12960,12 @@
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
+                "action": "Add UI Object",
+                "label": "Add Bot Layers",
+                "relatedUiObject": "Bot Layers",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Add All Mine Layers",
                 "label": "Add All Mine Layers",
                 "askConfirmation": true,
@@ -12993,7 +12999,7 @@
             "compatibleTypes": "->Timeline Chart->"
         },
         "referenceAttachesTo": {
-            "compatibleTypes": "->Data Mine Products->"
+            "compatibleTypes": "->Data Mine Products->Trading Mine Products->"
         },
         "propertyNameAtParent": "layerManager",
         "properties": [
@@ -14347,7 +14353,7 @@
         "addLeftIcons": true,
         "level": 3,
         "chainAttachesTo": {
-            "compatibleTypes": "->Data Mine Products->"
+            "compatibleTypes": "->Data Mine Products->Trading Mine Products->"
         },
         "propertyNameAtParent": "botProducts",
         "properties": [

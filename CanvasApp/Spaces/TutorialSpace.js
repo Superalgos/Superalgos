@@ -700,8 +700,10 @@ function newTutorialSpace() {
     function stop() {
         resetAfterButtonPressed()
         checkForceFocus()
-        tutorialRootNode.payload.uiObject.isPlaying = false
-        tutorialRootNode = undefined
+        if (tutorialRootNode !== undefined) {
+            tutorialRootNode.payload.uiObject.isPlaying = false
+            tutorialRootNode = undefined
+        }
         currentStatus = 'Stopped'
     }
 

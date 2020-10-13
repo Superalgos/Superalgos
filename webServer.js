@@ -512,7 +512,7 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                     let fs = require('fs')
 
                     try {
-                        let filePath = process.env.DEFAULT_WORKSPACE_PATH + '/Default.json'
+                        let filePath = process.env.DEFAULT_WORKSPACE_PATH + '/Getting-Started.json'
                         fs.readFile(filePath, onFileRead)
                     } catch (e) {
                         console.log('[ERROR] Error reading the Workspace.', e)

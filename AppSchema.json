@@ -2511,8 +2511,7 @@
                 "childType": "Indicator Function",
                 "autoAdd": true
             }
-        ],
-        "icon": "bitcoin"
+        ]
     },
     {
         "type": "Indicator Function",
@@ -12467,8 +12466,7 @@
                 "childType": "Space Settings",
                 "autoAdd": true
             }
-        ],
-        "icon": "bitcoin"
+        ]
     },
     {
         "type": "Space Style",
@@ -12501,8 +12499,7 @@
                 "iconPathOff": "delete"
             }
         ],
-        "addLeftIcons": true,
-        "icon": "bitcoin"
+        "addLeftIcons": true
     },
     {
         "type": "Space Settings",
@@ -12535,8 +12532,7 @@
                 "iconPathOff": "delete"
             }
         ],
-        "addLeftIcons": true,
-        "icon": "bitcoin"
+        "addLeftIcons": true
     },
     {
         "type": "Charting Space",
@@ -14468,8 +14464,7 @@
                 "childType": "Plugin Tutorials",
                 "autoAdd": false
             }
-        ],
-        "icon": "bitcoin"
+        ]
     },
     {
         "type": "Plugin Data Mines",
@@ -14503,8 +14498,7 @@
                 "childType": "Plugin File",
                 "autoAdd": false
             }
-        ],
-        "icon": "bitcoin"
+        ]
     },
     {
         "type": "Plugin Trading Mines",
@@ -14538,8 +14532,7 @@
                 "childType": "Plugin File",
                 "autoAdd": false
             }
-        ],
-        "icon": "bitcoin"
+        ]
     },
     {
         "type": "Plugin Trading Systems",
@@ -14573,8 +14566,7 @@
                 "childType": "Plugin File",
                 "autoAdd": false
             }
-        ],
-        "icon": "bitcoin"
+        ]
     },
     {
         "type": "Plugin Trading Engines",
@@ -14608,8 +14600,7 @@
                 "childType": "Plugin File",
                 "autoAdd": false
             }
-        ],
-        "icon": "bitcoin"
+        ]
     },
     {
         "type": "Plugin Super Scripts",
@@ -14643,8 +14634,7 @@
                 "childType": "Plugin File",
                 "autoAdd": false
             }
-        ],
-        "icon": "bitcoin"
+        ]
     },
     {
         "type": "Plugin Tutorials",
@@ -14678,8 +14668,7 @@
                 "childType": "Plugin File",
                 "autoAdd": false
             }
-        ],
-        "icon": "bitcoin"
+        ]
     },
     {
         "type": "Plugin File",
@@ -14712,8 +14701,7 @@
                 "childType": "Plugin File Position",
                 "autoAdd": false
             }
-        ],
-        "icon": "bitcoin"
+        ]
     },
     {
         "type": "Plugin File Position",
@@ -14735,8 +14723,7 @@
         "level": 3,
         "propertyNameAtParent": "pluginFilePosition",
         "properties": [
-        ],
-        "icon": "bitcoin"
+        ]
     },
     {
         "type": "Tutorial",

@@ -551,7 +551,7 @@ function newTutorialSpace() {
                                         if (timeMachine !== undefined) {
                                             repositionAtTimeMachineCounter++
                                             switch (true) {
-                                                case (repositionAtTimeMachineCounter > 10 && repositionAtTimeMachineCounter < 20): {
+                                                case (repositionAtTimeMachineCounter > 0 && repositionAtTimeMachineCounter < 10): {
                                                     let event = {
                                                         delta: -1
                                                     }
@@ -562,7 +562,7 @@ function newTutorialSpace() {
                                                     canvas.chartingSpace.viewport.displaceToContainer(timeMachine.container)
                                                     break
                                                 }
-                                                case (repositionAtTimeMachineCounter === 35): {
+                                                case (repositionAtTimeMachineCounter === 60): {
                                                     let event = {
                                                         metaKey: true,
                                                         shiftKey: true,
@@ -573,7 +573,7 @@ function newTutorialSpace() {
                                                     timeMachine.edgeEditor.onKeyPressed(event, true)
                                                     break
                                                 }
-                                                case (repositionAtTimeMachineCounter === 40): {
+                                                case (repositionAtTimeMachineCounter === 90): {
                                                     canvas.chartingSpace.viewport.zoomAtCenter(8)
                                                     break
                                                 }

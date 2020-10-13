@@ -26,7 +26,7 @@ const UI_FONT = {
     SECONDARY: "Source Code Pro"
 };
 
-const DOCUMENTATION_URL_PREFIX = 'https://docs.superalgos.org/'
+const DOCUMENTATION_URL_PREFIX = 'https://docs.superalgos.org/suite-about-this-documentation.html'
 
 const MAC_AMOUNT_FACTOR = 5
 const IS_MAC = navigator.platform.toUpperCase().indexOf('MAC') >= 0

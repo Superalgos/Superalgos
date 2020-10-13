@@ -50,7 +50,7 @@ function newDocSpace() {
     function onOpening() {
         let docIFrame = document.getElementById('docIFrame')
         if (docIFrame.src === "") {
-            docIFrame.src = DOCUMENTATION_URL_PREFIX
+            docIFrame.src = DOCUMENTATION_URL_DEFAULT
         }
     }
 

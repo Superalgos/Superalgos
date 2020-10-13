@@ -12960,6 +12960,12 @@
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
+                "action": "Add UI Object",
+                "label": "Add Bot Layers",
+                "relatedUiObject": "Bot Layer",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Add All Mine Layers",
                 "label": "Add All Mine Layers",
                 "askConfirmation": true,

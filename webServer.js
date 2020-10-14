@@ -491,19 +491,19 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
 
             case 'AppSchema.js':
                 {
-                    sendSchema(process.env.APP_SCHEMA_PATH, 'AppSchema', 'getAppSchema')
+                    sendSchema(process.env.PROJECTS_PATH + '/Superalgos/Schemas/', 'AppSchema', 'getAppSchema')
                 }
                 break
 
             case 'DocSchema.js':
                 {
-                    sendSchema(process.env.DOC_SCHEMA_PATH, 'DocSchema', 'getDocSchema')
+                    sendSchema(process.env.PROJECTS_PATH + '/Superalgos/Schemas/', 'DocSchema', 'getDocSchema')
                 }
                 break
 
             case 'ConceptSchema.js':
                 {
-                    sendSchema(process.env.CONCEPT_SCHEMA_PATH, 'ConceptSchema', 'getConceptSchema')
+                    sendSchema(process.env.PROJECTS_PATH + '/Superalgos/Schemas/', 'ConceptSchema', 'getConceptSchema')
                 }
                 break
 
@@ -707,6 +707,7 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
 
             try {
                 filePath = filePath + fileName + '.json'
+                console.log(filePath)
                 fs.readFile(filePath, onFileRead)
             } catch (e) {
                 console.log('[ERROR] Error reading the ' + fileName, e)

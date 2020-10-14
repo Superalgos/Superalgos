@@ -30,7 +30,7 @@ Superalgos is a platform to automate crypto-tarding. It is a Nodejs + Web App th
 * No ads, anywhere.
 * No sign up / logins.
 * No user / usage data collection of any kind.
-* Runs 100% on uncompilled code you can read and audit.
+* Runs 100% on uncompilled code anyone can read and audit.
 
 # Superalgos for Developers
 
@@ -48,6 +48,27 @@ Superalgos is a platform to automate crypto-tarding. It is a Nodejs + Web App th
 * No need to debug what went wrong line by line or diving into log files with tons of data. You can see each variable of the state of the Trading Engine at every candle by hovering the mouse over the charts.
 * No need to integrate a charitng library, Superalgos has its own integrated Charting System.
 * No need to manage task data or execution dependencies by yourself. Superalgos allows you to define Tasks and distribute them acrross a Trading Farm, and it takes cares of the data and execution dependencies, so that each task automatically starts when their dependencies are ready.
+
+## Superalgos saves you money
+
+* There are no paid plans or anything that cost you money.
+* There is no locked functionality, you can use the full capacity of the software.
+* There is no limit in the amount of backtests you can run. 
+* There is no limit in the amount of live sessions you can run.
+* There is no limit in the amount of historical data you can download.
+* There is no limit in the amount of data you can process.
+* You can use all the plugins available (indicators / plotters / strategies / etc.)
+* You can install superalgos in as many machines that you want.
+* Your installations can be use by as many peopler that you want.
+* You can connect to as many crypto exchanges as you want.
+
+## Superalgos minimizes your risks
+
+* No one can know what strategies you design / run
+* No one can front-run you
+* No one can steal your trading ideas
+* No one knows how much money you have / trade
+* No one can see your exchange keys
 
 # Getting Started
 

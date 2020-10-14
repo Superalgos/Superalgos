@@ -118,7 +118,7 @@ function newChatSpace() {
     }
 
     function draw() {
-        if (canWeDraw === false) { return }
+        if (CAN_SPACES_DRAW === false) { return }
         if (isInitialized === false) { return }
         borders()
         thisObject.sidePanelTab.draw()

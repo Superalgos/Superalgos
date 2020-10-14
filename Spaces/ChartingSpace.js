@@ -414,7 +414,7 @@ function newChartingSpace() {
     }
 
     function draw() {
-        if (canWeDraw === false) { return }
+        if (CAN_SPACES_DRAW === false) { return }
         if (thisObject.visible === false) { return }
         drawBackground()
 

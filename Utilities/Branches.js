@@ -10,9 +10,9 @@ function nodeBranchToArray(node, nodeType) {
     return resultArray
 
     function scanNodeBranch(startingNode) {
-        if (startingNode === undefined) {return}
-        
-        let nodeDefinition = APP_SCHEMA_MAP.get(startingNode.type)
+        if (startingNode === undefined) { return }
+
+        let nodeDefinition = getNodeDefinition(startingNode)
         if (nodeDefinition === undefined) { return }
 
         if (startingNode.type === nodeType) {
@@ -24,7 +24,7 @@ function nodeBranchToArray(node, nodeType) {
         let lastNodePropertyName
         for (let i = 0; i < nodeDefinition.properties.length; i++) {
             let property = nodeDefinition.properties[i]
-            if (lastNodePropertyName === property.name) {continue} // Some nodes have a single property por multiple child node types. We need to check repeated properties only once so as no to duplicate results.
+            if (lastNodePropertyName === property.name) { continue } // Some nodes have a single property por multiple child node types. We need to check repeated properties only once so as no to duplicate results.
             switch (property.type) {
                 case 'node': {
                     scanNodeBranch(startingNode[property.name])

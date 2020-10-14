@@ -336,7 +336,7 @@ function newPanelsSpace() {
     }
 
     function draw() {
-        if (canWeDraw === false) { return }
+        if (CAN_SPACES_DRAW === false) { return }
         if (thisObject.visible !== true) { return }
 
         thisObject.container.frame.draw(false, false)

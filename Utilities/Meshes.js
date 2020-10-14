@@ -17,7 +17,7 @@ function findNodeInNodeMesh(node, nodeType, nodeName, connectedViaPayload, findI
         if (nodeFound !== undefined) { return }
         if (depth >= MAX_DEPTH) {return}
 
-        let nodeDefinition = APP_SCHEMA_MAP.get(startingNode.type)
+        let nodeDefinition = getNodeDefinition(startingNode)
         if (nodeDefinition === undefined) { return }
 
         if (nodeType !== undefined) {

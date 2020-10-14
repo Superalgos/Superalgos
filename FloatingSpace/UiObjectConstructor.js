@@ -174,7 +174,7 @@ function newUiObjectConstructor() {
         uiObject.isVisibleFunction = canvas.floatingSpace.isThisPointVisible
         let menuItemsInitialValues = getMenuItemsInitialValues(uiObject, floatingObject, payload)
 
-        let schemaNode = APP_SCHEMA_MAP.get(payload.node.type)
+        let schemaNode = getNodeDefinition(payload.node)
         if (schemaNode === undefined) {
             console.log(payload.node.type + ' node found at App Schema. This node will not be created. ')
             return

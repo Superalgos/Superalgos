@@ -231,7 +231,7 @@ let ARE_WE_RECORDING_A_MARKET_PANORAMA = false
 let PANORAMA_WAS_PANNED = false
 let CURRENT_PANORAMA_POSITION = 0
 
-let canWeDraw = false // This global variable regulates when spaces can or can not draw their contents.
+let CAN_SPACES_DRAW = false // This global variable regulates when spaces can or can not draw their contents.
 
 function toRadians(angle) {
     return angle * (Math.PI / 180);

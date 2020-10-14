@@ -14,7 +14,7 @@ function getHiriarchyMap(rootNode) {
         hiriatchyMap.set(node.id, node)
 
         /* Now we go down through all this node children */
-        let nodeDefinition = APP_SCHEMA_MAP.get(node.type)
+        let nodeDefinition = getNodeDefinition(node)
         if (nodeDefinition === undefined) { return }
 
         if (nodeDefinition.properties !== undefined) {

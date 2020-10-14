@@ -64,11 +64,11 @@ Superalgos is a platform to automate crypto-tarding. It is a Nodejs + Web App th
 
 ## Superalgos minimizes your risks
 
-* No one can know what strategies you design / run
-* No one can front-run you
-* No one can steal your trading ideas
-* No one knows how much money you have / trade
-* No one can see your exchange keys
+* No one can know what strategies you design / run.
+* No one can front-run you.
+* No one can steal your trading ideas.
+* No one knows how much money you have / trade.
+* No one can see your exchange keys.
 
 # Getting Started
 

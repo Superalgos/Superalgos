@@ -9,7 +9,7 @@ Superalgos is a platform to automate crypto-tarding. It is a Nodejs + Web App th
 * A Visual Scripting Designer.
 * Integrated Charting System.
 * A Visual Strategy Debugger.
-* Task Managment across a Trading Farm.
+* Task Management across a Trading Farm.
 * Community built strategies to learn and start from.
 
 ## Superalgos allows you to

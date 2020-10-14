@@ -75,7 +75,7 @@ function newListItem() {
     }
 
     function draw() {
-        let icon = canvas.designSpace.iconByUiObjectType.get(type)
+        let icon = canvas.designSpace.iconsByProjectType.get(type)
         let backgroundColor = UI_COLOR.BLACK
         let labelColor
 

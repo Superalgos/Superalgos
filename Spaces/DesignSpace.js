@@ -3,8 +3,8 @@ function newDesignSpace() {
     const MODULE_NAME = 'Designe Space'
     let thisObject = {
         container: undefined,
-        iconCollection: undefined,
-        iconByUiObjectType: undefined,
+        iconsByName: undefined,
+        iconsByProjectType: undefined,
         workspace: undefined,
         physics: physics,
         draw: draw,
@@ -20,8 +20,8 @@ function newDesignSpace() {
 
     container.isDraggeable = false
 
-    thisObject.iconCollection = new Map()
-    thisObject.iconByUiObjectType = new Map()
+    thisObject.iconsByName = new Map()
+    thisObject.iconsByProjectType = new Map()
 
     return thisObject
 
@@ -43,9 +43,9 @@ function newDesignSpace() {
                     iconName = nodeDefinition.type.toLowerCase()
                     iconName = iconName.split(" ").join("-")
                 }
-                let icon = thisObject.iconCollection.get(iconName)
+                let icon = thisObject.iconsByName.get(iconName)
                 if (icon !== undefined) {
-                    thisObject.iconByUiObjectType.set(nodeDefinition.type, icon)
+                    thisObject.iconsByProjectType.set(nodeDefinition.type, icon)
                 }
             }
         }
@@ -81,7 +81,7 @@ function newDesignSpace() {
                 }
                 image.src = PATH + name
                 let key = name.substring(0, name.length - 4)
-                thisObject.iconCollection.set(key, image)
+                thisObject.iconsByName.set(key, image)
 
                 if (imageLoadedCounter === imageNames.length) {
                     callBack()

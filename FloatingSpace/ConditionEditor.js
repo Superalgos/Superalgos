@@ -67,14 +67,14 @@ function newConditionEditor() {
     }
 
     function initialize() {
-        timeFrameIcon = canvas.designSpace.iconCollection.get('time-period')
-        dataMineIcon = canvas.designSpace.iconCollection.get('data-mine')
-        botIcon = canvas.designSpace.iconCollection.get('bot-indicator')
-        whenIcon = canvas.designSpace.iconCollection.get('chronometer')
-        productIcon = canvas.designSpace.iconCollection.get('product-definition')
-        propertyIcon = canvas.designSpace.iconCollection.get('record-property')
-        operationIcon = canvas.designSpace.iconCollection.get('headphones')
-        valueIcon = canvas.designSpace.iconCollection.get('competition')
+        timeFrameIcon = canvas.designSpace.iconsByName.get('time-period')
+        dataMineIcon = canvas.designSpace.iconsByName.get('data-mine')
+        botIcon = canvas.designSpace.iconsByName.get('bot-indicator')
+        whenIcon = canvas.designSpace.iconsByName.get('chronometer')
+        productIcon = canvas.designSpace.iconsByName.get('product-definition')
+        propertyIcon = canvas.designSpace.iconsByName.get('record-property')
+        operationIcon = canvas.designSpace.iconsByName.get('headphones')
+        valueIcon = canvas.designSpace.iconsByName.get('competition')
     }
 
     function activate(payload) {

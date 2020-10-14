@@ -532,8 +532,8 @@ function newRateScale() {
         if (thisObject.payload === undefined) { return }
         if (thisObject.payload.node === undefined) { return }
 
-        let icon1 = canvas.designSpace.iconByUiObjectType.get(thisObject.payload.node.payload.parentNode.type)
-        let icon2 = canvas.designSpace.iconByUiObjectType.get(thisObject.payload.node.type)
+        let icon1 = canvas.designSpace.iconsByProjectType.get(thisObject.payload.node.payload.parentNode.type)
+        let icon2 = canvas.designSpace.iconsByProjectType.get(thisObject.payload.node.type)
 
         let backgroundColor = UI_COLOR.BLACK
         let labels = scaleLabels(thisObject.rate)

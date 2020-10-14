@@ -1112,7 +1112,7 @@ function newUiObject() {
     }
 
     function iconPhysics() {
-        icon = canvas.designSpace.iconByUiObjectType.get(thisObject.payload.node.type)
+        icon = canvas.designSpace.iconsByProjectType.get(thisObject.payload.node.type)
         let nodeDefinition = getNodeDefinition(thisObject.payload.node)
         if (nodeDefinition.alternativeIcons !== undefined) {
             let nodeToUse = thisObject.payload.node
@@ -1142,7 +1142,7 @@ function newUiObject() {
                         iconName = alternativeIcon.iconName
                     }
                 }
-                let newIcon = canvas.designSpace.iconCollection.get(iconName)
+                let newIcon = canvas.designSpace.iconsByName.get(iconName)
                 if (newIcon !== undefined) {
                     icon = newIcon
                 }
@@ -1151,7 +1151,7 @@ function newUiObject() {
             }
         }
 
-        executingIcon = canvas.designSpace.iconCollection.get('attractive')
+        executingIcon = canvas.designSpace.iconsByName.get('attractive')
     }
 
     function onFocus() {

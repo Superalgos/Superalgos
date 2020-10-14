@@ -74,9 +74,9 @@ function newPanelsVisibleButton() {
     function draw() {
         let icon
         if (thisObject.showPanels === true) {
-            icon = canvas.designSpace.iconCollection.get('plotter-panel')
+            icon = canvas.designSpace.iconsByName.get('plotter-panel')
         } else {
-            icon = canvas.designSpace.iconCollection.get('toggle-panel-off')
+            icon = canvas.designSpace.iconsByName.get('toggle-panel-off')
         }
 
         drawIcon(icon, 1 / 2, 1 / 2, 0, 0, 14, thisObject.container)

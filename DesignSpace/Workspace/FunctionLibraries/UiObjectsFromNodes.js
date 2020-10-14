@@ -216,6 +216,11 @@ function newUiObjectsFromNodes() {
     }
 
     function createUiObjectFromNode(node, parentNode, chainParent, positionOffset) {
+        /* Migration code from beta 6 to beta 7 */
+        if (node.project === undefined) {
+            node.project = 'Superalgos'
+        }
+        
         /* 
         This function can be called with a positionOffset to change the node
         saved position and all of its descendants positions as well with an 

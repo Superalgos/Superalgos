@@ -45,7 +45,7 @@ function newDesignSpace() {
                 }
                 let icon = thisObject.iconsByName.get(iconName)
                 if (icon !== undefined) {
-                    thisObject.iconsByProjectType.set(nodeDefinition.type, icon)
+                    thisObject.iconsByProjectType.set('Superalgos' + '-' + nodeDefinition.type, icon)
                 }
             }
         }

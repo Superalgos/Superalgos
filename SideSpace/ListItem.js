@@ -24,6 +24,7 @@ function newListItem() {
     thisObject.container.frame.height = SIDE_PANEL_WIDTH * 0.75
 
     let name
+    let project
     let type
 
     let onMouseOverEventSubscriptionId
@@ -43,8 +44,9 @@ function newListItem() {
         thisObject.fitFunction = undefined
     }
 
-    function initialize(pName, pType) {
+    function initialize(pName, pProject, pType) {
         name = pName
+        project = pProject
         type = pType
 
         onMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
@@ -75,7 +77,7 @@ function newListItem() {
     }
 
     function draw() {
-        let icon = canvas.designSpace.iconsByProjectType.get(type)
+        let icon = canvas.designSpace.iconsByProjectType.get(project + '-' + type)
         let backgroundColor = UI_COLOR.BLACK
         let labelColor
 

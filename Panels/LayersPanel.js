@@ -450,8 +450,8 @@ function newLayersPanel() {
         let label2 = thisObject.payload.node.payload.parentNode.name.substring(0, 18)
         let label3 = ''
 
-        let icon1 = canvas.designSpace.iconsByProjectType.get(thisObject.payload.node.payload.parentNode.payload.parentNode.type)
-        let icon2 = canvas.designSpace.iconsByProjectType.get(thisObject.payload.node.payload.parentNode.type)
+        let icon1 = canvas.designSpace.iconsByProjectType.get(thisObject.payload.node.payload.parentNode.payload.parentNode.project + '-' + thisObject.payload.node.payload.parentNode.payload.parentNode.type)
+        let icon2 = canvas.designSpace.iconsByProjectType.get(thisObject.payload.node.payload.parentNode.project + '-' + thisObject.payload.node.payload.parentNode.type)
 
         let backgroundColor = UI_COLOR.BLACK
 

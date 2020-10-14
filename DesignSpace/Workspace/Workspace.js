@@ -106,14 +106,17 @@ function newWorkspace() {
                     if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
                         canvas.cockpitSpace.setStatus('Could not load the last Workspace used, called "' + lastUsedWorkspace + '". Will switch to the default Workspace instead.', 500, canvas.cockpitSpace.statusTypes.WARNING)
                         thisObject.workspaceNode = getWorkspace() // This is the default workspace that comes with the system.
+                        thisObject.workspaceNode.project = 'Superalgos'
                         recreateWorkspace()
                         return
                     }
                     thisObject.workspaceNode = JSON.parse(text)
+                    thisObject.workspaceNode.project = 'Superalgos'
                     recreateWorkspace()
                 }
             } else {
                 thisObject.workspaceNode = getWorkspace() // This is the default workspace that comes with the system.
+                thisObject.workspaceNode.project = 'Superalgos'
                 recreateWorkspace()
             }
 
@@ -276,6 +279,7 @@ function newWorkspace() {
                     break
                 case 4:
                     thisObject.workspaceNode = loadedWorkspaceNode
+                    thisObject.workspaceNode.project = 'Superalgos'
                     loadedWorkspaceNode = undefined
                     workingAtTask++
                     break

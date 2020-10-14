@@ -602,7 +602,7 @@ function newTimeMachine() {
             }
         } else {
             if (canvas.chartingSpace.viewport.zoomTargetLevel < ZOOM_OUT_THRESHOLD_FOR_DISPLAYING_TIME_MACHINES_ICONIZED) {
-                let icon = canvas.designSpace.iconsByProjectType.get(thisObject.payload.node.type)
+                let icon = canvas.designSpace.iconsByProjectType.get(thisObject.payload.node.project + '-' + thisObject.payload.node.type )
                 if (icon !== undefined) {
                     if (icon.canDrawIcon === true) {
                         let imageSize = 40
@@ -655,7 +655,7 @@ function newTimeMachine() {
         let imageSize = 12
         let fontSize = 12
         let opacity = 1
-        let icon = canvas.designSpace.iconsByProjectType.get(thisObject.payload.node.type)
+        let icon = canvas.designSpace.iconsByProjectType.get(thisObject.payload.node.project + '-' + thisObject.payload.node.type)
 
         position = transformThisPoint(position, thisObject.container)
 

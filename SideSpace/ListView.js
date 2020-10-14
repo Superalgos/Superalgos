@@ -103,7 +103,7 @@ function newListView() {
             for (let i = 0; i < workspacelist.length; i++) {
                 let workspace = workspacelist[i].replace('.json', '')
                 let listItem = newListItem()
-                listItem.initialize(workspace, 'Workspace')
+                listItem.initialize(workspace, 'Superalgos', 'Workspace')
                 listItem.container.connectToParent(thisObject.container, false, false)
 
                 thisObject.listItems.push(listItem)

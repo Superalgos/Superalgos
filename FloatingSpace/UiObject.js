@@ -1112,7 +1112,7 @@ function newUiObject() {
     }
 
     function iconPhysics() {
-        icon = canvas.designSpace.iconsByProjectType.get(thisObject.payload.node.type)
+        icon = canvas.designSpace.iconsByProjectType.get(thisObject.payload.node.project + '-' + thisObject.payload.node.type)
         let nodeDefinition = getNodeDefinition(thisObject.payload.node)
         if (nodeDefinition.alternativeIcons !== undefined) {
             let nodeToUse = thisObject.payload.node

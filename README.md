@@ -44,7 +44,7 @@ Superalgos is a platform to automate crypto-tarding. It is a Nodejs + Web App th
 * No need to code the streming of market data from crypto exchanges.
 * No need to hardcode strategies, use the visual designer for a more flexible approach.
 * No need to debug what went wrong line by line or diving into log files with tons of data. You can see each variable of the state of the Trading Engine at every candle by hovering the mouse over the charts.
-* No need to integrate a charing library, Superalgos has its own integrated Charting System.
+* No need to integrate a charitng library, Superalgos has its own integrated Charting System.
 * No need to manage task data or execution dependencies by yourself. Superalgos allows you to define Tasks and distribute them acrross a Trading Farm, and it takes cares of the data and execution dependencies, so that each task automatically starts when their dependencies are ready.
 
 # Getting Started

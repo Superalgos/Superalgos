@@ -26,7 +26,8 @@ const UI_FONT = {
     SECONDARY: "Source Code Pro"
 };
 
-const DOCUMENTATION_URL_PREFIX = 'https://docs.superalgos.org/suite-about-this-documentation.html'
+const DOCUMENTATION_URL_PREFIX = 'https://docs.superalgos.org/'
+const DOCUMENTATION_URL_DEFAULT = 'https://docs.superalgos.org/suite-about-this-documentation.html'
 
 const MAC_AMOUNT_FACTOR = 5
 const IS_MAC = navigator.platform.toUpperCase().indexOf('MAC') >= 0
@@ -230,7 +231,7 @@ let ARE_WE_RECORDING_A_MARKET_PANORAMA = false
 let PANORAMA_WAS_PANNED = false
 let CURRENT_PANORAMA_POSITION = 0
 
-let canWeDraw = false // This global variable regulates when spaces can or can not draw their contents.
+let CAN_SPACES_DRAW = false // This global variable regulates when spaces can or can not draw their contents.
 
 function toRadians(angle) {
     return angle * (Math.PI / 180);

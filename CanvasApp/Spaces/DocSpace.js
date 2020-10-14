@@ -50,7 +50,7 @@ function newDocSpace() {
     function onOpening() {
         let docIFrame = document.getElementById('docIFrame')
         if (docIFrame.src === "") {
-            docIFrame.src = DOCUMENTATION_URL_PREFIX
+            docIFrame.src = DOCUMENTATION_URL_DEFAULT
         }
     }
 
@@ -116,7 +116,7 @@ function newDocSpace() {
     }
 
     function draw() {
-        if (canWeDraw === false) { return }
+        if (CAN_SPACES_DRAW === false) { return }
         if (isInitialized === false) { return }
         borders()
         thisObject.sidePanelTab.draw()

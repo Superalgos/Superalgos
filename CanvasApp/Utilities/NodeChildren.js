@@ -6,7 +6,7 @@ function isMissingChildren(startingNode, checkNode, checkReferenceParent) {
     if (startingNode === undefined) { return }
     if (checkNode === undefined) { return }
 
-    let nodeDefinition = APP_SCHEMA_MAP.get(startingNode.type)
+    let nodeDefinition = getNodeDefinition(startingNode)
     if (nodeDefinition === undefined) { return }
 
     /* We scan through this node children */
@@ -69,7 +69,7 @@ function findChildReferencingThisNode(startingNode, checkNode) {
     if (startingNode === undefined) { return }
     if (checkNode === undefined) { return }
 
-    let nodeDefinition = APP_SCHEMA_MAP.get(startingNode.type)
+    let nodeDefinition = getNodeDefinition(startingNode)
     if (nodeDefinition === undefined) { return }
 
     /* We scan through this node children */
@@ -156,7 +156,7 @@ function findChildIndexAtParentNode(startingNode) {
 
     let parentNode = startingNode.payload.parentNode
 
-    let nodeDefinition = APP_SCHEMA_MAP.get(parentNode.type)
+    let nodeDefinition = getNodeDefinition(parentNode)
     if (nodeDefinition === undefined) { return }
 
     /* We scan through this parent node children */
@@ -194,7 +194,7 @@ function isMissingChildrenByName(startingNode, nodeName) {
     */
     if (startingNode === undefined) { return }
 
-    let nodeDefinition = APP_SCHEMA_MAP.get(startingNode.type)
+    let nodeDefinition = getNodeDefinition(startingNode)
     if (nodeDefinition === undefined) { return }
 
     /* We scan through this node children */

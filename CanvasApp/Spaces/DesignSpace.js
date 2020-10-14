@@ -109,7 +109,7 @@ function newDesignSpace() {
 
     function draw() {
         if (thisObject.workspace === undefined) { return }
-        if (canWeDraw === false) { return }
+        if (CAN_SPACES_DRAW === false) { return }
         thisObject.workspace.draw()
     }
 }

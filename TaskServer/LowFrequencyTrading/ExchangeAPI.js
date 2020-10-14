@@ -27,7 +27,7 @@
 
         let key = bot.KEY
         let secret = bot.SECRET
-
+        
         const exchangeClass = ccxt[exchangeId]
         const exchangeConstructorParams = {
             'apiKey': key,
@@ -129,7 +129,23 @@
             return order.id
         } catch (err) {
             tradingSystem.errors.push([tradingSystemOrder.id, "createOrder -> Error = " + err.message])
-            logError("createOrder -> Error = " + err.message);
+            logError("createOrder -> Error = " + err.message)
+            if (err.message.indexOf('API-key format invalid') >= 0) {
+                logError ('The exchange says the API key provided is not good or it is not in the correct format. This is what you are using:')
+                errorFooter()
+            }
+            if (err.message.indexOf('Signature for this request is not valid.') >= 0) { 
+                logError ('The exchange says the secret provided is not good, incorrect or not in the correct format. This is what you are using:')
+                errorFooter()
+            }
+            function errorFooter(){
+                logError ('key: ->' + bot.KEY + '<-')
+                logError ('secret: ->' + bot.SECRET + '<-')
+                logError ('key.length:' + bot.KEY.length )
+                logError ('secret.length:' + bot.SECRET.length )
+                logError ('Double check that you copied the key at the codeName property and the secret at secret property without bringing any invisible caracter from the exchange web site, or leaving any character from the sample text. Also check that the keys are not disabled at the exchange ot that they are not restricted by IP.')
+                logError ('As a remainder. Binance key and secret are 64 bytes in lenght each one. ' )
+            }
         }
     }
 

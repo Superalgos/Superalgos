@@ -203,7 +203,7 @@ function newCockpitSpace() {
     }
 
     function draw() {
-        if (canWeDraw === false) { return }
+        if (CAN_SPACES_DRAW === false) { return }
         thisObject.container.frame.draw(false, false)
 
         drawBackground()

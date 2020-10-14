@@ -1,6 +1,14 @@
+/* Canvas is the root object that will contain all spaces and everything inside. */
+let canvas
+
+let APP_SCHEMA_MAP = new Map()
+let APP_SCHEMA_ARRAY = []
+let DOC_SCHEMA_MAP = new Map()
+let DOC_SCHEMA_ARRAY = []
+let CONCEPT_SCHEMA_MAP = new Map()
+let CONCEPT_SCHEMA_ARRAY = []
 
 /* User Interface Colors */
-
 const UI_COLOR = {
     DARK: "48, 48, 54",
     LIGHT: "234, 226, 222",
@@ -20,7 +28,6 @@ const UI_COLOR = {
 };
 
 /* User Interface Fonts */
-
 const UI_FONT = {
     PRIMARY: "Saira Condensed",
     SECONDARY: "Source Code Pro"

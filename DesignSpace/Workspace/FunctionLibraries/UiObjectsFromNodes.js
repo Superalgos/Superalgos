@@ -216,15 +216,6 @@ function newUiObjectsFromNodes() {
     }
 
     function createUiObjectFromNode(node, parentNode, chainParent, positionOffset) {
-        /* Code needed to Migrante from Beta 5 to Beta 6 a Trading System
-        if (node.type === 'Take Profit') {
-          node.type = 'Managed Take Profit'
-        }
-        if (node.type === 'Stop') {
-          node.type = 'Managed Stop Loss'
-        }
-        */
-
         /* 
         This function can be called with a positionOffset to change the node
         saved position and all of its descendants positions as well with an 
@@ -323,7 +314,8 @@ function newUiObjectsFromNodes() {
     function addUIObject(parentNode, type) {
         let object = {
             name: 'New ' + type,
-            type: type
+            type: type,
+            project: parentNode.project
         }
 
         let parentNodeDefinition = getNodeDefinition(parentNode)

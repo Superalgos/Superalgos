@@ -20,7 +20,8 @@ function newProtocolNode() {
                 type: node.type,
                 name: node.name,
                 code: node.code,
-                config: node.config
+                config: node.config,
+                project: node.project
             }
 
             /* Children Nodes */

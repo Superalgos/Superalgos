@@ -1,15 +1,7 @@
-let canvas
-let markets
 
-let APP_SCHEMA_MAP = new Map()
-let APP_SCHEMA_ARRAY = []
-let DOC_SCHEMA_MAP = new Map()
-let DOC_SCHEMA_ARRAY = []
-let CONCEPT_SCHEMA_MAP = new Map()
-let CONCEPT_SCHEMA_ARRAY = []
 
-function newDashboard() {
-    const MODULE_NAME = 'Dashboard'
+function newPostLoader() {
+    const MODULE_NAME = 'Post Loader'
     const ERROR_LOG = true
     const logger = newWebDebugLog()
     logger.fileName = MODULE_NAME
@@ -52,31 +44,11 @@ function newDashboard() {
 
                 if (canvas !== undefined) { canvas.finalize() }
 
-                startSuperalgos()
+                canvas = newCanvas()
+                canvas.initialize()
             }
         } catch (err) {
             if (ERROR_LOG === true) { logger.write('[ERROR] start -> err = ' + err.stack) }
-        }
-    }
-
-    function startSuperalgos() {
-        try {
-            /* For now, we are supporting only one market. */
-
-            let market = {
-                id: 2,
-                baseAsset: 'USDT',
-                quotedAsset: 'BTC'
-            }
-
-            markets = new Map()
-
-            markets.set(market.id, market)
-
-            canvas = newCanvas()
-            canvas.initialize()
-        } catch (err) {
-            if (ERROR_LOG === true) { logger.write('[ERROR] startSuperalgos -> err = ' + err.stack) }
         }
     }
 

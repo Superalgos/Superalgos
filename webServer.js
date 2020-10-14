@@ -707,7 +707,6 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
 
             try {
                 filePath = filePath + fileName + '.json'
-                console.log(filePath)
                 fs.readFile(filePath, onFileRead)
             } catch (e) {
                 console.log('[ERROR] Error reading the ' + fileName, e)

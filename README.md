@@ -2,7 +2,7 @@
 
 # What is Superalgos?
 
-Superalgos is a platform to automate crypto-tarding. It is a Nodejs + Web App that runs at your hardware and scales from a single Raspberry Pi to a Trading Farm. Superalgos is Free and Open Source.
+Superalgos is a platform to automate crypto-trading. It is a Nodejs + Web App that runs at your hardware and scales from a single Raspberry Pi to a Trading Farm. Superalgos is Free and Open Source.
 
 ## Superalgos Features
 
@@ -30,28 +30,28 @@ Superalgos is a platform to automate crypto-tarding. It is a Nodejs + Web App th
 * No ads, anywhere.
 * No sign up / logins.
 * No user / usage data collection of any kind.
-* Runs 100% on uncompilled code anyone can read and audit.
+* Runs 100% on uncompiled code anyone can read and audit.
 
 # Superalgos for Developers
 
-* You are free to custumize Superalgos for your customers. No royalties, no license fees.
+* You are free to customize Superalgos for your customers. No royalties, no license fees.
 * Everything extra your customers might need you can code it yourself or request it as new features.
 * You can use Superalgos as a platform or a component of a larger system.
-* No propietary code / libraries. All open source and free.
+* No proprietary code / libraries. All open source and free.
 * Already available a set of community-contributed plugins (workspaces, strategies, indicators, plotters, tutorials, etc.).
 
 ## Superalgos saves you time
 
 * No need to code the download of historical data from crypto exchanges.
-* No need to code the streming of market data from crypto exchanges.
+* No need to code the streaming of market data from crypto exchanges.
 * No need to hardcode strategies, use the visual designer for a more flexible approach.
 * No need to debug what went wrong line by line or diving into log files with tons of data. You can see each variable of the state of the Trading Engine at every candle by hovering the mouse over the charts.
-* No need to integrate a charitng library, Superalgos has its own integrated Charting System.
-* No need to manage task data or execution dependencies by yourself. Superalgos allows you to define Tasks and distribute them acrross a Trading Farm, and it takes cares of the data and execution dependencies, so that each task automatically starts when their dependencies are ready.
+* No need to integrate a charting library, Superalgos has its own integrated Charting System.
+* No need to manage task data or execution dependencies by yourself. Superalgos allows you to define Tasks and distribute them across a Trading Farm, and it takes care of the data and execution dependencies, so that each task automatically starts when their dependencies are ready.
 
 ## Superalgos saves you money
 
-* There are no paid plans or anything that cost you money.
+* There are no paid plans or anything that costs you money.
 * There is no locked functionality, you can use the full capacity of the software.
 * There is no limit in the amount of backtests you can run. 
 * There is no limit in the amount of live sessions you can run.
@@ -74,7 +74,7 @@ Superalgos is a platform to automate crypto-tarding. It is a Nodejs + Web App th
 
 All procedures are the same for Windows, Linux or Mac OS. Note: only tested with Google Chrome.
 
-## Instalation
+## Installation
 
 1. If you don't have it yet, [install Node.js.](https://nodejs.org/en/download/)
 2. Open a command prompt or terminal and type:
@@ -101,7 +101,7 @@ Just delete the folder Superalgos.
 
 Users online support through our [Superalgos Telegram Community](https://t.me/superalgoscommunity).
 
-Developers online support to through our [Superalgos Telegram Developer's Group](https://t.me/superalgosdevelop).
+Developers online support through our [Superalgos Telegram Developer's Group](https://t.me/superalgosdevelop).
 
 Support in Spanish through our [Superalgos en Español Telegram Group](https://t.me/superalgos_es).
  
@@ -111,7 +111,7 @@ Self service support available via the [Superalgos Documentation Site](https://d
 
 ### Via Video Tutorials
 
-Self service support via video tutorials at the [Superalgos You Tube Channel](https://www.youtube.com/channel/UCmYSGbB151xFQPNxj7KfKBg).
+Self service support via video tutorials at the [Superalgos YouTube Channel](https://www.youtube.com/channel/UCmYSGbB151xFQPNxj7KfKBg).
 
 # Other Resources
 
@@ -142,3 +142,5 @@ Luis Fernando Molina, Julian Molina, Andreja Cobeljic, Matías Benitez, Ira Mill
 # License
 
 Superalgos is open-source software released under [Apache License 2.0](LICENSE).
+
+

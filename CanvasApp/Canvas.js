@@ -1,9 +1,6 @@
 
 let browserCanvasContext          // The context of the canvas object.
 
-let stepsInitializationCounter = 0         // This counter the initialization steps required to be able to turn off the splash screen.
-let marketInitializationCounter = 0        // This counter the initialization of markets required to be able to turn off the splash screen.
-
 function newCanvas() {
     const MODULE_NAME = 'Canvas'
     const ERROR_LOG = true
@@ -39,7 +36,6 @@ function newCanvas() {
         panelsSpace: undefined,
         cockpitSpace: undefined,
         designSpace: undefined,
-        splashScreen: undefined,
         animation: undefined,
         mouse: undefined,
         shorcutNumbers: new Map(),
@@ -92,7 +88,6 @@ function newCanvas() {
                 browserCanvas.detachEvent('onmousewheel', onMouseWheel)  // IE 6/7/8
             }
 
-            thisObject.splashScreen = undefined
             lastContainerMouseOver = undefined
 
             thisObject.mouse = undefined
@@ -138,8 +133,6 @@ function newCanvas() {
             thisObject.tutorialSpace = newTutorialSpace()
             thisObject.tutorialSpace.initialize()
 
-            thisObject.splashScreen = newSplashScreen()
-
             let animation = newAnimation()
             animation.initialize()
 
@@ -167,7 +160,6 @@ function newCanvas() {
             animation.addCallBackFunction('Doc Space Draw', thisObject.docSpace.draw)
             //animation.addCallBackFunction('Chat Space Draw', thisObject.chatSpace.draw)
             animation.addCallBackFunction('Tutorial Space Draw', thisObject.tutorialSpace.draw)
-            animation.addCallBackFunction('Splash Screen Draw', thisObject.splashScreen.draw)
             animation.start()
         } catch (err) {
             if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }

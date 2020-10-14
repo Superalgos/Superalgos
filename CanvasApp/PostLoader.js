@@ -18,8 +18,6 @@ function newDashboard() {
         start: start
     }
 
-    const DEBUG_START_UP_DELAY = 0 // 3000; // This is a waiting time in case there is a need to debug the very first steps of initialization, to be able to hit F12 on time.
-
     return thisObject
 
     function start() {
@@ -54,14 +52,14 @@ function newDashboard() {
 
                 if (canvas !== undefined) { canvas.finalize() }
 
-                setTimeout(delayedStart, DEBUG_START_UP_DELAY)
+                startSuperalgos()
             }
         } catch (err) {
             if (ERROR_LOG === true) { logger.write('[ERROR] start -> err = ' + err.stack) }
         }
     }
 
-    function delayedStart() {
+    function startSuperalgos() {
         try {
             /* For now, we are supporting only one market. */
 
@@ -78,7 +76,7 @@ function newDashboard() {
             canvas = newCanvas()
             canvas.initialize()
         } catch (err) {
-            if (ERROR_LOG === true) { logger.write('[ERROR] delayedStart -> err = ' + err.stack) }
+            if (ERROR_LOG === true) { logger.write('[ERROR] startSuperalgos -> err = ' + err.stack) }
         }
     }
 

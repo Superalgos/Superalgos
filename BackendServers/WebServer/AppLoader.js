@@ -152,7 +152,6 @@ function newAppLoader() {
 
                 'VideoRecorder.js',
                 'ProductStorage.js',
-                'SplashScreen.js',
                 'Canvas.js',
                 'EventHandler.js',
                 'Frame.js',

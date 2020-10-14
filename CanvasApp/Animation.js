@@ -167,7 +167,7 @@ function newAnimation() {
     }
 
     function clearBrowserCanvas() {
-        if (canWeDraw === false) { return }
+        if (CAN_SPACES_DRAW === false) { return }
         browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
         browserCanvasContext.clearRect(0, 0, browserCanvas.width, browserCanvas.height)
     }

@@ -106,10 +106,10 @@
                     /* Checking if we should process this loop or not.*/
                     if (bot.STOP_SESSION === true) {
 
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> Waiting for " + bot.processNode.session.type + " " + bot.processNode.session.name + " to be ran."); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> Waiting for " + bot.processNode.session.type + " " + bot.processNode.session.name + " to be run."); }
 
                         console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30)
-                            + " Waiting for " + bot.processNode.session.type + " " + bot.processNode.session.name + " to be ran. ");
+                            + " Waiting for " + bot.processNode.session.type + " " + bot.processNode.session.name + " to be run. ");
 
                         nextWaitTime = 'Waiting for Session';
                         loopControl(nextWaitTime);
@@ -551,7 +551,7 @@
                                         waitingTime = waitTime / 1000
                                         label = 'seconds'
                                     }
-                                    processHeartBeat(undefined, undefined, "Waiting " + waitingTime + " " + label + " for " + bot.processNode.session.type + " " + bot.processNode.session.name + " to be ran. ")
+                                    processHeartBeat(undefined, undefined, "Waiting " + waitingTime + " " + label + " for " + bot.processNode.session.type + " " + bot.processNode.session.name + " to be run. ")
                                     logger.persist();
                                 }
                                     break

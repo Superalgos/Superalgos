@@ -126,7 +126,7 @@ function newWorkspace() {
                 runTasksAndSessions()
                 thisObject.enabled = true
                 canvas.cockpitSpace.initializePosition()
-                canvas.splashScreen.initialize()
+                CAN_SPACES_DRAW = true
                 savingWorkspaceIntervalId = setInterval(saveWorkspace, 60000)
                 isInitialized = true
             }

@@ -58,8 +58,8 @@ Superalgos is a platform to automate crypto-tarding. It is a Nodejs + Web App th
 * There is no limit in the amount of historical data you can download.
 * There is no limit in the amount of data you can process.
 * You can use all the plugins available (indicators / plotters / strategies / etc.)
-* You can install superalgos in as many machines that you want.
-* Your installations can be use by as many peopler that you want.
+* You can install superalgos in as many machines as you want.
+* Your installations can be use by as many peopler as you want.
 * You can connect to as many crypto exchanges as you want.
 
 ## Superalgos minimizes your risks

@@ -174,33 +174,33 @@ function newUiObjectConstructor() {
         uiObject.isVisibleFunction = canvas.floatingSpace.isThisPointVisible
         let menuItemsInitialValues = getMenuItemsInitialValues(uiObject, floatingObject, payload)
 
-        for (let i = 0; i < APP_SCHEMA_ARRAY.length; i++) {
-            let schemaNode = APP_SCHEMA_ARRAY[i]
-            if (schemaNode.type === payload.node.type) {
-                let menuItems = schemaNode.menuItems
-                for (let j = 0; j < menuItems.length; j++) {
-                    let item = menuItems[j]
-                    item.angle = undefined
-                    if (item.action.indexOf('Add Missing Children') >= 0) {
-                        item.action = 'Add Missing Children'
-                    }
-                    if (item.action.indexOf('Delete ') >= 0) {
-                        // item.action = 'Delete UI Object'
-                    }
-                    if (item.action.indexOf('Configure ') >= 0) {
-                        if (schemaNode.editors.config === true) {
-                            // item.actionFunction = 'uiObject.configEditor.activate'
-                        }
-                    }
-                    if (item.action.indexOf('Edit ') >= 0) {
-                        if (schemaNode.editors.code === true) {
-                            // item.actionFunction = 'uiObject.codeEditor.activate'
-                        }
-                    }
-                    if (item.actionFunction === undefined) {
-                        // item.actionFunction = 'payload.onMenuItemClick'
-                    }
+        let schemaNode = APP_SCHEMA_MAP.get(payload.node.type)
+        if (schemaNode === undefined) {
+            console.log(payload.node.type + ' node found at App Schema. This node will not be created. ')
+            return
+        }
+        let menuItems = schemaNode.menuItems
+        for (let j = 0; j < menuItems.length; j++) {
+            let item = menuItems[j]
+            item.angle = undefined
+            if (item.action.indexOf('Add Missing Children') >= 0) {
+                item.action = 'Add Missing Children'
+            }
+            if (item.action.indexOf('Delete ') >= 0) {
+                // item.action = 'Delete UI Object'
+            }
+            if (item.action.indexOf('Configure ') >= 0) {
+                if (schemaNode.editors.config === true) {
+                    // item.actionFunction = 'uiObject.configEditor.activate'
                 }
+            }
+            if (item.action.indexOf('Edit ') >= 0) {
+                if (schemaNode.editors.code === true) {
+                    // item.actionFunction = 'uiObject.codeEditor.activate'
+                }
+            }
+            if (item.actionFunction === undefined) {
+                // item.actionFunction = 'payload.onMenuItemClick'
             }
         }
 

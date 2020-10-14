@@ -1,4 +1,4 @@
-let dashboard
+let postLoader
 
 function newAppLoader() {
     const MODULE_NAME = 'App Loader'
@@ -187,8 +187,8 @@ function newAppLoader() {
                         if (downloadedCounter === modulesArray.length) {
                             if (INFO_LOG === true) { logger.write('[INFO] loadModules -> onRequired -> Starting Advanced Algos Platform.') }
                             setTimeout(() => {
-                                dashboard = newDashboard()
-                                dashboard.start()
+                                postLoader = newPostLoader()
+                                postLoader.start()
                             }, 500)
 
                         }

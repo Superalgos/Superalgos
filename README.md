@@ -2,7 +2,7 @@
 
 # What is Superalgos?
 
-Superalgos is a platform to automate crypto-trading. It is imlpemented as a Nodejs Backend + Web App that runs at your hardware and scales from a single Raspberry Pi to a Trading Farm. Superalgos is Free and Open Source.
+Superalgos is a platform to automate crypto-trading. It is implemented as a Nodejs Backend + Web App that runs on your hardware and scales from a single Raspberry Pi to a Trading Farm. Superalgos is Free and Open Source.
 
 ## Superalgos Features
 
@@ -65,7 +65,7 @@ Superalgos is a platform to automate crypto-trading. It is imlpemented as a Node
 * There is no limit in the amount of historical data you can download.
 * There is no limit in the amount of data you can process.
 * You can use all the plugins available (indicators / plotters / strategies / etc.)
-* You can install superalgos in as many machines as you want.
+* You can install Superalgos in as many machines as you want.
 * Your installations can be used by as many people as you want.
 * You can connect to as many crypto exchanges as you want.
 
@@ -149,5 +149,7 @@ Luis Fernando Molina, Julian Molina, Andreja Cobeljic, Matías Benitez, Ira Mill
 # License
 
 Superalgos is open-source software released under [Apache License 2.0](LICENSE).
+
+
 
 

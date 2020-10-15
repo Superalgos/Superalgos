@@ -91,12 +91,12 @@ function newUiObjectsFromNodes() {
                 for (let i = 0; i < pluginFiles.length; i++) {
                     let pluginFile = pluginFiles[i]
                     let name = pluginFile.name
-                    blobService.getFileFromHost(pluginType + '/' + name + '.json', onFileReceived, true)
+                    callWebServer(undefined, 'LoadPlugin' + '/' + 'Superalgos' + '/' + pluginType + '/' + name + '.json', onFileReceived)
 
                     function onFileReceived(err, text, response) {
 
                         if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                            console.log('[WARN] Cannot load plugin ' + pluginType + ' ' + name + '. The workspace will be loaded with this plugin file missing.')
+                            console.log('[WARN] Cannot load plugin ' + pluginType + ' ' + name + '. The Workspace will be loaded with this plugin file missing.')
                         } else {
                             let receivedNode = JSON.parse(text)
                             /* 

@@ -10,7 +10,7 @@ function newPluginsFunctions() {
     return thisObject
 
     function getPluginFileNames(pluginType, callBack) {
-        callWebServer(undefined, 'PluginFileNames/' + pluginType, onResponse)
+        callWebServer(undefined, 'PluginFileNames/' + 'Superalgos' + '/' + pluginType, onResponse)
 
         function onResponse(err, data) {
             if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {

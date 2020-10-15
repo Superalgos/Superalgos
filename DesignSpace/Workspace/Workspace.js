@@ -100,8 +100,7 @@ function newWorkspace() {
             let lastUsedWorkspace = window.localStorage.getItem('Last Used Workspace')
 
             if (lastUsedWorkspace !== 'undefined' && lastUsedWorkspace !== null && lastUsedWorkspace !== undefined) {
-                let blobService = newFileStorage()
-                blobService.getFileFromHost('LoadWorkspace' + '/' + lastUsedWorkspace, onFileReceived, true)
+                callWebServer(undefined, 'LoadMyWorkspace' + '/' + lastUsedWorkspace, onFileReceived)
                 function onFileReceived(err, text, response) {
                     if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
                         canvas.cockpitSpace.setStatus('Could not load the last Workspace used, called "' + lastUsedWorkspace + '". Will switch to the default Workspace instead.', 500, canvas.cockpitSpace.statusTypes.WARNING)
@@ -142,9 +141,9 @@ function newWorkspace() {
 
         functionLibraryUiObjectsFromNodes.syncronizeTasksFoundAtWorkspaceWithBackEnd(functionLibraryTaskFunctions)
         functionLibraryUiObjectsFromNodes.syncronizeSessionsFoundAtWorkspaceWithBackEnd(functionLibrarySessionFunctions)
- 
+
         setTimeout(functionLibraryUiObjectsFromNodes.playTutorials, 1000)
-   
+
     }
 
     function setupEventsServerClients() {
@@ -417,13 +416,12 @@ function newWorkspace() {
         let webCommand
         if (name.indexOf('Plugin \u2192 ') >= 0) {
             name = name.replace('Plugin \u2192 ', '')
-            webCommand = 'LoadPluginWorkspace'
+            webCommand = 'LoadPlugin' + '/' + 'Superalgos' + '/' + 'Workspaces' + '/' + name + '.json'
         } else {
-            webCommand = 'LoadWorkspace'
+            webCommand = 'LoadMyWorkspace' + '/' + name
         }
 
-        let blobService = newFileStorage()
-        blobService.getFileFromHost(webCommand + '/' + name, onFileReceived, true)
+        callWebServer(undefined, webCommand, onFileReceived)
         function onFileReceived(err, text, response) {
             if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
                 canvas.cockpitSpace.setStatus('Could not load the Workspace called "' + name + '". ', 500, canvas.cockpitSpace.statusTypes.WARNING)

@@ -897,32 +897,37 @@ function newWorkspace() {
                     }
                 }
                 break
-            case 'Add Missing Data Mines':
+            case 'Add Missing Plugin Projects':
+                {
+                    functionLibraryPluginsFunctions.pluginMissingProjects(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
+                }
+                break
+            case 'Add Missing Plugin Data Mines':
                 {
                     functionLibraryPluginsFunctions.pluginMissingDataMines(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
                 }
                 break
-            case 'Add Missing Trading Mines':
+            case 'Add Missing Plugin Trading Mines':
                 {
                     functionLibraryPluginsFunctions.pluginMissingTradingMines(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
                 }
                 break
-            case 'Add Missing Trading Systems':
+            case 'Add Missing Plugin Trading Systems':
                 {
                     functionLibraryPluginsFunctions.pluginMissingTradingSystems(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
                 }
                 break
-            case 'Add Missing Trading Engines':
+            case 'Add Missing Plugin Trading Engines':
                 {
                     functionLibraryPluginsFunctions.pluginMissingTradingEngines(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
                 }
                 break
-            case 'Add Missing Super Scripts':
+            case 'Add Missing Plugin Super Scripts':
                 {
                     functionLibraryPluginsFunctions.pluginMissingSuperScripts(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
                 }
                 break
-            case 'Add Missing Tutorials':
+            case 'Add Missing Plugin Tutorials':
                 {
                     functionLibraryPluginsFunctions.pluginMissingTutorials(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
                 }

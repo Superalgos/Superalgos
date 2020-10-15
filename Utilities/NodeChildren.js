@@ -205,8 +205,10 @@ function isMissingChildrenByName(startingNode, nodeName) {
             switch (property.type) {
                 case 'node': {
                     let child = startingNode[property.name]
-                    if (child.name === nodeName) {
-                        return false
+                    if (child !== undefined) {
+                        if (child.name === nodeName) {
+                            return false
+                        }
                     }
                 }
                     break

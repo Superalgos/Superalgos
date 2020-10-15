@@ -241,7 +241,7 @@ function newTutorialSpace() {
 
             if (currentImageName === newImageName) { return }
             currentImageName = newImageName
-            htmlImage.src = 'Images/Icons/style-01/' + currentImageName + '.png'
+            htmlImage.src = 'Icons/' + currentNode.project + '/' + currentImageName + '.png'
             htmlImage.width = "100"
             htmlImage.height = "100"
         }

@@ -53,29 +53,33 @@ function newUiObjectsFromNodes() {
                 let rootNode = node.rootNodes[i]
                 if (rootNode.type === 'Plugins') {
                     let plugins = rootNode
-                    if (plugins.pluginDataMines !== undefined) {
-                        totalPlugin = totalPlugin + plugins.pluginDataMines.pluginFiles.length
-                        pluginAllTheseFiles(plugins.pluginDataMines.pluginFiles, 'Data-Mines')
-                    }
-                    if (plugins.pluginTradingMines !== undefined) {
-                        totalPlugin = totalPlugin + plugins.pluginTradingMines.pluginFiles.length
-                        pluginAllTheseFiles(plugins.pluginTradingMines.pluginFiles, 'Trading-Mines')
-                    }
-                    if (plugins.pluginTradingSystems !== undefined) {
-                        totalPlugin = totalPlugin + plugins.pluginTradingSystems.pluginFiles.length
-                        pluginAllTheseFiles(plugins.pluginTradingSystems.pluginFiles, 'Trading-Systems')
-                    }
-                    if (plugins.pluginTradingEngines !== undefined) {
-                        totalPlugin = totalPlugin + plugins.pluginTradingEngines.pluginFiles.length
-                        pluginAllTheseFiles(plugins.pluginTradingEngines.pluginFiles, 'Trading-Engines')
-                    }
-                    if (plugins.pluginSuperScripts !== undefined) {
-                        totalPlugin = totalPlugin + plugins.pluginSuperScripts.pluginFiles.length
-                        pluginAllTheseFiles(plugins.pluginSuperScripts.pluginFiles, 'Super-Scripts')
-                    }
-                    if (plugins.pluginTutorials !== undefined) {
-                        totalPlugin = totalPlugin + plugins.pluginTutorials.pluginFiles.length
-                        pluginAllTheseFiles(plugins.pluginTutorials.pluginFiles, 'Tutorials')
+                     
+                    for (let j = 0; j < plugins.pluginProjects.length; j++) {
+                        let project = plugins.pluginProjects[j]
+                        if (project.pluginDataMines !== undefined) {
+                            totalPlugin = totalPlugin + project.pluginDataMines.pluginFiles.length
+                            pluginAllTheseFiles(project.pluginDataMines.pluginFiles, 'Data-Mines')
+                        }
+                        if (project.pluginTradingMines !== undefined) {
+                            totalPlugin = totalPlugin + project.pluginTradingMines.pluginFiles.length
+                            pluginAllTheseFiles(project.pluginTradingMines.pluginFiles, 'Trading-Mines')
+                        }
+                        if (project.pluginTradingSystems !== undefined) {
+                            totalPlugin = totalPlugin + project.pluginTradingSystems.pluginFiles.length
+                            pluginAllTheseFiles(project.pluginTradingSystems.pluginFiles, 'Trading-Systems')
+                        }
+                        if (project.pluginTradingEngines !== undefined) {
+                            totalPlugin = totalPlugin + project.pluginTradingEngines.pluginFiles.length
+                            pluginAllTheseFiles(project.pluginTradingEngines.pluginFiles, 'Trading-Engines')
+                        }
+                        if (project.pluginSuperScripts !== undefined) {
+                            totalPlugin = totalPlugin + project.pluginSuperScripts.pluginFiles.length
+                            pluginAllTheseFiles(project.pluginSuperScripts.pluginFiles, 'Super-Scripts')
+                        }
+                        if (project.pluginTutorials !== undefined) {
+                            totalPlugin = totalPlugin + project.pluginTutorials.pluginFiles.length
+                            pluginAllTheseFiles(project.pluginTutorials.pluginFiles, 'Tutorials')
+                        }
                     }
                 }
             }
@@ -220,7 +224,7 @@ function newUiObjectsFromNodes() {
         if (node.project === undefined) {
             node.project = 'Superalgos'
         }
-        
+
         /* 
         This function can be called with a positionOffset to change the node
         saved position and all of its descendants positions as well with an 

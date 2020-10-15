@@ -1,5 +1,6 @@
 function newPluginsFunctions() {
     thisObject = {
+        pluginMissingProjects: pluginMissingProjects,
         pluginMissingDataMines: pluginMissingDataMines,
         pluginMissingTradingMines: pluginMissingTradingMines,
         pluginMissingTradingSystems: pluginMissingTradingSystems,
@@ -30,6 +31,22 @@ function newPluginsFunctions() {
             if (isMissingChildrenByName(node, fileName) === true) {
                 let child = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Plugin File')
                 child.name = fileName
+            }
+        }
+    }
+
+    function pluginMissingProjects(node, rootNodes, functionLibraryUiObjectsFromNodes) {
+        let url = 'ProjectNames'
+        callWebServer(undefined, url, onResponse)
+
+        function onResponse(err, pProjects) {
+            let projects = JSON.parse(pProjects)
+            for (let i = 0; i < projects.length; i++) {
+                let project = projects[i]
+                if (isMissingChildrenByName(node, project) === true) {
+                    let child = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Plugin Project')
+                    child.name = project
+                }
             }
         }
     }

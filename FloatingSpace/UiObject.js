@@ -1112,7 +1112,7 @@ function newUiObject() {
     }
 
     function iconPhysics() {
-        icon = canvas.designSpace.iconsByProjectType.get(thisObject.payload.node.project + '-' + thisObject.payload.node.type)
+        icon = canvas.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.payload.node.type)
         let nodeDefinition = getNodeDefinition(thisObject.payload.node)
         if (nodeDefinition.alternativeIcons !== undefined) {
             let nodeToUse = thisObject.payload.node
@@ -1142,7 +1142,7 @@ function newUiObject() {
                         iconName = alternativeIcon.iconName
                     }
                 }
-                let newIcon = canvas.designSpace.iconsByName.get(iconName)
+                let newIcon = canvas.designSpace.getIconByProjectAndName('Superalgos', iconName)
                 if (newIcon !== undefined) {
                     icon = newIcon
                 }
@@ -1151,7 +1151,7 @@ function newUiObject() {
             }
         }
 
-        executingIcon = canvas.designSpace.iconsByName.get('attractive')
+        executingIcon = canvas.designSpace.getIconByProjectAndName('Superalgos', 'bitcoin')
     }
 
     function onFocus() {
@@ -1527,7 +1527,7 @@ function newUiObject() {
             label = addIndexNumber(label)
 
             if (label !== undefined) {
-                
+
                 if (canvas.floatingSpace.inMapMode === true) {
                     let nodeDefinition = getNodeDefinition(thisObject.payload.node)
                     if (nodeDefinition !== undefined) {
@@ -1544,7 +1544,7 @@ function newUiObject() {
                 if (thisObject.isOnFocus === true) {
                     labelPoint = {
                         x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
-                        y: position.y + radius * 2 / 3 + lineSeparator * 1+ 30
+                        y: position.y + radius * 2 / 3 + lineSeparator * 1 + 30
                     }
                 } else {
                     labelPoint = {
@@ -1554,7 +1554,7 @@ function newUiObject() {
                 }
 
                 if (canvas.floatingSpace.inMapMode === true) {
-                    labelPoint.y = position.y + 50 / 2 + lineSeparator * 2 
+                    labelPoint.y = position.y + 50 / 2 + lineSeparator * 2
                 }
 
                 browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
@@ -1623,7 +1623,7 @@ function newUiObject() {
                 if (thisObject.isOnFocus === true) {
                     labelPoint = {
                         x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
-                        y: position.y + radius * 2 / 3 + lineSeparator * 6+ 30
+                        y: position.y + radius * 2 / 3 + lineSeparator * 6 + 30
                     }
                 } else {
                     labelPoint = {
@@ -1698,7 +1698,7 @@ function newUiObject() {
                     if (thisObject.isOnFocus === true) {
                         labelPoint = {
                             x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 10,
-                            y: position.y + radius * 2 / 3 + lineSeparator * 4+ 30
+                            y: position.y + radius * 2 / 3 + lineSeparator * 4 + 30
                         }
                     } else {
                         labelPoint = {
@@ -1751,7 +1751,7 @@ function newUiObject() {
             if (thisObject.isOnFocus === true) {
                 labelPoint = {
                     x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
-                    y: position.y + radius * 2 / 3 + lineSeparator * 5+ 30
+                    y: position.y + radius * 2 / 3 + lineSeparator * 5 + 30
                 }
             } else {
                 labelPoint = {
@@ -1802,7 +1802,7 @@ function newUiObject() {
                 if (thisObject.isOnFocus === true) {
                     labelPoint = {
                         x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 10,
-                        y: position.y + radius * 2 / 3 + lineSeparator * 3+ 30
+                        y: position.y + radius * 2 / 3 + lineSeparator * 3 + 30
                     }
                 } else {
                     labelPoint = {
@@ -2183,7 +2183,7 @@ function newUiObject() {
                     } else {
                         totalImageSize = canvas.floatingSpace.transformImagesizeToMap(totalImageSize)
                     }
-                }  
+                }
 
                 if (thisObject.isShowing === true) {
                     totalImageSize = 50

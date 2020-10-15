@@ -3,9 +3,11 @@ function newDesignSpace() {
     const MODULE_NAME = 'Designe Space'
     let thisObject = {
         container: undefined,
-        iconsByName: undefined,
-        iconsByProjectType: undefined,
+        iconsByProjectAndName: undefined,
+        iconsByProjectAndType: undefined,
         workspace: undefined,
+        getIconByProjectAndName: getIconByProjectAndName, 
+        getIconByProjectAndType: getIconByProjectAndType,
         physics: physics,
         draw: draw,
         getContainer: getContainer,
@@ -20,8 +22,8 @@ function newDesignSpace() {
 
     container.isDraggeable = false
 
-    thisObject.iconsByName = new Map()
-    thisObject.iconsByProjectType = new Map()
+    thisObject.iconsByProjectAndName = new Map()
+    thisObject.iconsByProjectAndType = new Map()
 
     return thisObject
 
@@ -29,12 +31,12 @@ function newDesignSpace() {
         loadIconCollection(onIconsReady)
 
         function onIconsReady() {
-            buildIconByUiObjectTypeMap()
+            buildIconByProjectAndTypeMap()
             thisObject.workspace = newWorkspace()
             thisObject.workspace.initialize()
         }
 
-        function buildIconByUiObjectTypeMap() {
+        function buildIconByProjectAndTypeMap() {
             /* Take types-icons relationships defined at the schema */
             for (let i = 0; i < APP_SCHEMA_ARRAY.length; i++) {
                 let nodeDefinition = APP_SCHEMA_ARRAY[i]
@@ -43,9 +45,9 @@ function newDesignSpace() {
                     iconName = nodeDefinition.type.toLowerCase()
                     iconName = iconName.split(" ").join("-")
                 }
-                let icon = thisObject.iconsByName.get(iconName)
+                let icon = thisObject.getIconByProjectAndName('Superalgos', iconName)
                 if (icon !== undefined) {
-                    thisObject.iconsByProjectType.set('Superalgos' + '-' + nodeDefinition.type, icon)
+                    thisObject.iconsByProjectAndType.set('Superalgos' + '-' + nodeDefinition.type, icon)
                 }
             }
         }
@@ -53,7 +55,7 @@ function newDesignSpace() {
 
     function loadIconCollection(callBack) {
 
-        callServer(undefined, 'ImagesNames', onResponse)
+        callServer(undefined, 'IconNames', onResponse)
 
         function onResponse(err, data) {
             if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
@@ -61,17 +63,18 @@ function newDesignSpace() {
                 return
             }
 
-            let imageNames = JSON.parse(data)
+            let iconsArray = JSON.parse(data)
             let imageLoadedCounter = 0
 
-            for (let i = 0; i < imageNames.length; i++) {
-                let name = imageNames[i]
-                loadImage(name)
+            for (let i = 0; i < iconsArray.length; i++) {
+                let project = iconsArray[i][0]
+                let name = iconsArray[i][1]
+                loadImage(project, name)
             }
 
-            function loadImage(name) {
+            function loadImage(project, name) {
                 imageLoadedCounter++
-                const PATH = 'Images/Icons/style-01/'
+                const PATH = 'Icons/' + project + '/'
                 let image = new Image()
                 image.onload = onImageLoad
                 image.fileName = name
@@ -80,14 +83,22 @@ function newDesignSpace() {
                     image.canDrawIcon = true
                 }
                 image.src = PATH + name
-                let key = name.substring(0, name.length - 4)
-                thisObject.iconsByName.set(key, image)
+                let key = project + '-' + name.substring(0, name.length - 4)
+                thisObject.iconsByProjectAndName.set(key, image)
 
-                if (imageLoadedCounter === imageNames.length) {
+                if (imageLoadedCounter === iconsArray.length) {
                     callBack()
                 }
             }
         }
+    }
+
+    function getIconByProjectAndName(project, name) {
+        return thisObject.iconsByProjectAndName.get(project + '-' + name)
+    }
+
+    function getIconByProjectAndType(project, type) {
+        return thisObject.iconsByProjectAndType.get(project + '-' + type)
     }
 
     function physics() {

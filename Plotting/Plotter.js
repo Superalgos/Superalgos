@@ -817,7 +817,7 @@ function newPlotter() {
 
                     imagePosition.x = dataPoint.x
                     imagePosition.y = dataPoint.y
-                    let imageToDraw = canvas.designSpace.iconsByName.get(imageName)
+                    let imageToDraw = canvas.designSpace.getIconByProjectAndName( 'Superalgos', imageName)
                     if (imageToDraw !== undefined) {
                         if (imageToDraw.canDrawIcon === true) {
                             browserCanvasContext.drawImage(imageToDraw, imagePosition.x - imageSize / 2 + offsetX, imagePosition.y - imageSize / 2 - offsetY, imageSize, imageSize)

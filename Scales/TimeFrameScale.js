@@ -383,8 +383,8 @@ function newTimeFrameScale() {
         let label2 = label[0]
         let label3 = label[1].toUpperCase()
 
-        let icon1 = canvas.designSpace.iconsByProjectType.get(thisObject.payload.node.payload.parentNode.project + '-' + thisObject.payload.node.payload.parentNode.type)
-        let icon2 = canvas.designSpace.iconsByProjectType.get(thisObject.payload.node.project + '-' + thisObject.payload.node.type)
+        let icon1 = canvas.designSpace.getIconByProjectAndType(thisObject.payload.node.payload.parentNode.project, thisObject.payload.node.payload.parentNode.type)
+        let icon2 = canvas.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.payload.node.type)
 
         let backgroundColor = UI_COLOR.BLACK
 

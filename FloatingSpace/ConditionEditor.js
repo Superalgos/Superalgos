@@ -67,14 +67,14 @@ function newConditionEditor() {
     }
 
     function initialize() {
-        timeFrameIcon = canvas.designSpace.iconsByName.get('time-period')
-        dataMineIcon = canvas.designSpace.iconsByName.get('data-mine')
-        botIcon = canvas.designSpace.iconsByName.get('bot-indicator')
-        whenIcon = canvas.designSpace.iconsByName.get('chronometer')
-        productIcon = canvas.designSpace.iconsByName.get('product-definition')
-        propertyIcon = canvas.designSpace.iconsByName.get('record-property')
-        operationIcon = canvas.designSpace.iconsByName.get('headphones')
-        valueIcon = canvas.designSpace.iconsByName.get('competition')
+        timeFrameIcon = canvas.designSpace.getIconByProjectAndName( 'Superalgos', 'time-frame')
+        dataMineIcon = canvas.designSpace.getIconByProjectAndName( 'Superalgos', 'data-mine')
+        botIcon = canvas.designSpace.getIconByProjectAndName( 'Superalgos', 'indicator-bot')
+        whenIcon = canvas.designSpace.getIconByProjectAndName( 'Superalgos', 'trigger-on')
+        productIcon = canvas.designSpace.getIconByProjectAndName( 'Superalgos', 'product-definition')
+        propertyIcon = canvas.designSpace.getIconByProjectAndName( 'Superalgos', 'record-property')
+        operationIcon = canvas.designSpace.getIconByProjectAndName( 'Superalgos', 'space-settings')
+        valueIcon = canvas.designSpace.getIconByProjectAndName( 'Superalgos', 'trading-strategy')
     }
 
     function activate(payload) {

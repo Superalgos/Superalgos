@@ -406,8 +406,8 @@ function newLayersPanel() {
         function removeFromLocalLayers(id) {
             for (let i = 0; i < localLayers.length; i++) {
                 let layer = localLayers[i]
-                if (layer.payload === undefined) {continue}
-                if (layer.payload.node === undefined) {continue}
+                if (layer.payload === undefined) { continue }
+                if (layer.payload.node === undefined) { continue }
                 if (layer.payload.node.id === id) {
                     thisObject.layers.push(layer)
                     localLayers.splice(i, 1)
@@ -450,8 +450,8 @@ function newLayersPanel() {
         let label2 = thisObject.payload.node.payload.parentNode.name.substring(0, 18)
         let label3 = ''
 
-        let icon1 = canvas.designSpace.iconsByProjectType.get(thisObject.payload.node.payload.parentNode.payload.parentNode.project + '-' + thisObject.payload.node.payload.parentNode.payload.parentNode.type)
-        let icon2 = canvas.designSpace.iconsByProjectType.get(thisObject.payload.node.payload.parentNode.project + '-' + thisObject.payload.node.payload.parentNode.type)
+        let icon1 = canvas.designSpace.getIconByProjectAndType(thisObject.payload.node.payload.parentNode.payload.parentNode.project, thisObject.payload.node.payload.parentNode.payload.parentNode.type)
+        let icon2 = canvas.designSpace.getIconByProjectAndType(thisObject.payload.node.payload.parentNode.project, thisObject.payload.node.payload.parentNode.type)
 
         let backgroundColor = UI_COLOR.BLACK
 

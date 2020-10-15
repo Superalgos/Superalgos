@@ -242,19 +242,19 @@ function newCircularMenuItem() {
                 temporaryStatus === STATUS_SECONDARY_WORK_FAILED
             ) && thisObject.secondaryAction !== undefined
         ) {
-            thisObject.iconOn = canvas.designSpace.iconsByName.get(thisObject.secondaryIcon)
-            thisObject.iconOff = canvas.designSpace.iconsByName.get(thisObject.secondaryIcon)
+            thisObject.iconOn = canvas.designSpace.getIconByProjectAndName('Superalgos', thisObject.secondaryIcon)
+            thisObject.iconOff = canvas.designSpace.getIconByProjectAndName('Superalgos', thisObject.secondaryIcon)
         } else {
             if (thisObject.relatedUiObject !== undefined) {
-                thisObject.iconOn = canvas.designSpace.iconsByProjectType.get(thisObject.payload.node.project + '-' + thisObject.relatedUiObject)
-                thisObject.iconOff = canvas.designSpace.iconsByProjectType.get(thisObject.payload.node.project + '-' + thisObject.relatedUiObject)
+                thisObject.iconOn = canvas.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.relatedUiObject)
+                thisObject.iconOff = canvas.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.relatedUiObject)
             } else {
                 if (thisObject.iconPathOn !== undefined && thisObject.iconPathOff !== undefined) {
-                    thisObject.iconOn = canvas.designSpace.iconsByName.get(thisObject.iconPathOn)
-                    thisObject.iconOff = canvas.designSpace.iconsByName.get(thisObject.iconPathOff)
+                    thisObject.iconOn = canvas.designSpace.getIconByProjectAndName('Superalgos', thisObject.iconPathOn)
+                    thisObject.iconOff = canvas.designSpace.getIconByProjectAndName('Superalgos', thisObject.iconPathOff)
                 } else {
-                    thisObject.iconOn = canvas.designSpace.iconsByName.get(thisObject.icons[thisObject.actionStatus()])
-                    thisObject.iconOff = canvas.designSpace.iconsByName.get(thisObject.icons[thisObject.actionStatus()])
+                    thisObject.iconOn = canvas.designSpace.getIconByProjectAndName('Superalgos', thisObject.icons[thisObject.actionStatus()])
+                    thisObject.iconOff = canvas.designSpace.getIconByProjectAndName('Superalgos', thisObject.icons[thisObject.actionStatus()])
                 }
             }
         }

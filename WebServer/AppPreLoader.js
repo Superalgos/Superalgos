@@ -120,7 +120,7 @@ function loadSuperalgos() {
     }
 }
 
-function callServer(pContentToSend, pPath, callBackFunction) {
+function callWebServer(pContentToSend, pPath, callBackFunction) {
     let xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {

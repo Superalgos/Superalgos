@@ -318,7 +318,6 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                     }
 
                     path = unescape(path)
-                    console.log('Serving Icon at: ' + path)
                     respondWithImage(path, response)
                 }
                 break
@@ -463,10 +462,22 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                 }
                 break
 
+            case 'ProjectNames':
+                {
+                    let projects = getDirectories(process.env.PROJECTS_PATH)
+                    respondWithContent(JSON.stringify(projects), response)
+                }
+                break
+
+            case 'Schema':
+                {
+                    sendSchema(process.env.PROJECTS_PATH + '/' + requestParameters[2] + '/Schemas/', requestParameters[3] + '.json')
+                }
+                break
+
             case 'IconNames':
                 {
                     let projects = getDirectories(process.env.PROJECTS_PATH)
-                    console.log(projects)
                     const fs = require('fs')
 
                     let icons = []
@@ -479,15 +490,13 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                         const folder = process.env.PROJECTS_PATH + '/' + project + '/Icons/'
 
                         fs.readdir(folder, (err, files) => {
-                            console.log(files)
                             for (let j = 0; j < files.length; j++) {
                                 let file = files[j]
                                 icons.push([project, file])
                             }
-                            
+
                             projectCounter++
                             if (projectCounter === totalProjects) {
-                                console.log(icons)
                                 respondWithContent(JSON.stringify(icons), response)
                             }
                         })
@@ -531,25 +540,6 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                     })
                 }
                 break
-
-            case 'AppSchema.js':
-                {
-                    sendSchema(process.env.PROJECTS_PATH + '/Superalgos/Schemas/', 'AppSchema', 'getAppSchema')
-                }
-                break
-
-            case 'DocSchema.js':
-                {
-                    sendSchema(process.env.PROJECTS_PATH + '/Superalgos/Schemas/', 'DocSchema', 'getDocSchema')
-                }
-                break
-
-            case 'ConceptSchema.js':
-                {
-                    sendSchema(process.env.PROJECTS_PATH + '/Superalgos/Schemas/', 'ConceptSchema', 'getConceptSchema')
-                }
-                break
-
             case 'Workspace.js':
                 {
                     let fs = require('fs')
@@ -745,11 +735,11 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                 }
         }
 
-        function sendSchema(filePath, fileName, functionName) {
+        function sendSchema(filePath, fileName) {
             let fs = require('fs')
 
             try {
-                filePath = filePath + fileName + '.json'
+                filePath = filePath + fileName  
                 fs.readFile(filePath, onFileRead)
             } catch (e) {
                 console.log('[ERROR] Error reading the ' + fileName, e)
@@ -758,9 +748,8 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
             function onFileRead(err, schema) {
                 if (err) {
                     respondWithContent(undefined, response)
-                } else {
-                    let responseContent = 'function ' + functionName + '(){ return ' + schema + '}'
-                    respondWithContent(responseContent, response)
+                } else { 
+                    respondWithContent(schema, response)
                 }
             }
         }

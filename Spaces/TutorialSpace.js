@@ -241,7 +241,13 @@ function newTutorialSpace() {
 
             if (currentImageName === newImageName) { return }
             currentImageName = newImageName
-            htmlImage.src = 'Icons/' + currentNode.project + '/' + currentImageName + '.png'
+            let webParam
+            if (currentImageName.indexOf('/') >= 0) {
+                webParam = 'Icons/' + currentImageName + '.png'
+            } else {
+                webParam = 'Icons/' + 'Superalgos' + '/' + currentImageName + '.png'
+            }
+            htmlImage.src = webParam
             htmlImage.width = "100"
             htmlImage.height = "100"
         }
@@ -1187,19 +1193,29 @@ function newTutorialSpace() {
                 if (nodeType === undefined) {
                     return resultingText + firstPart
                 }
-                let definitionNode = SCHEMAS_BY_PROJECT.get(currentNode.project).map.docSchema.get(nodeType)
+                let splittedNodeType = nodeType.split('/')
+                let project
+                let type  
+                if (splittedNodeType.length > 1) {
+                    project = splittedNodeType[0]
+                    type =  splittedNodeType[1]
+                } else {
+                    project = 'Superalgos'
+                    type =  splittedNodeType[0]
+                }
+                let definitionNode = SCHEMAS_BY_PROJECT.get(project).map.docSchema.get(type)
                 if (definitionNode === undefined) {
-                    definitionNode = SCHEMAS_BY_PROJECT.get(currentNode.project).map.conceptSchema.get(nodeType)
+                    definitionNode = SCHEMAS_BY_PROJECT.get(project).map.conceptSchema.get(type)
                     if (definitionNode === undefined) {
-                        currentNode.payload.uiObject.setErrorMessage(nodeType + ' not found at Doc Schema or Concept Schema.')
+                        currentNode.payload.uiObject.setErrorMessage(type + ' not found at Doc Schema or Concept Schema.')
                         return
                     }
                 }
                 let definition = definitionNode.definition
                 if (definition === undefined || definition === "") {
-                    resultingText = resultingText + firstPart + nodeType
+                    resultingText = resultingText + firstPart + type
                 } else {
-                    let tooltip = TOOL_TIP_HTML.replace('NODE_TYPE', nodeType).replace('NODE_DEFINITION', definition)
+                    let tooltip = TOOL_TIP_HTML.replace('NODE_TYPE', type).replace('NODE_DEFINITION', definition)
                     resultingText = resultingText + firstPart + tooltip
                 }
             }

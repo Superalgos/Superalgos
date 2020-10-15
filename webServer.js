@@ -17,7 +17,7 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
 
     let http = require('http')
     let isHttpServerStarted = false
-  
+
     let webhook = new Map()
 
     return thisObject
@@ -301,6 +301,28 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                 }
                 break
 
+            case 'Icons': // This means the Icons folder under Projects.
+                {
+                    let path = process.env.PROJECTS_PATH + '/' + requestParameters[2] + '/Icons'
+
+                    if (requestParameters[3] !== undefined) {
+                        path = path + '/' + requestParameters[3]
+                    }
+
+                    if (requestParameters[4] !== undefined) {
+                        path = path + '/' + requestParameters[4]
+                    }
+
+                    if (requestParameters[5] !== undefined) {
+                        path = path + '/' + requestParameters[5]
+                    }
+
+                    path = unescape(path)
+                    console.log('Serving Icon at: ' + path)
+                    respondWithImage(path, response)
+                }
+                break
+
             case 'favicon.ico': // This means the Scripts folder.
                 {
                     respondWithImage(process.env.PATH_TO_WEB_SERVER + 'WebServer/Images/' + 'favicon.ico', response)
@@ -441,14 +463,35 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                 }
                 break
 
-            case 'ImagesNames':
+            case 'IconNames':
                 {
-                    const folder = process.env.PATH_TO_WEB_SERVER + 'WebServer/Images/Icons/style-01/'
+                    let projects = getDirectories(process.env.PROJECTS_PATH)
+                    console.log(projects)
                     const fs = require('fs')
 
-                    fs.readdir(folder, (err, files) => {
-                        respondWithContent(JSON.stringify(files), response)
-                    })
+                    let icons = []
+                    let totalProjects = projects.length
+                    let projectCounter = 0
+
+                    for (let i = 0; i < projects.length; i++) {
+                        let project = projects[i]
+
+                        const folder = process.env.PROJECTS_PATH + '/' + project + '/Icons/'
+
+                        fs.readdir(folder, (err, files) => {
+                            console.log(files)
+                            for (let j = 0; j < files.length; j++) {
+                                let file = files[j]
+                                icons.push([project, file])
+                            }
+                            
+                            projectCounter++
+                            if (projectCounter === totalProjects) {
+                                console.log(icons)
+                                respondWithContent(JSON.stringify(icons), response)
+                            }
+                        })
+                    }
                 }
                 break
 
@@ -901,5 +944,12 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
         } catch (err) {
             console.log('[ERROR] webServer -> returnEmptyArray -> err.message ' + err.message)
         }
+    }
+
+    function getDirectories(path) {
+        const fs = require('fs')
+        return fs.readdirSync(path).filter(function (file) {
+            return fs.statSync(path + '/' + file).isDirectory();
+        });
     }
 }

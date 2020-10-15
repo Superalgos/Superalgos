@@ -506,40 +506,29 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
 
             case 'PluginFileNames':
                 {
+                    let project = unescape(requestParameters[2])
+                    let pluginType = unescape(requestParameters[3])
+
                     const fs = require('fs')
-                    let folder
-                    switch (requestParameters[2]) {
-                        case 'Data-Mines': {
-                            folder = process.env.DATA_MINES_PATH + '/'
-                            break
-                        }
-                        case 'Trading-Mines': {
-                            folder = process.env.TRADING_MINES_PATH + '/'
-                            break
-                        }
-                        case 'Trading-Systems': {
-                            folder = process.env.TRADING_SYSTEMS_PATH + '/'
-                            break
-                        }
-                        case 'Trading-Engines': {
-                            folder = process.env.TRADING_ENGINES_PATH + '/'
-                            break
-                        }
-                        case 'Super-Scripts': {
-                            folder = process.env.SUPER_SCRIPTS_PATH + '/'
-                            break
-                        }
-                        case 'Tutorials': {
-                            folder = process.env.TUTORIALS_PATH + '/'
-                            break
-                        }
-                    }
+                    let folder = process.env.PROJECTS_PATH + '/' + project + '/Plugins/' + pluginType
 
                     fs.readdir(folder, (err, files) => {
                         respondWithContent(JSON.stringify(files), response)
                     })
                 }
                 break
+
+
+            case 'LoadPlugin':
+                {
+                    let project = unescape(requestParameters[2])
+                    let pluginType = unescape(requestParameters[3])
+                    let fileName = unescape(requestParameters[4])
+                    let filePath = process.env.PROJECTS_PATH + '/' + project + '/Plugins/' + pluginType + '/' + fileName  
+                    respondWithFile(filePath, response)
+                }
+                break
+
             case 'Workspace.js':
                 {
                     let fs = require('fs')
@@ -565,33 +554,42 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
             case 'ListWorkspaces':
                 {
                     let allWorkspaces = []
-                    readPluginWorkspaces()
-                    function readPluginWorkspaces() {
-                        let dirPath = process.env.WORKSPACES_PATH
-                        try {
-                            let fs = require('fs')
-                            fs.readdir(dirPath, onDirRead)
+                    let projects = getDirectories(process.env.PROJECTS_PATH)
+                    let projectsCount = 0
 
-                            function onDirRead(err, fileList) {
-                                if (err) {
-                                    if (CONSOLE_LOG === true) { console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath) }
-                                    respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
-                                    return
-                                } else {
-                                    let updatedFileList = []
-                                    for (let i = 0; i < fileList.length; i++) {
-                                        let name = 'Plugin \u2192 ' + fileList[i]
-                                        updatedFileList.push(name)
+                    for (let i = 0; i < projects.length; i++) {
+                        let project = projects[i]
+                        readPluginWorkspaces()
+                        function readPluginWorkspaces() {
+                            let dirPath = process.env.PROJECTS_PATH + '/' + project + '/Plugins/Workspaces'
+                            try {
+                                let fs = require('fs')
+                                fs.readdir(dirPath, onDirRead)
+
+                                function onDirRead(err, fileList) {
+                                    if (err) {
+                                        if (CONSOLE_ERROR_LOG === true) { console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath) }
+                                        respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
+                                        return
+                                    } else {
+                                        let updatedFileList = []
+                                        for (let i = 0; i < fileList.length; i++) {
+                                            let name = 'Plugin \u2192 ' + fileList[i]
+                                            updatedFileList.push(name)
+                                        }
+                                        allWorkspaces = allWorkspaces.concat(updatedFileList)
+                                        projectsCount++
+                                        if (projectsCount === projects.length) {
+                                            readMyWorkspaces()
+                                        }
+                                        return
                                     }
-                                    allWorkspaces = allWorkspaces.concat(updatedFileList)
-                                    readMyWorkspaces()
-                                    return
                                 }
+                            } catch (err) {
+                                if (CONSOLE_ERROR_LOG === true) { console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath) }
+                                respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
+                                return
                             }
-                        } catch (err) {
-                            if (CONSOLE_LOG === true) { console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath) }
-                            respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
-                            return
                         }
                     }
 
@@ -603,7 +601,7 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
 
                             function onDirRead(err, fileList) {
                                 if (err) {
-                                    if (CONSOLE_LOG === true) { console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath) }
+                                    if (CONSOLE_ERROR_LOG === true) { console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath) }
                                     respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
                                     return
                                 } else {
@@ -613,7 +611,7 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                                 }
                             }
                         } catch (err) {
-                            if (CONSOLE_LOG === true) { console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath) }
+                            if (CONSOLE_ERROR_LOG === true) { console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath) }
                             respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
                             return
                         }
@@ -621,18 +619,10 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                 }
                 break
 
-            case 'LoadWorkspace':
+            case 'LoadMyWorkspace':
                 {
                     let fileName = unescape(requestParameters[2])
                     let filePath = process.env.MY_WORKSPACES_PATH + '/' + fileName + '.json'
-                    respondWithFile(filePath, response)
-                }
-                break
-
-            case 'LoadPluginWorkspace':
-                {
-                    let fileName = unescape(requestParameters[2])
-                    let filePath = process.env.WORKSPACES_PATH + '/' + fileName + '.json'
                     respondWithFile(filePath, response)
                 }
                 break
@@ -660,7 +650,7 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
 
                             function onFileWritten(err) {
                                 if (err) {
-                                    if (CONSOLE_LOG === true) { console.log('[ERROR] Error writting the Workspace file. fileName = ' + fileName) }
+                                    if (CONSOLE_ERROR_LOG === true) { console.log('[ERROR] Error writting the Workspace file. fileName = ' + fileName) }
                                     respondWithContent(JSON.stringify(exchanges), response)
                                 } else {
                                     respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), response)
@@ -668,46 +658,10 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                             }
 
                         } catch (err) {
-                            if (CONSOLE_LOG === true) { console.log('[ERROR] Error writting the Workspace file. fileName = ' + fileName) }
+                            if (CONSOLE_ERROR_LOG === true) { console.log('[ERROR] Error writting the Workspace file. fileName = ' + fileName) }
                             respondWithContent(JSON.stringify(exchanges), response)
                         }
                     }
-                }
-                break
-
-            case 'Data-Mines':
-                {
-                    respondWithFile(process.env.DATA_MINES_PATH + '/' + requestParameters[2], response)
-                }
-                break
-
-            case 'Trading-Mines':
-                {
-                    respondWithFile(process.env.TRADING_MINES_PATH + '/' + requestParameters[2], response)
-                }
-                break
-
-            case 'Trading-Systems':
-                {
-                    respondWithFile(process.env.TRADING_SYSTEMS_PATH + '/' + requestParameters[2], response)
-                }
-                break
-
-            case 'Super-Scripts':
-                {
-                    respondWithFile(process.env.SUPER_SCRIPTS_PATH + '/' + requestParameters[2], response)
-                }
-                break
-
-            case 'Trading-Engines':
-                {
-                    respondWithFile(process.env.TRADING_ENGINES_PATH + '/' + requestParameters[2], response)
-                }
-                break
-
-            case 'Tutorials':
-                {
-                    respondWithFile(process.env.TUTORIALS_PATH + '/' + requestParameters[2], response)
                 }
                 break
 
@@ -739,7 +693,7 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
             let fs = require('fs')
 
             try {
-                filePath = filePath + fileName  
+                filePath = filePath + fileName
                 fs.readFile(filePath, onFileRead)
             } catch (e) {
                 console.log('[ERROR] Error reading the ' + fileName, e)
@@ -748,7 +702,7 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
             function onFileRead(err, schema) {
                 if (err) {
                     respondWithContent(undefined, response)
-                } else { 
+                } else {
                     respondWithContent(schema, response)
                 }
             }
@@ -922,7 +876,6 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
     function returnEmptyArray(response) {
         try {
             if (CONSOLE_LOG === true) { console.log('[INFO] webServer -> respondWithFile -> returnEmptyArray -> Entering function.') }
-
             response.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate') // HTTP 1.1.
             response.setHeader('Pragma', 'no-cache') // HTTP 1.0.
             response.setHeader('Expires', '0') // Proxies.
@@ -931,7 +884,7 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
             response.write('[]')
             response.end('\n')
         } catch (err) {
-            console.log('[ERROR] webServer -> returnEmptyArray -> err.message ' + err.message)
+            console.log('[ERROR] webServer -> returnEmptyArray -> err.stack ' + err.stack)
         }
     }
 

@@ -145,7 +145,7 @@ function newTaskFunctions() {
         let networkDefinition = functionLibraryProtocolNode.getProtocolNode(networkNode.payload.parentNode, false, true, true, false, false, networkLightingPath)
 
         let event = {
-            appSchema: JSON.stringify(APP_SCHEMA_ARRAY),
+            appSchema: JSON.stringify(SCHEMAS_BY_PROJECT.get('Superalgos').array.appSchema),
             taskId: node.id,
             taskName: node.name,
             taskDefinition: JSON.stringify(taskDefinition),

@@ -9,7 +9,7 @@ function newWebhookFunctions() {
         let testMessage = loadPropertyFromNodeConfig(node.payload, 'testMessage')
         let letURL = loadPropertyFromNodeConfig(node.payload, 'webhookURL')
 
-        callServer(testMessage, letURL, onResponse)
+        callWebServer(testMessage, letURL, onResponse)
 
         function onResponse(err) {
             if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {

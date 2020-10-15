@@ -90,7 +90,7 @@ function newListView() {
     function turnOn() {
         firstVisibleListItem = 1
 
-        callServer(undefined, 'ListWorkspaces', onResponse)
+        callWebServer(undefined, 'ListWorkspaces', onResponse)
 
         function onResponse(err, text) {
             if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {

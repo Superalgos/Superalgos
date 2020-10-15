@@ -6,7 +6,7 @@ function newDesignSpace() {
         iconsByProjectAndName: undefined,
         iconsByProjectAndType: undefined,
         workspace: undefined,
-        getIconByProjectAndName: getIconByProjectAndName, 
+        getIconByProjectAndName: getIconByProjectAndName,
         getIconByProjectAndType: getIconByProjectAndType,
         physics: physics,
         draw: draw,
@@ -38,16 +38,21 @@ function newDesignSpace() {
 
         function buildIconByProjectAndTypeMap() {
             /* Take types-icons relationships defined at the schema */
-            for (let i = 0; i < APP_SCHEMA_ARRAY.length; i++) {
-                let nodeDefinition = APP_SCHEMA_ARRAY[i]
-                let iconName = nodeDefinition.icon
-                if (iconName === undefined) {
-                    iconName = nodeDefinition.type.toLowerCase()
-                    iconName = iconName.split(" ").join("-")
-                }
-                let icon = thisObject.getIconByProjectAndName('Superalgos', iconName)
-                if (icon !== undefined) {
-                    thisObject.iconsByProjectAndType.set('Superalgos' + '-' + nodeDefinition.type, icon)
+            for (let i = 0; i < PROJECTS.length; i++) {
+                let project = PROJECTS[i]
+                let appSchema = SCHEMAS_BY_PROJECT.get(project).array.appSchema
+                for (let j = 0; j < appSchema.length; j++) {
+                    let nodeDefinition = appSchema[j]
+                    let iconName = nodeDefinition.icon
+                    if (iconName === undefined) {
+                        iconName = nodeDefinition.type.toLowerCase()
+                        iconName = iconName.split(" ").join("-")
+                    }
+                    let icon = thisObject.getIconByProjectAndName(project, iconName)
+                    if (icon !== undefined) {
+                        let key = project + '-' + nodeDefinition.type
+                        thisObject.iconsByProjectAndType.set(key, icon)
+                    }
                 }
             }
         }
@@ -55,7 +60,7 @@ function newDesignSpace() {
 
     function loadIconCollection(callBack) {
 
-        callServer(undefined, 'IconNames', onResponse)
+        callWebServer(undefined, 'IconNames', onResponse)
 
         function onResponse(err, data) {
             if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {

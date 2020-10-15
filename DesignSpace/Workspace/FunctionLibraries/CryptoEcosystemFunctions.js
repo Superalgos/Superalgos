@@ -31,7 +31,7 @@ function newCryptoEcosystemFunctions() {
             }
         }
 
-        callServer(JSON.stringify(params), 'CCXT', onResponse)
+        callWebServer(JSON.stringify(params), 'CCXT', onResponse)
 
         function onResponse(err, data) {
             if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
@@ -79,7 +79,7 @@ function newCryptoEcosystemFunctions() {
                 exchangeId: exchangeId,
                 method: 'fetchMarkets'
             }
-            callServer(JSON.stringify(params), 'CCXT', onResponse)
+            callWebServer(JSON.stringify(params), 'CCXT', onResponse)
 
             function onResponse(err, data) {
                 if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
@@ -155,7 +155,7 @@ function newCryptoEcosystemFunctions() {
                 exchangeId: exchangeId,
                 method: 'fetchMarkets'
             }
-            callServer(JSON.stringify(params), 'CCXT', onResponse)
+            callWebServer(JSON.stringify(params), 'CCXT', onResponse)
 
             function onResponse(err, data) {
                 if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {

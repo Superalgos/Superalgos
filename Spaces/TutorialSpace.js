@@ -1187,9 +1187,9 @@ function newTutorialSpace() {
                 if (nodeType === undefined) {
                     return resultingText + firstPart
                 }
-                let definitionNode = DOC_SCHEMA_MAP.get(nodeType)
+                let definitionNode = SCHEMAS_BY_PROJECT.get(currentNode.project).map.docSchema.get(nodeType)
                 if (definitionNode === undefined) {
-                    definitionNode = CONCEPT_SCHEMA_MAP.get(nodeType)
+                    definitionNode = SCHEMAS_BY_PROJECT.get(currentNode.project).map.conceptSchema.get(nodeType)
                     if (definitionNode === undefined) {
                         currentNode.payload.uiObject.setErrorMessage(nodeType + ' not found at Doc Schema or Concept Schema.')
                         return

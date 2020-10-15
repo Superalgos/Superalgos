@@ -15,33 +15,103 @@ function newPostLoader() {
     function start() {
         try {
             setBrowserEvents()
-            setUpSchemas()
+            setUpProjects(setUpSchemas)
+
+            function setUpProjects(callBack) {
+                let url = 'ProjectNames'
+                callWebServer(undefined, url, onResponse)
+
+                function onResponse(err, projects) {
+                    PROJECTS = JSON.parse(projects)
+                    callBack()
+                }
+            }
 
             function setUpSchemas() {
-                APP_SCHEMA_ARRAY = getAppSchema()
-                for (let i = 0; i < APP_SCHEMA_ARRAY.length; i++) {
-                    let nodeDefinition = APP_SCHEMA_ARRAY[i]
-                    let key = nodeDefinition.type
-                    APP_SCHEMA_MAP.set(key, nodeDefinition)
+
+                let totalWebServerCalls = 0
+                let webServerResponses = 0
+
+                for (let i = 0; i < PROJECTS.length; i++) {
+                    let project = PROJECTS[i]
+                    let schemas = {
+                        array: {
+                            appSchema: [],
+                            docSchema: [],
+                            conceptSchema: []
+                        },
+                        map: {
+                            appSchema: new Map(),
+                            docSchema: new Map(),
+                            conceptSchema: new Map()
+                        }
+                    }
+                    SCHEMAS_BY_PROJECT.set(project, schemas)
+
+                    totalWebServerCalls++
+                    callWebServer(undefined, 'Schema/' + project + '/AppSchema', onResponseAppSchema)
+
+                    function onResponseAppSchema(err, schema) {
+                        try {
+                            schemas.array.appSchema = JSON.parse(schema)
+
+                            for (let j = 0; j < schemas.array.appSchema.length; j++) {
+                                let nodeDefinition = schemas.array.appSchema[j]
+                                let key = nodeDefinition.type
+                                schemas.map.appSchema.set(key, nodeDefinition)
+                            }
+                        } catch(err) {
+                            console.log(err.stack)
+                        }
+
+                        webServerResponses++
+                        if (webServerResponses === totalWebServerCalls) {startCanvas()}
+                    }
+
+                    totalWebServerCalls++
+                    callWebServer(undefined, 'Schema/' + project + '/DocSchema', onResponseDocSchema)
+
+                    function onResponseDocSchema(err, schema) {
+                        try {
+                            schemas.array.docSchema = JSON.parse(schema)
+
+                            for (let j = 0; j < schemas.array.docSchema.length; j++) {
+                                let nodeDefinition = schemas.array.docSchema[j]
+                                let key = nodeDefinition.type
+                                schemas.map.docSchema.set(key, nodeDefinition)
+                            }
+                        } catch(err) {
+                            console.log(err.stack)
+                        }
+
+                        webServerResponses++
+                        if (webServerResponses === totalWebServerCalls) {startCanvas()}
+                    }
+
+                    totalWebServerCalls++
+                    callWebServer(undefined, 'Schema/' + project + '/ConceptSchema', onResponseConceptSchema)
+
+                    function onResponseConceptSchema(err, schema) {
+                        try {
+                            schemas.array.conceptSchema = JSON.parse(schema)
+
+                            for (let j = 0; j < schemas.array.conceptSchema.length; j++) {
+                                let nodeDefinition = schemas.array.conceptSchema[j]
+                                let key = nodeDefinition.type
+                                schemas.map.conceptSchema.set(key, nodeDefinition)
+                            }
+                        } catch(err) {
+                            console.log(err.stack)
+                        }
+
+                        webServerResponses++
+                        if (webServerResponses === totalWebServerCalls) {startCanvas()}
+                    }
                 }
-                DOC_SCHEMA_ARRAY = getDocSchema()
-                for (let i = 0; i < DOC_SCHEMA_ARRAY.length; i++) {
-                    let nodeDefinition = DOC_SCHEMA_ARRAY[i]
-                    let key = nodeDefinition.type
-                    DOC_SCHEMA_MAP.set(key, nodeDefinition)
-                }
-                CONCEPT_SCHEMA_ARRAY = getConceptSchema()
-                for (let i = 0; i < CONCEPT_SCHEMA_ARRAY.length; i++) {
-                    let nodeDefinition = CONCEPT_SCHEMA_ARRAY[i]
-                    let key = nodeDefinition.type
-                    CONCEPT_SCHEMA_MAP.set(key, nodeDefinition)
-                }
-                startCanvas()
             }
 
             function startCanvas() {
                 /* If this method is executed for a second time, it should finalize the current execution structure */
-
                 if (canvas !== undefined) { canvas.finalize() }
 
                 canvas = newCanvas()

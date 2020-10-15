@@ -215,7 +215,7 @@ function newWorkspace() {
         }
 
         let url = 'SaveWorkspace/' + workspace.name
-        callServer(textToSave, url, onResponse)
+        callWebServer(textToSave, url, onResponse)
         return true
 
         function onResponse(err) {

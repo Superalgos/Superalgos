@@ -1,6 +1,5 @@
 function getNodeDefinition(node) {
-    let key = node.type
-    return APP_SCHEMA_MAP.get(key)
+    return SCHEMAS_BY_PROJECT.get(node.project).map.appSchema.get(node.type)
 }
 
 function dynamicDecimals(value, minDecimals) {

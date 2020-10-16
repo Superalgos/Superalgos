@@ -200,7 +200,7 @@ function newUiObjectConstructor() {
                 }
             }
             if (item.actionFunction === undefined) {
-                // item.actionFunction = 'payload.onMenuItemClick'
+                // item.actionFunction = 'payload.executeAction'
             }
         }
 
@@ -317,7 +317,7 @@ function newUiObjectConstructor() {
         menuItemsInitialValues.push(
             {
                 action: 'Backup',
-                actionFunction: floatingObject.payload.onMenuItemClick,
+                actionFunction: floatingObject.payload.executeAction,
                 label: undefined,
                 visible: true,
                 iconPathOn: 'backup',
@@ -331,7 +331,7 @@ function newUiObjectConstructor() {
         menuItemsInitialValues.push(
             {
                 action: 'Clone',
-                actionFunction: floatingObject.payload.onMenuItemClick,
+                actionFunction: floatingObject.payload.executeAction,
                 label: undefined,
                 visible: true,
                 iconPathOn: 'clone',
@@ -346,7 +346,7 @@ function newUiObjectConstructor() {
             menuItemsInitialValues.push(
                 {
                     action: 'Share',
-                    actionFunction: floatingObject.payload.onMenuItemClick,
+                    actionFunction: floatingObject.payload.executeAction,
                     label: undefined,
                     visible: true,
                     iconPathOn: 'share',
@@ -360,8 +360,8 @@ function newUiObjectConstructor() {
         }
         menuItemsInitialValues.push(
             {
-                action: 'Remove Parent',
-                actionFunction: floatingObject.payload.onMenuItemClick,
+                action: 'Parent Detach',
+                actionFunction: floatingObject.payload.executeAction,
                 label: undefined,
                 visible: true,
                 iconPathOn: 'detach',
@@ -374,8 +374,8 @@ function newUiObjectConstructor() {
         )
         menuItemsInitialValues.push(
             {
-                action: 'Remove Reference',
-                actionFunction: floatingObject.payload.onMenuItemClick,
+                action: 'Reference Detach',
+                actionFunction: floatingObject.payload.executeAction,
                 label: undefined,
                 visible: true,
                 iconPathOn: 'delink',
@@ -390,7 +390,7 @@ function newUiObjectConstructor() {
         menuItemsInitialValues.push(
             {
                 action: 'Open Documentation',
-                actionFunction: floatingObject.payload.onMenuItemClick,
+                actionFunction: floatingObject.payload.executeAction,
                 label: undefined,
                 visible: true,
                 iconPathOn: 'help',

@@ -20,29 +20,13 @@ function newWorkspace() {
         getNodeByShortcutKey: getNodeByShortcutKey,
         getNodeById: getNodeById,
         stopAllRunningTasks: stopAllRunningTasks,
-        onMenuItemClick: onMenuItemClick,
+        executeAction: executeAction,
         physics: physics,
         draw: draw,
         spawn: spawn,
-        chainDetachNode: chainDetachNode,
-        chainAttachNode: chainAttachNode,
-        referenceDetachNode: referenceDetachNode,
-        referenceAttachNode: referenceAttachNode,
         initialize: initialize,
         finalize: finalize
     }
-
-    thisObject.container = newContainer()
-    thisObject.container.initialize(MODULE_NAME)
-    thisObject.container.isClickeable = false
-    thisObject.container.isDraggeable = false
-    thisObject.container.isWheelable = false
-    thisObject.container.detectMouseOver = false
-    thisObject.container.frame.radius = 0
-    thisObject.container.frame.position.x = 0
-    thisObject.container.frame.position.y = 0
-    thisObject.container.frame.width = 0
-    thisObject.container.frame.height = 0
 
     spawnPosition = {
         x: canvas.floatingSpace.container.frame.width / 2,
@@ -51,27 +35,6 @@ function newWorkspace() {
 
     thisObject.workspaceNode = {}
     thisObject.workspaceNode.rootNodes = []
-
-    let functionLibraryReferenceAttachDetach = newReferenceAttachDetach()
-    let functionLibraryChainAttachDetach = newChainAttachDetach()
-    let functionLibraryNodeDeleter = newNodeDeleter()
-    let functionLibraryUiObjectsFromNodes = newUiObjectsFromNodes()
-    let functionLibraryProtocolNode = newProtocolNode()
-    let functionLibraryNodeCloning = newNodeCloning()
-    let functionLibraryTaskFunctions = newTaskFunctions()
-    let functionLibrarySessionFunctions = newSessionFunctions()
-    let functionLibraryShortcutKeys = newShortcutKeys()
-    let functionLibraryOnFocus = newOnFocus()
-    let functionLibrarySuperScripts = newSuperScriptsFunctions()
-    let functionLibraryCryptoEcosystemFunctions = newCryptoEcosystemFunctions()
-    let functionLibraryWebhookFunctions = newWebhookFunctions()
-    let functionLibraryDependenciesFilter = newDependenciesFilter()
-    let functionLibraryNodePath = newNodePath()
-    let functionLibraryDataMineFunctions = newDataMineFunctions()
-    let functionLibraryDataStorageFunctions = newDataStorageFunctions()
-    let functionLibraryChartingSpaceFunctions = newChartingSpaceFunctions()
-    let functionLibraryTutorialFunctions = newTutorialFunctions()
-    let functionLibraryPluginsFunctions = newPluginsFunctions()
 
     thisObject.nodeChildren = newNodeChildren()
 
@@ -84,19 +47,28 @@ function newWorkspace() {
     let sessionTimestamp = (new Date()).valueOf()
     window.localStorage.setItem('Session Timestamp', sessionTimestamp)
 
+    let actionSwitchesByProject = new Map()
+
     return thisObject
 
     function finalize() {
         thisObject.definition = undefined
-        thisObject.container.finalize()
-        thisObject.container = undefined
         thisObject.workspaceNode = undefined
         circularProgressBar.finalize()
         circularProgressBar = undefined
+        actionSwitchesByProject = undefined
     }
 
     function initialize() {
         try {
+            /* Set up the action switches map */
+            for (let i = 0; i < PROJECTS.length; i++) {
+                let project = PROJECTS[i]
+                let actionSwitch = eval('new' + project + 'ActionSwitch()')
+                actionSwitchesByProject.set(project, actionSwitch)
+            }
+
+            /* Check which was the last workspace. */
             let lastUsedWorkspace = window.localStorage.getItem('Last Used Workspace')
 
             if (lastUsedWorkspace !== 'undefined' && lastUsedWorkspace !== null && lastUsedWorkspace !== undefined) {
@@ -120,7 +92,7 @@ function newWorkspace() {
             }
 
             function recreateWorkspace() {
-                functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode, finishInitialization)
+                executeAction({ node: thisObject.workspaceNode, name: 'Recreate Workspace', project: 'Superalgos', callBackFunction: finishInitialization })
             }
 
             function finishInitialization() {
@@ -138,12 +110,9 @@ function newWorkspace() {
     }
 
     function runTasksAndSessions() {
-
-        functionLibraryUiObjectsFromNodes.syncronizeTasksFoundAtWorkspaceWithBackEnd(functionLibraryTaskFunctions)
-        functionLibraryUiObjectsFromNodes.syncronizeSessionsFoundAtWorkspaceWithBackEnd(functionLibrarySessionFunctions)
-
-        setTimeout(functionLibraryUiObjectsFromNodes.playTutorials, 1000)
-
+        executeAction({ name: 'Syncronize Tasks', project: 'Superalgos' })
+        executeAction({ name: 'Syncronize Sessions', project: 'Superalgos' })
+        executeAction({ name: 'Play Tutorials', project: 'Superalgos' })
     }
 
     function setupEventsServerClients() {
@@ -163,23 +132,7 @@ function newWorkspace() {
         }
     }
 
-    function chainDetachNode(node) {
-        functionLibraryChainAttachDetach.chainDetachNode(node, thisObject.workspaceNode.rootNodes)
-    }
-
-    function chainAttachNode(node, attachToNode) {
-        functionLibraryChainAttachDetach.chainAttachNode(node, attachToNode, thisObject.workspaceNode.rootNodes)
-    }
-
-    function referenceDetachNode(node) {
-        functionLibraryReferenceAttachDetach.referenceDetachNode(node)
-    }
-
-    function referenceAttachNode(node, attachToNode) {
-        functionLibraryReferenceAttachDetach.referenceAttachNode(node, attachToNode, thisObject.workspaceNode.rootNodes)
-    }
-
-    function saveWorkspace() {
+    async function saveWorkspace() {
         let workspace = canvas.designSpace.workspace.workspaceNode
 
         /* Validation if it is too early to save. */
@@ -195,7 +148,7 @@ function newWorkspace() {
         }
 
         /* Validation that there is something to save */
-        let textToSave = stringifyWorkspace()
+        let textToSave = await stringifyWorkspace()
         if (textToSave === undefined) {
             canvas.cockpitSpace.setStatus(
                 'Could not save the Workspace. Something is preventing the System to do it at this time.'
@@ -230,8 +183,8 @@ function newWorkspace() {
         }
     }
 
-    function getNodeById(nodeId) {
-        return functionLibraryUiObjectsFromNodes.getNodeById(nodeId)
+    async function getNodeById(nodeId) {
+        return await executeAction({ name: 'Get Node By Id', project: 'Superalgos', relatedNodeId: nodeId })
     }
 
     function physics() {
@@ -264,7 +217,7 @@ function newWorkspace() {
             switch (workingAtTask) {
                 case 1:
                     canvas.tutorialSpace.stop()
-                    functionLibraryNodeDeleter.deleteWorkspace(thisObject.workspaceNode, thisObject.workspaceNode.rootNodes)
+                    executeAction({ node: thisObject.workspaceNode, name: 'Delete Workspace', project: 'Superalgos' })
                     workingAtTask++
                     break
                 case 2:
@@ -283,7 +236,7 @@ function newWorkspace() {
                     workingAtTask++
                     break
                 case 5:
-                    functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode, finishInitialization)
+                    executeAction({ node: thisObject.workspaceNode, name: 'Recreate Workspace', project: 'Superalgos', callBackFunction: finishInitialization })
                     function finishInitialization() {
                         setupEventsServerClients()
                         runTasksAndSessions()
@@ -308,13 +261,13 @@ function newWorkspace() {
         }
     }
 
-    function stringifyWorkspace(removePersonalData) {
+    async function stringifyWorkspace(removePersonalData) {
         let stringifyReadyNodes = []
         for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
             let rootNode = thisObject.workspaceNode.rootNodes[i]
 
             if (rootNode.isPlugin !== true) {
-                let node = functionLibraryProtocolNode.getProtocolNode(rootNode, removePersonalData, false, true, true, true)
+                let node = await executeAction({ node: rootNode, name: 'Get Node Data Structure', project: 'Superalgos', extraParameter: removePersonalData })
                 stringifyReadyNodes.push(node)
             }
         }
@@ -361,18 +314,18 @@ function newWorkspace() {
         }
     }
 
-    function getNodeByShortcutKey(searchingKey) {
+    async function getNodeByShortcutKey(searchingKey) {
         for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
             let rootNode = thisObject.workspaceNode.rootNodes[i]
-            let node = functionLibraryShortcutKeys.getNodeByShortcutKey(rootNode, searchingKey)
+            let node = await executeAction({ node: rootNode, name: 'Get Node By Shortcut Key', project: 'Superalgos', extraParameter: searchingKey })
             if (node !== undefined) { return node }
         }
     }
 
-    function getNodeThatIsOnFocus() {
+    async function getNodeThatIsOnFocus() {
         for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
             let rootNode = thisObject.workspaceNode.rootNodes[i]
-            let node = functionLibraryOnFocus.getNodeThatIsOnFocus(rootNode)
+            let node = await executeAction({ node: rootNode, name: 'Get Node On Focus', project: 'Superalgos' })
             if (node !== undefined) { return node }
         }
     }
@@ -470,8 +423,8 @@ function newWorkspace() {
             }
 
             thisObject.workspaceNode.rootNodes.push(droppedNode)
-            functionLibraryUiObjectsFromNodes.createUiObjectFromNode(droppedNode, undefined, undefined, positionOffset)
-            functionLibraryUiObjectsFromNodes.tryToConnectChildrenWithReferenceParents()
+            executeAction({ node: droppedNode, name: 'Create UI Object', project: 'Superalgos', extraParameter: positionOffset })
+            executeAction({ name: 'Connect Children to Reference Parents', project: 'Superalgos' })
 
             droppedNode = undefined
         } catch (err) {
@@ -479,459 +432,23 @@ function newWorkspace() {
         }
     }
 
-    async function onMenuItemClick(payload, action, relatedUiObject, callBackFunction) {
-        switch (action) {
-            case 'Copy Node Path':
-                {
-                    let nodePath = functionLibraryNodePath.getNodePath(payload.node)
+    async function executeAction(action) {
+        /* 
+        Supported parameters as part of the action object:
 
-                    copyTextToClipboard(nodePath)
+        action.node : It is the node at which the action was taken. If not specific node is involved then it should be the workspace node.
+        action.relatedNode : It is a secondary node involved with the action. For example the node to which the main node is being attached to.
+        action.relatedNodeId : It is the id of a node related to the action.
+        action.relatedNodeType : It is the type of the node related to the action.
+        action.callBackFunction : A callback function to call when the action is complete.
+        action.extraParameter : A parameter to send unusual info to the fnction processing the action.
 
-                    canvas.cockpitSpace.setStatus(
-                        nodePath + ' copied to the Clipboard.'
-                        , 50, canvas.cockpitSpace.statusTypes.ALL_GOOD)
-                }
-                break
-            case 'Add UI Object':
-                {
-                    functionLibraryUiObjectsFromNodes.addUIObject(payload.node, relatedUiObject)
-                }
-                break
-            case 'Add Missing Children':
-                {
-                    functionLibraryUiObjectsFromNodes.addMissingChildren(payload.node)
-                }
-                break
-            case 'Delete UI Object':
-                {
-                    functionLibraryNodeDeleter.deleteUIObject(payload.node, thisObject.workspaceNode.rootNodes)
-                }
-                break
-            case 'Share Workspace':
-                {
-                    let text = stringifyWorkspace(true)
-                    let fileName = 'Share - ' + payload.node.type + ' - ' + payload.node.name + '.json'
-                    if (text !== undefined) {
-                        downloadText(fileName, text)
-                    }
-                }
-                break
-            case 'Backup Workspace':
-                {
-                    let text = stringifyWorkspace(false)
-                    let fileName = 'Backup - ' + payload.node.type + ' - ' + payload.node.name + '.json'
-                    if (text !== undefined) {
-                        downloadText(fileName, text)
-                    }
-                }
-                break
-            case 'Edit Code':
+        We add rootNodes property here.
+        */
+        action.rootNodes = thisObject.workspaceNode.rootNodes
 
-                break
-            case 'Share':
-                {
-                    let text = JSON.stringify(functionLibraryProtocolNode.getProtocolNode(payload.node, true, false, true, true, true))
+        let actionSwitch = actionSwitchesByProject.get(action.project)
+        return actionSwitch.executeAction(action)
 
-                    let nodeName = payload.node.name
-                    if (nodeName === undefined) {
-                        nodeName = ''
-                    } else {
-                        nodeName = '.' + nodeName
-                    }
-                    let fileName = 'Share - ' + payload.node.type + ' - ' + nodeName + '.json'
-                    downloadText(fileName, text)
-                }
-
-                break
-            case 'Backup':
-                {
-                    let text = JSON.stringify(functionLibraryProtocolNode.getProtocolNode(payload.node, false, false, true, true, true))
-
-                    let nodeName = payload.node.name
-                    if (nodeName === undefined) {
-                        nodeName = ''
-                    } else {
-                        nodeName = ' ' + nodeName
-                    }
-                    let fileName = 'Backup - ' + payload.node.type + ' - ' + nodeName + '.json'
-                    downloadText(fileName, text)
-                }
-
-                break
-            case 'Clone':
-                {
-                    let text = JSON.stringify(functionLibraryNodeCloning.getNodeClone(payload.node))
-
-                    let nodeName = payload.node.name
-                    if (nodeName === undefined) {
-                        nodeName = ''
-                    } else {
-                        nodeName = ' ' + nodeName
-                    }
-                    let fileName = 'Clone - ' + payload.node.type + ' - ' + nodeName + '.json'
-                    downloadText(fileName, text)
-                }
-
-                break
-            case 'Debug Task':
-                {
-                    functionLibraryTaskFunctions.runTask(payload.node, functionLibraryProtocolNode, true, callBackFunction)
-                }
-                break
-            case 'Run Task':
-                {
-                    functionLibraryTaskFunctions.runTask(payload.node, functionLibraryProtocolNode, false, callBackFunction)
-                }
-                break
-            case 'Stop Task':
-                {
-                    functionLibraryTaskFunctions.stopTask(payload.node, functionLibraryProtocolNode, callBackFunction)
-                }
-                break
-            case 'Run All Tasks':
-                {
-                    functionLibraryTaskFunctions.runAllTasks(payload.node, functionLibraryProtocolNode)
-                }
-                break
-            case 'Stop All Tasks':
-                {
-                    functionLibraryTaskFunctions.stopAllTasks(payload.node, functionLibraryProtocolNode)
-                }
-                break
-            case 'Run All Task Managers':
-                {
-                    functionLibraryTaskFunctions.runAllTaskManagers(payload.node, functionLibraryProtocolNode)
-                }
-                break
-            case 'Stop All Task Managers':
-                {
-                    functionLibraryTaskFunctions.stopAllTaskManagers(payload.node, functionLibraryProtocolNode)
-                }
-                break
-            case 'Run All Exchange Data Tasks':
-                {
-                    functionLibraryTaskFunctions.runAllExchangeDataTasks(payload.node, functionLibraryProtocolNode)
-                }
-                break
-            case 'Stop All Exchange Data Tasks':
-                {
-                    functionLibraryTaskFunctions.stopAllExchangeDataTasks(payload.node, functionLibraryProtocolNode)
-                }
-                break
-            case 'Run All Exchange Trading Tasks':
-                {
-                    functionLibraryTaskFunctions.runAllExchangeTradingTasks(payload.node, functionLibraryProtocolNode)
-                }
-                break
-            case 'Stop All Exchange Trading Tasks':
-                {
-                    functionLibraryTaskFunctions.stopAllExchangeTradingTasks(payload.node, functionLibraryProtocolNode)
-                }
-                break
-            case 'Run All Market Data Tasks':
-                {
-                    functionLibraryTaskFunctions.runAllMarketDataTasks(payload.node, functionLibraryProtocolNode)
-                }
-                break
-            case 'Stop All Market Data Tasks':
-                {
-                    functionLibraryTaskFunctions.stopAllMarketDataTasks(payload.node, functionLibraryProtocolNode)
-                }
-                break
-            case 'Run All Market Trading Tasks':
-                {
-                    functionLibraryTaskFunctions.runAllMarketTradingTasks(payload.node, functionLibraryProtocolNode)
-                }
-                break
-            case 'Stop All Market Trading Tasks':
-                {
-                    functionLibraryTaskFunctions.stopAllMarketTradingTasks(payload.node, functionLibraryProtocolNode)
-                }
-                break
-            case 'Run All Data Mine Tasks':
-                {
-                    functionLibraryTaskFunctions.runAllDataMineTasks(payload.node, functionLibraryProtocolNode)
-                }
-                break
-            case 'Stop All Data Mine Tasks':
-                {
-                    functionLibraryTaskFunctions.stopAllDataMineTasks(payload.node, functionLibraryProtocolNode)
-                }
-                break
-            case 'Run All Trading Mine Tasks':
-                {
-                    functionLibraryTaskFunctions.runAllTradingMineTasks(payload.node, functionLibraryProtocolNode)
-                }
-                break
-            case 'Stop All Trading Mine Tasks':
-                {
-                    functionLibraryTaskFunctions.stopAllTradingMineTasks(payload.node, functionLibraryProtocolNode)
-                }
-                break
-            case 'Add Missing Exchange Data Tasks':
-                {
-                    functionLibraryTaskFunctions.addMissingExchangeDataTasks(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
-                }
-                break
-            case 'Add Missing Market Data Tasks':
-                {
-                    functionLibraryTaskFunctions.addMissingMarketDataTasks(payload.node, functionLibraryUiObjectsFromNodes)
-                }
-                break
-            case 'Add Missing Data Mine Tasks':
-                {
-                    functionLibraryTaskFunctions.addMissingDataMineTasks(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
-                }
-                break
-            case 'Add Missing Exchange Trading Tasks':
-                {
-                    functionLibraryTaskFunctions.addMissingExchangeTradingTasks(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
-                }
-                break
-            case 'Add Missing Market Trading Tasks':
-                {
-                    functionLibraryTaskFunctions.addMissingMarketTradingTasks(payload.node, functionLibraryUiObjectsFromNodes)
-                }
-                break
-            case 'Add Missing Trading Mine Tasks':
-                {
-                    functionLibraryTaskFunctions.addMissingTradingMineTasks(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
-                }
-                break
-            case 'Add All Tasks':
-                {
-                    functionLibraryTaskFunctions.addAllTasks(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
-                }
-                break
-            case 'Add Missing Crypto Exchanges':
-                {
-                    functionLibraryCryptoEcosystemFunctions.addMissingExchanges(payload.node, functionLibraryUiObjectsFromNodes)
-                }
-                break
-            case 'Add Missing Assets':
-                {
-                    functionLibraryCryptoEcosystemFunctions.addMissingAssets(payload.node, functionLibraryUiObjectsFromNodes)
-                }
-                break
-            case 'Add Missing Markets':
-                {
-                    functionLibraryCryptoEcosystemFunctions.addMissingMarkets(payload.node, functionLibraryUiObjectsFromNodes, functionLibraryNodeCloning)
-                }
-                break
-            case 'Install Market':
-                {
-                    functionLibraryCryptoEcosystemFunctions.installMarket(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter, functionLibraryChartingSpaceFunctions, functionLibraryDataStorageFunctions)
-                }
-                break
-            case 'Uninstall Market':
-                {
-                    functionLibraryCryptoEcosystemFunctions.uninstallMarket(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter, functionLibraryChartingSpaceFunctions, functionLibraryDataStorageFunctions)
-                }
-                break
-            case 'Add All Output Datasets':
-                {
-                    functionLibraryDataMineFunctions.addAllOutputDatasets(payload.node, functionLibraryUiObjectsFromNodes)
-                }
-                break
-            case 'Add All Data Products':
-                {
-                    functionLibraryDataStorageFunctions.addAllDataProducts(payload.node, functionLibraryUiObjectsFromNodes)
-                }
-                break
-            case 'Add All Data Mine Products':
-                {
-                    functionLibraryDataStorageFunctions.addAllDataMineProducts(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
-                }
-                break
-            case 'Add All Trading Mine Products':
-                {
-                    functionLibraryDataStorageFunctions.addAllTradingMineProducts(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
-                }
-                break
-            case 'Add Missing Session References':
-                {
-                    functionLibraryDataStorageFunctions.addMissingSessionReferences(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
-                }
-                break
-            case 'Add Missing Market Data Products':
-                {
-                    functionLibraryDataStorageFunctions.addMissingMarketDataProducts(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
-                }
-                break
-            case 'Add Missing Market Trading Products':
-                {
-                    functionLibraryDataStorageFunctions.addMissingMarketTradingProducts(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
-                }
-                break
-            case 'Add Missing Exchange Trading Products':
-                {
-                    functionLibraryDataStorageFunctions.addMissingExchangeTradingProducts(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
-                }
-                break
-            case 'Add Missing Exchange Data Products':
-                {
-                    functionLibraryDataStorageFunctions.addMissingExchangeDataProducts(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
-                }
-                break
-            case 'Add All Data Dependencies':
-                {
-                    functionLibraryDataMineFunctions.addAllDataDependencies(payload.node, functionLibraryUiObjectsFromNodes)
-                }
-                break
-            case 'Add All Data Mine Dependencies':
-                {
-                    functionLibraryDataMineFunctions.addAllDataMineDataDependencies(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
-                }
-                break
-            case 'Add All Mine Layers':
-                {
-                    functionLibraryChartingSpaceFunctions.addAllMineLayers(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
-                }
-                break
-            case 'Add Missing Time Machines':
-                {
-                    functionLibraryChartingSpaceFunctions.addMissingTimeMachines(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
-                }
-                break
-            case 'Add Missing Dashboards':
-                {
-                    functionLibraryChartingSpaceFunctions.addMissingDashboards(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
-                }
-                break
-            case 'Play Tutorial':
-                {
-                    canvas.tutorialSpace.playTutorial(payload.node)
-                }
-                break
-            case 'Play Tutorial Topic':
-                {
-                    canvas.tutorialSpace.playTutorialTopic(payload.node)
-                }
-                break
-            case 'Play Tutorial Step':
-                {
-                    canvas.tutorialSpace.playTutorialStep(payload.node)
-                }
-                break
-            case 'Resume Tutorial':
-                {
-                    canvas.tutorialSpace.resumeTutorial(payload.node)
-                }
-                break
-            case 'Resume Tutorial Topic':
-                {
-                    canvas.tutorialSpace.resumeTutorialTopic(payload.node)
-                }
-                break
-            case 'Resume Tutorial Step':
-                {
-                    canvas.tutorialSpace.resumeTutorialStep(payload.node)
-                }
-                break
-            case 'Reset Tutorial Progress':
-                {
-                    canvas.tutorialSpace.resetTutorialProgress(payload.node)
-                }
-                break
-            case 'Send Webhook Test Message':
-                {
-                    functionLibraryWebhookFunctions.sendTestMessage(payload.node, callBackFunction)
-                }
-                break
-            case 'Run Session':
-                {
-                    functionLibrarySessionFunctions.runSession(payload.node, functionLibraryProtocolNode, functionLibraryDependenciesFilter, false, callBackFunction)
-                }
-                break
-            case 'Resume Session':
-                {
-                    functionLibrarySessionFunctions.runSession(payload.node, functionLibraryProtocolNode, functionLibraryDependenciesFilter, true, callBackFunction)
-                }
-                break
-            case 'Stop Session':
-                {
-                    functionLibrarySessionFunctions.stopSession(payload.node, functionLibraryProtocolNode, callBackFunction)
-                }
-                break
-            case 'Run Super Action':
-                {
-                    functionLibrarySuperScripts.runSuperScript(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryNodeCloning, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
-                }
-                break
-            case 'Remove Parent':
-                {
-                    chainDetachNode(payload.node)
-                }
-                break
-            case 'Remove Reference':
-                {
-                    referenceDetachNode(payload.node)
-                }
-                break
-            case 'Push Code to Javascript Code':
-                {
-                    payload.node.javascriptCode.code = payload.node.code
-                }
-                break
-            case 'Fetch Code to Javascript Code':
-                {
-                    payload.node.code = payload.node.javascriptCode.code
-                }
-                break
-            case 'Open Documentation':
-                {
-                    let definition = getNodeDefinition(payload.node)
-                    if (definition !== undefined) {
-                        if (definition.docURL !== undefined) {
-                            canvas.docSpace.navigateTo(definition.docURL)
-                        } else {
-                            let headName = getHiriarchyHead(payload.node).type
-                            headName = headName.toLowerCase()
-                            headName = headName.split(" ").join("-")
-                            let nodeName = payload.node.type
-                            nodeName = nodeName.toLowerCase()
-                            nodeName = nodeName.split(" ").join("-")
-                            url = DOCUMENTATION_URL_PREFIX + "suite-hierarchy-" + headName + ".html#" + nodeName
-                            canvas.docSpace.navigateTo(url)
-                        }
-                    }
-                }
-                break
-            case 'Add Missing Plugin Projects':
-                {
-                    functionLibraryPluginsFunctions.pluginMissingProjects(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
-                }
-                break
-            case 'Add Missing Plugin Data Mines':
-                {
-                    functionLibraryPluginsFunctions.pluginMissingDataMines(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
-                }
-                break
-            case 'Add Missing Plugin Trading Mines':
-                {
-                    functionLibraryPluginsFunctions.pluginMissingTradingMines(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
-                }
-                break
-            case 'Add Missing Plugin Trading Systems':
-                {
-                    functionLibraryPluginsFunctions.pluginMissingTradingSystems(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
-                }
-                break
-            case 'Add Missing Plugin Trading Engines':
-                {
-                    functionLibraryPluginsFunctions.pluginMissingTradingEngines(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
-                }
-                break
-            case 'Add Missing Plugin Super Scripts':
-                {
-                    functionLibraryPluginsFunctions.pluginMissingSuperScripts(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
-                }
-                break
-            case 'Add Missing Plugin Tutorials':
-                {
-                    functionLibraryPluginsFunctions.pluginMissingTutorials(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryUiObjectsFromNodes)
-                }
-                break
-        }
     }
 }

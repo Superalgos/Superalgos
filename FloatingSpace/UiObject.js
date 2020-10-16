@@ -581,7 +581,7 @@ function newUiObject() {
         let THRESHOLD = 1.15
 
         if (ratio > THRESHOLD) {
-            canvas.designSpace.workspace.chainDetachNode(thisObject.payload.node)
+            canvas.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Parent Detach', project: 'Superalgos' })
         }
     }
 
@@ -692,7 +692,7 @@ function newUiObject() {
         let THRESHOLD = 1.15
 
         if (ratio > THRESHOLD) {
-            canvas.designSpace.workspace.referenceDetachNode(thisObject.payload.node)
+            canvas.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Reference Detach', project: 'Superalgos' })
         }
     }
 
@@ -1022,9 +1022,9 @@ function newUiObject() {
                 eventSubscriptionIdOnError = message.eventSubscriptionId
             }
 
-            function onError(message) {
+            async function onError(message) {
 
-                let uiObject = getTargetUiObject(message)
+                let uiObject = await getTargetUiObject(message)
                 uiObject.setErrorMessage(message.event.errorMessage, 10)
 
                 let event = {
@@ -1042,8 +1042,8 @@ function newUiObject() {
                 eventSubscriptionIdOnWarning = message.eventSubscriptionId
             }
 
-            function onWarning(message) {
-                let uiObject = getTargetUiObject(message)
+            async function onWarning(message) {
+                let uiObject = await getTargetUiObject(message)
                 uiObject.setWarningMessage(message.event.warningMessage, 10)
             }
         }
@@ -1056,17 +1056,17 @@ function newUiObject() {
                 eventSubscriptionIdOnInfo = message.eventSubscriptionId
             }
 
-            function onInfo(message) {
-                let uiObject = getTargetUiObject(message)
+            async function onInfo(message) {
+                let uiObject = await getTargetUiObject(message)
                 uiObject.setInfoMessage(message.event.infoMessage, 10)
             }
         }
     }
 
-    function getTargetUiObject(message) {
+    async function getTargetUiObject(message) {
         let uiObject = thisObject
         if (message.event.nodeId !== undefined) {
-            let targetNode = canvas.designSpace.workspace.getNodeById(message.event.nodeId)
+            let targetNode = await canvas.designSpace.workspace.getNodeById(message.event.nodeId)
             if (targetNode !== undefined) {
                 if (targetNode.payload !== undefined) {
                     if (targetNode.payload.uiObject !== undefined) {
@@ -1221,12 +1221,12 @@ function newUiObject() {
 
     function onDragFinished(event) {
         if (isChainAttaching === true) {
-            canvas.designSpace.workspace.chainAttachNode(thisObject.payload.node, chainAttachToNode)
+            canvas.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Parent Attach', project: 'Superalgos', relatedNode: chainAttachToNode })
             chainAttachToNode = undefined
             isChainAttaching = false
         }
         if (isReferenceAttaching === true) {
-            canvas.designSpace.workspace.referenceAttachNode(thisObject.payload.node, referenceAttachToNode)
+            canvas.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Reference Attach', project: 'Superalgos', relatedNode: referenceAttachToNode })
             referenceAttachToNode = undefined
             isReferenceAttaching = false
         }

@@ -14,18 +14,12 @@ function newPostLoader() {
 
     function start() {
         try {
+            /* Moving PROJECTS to the global variable */
+            PROJECTS = window.PROJECTS
+            window.PROJECTS = undefined
+
             setBrowserEvents()
-            setUpProjects(setUpSchemas)
-
-            function setUpProjects(callBack) {
-                let url = 'ProjectNames'
-                callWebServer(undefined, url, onResponse)
-
-                function onResponse(err, projects) {
-                    PROJECTS = JSON.parse(projects)
-                    callBack()
-                }
-            }
+            setUpSchemas()
 
             function setUpSchemas() {
 

@@ -312,7 +312,7 @@ function newCanvas() {
         thisObject.mouse.action = 'key up'
     }
 
-    function onKeyDown(event) {
+    async function onKeyDown(event) {
         if (EDITOR_ON_FOCUS === true) { return }
         thisObject.mouse.event = event
         thisObject.mouse.action = 'key down'
@@ -368,7 +368,7 @@ function newCanvas() {
             return
         }
 
-        let nodeOnFocus = canvas.designSpace.workspace.getNodeThatIsOnFocus()
+        let nodeOnFocus = await canvas.designSpace.workspace.getNodeThatIsOnFocus()
         if (nodeOnFocus !== undefined) {
             if (nodeOnFocus.payload.uiObject.codeEditor !== undefined) {
                 if (nodeOnFocus.payload.uiObject.codeEditor.visible === true) {
@@ -512,36 +512,40 @@ function newCanvas() {
                 return
             }
         }
-
         if ((event.ctrlKey === true || event.metaKey === true) && event.altKey === true) {
             /* Shortcuts to nodes */
             if ((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 65 && event.keyCode <= 90)) {
                 /* From here we prevent the default behaviour. Putting it earlier prevents imput box and text area to receive keystrokes */
                 event.preventDefault()
+                let nodeUsingThisKey = await canvas.designSpace.workspace.getNodeByShortcutKey(event.key)
 
-                let nodeUsingThisKey = canvas.designSpace.workspace.getNodeByShortcutKey(event.key)
-
-                /* If there is a node in focus, we try to assign the key to it. */
-                if (nodeUsingThisKey !== undefined && nodeOnFocus !== undefined) {
-                    if (nodeUsingThisKey.id === nodeOnFocus.id) {
-                        nodeOnFocus.payload.uiObject.shortcutKey = ''
-                        nodeOnFocus.payload.uiObject.valueAtAngle = false
-                        nodeOnFocus.payload.uiObject.setValue('Shortcut Key Removed ')
-                        return
+                if (nodeUsingThisKey !== undefined) {
+                    if (nodeOnFocus !== undefined) {
+                        if (nodeUsingThisKey.id === nodeOnFocus.id) {
+                            nodeOnFocus.payload.uiObject.shortcutKey = ''
+                            nodeOnFocus.payload.uiObject.valueAtAngle = false
+                            nodeOnFocus.payload.uiObject.setValue('Shortcut Key Removed ')
+                        } else {
+                            nodeUsingThisKey.payload.uiObject.shortcutKey = ''
+                            nodeUsingThisKey = undefined
+                            nodeOnFocus.payload.uiObject.shortcutKey = event.key
+                            nodeOnFocus.payload.uiObject.valueAtAngle = false
+                            nodeOnFocus.payload.uiObject.setValue('Shortcut Key: Ctrl + Alt + ' + event.key)
+                        }
                     } else {
-                        /* After the warning, we allow the key to be re-assigned */
-                        nodeUsingThisKey.payload.uiObject.shortcutKey = ''
-                        nodeUsingThisKey = undefined
+                        canvas.floatingSpace.positionAtNode(nodeUsingThisKey)
+                    }
+                    return
+                } else {
+                    if (nodeOnFocus !== undefined) { 
                         nodeOnFocus.payload.uiObject.shortcutKey = event.key
                         nodeOnFocus.payload.uiObject.valueAtAngle = false
                         nodeOnFocus.payload.uiObject.setValue('Shortcut Key: Ctrl + Alt + ' + event.key)
                     }
                 }
-                return
             }
         }
-
-        if (event.ctrlKey === true && event.altKey === true && nodeOnFocus !== undefined) {
+        if ((event.ctrlKey === true || event.metaKey === true) && event.altKey === true && nodeOnFocus !== undefined) {
             if (nodeOnFocus.payload.uiObject.shortcutKey !== undefined && nodeOnFocus.payload.uiObject.shortcutKey !== '') {
                 nodeOnFocus.payload.uiObject.valueAtAngle = false
                 nodeOnFocus.payload.uiObject.setValue('Shortcut Key: Ctrl + Alt + ' + nodeOnFocus.payload.uiObject.shortcutKey)

@@ -103,7 +103,17 @@ function loadSuperalgos() {
 
         function onRequired(pModule) {
             if (INFO_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + " : " + "[INFO] " + path + " downloaded."); }
-            loadModules();
+            setUpProjects();
+        }
+    }
+
+    function setUpProjects() {
+        let url = 'ProjectNames'
+        callWebServer(undefined, url, onResponse)
+
+        function onResponse(err, projects) {
+            window.PROJECTS = JSON.parse(projects)
+            loadModules()
         }
     }
 

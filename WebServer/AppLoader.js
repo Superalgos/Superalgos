@@ -37,27 +37,6 @@ function newAppLoader() {
                 'ChartingSpace/CoordinateSystem.js',
 
                 'DesignSpace/Workspace/Workspace.js',
-                'DesignSpace/Workspace/FunctionLibraries/UiObjectsFromNodes.js',
-                'DesignSpace/Workspace/FunctionLibraries/ChainAttachDetach.js',
-                'DesignSpace/Workspace/FunctionLibraries/ReferenceAttachDetach.js',
-                'DesignSpace/Workspace/FunctionLibraries/NodeDeleter.js',
-                'DesignSpace/Workspace/FunctionLibraries/ProtocolNode.js',
-                'DesignSpace/Workspace/FunctionLibraries/NodeCloning.js',
-                'DesignSpace/Workspace/FunctionLibraries/NodeChildren.js',
-                'DesignSpace/Workspace/FunctionLibraries/TaskFunctions.js',
-                'DesignSpace/Workspace/FunctionLibraries/SessionFunctions.js',
-                'DesignSpace/Workspace/FunctionLibraries/ShortcutKeys.js',
-                'DesignSpace/Workspace/FunctionLibraries/OnFocus.js',
-                'DesignSpace/Workspace/FunctionLibraries/SuperScripts.js',
-                'DesignSpace/Workspace/FunctionLibraries/CryptoEcosystemFunctions.js',
-                'DesignSpace/Workspace/FunctionLibraries/WebhookFunctions.js',
-                'DesignSpace/Workspace/FunctionLibraries/DependenciesFilter.js',
-                'DesignSpace/Workspace/FunctionLibraries/NodePath.js',
-                'DesignSpace/Workspace/FunctionLibraries/DataMineFunctions.js',
-                'DesignSpace/Workspace/FunctionLibraries/DataStorageFunctions.js',
-                'DesignSpace/Workspace/FunctionLibraries/ChartingSpaceFunctions.js',
-                'DesignSpace/Workspace/FunctionLibraries/TutorialFunctions.js',   
-                'DesignSpace/Workspace/FunctionLibraries/PluginsFunctions.js',  
 
                 'Utilities/CoordinateTransformations.js',
                 'Utilities/DateRateTransformations.js',
@@ -160,40 +139,66 @@ function newAppLoader() {
 
             modulesArray = modulesArray.concat(plotters)
 
-            let downloadedCounter = 0
+            functionLibraries()
 
-            for (let i = 0; i < modulesArray.length; i++) {
-                let path = modulesArray[i] 
+            function functionLibraries(callBack) {
+                let url = 'ListFunctionLibraries'
+                callWebServer(undefined, url, onResponse)
 
-                REQUIREJS([path], onRequired)
+                function onResponse(err, fileList) {
+                    let urlArray = []
+                    let fileArray = JSON.parse(fileList)
+                    for (let i = 0; i < fileArray.length; i++) {
+                        let item = fileArray[i]
+                        
+                        project = item[0]
+                        fileName = item[1]
+                        urlArray.push('FunctionLibraries' + '/' + project + '/' + fileName)
+                    }
 
-                if (INFO_LOG === true) { logger.write('[INFO] loadModules -> Module Requested.') }
-                if (INFO_LOG === true) { logger.write('[INFO] loadModules -> path = ' + path) }
-                if (INFO_LOG === true) { logger.write('[INFO] loadModules -> total requested = ' + (i + 1)) }
+                    modulesArray = modulesArray.concat(urlArray)
+                    downloadIncludedFiles()
+                }
+            }
 
-                function onRequired(pModule) {
-                    try {
-                        if (INFO_LOG === true) { logger.write('[INFO] loadModules -> onRequired -> Entering function.') }
-                        if (INFO_LOG === true) { logger.write('[INFO] loadModules -> onRequired -> Module Downloaded.') }
-                        if (INFO_LOG === true) { logger.write('[INFO] loadModules -> onRequired -> path = ' + path) }
+            function downloadIncludedFiles() {
 
-                        downloadedCounter++
+                let downloadedCounter = 0
 
-                        if (INFO_LOG === true) { logger.write('[INFO] loadModules -> onRequired -> downloadedCounter = ' + downloadedCounter) }
+                for (let i = 0; i < modulesArray.length; i++) {
+                    let path = modulesArray[i]
 
-                        if (downloadedCounter === modulesArray.length) {
-                            if (INFO_LOG === true) { logger.write('[INFO] loadModules -> onRequired -> Starting Advanced Algos Platform.') }
-                            setTimeout(() => {
-                                postLoader = newPostLoader()
-                                postLoader.start()
-                            }, 500)
+                    REQUIREJS([path], onRequired)
 
+                    if (INFO_LOG === true) { logger.write('[INFO] loadModules -> Module Requested.') }
+                    if (INFO_LOG === true) { logger.write('[INFO] loadModules -> path = ' + path) }
+                    if (INFO_LOG === true) { logger.write('[INFO] loadModules -> total requested = ' + (i + 1)) }
+
+                    function onRequired(pModule) {
+                        try {
+                            if (INFO_LOG === true) { logger.write('[INFO] loadModules -> onRequired -> Entering function.') }
+                            if (INFO_LOG === true) { logger.write('[INFO] loadModules -> onRequired -> Module Downloaded.') }
+                            if (INFO_LOG === true) { logger.write('[INFO] loadModules -> onRequired -> path = ' + path) }
+
+                            downloadedCounter++
+
+                            if (INFO_LOG === true) { logger.write('[INFO] loadModules -> onRequired -> downloadedCounter = ' + downloadedCounter) }
+
+                            if (downloadedCounter === modulesArray.length) {
+                                if (INFO_LOG === true) { logger.write('[INFO] loadModules -> onRequired -> Starting Advanced Algos Platform.') }
+                                setTimeout(() => {
+                                    postLoader = newPostLoader()
+                                    postLoader.start()
+                                }, 500)
+
+                            }
+                        } catch (err) {
+                            if (ERROR_LOG === true) { logger.write('[ERROR] loadModules -> onRequired -> err = ' + err.stack) }
                         }
-                    } catch (err) {
-                        if (ERROR_LOG === true) { logger.write('[ERROR] loadModules -> onRequired -> err = ' + err.stack) }
                     }
                 }
             }
+
         } catch (err) {
             if (ERROR_LOG === true) { logger.write('[ERROR] loadModules -> err = ' + err.stack) }
         }

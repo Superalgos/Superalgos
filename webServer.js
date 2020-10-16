@@ -524,7 +524,7 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                     let project = unescape(requestParameters[2])
                     let pluginType = unescape(requestParameters[3])
                     let fileName = unescape(requestParameters[4])
-                    let filePath = process.env.PROJECTS_PATH + '/' + project + '/Plugins/' + pluginType + '/' + fileName  
+                    let filePath = process.env.PROJECTS_PATH + '/' + project + '/Plugins/' + pluginType + '/' + fileName
                     respondWithFile(filePath, response)
                 }
                 break
@@ -662,6 +662,57 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                             respondWithContent(JSON.stringify(exchanges), response)
                         }
                     }
+                }
+                break
+
+            case 'ListFunctionLibraries':
+                {
+                    let allLibraries = []
+                    let projects = getDirectories(process.env.PROJECTS_PATH)
+                    let projectsCount = 0
+
+                    for (let i = 0; i < projects.length; i++) {
+                        let project = projects[i]
+
+                        let dirPath = process.env.PROJECTS_PATH + '/' + project + '/Function-Libraries'
+                        try {
+                            let fs = require('fs')
+                            fs.readdir(dirPath, onDirRead)
+
+                            function onDirRead(err, fileList) {
+                                if (err) {
+                                    if (CONSOLE_ERROR_LOG === true) { console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath) }
+                                    respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
+                                    return
+                                } else {
+                                    let updatedFileList = []
+                                    for (let i = 0; i < fileList.length; i++) {
+                                        let name = fileList[i]
+                                        updatedFileList.push([project, name])
+                                    }
+                                    allLibraries = allLibraries.concat(updatedFileList)
+                                    projectsCount++
+                                    if (projectsCount === projects.length) {
+                                        respondWithContent(JSON.stringify(allLibraries), response)
+                                    }
+                                    return
+                                }
+                            }
+                        } catch (err) {
+                            if (CONSOLE_ERROR_LOG === true) { console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath) }
+                            respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
+                            return
+                        }
+                    }
+                }
+                break
+
+            case 'FunctionLibraries':
+                {
+                    let project = unescape(requestParameters[2])
+                    let fileName = unescape(requestParameters[3])
+                    let filePath = process.env.PROJECTS_PATH + '/' + project + '/Function-Libraries/' + fileName
+                    respondWithFile(filePath, response)
                 }
                 break
 

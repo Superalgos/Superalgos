@@ -434,11 +434,16 @@ function newWorkspace() {
                 workingAtTask = 1
                 return
             }
-
+ 
             /* It does not exist, so we recreeate it respecting the inner state of each object. */
             let positionOffset = {
-                x: spawnPosition.x - droppedNode.savedPayload.position.x,
-                y: spawnPosition.y - droppedNode.savedPayload.position.y
+                x: spawnPosition.x,
+                y: spawnPosition.y  
+            }
+
+            if (droppedNode.savedPayload !== undefined) {
+                positionOffset.x = positionOffset.x - droppedNode.savedPayload.position.x
+                positionOffset.y = positionOffset.y - droppedNode.savedPayload.position.y
             }
 
             thisObject.workspaceNode.rootNodes.push(droppedNode)

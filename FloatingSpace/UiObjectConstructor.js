@@ -496,7 +496,7 @@ function newUiObjectConstructor() {
             return
         }
 
-        if (nodeDefinition.isHProjectHead === true) {
+        if (nodeDefinition.isProjectHead === true) {
             level_0()
             floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_360
             return

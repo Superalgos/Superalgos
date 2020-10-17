@@ -2002,6 +2002,30 @@ function newUiObject() {
                 browserCanvasContext.stroke()
             }
 
+            /* Project Head Ring */
+            if (nodeDefinition.isProjectHead === true) {
+                VISIBLE_RADIUS = thisObject.payload.floatingObject.container.frame.radius
+                if (canvas.floatingSpace.inMapMode === true) {
+                    VISIBLE_RADIUS = canvas.floatingSpace.transformRadiusToMap(VISIBLE_RADIUS)
+                }
+                let OPACITY = 0.5
+
+                browserCanvasContext.beginPath()
+                browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
+                browserCanvasContext.closePath()
+                browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK_TURQUOISE + ', ' + OPACITY + ')'
+                
+                if (thisObject.payload.floatingObject.isOnFocus === true) {
+                    browserCanvasContext.lineWidth = 30
+                    browserCanvasContext.setLineDash([0, 0])
+                } else {
+                    browserCanvasContext.lineWidth = 30
+                    browserCanvasContext.setLineDash([1, 3])
+
+                }
+                browserCanvasContext.stroke()
+            }
+
             /* Info Ring */
             if (thisObject.hasInfo === true) {
                 VISIBLE_RADIUS = thisObject.payload.floatingObject.container.frame.radius

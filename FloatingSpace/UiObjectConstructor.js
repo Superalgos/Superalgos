@@ -491,43 +491,42 @@ function newUiObjectConstructor() {
         const INITIAL_RADIOUS = 70
         const INITIAL_IMAGE_SIZE = 80 * 1.2
 
-        switch (payload.node.type) {
-            case 'Workspace': {
+        let nodeDefinition = getNodeDefinition(payload.node)
+        if (nodeDefinition === undefined) {
+            console.log('[WARN] Set up of the object ' + payload.node.name + ' of type ' + payload.node.type + ' can not be completed becasue its definition can not be found at the APP SCHEMA.')
+            return
+        }
+
+        if (nodeDefinition.isHProjectHead === true) {
+            level_0()
+            floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_360
+            return
+        }
+
+        switch (nodeDefinition.level) {
+            case 0: {
                 level_0()
-                floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_360
                 break
             }
-
-            default: {
-                let nodeDefinition = getNodeDefinition(payload.node)
-                if (nodeDefinition !== undefined) {
-                    switch (nodeDefinition.level) {
-                        case 0: {
-                            level_0()
-                            break
-                        }
-                        case 1: {
-                            level_1()
-                            break
-                        }
-                        case 2: {
-                            level_2()
-                            break
-                        }
-                        case 3: {
-                            level_3()
-                            break
-                        }
-                        case 4: {
-                            level_4()
-                            break
-                        }
-                        case 5: {
-                            level_5()
-                            break
-                        }
-                    }
-                }
+            case 1: {
+                level_1()
+                break
+            }
+            case 2: {
+                level_2()
+                break
+            }
+            case 3: {
+                level_3()
+                break
+            }
+            case 4: {
+                level_4()
+                break
+            }
+            case 5: {
+                level_5()
+                break
             }
         }
 

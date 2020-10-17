@@ -320,7 +320,7 @@ function newUiObjectsFromNodes() {
         }
     }
 
-    function addUIObject(parentNode, type) {
+    function addUIObject(parentNode, type, rootNodes) {
         let object = {
             name: 'New ' + type,
             type: type,
@@ -351,7 +351,7 @@ function newUiObjectsFromNodes() {
         }
 
         if (nodeDefinition.isHierarchyHead === true) {
-            parentNode.rootNodes.push(object)
+            rootNodes.push(object)
             createUiObject(true, object.type, object.name, object, parentNode, undefined)
             return object
         }

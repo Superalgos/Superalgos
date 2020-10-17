@@ -3,28 +3,20 @@
         "type": "Ethereum",
         "menuItems": [
             {
-                "action": "Pin / Unpin",
-                "currentStatus": true,
-                "iconPathOn": "unpinned",
-                "iconPathOff": "pinned",
-                "actionFunction": "payload.executeAction",
-                "ring": 1
-            },
-            {
                 "action": "Add UI Object",
-                "label": "Add Network",
-                "relatedUiObject": "Network",
+                "label": "Add Ethereum Network",
+                "relatedUiObject": "Ethereum Network",
                 "actionFunction": "payload.executeAction"
             }
         ],
         "isHProjectHead": true,
         "isTitleAllwaysVisible": true,
-        "addLeftIcons": false,
+        "addLeftIcons": true,
         "isPinned": true,
         "positionLocked": true
     },
     {
-        "type": "Network",
+        "type": "Ethereum Network",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -51,7 +43,8 @@
                 "type": "array",
                 "childType": "Network Node"
             }
-        ]
+        ],
+        "icon": "ethereum"
     },
     {
         "type": "Network Node",
@@ -80,13 +73,13 @@
         "initialValues": {
             "config": "{ \n\"host\": \"localhost\", \n\"webPort\": \"34248\", \n\"webSocketsPort\": \"8081\"\n}"
         },
-        "isTitleAllwaysVisible": true,
         "addLeftIcons": true,
         "level": 1,
         "chainAttachesTo": {
-            "compatibleTypes": "->Network->"
+            "compatibleTypes": "->Ethereum Network->"
         },
-        "propertyNameAtParent": "networkNodes"
+        "propertyNameAtParent": "networkNodes",
+        "icon": "ethereum"
     },
     {
         "type": "Ethereum Project",
@@ -116,6 +109,7 @@
                 "type": "array",
                 "childType": "Network Node"
             }
-        ]
+        ],
+        "icon": "ethereum"
     }
 ]

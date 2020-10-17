@@ -1392,17 +1392,15 @@
                 "ring": 1
             },
             {
-                "action": "Share Workspace",
                 "iconPathOn": "share",
                 "iconPathOff": "share",
-                "actionFunction": "payload.executeAction",
+                "actionFunction": "canvas.designSpace.workspace.share",
                 "ring": 1
             },
             {
-                "action": "Backup Workspace",
                 "iconPathOn": "backup",
                 "iconPathOff": "backup",
-                "actionFunction": "payload.executeAction",
+                "actionFunction": "canvas.designSpace.workspace.backup",
                 "ring": 1
             },
             {

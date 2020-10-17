@@ -113,7 +113,7 @@ function newSuperalgosActionSwitch() {
                 break
             case 'Add UI Object':
                 {
-                    functionLibraryUiObjectsFromNodes.addUIObject(action.node, action.relatedNodeType)
+                    functionLibraryUiObjectsFromNodes.addUIObject(action.node, action.relatedNodeType, action.rootNodes)
                 }
                 break
             case 'Add Missing Children':
@@ -124,24 +124,6 @@ function newSuperalgosActionSwitch() {
             case 'Delete UI Object':
                 {
                     functionLibraryNodeDeleter.deleteUIObject(action.node, action.rootNodes)
-                }
-                break
-            case 'Share Workspace':
-                {
-                    let text = stringifyWorkspace(true)
-                    let fileName = 'Share - ' + action.node.type + ' - ' + action.node.name + '.json'
-                    if (text !== undefined) {
-                        downloadText(fileName, text)
-                    }
-                }
-                break
-            case 'Backup Workspace':
-                {
-                    let text = stringifyWorkspace(false)
-                    let fileName = 'Backup - ' + action.node.type + ' - ' + action.node.name + '.json'
-                    if (text !== undefined) {
-                        downloadText(fileName, text)
-                    }
                 }
                 break
             case 'Edit Code':

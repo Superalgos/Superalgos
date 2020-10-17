@@ -1,5 +1,88 @@
 [
     {
+        "type": "Superalgos Project",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Trading System",
+                "relatedUiObject": "Trading System",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Network",
+                "relatedUiObject": "Network",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Data Mine",
+                "relatedUiObject": "Data Mine",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Trading Mine",
+                "relatedUiObject": "Trading Mine",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Super Scripts",
+                "relatedUiObject": "Super Scripts",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Trading Engine",
+                "relatedUiObject": "Trading Engine",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Tutorial",
+                "relatedUiObject": "Tutorial",
+                "actionFunction": "payload.executeAction"
+            } 
+        ],
+        "isProjectHead": true,
+        "isTitleAllwaysVisible": false,
+        "addLeftIcons": true,
+        "isPinned": true,
+        "positionLocked": true,
+        "icon": "bitcoin"
+    },
+    {
+        "type": "Workspace",
+        "menuItems": [
+            {
+                "action": "Pin / Unpin",
+                "currentStatus": true,
+                "iconPathOn": "unpinned",
+                "iconPathOff": "pinned",
+                "actionFunction": "payload.executeAction",
+                "ring": 1
+            },
+            {
+                "iconPathOn": "share",
+                "iconPathOff": "share",
+                "actionFunction": "canvas.designSpace.workspace.share",
+                "ring": 1
+            },
+            {
+                "iconPathOn": "backup",
+                "iconPathOff": "backup",
+                "actionFunction": "canvas.designSpace.workspace.backup",
+                "ring": 1
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "addLeftIcons": false,
+        "isPinned": true,
+        "positionLocked": true,
+        "level": 0
+    },
+    {
         "type": "Plotter Module",
         "properties": [
             {
@@ -1379,78 +1462,6 @@
             }
         ],
         "addLeftIcons": true
-    },
-    {
-        "type": "Workspace",
-        "menuItems": [
-            {
-                "action": "Pin / Unpin",
-                "currentStatus": true,
-                "iconPathOn": "unpinned",
-                "iconPathOff": "pinned",
-                "actionFunction": "payload.executeAction",
-                "ring": 1
-            },
-            {
-                "iconPathOn": "share",
-                "iconPathOff": "share",
-                "actionFunction": "canvas.designSpace.workspace.share",
-                "ring": 1
-            },
-            {
-                "iconPathOn": "backup",
-                "iconPathOff": "backup",
-                "actionFunction": "canvas.designSpace.workspace.backup",
-                "ring": 1
-            },
-            {
-                "action": "Add UI Object",
-                "label": "Add Trading System",
-                "relatedUiObject": "Trading System",
-                "actionFunction": "payload.executeAction"
-            },
-            {
-                "action": "Add UI Object",
-                "label": "Add Network",
-                "relatedUiObject": "Network",
-                "actionFunction": "payload.executeAction"
-            },
-            {
-                "action": "Add UI Object",
-                "label": "Add Data Mine",
-                "relatedUiObject": "Data Mine",
-                "actionFunction": "payload.executeAction"
-            },
-            {
-                "action": "Add UI Object",
-                "label": "Add Trading Mine",
-                "relatedUiObject": "Trading Mine",
-                "actionFunction": "payload.executeAction"
-            },
-            {
-                "action": "Add UI Object",
-                "label": "Add Super Scripts",
-                "relatedUiObject": "Super Scripts",
-                "actionFunction": "payload.executeAction"
-            },
-            {
-                "action": "Add UI Object",
-                "label": "Add Trading Engine",
-                "relatedUiObject": "Trading Engine",
-                "actionFunction": "payload.executeAction"
-            },
-            {
-                "action": "Add UI Object",
-                "label": "Add Tutorial",
-                "relatedUiObject": "Tutorial",
-                "actionFunction": "payload.executeAction"
-            } 
-        ],
-        "isHProjectHead": true,
-        "isTitleAllwaysVisible": true,
-        "addLeftIcons": false,
-        "isPinned": true,
-        "positionLocked": true
     },
     {
         "type": "Situation",

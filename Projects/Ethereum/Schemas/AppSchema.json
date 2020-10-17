@@ -1,27 +1,34 @@
 [
     {
-        "type": "Ethereum",
+        "type": "Ethereum Project",
         "menuItems": [
             {
                 "action": "Add UI Object",
-                "label": "Add Ethereum Network",
-                "relatedUiObject": "Ethereum Network",
+                "label": "Add Ethereum Blockchain",
+                "relatedUiObject": "Ethereum Blockchain",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Decentralized Application",
+                "relatedUiObject": "Decentralized Application",
                 "actionFunction": "payload.executeAction"
             }
         ],
-        "isHProjectHead": true,
-        "isTitleAllwaysVisible": true,
+        "isProjectHead": true,
+        "isTitleAllwaysVisible": false,
         "addLeftIcons": true,
         "isPinned": true,
-        "positionLocked": true
+        "positionLocked": true,
+        "icon": "ethereum"
     },
     {
-        "type": "Ethereum Network",
+        "type": "Ethereum Blockchain",
         "menuItems": [
             {
                 "action": "Add UI Object",
-                "label": "Add Network Node",
-                "relatedUiObject": "Network Node",
+                "label": "Add Blockchain Network",
+                "relatedUiObject": "Blockchain Network",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -39,15 +46,50 @@
         "level": 0,
         "properties": [
             {
-                "name": "networkNodes",
+                "name": "blockchainNetworks",
                 "type": "array",
-                "childType": "Network Node"
+                "childType": "Blockchain Network"
             }
         ],
         "icon": "ethereum"
     },
     {
-        "type": "Network Node",
+        "type": "Blockchain Network",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Network Client",
+                "relatedUiObject": "Network Client",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+
+        "addLeftIcons": true,
+        "level": 1,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Ethereum Blockchain->"
+        },
+        "propertyNameAtParent": "blockchainNetworks",
+        "properties": [
+            {
+                "name": "networkClients",
+                "type": "array",
+                "childType": "Network Client"
+            }
+        ],
+        "icon": "ethereum"
+    },
+    {
+        "type": "Network Client",
         "menuItems": [
             {
                 "action": "Configure",
@@ -71,18 +113,18 @@
             "config": true
         },
         "initialValues": {
-            "config": "{ \n\"host\": \"localhost\", \n\"webPort\": \"34248\", \n\"webSocketsPort\": \"8081\"\n}"
+            "config": "{ \n\"host\": \"localhost\", \n\"webSocketsPort\": \"8545\"\n}"
         },
         "addLeftIcons": true,
         "level": 1,
         "chainAttachesTo": {
-            "compatibleTypes": "->Ethereum Network->"
+            "compatibleTypes": "->Blockchain Network->"
         },
-        "propertyNameAtParent": "networkNodes",
+        "propertyNameAtParent": "networkClients",
         "icon": "ethereum"
     },
     {
-        "type": "Ethereum Project",
+        "type": "Decentralized Application",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -105,11 +147,75 @@
         "level": 0,
         "properties": [
             {
-                "name": "networkNodes",
+                "name": "smartContracts",
                 "type": "array",
-                "childType": "Network Node"
+                "childType": "Smart Contract"
             }
         ],
+        "icon": "ethereum"
+    },
+    {
+        "type": "Smart Contract",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "solidityCode",
+                "label": "Add Solidity Code",
+                "relatedUiObject": "Solidity Code",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "propertyNameAtParent": "smartContracts",
+        "addLeftIcons": true,
+        "level": 1,
+        "properties": [
+            {
+                "name": "solidityCode",
+                "type": "node",
+                "childType": "Solidity Code"
+            }
+        ],
+        "icon": "ethereum"
+    },
+    {
+        "type": "Solidity Code",
+        "menuItems": [
+            {
+                "action": "Edit",
+                "actionFunction": "uiObject.codeEditor.activate",
+                "label": "Edit",
+                "iconPathOn": "ethereum",
+                "iconPathOff": "ethereum"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "code": true
+        },
+        "initialValues": {
+            "code": "// Type your smart contract code here."
+        },
+        "propertyNameAtParent": "solidityCode",
+        "addLeftIcons": true,
+        "level": 2,
         "icon": "ethereum"
     }
 ]

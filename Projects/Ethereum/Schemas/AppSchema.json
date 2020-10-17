@@ -17,6 +17,7 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
+        "isHProjectHead": true,
         "isTitleAllwaysVisible": true,
         "addLeftIcons": false,
         "isPinned": true,

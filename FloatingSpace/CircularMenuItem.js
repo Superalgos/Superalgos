@@ -14,6 +14,7 @@ function newCircularMenuItem() {
         disableIfPropertyIsDefined: undefined,
         propertyToCheckFor: undefined,
         action: undefined,
+        actionProject: undefined, 
         actionFunction: undefined,
         actionStatus: undefined,
         label: undefined,
@@ -302,7 +303,7 @@ function newCircularMenuItem() {
 
         if (thisObject.label === undefined) {
             /* This is what we have in the case of menu items that are only Icons. In this situation there is no complex logic, just execute the specified action. */
-            thisObject.actionFunction({ node: thisObject.payload.node, name: thisObject.action, project: thisObject.payload.node.project, relatedNodeType: thisObject.relatedUiObject })
+            thisObject.actionFunction({ node: thisObject.payload.node, name: thisObject.action, project: thisObject.actionProject, relatedNodeType: thisObject.relatedUiObject })
             return
         }
 
@@ -339,7 +340,7 @@ function newCircularMenuItem() {
                 }
 
                 /* Execute the action and wait for callbacks to update our statuus. */
-                thisObject.actionFunction({ node: thisObject.payload.node, name: thisObject.action, project: thisObject.payload.node.project, relatedNodeType: thisObject.relatedUiObject, callBackFunction: onPrimaryCallBack })
+                thisObject.actionFunction({ node: thisObject.payload.node, name: thisObject.action, project: thisObject.actionProject, relatedNodeType: thisObject.relatedUiObject, callBackFunction: onPrimaryCallBack })
                 return
             }
             if (temporaryStatus === STATUS_PRIMARY_WORK_DONE && thisObject.secondaryAction !== undefined) {
@@ -349,7 +350,7 @@ function newCircularMenuItem() {
                 }
 
                 /* Execute the action and wait for callbacks to update our statuus. */
-                thisObject.actionFunction({ node: thisObject.payload.node, name: thisObject.secondaryAction, project: thisObject.payload.node.project, relatedNodeType: thisObject.relatedUiObject, callBackFunction: onSecondaryCallBack })
+                thisObject.actionFunction({ node: thisObject.payload.node, name: thisObject.secondaryAction, project: thisObject.actionProject, relatedNodeType: thisObject.relatedUiObject, callBackFunction: onSecondaryCallBack })
                 return
             }
 

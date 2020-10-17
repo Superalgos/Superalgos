@@ -13,6 +13,8 @@ function newWorkspace() {
         eventsServerClients: new Map(),
         replaceWorkspaceByLoadingOne: replaceWorkspaceByLoadingOne,
         save: saveWorkspace,
+        backup: backupWorkspace,
+        share: shareWorkspace,
         getHierarchyHeads: getHierarchyHeads,
         getHierarchyHeadsById: getHierarchyHeadsById,
         getHierarchyHeadsByType: getHierarchyHeadsByType,
@@ -120,6 +122,7 @@ function newWorkspace() {
             let rootNode = thisObject.workspaceNode.rootNodes[i]
 
             if (rootNode.type === 'Network') {
+                if (rootNode.networkNodes === undefined) { continue }
                 for (let j = 0; j < rootNode.networkNodes.length; j++) {
                     let networkNode = rootNode.networkNodes[j]
 
@@ -180,6 +183,22 @@ function newWorkspace() {
             } else {
                 canvas.cockpitSpace.setStatus('Could not save the Workspace at the Backend. Please check the Backend Console for more information.', 150, canvas.cockpitSpace.statusTypes.WARNING)
             }
+        }
+    }
+
+    function backupWorkspace(action) {
+        let text = stringifyWorkspace(false)
+        let fileName = 'Backup - ' + action.node.type + ' - ' + action.node.name + '.json'
+        if (text !== undefined) {
+            downloadText(fileName, text)
+        }
+    }
+
+    function shareWorkspace(action) {
+        let text = stringifyWorkspace(true)
+        let fileName = 'Share - ' + action.node.type + ' - ' + action.node.name + '.json'
+        if (text !== undefined) {
+            downloadText(fileName, text)
         }
     }
 

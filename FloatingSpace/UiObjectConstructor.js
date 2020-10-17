@@ -183,20 +183,9 @@ function newUiObjectConstructor() {
         for (let j = 0; j < menuItems.length; j++) {
             let item = menuItems[j]
             item.angle = undefined
-            if (item.action.indexOf('Add Missing Children') >= 0) {
-                item.action = 'Add Missing Children'
-            }
-            if (item.action.indexOf('Delete ') >= 0) {
-                // item.action = 'Delete UI Object'
-            }
-            if (item.action.indexOf('Configure ') >= 0) {
-                if (schemaNode.editors.config === true) {
-                    // item.actionFunction = 'uiObject.configEditor.activate'
-                }
-            }
-            if (item.action.indexOf('Edit ') >= 0) {
-                if (schemaNode.editors.code === true) {
-                    // item.actionFunction = 'uiObject.codeEditor.activate'
+            if (item.action !== undefined) {
+                if (item.action.indexOf('Add Missing Children') >= 0) {
+                    item.action = 'Add Missing Children'
                 }
             }
             if (item.actionFunction === undefined) {
@@ -318,6 +307,7 @@ function newUiObjectConstructor() {
             {
                 action: 'Backup',
                 actionFunction: floatingObject.payload.executeAction,
+                actionProject: 'Superalgos',
                 label: undefined,
                 visible: true,
                 iconPathOn: 'backup',
@@ -332,6 +322,7 @@ function newUiObjectConstructor() {
             {
                 action: 'Clone',
                 actionFunction: floatingObject.payload.executeAction,
+                actionProject: 'Superalgos',
                 label: undefined,
                 visible: true,
                 iconPathOn: 'clone',
@@ -347,6 +338,7 @@ function newUiObjectConstructor() {
                 {
                     action: 'Share',
                     actionFunction: floatingObject.payload.executeAction,
+                    actionProject: 'Superalgos',
                     label: undefined,
                     visible: true,
                     iconPathOn: 'share',
@@ -362,6 +354,7 @@ function newUiObjectConstructor() {
             {
                 action: 'Parent Detach',
                 actionFunction: floatingObject.payload.executeAction,
+                actionProject: 'Superalgos',
                 label: undefined,
                 visible: true,
                 iconPathOn: 'detach',
@@ -376,6 +369,7 @@ function newUiObjectConstructor() {
             {
                 action: 'Reference Detach',
                 actionFunction: floatingObject.payload.executeAction,
+                actionProject: 'Superalgos',
                 label: undefined,
                 visible: true,
                 iconPathOn: 'delink',
@@ -391,6 +385,7 @@ function newUiObjectConstructor() {
             {
                 action: 'Open Documentation',
                 actionFunction: floatingObject.payload.executeAction,
+                actionProject: 'Superalgos',
                 label: undefined,
                 visible: true,
                 iconPathOn: 'help',
@@ -473,6 +468,10 @@ function newUiObjectConstructor() {
 
                 if (newMenuItem.currentRadius === undefined) {
                     newMenuItem.currentRadius = 0
+                }
+
+                if (newMenuItem.actionProject === undefined) {
+                    newMenuItem.actionProject = 'Superalgos'
                 }
 
                 menuItemsInitialValues.push(newMenuItem)

@@ -83,9 +83,14 @@ All procedures are the same for Windows, Linux or Mac OS. Note: only tested with
 
 ## Installation
 
-1. If you don't have it yet, [install Node.js.](https://nodejs.org/en/download/)
-2. Open a command prompt or terminal and type:
+### Pre-Requisites
 
+1. If you don't have it yet, [install Node.js.](https://nodejs.org/en/download/)
+2. If you don't have it yet, [install Git.](https://git-scm.com/downloads)
+
+### App Setup
+
+1. Open a command prompt or terminal as an administrator and type:
 ```
 git clone https://github.com/Superalgos/Superalgos
 ```

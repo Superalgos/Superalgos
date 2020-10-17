@@ -15,6 +15,7 @@ function newWorkspace() {
         save: saveWorkspace,
         backup: backupWorkspace,
         share: shareWorkspace,
+        getProjectsHeads: getProjectsHeads, 
         getHierarchyHeads: getHierarchyHeads,
         getHierarchyHeadsById: getHierarchyHeadsById,
         getHierarchyHeadsByType: getHierarchyHeadsByType,
@@ -356,6 +357,20 @@ function newWorkspace() {
             let nodeDefinition = getNodeDefinition(rootNode)
             if (nodeDefinition !== undefined) {
                 if (nodeDefinition.isHierarchyHead === true) {
+                    nodes.push(rootNode)
+                }
+            }
+        }
+        return nodes
+    }
+
+    function getProjectsHeads() {
+        let nodes = []
+        for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
+            let rootNode = thisObject.workspaceNode.rootNodes[i]
+            let nodeDefinition = getNodeDefinition(rootNode)
+            if (nodeDefinition !== undefined) {
+                if (nodeDefinition.isProjectHead === true) {
                     nodes.push(rootNode)
                 }
             }

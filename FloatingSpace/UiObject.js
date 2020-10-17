@@ -1531,7 +1531,7 @@ function newUiObject() {
                 if (canvas.floatingSpace.inMapMode === true) {
                     let nodeDefinition = getNodeDefinition(thisObject.payload.node)
                     if (nodeDefinition !== undefined) {
-                        if (nodeDefinition.isHierarchyHead !== true) {
+                        if (nodeDefinition.isHierarchyHead !== true && nodeDefinition.isProjectHead !== true) {
                             return
                         }
                     }
@@ -2202,7 +2202,7 @@ function newUiObject() {
                 if (nodeDefinition === undefined) { return }
 
                 if (canvas.floatingSpace.inMapMode === true) {
-                    if (nodeDefinition.isHierarchyHead === true) {
+                    if (nodeDefinition.isHierarchyHead === true || nodeDefinition.isProjectHead === true ) {
                         totalImageSize = 50
                     } else {
                         totalImageSize = canvas.floatingSpace.transformImagesizeToMap(totalImageSize)

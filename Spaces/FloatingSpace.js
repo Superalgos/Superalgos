@@ -209,8 +209,10 @@ function newFloatingSpace() {
                 x: mousePosition.x / browserCanvas.width * SPACE_SIZE,
                 y: mousePosition.y / browserCanvas.height * SPACE_SIZE
             }
-            /* Let's see if we can snap to some of the root nodes that are isHierarchyHead */
+            /* Let's see if we can snap to some of the root nodes that are Hierarchy Head and Project Heads */
             let snapCandidateNodes = canvas.designSpace.workspace.getHierarchyHeads()
+            snapCandidateNodes = snapCandidateNodes.concat(canvas.designSpace.workspace.getProjectsHeads())
+
             for (let i = 0; i < snapCandidateNodes.length; i++) {
                 let node = snapCandidateNodes[i]
                 let nodePosition = {

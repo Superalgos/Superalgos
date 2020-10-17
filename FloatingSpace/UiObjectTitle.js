@@ -340,7 +340,7 @@ function newUiObjectTitle() {
 
                         let nodeDefinition = getNodeDefinition(thisObject.payload.node)
                         if (nodeDefinition !== undefined) {
-                            if (nodeDefinition.isHierarchyHead !== true) {
+                            if (nodeDefinition.isHierarchyHead !== true && nodeDefinition.isProjectHead !== true) {
                                 return
                             }
                         }

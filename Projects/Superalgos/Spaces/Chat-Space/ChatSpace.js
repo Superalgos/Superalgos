@@ -1,4 +1,4 @@
-function newChatSpace() {
+function newSuperalgosChatSpace() {
     const MODULE_NAME = 'Chat Space'
     let thisObject = {
         sidePanelTab: undefined,

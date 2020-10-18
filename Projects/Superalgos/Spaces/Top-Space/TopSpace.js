@@ -1,5 +1,5 @@
 
-function newTopSpace() {
+function newSuperalgosTopSpace() {
     let thisObject = {
         container: undefined,
         draw: draw,

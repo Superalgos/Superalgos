@@ -1,5 +1,5 @@
 
-function newFloatingSpace() {
+function newSuperalgosFloatingSpace() {
     const MODULE_NAME = 'Floating Space'
     const ERROR_LOG = true
     /*
@@ -127,7 +127,7 @@ function newFloatingSpace() {
         thisObject.uiObjectConstructor.initialize(thisObject.floatingLayer)
 
         onDragStartedEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onDragStarted', onDragStarted)
-        spaceFocusAquiredEventSubscriptionId = canvas.floatingSpace.container.eventHandler.listenToEvent('onFocusAquired', someoneAquiredFocus)
+        spaceFocusAquiredEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onFocusAquired', someoneAquiredFocus)
     }
 
     function someoneAquiredFocus(floatingObject) {

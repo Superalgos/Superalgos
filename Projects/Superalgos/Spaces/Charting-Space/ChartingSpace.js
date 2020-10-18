@@ -6,7 +6,7 @@ changes, then all charts in it are replotted with the corresponging data.
 
 */
 
-function newChartingSpace() {
+function newSuperalgosChartingSpace() {
     const MODULE_NAME = 'Charting Space'
     const ERROR_LOG = true
     const logger = newWebDebugLog()

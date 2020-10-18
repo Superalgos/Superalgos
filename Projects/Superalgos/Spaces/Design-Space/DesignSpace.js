@@ -1,5 +1,5 @@
 
-function newDesignSpace() {
+function newSuperalgosDesignSpace() {
     const MODULE_NAME = 'Designe Space'
     let thisObject = {
         container: undefined,
@@ -38,8 +38,8 @@ function newDesignSpace() {
 
         function buildIconByProjectAndTypeMap() {
             /* Take types-icons relationships defined at the schema */
-            for (let i = 0; i < PROJECTS.length; i++) {
-                let project = PROJECTS[i]
+            for (let i = 0; i < PROJECTS_ARRAY.length; i++) {
+                let project = PROJECTS_ARRAY[i]
                 let appSchema = SCHEMAS_BY_PROJECT.get(project).array.appSchema
                 for (let j = 0; j < appSchema.length; j++) {
                     let nodeDefinition = appSchema[j]

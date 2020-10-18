@@ -1,4 +1,4 @@
-function newSideSpace() {
+function newSuperalgosSideSpace() {
     const MODULE_NAME = 'Side Space'
     let thisObject = {
         sidePanelTab: undefined,

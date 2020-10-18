@@ -1,5 +1,5 @@
 
-function newCockpitSpace() {
+function newSuperalgosCockpitSpace() {
     const MODULE_NAME = 'CockpitSpace'
     const STATUS_TYPES = {
         ALL_GOOD: 1,

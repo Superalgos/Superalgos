@@ -65,8 +65,8 @@ function newWorkspace() {
     function initialize() {
         try {
             /* Set up the action switches map */
-            for (let i = 0; i < PROJECTS.length; i++) {
-                let project = PROJECTS[i]
+            for (let i = 0; i < PROJECTS_ARRAY.length; i++) {
+                let project = PROJECTS_ARRAY[i]
                 let actionSwitch = eval('new' + project + 'ActionSwitch()')
                 actionSwitchesByProject.set(project, actionSwitch)
             }

@@ -1,4 +1,4 @@
-function newTutorialSpace() {
+function newSuperalgosTutorialSpace() {
     const MODULE_NAME = 'Tutorial Space'
     let thisObject = {
         stop: stop,

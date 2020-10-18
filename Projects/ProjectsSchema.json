@@ -1,0 +1,93 @@
+[
+    {
+        "name": "Superalgos",
+        "propertyName": "superalgos",
+        "spaces": [
+            {
+                "name": "Floating Space",
+                "folderName": "Floating-Space",
+                "propertyName": "floatingSpace",
+                "functionName": "newSuperalgosFloatingSpace",
+                "initializationIndex": 0,
+                "animationIndex": 1
+            },
+            {
+                "name": "Top Space",
+                "folderName": "Top-Space",
+                "propertyName": "topSpace",
+                "functionName": "newSuperalgosTopSpace",
+                "initializationIndex": 1,
+                "animationIndex": 1
+            },
+            {
+                "name": "Cockpit Space",
+                "folderName": "Cocksit-Space",
+                "propertyName": "cockpitSpace",
+                "functionName": "newSuperalgosCockpitSpace",
+                "initializationIndex": 2,
+                "animationIndex": 0
+            },
+            {
+                "name": "Design Space",
+                "folderName": "Design-Space",
+                "propertyName": "designSpace",
+                "functionName": "newSuperalgosDesignSpace",
+                "initializationIndex": 3,
+                "animationIndex": 3
+            },
+            {
+                "name": "Panel Space",
+                "folderName": "Panel-Space",
+                "propertyName": "panelSpace",
+                "functionName": "newSuperalgosPanelSpace",
+                "initializationIndex": 4,
+                "animationIndex": 4
+            },
+            {
+                "name": "Charting Space",
+                "folderName": "Charting-Space",
+                "propertyName": "chartingSpace",
+                "functionName": "newSuperalgosChartingSpace",
+                "initializationIndex": 5,
+                "animationIndex": 2
+            },
+            {
+                "name": "Side Space",
+                "folderName": "Floating-Space",
+                "propertyName": "sideSpace",
+                "functionName": "newSuperalgosFloatingSpace",
+                "initializationIndex": 6,
+                "animationIndex": 5
+            },
+            {
+                "name": "Doc Space",
+                "folderName": "Doc-Space",
+                "propertyName": "docSpace",
+                "functionName": "newSuperalgosDocSpace",
+                "initializationIndex": 7,
+                "animationIndex": 6
+            },
+            {
+                "name": "Chat Space",
+                "folderName": "Chat-Space",
+                "propertyName": "chatSpace",
+                "functionName": "newSuperalgosChatSpace",
+                "initializationIndex": 8,
+                "animationIndex": 7
+            },
+            {
+                "name": "Tutorial Space",
+                "folderName": "Tutorial-Space",
+                "propertyName": "tutorialSpace",
+                "functionName": "newSuperalgosTutorialSpace",
+                "initializationIndex": 9,
+                "animationIndex": 8
+            }
+        ]
+    },
+    {
+        "name": "Ethereum",
+        "propertyName": "ethereum",
+        "spaces": []
+    }
+]

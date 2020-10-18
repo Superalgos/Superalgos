@@ -1,4 +1,4 @@
-function newDocSpace() {
+function newSuperalgosDocSpace() {
     const MODULE_NAME = 'Doc Space'
     let thisObject = {
         sidePanelTab: undefined,

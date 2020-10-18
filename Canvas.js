@@ -98,69 +98,54 @@ function newCanvas() {
 
     function initialize() {
         try {
+
             browserResized()
             initializeBrowserCanvas()
             addCanvasEvents()
 
-            /* Instantiate all the children spaces of Canvas object */
-            thisObject.floatingSpace = newFloatingSpace()
-            thisObject.floatingSpace.initialize()
+            thisObject.animation = newAnimation()
+            thisObject.animation.initialize()
 
-            thisObject.topSpace = newTopSpace()
-            thisObject.topSpace.initialize()
+            let spaceInitializationMap = new Map()
+            let spaceAnimationMap = new Map()
+            let spaceDefinitionMap = new Map()
 
-            thisObject.cockpitSpace = newCockpitSpace()
-            thisObject.cockpitSpace.initialize()
+            for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
+                let projectDefinition = PROJECTS_SCHEMA[i]
+                UI.projects[projectDefinition.propertyName] = {}
+                let projectInstance = UI.projects[projectDefinition.propertyName]
+                projectInstance.spaces = {}
 
-            thisObject.designSpace = newDesignSpace()
-            thisObject.designSpace.initialize()
+                /* Space Instantiation */
+                for (let j = 0; j < projectDefinition.spaces.length; j++) {
+                    let spaceDefinition = projectDefinition.spaces[j]
+                    projectInstance.spaces[spaceDefinition.propertyName] = eval(spaceDefinition.functionName + '()')
 
-            thisObject.panelSpace = newPanelSpace()
-            thisObject.panelSpace.initialize()
+                    spaceInitializationMap.set(spaceDefinition.initializationIndex, projectInstance.spaces[spaceDefinition.propertyName])
+                    spaceAnimationMap.set(spaceDefinition.animationIndex, projectInstance.spaces[spaceDefinition.propertyName])
+                    spaceDefinitionMap.set(spaceDefinition.animationIndex, spaceDefinition)
+                }
 
-            thisObject.chartingSpace = newChartingSpace()
-            thisObject.chartingSpace.initialize()
+                /* Space Initialization */
+                for (let j = 0; j < projectDefinition.spaces.length; j++) {
+                    let spaceInstance = spaceInitializationMap.get(j)
+                    spaceInstance.initialize()
+                }
 
-            thisObject.sideSpace = newSideSpace()
-            thisObject.sideSpace.initialize()
+                /* Space Initialization */
+                for (let j = 0; j < projectDefinition.spaces.length; j++) {
+                    let spaceInstance = spaceAnimationMap.get(j)
+                    let spaceDefinition = spaceDefinitionMap.get(j)
+                    thisObject.animation.addCallBackFunction(spaceDefinition.name + ' ' + 'Physics', spaceInstance.physics)
+                    thisObject.animation.addCallBackFunction(spaceDefinition.name + ' ' + 'Draw', spaceInstance.draw)
+                }
+            }
 
-            thisObject.docSpace = newDocSpace()
-            thisObject.docSpace.initialize()
+            console.log(UI)
+            return
 
-            //thisObject.chatSpace = newChatSpace()
-            //thisObject.chatSpace.initialize()
-
-            thisObject.tutorialSpace = newTutorialSpace()
-            thisObject.tutorialSpace.initialize()
-
-            let animation = newAnimation()
-            animation.initialize()
-
-            thisObject.animation = animation
-
-            /* Spcaces Physics */
-            animation.addCallBackFunction('CockpitSpace Physics', thisObject.cockpitSpace.physics)
-            animation.addCallBackFunction('Floating Space Physics', thisObject.floatingSpace.physics)
-            animation.addCallBackFunction('Charting Space Physics', thisObject.chartingSpace.physics)
-            animation.addCallBackFunction('Design Space Physics', thisObject.designSpace.physics)
-            animation.addCallBackFunction('Panels Space Physics', thisObject.panelSpace.physics)
-            animation.addCallBackFunction('Side Space Physics', thisObject.sideSpace.physics)
-            animation.addCallBackFunction('Doc Space Physics', thisObject.docSpace.physics)
-            //animation.addCallBackFunction('Chat Space Physics', thisObject.chatSpace.physics)
-            animation.addCallBackFunction('Tutorial Space Physics', thisObject.tutorialSpace.physics)
-
-            /* Spcaces Drawing */
-            animation.addCallBackFunction('Floating Space Draw', thisObject.floatingSpace.draw)
-            animation.addCallBackFunction('Charting Space Draw', thisObject.chartingSpace.draw)
-            animation.addCallBackFunction('Panels Space', thisObject.panelSpace.draw)
-            animation.addCallBackFunction('CockpitSpace Draw', thisObject.cockpitSpace.draw)
-            animation.addCallBackFunction('Design Space Draw', thisObject.designSpace.draw)
-            animation.addCallBackFunction('Top Space Draw', thisObject.topSpace.draw)
-            animation.addCallBackFunction('Side Space Draw', thisObject.sideSpace.draw)
-            animation.addCallBackFunction('Doc Space Draw', thisObject.docSpace.draw)
-            //animation.addCallBackFunction('Chat Space Draw', thisObject.chatSpace.draw)
-            animation.addCallBackFunction('Tutorial Space Draw', thisObject.tutorialSpace.draw)
-            animation.start()
+            thisObject.animation.start()
+            
         } catch (err) {
             if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
         }
@@ -537,7 +522,7 @@ function newCanvas() {
                     }
                     return
                 } else {
-                    if (nodeOnFocus !== undefined) { 
+                    if (nodeOnFocus !== undefined) {
                         nodeOnFocus.payload.uiObject.shortcutKey = event.key
                         nodeOnFocus.payload.uiObject.valueAtAngle = false
                         nodeOnFocus.payload.uiObject.setValue('Shortcut Key: Ctrl + Alt + ' + event.key)

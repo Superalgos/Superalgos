@@ -1,7 +1,12 @@
-/* Canvas is the root object that will contain all spaces and everything inside. */
-let canvas
-let PROJECTS
+
+let canvas /* Canvas is the root object that will contain all spaces and everything inside. */
+let PROJECTS_ARRAY 
+let PROJECTS_SCHEMA
 let SCHEMAS_BY_PROJECT = new Map()
+/* New Root object*/
+let UI = {
+    projects: {}
+} 
 
 /* User Interface Colors */
 const UI_COLOR = {

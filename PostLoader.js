@@ -14,20 +14,29 @@ function newPostLoader() {
 
     function start() {
         try {
-            /* Moving PROJECTS to the global variable */
-            PROJECTS = window.PROJECTS
+            /* Moving PROJECTS_ARRAY to the global variable */
+            PROJECTS_ARRAY = window.PROJECTS
             window.PROJECTS = undefined
 
             setBrowserEvents()
-            setUpSchemas()
+            setupProjectsSchema()
 
-            function setUpSchemas() {
+            function setupProjectsSchema() {
+                callWebServer(undefined, 'ProjectsSchema', onResponse)
+
+                function onResponse(err, file) {
+                    PROJECTS_SCHEMA = JSON.parse(file)
+                    setupSchemas()
+                }
+            }
+
+            function setupSchemas() {
 
                 let totalWebServerCalls = 0
                 let webServerResponses = 0
 
-                for (let i = 0; i < PROJECTS.length; i++) {
-                    let project = PROJECTS[i]
+                for (let i = 0; i < PROJECTS_ARRAY.length; i++) {
+                    let project = PROJECTS_ARRAY[i]
                     let schemas = {
                         array: {
                             appSchema: [],
@@ -54,12 +63,12 @@ function newPostLoader() {
                                 let key = nodeDefinition.type
                                 schemas.map.appSchema.set(key, nodeDefinition)
                             }
-                        } catch(err) {
+                        } catch (err) {
                             console.log(err.stack)
                         }
 
                         webServerResponses++
-                        if (webServerResponses === totalWebServerCalls) {startCanvas()}
+                        if (webServerResponses === totalWebServerCalls) { startCanvas() }
                     }
 
                     totalWebServerCalls++
@@ -74,12 +83,12 @@ function newPostLoader() {
                                 let key = nodeDefinition.type
                                 schemas.map.docSchema.set(key, nodeDefinition)
                             }
-                        } catch(err) {
+                        } catch (err) {
                             console.log(err.stack)
                         }
 
                         webServerResponses++
-                        if (webServerResponses === totalWebServerCalls) {startCanvas()}
+                        if (webServerResponses === totalWebServerCalls) { startCanvas() }
                     }
 
                     totalWebServerCalls++
@@ -94,12 +103,12 @@ function newPostLoader() {
                                 let key = nodeDefinition.type
                                 schemas.map.conceptSchema.set(key, nodeDefinition)
                             }
-                        } catch(err) {
+                        } catch (err) {
                             console.log(err.stack)
                         }
 
                         webServerResponses++
-                        if (webServerResponses === totalWebServerCalls) {startCanvas()}
+                        if (webServerResponses === totalWebServerCalls) { startCanvas() }
                     }
                 }
             }

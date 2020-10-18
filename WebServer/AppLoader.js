@@ -93,7 +93,7 @@ function newAppLoader() {
             }
 
             function spaces() {
-                let url = 'ListSpaces'
+                let url = 'ListSpaceFiles'
                 callWebServer(undefined, url, onResponse)
 
                 function onResponse(err, fileList) {

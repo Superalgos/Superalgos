@@ -690,9 +690,16 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                     let filePath = process.env.PROJECTS_PATH + '/' + project + '/Function-Libraries/' + fileName
                     respondWithFile(filePath, response)
                 }
+                break 
+
+            case 'ProjectsSchema':
+                {
+                    let path = process.env.PROJECTS_PATH + '/' + 'ProjectsSchema.json' 
+                    respondWithFile(path, response)
+                }
                 break
 
-            case 'ListSpaces':
+            case 'ListSpaceFiles':
                 {
                     let fs = require('fs')
                     let allFiles = []

@@ -44,7 +44,7 @@ function newPlottersManager() {
             let connector = thisObject.connectors[i]
             /* Then the panels. */
             for (let j = 0; j < connector.panels.length; j++) {
-                canvas.panelsSpace.destroyPanel(connector.panels[j])
+                canvas.panelSpace.destroyPanel(connector.panels[j])
                 connector.panels[j] = undefined
             }
             connector.panels = undefined
@@ -224,8 +224,8 @@ function newPlottersManager() {
                                 }
 
                                 let owner = thisObject.payload.node.payload.parentNode.id // Panels are owned by the time machine.
-                                let plotterPanelHandle = canvas.panelsSpace.createNewPanel('Plotter Panel', parameters, owner, layer.session)
-                                let plotterPanel = canvas.panelsSpace.getPanel(plotterPanelHandle)
+                                let plotterPanelHandle = canvas.panelSpace.createNewPanel('Plotter Panel', parameters, owner, layer.session)
+                                let plotterPanel = canvas.panelSpace.getPanel(plotterPanelHandle)
 
                                 /* Connect Panel to the Plotter via an Event. */
                                 connector.plotter.onRecordChangeEventsSubscriptionId = connector.plotter.container.eventHandler.listenToEvent('Current Record Changed', plotterPanel.onRecordChange)
@@ -384,7 +384,7 @@ function newPlottersManager() {
                 if (connector.layer.payload.node.id === layer.payload.node.id) {
                     /* Then the panels. */
                     for (let j = 0; j < connector.panels.length; j++) {
-                        canvas.panelsSpace.destroyPanel(connector.panels[j])
+                        canvas.panelSpace.destroyPanel(connector.panels[j])
                     }
                     /* Finally the Storage Objects */
                     finalizeNodesPlotting(connector)

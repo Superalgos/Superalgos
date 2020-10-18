@@ -33,7 +33,7 @@ function newCanvas() {
         tutorialSpace: undefined,
         chartingSpace: undefined,
         floatingSpace: undefined,
-        panelsSpace: undefined,
+        panelSpace: undefined,
         cockpitSpace: undefined,
         designSpace: undefined,
         animation: undefined,
@@ -115,8 +115,8 @@ function newCanvas() {
             thisObject.designSpace = newDesignSpace()
             thisObject.designSpace.initialize()
 
-            thisObject.panelsSpace = newPanelsSpace()
-            thisObject.panelsSpace.initialize()
+            thisObject.panelSpace = newPanelSpace()
+            thisObject.panelSpace.initialize()
 
             thisObject.chartingSpace = newChartingSpace()
             thisObject.chartingSpace.initialize()
@@ -143,7 +143,7 @@ function newCanvas() {
             animation.addCallBackFunction('Floating Space Physics', thisObject.floatingSpace.physics)
             animation.addCallBackFunction('Charting Space Physics', thisObject.chartingSpace.physics)
             animation.addCallBackFunction('Design Space Physics', thisObject.designSpace.physics)
-            animation.addCallBackFunction('Panels Space Physics', thisObject.panelsSpace.physics)
+            animation.addCallBackFunction('Panels Space Physics', thisObject.panelSpace.physics)
             animation.addCallBackFunction('Side Space Physics', thisObject.sideSpace.physics)
             animation.addCallBackFunction('Doc Space Physics', thisObject.docSpace.physics)
             //animation.addCallBackFunction('Chat Space Physics', thisObject.chatSpace.physics)
@@ -152,7 +152,7 @@ function newCanvas() {
             /* Spcaces Drawing */
             animation.addCallBackFunction('Floating Space Draw', thisObject.floatingSpace.draw)
             animation.addCallBackFunction('Charting Space Draw', thisObject.chartingSpace.draw)
-            animation.addCallBackFunction('Panels Space', thisObject.panelsSpace.draw)
+            animation.addCallBackFunction('Panels Space', thisObject.panelSpace.draw)
             animation.addCallBackFunction('CockpitSpace Draw', thisObject.cockpitSpace.draw)
             animation.addCallBackFunction('Design Space Draw', thisObject.designSpace.draw)
             animation.addCallBackFunction('Top Space Draw', thisObject.topSpace.draw)
@@ -730,7 +730,7 @@ function newCanvas() {
             }
 
             /* We check if the mouse is over a panel/ */
-            container = thisObject.panelsSpace.getContainer(point, GET_CONTAINER_PURPOSE.DRAGGING)
+            container = thisObject.panelSpace.getContainer(point, GET_CONTAINER_PURPOSE.DRAGGING)
 
             if (container !== undefined && event.shiftKey === false) {
                 if (container.isDraggeable === true) {
@@ -860,7 +860,7 @@ function newCanvas() {
             }
 
             /* We check if the mouse is over a panel/ */
-            container = thisObject.panelsSpace.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_CLICK)
+            container = thisObject.panelSpace.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_CLICK)
 
             if (container !== undefined && container.isClickeable === true) {
                 container.eventHandler.raiseEvent('onMouseClick', point)
@@ -1040,8 +1040,8 @@ function newCanvas() {
             }
 
             /* We check if the mouse is over a panel/ */
-            if (thisObject.panelsSpace !== undefined) {
-                container = thisObject.panelsSpace.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_OVER)
+            if (thisObject.panelSpace !== undefined) {
+                container = thisObject.panelSpace.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_OVER)
 
                 if (container !== undefined && container.detectMouseOver === true) {
                     containerFound()
@@ -1140,7 +1140,7 @@ function newCanvas() {
             }
 
             /* Panel Space */
-            container = canvas.panelsSpace.getContainer({ x: point.x, y: point.y })
+            container = canvas.panelSpace.getContainer({ x: point.x, y: point.y })
 
             if (container !== undefined && container.isWheelable === true) {
                 container.eventHandler.raiseEvent('onMouseWheel', event)

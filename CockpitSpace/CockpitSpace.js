@@ -177,9 +177,9 @@ function newCockpitSpace() {
         if (thisObject.container.frame.position.y < browserCanvas.height * 0.5 / 100 + TOP_SPACE_HEIGHT) {
             thisObject.container.frame.position.y = TOP_SPACE_HEIGHT
             thisObject.status = 'TOP'
-            canvas.panelsSpace.visible = false
+            canvas.panelSpace.visible = false
         } else {
-            canvas.panelsSpace.visible = true
+            canvas.panelSpace.visible = true
         }
 
         COCKPIT_SPACE_POSITION = thisObject.container.frame.position.y

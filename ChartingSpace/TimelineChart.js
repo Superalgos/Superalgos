@@ -100,7 +100,7 @@ function newTimelineChart() {
         thisObject.plotterManager = undefined
         thisObject.layerManager = undefined
 
-        canvas.panelsSpace.destroyPanel(layersPanelHandle)
+        canvas.panelSpace.destroyPanel(layersPanelHandle)
     }
 
     function finalizeTimeFrameScale() {
@@ -173,8 +173,8 @@ function newTimelineChart() {
 
     function initializeLayerManager() {
         let owner = thisObject.payload.node.payload.parentNode.id // The real owner is the Time Machine
-        layersPanelHandle = canvas.panelsSpace.createNewPanel('Layers Panel', undefined, owner)
-        thisObject.layerManager = canvas.panelsSpace.getPanel(layersPanelHandle)
+        layersPanelHandle = canvas.panelSpace.createNewPanel('Layers Panel', undefined, owner)
+        thisObject.layerManager = canvas.panelSpace.getPanel(layersPanelHandle)
         thisObject.layerManager.payload = thisObject.payload.node.layerManager.payload
         thisObject.layerManager.initialize()
 

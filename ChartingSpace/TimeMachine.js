@@ -433,8 +433,8 @@ function newTimeMachine() {
         if (
             thisObject.container.frame.isInViewPort() &&
             canvas.chartingSpace.viewport.zoomLevel >= ZOOM_OUT_THRESHOLD_FOR_NOT_HIDDING_PANELS) {
-            canvas.panelsSpace.unHide(thisObject.payload.node.id, 'Layers Panel')
-            canvas.panelsSpace.unHide(thisObject.payload.node.id, 'Plotter Panel')
+            canvas.panelSpace.unHide(thisObject.payload.node.id, 'Layers Panel')
+            canvas.panelSpace.unHide(thisObject.payload.node.id, 'Plotter Panel')
             return
         }
 
@@ -442,11 +442,11 @@ function newTimeMachine() {
             thisObject.container.frame.isCenterInViewPort() &&
             canvas.chartingSpace.viewport.zoomLevel >= ZOOM_OUT_THRESHOLD_FOR_HIDDING_PANELS
         ) {
-            canvas.panelsSpace.unHide(thisObject.payload.node.id, 'Layers Panel')
-            canvas.panelsSpace.unHide(thisObject.payload.node.id, 'Plotter Panel')
+            canvas.panelSpace.unHide(thisObject.payload.node.id, 'Layers Panel')
+            canvas.panelSpace.unHide(thisObject.payload.node.id, 'Plotter Panel')
         } else {
-            canvas.panelsSpace.hide(thisObject.payload.node.id, 'Layers Panel')
-            canvas.panelsSpace.hide(thisObject.payload.node.id, 'Plotter Panel')
+            canvas.panelSpace.hide(thisObject.payload.node.id, 'Layers Panel')
+            canvas.panelSpace.hide(thisObject.payload.node.id, 'Plotter Panel')
         }
     }
 

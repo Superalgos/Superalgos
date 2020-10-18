@@ -4,7 +4,7 @@ The Panel Space y the place wehre all panels live, no matter who create them.
 
 */
 
-function newPanelsSpace() {
+function newPanelSpace() {
     let thisObject = {
         visible: true,
         container: undefined,

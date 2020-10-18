@@ -23,20 +23,10 @@ function newAppLoader() {
             plotters = defaultPlotters()
 
             modulesArray = modulesArray.concat([
-                'ChartingSpace/Viewport.js',
 
                 'Globals.js',
 
                 'Workspace.js',
-
-                'ChartingSpace/EdgeEditor.js',
-                'ChartingSpace/ChartUtilities.js',
-                'ChartingSpace/PlottersManager.js',
-                'ChartingSpace/TimelineChart.js',
-                'ChartingSpace/TimeMachine.js',
-                'ChartingSpace/CoordinateSystem.js',
-
-                'DesignSpace/Workspace/Workspace.js',
 
                 'Utilities/CoordinateTransformations.js',
                 'Utilities/DateRateTransformations.js',
@@ -54,28 +44,6 @@ function newAppLoader() {
                 'Utilities/Menu.js',
                 'Utilities/Dates.js',
 
-                'Panels/LayersPanel.js',
-                'Panels/UpDownButton.js',
-                'Panels/LeftRightButton.js',
-                'Panels/Layer.js',
-                'Panels/PlotterPanel.js',
-                'Panels/PanelsVisibleButton.js',
-
-                'SideSpace/SidePanelTab.js',
-                'SideSpace/ListView.js',
-                'SideSpace/ListItem.js',
-
-                'Spaces/CockpitSpace.js',
-                'Spaces/TopSpace.js',
-                'Spaces/PanelsSpace.js',
-                'Spaces/ChartingSpace.js',
-                'Spaces/FloatingSpace.js',
-                'Spaces/DesignSpace.js',
-                'Spaces/SideSpace.js',
-                'Spaces/DocSpace.js',
-                'Spaces/ChatSpace.js',
-                'Spaces/TutorialSpace.js',
-
                 'Files/SingleFile.js',
                 'Files/FileCloud.js',
                 'Files/MarketFiles.js',
@@ -84,44 +52,7 @@ function newAppLoader() {
                 'Files/FileSequence.js',
                 'Files/FileStorage.js',
 
-                'FloatingSpace/FloatingObject.js',
-                'FloatingSpace/FloatingLayer.js',
-                'FloatingSpace/UiObjectConstructor.js',
-                'FloatingSpace/UiObject.js',
-                'FloatingSpace/UiObjectTitle.js',
-                'FloatingSpace/CircularMenu.js',
-                'FloatingSpace/CircularMenuItem.js',
-                'FloatingSpace/CircularProgressBar.js',
-                'FloatingSpace/BusyProgressBar.js',
-                'FloatingSpace/CodeEditor.js',
-                'FloatingSpace/ConfigEditor.js',
-                'FloatingSpace/ConditionEditor.js',
-                'FloatingSpace/FormulaEditor.js',
-                'FloatingSpace/Picker.js',
-
-                'Scales/RateScale.js',
-                'Scales/TimeScale.js',
-                'Scales/TimeFrameScale.js',
-                'Scales/Commons.js',
-                'Scales/AutoScaleButton.js',
-
-                'CockpitSpace/AssetBalances.js',
-                'CockpitSpace/Speedometer.js',
-                'CockpitSpace/FullScreen.js',
-
                 'EventsServerClient.js',
-
-                'Plotting/Plotter.js',
-                'Plotting/NodesHighlights.js',
-                'Plotting/NodesErrors.js',
-                'Plotting/NodesWarnings.js',
-                'Plotting/NodesInfos.js',
-                'Plotting/NodesValues.js',
-                'Plotting/NodesStatus.js',
-                'Plotting/NodesProgress.js',
-                'Plotting/NodesRunning.js',
-                'Plotting/NodesAnnouncements.js',
-                'Plotting/RecordValues.js',
 
                 'LegacyPlotter.js',
                 'PlotterPanel.js',
@@ -141,7 +72,7 @@ function newAppLoader() {
 
             functionLibraries()
 
-            function functionLibraries(callBack) {
+            function functionLibraries() {
                 let url = 'ListFunctionLibraries'
                 callWebServer(undefined, url, onResponse)
 
@@ -154,6 +85,23 @@ function newAppLoader() {
                         project = item[0]
                         fileName = item[1]
                         urlArray.push('FunctionLibraries' + '/' + project + '/' + fileName)
+                    }
+
+                    modulesArray = modulesArray.concat(urlArray)
+                    spaces()
+                }
+            }
+
+            function spaces() {
+                let url = 'ListSpaces'
+                callWebServer(undefined, url, onResponse)
+
+                function onResponse(err, fileList) {
+                    let urlArray = []
+                    let fileArray = JSON.parse(fileList)
+                    for (let i = 0; i < fileArray.length; i++) {
+                        let path = fileArray[i]
+                        urlArray.push('Projects' + '/' + path)
                     }
 
                     modulesArray = modulesArray.concat(urlArray)

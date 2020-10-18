@@ -72,7 +72,6 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
-
         "addLeftIcons": true,
         "level": 1,
         "chainAttachesTo": {
@@ -98,6 +97,17 @@
                 "iconPathOff": "configuration",
                 "dontShowAtFullscreen": true,
                 "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Install Geth",
+                "actionProject": "Ethereum",
+                "label": "Install Geth",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Run",
+                "workDoneLabel": "Run Request Sent",
+                "iconPathOn": "run",
+                "iconPathOff": "run",
+                "actionFunction": "payload.executeAction"
             },
             {
                 "action": "Delete UI Object",

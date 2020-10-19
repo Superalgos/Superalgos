@@ -66,13 +66,13 @@
             {
                 "iconPathOn": "share",
                 "iconPathOff": "share",
-                "actionFunction": "canvas.designSpace.workspace.share",
+                "actionFunction": "UI.projects.superalgos.spaces.designSpace.workspace.share",
                 "ring": 1
             },
             {
                 "iconPathOn": "backup",
                 "iconPathOff": "backup",
-                "actionFunction": "canvas.designSpace.workspace.backup",
+                "actionFunction": "UI.projects.superalgos.spaces.designSpace.workspace.backup",
                 "ring": 1
             }
         ],

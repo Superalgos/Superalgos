@@ -16,7 +16,7 @@ function newNodesWarnings() {
     }
 
     function initialize(pRootNode) {
-        let rootNode = canvas.designSpace.workspace.getHierarchyHeadsById(pRootNode.id)
+        let rootNode = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsById(pRootNode.id)
         hiriarchyMap = getHiriarchyMap(rootNode)
     }
 
@@ -33,7 +33,7 @@ function newNodesWarnings() {
     }
 
     function applyValue(nodeId, value) {
-        if (canvas.chartingSpace.visible !== true) { return }
+        if (UI.projects.superalgos.spaces.chartingSpace.visible !== true) { return }
         let node = hiriarchyMap.get(nodeId)
         if (node === undefined) { return }
         if (node.payload === undefined) { return }

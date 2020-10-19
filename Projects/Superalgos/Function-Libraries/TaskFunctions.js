@@ -42,7 +42,7 @@ function newTaskFunctions() {
             return
         }
 
-        let eventsServerClient = canvas.designSpace.workspace.eventsServerClients.get(networkNode.id)
+        let eventsServerClient = UI.projects.superalgos.spaces.designSpace.workspace.eventsServerClients.get(networkNode.id)
 
         /* First we setup everything so as to listen to the response from the Task Manger */
         let eventSubscriptionIdOnStatus
@@ -77,7 +77,7 @@ function newTaskFunctions() {
             return
         }
 
-        let eventsServerClient = canvas.designSpace.workspace.eventsServerClients.get(networkNode.id)
+        let eventsServerClient = UI.projects.superalgos.spaces.designSpace.workspace.eventsServerClients.get(networkNode.id)
 
         for (let i = 0; i < node.bot.processes.length; i++) {
             let process = node.bot.processes[i]
@@ -169,7 +169,7 @@ function newTaskFunctions() {
             callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
             return
         }
-        let eventsServerClient = canvas.designSpace.workspace.eventsServerClients.get(networkNode.id)
+        let eventsServerClient = UI.projects.superalgos.spaces.designSpace.workspace.eventsServerClients.get(networkNode.id)
 
         let event = {
             taskId: node.id,

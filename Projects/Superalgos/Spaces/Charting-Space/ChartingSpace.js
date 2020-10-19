@@ -93,10 +93,10 @@ function newSuperalgosChartingSpace() {
 
     function initialize() {
         if (isInitialized === true) { return }
-        if (canvas.designSpace === undefined) { return }
-        if (canvas.designSpace.workspace === undefined) { return }
+        if (UI.projects.superalgos.spaces.designSpace === undefined) { return }
+        if (UI.projects.superalgos.spaces.designSpace.workspace === undefined) { return }
 
-        let rootNodes = canvas.designSpace.workspace.workspaceNode.rootNodes
+        let rootNodes = UI.projects.superalgos.spaces.designSpace.workspace.workspaceNode.rootNodes
         for (let i = 0; i < rootNodes.length; i++) {
             let rootNode = rootNodes[i]
             if (rootNode !== null) {
@@ -189,7 +189,7 @@ function newSuperalgosChartingSpace() {
             y: browserCanvas.height * PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT / 100
         }
 
-        canvas.chartingSpace.viewport.displace(displaceVector)
+        UI.projects.superalgos.spaces.chartingSpace.viewport.displace(displaceVector)
     }
 
     function oneScreenDown() {
@@ -199,7 +199,7 @@ function newSuperalgosChartingSpace() {
             y: -browserCanvas.height * PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT / 100
         }
 
-        canvas.chartingSpace.viewport.displace(displaceVector)
+        UI.projects.superalgos.spaces.chartingSpace.viewport.displace(displaceVector)
     }
 
     function oneScreenLeft() {
@@ -209,7 +209,7 @@ function newSuperalgosChartingSpace() {
             y: 0
         }
 
-        canvas.chartingSpace.viewport.displace(displaceVector, true)
+        UI.projects.superalgos.spaces.chartingSpace.viewport.displace(displaceVector, true)
     }
 
     function oneScreenRight() {
@@ -219,7 +219,7 @@ function newSuperalgosChartingSpace() {
             y: 0
         }
 
-        canvas.chartingSpace.viewport.displace(displaceVector, true)
+        UI.projects.superalgos.spaces.chartingSpace.viewport.displace(displaceVector, true)
     }
 
     function fitFunction(point, fullVisible) {
@@ -360,8 +360,8 @@ function newSuperalgosChartingSpace() {
             function onTimeMachineInitialized() {
                 thisObject.timeMachines.push(timeMachine)
                 timeMachine.payload.uiObject.setValue('')
-                if (canvas.chartingSpace.viewport !== undefined) {
-                    canvas.chartingSpace.viewport.raiseEvents() // These events will impacts on objects just initialized.
+                if (UI.projects.superalgos.spaces.chartingSpace.viewport !== undefined) {
+                    UI.projects.superalgos.spaces.chartingSpace.viewport.raiseEvents() // These events will impacts on objects just initialized.
                 }
             }
         }
@@ -382,8 +382,8 @@ function newSuperalgosChartingSpace() {
             }
         }
 
-        if (canvas.chartingSpace.viewport !== undefined) {
-            canvas.chartingSpace.viewport.resize()
+        if (UI.projects.superalgos.spaces.chartingSpace.viewport !== undefined) {
+            UI.projects.superalgos.spaces.chartingSpace.viewport.resize()
         }
     }
 

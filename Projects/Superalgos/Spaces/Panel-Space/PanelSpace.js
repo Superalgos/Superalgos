@@ -42,8 +42,8 @@ function newSuperalgosPanelSpace() {
             case 'Layers Panel':
                 {
                     panel = newLayersPanel()
-                    panel.fitFunction = canvas.chartingSpace.fitFunction
-                    panel.container.isVisibleFunction = canvas.chartingSpace.isThisPointVisible
+                    panel.fitFunction = UI.projects.superalgos.spaces.chartingSpace.fitFunction
+                    panel.container.isVisibleFunction = UI.projects.superalgos.spaces.chartingSpace.isThisPointVisible
                     panel.type = 'Layers Panel'
                     break
                 }
@@ -51,14 +51,14 @@ function newSuperalgosPanelSpace() {
                 {
                     if (pParameters.panelNode.config.isLegacy !== true) {
                         panel = newPlotterPanel()
-                        panel.fitFunction = canvas.chartingSpace.fitFunction
-                        panel.container.isVisibleFunction = canvas.chartingSpace.isThisPointVisible
+                        panel.fitFunction = UI.projects.superalgos.spaces.chartingSpace.fitFunction
+                        panel.container.isVisibleFunction = UI.projects.superalgos.spaces.chartingSpace.isThisPointVisible
                         panel.session = pSession
                         panel.initialize(pParameters.panelNode)
                     } else {
                         panel = getNewPlotterPanel(pParameters.dataMine, pParameters.plotterCodeName, pParameters.moduleCodeName, pParameters.panelNode.config.codeName)
-                        panel.fitFunction = canvas.chartingSpace.fitFunction
-                        panel.container.isVisibleFunction = canvas.chartingSpace.isThisPointVisible
+                        panel.fitFunction = UI.projects.superalgos.spaces.chartingSpace.fitFunction
+                        panel.container.isVisibleFunction = UI.projects.superalgos.spaces.chartingSpace.isThisPointVisible
                         panel.session = pSession
                         panel.initialize()
                     }
@@ -129,7 +129,7 @@ function newSuperalgosPanelSpace() {
         if (thisObject.panels !== undefined) {
             for (let i = 0; i < thisObject.panels.length; i++) {
                 let panel = thisObject.panels[i]
-                let owner = canvas.chartingSpace.inViewport.get(panel.owner)
+                let owner = UI.projects.superalgos.spaces.chartingSpace.inViewport.get(panel.owner)
                 if (owner !== undefined) {
                     if (panel.physics !== undefined) {
                         panel.physics()
@@ -161,8 +161,8 @@ function newSuperalgosPanelSpace() {
                 centerPoint.y = centerPoint.y + panel.container.frame.height / 2
 
                 /* Lets see which quadrant the panel is at */
-                let verticalLine = (canvas.chartingSpace.viewport.visibleArea.topRight.x - canvas.chartingSpace.viewport.visibleArea.topLeft.x) / 2 + canvas.chartingSpace.viewport.visibleArea.topLeft.x
-                let horizontalLine = (canvas.chartingSpace.viewport.visibleArea.bottomRight.y - canvas.chartingSpace.viewport.visibleArea.topRight.y) / 2 + canvas.chartingSpace.viewport.visibleArea.topRight.y
+                let verticalLine = (UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topRight.x - UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topLeft.x) / 2 + UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topLeft.x
+                let horizontalLine = (UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomRight.y - UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topRight.y) / 2 + UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topRight.y
 
                 if (panel.upDownButton !== undefined) {
                     if (panel.upDownButton.status === 'up') {
@@ -227,18 +227,18 @@ function newSuperalgosPanelSpace() {
                         panel.container.frame.position.x = browserCanvas.width - panel.container.frame.width
                     }
                 }
-                if (panel.container.frame.height <= canvas.chartingSpace.viewport.visibleArea.bottomRight.y - canvas.chartingSpace.viewport.visibleArea.topRight.y) {
+                if (panel.container.frame.height <= UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomRight.y - UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topRight.y) {
                     if (panel.gravitatesTowards === 'topLeft' || panel.gravitatesTowards === 'topRight') {
                         panel.container.frame.position.y = panel.container.frame.position.y - panel.container.speed.y
                         isOverlapping(i, panel.container)
-                        if (panel.container.frame.position.y < canvas.chartingSpace.viewport.visibleArea.topLeft.y) {
-                            panel.container.frame.position.y = canvas.chartingSpace.viewport.visibleArea.topLeft.y
+                        if (panel.container.frame.position.y < UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topLeft.y) {
+                            panel.container.frame.position.y = UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topLeft.y
                         }
                     } else {
                         panel.container.frame.position.y = panel.container.frame.position.y + panel.container.speed.y
                         isOverlapping(i, panel.container)
-                        if (panel.container.frame.position.y + panel.container.frame.height > canvas.chartingSpace.viewport.visibleArea.bottomRight.y) {
-                            panel.container.frame.position.y = canvas.chartingSpace.viewport.visibleArea.bottomRight.y - panel.container.frame.height
+                        if (panel.container.frame.position.y + panel.container.frame.height > UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomRight.y) {
+                            panel.container.frame.position.y = UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomRight.y - panel.container.frame.height
                         }
                     }
                 }
@@ -342,7 +342,7 @@ function newSuperalgosPanelSpace() {
 
         for (let i = 0; i < thisObject.panels.length; i++) {
             let panel = thisObject.panels[i]
-            let owner = canvas.chartingSpace.inViewport.get(panel.owner)
+            let owner = UI.projects.superalgos.spaces.chartingSpace.inViewport.get(panel.owner)
             if (owner !== undefined) {
                 if (panel.isVisible === true && panel.isHidden === false) {
                     panel.draw()
@@ -362,7 +362,7 @@ function newSuperalgosPanelSpace() {
         */
         for (let i = thisObject.panels.length - 1; i >= 0; i--) {
             let panel = thisObject.panels[i]
-            let owner = canvas.chartingSpace.inViewport.get(panel.owner)
+            let owner = UI.projects.superalgos.spaces.chartingSpace.inViewport.get(panel.owner)
             if (owner !== undefined) {
                 if (panel.isVisible === true && panel.isHidden === false) {
                     container = panel.getContainer(point, purpose)

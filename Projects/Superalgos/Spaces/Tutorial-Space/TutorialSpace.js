@@ -174,11 +174,11 @@ function newSuperalgosTutorialSpace() {
                 }
                 if (totalZoomSteps > 0) {
                     if (currentZoomStep < totalZoomSteps) {
-                        canvas.chartingSpace.viewport.onMouseWheel(event)
+                        UI.projects.superalgos.spaces.chartingSpace.viewport.onMouseWheel(event)
                     }
                 } else {
                     if (currentZoomStep > totalZoomSteps) {
-                        canvas.chartingSpace.viewport.onMouseWheel(event)
+                        UI.projects.superalgos.spaces.chartingSpace.viewport.onMouseWheel(event)
                     }
                 }
             }
@@ -188,7 +188,7 @@ function newSuperalgosTutorialSpace() {
             if (currentNode === undefined) { return }
             let config = JSON.parse(currentNode.config)
             if (config.viewportZoomAtCenter !== undefined) {
-                canvas.chartingSpace.viewport.zoomAtCenter(config.viewportZoomAtCenter)
+                UI.projects.superalgos.spaces.chartingSpace.viewport.zoomAtCenter(config.viewportZoomAtCenter)
             }
         }
 
@@ -326,7 +326,7 @@ function newSuperalgosTutorialSpace() {
                         /*
                         This forces the tutorial to close the charting space and to keep it closed.
                         */
-                        canvas.cockpitSpace.toTop()
+                        UI.projects.superalgos.spaces.cockpitSpace.toTop()
                         return
                     }
                     case "toMiddle": {
@@ -334,14 +334,14 @@ function newSuperalgosTutorialSpace() {
                         This forces the tutorial to share the screen half with the designer and half 
                         with the charting space and force it in that way.
                         */
-                        canvas.cockpitSpace.toMiddle()
+                        UI.projects.superalgos.spaces.cockpitSpace.toMiddle()
                         return
                     }
                     case "toBottom": {
                         /*
                         This forces the tutorial to fully open the charting space and to keep it open.
                         */
-                        canvas.cockpitSpace.toBottom()
+                        UI.projects.superalgos.spaces.cockpitSpace.toBottom()
                         return
                     }
                 }
@@ -370,7 +370,7 @@ function newSuperalgosTutorialSpace() {
                                         currentNode.payload.referenceParent.payload.floatingObject.unCollapseParent()
                                     }
                                     if (positionAtNodeCounter < 100) {
-                                        canvas.floatingSpace.positionAtNode(currentNode.payload.referenceParent)
+                                        UI.projects.superalgos.spaces.floatingSpace.positionAtNode(currentNode.payload.referenceParent)
                                     }
                                 }
                                 if (
@@ -522,7 +522,7 @@ function newSuperalgosTutorialSpace() {
                                     config.keyPressedTimeMachineReferenceParent !== undefined
                                 ) {
                                     if (currentNode.payload.referenceParent.type === 'Time Machine') {
-                                        let timeMachine = canvas.chartingSpace.findTimeMachine(currentNode.payload.referenceParent)
+                                        let timeMachine = UI.projects.superalgos.spaces.chartingSpace.findTimeMachine(currentNode.payload.referenceParent)
                                         if (timeMachine !== undefined) {
                                             timeMachineKeyPressedCounter++
                                             if (timeMachineKeyPressedCounter === 10) {
@@ -542,9 +542,9 @@ function newSuperalgosTutorialSpace() {
                                     config.viewportCenterReferenceParent === true
                                 ) {
                                     if (currentNode.payload.referenceParent.type === 'Time Machine') {
-                                        let timeMachine = canvas.chartingSpace.findTimeMachine(currentNode.payload.referenceParent)
+                                        let timeMachine = UI.projects.superalgos.spaces.chartingSpace.findTimeMachine(currentNode.payload.referenceParent)
                                         if (timeMachine !== undefined && viewportCentered === false) {
-                                            canvas.chartingSpace.viewport.displaceToContainer(timeMachine.container)
+                                            UI.projects.superalgos.spaces.chartingSpace.viewport.displaceToContainer(timeMachine.container)
                                             viewportCentered = true
                                         }
                                     }
@@ -553,7 +553,7 @@ function newSuperalgosTutorialSpace() {
                                     config.repositionAtTimeMachineReferenceParent === true
                                 ) {
                                     if (currentNode.payload.referenceParent.type === 'Time Machine') {
-                                        let timeMachine = canvas.chartingSpace.findTimeMachine(currentNode.payload.referenceParent)
+                                        let timeMachine = UI.projects.superalgos.spaces.chartingSpace.findTimeMachine(currentNode.payload.referenceParent)
                                         if (timeMachine !== undefined) {
                                             repositionAtTimeMachineCounter++
                                             switch (true) {
@@ -561,11 +561,11 @@ function newSuperalgosTutorialSpace() {
                                                     let event = {
                                                         delta: -1
                                                     }
-                                                    canvas.chartingSpace.viewport.onMouseWheel(event)
+                                                    UI.projects.superalgos.spaces.chartingSpace.viewport.onMouseWheel(event)
                                                     break
                                                 }
                                                 case (repositionAtTimeMachineCounter === 30): {
-                                                    canvas.chartingSpace.viewport.displaceToContainer(timeMachine.container)
+                                                    UI.projects.superalgos.spaces.chartingSpace.viewport.displaceToContainer(timeMachine.container)
                                                     break
                                                 }
                                                 case (repositionAtTimeMachineCounter === 60): {
@@ -580,11 +580,11 @@ function newSuperalgosTutorialSpace() {
                                                     break
                                                 }
                                                 case (repositionAtTimeMachineCounter === 90): {
-                                                    canvas.chartingSpace.viewport.displaceToContainer(timeMachine.container)
+                                                    UI.projects.superalgos.spaces.chartingSpace.viewport.displaceToContainer(timeMachine.container)
                                                     break
                                                 }
                                                 case (repositionAtTimeMachineCounter === 120): {
-                                                    canvas.chartingSpace.viewport.zoomAtCenter(8)
+                                                    UI.projects.superalgos.spaces.chartingSpace.viewport.zoomAtCenter(8)
                                                     break
                                                 }
                                             }
@@ -595,7 +595,7 @@ function newSuperalgosTutorialSpace() {
                                     config.repositionAtTimeMachineNoZoomReferenceParent === true
                                 ) {
                                     if (currentNode.payload.referenceParent.type === 'Time Machine') {
-                                        let timeMachine = canvas.chartingSpace.findTimeMachine(currentNode.payload.referenceParent)
+                                        let timeMachine = UI.projects.superalgos.spaces.chartingSpace.findTimeMachine(currentNode.payload.referenceParent)
                                         if (timeMachine !== undefined) {
                                             repositionAtTimeMachineCounter++
                                             switch (true) {
@@ -603,11 +603,11 @@ function newSuperalgosTutorialSpace() {
                                                     let event = {
                                                         delta: -1
                                                     }
-                                                    canvas.chartingSpace.viewport.onMouseWheel(event)
+                                                    UI.projects.superalgos.spaces.chartingSpace.viewport.onMouseWheel(event)
                                                     break
                                                 }
                                                 case (repositionAtTimeMachineCounter === 30): {
-                                                    canvas.chartingSpace.viewport.displaceToContainer(timeMachine.container)
+                                                    UI.projects.superalgos.spaces.chartingSpace.viewport.displaceToContainer(timeMachine.container)
                                                     break
                                                 }
                                             }

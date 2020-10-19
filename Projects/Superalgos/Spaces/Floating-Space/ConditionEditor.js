@@ -67,14 +67,14 @@ function newConditionEditor() {
     }
 
     function initialize() {
-        timeFrameIcon = canvas.designSpace.getIconByProjectAndName( 'Superalgos', 'time-frame')
-        dataMineIcon = canvas.designSpace.getIconByProjectAndName( 'Superalgos', 'data-mine')
-        botIcon = canvas.designSpace.getIconByProjectAndName( 'Superalgos', 'indicator-bot')
-        whenIcon = canvas.designSpace.getIconByProjectAndName( 'Superalgos', 'trigger-on')
-        productIcon = canvas.designSpace.getIconByProjectAndName( 'Superalgos', 'product-definition')
-        propertyIcon = canvas.designSpace.getIconByProjectAndName( 'Superalgos', 'record-property')
-        operationIcon = canvas.designSpace.getIconByProjectAndName( 'Superalgos', 'space-settings')
-        valueIcon = canvas.designSpace.getIconByProjectAndName( 'Superalgos', 'trading-strategy')
+        timeFrameIcon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName( 'Superalgos', 'time-frame')
+        dataMineIcon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName( 'Superalgos', 'data-mine')
+        botIcon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName( 'Superalgos', 'indicator-bot')
+        whenIcon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName( 'Superalgos', 'trigger-on')
+        productIcon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName( 'Superalgos', 'product-definition')
+        propertyIcon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName( 'Superalgos', 'record-property')
+        operationIcon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName( 'Superalgos', 'space-settings')
+        valueIcon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName( 'Superalgos', 'trading-strategy')
     }
 
     function activate(payload) {
@@ -536,7 +536,7 @@ function newConditionEditor() {
     function scanDataMines() {
         let selector = {}
 
-        let workspace = canvas.designSpace.workspace.workspaceNode
+        let workspace = UI.projects.superalgos.spaces.designSpace.workspace.workspaceNode
 
         for (let i = 0; i < workspace.rootNodes.length; i++) {
             let rootNode = workspace.rootNodes[i]

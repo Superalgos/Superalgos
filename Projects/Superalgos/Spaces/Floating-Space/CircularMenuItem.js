@@ -192,7 +192,7 @@ function newCircularMenuItem() {
         } else {
             radiusGrowthFactor = 3.2
         }
-        radiusGrowthFactor = radiusGrowthFactor * canvas.floatingSpace.settings.node.menuItem.radiusPercentage / 100
+        radiusGrowthFactor = radiusGrowthFactor * UI.projects.superalgos.spaces.floatingSpace.settings.node.menuItem.radiusPercentage / 100
 
         thisObject.container.frame.position.x =
             thisObject.payload.floatingObject.targetRadius *
@@ -222,16 +222,16 @@ function newCircularMenuItem() {
 
     function containerPhysics() {
         if (thisObject.type === 'Icon & Text') {
-            thisObject.container.frame.width = 220 * canvas.floatingSpace.settings.node.menuItem.widthPercentage / 100
+            thisObject.container.frame.width = 220 * UI.projects.superalgos.spaces.floatingSpace.settings.node.menuItem.widthPercentage / 100
         } else {
-            thisObject.container.frame.width = 50 * canvas.floatingSpace.settings.node.menuItem.widthPercentage / 100
+            thisObject.container.frame.width = 50 * UI.projects.superalgos.spaces.floatingSpace.settings.node.menuItem.widthPercentage / 100
         }
 
-        thisObject.container.frame.height = 40 * canvas.floatingSpace.settings.node.menuItem.heightPercentage / 100
+        thisObject.container.frame.height = 40 * UI.projects.superalgos.spaces.floatingSpace.settings.node.menuItem.heightPercentage / 100
     }
 
     function backgroundColorPhysics() {
-        defaultBackgroudColor = canvas.floatingSpace.style.node.menuItem.backgroundColor
+        defaultBackgroudColor = UI.projects.superalgos.spaces.floatingSpace.style.node.menuItem.backgroundColor
     }
 
     function iconPhysics() {
@@ -243,19 +243,19 @@ function newCircularMenuItem() {
                 temporaryStatus === STATUS_SECONDARY_WORK_FAILED
             ) && thisObject.secondaryAction !== undefined
         ) {
-            thisObject.iconOn = canvas.designSpace.getIconByProjectAndName('Superalgos', thisObject.secondaryIcon)
-            thisObject.iconOff = canvas.designSpace.getIconByProjectAndName('Superalgos', thisObject.secondaryIcon)
+            thisObject.iconOn = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName('Superalgos', thisObject.secondaryIcon)
+            thisObject.iconOff = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName('Superalgos', thisObject.secondaryIcon)
         } else {
             if (thisObject.relatedUiObject !== undefined) {
-                thisObject.iconOn = canvas.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.relatedUiObject)
-                thisObject.iconOff = canvas.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.relatedUiObject)
+                thisObject.iconOn = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.relatedUiObject)
+                thisObject.iconOff = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.relatedUiObject)
             } else {
                 if (thisObject.iconPathOn !== undefined && thisObject.iconPathOff !== undefined) {
-                    thisObject.iconOn = canvas.designSpace.getIconByProjectAndName('Superalgos', thisObject.iconPathOn)
-                    thisObject.iconOff = canvas.designSpace.getIconByProjectAndName('Superalgos', thisObject.iconPathOff)
+                    thisObject.iconOn = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName('Superalgos', thisObject.iconPathOn)
+                    thisObject.iconOff = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName('Superalgos', thisObject.iconPathOff)
                 } else {
-                    thisObject.iconOn = canvas.designSpace.getIconByProjectAndName('Superalgos', thisObject.icons[thisObject.actionStatus()])
-                    thisObject.iconOff = canvas.designSpace.getIconByProjectAndName('Superalgos', thisObject.icons[thisObject.actionStatus()])
+                    thisObject.iconOn = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName('Superalgos', thisObject.icons[thisObject.actionStatus()])
+                    thisObject.iconOff = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName('Superalgos', thisObject.icons[thisObject.actionStatus()])
                 }
             }
         }
@@ -292,7 +292,7 @@ function newCircularMenuItem() {
     function internalClick() {
         if (thisObject.shorcutNumber !== undefined) {
             let label = thisObject.payload.node.name + ' ' + labelToPrint
-            canvas.cockpitSpace.setStatus(label, 4, canvas.cockpitSpace.statusTypes.ALL_GOOD)
+            UI.projects.superalgos.spaces.cockpitSpace.setStatus(label, 4, UI.projects.superalgos.spaces.cockpitSpace.statusTypes.ALL_GOOD)
         }
 
         onMouseClick()
@@ -455,9 +455,9 @@ function newCircularMenuItem() {
         /* Menu  Item */
         let iconSize
         if (isMouseOver === true) {
-            iconSize = canvas.floatingSpace.style.node.menuItem.imageSize * 150 / 100
+            iconSize = UI.projects.superalgos.spaces.floatingSpace.style.node.menuItem.imageSize * 150 / 100
         } else {
-            iconSize = canvas.floatingSpace.style.node.menuItem.imageSize
+            iconSize = UI.projects.superalgos.spaces.floatingSpace.style.node.menuItem.imageSize
         }
 
         if (thisObject.icon === undefined) { return }
@@ -472,7 +472,7 @@ function newCircularMenuItem() {
                 }
 
                 let labelPoint
-                let fontSize = canvas.floatingSpace.style.node.menuItem.fontSize
+                let fontSize = UI.projects.superalgos.spaces.floatingSpace.style.node.menuItem.fontSize
 
                 browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
 
@@ -483,7 +483,7 @@ function newCircularMenuItem() {
                     }
 
                     browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-                    browserCanvasContext.fillStyle = 'rgba(' + canvas.floatingSpace.style.node.menuItem.fontColor + ', 1)'
+                    browserCanvasContext.fillStyle = 'rgba(' + UI.projects.superalgos.spaces.floatingSpace.style.node.menuItem.fontColor + ', 1)'
                     browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
                 }
             }

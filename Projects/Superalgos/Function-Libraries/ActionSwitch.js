@@ -106,9 +106,9 @@ function newSuperalgosActionSwitch() {
 
                     copyTextToClipboard(nodePath)
 
-                    canvas.cockpitSpace.setStatus(
+                    UI.projects.superalgos.spaces.cockpitSpace.setStatus(
                         nodePath + ' copied to the Clipboard.'
-                        , 50, canvas.cockpitSpace.statusTypes.ALL_GOOD)
+                        , 50, UI.projects.superalgos.spaces.cockpitSpace.statusTypes.ALL_GOOD)
                 }
                 break
             case 'Add UI Object':

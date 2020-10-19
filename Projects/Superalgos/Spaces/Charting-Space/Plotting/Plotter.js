@@ -23,7 +23,7 @@ function newPlotter() {
     thisObject.container = container
 
     let coordinateSystem
-    let slotHeight = (canvas.chartingSpace.viewport.visibleArea.bottomRight.y - canvas.chartingSpace.viewport.visibleArea.topLeft.y) / 10  // This is the amount of slots available
+    let slotHeight = (UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomRight.y - UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topLeft.y) / 10  // This is the amount of slots available
     let mustRecalculateDataPoints = false
     let atMousePositionFillStyles = new Map()
     let atMousePositionStrokeStyles = new Map()
@@ -61,8 +61,8 @@ function newPlotter() {
         try {
             /* Stop listening to the necesary events. */
             thisObject.container.eventHandler.stopListening(onMouseOverEventSuscriptionId)
-            canvas.chartingSpace.viewport.eventHandler.stopListening(zoomChangedEventSubscriptionId)
-            canvas.chartingSpace.viewport.eventHandler.stopListening(offsetChangedEventSubscriptionId)
+            UI.projects.superalgos.spaces.chartingSpace.viewport.eventHandler.stopListening(zoomChangedEventSubscriptionId)
+            UI.projects.superalgos.spaces.chartingSpace.viewport.eventHandler.stopListening(offsetChangedEventSubscriptionId)
             canvas.eventHandler.stopListening(dragFinishedEventSubscriptionId)
             thisObject.container.eventHandler.stopListening(dimmensionsChangedEventSubscriptionId)
             marketFiles.eventHandler.stopListening(marketFilesUpdatedEventSubscriptionId)
@@ -113,8 +113,8 @@ function newPlotter() {
             fileCursor = dailyFiles.getFileCursor(pTimeFrame)
 
             /* Listen to the necesary events. */
-            zoomChangedEventSubscriptionId = canvas.chartingSpace.viewport.eventHandler.listenToEvent('Zoom Changed', onViewportZoomChanged)
-            offsetChangedEventSubscriptionId = canvas.chartingSpace.viewport.eventHandler.listenToEvent('Position Changed', onViewportPositionChanged)
+            zoomChangedEventSubscriptionId = UI.projects.superalgos.spaces.chartingSpace.viewport.eventHandler.listenToEvent('Zoom Changed', onViewportZoomChanged)
+            offsetChangedEventSubscriptionId = UI.projects.superalgos.spaces.chartingSpace.viewport.eventHandler.listenToEvent('Position Changed', onViewportPositionChanged)
             dragFinishedEventSubscriptionId = canvas.eventHandler.listenToEvent('Drag Finished', onDragFinished)
             marketFilesUpdatedEventSubscriptionId = marketFiles.eventHandler.listenToEvent('Files Updated', onMarketFilesUpdated)
             dailyFilesUpdatedEventSubscriptionId = dailyFiles.eventHandler.listenToEvent('Files Updated', onDailyFilesUpdated)
@@ -393,8 +393,8 @@ function newPlotter() {
 
             let daysOnSides = getSideDays(timeFrame)
 
-            let leftDate = getDateFromPointAtBrowserCanvas(canvas.chartingSpace.viewport.visibleArea.topLeft, thisObject.container, coordinateSystem)
-            let rightDate = getDateFromPointAtBrowserCanvas(canvas.chartingSpace.viewport.visibleArea.topRight, thisObject.container, coordinateSystem)
+            let leftDate = getDateFromPointAtBrowserCanvas(UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topLeft, thisObject.container, coordinateSystem)
+            let rightDate = getDateFromPointAtBrowserCanvas(UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topRight, thisObject.container, coordinateSystem)
 
             let dateDiff = rightDate.valueOf() - leftDate.valueOf()
 
@@ -440,8 +440,8 @@ function newPlotter() {
 
             let daysOnSides = getSideDays(timeFrame)
 
-            let leftDate = getDateFromPointAtBrowserCanvas(canvas.chartingSpace.viewport.visibleArea.topLeft, thisObject.container, coordinateSystem)
-            let rightDate = getDateFromPointAtBrowserCanvas(canvas.chartingSpace.viewport.visibleArea.topRight, thisObject.container, coordinateSystem)
+            let leftDate = getDateFromPointAtBrowserCanvas(UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topLeft, thisObject.container, coordinateSystem)
+            let rightDate = getDateFromPointAtBrowserCanvas(UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topRight, thisObject.container, coordinateSystem)
 
             let dateDiff = rightDate.valueOf() - leftDate.valueOf()
 
@@ -507,13 +507,13 @@ function newPlotter() {
                 beginPoint = transformThisPoint(beginPoint, thisObject.container)
                 endPoint = transformThisPoint(endPoint, thisObject.container)
 
-                beginPoint = canvas.chartingSpace.viewport.fitIntoVisibleArea(beginPoint)
-                endPoint = canvas.chartingSpace.viewport.fitIntoVisibleArea(endPoint)
+                beginPoint = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(beginPoint)
+                endPoint = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(endPoint)
 
                 beginPoint = thisObject.fitFunction(beginPoint)
                 endPoint = thisObject.fitFunction(endPoint)
 
-                if (endPoint.x < canvas.chartingSpace.viewport.visibleArea.bottomLeft.x || beginPoint.x > canvas.chartingSpace.viewport.visibleArea.bottomRight.x) {
+                if (endPoint.x < UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomLeft.x || beginPoint.x > UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomRight.x) {
                     continue
                 }
 
@@ -572,7 +572,7 @@ function newPlotter() {
                                     x: dataPoint.x,
                                     y: dataPoint.y
                                 }
-                                dataPoint = canvas.chartingSpace.viewport.fitIntoVisibleArea(dataPoint)
+                                dataPoint = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(dataPoint)
                                 dataPoint = thisObject.fitFunction(dataPoint)
 
                                 if (testPoint.x === dataPoint.x) {
@@ -733,7 +733,7 @@ function newPlotter() {
                                 y: dataPointObject.y
                             }
                             /* We make sure the points do not fall outside the viewport visible area. This step allways need to be done.  */
-                            dataPoint = canvas.chartingSpace.viewport.fitIntoVisibleArea(dataPoint)
+                            dataPoint = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(dataPoint)
                             dataPoint = thisObject.fitFunction(dataPoint)
                             /* 
                             Contributing to Auto-Scale: A point will contribute to the y coordinate only if the x coordinate is plotted in the screen.
@@ -812,12 +812,12 @@ function newPlotter() {
                         x: dataPointObject.x,
                         y: dataPointObject.y
                     }
-                    dataPoint = canvas.chartingSpace.viewport.fitIntoVisibleArea(dataPoint)
+                    dataPoint = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(dataPoint)
                     dataPoint = thisObject.fitFunction(dataPoint)
 
                     imagePosition.x = dataPoint.x
                     imagePosition.y = dataPoint.y
-                    let imageToDraw = canvas.designSpace.getIconByProjectAndName( 'Superalgos', imageName)
+                    let imageToDraw = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName( 'Superalgos', imageName)
                     if (imageToDraw !== undefined) {
                         if (imageToDraw.canDrawIcon === true) {
                             browserCanvasContext.drawImage(imageToDraw, imagePosition.x - imageSize / 2 + offsetX, imagePosition.y - imageSize / 2 - offsetY, imageSize, imageSize)
@@ -856,7 +856,7 @@ function newPlotter() {
                         x: dataPointObject.x,
                         y: dataPointObject.y
                     }
-                    dataPoint = canvas.chartingSpace.viewport.fitIntoVisibleArea(dataPoint)
+                    dataPoint = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(dataPoint)
                     dataPoint = thisObject.fitFunction(dataPoint)
 
                     textPosition.x = dataPoint.x
@@ -890,7 +890,7 @@ function newPlotter() {
     }
 
     function onDragFinished() {
-        if (canvas.chartingSpace.visible === true) {
+        if (UI.projects.superalgos.spaces.chartingSpace.visible === true) {
             recalculate()
         }
     }

@@ -32,8 +32,8 @@ function newWorkspace() {
     }
 
     spawnPosition = {
-        x: canvas.floatingSpace.container.frame.width / 2,
-        y: canvas.floatingSpace.container.frame.height / 2
+        x: UI.projects.superalgos.spaces.floatingSpace.container.frame.width / 2,
+        y: UI.projects.superalgos.spaces.floatingSpace.container.frame.height / 2
     }
 
     thisObject.workspaceNode = {}
@@ -45,7 +45,7 @@ function newWorkspace() {
     let isInitialized = false
     let workingAtTask = 0
     let circularProgressBar = newBusyProgressBar()
-    circularProgressBar.fitFunction = canvas.floatingSpace.fitIntoVisibleArea
+    circularProgressBar.fitFunction = UI.projects.superalgos.spaces.floatingSpace.fitIntoVisibleArea
     let loadedWorkspaceNode
     let sessionTimestamp = (new Date()).valueOf()
     window.localStorage.setItem('Session Timestamp', sessionTimestamp)
@@ -78,7 +78,7 @@ function newWorkspace() {
                 callWebServer(undefined, 'LoadMyWorkspace' + '/' + lastUsedWorkspace, onFileReceived)
                 function onFileReceived(err, text, response) {
                     if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                        canvas.cockpitSpace.setStatus('Could not load the last Workspace used, called "' + lastUsedWorkspace + '". Will switch to the default Workspace instead.', 500, canvas.cockpitSpace.statusTypes.WARNING)
+                        UI.projects.superalgos.spaces.cockpitSpace.setStatus('Could not load the last Workspace used, called "' + lastUsedWorkspace + '". Will switch to the default Workspace instead.', 500, UI.projects.superalgos.spaces.cockpitSpace.statusTypes.WARNING)
                         thisObject.workspaceNode = getWorkspace() // This is the default workspace that comes with the system.
                         thisObject.workspaceNode.project = 'Superalgos'
                         recreateWorkspace()
@@ -102,7 +102,7 @@ function newWorkspace() {
                 setupEventsServerClients()
                 runTasksAndSessions()
                 thisObject.enabled = true
-                canvas.cockpitSpace.initializePosition()
+                UI.projects.superalgos.spaces.cockpitSpace.initializePosition()
                 CAN_SPACES_DRAW = true
                 savingWorkspaceIntervalId = setInterval(saveWorkspace, 60000)
                 isInitialized = true
@@ -137,7 +137,7 @@ function newWorkspace() {
     }
 
     async function saveWorkspace() {
-        let workspace = canvas.designSpace.workspace.workspaceNode
+        let workspace = UI.projects.superalgos.spaces.designSpace.workspace.workspaceNode
 
         /* Validation if it is too early to save. */
         if (isInitialized === false) { return }
@@ -145,18 +145,18 @@ function newWorkspace() {
         /* Validation of 2 sessions opened at the same time. */
         let savedSessionTimestamp = window.localStorage.getItem('Session Timestamp')
         if (Number(savedSessionTimestamp) !== sessionTimestamp) {
-            canvas.cockpitSpace.setStatus(
+            UI.projects.superalgos.spaces.cockpitSpace.setStatus(
                 'Could not save the Workspace. You have more that one instance of the Superlagos User Interface open at the same time. Plese close this instance as it is older than the others.'
-                , 150, canvas.cockpitSpace.statusTypes.WARNING)
+                , 150, UI.projects.superalgos.spaces.cockpitSpace.statusTypes.WARNING)
             return
         }
 
         /* Validation that there is something to save */
         let textToSave = await stringifyWorkspace()
         if (textToSave === undefined) {
-            canvas.cockpitSpace.setStatus(
+            UI.projects.superalgos.spaces.cockpitSpace.setStatus(
                 'Could not save the Workspace. Something is preventing the System to do it at this time.'
-                , 150, canvas.cockpitSpace.statusTypes.WARNING)
+                , 150, UI.projects.superalgos.spaces.cockpitSpace.statusTypes.WARNING)
             return
         }
 
@@ -164,9 +164,9 @@ function newWorkspace() {
 
         /* Validation Workspace has a name */
         if (workspace.name === undefined) {
-            canvas.cockpitSpace.setStatus(
+            UI.projects.superalgos.spaces.cockpitSpace.setStatus(
                 'Could not save the Workspace. You need to specify a name for it.'
-                , 150, canvas.cockpitSpace.statusTypes.WARNING)
+                , 150, UI.projects.superalgos.spaces.cockpitSpace.statusTypes.WARNING)
             return
         }
 
@@ -179,10 +179,10 @@ function newWorkspace() {
                 window.localStorage.setItem('Last Used Workspace', workspace.name)
                 window.localStorage.setItem('Session Timestamp', sessionTimestamp)
                 if (ARE_WE_RECORDING_A_MARKET_PANORAMA === false) {
-                    canvas.cockpitSpace.setStatus(workspace.name + ' Saved.', 50, canvas.cockpitSpace.statusTypes.ALL_GOOD)
+                    UI.projects.superalgos.spaces.cockpitSpace.setStatus(workspace.name + ' Saved.', 50, UI.projects.superalgos.spaces.cockpitSpace.statusTypes.ALL_GOOD)
                 }
             } else {
-                canvas.cockpitSpace.setStatus('Could not save the Workspace at the Backend. Please check the Backend Console for more information.', 150, canvas.cockpitSpace.statusTypes.WARNING)
+                UI.projects.superalgos.spaces.cockpitSpace.setStatus('Could not save the Workspace at the Backend. Please check the Backend Console for more information.', 150, UI.projects.superalgos.spaces.cockpitSpace.statusTypes.WARNING)
             }
         }
     }
@@ -264,7 +264,7 @@ function newWorkspace() {
                     workingAtTask++
                     break
                 case 6:
-                    canvas.chartingSpace.reset()
+                    UI.projects.superalgos.spaces.chartingSpace.reset()
                     workingAtTask++
                     break
                 case 7:
@@ -411,13 +411,13 @@ function newWorkspace() {
         callWebServer(undefined, webCommand, onFileReceived)
         function onFileReceived(err, text, response) {
             if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                canvas.cockpitSpace.setStatus('Could not load the Workspace called "' + name + '". ', 500, canvas.cockpitSpace.statusTypes.WARNING)
+                UI.projects.superalgos.spaces.cockpitSpace.setStatus('Could not load the Workspace called "' + name + '". ', 500, UI.projects.superalgos.spaces.cockpitSpace.statusTypes.WARNING)
                 return
             }
 
             loadedWorkspaceNode = JSON.parse(text)
             saveWorkspace()
-            canvas.cockpitSpace.toTop()
+            UI.projects.superalgos.spaces.cockpitSpace.toTop()
 
             let position = {
                 x: browserCanvas.width / 2,
@@ -436,7 +436,7 @@ function newWorkspace() {
                 x: mousePointer.x,
                 y: mousePointer.y
             }
-            point = canvas.floatingSpace.container.frame.unframeThisPoint(point)
+            point = UI.projects.superalgos.spaces.floatingSpace.container.frame.unframeThisPoint(point)
             spawnPosition.x = point.x
             spawnPosition.y = point.y
 

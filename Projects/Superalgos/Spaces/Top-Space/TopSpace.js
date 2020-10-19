@@ -45,7 +45,7 @@ function newSuperalgosTopSpace() {
 
         thisObject.container.frame.position.x = 0
         try {
-            thisObject.container.frame.position.y = canvas.chartingSpace.viewport.visibleArea.bottomLeft.y
+            thisObject.container.frame.position.y = UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomLeft.y
         } catch (e) { }
     }
 

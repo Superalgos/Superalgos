@@ -277,7 +277,7 @@ function newTimeScale() {
             thisObject.isVisible = false
         }
 
-        if (canvas.chartingSpace.viewport.zoomTargetLevel < ZOOM_OUT_THRESHOLD_FOR_DISPLAYING_SCALES) {
+        if (UI.projects.superalgos.spaces.chartingSpace.viewport.zoomTargetLevel < ZOOM_OUT_THRESHOLD_FOR_DISPLAYING_SCALES) {
             thisObject.isVisible = false
         }
     }
@@ -288,7 +288,7 @@ function newTimeScale() {
 
     function drawScale() {
         const SEPARATION = 150
-        const NUMBER_OF_LABELS = Math.trunc(canvas.chartingSpace.viewport.width / SEPARATION)
+        const NUMBER_OF_LABELS = Math.trunc(UI.projects.superalgos.spaces.chartingSpace.viewport.width / SEPARATION)
         const FONT_SIZE = 15
 
         for (let i = 0; i <= NUMBER_OF_LABELS; i++) {
@@ -338,8 +338,8 @@ function newTimeScale() {
     function drawScaleBox() {
         if (thisObject.date === undefined) { return }
 
-        let icon1 = canvas.designSpace.getIconByProjectAndType(thisObject.payload.node.payload.parentNode.project, thisObject.payload.node.payload.parentNode.type)
-        let icon2 = canvas.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.payload.node.type)
+        let icon1 = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.payload.parentNode.project, thisObject.payload.node.payload.parentNode.type)
+        let icon2 = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.payload.node.type)
 
         let backgroundColor = UI_COLOR.BLACK
         let labels = scaleLabels(thisObject.date)

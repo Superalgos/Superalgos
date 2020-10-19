@@ -87,7 +87,7 @@ function newSuperalgosChatSpace() {
             if (container.isWheelable === true) {
                 return thisObject.container
             } else {
-                canvas.chartingSpace.viewport.onMouseWheel(event)
+                UI.projects.superalgos.spaces.chartingSpace.viewport.onMouseWheel(event)
                 return 
             }
         } else {

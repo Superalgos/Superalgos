@@ -26,8 +26,8 @@ function newUiObjectConstructor() {
 
     function createUiObject(userAddingNew, payload) {
         let floatingObject = newFloatingObject()
-        floatingObject.fitFunction = canvas.floatingSpace.fitIntoVisibleArea
-        floatingObject.container.connectToParent(canvas.floatingSpace.container, false, false, false, false, false, false, false, false)
+        floatingObject.fitFunction = UI.projects.superalgos.spaces.floatingSpace.fitIntoVisibleArea
+        floatingObject.container.connectToParent(UI.projects.superalgos.spaces.floatingSpace.container, false, false, false, false, false, false, false, false)
         floatingObject.initialize('UI Object', payload)
         payload.floatingObject = floatingObject
 
@@ -170,8 +170,8 @@ function newUiObjectConstructor() {
 
         let uiObject = newUiObject()
         payload.uiObject = uiObject
-        uiObject.fitFunction = canvas.floatingSpace.fitIntoVisibleArea
-        uiObject.isVisibleFunction = canvas.floatingSpace.isThisPointVisible
+        uiObject.fitFunction = UI.projects.superalgos.spaces.floatingSpace.fitIntoVisibleArea
+        uiObject.isVisibleFunction = UI.projects.superalgos.spaces.floatingSpace.isThisPointVisible
         let menuItemsInitialValues = getMenuItemsInitialValues(uiObject, floatingObject, payload)
 
         let schemaNode = getNodeDefinition(payload.node)

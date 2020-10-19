@@ -59,7 +59,7 @@ function newTimeFrameScale() {
 
     function finalize() {
         thisObject.container.eventHandler.stopListening(onMouseWheelEventSubscriptionId)
-        canvas.chartingSpace.viewport.eventHandler.stopListening(onViewportZoomChangedEventSubscriptionId)
+        UI.projects.superalgos.spaces.chartingSpace.viewport.eventHandler.stopListening(onViewportZoomChangedEventSubscriptionId)
         thisObject.container.eventHandler.stopListening(onMouseOverEventSubscriptionId)
         thisObject.container.eventHandler.stopListening(onMouseNotOverEventSubscriptionId)
 
@@ -78,7 +78,7 @@ function newTimeFrameScale() {
         newTimeFrame()
 
         onMouseWheelEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
-        onViewportZoomChangedEventSubscriptionId = canvas.chartingSpace.viewport.eventHandler.listenToEvent('Zoom Changed', onViewportZoomChanged)
+        onViewportZoomChangedEventSubscriptionId = UI.projects.superalgos.spaces.chartingSpace.viewport.eventHandler.listenToEvent('Zoom Changed', onViewportZoomChanged)
         onMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
         onMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
     }
@@ -115,7 +115,7 @@ function newTimeFrameScale() {
     function adjustTimeFrame(elementsPlotted) {
         const ELEMENTS_PLOTTED_THREASHOLD = 500
         if (
-            canvas.chartingSpace.viewport.zoomTargetLevel >= ZOOM_OUT_THRESHOLD_FOR_CHANGING_TIME_FRAME &&
+            UI.projects.superalgos.spaces.chartingSpace.viewport.zoomTargetLevel >= ZOOM_OUT_THRESHOLD_FOR_CHANGING_TIME_FRAME &&
             displayingRealTimeFrame === false
         ) {
             let event = {}
@@ -125,7 +125,7 @@ function newTimeFrameScale() {
         }
         if (
             elementsPlotted > ELEMENTS_PLOTTED_THREASHOLD &&
-            canvas.chartingSpace.viewport.zoomTargetLevel < ZOOM_OUT_THRESHOLD_FOR_CHANGING_TIME_FRAME &&
+            UI.projects.superalgos.spaces.chartingSpace.viewport.zoomTargetLevel < ZOOM_OUT_THRESHOLD_FOR_CHANGING_TIME_FRAME &&
             displayingRealTimeFrame === true
         ) {
             let event = {}
@@ -211,7 +211,7 @@ function newTimeFrameScale() {
             thisObject.payload.isVisible = false
         }
 
-        if (canvas.chartingSpace.viewport.zoomTargetLevel < ZOOM_OUT_THRESHOLD_FOR_DISPLAYING_SCALES) {
+        if (UI.projects.superalgos.spaces.chartingSpace.viewport.zoomTargetLevel < ZOOM_OUT_THRESHOLD_FOR_DISPLAYING_SCALES) {
             thisObject.isVisible = false
         }
     }
@@ -383,8 +383,8 @@ function newTimeFrameScale() {
         let label2 = label[0]
         let label3 = label[1].toUpperCase()
 
-        let icon1 = canvas.designSpace.getIconByProjectAndType(thisObject.payload.node.payload.parentNode.project, thisObject.payload.node.payload.parentNode.type)
-        let icon2 = canvas.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.payload.node.type)
+        let icon1 = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.payload.parentNode.project, thisObject.payload.node.payload.parentNode.type)
+        let icon2 = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.payload.node.type)
 
         let backgroundColor = UI_COLOR.BLACK
 

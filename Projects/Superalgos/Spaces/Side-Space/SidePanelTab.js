@@ -122,8 +122,8 @@ function newSidePanelTab() {
     }
 
     function positionPhysics() {
-        if (canvas.chartingSpace.viewport !== undefined) {
-            thisObject.container.frame.position.y = browserCanvas.height / 2 - TAB_HEIGHT / 2 //  TOP_SPACE_HEIGHT + canvas.chartingSpace.viewport.marginAmount + TAB_HEIGHT * thisObject.index
+        if (UI.projects.superalgos.spaces.chartingSpace.viewport !== undefined) {
+            thisObject.container.frame.position.y = browserCanvas.height / 2 - TAB_HEIGHT / 2 //  TOP_SPACE_HEIGHT + UI.projects.superalgos.spaces.chartingSpace.viewport.marginAmount + TAB_HEIGHT * thisObject.index
         }
     }
 

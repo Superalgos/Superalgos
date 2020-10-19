@@ -14,7 +14,7 @@ function newSessionFunctions() {
             return
         }
 
-        let eventsServerClient = canvas.designSpace.workspace.eventsServerClients.get(networkNode.id)
+        let eventsServerClient = UI.projects.superalgos.spaces.designSpace.workspace.eventsServerClients.get(networkNode.id)
 
         /* First we setup everything so as to listen to the response from the Task Server */
         let eventSubscriptionIdOnStatus
@@ -44,7 +44,7 @@ function newSessionFunctions() {
             return
         }
 
-        let eventsServerClient = canvas.designSpace.workspace.eventsServerClients.get(networkNode.id)
+        let eventsServerClient = UI.projects.superalgos.spaces.designSpace.workspace.eventsServerClients.get(networkNode.id)
 
         node.payload.uiObject.run(eventsServerClient, callBackFunction)
 
@@ -153,7 +153,7 @@ function newSessionFunctions() {
             return
         }
         
-        let eventsServerClient = canvas.designSpace.workspace.eventsServerClients.get(networkNode.id)
+        let eventsServerClient = UI.projects.superalgos.spaces.designSpace.workspace.eventsServerClients.get(networkNode.id)
 
         let key = node.name + '-' + node.type + '-' + node.id
         eventsServerClient.raiseEvent(key, 'Stop Session')

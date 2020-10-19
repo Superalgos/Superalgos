@@ -60,7 +60,7 @@ function newPanelsVisibleButton() {
 
     function setPanelVisibility() {
         for (let i = 0; i < thisObject.panels.length; i++) {
-            let panel = canvas.panelSpace.getPanel(thisObject.panels[i])
+            let panel = UI.projects.superalgos.spaces.panelSpace.getPanel(thisObject.panels[i])
             panel.isVisible = thisObject.showPanels
         }
     }
@@ -74,9 +74,9 @@ function newPanelsVisibleButton() {
     function draw() {
         let icon
         if (thisObject.showPanels === true) {
-            icon = canvas.designSpace.getIconByProjectAndName( 'Superalgos', 'plotter-panel')
+            icon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName( 'Superalgos', 'plotter-panel')
         } else {
-            icon = canvas.designSpace.getIconByProjectAndName( 'Superalgos', 'toggle-panel-off')
+            icon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName( 'Superalgos', 'toggle-panel-off')
         }
 
         drawIcon(icon, 1 / 2, 1 / 2, 0, 0, 14, thisObject.container)

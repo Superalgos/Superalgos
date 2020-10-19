@@ -118,13 +118,13 @@ function newEdgeEditor() {
 
     function onDoubleClick(event) {
         doubleClickCounter = 0
-        if (canvas.chartingSpace.viewport.zoomLevel === DOUBLE_CLICK_ZOOM_OUT_LEVEL) {
-            canvas.chartingSpace.viewport.displaceToContainer(thisObject.container.parentContainer)
-            canvas.chartingSpace.viewport.zoomAtCenter(DOUBLE_CLICK_ZOOM_IN_LEVEL)
+        if (UI.projects.superalgos.spaces.chartingSpace.viewport.zoomLevel === DOUBLE_CLICK_ZOOM_OUT_LEVEL) {
+            UI.projects.superalgos.spaces.chartingSpace.viewport.displaceToContainer(thisObject.container.parentContainer)
+            UI.projects.superalgos.spaces.chartingSpace.viewport.zoomAtCenter(DOUBLE_CLICK_ZOOM_IN_LEVEL)
             return
         }
-        if (canvas.chartingSpace.viewport.zoomLevel === DOUBLE_CLICK_ZOOM_IN_LEVEL) {
-            canvas.chartingSpace.viewport.zoomAtCenter(DOUBLE_CLICK_ZOOM_IN_IN_LEVEL)
+        if (UI.projects.superalgos.spaces.chartingSpace.viewport.zoomLevel === DOUBLE_CLICK_ZOOM_IN_LEVEL) {
+            UI.projects.superalgos.spaces.chartingSpace.viewport.zoomAtCenter(DOUBLE_CLICK_ZOOM_IN_IN_LEVEL)
             return
         }
     }
@@ -290,8 +290,8 @@ function newEdgeEditor() {
         if (coordinateSystemWhenDragStarted === undefined) { return }
         if (thisObject.container.frame.position.x === 0 && thisObject.container.frame.position.y === 0) { return }
 
-        let mouseNoZoom = canvas.chartingSpace.viewport.unTransformThisPoint(mouse.position)
-        let mouseWhenDragStartedNoZoom = canvas.chartingSpace.viewport.unTransformThisPoint(mouseWhenDragStarted.position)
+        let mouseNoZoom = UI.projects.superalgos.spaces.chartingSpace.viewport.unTransformThisPoint(mouse.position)
+        let mouseWhenDragStartedNoZoom = UI.projects.superalgos.spaces.chartingSpace.viewport.unTransformThisPoint(mouseWhenDragStarted.position)
 
         let dragVectorWhenDragStarted = {
             x: mouseNoZoom.x - mouseWhenDragStartedNoZoom.x,
@@ -660,15 +660,15 @@ function newEdgeEditor() {
             y: pointB4.y + edgeSize
         }
 
-        pointA1 = canvas.chartingSpace.viewport.fitIntoViewport(pointA1)
-        pointA2 = canvas.chartingSpace.viewport.fitIntoViewport(pointA2)
-        pointA3 = canvas.chartingSpace.viewport.fitIntoViewport(pointA3)
-        pointA4 = canvas.chartingSpace.viewport.fitIntoViewport(pointA4)
+        pointA1 = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoViewport(pointA1)
+        pointA2 = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoViewport(pointA2)
+        pointA3 = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoViewport(pointA3)
+        pointA4 = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoViewport(pointA4)
 
-        pointB1 = canvas.chartingSpace.viewport.fitIntoViewport(pointB1)
-        pointB2 = canvas.chartingSpace.viewport.fitIntoViewport(pointB2)
-        pointB3 = canvas.chartingSpace.viewport.fitIntoViewport(pointB3)
-        pointB4 = canvas.chartingSpace.viewport.fitIntoViewport(pointB4)
+        pointB1 = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoViewport(pointB1)
+        pointB2 = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoViewport(pointB2)
+        pointB3 = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoViewport(pointB3)
+        pointB4 = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoViewport(pointB4)
 
         browserCanvasContext.setLineDash([0, 0])
 

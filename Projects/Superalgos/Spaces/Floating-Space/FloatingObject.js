@@ -94,8 +94,8 @@ function newFloatingObject() {
     function finalize() {
         thisObject.container.eventHandler.stopListening(selfMouseOverEventSubscriptionId)
         thisObject.container.eventHandler.stopListening(selfMouseClickEventSubscriptionId)
-        canvas.floatingSpace.container.eventHandler.stopListening(spaceMouseOverEventSubscriptionId)
-        canvas.floatingSpace.container.eventHandler.stopListening(spaceFocusAquiredEventSubscriptionId)
+        UI.projects.superalgos.spaces.floatingSpace.container.eventHandler.stopListening(spaceMouseOverEventSubscriptionId)
+        UI.projects.superalgos.spaces.floatingSpace.container.eventHandler.stopListening(spaceFocusAquiredEventSubscriptionId)
 
         thisObject.container.finalize()
         thisObject.container = undefined
@@ -112,8 +112,8 @@ function newFloatingObject() {
         selfMouseClickEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
 
         /* To consider that this object lost the focus, we monitor the space for 2 key events */
-        spaceMouseOverEventSubscriptionId = canvas.floatingSpace.container.eventHandler.listenToEvent('onMouseOver', mouseOverFlotingSpace)
-        spaceFocusAquiredEventSubscriptionId = canvas.floatingSpace.container.eventHandler.listenToEvent('onFocusAquired', someoneAquiredFocus)
+        spaceMouseOverEventSubscriptionId = UI.projects.superalgos.spaces.floatingSpace.container.eventHandler.listenToEvent('onMouseOver', mouseOverFlotingSpace)
+        spaceFocusAquiredEventSubscriptionId = UI.projects.superalgos.spaces.floatingSpace.container.eventHandler.listenToEvent('onFocusAquired', someoneAquiredFocus)
 
         /* Assign a position and speed */
 
@@ -126,7 +126,7 @@ function newFloatingObject() {
 
         if (thisObject.payload === undefined) { return }
         if ((thisObject.isCollapsed === true && thisObject.collapsedManually === false) || thisObject.isParentCollapsed === true) { return }
-        if (canvas.floatingSpace.inMapMode === true) { return }
+        if (UI.projects.superalgos.spaces.floatingSpace.inMapMode === true) { return }
 
         let container
 
@@ -296,7 +296,7 @@ function newFloatingObject() {
     function physics() {
         frozenPhysics()
         /* From here on, only if they are not too far. */
-        if (canvas.floatingSpace.isItFar(thisObject.payload)) { return }
+        if (UI.projects.superalgos.spaces.floatingSpace.isItFar(thisObject.payload)) { return }
         thisObjectPhysics()
         if (thisObject.payload.uiObject !== undefined) {
             thisObject.payload.uiObject.physics()
@@ -307,16 +307,16 @@ function newFloatingObject() {
     }
 
     function syncStylePhysics() {
-        if (thisObject.rawFontSize !== canvas.floatingSpace.style.node.fontSize) {
-            thisObject.rawFontSize = canvas.floatingSpace.style.node.fontSize
+        if (thisObject.rawFontSize !== UI.projects.superalgos.spaces.floatingSpace.style.node.fontSize) {
+            thisObject.rawFontSize = UI.projects.superalgos.spaces.floatingSpace.style.node.fontSize
             thisObject.targetFontSize = thisObject.rawFontSize * 1
         }
-        if (thisObject.rawImageSize !== canvas.floatingSpace.style.node.imageSize) {
-            thisObject.rawImageSize = canvas.floatingSpace.style.node.imageSize
+        if (thisObject.rawImageSize !== UI.projects.superalgos.spaces.floatingSpace.style.node.imageSize) {
+            thisObject.rawImageSize = UI.projects.superalgos.spaces.floatingSpace.style.node.imageSize
             thisObject.targetImageSize = thisObject.rawImageSize * 1
         }
-        thisObject.typeStrokeStyle = 'rgba(' + canvas.floatingSpace.style.node.type.fontColor + ', 1)'
-        thisObject.nameStrokeStyle = 'rgba(' + canvas.floatingSpace.style.node.name.fontColor + ', 1)'
+        thisObject.typeStrokeStyle = 'rgba(' + UI.projects.superalgos.spaces.floatingSpace.style.node.type.fontColor + ', 1)'
+        thisObject.nameStrokeStyle = 'rgba(' + UI.projects.superalgos.spaces.floatingSpace.style.node.name.fontColor + ', 1)'
     }
 
     function focusPhysics() {
@@ -342,7 +342,7 @@ function newFloatingObject() {
     function positionContraintsPhysics() {
         const MAX_DISTANCE_TO_PARENT = 5000
         const MIN_DISTANCE_TO_PARENT = 100
-        const DEFAULT_NODE_TO_NODE_DISTANCE = 500 * canvas.floatingSpace.settings.node.distancePercentage / 100
+        const DEFAULT_NODE_TO_NODE_DISTANCE = 500 * UI.projects.superalgos.spaces.floatingSpace.settings.node.distancePercentage / 100
 
         if (thisObject.angleToParent !== ANGLE_TO_PARENT.NOT_FIXED && thisObject.isOnFocus !== true) {
             let parent = thisObject.payload.chainParent
@@ -357,7 +357,7 @@ function newFloatingObject() {
                 if (parent.payload === undefined) { return }
                 if (parent.payload.position === undefined) { return }
                 distanceToParent = Math.sqrt(Math.pow(parent.payload.position.x - thisObject.container.frame.position.x, 2) + Math.pow(parent.payload.position.y - thisObject.container.frame.position.y, 2))  // ... we calculate the distance ...
-                parentChildren = canvas.designSpace.workspace.nodeChildren.childrenCount(parent, thisObject.payload.node)
+                parentChildren = UI.projects.superalgos.spaces.designSpace.workspace.nodeChildren.childrenCount(parent, thisObject.payload.node)
                 parentDistanceToGarndParent = parent.payload.distance
             }
 
@@ -531,7 +531,7 @@ function newFloatingObject() {
 
     function thisObjectPhysics() {
 
-        const ANIMATION_STEPS = canvas.floatingSpace.settings.node.animationSteps
+        const ANIMATION_STEPS = UI.projects.superalgos.spaces.floatingSpace.settings.node.animationSteps
 
         imageSizePhysics()
         fontSizePhysics()
@@ -628,16 +628,16 @@ function newFloatingObject() {
     }
 
     function targetRadiusWithFocus() {
-        return thisObject.rawRadius * ON_FOCUS_RADIUS_FACTOR * canvas.floatingSpace.settings.node.radiusPercentage / 100
+        return thisObject.rawRadius * ON_FOCUS_RADIUS_FACTOR * UI.projects.superalgos.spaces.floatingSpace.settings.node.radiusPercentage / 100
     }
 
     function targetRadiusWithoutFocus() {
-        return thisObject.rawRadius * 1 * canvas.floatingSpace.settings.node.radiusPercentage / 100
+        return thisObject.rawRadius * 1 * UI.projects.superalgos.spaces.floatingSpace.settings.node.radiusPercentage / 100
     }
 
     function setFocus(point) {
         thisObject.targetRadius = targetRadiusWithFocus()
-        thisObject.currentMass = thisObject.rawMass * canvas.floatingSpace.settings.node.massPercentage / 100
+        thisObject.currentMass = thisObject.rawMass * UI.projects.superalgos.spaces.floatingSpace.settings.node.massPercentage / 100
         thisObject.targetImageSize = thisObject.rawImageSize * 2.0
         thisObject.targetFontSize = thisObject.rawFontSize * 2.0
 
@@ -645,7 +645,7 @@ function newFloatingObject() {
 
         thisObject.positionLocked = true
 
-        canvas.floatingSpace.container.eventHandler.raiseEvent('onFocusAquired', thisObject)
+        UI.projects.superalgos.spaces.floatingSpace.container.eventHandler.raiseEvent('onFocusAquired', thisObject)
         thisObject.isOnFocus = true
     }
 
@@ -656,7 +656,7 @@ function newFloatingObject() {
         if (thisObject.payload === undefined) { return }
         if (thisObject.isOnFocus === true) {
             thisObject.targetRadius = targetRadiusWithoutFocus()
-            thisObject.currentMass = thisObject.rawMass * canvas.floatingSpace.settings.node.massPercentage / 100
+            thisObject.currentMass = thisObject.rawMass * UI.projects.superalgos.spaces.floatingSpace.settings.node.massPercentage / 100
             thisObject.targetImageSize = thisObject.rawImageSize * 1
             thisObject.targetFontSize = thisObject.rawFontSize * 1
 
@@ -681,7 +681,7 @@ function newFloatingObject() {
         if (thisObject.payload === undefined) { return }
         if (thisObject.payload.uiObject === undefined) { return }
 
-        if (canvas.floatingSpace.isItFar(thisObject.payload) && thisObject.payload.uiObject.isShowing === false) { return }
+        if (UI.projects.superalgos.spaces.floatingSpace.isItFar(thisObject.payload) && thisObject.payload.uiObject.isShowing === false) { return }
         if ((thisObject.isCollapsed === true && thisObject.collapsedManually === false) || thisObject.isParentCollapsed === true) {
             if (thisObject.payload.uiObject.isShowing !== true) {
                 return
@@ -694,7 +694,7 @@ function newFloatingObject() {
         if (thisObject.payload === undefined) { return }
         if (thisObject.payload.uiObject === undefined) { return }
 
-        if (canvas.floatingSpace.isItFar(thisObject.payload) && thisObject.payload.uiObject.isShowing === false) { return }
+        if (UI.projects.superalgos.spaces.floatingSpace.isItFar(thisObject.payload) && thisObject.payload.uiObject.isShowing === false) { return }
         if ((thisObject.isCollapsed === true && thisObject.collapsedManually === false) || thisObject.isParentCollapsed === true) {
             if (thisObject.payload.uiObject.isShowing !== true) {
                 return
@@ -707,7 +707,7 @@ function newFloatingObject() {
         if (thisObject.payload === undefined) { return }
         if (thisObject.payload.uiObject === undefined) { return }
 
-        if (canvas.floatingSpace.isItFar(thisObject.payload) && thisObject.payload.uiObject.isShowing === false) { return }
+        if (UI.projects.superalgos.spaces.floatingSpace.isItFar(thisObject.payload) && thisObject.payload.uiObject.isShowing === false) { return }
         if ((thisObject.isCollapsed === true && thisObject.collapsedManually === false) || thisObject.isParentCollapsed === true) {
             if (thisObject.payload.uiObject.isShowing !== true) {
                 return
@@ -740,7 +740,7 @@ function newFloatingObject() {
         }
 
         thisObject.rawRadius = radius
-        thisObject.targetRadius = radius * canvas.floatingSpace.settings.node.radiusPercentage / 100
+        thisObject.targetRadius = radius * UI.projects.superalgos.spaces.floatingSpace.settings.node.radiusPercentage / 100
         thisObject.container.frame.radius = radius
 
         thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)

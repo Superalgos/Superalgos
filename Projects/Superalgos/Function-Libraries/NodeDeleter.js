@@ -7,7 +7,7 @@ function newNodeDeleter() {
     return thisObject
 
     function destroyUiObject(node) {
-        canvas.floatingSpace.uiObjectConstructor.destroyUiObject(node.payload)
+        UI.projects.superalgos.spaces.floatingSpace.uiObjectConstructor.destroyUiObject(node.payload)
     }
 
     function deleteWorkspace(node, rootNodes) {

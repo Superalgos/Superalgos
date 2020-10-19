@@ -318,8 +318,8 @@ function newRateScale() {
         if (coordinateSystemWhenDragStarted === undefined) { return }
         if (draggeableContainer.frame.position.y === 0) { return }
 
-        let mouseNoZoom = canvas.chartingSpace.viewport.unTransformThisPoint(canvas.mouse.position)
-        let mouseWhenDragStartedNoZoom = canvas.chartingSpace.viewport.unTransformThisPoint(mouseWhenDragStarted.position)
+        let mouseNoZoom = UI.projects.superalgos.spaces.chartingSpace.viewport.unTransformThisPoint(canvas.mouse.position)
+        let mouseWhenDragStartedNoZoom = UI.projects.superalgos.spaces.chartingSpace.viewport.unTransformThisPoint(mouseWhenDragStarted.position)
 
         let dragVectorWhenDragStarted = {
             x: 0,
@@ -474,7 +474,7 @@ function newRateScale() {
             thisObject.payload.isVisible = false
         }
 
-        if (canvas.chartingSpace.viewport.zoomTargetLevel < ZOOM_OUT_THRESHOLD_FOR_DISPLAYING_SCALES) {
+        if (UI.projects.superalgos.spaces.chartingSpace.viewport.zoomTargetLevel < ZOOM_OUT_THRESHOLD_FOR_DISPLAYING_SCALES) {
             thisObject.isVisible = false
         }
     }
@@ -500,7 +500,7 @@ function newRateScale() {
 
     function drawScale() {
         const SEPARATION = 50
-        const NUMBER_OF_LABELS = Math.trunc(canvas.chartingSpace.viewport.height / SEPARATION)
+        const NUMBER_OF_LABELS = Math.trunc(UI.projects.superalgos.spaces.chartingSpace.viewport.height / SEPARATION)
         const FONT_SIZE = 15
 
         for (let i = 0; i <= NUMBER_OF_LABELS; i++) {
@@ -532,8 +532,8 @@ function newRateScale() {
         if (thisObject.payload === undefined) { return }
         if (thisObject.payload.node === undefined) { return }
 
-        let icon1 = canvas.designSpace.getIconByProjectAndType(thisObject.payload.node.payload.parentNode.project, thisObject.payload.node.payload.parentNode.type)
-        let icon2 = canvas.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.payload.node.type)
+        let icon1 = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.payload.parentNode.project, thisObject.payload.node.payload.parentNode.type)
+        let icon2 = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.payload.node.type)
 
         let backgroundColor = UI_COLOR.BLACK
         let labels = scaleLabels(thisObject.rate)

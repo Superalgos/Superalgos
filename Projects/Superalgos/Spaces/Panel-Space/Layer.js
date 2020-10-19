@@ -287,7 +287,7 @@ function newLayer() {
             thisObject.exchangeIcon = getIcon(thisObject.exchange)
 
             if (thisObject.plotterModule.config.icon !== undefined) {
-                thisObject.plotterTypeIcon = canvas.designSpace.getIconByProjectAndName( 'Superalgos', thisObject.plotterModule.config.icon)
+                thisObject.plotterTypeIcon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName( 'Superalgos', thisObject.plotterModule.config.icon)
             }
 
             thisObject.baseAssetIcon = getIcon(thisObject.baseAsset)
@@ -306,9 +306,9 @@ function newLayer() {
                     }
                 }
                 if (iconName !== undefined) {
-                    icon = canvas.designSpace.getIconByProjectAndName( 'Superalgos', iconName)
+                    icon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName( 'Superalgos', iconName)
                 } else {
-                    icon = canvas.designSpace.getIconByProjectAndName( 'Superalgos', nodeDefinition.icon)
+                    icon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName( 'Superalgos', nodeDefinition.icon)
                 }
                 return icon
             }

@@ -299,8 +299,8 @@ function newUiObjectTitle() {
                 cornerRadius: 3,
                 lineWidth: 0.1,
                 container: thisObject.container,
-                borderColor: canvas.floatingSpace.style.backgroundColor,
-                backgroundColor: canvas.floatingSpace.style.backgroundColor,
+                borderColor: UI.projects.superalgos.spaces.floatingSpace.style.backgroundColor,
+                backgroundColor: UI.projects.superalgos.spaces.floatingSpace.style.backgroundColor,
                 castShadow: false,
                 opacity: 0.25
             }
@@ -333,8 +333,8 @@ function newUiObjectTitle() {
 
                     labelPoint = thisObject.container.frame.frameThisPoint(labelPoint)
 
-                    if (canvas.floatingSpace.inMapMode === true) {
-                        labelPoint = canvas.floatingSpace.transformPointToMap(labelPoint)
+                    if (UI.projects.superalgos.spaces.floatingSpace.inMapMode === true) {
+                        labelPoint = UI.projects.superalgos.spaces.floatingSpace.transformPointToMap(labelPoint)
                         labelPoint.x = labelPoint.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO
                         labelPoint.y = labelPoint.y - 35
 

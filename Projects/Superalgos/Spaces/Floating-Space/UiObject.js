@@ -581,7 +581,7 @@ function newUiObject() {
         let THRESHOLD = 1.15
 
         if (ratio > THRESHOLD) {
-            canvas.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Parent Detach', project: 'Superalgos' })
+            UI.projects.superalgos.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Parent Detach', project: 'Superalgos' })
         }
     }
 
@@ -692,7 +692,7 @@ function newUiObject() {
         let THRESHOLD = 1.15
 
         if (ratio > THRESHOLD) {
-            canvas.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Reference Detach', project: 'Superalgos' })
+            UI.projects.superalgos.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Reference Detach', project: 'Superalgos' })
         }
     }
 
@@ -1066,7 +1066,7 @@ function newUiObject() {
     async function getTargetUiObject(message) {
         let uiObject = thisObject
         if (message.event.nodeId !== undefined) {
-            let targetNode = await canvas.designSpace.workspace.getNodeById(message.event.nodeId)
+            let targetNode = await UI.projects.superalgos.spaces.designSpace.workspace.getNodeById(message.event.nodeId)
             if (targetNode !== undefined) {
                 if (targetNode.payload !== undefined) {
                     if (targetNode.payload.uiObject !== undefined) {
@@ -1112,7 +1112,7 @@ function newUiObject() {
     }
 
     function iconPhysics() {
-        icon = canvas.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.payload.node.type)
+        icon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.payload.node.type)
         let nodeDefinition = getNodeDefinition(thisObject.payload.node)
         if (nodeDefinition.alternativeIcons !== undefined) {
             let nodeToUse = thisObject.payload.node
@@ -1142,7 +1142,7 @@ function newUiObject() {
                         iconName = alternativeIcon.iconName
                     }
                 }
-                let newIcon = canvas.designSpace.getIconByProjectAndName('Superalgos', iconName)
+                let newIcon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName('Superalgos', iconName)
                 if (newIcon !== undefined) {
                     icon = newIcon
                 }
@@ -1151,7 +1151,7 @@ function newUiObject() {
             }
         }
 
-        executingIcon = canvas.designSpace.getIconByProjectAndName('Superalgos', 'bitcoin')
+        executingIcon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName('Superalgos', 'bitcoin')
     }
 
     function onFocus() {
@@ -1221,12 +1221,12 @@ function newUiObject() {
 
     function onDragFinished(event) {
         if (isChainAttaching === true) {
-            canvas.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Parent Attach', project: 'Superalgos', relatedNode: chainAttachToNode })
+            UI.projects.superalgos.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Parent Attach', project: 'Superalgos', relatedNode: chainAttachToNode })
             chainAttachToNode = undefined
             isChainAttaching = false
         }
         if (isReferenceAttaching === true) {
-            canvas.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Reference Attach', project: 'Superalgos', relatedNode: referenceAttachToNode })
+            UI.projects.superalgos.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Reference Attach', project: 'Superalgos', relatedNode: referenceAttachToNode })
             referenceAttachToNode = undefined
             isReferenceAttaching = false
         }
@@ -1347,7 +1347,7 @@ function newUiObject() {
     }
 
     function drawChainLine() {
-        if (canvas.floatingSpace.drawChainLines === false) { return }
+        if (UI.projects.superalgos.spaces.floatingSpace.drawChainLines === false) { return }
         if (thisObject.payload.chainParent === undefined) { return }
 
         let targetPoint = {
@@ -1360,12 +1360,12 @@ function newUiObject() {
             y: 0
         }
 
-        targetPoint = canvas.floatingSpace.container.frame.frameThisPoint(targetPoint)
+        targetPoint = UI.projects.superalgos.spaces.floatingSpace.container.frame.frameThisPoint(targetPoint)
         position = thisObject.container.frame.frameThisPoint(position)
 
-        if (canvas.floatingSpace.inMapMode === true) {
-            targetPoint = canvas.floatingSpace.transformPointToMap(targetPoint)
-            position = canvas.floatingSpace.transformPointToMap(position)
+        if (UI.projects.superalgos.spaces.floatingSpace.inMapMode === true) {
+            targetPoint = UI.projects.superalgos.spaces.floatingSpace.transformPointToMap(targetPoint)
+            position = UI.projects.superalgos.spaces.floatingSpace.transformPointToMap(position)
         }
 
         if (thisObject.payload.floatingObject.container.frame.radius > 1) {
@@ -1420,7 +1420,7 @@ function newUiObject() {
     }
 
     function drawReferenceLine() {
-        if (canvas.floatingSpace.drawReferenceLines === false && thisObject.isOnFocus === false) { return }
+        if (UI.projects.superalgos.spaces.floatingSpace.drawReferenceLines === false && thisObject.isOnFocus === false) { return }
         if (thisObject.payload.referenceParent === undefined) { return }
         if (thisObject.payload.referenceParent.payload === undefined) { return }
         if (thisObject.payload.referenceParent.payload.floatingObject === undefined) { return }
@@ -1436,16 +1436,16 @@ function newUiObject() {
             y: 0
         }
 
-        targetPoint = canvas.floatingSpace.container.frame.frameThisPoint(targetPoint)
+        targetPoint = UI.projects.superalgos.spaces.floatingSpace.container.frame.frameThisPoint(targetPoint)
         position = thisObject.container.frame.frameThisPoint(position)
 
         if (thisObject.isOnFocus === true) {
             targetPoint = thisObject.fitFunction(targetPoint)
         }
 
-        if (canvas.floatingSpace.inMapMode === true) {
-            position = canvas.floatingSpace.transformPointToMap(position)
-            targetPoint = canvas.floatingSpace.transformPointToMap(targetPoint)
+        if (UI.projects.superalgos.spaces.floatingSpace.inMapMode === true) {
+            position = UI.projects.superalgos.spaces.floatingSpace.transformPointToMap(position)
+            targetPoint = UI.projects.superalgos.spaces.floatingSpace.transformPointToMap(targetPoint)
         }
 
         let LINE_STYLE = UI_COLOR.GREY
@@ -1509,8 +1509,8 @@ function newUiObject() {
 
         position = thisObject.container.frame.frameThisPoint(position)
 
-        if (canvas.floatingSpace.inMapMode === true) {
-            position = canvas.floatingSpace.transformPointToMap(position)
+        if (UI.projects.superalgos.spaces.floatingSpace.inMapMode === true) {
+            position = UI.projects.superalgos.spaces.floatingSpace.transformPointToMap(position)
         }
 
         let radius = thisObject.payload.floatingObject.container.frame.radius
@@ -1528,7 +1528,7 @@ function newUiObject() {
 
             if (label !== undefined) {
 
-                if (canvas.floatingSpace.inMapMode === true) {
+                if (UI.projects.superalgos.spaces.floatingSpace.inMapMode === true) {
                     let nodeDefinition = getNodeDefinition(thisObject.payload.node)
                     if (nodeDefinition !== undefined) {
                         if (nodeDefinition.isHierarchyHead !== true && nodeDefinition.isProjectHead !== true) {
@@ -1553,7 +1553,7 @@ function newUiObject() {
                     }
                 }
 
-                if (canvas.floatingSpace.inMapMode === true) {
+                if (UI.projects.superalgos.spaces.floatingSpace.inMapMode === true) {
                     labelPoint.y = position.y + 50 / 2 + lineSeparator * 2
                 }
 
@@ -1584,7 +1584,7 @@ function newUiObject() {
 
     function drawMessage(message, textColor) {
 
-        if (canvas.floatingSpace.inMapMode === true) {
+        if (UI.projects.superalgos.spaces.floatingSpace.inMapMode === true) {
             return
         }
 
@@ -1596,8 +1596,8 @@ function newUiObject() {
 
         position = thisObject.container.frame.frameThisPoint(position)
 
-        if (canvas.floatingSpace.inMapMode === true) {
-            position = canvas.floatingSpace.transformPointToMap(position)
+        if (UI.projects.superalgos.spaces.floatingSpace.inMapMode === true) {
+            position = UI.projects.superalgos.spaces.floatingSpace.transformPointToMap(position)
         }
 
         let radius = thisObject.payload.floatingObject.container.frame.radius
@@ -1643,7 +1643,7 @@ function newUiObject() {
     function drawValue() {
         if (currentValue === null) { return }
         if (hasValue === false) { return }
-        if (canvas.floatingSpace.inMapMode === true) { return }
+        if (UI.projects.superalgos.spaces.floatingSpace.inMapMode === true) { return }
         if (thisObject.payload === undefined) { return }
         if ((thisObject.payload.floatingObject.isCollapsed === true && thisObject.payload.floatingObject.collapsedManually === false) || thisObject.payload.floatingObject.isParentCollapsed === true) { return }
 
@@ -1657,8 +1657,8 @@ function newUiObject() {
 
         position = thisObject.container.frame.frameThisPoint(position)
 
-        if (canvas.floatingSpace.inMapMode === true) {
-            position = canvas.floatingSpace.transformPointToMap(position)
+        if (UI.projects.superalgos.spaces.floatingSpace.inMapMode === true) {
+            position = UI.projects.superalgos.spaces.floatingSpace.transformPointToMap(position)
         }
 
         let radius = thisObject.payload.floatingObject.container.frame.radius
@@ -1717,7 +1717,7 @@ function newUiObject() {
 
     function drawPercentage() {
         if (hasPercentage === false) { return }
-        if (canvas.floatingSpace.inMapMode === true) { return }
+        if (UI.projects.superalgos.spaces.floatingSpace.inMapMode === true) { return }
         if (thisObject.payload === undefined) { return }
         if ((thisObject.payload.floatingObject.isCollapsed === true && thisObject.payload.floatingObject.collapsedManually === false) || thisObject.payload.floatingObject.isParentCollapsed === true) { return }
 
@@ -1728,8 +1728,8 @@ function newUiObject() {
 
         position = thisObject.container.frame.frameThisPoint(position)
 
-        if (canvas.floatingSpace.inMapMode === true) {
-            position = canvas.floatingSpace.transformPointToMap(position)
+        if (UI.projects.superalgos.spaces.floatingSpace.inMapMode === true) {
+            position = UI.projects.superalgos.spaces.floatingSpace.transformPointToMap(position)
         }
 
         let radius = thisObject.payload.floatingObject.container.frame.radius
@@ -1769,7 +1769,7 @@ function newUiObject() {
 
     function drawStatus() {
         if (hasStatus === false) { return }
-        if (canvas.floatingSpace.inMapMode === true) { return }
+        if (UI.projects.superalgos.spaces.floatingSpace.inMapMode === true) { return }
 
         let position = {
             x: 0,
@@ -1778,8 +1778,8 @@ function newUiObject() {
 
         position = thisObject.container.frame.frameThisPoint(position)
 
-        if (canvas.floatingSpace.inMapMode === true) {
-            position = canvas.floatingSpace.transformPointToMap(position)
+        if (UI.projects.superalgos.spaces.floatingSpace.inMapMode === true) {
+            position = UI.projects.superalgos.spaces.floatingSpace.transformPointToMap(position)
         }
 
         let radius = thisObject.payload.floatingObject.container.frame.radius
@@ -1892,8 +1892,8 @@ function newUiObject() {
             position = thisObject.fitFunction(position)
         }
 
-        if (canvas.floatingSpace.inMapMode === true) {
-            position = canvas.floatingSpace.transformPointToMap(position)
+        if (UI.projects.superalgos.spaces.floatingSpace.inMapMode === true) {
+            position = UI.projects.superalgos.spaces.floatingSpace.transformPointToMap(position)
         }
 
         let radius = thisObject.payload.floatingObject.container.frame.radius
@@ -1908,10 +1908,10 @@ function newUiObject() {
 
             visiblePosition = thisObject.container.frame.frameThisPoint(visiblePosition)
 
-            if (canvas.floatingSpace.inMapMode === true) {
-                visiblePosition = canvas.floatingSpace.transformPointToMap(visiblePosition)
-                radius = canvas.floatingSpace.transformRadiusToMap(radius)
-                VISIBLE_RADIUS = canvas.floatingSpace.transformRadiusToMap(VISIBLE_RADIUS)
+            if (UI.projects.superalgos.spaces.floatingSpace.inMapMode === true) {
+                visiblePosition = UI.projects.superalgos.spaces.floatingSpace.transformPointToMap(visiblePosition)
+                radius = UI.projects.superalgos.spaces.floatingSpace.transformRadiusToMap(radius)
+                VISIBLE_RADIUS = UI.projects.superalgos.spaces.floatingSpace.transformRadiusToMap(VISIBLE_RADIUS)
             } else {
                 visiblePosition = thisObject.fitFunction(visiblePosition)
             }
@@ -1928,7 +1928,7 @@ function newUiObject() {
             browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS - 2, 0, Math.PI * 2, true)
             browserCanvasContext.closePath()
 
-            browserCanvasContext.fillStyle = 'rgba(' + canvas.floatingSpace.style.backgroundColor + ', 1)'
+            browserCanvasContext.fillStyle = 'rgba(' + UI.projects.superalgos.spaces.floatingSpace.style.backgroundColor + ', 1)'
 
             browserCanvasContext.fill()
 
@@ -1944,7 +1944,7 @@ function newUiObject() {
                 browserCanvasContext.beginPath()
                 browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
                 browserCanvasContext.closePath()
-                browserCanvasContext.fillStyle = 'rgba(' + canvas.floatingSpace.style.backgroundColor + ', 0.70)'
+                browserCanvasContext.fillStyle = 'rgba(' + UI.projects.superalgos.spaces.floatingSpace.style.backgroundColor + ', 0.70)'
                 browserCanvasContext.fill()
                 /* Border when node is in focus */
                 if (
@@ -1976,8 +1976,8 @@ function newUiObject() {
             /* Hierarchy Head Ring */
             if (nodeDefinition.isHierarchyHead === true) {
                 VISIBLE_RADIUS = thisObject.payload.floatingObject.container.frame.radius
-                if (canvas.floatingSpace.inMapMode === true) {
-                    VISIBLE_RADIUS = canvas.floatingSpace.transformRadiusToMap(VISIBLE_RADIUS)
+                if (UI.projects.superalgos.spaces.floatingSpace.inMapMode === true) {
+                    VISIBLE_RADIUS = UI.projects.superalgos.spaces.floatingSpace.transformRadiusToMap(VISIBLE_RADIUS)
                 }
                 let OPACITY = 0.5
 
@@ -2005,8 +2005,8 @@ function newUiObject() {
             /* Project Head Ring */
             if (nodeDefinition.isProjectHead === true) {
                 VISIBLE_RADIUS = thisObject.payload.floatingObject.container.frame.radius
-                if (canvas.floatingSpace.inMapMode === true) {
-                    VISIBLE_RADIUS = canvas.floatingSpace.transformRadiusToMap(VISIBLE_RADIUS)
+                if (UI.projects.superalgos.spaces.floatingSpace.inMapMode === true) {
+                    VISIBLE_RADIUS = UI.projects.superalgos.spaces.floatingSpace.transformRadiusToMap(VISIBLE_RADIUS)
                 }
                 let OPACITY = 0.5
 
@@ -2029,8 +2029,8 @@ function newUiObject() {
             /* Info Ring */
             if (thisObject.hasInfo === true) {
                 VISIBLE_RADIUS = thisObject.payload.floatingObject.container.frame.radius
-                if (canvas.floatingSpace.inMapMode === true) {
-                    VISIBLE_RADIUS = canvas.floatingSpace.transformRadiusToMap(VISIBLE_RADIUS)
+                if (UI.projects.superalgos.spaces.floatingSpace.inMapMode === true) {
+                    VISIBLE_RADIUS = UI.projects.superalgos.spaces.floatingSpace.transformRadiusToMap(VISIBLE_RADIUS)
                 }
                 let OPACITY = infoMessageCounter / 30
                 browserCanvasContext.beginPath()
@@ -2045,8 +2045,8 @@ function newUiObject() {
             /* Warning Ring */
             if (thisObject.hasWarning === true) {
                 VISIBLE_RADIUS = thisObject.payload.floatingObject.container.frame.radius
-                if (canvas.floatingSpace.inMapMode === true) {
-                    VISIBLE_RADIUS = canvas.floatingSpace.transformRadiusToMap(VISIBLE_RADIUS)
+                if (UI.projects.superalgos.spaces.floatingSpace.inMapMode === true) {
+                    VISIBLE_RADIUS = UI.projects.superalgos.spaces.floatingSpace.transformRadiusToMap(VISIBLE_RADIUS)
                 }
                 let OPACITY = warningMessageCounter / 30
                 browserCanvasContext.beginPath()
@@ -2061,8 +2061,8 @@ function newUiObject() {
             /* Error Ring */
             if (thisObject.hasError === true) {
                 VISIBLE_RADIUS = thisObject.payload.floatingObject.container.frame.radius
-                if (canvas.floatingSpace.inMapMode === true) {
-                    VISIBLE_RADIUS = canvas.floatingSpace.transformRadiusToMap(VISIBLE_RADIUS)
+                if (UI.projects.superalgos.spaces.floatingSpace.inMapMode === true) {
+                    VISIBLE_RADIUS = UI.projects.superalgos.spaces.floatingSpace.transformRadiusToMap(VISIBLE_RADIUS)
                 }
                 let OPACITY = errorMessageCounter / 30
                 browserCanvasContext.beginPath()
@@ -2201,11 +2201,11 @@ function newUiObject() {
                 let nodeDefinition = getNodeDefinition(thisObject.payload.node)
                 if (nodeDefinition === undefined) { return }
 
-                if (canvas.floatingSpace.inMapMode === true) {
+                if (UI.projects.superalgos.spaces.floatingSpace.inMapMode === true) {
                     if (nodeDefinition.isHierarchyHead === true || nodeDefinition.isProjectHead === true ) {
                         totalImageSize = 50
                     } else {
-                        totalImageSize = canvas.floatingSpace.transformImagesizeToMap(totalImageSize)
+                        totalImageSize = UI.projects.superalgos.spaces.floatingSpace.transformImagesizeToMap(totalImageSize)
                     }
                 }
 

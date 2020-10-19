@@ -374,7 +374,7 @@ function newTimeMachine() {
         if (returnPoint.y - margin - topMargin < upCorner.y) { returnPoint.y = upCorner.y + margin + topMargin }
         if (returnPoint.y + margin + bottomMargin > bottonCorner.y) { returnPoint.y = bottonCorner.y - margin - bottomMargin }
 
-        returnPoint = canvas.chartingSpace.fitFunction(returnPoint, fullVisible)
+        returnPoint = UI.projects.superalgos.spaces.chartingSpace.fitFunction(returnPoint, fullVisible)
 
         return returnPoint
     }
@@ -432,21 +432,21 @@ function newTimeMachine() {
     function panelPhysics() {
         if (
             thisObject.container.frame.isInViewPort() &&
-            canvas.chartingSpace.viewport.zoomLevel >= ZOOM_OUT_THRESHOLD_FOR_NOT_HIDDING_PANELS) {
-            canvas.panelSpace.unHide(thisObject.payload.node.id, 'Layers Panel')
-            canvas.panelSpace.unHide(thisObject.payload.node.id, 'Plotter Panel')
+            UI.projects.superalgos.spaces.chartingSpace.viewport.zoomLevel >= ZOOM_OUT_THRESHOLD_FOR_NOT_HIDDING_PANELS) {
+            UI.projects.superalgos.spaces.panelSpace.unHide(thisObject.payload.node.id, 'Layers Panel')
+            UI.projects.superalgos.spaces.panelSpace.unHide(thisObject.payload.node.id, 'Plotter Panel')
             return
         }
 
         if (
             thisObject.container.frame.isCenterInViewPort() &&
-            canvas.chartingSpace.viewport.zoomLevel >= ZOOM_OUT_THRESHOLD_FOR_HIDDING_PANELS
+            UI.projects.superalgos.spaces.chartingSpace.viewport.zoomLevel >= ZOOM_OUT_THRESHOLD_FOR_HIDDING_PANELS
         ) {
-            canvas.panelSpace.unHide(thisObject.payload.node.id, 'Layers Panel')
-            canvas.panelSpace.unHide(thisObject.payload.node.id, 'Plotter Panel')
+            UI.projects.superalgos.spaces.panelSpace.unHide(thisObject.payload.node.id, 'Layers Panel')
+            UI.projects.superalgos.spaces.panelSpace.unHide(thisObject.payload.node.id, 'Plotter Panel')
         } else {
-            canvas.panelSpace.hide(thisObject.payload.node.id, 'Layers Panel')
-            canvas.panelSpace.hide(thisObject.payload.node.id, 'Plotter Panel')
+            UI.projects.superalgos.spaces.panelSpace.hide(thisObject.payload.node.id, 'Layers Panel')
+            UI.projects.superalgos.spaces.panelSpace.hide(thisObject.payload.node.id, 'Plotter Panel')
         }
     }
 
@@ -601,8 +601,8 @@ function newTimeMachine() {
                 if (thisObject.rateScale !== undefined && thisObject.rateScale.isVisible === true) { thisObject.rateScale.draw() }
             }
         } else {
-            if (canvas.chartingSpace.viewport.zoomTargetLevel < ZOOM_OUT_THRESHOLD_FOR_DISPLAYING_TIME_MACHINES_ICONIZED) {
-                let icon = canvas.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.payload.node.type)
+            if (UI.projects.superalgos.spaces.chartingSpace.viewport.zoomTargetLevel < ZOOM_OUT_THRESHOLD_FOR_DISPLAYING_TIME_MACHINES_ICONIZED) {
+                let icon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.payload.node.type)
                 if (icon !== undefined) {
                     if (icon.canDrawIcon === true) {
                         let imageSize = 40
@@ -655,7 +655,7 @@ function newTimeMachine() {
         let imageSize = 12
         let fontSize = 12
         let opacity = 1
-        let icon = canvas.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.payload.node.type)
+        let icon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.payload.node.type)
 
         position = transformThisPoint(position, thisObject.container)
 

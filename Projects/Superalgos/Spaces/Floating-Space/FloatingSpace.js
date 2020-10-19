@@ -106,7 +106,7 @@ function newSuperalgosFloatingSpace() {
 
     function finalize() {
         thisObject.container.eventHandler.stopListening(onDragStartedEventSubscriptionId)
-        canvas.floatingSpace.container.eventHandler.stopListening(spaceFocusAquiredEventSubscriptionId)
+        UI.projects.superalgos.spaces.floatingSpace.container.eventHandler.stopListening(spaceFocusAquiredEventSubscriptionId)
 
         thisObject.floatingLayer.finalize()
         thisObject.uiObjectConstructor.finalize()
@@ -210,8 +210,8 @@ function newSuperalgosFloatingSpace() {
                 y: mousePosition.y / browserCanvas.height * SPACE_SIZE
             }
             /* Let's see if we can snap to some of the root nodes that are Hierarchy Head and Project Heads */
-            let snapCandidateNodes = canvas.designSpace.workspace.getHierarchyHeads()
-            snapCandidateNodes = snapCandidateNodes.concat(canvas.designSpace.workspace.getProjectsHeads())
+            let snapCandidateNodes = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeads()
+            snapCandidateNodes = snapCandidateNodes.concat(UI.projects.superalgos.spaces.designSpace.workspace.getProjectsHeads())
 
             for (let i = 0; i < snapCandidateNodes.length; i++) {
                 let node = snapCandidateNodes[i]
@@ -434,9 +434,9 @@ function newSuperalgosFloatingSpace() {
     }
 
     function syncStylePhysics() {
-        if (canvas.designSpace === undefined) { return }
-        if (canvas.designSpace.workspace === undefined) { return }
-        let designSpaceNode = canvas.designSpace.workspace.getHierarchyHeadsByType('Design Space')
+        if (UI.projects.superalgos.spaces.designSpace === undefined) { return }
+        if (UI.projects.superalgos.spaces.designSpace.workspace === undefined) { return }
+        let designSpaceNode = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsByType('Design Space')
         if (designSpaceNode === undefined) { return }
         if (designSpaceNode.spaceStyle === undefined) { return }
         let configStyle
@@ -486,9 +486,9 @@ function newSuperalgosFloatingSpace() {
     }
 
     function syncSettingsPhysics() {
-        if (canvas.designSpace === undefined) { return }
-        if (canvas.designSpace.workspace === undefined) { return }
-        let designSpaceNode = canvas.designSpace.workspace.getHierarchyHeadsByType('Design Space')
+        if (UI.projects.superalgos.spaces.designSpace === undefined) { return }
+        if (UI.projects.superalgos.spaces.designSpace.workspace === undefined) { return }
+        let designSpaceNode = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsByType('Design Space')
         if (designSpaceNode === undefined) { return }
         if (designSpaceNode.spaceSettings === undefined) { return }
         let configSettings

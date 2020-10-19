@@ -58,7 +58,7 @@ function newLeftRightButton() {
         leftPosition.y = thisObject.parentContainer.frame.position.y
 
         rightPosition.x = thisObject.parentContainer.frame.position.x
-        rightPosition.y = canvas.chartingSpace.viewport.visibleArea.bottomRight.y
+        rightPosition.y = UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomRight.y
 
         transitionPosition.x = leftPosition.x
         transitionPosition.y = leftPosition.y
@@ -95,10 +95,10 @@ function newLeftRightButton() {
     function physics() {
         if (isInitialized === false) { return }
 
-        leftPosition.x = canvas.chartingSpace.viewport.visibleArea.topLeft.x
+        leftPosition.x = UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topLeft.x
         leftPosition.y = thisObject.parentContainer.frame.position.y
 
-        rightPosition.x = canvas.chartingSpace.viewport.visibleArea.bottomRight.x
+        rightPosition.x = UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomRight.x
         rightPosition.y = thisObject.parentContainer.frame.position.y
 
         if (thisObject.status === 'going right') {

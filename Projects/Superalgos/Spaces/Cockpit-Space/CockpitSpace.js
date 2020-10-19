@@ -66,7 +66,7 @@ function newSuperalgosCockpitSpace() {
         thisObject.container.frame.position.x = 0
 
         let INITIAL_POSITION
-        if (canvas.designSpace.workspace.enabled === true) {
+        if (UI.projects.superalgos.spaces.designSpace.workspace.enabled === true) {
             let localStorage = window.localStorage.getItem(MODULE_NAME)
             if (localStorage !== null) {
                 storage = JSON.parse(localStorage)
@@ -158,7 +158,7 @@ function newSuperalgosCockpitSpace() {
 
         thisObject.status = 'MIDDLE'
 
-        if (canvas.designSpace.workspace.enabled === true) {
+        if (UI.projects.superalgos.spaces.designSpace.workspace.enabled === true) {
             thisObject.container.isDraggeable = true
         } else {
             thisObject.container.isDraggeable = false
@@ -167,19 +167,19 @@ function newSuperalgosCockpitSpace() {
         if (thisObject.container.frame.position.y > browserCanvas.height * 99.5 / 100 - COCKPIT_SPACE_HEIGHT) {
             thisObject.container.frame.position.y = browserCanvas.height - COCKPIT_SPACE_HEIGHT
             thisObject.status = 'BOTTOM'
-            canvas.designSpace.makeInvisible()
-            canvas.floatingSpace.makeInvisible()
+            UI.projects.superalgos.spaces.designSpace.makeInvisible()
+            UI.projects.superalgos.spaces.floatingSpace.makeInvisible()
         } else {
-            canvas.designSpace.makeVisible()
-            canvas.floatingSpace.makeVisible()
+            UI.projects.superalgos.spaces.designSpace.makeVisible()
+            UI.projects.superalgos.spaces.floatingSpace.makeVisible()
         }
 
         if (thisObject.container.frame.position.y < browserCanvas.height * 0.5 / 100 + TOP_SPACE_HEIGHT) {
             thisObject.container.frame.position.y = TOP_SPACE_HEIGHT
             thisObject.status = 'TOP'
-            canvas.panelSpace.visible = false
+            UI.projects.superalgos.spaces.panelSpace.visible = false
         } else {
-            canvas.panelSpace.visible = true
+            UI.projects.superalgos.spaces.panelSpace.visible = true
         }
 
         COCKPIT_SPACE_POSITION = thisObject.container.frame.position.y
@@ -187,8 +187,8 @@ function newSuperalgosCockpitSpace() {
             spacePosition: COCKPIT_SPACE_POSITION
         }
         window.localStorage.setItem(MODULE_NAME, JSON.stringify(storage))
-        if (canvas.chartingSpace.viewport !== undefined) {
-            canvas.chartingSpace.viewport.resize()
+        if (UI.projects.superalgos.spaces.chartingSpace.viewport !== undefined) {
+            UI.projects.superalgos.spaces.chartingSpace.viewport.resize()
         }
     }
 
@@ -269,8 +269,8 @@ function newSuperalgosCockpitSpace() {
             printLabel(statusText, position.x, position.y, 1, 15, textColor, true, thisObject.container)
         }
 
-        if (canvas.designSpace !== undefined) {
-            if (canvas.designSpace.workspace.enabled === true && statusText === undefined) {
+        if (UI.projects.superalgos.spaces.designSpace !== undefined) {
+            if (UI.projects.superalgos.spaces.designSpace.workspace.enabled === true && statusText === undefined) {
                 arrow()
             }
         }

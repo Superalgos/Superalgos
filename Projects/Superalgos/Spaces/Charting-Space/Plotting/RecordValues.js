@@ -23,8 +23,8 @@ function newRecordValues() {
     }
 
     function initialize(pTradingSystem, pTradingEngine, pProductDefinition) {
-        tradingSystem = canvas.designSpace.workspace.getHierarchyHeadsById(pTradingSystem.id)
-        tradingEngine = canvas.designSpace.workspace.getHierarchyHeadsById(pTradingEngine.id)
+        tradingSystem = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsById(pTradingSystem.id)
+        tradingEngine = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsById(pTradingEngine.id)
         productDefinition = pProductDefinition
 
         /*
@@ -113,7 +113,7 @@ function newRecordValues() {
     }
 
     function applyValue(node, value, minDecimals) {
-        if (canvas.chartingSpace.visible !== true) { return }
+        if (UI.projects.superalgos.spaces.chartingSpace.visible !== true) { return }
         if (node === undefined) { return }
         if (node.payload === undefined) { return }
         if (node.payload.uiObject === undefined) { return }

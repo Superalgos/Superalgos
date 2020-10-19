@@ -297,14 +297,14 @@ function newFloatingLayer() {
                     DEBUG.variable1 = 'Invisible Floating Objets: ' + invisibleFloatingObjects.length
                     DEBUG.variable2 = 'Visible Floating Objets: ' + visibleFloatingObjects.length
 
-                    if (canvas.floatingSpace.settings.physics !== true) {return}
+                    if (UI.projects.superalgos.spaces.floatingSpace.settings.physics !== true) {return}
 
                     for (let i = 0; i < visibleFloatingObjects.length; i++) {
                         let floatingObject = visibleFloatingObjects[i]
                         if (floatingObject.isFrozen === true) { continue }
 
                         /* From here on, only if they are not too far. */
-                        if (canvas.floatingSpace.isItFar(floatingObject.payload)) { continue }
+                        if (UI.projects.superalgos.spaces.floatingSpace.isItFar(floatingObject.payload)) { continue }
 
                         if (floatingObject.positionLocked === false) {
                             floatingObject.container.frame.position.x = floatingObject.container.frame.position.x + floatingObject.currentSpeed.x
@@ -401,8 +401,8 @@ function newFloatingLayer() {
             floatingObject.currentSpeed.x = -floatingObject.currentSpeed.x
         }
 
-        if (floatingObject.container.frame.position.x + floatingObject.container.frame.radius > canvas.floatingSpace.container.frame.width) {
-            floatingObject.container.frame.position.x = canvas.floatingSpace.container.frame.width - floatingObject.container.frame.radius
+        if (floatingObject.container.frame.position.x + floatingObject.container.frame.radius > UI.projects.superalgos.spaces.floatingSpace.container.frame.width) {
+            floatingObject.container.frame.position.x = UI.projects.superalgos.spaces.floatingSpace.container.frame.width - floatingObject.container.frame.radius
             floatingObject.currentSpeed.x = -floatingObject.currentSpeed.x
         }
 
@@ -411,8 +411,8 @@ function newFloatingLayer() {
             floatingObject.currentSpeed.y = -floatingObject.currentSpeed.y
         }
 
-        if (floatingObject.container.frame.position.y + floatingObject.container.frame.radius > canvas.floatingSpace.container.frame.height) {
-            floatingObject.container.frame.position.y = canvas.floatingSpace.container.frame.height - floatingObject.container.frame.radius
+        if (floatingObject.container.frame.position.y + floatingObject.container.frame.radius > UI.projects.superalgos.spaces.floatingSpace.container.frame.height) {
+            floatingObject.container.frame.position.y = UI.projects.superalgos.spaces.floatingSpace.container.frame.height - floatingObject.container.frame.radius
             floatingObject.currentSpeed.y = -floatingObject.currentSpeed.y
         }
     }

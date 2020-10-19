@@ -73,8 +73,8 @@ function newLayersPanel() {
         thisObject.container.frame.height = headerHeight
 
         let position = { // Default position
-            x: canvas.chartingSpace.viewport.visibleArea.topLeft.x,
-            y: canvas.chartingSpace.viewport.visibleArea.topLeft.y
+            x: UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topLeft.x,
+            y: UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topLeft.y
         }
 
         thisObject.container.frame.position = position
@@ -229,7 +229,7 @@ function newLayersPanel() {
     function panelSizePhysics() {
         if (isInitialized === false || thisObject.isHidden === true) { return }
 
-        let viewPortHeight = canvas.chartingSpace.viewport.visibleArea.bottomLeft.y - canvas.chartingSpace.viewport.visibleArea.topLeft.y
+        let viewPortHeight = UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomLeft.y - UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topLeft.y
 
         if (viewPortHeight < headerHeight) {
             thisObject.visible = false
@@ -450,8 +450,8 @@ function newLayersPanel() {
         let label2 = thisObject.payload.node.payload.parentNode.name.substring(0, 18)
         let label3 = ''
 
-        let icon1 = canvas.designSpace.getIconByProjectAndType(thisObject.payload.node.payload.parentNode.payload.parentNode.project, thisObject.payload.node.payload.parentNode.payload.parentNode.type)
-        let icon2 = canvas.designSpace.getIconByProjectAndType(thisObject.payload.node.payload.parentNode.project, thisObject.payload.node.payload.parentNode.type)
+        let icon1 = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.payload.parentNode.payload.parentNode.project, thisObject.payload.node.payload.parentNode.payload.parentNode.type)
+        let icon2 = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.payload.parentNode.project, thisObject.payload.node.payload.parentNode.type)
 
         let backgroundColor = UI_COLOR.BLACK
 

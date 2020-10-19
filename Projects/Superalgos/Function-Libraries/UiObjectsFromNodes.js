@@ -587,7 +587,7 @@ function newUiObjectsFromNodes() {
         payload.node = node
         payload.parentNode = parentNode
         payload.chainParent = chainParent
-        payload.executeAction = canvas.designSpace.workspace.executeAction
+        payload.executeAction = UI.projects.superalgos.spaces.designSpace.workspace.executeAction
 
         node.payload = payload
         node.type = uiObjectType
@@ -620,7 +620,7 @@ function newUiObjectsFromNodes() {
         }
 
         /* Now we mount the floating object where the UIOBject will be laying on top of */
-        canvas.floatingSpace.uiObjectConstructor.createUiObject(userAddingNew, payload)
+        UI.projects.superalgos.spaces.floatingSpace.uiObjectConstructor.createUiObject(userAddingNew, payload)
 
         /* This is the point where we build a map with all nodes present at the workspace */
         mapOfNodes.set(node.id, node)

@@ -144,7 +144,7 @@ function newAnimation() {
             /* Panorama Recording */
             if (ARE_WE_RECORDING_A_MARKET_PANORAMA === true) {
                 if (PANORAMA_WAS_PANNED === true) {
-                    addToMarketPanorama()
+                    UI.projects.superalgos.utilities.download.addToMarketPanorama()
                     PANORAMA_WAS_PANNED = false
                 }
             }

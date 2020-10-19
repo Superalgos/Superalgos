@@ -286,12 +286,12 @@ function newCanvas() {
                     break
                 }
                 case 118: { //  F7
-                    downloadPanorama('Superalgos.Market.Panorama')
+                    UI.projects.superalgos.utilities.download.downloadPanorama('Superalgos.Market.Panorama')
                     return
                     break
                 }
                 case 119: { //  F8
-                    downloadCanvas('Superalgos.Image.Capture', browserCanvas)
+                    UI.projects.superalgos.utilities.download.downloadCanvas('Superalgos.Image.Capture', browserCanvas)
                     return
                     break
                 }

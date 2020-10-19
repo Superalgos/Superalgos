@@ -251,8 +251,8 @@ function newCryptoEcosystemFunctions() {
                 exchangeDataTasks.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
                 let marketDataTask = UI.projects.superalgos.utilities.children.findAndRecreateChildWithReference(exchangeDataTasks, 'Market Data Tasks', market, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
 
-                menuClick(marketDataTask, 'Add Missing Data Mine Tasks', true)
-                menuClickOfNodeArray(marketDataTask.dataMineTasks, 'Add All Tasks', true)
+                UI.projects.superalgos.utilities.menu.menuClick(marketDataTask, 'Add Missing Data Mine Tasks', true)
+                UI.projects.superalgos.utilities.menu.menuClickOfNodeArray(marketDataTask.dataMineTasks, 'Add All Tasks', true)
 
                 let sessionsCreatedArray = []
                 /*
@@ -278,8 +278,8 @@ function newCryptoEcosystemFunctions() {
                     exchangeTradingTasks.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
                     let marketTradingTask = UI.projects.superalgos.utilities.children.findAndRecreateChildWithReference(exchangeTradingTasks, 'Market Trading Tasks', market, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
 
-                    menuClick(marketTradingTask, 'Add Missing Trading Mine Tasks', true)
-                    menuClickOfNodeArray(marketTradingTask.tradingMineTasks, 'Add All Tasks', true)
+                    UI.projects.superalgos.utilities.menu.menuClick(marketTradingTask, 'Add Missing Trading Mine Tasks', true)
+                    UI.projects.superalgos.utilities.menu.menuClickOfNodeArray(marketTradingTask.tradingMineTasks, 'Add All Tasks', true)
 
                     /* This will be needed at the charging space, for creating Dashboards */
                     let backtestingSessionsArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(marketTradingTask, 'Backtesting Session')
@@ -303,8 +303,8 @@ function newCryptoEcosystemFunctions() {
                 let marketDataProducts = UI.projects.superalgos.utilities.children.findAndRecreateChildWithReference(exchangeDataProducts, 'Market Data Products', market, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
                 marketDataProducts.payload.floatingObject.collapseToggle()
 
-                menuClick(marketDataProducts, 'Add All Data Mine Products', true)
-                menuClickOfNodeArray(marketDataProducts.dataMineProducts, 'Add All Data Products', true)
+                UI.projects.superalgos.utilities.menu.menuClick(marketDataProducts, 'Add All Data Mine Products', true)
+                UI.projects.superalgos.utilities.menu.menuClickOfNodeArray(marketDataProducts.dataMineProducts, 'Add All Data Products', true)
                 /*
                 Finally we complete the missing stuff at Trading Mines Data
                 */
@@ -332,8 +332,8 @@ function newCryptoEcosystemFunctions() {
                 */
                 for (let j = 0; j < marketTradingProducts.sessionReferences.length; j++) {
                     let sessionReference = marketTradingProducts.sessionReferences[j]
-                    menuClick(sessionReference, 'Add All Trading Mine Products', true)
-                    menuClickOfNodeArray(sessionReference.tradingMineProducts, 'Add All Data Products', true)
+                    UI.projects.superalgos.utilities.menu.menuClick(sessionReference, 'Add All Trading Mine Products', true)
+                    UI.projects.superalgos.utilities.menu.menuClickOfNodeArray(sessionReference.tradingMineProducts, 'Add All Data Products', true)
                     sessionReference.payload.floatingObject.collapseToggle()
                 }
             }

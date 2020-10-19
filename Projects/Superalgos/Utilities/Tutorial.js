@@ -1,4 +1,4 @@
-function newSuperalgosLoadSaveTutorial() {
+function newSuperalgosTutorial() {
     thisObject = {
         saveTutorial: saveTutorial,
         loadTutorial: loadTutorial

@@ -723,7 +723,7 @@ function newSuperalgosTutorialSpace() {
         let tutorial = {
             status: 'Skipped'
         }
-        saveTutorial(currentNode.payload, tutorial)
+        UI.projects.superalgos.utilities.tutorial.saveTutorial(currentNode.payload, tutorial)
         advance(true)
     }
 
@@ -765,7 +765,7 @@ function newSuperalgosTutorialSpace() {
         let tutorial = {
             status: 'Done'
         }
-        saveTutorial(currentNode.payload, tutorial)
+        UI.projects.superalgos.utilities.tutorial.saveTutorial(currentNode.payload, tutorial)
         advance()
     }
 
@@ -928,7 +928,7 @@ function newSuperalgosTutorialSpace() {
                 let tutorial = {
                     status: 'Reset'
                 }
-                saveTutorial(tutorialStep.payload, tutorial)
+                UI.projects.superalgos.utilities.tutorial.saveTutorial(tutorialStep.payload, tutorial)
             }
 
             for (let i = 0; i < node.tutorialTopics.length; i++) {
@@ -936,7 +936,7 @@ function newSuperalgosTutorialSpace() {
                 let tutorial = {
                     status: 'Reset'
                 }
-                saveTutorial(tutorialTopic.payload, tutorial)
+                UI.projects.superalgos.utilities.tutorial.saveTutorial(tutorialTopic.payload, tutorial)
                 resetNextNode(tutorialTopic)
             }
         }
@@ -1007,7 +1007,7 @@ function newSuperalgosTutorialSpace() {
                             let tutorial = {
                                 status: undefined
                             }
-                            loadTutorial(tutorialStep.payload, tutorial)
+                            UI.projects.superalgos.utilities.tutorial.loadTutorial(tutorialStep.payload, tutorial)
                             if (tutorial.status !== 'Done') {
                                 currentNode = tutorialStep
                                 currentStatus = 'Playing Step'
@@ -1043,7 +1043,7 @@ function newSuperalgosTutorialSpace() {
                         let tutorial = {
                             status: undefined
                         }
-                        loadTutorial(tutorialTopic.payload, tutorial)
+                        UI.projects.superalgos.utilities.tutorial.loadTutorial(tutorialTopic.payload, tutorial)
                         if (tutorial.status !== 'Done') {
                             currentNode = tutorialTopic
                             currentStatus = 'Playing Topic'
@@ -1082,7 +1082,7 @@ function newSuperalgosTutorialSpace() {
                         let tutorial = {
                             status: undefined
                         }
-                        loadTutorial(tutorialTopic.payload, tutorial)
+                        UI.projects.superalgos.utilities.tutorial.loadTutorial(tutorialTopic.payload, tutorial)
                         if (tutorial.status !== 'Done') {
                             currentNode = tutorialTopic
                             currentStatus = 'Playing Topic'

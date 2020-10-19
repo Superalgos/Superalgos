@@ -49,9 +49,9 @@
                 "functionName": "newSuperalgosLoadSaveFrame"
             },
             {
-                "name": "Save Tutorial",
-                "propertyName": "saveTutorial",
-                "functionName": "newSuperalgosLoadSaveTutorial"
+                "name": "Tutorial",
+                "propertyName": "tutorial",
+                "functionName": "newSuperalgosTutorial"
             },
             {
                 "name": "Menu",

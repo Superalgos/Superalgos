@@ -615,7 +615,7 @@ function newUiObjectsFromNodes() {
                 let tutorial = {
                     status: node.savedPayload.tutorial.status
                 }
-                saveTutorial(payload, tutorial)
+                UI.projects.superalgos.utilities.tutorial.saveTutorial(payload, tutorial)
             }
         }
 

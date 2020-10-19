@@ -268,14 +268,14 @@ function newSuperalgosTutorialSpace() {
                     /*
                     This forces the tutorial to close the documentation panel and to keep it closed.
                     */
-                    canvas.docSpace.sidePanelTab.close()
+                    UI.projects.superalgos.spaces.docSpace.sidePanelTab.close()
                     return
                 }
-                canvas.docSpace.sidePanelTab.open()
+                UI.projects.superalgos.spaces.docSpace.sidePanelTab.open()
                 if (newDocumentationURL === currentDocumentationURL) { return }
 
                 currentDocumentationURL = newDocumentationURL
-                canvas.docSpace.navigateTo(currentDocumentationURL)
+                UI.projects.superalgos.spaces.docSpace.navigateTo(currentDocumentationURL)
             }
         }
 
@@ -294,7 +294,7 @@ function newSuperalgosTutorialSpace() {
                 This forces the tutorial to close the workspaces panel and to keep it closed.
                 */
                 if (workspacesCounter === 5) {
-                    canvas.sideSpace.sidePanelTab.close()
+                    UI.projects.superalgos.spaces.sideSpace.sidePanelTab.close()
                 }
                 return
             }
@@ -303,7 +303,7 @@ function newSuperalgosTutorialSpace() {
                 This forces the tutorial to open the workspaces panel and to keep it closed.
                 */
                 if (workspacesCounter === 5) {
-                    canvas.sideSpace.sidePanelTab.open()
+                    UI.projects.superalgos.spaces.sideSpace.sidePanelTab.open()
                 }
                 return
             }

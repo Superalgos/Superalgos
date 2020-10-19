@@ -401,37 +401,37 @@ function newSuperalgosActionSwitch() {
                 break
             case 'Play Tutorial':
                 {
-                    canvas.tutorialSpace.playTutorial(action.node)
+                    UI.projects.superalgos.spaces.tutorialSpace.playTutorial(action.node)
                 }
                 break
             case 'Play Tutorial Topic':
                 {
-                    canvas.tutorialSpace.playTutorialTopic(action.node)
+                    UI.projects.superalgos.spaces.tutorialSpace.playTutorialTopic(action.node)
                 }
                 break
             case 'Play Tutorial Step':
                 {
-                    canvas.tutorialSpace.playTutorialStep(action.node)
+                    UI.projects.superalgos.spaces.tutorialSpace.playTutorialStep(action.node)
                 }
                 break
             case 'Resume Tutorial':
                 {
-                    canvas.tutorialSpace.resumeTutorial(action.node)
+                    UI.projects.superalgos.spaces.tutorialSpace.resumeTutorial(action.node)
                 }
                 break
             case 'Resume Tutorial Topic':
                 {
-                    canvas.tutorialSpace.resumeTutorialTopic(action.node)
+                    UI.projects.superalgos.spaces.tutorialSpace.resumeTutorialTopic(action.node)
                 }
                 break
             case 'Resume Tutorial Step':
                 {
-                    canvas.tutorialSpace.resumeTutorialStep(action.node)
+                    UI.projects.superalgos.spaces.tutorialSpace.resumeTutorialStep(action.node)
                 }
                 break
             case 'Reset Tutorial Progress':
                 {
-                    canvas.tutorialSpace.resetTutorialProgress(action.node)
+                    UI.projects.superalgos.spaces.tutorialSpace.resetTutorialProgress(action.node)
                 }
                 break
             case 'Send Webhook Test Message':
@@ -492,7 +492,7 @@ function newSuperalgosActionSwitch() {
                     let definition = getNodeDefinition(action.node)
                     if (definition !== undefined) {
                         if (definition.docURL !== undefined) {
-                            canvas.docSpace.navigateTo(definition.docURL)
+                            UI.projects.superalgos.spaces.docSpace.navigateTo(definition.docURL)
                         } else {
                             let headName = getHiriarchyHead(action.node).type
                             headName = headName.toLowerCase()
@@ -501,7 +501,7 @@ function newSuperalgosActionSwitch() {
                             nodeName = nodeName.toLowerCase()
                             nodeName = nodeName.split(" ").join("-")
                             url = DOCUMENTATION_URL_PREFIX + "suite-hierarchy-" + headName + ".html#" + nodeName
-                            canvas.docSpace.navigateTo(url)
+                            UI.projects.superalgos.spaces.docSpace.navigateTo(url)
                         }
                     }
                 }

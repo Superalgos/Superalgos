@@ -353,6 +353,7 @@ function newSuperalgosPanelSpace() {
 
     function getContainer(point, purpose) {
         if (thisObject.visible !== true) { return }
+        if (purpose === GET_CONTAINER_PURPOSE.DRAGGING &&  point.shiftKey !== false) {return}
 
         let container
         /*

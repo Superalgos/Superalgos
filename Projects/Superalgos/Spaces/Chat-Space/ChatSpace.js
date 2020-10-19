@@ -84,9 +84,14 @@ function newSuperalgosChatSpace() {
         if (container !== undefined) { return container }
 
         if (thisObject.container.frame.isThisPointHere(point, true) === true) {
-            return thisObject.container
+            if (container.isWheelable === true) {
+                return thisObject.container
+            } else {
+                canvas.chartingSpace.viewport.onMouseWheel(event)
+                return 
+            }
         } else {
-            return undefined
+            return 
         }
     }
 

@@ -236,7 +236,7 @@ function newWorkspace() {
 
             switch (workingAtTask) {
                 case 1:
-                    canvas.tutorialSpace.stop()
+                    UI.projects.superalgos.spaces.tutorialSpace.stop()
                     executeAction({ node: thisObject.workspaceNode, name: 'Delete Workspace', project: 'Superalgos' })
                     workingAtTask++
                     break

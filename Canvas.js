@@ -26,10 +26,6 @@ function newCanvas() {
 
     let thisObject = {
         eventHandler: undefined,
-        topSpace: undefined,
-        sideSpace: undefined,
-        docSpace: undefined,
-        chatSpace: undefined,
         tutorialSpace: undefined,
         chartingSpace: undefined,
         floatingSpace: undefined,
@@ -685,7 +681,7 @@ function newCanvas() {
                         }
                         continue
                     }
-                    
+
                     if (spaceInstance.spaceDefinition.name === 'Floating Space') {
                         /*  we check if it is over any of the existing containers at the Floating Space. */
                         container = thisObject.floatingSpace.getContainer(point)

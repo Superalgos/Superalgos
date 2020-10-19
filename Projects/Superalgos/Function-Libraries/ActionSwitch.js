@@ -104,7 +104,7 @@ function newSuperalgosActionSwitch() {
                 {
                     let nodePath = functionLibraryNodePath.getNodePath(action.node)
 
-                    copyTextToClipboard(nodePath)
+                    UI.projects.superalgos.utilities.clipboard.copyTextToClipboard(nodePath)
 
                     UI.projects.superalgos.spaces.cockpitSpace.setStatus(
                         nodePath + ' copied to the Clipboard.'

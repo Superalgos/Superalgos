@@ -78,7 +78,7 @@
                 "name": "Side Space",
                 "folderName": "Floating-Space",
                 "propertyName": "sideSpace",
-                "functionName": "newSuperalgosFloatingSpace",
+                "functionName": "newSuperalgosSideSpace",
                 "initializationIndex": 6,
                 "animationIndex": 5,
                 "onMouseWheelIndex": 2,

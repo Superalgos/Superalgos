@@ -106,6 +106,7 @@ function newCanvas() {
                 let projectInstance = UI.projects[projectDefinition.propertyName]
                 projectInstance.spaces = {}
                 projectInstance.events = {}
+                projectInstance.utilities = {}
 
                 projectInstance.events.onMouseWheelMap = new Map()
                 projectInstance.events.onMouseOverMap = new Map()
@@ -117,6 +118,7 @@ function newCanvas() {
                 let spaceDefinitionMap = new Map()
 
                 /* Space Instantiation */
+                if (projectDefinition.spaces === undefined) {continue}
                 for (let j = 0; j < projectDefinition.spaces.length; j++) {
                     let spaceDefinition = projectDefinition.spaces[j]
                     projectInstance.spaces[spaceDefinition.propertyName] = eval(spaceDefinition.functionName + '()')
@@ -167,8 +169,18 @@ function newCanvas() {
                         thisObject.animation.addCallBackFunction(spaceDefinition.name + ' ' + 'Draw', spaceInstance.draw)
                     }
                 }
+
+                /* Set up Utilities of this Project */
+                if (projectDefinition.utilities === undefined) {continue}
+                for (let j = 0; j < projectDefinition.utilities.length; j++) {
+                    let utilityDefinition = projectDefinition.utilities[j]
+
+                    projectInstance.utilities[utilityDefinition.propertyName] = eval(utilityDefinition.functionName + '()')
+                }
             }
 
+            console.log(UI)
+            return
             thisObject.animation.start()
 
         } catch (err) {

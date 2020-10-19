@@ -424,7 +424,7 @@ function newTaskFunctions() {
                     let cryptoExchanges = cryptoEcosystem.cryptoExchanges[j]
                     for (let k = 0; k < cryptoExchanges.exchanges.length; k++) {
                         let cryptoExchange = cryptoExchanges.exchanges[k]
-                        if (isMissingChildren(node, cryptoExchange, true) === true) {
+                        if (UI.projects.superalgos.utilities.children.isMissingChildren(node, cryptoExchange, true) === true) {
                             let exchangeTasks = functionLibraryUiObjectsFromNodes.addUIObject(node, newNodeType)
                             exchangeTasks.payload.referenceParent = cryptoExchange
                         }
@@ -452,7 +452,7 @@ function newTaskFunctions() {
         for (let i = 0; i < markets.length; i++) {
             let market = markets[i]
 
-            if (isMissingChildren(node, market, true) === true) {
+            if (UI.projects.superalgos.utilities.children.isMissingChildren(node, market, true) === true) {
                 let marketDataTasks = functionLibraryUiObjectsFromNodes.addUIObject(node, newNodeType)
                 marketDataTasks.payload.referenceParent = market
             }
@@ -473,7 +473,7 @@ function newTaskFunctions() {
             if (rootNode.type === rootNodeType) {
                 let dataMine = rootNode
 
-                if (isMissingChildren(node, dataMine, true) === true) {
+                if (UI.projects.superalgos.utilities.children.isMissingChildren(node, dataMine, true) === true) {
                     let dataMineTasks = functionLibraryUiObjectsFromNodes.addUIObject(node, newNodeType)
                     dataMineTasks.payload.referenceParent = dataMine
                 }

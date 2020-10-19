@@ -28,7 +28,7 @@ function newPluginsFunctions() {
         for (let i = 0; i < fileNames.length; i++) {
             let fileName = fileNames[i]
             fileName = fileName.replace('.json', '')
-            if (isMissingChildrenByName(node, fileName) === true) {
+            if (UI.projects.superalgos.utilities.children.isMissingChildrenByName(node, fileName) === true) {
                 let child = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Plugin File')
                 child.name = fileName
             }
@@ -43,7 +43,7 @@ function newPluginsFunctions() {
             let projects = JSON.parse(pProjects)
             for (let i = 0; i < projects.length; i++) {
                 let project = projects[i]
-                if (isMissingChildrenByName(node, project) === true) {
+                if (UI.projects.superalgos.utilities.children.isMissingChildrenByName(node, project) === true) {
                     let child = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Plugin Project')
                     child.name = project
                 }

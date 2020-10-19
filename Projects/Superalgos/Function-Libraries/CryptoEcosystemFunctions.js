@@ -247,9 +247,9 @@ function newCryptoEcosystemFunctions() {
                     return
                 }
 
-                let exchangeDataTasks = findOrCreateChildWithReference(dataMining, 'Exchange Data Tasks', cryptoExchange, functionLibraryUiObjectsFromNodes)
+                let exchangeDataTasks = UI.projects.superalgos.utilities.children.findOrCreateChildWithReference(dataMining, 'Exchange Data Tasks', cryptoExchange, functionLibraryUiObjectsFromNodes)
                 exchangeDataTasks.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
-                let marketDataTask = findAndRecreateChildWithReference(exchangeDataTasks, 'Market Data Tasks', market, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
+                let marketDataTask = UI.projects.superalgos.utilities.children.findAndRecreateChildWithReference(exchangeDataTasks, 'Market Data Tasks', market, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
 
                 menuClick(marketDataTask, 'Add Missing Data Mine Tasks', true)
                 menuClickOfNodeArray(marketDataTask.dataMineTasks, 'Add All Tasks', true)
@@ -274,9 +274,9 @@ function newCryptoEcosystemFunctions() {
                         return
                     }
 
-                    let exchangeTradingTasks = findOrCreateChildWithReference(environmentFound, 'Exchange Trading Tasks', cryptoExchange, functionLibraryUiObjectsFromNodes)
+                    let exchangeTradingTasks = UI.projects.superalgos.utilities.children.findOrCreateChildWithReference(environmentFound, 'Exchange Trading Tasks', cryptoExchange, functionLibraryUiObjectsFromNodes)
                     exchangeTradingTasks.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
-                    let marketTradingTask = findAndRecreateChildWithReference(exchangeTradingTasks, 'Market Trading Tasks', market, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
+                    let marketTradingTask = UI.projects.superalgos.utilities.children.findAndRecreateChildWithReference(exchangeTradingTasks, 'Market Trading Tasks', market, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
 
                     menuClick(marketTradingTask, 'Add Missing Trading Mine Tasks', true)
                     menuClickOfNodeArray(marketTradingTask.tradingMineTasks, 'Add All Tasks', true)
@@ -298,9 +298,9 @@ function newCryptoEcosystemFunctions() {
                     return
                 }
 
-                let exchangeDataProducts = findOrCreateChildWithReference(dataMinesData, 'Exchange Data Products', cryptoExchange, functionLibraryUiObjectsFromNodes)
+                let exchangeDataProducts = UI.projects.superalgos.utilities.children.findOrCreateChildWithReference(dataMinesData, 'Exchange Data Products', cryptoExchange, functionLibraryUiObjectsFromNodes)
                 exchangeDataProducts.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
-                let marketDataProducts = findAndRecreateChildWithReference(exchangeDataProducts, 'Market Data Products', market, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
+                let marketDataProducts = UI.projects.superalgos.utilities.children.findAndRecreateChildWithReference(exchangeDataProducts, 'Market Data Products', market, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
                 marketDataProducts.payload.floatingObject.collapseToggle()
 
                 menuClick(marketDataProducts, 'Add All Data Mine Products', true)
@@ -314,16 +314,16 @@ function newCryptoEcosystemFunctions() {
                     return
                 }
 
-                let exchangeTradingProducts = findOrCreateChildWithReference(tradingMinesData, 'Exchange Trading Products', cryptoExchange, functionLibraryUiObjectsFromNodes)
+                let exchangeTradingProducts = UI.projects.superalgos.utilities.children.findOrCreateChildWithReference(tradingMinesData, 'Exchange Trading Products', cryptoExchange, functionLibraryUiObjectsFromNodes)
                 exchangeTradingProducts.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
-                let marketTradingProducts = findAndRecreateChildWithReference(exchangeTradingProducts, 'Market Trading Products', market, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
+                let marketTradingProducts = UI.projects.superalgos.utilities.children.findAndRecreateChildWithReference(exchangeTradingProducts, 'Market Trading Products', market, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
                 marketTradingProducts.payload.floatingObject.collapseToggle()
                 /*
                 Create the new session references.
                 */
                 for (let i = 0; i < sessionsCreatedArray.length; i++) {
                     let session = sessionsCreatedArray[i]
-                    if (isMissingChildren(marketTradingProducts, session, true) === true) {
+                    if (UI.projects.superalgos.utilities.children.isMissingChildren(marketTradingProducts, session, true) === true) {
                         functionLibraryDataStorageFunctions.createSessionReference(marketTradingProducts, session, functionLibraryUiObjectsFromNodes)
                     }
                 }
@@ -346,7 +346,7 @@ function newCryptoEcosystemFunctions() {
                 If the Dashboard we need is not already there we create a new one. 
                 */
                 let arrayItem = dashboardsArray[i]
-                let dashboard = findOrCreateChildWithReference(chartingSpace, 'Dashboard', arrayItem.environmentNode, functionLibraryUiObjectsFromNodes)
+                let dashboard = UI.projects.superalgos.utilities.children.findOrCreateChildWithReference(chartingSpace, 'Dashboard', arrayItem.environmentNode, functionLibraryUiObjectsFromNodes)
                 dashboard.name = arrayItem.environmentNode.type + ' ' + arrayItem.networkNode.name
                 /*
                 We delete all the existing Time Machines related to the market we are currently installing. 

@@ -162,8 +162,8 @@ function newTimeMachine() {
     function setInitialPosition() {
 
         if (thisObject.container.frame.position.x === 0 && thisObject.container.frame.position.y === 0) {
-            let timeMachineIndex = findChildIndexAtParentNode(thisObject.payload.node)
-            let dashboardIndex = findChildIndexAtParentNode(thisObject.payload.parentNode)
+            let timeMachineIndex = UI.projects.superalgos.utilities.children.findChildIndexAtParentNode(thisObject.payload.node)
+            let dashboardIndex = UI.projects.superalgos.utilities.children.findChildIndexAtParentNode(thisObject.payload.parentNode)
 
             thisObject.container.frame.position.x = thisObject.container.frame.width * timeMachineIndex * 2
             thisObject.container.frame.position.y = thisObject.container.frame.height * dashboardIndex * 2

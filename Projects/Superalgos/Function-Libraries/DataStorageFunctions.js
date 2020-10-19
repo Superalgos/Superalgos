@@ -104,7 +104,7 @@ function newDataStorageFunctions() {
                 /* We will filter out all the sessions that does not belong to the market we are in */
                 let marketTradingTasks = findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
                 if (node.payload.referenceParent.id !== marketTradingTasks.payload.referenceParent.id) { continue }
-                if (isMissingChildren(node, session, true) === true) {
+                if (UI.projects.superalgos.utilities.children.isMissingChildren(node, session, true) === true) {
                     createSessionReference(node, session, functionLibraryUiObjectsFromNodes)
                 }
             }
@@ -131,7 +131,7 @@ function newDataStorageFunctions() {
 
         for (let i = 0; i < marketsArray.length; i++) {
             let market = marketsArray[i]
-            if (isMissingChildren(node, market, true) === true) {
+            if (UI.projects.superalgos.utilities.children.isMissingChildren(node, market, true) === true) {
                 let marketDataProducts = functionLibraryUiObjectsFromNodes.addUIObject(node, newNodeType)
                 marketDataProducts.payload.referenceParent = market
             }
@@ -155,7 +155,7 @@ function newDataStorageFunctions() {
                     let cryptoExchanges = cryptoEcosystem.cryptoExchanges[j]
                     for (let k = 0; k < cryptoExchanges.exchanges.length; k++) {
                         let cryptoExchange = cryptoExchanges.exchanges[k]
-                        if (isMissingChildren(node, cryptoExchange, true) === true) {
+                        if (UI.projects.superalgos.utilities.children.isMissingChildren(node, cryptoExchange, true) === true) {
                             let exchange = functionLibraryUiObjectsFromNodes.addUIObject(node, newNodeType)
                             exchange.payload.referenceParent = cryptoExchange
                         }

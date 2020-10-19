@@ -101,7 +101,7 @@ function newChartingSpaceFunctions() {
                     if (environment.id !== node.payload.referenceParent.id) { continue }
                     let market = findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
                     if (market.payload.referenceParent === undefined) { continue }
-                    if (isMissingChildren(node, session, true) === true) {
+                    if (UI.projects.superalgos.utilities.children.isMissingChildren(node, session, true) === true) {
                         createTimeMachine(node, session, market.payload.referenceParent, networkNode, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
                     }
                 }
@@ -230,13 +230,13 @@ function newChartingSpaceFunctions() {
                 let testingEnvironment = UI.projects.superalgos.utilities.branches.findInBranch(networkNode, 'Testing Environment', node, true)
                 let productionEnvironment = UI.projects.superalgos.utilities.branches.findInBranch(networkNode, 'Production Environment', node, true)
 
-                if (isMissingChildren(node, testingEnvironment, true) === true) {
+                if (UI.projects.superalgos.utilities.children.isMissingChildren(node, testingEnvironment, true) === true) {
                     let dashboard = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Dashboard')
                     dashboard.payload.referenceParent = testingEnvironment
                     dashboard.name = testingEnvironment.type + ' ' + networkNode.name
                 }
 
-                if (isMissingChildren(node, productionEnvironment, true) === true) {
+                if (UI.projects.superalgos.utilities.children.isMissingChildren(node, productionEnvironment, true) === true) {
                     let dashboard = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Dashboard')
                     dashboard.payload.referenceParent = productionEnvironment
                     dashboard.name = productionEnvironment.type + ' ' + networkNode.name

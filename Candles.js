@@ -146,7 +146,7 @@
     }
 
     function onMouseOver(event) {
-        let userPosition = getDateFromPointAtBrowserCanvas(event, thisObject.container, coordinateSystem)
+        let userPosition = UI.projects.superalgos.utilities.dateRateTransformations.getDateFromPointAtBrowserCanvas(event, thisObject.container, coordinateSystem)
         userPositionDate = userPosition.valueOf()
     }
 
@@ -303,8 +303,8 @@
 
             let daysOnSides = getSideDays(timeFrame);
 
-            let leftDate = getDateFromPointAtBrowserCanvas(UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topLeft, thisObject.container, coordinateSystem);
-            let rightDate = getDateFromPointAtBrowserCanvas(UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topRight, thisObject.container, coordinateSystem);
+            let leftDate = UI.projects.superalgos.utilities.dateRateTransformations.getDateFromPointAtBrowserCanvas(UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topLeft, thisObject.container, coordinateSystem);
+            let rightDate = UI.projects.superalgos.utilities.dateRateTransformations.getDateFromPointAtBrowserCanvas(UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topRight, thisObject.container, coordinateSystem);
 
             let dateDiff = rightDate.valueOf() - leftDate.valueOf();
 
@@ -400,8 +400,8 @@
 
             let daysOnSides = getSideDays(timeFrame);
 
-            let leftDate = getDateFromPointAtBrowserCanvas(UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topLeft, thisObject.container, coordinateSystem);
-            let rightDate = getDateFromPointAtBrowserCanvas(UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topRight, thisObject.container, coordinateSystem);
+            let leftDate = UI.projects.superalgos.utilities.dateRateTransformations.getDateFromPointAtBrowserCanvas(UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topLeft, thisObject.container, coordinateSystem);
+            let rightDate = UI.projects.superalgos.utilities.dateRateTransformations.getDateFromPointAtBrowserCanvas(UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topRight, thisObject.container, coordinateSystem);
 
             let dateDiff = rightDate.valueOf() - leftDate.valueOf();
 

@@ -36,7 +36,7 @@ function newChartingSpaceFunctions() {
                 let botLayers = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Bot Layers')
                 botLayers.name = bot.name
 
-                asymetricalFolderStructureCloning(
+                UI.projects.superalgos.utilities.folders.asymetricalFolderStructureCloning(
                     bot,
                     botLayers,
                     'dataProducts',

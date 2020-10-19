@@ -31,7 +31,7 @@ function newDataMineFunctions() {
         Output Dataset Folder, and for each Product Definition found we will create a Output Definition
         for each Dataset defined inside the Product Definition.
         */
-        asymetricalFolderStructureCloning(
+        UI.projects.superalgos.utilities.folders.asymetricalFolderStructureCloning(
             node.payload.parentNode.payload.parentNode,
             node,
             'products',
@@ -75,7 +75,7 @@ function newDataMineFunctions() {
                 let botProducts = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Bot Data Dependencies')
                 botProducts.name = bot.name
 
-                asymetricalFolderStructureCloning(
+                UI.projects.superalgos.utilities.folders.asymetricalFolderStructureCloning(
                     bot,
                     botProducts,
                     'products',

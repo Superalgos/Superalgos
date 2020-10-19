@@ -47,7 +47,7 @@ function newDataStorageFunctions() {
                 botProducts.name = bot.name
                 botProducts.payload.floatingObject.collapseToggle()
 
-                asymetricalFolderStructureCloning(
+                UI.projects.superalgos.utilities.folders.asymetricalFolderStructureCloning(
                     bot,
                     botProducts,
                     'products',

@@ -75,7 +75,7 @@
             },
             {
                 "name": "Folders",
-                "propertyName": "fFolders",
+                "propertyName": "folders",
                 "functionName": "newSuperalgosFolders"
             }
         ],

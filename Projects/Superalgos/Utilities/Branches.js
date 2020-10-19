@@ -55,7 +55,7 @@ function newSuperalgosBranches() {
         /*
         This function finds a node in a brach and reports an error if it could not be found.
         */
-        let nodeFound = findNodeInNodeMesh(startingNode, nodeType, undefined, connectedViaPayload, true, false, false)
+        let nodeFound = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(startingNode, nodeType, undefined, connectedViaPayload, true, false, false)
         if (nodeFound === undefined) {
             errorNode.payload.uiObject.setErrorMessage('Could not find ' + nodeType + ' at ' + startingNode.type + ' ' + startingNode.name)
             return

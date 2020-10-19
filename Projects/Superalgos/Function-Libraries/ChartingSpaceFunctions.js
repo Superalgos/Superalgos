@@ -57,7 +57,7 @@ function newChartingSpaceFunctions() {
                     let layer = allLayers[j]
                     layer.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_45
 
-                    let plotterModule = findNodeInNodeMesh(layer, 'Plotter Module', undefined, true, false, false, true)
+                    let plotterModule = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(layer, 'Plotter Module', undefined, true, false, false, true)
                     if (plotterModule === undefined) {
                         functionLibraryNodeDeleter.deleteUIObject(layer, rootNodes)
                     }
@@ -96,10 +96,10 @@ function newChartingSpaceFunctions() {
             function scanSessionArray(sessionsArray) {
                 for (let i = 0; i < sessionsArray.length; i++) {
                     let session = sessionsArray[i]
-                    let environment = findNodeInNodeMesh(session, node.payload.referenceParent.type, undefined, true, false, true, false)
+                    let environment = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(session, node.payload.referenceParent.type, undefined, true, false, true, false)
                     if (environment === undefined) { continue }
                     if (environment.id !== node.payload.referenceParent.id) { continue }
-                    let market = findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
+                    let market = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
                     if (market.payload.referenceParent === undefined) { continue }
                     if (UI.projects.superalgos.utilities.children.isMissingChildren(node, session, true) === true) {
                         createTimeMachine(node, session, market.payload.referenceParent, networkNode, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
@@ -201,7 +201,7 @@ function newChartingSpaceFunctions() {
                     }
                 }
                 function deleteNodeByName(nodeName) {
-                    let nodeToDelete = findNodeInNodeMesh(timelineChart.layerManager, undefined, nodeName, true, true, false, false)
+                    let nodeToDelete = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(timelineChart.layerManager, undefined, nodeName, true, true, false, false)
                     if (nodeToDelete === undefined) { return }
                     functionLibraryNodeDeleter.deleteUIObject(nodeToDelete, rootNodes)
                 }

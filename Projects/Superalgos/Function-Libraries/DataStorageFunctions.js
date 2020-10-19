@@ -85,7 +85,7 @@ function newDataStorageFunctions() {
     }
 
     function addMissingSessionReferences(node, rootNodes, functionLibraryUiObjectsFromNodes) {
-        let networkNode = findNodeInNodeMesh(node, 'Network Node', undefined, true, false, true, false)
+        let networkNode = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(node, 'Network Node', undefined, true, false, true, false)
         if (networkNode === undefined) { return }
 
         let backtestingSessionsArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(networkNode, 'Backtesting Session')
@@ -102,7 +102,7 @@ function newDataStorageFunctions() {
             for (let i = 0; i < sessionsArray.length; i++) {
                 let session = sessionsArray[i]
                 /* We will filter out all the sessions that does not belong to the market we are in */
-                let marketTradingTasks = findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
+                let marketTradingTasks = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
                 if (node.payload.referenceParent.id !== marketTradingTasks.payload.referenceParent.id) { continue }
                 if (UI.projects.superalgos.utilities.children.isMissingChildren(node, session, true) === true) {
                     createSessionReference(node, session, functionLibraryUiObjectsFromNodes)

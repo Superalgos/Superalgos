@@ -209,7 +209,7 @@ function newCryptoEcosystemFunctions() {
     function installMarket(node, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter, functionLibraryChartingSpaceFunctions, functionLibraryDataStorageFunctions) {
 
         let market = node
-        let cryptoExchange = findNodeInNodeMesh(node, 'Crypto Exchange', undefined, true, false, true, false)
+        let cryptoExchange = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(node, 'Crypto Exchange', undefined, true, false, true, false)
         if (cryptoExchange === undefined) {
             node.payload.uiObject.setErrorMessage('Market must be a descendant of a Crypto Exchange')
             return
@@ -370,7 +370,7 @@ function newCryptoEcosystemFunctions() {
                         functionLibraryNodeDeleter.deleteUIObject(timeMachine, rootNodes)
                         continue
                     }
-                    let marketTradingTasks = findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
+                    let marketTradingTasks = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
                     if (marketTradingTasks === undefined) { continue }
                     if (marketTradingTasks.payload === undefined) { continue }
                     if (marketTradingTasks.payload.referenceParent === undefined) { continue }
@@ -406,7 +406,7 @@ function newCryptoEcosystemFunctions() {
                 let timeMachine = timeMachines[i]
                 let session = timeMachine.payload.referenceParent
                 if (session === undefined) { continue }
-                let marketTradingTasks = findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
+                let marketTradingTasks = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
                 if (marketTradingTasks === undefined) { continue }
                 if (marketTradingTasks.payload === undefined) { continue }
                 if (marketTradingTasks.payload.referenceParent === undefined) { continue }

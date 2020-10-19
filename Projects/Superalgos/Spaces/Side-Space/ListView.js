@@ -216,9 +216,9 @@ function newListView() {
             opacity: 1
         }
 
-        roundedCornersBackground(params)
+        UI.projects.superalgos.utilities.drawPrint.roundedCornersBackground(params)
 
-        drawLabel(label, 1 / 2, 0, 0, 25, 15, thisObject.container, UI_COLOR.BLACK)
+        UI.projects.superalgos.utilities.drawPrint.drawLabel(label, 1 / 2, 0, 0, 25, 15, thisObject.container, UI_COLOR.BLACK)
     }
 
     function drawScrollBar() {

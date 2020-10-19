@@ -417,6 +417,6 @@ function newTimelineChart() {
     }
 
     function drawChartsBackground() {
-        drawContainerBackground(thisObject.container, UI_COLOR.WHITE, 0, thisObject.fitFunction)
+        UI.projects.superalgos.utilities.drawPrint.drawContainerBackground(thisObject.container, UI_COLOR.WHITE, 0, thisObject.fitFunction)
     }
 }

@@ -646,7 +646,7 @@ function newLayer() {
             opacity: OPACITY
         }
 
-        roundedCornersBackground(params)
+        UI.projects.superalgos.utilities.drawPrint.roundedCornersBackground(params)
 
         let parentLabel1FontSize = loadPropertyFromNodeConfig(thisObject.payload.parentNode.payload, 'label1FontSize')
         let parentLabel2FontSize = loadPropertyFromNodeConfig(thisObject.payload.parentNode.payload, 'label2FontSize')
@@ -682,19 +682,19 @@ function newLayer() {
             label3FontSize = 9
         }
 
-        drawLabel(label1, 1 / 2, 5.2 / 10, -5, 0, label1FontSize, thisObject.container)
-        drawLabel(label2, 1 / 2, 8.2 / 10, -5, 0, label2FontSize, thisObject.container)
-        drawLabel(label3, 1 / 2, 9.5 / 10, -5, 0, label3FontSize, thisObject.container)
+        UI.projects.superalgos.utilities.drawPrint.drawLabel(label1, 1 / 2, 5.2 / 10, -5, 0, label1FontSize, thisObject.container)
+        UI.projects.superalgos.utilities.drawPrint.drawLabel(label2, 1 / 2, 8.2 / 10, -5, 0, label2FontSize, thisObject.container)
+        UI.projects.superalgos.utilities.drawPrint.drawLabel(label3, 1 / 2, 9.5 / 10, -5, 0, label3FontSize, thisObject.container)
 
         drawProgressBar(marketFileProgressBar, 2, -45 + 18)
         drawProgressBar(dailyFileProgressBar, 2, -46 + 18)
         drawProgressBar(singleFileProgressBar, 2, -47 + 18)
         drawProgressBar(fileSequenceProgressBar, 2, -48 + 18)
 
-        drawIcon(thisObject.exchangeIcon, 1 / 8, 2 / 10, 0, 0, 14, thisObject.container)
-        drawIcon(thisObject.plotterTypeIcon, 7 / 8, 2 / 10, 0, 0, 14, thisObject.container)
-        drawIcon(thisObject.baseAssetIcon, 3.4 / 8, 2 / 10, 0, 0, 14, thisObject.container)
-        drawIcon(thisObject.quotedAssetIcon, 4.6 / 8, 2 / 10, 0, 0, 14, thisObject.container)
+        UI.projects.superalgos.utilities.drawPrint.drawIcon(thisObject.exchangeIcon, 1 / 8, 2 / 10, 0, 0, 14, thisObject.container)
+        UI.projects.superalgos.utilities.drawPrint.drawIcon(thisObject.plotterTypeIcon, 7 / 8, 2 / 10, 0, 0, 14, thisObject.container)
+        UI.projects.superalgos.utilities.drawPrint.drawIcon(thisObject.baseAssetIcon, 3.4 / 8, 2 / 10, 0, 0, 14, thisObject.container)
+        UI.projects.superalgos.utilities.drawPrint.drawIcon(thisObject.quotedAssetIcon, 4.6 / 8, 2 / 10, 0, 0, 14, thisObject.container)
     }
 }
 

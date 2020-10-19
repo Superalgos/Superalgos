@@ -79,6 +79,6 @@ function newPanelsVisibleButton() {
             icon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName( 'Superalgos', 'toggle-panel-off')
         }
 
-        drawIcon(icon, 1 / 2, 1 / 2, 0, 0, 14, thisObject.container)
+        UI.projects.superalgos.utilities.drawPrint.drawIcon(icon, 1 / 2, 1 / 2, 0, 0, 14, thisObject.container)
     }
 }

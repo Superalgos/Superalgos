@@ -437,7 +437,7 @@ function newCircularMenuItem() {
                     params.opacity = 0.8
                 }
 
-                roundedCornersBackground(params)
+                UI.projects.superalgos.utilities.drawPrint.roundedCornersBackground(params)
             }
         }
     }

@@ -266,7 +266,7 @@ function newSuperalgosCockpitSpace() {
                 x: thisObject.container.frame.width / 2,
                 y: thisObject.container.frame.height / 2 + 5
             }
-            printLabel(statusText, position.x, position.y, 1, 15, textColor, true, thisObject.container)
+            UI.projects.superalgos.utilities.drawPrint.printLabel(statusText, position.x, position.y, 1, 15, textColor, true, thisObject.container)
         }
 
         if (UI.projects.superalgos.spaces.designSpace !== undefined) {

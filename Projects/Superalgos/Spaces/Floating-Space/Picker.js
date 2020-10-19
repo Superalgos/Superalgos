@@ -209,7 +209,7 @@ function newPicker() {
             }
 
             if (i === 2 || isMouseOver === true) {
-                drawLabel(label, 1 / 2, i / VISIBLE_LABELS, 0, 0, fontSize, thisObject.container, fontColor, undefined, undefined, opacity)
+                UI.projects.superalgos.utilities.drawPrint.drawLabel(label, 1 / 2, i / VISIBLE_LABELS, 0, 0, fontSize, thisObject.container, fontColor, undefined, undefined, opacity)
             }
         }
     }

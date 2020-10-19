@@ -305,7 +305,7 @@ function newUiObjectTitle() {
                 opacity: 0.25
             }
 
-            roundedCornersBackground(params)
+            UI.projects.superalgos.utilities.drawPrint.roundedCornersBackground(params)
         }
     }
 

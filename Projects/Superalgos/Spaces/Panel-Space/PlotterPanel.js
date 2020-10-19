@@ -176,8 +176,8 @@ function newPlotterPanel() {
                 if (panelData.textStyle.config.paletteColor !== undefined) { paletteColor = eval(panelData.textStyle.config.paletteColor) }
             }
 
-            printLabel(labelText, X_AXIS, UI_PANEL.HEIGHT.NORMAL * labelPosition / 100 / heightFactor, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction)
-            printLabel(value, X_AXIS, UI_PANEL.HEIGHT.NORMAL * valuePosition / 100 / heightFactor, opacity, fontSize, paletteColor, true, thisObject.container, thisObject.fitFunction, false, true)
+            UI.projects.superalgos.utilities.drawPrint.printLabel(labelText, X_AXIS, UI_PANEL.HEIGHT.NORMAL * labelPosition / 100 / heightFactor, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction)
+            UI.projects.superalgos.utilities.drawPrint.printLabel(value, X_AXIS, UI_PANEL.HEIGHT.NORMAL * valuePosition / 100 / heightFactor, opacity, fontSize, paletteColor, true, thisObject.container, thisObject.fitFunction, false, true)
         }
     }
 }

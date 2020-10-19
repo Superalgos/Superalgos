@@ -521,8 +521,8 @@ function newRateScale() {
             let fitPoint2 = thisObject.fitFunction(ratePoint2)
 
             if (fitPoint1.y === ratePoint1.y && fitPoint2.y === ratePoint2.y) {
-                drawLabel(labels[1], 1 / 2, 0, 0, 0, FONT_SIZE, thisObject.container, UI_COLOR.GREY, undefined, ratePoint1.y)
-                drawLabel(labels[2], 1 / 2, 0, decimalsDisplace, -5, 9, thisObject.container, UI_COLOR.GREY, undefined, ratePoint1.y)
+                UI.projects.superalgos.utilities.drawPrint.drawLabel(labels[1], 1 / 2, 0, 0, 0, FONT_SIZE, thisObject.container, UI_COLOR.GREY, undefined, ratePoint1.y)
+                UI.projects.superalgos.utilities.drawPrint.drawLabel(labels[2], 1 / 2, 0, decimalsDisplace, -5, 9, thisObject.container, UI_COLOR.GREY, undefined, ratePoint1.y)
             }
         }
     }

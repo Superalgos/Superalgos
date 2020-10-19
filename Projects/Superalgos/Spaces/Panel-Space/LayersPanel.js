@@ -465,13 +465,13 @@ function newLayersPanel() {
             opacity: 1
         }
 
-        roundedCornersBackground(params)
+        UI.projects.superalgos.utilities.drawPrint.roundedCornersBackground(params)
 
-        drawLabel(label1, 1 / 2, 0, 0, 15, 9, thisObject.container)
-        drawLabel(label2, 1 / 2, 0, 0, 30, 9, thisObject.container)
+        UI.projects.superalgos.utilities.drawPrint.drawLabel(label1, 1 / 2, 0, 0, 15, 9, thisObject.container)
+        UI.projects.superalgos.utilities.drawPrint.drawLabel(label2, 1 / 2, 0, 0, 30, 9, thisObject.container)
 
-        drawIcon(icon1, 1 / 8, 0, 0, 20, 28, thisObject.container)
-        drawIcon(icon2, 7 / 8, 0, 0, 20, 28, thisObject.container)
+        UI.projects.superalgos.utilities.drawPrint.drawIcon(icon1, 1 / 8, 0, 0, 20, 28, thisObject.container)
+        UI.projects.superalgos.utilities.drawPrint.drawIcon(icon2, 7 / 8, 0, 0, 20, 28, thisObject.container)
     }
 
     function drawScrollBar() {

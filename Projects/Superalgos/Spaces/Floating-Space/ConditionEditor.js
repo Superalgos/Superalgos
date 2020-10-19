@@ -1185,14 +1185,14 @@ function newConditionEditor() {
     function thisObjectDrawForeground() {
         if (thisObject.visible === true) {
             const SIZE = 36
-            drawIcon(timeFrameIcon, 0, 0, -PICKER_WIDTH * 3.25, -PICKER_HEIGHT * 7, SIZE, thisObject.container)
-            drawIcon(dataMineIcon, 0, 0, -PICKER_WIDTH * 2.5, -PICKER_HEIGHT * 7, SIZE, thisObject.container)
-            drawIcon(botIcon, 0, 0, -PICKER_WIDTH * 1.5, -PICKER_HEIGHT * 7, SIZE, thisObject.container)
-            drawIcon(whenIcon, 0, 0, -PICKER_WIDTH * 0.5, -PICKER_HEIGHT * 7, SIZE, thisObject.container)
-            drawIcon(productIcon, 0, 0, PICKER_WIDTH * 0.5, -PICKER_HEIGHT * 7, SIZE, thisObject.container)
-            drawIcon(propertyIcon, 0, 0, PICKER_WIDTH * 1.45, -PICKER_HEIGHT * 7, SIZE, thisObject.container)
-            drawIcon(operationIcon, 0, 0, PICKER_WIDTH * 2.45, -PICKER_HEIGHT * 7, SIZE, thisObject.container)
-            drawIcon(valueIcon, 0, 0, PICKER_WIDTH * 3.45, -PICKER_HEIGHT * 7, SIZE, thisObject.container)
+            UI.projects.superalgos.utilities.drawPrint.drawIcon(timeFrameIcon, 0, 0, -PICKER_WIDTH * 3.25, -PICKER_HEIGHT * 7, SIZE, thisObject.container)
+            UI.projects.superalgos.utilities.drawPrint.drawIcon(dataMineIcon, 0, 0, -PICKER_WIDTH * 2.5, -PICKER_HEIGHT * 7, SIZE, thisObject.container)
+            UI.projects.superalgos.utilities.drawPrint.drawIcon(botIcon, 0, 0, -PICKER_WIDTH * 1.5, -PICKER_HEIGHT * 7, SIZE, thisObject.container)
+            UI.projects.superalgos.utilities.drawPrint.drawIcon(whenIcon, 0, 0, -PICKER_WIDTH * 0.5, -PICKER_HEIGHT * 7, SIZE, thisObject.container)
+            UI.projects.superalgos.utilities.drawPrint.drawIcon(productIcon, 0, 0, PICKER_WIDTH * 0.5, -PICKER_HEIGHT * 7, SIZE, thisObject.container)
+            UI.projects.superalgos.utilities.drawPrint.drawIcon(propertyIcon, 0, 0, PICKER_WIDTH * 1.45, -PICKER_HEIGHT * 7, SIZE, thisObject.container)
+            UI.projects.superalgos.utilities.drawPrint.drawIcon(operationIcon, 0, 0, PICKER_WIDTH * 2.45, -PICKER_HEIGHT * 7, SIZE, thisObject.container)
+            UI.projects.superalgos.utilities.drawPrint.drawIcon(valueIcon, 0, 0, PICKER_WIDTH * 3.45, -PICKER_HEIGHT * 7, SIZE, thisObject.container)
         }
     }
 }

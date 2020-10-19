@@ -100,10 +100,10 @@ function newListItem() {
             labelColor = UI_COLOR.TITANIUM_YELLOW
         }
 
-        roundedCornersBackground(params)
+        UI.projects.superalgos.utilities.drawPrint.roundedCornersBackground(params)
 
-        drawLabel(name, 1 / 2, 3.0 / 10, -5, 0, 15, thisObject.container, labelColor)
-        drawLabel(type, 1 / 2, 7.2 / 10, -5, 0, 15, thisObject.container, labelColor)
-        drawIcon(icon, 1 / 2, 1 / 2, 0, 0, 80, thisObject.container)
+        UI.projects.superalgos.utilities.drawPrint.drawLabel(name, 1 / 2, 3.0 / 10, -5, 0, 15, thisObject.container, labelColor)
+        UI.projects.superalgos.utilities.drawPrint.drawLabel(type, 1 / 2, 7.2 / 10, -5, 0, 15, thisObject.container, labelColor)
+        UI.projects.superalgos.utilities.drawPrint.drawIcon(icon, 1 / 2, 1 / 2, 0, 0, 80, thisObject.container)
     }
 }

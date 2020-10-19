@@ -138,7 +138,7 @@ function newFullScreen() {
             params.backgroundColor = UI_COLOR.DARK_TURQUOISE
         }
 
-        roundedCornersBackground(params)
+        UI.projects.superalgos.utilities.drawPrint.roundedCornersBackground(params)
     }
 
     function drawText() {

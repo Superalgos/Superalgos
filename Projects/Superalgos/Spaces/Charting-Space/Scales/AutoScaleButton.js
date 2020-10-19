@@ -181,7 +181,7 @@ function newAutoScaleButton() {
                 if (thisObject.autoMinScale === true && thisObject.autoMaxScale === true) {
                     icon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName( 'Superalgos', 'toggle-auto-time-scale-auto-min-max')
                 }
-                drawIcon(icon, 0, 0, 0, 0, ICON_SIZE, thisObject.container)
+                UI.projects.superalgos.utilities.drawPrint.drawIcon(icon, 0, 0, 0, 0, ICON_SIZE, thisObject.container)
                 break
             }
             case 'Y': {
@@ -197,7 +197,7 @@ function newAutoScaleButton() {
                 if (thisObject.autoMinScale === true && thisObject.autoMaxScale === true) {
                     icon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName( 'Superalgos', 'toggle-auto-scale-auto-min-max')
                 }
-                drawIcon(icon, 0, 0, 0, 0, ICON_SIZE, thisObject.container)
+                UI.projects.superalgos.utilities.drawPrint.drawIcon(icon, 0, 0, 0, 0, ICON_SIZE, thisObject.container)
                 break
             }
         }

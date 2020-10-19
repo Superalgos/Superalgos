@@ -583,7 +583,7 @@ function newTimeMachine() {
     }
 
     function drawChartsBackground() {
-        drawContainerBackground(thisObject.container, UI_COLOR.WHITE, 0.5, thisObject.fitFunction)
+        UI.projects.superalgos.utilities.drawPrint.drawContainerBackground(thisObject.container, UI_COLOR.WHITE, 0.5, thisObject.fitFunction)
     }
 
     function draw() {
@@ -665,7 +665,7 @@ function newTimeMachine() {
         if (description !== undefined) {
             label = description
         }
-        printLabel(label, position.x + 20, position.y - 10, opacity, fontSize)
+        UI.projects.superalgos.utilities.drawPrint.printLabel(label, position.x + 20, position.y - 10, opacity, fontSize)
 
         if (icon !== undefined) {
             if (icon.canDrawIcon === true) {
@@ -730,7 +730,7 @@ function newTimeMachine() {
                     }
                 }
 
-                printLabel(exchangeMarket.exchangeName, -5 + xOffSet, -30, opacity, fontSize, UI_COLOR.GREY)
+                UI.projects.superalgos.utilities.drawPrint.printLabel(exchangeMarket.exchangeName, -5 + xOffSet, -30, opacity, fontSize, UI_COLOR.GREY)
 
                 position.x = position.x + INTER_EXCHANGE_SPACE
 
@@ -746,7 +746,7 @@ function newTimeMachine() {
                     }
                 }
 
-                printLabel(exchangeMarket.marketName, -5 + xOffSet, -10, opacity, fontSize, UI_COLOR.GREY)
+                UI.projects.superalgos.utilities.drawPrint.printLabel(exchangeMarket.marketName, -5 + xOffSet, -10, opacity, fontSize, UI_COLOR.GREY)
 
                 icon = exchangeMarket.quotedAssetIcon
                 if (icon !== undefined) {

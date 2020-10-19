@@ -314,8 +314,8 @@ function newTimeScale() {
             let fitPoint2 = thisObject.fitFunction(timePoint2)
 
             if (fitPoint1.x === timePoint1.x && fitPoint2.x === timePoint2.x) {
-                drawLabel(labels[1], 1 / 2, 0, 18, 17, FONT_SIZE, thisObject.container, UI_COLOR.GREY, timePoint1.x, undefined)
-                drawLabel(labels[2], 1 / 2, 0, 18, 30, 12, thisObject.container, UI_COLOR.GREY, timePoint1.x, undefined)
+                UI.projects.superalgos.utilities.drawPrint.drawLabel(labels[1], 1 / 2, 0, 18, 17, FONT_SIZE, thisObject.container, UI_COLOR.GREY, timePoint1.x, undefined)
+                UI.projects.superalgos.utilities.drawPrint.drawLabel(labels[2], 1 / 2, 0, 18, 30, 12, thisObject.container, UI_COLOR.GREY, timePoint1.x, undefined)
             }
         }
     }

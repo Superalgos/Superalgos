@@ -140,7 +140,7 @@ function newSuperalgosActionSwitch() {
                         nodeName = '.' + nodeName
                     }
                     let fileName = 'Share - ' + action.node.type + ' - ' + nodeName + '.json'
-                    downloadText(fileName, text)
+                    UI.projects.superalgos.utilities.download.downloadText(fileName, text)
                 }
 
                 break
@@ -155,7 +155,7 @@ function newSuperalgosActionSwitch() {
                         nodeName = ' ' + nodeName
                     }
                     let fileName = 'Backup - ' + action.node.type + ' - ' + nodeName + '.json'
-                    downloadText(fileName, text)
+                    UI.projects.superalgos.utilities.download.downloadText(fileName, text)
                 }
 
                 break
@@ -170,7 +170,7 @@ function newSuperalgosActionSwitch() {
                         nodeName = ' ' + nodeName
                     }
                     let fileName = 'Clone - ' + action.node.type + ' - ' + nodeName + '.json'
-                    downloadText(fileName, text)
+                    UI.projects.superalgos.utilities.download.downloadText(fileName, text)
                 }
 
                 break

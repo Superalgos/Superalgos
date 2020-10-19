@@ -57,8 +57,8 @@
 
             /* Stop listening to the necesary events. */
             thisObject.container.eventHandler.stopListening(onMouseOverEventSuscriptionId)
-            canvas.chartingSpace.viewport.eventHandler.stopListening(zoomChangedEventSubscriptionId);
-            canvas.chartingSpace.viewport.eventHandler.stopListening(offsetChangedEventSubscriptionId);
+            UI.projects.superalgos.spaces.chartingSpace.viewport.eventHandler.stopListening(zoomChangedEventSubscriptionId);
+            UI.projects.superalgos.spaces.chartingSpace.viewport.eventHandler.stopListening(offsetChangedEventSubscriptionId);
             canvas.eventHandler.stopListening(dragFinishedEventSubscriptionId);
             thisObject.container.eventHandler.stopListening(dimmensionsChangedEventSubscriptionId)
             marketFiles.eventHandler.stopListening(marketFilesUpdatedEventSubscriptionId);
@@ -110,8 +110,8 @@
 
             /* Listen to the necesary events. */
 
-            zoomChangedEventSubscriptionId = canvas.chartingSpace.viewport.eventHandler.listenToEvent("Zoom Changed", onViewportZoomChanged);
-            offsetChangedEventSubscriptionId = canvas.chartingSpace.viewport.eventHandler.listenToEvent("Position Changed", onViewportPositionChanged);
+            zoomChangedEventSubscriptionId = UI.projects.superalgos.spaces.chartingSpace.viewport.eventHandler.listenToEvent("Zoom Changed", onViewportZoomChanged);
+            offsetChangedEventSubscriptionId = UI.projects.superalgos.spaces.chartingSpace.viewport.eventHandler.listenToEvent("Position Changed", onViewportPositionChanged);
             dragFinishedEventSubscriptionId = canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
             marketFilesUpdatedEventSubscriptionId = marketFiles.eventHandler.listenToEvent("Files Updated", onMarketFilesUpdated);
             dailyFilesUpdatedEventSubscriptionId = dailyFiles.eventHandler.listenToEvent("Files Updated", onDailyFilesUpdated);
@@ -303,8 +303,8 @@
 
             let daysOnSides = getSideDays(timeFrame);
 
-            let leftDate = getDateFromPointAtBrowserCanvas(canvas.chartingSpace.viewport.visibleArea.topLeft, thisObject.container, coordinateSystem);
-            let rightDate = getDateFromPointAtBrowserCanvas(canvas.chartingSpace.viewport.visibleArea.topRight, thisObject.container, coordinateSystem);
+            let leftDate = getDateFromPointAtBrowserCanvas(UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topLeft, thisObject.container, coordinateSystem);
+            let rightDate = getDateFromPointAtBrowserCanvas(UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topRight, thisObject.container, coordinateSystem);
 
             let dateDiff = rightDate.valueOf() - leftDate.valueOf();
 
@@ -400,8 +400,8 @@
 
             let daysOnSides = getSideDays(timeFrame);
 
-            let leftDate = getDateFromPointAtBrowserCanvas(canvas.chartingSpace.viewport.visibleArea.topLeft, thisObject.container, coordinateSystem);
-            let rightDate = getDateFromPointAtBrowserCanvas(canvas.chartingSpace.viewport.visibleArea.topRight, thisObject.container, coordinateSystem);
+            let leftDate = getDateFromPointAtBrowserCanvas(UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topLeft, thisObject.container, coordinateSystem);
+            let rightDate = getDateFromPointAtBrowserCanvas(UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topRight, thisObject.container, coordinateSystem);
 
             let dateDiff = rightDate.valueOf() - leftDate.valueOf();
 
@@ -470,7 +470,7 @@
         try {
             let elementsPlotted = 0
             let lowResolution = false
-            if (canvas.chartingSpace.viewport.zoomTargetLevel < ZOOM_OUT_THRESHOLD_FOR_PLOTTING_IN_LOW_RESOLUTION) {
+            if (UI.projects.superalgos.spaces.chartingSpace.viewport.zoomTargetLevel < ZOOM_OUT_THRESHOLD_FOR_PLOTTING_IN_LOW_RESOLUTION) {
                 if (candles.length > 100) {
                     lowResolution = true
                 }
@@ -520,7 +520,7 @@
                     /* Skip the first candle with zero at open */
                     if (candle.open === 0) { continue }
 
-                    if (candle.candlePoint2.x < canvas.chartingSpace.viewport.visibleArea.bottomLeft.x || candle.candlePoint1.x > canvas.chartingSpace.viewport.visibleArea.bottomRight.x) {
+                    if (candle.candlePoint2.x < UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomLeft.x || candle.candlePoint1.x > UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomRight.x) {
                         continue
                     }
 
@@ -556,8 +556,8 @@
                     candle.stickPoint3 = transformThisPoint(candle.stickPoint3, thisObject.container);
                     candle.stickPoint4 = transformThisPoint(candle.stickPoint4, thisObject.container);
 
-                    if (canvas.chartingSpace.viewport.zoomTargetLevel < ZOOM_OUT_THRESHOLD_FOR_PACKING_OBJECTS_AT_THE_BOTTOM_OR_TOP_OF_VIEWPORT) {
-                        let diffA = candle.stickPoint3.y - canvas.chartingSpace.viewport.visibleArea.bottomLeft.y
+                    if (UI.projects.superalgos.spaces.chartingSpace.viewport.zoomTargetLevel < ZOOM_OUT_THRESHOLD_FOR_PACKING_OBJECTS_AT_THE_BOTTOM_OR_TOP_OF_VIEWPORT) {
+                        let diffA = candle.stickPoint3.y - UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomLeft.y
                         if (diffA > 0) {
                             candle.candlePoint1.y = candle.candlePoint1.y - diffA
                             candle.candlePoint2.y = candle.candlePoint2.y - diffA
@@ -570,7 +570,7 @@
                             candle.stickPoint4.y = candle.stickPoint4.y - diffA
                         }
 
-                        let diffB = candle.stickPoint1.y - canvas.chartingSpace.viewport.visibleArea.topLeft.y
+                        let diffB = candle.stickPoint1.y - UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topLeft.y
                         if (diffB < 0) {
                             candle.candlePoint1.y = candle.candlePoint1.y - diffB
                             candle.candlePoint2.y = candle.candlePoint2.y - diffB
@@ -584,20 +584,20 @@
                         }
                     }
 
-                    candle.candlePoint1 = canvas.chartingSpace.viewport.fitIntoVisibleArea(candle.candlePoint1);
-                    candle.candlePoint2 = canvas.chartingSpace.viewport.fitIntoVisibleArea(candle.candlePoint2);
-                    candle.candlePoint3 = canvas.chartingSpace.viewport.fitIntoVisibleArea(candle.candlePoint3);
-                    candle.candlePoint4 = canvas.chartingSpace.viewport.fitIntoVisibleArea(candle.candlePoint4);
+                    candle.candlePoint1 = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(candle.candlePoint1);
+                    candle.candlePoint2 = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(candle.candlePoint2);
+                    candle.candlePoint3 = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(candle.candlePoint3);
+                    candle.candlePoint4 = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(candle.candlePoint4);
 
                     candle.candlePoint1 = thisObject.fitFunction(candle.candlePoint1);
                     candle.candlePoint2 = thisObject.fitFunction(candle.candlePoint2);
                     candle.candlePoint3 = thisObject.fitFunction(candle.candlePoint3);
                     candle.candlePoint4 = thisObject.fitFunction(candle.candlePoint4);
 
-                    candle.stickPoint1 = canvas.chartingSpace.viewport.fitIntoVisibleArea(candle.stickPoint1);
-                    candle.stickPoint2 = canvas.chartingSpace.viewport.fitIntoVisibleArea(candle.stickPoint2);
-                    candle.stickPoint3 = canvas.chartingSpace.viewport.fitIntoVisibleArea(candle.stickPoint3);
-                    candle.stickPoint4 = canvas.chartingSpace.viewport.fitIntoVisibleArea(candle.stickPoint4);
+                    candle.stickPoint1 = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(candle.stickPoint1);
+                    candle.stickPoint2 = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(candle.stickPoint2);
+                    candle.stickPoint3 = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(candle.stickPoint3);
+                    candle.stickPoint4 = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(candle.stickPoint4);
 
                     candle.stickPoint1 = thisObject.fitFunction(candle.stickPoint1);
                     candle.stickPoint2 = thisObject.fitFunction(candle.stickPoint2);

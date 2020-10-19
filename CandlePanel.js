@@ -37,8 +37,8 @@ function newMastersPlottersCandlesVolumesCandlesCandlePanel() {
         thisObject.container.frame.width = UI_PANEL.WIDTH.NORMAL;
         thisObject.container.frame.height = UI_PANEL.HEIGHT.NORMAL;
 
-        thisObject.container.frame.position.x = canvas.chartingSpace.viewport.visibleArea.topRight.x - thisObject.container.frame.width * 2;
-        thisObject.container.frame.position.y = canvas.chartingSpace.viewport.visibleArea.bottomLeft.y - thisObject.container.frame.height;
+        thisObject.container.frame.position.x = UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topRight.x - thisObject.container.frame.width * 2;
+        thisObject.container.frame.position.y = UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomLeft.y - thisObject.container.frame.height;
 
         upDownButton = newUpDownButton()
         upDownButton.parentContainer = thisObject.container

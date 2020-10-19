@@ -17,7 +17,7 @@ function newNodesInfos() {
 
     function initialize(pRootNode) {
         let rootNode = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsById(pRootNode.id)
-        hiriarchyMap = getHiriarchyMap(rootNode)
+        hiriarchyMap = UI.projects.superalgos.utilities.hierarchy.getHiriarchyMap(rootNode)
     }
 
     function onRecordChange(currentRecord) {

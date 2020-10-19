@@ -494,7 +494,7 @@ function newSuperalgosActionSwitch() {
                         if (definition.docURL !== undefined) {
                             UI.projects.superalgos.spaces.docSpace.navigateTo(definition.docURL)
                         } else {
-                            let headName = getHiriarchyHead(action.node).type
+                            let headName = UI.projects.superalgos.utilities.hierarchy.getHiriarchyHead(action.node).type
                             headName = headName.toLowerCase()
                             headName = headName.split(" ").join("-")
                             let nodeName = action.node.type

@@ -78,7 +78,7 @@ function newLayersPanel() {
         }
 
         thisObject.container.frame.position = position
-        loadFrame(thisObject.payload, thisObject.container.frame)
+        UI.projects.superalgos.utilities.loadSaveFrame.loadFrame(thisObject.payload, thisObject.container.frame)
 
         thisObject.upDownButton = newUpDownButton()
         thisObject.upDownButton.parentContainer = thisObject.container
@@ -346,7 +346,7 @@ function newLayersPanel() {
 
         thisObject.upDownButton.physics()
         thisObject.leftRightButton.physics()
-        saveFrame(thisObject.payload, thisObject.container.frame)
+        UI.projects.superalgos.utilities.loadSaveFrame.saveFrame(thisObject.payload, thisObject.container.frame)
         syncWithConfigPhysics()
 
         /*

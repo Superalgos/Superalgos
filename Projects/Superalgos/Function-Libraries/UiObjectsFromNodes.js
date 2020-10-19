@@ -609,7 +609,7 @@ function newUiObjectsFromNodes() {
                 frame.width = node.savedPayload.frame.width
                 frame.height = node.savedPayload.frame.height
                 frame.radius = node.savedPayload.frame.radius
-                saveFrame(payload, frame)
+                UI.projects.superalgos.utilities.loadSaveFrame.saveFrame(payload, frame)
             }
             if (node.savedPayload.tutorial !== undefined) {
                 let tutorial = {

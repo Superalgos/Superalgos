@@ -86,7 +86,7 @@ function newViewport() {
                     y: 0
                 }
             }
-            loadFrame(thisObject.payload, frame)
+            UI.projects.superalgos.utilities.loadSaveFrame.loadFrame(thisObject.payload, frame)
             if (!isNaN(frame.position.x)) {
                 position.x = frame.position.x
             }
@@ -177,7 +177,7 @@ function newViewport() {
         /* Save the position at the frame lavel */
         let frame = {}
         frame.position = position
-        saveFrame(thisObject.payload, frame)
+        UI.projects.superalgos.utilities.loadSaveFrame.saveFrame(thisObject.payload, frame)
     }
 
     function animationPhysics() {

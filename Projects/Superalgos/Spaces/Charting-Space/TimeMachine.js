@@ -141,9 +141,9 @@ function newTimeMachine() {
 
     function initialize(callBackFunction) {
         timeFrame = INITIAL_TIME_PERIOD
-        loadFrame(thisObject.payload, thisObject.container.frame)
+        UI.projects.superalgos.utilities.loadSaveFrame.loadFrame(thisObject.payload, thisObject.container.frame)
         setInitialPosition()
-        saveFrame(thisObject.payload, thisObject.container.frame)
+        UI.projects.superalgos.utilities.loadSaveFrame.saveFrame(thisObject.payload, thisObject.container.frame)
 
         recalculateCoordinateSystem()
         recalculateCurrentDatetime()
@@ -383,7 +383,7 @@ function newTimeMachine() {
         thisObject.edgeEditor.physics()
         timeMachineCoordinateSystem.physics()
 
-        saveFrame(thisObject.payload, thisObject.container.frame)
+        UI.projects.superalgos.utilities.loadSaveFrame.saveFrame(thisObject.payload, thisObject.container.frame)
         if (thisObject.container.frame.isInViewPort()) {
             childrenPhysics()
             syncWithDesigner()

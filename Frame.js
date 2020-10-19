@@ -290,7 +290,7 @@ function newFrame() {
             fitFunction: fitFunction
         }
 
-        roundedCornersBackground(params)
+        UI.projects.superalgos.utilities.drawPrint.roundedCornersBackground(params)
 
         titleBarPoint1 = {
             x: 0,

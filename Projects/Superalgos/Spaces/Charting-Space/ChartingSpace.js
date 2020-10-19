@@ -165,11 +165,19 @@ function newSuperalgosChartingSpace() {
         }
         if (containerFound !== undefined) {
             containerFound.space = 'Charting Space'
+            if (purpose === GET_CONTAINER_PURPOSE.MOUSE_WHEEL && containerFound.isWheelable !== true) {
+                UI.projects.superalgos.spaces.chartingSpace.viewport.onMouseWheel(event)
+                return
+            }
             return containerFound
         }
 
         if (thisObject.container.frame.isThisPointHere(point, true) === true) {
             thisObject.container.space = 'Charting Space'
+            if (purpose === GET_CONTAINER_PURPOSE.MOUSE_WHEEL && thisObject.container.isWheelable !== true) {
+                UI.projects.superalgos.spaces.chartingSpace.viewport.onMouseWheel(event)
+                return
+            }
             return thisObject.container
         } else {
             return undefined

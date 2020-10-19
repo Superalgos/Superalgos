@@ -504,8 +504,8 @@ function newPlotter() {
                 beginPoint = coordinateSystem.transformThisPoint(beginPoint)
                 endPoint = coordinateSystem.transformThisPoint(endPoint)
 
-                beginPoint = transformThisPoint(beginPoint, thisObject.container)
-                endPoint = transformThisPoint(endPoint, thisObject.container)
+                beginPoint = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(beginPoint, thisObject.container)
+                endPoint = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(endPoint, thisObject.container)
 
                 beginPoint = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(beginPoint)
                 endPoint = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(endPoint)
@@ -567,7 +567,7 @@ function newPlotter() {
                                 */
                                 let dataPoint
                                 dataPoint = coordinateSystem.transformThisPoint(rawPoint)
-                                dataPoint = transformThisPoint(dataPoint, thisObject.container)
+                                dataPoint = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(dataPoint, thisObject.container)
                                 let testPoint = {
                                     x: dataPoint.x,
                                     y: dataPoint.y

@@ -240,7 +240,7 @@ function newEdgeEditor() {
                 x: event.x,
                 y: event.y
             }
-            point = unTransformThisPoint(point, thisObject.container)
+            point = UI.projects.superalgos.utilities.coordinateTransformations.unTransformThisPoint(point, thisObject.container)
 
             if (point.x <= 0) {
                 whereIsMouseOver = 'left'
@@ -610,15 +610,15 @@ function newEdgeEditor() {
             y: thisObject.container.frame.height
         }
 
-        pointA1 = transformThisPoint(pointA1, thisObject.container)
-        pointA2 = transformThisPoint(pointA2, thisObject.container)
-        pointA3 = transformThisPoint(pointA3, thisObject.container)
-        pointA4 = transformThisPoint(pointA4, thisObject.container)
+        pointA1 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(pointA1, thisObject.container)
+        pointA2 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(pointA2, thisObject.container)
+        pointA3 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(pointA3, thisObject.container)
+        pointA4 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(pointA4, thisObject.container)
 
-        pointB1 = transformThisPoint(pointB1, thisObject.container)
-        pointB2 = transformThisPoint(pointB2, thisObject.container)
-        pointB3 = transformThisPoint(pointB3, thisObject.container)
-        pointB4 = transformThisPoint(pointB4, thisObject.container)
+        pointB1 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(pointB1, thisObject.container)
+        pointB2 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(pointB2, thisObject.container)
+        pointB3 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(pointB3, thisObject.container)
+        pointB4 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(pointB4, thisObject.container)
 
         pointA1 = {
             x: pointA1.x - MARGIN,

@@ -402,8 +402,8 @@ function newRateScale() {
             y: limitingContainer.frame.height
         }
 
-        upCorner = transformThisPoint(upCorner, limitingContainer)
-        bottonCorner = transformThisPoint(bottonCorner, limitingContainer)
+        upCorner = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(upCorner, limitingContainer)
+        bottonCorner = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(bottonCorner, limitingContainer)
 
         upCorner = limitingContainer.fitFunction(upCorner, true)
         bottonCorner = limitingContainer.fitFunction(bottonCorner, true)
@@ -448,7 +448,7 @@ function newRateScale() {
             y: 0
         }
 
-        ratePoint = transformThisPoint(ratePoint, limitingContainer.frame.container)
+        ratePoint = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(ratePoint, limitingContainer.frame.container)
         ratePoint.y = canvas.mouse.position.y - thisObject.container.frame.height / 2 + thisObject.container.frame.height
 
         /* Checking against the container limits. */

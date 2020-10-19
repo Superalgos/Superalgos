@@ -236,8 +236,8 @@ function newTimeScale() {
             y: limitingContainer.frame.height
         }
 
-        upCorner = transformThisPoint(upCorner, limitingContainer)
-        bottonCorner = transformThisPoint(bottonCorner, limitingContainer)
+        upCorner = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(upCorner, limitingContainer)
+        bottonCorner = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(bottonCorner, limitingContainer)
 
         upCorner = limitingContainer.fitFunction(upCorner, true)
         bottonCorner = limitingContainer.fitFunction(bottonCorner, true)
@@ -258,7 +258,7 @@ function newTimeScale() {
             y: 0
         }
 
-        timePoint = transformThisPoint(timePoint, limitingContainer.frame.container)
+        timePoint = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(timePoint, limitingContainer.frame.container)
         timePoint.x = canvas.mouse.position.x - thisObject.container.frame.width / 2
 
         /* Checking against the container limits. */

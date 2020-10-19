@@ -361,8 +361,8 @@ function newTimeMachine() {
             y: thisObject.container.frame.height
         }
 
-        upCorner = transformThisPoint(upCorner, thisObject.container)
-        bottonCorner = transformThisPoint(bottonCorner, thisObject.container)
+        upCorner = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(upCorner, thisObject.container)
+        bottonCorner = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(bottonCorner, thisObject.container)
 
         /* Checking against the container limits. */
         if (margin === undefined) { margin = 0 }
@@ -611,7 +611,7 @@ function newTimeMachine() {
                             y: thisObject.container.frame.height / 2
                         }
 
-                        imagePosition = transformThisPoint(imagePosition, thisObject.container)
+                        imagePosition = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(imagePosition, thisObject.container)
                         imagePosition = thisObject.fitFunction(imagePosition, true)
 
                         browserCanvasContext.drawImage(
@@ -657,7 +657,7 @@ function newTimeMachine() {
         let opacity = 1
         let icon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.payload.node.type)
 
-        position = transformThisPoint(position, thisObject.container)
+        position = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(position, thisObject.container)
 
         let label = thisObject.payload.node.name
         let description = loadPropertyFromNodeConfig(thisObject.payload, 'description')
@@ -776,7 +776,7 @@ function newTimeMachine() {
                 x: x,
                 y: y
             }
-            point = transformThisPoint(point, container)
+            point = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(point, container)
 
             let point1 = {
                 x: point.x + X_OFFSET,

@@ -40,10 +40,10 @@ function newSuperalgosDrawPrint() {
             borderPoint4 = params.coordinateSystem.transformThisPoint(borderPoint4)
         } else {
             if (params.outsideViewPort === true) { // If the element is not affected by zoom
-                borderPoint1 = transformThisPoint(borderPoint1, params.container)
-                borderPoint2 = transformThisPoint(borderPoint2, params.container)
-                borderPoint3 = transformThisPoint(borderPoint3, params.container)
-                borderPoint4 = transformThisPoint(borderPoint4, params.container)
+                borderPoint1 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(borderPoint1, params.container)
+                borderPoint2 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(borderPoint2, params.container)
+                borderPoint3 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(borderPoint3, params.container)
+                borderPoint4 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(borderPoint4, params.container)
             } else { // For instance Panels use this
                 borderPoint1 = params.container.frame.frameThisPoint(borderPoint1)
                 borderPoint2 = params.container.frame.frameThisPoint(borderPoint2)
@@ -173,8 +173,8 @@ function newSuperalgosDrawPrint() {
             y: container.frame.height
         }
 
-        fromPoint = transformThisPoint(fromPoint, container)
-        toPoint = transformThisPoint(toPoint, container)
+        fromPoint = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(fromPoint, container)
+        toPoint = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(toPoint, container)
 
         fromPoint = fitFunction(fromPoint)
         toPoint = fitFunction(toPoint)

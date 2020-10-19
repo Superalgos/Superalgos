@@ -12,7 +12,7 @@ function newSuperalgosDateRateTransformations() {
     return thisObject
 
     function getDateFromPointAtBrowserCanvas(point, container, coordinateSystem) {
-        point = unTransformThisPoint(point, container)
+        point = UI.projects.superalgos.utilities.coordinateTransformations.unTransformThisPoint(point, container)
         point = coordinateSystem.unInverseTransform(point, container.frame.height)
 
         let date = new Date(point.x)
@@ -38,7 +38,7 @@ function newSuperalgosDateRateTransformations() {
     }
 
     function getRateFromPointAtBrowserCanvas(point, container, coordinateSystem) {
-        point = unTransformThisPoint(point, container)
+        point = UI.projects.superalgos.utilities.coordinateTransformations.unTransformThisPoint(point, container)
         point = coordinateSystem.unInverseTransform(point, container.frame.height)
 
         return point.y
@@ -58,7 +58,7 @@ function newSuperalgosDateRateTransformations() {
     }
 
     function getMilisecondsFromPoint(point, container, coordinateSystem) {
-        point = unTransformThisPoint(point, container)
+        point = UI.projects.superalgos.utilities.coordinateTransformations.unTransformThisPoint(point, container)
         point = coordinateSystem.unInverseTransform(point, container.frame.height)
 
         return point.x

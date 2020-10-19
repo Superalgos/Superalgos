@@ -261,7 +261,7 @@ function newCoordinateSystem() {
     }
 
     function zoomX(factor, mousePosition, container) {
-        let mouseAtCointainer = unTransformThisPoint(mousePosition, container)
+        let mouseAtCointainer = UI.projects.superalgos.utilities.coordinateTransformations.unTransformThisPoint(mousePosition, container)
         let leftDistance = mouseAtCointainer.x
         let rightDistance = container.frame.width - mouseAtCointainer.x
         let diff = thisObject.max.x - thisObject.min.x
@@ -285,7 +285,7 @@ function newCoordinateSystem() {
     }
 
     function zoomY(factor, mousePosition, container) {
-        let mouseAtCointainer = unTransformThisPoint(mousePosition, container)
+        let mouseAtCointainer = UI.projects.superalgos.utilities.coordinateTransformations.unTransformThisPoint(mousePosition, container)
         let topDistance = mouseAtCointainer.y
         let bottomDistance = container.frame.height - mouseAtCointainer.y
         let diff = thisObject.max.y - thisObject.min.y

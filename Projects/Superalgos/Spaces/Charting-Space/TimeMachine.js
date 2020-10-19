@@ -335,7 +335,7 @@ function newTimeMachine() {
             y: thisObject.container.frame.height / 2
         }
 
-        datetime = new Date(getDateFromPointAtContainer(center, thisObject.container, timeMachineCoordinateSystem))
+        datetime = new Date(UI.projects.superalgos.utilities.dateRateTransformations.getDateFromPointAtContainer(center, thisObject.container, timeMachineCoordinateSystem))
 
         for (let i = 0; i < thisObject.timelineCharts.length; i++) {
             let timelineChart = thisObject.timelineCharts[i]

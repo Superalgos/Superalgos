@@ -148,20 +148,20 @@ function newPlotter() {
     }
 
     function onMouseOver(event) {
-        let userPosition = getDateFromPointAtBrowserCanvas(event, thisObject.container, coordinateSystem)
+        let userPosition = UI.projects.superalgos.utilities.dateRateTransformations.getDateFromPointAtBrowserCanvas(event, thisObject.container, coordinateSystem)
         userPositionDate = userPosition.valueOf()
 
         let minPositionPoint = {
             x: event.x,
             y: event.y + 4
         }
-        minUserPositionRate = getRateFromPointAtBrowserCanvas(minPositionPoint, thisObject.container, coordinateSystem)
+        minUserPositionRate = UI.projects.superalgos.utilities.dateRateTransformations.getRateFromPointAtBrowserCanvas(minPositionPoint, thisObject.container, coordinateSystem)
 
         let maxPositionPoint = {
             x: event.x,
             y: event.y - 4
         }
-        maxUserPositionRate = getRateFromPointAtBrowserCanvas(maxPositionPoint, thisObject.container, coordinateSystem)
+        maxUserPositionRate = UI.projects.superalgos.utilities.dateRateTransformations.getRateFromPointAtBrowserCanvas(maxPositionPoint, thisObject.container, coordinateSystem)
     }
 
     function onMarketFilesUpdated() {
@@ -393,8 +393,8 @@ function newPlotter() {
 
             let daysOnSides = getSideDays(timeFrame)
 
-            let leftDate = getDateFromPointAtBrowserCanvas(UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topLeft, thisObject.container, coordinateSystem)
-            let rightDate = getDateFromPointAtBrowserCanvas(UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topRight, thisObject.container, coordinateSystem)
+            let leftDate = UI.projects.superalgos.utilities.dateRateTransformations.getDateFromPointAtBrowserCanvas(UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topLeft, thisObject.container, coordinateSystem)
+            let rightDate = UI.projects.superalgos.utilities.dateRateTransformations.getDateFromPointAtBrowserCanvas(UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topRight, thisObject.container, coordinateSystem)
 
             let dateDiff = rightDate.valueOf() - leftDate.valueOf()
 
@@ -440,8 +440,8 @@ function newPlotter() {
 
             let daysOnSides = getSideDays(timeFrame)
 
-            let leftDate = getDateFromPointAtBrowserCanvas(UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topLeft, thisObject.container, coordinateSystem)
-            let rightDate = getDateFromPointAtBrowserCanvas(UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topRight, thisObject.container, coordinateSystem)
+            let leftDate = UI.projects.superalgos.utilities.dateRateTransformations.getDateFromPointAtBrowserCanvas(UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topLeft, thisObject.container, coordinateSystem)
+            let rightDate = UI.projects.superalgos.utilities.dateRateTransformations.getDateFromPointAtBrowserCanvas(UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topRight, thisObject.container, coordinateSystem)
 
             let dateDiff = rightDate.valueOf() - leftDate.valueOf()
 

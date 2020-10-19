@@ -338,7 +338,7 @@ function newRateScale() {
             y: (-dragVectorWhenDragStarted.y)
         }
 
-        let newMaxRate = getRateFromPointAtContainer(point, limitingContainer, coordinateSystemWhenDragStarted)
+        let newMaxRate = UI.projects.superalgos.utilities.dateRateTransformations.getRateFromPointAtContainer(point, limitingContainer, coordinateSystemWhenDragStarted)
         let yDifferenceMaxMin = coordinateSystemWhenDragStarted.max.y - coordinateSystemWhenDragStarted.min.y
 
         coordinateSystem.min.y = newMaxRate - yDifferenceMaxMin
@@ -358,7 +358,7 @@ function newRateScale() {
                 x: event.dragVector.x,
                 y: -event.dragVector.y
             }
-            let newMaxRate = getRateFromPointAtContainer(point, rateCalculationsContainer, coordinateSystem)
+            let newMaxRate = UI.projects.superalgos.utilities.dateRateTransformations.getRateFromPointAtContainer(point, rateCalculationsContainer, coordinateSystem)
             let yDifferenceMaxMin = coordinateSystem.max.y - coordinateSystem.min.y
             coordinateSystem.min.y = newMaxRate - yDifferenceMaxMin
             coordinateSystem.max.y = newMaxRate
@@ -370,7 +370,7 @@ function newRateScale() {
                 x: event.dragVector.x,
                 y: event.dragVector.y
             }
-            let newMaxRate = getRateFromPointAtContainer(point, rateCalculationsContainer, coordinateSystem)
+            let newMaxRate = UI.projects.superalgos.utilities.dateRateTransformations.getRateFromPointAtContainer(point, rateCalculationsContainer, coordinateSystem)
 
             coordinateSystem.max.y = newMaxRate
             coordinateSystem.maxHeight = rateCalculationsContainer.frame.height
@@ -381,7 +381,7 @@ function newRateScale() {
                 x: event.dragVector.x,
                 y: event.dragVector.y + rateCalculationsContainer.frame.height
             }
-            let newMinRate = getRateFromPointAtContainer(point, rateCalculationsContainer, coordinateSystem)
+            let newMinRate = UI.projects.superalgos.utilities.dateRateTransformations.getRateFromPointAtContainer(point, rateCalculationsContainer, coordinateSystem)
 
             coordinateSystem.min.y = newMinRate
             coordinateSystem.maxHeight = rateCalculationsContainer.frame.height
@@ -440,7 +440,7 @@ function newRateScale() {
             y: canvas.mouse.position.y
         }
 
-        thisObject.rate = getRateFromPointAtBrowserCanvas(ratePoint, rateCalculationsContainer, coordinateSystem)
+        thisObject.rate = UI.projects.superalgos.utilities.dateRateTransformations.getRateFromPointAtBrowserCanvas(ratePoint, rateCalculationsContainer, coordinateSystem)
 
         /* rateScale Positioning */
         ratePoint = {
@@ -513,7 +513,7 @@ function newRateScale() {
                 y: TOP_SPACE_HEIGHT + SEPARATION * (i + 0)
             }
 
-            let rate = getRateFromPointAtBrowserCanvas(ratePoint1, rateCalculationsContainer, coordinateSystem)
+            let rate = UI.projects.superalgos.utilities.dateRateTransformations.getRateFromPointAtBrowserCanvas(ratePoint1, rateCalculationsContainer, coordinateSystem)
             let labels = scaleLabels(rate)
             let decimalsDisplace = labels[1].length * FONT_SIZE * FONT_ASPECT_RATIO
 

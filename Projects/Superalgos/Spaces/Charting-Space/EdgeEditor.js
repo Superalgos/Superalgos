@@ -326,8 +326,8 @@ function newEdgeEditor() {
                             y: (-dragVectorWhenDragStarted.y)
                         }
 
-                        let newMinDate = getDateFromPointAtContainer(point, thisObject.container.parentContainer, coordinateSystemWhenDragStarted)
-                        let newMaxRate = getRateFromPointAtContainer(point, thisObject.container.parentContainer, coordinateSystemWhenDragStarted)
+                        let newMinDate = UI.projects.superalgos.utilities.dateRateTransformations.getDateFromPointAtContainer(point, thisObject.container.parentContainer, coordinateSystemWhenDragStarted)
+                        let newMaxRate = UI.projects.superalgos.utilities.dateRateTransformations.getRateFromPointAtContainer(point, thisObject.container.parentContainer, coordinateSystemWhenDragStarted)
 
                         let xDifferenceMaxMin = coordinateSystemWhenDragStarted.max.x - coordinateSystemWhenDragStarted.min.x
                         let yDifferenceMaxMin = coordinateSystemWhenDragStarted.max.y - coordinateSystemWhenDragStarted.min.y
@@ -348,7 +348,7 @@ function newEdgeEditor() {
                             y: 0
                         }
 
-                        let newMinDate = getDateFromPointAtContainer(point, thisObject.container.parentContainer, coordinateSystem)
+                        let newMinDate = UI.projects.superalgos.utilities.dateRateTransformations.getDateFromPointAtContainer(point, thisObject.container.parentContainer, coordinateSystem)
                         let xDifferenceMaxMin = coordinateSystem.max.x - coordinateSystem.min.x
                         coordinateSystem.min.x = newMinDate.valueOf()
                         coordinateSystem.max.x = newMinDate.valueOf() + xDifferenceMaxMin
@@ -365,7 +365,7 @@ function newEdgeEditor() {
                             y: -dragVector.y + thisObject.container.frame.height * coordinateSystem.VERTICAL_MARGIN_INVERSE_FACTOR / 2
                         }
 
-                        let newMaxRate = getRateFromPointAtContainer(point, thisObject.container.parentContainer, coordinateSystem)
+                        let newMaxRate = UI.projects.superalgos.utilities.dateRateTransformations.getRateFromPointAtContainer(point, thisObject.container.parentContainer, coordinateSystem)
                         let yDifferenceMaxMin = coordinateSystem.max.y - coordinateSystem.min.y
                         coordinateSystem.min.y = newMaxRate - yDifferenceMaxMin
                         coordinateSystem.max.y = newMaxRate
@@ -397,7 +397,7 @@ function newEdgeEditor() {
                     y: (thisObject.container.parentContainer.frame.position.y - parentFrameWhenDragStarted.position.y)
                 }
 
-                /* This is equivalent to getRateFromPointAtContainer, but as we do not have a container anymore because we already change it, we do it like this. */
+                /* This is equivalent to UI.projects.superalgos.utilities.dateRateTransformations.getRateFromPointAtContainer, but as we do not have a container anymore because we already change it, we do it like this. */
                 point = coordinateSystemWhenDragStarted.unInverseTransform(point, parentFrameWhenDragStarted.height)
                 let newMaxRate = point.y
 
@@ -438,7 +438,7 @@ function newEdgeEditor() {
 
                 thisObject.container.parentContainer.frame.height = point.y
 
-                /* This is equivalent to getRateFromPointAtContainer, but as we do not have a container anymore because we already change it, we do it like this. */
+                /* This is equivalent to UI.projects.superalgos.utilities.dateRateTransformations.getRateFromPointAtContainer, but as we do not have a container anymore because we already change it, we do it like this. */
                 point = coordinateSystemWhenDragStarted.unInverseTransform(point, parentFrameWhenDragStarted.height)
                 let newMinRate = point.y
 
@@ -479,7 +479,7 @@ function newEdgeEditor() {
                     y: 0
                 }
 
-                /* This is equivalent to getDateFromPointAtContainer, but as we do not have a container anymore because we already change it, we do it like this. */
+                /* This is equivalent to UI.projects.superalgos.utilities.dateRateTransformations.getDateFromPointAtContainer, but as we do not have a container anymore because we already change it, we do it like this. */
                 point = coordinateSystemWhenDragStarted.unInverseTransform(point, parentFrameWhenDragStarted.width)
                 let newMinDate = point.x
 
@@ -516,7 +516,7 @@ function newEdgeEditor() {
 
                 thisObject.container.parentContainer.frame.width = point.x
 
-                /* This is equivalent to getRateFromPointAtContainer, but as we do not have a container anymore because we already change it, we do it like this. */
+                /* This is equivalent to UI.projects.superalgos.utilities.dateRateTransformations.getRateFromPointAtContainer, but as we do not have a container anymore because we already change it, we do it like this. */
                 point = coordinateSystemWhenDragStarted.unInverseTransform(point, parentFrameWhenDragStarted.width)
                 let newMaxDate = point.x
 

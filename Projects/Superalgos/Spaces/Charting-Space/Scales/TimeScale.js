@@ -248,7 +248,7 @@ function newTimeScale() {
             y: 0
         }
 
-        let mouseDate = getDateFromPointAtBrowserCanvas(timePoint, limitingContainer, coordinateSystem)
+        let mouseDate = UI.projects.superalgos.utilities.dateRateTransformations.getDateFromPointAtBrowserCanvas(timePoint, limitingContainer, coordinateSystem)
 
         thisObject.date = new Date(mouseDate)
 
@@ -297,7 +297,7 @@ function newTimeScale() {
                 y: 0
             }
 
-            let time = getDateFromPointAtBrowserCanvas(timePoint, limitingContainer, coordinateSystem)
+            let time = UI.projects.superalgos.utilities.dateRateTransformations.getDateFromPointAtBrowserCanvas(timePoint, limitingContainer, coordinateSystem)
             let labels = scaleLabels(time, true)
             let labelDisplace = labels[1].length * FONT_SIZE * FONT_ASPECT_RATIO
 

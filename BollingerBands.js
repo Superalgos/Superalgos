@@ -525,12 +525,12 @@
                     bandPoint5 = coordinateSystem.transformThisPoint(bandPoint5);
                     bandPoint6 = coordinateSystem.transformThisPoint(bandPoint6);
 
-                    bandPoint1 = transformThisPoint(bandPoint1, thisObject.container);
-                    bandPoint2 = transformThisPoint(bandPoint2, thisObject.container);
-                    bandPoint3 = transformThisPoint(bandPoint3, thisObject.container);
-                    bandPoint4 = transformThisPoint(bandPoint4, thisObject.container);
-                    bandPoint5 = transformThisPoint(bandPoint5, thisObject.container);
-                    bandPoint6 = transformThisPoint(bandPoint6, thisObject.container);
+                    bandPoint1 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(bandPoint1, thisObject.container);
+                    bandPoint2 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(bandPoint2, thisObject.container);
+                    bandPoint3 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(bandPoint3, thisObject.container);
+                    bandPoint4 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(bandPoint4, thisObject.container);
+                    bandPoint5 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(bandPoint5, thisObject.container);
+                    bandPoint6 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(bandPoint6, thisObject.container);
 
                     if (bandPoint2.x < UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomLeft.x || bandPoint1.x > UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomRight.x) {
                         continue;

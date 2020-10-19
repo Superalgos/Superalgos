@@ -524,8 +524,8 @@
 
                 /* Now the transformations. */
 
-                frameCorner1 = transformThisPoint(frameCorner1, thisObject.container.frame.container);
-                frameCorner2 = transformThisPoint(frameCorner2, thisObject.container.frame.container);
+                frameCorner1 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(frameCorner1, thisObject.container.frame.container);
+                frameCorner2 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(frameCorner2, thisObject.container.frame.container);
 
                 let frameHeightInViewPort = frameCorner2.y - frameCorner1.y;
                 let pbChartHeight = 20;
@@ -637,19 +637,19 @@
                         pbPoint9 = plot.transformThisPoint(pbPoint9);
                         pbPoint10 = plot.transformThisPoint(pbPoint10);
 
-                        pbPoint1 = transformThisPoint(pbPoint1, thisObject.container);
-                        pbPoint2 = transformThisPoint(pbPoint2, thisObject.container);
+                        pbPoint1 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(pbPoint1, thisObject.container);
+                        pbPoint2 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(pbPoint2, thisObject.container);
 
-                        pbPoint3 = transformThisPoint(pbPoint3, thisObject.container);
-                        pbPoint4 = transformThisPoint(pbPoint4, thisObject.container);
-                        pbPoint5 = transformThisPoint(pbPoint5, thisObject.container);
-                        pbPoint6 = transformThisPoint(pbPoint6, thisObject.container);
+                        pbPoint3 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(pbPoint3, thisObject.container);
+                        pbPoint4 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(pbPoint4, thisObject.container);
+                        pbPoint5 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(pbPoint5, thisObject.container);
+                        pbPoint6 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(pbPoint6, thisObject.container);
 
-                        pbPoint7 = transformThisPoint(pbPoint7, thisObject.container);
-                        pbPoint8 = transformThisPoint(pbPoint8, thisObject.container);
+                        pbPoint7 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(pbPoint7, thisObject.container);
+                        pbPoint8 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(pbPoint8, thisObject.container);
 
-                        pbPoint9 = transformThisPoint(pbPoint9, thisObject.container);
-                        pbPoint10 = transformThisPoint(pbPoint10, thisObject.container);
+                        pbPoint9 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(pbPoint9, thisObject.container);
+                        pbPoint10 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(pbPoint10, thisObject.container);
 
                         if (pbPoint1.x < UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomLeft.x || pbPoint2.x > UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomRight.x) {
                             return false;

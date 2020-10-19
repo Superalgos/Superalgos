@@ -512,10 +512,10 @@
                     candle.candlePoint3 = coordinateSystem.transformThisPoint(candle.candlePoint3);
                     candle.candlePoint4 = coordinateSystem.transformThisPoint(candle.candlePoint4);
 
-                    candle.candlePoint1 = transformThisPoint(candle.candlePoint1, thisObject.container);
-                    candle.candlePoint2 = transformThisPoint(candle.candlePoint2, thisObject.container);
-                    candle.candlePoint3 = transformThisPoint(candle.candlePoint3, thisObject.container);
-                    candle.candlePoint4 = transformThisPoint(candle.candlePoint4, thisObject.container);
+                    candle.candlePoint1 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(candle.candlePoint1, thisObject.container);
+                    candle.candlePoint2 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(candle.candlePoint2, thisObject.container);
+                    candle.candlePoint3 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(candle.candlePoint3, thisObject.container);
+                    candle.candlePoint4 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(candle.candlePoint4, thisObject.container);
 
                     /* Skip the first candle with zero at open */
                     if (candle.open === 0) { continue }
@@ -551,10 +551,10 @@
                     candle.stickPoint3 = coordinateSystem.transformThisPoint(candle.stickPoint3);
                     candle.stickPoint4 = coordinateSystem.transformThisPoint(candle.stickPoint4);
 
-                    candle.stickPoint1 = transformThisPoint(candle.stickPoint1, thisObject.container);
-                    candle.stickPoint2 = transformThisPoint(candle.stickPoint2, thisObject.container);
-                    candle.stickPoint3 = transformThisPoint(candle.stickPoint3, thisObject.container);
-                    candle.stickPoint4 = transformThisPoint(candle.stickPoint4, thisObject.container);
+                    candle.stickPoint1 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(candle.stickPoint1, thisObject.container);
+                    candle.stickPoint2 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(candle.stickPoint2, thisObject.container);
+                    candle.stickPoint3 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(candle.stickPoint3, thisObject.container);
+                    candle.stickPoint4 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(candle.stickPoint4, thisObject.container);
 
                     if (UI.projects.superalgos.spaces.chartingSpace.viewport.zoomTargetLevel < ZOOM_OUT_THRESHOLD_FOR_PACKING_OBJECTS_AT_THE_BOTTOM_OR_TOP_OF_VIEWPORT) {
                         let diffA = candle.stickPoint3.y - UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomLeft.y

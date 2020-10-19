@@ -460,8 +460,8 @@
 
                 /* Now the transformations. */
 
-                frameCorner1 = transformThisPoint(frameCorner1, thisObject.container.frame.container);
-                frameCorner2 = transformThisPoint(frameCorner2, thisObject.container.frame.container);
+                frameCorner1 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(frameCorner1, thisObject.container.frame.container);
+                frameCorner2 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(frameCorner2, thisObject.container.frame.container);
 
                 let frameHeightInViewPort = frameCorner2.y - frameCorner1.y;
 
@@ -503,10 +503,10 @@
                             volumePointA3 = plot.transformThisPoint(volumePointA3);
                             volumePointA4 = plot.transformThisPoint(volumePointA4);
 
-                            volumePointA1 = transformThisPoint(volumePointA1, thisObject.container);
-                            volumePointA2 = transformThisPoint(volumePointA2, thisObject.container);
-                            volumePointA3 = transformThisPoint(volumePointA3, thisObject.container);
-                            volumePointA4 = transformThisPoint(volumePointA4, thisObject.container);
+                            volumePointA1 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(volumePointA1, thisObject.container);
+                            volumePointA2 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(volumePointA2, thisObject.container);
+                            volumePointA3 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(volumePointA3, thisObject.container);
+                            volumePointA4 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(volumePointA4, thisObject.container);
 
                             let baseIncrement = (volumePointA3.x - volumePointA1.x) * WIDHTER_VOLUME_BAR_BASE_FACTOR;
 
@@ -563,10 +563,10 @@
                             volumePointB3 = plot.transformThisPoint2(volumePointB3);
                             volumePointB4 = plot.transformThisPoint2(volumePointB4);
 
-                            volumePointB1 = transformThisPoint(volumePointB1, thisObject.container);
-                            volumePointB2 = transformThisPoint(volumePointB2, thisObject.container);
-                            volumePointB3 = transformThisPoint(volumePointB3, thisObject.container);
-                            volumePointB4 = transformThisPoint(volumePointB4, thisObject.container);
+                            volumePointB1 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(volumePointB1, thisObject.container);
+                            volumePointB2 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(volumePointB2, thisObject.container);
+                            volumePointB3 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(volumePointB3, thisObject.container);
+                            volumePointB4 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(volumePointB4, thisObject.container);
                         }
 
                         calculateSells(coordinateSystem, thisObject.container.frame.height); // We try to see if it fits in the visible area.

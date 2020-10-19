@@ -54,14 +54,14 @@ function moveToUserPosition(container, currentDate, currentRate, coordinateSyste
         y: currentRate
     }
 
-    /* Put this point in the coordinate system of the canvas.chartingSpace.viewport */
+    /* Put this point in the coordinate system of the UI.projects.superalgos.spaces.chartingSpace.viewport */
     targetPoint = coordinateSystem.transformThisPoint(targetPoint)
     targetPoint = transformThisPoint(targetPoint, container)
 
     let displaceVector
 
-    let targetNoZoom = canvas.chartingSpace.viewport.unTransformThisPoint(targetPoint)
-    let mouseNoZoom = canvas.chartingSpace.viewport.unTransformThisPoint(mousePosition)
+    let targetNoZoom = UI.projects.superalgos.spaces.chartingSpace.viewport.unTransformThisPoint(targetPoint)
+    let mouseNoZoom = UI.projects.superalgos.spaces.chartingSpace.viewport.unTransformThisPoint(mousePosition)
 
     displaceVector = {
         x: mouseNoZoom.x - targetNoZoom.x,

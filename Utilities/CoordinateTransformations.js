@@ -3,14 +3,14 @@ function transformThisPoint(point, container) {
 
     point = container.frame.frameThisPoint(point)
 
-    /* We pass this point through the canvas.chartingSpace.viewport lends, meaning we apply the canvas.chartingSpace.viewport zoom and displacement. */
+    /* We pass this point through the UI.projects.superalgos.spaces.chartingSpace.viewport lends, meaning we apply the UI.projects.superalgos.spaces.chartingSpace.viewport zoom and displacement. */
 
-    point = canvas.chartingSpace.viewport.transformThisPoint(point)
+    point = UI.projects.superalgos.spaces.chartingSpace.viewport.transformThisPoint(point)
     return point
 }
 
 function unTransformThisPoint(point, container) {
-    point = canvas.chartingSpace.viewport.unTransformThisPoint(point)
+    point = UI.projects.superalgos.spaces.chartingSpace.viewport.unTransformThisPoint(point)
     
     point = container.frame.unframeThisPoint(point)
     return point

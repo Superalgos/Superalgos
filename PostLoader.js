@@ -141,7 +141,7 @@ function newPostLoader() {
         window.addEventListener('keydown', window.manageBackRefresh)
 
         function saveWorkspace() {
-            canvas.designSpace.workspace.save()
+            UI.projects.superalgos.spaces.designSpace.workspace.save()
         }
     }
 }

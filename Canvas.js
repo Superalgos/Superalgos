@@ -932,7 +932,7 @@ function newCanvas() {
                     if (spaceInstance === undefined) { continue }
 
                     if (spaceInstance.getContainer === undefined) { continue }
-                    container = spaceInstance.getContainer({ x: point.x, y: point.y })
+                    container = spaceInstance.getContainer({ x: point.x, y: point.y }, GET_CONTAINER_PURPOSE.MOUSE_WHEEL)
 
                     if (container !== undefined && container.isWheelable === true) {
                         container.eventHandler.raiseEvent('onMouseWheel', event)

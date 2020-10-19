@@ -88,10 +88,10 @@ function newDataStorageFunctions() {
         let networkNode = findNodeInNodeMesh(node, 'Network Node', undefined, true, false, true, false)
         if (networkNode === undefined) { return }
 
-        let backtestingSessionsArray = nodeBranchToArray(networkNode, 'Backtesting Session')
-        let fordwardTestingSessionsArray = nodeBranchToArray(networkNode, 'Forward Testing Session')
-        let paperTradingSessionsArray = nodeBranchToArray(networkNode, 'Paper Trading Session')
-        let liveTradingSessionsArray = nodeBranchToArray(networkNode, 'Live Trading Session')
+        let backtestingSessionsArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(networkNode, 'Backtesting Session')
+        let fordwardTestingSessionsArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(networkNode, 'Forward Testing Session')
+        let paperTradingSessionsArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(networkNode, 'Paper Trading Session')
+        let liveTradingSessionsArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(networkNode, 'Live Trading Session')
 
         addMissingSession(backtestingSessionsArray)
         addMissingSession(fordwardTestingSessionsArray)

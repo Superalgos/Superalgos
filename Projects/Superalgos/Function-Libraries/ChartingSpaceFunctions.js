@@ -52,7 +52,7 @@ function newChartingSpaceFunctions() {
                 that do not have a plotter module. Since our previous action created all layers no matter
                 what, we need now to delete all the ones that do not have a plotter module.
                 */
-                let allLayers = nodeBranchToArray(botLayers, 'Layer')
+                let allLayers = UI.projects.superalgos.utilities.branches.nodeBranchToArray(botLayers, 'Layer')
                 for (let j = 0; j < allLayers.length; j++) {
                     let layer = allLayers[j]
                     layer.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_45
@@ -83,10 +83,10 @@ function newChartingSpaceFunctions() {
         function scanNetworkNode(networkNode) {
             if (networkNode === undefined) { return }
 
-            let backtestingSessionsArray = nodeBranchToArray(networkNode, 'Backtesting Session')
-            let fordwardTestingSessionsArray = nodeBranchToArray(networkNode, 'Forward Testing Session')
-            let paperTradingSessionsArray = nodeBranchToArray(networkNode, 'Paper Trading Session')
-            let liveTradingSessionsArray = nodeBranchToArray(networkNode, 'Live Trading Session')
+            let backtestingSessionsArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(networkNode, 'Backtesting Session')
+            let fordwardTestingSessionsArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(networkNode, 'Forward Testing Session')
+            let paperTradingSessionsArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(networkNode, 'Paper Trading Session')
+            let liveTradingSessionsArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(networkNode, 'Live Trading Session')
 
             scanSessionArray(backtestingSessionsArray)
             scanSessionArray(fordwardTestingSessionsArray)
@@ -122,7 +122,7 @@ function newChartingSpaceFunctions() {
         /*
         We need to create a Timeline Chart for each Data Mine Indicators.
         */
-        mineProducts = nodeBranchToArray(networkNode, 'Data Mine Products')
+        mineProducts = UI.projects.superalgos.utilities.branches.nodeBranchToArray(networkNode, 'Data Mine Products')
         for (let j = 0; j < mineProducts.length; j++) {
             let mineProduct = mineProducts[j]
             /*
@@ -151,7 +151,7 @@ function newChartingSpaceFunctions() {
             menu.internalClick('Add All Mine Layers')
         }
 
-        mineProducts = nodeBranchToArray(networkNode, 'Trading Mine Products')
+        mineProducts = UI.projects.superalgos.utilities.branches.nodeBranchToArray(networkNode, 'Trading Mine Products')
         for (let j = 0; j < mineProducts.length; j++) {
             let mineProduct = mineProducts[j]
             /*
@@ -227,8 +227,8 @@ function newChartingSpaceFunctions() {
             }
 
             function scanNetworkNode(networkNode) {
-                let testingEnvironment = findInBranch(networkNode, 'Testing Environment', node, true)
-                let productionEnvironment = findInBranch(networkNode, 'Production Environment', node, true)
+                let testingEnvironment = UI.projects.superalgos.utilities.branches.findInBranch(networkNode, 'Testing Environment', node, true)
+                let productionEnvironment = UI.projects.superalgos.utilities.branches.findInBranch(networkNode, 'Production Environment', node, true)
 
                 if (isMissingChildren(node, testingEnvironment, true) === true) {
                     let dashboard = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Dashboard')

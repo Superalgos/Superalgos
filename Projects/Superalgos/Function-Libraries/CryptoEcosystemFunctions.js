@@ -241,7 +241,7 @@ function newCryptoEcosystemFunctions() {
                 /*
                 Here we complete the missing stuff at Data Mining
                 */
-                let dataMining = findInBranch(networkNode, 'Data Mining', node, true)
+                let dataMining = UI.projects.superalgos.utilities.branches.findInBranch(networkNode, 'Data Mining', node, true)
                 if (dataMining === undefined) {
                     node.payload.uiObject.setErrorMessage('Data Mining node not found at Network Node ' + networkNode.name)
                     return
@@ -268,7 +268,7 @@ function newCryptoEcosystemFunctions() {
                     /*
                     Now we install the environmnet at the current Network Node
                     */
-                    let environmentFound = findInBranch(networkNode, environment, node, true)
+                    let environmentFound = UI.projects.superalgos.utilities.branches.findInBranch(networkNode, environment, node, true)
                     if (environmentFound === undefined) {
                         node.payload.uiObject.setErrorMessage(environment + ' node not found at Network Node ' + networkNode.name)
                         return
@@ -282,8 +282,8 @@ function newCryptoEcosystemFunctions() {
                     menuClickOfNodeArray(marketTradingTask.tradingMineTasks, 'Add All Tasks', true)
 
                     /* This will be needed at the charging space, for creating Dashboards */
-                    let backtestingSessionsArray = nodeBranchToArray(marketTradingTask, 'Backtesting Session')
-                    let liveTradingSessionsArray = nodeBranchToArray(marketTradingTask, 'Live Trading Session')
+                    let backtestingSessionsArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(marketTradingTask, 'Backtesting Session')
+                    let liveTradingSessionsArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(marketTradingTask, 'Live Trading Session')
                     let allSessionsArray = backtestingSessionsArray.concat(liveTradingSessionsArray)
                     sessionsCreatedArray = sessionsCreatedArray.concat(allSessionsArray)
 
@@ -292,7 +292,7 @@ function newCryptoEcosystemFunctions() {
                 /*
                 Here we complete the missing stuff at Data Mines Data
                 */
-                let dataMinesData = findInBranch(networkNode, 'Data Mines Data', node, true)
+                let dataMinesData = UI.projects.superalgos.utilities.branches.findInBranch(networkNode, 'Data Mines Data', node, true)
                 if (dataMinesData === undefined) {
                     node.payload.uiObject.setErrorMessage('Data Mines Data node not found at Network Node ' + networkNode.name)
                     return
@@ -308,7 +308,7 @@ function newCryptoEcosystemFunctions() {
                 /*
                 Finally we complete the missing stuff at Trading Mines Data
                 */
-                let tradingMinesData = findInBranch(networkNode, 'Trading Mines Data', node, true)
+                let tradingMinesData = UI.projects.superalgos.utilities.branches.findInBranch(networkNode, 'Trading Mines Data', node, true)
                 if (tradingMinesData === undefined) {
                     node.payload.uiObject.setErrorMessage('Trading Mines Data node not found at Network Node ' + networkNode.name)
                     return
@@ -401,7 +401,7 @@ function newCryptoEcosystemFunctions() {
         function uninstallInChartingSpace(chartingSpace) {
 
             /* Delete all time machines which are referencing sessions inside the market being unistalled. */
-            let timeMachines = nodeBranchToArray(chartingSpace, 'Time Machine')
+            let timeMachines = UI.projects.superalgos.utilities.branches.nodeBranchToArray(chartingSpace, 'Time Machine')
             for (let i = 0; i < timeMachines.length; i++) {
                 let timeMachine = timeMachines[i]
                 let session = timeMachine.payload.referenceParent
@@ -416,7 +416,7 @@ function newCryptoEcosystemFunctions() {
             }
 
             /* Delete all Dashboards that does not have time machines inside. */
-            let dashboardArray = nodeBranchToArray(chartingSpace, 'Dashboard')
+            let dashboardArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(chartingSpace, 'Dashboard')
             for (let i = 0; i < dashboardArray.length; i++) {
                 let dashboard = dashboardArray[i]
                 if (dashboard.timeMachines.length === 0) {
@@ -435,10 +435,10 @@ function newCryptoEcosystemFunctions() {
 
         function uninstallInNetwork(network) {
 
-            let marketDataTasksArray = nodeBranchToArray(network, 'Market Data Tasks')
-            let marketTradingTasksArray = nodeBranchToArray(network, 'Market Trading Tasks')
-            let marketDataProductsArray = nodeBranchToArray(network, 'Market Data Products')
-            let marketTradingProductsArray = nodeBranchToArray(network, 'Market Trading Products')
+            let marketDataTasksArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(network, 'Market Data Tasks')
+            let marketTradingTasksArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(network, 'Market Trading Tasks')
+            let marketDataProductsArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(network, 'Market Data Products')
+            let marketTradingProductsArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(network, 'Market Trading Products')
 
             uninstalMarketArray(marketDataTasksArray)
             uninstalMarketArray(marketTradingTasksArray)

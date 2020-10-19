@@ -25,24 +25,7 @@ function newAppLoader() {
             modulesArray = modulesArray.concat([
 
                 'Globals.js',
-
                 'Workspace.js',
-
-                'Utilities/CoordinateTransformations.js',
-                'Utilities/DateRateTransformations.js',
-                'Utilities/Download.js',
-                'Utilities/Clipboard.js',
-                'Utilities/DrawPrint.js',
-                'Utilities/LoadSaveFrame.js',
-                'Utilities/LoadSaveTutorial.js',
-                'Utilities/NodeConfig.js',
-                'Utilities/Hiriarchy.js',
-                'Utilities/Folders.js',
-                'Utilities/Branches.js',
-                'Utilities/Meshes.js',
-                'Utilities/NodeChildren.js',
-                'Utilities/Menu.js',
-                'Utilities/Dates.js',
 
                 'Files/SingleFile.js',
                 'Files/FileCloud.js',
@@ -88,9 +71,29 @@ function newAppLoader() {
                     }
 
                     modulesArray = modulesArray.concat(urlArray)
+                    utilities()
+                }
+            }    
+
+            function utilities() {
+                let url = 'ListUtilitiesFiles'
+                callWebServer(undefined, url, onResponse)
+
+                function onResponse(err, fileList) {
+                    let urlArray = []
+                    let fileArray = JSON.parse(fileList)
+                    for (let i = 0; i < fileArray.length; i++) {
+                        let item = fileArray[i]
+                        
+                        project = item[0]
+                        fileName = item[1]
+                        urlArray.push('Utilities' + '/' + project + '/' + fileName)
+                    }
+
+                    modulesArray = modulesArray.concat(urlArray)
                     spaces()
                 }
-            }
+            } 
 
             function spaces() {
                 let url = 'ListSpaceFiles'

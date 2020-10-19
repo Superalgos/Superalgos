@@ -542,17 +542,17 @@ function newConditionEditor() {
             let rootNode = workspace.rootNodes[i]
             if (rootNode.type !== 'Data Mine') { continue }
             let dataMine = rootNode
-            let dataMineName = loadPropertyFromNodeConfig(dataMine.payload, 'codeName')
+            let dataMineName = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(dataMine.payload, 'codeName')
             selector[dataMineName] = {}
             let bots = dataMine.sensorBots.concat(dataMine.indicatorBots)
             for (let j = 0; j < bots.length; j++) {
                 let bot = bots[j]
-                let botName = loadPropertyFromNodeConfig(bot.payload, 'codeName')
+                let botName = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(bot.payload, 'codeName')
                 let selectorDataMine = selector[dataMineName]
                 selectorDataMine[botName] = {}
                 for (let k = 0; k < bot.products.length; k++) {
                     let product = bot.products[k]
-                    let productName = loadPropertyFromNodeConfig(product.payload, 'singularVariableName')
+                    let productName = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(product.payload, 'singularVariableName')
                     if (productName === undefined) { continue }
                     let selectorProduct = selectorDataMine[botName]
                     selectorProduct[productName] = {
@@ -561,11 +561,11 @@ function newConditionEditor() {
                     if (product.record === undefined) { continue }
                     for (let m = 0; m < product.record.properties.length; m++) {
                         let property = product.record.properties[m]
-                        let propertyName = loadPropertyFromNodeConfig(property.payload, 'codeName')
+                        let propertyName = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(property.payload, 'codeName')
                         let selectorProperty = selectorProduct[productName]
                         selectorProperty = selectorProperty.properties
                         selectorProperty[propertyName] = {}
-                        let possibleValues = loadPropertyFromNodeConfig(property.payload, 'possibleValues')
+                        let possibleValues = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(property.payload, 'possibleValues')
                         if (possibleValues === undefined) { possibleValues = [] }
                         let selectorPossibleValue = selectorProperty[propertyName]
                         selectorPossibleValue.possibleValues = possibleValues
@@ -573,7 +573,7 @@ function newConditionEditor() {
                     let allPossibleTimeFrames = []
                     for (let m = 0; m < product.datasets.length; m++) {
                         let dataset = product.datasets[m]
-                        let validTimeFrames = loadPropertyFromNodeConfig(dataset.payload, 'validTimeFrames')
+                        let validTimeFrames = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(dataset.payload, 'validTimeFrames')
                         if (validTimeFrames !== undefined) {
                             allPossibleTimeFrames = allPossibleTimeFrames.concat(validTimeFrames)
                         }

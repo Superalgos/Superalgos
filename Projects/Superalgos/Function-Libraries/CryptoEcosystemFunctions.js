@@ -17,7 +17,7 @@ function newCryptoEcosystemFunctions() {
                 let cryptoExchanges = parent.cryptoExchanges[i]
                 for (let j = 0; j < cryptoExchanges.exchanges.length; j++) {
                     let exchange = cryptoExchanges.exchanges[j]
-                    let codeName = loadPropertyFromNodeConfig(exchange.payload, 'codeName')
+                    let codeName = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(exchange.payload, 'codeName')
                     currentExchanges.set(codeName, exchange)
                 }
             }
@@ -68,11 +68,11 @@ function newCryptoEcosystemFunctions() {
         let currentAssets = new Map()
         for (let j = 0; j < node.assets.length; j++) {
             let asset = node.assets[j]
-            let codeName = loadPropertyFromNodeConfig(asset.payload, 'codeName')
+            let codeName = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(asset.payload, 'codeName')
             currentAssets.set(codeName, asset)
         }
 
-        let exchangeId = loadPropertyFromNodeConfig(node.payload.parentNode.payload, 'codeName')
+        let exchangeId = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(node.payload.parentNode.payload, 'codeName')
 
         try {
             let params = {
@@ -86,7 +86,7 @@ function newCryptoEcosystemFunctions() {
                     node.payload.uiObject.setErrorMessage('Failed to Fetch Assets from the Exchange')
                     return
                 }
-                let queryParams = loadPropertyFromNodeConfig(node.payload, 'addMissingAssetsFilter')
+                let queryParams = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(node.payload, 'addMissingAssetsFilter')
 
                 let markets = JSON.parse(data)
                 for (let i = 0; i < markets.length; i++) {
@@ -136,7 +136,7 @@ function newCryptoEcosystemFunctions() {
         let exchangeAssets = node.payload.parentNode.exchangeAssets
         for (let j = 0; j < exchangeAssets.assets.length; j++) {
             let asset = exchangeAssets.assets[j]
-            let codeName = loadPropertyFromNodeConfig(asset.payload, 'codeName')
+            let codeName = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(asset.payload, 'codeName')
             currentAssets.set(codeName, asset)
         }
 
@@ -144,11 +144,11 @@ function newCryptoEcosystemFunctions() {
         let exchangeMarkets = node
         for (let j = 0; j < exchangeMarkets.markets.length; j++) {
             let asset = exchangeMarkets.markets[j]
-            let codeName = loadPropertyFromNodeConfig(asset.payload, 'codeName')
+            let codeName = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(asset.payload, 'codeName')
             currentMarkets.set(codeName, asset)
         }
 
-        let exchangeId = loadPropertyFromNodeConfig(node.payload.parentNode.payload, 'codeName')
+        let exchangeId = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(node.payload.parentNode.payload, 'codeName')
 
         try {
             let params = {

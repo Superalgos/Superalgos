@@ -6,8 +6,8 @@ function newWebhookFunctions() {
     return thisObject
 
     function sendTestMessage(node, callBackFunction) {
-        let testMessage = loadPropertyFromNodeConfig(node.payload, 'testMessage')
-        let letURL = loadPropertyFromNodeConfig(node.payload, 'webhookURL')
+        let testMessage = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(node.payload, 'testMessage')
+        let letURL = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(node.payload, 'webhookURL')
 
         callWebServer(testMessage, letURL, onResponse)
 

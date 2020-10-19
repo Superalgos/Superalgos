@@ -231,17 +231,17 @@ function newTaskFunctions() {
         }
 
         let networkNode = taskManager.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode
-        if (loadPropertyFromNodeConfig(networkNode.payload, 'host') === undefined) {
+        if (UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(networkNode.payload, 'host') === undefined) {
             node.payload.uiObject.setErrorMessage('Network Node needs to have a valid Host property at its config.')
             return
         }
 
-        if (loadPropertyFromNodeConfig(networkNode.payload, 'webPort') === undefined) {
+        if (UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(networkNode.payload, 'webPort') === undefined) {
             node.payload.uiObject.setErrorMessage('Network Node needs to have a valid webPort property at its config.')
             return
         }
 
-        if (loadPropertyFromNodeConfig(networkNode.payload, 'webSocketsPort') === undefined) {
+        if (UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(networkNode.payload, 'webSocketsPort') === undefined) {
             node.payload.uiObject.setErrorMessage('Network Node needs to have a valid webSocketsPort property at its config.')
             return
         }

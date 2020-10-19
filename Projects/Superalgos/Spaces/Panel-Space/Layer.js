@@ -321,7 +321,7 @@ function newLayer() {
 
     function checkStatusAtShutDown() {
         /* Mechanism to recover a layer that was left loading the last time the browser was shut dowm. */
-        let storedValue = loadPropertyFromNodeConfig(thisObject.payload, 'status')
+        let storedValue = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(thisObject.payload, 'status')
         if (storedValue !== undefined) {
             if (storedValue === LAYER_STATUS.LOADING) {
                 resetProgressBars()
@@ -486,7 +486,7 @@ function newLayer() {
                     if (thisObject.panels.length > 0) {
                         panelsVisibleButton = newPanelsVisibleButton()
 
-                        let storedValue = loadPropertyFromNodeConfig(thisObject.payload, 'showPanels')
+                        let storedValue = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(thisObject.payload, 'showPanels')
                         if (storedValue !== undefined) {
                             if (storedValue === true || storedValue === false) {
                                 panelsVisibleButton.showPanels = storedValue
@@ -498,7 +498,7 @@ function newLayer() {
                     }
                 }
             } else {
-                savePropertyAtNodeConfig(thisObject.payload, 'showPanels', panelsVisibleButton.showPanels)
+                UI.projects.superalgos.utilities.nodeConfig.savePropertyAtNodeConfig(thisObject.payload, 'showPanels', panelsVisibleButton.showPanels)
             }
         }
     }
@@ -506,7 +506,7 @@ function newLayer() {
     function statusPhysics() {
         /* We retrieve the stored status at the config. */
         try {
-            let storedValue = loadPropertyFromNodeConfig(thisObject.payload, 'status')
+            let storedValue = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(thisObject.payload, 'status')
 
             if (storedValue !== undefined) {
                 if (storedValue !== thisObject.status) {
@@ -547,7 +547,7 @@ function newLayer() {
                 }
             }
 
-            savePropertyAtNodeConfig(thisObject.payload, 'status', thisObject.status)
+            UI.projects.superalgos.utilities.nodeConfig.savePropertyAtNodeConfig(thisObject.payload, 'status', thisObject.status)
             let eventData = thisObject
             thisObject.container.eventHandler.raiseEvent('Status Changed', eventData)
         }
@@ -648,13 +648,13 @@ function newLayer() {
 
         UI.projects.superalgos.utilities.drawPrint.roundedCornersBackground(params)
 
-        let parentLabel1FontSize = loadPropertyFromNodeConfig(thisObject.payload.parentNode.payload, 'label1FontSize')
-        let parentLabel2FontSize = loadPropertyFromNodeConfig(thisObject.payload.parentNode.payload, 'label2FontSize')
-        let parentLabel3FontSize = loadPropertyFromNodeConfig(thisObject.payload.parentNode.payload, 'label3FontSize')
+        let parentLabel1FontSize = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(thisObject.payload.parentNode.payload, 'label1FontSize')
+        let parentLabel2FontSize = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(thisObject.payload.parentNode.payload, 'label2FontSize')
+        let parentLabel3FontSize = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(thisObject.payload.parentNode.payload, 'label3FontSize')
 
-        let label1FontSize = loadPropertyFromNodeConfig(thisObject.payload, 'label1FontSize')
-        let label2FontSize = loadPropertyFromNodeConfig(thisObject.payload, 'label2FontSize')
-        let label3FontSize = loadPropertyFromNodeConfig(thisObject.payload, 'label3FontSize')
+        let label1FontSize = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(thisObject.payload, 'label1FontSize')
+        let label2FontSize = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(thisObject.payload, 'label2FontSize')
+        let label3FontSize = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(thisObject.payload, 'label3FontSize')
 
         if (parentLabel1FontSize !== undefined) {
             label1FontSize = parentLabel1FontSize

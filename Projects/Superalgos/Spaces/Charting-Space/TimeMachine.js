@@ -660,7 +660,7 @@ function newTimeMachine() {
         position = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(position, thisObject.container)
 
         let label = thisObject.payload.node.name
-        let description = loadPropertyFromNodeConfig(thisObject.payload, 'description')
+        let description = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(thisObject.payload, 'description')
 
         if (description !== undefined) {
             label = description

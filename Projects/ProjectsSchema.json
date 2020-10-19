@@ -2,6 +2,83 @@
     {
         "name": "Superalgos",
         "propertyName": "superalgos",
+        "utilities": [
+            {
+                "name": "Branches",
+                "propertyName": "branches",
+                "functionName": "newSuperalgosBranches"
+            },
+            {
+                "name": "Clipboard",
+                "propertyName": "clipboard",
+                "functionName": "newSuperalgosClipboard"
+            },
+            {
+                "name": "Coordinate Transformations",
+                "propertyName": "coordinateTransformations",
+                "functionName": "newSuperalgosCoordinateTransformations"
+            },
+            {
+                "name": "Date Rate Transformations",
+                "propertyName": "dateRateTransformations",
+                "functionName": "newSuperalgosDateRateTransformations"
+            },
+            {
+                "name": "Dates",
+                "propertyName": "dates",
+                "functionName": "newSuperalgosDates"
+            },
+            {
+                "name": "Download",
+                "propertyName": "download",
+                "functionName": "newSuperalgosDownload"
+            },
+            {
+                "name": "Draw Print",
+                "propertyName": "drawPrint",
+                "functionName": "newSuperalgosDrawPrint"
+            },
+            {
+                "name": "Hierarchy",
+                "propertyName": "hierarchy",
+                "functionName": "newSuperalgosHierarchy"
+            },
+            {
+                "name": "Load Save Frame",
+                "propertyName": "loadSaveFrame",
+                "functionName": "newSuperalgosLoadSaveFrame"
+            },
+            {
+                "name": "Save Tutorial",
+                "propertyName": "saveTutorial",
+                "functionName": "newSuperalgosLoadSaveTutorial"
+            },
+            {
+                "name": "Menu",
+                "propertyName": "menu",
+                "functionName": "newSuperalgosMenu"
+            },
+            {
+                "name": "Meshes",
+                "propertyName": "meshes",
+                "functionName": "newSuperalgosMeshes"
+            },
+            {
+                "name": "Children",
+                "propertyName": "children",
+                "functionName": "newSuperalgosNodeChildren"
+            },
+            {
+                "name": "Node Config",
+                "propertyName": "nodeConfig",
+                "functionName": "newSuperalgosNodeConfig"
+            },
+            {
+                "name": "Folders",
+                "propertyName": "fFolders",
+                "functionName": "newSuperalgosFolders"
+            }
+        ],
         "spaces": [
             {
                 "name": "Floating Space",

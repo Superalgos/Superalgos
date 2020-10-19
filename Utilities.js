@@ -56,7 +56,7 @@ function moveToUserPosition(container, currentDate, currentRate, coordinateSyste
 
     /* Put this point in the coordinate system of the UI.projects.superalgos.spaces.chartingSpace.viewport */
     targetPoint = coordinateSystem.transformThisPoint(targetPoint)
-    targetPoint = transformThisPoint(targetPoint, container)
+    targetPoint = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(targetPoint, container)
 
     let displaceVector
 

@@ -67,8 +67,8 @@ function newFrame() {
 
         /* Now the transformations. */
 
-        point1 = transformThisPoint(point1, thisObject.container)
-        point3 = transformThisPoint(point3, thisObject.container)
+        point1 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(point1, thisObject.container)
+        point3 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(point3, thisObject.container)
 
         if (point1.x < UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topRight.x && point1.y < UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomRight.y && point3.x > UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomLeft.x && point3.y > UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topLeft.y) {
             return true
@@ -92,8 +92,8 @@ function newFrame() {
 
         /* Now the transformations. */
 
-        point1 = transformThisPoint(point1, thisObject.container)
-        point3 = transformThisPoint(point3, thisObject.container)
+        point1 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(point1, thisObject.container)
+        point3 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(point3, thisObject.container)
 
         if (point1.x < UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topRight.x && point1.y < UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomRight.y && point3.x > UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomLeft.x && point3.y > UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topLeft.y) {
             return true
@@ -204,7 +204,7 @@ function newFrame() {
             if (outsideViewPort === true) {
                 checkPoint = thisObject.container.frame.unframeThisPoint(checkPoint)
             } else {
-                checkPoint = unTransformThisPoint(checkPoint, thisObject.container)
+                checkPoint = UI.projects.superalgos.utilities.coordinateTransformations.unTransformThisPoint(checkPoint, thisObject.container)
             }
         }
 
@@ -388,10 +388,10 @@ function newFrame() {
         }
 
         /* Now the transformations. */
-        point1 = transformThisPoint(point1, thisObject.container)
-        point2 = transformThisPoint(point2, thisObject.container)
-        point3 = transformThisPoint(point3, thisObject.container)
-        point4 = transformThisPoint(point4, thisObject.container)
+        point1 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(point1, thisObject.container)
+        point2 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(point2, thisObject.container)
+        point3 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(point3, thisObject.container)
+        point4 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(point4, thisObject.container)
 
         if (fitFunction !== undefined) {
             point1 = fitFunction(point1)
@@ -437,8 +437,8 @@ function newFrame() {
                         y: j
                     }
 
-                    point1 = transformThisPoint(point1, thisObject.container)
-                    point2 = transformThisPoint(point2, thisObject.container)
+                    point1 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(point1, thisObject.container)
+                    point2 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(point2, thisObject.container)
 
                     if (fitFunction !== undefined) {
                         point1 = fitFunction(point1)
@@ -459,8 +459,8 @@ function newFrame() {
                     y: thisObject.height
                 }
 
-                point3 = transformThisPoint(point3, thisObject.container)
-                point4 = transformThisPoint(point4, thisObject.container)
+                point3 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(point3, thisObject.container)
+                point4 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(point4, thisObject.container)
 
                 if (fitFunction !== undefined) {
                     point3 = fitFunction(point3)
@@ -495,8 +495,8 @@ function newFrame() {
                     y: j
                 }
 
-                point1 = transformThisPoint(point1, thisObject.container)
-                point2 = transformThisPoint(point2, thisObject.container)
+                point1 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(point1, thisObject.container)
+                point2 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(point2, thisObject.container)
 
                 if (fitFunction !== undefined) {
                     point1 = fitFunction(point1)
@@ -517,8 +517,8 @@ function newFrame() {
                 y: thisObject.height
             }
 
-            point3 = transformThisPoint(point3, thisObject.container)
-            point4 = transformThisPoint(point4, thisObject.container)
+            point3 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(point3, thisObject.container)
+            point4 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(point4, thisObject.container)
 
             if (fitFunction !== undefined) {
                 point3 = fitFunction(point3)

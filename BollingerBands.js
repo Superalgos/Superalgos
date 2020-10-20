@@ -536,7 +536,7 @@
                         continue;
                     }
 
-                    if (UI.projects.superalgos.spaces.chartingSpace.viewport.zoomTargetLevel < ZOOM_OUT_THRESHOLD_FOR_PACKING_OBJECTS_AT_THE_BOTTOM_OR_TOP_OF_VIEWPORT) {
+                    if (UI.projects.superalgos.spaces.chartingSpace.viewport.zoomTargetLevel < UI.projects.superalgos.globals.zoom.ZOOM_OUT_THRESHOLD_FOR_PACKING_OBJECTS_AT_THE_BOTTOM_OR_TOP_OF_VIEWPORT) {
                         let diffA = bandPoint1.y - UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomLeft.y
                         if (diffA > 0) {
                             bandPoint1.y = bandPoint1.y - diffA

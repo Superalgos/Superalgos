@@ -641,25 +641,6 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                 }
                 break
 
-            case 'FunctionLibraries':
-                {
-                    let project = unescape(requestParameters[2])
-                    let fileName = unescape(requestParameters[3])
-                    let filePath = process.env.PROJECTS_PATH + '/' + project + '/Function-Libraries/' + fileName
-                    respondWithFile(filePath, response)
-                }
-                break
-
-            case 'Utilities':
-                {
-                    let project = unescape(requestParameters[2])
-                    let fileName = unescape(requestParameters[3])
-                    let filePath = process.env.PROJECTS_PATH + '/' + project + '/Utilities/' + fileName
-                    console.log(filePath)
-                    respondWithFile(filePath, response)
-                }
-                break
-
             case 'ProjectsSchema':
                 {
                     let path = process.env.PROJECTS_PATH + '/' + 'ProjectsSchema.json'

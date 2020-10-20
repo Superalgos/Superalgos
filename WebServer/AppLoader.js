@@ -67,7 +67,7 @@ function newAppLoader() {
                         
                         project = item[0]
                         fileName = item[1]
-                        urlArray.push('FunctionLibraries' + '/' + project + '/' + fileName)
+                        urlArray.push('Projects' + '/' + project + '/' + 'Function-Libraries' + '/' +  fileName)
                     }
 
                     modulesArray = modulesArray.concat(urlArray)
@@ -87,7 +87,7 @@ function newAppLoader() {
                         
                         project = item[0]
                         fileName = item[1]
-                        urlArray.push('Utilities' + '/' + project + '/' + fileName)
+                        urlArray.push('Projects' + '/' + project + '/' + 'Utilities' + '/' +  fileName)
                     }
 
                     modulesArray = modulesArray.concat(urlArray)

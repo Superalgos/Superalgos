@@ -179,8 +179,6 @@ function newCanvas() {
                 }
             }
 
-            console.log(UI)
-            return
             thisObject.animation.start()
 
         } catch (err) {

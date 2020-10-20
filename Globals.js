@@ -33,17 +33,15 @@ const UI_FONT = {
     SECONDARY: "Source Code Pro"
 };
 
-const DOCUMENTATION_URL_PREFIX = 'https://docs.superalgos.org/'
-const DOCUMENTATION_URL_DEFAULT = 'https://docs.superalgos.org/suite-about-this-documentation.html'
-
 const MAC_AMOUNT_FACTOR = 5
 const IS_MAC = navigator.platform.toUpperCase().indexOf('MAC') >= 0
+
+const DEBUG = {}
 
 const DOUBLE_CLICK_ZOOM_OUT_LEVEL = 0
 const DOUBLE_CLICK_ZOOM_IN_LEVEL = 6
 const DOUBLE_CLICK_ZOOM_IN_IN_LEVEL = 7
 
-const DEBUG = {}
 const ZOOM_OUT_THRESHOLD_FOR_NOT_HIDDING_PANELS = 12
 const ZOOM_OUT_THRESHOLD_FOR_HIDDING_PANELS = 7
 const ZOOM_OUT_THRESHOLD_FOR_HIDDING_CHARTS_LABELS = 7

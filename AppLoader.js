@@ -91,6 +91,26 @@ function newAppLoader() {
                     }
 
                     modulesArray = modulesArray.concat(urlArray)
+                    globals()
+                }
+            } 
+
+            function globals() {
+                let url = 'ListGlobalFiles'
+                callWebServer(undefined, url, onResponse)
+
+                function onResponse(err, fileList) {
+                    let urlArray = []
+                    let fileArray = JSON.parse(fileList)
+                    for (let i = 0; i < fileArray.length; i++) {
+                        let item = fileArray[i]
+                        
+                        project = item[0]
+                        fileName = item[1]
+                        urlArray.push('Projects' + '/' + project + '/' + 'Globals' + '/' +  fileName)
+                    }
+
+                    modulesArray = modulesArray.concat(urlArray)
                     spaces()
                 }
             } 

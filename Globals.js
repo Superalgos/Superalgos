@@ -1,5 +1,5 @@
 
-let canvas /* Canvas is the root object that will contain all spaces and everything inside. */
+let canvas  
 let PROJECTS_ARRAY 
 let PROJECTS_SCHEMA
 let SCHEMAS_BY_PROJECT = new Map()

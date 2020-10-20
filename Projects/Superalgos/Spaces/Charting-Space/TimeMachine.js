@@ -432,7 +432,7 @@ function newTimeMachine() {
     function panelPhysics() {
         if (
             thisObject.container.frame.isInViewPort() &&
-            UI.projects.superalgos.spaces.chartingSpace.viewport.zoomLevel >= ZOOM_OUT_THRESHOLD_FOR_NOT_HIDDING_PANELS) {
+            UI.projects.superalgos.spaces.chartingSpace.viewport.zoomLevel >= UI.projects.superalgos.globals.zoom.ZOOM_OUT_THRESHOLD_FOR_NOT_HIDDING_PANELS) {
             UI.projects.superalgos.spaces.panelSpace.unHide(thisObject.payload.node.id, 'Layers Panel')
             UI.projects.superalgos.spaces.panelSpace.unHide(thisObject.payload.node.id, 'Plotter Panel')
             return
@@ -440,7 +440,7 @@ function newTimeMachine() {
 
         if (
             thisObject.container.frame.isCenterInViewPort() &&
-            UI.projects.superalgos.spaces.chartingSpace.viewport.zoomLevel >= ZOOM_OUT_THRESHOLD_FOR_HIDDING_PANELS
+            UI.projects.superalgos.spaces.chartingSpace.viewport.zoomLevel >= UI.projects.superalgos.globals.zoom.ZOOM_OUT_THRESHOLD_FOR_HIDDING_PANELS
         ) {
             UI.projects.superalgos.spaces.panelSpace.unHide(thisObject.payload.node.id, 'Layers Panel')
             UI.projects.superalgos.spaces.panelSpace.unHide(thisObject.payload.node.id, 'Plotter Panel')
@@ -601,7 +601,7 @@ function newTimeMachine() {
                 if (thisObject.rateScale !== undefined && thisObject.rateScale.isVisible === true) { thisObject.rateScale.draw() }
             }
         } else {
-            if (UI.projects.superalgos.spaces.chartingSpace.viewport.zoomTargetLevel < ZOOM_OUT_THRESHOLD_FOR_DISPLAYING_TIME_MACHINES_ICONIZED) {
+            if (UI.projects.superalgos.spaces.chartingSpace.viewport.zoomTargetLevel < UI.projects.superalgos.globals.zoom.ZOOM_OUT_THRESHOLD_FOR_DISPLAYING_TIME_MACHINES_ICONIZED) {
                 let icon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.payload.node.type)
                 if (icon !== undefined) {
                     if (icon.canDrawIcon === true) {

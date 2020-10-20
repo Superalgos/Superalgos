@@ -2,6 +2,18 @@
     {
         "name": "Superalgos",
         "propertyName": "superalgos",
+        "globals": [
+            {
+                "name": "Docs",
+                "propertyName": "docs",
+                "functionName": "newSuperalgosGlobalsDocs"
+            },
+            {
+                "name": "Zoom",
+                "propertyName": "zoom",
+                "functionName": "newSuperalgosGlobalsZoom"
+            }
+        ],
         "utilities": [
             {
                 "name": "Branches",
@@ -179,7 +191,7 @@
                 "name": "Chat Space",
                 "folderName": "Chat-Space",
                 "propertyName": "chatSpace",
-                "functionName": "newSuperalgosChatSpace" 
+                "functionName": "newSuperalgosChatSpace"
             },
             {
                 "name": "Tutorial Space",

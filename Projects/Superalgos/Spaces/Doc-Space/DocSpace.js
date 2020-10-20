@@ -50,7 +50,7 @@ function newSuperalgosDocSpace() {
     function onOpening() {
         let docIFrame = document.getElementById('docIFrame')
         if (docIFrame.src === "") {
-            docIFrame.src = DOCUMENTATION_URL_DEFAULT
+            docIFrame.src = UI.projects.superalgos.globals.docs.DOCUMENTATION_URL_DEFAULT
         }
     }
 

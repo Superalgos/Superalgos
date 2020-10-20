@@ -474,7 +474,7 @@ function newRateScale() {
             thisObject.payload.isVisible = false
         }
 
-        if (UI.projects.superalgos.spaces.chartingSpace.viewport.zoomTargetLevel < ZOOM_OUT_THRESHOLD_FOR_DISPLAYING_SCALES) {
+        if (UI.projects.superalgos.spaces.chartingSpace.viewport.zoomTargetLevel < UI.projects.superalgos.globals.zoom.ZOOM_OUT_THRESHOLD_FOR_DISPLAYING_SCALES) {
             thisObject.isVisible = false
         }
     }

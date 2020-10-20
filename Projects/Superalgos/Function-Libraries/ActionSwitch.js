@@ -500,7 +500,7 @@ function newSuperalgosActionSwitch() {
                             let nodeName = action.node.type
                             nodeName = nodeName.toLowerCase()
                             nodeName = nodeName.split(" ").join("-")
-                            url = DOCUMENTATION_URL_PREFIX + "suite-hierarchy-" + headName + ".html#" + nodeName
+                            url = UI.projects.superalgos.globals.docs.DOCUMENTATION_URL_PREFIX + "suite-hierarchy-" + headName + ".html#" + nodeName
                             UI.projects.superalgos.spaces.docSpace.navigateTo(url)
                         }
                     }

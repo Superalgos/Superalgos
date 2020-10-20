@@ -115,7 +115,7 @@ function newTimeFrameScale() {
     function adjustTimeFrame(elementsPlotted) {
         const ELEMENTS_PLOTTED_THREASHOLD = 500
         if (
-            UI.projects.superalgos.spaces.chartingSpace.viewport.zoomTargetLevel >= ZOOM_OUT_THRESHOLD_FOR_CHANGING_TIME_FRAME &&
+            UI.projects.superalgos.spaces.chartingSpace.viewport.zoomTargetLevel >= UI.projects.superalgos.globals.zoom.ZOOM_OUT_THRESHOLD_FOR_CHANGING_TIME_FRAME &&
             displayingRealTimeFrame === false
         ) {
             let event = {}
@@ -125,7 +125,7 @@ function newTimeFrameScale() {
         }
         if (
             elementsPlotted > ELEMENTS_PLOTTED_THREASHOLD &&
-            UI.projects.superalgos.spaces.chartingSpace.viewport.zoomTargetLevel < ZOOM_OUT_THRESHOLD_FOR_CHANGING_TIME_FRAME &&
+            UI.projects.superalgos.spaces.chartingSpace.viewport.zoomTargetLevel < UI.projects.superalgos.globals.zoom.ZOOM_OUT_THRESHOLD_FOR_CHANGING_TIME_FRAME &&
             displayingRealTimeFrame === true
         ) {
             let event = {}
@@ -211,7 +211,7 @@ function newTimeFrameScale() {
             thisObject.payload.isVisible = false
         }
 
-        if (UI.projects.superalgos.spaces.chartingSpace.viewport.zoomTargetLevel < ZOOM_OUT_THRESHOLD_FOR_DISPLAYING_SCALES) {
+        if (UI.projects.superalgos.spaces.chartingSpace.viewport.zoomTargetLevel < UI.projects.superalgos.globals.zoom.ZOOM_OUT_THRESHOLD_FOR_DISPLAYING_SCALES) {
             thisObject.isVisible = false
         }
     }

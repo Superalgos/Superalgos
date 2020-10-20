@@ -118,13 +118,13 @@ function newEdgeEditor() {
 
     function onDoubleClick(event) {
         doubleClickCounter = 0
-        if (UI.projects.superalgos.spaces.chartingSpace.viewport.zoomLevel === DOUBLE_CLICK_ZOOM_OUT_LEVEL) {
+        if (UI.projects.superalgos.spaces.chartingSpace.viewport.zoomLevel === UI.projects.superalgos.globals.zoom.DOUBLE_CLICK_ZOOM_OUT_LEVEL) {
             UI.projects.superalgos.spaces.chartingSpace.viewport.displaceToContainer(thisObject.container.parentContainer)
-            UI.projects.superalgos.spaces.chartingSpace.viewport.zoomAtCenter(DOUBLE_CLICK_ZOOM_IN_LEVEL)
+            UI.projects.superalgos.spaces.chartingSpace.viewport.zoomAtCenter(UI.projects.superalgos.globals.zoom.DOUBLE_CLICK_ZOOM_IN_LEVEL)
             return
         }
-        if (UI.projects.superalgos.spaces.chartingSpace.viewport.zoomLevel === DOUBLE_CLICK_ZOOM_IN_LEVEL) {
-            UI.projects.superalgos.spaces.chartingSpace.viewport.zoomAtCenter(DOUBLE_CLICK_ZOOM_IN_IN_LEVEL)
+        if (UI.projects.superalgos.spaces.chartingSpace.viewport.zoomLevel === UI.projects.superalgos.globals.zoom.DOUBLE_CLICK_ZOOM_IN_LEVEL) {
+            UI.projects.superalgos.spaces.chartingSpace.viewport.zoomAtCenter(UI.projects.superalgos.globals.zoom.DOUBLE_CLICK_ZOOM_IN_IN_LEVEL)
             return
         }
     }

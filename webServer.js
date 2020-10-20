@@ -713,6 +713,12 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                 }
                 break
 
+            case 'ListGlobalFiles':
+                {
+                    returnProjectFolderFileList('Globals')
+                }
+                break
+
             case 'Projects':
                 {
                     let path = ''
@@ -774,7 +780,7 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                         function onDirRead(err, fileList) {
                             if (err) {
                                 if (CONSOLE_ERROR_LOG === true) { console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath) }
-                                respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
+                                if (CONSOLE_ERROR_LOG === true) { console.log(err.stack) }
                                 return
                             } else {
                                 let updatedFileList = []

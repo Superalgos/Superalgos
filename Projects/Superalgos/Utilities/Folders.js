@@ -1,4 +1,4 @@
-function newSuperalgosFolders() {
+function newSuperalgosUtilitiesFolders() {
     thisObject = {
         asymetricalFolderStructureCloning: asymetricalFolderStructureCloning
     }

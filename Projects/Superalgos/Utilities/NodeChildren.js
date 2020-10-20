@@ -1,4 +1,4 @@
-function newSuperalgosNodeChildren() {
+function newSuperalgosUtilitiesNodeChildren() {
     thisObject = {
         isMissingChildren: isMissingChildren,
         findChildReferencingThisNode: findChildReferencingThisNode,

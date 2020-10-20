@@ -1,4 +1,4 @@
-function newSuperalgosCoordinateTransformations() {
+function newSuperalgosUtilitiesCoordinateTransformations() {
     thisObject = {
         transformThisPoint: transformThisPoint,
         unTransformThisPoint: unTransformThisPoint

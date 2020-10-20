@@ -1,4 +1,4 @@
-function newSuperalgosClipboard() {
+function newSuperalgosUtilitiesClipboard() {
     thisObject = {
         fallbackCopyTextToClipboard: fallbackCopyTextToClipboard,
         copyTextToClipboard: copyTextToClipboard

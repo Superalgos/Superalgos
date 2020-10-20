@@ -1,4 +1,4 @@
-function newSuperalgosMeshes() {
+function newSuperalgosUtilitiesMeshes() {
     thisObject = {
         findNodeInNodeMesh: findNodeInNodeMesh
     }

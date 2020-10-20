@@ -1,4 +1,4 @@
-function newSuperalgosDateRateTransformations() {
+function newSuperalgosUtilitiesDateRateTransformations() {
     thisObject = {
         getDateFromPointAtBrowserCanvas: getDateFromPointAtBrowserCanvas,
         getDateFromPointAtChartsSpace: getDateFromPointAtChartsSpace,

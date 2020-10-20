@@ -1,4 +1,4 @@
-function newSuperalgosDrawPrint() {
+function newSuperalgosUtilitiesDrawPrint() {
     thisObject = {
         roundedCornersBackground: roundedCornersBackground,
         drawLabel: drawLabel,

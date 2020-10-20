@@ -1,4 +1,4 @@
-function newSuperalgosDates() {
+function newSuperalgosUtilitiesDates() {
     thisObject = {
         formatDate: formatDate
     }

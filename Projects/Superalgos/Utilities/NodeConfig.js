@@ -1,4 +1,4 @@
-function newSuperalgosNodeConfig() {
+function newSuperalgosUtilitiesNodeConfig() {
     thisObject = {
         savePropertyAtNodeConfig: savePropertyAtNodeConfig,
         loadPropertyFromNodeConfig: loadPropertyFromNodeConfig

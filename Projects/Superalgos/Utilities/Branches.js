@@ -1,4 +1,4 @@
-function newSuperalgosBranches() {
+function newSuperalgosUtilitiesBranches() {
     thisObject = {
         nodeBranchToArray: nodeBranchToArray,
         findInBranch: findInBranch

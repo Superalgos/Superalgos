@@ -1,4 +1,4 @@
-function newSuperalgosMenu() {
+function newSuperalgosUtilitiesMenu() {
     thisObject = {
         menuClickOfNodeArray: menuClickOfNodeArray,
         menuClick: menuClick

@@ -1,4 +1,4 @@
-function newSuperalgosHierarchy() {
+function newSuperalgosUtilitiesHierarchy() {
     thisObject = {
         getHiriarchyMap: getHiriarchyMap,
         getHiriarchyHead: getHiriarchyHead

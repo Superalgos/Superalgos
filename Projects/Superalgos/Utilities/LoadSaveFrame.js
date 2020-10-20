@@ -1,4 +1,4 @@
-function newSuperalgosLoadSaveFrame() {
+function newSuperalgosUtilitiesLoadSaveFrame() {
     thisObject = {
         saveFrame: saveFrame,
         loadFrame: loadFrame

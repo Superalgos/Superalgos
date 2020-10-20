@@ -1,4 +1,4 @@
-function newSuperalgosDownload() {
+function newSuperalgosUtilitiesDownload() {
     thisObject = {
         downloadText: downloadText,
         downloadCanvas: downloadCanvas,

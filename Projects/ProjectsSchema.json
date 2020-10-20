@@ -6,77 +6,77 @@
             {
                 "name": "Branches",
                 "propertyName": "branches",
-                "functionName": "newSuperalgosBranches"
+                "functionName": "newSuperalgosUtilitiesBranches"
             },
             {
                 "name": "Clipboard",
                 "propertyName": "clipboard",
-                "functionName": "newSuperalgosClipboard"
+                "functionName": "newSuperalgosUtilitiesClipboard"
             },
             {
                 "name": "Coordinate Transformations",
                 "propertyName": "coordinateTransformations",
-                "functionName": "newSuperalgosCoordinateTransformations"
+                "functionName": "newSuperalgosUtilitiesCoordinateTransformations"
             },
             {
                 "name": "Date Rate Transformations",
                 "propertyName": "dateRateTransformations",
-                "functionName": "newSuperalgosDateRateTransformations"
+                "functionName": "newSuperalgosUtilitiesDateRateTransformations"
             },
             {
                 "name": "Dates",
                 "propertyName": "dates",
-                "functionName": "newSuperalgosDates"
+                "functionName": "newSuperalgosUtilitiesDates"
             },
             {
                 "name": "Download",
                 "propertyName": "download",
-                "functionName": "newSuperalgosDownload"
+                "functionName": "newSuperalgosUtilitiesDownload"
             },
             {
                 "name": "Draw Print",
                 "propertyName": "drawPrint",
-                "functionName": "newSuperalgosDrawPrint"
+                "functionName": "newSuperalgosUtilitiesDrawPrint"
             },
             {
                 "name": "Hierarchy",
                 "propertyName": "hierarchy",
-                "functionName": "newSuperalgosHierarchy"
+                "functionName": "newSuperalgosUtilitiesHierarchy"
             },
             {
                 "name": "Load Save Frame",
                 "propertyName": "loadSaveFrame",
-                "functionName": "newSuperalgosLoadSaveFrame"
+                "functionName": "newSuperalgosUtilitiesLoadSaveFrame"
             },
             {
                 "name": "Tutorial",
                 "propertyName": "tutorial",
-                "functionName": "newSuperalgosTutorial"
+                "functionName": "newSuperalgosUtilitiesTutorial"
             },
             {
                 "name": "Menu",
                 "propertyName": "menu",
-                "functionName": "newSuperalgosMenu"
+                "functionName": "newSuperalgosUtilitiesMenu"
             },
             {
                 "name": "Meshes",
                 "propertyName": "meshes",
-                "functionName": "newSuperalgosMeshes"
+                "functionName": "newSuperalgosUtilitiesMeshes"
             },
             {
                 "name": "Children",
                 "propertyName": "children",
-                "functionName": "newSuperalgosNodeChildren"
+                "functionName": "newSuperalgosUtilitiesNodeChildren"
             },
             {
                 "name": "Node Config",
                 "propertyName": "nodeConfig",
-                "functionName": "newSuperalgosNodeConfig"
+                "functionName": "newSuperalgosUtilitiesNodeConfig"
             },
             {
                 "name": "Folders",
                 "propertyName": "folders",
-                "functionName": "newSuperalgosFolders"
+                "functionName": "newSuperalgosUtilitiesFolders"
             }
         ],
         "spaces": [

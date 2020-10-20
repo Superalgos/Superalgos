@@ -470,7 +470,7 @@
         try {
             let elementsPlotted = 0
             let lowResolution = false
-            if (UI.projects.superalgos.spaces.chartingSpace.viewport.zoomTargetLevel < ZOOM_OUT_THRESHOLD_FOR_PLOTTING_IN_LOW_RESOLUTION) {
+            if (UI.projects.superalgos.spaces.chartingSpace.viewport.zoomTargetLevel < UI.projects.superalgos.globals.zoom.ZOOM_OUT_THRESHOLD_FOR_PLOTTING_IN_LOW_RESOLUTION) {
                 if (candles.length > 100) {
                     lowResolution = true
                 }
@@ -556,7 +556,7 @@
                     candle.stickPoint3 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(candle.stickPoint3, thisObject.container);
                     candle.stickPoint4 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(candle.stickPoint4, thisObject.container);
 
-                    if (UI.projects.superalgos.spaces.chartingSpace.viewport.zoomTargetLevel < ZOOM_OUT_THRESHOLD_FOR_PACKING_OBJECTS_AT_THE_BOTTOM_OR_TOP_OF_VIEWPORT) {
+                    if (UI.projects.superalgos.spaces.chartingSpace.viewport.zoomTargetLevel < UI.projects.superalgos.globals.zoom.ZOOM_OUT_THRESHOLD_FOR_PACKING_OBJECTS_AT_THE_BOTTOM_OR_TOP_OF_VIEWPORT) {
                         let diffA = candle.stickPoint3.y - UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomLeft.y
                         if (diffA > 0) {
                             candle.candlePoint1.y = candle.candlePoint1.y - diffA

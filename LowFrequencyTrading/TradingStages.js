@@ -992,14 +992,14 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
 
         function openStage(stage) {
             /* Recording the opening at the Trading Engine Data Structure */
-            stage.begin.value = tradingEngine.current.episode.cycle.begin.value
+            stage.begin.value = tradingEngine.current.episode.candle.begin.value
             stage.beginRate.value = tradingEngine.current.episode.candle.close.value
-            stage.end.value = tradingEngine.current.episode.cycle.end.value
+            stage.end.value = tradingEngine.current.episode.candle.begin.value
         }
 
         function closeStage(stage) {
             /* Recording the closing at the Trading Engine Data Structure */
-            stage.end.value = tradingEngine.current.episode.cycle.end.value
+            stage.end.value = tradingEngine.current.episode.candle.begin.value
             stage.endRate.value = tradingEngine.current.episode.candle.close.value
         }
     }

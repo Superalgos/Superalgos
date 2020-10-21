@@ -73,7 +73,7 @@ exports.newTradingEpisode = function newTradingEpisode(bot, logger, tradingEngin
 
     function closeEpisode() {
         tradingEngine.current.episode.status.value = 'Closed'
-        tradingEngine.current.episode.end.value = tradingEngine.current.episode.candle.end.value
+        tradingEngine.current.episode.end.value = tradingEngine.current.episode.candle.begin.value
         tradingEngine.current.episode.endRate.value = tradingEngine.current.episode.candle.close.value
         tradingEngine.current.episode.episodeBaseAsset.endBalance.value = tradingEngine.current.episode.episodeBaseAsset.balance.value
         tradingEngine.current.episode.episodeQuotedAsset.endBalance.value = tradingEngine.current.episode.episodeQuotedAsset.balance.value

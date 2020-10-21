@@ -53,7 +53,8 @@ function newUiObjectsFromNodes() {
                 let rootNode = node.rootNodes[i]
                 if (rootNode.type === 'Plugins') {
                     let plugins = rootNode
-                     
+
+                    if (plugins.pluginProjects === undefined) { continue }
                     for (let j = 0; j < plugins.pluginProjects.length; j++) {
                         let project = plugins.pluginProjects[j]
                         if (project.pluginDataMines !== undefined) {

@@ -63,16 +63,16 @@ function newConfigEditor() {
         EDITOR_ON_FOCUS = false
     }
 
-    function activate(payload) {
+    function activate(action) {
         thisObject.visible = true
-        thisObject.payload = payload
+        thisObject.payload = action.node.payload
         thisObject.rawRadius = 8
         thisObject.targetRadius = thisObject.container.frame.radius
         thisObject.currentRadius = 0
         thisObject.payload.uiObject.resetErrorMessage()
 
         let textArea = document.getElementById('textArea')
-        textArea.value = payload.node.config
+        textArea.value = thisObject.payload.node.config
         textArea.style = 'resize: none;' +
             ' border: none;' +
             ' outline: none;' +

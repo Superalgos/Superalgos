@@ -77,9 +77,9 @@ function newConditionEditor() {
         valueIcon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName( 'Superalgos', 'trading-strategy')
     }
 
-    function activate(payload) {
+    function activate(action) {
         thisObject.visible = true
-        thisObject.payload = payload
+        thisObject.payload = action.node.payload
         thisObject.payload.uiObject.resetErrorMessage()
 
         conditionStructure = {

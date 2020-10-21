@@ -43,7 +43,7 @@
                 "label": "Add Tutorial",
                 "relatedUiObject": "Tutorial",
                 "actionFunction": "payload.executeAction"
-            } 
+            }
         ],
         "isProjectHead": true,
         "isTitleAllwaysVisible": false,
@@ -2218,8 +2218,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Sensor Bot Instance->"
         },
-        "properties": [
-        ],
+        "properties": [],
         "propertyNameAtParent": "processes"
     },
     {
@@ -2248,8 +2247,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Indicator Bot Instance->"
         },
-        "properties": [
-        ],
+        "properties": [],
         "propertyNameAtParent": "processes"
     },
     {
@@ -6147,6 +6145,86 @@
         "propertyNameAtParent": "end"
     },
     {
+        "type": "Last Begin",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": 0\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Cycle->"
+        },
+        "propertyNameAtParent": "lastBegin"
+    },
+    {
+        "type": "Last End",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": 0\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Cycle->"
+        },
+        "propertyNameAtParent": "lastEnd"
+    },
+    {
         "type": "Open",
         "menuItems": [
             {
@@ -7109,6 +7187,18 @@
                 "name": "end",
                 "type": "node",
                 "childType": "End",
+                "autoAdd": true
+            },
+            {
+                "name": "lastBegin",
+                "type": "node",
+                "childType": "Last Begin",
+                "autoAdd": true
+            },
+            {
+                "name": "lastEnd",
+                "type": "node",
+                "childType": "Last End",
                 "autoAdd": true
             }
         ]
@@ -8672,7 +8762,7 @@
                 "type": "array",
                 "childType": "Plotter"
             }
-        ] 
+        ]
     },
     {
         "type": "Sensor Bot",
@@ -11648,7 +11738,7 @@
                 "label": "Add Signals Providers",
                 "relatedUiObject": "Signals Providers",
                 "actionFunction": "payload.executeAction"
-            } 
+            }
         ],
         "isHierarchyHead": true,
         "addLeftIcons": true,
@@ -11663,7 +11753,7 @@
                 "name": "signalsProviders",
                 "type": "array",
                 "childType": "Signals Providers"
-            } 
+            }
         ]
     },
     {
@@ -13290,7 +13380,7 @@
                 "childType": "Task Manager",
                 "monitorChildrenRunning": true
             }
-        ] 
+        ]
     },
     {
         "type": "Trading Mine Tasks",
@@ -13361,7 +13451,7 @@
                 "childType": "Task Manager",
                 "monitorChildrenRunning": true
             }
-        ] 
+        ]
     },
     {
         "type": "Market Data Tasks",
@@ -13433,7 +13523,7 @@
                 "childType": "Data Mine Tasks",
                 "monitorChildrenRunning": true
             }
-        ] 
+        ]
     },
     {
         "type": "Market Trading Tasks",
@@ -13505,7 +13595,7 @@
                 "childType": "Trading Mine Tasks",
                 "monitorChildrenRunning": true
             }
-        ] 
+        ]
     },
     {
         "type": "Exchange Data Tasks",
@@ -13576,7 +13666,7 @@
                 "childType": "Market Data Tasks",
                 "monitorChildrenRunning": true
             }
-        ] 
+        ]
     },
     {
         "type": "Exchange Trading Tasks",
@@ -13647,7 +13737,7 @@
                 "childType": "Market Trading Tasks",
                 "monitorChildrenRunning": true
             }
-        ] 
+        ]
     },
     {
         "type": "Data Mining",
@@ -14201,7 +14291,7 @@
                 "type": "array",
                 "childType": "Session Reference"
             }
-        ] 
+        ]
     },
     {
         "type": "Data Product",
@@ -14329,7 +14419,7 @@
                 "childType": "Bot Products",
                 "autoAdd": false
             }
-        ] 
+        ]
     },
     {
         "type": "Bot Products",
@@ -14473,7 +14563,7 @@
         "propertyNameAtParent": "pluginProjects",
         "chainAttachesTo": {
             "compatibleTypes": "->Plugins->"
-        }, 
+        },
         "properties": [
             {
                 "name": "pluginDataMines",
@@ -14541,7 +14631,7 @@
         "propertyNameAtParent": "pluginDataMines",
         "chainAttachesTo": {
             "compatibleTypes": "->Plugin Project->"
-        }, 
+        },
         "properties": [
             {
                 "name": "pluginFiles",
@@ -14578,7 +14668,7 @@
         "propertyNameAtParent": "pluginTradingMines",
         "chainAttachesTo": {
             "compatibleTypes": "->Plugin Project->"
-        }, 
+        },
         "properties": [
             {
                 "name": "pluginFiles",
@@ -14615,7 +14705,7 @@
         "propertyNameAtParent": "pluginTradingSystems",
         "chainAttachesTo": {
             "compatibleTypes": "->Plugin Project->"
-        }, 
+        },
         "properties": [
             {
                 "name": "pluginFiles",
@@ -14652,7 +14742,7 @@
         "propertyNameAtParent": "pluginTradingEngines",
         "chainAttachesTo": {
             "compatibleTypes": "->Plugin Project->"
-        }, 
+        },
         "properties": [
             {
                 "name": "pluginFiles",
@@ -14689,7 +14779,7 @@
         "propertyNameAtParent": "pluginSuperScripts",
         "chainAttachesTo": {
             "compatibleTypes": "->Plugin Project->"
-        }, 
+        },
         "properties": [
             {
                 "name": "pluginFiles",
@@ -14726,7 +14816,7 @@
         "propertyNameAtParent": "pluginTutorials",
         "chainAttachesTo": {
             "compatibleTypes": "->Plugin Project->"
-        }, 
+        },
         "properties": [
             {
                 "name": "pluginFiles",
@@ -14762,7 +14852,7 @@
         "propertyNameAtParent": "pluginFiles",
         "chainAttachesTo": {
             "compatibleTypes": "->Plugin Tutorials->Plugin Super Scripts->Plugin Trading Engines->Plugin Trading Systems->Plugin Trading Mines->Plugin Data Mines->"
-        }, 
+        },
         "properties": [
             {
                 "name": "pluginFilePosition",
@@ -14791,8 +14881,7 @@
         "addLeftIcons": true,
         "level": 3,
         "propertyNameAtParent": "pluginFilePosition",
-        "properties": [
-        ]
+        "properties": []
     },
     {
         "type": "Tutorial",
@@ -15002,8 +15091,7 @@
         "addLeftIcons": true,
         "level": 2,
         "propertyNameAtParent": "tutorialSteps",
-        "properties": [
-        ]
+        "properties": []
     },
     {
         "type": "Data Mine Data Dependencies",

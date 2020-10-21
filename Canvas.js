@@ -187,7 +187,6 @@ function newCanvas() {
                     projectInstance.globals[globalDefinition.propertyName] = eval(globalDefinition.functionName + '()')
                 }
             }
-            console.log(UI)
             thisObject.animation.start()
 
         } catch (err) {

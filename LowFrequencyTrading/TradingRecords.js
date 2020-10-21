@@ -152,7 +152,7 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                 /* 
                 The Target Node is the node from where we are going to exctract the value.
                 We will use the codeName of the Record Property to match it with 
-                the any of the properties of the Root Node to get the Target Node.  
+                any of the properties of the Root Node to get the Target Node.  
                 */
                 let targetNode
                 try {

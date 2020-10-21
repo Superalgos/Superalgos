@@ -83,7 +83,7 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
 
     function closePosition() {
         tradingEngine.current.position.status.value = 'Closed'
-        tradingEngine.current.position.end.value = tradingEngine.current.episode.candle.end.value
+        tradingEngine.current.position.end.value = tradingEngine.current.episode.candle.begin.value
         tradingEngine.current.position.endRate.value = tradingEngine.current.episode.candle.close.value
         tradingEngine.current.position.positionBaseAsset.endBalance.value = tradingEngine.current.episode.episodeBaseAsset.balance.value
         tradingEngine.current.position.positionQuotedAsset.endBalance.value = tradingEngine.current.episode.episodeQuotedAsset.balance.value

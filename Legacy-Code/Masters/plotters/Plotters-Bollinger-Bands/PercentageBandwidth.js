@@ -65,8 +65,8 @@
 
             /* Stop listening to the necesary events. */
 
-            canvas.chartingSpace.viewport.eventHandler.stopListening(zoomChangedEventSubscriptionId);
-            canvas.chartingSpace.viewport.eventHandler.stopListening(offsetChangedEventSubscriptionId);
+            UI.projects.superalgos.spaces.chartingSpace.viewport.eventHandler.stopListening(zoomChangedEventSubscriptionId);
+            UI.projects.superalgos.spaces.chartingSpace.viewport.eventHandler.stopListening(offsetChangedEventSubscriptionId);
             canvas.eventHandler.stopListening(dragFinishedEventSubscriptionId);
             thisObject.container.eventHandler.stopListening(dimmensionsChangedEventSubscriptionId)
             marketFiles.eventHandler.stopListening(marketFilesUpdatedEventSubscriptionId);
@@ -115,8 +115,8 @@
 
             /* Listen to the necesary events. */
 
-            zoomChangedEventSubscriptionId = canvas.chartingSpace.viewport.eventHandler.listenToEvent("Zoom Changed", onViewportZoomChanged);
-            offsetChangedEventSubscriptionId = canvas.chartingSpace.viewport.eventHandler.listenToEvent("Position Changed", onViewportPositionChanged);
+            zoomChangedEventSubscriptionId = UI.projects.superalgos.spaces.chartingSpace.viewport.eventHandler.listenToEvent("Zoom Changed", onViewportZoomChanged);
+            offsetChangedEventSubscriptionId = UI.projects.superalgos.spaces.chartingSpace.viewport.eventHandler.listenToEvent("Position Changed", onViewportPositionChanged);
             dragFinishedEventSubscriptionId = canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
             marketFilesUpdatedEventSubscriptionId = marketFiles.eventHandler.listenToEvent("Files Updated", onMarketFilesUpdated);
             dailyFilesUpdatedEventSubscriptionId = dailyFiles.eventHandler.listenToEvent("Files Updated", onDailyFilesUpdated);
@@ -301,8 +301,8 @@
 
             let daysOnSides = getSideDays(timeFrame);
 
-            let leftDate = getDateFromPointAtBrowserCanvas(canvas.chartingSpace.viewport.visibleArea.topLeft, thisObject.container, plotAreaFrame);
-            let rightDate = getDateFromPointAtBrowserCanvas(canvas.chartingSpace.viewport.visibleArea.topRight, thisObject.container, plotAreaFrame);
+            let leftDate = UI.projects.superalgos.utilities.dateRateTransformations.getDateFromPointAtBrowserCanvas(UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topLeft, thisObject.container, plotAreaFrame);
+            let rightDate = UI.projects.superalgos.utilities.dateRateTransformations.getDateFromPointAtBrowserCanvas(UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topRight, thisObject.container, plotAreaFrame);
 
             let dateDiff = rightDate.valueOf() - leftDate.valueOf();
 
@@ -386,8 +386,8 @@
 
             let daysOnSides = getSideDays(timeFrame);
 
-            let leftDate = getDateFromPointAtBrowserCanvas(canvas.chartingSpace.viewport.visibleArea.topLeft, thisObject.container, plotAreaFrame);
-            let rightDate = getDateFromPointAtBrowserCanvas(canvas.chartingSpace.viewport.visibleArea.topRight, thisObject.container, plotAreaFrame);
+            let leftDate = UI.projects.superalgos.utilities.dateRateTransformations.getDateFromPointAtBrowserCanvas(UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topLeft, thisObject.container, plotAreaFrame);
+            let rightDate = UI.projects.superalgos.utilities.dateRateTransformations.getDateFromPointAtBrowserCanvas(UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topRight, thisObject.container, plotAreaFrame);
 
             let dateDiff = rightDate.valueOf() - leftDate.valueOf();
 
@@ -480,7 +480,7 @@
             plotAreaViewport.initializeY(
                 minValue,
                 maxValue,
-                canvas.chartingSpace.viewport.visibleArea.bottomRight.y - canvas.chartingSpace.viewport.visibleArea.topLeft.y
+                UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomRight.y - UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topLeft.y
             );
 
             plotAreaFrame.initializeY(
@@ -510,7 +510,7 @@
 
                 /* This next section is to get ready in order to be able to plot dinamically constrained to the viewport */
 
-                let visibleHeight = canvas.chartingSpace.viewport.visibleArea.bottomRight.y - canvas.chartingSpace.viewport.visibleArea.topLeft.y;
+                let visibleHeight = UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomRight.y - UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topLeft.y;
 
                 let frameCorner1 = {
                     x: 0,
@@ -524,8 +524,8 @@
 
                 /* Now the transformations. */
 
-                frameCorner1 = transformThisPoint(frameCorner1, thisObject.container.frame.container);
-                frameCorner2 = transformThisPoint(frameCorner2, thisObject.container.frame.container);
+                frameCorner1 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(frameCorner1, thisObject.container.frame.container);
+                frameCorner2 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(frameCorner2, thisObject.container.frame.container);
 
                 let frameHeightInViewPort = frameCorner2.y - frameCorner1.y;
                 let pbChartHeight = 20;
@@ -637,21 +637,21 @@
                         pbPoint9 = plot.transformThisPoint(pbPoint9);
                         pbPoint10 = plot.transformThisPoint(pbPoint10);
 
-                        pbPoint1 = transformThisPoint(pbPoint1, thisObject.container);
-                        pbPoint2 = transformThisPoint(pbPoint2, thisObject.container);
+                        pbPoint1 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(pbPoint1, thisObject.container);
+                        pbPoint2 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(pbPoint2, thisObject.container);
 
-                        pbPoint3 = transformThisPoint(pbPoint3, thisObject.container);
-                        pbPoint4 = transformThisPoint(pbPoint4, thisObject.container);
-                        pbPoint5 = transformThisPoint(pbPoint5, thisObject.container);
-                        pbPoint6 = transformThisPoint(pbPoint6, thisObject.container);
+                        pbPoint3 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(pbPoint3, thisObject.container);
+                        pbPoint4 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(pbPoint4, thisObject.container);
+                        pbPoint5 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(pbPoint5, thisObject.container);
+                        pbPoint6 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(pbPoint6, thisObject.container);
 
-                        pbPoint7 = transformThisPoint(pbPoint7, thisObject.container);
-                        pbPoint8 = transformThisPoint(pbPoint8, thisObject.container);
+                        pbPoint7 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(pbPoint7, thisObject.container);
+                        pbPoint8 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(pbPoint8, thisObject.container);
 
-                        pbPoint9 = transformThisPoint(pbPoint9, thisObject.container);
-                        pbPoint10 = transformThisPoint(pbPoint10, thisObject.container);
+                        pbPoint9 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(pbPoint9, thisObject.container);
+                        pbPoint10 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(pbPoint10, thisObject.container);
 
-                        if (pbPoint1.x < canvas.chartingSpace.viewport.visibleArea.bottomLeft.x || pbPoint2.x > canvas.chartingSpace.viewport.visibleArea.bottomRight.x) {
+                        if (pbPoint1.x < UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomLeft.x || pbPoint2.x > UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomRight.x) {
                             return false;
                         }
 
@@ -669,37 +669,37 @@
 
                         /* Now we set the real value of y. */
 
-                        pbPoint1.y = canvas.chartingSpace.viewport.visibleArea.bottomRight.y - (previousPercentBandwidth + pbOffset) * plotAreaViewport.scale.y;
-                        pbPoint2.y = canvas.chartingSpace.viewport.visibleArea.bottomRight.y - (currentPercentBandwidth + pbOffset) * plotAreaViewport.scale.y;
+                        pbPoint1.y = UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomRight.y - (previousPercentBandwidth + pbOffset) * plotAreaViewport.scale.y;
+                        pbPoint2.y = UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomRight.y - (currentPercentBandwidth + pbOffset) * plotAreaViewport.scale.y;
 
-                        pbPoint3.y = canvas.chartingSpace.viewport.visibleArea.bottomRight.y - (0 * pbChartHeight / 100 + pbOffset) * plotAreaViewport.scale.y;
-                        pbPoint4.y = canvas.chartingSpace.viewport.visibleArea.bottomRight.y - (30 * pbChartHeight / 100 + pbOffset) * plotAreaViewport.scale.y;
-                        pbPoint5.y = canvas.chartingSpace.viewport.visibleArea.bottomRight.y - (70 * pbChartHeight / 100 + pbOffset) * plotAreaViewport.scale.y;
-                        pbPoint6.y = canvas.chartingSpace.viewport.visibleArea.bottomRight.y - (100 * pbChartHeight / 100 + pbOffset) * plotAreaViewport.scale.y;
+                        pbPoint3.y = UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomRight.y - (0 * pbChartHeight / 100 + pbOffset) * plotAreaViewport.scale.y;
+                        pbPoint4.y = UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomRight.y - (30 * pbChartHeight / 100 + pbOffset) * plotAreaViewport.scale.y;
+                        pbPoint5.y = UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomRight.y - (70 * pbChartHeight / 100 + pbOffset) * plotAreaViewport.scale.y;
+                        pbPoint6.y = UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomRight.y - (100 * pbChartHeight / 100 + pbOffset) * plotAreaViewport.scale.y;
 
-                        pbPoint7.y = canvas.chartingSpace.viewport.visibleArea.bottomRight.y - (previousMovingAverage + pbOffset) * plotAreaViewport.scale.y;
-                        pbPoint8.y = canvas.chartingSpace.viewport.visibleArea.bottomRight.y - (currentMovingAverage + pbOffset) * plotAreaViewport.scale.y;
+                        pbPoint7.y = UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomRight.y - (previousMovingAverage + pbOffset) * plotAreaViewport.scale.y;
+                        pbPoint8.y = UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomRight.y - (currentMovingAverage + pbOffset) * plotAreaViewport.scale.y;
 
-                        pbPoint9.y = canvas.chartingSpace.viewport.visibleArea.bottomRight.y - (previousBandwidth + pbOffset) * plotAreaViewport.scale.y;
-                        pbPoint10.y = canvas.chartingSpace.viewport.visibleArea.bottomRight.y - (currentBandwidth + pbOffset) * plotAreaViewport.scale.y;
+                        pbPoint9.y = UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomRight.y - (previousBandwidth + pbOffset) * plotAreaViewport.scale.y;
+                        pbPoint10.y = UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomRight.y - (currentBandwidth + pbOffset) * plotAreaViewport.scale.y;
 
                     }
 
                     /* Everything must fit within the visible area */
 
-                    pbPoint1 = canvas.chartingSpace.viewport.fitIntoVisibleArea(pbPoint1);
-                    pbPoint2 = canvas.chartingSpace.viewport.fitIntoVisibleArea(pbPoint2);
+                    pbPoint1 = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(pbPoint1);
+                    pbPoint2 = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(pbPoint2);
 
-                    pbPoint3 = canvas.chartingSpace.viewport.fitIntoVisibleArea(pbPoint3);
-                    pbPoint4 = canvas.chartingSpace.viewport.fitIntoVisibleArea(pbPoint4);
-                    pbPoint5 = canvas.chartingSpace.viewport.fitIntoVisibleArea(pbPoint5);
-                    pbPoint6 = canvas.chartingSpace.viewport.fitIntoVisibleArea(pbPoint6);
+                    pbPoint3 = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(pbPoint3);
+                    pbPoint4 = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(pbPoint4);
+                    pbPoint5 = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(pbPoint5);
+                    pbPoint6 = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(pbPoint6);
 
-                    pbPoint7 = canvas.chartingSpace.viewport.fitIntoVisibleArea(pbPoint7);
-                    pbPoint8 = canvas.chartingSpace.viewport.fitIntoVisibleArea(pbPoint8);
+                    pbPoint7 = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(pbPoint7);
+                    pbPoint8 = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(pbPoint8);
 
-                    pbPoint9 = canvas.chartingSpace.viewport.fitIntoVisibleArea(pbPoint9);
-                    pbPoint10 = canvas.chartingSpace.viewport.fitIntoVisibleArea(pbPoint10);
+                    pbPoint9 = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(pbPoint9);
+                    pbPoint10 = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(pbPoint10);
 
 
                     /* Now the drawing of the lines */

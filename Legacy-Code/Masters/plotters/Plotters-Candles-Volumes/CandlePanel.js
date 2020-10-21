@@ -37,8 +37,8 @@ function newMastersPlottersCandlesVolumesCandlesCandlePanel() {
         thisObject.container.frame.width = UI_PANEL.WIDTH.NORMAL;
         thisObject.container.frame.height = UI_PANEL.HEIGHT.NORMAL;
 
-        thisObject.container.frame.position.x = canvas.chartingSpace.viewport.visibleArea.topRight.x - thisObject.container.frame.width * 2;
-        thisObject.container.frame.position.y = canvas.chartingSpace.viewport.visibleArea.bottomLeft.y - thisObject.container.frame.height;
+        thisObject.container.frame.position.x = UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topRight.x - thisObject.container.frame.width * 2;
+        thisObject.container.frame.position.y = UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomLeft.y - thisObject.container.frame.height;
 
         upDownButton = newUpDownButton()
         upDownButton.parentContainer = thisObject.container
@@ -324,27 +324,27 @@ function newMastersPlottersCandlesVolumesCandlesCandlePanel() {
 
         let y;
 
-        printLabel('Max', X_AXIS, frameTitleHeight + frameBodyHeight * 0.05, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
-        printLabel(currentCandle.innerCandle.max, X_AXIS, frameTitleHeight + frameBodyHeight * 0.10, '1.00', 15, undefined, true, thisObject.container, thisObject.fitFunction);
+        UI.projects.superalgos.utilities.drawPrint.printLabel('Max', X_AXIS, frameTitleHeight + frameBodyHeight * 0.05, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
+        UI.projects.superalgos.utilities.drawPrint.printLabel(currentCandle.innerCandle.max, X_AXIS, frameTitleHeight + frameBodyHeight * 0.10, '1.00', 15, undefined, true, thisObject.container, thisObject.fitFunction);
 
-        printLabel('Min', X_AXIS, frameTitleHeight + frameBodyHeight * 0.95, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
-        printLabel(currentCandle.innerCandle.min, X_AXIS, frameTitleHeight + frameBodyHeight * 0.90, '1.00', 15, undefined, true, thisObject.container, thisObject.fitFunction);
+        UI.projects.superalgos.utilities.drawPrint.printLabel('Min', X_AXIS, frameTitleHeight + frameBodyHeight * 0.95, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
+        UI.projects.superalgos.utilities.drawPrint.printLabel(currentCandle.innerCandle.min, X_AXIS, frameTitleHeight + frameBodyHeight * 0.90, '1.00', 15, undefined, true, thisObject.container, thisObject.fitFunction);
 
         y = Y_AXIS - currentCandle.bodyHeight / 2;
 
         if (y < frameTitleHeight + frameBodyHeight * 0.15) { y = frameTitleHeight + frameBodyHeight * 0.15; }
         if (y > frameTitleHeight + frameBodyHeight * 0.80) { y = frameTitleHeight + frameBodyHeight * 0.80; }
 
-        printLabel('Open', X_AXIS * 2 / 5, y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
-        printLabel(currentCandle.innerCandle.open, X_AXIS * 2 / 5, y + frameBodyHeight * 0.05, '1.00', 15, undefined, true, thisObject.container, thisObject.fitFunction);
+        UI.projects.superalgos.utilities.drawPrint.printLabel('Open', X_AXIS * 2 / 5, y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
+        UI.projects.superalgos.utilities.drawPrint.printLabel(currentCandle.innerCandle.open, X_AXIS * 2 / 5, y + frameBodyHeight * 0.05, '1.00', 15, undefined, true, thisObject.container, thisObject.fitFunction);
 
         y = Y_AXIS + currentCandle.bodyHeight / 2;
 
         if (y < frameTitleHeight + frameBodyHeight * 0.15) { y = frameTitleHeight + frameBodyHeight * 0.15; }
         if (y > frameTitleHeight + frameBodyHeight * 0.80) { y = frameTitleHeight + frameBodyHeight * 0.80; }
 
-        printLabel('Close', X_AXIS * 7 / 5, y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
-        printLabel(currentCandle.innerCandle.close, X_AXIS * 7 / 5, y + frameBodyHeight * 0.05, '1.00', 15, undefined, true, thisObject.container, thisObject.fitFunction);
+        UI.projects.superalgos.utilities.drawPrint.printLabel('Close', X_AXIS * 7 / 5, y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
+        UI.projects.superalgos.utilities.drawPrint.printLabel(currentCandle.innerCandle.close, X_AXIS * 7 / 5, y + frameBodyHeight * 0.05, '1.00', 15, undefined, true, thisObject.container, thisObject.fitFunction);
 
     }
 }

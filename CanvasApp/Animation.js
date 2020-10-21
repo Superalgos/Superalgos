@@ -116,23 +116,23 @@ function newAnimation() {
                 for (const [key, timeConsumed] of performanceMap.entries()) {
                     row++
                     let labelToPrint = key + '   ' + timeConsumed.toFixed(4)
-                    printLabel(labelToPrint, 10, 100 + row * 30, 1, 20, UI_COLOR.RED)
+                    UI.projects.superalgos.utilities.drawPrint.printLabel(labelToPrint, 10, 100 + row * 30, 1, 20, UI_COLOR.RED)
                     let percentage = timeConsumed * 100 / totalTimeConsumed
                     labelToPrint = key + '   ' + percentage.toFixed(1) + '%'
-                    printLabel(labelToPrint, 300, 100 + row * 30, 1, 20, UI_COLOR.RED)
+                    UI.projects.superalgos.utilities.drawPrint.printLabel(labelToPrint, 300, 100 + row * 30, 1, 20, UI_COLOR.RED)
                 }
 
                 /* Other Variables */
                 row++
-                printLabel(DEBUG.variable1, 300, 100 + row * 30, 1, 20, UI_COLOR.RED)
+                UI.projects.superalgos.utilities.drawPrint.printLabel(DEBUG.variable1, 300, 100 + row * 30, 1, 20, UI_COLOR.RED)
                 row++
-                printLabel(DEBUG.variable2, 300, 100 + row * 30, 1, 20, UI_COLOR.RED)
+                UI.projects.superalgos.utilities.drawPrint.printLabel(DEBUG.variable2, 300, 100 + row * 30, 1, 20, UI_COLOR.RED)
                 row++
-                printLabel(DEBUG.variable3, 300, 100 + row * 30, 1, 20, UI_COLOR.RED)
+                UI.projects.superalgos.utilities.drawPrint.printLabel(DEBUG.variable3, 300, 100 + row * 30, 1, 20, UI_COLOR.RED)
                 row++
-                printLabel(DEBUG.variable4, 300, 100 + row * 30, 1, 20, UI_COLOR.RED)
+                UI.projects.superalgos.utilities.drawPrint.printLabel(DEBUG.variable4, 300, 100 + row * 30, 1, 20, UI_COLOR.RED)
                 row++
-                printLabel('Animation Frame Per Seconds: ' + ANIMATION_FRAME_PER_SECONDS, 300, 100 + row * 30, 1, 20, UI_COLOR.TITANIUM_YELLOW)
+                UI.projects.superalgos.utilities.drawPrint.printLabel('Animation Frame Per Seconds: ' + ANIMATION_FRAME_PER_SECONDS, 300, 100 + row * 30, 1, 20, UI_COLOR.TITANIUM_YELLOW)
             }
 
             /* Video Recording */
@@ -144,7 +144,7 @@ function newAnimation() {
             /* Panorama Recording */
             if (ARE_WE_RECORDING_A_MARKET_PANORAMA === true) {
                 if (PANORAMA_WAS_PANNED === true) {
-                    addToMarketPanorama()
+                    UI.projects.superalgos.utilities.download.addToMarketPanorama()
                     PANORAMA_WAS_PANNED = false
                 }
             }

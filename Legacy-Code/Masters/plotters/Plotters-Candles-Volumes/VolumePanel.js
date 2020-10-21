@@ -37,8 +37,8 @@ function newMastersPlottersCandlesVolumesVolumesVolumePanel() {
         thisObject.container.frame.width = UI_PANEL.WIDTH.NORMAL;
         thisObject.container.frame.height = UI_PANEL.HEIGHT.NORMAL;
 
-        thisObject.container.frame.position.x = canvas.chartingSpace.viewport.visibleArea.topRight.x - thisObject.container.frame.width;
-        thisObject.container.frame.position.y = canvas.chartingSpace.viewport.visibleArea.bottomLeft.y - thisObject.container.frame.height;
+        thisObject.container.frame.position.x = UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topRight.x - thisObject.container.frame.width;
+        thisObject.container.frame.position.y = UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomLeft.y - thisObject.container.frame.height;
 
         upDownButton = newUpDownButton()
         upDownButton.parentContainer = thisObject.container
@@ -243,11 +243,11 @@ function newMastersPlottersCandlesVolumesVolumesVolumePanel() {
 
         /* put the labels with the volumes values */
 
-        printLabel('Buy Volume', X_AXIS, frameTitleHeight + frameBodyHeight * 0.95, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
-        printLabel(currentVolume.innerVolumeBar.amountBuy, X_AXIS, frameTitleHeight + frameBodyHeight * 0.90, '1.00', 15, undefined, true, thisObject.container, thisObject.fitFunction);
+        UI.projects.superalgos.utilities.drawPrint.printLabel('Buy Volume', X_AXIS, frameTitleHeight + frameBodyHeight * 0.95, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
+        UI.projects.superalgos.utilities.drawPrint.printLabel(currentVolume.innerVolumeBar.amountBuy, X_AXIS, frameTitleHeight + frameBodyHeight * 0.90, '1.00', 15, undefined, true, thisObject.container, thisObject.fitFunction);
 
-        printLabel('Sell Volume', X_AXIS, frameTitleHeight + frameBodyHeight * 0.05, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
-        printLabel(currentVolume.innerVolumeBar.amountSell, X_AXIS, frameTitleHeight + frameBodyHeight * 0.10, '1.00', 15, undefined, true, thisObject.container, thisObject.fitFunction);
+        UI.projects.superalgos.utilities.drawPrint.printLabel('Sell Volume', X_AXIS, frameTitleHeight + frameBodyHeight * 0.05, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
+        UI.projects.superalgos.utilities.drawPrint.printLabel(currentVolume.innerVolumeBar.amountSell, X_AXIS, frameTitleHeight + frameBodyHeight * 0.10, '1.00', 15, undefined, true, thisObject.container, thisObject.fitFunction);
 
     }
 

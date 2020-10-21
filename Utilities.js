@@ -1,5 +1,11 @@
 function getNodeDefinition(node) {
-    return SCHEMAS_BY_PROJECT.get(node.project).map.appSchema.get(node.type)
+    let APP_SCHEMA = SCHEMAS_BY_PROJECT.get(node.project)
+    if (APP_SCHEMA !== undefined) {
+        return SCHEMAS_BY_PROJECT.get(node.project).map.appSchema.get(node.type)
+    } else {
+        console.log('[Error] Could not get APP Scchema for project ' + node.project)
+    }
+    
 }
 
 function dynamicDecimals(value, minDecimals) {

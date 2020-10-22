@@ -2,7 +2,7 @@
 
 # What is Superalgos?
 
-Superalgos is a platform to automate crypto-trading. It is imlpemented as a Nodejs Backend + Web App that runs at your hardware and scales from a single Raspberry Pi to a Trading Farm. Superalgos is Free and Open Source.
+Superalgos is a platform to automate crypto-trading. It is implemented as a Nodejs Backend + Web App that runs on your hardware and scales from a single Raspberry Pi to a Trading Farm. Superalgos is Free and Open Source.
 
 ## Superalgos Features
 
@@ -65,7 +65,7 @@ Superalgos is a platform to automate crypto-trading. It is imlpemented as a Node
 * There is no limit in the amount of historical data you can download.
 * There is no limit in the amount of data you can process.
 * You can use all the plugins available (indicators / plotters / strategies / etc.)
-* You can install superalgos in as many machines as you want.
+* You can install Superalgos in as many machines as you want.
 * Your installations can be used by as many people as you want.
 * You can connect to as many crypto exchanges as you want.
 
@@ -83,9 +83,14 @@ All procedures are the same for Windows, Linux or Mac OS. Note: only tested with
 
 ## Installation
 
-1. If you don't have it yet, [install Node.js.](https://nodejs.org/en/download/)
-2. Open a command prompt or terminal and type:
+### Pre-Requisites
 
+1. If you don't have it yet, [download install Node.js.](https://nodejs.org/en/download/)
+2. If you don't have it yet, [download install Git.](https://git-scm.com/downloads)
+
+### App Setup
+
+1. Open a command prompt or terminal as an administrator and type:
 ```
 git clone https://github.com/Superalgos/Superalgos
 ```
@@ -144,10 +149,12 @@ Superalgos is a Community Project. Learn [how to become a Contributor](https://d
 
 ## Contributors 
 
-Luis Fernando Molina, Julian Molina, Andreja Cobeljic, Matías Benitez, Ira Miller, Eduardo Remis, Jeff Braun, rico4dev, Barry Low, Nikola Bjelogrlic, Hirajin Koizuko, Francisco J. Santillán, Viktoria B., Javier A., Gustavo J., Romina GS, Pedro P., Thais M., Loui M., Natalia M., Bashar A., Carlos V., Diego M., Sebastian E., Bogdan P., Marko V., Igor S., Niksa K., Rodrigo M. and Nicanor M.
+Luis Fernando Molina, Julian Molina, Andreja Cobeljic, Matías Benitez, Ira Miller, Eduardo Remis, Jeff Braun, rico4dev, Barry Low, Nikola Bjelogrlic, Hirajin Koizuko, Francisco J. Santillán, Viktoria B., Guillermo V., Daniel J., Javier A., Gustavo J., Romina GS, Pedro P., Thais M., Loui M., Natalia M., Bashar A., Carlos V., Diego M., Sebastian E., Bogdan P., Marko V., Igor S., Niksa K., Rodrigo M. and Nicanor M.
 
 # License
 
 Superalgos is open-source software released under [Apache License 2.0](LICENSE).
+
+
 
 

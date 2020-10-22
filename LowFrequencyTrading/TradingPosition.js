@@ -51,11 +51,14 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
 
     function openPosition(situationName) {
 
+        /* Starting begin and end */
+        tradingEngine.current.position.begin.value = tradingEngine.current.episode.cycle.lastBegin.value
+        tradingEngine.current.position.end.value = tradingEngine.current.episode.cycle.lastEnd.value
+
         /* Recording the opening at the Trading Engine Data Structure */
         tradingEngine.current.position.status.value = 'Open'
         tradingEngine.current.position.serialNumber.value = tradingEngine.current.episode.episodeCounters.positions.value + 1
         tradingEngine.current.position.identifier.value = global.UNIQUE_ID()
-        tradingEngine.current.position.begin.value = tradingEngine.current.episode.candle.begin.value
         tradingEngine.current.position.beginRate.value = tradingEngine.current.episode.candle.close.value
         tradingEngine.current.position.positionBaseAsset.beginBalance.value = tradingEngine.current.episode.episodeBaseAsset.balance.value
         tradingEngine.current.position.positionQuotedAsset.beginBalance.value = tradingEngine.current.episode.episodeQuotedAsset.balance.value
@@ -83,7 +86,7 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
 
     function closePosition() {
         tradingEngine.current.position.status.value = 'Closed'
-        tradingEngine.current.position.end.value = tradingEngine.current.episode.candle.begin.value
+        tradingEngine.current.position.end.value = tradingEngine.current.episode.cycle.lastEnd.value
         tradingEngine.current.position.endRate.value = tradingEngine.current.episode.candle.close.value
         tradingEngine.current.position.positionBaseAsset.endBalance.value = tradingEngine.current.episode.episodeBaseAsset.balance.value
         tradingEngine.current.position.positionQuotedAsset.endBalance.value = tradingEngine.current.episode.episodeQuotedAsset.balance.value
@@ -94,17 +97,17 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
         tradingEngineModule.cloneValues(tradingEngine.current.position, tradingEngine.last.position)
 
         cycleBasedStatistics()
-        
+
         /* Updating Hits & Fails */
         if (tradingEngine.current.position.positionBaseAsset.profitLoss.value > 0) {
             tradingEngine.current.episode.episodeBaseAsset.hits.value++
-        }  
+        }
         if (tradingEngine.current.position.positionBaseAsset.profitLoss.value < 0) {
             tradingEngine.current.episode.episodeBaseAsset.fails.value++
         }
         if (tradingEngine.current.position.positionQuotedAsset.profitLoss.value > 0) {
             tradingEngine.current.episode.episodeQuotedAsset.hits.value++
-        } 
+        }
         if (tradingEngine.current.position.positionQuotedAsset.profitLoss.value < 0) {
             tradingEngine.current.episode.episodeQuotedAsset.fails.value++
         }
@@ -112,10 +115,27 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
 
     function applyStopLossFormula(formulas, formulaId) {
         tradingEngine.current.position.stopLoss.value = formulas.get(formulaId)
+        updateStopLossTakeProfitBeginEnd(tradingEngine.current.position.stopLoss)
     }
 
     function applyTakeProfitFormula(formulas, formulaId) {
         tradingEngine.current.position.takeProfit.value = formulas.get(formulaId)
+        updateStopLossTakeProfitBeginEnd(tradingEngine.current.position.takeProfit)
+    }
+
+    function updateStopLossTakeProfitBeginEnd(node) {
+        /*
+        Both the Stop Loss and the Take Profit have their own Begin and End.
+        Ther reason for this is because they represent targets to be checked 
+        at the next candle, so it does not apply that they share the begin and
+        end of the position itself. 
+        */
+        node.begin.value =
+            tradingEngine.current.episode.candle.begin.value +
+            sessionParameters.timeFrame.config.value
+        node.end.value =
+            tradingEngine.current.episode.candle.end.value +
+            sessionParameters.timeFrame.config.value
     }
 
     function updateStopLoss(phase) {
@@ -253,7 +273,7 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
 
     function updateEnds() {
         if (tradingEngine.current.position.status.value === 'Open') {
-            tradingEngine.current.position.end.value = tradingEngine.current.episode.candle.end.value
+            tradingEngine.current.position.end.value = tradingEngine.current.position.end.value + sessionParameters.timeFrame.config.value
             tradingEngine.current.position.endRate.value = tradingEngine.current.episode.candle.close.value
             tradingEngine.current.position.positionBaseAsset.endBalance.value = tradingEngine.current.episode.episodeBaseAsset.balance.value
             tradingEngine.current.position.positionQuotedAsset.endBalance.value = tradingEngine.current.episode.episodeQuotedAsset.balance.value
@@ -305,7 +325,7 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
             /* Hit Fail Calculation */
             if (tradingEngine.current.position.positionBaseAsset.ROI.value > 0) {
                 tradingEngine.current.position.positionBaseAsset.hitFail.value = 'Hit'
-            } 
+            }
             if (tradingEngine.current.position.positionBaseAsset.ROI.value < 0) {
                 tradingEngine.current.position.positionBaseAsset.hitFail.value = 'Fail'
             }
@@ -314,7 +334,7 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
             }
             if (tradingEngine.current.position.positionQuotedAsset.ROI.value > 0) {
                 tradingEngine.current.position.positionQuotedAsset.hitFail.value = 'Hit'
-            } 
+            }
             if (tradingEngine.current.position.positionQuotedAsset.ROI.value < 0) {
                 tradingEngine.current.position.positionQuotedAsset.hitFail.value = 'Fail'
             }
@@ -348,7 +368,7 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
             /* Hit Fail Calculation */
             if (tradingEngine.current.position.positionStatistics.ROI.value > 0) {
                 tradingEngine.current.position.positionStatistics.hitFail.value = 'Hit'
-            } 
+            }
             if (tradingEngine.current.position.positionStatistics.ROI.value < 0) {
                 tradingEngine.current.position.positionStatistics.hitFail.value = 'Fail'
             }

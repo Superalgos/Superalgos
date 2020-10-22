@@ -393,6 +393,8 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
 
     function runManageStage() {
 
+        if (tradingEngine.current.episode.cycle.value !== 'First') { return }
+
         runWhenStatusIsOpening()
         runWhenStatusIsOpen()
 
@@ -595,7 +597,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
                                 }
 
                                 announcementsModule.makeAnnoucements(moveToPhaseEvent)
-                                
+
                                 /* Reset this counter */
                                 tradingEngine.current.episode.distanceToEvent.moveToPhase.value = 1
                                 return // only one event can pass at the time
@@ -786,12 +788,12 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
             to be known before we start placing orders at the Close Stage. 
             */
             if (
-                tradingEngine.current.strategyCloseStage.status.value === 'Open' && 
-            (
-                tradingEngine.current.strategyOpenStage.status.value === 'Closed'  ||
-                tradingEngine.current.strategyOpenStage.status.value == tradingEngine.current.strategyOpenStage.status.config.initialValue
-            )
-                ) {
+                tradingEngine.current.strategyCloseStage.status.value === 'Open' &&
+                (
+                    tradingEngine.current.strategyOpenStage.status.value === 'Closed' ||
+                    tradingEngine.current.strategyOpenStage.status.value == tradingEngine.current.strategyOpenStage.status.config.initialValue
+                )
+            ) {
                 /*
                 This will happen as long as the Close Stage is Open.
                 */
@@ -893,7 +895,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
         when we see at the exchange that orders were filled. 
         Note that the comparison is made with a Rounding Factor in order to avoid rounding problems.
         */
-       const ROUNDING_ERROR_CORRECTION_FACTOR = 1.001
+        const ROUNDING_ERROR_CORRECTION_FACTOR = 1.001
 
         switch (tradingEngineStage.stageDefinedIn.value) {
             case 'Base Asset': {
@@ -990,35 +992,50 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
             closeStage(stage)
         }
 
+        /*
+        The way the begining and end of the Stages object works is as follows:
+        This object begins with the last cycle, that is the current cycle diplaced
+        backwards to the current candle. And it ends at the end of the last cycle.
+        During mantainance, we add the time frame of the candle, since we assume it 
+        will survive the 2 cycles without the end being updated. If it closes,
+        then we update the end to the end of the last cycle, overrinding the 
+        mantainance if needed. If we assume that in the same cycle there will be
+        no closing and opening of the same type of object, then there can be no 
+        overlap.
+        */
         function openStage(stage) {
             /* Recording the opening at the Trading Engine Data Structure */
-            stage.begin.value = tradingEngine.current.episode.candle.begin.value
+            stage.begin.value = tradingEngine.current.episode.cycle.lastBegin.value
+            stage.end.value = tradingEngine.current.episode.cycle.lastEnd.value
             stage.beginRate.value = tradingEngine.current.episode.candle.close.value
-            stage.end.value = tradingEngine.current.episode.candle.begin.value
         }
 
         function closeStage(stage) {
             /* Recording the closing at the Trading Engine Data Structure */
-            stage.end.value = tradingEngine.current.episode.candle.begin.value
+            stage.end.value = tradingEngine.current.episode.cycle.lastEnd.value
             stage.endRate.value = tradingEngine.current.episode.candle.close.value
         }
     }
 
     function updateEnds() {
+        /* 
+        Note that we can not use the cycle here because this is executed via mantain
+        which in turn is executed before the first cycle for this candle is set. 
+        */
         if (tradingEngine.current.strategyTriggerStage.status.value === 'Open') {
-            tradingEngine.current.strategyTriggerStage.end.value = tradingEngine.current.episode.cycle.end.value
+            tradingEngine.current.strategyTriggerStage.end.value = tradingEngine.current.strategyTriggerStage.end.value + sessionParameters.timeFrame.config.value
             tradingEngine.current.strategyTriggerStage.endRate.value = tradingEngine.current.episode.candle.close.value
         }
         if (tradingEngine.current.strategyOpenStage.status.value === 'Open') {
-            tradingEngine.current.strategyOpenStage.end.value = tradingEngine.current.episode.cycle.end.value
+            tradingEngine.current.strategyOpenStage.end.value = tradingEngine.current.strategyOpenStage.end.value + sessionParameters.timeFrame.config.value
             tradingEngine.current.strategyOpenStage.endRate.value = tradingEngine.current.episode.candle.close.value
         }
         if (tradingEngine.current.strategyManageStage.status.value === 'Open') {
-            tradingEngine.current.strategyManageStage.end.value = tradingEngine.current.episode.cycle.end.value
+            tradingEngine.current.strategyManageStage.end.value = tradingEngine.current.strategyManageStage.end.value + sessionParameters.timeFrame.config.value
             tradingEngine.current.strategyManageStage.endRate.value = tradingEngine.current.episode.candle.close.value
         }
         if (tradingEngine.current.strategyCloseStage.status.value === 'Open') {
-            tradingEngine.current.strategyCloseStage.end.value = tradingEngine.current.episode.cycle.end.value
+            tradingEngine.current.strategyCloseStage.end.value = tradingEngine.current.strategyCloseStage.end.value + sessionParameters.timeFrame.config.value
             tradingEngine.current.strategyCloseStage.endRate.value = tradingEngine.current.episode.candle.close.value
         }
     }

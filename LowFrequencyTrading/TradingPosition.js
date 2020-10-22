@@ -82,6 +82,15 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
     function closingPosition(exitType) {
         tradingEngine.current.position.status.value = 'Closing'
         tradingEngine.current.position.exitType.value = exitType
+
+        /*
+        By the time we figured out that the stop loss or take profit were hit, or 
+        for whatever reason the position needs to be closed, the take profit and
+        stop loss values for the next candle have already been calculated. In order
+        to avoid being plotted, we will put them in zero. 
+        */
+        tradingEngine.current.position.stopLoss.value = 0
+        tradingEngine.current.position.takeProfit.value = 0
     }
 
     function closePosition() {

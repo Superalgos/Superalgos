@@ -82,6 +82,9 @@ function newTaskFunctions() {
         for (let i = 0; i < node.bot.processes.length; i++) {
             let process = node.bot.processes[i]
             process.payload.uiObject.run(eventsServerClient)
+            if (process.session !== undefined) {
+                process.session.payload.uiObject.reset()
+            }
         }
 
         let taskLightingPath = '->Task->' +
@@ -185,6 +188,9 @@ function newTaskFunctions() {
         for (let i = 0; i < node.bot.processes.length; i++) {
             let process = node.bot.processes[i]
             process.payload.uiObject.stop()
+            if (process.session !== undefined) {
+                process.session.payload.uiObject.reset()
+            }
         }
     }
 

@@ -519,14 +519,25 @@ function newPlotter() {
 
                 let atMousePosition = false
                 if (userPositionDate >= record.begin && userPositionDate <= record.end) {
-                    if (record.rate !== undefined && productDefinition.referenceParent.config.useRateAtMousePosition === true) {
-                        /* Current Record depends also on rate */
-                        if (record.rate >= minUserPositionRate && record.rate <= maxUserPositionRate) {
-                            atMousePosition = true
-                            thisObject.container.eventHandler.raiseEvent('Current Record Changed', record)
+                    if (productDefinition.referenceParent.config.useRateAtMousePosition === true) {
+                        let ratePropertyName = "rate"
+                        if (productDefinition.referenceParent.config.ratePropertyName !== undefined) {
+                            ratePropertyName = productDefinition.referenceParent.config.ratePropertyName
+                        }
+                        if (record[ratePropertyName] === undefined) {
+                            atMousePosition()
+                        } else {
+                            /* Current Record depends also on rate */
+                            if (record[ratePropertyName] >= minUserPositionRate && record[ratePropertyName] <= maxUserPositionRate) {
+                                atMousePosition()
+                            }
                         }
                     } else {
                         /* Current Record depends only on begin and end. */
+                        atMousePosition()
+                    }
+
+                    function atMousePosition() {
                         atMousePosition = true
                         thisObject.container.eventHandler.raiseEvent('Current Record Changed', record)
                     }
@@ -817,7 +828,7 @@ function newPlotter() {
 
                     imagePosition.x = dataPoint.x
                     imagePosition.y = dataPoint.y
-                    let imageToDraw = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName( 'Superalgos', imageName)
+                    let imageToDraw = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName('Superalgos', imageName)
                     if (imageToDraw !== undefined) {
                         if (imageToDraw.canDrawIcon === true) {
                             browserCanvasContext.drawImage(imageToDraw, imagePosition.x - imageSize / 2 + offsetX, imagePosition.y - imageSize / 2 - offsetY, imageSize, imageSize)

@@ -3317,6 +3317,18 @@
         "propertyNameAtParent": "stopLoss",
         "properties": [
             {
+                "name": "begin",
+                "type": "node",
+                "childType": "Begin",
+                "autoAdd": true
+            },
+            {
+                "name": "end",
+                "type": "node",
+                "childType": "End",
+                "autoAdd": true
+            },
+            {
                 "name": "stopLossPhase",
                 "type": "node",
                 "childType": "Stop Loss Phase",
@@ -3376,6 +3388,18 @@
         },
         "propertyNameAtParent": "stopLoss",
         "properties": [
+            {
+                "name": "begin",
+                "type": "node",
+                "childType": "Begin",
+                "autoAdd": true
+            },
+            {
+                "name": "end",
+                "type": "node",
+                "childType": "End",
+                "autoAdd": true
+            },
             {
                 "name": "takeProfitPhase",
                 "type": "node",
@@ -6100,7 +6124,7 @@
         "addLeftIcons": true,
         "level": 3,
         "chainAttachesTo": {
-            "compatibleTypes": "->Episode->Strategy->Position->Candle->Cycle->Market Order->Limit Order->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->"
+            "compatibleTypes": "->Episode->Strategy->Position->Candle->Cycle->Market Order->Limit Order->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->Stop Loss->Take Profit->"
         },
         "propertyNameAtParent": "begin"
     },
@@ -6140,7 +6164,7 @@
         "addLeftIcons": true,
         "level": 3,
         "chainAttachesTo": {
-            "compatibleTypes": "->Episode->Strategy->Position->Candle->Cycle->Market Order->Limit Order->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->"
+            "compatibleTypes": "->Episode->Strategy->Position->Candle->Cycle->Market Order->Limit Order->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->Stop Loss->Take Profit->"
         },
         "propertyNameAtParent": "end"
     },

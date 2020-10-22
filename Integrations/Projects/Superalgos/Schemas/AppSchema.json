@@ -3339,6 +3339,18 @@
                 "type": "node",
                 "childType": "Stop Loss Position",
                 "autoAdd": true
+            },
+            {
+                "name": "initialValue",
+                "type": "node",
+                "childType": "Initial Value",
+                "autoAdd": true
+            },
+            {
+                "name": "finalValue",
+                "type": "node",
+                "childType": "Final Value",
+                "autoAdd": true
             }
         ]
     },
@@ -3411,8 +3423,100 @@
                 "type": "node",
                 "childType": "Take Profit Position",
                 "autoAdd": true
+            },
+            {
+                "name": "initialValue",
+                "type": "node",
+                "childType": "Initial Value",
+                "autoAdd": true
+            },
+            {
+                "name": "finalValue",
+                "type": "node",
+                "childType": "Final Value",
+                "autoAdd": true
             }
         ]
+    },
+    {
+        "type": "Initial Value",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": 0\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Stop Loss->Take Profit->"
+        },
+        "propertyNameAtParent": "initialValue"
+    },
+    {
+        "type": "Final Value",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": 0\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Stop Loss->Take Profit->"
+        },
+        "propertyNameAtParent": "finalValue"
     },
     {
         "type": "Stop Loss Phase",

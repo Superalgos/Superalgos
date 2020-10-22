@@ -123,14 +123,37 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
     }
 
     function applyStopLossFormula(formulas, formulaId) {
+        updateStopLossTakeProfitFinalValue(tradingEngine.current.position.stopLoss)
         tradingEngine.current.position.stopLoss.value = formulas.get(formulaId)
+        updateStopLossTakeProfitInitialValue(tradingEngine.current.position.stopLoss)
         updateStopLossTakeProfitBeginEnd(tradingEngine.current.position.stopLoss)
     }
 
     function applyTakeProfitFormula(formulas, formulaId) {
+        updateStopLossTakeProfitFinalValue(tradingEngine.current.position.takeProfit)
         tradingEngine.current.position.takeProfit.value = formulas.get(formulaId)
+        updateStopLossTakeProfitInitialValue(tradingEngine.current.position.takeProfit)
         updateStopLossTakeProfitBeginEnd(tradingEngine.current.position.takeProfit)
     }
+
+    function updateStopLossTakeProfitInitialValue(node) {
+        /*
+        We store the first Stop Loss or Take Profit value in a separate node.
+        To know if it is the first one we compare its current value to the initial value.
+        */
+        if (node.initialValue.value === node.initialValue.config.initialValue) {
+            node.initialValue.value = node.value
+        }
+    }
+
+    function updateStopLossTakeProfitFinalValue(node) {
+        /*
+        We set the final value just before calcualting the new value, since the new calculated
+        value is going to be discarded if the position is closed after it is calculated, but
+        during the same candle.
+        */
+        node.finalValue.value = node.value
+     }
 
     function updateStopLossTakeProfitBeginEnd(node) {
         /*

@@ -37,6 +37,7 @@ function newUiObject() {
         showAvailabilityToReferenceAttach: showAvailabilityToReferenceAttach,
         highlight: highlight,
         runningAtBackend: runningAtBackend,
+        reset: reset, 
         setErrorMessage: setErrorMessage,
         resetErrorMessage: resetErrorMessage,
         setWarningMessage: setWarningMessage,
@@ -946,14 +947,18 @@ function newUiObject() {
         }
     }
 
-    function run(pEventsServerClient, callBackFunction) {
-        finalizeEventsServerClient()
+    function reset(){
         resetErrorMessage()
         resetWarningMessage()
         resetInfoMessage()
         resetPercentage()
         resetValue()
         resetStatus()
+    }
+
+    function run(pEventsServerClient, callBackFunction) {
+        finalizeEventsServerClient()
+        reset()
         eventsServerClient = pEventsServerClient
 
         /* We setup the circular progress bar. */

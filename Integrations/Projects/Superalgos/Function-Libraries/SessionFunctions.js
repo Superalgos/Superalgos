@@ -92,8 +92,8 @@ function newSessionFunctions() {
             'Strategy Counters->' +
             'Position->' +
             'Entry Target Rate->Exit Target Rate->' +
-            'Stop Loss->Stop Loss Phase->Stop Loss Position->' +
-            'Take Profit->Take Profit Phase->Take Profit Position->' +
+            'Stop Loss->Stop Loss Phase->Stop Loss Position->Begin->End->' +
+            'Take Profit->Take Profit Phase->Take Profit Position->Begin->End->' +
             'Position Counters->' +
             'Position Statistics->Days->User Defined Statistic->' +
             'Position Base Asset->Position Quoted Asset->Entry Target Size->Exit Target Size->' +

@@ -50,6 +50,10 @@ exports.newTradingEpisode = function newTradingEpisode(bot, logger, tradingEngin
         or the task / session was restarted.
         */
         if (bot.FIRST_EXECUTION === true) {
+            /* Starting begin and end */
+            tradingEngine.current.episode.begin.value = tradingEngine.current.episode.candle.begin.value
+            tradingEngine.current.episode.end.value = tradingEngine.current.episode.candle.end.value
+
             /* Getting the begin Balance from the session configuration */
             tradingEngine.current.episode.episodeBaseAsset.beginBalance.value = sessionParameters.sessionBaseAsset.config.initialBalance
             tradingEngine.current.episode.episodeQuotedAsset.beginBalance.value = sessionParameters.sessionQuotedAsset.config.initialBalance
@@ -62,7 +66,6 @@ exports.newTradingEpisode = function newTradingEpisode(bot, logger, tradingEngin
             tradingEngine.current.episode.status.value = 'Open'
             tradingEngine.current.episode.serialNumber.value = 1
             tradingEngine.current.episode.identifier.value = global.UNIQUE_ID()
-            tradingEngine.current.episode.begin.value = tradingEngine.current.episode.candle.begin.value
             tradingEngine.current.episode.beginRate.value = tradingEngine.current.episode.candle.close.value
         }
     }
@@ -73,7 +76,7 @@ exports.newTradingEpisode = function newTradingEpisode(bot, logger, tradingEngin
 
     function closeEpisode() {
         tradingEngine.current.episode.status.value = 'Closed'
-        tradingEngine.current.episode.end.value = tradingEngine.current.episode.candle.begin.value
+        tradingEngine.current.episode.end.value = tradingEngine.current.episode.candle.end.value
         tradingEngine.current.episode.endRate.value = tradingEngine.current.episode.candle.close.value
         tradingEngine.current.episode.episodeBaseAsset.endBalance.value = tradingEngine.current.episode.episodeBaseAsset.balance.value
         tradingEngine.current.episode.episodeQuotedAsset.endBalance.value = tradingEngine.current.episode.episodeQuotedAsset.balance.value
@@ -85,7 +88,7 @@ exports.newTradingEpisode = function newTradingEpisode(bot, logger, tradingEngin
 
     function updateEnds() {
         if (tradingEngine.current.episode.status.value === 'Open') {
-            tradingEngine.current.episode.end.value = tradingEngine.current.episode.candle.end.value
+            tradingEngine.current.episode.end.value = tradingEngine.current.episode.end.value + sessionParameters.timeFrame.config.value
             tradingEngine.current.episode.endRate.value = tradingEngine.current.episode.candle.close.value
             tradingEngine.current.episode.episodeBaseAsset.endBalance.value = tradingEngine.current.episode.episodeBaseAsset.balance.value
             tradingEngine.current.episode.episodeQuotedAsset.endBalance.value = tradingEngine.current.episode.episodeQuotedAsset.balance.value
@@ -160,7 +163,7 @@ exports.newTradingEpisode = function newTradingEpisode(bot, logger, tradingEngin
                 tradingEngine.current.episode.episodeBaseAsset.hitRatio.value = global.PRECISE(tradingEngine.current.episode.episodeBaseAsset.hitRatio.value, 10)
                 tradingEngine.current.episode.episodeQuotedAsset.hitRatio.value = global.PRECISE(tradingEngine.current.episode.episodeQuotedAsset.hitRatio.value, 10)
             }
-            
+
             /* 
             Updating Annualized Rate Of Return 
             

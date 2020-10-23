@@ -44,6 +44,7 @@ function newUiObject() {
         resetWarningMessage: resetWarningMessage,
         setInfoMessage: setInfoMessage,
         resetInfoMessage: resetInfoMessage,
+        getValue: getValue,
         setValue: setValue,
         resetValue: resetValue,
         setPercentage: setPercentage,
@@ -878,6 +879,10 @@ function newUiObject() {
     function resetInfoMessage() {
         infoMessage = undefined
         thisObject.hasInfo = false
+    }
+
+    function getValue() {
+        return currentValue
     }
 
     function setValue(value, counter, minDecimals) {

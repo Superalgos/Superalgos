@@ -4457,6 +4457,12 @@
         "propertyNameAtParent": "orderBaseAsset",
         "properties": [
             {
+                "name": "actualSize",
+                "type": "node",
+                "childType": "Actual Size",
+                "autoAdd": true
+            },
+            {
                 "name": "size",
                 "type": "node",
                 "childType": "Size",
@@ -4469,9 +4475,21 @@
                 "autoAdd": true
             },
             {
+                "name": "sizeToBeFilled",
+                "type": "node",
+                "childType": "Size To Be Filled",
+                "autoAdd": true
+            },
+            {
                 "name": "feesPaid",
                 "type": "node",
                 "childType": "Fees Paid",
+                "autoAdd": true
+            },
+            {
+                "name": "feesToBePaid",
+                "type": "node",
+                "childType": "Fees To Be Paid",
                 "autoAdd": true
             }
         ]
@@ -4503,6 +4521,12 @@
         "propertyNameAtParent": "orderQuotedAsset",
         "properties": [
             {
+                "name": "actualSize",
+                "type": "node",
+                "childType": "Actual Size",
+                "autoAdd": true
+            },
+            {
                 "name": "size",
                 "type": "node",
                 "childType": "Size",
@@ -4515,9 +4539,21 @@
                 "autoAdd": true
             },
             {
+                "name": "sizeToBeFilled",
+                "type": "node",
+                "childType": "Size To Be Filled",
+                "autoAdd": true
+            },
+            {
                 "name": "feesPaid",
                 "type": "node",
                 "childType": "Fees Paid",
+                "autoAdd": true
+            },
+            {
+                "name": "feesToBePaid",
+                "type": "node",
+                "childType": "Fees To Be Paid",
                 "autoAdd": true
             }
         ]
@@ -7751,6 +7787,168 @@
             "compatibleTypes": "->Order Base Asset->Order Quoted Asset->"
         },
         "propertyNameAtParent": "size"
+    },
+    {
+        "type": "Actual Size",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": 0\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Order Base Asset->Order Quoted Asset->"
+        },
+        "propertyNameAtParent": "actualSize"
+    },
+    {
+        "type": "Size To Be Filled",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": 0\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Order Base Asset->Order Quoted Asset->"
+        },
+        "propertyNameAtParent": "sizeToBeFilled"
+    },
+    {
+        "type": "Fees To Be Paid",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": 0\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Order Base Asset->Order Quoted Asset->"
+        },
+        "propertyNameAtParent": "feesToBePaid"
     },
     {
         "type": "Entry Target Size",

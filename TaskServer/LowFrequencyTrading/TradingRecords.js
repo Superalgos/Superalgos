@@ -143,10 +143,13 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                 the Root Node specifically for this property only.
                 */
                 if (recordProperty.config.nodePath !== undefined) {
+                    if ( recordProperty.config.nodePath === "tradingEngine.exchangeOrders.marketBuyOrders.marketOrders[index].orderBaseAsset") {
+                        let a = tradingEngine
+                    }
                     try {
                         propertyRootNode = eval(recordProperty.config.nodePath)
                     } catch (err) {
-                        badDefinitionUnhandledException(err, 'Error Evaluation Record Property nodePath -> nodePath = ' + recordProperty.config.nodePath, product, recordProperty)
+                        badDefinitionUnhandledException(err, 'Error Evaluating Record Property nodePath -> nodePath = ' + recordProperty.config.nodePath, product, recordProperty)
                     }
                 }
                 /* 

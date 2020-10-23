@@ -103,7 +103,7 @@ function newSessionFunctions() {
             'Exchange Id->Rate->Order Name->Algorithm Name->Lock->' +
             'Order Counters->' +
             'Order Base Asset->Order Quoted Asset->' +
-            'Size->Size Filled->Fees Paid->' +
+            'Actual Size->Size->Size Filled->Size To Be Filled->Fees Paid->Fees To Be Paid->' +
             'Order Statistics->Percentage Filled->Actual Rate->Days->User Defined Statistic->' +
             'Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->' +
             'Begin->End->Exit Type->Status->Begin Rate->End Rate->Stage Base Asset->Stage Quoted Asset->Size Placed->Target Size->Size Filled->Fees Paid->Stage Defined In->' +

@@ -2938,6 +2938,20 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -2975,6 +2989,20 @@
                 "label": "Copy Node Path",
                 "iconPathOn": "copy-path",
                 "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -3018,6 +3046,20 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -3055,6 +3097,20 @@
                 "label": "Copy Node Path",
                 "iconPathOn": "copy-path",
                 "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -3098,6 +3154,20 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -3138,6 +3208,20 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -3175,6 +3259,20 @@
                 "label": "Copy Node Path",
                 "iconPathOn": "copy-path",
                 "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -3294,6 +3392,20 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -3378,6 +3490,20 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -3456,6 +3582,20 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -3493,6 +3633,20 @@
                 "label": "Copy Node Path",
                 "iconPathOn": "copy-path",
                 "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -3536,6 +3690,20 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -3573,6 +3741,20 @@
                 "label": "Copy Node Path",
                 "iconPathOn": "copy-path",
                 "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -3616,6 +3798,20 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -3653,6 +3849,20 @@
                 "label": "Copy Node Path",
                 "iconPathOn": "copy-path",
                 "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -4338,6 +4548,20 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -4386,6 +4610,20 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -4423,6 +4661,20 @@
                 "label": "Copy Node Path",
                 "iconPathOn": "copy-path",
                 "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -4466,6 +4718,20 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -4503,6 +4769,20 @@
                 "label": "Copy Node Path",
                 "iconPathOn": "copy-path",
                 "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -4546,6 +4826,20 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -4583,6 +4877,20 @@
                 "label": "Copy Node Path",
                 "iconPathOn": "copy-path",
                 "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -4626,6 +4934,20 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -4663,6 +4985,20 @@
                 "label": "Copy Node Path",
                 "iconPathOn": "copy-path",
                 "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -4706,6 +5042,20 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -4743,6 +5093,20 @@
                 "label": "Copy Node Path",
                 "iconPathOn": "copy-path",
                 "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -4856,6 +5220,20 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -4896,6 +5274,20 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -4933,6 +5325,20 @@
                 "label": "Copy Node Path",
                 "iconPathOn": "copy-path",
                 "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -5058,6 +5464,20 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -5095,6 +5515,20 @@
                 "label": "Copy Node Path",
                 "iconPathOn": "copy-path",
                 "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -5138,6 +5572,20 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -5175,6 +5623,20 @@
                 "label": "Copy Node Path",
                 "iconPathOn": "copy-path",
                 "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -5218,6 +5680,20 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -5255,6 +5731,20 @@
                 "label": "Copy Node Path",
                 "iconPathOn": "copy-path",
                 "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -5298,6 +5788,20 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -5338,6 +5842,20 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -5375,6 +5893,20 @@
                 "label": "Copy Node Path",
                 "iconPathOn": "copy-path",
                 "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -5810,6 +6342,20 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -5847,6 +6393,20 @@
                 "label": "Copy Node Path",
                 "iconPathOn": "copy-path",
                 "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -5890,6 +6450,20 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -5927,6 +6501,20 @@
                 "label": "Copy Node Path",
                 "iconPathOn": "copy-path",
                 "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -5970,6 +6558,20 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -6007,6 +6609,20 @@
                 "label": "Copy Node Path",
                 "iconPathOn": "copy-path",
                 "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -6050,6 +6666,20 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -6087,6 +6717,20 @@
                 "label": "Copy Node Path",
                 "iconPathOn": "copy-path",
                 "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -6130,6 +6774,20 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -6167,6 +6825,20 @@
                 "label": "Copy Node Path",
                 "iconPathOn": "copy-path",
                 "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -6210,6 +6882,20 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -6247,6 +6933,20 @@
                 "label": "Copy Node Path",
                 "iconPathOn": "copy-path",
                 "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -6290,6 +6990,20 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -6330,6 +7044,20 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -6363,6 +7091,20 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -6387,6 +7129,20 @@
                 "label": "Copy Node Path",
                 "iconPathOn": "copy-path",
                 "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -6417,6 +7173,20 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -6441,6 +7211,20 @@
                 "label": "Copy Node Path",
                 "iconPathOn": "copy-path",
                 "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -6475,6 +7259,20 @@
                 "label": "Copy Node Path",
                 "iconPathOn": "copy-path",
                 "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -6515,6 +7313,20 @@
                 "label": "Copy Node Path",
                 "iconPathOn": "copy-path",
                 "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -6688,6 +7500,20 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -6725,6 +7551,20 @@
                 "label": "Copy Node Path",
                 "iconPathOn": "copy-path",
                 "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -6768,6 +7608,20 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -6805,6 +7659,20 @@
                 "label": "Copy Node Path",
                 "iconPathOn": "copy-path",
                 "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -6848,6 +7716,20 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -6885,6 +7767,20 @@
                 "label": "Copy Node Path",
                 "iconPathOn": "copy-path",
                 "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -6928,6 +7824,20 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -6965,6 +7875,20 @@
                 "label": "Copy Node Path",
                 "iconPathOn": "copy-path",
                 "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -7008,6 +7932,20 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -7045,6 +7983,20 @@
                 "label": "Copy Node Path",
                 "iconPathOn": "copy-path",
                 "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -7088,6 +8040,20 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -7125,6 +8091,20 @@
                 "label": "Copy Node Path",
                 "iconPathOn": "copy-path",
                 "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -7286,6 +8266,20 @@
                 "label": "Copy Node Path",
                 "iconPathOn": "copy-path",
                 "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
                 "actionFunction": "payload.executeAction"
             },
             {

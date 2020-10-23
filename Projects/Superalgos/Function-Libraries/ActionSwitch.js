@@ -111,6 +111,28 @@ function newSuperalgosActionSwitch() {
                         , 50, UI.projects.superalgos.spaces.cockpitSpace.statusTypes.ALL_GOOD)
                 }
                 break
+            case 'Copy Node Value':
+                {
+                    let value = action.node.payload.uiObject.getValue()
+
+                    UI.projects.superalgos.utilities.clipboard.copyTextToClipboard(value)
+
+                    UI.projects.superalgos.spaces.cockpitSpace.setStatus(
+                        value + ' copied to the Clipboard.'
+                        , 50, UI.projects.superalgos.spaces.cockpitSpace.statusTypes.ALL_GOOD)
+                }
+                break
+            case 'Copy Node Type':
+                {
+                    let value = action.node.type 
+
+                    UI.projects.superalgos.utilities.clipboard.copyTextToClipboard(value)
+
+                    UI.projects.superalgos.spaces.cockpitSpace.setStatus(
+                        value + ' copied to the Clipboard.'
+                        , 50, UI.projects.superalgos.spaces.cockpitSpace.statusTypes.ALL_GOOD)
+                }
+                break
             case 'Add UI Object':
                 {
                     functionLibraryUiObjectsFromNodes.addUIObject(action.node, action.relatedNodeType, action.rootNodes)

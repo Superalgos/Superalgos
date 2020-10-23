@@ -891,8 +891,10 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
         The Stage is closed when the placedSize reaches the targetSize, and the fillSize
         + feesPaid reaches the placedSize. This depends on how the user defined the stage:
         either on Base Asset or Quoted Asset.
+
         This can happens at any time when we update the sizeFilled and the feesPaid values 
         when we see at the exchange that orders were filled. 
+        
         Note that the comparison is made with a Rounding Factor in order to avoid rounding problems.
         */
         const ROUNDING_ERROR_CORRECTION_FACTOR = 1.001
@@ -923,9 +925,11 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
                 break
             }
         }
+
         function positionFilled() {
             changeStageStatus(stageName, 'Closed', 'Position Size Filled')
         }
+
         function checkCloseStageEvent(tradingSystemStage) {
             /* Check the Close Stage Event */
             tradingSystem.evalConditions(tradingSystemStage, 'Close Stage Event')

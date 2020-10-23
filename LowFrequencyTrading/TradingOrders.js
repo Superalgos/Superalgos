@@ -236,10 +236,16 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
         if (tradingEngineOrder.orderBaseAsset.size === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.orderBaseAsset.size === undefined', tradingEngineOrder) }
         if (tradingEngineOrder.orderBaseAsset.sizeFilled === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.orderBaseAsset.sizeFilled === undefined', tradingEngineOrder) }
         if (tradingEngineOrder.orderBaseAsset.feesPaid === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.orderBaseAsset.feesPaid === undefined', tradingEngineOrder) }
+        if (tradingEngineOrder.orderBaseAsset.actualSize === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.orderBaseAsset.actualSize === undefined', tradingEngineOrder) }
+        if (tradingEngineOrder.orderBaseAsset.sizeToBeFilled === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.orderBaseAsset.sizeToBeFilled === undefined', tradingEngineOrder) }
+        if (tradingEngineOrder.orderBaseAsset.feesToBePaid === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.orderBaseAsset.feesToBePaid === undefined', tradingEngineOrder) }
 
         if (tradingEngineOrder.orderQuotedAsset.size === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.orderQuotedAsset.size === undefined', tradingEngineOrder) }
         if (tradingEngineOrder.orderQuotedAsset.sizeFilled === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.orderQuotedAsset.sizeFilled === undefined', tradingEngineOrder) }
         if (tradingEngineOrder.orderQuotedAsset.feesPaid === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.orderQuotedAsset.feesPaid === undefined', tradingEngineOrder) }
+        if (tradingEngineOrder.orderQuotedAsset.actualSize === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.orderQuotedAsset.actualSize === undefined', tradingEngineOrder) }
+        if (tradingEngineOrder.orderQuotedAsset.sizeToBeFilled === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.orderQuotedAsset.sizeToBeFilled === undefined', tradingEngineOrder) }
+        if (tradingEngineOrder.orderQuotedAsset.feesToBePaid === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.orderQuotedAsset.feesToBePaid === undefined', tradingEngineOrder) }
     }
 
     async function tryToOpenOrder(tradingEngineStage, executionAlgorithm, tradingSystemOrder, tradingEngineOrder, situationName) {
@@ -407,13 +413,15 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
             }
         }
 
-        let previousQuotedAssetSize = tradingEngineOrder.orderQuotedAsset.size.value
         let previousBaseAssetSizeFilled = tradingEngineOrder.orderBaseAsset.sizeFilled.value
         let previousQuotedAssetSizeFilled = tradingEngineOrder.orderQuotedAsset.sizeFilled.value
         let previousBaseAssetFeesPaid = tradingEngineOrder.orderBaseAsset.feesPaid.value
         let previousQuotedAssetFeesPaid = tradingEngineOrder.orderQuotedAsset.feesPaid.value
 
+        actualSizeSimulation()
         actualRateSimulation()
+        feesToBePaidSimulation()
+        sizeToBeFilledSimulation()
         percentageFilledSimulation()
         feesPaidSimulation()
         sizeFilledSimulation()
@@ -433,14 +441,26 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
             simulateCancelOrder(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, 'Closing Stage')
         }
 
+        async function actualSizeSimulation() {
+            /* 
+            While backtesting and paper trading, we do not really need to change
+            simulate an Actual Size. We will just copy to that field the
+            size of the order.
+            */
+            tradingEngineOrder.orderBaseAsset.actualSize.value = tradingEngineOrder.orderBaseAsset.size.value
+            tradingEngineOrder.orderQuotedAsset.actualSize.value = tradingEngineOrder.orderQuotedAsset.size.value
+
+        }
+
         function actualRateSimulation() {
             /* Actual Rate Simulation */
             let calculatedBasedOnTradingSystem = false
+            let previousQuotedAssetActualSize
 
             basedOnTradingSystem()
             basedOnSessionParameters()
             considerBestMatchWithOrderBook()
-            recalculateQuotedAsset()
+            recalculateActualSize()
             recalculateSizePlaced()
 
             function basedOnTradingSystem() {
@@ -513,49 +533,100 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
                 tradingEngineOrder.orderStatistics.actualRate.value = global.PRECISE(tradingEngineOrder.orderStatistics.actualRate.value, 10)
             }
 
-            function recalculateQuotedAsset() {
+            function recalculateActualSize() {
                 /*
-                Recalculate the Quouted Asset Size based on the newly calculated Actual Rate.
+                The Quoted Asset Actual Size in a backtest is equal to the Quoted Asset Size, which is related to
+                the Base Asset Size by the Order Rate. Since now we have the Actual Rate, we will need to recalculate
+                the Quoted Asset Actual Size using the Actual Rate.
                 */
-                tradingEngineOrder.orderQuotedAsset.size.value = tradingEngineOrder.orderBaseAsset.size.value * tradingEngineOrder.orderStatistics.actualRate.value
-                tradingEngineOrder.orderQuotedAsset.size.value = global.PRECISE(tradingEngineOrder.orderQuotedAsset.size.value, 10)
+                previousQuotedAssetActualSize = tradingEngineOrder.orderQuotedAsset.actualSize.value
+
+                tradingEngineOrder.orderQuotedAsset.actualSize.value = tradingEngineOrder.orderBaseAsset.actualSize.value * tradingEngineOrder.orderStatistics.actualRate.value
+                tradingEngineOrder.orderQuotedAsset.actualSize.value = global.PRECISE(tradingEngineOrder.orderQuotedAsset.actualSize.value, 10)
             }
 
             function recalculateSizePlaced() {
                 /*
-                Recaulculate the Size Placed Based on the newly calculated Quoted Asset Size.
+                For the Quoted Asset, the Size Placed was previously calculated with the previous Actual Size (or Size when these were equal). 
+                Since we have just recaclcualted the Actual Size in Quoted Asset, we need to fix the Size Placed for the stage which was
+                calculated with the previous value.
                 */
                 tradingEngineStage.stageQuotedAsset.sizePlaced.value =
                     tradingEngineStage.stageQuotedAsset.sizePlaced.value -
-                    previousQuotedAssetSize
+                    previousQuotedAssetActualSize
 
                 tradingEngineStage.stageQuotedAsset.sizePlaced.value =
                     tradingEngineStage.stageQuotedAsset.sizePlaced.value +
-                    tradingEngineOrder.orderQuotedAsset.size.value
+                    tradingEngineOrder.orderQuotedAsset.actualSize.value
 
                 tradingEngineStage.stageQuotedAsset.sizePlaced.value = global.PRECISE(tradingEngineStage.stageQuotedAsset.sizePlaced.value, 10)
             }
         }
 
+        async function feesToBePaidSimulation() {
+            /* 
+            The Fees To Be Paid are the fees that will be paid once the order is 100% Filled. 
+            */
+            switch (tradingEngineOrder.type) {
+                case 'Market Order': {
+                    await applyFeePercentage(
+                        tradingEngineOrder.orderBaseAsset.feesToBePaid,
+                        tradingEngineOrder,
+                        tradingSystemOrder,
+                        sessionParameters.feeStructure.config.taker,
+                        100
+                    )
+                    break
+                }
+                case 'Limit Order': {
+                    await applyFeePercentage(
+                        tradingEngineOrder.orderBaseAsset.feesToBePaid,
+                        tradingEngineOrder,
+                        tradingSystemOrder,
+                        sessionParameters.feeStructure.config.maker,
+                        100
+                    )
+                    break
+                }
+            }
+        }
+
+        async function sizeToBeFilledSimulation() {
+            /* 
+            The Size to Be Filled is the Actual Size minus the Fees to be Paid. 
+            */
+            tradingEngineOrder.orderBaseAsset.sizeToBeFilled.value =
+                tradingEngineOrder.orderBaseAsset.actualSize.value -
+                tradingEngineOrder.orderBaseAsset.feesToBePaid.value
+
+            tradingEngineOrder.orderQuotedAsset.sizeToBeFilled.value =
+                tradingEngineOrder.orderQuotedAsset.actualSize.value -
+                tradingEngineOrder.orderQuotedAsset.feesToBePaid.value
+        }
+
         function percentageFilledSimulation() {
             /* 
-            Order Filling Simulation: the way we are going to handle this is the following. 
-            For buy orders we are going to check if the price was below the order rate, and 
-            for sell orders we are going to check if the price was above the order rate.
+            When we are live, it is the exchange who knows which order was filled and in 
+            which amount. Since we are backtesting here, we need to simulate what happens
+            at the exchange.  We can not simulate that an order is filled if the candle we
+            can see did not touch the order.
+
+            For buy orders we are going to check if the price was below the order actual rate, and 
+            for sell orders we are going to check if the price was above the order actual rate.
             
-            If we have a partial filling defined we are going to use it to estimate how much
-            of the order we will consider filled.
+            If we have a partial filling defined specifically for this order, 
+            we are going to use it to estimate how much of the order we will consider filled.
             */
             let orderWasHit
             switch (tradingSystemOrder.type) {
                 case 'Limit Buy Order': {
-                    if (tradingEngine.current.episode.candle.min.value <= tradingEngineOrder.rate.value) {
+                    if (tradingEngine.current.episode.candle.min.value <= tradingEngineOrder.actualRate.value) {
                         orderWasHit = true
                     }
                     break
                 }
                 case 'Limit Sell Order': {
-                    if (tradingEngine.current.episode.candle.max.value >= tradingEngineOrder.rate.value) {
+                    if (tradingEngine.current.episode.candle.max.value >= tradingEngineOrder.actualRate.value) {
                         orderWasHit = true
                     }
                     break
@@ -590,7 +661,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
                 }
                 /* 
                 If there is no definition for this at the trading system we will assume orders
-                are 100% filled every single time. 
+                are 100% filled every single time they are hit, which is the most likely thing to happen. 
                 */
                 if (calculatedBasedOnTradingSystem === false) {
                     /* We will assume that 100% of the order was filled */
@@ -626,7 +697,13 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
             if (tradingSystemOrder.simulatedExchangeEvents !== undefined) {
                 if (tradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid !== undefined) {
                     if (tradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid.config.percentage !== undefined) {
-                        applyFeePercentage(tradingEngineOrder, tradingSystemOrder, tradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid.config.percentage)
+                        applyFeePercentage(
+                            tradingEngineOrder.orderBaseAsset.feesPaid,
+                            tradingEngineOrder,
+                            tradingSystemOrder,
+                            tradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid.config.percentage,
+                            tradingEngineOrder.orderStatistics.percentageFilled.value
+                        )
                         return
                     }
                 }
@@ -637,24 +714,41 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
             */
             switch (tradingEngineOrder.type) {
                 case 'Market Order': {
-                    applyFeePercentage(tradingEngineOrder, tradingSystemOrder, sessionParameters.feeStructure.config.taker)
+                    applyFeePercentage(
+                        tradingEngineOrder.orderBaseAsset.feesPaid,
+                        tradingEngineOrder,
+                        tradingSystemOrder,
+                        sessionParameters.feeStructure.config.taker,
+                        tradingEngineOrder.orderStatistics.percentageFilled.value
+                    )
                     break
                 }
                 case 'Limit Order': {
-                    applyFeePercentage(tradingEngineOrder, tradingSystemOrder, sessionParameters.feeStructure.config.maker)
+                    applyFeePercentage(
+                        tradingEngineOrder.orderBaseAsset.feesPaid,
+                        tradingEngineOrder,
+                        tradingSystemOrder,
+                        sessionParameters.feeStructure.config.maker,
+                        tradingEngineOrder.orderStatistics.percentageFilled.value
+                    )
                     break
                 }
             }
         }
 
         function sizeFilledSimulation() {
-            /* Size Filled */
+            /* 
+            Size Filled is the amount of Base Asset or Quoted Asset that at the exchange matches
+            another counterparty order. We alredy have simulated the Percentage Filled and the
+            Size To Be Filled, which is the order Actual Size minus the Fees To Be Paid.
+            */
+
             tradingEngineOrder.orderBaseAsset.sizeFilled.value =
-                tradingEngineOrder.orderBaseAsset.size.value *
+                tradingEngineOrder.orderBaseAsset.sizeToBeFilled.value *
                 tradingEngineOrder.orderStatistics.percentageFilled.value / 100
 
             tradingEngineOrder.orderQuotedAsset.sizeFilled.value =
-                tradingEngineOrder.orderQuotedAsset.size.value *
+                tradingEngineOrder.orderQuotedAsset.sizeToBeFilled.value *
                 tradingEngineOrder.orderStatistics.percentageFilled.value / 100
 
             tradingEngineOrder.orderBaseAsset.sizeFilled.value = global.PRECISE(tradingEngineOrder.orderBaseAsset.sizeFilled.value, 10)
@@ -704,7 +798,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
             await updateEndsWithCycle(tradingEngineOrder)
             tradingSystem.infos.push([tradingSystemOrder.id, 'checkExchangeEvents -> Closing Order with Exit Type ' + tradingEngineOrder.exitType.value])
-            
+
             await syncWithExchange(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order)
             return
         }
@@ -769,8 +863,6 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
     async function syncWithExchange(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order) {
 
-        let previousBaseAssetSize = tradingEngineOrder.orderBaseAsset.size.value
-        let previousQuotedAssetSize = tradingEngineOrder.orderQuotedAsset.size.value
         let previousBaseAssetSizeFilled = tradingEngineOrder.orderBaseAsset.sizeFilled.value
         let previousQuotedAssetSizeFilled = tradingEngineOrder.orderQuotedAsset.sizeFilled.value
         let previousBaseAssetFeesPaid = tradingEngineOrder.orderBaseAsset.feesPaid.value
@@ -778,6 +870,8 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
         await actualSizeCalculation()
         await actualRateCalculation()
+        await feesToBePaidCalculation()
+        await sizeToBeFilledCalculation()
         await percentageFilledCalculation()
         await feesPaidCalculation()
         await sizeFilledCalculation()
@@ -797,46 +891,63 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
         async function actualSizeCalculation() {
             /* 
             When we submit the order to the exchange, we do it specifying the order size
-            in Base Asset. The exchange might take that size or might change it a little 
-            bit if for example, if it does not accept as many decimals as we are sending.
+            in Base Asset. It is mandatory to be in Base Asset as per CCXT Library API. 
+            
+            The exchange might take that size or might change it a little 
+            bit. For example, if it does not accept as many decimals as we are sending.
             If we identify the situation in which the size accepted is different than the 
             size we have accounted for, we need to make several adjustments so that the 
             accounting syncronizes with reality.
             */
-            if (tradingEngineOrder.orderBaseAsset.size.value === order.amount) { return }
-            /*
-            We will sync the Base Asset size, and recalculate the Quoted Asset size too.
+
+            /* This calculation only happens once, the first time the order is checked. */
+            if (tradingEngineOrder.orderBaseAsset.actualSize.value !== tradingEngineOrder.orderBaseAsset.actualSize.config.initialValue) { return }
+
+            /* We receive the actual size from the exchange at the order.amount field. */
+            tradingEngineOrder.orderBaseAsset.actualSize.value = order.amount
+
+            /* 
+            If the exchange accepted the size sent on the request to create the order,
+            we don't need to do anything else here. 
             */
-            tradingEngineOrder.orderBaseAsset.size.value = order.amount
-            tradingEngineOrder.orderQuotedAsset.size.value = tradingEngineOrder.orderBaseAsset.size.value * tradingEngineOrder.rate.value
-
-            tradingEngineOrder.orderBaseAsset.size.value = global.PRECISE(tradingEngineOrder.orderBaseAsset.size.value, 10)
-            tradingEngineOrder.orderQuotedAsset.size.value = global.PRECISE(tradingEngineOrder.orderQuotedAsset.size.value, 10)
+            if (tradingEngineOrder.orderBaseAsset.size.value === tradingEngineOrder.orderBaseAsset.actualSize.value) { return }
             /*
-            Finaly we need to unaccount the previous size placed and correctly account
-            for the the new sizes we now have.
-            */
-            tradingEngineStage.stageBaseAsset.sizePlaced.value =
-                tradingEngineStage.stageBaseAsset.sizePlaced.value -
-                previousBaseAssetSize
+            If not, we will calculate the Quoted Asset Actual Size too. Note that the amount received
+            is in Base Asset only. In the next formula, we are useing the rate of the order.
+            This rate might be replaced afteerwards for an actual rate. When that happens we will 
+            need to adjust these results.
+             */
+            tradingEngineOrder.orderQuotedAsset.actualSize.value = tradingEngineOrder.orderBaseAsset.actualSize.value * tradingEngineOrder.rate.value
 
-            tradingEngineStage.stageBaseAsset.sizePlaced.value =
-                tradingEngineStage.stageBaseAsset.sizePlaced.value +
-                tradingEngineOrder.orderBaseAsset.size.value
+            tradingEngineOrder.orderBaseAsset.actualSize.value = global.PRECISE(tradingEngineOrder.orderBaseAsset.actualSize.value, 10)
+            tradingEngineOrder.orderQuotedAsset.actualSize.value = global.PRECISE(tradingEngineOrder.orderQuotedAsset.actualSize.value, 10)
 
-            tradingEngineStage.stageQuotedAsset.sizePlaced.value =
-                tradingEngineStage.stageQuotedAsset.sizePlaced.value -
-                previousQuotedAssetSize
+            recalculateSizePlaced()
 
-            tradingEngineStage.stageQuotedAsset.sizePlaced.value =
-                tradingEngineStage.stageQuotedAsset.sizePlaced.value +
-                tradingEngineOrder.orderQuotedAsset.size.value
+            function recalculateSizePlaced() {
+                /*
+                Wee also need to unaccount the previous size placed and correctly account
+                for the the new actual sizes we now have.
+                */
+                tradingEngineStage.stageBaseAsset.sizePlaced.value =
+                    tradingEngineStage.stageBaseAsset.sizePlaced.value -
+                    tradingEngineOrder.orderBaseAsset.size.value
 
-            tradingEngineStage.stageBaseAsset.sizePlaced.value = global.PRECISE(tradingEngineStage.stageBaseAsset.sizePlaced.value, 10)
-            tradingEngineStage.stageQuotedAsset.sizePlaced.value = global.PRECISE(tradingEngineStage.stageQuotedAsset.sizePlaced.value, 10)
+                tradingEngineStage.stageBaseAsset.sizePlaced.value =
+                    tradingEngineStage.stageBaseAsset.sizePlaced.value +
+                    tradingEngineOrder.orderBaseAsset.actualSize.value
 
-            previousBaseAssetSize = tradingEngineOrder.orderBaseAsset.size.value
-            previousQuotedAssetSize = tradingEngineOrder.orderQuotedAsset.size.value
+                tradingEngineStage.stageQuotedAsset.sizePlaced.value =
+                    tradingEngineStage.stageQuotedAsset.sizePlaced.value -
+                    tradingEngineOrder.orderQuotedAsset.size.value
+
+                tradingEngineStage.stageQuotedAsset.sizePlaced.value =
+                    tradingEngineStage.stageQuotedAsset.sizePlaced.value +
+                    tradingEngineOrder.orderQuotedAsset.actualSize.value
+
+                tradingEngineStage.stageBaseAsset.sizePlaced.value = global.PRECISE(tradingEngineStage.stageBaseAsset.sizePlaced.value, 10)
+                tradingEngineStage.stageQuotedAsset.sizePlaced.value = global.PRECISE(tradingEngineStage.stageQuotedAsset.sizePlaced.value, 10)
+            }
         }
 
         async function actualRateCalculation() {
@@ -866,56 +977,124 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
             tradingEngineOrder.orderStatistics.actualRate.value = global.PRECISE(tradingEngineOrder.orderStatistics.actualRate.value, 10)
 
+            /*
+            If the Actual Rate happens to be exctly the same than the order rate, then there is
+            nothing else to do here. Otherwise there are adjustments to be made.
+            */
             if (tradingEngineOrder.orderStatistics.actualRate.value === tradingEngineOrder.rate.value) { return }
-            /*
-            Now we know the Actual Rate at which the order was filled. Since the actual rate
-            is not the same as the Rate we defined for the order, we need to syncronize 
-            the Order Size for Quoted Asset since it was calculated with the Order Size that we 
-            now know it is not the once really used at the exchange. We will recalculate the
-            Order Size in Quoted Asset and not in Base Asset, since the Order Size in Base Asset 
-            is the one we sent to the exchange, so that is fixed, regardless of how we initially
-            got the Order Size in Base Asset, eigher from direct imput from the user or calculated
-            from the Order Size in Quoted Asset input it by the user. So here we go. 
-            */
-            tradingEngineOrder.orderQuotedAsset.size.value = tradingEngineOrder.orderBaseAsset.size.value * tradingEngineOrder.orderStatistics.actualRate.value
-            tradingEngineOrder.orderQuotedAsset.size.value = global.PRECISE(tradingEngineOrder.orderQuotedAsset.size.value, 10)
-            /*
-            Great, this up-to-date order size in Base Asset and the Actual Rate can now be used for example to calculate
-            the orders fees in Quoted Assets, and it is perfectly accurate. The next problem
-            we need to fix is that the sizePlaced for Quoted Asset that we already have calculated
-            was based on the Order Rate, not the Actual Rate, so we need to fix that by anuncounting
-            the previous size and accounting the new one, all this only for Quoted Asset. 
-            */
-            tradingEngineStage.stageQuotedAsset.sizePlaced.value =
-                tradingEngineStage.stageQuotedAsset.sizePlaced.value -
-                previousQuotedAssetSize
 
-            tradingEngineStage.stageQuotedAsset.sizePlaced.value =
-                tradingEngineStage.stageQuotedAsset.sizePlaced.value +
-                tradingEngineOrder.orderQuotedAsset.size.value
+            let previousQuotedAssetActualSize = tradingEngineOrder.orderQuotedAsset.actualSize.value
+            recalculateActualSize()
+            recalculateSizePlaced()
 
-            tradingEngineStage.stageQuotedAsset.sizePlaced.value = global.PRECISE(tradingEngineStage.stageQuotedAsset.sizePlaced.value, 10)
+            function recalculateActualSize() {
+                /*
+                Now we know the Actual Rate at which the order was filled. Since the actual rate
+                is not the same as the Rate we defined for the order, we need to syncronize 
+                the Actual Order Size for Quoted Asset since it was calculated with the Order Size that we 
+                now know it is not the one really used at the exchange. We will recalculate the
+                Actual Size in Quoted Asset and not in Base Asset, since the Actual Size in Base Asset 
+                is the one we accepted by the exchange, so that is fixed, regardless of how we initially
+                got the Order Size in Base Asset, either from direct imput from the user or calculated
+                from the Order Size in Quoted Asset input it by the user. So here we go. 
+                */
+                tradingEngineOrder.orderQuotedAsset.actualSize.value = tradingEngineOrder.orderBaseAsset.actualSize.value * tradingEngineOrder.orderStatistics.actualRate.value
+                tradingEngineOrder.orderQuotedAsset.actualSize.value = global.PRECISE(tradingEngineOrder.orderQuotedAsset.actualSize.value, 10)
+            }
+
+            function recalculateSizePlaced() {
+                /*
+                Since we changed the Actual Size in Quoted Asset, we need to fix the Size Placed in Quoted Asset
+                that was previously calculated with the previous value of actualSize.
+                */
+                tradingEngineStage.stageQuotedAsset.sizePlaced.value =
+                    tradingEngineStage.stageQuotedAsset.sizePlaced.value -
+                    previousQuotedAssetActualSize
+
+                tradingEngineStage.stageQuotedAsset.sizePlaced.value =
+                    tradingEngineStage.stageQuotedAsset.sizePlaced.value +
+                    tradingEngineOrder.orderQuotedAsset.actualSize.value
+
+                tradingEngineStage.stageQuotedAsset.sizePlaced.value = global.PRECISE(tradingEngineStage.stageQuotedAsset.sizePlaced.value, 10)
+            }
+        }
+
+        async function feesToBePaidCalculation() {
+            /* 
+            The Fees To Be Paid are the fees that will be paid once the order is 100% Filled. 
+            */
+            switch (tradingEngineOrder.type) {
+                case 'Market Order': {
+                    await applyFeePercentage(
+                        tradingEngineOrder.orderBaseAsset.feesToBePaid,
+                        tradingEngineOrder,
+                        tradingSystemOrder,
+                        sessionParameters.feeStructure.config.taker,
+                        100
+                    )
+                    break
+                }
+                case 'Limit Order': {
+                    await applyFeePercentage(
+                        tradingEngineOrder.orderBaseAsset.feesToBePaid,
+                        tradingEngineOrder,
+                        tradingSystemOrder,
+                        sessionParameters.feeStructure.config.maker,
+                        100
+                    )
+                    break
+                }
+            }
+        }
+
+        async function sizeToBeFilledCalculation() {
+            /* 
+            The Size to Be Filled is the Actual Size minus the Fees to be Paid. 
+            */
+            tradingEngineOrder.orderBaseAsset.sizeToBeFilled.value =
+                tradingEngineOrder.orderBaseAsset.actualSize.value -
+                tradingEngineOrder.orderBaseAsset.feesToBePaid.value
+
+            tradingEngineOrder.orderQuotedAsset.sizeToBeFilled.value =
+                tradingEngineOrder.orderQuotedAsset.actualSize.value -
+                tradingEngineOrder.orderQuotedAsset.feesToBePaid.value
         }
 
         async function percentageFilledCalculation() {
-            /* Percentage Filled Calculation */
-            tradingEngineOrder.orderStatistics.percentageFilled.value = order.filled * 100 / (order.filled + order.remaining)
+            /* 
+            Percentage Filled Calculation: The only information we get from the exchange is the order.filled.
+            We know this field will go up until reaching the Size To Be Filled. Once it reaches that number
+            the order will be 100% filled. 
+            */
+            tradingEngineOrder.orderStatistics.percentageFilled.value = order.filled * 100 / (tradingEngineOrder.orderBaseAsset.sizeToBeFilled.value)
             tradingEngineOrder.orderStatistics.percentageFilled.value = global.PRECISE(tradingEngineOrder.orderStatistics.percentageFilled.value, 10)
         }
 
         async function feesPaidCalculation() {
             /*
             The exchange fees are taken from the Base Asset or the Quoted Asset depending if we 
-            are buying or selling. Within the order information received we can not see the fees paid so we need to
-            calculate them by ourselves. To do this it is needed to be used the Session Fees Parameters.        
+            are buying or selling. Within the order information received from the exchange we can not see the fees paid so we need to
+            calculate them ourselves. To do this it is needed to be used the Session Fees Parameters.        
             */
             switch (tradingEngineOrder.type) {
                 case 'Market Order': {
-                    await applyFeePercentage(tradingEngineOrder, tradingSystemOrder, sessionParameters.feeStructure.config.taker)
+                    await applyFeePercentage(
+                        tradingEngineOrder.orderBaseAsset.feesPaid,
+                        tradingEngineOrder,
+                        tradingSystemOrder,
+                        sessionParameters.feeStructure.config.taker,
+                        tradingEngineOrder.orderStatistics.percentageFilled.value
+                    )
                     break
                 }
                 case 'Limit Order': {
-                    await applyFeePercentage(tradingEngineOrder, tradingSystemOrder, sessionParameters.feeStructure.config.maker)
+                    await applyFeePercentage(
+                        tradingEngineOrder.orderBaseAsset.feesPaid,
+                        tradingEngineOrder,
+                        tradingSystemOrder,
+                        sessionParameters.feeStructure.config.maker,
+                        tradingEngineOrder.orderStatistics.percentageFilled.value
+                    )
                     break
                 }
             }
@@ -936,7 +1115,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
             this in this formula to get the Size Filled in Quoted Asset. 
             */
             tradingEngineOrder.orderQuotedAsset.sizeFilled.value =
-                tradingEngineOrder.orderQuotedAsset.size.value * tradingEngineOrder.orderStatistics.percentageFilled.value / 100
+                tradingEngineOrder.orderQuotedAsset.sizeToBeFilled.value * tradingEngineOrder.orderStatistics.percentageFilled.value / 100
 
             tradingEngineOrder.orderQuotedAsset.sizeFilled.value = global.PRECISE(tradingEngineOrder.orderQuotedAsset.sizeFilled.value, 10)
         }
@@ -1003,65 +1182,65 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
             /* Balances Update */
             switch (true) {
                 /*
-                Let's remember that for Buy orders, the fees are paid in Base Asset. So we 
-                actually don't receive the whole Size Filled in Base Asset, but the Size 
-                Filled minus the Fees Paid. For the case of Quoted Asset, we actually
-                need to susbstract the whole Size Filled from the balance. 
+                Let's remember that for Buy orders, the fees are paid in Base Asset.So we
+                need to substract from the balance of Quoted Asset both the size filled and
+                the fees, and we will receive at the balance of Base Asset just the size filled,
+                bacuase the exchange gets the fees in Base Asset for them. 
                 */
                 case tradingSystemOrder.type === 'Market Buy Order' || tradingSystemOrder.type === 'Limit Buy Order': {
 
                     /* Balance Base Asset: Undo the previous accounting */
                     tradingEngine.current.episode.episodeBaseAsset.balance.value =
                         tradingEngine.current.episode.episodeBaseAsset.balance.value -
-                        previousBaseAssetSizeFilled +
-                        previousBaseAssetFeesPaid
+                        previousBaseAssetSizeFilled
 
                     /* Balance Base Asset: Account the current filling and fees */
                     tradingEngine.current.episode.episodeBaseAsset.balance.value =
                         tradingEngine.current.episode.episodeBaseAsset.balance.value +
-                        tradingEngineOrder.orderBaseAsset.sizeFilled.value -
-                        tradingEngineOrder.orderBaseAsset.feesPaid.value
+                        tradingEngineOrder.orderBaseAsset.sizeFilled.value 
 
                     /* Balance Quoted Asset: Undo the previous accounting */
                     tradingEngine.current.episode.episodeQuotedAsset.balance.value =
                         tradingEngine.current.episode.episodeQuotedAsset.balance.value +
-                        previousQuotedAssetSizeFilled
+                        previousQuotedAssetSizeFilled +
+                        previousQuotedAssetFeesPaid
 
                     /* Balance Quoted Asset: Account the current filling and fees */
                     tradingEngine.current.episode.episodeQuotedAsset.balance.value =
                         tradingEngine.current.episode.episodeQuotedAsset.balance.value -
-                        tradingEngineOrder.orderQuotedAsset.sizeFilled.value
+                        tradingEngineOrder.orderQuotedAsset.sizeFilled.value -
+                        tradingEngineOrder.orderQuotedAsset.feesPaid.value
                     break
                 }
                 /*
-                For Sell orders, the fees are being paid in Quote Asset, so we never 
-                acutally receive the whole Filled Size in Quote Asset, but the Filled
-                Size minus the Fees Paid. But we do expend the whole Filled Size in 
-                Base Asset.
+                For Sell orders, the fees are being paid in Quote Asset, so we will substract
+                from the Base Asset balance the size filled and the fees, and we will add
+                to the Quoted Asset balance only the size filled, because the exchange 
+                get those fees.
                 */
                 case tradingSystemOrder.type === 'Market Sell Order' || tradingSystemOrder.type === 'Limit Sell Order': {
 
                     /* Balance Base Asset: Undo the previous accounting */
                     tradingEngine.current.episode.episodeBaseAsset.balance.value =
                         tradingEngine.current.episode.episodeBaseAsset.balance.value +
-                        previousBaseAssetSizeFilled
+                        previousBaseAssetSizeFilled + 
+                        previousBaseAssetFeesPaid
 
                     /* Balance Base Asset: Account the current filling and fees */
                     tradingEngine.current.episode.episodeBaseAsset.balance.value =
                         tradingEngine.current.episode.episodeBaseAsset.balance.value -
-                        tradingEngineOrder.orderBaseAsset.sizeFilled.value
+                        tradingEngineOrder.orderBaseAsset.sizeFilled.value - 
+                        tradingEngineOrder.orderBaseAsset.feesPaid.value
 
                     /* Balance Quoted Asset: Undo the previous accounting */
                     tradingEngine.current.episode.episodeQuotedAsset.balance.value =
                         tradingEngine.current.episode.episodeQuotedAsset.balance.value -
-                        previousQuotedAssetSizeFilled +
-                        previousQuotedAssetFeesPaid
+                        previousQuotedAssetSizeFilled 
 
                     /* Balance Quoted Asset: Account the current filling and fees */
                     tradingEngine.current.episode.episodeQuotedAsset.balance.value =
                         tradingEngine.current.episode.episodeQuotedAsset.balance.value +
-                        tradingEngineOrder.orderQuotedAsset.sizeFilled.value -
-                        tradingEngineOrder.orderQuotedAsset.feesPaid.value
+                        tradingEngineOrder.orderQuotedAsset.sizeFilled.value 
                     break
                 }
             }
@@ -1164,15 +1343,15 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
         Size Placed accumulates for each asset, the order size placed at the exchange. A cancelation means that 
         only the part filled can be considered placed, so we need to substract from the stage size 
         the remainder. To achieve this with the information we currently have, we are going first 
-        to unaccount the order size, and the account only the sizeFilled + the feesPaid.
+        to unaccount the order actual size, and the account only the sizeFilled + the feesPaid.
         */
         tradingEngineStage.stageBaseAsset.sizePlaced.value =
             tradingEngineStage.stageBaseAsset.sizePlaced.value -
-            tradingEngineOrder.orderBaseAsset.size.value
+            tradingEngineOrder.orderBaseAsset.actualSize.value
 
         tradingEngineStage.stageQuotedAsset.sizePlaced.value =
             tradingEngineStage.stageQuotedAsset.sizePlaced.value -
-            tradingEngineOrder.orderQuotedAsset.size.value
+            tradingEngineOrder.orderQuotedAsset.actualSize.value
 
         tradingEngineStage.stageBaseAsset.sizePlaced.value =
             tradingEngineStage.stageBaseAsset.sizePlaced.value +
@@ -1186,26 +1365,26 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
         tradingEngineStage.stageQuotedAsset.sizePlaced.value = global.PRECISE(tradingEngineStage.stageQuotedAsset.sizePlaced.value, 10)
     }
 
-    async function applyFeePercentage(tradingEngineOrder, tradingSystemOrder, feePercentage) {
+    async function applyFeePercentage(feesNode, tradingEngineOrder, tradingSystemOrder, feePercentage, percentageFilled) {
         switch (true) {
             case tradingSystemOrder.type === 'Market Buy Order' || tradingSystemOrder.type === 'Limit Buy Order': {
                 /*
-                In this case the fees are taken from the Base Asset you receive.
+                In this case the fees are taken from the Base Asset you receive as a result of the trade at the exchange.
                 */
-                tradingEngineOrder.orderBaseAsset.feesPaid.value =
-                    tradingEngineOrder.orderBaseAsset.size.value *
+                feesNode.value =
+                    tradingEngineOrder.orderBaseAsset.actualSize.value *
                     feePercentage / 100 *
-                    tradingEngineOrder.orderStatistics.percentageFilled.value / 100
+                    percentageFilled / 100
                 break
             }
             case tradingSystemOrder.type === 'Market Sell Order' || tradingSystemOrder.type === 'Limit Sell Order': {
                 /*
-                In this case the fees are taken from the Quoted Asset you receive.
+                In this case the fees are taken from the Quoted Asset you receive as a result of the trade at the exchange.
                 */
                 tradingEngineOrder.orderQuotedAsset.feesPaid.value =
-                    tradingEngineOrder.orderQuotedAsset.size.value *
+                    tradingEngineOrder.orderQuotedAsset.actualSize.value *
                     feePercentage / 100 *
-                    tradingEngineOrder.orderStatistics.percentageFilled.value / 100
+                    percentageFilled / 100
                 break
             }
         }

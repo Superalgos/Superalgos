@@ -435,48 +435,48 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
                 let strategy = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value]
                 let manageStage = strategy.manageStage
                 let phase
-    
+
                 if (manageStage !== undefined) {
                     if (manageStage.managedStopLoss !== undefined) {
                         phase = manageStage.managedStopLoss.phases[tradingEngine.current.position.stopLoss.stopLossPhase.value - 1]
                     }
                 }
-    
+
                 if (phase !== undefined) {
                     if (phase.formula !== undefined) {
                         let previousValue = tradingEngine.current.position.stopLoss.value
                         tradingPositionModule.applyStopLossFormula(tradingSystem.formulas, phase.formula.id)
-    
+
                         if (tradingEngine.current.position.stopLoss.value !== previousValue) {
                             announcementsModule.makeAnnoucements(phase)
                         }
                     }
                 }
             }
-    
+
             function calculateTakeProfit() {
                 let strategy = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value]
                 let manageStage = strategy.manageStage
                 let phase
-    
+
                 if (manageStage !== undefined) {
                     if (manageStage.managedTakeProfit !== undefined) {
                         phase = manageStage.managedTakeProfit.phases[tradingEngine.current.position.takeProfit.takeProfitPhase.value - 1]
                     }
                 }
-    
+
                 if (phase !== undefined) {
                     if (phase.formula !== undefined) {
                         let previousValue = tradingEngine.current.position.takeProfit.value
                         tradingPositionModule.applyTakeProfitFormula(tradingSystem.formulas, phase.formula.id)
-    
+
                         if (tradingEngine.current.position.takeProfit.value !== previousValue) {
                             announcementsModule.makeAnnoucements(phase)
                         }
                     }
                 }
             }
-    
+
             function calculateStopLossPosition() {
                 /*
                 The position of the Stop Loss (above or below the price) is needed in order to know
@@ -492,7 +492,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
                     }
                 }
             }
-    
+
             function calculateTakeProfitPosition() {
                 /*
                 The position of the Take Profit (above or below the price) is needed in order to know
@@ -508,7 +508,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
                     }
                 }
             }
-    
+
             function checkStopPhasesEvents() {
                 let strategy = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value]
                 let manageStage = strategy.manageStage
@@ -516,7 +516,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
                 let phaseIndex
                 let phase
                 let stopLoss
-    
+
                 if (manageStage !== undefined) {
                     if (manageStage.managedStopLoss !== undefined) {
                         parentNode = manageStage
@@ -525,10 +525,10 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
                         phase = stopLoss.phases[phaseIndex]
                     }
                 }
-    
+
                 if (parentNode !== undefined) {
                     if (phase === undefined) { return } // trying to jump to a phase that does not exists.
-    
+
                     /* Check the next Phase Event. */
                     let nextPhaseEvent = phase.nextPhaseEvent
                     if (nextPhaseEvent !== undefined) {
@@ -538,9 +538,9 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
                             if (situation.conditions.length > 0) {
                                 passed = true
                             }
-    
+
                             passed = tradingSystem.checkConditions(situation, passed)
-    
+
                             tradingSystem.values.push([situation.id, passed])
                             if (passed) {
                                 tradingSystem.highlights.push(situation.id)
@@ -549,18 +549,18 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
                                 tradingSystem.highlights.push(stopLoss.id)
                                 tradingSystem.highlights.push(parentNode.id)
                                 tradingSystem.highlights.push(manageStage.id)
-    
+
                                 tradingPositionModule.updateStopLoss(tradingEngine.current.position.stopLoss.stopLossPhase.value + 1)
-    
+
                                 announcementsModule.makeAnnoucements(nextPhaseEvent)
-    
+
                                 /* Reset this counter */
                                 tradingEngine.current.episode.distanceToEvent.nextPhase.value = 1
                                 return // only one event can pass at the time
                             }
                         }
                     }
-    
+
                     /* Check the Move to Phase Events. */
                     for (let n = 0; n < phase.moveToPhaseEvents.length; n++) {
                         let moveToPhaseEvent = phase.moveToPhaseEvents[n]
@@ -571,9 +571,9 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
                                 if (situation.conditions.length > 0) {
                                     passed = true
                                 }
-    
+
                                 passed = tradingSystem.checkConditions(situation, passed)
-    
+
                                 tradingSystem.values.push([situation.id, passed])
                                 if (passed) {
                                     tradingSystem.highlights.push(situation.id)
@@ -582,7 +582,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
                                     tradingSystem.highlights.push(stopLoss.id)
                                     tradingSystem.highlights.push(parentNode.id)
                                     tradingSystem.highlights.push(manageStage.id)
-    
+
                                     let moveToPhase = moveToPhaseEvent.referenceParent
                                     if (moveToPhase !== undefined) {
                                         for (let q = 0; q < stopLoss.phases.length; q++) {
@@ -594,9 +594,9 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
                                         tradingSystem.errors.push([moveToPhaseEvent.id, 'This Node needs to reference a Phase.'])
                                         continue
                                     }
-    
+
                                     announcementsModule.makeAnnoucements(moveToPhaseEvent)
-    
+
                                     /* Reset this counter */
                                     tradingEngine.current.episode.distanceToEvent.moveToPhase.value = 1
                                     return // only one event can pass at the time
@@ -606,7 +606,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
                     }
                 }
             }
-    
+
             function checkTakeProfitPhaseEvents() {
                 let strategy = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value]
                 let openStage = strategy.openStage
@@ -615,7 +615,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
                 let phaseIndex
                 let phase
                 let takeProfit
-    
+
                 if (manageStage !== undefined) {
                     if (manageStage.managedTakeProfit !== undefined) {
                         parentNode = manageStage
@@ -624,10 +624,10 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
                         phase = takeProfit.phases[phaseIndex]
                     }
                 }
-    
+
                 if (parentNode !== undefined) {
                     if (phase === undefined) { return } // trying to jump to a phase that does not exists.
-    
+
                     /* Check the next Phase Event. */
                     let nextPhaseEvent = phase.nextPhaseEvent
                     if (nextPhaseEvent !== undefined) {
@@ -637,9 +637,9 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
                             if (situation.conditions.length > 0) {
                                 passed = true
                             }
-    
+
                             passed = tradingSystem.checkConditions(situation, passed)
-    
+
                             tradingSystem.values.push([situation.id, passed])
                             if (passed) {
                                 tradingSystem.highlights.push(situation.id)
@@ -648,18 +648,18 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
                                 tradingSystem.highlights.push(takeProfit.id)
                                 tradingSystem.highlights.push(parentNode.id)
                                 tradingSystem.highlights.push(manageStage.id)
-    
+
                                 tradingPositionModule.updateTakeProfit(tradingEngine.current.position.takeProfit.takeProfitPhase.value + 1)
-    
+
                                 announcementsModule.makeAnnoucements(nextPhaseEvent)
-    
+
                                 /* Reset this counter */
                                 tradingEngine.current.episode.distanceToEvent.nextPhase.value = 1
                                 return // only one event can pass at the time
                             }
                         }
                     }
-    
+
                     /* Check the Move to Phase Events. */
                     for (let n = 0; n < phase.moveToPhaseEvents.length; n++) {
                         let moveToPhaseEvent = phase.moveToPhaseEvents[n]
@@ -670,9 +670,9 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
                                 if (situation.conditions.length > 0) {
                                     passed = true
                                 }
-    
+
                                 passed = tradingSystem.checkConditions(situation, passed)
-    
+
                                 tradingSystem.values.push([situation.id, passed])
                                 if (passed) {
                                     tradingSystem.highlights.push(situation.id)
@@ -681,7 +681,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
                                     tradingSystem.highlights.push(takeProfit.id)
                                     tradingSystem.highlights.push(parentNode.id)
                                     tradingSystem.highlights.push(manageStage.id)
-    
+
                                     let moveToPhase = moveToPhaseEvent.referenceParent
                                     if (moveToPhase !== undefined) {
                                         for (let q = 0; q < takeProfit.phases.length; q++) {
@@ -693,9 +693,9 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
                                         tradingSystem.errors.push([moveToPhaseEvent.id, 'This Node needs to reference a Phase.'])
                                         continue
                                     }
-    
+
                                     announcementsModule.makeAnnoucements(moveToPhaseEvent)
-    
+
                                     /* Reset this counter */
                                     tradingEngine.current.episode.distanceToEvent.moveToPhase.value = 1
                                     return // only one event can pass at the time
@@ -705,7 +705,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
                     }
                 }
             }
-    
+
             function checkStopLossOrTakeProfitWasHit() {
                 {
                     let strategy = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value]
@@ -713,7 +713,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
                     Checking what happened since the last execution. We need to know if the Stop Loss
                     or our Take Profit were hit. 
                     */
-    
+
                     /* Stop Loss condition: Here we verify if the Stop Loss was hitted or not. */
                     if (
                         (
@@ -726,14 +726,14 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
                         )
                     ) {
                         logger.write(MODULE_NAME, '[INFO] checkStopLossOrTakeProfitWasHit -> Stop Loss was hit.')
-    
+
                         tradingPositionModule.closingPosition('Stop Loss')
                         changeStageStatus('Close Stage', 'Opening')
                         changeStageStatus('Manage Stage', 'Closed')
                         announcementsModule.makeAnnoucements(strategy.closeStage)
                         return
                     }
-    
+
                     /* Take Profit condition: Here we verify if the Take Profit was hit or not. */
                     if (
                         (
@@ -746,7 +746,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
                         )
                     ) {
                         logger.write(MODULE_NAME, '[INFO] checkStopLossOrTakeProfitWasHit -> Take Profit was hit.')
-    
+
                         tradingPositionModule.closingPosition('Take Profit')
                         changeStageStatus('Close Stage', 'Opening')
                         changeStageStatus('Manage Stage', 'Closed')
@@ -894,7 +894,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
 
         This can happens at any time when we update the sizeFilled and the feesPaid values 
         when we see at the exchange that orders were filled. 
-        
+
         Note that the comparison is made with a Rounding Factor in order to avoid rounding problems.
         */
         const ROUNDING_ERROR_CORRECTION_FACTOR = 1.001
@@ -902,7 +902,11 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
         switch (tradingEngineStage.stageDefinedIn.value) {
             case 'Base Asset': {
                 if (
-                    tradingEngineStage.stageBaseAsset.sizeFilled.value * ROUNDING_ERROR_CORRECTION_FACTOR
+                    (
+                        tradingEngineStage.stageBaseAsset.sizeFilled.value +
+                        tradingEngineStage.stageBaseAsset.feesPaid.value
+                    )
+                    * ROUNDING_ERROR_CORRECTION_FACTOR
                     >=
                     tradingEngineStage.stageBaseAsset.targetSize.value
                 ) {
@@ -914,7 +918,11 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
             }
             case 'Quoted Asset': {
                 if (
-                    tradingEngineStage.stageQuotedAsset.sizeFilled.value * ROUNDING_ERROR_CORRECTION_FACTOR
+                    (
+                        tradingEngineStage.stageQuotedAsset.sizeFilled.value +
+                        tradingEngineStage.stageQuotedAsset.feesPaid.value
+                    )
+                    * ROUNDING_ERROR_CORRECTION_FACTOR
                     >=
                     tradingEngineStage.stageQuotedAsset.targetSize.value
                 ) {

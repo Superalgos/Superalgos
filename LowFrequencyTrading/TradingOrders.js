@@ -906,14 +906,9 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
             /* We receive the actual size from the exchange at the order.amount field. */
             tradingEngineOrder.orderBaseAsset.actualSize.value = order.amount
 
-            /* 
-            If the exchange accepted the size sent on the request to create the order,
-            we don't need to do anything else here. 
-            */
-            if (tradingEngineOrder.orderBaseAsset.size.value === tradingEngineOrder.orderBaseAsset.actualSize.value) { return }
             /*
             If not, we will calculate the Quoted Asset Actual Size too. Note that the amount received
-            is in Base Asset only. In the next formula, we are useing the rate of the order.
+            is in Base Asset only. In the next formula, we are unsing the rate of the order.
             This rate might be replaced afteerwards for an actual rate. When that happens we will 
             need to adjust these results.
              */
@@ -921,6 +916,12 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
             tradingEngineOrder.orderBaseAsset.actualSize.value = global.PRECISE(tradingEngineOrder.orderBaseAsset.actualSize.value, 10)
             tradingEngineOrder.orderQuotedAsset.actualSize.value = global.PRECISE(tradingEngineOrder.orderQuotedAsset.actualSize.value, 10)
+
+            /* 
+            If the exchange accepted the size sent on the request to create the order,
+            we don't need to do anything else here. 
+            */
+            if (tradingEngineOrder.orderBaseAsset.size.value === tradingEngineOrder.orderBaseAsset.actualSize.value) { return }
 
             recalculateSizePlaced()
 
@@ -1197,7 +1198,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
                     /* Balance Base Asset: Account the current filling and fees */
                     tradingEngine.current.episode.episodeBaseAsset.balance.value =
                         tradingEngine.current.episode.episodeBaseAsset.balance.value +
-                        tradingEngineOrder.orderBaseAsset.sizeFilled.value 
+                        tradingEngineOrder.orderBaseAsset.sizeFilled.value
 
                     /* Balance Quoted Asset: Undo the previous accounting */
                     tradingEngine.current.episode.episodeQuotedAsset.balance.value =
@@ -1223,24 +1224,24 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
                     /* Balance Base Asset: Undo the previous accounting */
                     tradingEngine.current.episode.episodeBaseAsset.balance.value =
                         tradingEngine.current.episode.episodeBaseAsset.balance.value +
-                        previousBaseAssetSizeFilled + 
+                        previousBaseAssetSizeFilled +
                         previousBaseAssetFeesPaid
 
                     /* Balance Base Asset: Account the current filling and fees */
                     tradingEngine.current.episode.episodeBaseAsset.balance.value =
                         tradingEngine.current.episode.episodeBaseAsset.balance.value -
-                        tradingEngineOrder.orderBaseAsset.sizeFilled.value - 
+                        tradingEngineOrder.orderBaseAsset.sizeFilled.value -
                         tradingEngineOrder.orderBaseAsset.feesPaid.value
 
                     /* Balance Quoted Asset: Undo the previous accounting */
                     tradingEngine.current.episode.episodeQuotedAsset.balance.value =
                         tradingEngine.current.episode.episodeQuotedAsset.balance.value -
-                        previousQuotedAssetSizeFilled 
+                        previousQuotedAssetSizeFilled
 
                     /* Balance Quoted Asset: Account the current filling and fees */
                     tradingEngine.current.episode.episodeQuotedAsset.balance.value =
                         tradingEngine.current.episode.episodeQuotedAsset.balance.value +
-                        tradingEngineOrder.orderQuotedAsset.sizeFilled.value 
+                        tradingEngineOrder.orderQuotedAsset.sizeFilled.value
                     break
                 }
             }
@@ -1381,7 +1382,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
                 /*
                 In this case the fees are taken from the Quoted Asset you receive as a result of the trade at the exchange.
                 */
-                tradingEngineOrder.orderQuotedAsset.feesPaid.value =
+               feesNode.value =
                     tradingEngineOrder.orderQuotedAsset.actualSize.value *
                     feePercentage / 100 *
                     percentageFilled / 100

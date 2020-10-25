@@ -47,27 +47,27 @@ exports.newTradingEpisode = function newTradingEpisode(bot, logger, tradingEngin
         /* 
         This function is called each time the simulation starts. That does not mean the Episode 
         must be opened there, since it might happen that it is looping at the end of the market
-        or the task / session was restarted.
+        or the task / session was restarted. We will only execute if the episode was never opened before.
         */
-        if (bot.FIRST_EXECUTION === true) {
-            /* Starting begin and end */
-            tradingEngine.current.episode.begin.value = tradingEngine.current.episode.candle.begin.value
-            tradingEngine.current.episode.end.value = tradingEngine.current.episode.candle.end.value
+        if (tradingEngine.current.episode.begin.value !== tradingEngine.current.episode.begin.config.initialValue) { return }
 
-            /* Getting the begin Balance from the session configuration */
-            tradingEngine.current.episode.episodeBaseAsset.beginBalance.value = sessionParameters.sessionBaseAsset.config.initialBalance
-            tradingEngine.current.episode.episodeQuotedAsset.beginBalance.value = sessionParameters.sessionQuotedAsset.config.initialBalance
+        /* Starting begin and end */
+        tradingEngine.current.episode.begin.value = tradingEngine.current.episode.candle.begin.value
+        tradingEngine.current.episode.end.value = tradingEngine.current.episode.candle.end.value
 
-            /* The current balance is also the begin balance, that is how this starts. */
-            tradingEngine.current.episode.episodeBaseAsset.balance.value = sessionParameters.sessionBaseAsset.config.initialBalance
-            tradingEngine.current.episode.episodeQuotedAsset.balance.value = sessionParameters.sessionQuotedAsset.config.initialBalance
+        /* Getting the begin Balance from the session configuration */
+        tradingEngine.current.episode.episodeBaseAsset.beginBalance.value = sessionParameters.sessionBaseAsset.config.initialBalance
+        tradingEngine.current.episode.episodeQuotedAsset.beginBalance.value = sessionParameters.sessionQuotedAsset.config.initialBalance
 
-            /* Recording the opening at the Trading Engine Data Structure */
-            tradingEngine.current.episode.status.value = 'Open'
-            tradingEngine.current.episode.serialNumber.value = 1
-            tradingEngine.current.episode.identifier.value = global.UNIQUE_ID()
-            tradingEngine.current.episode.beginRate.value = tradingEngine.current.episode.candle.close.value
-        }
+        /* The current balance is also the begin balance, that is how this starts. */
+        tradingEngine.current.episode.episodeBaseAsset.balance.value = sessionParameters.sessionBaseAsset.config.initialBalance
+        tradingEngine.current.episode.episodeQuotedAsset.balance.value = sessionParameters.sessionQuotedAsset.config.initialBalance
+
+        /* Recording the opening at the Trading Engine Data Structure */
+        tradingEngine.current.episode.status.value = 'Open'
+        tradingEngine.current.episode.serialNumber.value = 1
+        tradingEngine.current.episode.identifier.value = global.UNIQUE_ID()
+        tradingEngine.current.episode.beginRate.value = tradingEngine.current.episode.candle.close.value
     }
 
     function updateExitType(exitType) {

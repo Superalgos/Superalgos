@@ -8,7 +8,7 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
         actualSizeSimulation: actualSizeSimulation,
         actualRateSimulation: actualRateSimulation,
         feesToBePaidSimulation: feesToBePaidSimulation,
-        sizeToBeFilledSimulation: sizeToBeFilledSimulation,
+        amountReceivedSimulation: amountReceivedSimulation,
         percentageFilledSimulation: percentageFilledSimulation,
         feesPaidSimulation: feesPaidSimulation,
         sizeFilledSimulation: sizeFilledSimulation,
@@ -184,19 +184,6 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
         }
     }
 
-    async function sizeToBeFilledSimulation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, applyFeePercentage) {
-        /* 
-        The Size to Be Filled is the Actual Size minus the Fees to be Paid. 
-        */
-        tradingEngineOrder.orderBaseAsset.sizeToBeFilled.value =
-            tradingEngineOrder.orderBaseAsset.actualSize.value -
-            tradingEngineOrder.orderBaseAsset.feesToBePaid.value
-
-        tradingEngineOrder.orderQuotedAsset.sizeToBeFilled.value =
-            tradingEngineOrder.orderQuotedAsset.actualSize.value -
-            tradingEngineOrder.orderQuotedAsset.feesToBePaid.value
-    }
-
     function percentageFilledSimulation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, applyFeePercentage) {
         /* 
         When we are live, it is the exchange who knows which order was filled and in 
@@ -324,14 +311,44 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
         */
 
         tradingEngineOrder.orderBaseAsset.sizeFilled.value =
-            tradingEngineOrder.orderBaseAsset.sizeToBeFilled.value *
+            tradingEngineOrder.orderBaseAsset.amountReceived.value *
             tradingEngineOrder.orderStatistics.percentageFilled.value / 100
 
         tradingEngineOrder.orderQuotedAsset.sizeFilled.value =
-            tradingEngineOrder.orderQuotedAsset.sizeToBeFilled.value *
+            tradingEngineOrder.orderQuotedAsset.amountReceived.value *
             tradingEngineOrder.orderStatistics.percentageFilled.value / 100
 
         tradingEngineOrder.orderBaseAsset.sizeFilled.value = global.PRECISE(tradingEngineOrder.orderBaseAsset.sizeFilled.value, 10)
         tradingEngineOrder.orderQuotedAsset.sizeFilled.value = global.PRECISE(tradingEngineOrder.orderQuotedAsset.sizeFilled.value, 10)
+    }
+
+    async function amountReceivedSimulation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order, applyFeePercentage) {
+        /* 
+        This simulation is for informational purposes, so that users do not have to calculate
+        it by themselves. The Amount Received out of the trade depends if we are Buying or Selling
+        the Base Asset. If we are Buying, then the Amount Receiced will be in Base Asset. If we 
+        are selling the it will be in Quoted Asset. 
+        */
+
+        switch (true) {
+            case tradingSystemOrder.type === 'Market Buy Order' || tradingSystemOrder.type === 'Limit Buy Order': {
+                /*
+                In this case the Amount Received is in Base Asset.
+                */
+                tradingEngineOrder.orderBaseAsset.amountReceived.value.value =
+                    tradingEngineOrder.orderBaseAsset.sizeFilled.value -
+                    tradingEngineOrder.orderBaseAsset.feesPaid.value
+                break
+            }
+            case tradingSystemOrder.type === 'Market Sell Order' || tradingSystemOrder.type === 'Limit Sell Order': {
+                /*
+                In this case the Amount Received is in Quoted Asset.
+                */
+                tradingEngineOrder.orderQuotedAsset.amountReceived.value.value =
+                    tradingEngineOrder.orderQuotedAsset.sizeFilled.value -
+                    tradingEngineOrder.orderQuotedAsset.feesPaid.value
+                break
+            }
+        }
     }
 }

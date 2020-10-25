@@ -8,7 +8,7 @@ exports.newOrdersCalculations = function newOrdersCalculations(bot, logger) {
         actualSizeCalculation: actualSizeCalculation,
         actualRateCalculation: actualRateCalculation,
         feesToBePaidCalculation: feesToBePaidCalculation,
-        sizeToBeFilledCalculation: sizeToBeFilledCalculation,
+        amountReceivedCalculation: amountReceivedCalculation,
         finapercentageFilledCalculationlize: percentageFilledCalculation,
         feesPaidCalculation: feesPaidCalculation,
         sizeFilledCalculation: sizeFilledCalculation,
@@ -205,19 +205,6 @@ exports.newOrdersCalculations = function newOrdersCalculations(bot, logger) {
         }
     }
 
-    async function sizeToBeFilledCalculation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order, applyFeePercentage) {
-        /* 
-        The Size to Be Filled is the Actual Size minus the Fees to be Paid. 
-        */
-        tradingEngineOrder.orderBaseAsset.sizeToBeFilled.value =
-            tradingEngineOrder.orderBaseAsset.actualSize.value -
-            tradingEngineOrder.orderBaseAsset.feesToBePaid.value
-
-        tradingEngineOrder.orderQuotedAsset.sizeToBeFilled.value =
-            tradingEngineOrder.orderQuotedAsset.actualSize.value -
-            tradingEngineOrder.orderQuotedAsset.feesToBePaid.value
-    }
-
     async function percentageFilledCalculation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order, applyFeePercentage) {
         /* 
         Percentage Filled Calculation: The only relevant information we get from the exchange is the order.filled.
@@ -277,5 +264,35 @@ exports.newOrdersCalculations = function newOrdersCalculations(bot, logger) {
             tradingEngineOrder.orderQuotedAsset.sizeFilled.value * tradingEngineOrder.orderStatistics.percentageFilled.value / 100
 
         tradingEngineOrder.orderQuotedAsset.sizeFilled.value = global.PRECISE(tradingEngineOrder.orderQuotedAsset.sizeFilled.value, 10)
+    }
+
+    async function amountReceivedCalculation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order, applyFeePercentage) {
+        /* 
+        This calculation is for informational purposes, so that users do not have to calculate
+        it by themselves. The Amount Received out of the trade depends if we are Buying or Selling
+        the Base Asset. If we are Buying, then the Amount Receiced will be in Base Asset. If we 
+        are selling the it will be in Quoted Asset. 
+        */
+
+        switch (true) {
+            case tradingSystemOrder.type === 'Market Buy Order' || tradingSystemOrder.type === 'Limit Buy Order': {
+                /*
+                In this case the Amount Received is in Base Asset.
+                */
+                tradingEngineOrder.orderBaseAsset.amountReceived.value.value =
+                    tradingEngineOrder.orderBaseAsset.sizeFilled.value -
+                    tradingEngineOrder.orderBaseAsset.feesPaid.value
+                break
+            }
+            case tradingSystemOrder.type === 'Market Sell Order' || tradingSystemOrder.type === 'Limit Sell Order': {
+                /*
+                In this case the Amount Received is in Quoted Asset.
+                */
+                tradingEngineOrder.orderQuotedAsset.amountReceived.value.value =
+                    tradingEngineOrder.orderQuotedAsset.sizeFilled.value -
+                    tradingEngineOrder.orderQuotedAsset.feesPaid.value
+                break
+            }
+        }
     }
 }

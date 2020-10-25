@@ -888,14 +888,18 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
 
     function checkIfStageNeedsToBeClosed(tradingEngineStage, tradingSystemStage, stageName) {
         /*
-        The Stage is closed when the placedSize reaches the targetSize, and the fillSize
-        + feesPaid reaches the placedSize. This depends on how the user defined the stage:
-        either on Base Asset or Quoted Asset.
-
-        This can happens at any time when we update the sizeFilled and the feesPaid values 
-        when we see at the exchange that orders were filled. 
-
-        Note that the comparison is made with a Rounding Factor in order to avoid rounding problems.
+        The Stage is closed when the fillSize + feesPaid reaches the targetSize. 
+        
+        The Target Size is defined by the end user either in Base Asset or Quoted Asset.
+        Whatever the user chooses defines also the way we check if the Target was met.
+        Why? Because the counterparty target is estimated with the Target Rate and it 
+        is not syncronized with the reality we later learn when the exchange tell us the
+        actual rate each of the orders where executed at. 
+ 
+        For the same reason that the user does not know exactly which is the rate the orders
+        will actually be filled, then we can not expect that the total filled will really
+        reach the target size, so we introduce a rounding factor so that when it is close 
+        enough we will consider the target to have been reached. 
         */
         const ROUNDING_ERROR_CORRECTION_FACTOR = 1.001
 
@@ -903,8 +907,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
             case 'Base Asset': {
                 if (
                     (
-                        tradingEngineStage.stageBaseAsset.sizeFilled.value +
-                        tradingEngineStage.stageBaseAsset.feesPaid.value
+                        tradingEngineStage.stageBaseAsset.sizeFilled.value 
                     )
                     * ROUNDING_ERROR_CORRECTION_FACTOR
                     >=
@@ -919,8 +922,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
             case 'Quoted Asset': {
                 if (
                     (
-                        tradingEngineStage.stageQuotedAsset.sizeFilled.value +
-                        tradingEngineStage.stageQuotedAsset.feesPaid.value
+                        tradingEngineStage.stageQuotedAsset.sizeFilled.value 
                     )
                     * ROUNDING_ERROR_CORRECTION_FACTOR
                     >=

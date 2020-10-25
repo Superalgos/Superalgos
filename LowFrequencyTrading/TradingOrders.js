@@ -665,64 +665,58 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
             /* Balances Update */
             switch (true) {
                 /*
-                Let's remember that for Buy orders, the fees are paid in Base Asset.So we
-                need to substract from the balance of Quoted Asset both the size filled and
-                the fees, and we will receive at the balance of Base Asset just the size filled,
-                bacuase the exchange gets the fees in Base Asset for them. 
-                */
-                case tradingSystemOrder.type === 'Market Buy Order' || tradingSystemOrder.type === 'Limit Buy Order': {
-
-                    /* Balance Base Asset: Undo the previous accounting */
-                    tradingEngine.current.episode.episodeBaseAsset.balance.value =
-                        tradingEngine.current.episode.episodeBaseAsset.balance.value -
-                        previousBaseAssetSizeFilled
-
-                    /* Balance Base Asset: Account the current filling and fees */
-                    tradingEngine.current.episode.episodeBaseAsset.balance.value =
-                        tradingEngine.current.episode.episodeBaseAsset.balance.value +
-                        tradingEngineOrder.orderBaseAsset.sizeFilled.value
-
-                    /* Balance Quoted Asset: Undo the previous accounting */
-                    tradingEngine.current.episode.episodeQuotedAsset.balance.value =
-                        tradingEngine.current.episode.episodeQuotedAsset.balance.value +
-                        previousQuotedAssetSizeFilled +
-                        previousQuotedAssetFeesPaid
-
-                    /* Balance Quoted Asset: Account the current filling and fees */
-                    tradingEngine.current.episode.episodeQuotedAsset.balance.value =
-                        tradingEngine.current.episode.episodeQuotedAsset.balance.value -
-                        tradingEngineOrder.orderQuotedAsset.sizeFilled.value -
-                        tradingEngineOrder.orderQuotedAsset.feesPaid.value
-                    break
-                }
-                /*
-                For Sell orders, the fees are being paid in Quote Asset, so we will substract
-                from the Base Asset balance the size filled and the fees, and we will add
-                to the Quoted Asset balance only the size filled, because the exchange 
-                get those fees.
+                For Sell orders, the fees are being paid in Quote Asset. 
                 */
                 case tradingSystemOrder.type === 'Market Sell Order' || tradingSystemOrder.type === 'Limit Sell Order': {
 
                     /* Balance Base Asset: Undo the previous accounting */
                     tradingEngine.current.episode.episodeBaseAsset.balance.value =
                         tradingEngine.current.episode.episodeBaseAsset.balance.value +
+                        previousBaseAssetSizeFilled
+
+                    /* Balance Base Asset: Account the current filling and fees */
+                    tradingEngine.current.episode.episodeBaseAsset.balance.value =
+                        tradingEngine.current.episode.episodeBaseAsset.balance.value -
+                        tradingEngineOrder.orderBaseAsset.sizeFilled.value
+
+                    /* Balance Quoted Asset: Undo the previous accounting */
+                    tradingEngine.current.episode.episodeQuotedAsset.balance.value =
+                        tradingEngine.current.episode.episodeQuotedAsset.balance.value -
+                        previousQuotedAssetSizeFilled +
+                        previousQuotedAssetFeesPaid
+
+                    /* Balance Quoted Asset: Account the current filling and fees */
+                    tradingEngine.current.episode.episodeQuotedAsset.balance.value =
+                        tradingEngine.current.episode.episodeQuotedAsset.balance.value +
+                        tradingEngineOrder.orderQuotedAsset.sizeFilled.value -
+                        tradingEngineOrder.orderQuotedAsset.feesPaid.value
+                    break
+                }
+                /*
+                Let's remember that for Buy orders, the fees are paid in Base Asset.
+                */
+                case tradingSystemOrder.type === 'Market Buy Order' || tradingSystemOrder.type === 'Limit Buy Order': {
+
+                    /* Balance Base Asset: Undo the previous accounting */
+                    tradingEngine.current.episode.episodeBaseAsset.balance.value =
+                        tradingEngine.current.episode.episodeBaseAsset.balance.value -
                         previousBaseAssetSizeFilled +
                         previousBaseAssetFeesPaid
 
                     /* Balance Base Asset: Account the current filling and fees */
                     tradingEngine.current.episode.episodeBaseAsset.balance.value =
-                        tradingEngine.current.episode.episodeBaseAsset.balance.value -
+                        tradingEngine.current.episode.episodeBaseAsset.balance.value +
                         tradingEngineOrder.orderBaseAsset.sizeFilled.value -
                         tradingEngineOrder.orderBaseAsset.feesPaid.value
 
                     /* Balance Quoted Asset: Undo the previous accounting */
                     tradingEngine.current.episode.episodeQuotedAsset.balance.value =
-                        tradingEngine.current.episode.episodeQuotedAsset.balance.value -
+                        tradingEngine.current.episode.episodeQuotedAsset.balance.value +
                         previousQuotedAssetSizeFilled
 
                     /* Balance Quoted Asset: Account the current filling and fees */
                     tradingEngine.current.episode.episodeQuotedAsset.balance.value =
-                        tradingEngine.current.episode.episodeQuotedAsset.balance.value +
+                        tradingEngine.current.episode.episodeQuotedAsset.balance.value -
                         tradingEngineOrder.orderQuotedAsset.sizeFilled.value
                     break
                 }
@@ -848,12 +842,19 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
         tradingEngineStage.stageQuotedAsset.sizePlaced.value = global.PRECISE(tradingEngineStage.stageQuotedAsset.sizePlaced.value, 10)
     }
 
-    async function applyFeePercentage(feesNode, tradingEngineOrder, tradingSystemOrder, feePercentage, percentageFilled) {
+    async function applyFeePercentage(feesNodePropertyName, tradingEngineOrder, tradingSystemOrder, feePercentage, percentageFilled) {
+        /* 
+        The exchange fees are taken from the Base Asset or the Quoted Asset depending if we 
+        are buying or selling.
+        */
+        let feesNode
+
         switch (true) {
             case tradingSystemOrder.type === 'Market Buy Order' || tradingSystemOrder.type === 'Limit Buy Order': {
                 /*
                 In this case the fees are taken from the Base Asset you receive as a result of the trade at the exchange.
                 */
+                feesNode = tradingEngineOrder.orderBaseAsset[feesNodePropertyName]
                 feesNode.value =
                     tradingEngineOrder.orderBaseAsset.actualSize.value *
                     feePercentage / 100 *
@@ -864,6 +865,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
                 /*
                 In this case the fees are taken from the Quoted Asset you receive as a result of the trade at the exchange.
                 */
+                feesNode = tradingEngineOrder.orderQuotedAsset[feesNodePropertyName]
                 feesNode.value =
                     tradingEngineOrder.orderQuotedAsset.actualSize.value *
                     feePercentage / 100 *
@@ -872,8 +874,8 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
             }
         }
 
-        tradingEngineOrder.orderBaseAsset.feesPaid.value = global.PRECISE(tradingEngineOrder.orderBaseAsset.feesPaid.value, 10)
-        tradingEngineOrder.orderQuotedAsset.feesPaid.value = global.PRECISE(tradingEngineOrder.orderQuotedAsset.feesPaid.value, 10)
+        feesNode.value = global.PRECISE(feesNode.value, 10)
+        feesNode.value = global.PRECISE(feesNode.value, 10)
     }
 
     async function checkOrderEvent(event, order, executionAlgorithm, executionNode) {

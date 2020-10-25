@@ -66,28 +66,26 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
             The default way to calculate the Actual Rate is to apply the Slippage defined
             at the Session Parameters Definition. 
             */
-            if (calculatedBasedOnTradingSystem === false) {
-                switch (tradingEngineOrder.type) {
-                    case 'Market Order': {
-                        /* Actual Rate is simulated based on the Session Paremeters */
-                        let slippageAmount = tradingEngineOrder.rate.value * sessionParameters.slippage.config.positionRate / 100
-                        switch (tradingSystemOrder.type) {
-                            case 'Market Sell Order': {
-                                tradingEngineOrder.orderStatistics.actualRate.value = tradingEngineOrder.rate.value - slippageAmount
-                                break
-                            }
-                            case 'Market Buy Order': {
-                                tradingEngineOrder.orderStatistics.actualRate.value = tradingEngineOrder.rate.value + slippageAmount
-                                break
-                            }
+            switch (tradingEngineOrder.type) {
+                case 'Market Order': {
+                    /* Actual Rate is simulated based on the Session Paremeters */
+                    let slippageAmount = tradingEngineOrder.rate.value * sessionParameters.slippage.config.positionRate / 100
+                    switch (tradingSystemOrder.type) {
+                        case 'Market Sell Order': {
+                            tradingEngineOrder.orderStatistics.actualRate.value = tradingEngineOrder.rate.value - slippageAmount
+                            break
                         }
-                        break
+                        case 'Market Buy Order': {
+                            tradingEngineOrder.orderStatistics.actualRate.value = tradingEngineOrder.rate.value + slippageAmount
+                            break
+                        }
                     }
-                    case 'Limit Order': {
-                        /* In Limit Orders the actual rate is the rate of the order, there is no slippage */
-                        tradingEngineOrder.orderStatistics.actualRate.value = tradingEngineOrder.rate.value
-                        break
-                    }
+                    break
+                }
+                case 'Limit Order': {
+                    /* In Limit Orders the actual rate is the rate of the order, there is no slippage */
+                    tradingEngineOrder.orderStatistics.actualRate.value = tradingEngineOrder.rate.value
+                    break
                 }
             }
         }

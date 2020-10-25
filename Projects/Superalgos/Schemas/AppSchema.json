@@ -11256,7 +11256,6 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
-        "isTitleAllwaysVisible": true,
         "isHierarchyHead": true,
         "addLeftIcons": true,
         "level": 0,

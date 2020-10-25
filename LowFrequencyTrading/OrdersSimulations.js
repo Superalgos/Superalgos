@@ -123,15 +123,25 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
             switch (true) {
                 case tradingSystemOrder.type === 'Market Buy Order' || tradingSystemOrder.type === 'Limit Buy Order': {
                     if (tradingEngineOrder.orderStatistics.actualRate.value > tradingEngine.current.episode.candle.max.value) {
+                        tradingSystem.warnings.push(
+                            [
+                                tradingSystemOrder.id,
+                                'Actual Rate (' + tradingEngineOrder.orderStatistics.actualRate.value + ') was adjusted to what it might be at the order book. Resulting value = ' + tradingEngine.current.episode.candle.max.value
+                            ]
+                        )
                         tradingEngineOrder.orderStatistics.actualRate.value = tradingEngine.current.episode.candle.max.value
-                        tradingSystem.warnings.push([tradingSystemOrder.id, 'Actual Rate was adjusted to what it might be at the order book.'])
                     }
                     break
                 }
                 case tradingSystemOrder.type === 'Market Sell Order' || tradingSystemOrder.type === 'Limit Sell Order': {
                     if (tradingEngineOrder.orderStatistics.actualRate.value < tradingEngine.current.episode.candle.min.value) {
+                        tradingSystem.warnings.push(
+                            [
+                                tradingSystemOrder.id,
+                                'Actual Rate (' + tradingEngineOrder.orderStatistics.actualRate.value + ') was adjusted to what it might be at the order book. Resulting value = ' + tradingEngine.current.episode.candle.min.value
+                            ]
+                        )
                         tradingEngineOrder.orderStatistics.actualRate.value = tradingEngine.current.episode.candle.min.value
-                        tradingSystem.warnings.push([tradingSystemOrder.id, 'Actual Rate was adjusted to what it might be at the order book.'])
                     }
                     break
                 }

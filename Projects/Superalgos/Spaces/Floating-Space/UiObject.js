@@ -1633,7 +1633,7 @@ function newUiObject() {
                 if (thisObject.isOnFocus === true) {
                     labelPoint = {
                         x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
-                        y: position.y + radius * 2 / 3 + lineSeparator * 6 + 30
+                        y: position.y + lineSeparator * 6 + 30
                     }
                 } else {
                     labelPoint = {

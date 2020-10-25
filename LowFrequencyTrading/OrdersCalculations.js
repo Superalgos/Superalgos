@@ -271,7 +271,7 @@ exports.newOrdersCalculations = function newOrdersCalculations(bot, logger) {
         This calculation is for informational purposes, so that users do not have to calculate
         it by themselves. The Amount Received out of the trade depends if we are Buying or Selling
         the Base Asset. If we are Buying, then the Amount Receiced will be in Base Asset. If we 
-        are selling the it will be in Quoted Asset. 
+        are selling then it will be in Quoted Asset. 
         */
 
         switch (true) {

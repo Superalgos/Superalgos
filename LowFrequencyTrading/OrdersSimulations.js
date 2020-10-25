@@ -36,45 +36,36 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
 
     async function actualSizeSimulation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, applyFeePercentage) {
         /* 
-        While backtesting and paper trading, we do not really need to change
+        The Actual Size is the size the exchange accepts for the order, 
+        regarless of the size sent in the request to the exchange.
+
+        While backtesting and paper trading, we do not really need to 
         simulate an Actual Size. We will just copy to that field the
         size of the order.
+
+        This calculation needs to happen only once, so as to set these values.
         */
+        if (tradingEngineOrder.orderBaseAsset.actualSize.value !== tradingEngineOrder.orderBaseAsset.actualSize.config.initialValue) { return }
+
         tradingEngineOrder.orderBaseAsset.actualSize.value = tradingEngineOrder.orderBaseAsset.size.value
         tradingEngineOrder.orderQuotedAsset.actualSize.value = tradingEngineOrder.orderQuotedAsset.size.value
-
     }
 
     function actualRateSimulation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, applyFeePercentage) {
         /* Actual Rate Simulation */
-        let calculatedBasedOnTradingSystem = false
         let previousQuotedAssetActualSize
 
-        basedOnTradingSystem()
         basedOnSessionParameters()
+        basedOnTradingSystem()
         considerBestMatchWithOrderBook()
         recalculateActualSize()
         recalculateSizePlaced()
 
-        function basedOnTradingSystem() {
-            /* Based on the Trading System Definition */
-            if (tradingSystemOrder.simulatedExchangeEvents !== undefined) {
-                if (tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate !== undefined) {
-                    if (tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate.formula !== undefined) {
-                        /* Calculate this only once for this order */
-                        if (tradingEngineOrder.orderStatistics.actualRate.value === tradingEngineOrder.orderStatistics.actualRate.config.initialValue) {
-                            tradingEngineOrder.orderStatistics.actualRate.value = tradingSystem.formulas.get(tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate.formula.id)
-                            if (tradingEngineOrder.orderStatistics.actualRate.value !== undefined) {
-                                calculatedBasedOnTradingSystem = true
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
         function basedOnSessionParameters() {
-            /* Based on the Session Parameters Definition */
+            /*
+            The default way to calculate the Actual Rate is to apply the Slippage defined
+            at the Session Parameters Definition. 
+            */
             if (calculatedBasedOnTradingSystem === false) {
                 switch (tradingEngineOrder.type) {
                     case 'Market Order': {
@@ -101,24 +92,48 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
             }
         }
 
+        function basedOnTradingSystem() {
+            /*
+            If the user specified a Formula to simulate the Actual Rate for this order,
+            we use that formula here. Note that if this Formula exists, this will override
+            the calculation based on Slippage.
+            */
+            if (tradingSystemOrder.simulatedExchangeEvents !== undefined) {
+                if (tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate !== undefined) {
+                    if (tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate.formula !== undefined) {
+                        /* Calculate this only once for this order */
+                        if (tradingEngineOrder.orderStatistics.actualRate.value === tradingEngineOrder.orderStatistics.actualRate.config.initialValue) {
+                            tradingEngineOrder.orderStatistics.actualRate.value = tradingSystem.formulas.get(tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate.formula.id)
+                        }
+                    }
+                }
+            }
+        }
+
         function considerBestMatchWithOrderBook() {
             /*
-            Until here we have got the rate based on the formula definition or based on session parameters slippage.
-            THe last check is about watching what happened in the market. Let's remember that the exchange will
+            Until here we have got the Actual Rate based on the formula definition or based on session parameters slippage.
+            The last check is about watching what happened in the market. Let's remember that the exchange will
             fill the order with the best possible matches at it's order book. That means that if the rate
             we set for the order was too low (for a sale order) or too hight (for a buy order), the actual rate 
-            should be better than expected.
+            should be better than expected. 
+
+            We don't know what it is at the order book, but whe know that the last candle includes trades that bounced between
+            the min an max of the candle. That could tell us the above the max and below the min, the order would be matched
+            with orders at the order book. For that reason, we do this:
             */
             switch (true) {
                 case tradingSystemOrder.type === 'Market Buy Order' || tradingSystemOrder.type === 'Limit Buy Order': {
                     if (tradingEngineOrder.orderStatistics.actualRate.value > tradingEngine.current.episode.candle.max.value) {
                         tradingEngineOrder.orderStatistics.actualRate.value = tradingEngine.current.episode.candle.max.value
+                        tradingSystem.warnings.push([tradingSystemOrder.id, 'Actual Rate was adjusted to what it might be at the order book.'])
                     }
                     break
                 }
                 case tradingSystemOrder.type === 'Market Sell Order' || tradingSystemOrder.type === 'Limit Sell Order': {
                     if (tradingEngineOrder.orderStatistics.actualRate.value < tradingEngine.current.episode.candle.min.value) {
                         tradingEngineOrder.orderStatistics.actualRate.value = tradingEngine.current.episode.candle.min.value
+                        tradingSystem.warnings.push([tradingSystemOrder.id, 'Actual Rate was adjusted to what it might be at the order book.'])
                     }
                     break
                 }
@@ -128,21 +143,25 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
 
         function recalculateActualSize() {
             /*
-            The Quoted Asset Actual Size in a backtest is equal to the Quoted Asset Size, which is related to
-            the Base Asset Size by the Order Rate. Since now we have the Actual Rate, we will need to recalculate
-            the Quoted Asset Actual Size using the Actual Rate.
+            Now that we have an Actual Rate, we need to adjust the Actual Size in Quoted Asset, since 
+            Base Asset is what the exchange accepts as input and give information at. Quotes Asset properties are always calculated.
             */
             previousQuotedAssetActualSize = tradingEngineOrder.orderQuotedAsset.actualSize.value
 
-            tradingEngineOrder.orderQuotedAsset.actualSize.value = tradingEngineOrder.orderBaseAsset.actualSize.value * tradingEngineOrder.orderStatistics.actualRate.value
+            tradingEngineOrder.orderQuotedAsset.actualSize.value =
+                tradingEngineOrder.orderBaseAsset.actualSize.value *
+                tradingEngineOrder.orderStatistics.actualRate.value
+
             tradingEngineOrder.orderQuotedAsset.actualSize.value = global.PRECISE(tradingEngineOrder.orderQuotedAsset.actualSize.value, 10)
         }
 
         function recalculateSizePlaced() {
             /*
-            For the Quoted Asset, the Size Placed was previously calculated with the previous Actual Size (or Size when these were equal). 
-            Since we have just recaclcualted the Actual Size in Quoted Asset, we need to fix the Size Placed for the stage which was
-            calculated with the previous value.
+            Since the Actual Rate might have changed, we need to recalculate the Size Placed, where we accumulate all the Size Placed of
+            all orders of a Stage. For Base Asset there is nothing to do, since the Actual Rate does not have an inpact on it. 
+
+            For Quoted Asset, we need to first unaccount what this same orded added before to Size Placed (with the precious Actual Size) and
+            account with the new Actual Size. 
             */
             tradingEngineStage.stageQuotedAsset.sizePlaced.value =
                 tradingEngineStage.stageQuotedAsset.sizePlaced.value -
@@ -163,7 +182,7 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
         switch (tradingEngineOrder.type) {
             case 'Market Order': {
                 await applyFeePercentage(
-                    tradingEngineOrder.orderBaseAsset.feesToBePaid,
+                    'feesToBePaid',
                     tradingEngineOrder,
                     tradingSystemOrder,
                     sessionParameters.feeStructure.config.taker,
@@ -173,7 +192,7 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
             }
             case 'Limit Order': {
                 await applyFeePercentage(
-                    tradingEngineOrder.orderBaseAsset.feesToBePaid,
+                    'feesToBePaid',
                     tradingEngineOrder,
                     tradingSystemOrder,
                     sessionParameters.feeStructure.config.maker,
@@ -189,10 +208,10 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
         When we are live, it is the exchange who knows which order was filled and in 
         which amount. Since we are backtesting here, we need to simulate what happens
         at the exchange.  We can not simulate that an order is filled if the candle we
-        can see did not touch the order.
+        see did not touch the order.
 
-        For buy orders we are going to check if the price was below the order actual rate, and 
-        for sell orders we are going to check if the price was above the order actual rate.
+        For limit buy orders we are going to check if the price was below the order actual rate, and 
+        for limit sell orders we are going to check if the price was above the order actual rate.
         
         If we have a partial filling defined specifically for this order, 
         we are going to use it to estimate how much of the order we will consider filled.
@@ -221,7 +240,12 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
             }
         }
         if (orderWasHit === true) {
-            let calculatedBasedOnTradingSystem = false
+            /* 
+            Initially, we will assume that 100% of the order was filled. This might be overwritten
+            if there is a configuration for this order that details how much is must be considered
+            filled each time we check this.
+             */
+            tradingEngineOrder.orderStatistics.percentageFilled.value = 100
 
             /* Based on the Trading System Definition */
             if (tradingSystemOrder.simulatedExchangeEvents !== undefined) {
@@ -235,29 +259,20 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
                         }
                         tradingEngineOrder.orderStatistics.percentageFilled.value = tradingEngineOrder.orderStatistics.percentageFilled.value + percentageFilled
                         tradingEngineOrder.orderStatistics.percentageFilled.value = global.PRECISE(tradingEngineOrder.orderStatistics.percentageFilled.value, 10)
-                        calculatedBasedOnTradingSystem = true
                     }
                 }
-            }
-            /* 
-            If there is no definition for this at the trading system we will assume orders
-            are 100% filled every single time they are hit, which is the most likely thing to happen. 
-            */
-            if (calculatedBasedOnTradingSystem === false) {
-                /* We will assume that 100% of the order was filled */
-                tradingEngineOrder.orderStatistics.percentageFilled.value = 100
             }
         }
     }
 
     function feesPaidSimulation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, applyFeePercentage) {
         /*
-        The way the Fess Paid are calculated is as follows: From the order size we apply the % of fee,
+        The way the Fess Paid are calculated is as follows: From the order Actual Size we apply the % of fee,
         that would give us the total fees for that order. To that we apply the % filled of the orders,
         that give use the final result of the fees paid for the current % filled.
         
         But before that, we will see if there is an specific definition on how to simulate the fees for 
-        this order, or if there is not, we use the fees session parameters definitions.            
+        this order, or if there is not, we use the Fees Structure defined at the Session Parameters.            
         */
 
         /* Based on the Trading System Definition */
@@ -265,7 +280,7 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
             if (tradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid !== undefined) {
                 if (tradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid.config.percentage !== undefined) {
                     applyFeePercentage(
-                        tradingEngineOrder.orderBaseAsset.feesPaid,
+                        'feesPaid',
                         tradingEngineOrder,
                         tradingSystemOrder,
                         tradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid.config.percentage,
@@ -282,7 +297,7 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
         switch (tradingEngineOrder.type) {
             case 'Market Order': {
                 applyFeePercentage(
-                    tradingEngineOrder.orderBaseAsset.feesPaid,
+                    'feesPaid',
                     tradingEngineOrder,
                     tradingSystemOrder,
                     sessionParameters.feeStructure.config.taker,
@@ -292,7 +307,7 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
             }
             case 'Limit Order': {
                 applyFeePercentage(
-                    tradingEngineOrder.orderBaseAsset.feesPaid,
+                    'feesPaid',
                     tradingEngineOrder,
                     tradingSystemOrder,
                     sessionParameters.feeStructure.config.maker,
@@ -306,16 +321,15 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
     function sizeFilledSimulation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, applyFeePercentage) {
         /* 
         Size Filled is the amount of Base Asset or Quoted Asset that at the exchange matches
-        another counterparty order. We alredy have simulated the Percentage Filled and the
-        Size To Be Filled, which is the order Actual Size minus the Fees To Be Paid.
+        another counterparty order. We calculate this using the Percentage Filled we already simulated.
         */
 
         tradingEngineOrder.orderBaseAsset.sizeFilled.value =
-            tradingEngineOrder.orderBaseAsset.amountReceived.value *
+            tradingEngineOrder.orderBaseAsset.actualSize.value *
             tradingEngineOrder.orderStatistics.percentageFilled.value / 100
 
         tradingEngineOrder.orderQuotedAsset.sizeFilled.value =
-            tradingEngineOrder.orderQuotedAsset.amountReceived.value *
+            tradingEngineOrder.orderQuotedAsset.actualSize.value *
             tradingEngineOrder.orderStatistics.percentageFilled.value / 100
 
         tradingEngineOrder.orderBaseAsset.sizeFilled.value = global.PRECISE(tradingEngineOrder.orderBaseAsset.sizeFilled.value, 10)
@@ -327,7 +341,7 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
         This simulation is for informational purposes, so that users do not have to calculate
         it by themselves. The Amount Received out of the trade depends if we are Buying or Selling
         the Base Asset. If we are Buying, then the Amount Receiced will be in Base Asset. If we 
-        are selling the it will be in Quoted Asset. 
+        are selling then it will be in Quoted Asset. 
         */
 
         switch (true) {

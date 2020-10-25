@@ -314,53 +314,109 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
         }
 
         async function calculateOrderSize() {
-            /* Validate that this config exists */
-            if (executionAlgorithm.config.percentageOfStageTargetSize === undefined) { badDefinitionUnhandledException(undefined, 'executionAlgorithm.config.percentageOfStageTargetSize === undefined', executionAlgorithm) }
-            if (isNaN(executionAlgorithm.config.percentageOfStageTargetSize) === true) { badDefinitionUnhandledException(undefined, 'isNaN(executionAlgorithm.config.percentageOfStageTargetSize) === true', executionAlgorithm) }
+            let algorithmSizeInBaseAsset
+            let algorithmSizeInQuotedAsset
 
-            let algorithmSizeInBaseAsset = tradingEngineStage.stageBaseAsset.targetSize.value * executionAlgorithm.config.percentageOfStageTargetSize / 100
-            let algorithmSizeInQuotedAsset = tradingEngineStage.stageQuotedAsset.targetSize.value * executionAlgorithm.config.percentageOfStageTargetSize / 100
+            requiredConfigurationValidation()
+            notNegativeBalanceValidation()
+            notPassingTargetSizeValidation()
 
-            /* Validate that this config exists */
-            if (tradingSystemOrder.config.percentageOfAlgorithmSize === undefined) { badDefinitionUnhandledException(undefined, 'tradingSystemOrder.config.percentageOfAlgorithmSize === undefined', tradingSystemOrder) }
-            if (isNaN(tradingSystemOrder.config.percentageOfAlgorithmSize) === true) { badDefinitionUnhandledException(undefined, 'isNaN(tradingSystemOrder.config.percentageOfAlgorithmSize) === true', tradingSystemOrder) }
-
-            /*
-            The Size calculation depends on how the user defined the size of the position.
-            The user could have defined the size of the position in Base Asset or Quoted Asset.
-            */
-            switch (tradingEngineStage.stageDefinedIn.value) {
-                case 'Base Asset': {
-                    /* Size in Base Asset */
-                    tradingEngineOrder.orderBaseAsset.size.value = algorithmSizeInBaseAsset * tradingSystemOrder.config.percentageOfAlgorithmSize / 100
-
-                    /* Check that the Size calculated would not surpass Stage Target Size */
-                    if (
-                        tradingEngineOrder.orderBaseAsset.size.value + tradingEngineStage.stageBaseAsset.sizePlaced.value >
-                        tradingEngineStage.stageBaseAsset.targetSize.value
-                    ) {
-                        tradingEngineOrder.orderBaseAsset.size.value = tradingEngineStage.stageBaseAsset.targetSize.value - tradingEngineStage.stageBaseAsset.sizePlaced.value
-                    }
-
-                    /* Size in Quoted Asset */
-                    tradingEngineOrder.orderQuotedAsset.size.value = tradingEngineOrder.orderBaseAsset.size.value * tradingEngineOrder.rate.value
-                    break
+            function requiredConfigurationValidation() {
+                /* Validate that this config exists */
+                if (executionAlgorithm.config.percentageOfStageTargetSize === undefined) { 
+                    badDefinitionUnhandledException(undefined, 'executionAlgorithm.config.percentageOfStageTargetSize === undefined', executionAlgorithm) 
                 }
-                case 'Quoted Asset': {
-                    /* Size in Quoted Asset */
-                    tradingEngineOrder.orderQuotedAsset.size.value = algorithmSizeInQuotedAsset * tradingSystemOrder.config.percentageOfAlgorithmSize / 100
+                if (isNaN(executionAlgorithm.config.percentageOfStageTargetSize) === true) { 
+                    badDefinitionUnhandledException(undefined, 'isNaN(executionAlgorithm.config.percentageOfStageTargetSize) === true', executionAlgorithm) 
+                }
 
-                    /* Check that the Size calculated would not surpass Stage Target Size */
-                    if (
-                        tradingEngineOrder.orderQuotedAsset.size.value + tradingEngineStage.stageQuotedAsset.sizePlaced.value >
-                        tradingEngineStage.stageQuotedAsset.targetSize.value
-                    ) {
-                        tradingEngineOrder.orderQuotedAsset.size.value = tradingEngineStage.stageQuotedAsset.targetSize.value - tradingEngineStage.stageQuotedAsset.sizePlaced.value
+                algorithmSizeInBaseAsset = tradingEngineStage.stageBaseAsset.targetSize.value * executionAlgorithm.config.percentageOfStageTargetSize / 100
+                algorithmSizeInQuotedAsset = tradingEngineStage.stageQuotedAsset.targetSize.value * executionAlgorithm.config.percentageOfStageTargetSize / 100
+
+                /* Validate that this config exists */
+                if (tradingSystemOrder.config.percentageOfAlgorithmSize === undefined) { 
+                    badDefinitionUnhandledException(undefined, 'tradingSystemOrder.config.percentageOfAlgorithmSize === undefined', tradingSystemOrder) 
+                }
+                if (isNaN(tradingSystemOrder.config.percentageOfAlgorithmSize) === true) { 
+                    badDefinitionUnhandledException(undefined, 'isNaN(tradingSystemOrder.config.percentageOfAlgorithmSize) === true', tradingSystemOrder) 
+                }
+            }
+
+            function notPassingTargetSizeValidation() {
+                /*
+                The Size calculation depends on how the user defined the size of the position.
+                The user could have defined the size of the position in Base Asset or Quoted Asset.
+                */
+                switch (tradingEngineStage.stageDefinedIn.value) {
+                    case 'Base Asset': {
+                        /* Size in Base Asset */
+                        tradingEngineOrder.orderBaseAsset.size.value = algorithmSizeInBaseAsset * tradingSystemOrder.config.percentageOfAlgorithmSize / 100
+
+                        /* Check that the Size calculated would not surpass Stage Target Size */
+                        if (
+                            tradingEngineOrder.orderBaseAsset.size.value + tradingEngineStage.stageBaseAsset.sizePlaced.value >
+                            tradingEngineStage.stageBaseAsset.targetSize.value
+                        ) {
+                            tradingEngineOrder.orderBaseAsset.size.value =
+                                tradingEngineStage.stageBaseAsset.targetSize.value -
+                                tradingEngineStage.stageBaseAsset.sizePlaced.value
+
+                            tradingSystem.warnings.push([tradingSystemOrder.id, 'Order size shrinked so that the Size Placed does not exceed the Target Size for the stage.'])
+                        }
+
+                        /* Size in Quoted Asset */
+                        tradingEngineOrder.orderQuotedAsset.size.value = tradingEngineOrder.orderBaseAsset.size.value * tradingEngineOrder.rate.value
+                        break
                     }
+                    case 'Quoted Asset': {
+                        /* Size in Quoted Asset */
+                        tradingEngineOrder.orderQuotedAsset.size.value = algorithmSizeInQuotedAsset * tradingSystemOrder.config.percentageOfAlgorithmSize / 100
 
-                    /* Size in Base Asset */
-                    tradingEngineOrder.orderBaseAsset.size.value = tradingEngineOrder.orderQuotedAsset.size.value / tradingEngineOrder.rate.value
-                    break
+                        /* Check that the Size calculated would not surpass Stage Target Size */
+                        if (
+                            tradingEngineOrder.orderQuotedAsset.size.value + tradingEngineStage.stageQuotedAsset.sizePlaced.value >
+                            tradingEngineStage.stageQuotedAsset.targetSize.value
+                        ) {
+                            tradingEngineOrder.orderQuotedAsset.size.value =
+                                tradingEngineStage.stageQuotedAsset.targetSize.value -
+                                tradingEngineStage.stageQuotedAsset.sizePlaced.value
+
+                            tradingSystem.warnings.push([tradingSystemOrder.id, 'Order size shrinked so that the Size Placed does not exceed the Target Size for the stage.'])
+                        }
+
+                        /* Size in Base Asset */
+                        tradingEngineOrder.orderBaseAsset.size.value = tradingEngineOrder.orderQuotedAsset.size.value / tradingEngineOrder.rate.value
+
+                        break
+                    }
+                }
+            }
+
+            function notNegativeBalanceValidation() {
+                /* Check that the Size calculated would not leave a negative balance */
+                switch (true) {
+                    case tradingSystemOrder.type === 'Market Buy Order' || tradingSystemOrder.type === 'Limit Buy Order': {
+                        if (
+                            tradingEngine.current.episode.episodeQuotedAsset.balance.value - tradingEngineOrder.orderQuotedAsset.size.value < 0
+                        ) {
+                            tradingEngineOrder.orderQuotedAsset.size.value = tradingEngine.current.episode.episodeQuotedAsset.balance.value
+                            tradingEngineOrder.orderBaseAsset.size.value = tradingEngineOrder.orderQuotedAsset.size.value / tradingEngineOrder.rate.value
+
+                            tradingSystem.warnings.push([tradingSystemOrder.id, 'Order size shrinked so that the Balance does not drop below zero.'])
+                        }
+                        break
+                    }
+                    case tradingSystemOrder.type === 'Market Sell Order' || tradingSystemOrder.type === 'Limit Sell Order': {
+                        if (
+                            tradingEngine.current.episode.episodeBaseAsset.balance.value - tradingEngineOrder.orderBaseAsset.size.value < 0
+                        ) {
+                            tradingEngineOrder.orderBaseAsset.size.value = tradingEngine.current.episode.episodeBaseAsset.balance.value
+                            tradingEngineOrder.orderQuotedAsset.size.value = tradingEngineOrder.orderBaseAsset.size.value * tradingEngineOrder.rate.value
+
+                            tradingSystem.warnings.push([tradingSystemOrder.id, 'Order size shrinked so that the Balance does not drop below zero.'])
+                        }
+                        break
+                    }
                 }
             }
 

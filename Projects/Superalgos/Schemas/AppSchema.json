@@ -4475,9 +4475,9 @@
                 "autoAdd": true
             },
             {
-                "name": "sizeToBeFilled",
+                "name": "amountReceived",
                 "type": "node",
-                "childType": "Size To Be Filled",
+                "childType": "Amount Received",
                 "autoAdd": true
             },
             {
@@ -4539,9 +4539,9 @@
                 "autoAdd": true
             },
             {
-                "name": "sizeToBeFilled",
+                "name": "amountReceived",
                 "type": "node",
-                "childType": "Size To Be Filled",
+                "childType": "Amount Received",
                 "autoAdd": true
             },
             {
@@ -7843,7 +7843,7 @@
         "propertyNameAtParent": "actualSize"
     },
     {
-        "type": "Size To Be Filled",
+        "type": "Amount Received",
         "menuItems": [
             {
                 "action": "Configure",
@@ -7894,7 +7894,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Order Base Asset->Order Quoted Asset->"
         },
-        "propertyNameAtParent": "sizeToBeFilled"
+        "propertyNameAtParent": "amountReceived"
     },
     {
         "type": "Fees To Be Paid",

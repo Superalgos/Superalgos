@@ -158,7 +158,7 @@ function newCanvas() {
                     }
                 }
 
-                /* Space Animation */
+                /* Space Animation Physics */
                 for (let j = 0; j < projectDefinition.spaces.length; j++) {
                     let spaceInstance = spaceAnimationMap.get(j)
                     let spaceDefinition = spaceDefinitionMap.get(j)
@@ -166,6 +166,13 @@ function newCanvas() {
                     if (spaceInstance.physics !== undefined) {
                         thisObject.animation.addCallBackFunction(spaceDefinition.name + ' ' + 'Physics', spaceInstance.physics)
                     }
+                }
+
+                /* Space Animation Drawing*/
+                for (let j = 0; j < projectDefinition.spaces.length; j++) {
+                    let spaceInstance = spaceAnimationMap.get(j)
+                    let spaceDefinition = spaceDefinitionMap.get(j)
+                    if (spaceInstance === undefined || spaceDefinition === undefined) { continue }
                     if (spaceInstance.draw !== undefined) {
                         thisObject.animation.addCallBackFunction(spaceDefinition.name + ' ' + 'Draw', spaceInstance.draw)
                     }

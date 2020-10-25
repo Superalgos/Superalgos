@@ -369,7 +369,9 @@
 
             function startLiveTrading(message) {
                 if (bot.KEY === undefined || bot.SECRET === undefined) {
-                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[ERROR] initialize -> startLiveTrading -> Key 'codeName' or 'secret' not provided. Plese check that and try again."); }
+                    let errorMessage = "Key 'codeName' or 'secret' not provided. Plese check that and try again."
+                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[ERROR] initialize -> startLiveTrading -> " + errorMessage); }
+                    bot.sessionError(bot.SESSION, errorMessage)
                     return false
                 }
                 return true

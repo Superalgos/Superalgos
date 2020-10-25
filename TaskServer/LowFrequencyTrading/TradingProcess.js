@@ -151,7 +151,7 @@
                     await writeProcessFiles()
                     bot.sessionHeartBeat(undefined, undefined, 'Sleeping')
                 } else {
-                    bot.sessionHeartBeat(undefined, undefined, 'Waiting for Data Mining to be up to date')
+                    bot.sessionHeartBeat(undefined, undefined, 'Waiting for Data Mining to be up to date. No candles found at.')
                     callBackFunction(global.DEFAULT_RETRY_RESPONSE)
                     return
                 }

@@ -42,7 +42,7 @@ function newNodesValues() {
         if (value === true) { value = 'true' }
         if (value === false) { value = 'false' }
         node.payload.uiObject.valueAtAngle = false
-        node.payload.uiObject.setValue(value, 1)
+        node.payload.uiObject.setValue(value, 1, 10)
     }
 }
 

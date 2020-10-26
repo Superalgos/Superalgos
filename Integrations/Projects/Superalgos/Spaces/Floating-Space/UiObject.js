@@ -37,7 +37,7 @@ function newUiObject() {
         showAvailabilityToReferenceAttach: showAvailabilityToReferenceAttach,
         highlight: highlight,
         runningAtBackend: runningAtBackend,
-        reset: reset, 
+        reset: reset,
         setErrorMessage: setErrorMessage,
         resetErrorMessage: resetErrorMessage,
         setWarningMessage: setWarningMessage,
@@ -145,6 +145,13 @@ function newUiObject() {
     let chainLineCounter = 0
 
     let eventsServerClient
+
+    let errorRingAnimation = 0
+    let warningRingAnimation = 0
+    let infoRingAnimation = 0
+    let errorRingDirectionAnimation = 1
+    let warningRingDirectionAnimation = 1
+    let infoRingDirectionAnimation = 1
 
     return thisObject
 
@@ -366,26 +373,350 @@ function newUiObject() {
         newObjectPhysics()
         referenceLinePhysics()
         chainLinePhysics()
-    }
+        ringsAnimationPhysics()
 
-    function referenceLinePhysics() {
-        referenceLineCounter = referenceLineCounter + 2
-        if (referenceLineCounter > 500) {
-            referenceLineCounter = 0
+        function ringsAnimationPhysics() {
+            errorRingAnimation = errorRingAnimation + errorRingDirectionAnimation
+            warningRingAnimation = warningRingAnimation + warningRingDirectionAnimation
+            infoRingAnimation = infoRingAnimation + infoRingDirectionAnimation
+
+            if (errorRingAnimation === 10) { errorRingDirectionAnimation = -1 }
+            if (warningRingAnimation === 10) { warningRingDirectionAnimation = -1 }
+            if (infoRingAnimation === 10) { infoRingDirectionAnimation = -1 }
+
+            if (errorRingAnimation === 0) { errorRingDirectionAnimation = 1 }
+            if (warningRingAnimation === 0) { warningRingDirectionAnimation = 1 }
+            if (infoRingAnimation === 0) { infoRingDirectionAnimation = 1 }
         }
-    }
 
-    function chainLinePhysics() {
-        chainLineCounter = chainLineCounter - 5
-        if (chainLineCounter < 0) {
-            chainLineCounter = 500
+        function referenceLinePhysics() {
+            referenceLineCounter = referenceLineCounter + 2
+            if (referenceLineCounter > 500) {
+                referenceLineCounter = 0
+            }
         }
-    }
 
-    function newObjectPhysics() {
-        newUiObjectCounter--
-        if (newUiObjectCounter < 0) {
-            newUiObjectCounter = 0
+        function chainLinePhysics() {
+            chainLineCounter = chainLineCounter - 5
+            if (chainLineCounter < 0) {
+                chainLineCounter = 500
+            }
+        }
+
+        function newObjectPhysics() {
+            newUiObjectCounter--
+            if (newUiObjectCounter < 0) {
+                newUiObjectCounter = 0
+            }
+        }
+
+        function chainAttachingPhysics() {
+            chainAttacchingCounters()
+
+            if (thisObject.isOnFocus !== true) { return }
+            if (isDragging !== true) { return }
+            if (rightDragging !== true) { return }
+            if (thisObject.payload.chainParent !== undefined) { return }
+
+            let nearbyFloatingObjects = thisObject.payload.floatingObject.nearbyFloatingObjects
+            let compatibleTypes
+
+            let nodeDefinition = getNodeDefinition(thisObject.payload.node)
+            if (nodeDefinition !== undefined) {
+                if (nodeDefinition.chainAttachesTo !== undefined) {
+                    compatibleTypes = nodeDefinition.chainAttachesTo.compatibleTypes
+                } else {
+                    return
+                }
+            } else {
+                return
+            }
+
+            let foundCompatible = false
+            chainAttachToNode = undefined
+            isChainAttaching = false
+
+            for (let i = 0; i < nearbyFloatingObjects.length; i++) {
+                let nearby = nearbyFloatingObjects[i]
+                let distance = nearby[0]
+                let floatingObject = nearby[1]
+                let nearbyNode = floatingObject.payload.node
+                if (compatibleTypes.indexOf('->' + nearbyNode.type + '->') >= 0) {
+                    /* Discard App Schema defined objects with busy coonection ports */
+                    nodeDefinition = getNodeDefinition(thisObject.payload.node)
+                    if (nodeDefinition !== undefined) {
+                        let mustContinue = false
+                        let parentNodeDefinition = getNodeDefinition(nearbyNode)
+                        if (parentNodeDefinition !== undefined) {
+                            if (parentNodeDefinition.properties !== undefined) {
+                                for (let j = 0; j < parentNodeDefinition.properties.length; j++) {
+                                    let property = parentNodeDefinition.properties[j]
+                                    if (nodeDefinition.propertyNameAtParent === property.name) {
+                                        switch (property.type) {
+                                            case 'node': {
+                                                if (nearbyNode[property.name] !== undefined) {
+                                                    mustContinue = true
+                                                }
+                                            }
+                                                break
+                                            case 'array': {
+                                                /* Nothing to worry about since an array can take more than one element. */
+                                            }
+                                                break
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        if (mustContinue === true) { continue }
+                    }
+
+                    /* Discard Phases without partent */
+                    if (thisObject.payload.node.type === 'Phase' && nearbyNode.type === 'Phase' && nearbyNode.payload.parentNode === undefined) { continue }
+                    /* Control maxPhases */
+                    if (thisObject.payload.node.type === 'Phase') {
+                        if (nearbyNode.maxPhases !== undefined) {
+                            if (nearbyNode.phases.length >= nearbyNode.maxPhases) {
+                                continue
+                            }
+                        }
+                    }
+                    if (thisObject.payload.node.type === 'Phase' && nearbyNode.type === 'Phase') {
+                        if (nearbyNode.payload.parentNode.maxPhases !== undefined) {
+                            if (nearbyNode.payload.parentNode.phases.length >= nearbyNode.payload.parentNode.maxPhases) {
+                                continue
+                            }
+                        }
+                    }
+                    if (foundCompatible === false) {
+                        if (distance < thisObject.payload.floatingObject.container.frame.radius * 1.5 + floatingObject.container.frame.radius * 1.5) {
+                            nearbyNode.payload.uiObject.getReadyToChainAttach()
+                            isChainAttaching = true
+                            chainAttachToNode = nearbyNode
+                            foundCompatible = true
+                        }
+                    }
+                    nearbyNode.payload.uiObject.showAvailabilityToChainAttach()
+                }
+            }
+
+            function chainAttacchingCounters() {
+                if (readyToChainAttachDisplayCounter > 15) {
+                    readyToChainAttachDisplayIncrement = -0.25
+                }
+
+                if (readyToChainAttachDisplayCounter < 5) {
+                    readyToChainAttachDisplayIncrement = 0.25
+                }
+
+                readyToChainAttachDisplayCounter = readyToChainAttachDisplayCounter + readyToChainAttachDisplayIncrement
+
+                readyToChainAttachCounter--
+                if (readyToChainAttachCounter <= 0) {
+                    readyToChainAttachCounter = 0
+                    isReadyToChainAttach = false
+                } else {
+                    isReadyToChainAttach = true
+                }
+
+                availableToChainAttachCounter--
+                if (availableToChainAttachCounter <= 0) {
+                    availableToChainAttachCounter = 0
+                    isAvailableToChainAttach = false
+                } else {
+                    isAvailableToChainAttach = true
+                }
+            }
+        }
+
+        function chainDetachingPhysics() {
+            if (isDragging !== true) { return }
+            if (rightDragging === false) { return }
+
+            let distanceToChainParent = Math.sqrt(Math.pow(thisObject.payload.position.x - thisObject.payload.targetPosition.x, 2) + Math.pow(thisObject.payload.position.y - thisObject.payload.targetPosition.y, 2))
+            let ratio = distanceToChainParent / previousDistanceToChainParent
+            if (previousDistanceToChainParent === 0) {
+                previousDistanceToChainParent = distanceToChainParent
+                return
+            }
+            previousDistanceToChainParent = distanceToChainParent
+
+            if (thisObject.isOnFocus !== true) { return }
+            if (thisObject.payload.chainParent === undefined) { return }
+            if (thisObject.payload.parentNode === undefined) { return }
+
+            let THRESHOLD = 1.15
+
+            if (ratio > THRESHOLD) {
+                UI.projects.superalgos.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Parent Detach', project: 'Superalgos' })
+            }
+        }
+
+        function referenceAttachingPhysics() {
+            referenceAttacchingCounters()
+
+            if (thisObject.isOnFocus !== true) { return }
+            if (isDragging !== true) { return }
+            if (rightDragging !== true) { return }
+            if (thisObject.payload.referenceParent !== undefined) { return }
+
+            let nearbyFloatingObjects = thisObject.payload.floatingObject.nearbyFloatingObjects
+            let compatibleTypes
+
+            let nodeDefinition = getNodeDefinition(thisObject.payload.node)
+            if (nodeDefinition !== undefined) {
+                if (nodeDefinition.referenceAttachesTo !== undefined) {
+                    compatibleTypes = nodeDefinition.referenceAttachesTo.compatibleTypes
+                } else {
+                    return
+                }
+            } else {
+                return
+            }
+
+            let foundCompatible = false
+            referenceAttachToNode = undefined
+            isReferenceAttaching = false
+
+            for (let i = 0; i < nearbyFloatingObjects.length; i++) {
+                let nearby = nearbyFloatingObjects[i]
+                let distance = nearby[0]
+                let floatingObject = nearby[1]
+                let nearbyNode = floatingObject.payload.node
+                if (compatibleTypes.indexOf('->' + nearbyNode.type + '->') >= 0 || compatibleTypes === "->*Any Node*->") {
+                    if (nodeDefinition.referenceAttachesTo.incompatibleTypes !== undefined) {
+                        if (nodeDefinition.referenceAttachesTo.incompatibleTypes.indexOf('->' + nearbyNode.type + '->') >= 0) {
+                            continue
+                        }
+                    }
+                    if (foundCompatible === false) {
+                        if (distance < thisObject.payload.floatingObject.container.frame.radius * 1.5 + floatingObject.container.frame.radius * 1.5) {
+                            nearbyNode.payload.uiObject.getReadyToReferenceAttach()
+                            isReferenceAttaching = true
+                            referenceAttachToNode = nearbyNode
+                            foundCompatible = true
+                        }
+                    }
+                    nearbyNode.payload.uiObject.showAvailabilityToReferenceAttach()
+                }
+            }
+
+            function referenceAttacchingCounters() {
+                if (readyToReferenceAttachDisplayCounter > 15) {
+                    readyToReferenceAttachDisplayIncrement = -0.25
+                }
+
+                if (readyToReferenceAttachDisplayCounter < 5) {
+                    readyToReferenceAttachDisplayIncrement = 0.25
+                }
+
+                readyToReferenceAttachDisplayCounter = readyToReferenceAttachDisplayCounter + readyToReferenceAttachDisplayIncrement
+
+                readyToReferenceAttachCounter--
+                if (readyToReferenceAttachCounter <= 0) {
+                    readyToReferenceAttachCounter = 0
+                    isReadyToReferenceAttach = false
+                } else {
+                    isReadyToReferenceAttach = true
+                }
+
+                availableToReferenceAttachCounter--
+                if (availableToReferenceAttachCounter <= 0) {
+                    availableToReferenceAttachCounter = 0
+                    isAvailableToReferenceAttach = false
+                } else {
+                    isAvailableToReferenceAttach = true
+                }
+            }
+        }
+
+        function referenceDetachingPhysics() {
+            if (isDragging !== true) { return }
+            if (thisObject.payload === undefined) { return }
+            if (thisObject.payload.floatingObject.isFrozen === true) { return }
+            if (rightDragging === false) { return }
+
+            if (thisObject.payload.referenceParent === undefined) { return }
+
+            let distanceToReferenceParent = Math.sqrt(Math.pow(thisObject.payload.position.x - thisObject.payload.referenceParent.payload.position.x, 2) + Math.pow(thisObject.payload.position.y - thisObject.payload.referenceParent.payload.position.y, 2))
+            let ratio = distanceToReferenceParent / previousDistanceToReferenceParent
+            if (previousDistanceToReferenceParent === 0) {
+                previousDistanceToReferenceParent = distanceToReferenceParent
+                return
+            }
+            previousDistanceToReferenceParent = distanceToReferenceParent
+
+            if (thisObject.isOnFocus !== true) { return }
+
+            let THRESHOLD = 1.15
+
+            if (ratio > THRESHOLD) {
+                UI.projects.superalgos.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Reference Detach', project: 'Superalgos' })
+            }
+        }
+
+        function highlightPhisycs() {
+            highlightCounter--
+            if (highlightCounter < 0) {
+                highlightCounter = 0
+                isHighlighted = false
+            }
+        }
+
+        function runningAtBackendPhisycs() {
+            runningAtBackendCounter--
+            if (runningAtBackendCounter < 0) {
+                runningAtBackendCounter = 0
+                isRunningAtBackend = false
+            }
+        }
+
+        function errorMessagePhisycs() {
+            errorMessageCounter--
+            if (errorMessageCounter < 0) {
+                errorMessageCounter = 0
+                thisObject.hasError = false
+            }
+        }
+
+        function warningMessagePhisycs() {
+            warningMessageCounter--
+            if (warningMessageCounter < 0) {
+                warningMessageCounter = 0
+                thisObject.hasWarning = false
+            }
+        }
+
+        function infoMessagePhisycs() {
+            infoMessageCounter--
+            if (infoMessageCounter < 0) {
+                infoMessageCounter = 0
+                thisObject.hasInfo = false
+            }
+        }
+
+        function valuePhisycs() {
+            valueCounter--
+            if (valueCounter < 0) {
+                valueCounter = 0
+                hasValue = false
+            }
+        }
+
+        function percentagePhisycs() {
+            percentageCounter--
+            if (percentageCounter < 0) {
+                percentageCounter = 0
+                hasPercentage = false
+            }
+        }
+
+        function statusPhisycs() {
+            statusCounter--
+            if (statusCounter < 0) {
+                statusCounter = 0
+                hasStatus = false
+            }
         }
     }
 
@@ -437,125 +768,6 @@ function newUiObject() {
         }
     }
 
-    function chainAttachingPhysics() {
-        chainAttacchingCounters()
-
-        if (thisObject.isOnFocus !== true) { return }
-        if (isDragging !== true) { return }
-        if (rightDragging !== true) { return }
-        if (thisObject.payload.chainParent !== undefined) { return }
-
-        let nearbyFloatingObjects = thisObject.payload.floatingObject.nearbyFloatingObjects
-        let compatibleTypes
-
-        let nodeDefinition = getNodeDefinition(thisObject.payload.node)
-        if (nodeDefinition !== undefined) {
-            if (nodeDefinition.chainAttachesTo !== undefined) {
-                compatibleTypes = nodeDefinition.chainAttachesTo.compatibleTypes
-            } else {
-                return
-            }
-        } else {
-            return
-        }
-
-        let foundCompatible = false
-        chainAttachToNode = undefined
-        isChainAttaching = false
-
-        for (let i = 0; i < nearbyFloatingObjects.length; i++) {
-            let nearby = nearbyFloatingObjects[i]
-            let distance = nearby[0]
-            let floatingObject = nearby[1]
-            let nearbyNode = floatingObject.payload.node
-            if (compatibleTypes.indexOf('->' + nearbyNode.type + '->') >= 0) {
-                /* Discard App Schema defined objects with busy coonection ports */
-                nodeDefinition = getNodeDefinition(thisObject.payload.node)
-                if (nodeDefinition !== undefined) {
-                    let mustContinue = false
-                    let parentNodeDefinition = getNodeDefinition(nearbyNode)
-                    if (parentNodeDefinition !== undefined) {
-                        if (parentNodeDefinition.properties !== undefined) {
-                            for (let j = 0; j < parentNodeDefinition.properties.length; j++) {
-                                let property = parentNodeDefinition.properties[j]
-                                if (nodeDefinition.propertyNameAtParent === property.name) {
-                                    switch (property.type) {
-                                        case 'node': {
-                                            if (nearbyNode[property.name] !== undefined) {
-                                                mustContinue = true
-                                            }
-                                        }
-                                            break
-                                        case 'array': {
-                                            /* Nothing to worry about since an array can take more than one element. */
-                                        }
-                                            break
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    if (mustContinue === true) { continue }
-                }
-
-                /* Discard Phases without partent */
-                if (thisObject.payload.node.type === 'Phase' && nearbyNode.type === 'Phase' && nearbyNode.payload.parentNode === undefined) { continue }
-                /* Control maxPhases */
-                if (thisObject.payload.node.type === 'Phase') {
-                    if (nearbyNode.maxPhases !== undefined) {
-                        if (nearbyNode.phases.length >= nearbyNode.maxPhases) {
-                            continue
-                        }
-                    }
-                }
-                if (thisObject.payload.node.type === 'Phase' && nearbyNode.type === 'Phase') {
-                    if (nearbyNode.payload.parentNode.maxPhases !== undefined) {
-                        if (nearbyNode.payload.parentNode.phases.length >= nearbyNode.payload.parentNode.maxPhases) {
-                            continue
-                        }
-                    }
-                }
-                if (foundCompatible === false) {
-                    if (distance < thisObject.payload.floatingObject.container.frame.radius * 1.5 + floatingObject.container.frame.radius * 1.5) {
-                        nearbyNode.payload.uiObject.getReadyToChainAttach()
-                        isChainAttaching = true
-                        chainAttachToNode = nearbyNode
-                        foundCompatible = true
-                    }
-                }
-                nearbyNode.payload.uiObject.showAvailabilityToChainAttach()
-            }
-        }
-    }
-
-    function chainAttacchingCounters() {
-        if (readyToChainAttachDisplayCounter > 15) {
-            readyToChainAttachDisplayIncrement = -0.25
-        }
-
-        if (readyToChainAttachDisplayCounter < 5) {
-            readyToChainAttachDisplayIncrement = 0.25
-        }
-
-        readyToChainAttachDisplayCounter = readyToChainAttachDisplayCounter + readyToChainAttachDisplayIncrement
-
-        readyToChainAttachCounter--
-        if (readyToChainAttachCounter <= 0) {
-            readyToChainAttachCounter = 0
-            isReadyToChainAttach = false
-        } else {
-            isReadyToChainAttach = true
-        }
-
-        availableToChainAttachCounter--
-        if (availableToChainAttachCounter <= 0) {
-            availableToChainAttachCounter = 0
-            isAvailableToChainAttach = false
-        } else {
-            isAvailableToChainAttach = true
-        }
-    }
-
     function getReadyToChainAttach() {
         readyToChainAttachCounter = 10
     }
@@ -564,202 +776,12 @@ function newUiObject() {
         availableToChainAttachCounter = 10
     }
 
-    function chainDetachingPhysics() {
-        if (isDragging !== true) { return }
-        if (rightDragging === false) { return }
-
-        let distanceToChainParent = Math.sqrt(Math.pow(thisObject.payload.position.x - thisObject.payload.targetPosition.x, 2) + Math.pow(thisObject.payload.position.y - thisObject.payload.targetPosition.y, 2))
-        let ratio = distanceToChainParent / previousDistanceToChainParent
-        if (previousDistanceToChainParent === 0) {
-            previousDistanceToChainParent = distanceToChainParent
-            return
-        }
-        previousDistanceToChainParent = distanceToChainParent
-
-        if (thisObject.isOnFocus !== true) { return }
-        if (thisObject.payload.chainParent === undefined) { return }
-        if (thisObject.payload.parentNode === undefined) { return }
-
-        let THRESHOLD = 1.15
-
-        if (ratio > THRESHOLD) {
-            UI.projects.superalgos.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Parent Detach', project: 'Superalgos' })
-        }
-    }
-
-    function referenceAttachingPhysics() {
-        referenceAttacchingCounters()
-
-        if (thisObject.isOnFocus !== true) { return }
-        if (isDragging !== true) { return }
-        if (rightDragging !== true) { return }
-        if (thisObject.payload.referenceParent !== undefined) { return }
-
-        let nearbyFloatingObjects = thisObject.payload.floatingObject.nearbyFloatingObjects
-        let compatibleTypes
-
-        let nodeDefinition = getNodeDefinition(thisObject.payload.node)
-        if (nodeDefinition !== undefined) {
-            if (nodeDefinition.referenceAttachesTo !== undefined) {
-                compatibleTypes = nodeDefinition.referenceAttachesTo.compatibleTypes
-            } else {
-                return
-            }
-        } else {
-            return
-        }
-
-        let foundCompatible = false
-        referenceAttachToNode = undefined
-        isReferenceAttaching = false
-
-        for (let i = 0; i < nearbyFloatingObjects.length; i++) {
-            let nearby = nearbyFloatingObjects[i]
-            let distance = nearby[0]
-            let floatingObject = nearby[1]
-            let nearbyNode = floatingObject.payload.node
-            if (compatibleTypes.indexOf('->' + nearbyNode.type + '->') >= 0 || compatibleTypes === "->*Any Node*->") {
-                if (nodeDefinition.referenceAttachesTo.incompatibleTypes !== undefined) {
-                    if (nodeDefinition.referenceAttachesTo.incompatibleTypes.indexOf('->' + nearbyNode.type + '->') >= 0) {
-                        continue
-                    }
-                }
-                if (foundCompatible === false) {
-                    if (distance < thisObject.payload.floatingObject.container.frame.radius * 1.5 + floatingObject.container.frame.radius * 1.5) {
-                        nearbyNode.payload.uiObject.getReadyToReferenceAttach()
-                        isReferenceAttaching = true
-                        referenceAttachToNode = nearbyNode
-                        foundCompatible = true
-                    }
-                }
-                nearbyNode.payload.uiObject.showAvailabilityToReferenceAttach()
-            }
-        }
-    }
-
-    function referenceAttacchingCounters() {
-        if (readyToReferenceAttachDisplayCounter > 15) {
-            readyToReferenceAttachDisplayIncrement = -0.25
-        }
-
-        if (readyToReferenceAttachDisplayCounter < 5) {
-            readyToReferenceAttachDisplayIncrement = 0.25
-        }
-
-        readyToReferenceAttachDisplayCounter = readyToReferenceAttachDisplayCounter + readyToReferenceAttachDisplayIncrement
-
-        readyToReferenceAttachCounter--
-        if (readyToReferenceAttachCounter <= 0) {
-            readyToReferenceAttachCounter = 0
-            isReadyToReferenceAttach = false
-        } else {
-            isReadyToReferenceAttach = true
-        }
-
-        availableToReferenceAttachCounter--
-        if (availableToReferenceAttachCounter <= 0) {
-            availableToReferenceAttachCounter = 0
-            isAvailableToReferenceAttach = false
-        } else {
-            isAvailableToReferenceAttach = true
-        }
-    }
-
     function getReadyToReferenceAttach() {
         readyToReferenceAttachCounter = 10
     }
 
     function showAvailabilityToReferenceAttach() {
         availableToReferenceAttachCounter = 10
-    }
-
-    function referenceDetachingPhysics() {
-        if (isDragging !== true) { return }
-        if (thisObject.payload === undefined) { return }
-        if (thisObject.payload.floatingObject.isFrozen === true) { return }
-        if (rightDragging === false) { return }
-
-        if (thisObject.payload.referenceParent === undefined) { return }
-
-        let distanceToReferenceParent = Math.sqrt(Math.pow(thisObject.payload.position.x - thisObject.payload.referenceParent.payload.position.x, 2) + Math.pow(thisObject.payload.position.y - thisObject.payload.referenceParent.payload.position.y, 2))
-        let ratio = distanceToReferenceParent / previousDistanceToReferenceParent
-        if (previousDistanceToReferenceParent === 0) {
-            previousDistanceToReferenceParent = distanceToReferenceParent
-            return
-        }
-        previousDistanceToReferenceParent = distanceToReferenceParent
-
-        if (thisObject.isOnFocus !== true) { return }
-
-        let THRESHOLD = 1.15
-
-        if (ratio > THRESHOLD) {
-            UI.projects.superalgos.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Reference Detach', project: 'Superalgos' })
-        }
-    }
-
-    function highlightPhisycs() {
-        highlightCounter--
-        if (highlightCounter < 0) {
-            highlightCounter = 0
-            isHighlighted = false
-        }
-    }
-
-    function runningAtBackendPhisycs() {
-        runningAtBackendCounter--
-        if (runningAtBackendCounter < 0) {
-            runningAtBackendCounter = 0
-            isRunningAtBackend = false
-        }
-    }
-
-    function errorMessagePhisycs() {
-        errorMessageCounter--
-        if (errorMessageCounter < 0) {
-            errorMessageCounter = 0
-            thisObject.hasError = false
-        }
-    }
-
-    function warningMessagePhisycs() {
-        warningMessageCounter--
-        if (warningMessageCounter < 0) {
-            warningMessageCounter = 0
-            thisObject.hasWarning = false
-        }
-    }
-
-    function infoMessagePhisycs() {
-        infoMessageCounter--
-        if (infoMessageCounter < 0) {
-            infoMessageCounter = 0
-            thisObject.hasInfo = false
-        }
-    }
-
-    function valuePhisycs() {
-        valueCounter--
-        if (valueCounter < 0) {
-            valueCounter = 0
-            hasValue = false
-        }
-    }
-
-    function percentagePhisycs() {
-        percentageCounter--
-        if (percentageCounter < 0) {
-            percentageCounter = 0
-            hasPercentage = false
-        }
-    }
-
-    function statusPhisycs() {
-        statusCounter--
-        if (statusCounter < 0) {
-            statusCounter = 0
-            hasStatus = false
-        }
     }
 
     function highlight(counter) {
@@ -952,7 +974,7 @@ function newUiObject() {
         }
     }
 
-    function reset(){
+    function reset() {
         resetErrorMessage()
         resetWarningMessage()
         resetInfoMessage()
@@ -1631,21 +1653,46 @@ function newUiObject() {
                 }
 
                 if (thisObject.isOnFocus === true) {
-                    labelPoint = {
-                        x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
-                        y: position.y + lineSeparator * 6 + 30
+                    /* Split the line into Phrases */
+                    let splittedLabel = label.split(' ')
+                    let phrases = []
+                    let phrase = ''
+                    let wordCount = 0
+                    for (let i = 0; i < splittedLabel.length; i++) {
+                        phrase = phrase + splittedLabel[i] + ' '
+                        wordCount++
+                        if (wordCount > 5) {
+                            phrases.push(phrase)
+                            phrase = ''
+                            wordCount = 0
+                        }
+                    }
+                    if (wordCount > 0) {
+                        phrases.push(phrase)
+                    }
+
+                    for (let i = 0; i < phrases.length; i++) {
+                        phrase = phrases[i]
+                        labelPoint = {
+                            x: position.x - phrase.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
+                            y: position.y + lineSeparator * (6 - phrases.length + 1 + i) + 30
+                        }
+                        printMessage(phrase)
                     }
                 } else {
                     labelPoint = {
                         x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
                         y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 5
                     }
+                    printMessage(label)
                 }
 
-                browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
+                function printMessage(text) {
+                    browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
 
-                browserCanvasContext.fillStyle = 'rgba(' + textColor + ', 1)'
-                browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
+                    browserCanvasContext.fillStyle = 'rgba(' + textColor + ', 1)'
+                    browserCanvasContext.fillText(text, labelPoint.x, labelPoint.y)
+                }
             }
         }
     }
@@ -2024,7 +2071,7 @@ function newUiObject() {
                 browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
                 browserCanvasContext.closePath()
                 browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK_TURQUOISE + ', ' + OPACITY + ')'
-                
+
                 if (thisObject.payload.floatingObject.isOnFocus === true) {
                     browserCanvasContext.lineWidth = 30
                     browserCanvasContext.setLineDash([0, 0])
@@ -2048,7 +2095,7 @@ function newUiObject() {
                 browserCanvasContext.closePath()
                 browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK_TURQUOISE + ', ' + OPACITY + ')'
                 browserCanvasContext.lineWidth = 5
-                browserCanvasContext.setLineDash([5, 10])
+                browserCanvasContext.setLineDash([0 + infoRingAnimation, 10 - infoRingAnimation])
                 browserCanvasContext.stroke()
             }
 
@@ -2064,7 +2111,7 @@ function newUiObject() {
                 browserCanvasContext.closePath()
                 browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', ' + OPACITY + ')'
                 browserCanvasContext.lineWidth = 5
-                browserCanvasContext.setLineDash([5, 10])
+                browserCanvasContext.setLineDash([0 + warningRingAnimation, 10 - warningRingAnimation])
                 browserCanvasContext.stroke()
             }
 
@@ -2080,7 +2127,7 @@ function newUiObject() {
                 browserCanvasContext.closePath()
                 browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RED + ', ' + OPACITY + ')'
                 browserCanvasContext.lineWidth = 5
-                browserCanvasContext.setLineDash([5, 10])
+                browserCanvasContext.setLineDash([0 + errorRingAnimation, 10 - errorRingAnimation])
                 browserCanvasContext.stroke()
             }
 
@@ -2212,9 +2259,10 @@ function newUiObject() {
                 if (nodeDefinition === undefined) { return }
 
                 if (UI.projects.superalgos.spaces.floatingSpace.inMapMode === true) {
-                    if (nodeDefinition.isHierarchyHead === true || nodeDefinition.isProjectHead === true ) {
+                    if (nodeDefinition.isHierarchyHead === true || nodeDefinition.isProjectHead === true) {
                         totalImageSize = 50
                     } else {
+                        totalImageSize = 25
                         totalImageSize = UI.projects.superalgos.spaces.floatingSpace.transformImagesizeToMap(totalImageSize)
                     }
                 }

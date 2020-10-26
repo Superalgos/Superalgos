@@ -41,7 +41,7 @@ function newNodesWarnings() {
         if (value === '') {
             node.payload.uiObject.resetWarningMessage()
         } else {
-            node.payload.uiObject.setWarningMessage(value)
+            node.payload.uiObject.setWarningMessage(value, 10)
         }
     }
 }

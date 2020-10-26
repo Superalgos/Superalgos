@@ -318,8 +318,8 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
             let algorithmSizeInQuotedAsset
 
             requiredConfigurationValidation()
-            notNegativeBalanceValidation()
             notPassingTargetSizeValidation()
+            notNegativeBalanceValidation()
 
             function requiredConfigurationValidation() {
                 /* Validate that this config exists */
@@ -399,10 +399,10 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
                         if (
                             tradingEngine.current.episode.episodeQuotedAsset.balance.value - tradingEngineOrder.orderQuotedAsset.size.value < 0
                         ) {
+                            tradingSystem.warnings.push([tradingSystemOrder.id, 'Order Size Quoted Asset ('+ tradingEngineOrder.orderQuotedAsset.size.value +') changed to Balance Quoted Asset (' + tradingEngine.current.episode.episodeQuotedAsset.balance.value + ') so that the Balance does not drop below zero.'])
+
                             tradingEngineOrder.orderQuotedAsset.size.value = tradingEngine.current.episode.episodeQuotedAsset.balance.value
                             tradingEngineOrder.orderBaseAsset.size.value = tradingEngineOrder.orderQuotedAsset.size.value / tradingEngineOrder.rate.value
-
-                            tradingSystem.warnings.push([tradingSystemOrder.id, 'Order size shrinked so that the Balance does not drop below zero.'])
                         }
                         break
                     }
@@ -410,10 +410,10 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
                         if (
                             tradingEngine.current.episode.episodeBaseAsset.balance.value - tradingEngineOrder.orderBaseAsset.size.value < 0
                         ) {
+                            tradingSystem.warnings.push([tradingSystemOrder.id, 'Order Size Base Asset ('+ tradingEngineOrder.orderBaseAsset.size.value +') changed to Balance Base Asset (' + tradingEngine.current.episode.episodeBaseAsset.balance.value + ') so that the Balance does not drop below zero.'])
+
                             tradingEngineOrder.orderBaseAsset.size.value = tradingEngine.current.episode.episodeBaseAsset.balance.value
                             tradingEngineOrder.orderQuotedAsset.size.value = tradingEngineOrder.orderBaseAsset.size.value * tradingEngineOrder.rate.value
-
-                            tradingSystem.warnings.push([tradingSystemOrder.id, 'Order size shrinked so that the Balance does not drop below zero.'])
                         }
                         break
                     }

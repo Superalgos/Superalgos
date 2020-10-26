@@ -41,7 +41,7 @@ function newNodesInfos() {
         if (value === '') {
             node.payload.uiObject.resetInfoMessage()
         } else {
-            node.payload.uiObject.setInfoMessage(value)
+            node.payload.uiObject.setInfoMessage(value, 10)
         }
     }
 }

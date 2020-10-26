@@ -159,7 +159,12 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
                         need to cancel it, since we could end up with inconsisten information at the accounting level.
                         */
                         if (tradingSystemOrder.cancelOrderEvent !== undefined) {
-                            tradingSystem.warnings.push([tradingSystemOrder.cancelOrderEvent.id, 'Skipping Cancel Event Checking because cheking the order at the exchange failed.'])
+                            tradingSystem.warnings.push(
+                                [
+                                    tradingSystemOrder.cancelOrderEvent.id,
+                                    'Skipping Cancel Event Checking because cheking the order at the exchange failed.'
+                                ]
+                            )
                         }
                         return
                     }
@@ -255,14 +260,36 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
         /* Check Size: We are not going to create Orders which size is equal or less to zero.  */
         if (tradingEngineOrder.orderBaseAsset.size.value <= 0 || tradingEngineOrder.orderQuotedAsset.size.value <= 0) {
-            tradingSystem.warnings.push([tradingSystemOrder.id, 'Could not open this order because its size would be zero.'])
+            tradingSystem.warnings.push(
+                [
+                    tradingEngineOrder.orderBaseAsset.size.id,
+                    'Could not open this order because its size would be zero.'
+                ]
+            )
+            tradingSystem.warnings.push(
+                [
+                    tradingEngineOrder.orderQuotedAsset.size.id,
+                    'Could not open this order because its size would be zero.'
+                ]
+            )
             return
         }
 
         /* Place Order at the Exchange, if needed. */
         let result = await createOrderAtExchange(tradingSystemOrder, tradingEngineOrder)
         if (result !== true) {
-            tradingSystem.warnings.push([tradingSystemOrder.id, 'Could not open this order because something failed placing the order at the Exchange.'])
+            tradingSystem.warnings.push(
+                [
+                    tradingSystemOrder.id,
+                    'Could not open this order because something failed placing the order at the Exchange.'
+                ]
+            )
+            tradingSystem.warnings.push(
+                [
+                    tradingEngineOrder.id,
+                    'Could not open this order because something failed placing the order at the Exchange.'
+                ]
+            )
             return
         }
 
@@ -323,22 +350,22 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
             function requiredConfigurationValidation() {
                 /* Validate that this config exists */
-                if (executionAlgorithm.config.percentageOfStageTargetSize === undefined) { 
-                    badDefinitionUnhandledException(undefined, 'executionAlgorithm.config.percentageOfStageTargetSize === undefined', executionAlgorithm) 
+                if (executionAlgorithm.config.percentageOfStageTargetSize === undefined) {
+                    badDefinitionUnhandledException(undefined, 'executionAlgorithm.config.percentageOfStageTargetSize === undefined', executionAlgorithm)
                 }
-                if (isNaN(executionAlgorithm.config.percentageOfStageTargetSize) === true) { 
-                    badDefinitionUnhandledException(undefined, 'isNaN(executionAlgorithm.config.percentageOfStageTargetSize) === true', executionAlgorithm) 
+                if (isNaN(executionAlgorithm.config.percentageOfStageTargetSize) === true) {
+                    badDefinitionUnhandledException(undefined, 'isNaN(executionAlgorithm.config.percentageOfStageTargetSize) === true', executionAlgorithm)
                 }
 
                 algorithmSizeInBaseAsset = tradingEngineStage.stageBaseAsset.targetSize.value * executionAlgorithm.config.percentageOfStageTargetSize / 100
                 algorithmSizeInQuotedAsset = tradingEngineStage.stageQuotedAsset.targetSize.value * executionAlgorithm.config.percentageOfStageTargetSize / 100
 
                 /* Validate that this config exists */
-                if (tradingSystemOrder.config.percentageOfAlgorithmSize === undefined) { 
-                    badDefinitionUnhandledException(undefined, 'tradingSystemOrder.config.percentageOfAlgorithmSize === undefined', tradingSystemOrder) 
+                if (tradingSystemOrder.config.percentageOfAlgorithmSize === undefined) {
+                    badDefinitionUnhandledException(undefined, 'tradingSystemOrder.config.percentageOfAlgorithmSize === undefined', tradingSystemOrder)
                 }
-                if (isNaN(tradingSystemOrder.config.percentageOfAlgorithmSize) === true) { 
-                    badDefinitionUnhandledException(undefined, 'isNaN(tradingSystemOrder.config.percentageOfAlgorithmSize) === true', tradingSystemOrder) 
+                if (isNaN(tradingSystemOrder.config.percentageOfAlgorithmSize) === true) {
+                    badDefinitionUnhandledException(undefined, 'isNaN(tradingSystemOrder.config.percentageOfAlgorithmSize) === true', tradingSystemOrder)
                 }
             }
 
@@ -357,11 +384,17 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
                             tradingEngineOrder.orderBaseAsset.size.value + tradingEngineStage.stageBaseAsset.sizePlaced.value >
                             tradingEngineStage.stageBaseAsset.targetSize.value
                         ) {
+                            let previousValue = tradingEngineOrder.orderBaseAsset.size.value
                             tradingEngineOrder.orderBaseAsset.size.value =
                                 tradingEngineStage.stageBaseAsset.targetSize.value -
                                 tradingEngineStage.stageBaseAsset.sizePlaced.value
 
-                            tradingSystem.warnings.push([tradingSystemOrder.id, 'Order size shrinked so that the Size Placed does not exceed the Target Size for the stage.'])
+                            tradingSystem.warnings.push(
+                                [
+                                    tradingEngineOrder.orderBaseAsset.size.id,
+                                    'Order size (' + previousValue + ') shrinked (' + tradingEngineOrder.orderBaseAsset.size.value + ') so that the Size Placed (' + tradingEngineStage.stageBaseAsset.sizePlaced.value + ') does not exceed the Target Size (' + tradingEngineStage.stageBaseAsset.targetSize.value + ') for the stage.'
+                                ]
+                            )
                         }
 
                         /* Size in Quoted Asset */
@@ -377,11 +410,17 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
                             tradingEngineOrder.orderQuotedAsset.size.value + tradingEngineStage.stageQuotedAsset.sizePlaced.value >
                             tradingEngineStage.stageQuotedAsset.targetSize.value
                         ) {
+                            let previousValue = tradingEngineOrder.orderQuotedAsset.size.value
                             tradingEngineOrder.orderQuotedAsset.size.value =
                                 tradingEngineStage.stageQuotedAsset.targetSize.value -
                                 tradingEngineStage.stageQuotedAsset.sizePlaced.value
 
-                            tradingSystem.warnings.push([tradingSystemOrder.id, 'Order size shrinked so that the Size Placed does not exceed the Target Size for the stage.'])
+                            tradingSystem.warnings.push(
+                                [
+                                    tradingEngineOrder.orderQuotedAsset.size.id,
+                                    'Order size (' + previousValue + ') shrinked (' + tradingEngineOrder.orderQuotedAsset.size.value + ') so that the Size Placed (' + tradingEngineStage.stageQuotedAsset.sizePlaced.value + ') does not exceed the Target Size (' + tradingEngineStage.stageQuotedAsset.targetSize.value + ') for the stage.'
+                                ]
+                            )
                         }
 
                         /* Size in Base Asset */
@@ -399,7 +438,12 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
                         if (
                             tradingEngine.current.episode.episodeQuotedAsset.balance.value - tradingEngineOrder.orderQuotedAsset.size.value < 0
                         ) {
-                            tradingSystem.warnings.push([tradingSystemOrder.id, 'Order Size Quoted Asset ('+ tradingEngineOrder.orderQuotedAsset.size.value +') changed to Balance Quoted Asset (' + tradingEngine.current.episode.episodeQuotedAsset.balance.value + ') so that the Balance does not drop below zero.'])
+                            tradingSystem.warnings.push(
+                                [
+                                    tradingEngineOrder.orderQuotedAsset.size.id,
+                                    'Order Size Quoted Asset (' + tradingEngineOrder.orderQuotedAsset.size.value + ') changed to Balance Quoted Asset (' + tradingEngine.current.episode.episodeQuotedAsset.balance.value + ') so that the Balance does not drop below zero.'
+                                ]
+                            )
 
                             tradingEngineOrder.orderQuotedAsset.size.value = tradingEngine.current.episode.episodeQuotedAsset.balance.value
                             tradingEngineOrder.orderBaseAsset.size.value = tradingEngineOrder.orderQuotedAsset.size.value / tradingEngineOrder.rate.value
@@ -410,7 +454,12 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
                         if (
                             tradingEngine.current.episode.episodeBaseAsset.balance.value - tradingEngineOrder.orderBaseAsset.size.value < 0
                         ) {
-                            tradingSystem.warnings.push([tradingSystemOrder.id, 'Order Size Base Asset ('+ tradingEngineOrder.orderBaseAsset.size.value +') changed to Balance Base Asset (' + tradingEngine.current.episode.episodeBaseAsset.balance.value + ') so that the Balance does not drop below zero.'])
+                            tradingSystem.warnings.push(
+                                [
+                                    tradingEngineOrder.orderBaseAsset.size.id,
+                                    'Order Size Base Asset (' + tradingEngineOrder.orderBaseAsset.size.value + ') changed to Balance Base Asset (' + tradingEngine.current.episode.episodeBaseAsset.balance.value + ') so that the Balance does not drop below zero.'
+                                ]
+                            )
 
                             tradingEngineOrder.orderBaseAsset.size.value = tradingEngine.current.episode.episodeBaseAsset.balance.value
                             tradingEngineOrder.orderQuotedAsset.size.value = tradingEngineOrder.orderBaseAsset.size.value * tradingEngineOrder.rate.value
@@ -472,7 +521,11 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
         let order = await exchangeAPIModule.getOrder(tradingSystemOrder, tradingEngineOrder)
 
         if (order === undefined) {
-            tradingSystem.warnings.push([tradingSystemOrder.id, 'Could not verify the status of this order at the exchange.'])
+            tradingSystem.warnings.push(
+                [
+                    tradingSystemOrder.id, 'Could not verify the status of this order at the exchange.'
+                ]
+            )
             return false
         }
 
@@ -846,7 +899,12 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
             let order = await exchangeAPIModule.getOrder(tradingSystemOrder, tradingEngineOrder)
 
             if (order === undefined) {
-                tradingSystem.warnings.push([tradingSystemOrder.id, 'Could not verify the status of this order at the exchange, and syncronize the accounting.'])
+                tradingSystem.warnings.push(
+                    [
+                        tradingSystemOrder.id,
+                        'Could not verify the status of this order at the exchange, and syncronize the accounting.'
+                    ]
+                )
                 return false
             }
 

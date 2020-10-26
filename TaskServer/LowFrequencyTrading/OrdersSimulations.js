@@ -78,7 +78,7 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
                             tradingSystem.warnings.push(
                                 [
                                     sessionParameters.slippage.id,
-                                    'Slippage (' + slippageAmount + ') substracted from Order Rate (' + tradingEngineOrder.rate.value + ') to get the Actual Rate (' +tradingEngineOrder.orderStatistics.actualRate.value + ')'
+                                    'sessionParameters.slippage.config.positionRate Slippage Amount (' + slippageAmount + ') substracted from Order Rate (' + tradingEngineOrder.rate.value + ') to get the Actual Rate (' +tradingEngineOrder.orderStatistics.actualRate.value + ')'
                                 ]
                             )
                             break
@@ -90,7 +90,7 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
                             tradingSystem.warnings.push(
                                 [
                                     sessionParameters.slippage.id,
-                                    'Slippage (' + slippageAmount + ') added to Order Rate (' + tradingEngineOrder.rate.value + ') to get the Actual Rate (' +tradingEngineOrder.orderStatistics.actualRate.value + ')'
+                                    'sessionParameters.slippage.config.positionRate Slippage Amount (' + slippageAmount + ') added to Order Rate (' + tradingEngineOrder.rate.value + ') to get the Actual Rate (' +tradingEngineOrder.orderStatistics.actualRate.value + ')'
                                 ]
                             )
                             break

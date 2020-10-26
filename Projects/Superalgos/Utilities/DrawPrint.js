@@ -186,7 +186,7 @@ function newSuperalgosUtilitiesDrawPrint() {
         browserCanvasContext.fill()
     }
 
-    function printLabel(labelToPrint, x, y, opacity, fontSize, color, center, container, fitFunction, noDecimals, fixedDecimals) {
+    function printLabel(labelToPrint, x, y, opacity, fontSize, color, center, container, fitFunction, noDecimals, fixedDecimals, minDecimals) {
         if (labelToPrint === undefined) { return }
         let labelPoint
         if (color === undefined) { color = UI_COLOR.DARK }
@@ -196,7 +196,7 @@ function newSuperalgosUtilitiesDrawPrint() {
         let label = labelToPrint
         if (isNaN(label) === false && label !== '') {
             if (fixedDecimals !== true) {
-                label = dynamicDecimals(labelToPrint)
+                label = dynamicDecimals(labelToPrint, minDecimals)
             }
             label = label.toLocaleString()
             if (noDecimals === true) {

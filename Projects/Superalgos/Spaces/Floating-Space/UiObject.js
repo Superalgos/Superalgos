@@ -1619,6 +1619,10 @@ function newUiObject() {
         if (UI.projects.superalgos.spaces.floatingSpace.inMapMode === true) {
             return
         }
+        if (thisObject.codeEditor !== undefined && thisObject.codeEditor.visible === true) {return}
+        if (thisObject.formulaEditor !== undefined && thisObject.formulaEditor.visible === true) {return}
+        if (thisObject.confitionEditor !== undefined && thisObject.confitionEditor.visible === true) {return}
+        if (thisObject.configEditor !== undefined && thisObject.configEditor.visible === true) {return}
 
         /* Text Follows */
         let position = {

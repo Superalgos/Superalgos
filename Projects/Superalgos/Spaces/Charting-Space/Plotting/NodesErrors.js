@@ -41,7 +41,7 @@ function newNodesErrors() {
         if (value === '') {
             node.payload.uiObject.resetErrorMessage()
         } else {
-            node.payload.uiObject.setErrorMessage(value)
+            node.payload.uiObject.setErrorMessage(value, 10)
         }
     }
 }

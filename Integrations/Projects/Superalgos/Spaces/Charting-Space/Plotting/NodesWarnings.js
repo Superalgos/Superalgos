@@ -8,16 +8,15 @@ function newNodesWarnings() {
         initialize: initialize,
         finalize: finalize
     }
-    let hiriarchyMap
+    
     return thisObject
 
     function finalize() {
-        hiriarchyMap = undefined
+      
     }
 
-    function initialize(pRootNode) {
-        let rootNode = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsById(pRootNode.id)
-        hiriarchyMap = UI.projects.superalgos.utilities.hierarchy.getHiriarchyMap(rootNode)
+    function initialize() {
+ 
     }
 
     function onRecordChange(currentRecord) {
@@ -32,16 +31,16 @@ function newNodesWarnings() {
         }
     }
 
-    function applyValue(nodeId, value) {
+    async function applyValue(nodeId, value) {
         if (UI.projects.superalgos.spaces.chartingSpace.visible !== true) { return }
-        let node = hiriarchyMap.get(nodeId)
+        let node = await UI.projects.superalgos.spaces.designSpace.workspace.getNodeById(nodeId)
         if (node === undefined) { return }
         if (node.payload === undefined) { return }
         if (node.payload.uiObject === undefined) { return }
         if (value === '') {
             node.payload.uiObject.resetWarningMessage()
         } else {
-            node.payload.uiObject.setWarningMessage(value, 10)
+            node.payload.uiObject.setWarningMessage(value, 3)
         }
     }
 }

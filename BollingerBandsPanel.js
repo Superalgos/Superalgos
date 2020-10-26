@@ -1,5 +1,5 @@
 ﻿
-function newMastersPlottersBollingerBandsBollingerBandsBollingerBandsPanel () {
+function newMastersPlottersBollingerBandsBollingerBandsBollingerBandsPanel() {
 
     var thisObject = {
         fitFunction: undefined,
@@ -203,18 +203,18 @@ function newMastersPlottersBollingerBandsBollingerBandsBollingerBandsPanel () {
 
 
         if (currentBand.innerBand.direction !== undefined) {
-           UI.projects.superalgos.utilities.drawPrint.printLabel('Direction', X_AXIS, frameTitleHeight + frameBodyHeight * 0.05, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
-           UI.projects.superalgos.utilities.drawPrint.printLabel(currentBand.innerBand.direction, X_AXIS, frameTitleHeight + frameBodyHeight * 0.10, '1.00', 15, undefined, true, thisObject.container, thisObject.fitFunction);
+            UI.projects.superalgos.utilities.drawPrint.printLabel('Direction', X_AXIS, frameTitleHeight + frameBodyHeight * 0.05, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
+            UI.projects.superalgos.utilities.drawPrint.printLabel(currentBand.innerBand.direction, X_AXIS, frameTitleHeight + frameBodyHeight * 0.10, '1.00', 15, undefined, true, thisObject.container, thisObject.fitFunction);
         }
 
         UI.projects.superalgos.utilities.drawPrint.printLabel('Moving Average', X_AXIS, frameTitleHeight + frameBodyHeight * 0.15, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
-        UI.projects.superalgos.utilities.drawPrint.printLabel(currentBand.innerBand.movingAverage, X_AXIS, frameTitleHeight + frameBodyHeight * 0.20, '1.00', 15, undefined, true, thisObject.container, thisObject.fitFunction);
+        UI.projects.superalgos.utilities.drawPrint.printLabel(currentBand.innerBand.movingAverage, X_AXIS, frameTitleHeight + frameBodyHeight * 0.20, '1.00', 15, undefined, true, thisObject.container, thisObject.fitFunction, undefined, undefined, 10);
 
         UI.projects.superalgos.utilities.drawPrint.printLabel('Deviation', X_AXIS, frameTitleHeight + frameBodyHeight * 0.85, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
-        UI.projects.superalgos.utilities.drawPrint.printLabel(currentBand.innerBand.deviation, X_AXIS, frameTitleHeight + frameBodyHeight * 0.80, '1.00', 15, undefined, true, thisObject.container, thisObject.fitFunction);
+        UI.projects.superalgos.utilities.drawPrint.printLabel(currentBand.innerBand.deviation, X_AXIS, frameTitleHeight + frameBodyHeight * 0.80, '1.00', 15, undefined, true, thisObject.container, thisObject.fitFunction, undefined, undefined, 10);
 
         UI.projects.superalgos.utilities.drawPrint.printLabel('Standard Deviation', X_AXIS, frameTitleHeight + frameBodyHeight * 0.95, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
-        UI.projects.superalgos.utilities.drawPrint.printLabel(currentBand.innerBand.standardDeviation, X_AXIS, frameTitleHeight + frameBodyHeight * 0.90, '1.00', 15, undefined, true, thisObject.container, thisObject.fitFunction);
+        UI.projects.superalgos.utilities.drawPrint.printLabel(currentBand.innerBand.standardDeviation, X_AXIS, frameTitleHeight + frameBodyHeight * 0.90, '1.00', 15, undefined, true, thisObject.container, thisObject.fitFunction, undefined, undefined, 10);
 
     }
 }

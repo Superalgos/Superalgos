@@ -73,10 +73,26 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
                     switch (tradingSystemOrder.type) {
                         case 'Market Sell Order': {
                             tradingEngineOrder.orderStatistics.actualRate.value = tradingEngineOrder.rate.value - slippageAmount
+                            tradingEngineOrder.orderStatistics.actualRate.value = global.PRECISE(tradingEngineOrder.orderStatistics.actualRate.value, 10)
+
+                            tradingSystem.warnings.push(
+                                [
+                                    sessionParameters.slippage.id,
+                                    'Slippage (' + slippageAmount + ') substracted from Order Rate (' + tradingEngineOrder.rate.value + ') to get the Actual Rate (' +tradingEngineOrder.orderStatistics.actualRate.value + ')'
+                                ]
+                            )
                             break
                         }
                         case 'Market Buy Order': {
                             tradingEngineOrder.orderStatistics.actualRate.value = tradingEngineOrder.rate.value + slippageAmount
+                            tradingEngineOrder.orderStatistics.actualRate.value = global.PRECISE(tradingEngineOrder.orderStatistics.actualRate.value, 10)
+
+                            tradingSystem.warnings.push(
+                                [
+                                    sessionParameters.slippage.id,
+                                    'Slippage (' + slippageAmount + ') added to Order Rate (' + tradingEngineOrder.rate.value + ') to get the Actual Rate (' +tradingEngineOrder.orderStatistics.actualRate.value + ')'
+                                ]
+                            )
                             break
                         }
                     }
@@ -101,7 +117,16 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
                     if (tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate.formula !== undefined) {
                         /* Calculate this only once for this order */
                         if (tradingEngineOrder.orderStatistics.actualRate.value === tradingEngineOrder.orderStatistics.actualRate.config.initialValue) {
-                            tradingEngineOrder.orderStatistics.actualRate.value = tradingSystem.formulas.get(tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate.formula.id)
+                            let newValue = tradingSystem.formulas.get(tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate.formula.id)
+                            newValue = global.PRECISE(newValue, 10)
+
+                            tradingSystem.warnings.push(
+                                [
+                                    tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate.formula.id,
+                                    'Actual Rate (' + tradingEngineOrder.orderStatistics.actualRate.value + ') replaced by this Formula value (' + newValue + ')'
+                                ]
+                            )
+                            tradingEngineOrder.orderStatistics.actualRate.value = newValue
                         }
                     }
                 }
@@ -126,7 +151,7 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
                         tradingSystem.warnings.push(
                             [
                                 tradingSystemOrder.id,
-                                'Actual Rate (' + tradingEngineOrder.orderStatistics.actualRate.value + ') too hight. Changed to candle.max (' + tradingEngine.current.episode.candle.max.value + ')'
+                                'Actual Rate (' + tradingEngineOrder.orderStatistics.actualRate.value + ') too high. Changed to candle.max (' + tradingEngine.current.episode.candle.max.value + ')'
                             ]
                         )
                         tradingEngineOrder.orderStatistics.actualRate.value = tradingEngine.current.episode.candle.max.value

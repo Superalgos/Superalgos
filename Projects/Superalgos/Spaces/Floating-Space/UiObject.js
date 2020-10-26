@@ -2095,7 +2095,7 @@ function newUiObject() {
                 browserCanvasContext.closePath()
                 browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK_TURQUOISE + ', ' + OPACITY + ')'
                 browserCanvasContext.lineWidth = 5
-                browserCanvasContext.setLineDash([0 + infoRingAnimation, 10 - infoRingAnimation])
+                browserCanvasContext.setLineDash([2 + infoRingAnimation, 14 - infoRingAnimation])
                 browserCanvasContext.stroke()
             }
 
@@ -2111,7 +2111,7 @@ function newUiObject() {
                 browserCanvasContext.closePath()
                 browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', ' + OPACITY + ')'
                 browserCanvasContext.lineWidth = 5
-                browserCanvasContext.setLineDash([0 + warningRingAnimation, 10 - warningRingAnimation])
+                browserCanvasContext.setLineDash([2 + warningRingAnimation, 14 - warningRingAnimation])
                 browserCanvasContext.stroke()
             }
 
@@ -2127,7 +2127,7 @@ function newUiObject() {
                 browserCanvasContext.closePath()
                 browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RED + ', ' + OPACITY + ')'
                 browserCanvasContext.lineWidth = 5
-                browserCanvasContext.setLineDash([0 + errorRingAnimation, 10 - errorRingAnimation])
+                browserCanvasContext.setLineDash([2 + errorRingAnimation, 14 - errorRingAnimation])
                 browserCanvasContext.stroke()
             }
 

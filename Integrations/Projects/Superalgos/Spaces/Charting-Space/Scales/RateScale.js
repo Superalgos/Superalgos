@@ -514,7 +514,7 @@ function newRateScale() {
             }
 
             let rate = UI.projects.superalgos.utilities.dateRateTransformations.getRateFromPointAtBrowserCanvas(ratePoint1, rateCalculationsContainer, coordinateSystem)
-            let labels = scaleLabels(rate)
+            let labels = scaleLabels(rate, false)
             let decimalsDisplace = labels[1].length * FONT_SIZE * FONT_ASPECT_RATIO
 
             let fitPoint1 = thisObject.fitFunction(ratePoint1)
@@ -536,12 +536,12 @@ function newRateScale() {
         let icon2 = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.payload.node.type)
 
         let backgroundColor = UI_COLOR.BLACK
-        let labels = scaleLabels(thisObject.rate)
+        let labels = scaleLabels(thisObject.rate, true)
 
         drawScaleDisplay(labels[0], labels[1], labels[2], 0, 0, 0, icon1, icon2, thisObject.container, backgroundColor)
     }
 
-    function scaleLabels(rate) {
+    function scaleLabels(rate, fixDecimals) {
         if (rate < coordinateSystem.min.y) {
             rate = coordinateSystem.min.y
         }
@@ -549,7 +549,14 @@ function newRateScale() {
             rate = coordinateSystem.max.y
         }
 
-        let label = rate.toFixed(10)
+        let label 
+        
+        if (fixDecimals === true) {
+            label = rate.toFixed(10)
+        } else {
+            label = dynamicDecimals(rate)
+        }
+
         let labelArray = label.split('.')
         let label1 = thisObject.payload.node.payload.parentNode.name
         let label2 = (Math.trunc(rate)).toLocaleString()

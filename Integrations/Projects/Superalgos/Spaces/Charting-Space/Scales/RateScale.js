@@ -549,7 +549,7 @@ function newRateScale() {
             rate = coordinateSystem.max.y
         }
 
-        let label = dynamicDecimals(rate)
+        let label = rate.toFixed(10)
         let labelArray = label.split('.')
         let label1 = thisObject.payload.node.payload.parentNode.name
         let label2 = (Math.trunc(rate)).toLocaleString()

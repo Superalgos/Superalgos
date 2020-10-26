@@ -68,6 +68,11 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
             */
             switch (tradingEngineOrder.type) {
                 case 'Market Order': {
+                    /* 
+                    The default value for the Actual Rate is the rate of the order.
+                    */
+                    tradingEngineOrder.orderStatistics.actualRate.value = tradingEngineOrder.rate.value
+
                     /* Actual Rate is simulated based on the Session Paremeters */
                     let slippageAmount = tradingEngineOrder.rate.value * sessionParameters.slippage.config.positionRate / 100
                     if (slippageAmount !== 0) {
@@ -152,7 +157,7 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
                     if (tradingEngineOrder.orderStatistics.actualRate.value > tradingEngine.current.episode.candle.max.value) {
                         tradingSystem.warnings.push(
                             [
-                                tradingSystemOrder.id,
+                                tradingEngineOrder.orderStatistics.actualRate.id,
                                 'Actual Rate (' + tradingEngineOrder.orderStatistics.actualRate.value + ') too high. Changed to candle.max (' + tradingEngine.current.episode.candle.max.value + ')'
                             ]
                         )
@@ -164,7 +169,7 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
                     if (tradingEngineOrder.orderStatistics.actualRate.value < tradingEngine.current.episode.candle.min.value) {
                         tradingSystem.warnings.push(
                             [
-                                tradingSystemOrder.id,
+                                tradingEngineOrder.orderStatistics.actualRate.id,
                                 'Actual Rate (' + tradingEngineOrder.orderStatistics.actualRate.value + ') too low. Changed to candle.min (' + tradingEngine.current.episode.candle.max.value + ')'
                             ]
                         )

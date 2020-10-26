@@ -70,30 +70,32 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
                 case 'Market Order': {
                     /* Actual Rate is simulated based on the Session Paremeters */
                     let slippageAmount = tradingEngineOrder.rate.value * sessionParameters.slippage.config.positionRate / 100
-                    switch (tradingSystemOrder.type) {
-                        case 'Market Sell Order': {
-                            tradingEngineOrder.orderStatistics.actualRate.value = tradingEngineOrder.rate.value - slippageAmount
-                            tradingEngineOrder.orderStatistics.actualRate.value = global.PRECISE(tradingEngineOrder.orderStatistics.actualRate.value, 10)
+                    if (slippageAmount !== 0) {
+                        switch (tradingSystemOrder.type) {
+                            case 'Market Sell Order': {
+                                tradingEngineOrder.orderStatistics.actualRate.value = tradingEngineOrder.rate.value - slippageAmount
+                                tradingEngineOrder.orderStatistics.actualRate.value = global.PRECISE(tradingEngineOrder.orderStatistics.actualRate.value, 10)
 
-                            tradingSystem.warnings.push(
-                                [
-                                    sessionParameters.slippage.id,
-                                    'sessionParameters.slippage.config.positionRate Slippage Amount (' + slippageAmount + ') substracted from Order Rate (' + tradingEngineOrder.rate.value + ') to get the Actual Rate (' +tradingEngineOrder.orderStatistics.actualRate.value + ')'
-                                ]
-                            )
-                            break
-                        }
-                        case 'Market Buy Order': {
-                            tradingEngineOrder.orderStatistics.actualRate.value = tradingEngineOrder.rate.value + slippageAmount
-                            tradingEngineOrder.orderStatistics.actualRate.value = global.PRECISE(tradingEngineOrder.orderStatistics.actualRate.value, 10)
+                                tradingSystem.warnings.push(
+                                    [
+                                        sessionParameters.slippage.id,
+                                        'slippage.config.positionRate Slippage Amount (' + slippageAmount + ') substracted from Order Rate (' + tradingEngineOrder.rate.value + ') to get the Actual Rate (' + tradingEngineOrder.orderStatistics.actualRate.value + ')'
+                                    ]
+                                )
+                                break
+                            }
+                            case 'Market Buy Order': {
+                                tradingEngineOrder.orderStatistics.actualRate.value = tradingEngineOrder.rate.value + slippageAmount
+                                tradingEngineOrder.orderStatistics.actualRate.value = global.PRECISE(tradingEngineOrder.orderStatistics.actualRate.value, 10)
 
-                            tradingSystem.warnings.push(
-                                [
-                                    sessionParameters.slippage.id,
-                                    'sessionParameters.slippage.config.positionRate Slippage Amount (' + slippageAmount + ') added to Order Rate (' + tradingEngineOrder.rate.value + ') to get the Actual Rate (' +tradingEngineOrder.orderStatistics.actualRate.value + ')'
-                                ]
-                            )
-                            break
+                                tradingSystem.warnings.push(
+                                    [
+                                        sessionParameters.slippage.id,
+                                        'slippage.config.positionRate Slippage Amount (' + slippageAmount + ') added to Order Rate (' + tradingEngineOrder.rate.value + ') to get the Actual Rate (' + tradingEngineOrder.orderStatistics.actualRate.value + ')'
+                                    ]
+                                )
+                                break
+                            }
                         }
                     }
                     break

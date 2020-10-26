@@ -126,7 +126,7 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
                         tradingSystem.warnings.push(
                             [
                                 tradingSystemOrder.id,
-                                'Actual Rate (' + tradingEngineOrder.orderStatistics.actualRate.value + ') was adjusted to what it might be at the order book. Resulting value = ' + tradingEngine.current.episode.candle.max.value
+                                'Actual Rate (' + tradingEngineOrder.orderStatistics.actualRate.value + ') too hight. Changed to candle.max (' + tradingEngine.current.episode.candle.max.value + ')'
                             ]
                         )
                         tradingEngineOrder.orderStatistics.actualRate.value = tradingEngine.current.episode.candle.max.value
@@ -138,7 +138,7 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
                         tradingSystem.warnings.push(
                             [
                                 tradingSystemOrder.id,
-                                'Actual Rate (' + tradingEngineOrder.orderStatistics.actualRate.value + ') was adjusted to what it might be at the order book. Resulting value = ' + tradingEngine.current.episode.candle.min.value
+                                'Actual Rate (' + tradingEngineOrder.orderStatistics.actualRate.value + ') too low. Changed to candle.min (' + tradingEngine.current.episode.candle.max.value + ')'
                             ]
                         )
                         tradingEngineOrder.orderStatistics.actualRate.value = tradingEngine.current.episode.candle.min.value

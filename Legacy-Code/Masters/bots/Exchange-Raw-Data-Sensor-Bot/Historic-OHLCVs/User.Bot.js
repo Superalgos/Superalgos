@@ -20,8 +20,8 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
 
     const ONE_MIN = 60000
     const ONE_DAY = ONE_MIN * 60 * 24
-    
-    const MAX_OHLCVs_PER_EXECUTION =   10000000
+
+    const MAX_OHLCVs_PER_EXECUTION = 10000000
     const symbol = bot.market.baseAsset + '/' + bot.market.quotedAsset
     const ccxt = require('ccxt')
 
@@ -47,6 +47,8 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
     return thisObject;
 
     function initialize(pStatusDependencies, callBackFunction) {
+        let exchangeClass
+
         try {
 
             logger.fileName = MODULE_NAME;
@@ -54,7 +56,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
 
             statusDependencies = pStatusDependencies;
 
-            exchangeId = bot.exchange.toLowerCase()
+            exchangeId = bot.exchange.toLowerCase().replace(' ', '')
 
             /* Applying the parameters defined by the user at the Exchange Node Config */
             if (bot.exchangeNode.config.API !== undefined) {
@@ -95,7 +97,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
             if (secret === "undefined") { secret = undefined }
 
 
-            const exchangeClass = ccxt[exchangeId]
+            exchangeClass = ccxt[exchangeId]
             const exchangeConstructorParams = {
                 'apiKey': key,
                 'secret': secret,
@@ -117,6 +119,16 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
 
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
+
+            /* CCXT Supported Exchanges */
+            console.log('CCXT Library current supported exchanges:')
+            for (const property in ccxt) {
+                console.log(`${property}`);
+            }
+            console.log('For more info please check: https://github.com/ccxt/ccxt/wiki/Manual')
+            console.log('Exchange Class ' + exchangeId)
+            console.log(exchangeClass)
+
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -151,7 +163,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
                 try {
                     let reportKey;
 
-                    reportKey = "Masters" + "-" + "Exchange-Raw-Data" + "-" + "Historic-OHLCVs" 
+                    reportKey = "Masters" + "-" + "Exchange-Raw-Data" + "-" + "Historic-OHLCVs"
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     if (statusDependencies.statusReports.get(reportKey).status === "Status Report is corrupt.") {
@@ -317,13 +329,13 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
                             if (since === previousSince) {
                                 since++ // this prevents requesting in a loop OHLCVs with the same timestamp, that can happen when all the records fetched comes with exactly the same timestamp.
                             }
-                            
+
 
                             lastId = OHLCVs[OHLCVs.length - 1]['id']
 
                             for (let i = 0; i < OHLCVs.length; i++) {
-                                
-                                let OHLCV = OHLCVs[i]         
+
+                                let OHLCV = OHLCVs[i]
 
                                 let OHLCVKey = OHLCV[0] + '-' + OHLCV[1].toFixed(16) + '-' + OHLCV[2].toFixed(16) + '-' + OHLCV[3].toFixed(16) + '-' + OHLCV[4].toFixed(16) + '-' + OHLCV[5].toFixed(16)
                                 if (OHLCVKey !== lastOHLCVKey) {
@@ -347,10 +359,10 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
                     if (err.stack.toString().indexOf('ERR_RATE_LIMIT') >= 0) {
                         logger.write(MODULE_NAME, "[ERROR] start -> getOHLCVs -> Retrying Later -> The Exchange " + bot.exchange + " is saying you are requesting data too often. I will retry the request later, no action is required. To avoid this happening again please increase the rateLimit at the Exchange node config. You might continue seeing this if you are retrieving data from multiple markets at the same time. In this case I tried to get 1 min OHLCVs from " + symbol);
                         return
-                    }  
+                    }
 
                     if (err.stack.toString().indexOf('RequestTimeout') >= 0) {
-                        logger.write(MODULE_NAME, "[ERROR] start -> getOHLCVs -> Retrying Later -> The Exchange " + bot.exchange + " is not responding at the moment. I will save the data already fetched and try to reconnect later to fetch the rest of the missing data." );
+                        logger.write(MODULE_NAME, "[ERROR] start -> getOHLCVs -> Retrying Later -> The Exchange " + bot.exchange + " is not responding at the moment. I will save the data already fetched and try to reconnect later to fetch the rest of the missing data.");
                         return
                     }
 
@@ -358,7 +370,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
                         logger.write(MODULE_NAME, "[ERROR] start -> getOHLCVs -> Retrying Later -> The Exchange " + bot.exchange + " is not available at the moment. I will save the data already fetched and try to reconnect later to fetch the rest of the missing data.");
                         return
                     }
-                    
+
                     logger.write(MODULE_NAME, "[ERROR] start -> getOHLCVs -> Retrying Later -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                     abort = true
@@ -463,10 +475,10 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
                                     close: record[4],
                                     volume: record[5]
                                 }
-                            } 
+                            }
 
                             let candleMinute = Math.trunc(candle.begin / ONE_MIN)
-                            let OHLCVMinute  
+                            let OHLCVMinute
 
                             checkOHLCVMinute()
 
@@ -500,7 +512,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
                             }
 
                             /* Reporting we are doing well */
-                             heartBeatCounter--
+                            heartBeatCounter--
                             if (heartBeatCounter <= 0) {
                                 heartBeatCounter = 1440
                                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> saveOHLCVs -> After Fetch -> Saving OHLCVs  @ " + processingDate + " -> i = " + i + " -> total = " + allOHLCVs.length) }
@@ -509,9 +521,9 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
                             /* End Reporting */
 
                             if (candleMinute === OHLCVMinute) {
-                                candle.open = OHLCV.open 
-                                candle.close = OHLCV.close 
-                                candle.min = OHLCV.low 
+                                candle.open = OHLCV.open
+                                candle.close = OHLCV.close
+                                candle.min = OHLCV.low
                                 candle.max = OHLCV.hight
                                 volume.buy = OHLCV.volume / 2
                                 volume.sell = OHLCV.volume / 2
@@ -521,7 +533,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
                                 }
 
                                 lastId = OHLCV.id
-                                
+
                             }
                             lastCandle = candle
 
@@ -547,7 +559,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
                         if (i > 0) { // Only start saving at the day of the first candle.
                             saveFile(currentDay)
                             return
-                        }                        
+                        }
 
                         controlLoop()
 
@@ -555,8 +567,8 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
                             candlesFileContent = candlesFileContent + ']'
                             volumesFileContent = volumesFileContent + ']'
 
-                            let fileName =  'Data.json'
-                             
+                            let fileName = 'Data.json'
+
                             filesToCreate++
                             fileStorage.createTextFile(getFilePath(day * ONE_DAY, CANDLES_FOLDER_NAME) + '/' + fileName, candlesFileContent + '\n', onFileCreated);
 
@@ -586,7 +598,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
                             let datetime = new Date(timestamp)
                             let dateForPath = datetime.getUTCFullYear() + '/' +
                                 utilities.pad(datetime.getUTCMonth() + 1, 2) + '/' +
-                                utilities.pad(datetime.getUTCDate(), 2) 
+                                utilities.pad(datetime.getUTCDate(), 2)
                             let filePath = bot.filePathRoot + "/Output/" + folderName + '/' + dateForPath;
                             return filePath
                         }
@@ -618,7 +630,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
 
 
                         /* The natural exit is at the end of the market */
-                        if (headOfTheMarketReached === false ) {
+                        if (headOfTheMarketReached === false) {
                             setImmediate(loop)
                         } else {
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> saveOHLCVs -> controlLoop -> Exit because we reached the end of the market. ") }

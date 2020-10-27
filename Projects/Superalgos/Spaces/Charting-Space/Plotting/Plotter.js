@@ -525,19 +525,19 @@ function newPlotter() {
                             ratePropertyName = productDefinition.referenceParent.config.ratePropertyName
                         }
                         if (record[ratePropertyName] === undefined) {
-                            atMousePosition()
+                            currentRecordChanged()
                         } else {
                             /* Current Record depends also on rate */
                             if (record[ratePropertyName] >= minUserPositionRate && record[ratePropertyName] <= maxUserPositionRate) {
-                                atMousePosition()
+                                currentRecordChanged()
                             }
                         }
                     } else {
                         /* Current Record depends only on begin and end. */
-                        atMousePosition()
+                        currentRecordChanged()
                     }
 
-                    function atMousePosition() {
+                    function currentRecordChanged() {
                         atMousePosition = true
                         thisObject.container.eventHandler.raiseEvent('Current Record Changed', record)
                     }

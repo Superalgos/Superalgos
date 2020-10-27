@@ -262,7 +262,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
         if (tradingEngineOrder.orderBaseAsset.size.value <= 0) {
             tradingSystem.warnings.push(
                 [
-                    tradingEngineOrder.orderBaseAsset.size.id,
+                    [tradingEngineOrder.orderBaseAsset.size.id, tradingSystemOrder.id],
                     'Could not open this order because its size is zero.'
                 ]
             )
@@ -272,7 +272,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
         if (tradingEngineOrder.orderQuotedAsset.size.value <= 0) {
             tradingSystem.warnings.push(
                 [
-                    tradingEngineOrder.orderQuotedAsset.size.id,
+                    [tradingEngineOrder.orderQuotedAsset.size.id, tradingSystemOrder.id ],
                     'Could not open this order because its size is zero.'
                 ]
             )
@@ -284,13 +284,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
         if (result !== true) {
             tradingSystem.warnings.push(
                 [
-                    tradingSystemOrder.id,
-                    'Could not open this order because something failed placing the order at the Exchange.'
-                ]
-            )
-            tradingSystem.warnings.push(
-                [
-                    tradingEngineOrder.id,
+                    [tradingSystemOrder.id, tradingEngineOrder],
                     'Could not open this order because something failed placing the order at the Exchange.'
                 ]
             )
@@ -396,7 +390,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
                             tradingSystem.warnings.push(
                                 [
-                                    tradingEngineStage.stageBaseAsset.targetSize.id,
+                                    [tradingEngineStage.stageBaseAsset.targetSize.id, tradingEngineOrder.orderBaseAsset.size.id, tradingEngineStage.stageBaseAsset.sizePlaced.id],
                                     'Order size (' + previousValue + ') shrinked (' + tradingEngineOrder.orderBaseAsset.size.value + ') so that the Size Placed (' + tradingEngineStage.stageBaseAsset.sizePlaced.value + ') does not exceed the Target Size (' + tradingEngineStage.stageBaseAsset.targetSize.value + ') for the stage.'
                                 ]
                             )
@@ -423,7 +417,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
                             tradingSystem.warnings.push(
                                 [
-                                    tradingEngineStage.stageQuotedAsset.targetSize.id,
+                                    [tradingEngineStage.stageQuotedAsset.targetSize.id, tradingEngineOrder.orderQuotedAsset.size.id, tradingEngineStage.stageQuotedAsset.sizePlaced.id],
                                     'Order size (' + previousValue + ') shrinked (' + tradingEngineOrder.orderQuotedAsset.size.value + ') so that the Size Placed (' + tradingEngineStage.stageQuotedAsset.sizePlaced.value + ') does not exceed the Target Size (' + tradingEngineStage.stageQuotedAsset.targetSize.value + ') for the stage.'
                                 ]
                             )
@@ -529,7 +523,8 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
         if (order === undefined) {
             tradingSystem.warnings.push(
                 [
-                    tradingSystemOrder.id, 'Could not verify the status of this order at the exchange.'
+                    [tradingSystemOrder.id, tradingEngineOrder.id], 
+                    'Could not verify the status of this order at the exchange.'
                 ]
             )
             return false
@@ -907,7 +902,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
             if (order === undefined) {
                 tradingSystem.warnings.push(
                     [
-                        tradingSystemOrder.id,
+                        [tradingSystemOrder.id, tradingEngineOrder.id], 
                         'Could not verify the status of this order at the exchange, and syncronize the accounting.'
                     ]
                 )

@@ -89,7 +89,7 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
 
                                 tradingSystem.warnings.push(
                                     [
-                                        sessionParameters.slippage.id,
+                                        [sessionParameters.slippage.id, tradingEngineOrder.rate.id, tradingEngineOrder.orderStatistics.actualRate.id],
                                         'slippage.config.positionRate Slippage Amount (' + slippageAmount + ') substracted from Order Rate (' + tradingEngineOrder.rate.value + ') to get the Actual Rate (' + tradingEngineOrder.orderStatistics.actualRate.value + ')'
                                     ]
                                 )
@@ -101,7 +101,7 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
 
                                 tradingSystem.warnings.push(
                                     [
-                                        sessionParameters.slippage.id,
+                                        [sessionParameters.slippage.id, tradingEngineOrder.rate.id, tradingEngineOrder.orderStatistics.actualRate.id],
                                         'slippage.config.positionRate Slippage Amount (' + slippageAmount + ') added to Order Rate (' + tradingEngineOrder.rate.value + ') to get the Actual Rate (' + tradingEngineOrder.orderStatistics.actualRate.value + ')'
                                     ]
                                 )
@@ -136,7 +136,7 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
                             tradingSystem.warnings.push(
                                 [
                                     tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate.formula.id,
-                                    'Actual Rate (' + tradingEngineOrder.orderStatistics.actualRate.value + ') replaced by this Formula value (' + newValue + ')'
+                                    'Actual Rate (' + tradingEngineOrder.orderStatistics.actualRate.value + ') calculated with this Formula (' + newValue + ')'
                                 ]
                             )
                             tradingEngineOrder.orderStatistics.actualRate.value = newValue
@@ -163,7 +163,7 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
                     if (tradingEngineOrder.orderStatistics.actualRate.value > tradingEngine.current.episode.candle.max.value) {
                         tradingSystem.warnings.push(
                             [
-                                tradingEngineOrder.orderStatistics.actualRate.id,
+                                [tradingEngineOrder.orderStatistics.actualRate.id, tradingEngine.current.episode.candle.max.id],
                                 'Actual Rate (' + tradingEngineOrder.orderStatistics.actualRate.value + ') too high. Changed to candle.max (' + tradingEngine.current.episode.candle.max.value + ')'
                             ]
                         )
@@ -175,7 +175,7 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
                     if (tradingEngineOrder.orderStatistics.actualRate.value < tradingEngine.current.episode.candle.min.value) {
                         tradingSystem.warnings.push(
                             [
-                                tradingEngineOrder.orderStatistics.actualRate.id,
+                                [tradingEngineOrder.orderStatistics.actualRate.id, tradingEngine.current.episode.candle.min.id],
                                 'Actual Rate (' + tradingEngineOrder.orderStatistics.actualRate.value + ') too low. Changed to candle.min (' + tradingEngine.current.episode.candle.max.value + ')'
                             ]
                         )

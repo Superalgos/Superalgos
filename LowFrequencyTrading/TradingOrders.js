@@ -259,17 +259,21 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
         await calculateOrderSize()
 
         /* Check Size: We are not going to create Orders which size is equal or less to zero.  */
-        if (tradingEngineOrder.orderBaseAsset.size.value <= 0 || tradingEngineOrder.orderQuotedAsset.size.value <= 0) {
+        if (tradingEngineOrder.orderBaseAsset.size.value <= 0) {
             tradingSystem.warnings.push(
                 [
                     tradingEngineOrder.orderBaseAsset.size.id,
-                    'Could not open this order because its size would be zero.'
+                    'Could not open this order because its size is zero.'
                 ]
             )
+            return
+        }
+
+        if (tradingEngineOrder.orderQuotedAsset.size.value <= 0) {
             tradingSystem.warnings.push(
                 [
                     tradingEngineOrder.orderQuotedAsset.size.id,
-                    'Could not open this order because its size would be zero.'
+                    'Could not open this order because its size is zero.'
                 ]
             )
             return
@@ -378,6 +382,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
                     case 'Base Asset': {
                         /* Size in Base Asset */
                         tradingEngineOrder.orderBaseAsset.size.value = algorithmSizeInBaseAsset * tradingSystemOrder.config.percentageOfAlgorithmSize / 100
+                        tradingEngineOrder.orderBaseAsset.size.value = global.PRECISE(tradingEngineOrder.orderBaseAsset.size.value, 10)
 
                         /* Check that the Size calculated would not surpass Stage Target Size */
                         if (
@@ -391,7 +396,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
                             tradingSystem.warnings.push(
                                 [
-                                    tradingEngineOrder.orderBaseAsset.size.id,
+                                    tradingEngineStage.stageBaseAsset.targetSize.id,
                                     'Order size (' + previousValue + ') shrinked (' + tradingEngineOrder.orderBaseAsset.size.value + ') so that the Size Placed (' + tradingEngineStage.stageBaseAsset.sizePlaced.value + ') does not exceed the Target Size (' + tradingEngineStage.stageBaseAsset.targetSize.value + ') for the stage.'
                                 ]
                             )
@@ -404,6 +409,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
                     case 'Quoted Asset': {
                         /* Size in Quoted Asset */
                         tradingEngineOrder.orderQuotedAsset.size.value = algorithmSizeInQuotedAsset * tradingSystemOrder.config.percentageOfAlgorithmSize / 100
+                        tradingEngineOrder.orderQuotedAsset.size.value = global.PRECISE(tradingEngineOrder.orderQuotedAsset.size.value, 10)
 
                         /* Check that the Size calculated would not surpass Stage Target Size */
                         if (
@@ -417,7 +423,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
                             tradingSystem.warnings.push(
                                 [
-                                    tradingEngineOrder.orderQuotedAsset.size.id,
+                                    tradingEngineStage.stageQuotedAsset.targetSize.id,
                                     'Order size (' + previousValue + ') shrinked (' + tradingEngineOrder.orderQuotedAsset.size.value + ') so that the Size Placed (' + tradingEngineStage.stageQuotedAsset.sizePlaced.value + ') does not exceed the Target Size (' + tradingEngineStage.stageQuotedAsset.targetSize.value + ') for the stage.'
                                 ]
                             )
@@ -440,7 +446,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
                         ) {
                             tradingSystem.warnings.push(
                                 [
-                                    tradingEngineOrder.orderQuotedAsset.size.id,
+                                    [tradingEngine.current.episode.episodeQuotedAsset.balance.id, tradingEngineOrder.orderQuotedAsset.size.id],
                                     'Order Size Quoted Asset (' + tradingEngineOrder.orderQuotedAsset.size.value + ') changed to Balance Quoted Asset (' + tradingEngine.current.episode.episodeQuotedAsset.balance.value + ') so that the Balance does not drop below zero.'
                                 ]
                             )
@@ -456,7 +462,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
                         ) {
                             tradingSystem.warnings.push(
                                 [
-                                    tradingEngineOrder.orderBaseAsset.size.id,
+                                    [tradingEngine.current.episode.episodeBaseAsset.balance.id, tradingEngineOrder.orderBaseAsset.size.id],
                                     'Order Size Base Asset (' + tradingEngineOrder.orderBaseAsset.size.value + ') changed to Balance Base Asset (' + tradingEngine.current.episode.episodeBaseAsset.balance.value + ') so that the Balance does not drop below zero.'
                                 ]
                             )

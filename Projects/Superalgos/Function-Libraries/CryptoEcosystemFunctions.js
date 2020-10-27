@@ -206,7 +206,14 @@ function newCryptoEcosystemFunctions() {
         }
     }
 
-    function installMarket(node, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter, functionLibraryChartingSpaceFunctions, functionLibraryDataStorageFunctions) {
+    function installMarket(
+        node,
+        rootNodes,
+        functionLibraryUiObjectsFromNodes,
+        functionLibraryNodeDeleter,
+        functionLibraryChartingSpaceFunctions,
+        functionLibraryDataStorageFunctions
+    ) {
 
         let market = node
         let cryptoExchange = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(node, 'Crypto Exchange', undefined, true, false, true, false)

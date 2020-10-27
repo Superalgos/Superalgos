@@ -120,37 +120,8 @@ function newChartingSpaceFunctions() {
         timeMachine.timeScale.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
         timeMachine.rateScale.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
         /*
-        We need to create a Timeline Chart for each Data Mine Indicators.
+        We will create 3 Time Line Charts for the Trading Mine Products
         */
-        mineProducts = UI.projects.superalgos.utilities.branches.nodeBranchToArray(networkNode, 'Data Mine Products')
-        for (let j = 0; j < mineProducts.length; j++) {
-            let mineProduct = mineProducts[j]
-            /*
-            We need to filter out the ones that do not belong to the market where 
-            the session is running at. 
-            */
-            if (mineProduct.payload.parentNode.payload.referenceParent === undefined) { continue }
-            if (mineProduct.payload.parentNode.payload.referenceParent.id !== market.id) { continue }
-
-            let timelineChart = functionLibraryUiObjectsFromNodes.addUIObject(timeMachine, 'Timeline Chart')
-            /* 
-            The Mine Product Node might be collapesd and since its creation it never 
-            received the physics call, so we will do the call so that it properly
-            sets its own name, which we are going to reuse here.
-            */
-            mineProduct.payload.uiObject.invisiblePhysics()
-            timelineChart.name = mineProduct.name
-            timelineChart.layerManager.payload.referenceParent = mineProduct
-            timelineChart.payload.floatingObject.collapseToggle()
-            timelineChart.layerManager.payload.floatingObject.collapseToggle()
-            timelineChart.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
-            timelineChart.layerManager.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
-
-            let menu = timelineChart.layerManager.payload.uiObject.menu
-            menu.internalClick('Add All Mine Layers')
-            menu.internalClick('Add All Mine Layers')
-        }
-
         mineProducts = UI.projects.superalgos.utilities.branches.nodeBranchToArray(networkNode, 'Trading Mine Products')
         for (let j = 0; j < mineProducts.length; j++) {
             let mineProduct = mineProducts[j]
@@ -206,6 +177,37 @@ function newChartingSpaceFunctions() {
                     functionLibraryNodeDeleter.deleteUIObject(nodeToDelete, rootNodes)
                 }
             }
+        }
+        /*
+        We need to create a Timeline Chart for each Data Mine Indicators.
+        */
+        mineProducts = UI.projects.superalgos.utilities.branches.nodeBranchToArray(networkNode, 'Data Mine Products')
+        for (let j = 0; j < mineProducts.length; j++) {
+            let mineProduct = mineProducts[j]
+            /*
+            We need to filter out the ones that do not belong to the market where 
+            the session is running at. 
+            */
+            if (mineProduct.payload.parentNode.payload.referenceParent === undefined) { continue }
+            if (mineProduct.payload.parentNode.payload.referenceParent.id !== market.id) { continue }
+
+            let timelineChart = functionLibraryUiObjectsFromNodes.addUIObject(timeMachine, 'Timeline Chart')
+            /* 
+            The Mine Product Node might be collapesd and since its creation it never 
+            received the physics call, so we will do the call so that it properly
+            sets its own name, which we are going to reuse here.
+            */
+            mineProduct.payload.uiObject.invisiblePhysics()
+            timelineChart.name = mineProduct.name
+            timelineChart.layerManager.payload.referenceParent = mineProduct
+            timelineChart.payload.floatingObject.collapseToggle()
+            timelineChart.layerManager.payload.floatingObject.collapseToggle()
+            timelineChart.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+            timelineChart.layerManager.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+
+            let menu = timelineChart.layerManager.payload.uiObject.menu
+            menu.internalClick('Add All Mine Layers')
+            menu.internalClick('Add All Mine Layers')
         }
     }
 

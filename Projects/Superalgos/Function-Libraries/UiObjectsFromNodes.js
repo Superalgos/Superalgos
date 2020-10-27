@@ -497,8 +497,8 @@ function newUiObjectsFromNodes() {
             */
             let testNode = mapOfNodes.get(node.id)
             if (testNode !== undefined && testNode.cleaned !== true) {
-                console.log(testNode.name + ' already have the id of the node ' + node.name + ' being added.')
                 node.id = newUniqueId()
+                console.log(testNode.name + ' already have the id of the node ' + node.name + ' being added. Creating a new id for it: ' + node.id)
             }
         }
 

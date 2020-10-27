@@ -89,6 +89,8 @@ function newCryptoEcosystemFunctions() {
                 let queryParams = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(node.payload, 'addMissingAssetsFilter')
 
                 let markets = JSON.parse(data)
+
+                let totalAdded = 0
                 for (let i = 0; i < markets.length; i++) {
                     let market = markets[i]
 
@@ -106,10 +108,12 @@ function newCryptoEcosystemFunctions() {
                     }
                     if (currentAssets.get(market.base) === undefined) {
                         addAsset(market.base)
+                        totalAdded++
                         currentAssets.set(market.base, market.base)
                     }
                     if (currentAssets.get(market.quote) === undefined) {
                         addAsset(market.quote)
+                        totalAdded++
                         currentAssets.set(market.quote, market.quote)
                     }
 
@@ -119,6 +123,8 @@ function newCryptoEcosystemFunctions() {
                         newAsseet.config = '{ \n\"codeName\": \"' + name + '\"\n}'
                     }
                 }
+                node.payload.uiObject.setInfoMessage(node.payload.parentNode.name + ' supports ' + markets.length + ' markets. Applying the filters at this node config ' + node.config + ' this process added ' + totalAdded + ' assets.', 4)
+
             }
         } catch (err) {
             node.payload.uiObject.setErrorMessage('Failed to Fetch Assets from the Exchange')

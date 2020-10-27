@@ -564,9 +564,16 @@ function newUiObjectsFromNodes() {
 
             /* Chain parent pointing to the position of the chain parent if defined. */
             if (chainParent === undefined) {
-                payload.targetPosition = {
-                    x: spawnPosition.x,
-                    y: spawnPosition.y
+                if (parentNode !== undefined) {
+                    payload.targetPosition = {
+                        x: parentNode.payload.position.x,
+                        y: parentNode.payload.position.y
+                    }
+                } else {
+                    payload.targetPosition = {
+                        x: spawnPosition.x,
+                        y: spawnPosition.y
+                    }
                 }
             } else {
                 payload.targetPosition = {

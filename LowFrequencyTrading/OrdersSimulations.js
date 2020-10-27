@@ -64,8 +64,14 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
         function basedOnSessionParameters() {
             /*
             The default way to calculate the Actual Rate is to apply the Slippage defined
-            at the Session Parameters Definition. 
+            at the Session Parameters Definition. We are not going to apply the default if there
+            is a definition for this order on how to calculate the actual rate.
             */
+            if (tradingSystemOrder.simulatedExchangeEvents !== undefined) {
+                if (tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate !== undefined) { 
+                    return
+                }
+            }
             switch (tradingEngineOrder.type) {
                 case 'Market Order': {
                     /* 

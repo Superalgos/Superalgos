@@ -1684,11 +1684,13 @@ function newUiObject() {
                         printMessage(phrase)
                     }
                 } else {
-                    labelPoint = {
-                        x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
-                        y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 5
+                    if (label.length < 50) {
+                        labelPoint = {
+                            x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
+                            y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 5
+                        }
+                        printMessage(label)
                     }
-                    printMessage(label)
                 }
 
                 function printMessage(text) {

@@ -55,6 +55,13 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
         /* Actual Rate Simulation */
         let previousQuotedAssetActualSize = tradingEngineOrder.orderQuotedAsset.actualSize.value
 
+        if (tradingEngineOrder.orderStatistics.actualRate.value === tradingEngineOrder.orderStatistics.actualRate.config.initialValue) {
+            /* 
+            The default value for the Actual Rate is the rate of the order.
+            */
+            tradingEngineOrder.orderStatistics.actualRate.value = tradingEngineOrder.rate.value
+        }
+
         basedOnSessionParameters()
         basedOnTradingSystem()
         considerBestMatchWithOrderBook()
@@ -74,10 +81,6 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
             }
             switch (tradingEngineOrder.type) {
                 case 'Market Order': {
-                    /* 
-                    The default value for the Actual Rate is the rate of the order.
-                    */
-                    tradingEngineOrder.orderStatistics.actualRate.value = tradingEngineOrder.rate.value
 
                     /* Actual Rate is simulated based on the Session Paremeters */
                     let slippageAmount = tradingEngineOrder.rate.value * sessionParameters.slippage.config.positionRate / 100

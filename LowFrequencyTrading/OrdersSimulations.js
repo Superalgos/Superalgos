@@ -53,7 +53,14 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
 
     function actualRateSimulation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, applyFeePercentage) {
         /* Actual Rate Simulation */
-        let previousQuotedAssetActualSize
+        let previousQuotedAssetActualSize = tradingEngineOrder.orderQuotedAsset.actualSize.value
+
+        if (tradingEngineOrder.orderStatistics.actualRate.value === tradingEngineOrder.orderStatistics.actualRate.config.initialValue) {
+            /* 
+            The default value for the Actual Rate is the rate of the order.
+            */
+            tradingEngineOrder.orderStatistics.actualRate.value = tradingEngineOrder.rate.value
+        }
 
         basedOnSessionParameters()
         basedOnTradingSystem()
@@ -68,16 +75,12 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
             is a definition for this order on how to calculate the actual rate.
             */
             if (tradingSystemOrder.simulatedExchangeEvents !== undefined) {
-                if (tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate !== undefined) { 
+                if (tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate !== undefined) {
                     return
                 }
             }
             switch (tradingEngineOrder.type) {
                 case 'Market Order': {
-                    /* 
-                    The default value for the Actual Rate is the rate of the order.
-                    */
-                    tradingEngineOrder.orderStatistics.actualRate.value = tradingEngineOrder.rate.value
 
                     /* Actual Rate is simulated based on the Session Paremeters */
                     let slippageAmount = tradingEngineOrder.rate.value * sessionParameters.slippage.config.positionRate / 100
@@ -188,20 +191,27 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
         }
 
         function recalculateActualSize() {
+            if (tradingEngineOrder.orderStatistics.actualRate.value === tradingEngineOrder.rate.value) { return }
             /*
             Now that we have an Actual Rate, we need to adjust the Actual Size in Quoted Asset, since 
             Base Asset is what the exchange accepts as input and give information at. Quotes Asset properties are always calculated.
             */
-            previousQuotedAssetActualSize = tradingEngineOrder.orderQuotedAsset.actualSize.value
-
             tradingEngineOrder.orderQuotedAsset.actualSize.value =
                 tradingEngineOrder.orderBaseAsset.actualSize.value *
                 tradingEngineOrder.orderStatistics.actualRate.value
 
             tradingEngineOrder.orderQuotedAsset.actualSize.value = global.PRECISE(tradingEngineOrder.orderQuotedAsset.actualSize.value, 10)
+
+            tradingSystem.warnings.push(
+                [
+                    [tradingEngineOrder.orderQuotedAsset.actualSize.id, tradingEngineOrder.orderStatistics.actualRate.id],
+                    'Actual Size (' + previousQuotedAssetActualSize + ') recalculated (' + tradingEngineOrder.orderQuotedAsset.actualSize.value + ') because the Actual Rate (' + tradingEngineOrder.orderStatistics.actualRate.value + ') is different than the Order Rate (' + tradingEngineOrder.rate.value + '))'
+                ]
+            )
         }
 
         function recalculateSizePlaced() {
+            if (tradingEngineOrder.orderStatistics.actualRate.value === tradingEngineOrder.rate.value) { return }
             /*
             Since the Actual Rate might have changed, we need to recalculate the Size Placed, where we accumulate all the Size Placed of
             all orders of a Stage. For Base Asset there is nothing to do, since the Actual Rate does not have an inpact on it. 
@@ -209,6 +219,8 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
             For Quoted Asset, we need to first unaccount what this same orded added before to Size Placed (with the precious Actual Size) and
             account with the new Actual Size. 
             */
+            let previousStageQuotedAssetSizePlaced = tradingEngineStage.stageQuotedAsset.sizePlaced.value
+
             tradingEngineStage.stageQuotedAsset.sizePlaced.value =
                 tradingEngineStage.stageQuotedAsset.sizePlaced.value -
                 previousQuotedAssetActualSize
@@ -218,6 +230,13 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
                 tradingEngineOrder.orderQuotedAsset.actualSize.value
 
             tradingEngineStage.stageQuotedAsset.sizePlaced.value = global.PRECISE(tradingEngineStage.stageQuotedAsset.sizePlaced.value, 10)
+
+            tradingSystem.warnings.push(
+                [
+                    [tradingEngineStage.stageQuotedAsset.sizePlaced.id, tradingEngineOrder.orderStatistics.actualRate.id],
+                    'Size Placed (' + previousStageQuotedAssetSizePlaced + ') recalculated (' + tradingEngineStage.stageQuotedAsset.sizePlaced.value + ') because the Actual Rate (' + tradingEngineOrder.orderStatistics.actualRate.value + ') is different than the Order Rate (' + tradingEngineOrder.rate.value + '))'
+                ]
+            )
         }
     }
 

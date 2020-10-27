@@ -143,6 +143,7 @@ exports.newOrdersCalculations = function newOrdersCalculations(bot, logger) {
         recalculateSizePlaced()
 
         function recalculateActualSize() {
+            if (tradingEngineOrder.orderStatistics.actualRate.value === tradingEngineOrder.rate.value) { return }
             /*
             Now we know the Actual Rate at which the order was filled. Since the actual rate
             is not the same as the Rate we defined for the order, we need to syncronize 
@@ -153,14 +154,24 @@ exports.newOrdersCalculations = function newOrdersCalculations(bot, logger) {
             got the Order Size in Base Asset, either from direct imput from the user or calculated
             from the Order Size in Quoted Asset input it by the user. So here we go. 
             */
+            previousQuotedAssetActualSize = tradingEngineOrder.orderQuotedAsset.actualSize.value
+
             tradingEngineOrder.orderQuotedAsset.actualSize.value =
                 tradingEngineOrder.orderBaseAsset.actualSize.value *
                 tradingEngineOrder.orderStatistics.actualRate.value
 
             tradingEngineOrder.orderQuotedAsset.actualSize.value = global.PRECISE(tradingEngineOrder.orderQuotedAsset.actualSize.value, 10)
+
+            tradingSystem.warnings.push(
+                [
+                    [tradingEngineOrder.orderQuotedAsset.actualSize.id, tradingEngineOrder.orderStatistics.actualRate.id],
+                    'Actual Size (' + previousQuotedAssetActualSize + ') recalculated (' + tradingEngineOrder.orderQuotedAsset.actualSize.value + ') because the Actual Rate (' + tradingEngineOrder.orderStatistics.actualRate.value + ') is different than the Order Rate (' + tradingEngineOrder.rate.value + '))'
+                ]
+            )
         }
 
         function recalculateSizePlaced() {
+            let previousStageQuotedAssetSizePlaced = tradingEngineStage.stageQuotedAsset.sizePlaced.value
             /*
             Since we changed the Actual Size in Quoted Asset, we need to fix the Size Placed in Quoted Asset
             that was previously calculated with the previous value of actualSize.
@@ -174,6 +185,13 @@ exports.newOrdersCalculations = function newOrdersCalculations(bot, logger) {
                 tradingEngineOrder.orderQuotedAsset.actualSize.value
 
             tradingEngineStage.stageQuotedAsset.sizePlaced.value = global.PRECISE(tradingEngineStage.stageQuotedAsset.sizePlaced.value, 10)
+
+            tradingSystem.warnings.push(
+                [
+                    [tradingEngineStage.stageQuotedAsset.sizePlaced.id, tradingEngineOrder.orderStatistics.actualRate.id],
+                    'Size Placed (' + previousStageQuotedAssetSizePlaced + ') recalculated (' + tradingEngineStage.stageQuotedAsset.sizePlaced.value + ') because the Actual Rate (' + tradingEngineOrder.orderStatistics.actualRate.value + ') is different than the Order Rate (' + tradingEngineOrder.rate.value + '))'
+                ]
+            )
         }
     }
 

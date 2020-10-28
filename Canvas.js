@@ -115,8 +115,10 @@ function newCanvas() {
                 projectInstance.events.onMouseDownMap = new Map()
 
                 let spaceInitializationMap = new Map()
-                let spaceAnimationMap = new Map()
-                let spaceDefinitionMap = new Map()
+                let spaceAnimationPhysicsMap = new Map()
+                let spaceDefinitionPhysicsMap = new Map()
+                let spaceAnimationDrawMap = new Map()
+                let spaceDefinitionDrawMap = new Map()
 
                 /* Space Instantiation */
                 if (projectDefinition.spaces === undefined) { continue }
@@ -130,9 +132,14 @@ function newCanvas() {
                         spaceInitializationMap.set(spaceDefinition.initializationIndex, spaceInstance)
                     }
 
-                    if (spaceDefinition.animationIndex !== undefined) {
-                        spaceAnimationMap.set(spaceDefinition.animationIndex, spaceInstance)
-                        spaceDefinitionMap.set(spaceDefinition.animationIndex, spaceDefinition)
+                    if (spaceDefinition.animationPhysicsIndex !== undefined) {
+                        spaceAnimationPhysicsMap.set(spaceDefinition.animationPhysicsIndex, spaceInstance)
+                        spaceDefinitionPhysicsMap.set(spaceDefinition.animationPhysicsIndex, spaceDefinition)
+                    }
+
+                    if (spaceDefinition.animationDrawIndex !== undefined) {
+                        spaceAnimationDrawMap.set(spaceDefinition.animationDrawIndex, spaceInstance)
+                        spaceDefinitionDrawMap.set(spaceDefinition.animationDrawIndex, spaceDefinition)
                     }
 
                     /* Build the maps that defines the secuence of execution of different events. */
@@ -160,8 +167,8 @@ function newCanvas() {
 
                 /* Space Animation Physics */
                 for (let j = 0; j < projectDefinition.spaces.length; j++) {
-                    let spaceInstance = spaceAnimationMap.get(j)
-                    let spaceDefinition = spaceDefinitionMap.get(j)
+                    let spaceInstance = spaceAnimationPhysicsMap.get(j)
+                    let spaceDefinition = spaceDefinitionPhysicsMap.get(j)
                     if (spaceInstance === undefined || spaceDefinition === undefined) { continue }
                     if (spaceInstance.physics !== undefined) {
                         thisObject.animation.addCallBackFunction(spaceDefinition.name + ' ' + 'Physics', spaceInstance.physics)
@@ -170,8 +177,8 @@ function newCanvas() {
 
                 /* Space Animation Drawing*/
                 for (let j = 0; j < projectDefinition.spaces.length; j++) {
-                    let spaceInstance = spaceAnimationMap.get(j)
-                    let spaceDefinition = spaceDefinitionMap.get(j)
+                    let spaceInstance = spaceAnimationDrawMap.get(j)
+                    let spaceDefinition = spaceDefinitionDrawMap.get(j)
                     if (spaceInstance === undefined || spaceDefinition === undefined) { continue }
                     if (spaceInstance.draw !== undefined) {
                         thisObject.animation.addCallBackFunction(spaceDefinition.name + ' ' + 'Draw', spaceInstance.draw)

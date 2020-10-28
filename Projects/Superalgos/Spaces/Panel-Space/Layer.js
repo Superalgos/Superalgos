@@ -163,7 +163,7 @@ function newLayer() {
                 'Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->' +
                 'Bot Products->Data Mine Products->Trading Mine Products->' +
                 'Market Data Products->Exchange Data Products->' +
-                'Session Reference->Market Trading Products->Exchange Trading Products->' + 
+                'Session Reference->Market Trading Products->Exchange Trading Products->' +
                 'Data Mines Data->Trading Mines Data->Data Storage->Network Node->' +
                 'Data Storage->Network Node->' +
                 'Backtesting Session->Paper Trading Session->Forward Testing Session->Live Trading Session->' +
@@ -287,7 +287,7 @@ function newLayer() {
             thisObject.exchangeIcon = getIcon(thisObject.exchange)
 
             if (thisObject.plotterModule.config.icon !== undefined) {
-                thisObject.plotterTypeIcon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName( 'Superalgos', thisObject.plotterModule.config.icon)
+                thisObject.plotterTypeIcon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName('Superalgos', thisObject.plotterModule.config.icon)
             }
 
             thisObject.baseAssetIcon = getIcon(thisObject.baseAsset)
@@ -306,9 +306,9 @@ function newLayer() {
                     }
                 }
                 if (iconName !== undefined) {
-                    icon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName( 'Superalgos', iconName)
+                    icon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName('Superalgos', iconName)
                 } else {
-                    icon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName( 'Superalgos', nodeDefinition.icon)
+                    icon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName('Superalgos', nodeDefinition.icon)
                 }
                 return icon
             }
@@ -623,6 +623,9 @@ function newLayer() {
     }
 
     function drawLayerDisplay() {
+        if (thisObject.payload === undefined) { return }
+        if (thisObject.payload.node === undefined) { return }
+
         let label1 = thisObject.payload.node.name
         let label2 = thisObject.exchange.name.substring(0, 15) + ' - ' + thisObject.market
         let label3 = thisObject.status.toUpperCase()

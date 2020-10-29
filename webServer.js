@@ -545,7 +545,7 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                                         let updatedFileList = []
                                         for (let i = 0; i < fileList.length; i++) {
                                             let name = 'Plugin \u2192 ' + fileList[i]
-                                            updatedFileList.push(name)
+                                            updatedFileList.push([project, name])
                                         }
                                         allWorkspaces = allWorkspaces.concat(updatedFileList)
                                         projectsCount++
@@ -575,7 +575,12 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                                     respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
                                     return
                                 } else {
-                                    allWorkspaces = allWorkspaces.concat(fileList)
+                                    let updatedFileList = []
+                                        for (let i = 0; i < fileList.length; i++) {
+                                            let name = fileList[i]
+                                            updatedFileList.push(['', name])
+                                        }
+                                    allWorkspaces = allWorkspaces.concat(updatedFileList)
                                     respondWithContent(JSON.stringify(allWorkspaces), response)
                                     return
                                 }

@@ -92,7 +92,7 @@ function newSuperalgosUtilitiesNodeChildren() {
                 switch (property.type) {
                     case 'node': {
                         let child = startingNode[property.name]
-
+                        if (child === undefined) { continue }
                         if (child.payload !== undefined) {
                             if (child.payload.referenceParent !== undefined) {
                                 if (child.payload.referenceParent.id === checkNode.id) {
@@ -121,7 +121,6 @@ function newSuperalgosUtilitiesNodeChildren() {
                     }
                 }
             }
-            return true
         }
     }
 

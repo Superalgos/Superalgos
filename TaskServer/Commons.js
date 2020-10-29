@@ -380,12 +380,6 @@
                     let product = {}
                     product[variableName] = {}
 
-                    /* Here is how we know if we are processing Yesterday. */
-                    let positionedAtYesterday = false
-                    if (processingDailyFiles) {
-                        positionedAtYesterday = (record.current.end < currentDay.valueOf())
-                    }
-
                     /* This is Loop Code */
                     try {
                         eval(dataBuildingProcedure.loop.javascriptCode.code)
@@ -423,9 +417,9 @@
                         results.push(product[variableName]);
                     }
 
-                    /* While we are positioned at Yesterday, we keep updating this data structure. */
+                    /* At the last instant of yesterday, we update the yesterday object. */
                     if (processingDailyFiles) {
-                        if (positionedAtYesterday) {
+                        if (record.current.end + 1 === currentDay.valueOf()) {
                             yesterday.variable = JSON.parse(JSON.stringify(variable))
                         }
                     }

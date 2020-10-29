@@ -15,7 +15,7 @@ function newWorkspace() {
         save: saveWorkspace,
         backup: backupWorkspace,
         share: shareWorkspace,
-        getProjectsHeads: getProjectsHeads, 
+        getProjectsHeads: getProjectsHeads,
         getHierarchyHeads: getHierarchyHeads,
         getHierarchyHeadsById: getHierarchyHeadsById,
         getHierarchyHeadsByType: getHierarchyHeadsByType,
@@ -187,16 +187,16 @@ function newWorkspace() {
         }
     }
 
-    function backupWorkspace(action) {
-        let text = stringifyWorkspace(false)
+    async function backupWorkspace(action) {
+        let text = await stringifyWorkspace(false)
         let fileName = 'Backup - ' + action.node.type + ' - ' + action.node.name + '.json'
         if (text !== undefined) {
             UI.projects.superalgos.utilities.download.downloadText(fileName, text)
         }
     }
 
-    function shareWorkspace(action) {
-        let text = stringifyWorkspace(true)
+    async function shareWorkspace(action) {
+        let text = await stringifyWorkspace(true)
         let fileName = 'Share - ' + action.node.type + ' - ' + action.node.name + '.json'
         if (text !== undefined) {
             UI.projects.superalgos.utilities.download.downloadText(fileName, text)
@@ -398,12 +398,12 @@ function newWorkspace() {
         }
     }
 
-    function replaceWorkspaceByLoadingOne(name) {
+    function replaceWorkspaceByLoadingOne(project, name) {
 
         let webCommand
-        if (name.indexOf('Plugin \u2192 ') >= 0) {
+        if (project !== "") {
             name = name.replace('Plugin \u2192 ', '')
-            webCommand = 'LoadPlugin' + '/' + 'Superalgos' + '/' + 'Workspaces' + '/' + name + '.json'
+            webCommand = 'LoadPlugin' + '/' + project + '/' + 'Workspaces' + '/' + name + '.json'
         } else {
             webCommand = 'LoadMyWorkspace' + '/' + name
         }
@@ -449,11 +449,11 @@ function newWorkspace() {
                 workingAtTask = 1
                 return
             }
- 
+
             /* It does not exist, so we recreeate it respecting the inner state of each object. */
             let positionOffset = {
                 x: spawnPosition.x,
-                y: spawnPosition.y  
+                y: spawnPosition.y
             }
 
             if (droppedNode.savedPayload !== undefined) {

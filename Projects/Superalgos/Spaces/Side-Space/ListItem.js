@@ -69,7 +69,7 @@ function newListItem() {
     }
 
     function onMouseClick(event) {
-        UI.projects.superalgos.spaces.designSpace.workspace.replaceWorkspaceByLoadingOne(name)
+        UI.projects.superalgos.spaces.designSpace.workspace.replaceWorkspaceByLoadingOne(project, name)
     }
 
     function physics() {
@@ -77,7 +77,7 @@ function newListItem() {
     }
 
     function draw() {
-        let icon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(project, type)
+        let icon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType('Superalgos', type)
         let backgroundColor = UI_COLOR.BLACK
         let labelColor
 

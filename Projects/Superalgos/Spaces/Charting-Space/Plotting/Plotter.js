@@ -15,6 +15,7 @@ function newPlotter() {
         setTimeFrame: setTimeFrame,
         setDatetime: setDatetime,
         setCoordinateSystem: setCoordinateSystem,
+        physics: physics,
         draw: draw
     }
 
@@ -244,12 +245,14 @@ function newPlotter() {
     }
 
     function draw() {
-        try {
-            thisObject.container.frame.draw()
-            plot()
-        } catch (err) {
-            if (ERROR_LOG === true) { logger.write('[ERROR] draw -> err = ' + err.stack) }
-        }
+
+        thisObject.container.frame.draw()
+        plot()
+
+    }
+
+    function physics() {
+
     }
 
     function recalculate() {
@@ -481,67 +484,10 @@ function newPlotter() {
             for (let i = 0; i < records.length; i++) {
                 let record = records[i]
 
-                /*
-                In the formulas to create plotters, we allos users to reference the previous record.
-                To enable that we need to link all records to the previous one in this way.
-                */
-                if (i == 0) {
-                    record.previous = {} // this way it wont be undefined
-                } else {
-                    record.previous = records[i - 1]
-                }
-
-                let beginPoint = {
-                    x: record.begin,
-                    y: 0
-                }
-
-                let endPoint = {
-                    x: record.end,
-                    y: 0
-                }
-
-                beginPoint = coordinateSystem.transformThisPoint(beginPoint)
-                endPoint = coordinateSystem.transformThisPoint(endPoint)
-
-                beginPoint = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(beginPoint, thisObject.container)
-                endPoint = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(endPoint, thisObject.container)
-
-                beginPoint = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(beginPoint)
-                endPoint = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(endPoint)
-
-                beginPoint = thisObject.fitFunction(beginPoint)
-                endPoint = thisObject.fitFunction(endPoint)
-
-                if (endPoint.x < UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomLeft.x || beginPoint.x > UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomRight.x) {
-                    continue
-                }
+                if (checkOutOfScreen() !== true) {continue}
 
                 let atMousePosition = false
-                if (userPositionDate >= record.begin && userPositionDate <= record.end) {
-                    if (productDefinition.referenceParent.config.useRateAtMousePosition === true) {
-                        let ratePropertyName = "rate"
-                        if (productDefinition.referenceParent.config.ratePropertyName !== undefined) {
-                            ratePropertyName = productDefinition.referenceParent.config.ratePropertyName
-                        }
-                        if (record[ratePropertyName] === undefined) {
-                            currentRecordChanged()
-                        } else {
-                            /* Current Record depends also on rate */
-                            if (record[ratePropertyName] >= minUserPositionRate && record[ratePropertyName] <= maxUserPositionRate) {
-                                currentRecordChanged()
-                            }
-                        }
-                    } else {
-                        /* Current Record depends only on begin and end. */
-                        currentRecordChanged()
-                    }
-
-                    function currentRecordChanged() {
-                        atMousePosition = true
-                        thisObject.container.eventHandler.raiseEvent('Current Record Changed', record)
-                    }
-                }
+                checkAtMousePosition()
 
                 /* If there is code we execute it now. */
                 if (productDefinition.referenceParent.javascriptCode !== undefined) {
@@ -550,158 +496,221 @@ function newPlotter() {
 
                 if (productDefinition.referenceParent.shapes === undefined) { continue }
                 if (productDefinition.referenceParent.shapes.chartPoints === undefined) { continue }
+
                 let dataPoints = new Map()
-                if (record.dataPoints !== undefined && mustRecalculateDataPoints === false) {
-                    /* We use the datapoints already calculated. */
-                    dataPoints = record.dataPoints
-                } else {
-                    if (logged === false) {
-                        logged = true
-                    }
-                    /* It seems we need to calculate the data points this time. */
-                    for (let k = 0; k < productDefinition.referenceParent.shapes.chartPoints.length; k++) {
-                        let chartPoints = productDefinition.referenceParent.shapes.chartPoints[k]
-                        for (let j = 0; j < chartPoints.points.length; j++) {
-                            let point = chartPoints.points[j]
-                            if (point.pointFormula !== undefined) {
-                                let x = 0
-                                let y = 0
-                                eval(point.pointFormula.code)
-                                let rawPoint = {
-                                    x: x,
-                                    y: y
-                                }
 
-                                /*
-                                The information we store in files is independent from the charing system and its coordinate systems.
-                                That means that the first thing we allways need to do is to trasform these points to the coordinate system of the timeline.
-                                */
-                                let dataPoint
-                                dataPoint = coordinateSystem.transformThisPoint(rawPoint)
-                                dataPoint = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(dataPoint, thisObject.container)
-                                let testPoint = {
-                                    x: dataPoint.x,
-                                    y: dataPoint.y
-                                }
-                                dataPoint = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(dataPoint)
-                                dataPoint = thisObject.fitFunction(dataPoint)
+                dataPointsCalculation()
+                plotPolygons()
+                plotImages()
+                plotTexts()
 
-                                if (testPoint.x === dataPoint.x) {
-                                    dataPoint.isInViewPort = true
-                                } else {
-                                    dataPoint.isInViewPort = false
-                                }
-                                /* Store the data point at the local map */
-                                dataPoint.rawPoint = rawPoint
-                                dataPoints.set(point.id, dataPoint)
-                            }
-                        }
+                function checkOutOfScreen() {
+                    /*
+                    In the formulas to create plotters, we allos users to reference the previous record.
+                    To enable that we need to link all records to the previous one in this way.
+                    */
+                    if (i == 0) {
+                        record.previous = {} // this way it wont be undefined
+                    } else {
+                        record.previous = records[i - 1]
                     }
 
-                    /* Remember this datapoints, so that we do not need to calculate them again. */
-                    record.dataPoints = dataPoints
+                    let beginPoint = {
+                        x: record.begin,
+                        y: 0
+                    }
+
+                    let endPoint = {
+                        x: record.end,
+                        y: 0
+                    }
+
+                    beginPoint = coordinateSystem.transformThisPoint(beginPoint)
+                    endPoint = coordinateSystem.transformThisPoint(endPoint)
+
+                    beginPoint = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(beginPoint, thisObject.container)
+                    endPoint = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(endPoint, thisObject.container)
+
+                    beginPoint = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(beginPoint)
+                    endPoint = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(endPoint)
+
+                    beginPoint = thisObject.fitFunction(beginPoint)
+                    endPoint = thisObject.fitFunction(endPoint)
+
+                    if (endPoint.x < UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomLeft.x || beginPoint.x > UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomRight.x) {
+                        return false
+                    } else {
+                        return true
+                    }
                 }
 
-                /* Here we are going to plot all the polygons. */
-                for (let j = 0; j < productDefinition.referenceParent.shapes.polygons.length; j++) {
-                    let polygon = productDefinition.referenceParent.shapes.polygons[j]
-                    /* We will check if we need to plot this Polygon or not. */
-                    if (polygon.polygonCondition !== undefined) {
-                        let mustPlot = eval(polygon.polygonCondition.code)
-                        if (mustPlot !== true) { continue }
-                    }
+                function checkAtMousePosition() {
 
-                    let calculatedStyle
-
-                    /* Finding out the fill style */
-                    let fillStyle = { // default values
-                        opacity: 1,
-                        paletteColor: UI_COLOR.BLACK
-                    }
-                    if (polygon.polygonBody !== undefined) {
-                        if (record.fillStyle === undefined) {
-                            record.fillStyle = new Map()
-                        }
-                        calculatedStyle = record.fillStyle.get(polygon.id)
-                        if (calculatedStyle !== undefined) {
-                            /* We use the already calculated style */
-                            fillStyle = calculatedStyle
-                        } else {
-                            /* Get the default style if exists */
-                            if (polygon.polygonBody.style !== undefined) {
-                                if (polygon.polygonBody.style.config !== undefined) {
-                                    if (polygon.polygonBody.style.config.default !== undefined) {
-                                        let bodyStyle = polygon.polygonBody.style.config.default
-                                        if (bodyStyle.opacity !== undefined) { fillStyle.opacity = bodyStyle.opacity }
-                                        if (bodyStyle.paletteColor !== undefined) { fillStyle.paletteColor = eval(bodyStyle.paletteColor) }
-                                    }
+                    if (userPositionDate >= record.begin && userPositionDate <= record.end) {
+                        if (productDefinition.referenceParent.config.useRateAtMousePosition === true) {
+                            let ratePropertyName = "rate"
+                            if (productDefinition.referenceParent.config.ratePropertyName !== undefined) {
+                                ratePropertyName = productDefinition.referenceParent.config.ratePropertyName
+                            }
+                            if (record[ratePropertyName] === undefined) {
+                                currentRecordChanged()
+                            } else {
+                                /* Current Record depends also on rate */
+                                if (record[ratePropertyName] >= minUserPositionRate && record[ratePropertyName] <= maxUserPositionRate) {
+                                    currentRecordChanged()
                                 }
                             }
-                            /* Apply conditional styles */
-                            if (polygon.polygonBody.styleConditions !== undefined) {
-                                for (let k = 0; k < polygon.polygonBody.styleConditions.length; k++) {
-                                    let condition = polygon.polygonBody.styleConditions[k]
-                                    let value = eval(condition.code)
-                                    if (value === true) {
-                                        if (condition.style !== undefined) {
-                                            let bodyStyle = condition.style.config
+                        } else {
+                            /* Current Record depends only on begin and end. */
+                            currentRecordChanged()
+                        }
+
+                        function currentRecordChanged() {
+                            atMousePosition = true
+                            thisObject.container.eventHandler.raiseEvent('Current Record Changed', record)
+                        }
+                    }
+                }
+
+                function dataPointsCalculation() {
+                    if (record.dataPoints !== undefined && mustRecalculateDataPoints === false) {
+                        /* We use the datapoints already calculated. */
+                        dataPoints = record.dataPoints
+                    } else {
+                        if (logged === false) {
+                            logged = true
+                        }
+                        /* It seems we need to calculate the data points this time. */
+                        for (let k = 0; k < productDefinition.referenceParent.shapes.chartPoints.length; k++) {
+                            let chartPoints = productDefinition.referenceParent.shapes.chartPoints[k]
+                            for (let j = 0; j < chartPoints.points.length; j++) {
+                                let point = chartPoints.points[j]
+                                if (point.pointFormula !== undefined) {
+                                    let x = 0
+                                    let y = 0
+                                    eval(point.pointFormula.code)
+                                    let rawPoint = {
+                                        x: x,
+                                        y: y
+                                    }
+
+                                    /*
+                                    The information we store in files is independent from the charing system and its coordinate systems.
+                                    That means that the first thing we allways need to do is to trasform these points to the coordinate system of the timeline.
+                                    */
+                                    let dataPoint
+                                    dataPoint = coordinateSystem.transformThisPoint(rawPoint)
+                                    dataPoint = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(dataPoint, thisObject.container)
+                                    let testPoint = {
+                                        x: dataPoint.x,
+                                        y: dataPoint.y
+                                    }
+                                    dataPoint = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(dataPoint)
+                                    dataPoint = thisObject.fitFunction(dataPoint)
+
+                                    if (testPoint.x === dataPoint.x) {
+                                        dataPoint.isInViewPort = true
+                                    } else {
+                                        dataPoint.isInViewPort = false
+                                    }
+                                    /* Store the data point at the local map */
+                                    dataPoint.rawPoint = rawPoint
+                                    dataPoints.set(point.id, dataPoint)
+                                }
+                            }
+                        }
+
+                        /* Remember this datapoints, so that we do not need to calculate them again. */
+                        record.dataPoints = dataPoints
+                    }
+                }
+
+                function plotPolygons() {
+                    /* Here we are going to plot all the polygons. */
+                    for (let j = 0; j < productDefinition.referenceParent.shapes.polygons.length; j++) {
+                        let polygon = productDefinition.referenceParent.shapes.polygons[j]
+                        /* We will check if we need to plot this Polygon or not. */
+                        if (polygon.polygonCondition !== undefined) {
+                            let mustPlot = eval(polygon.polygonCondition.code)
+                            if (mustPlot !== true) { continue }
+                        }
+
+                        let calculatedStyle
+
+                        /* Finding out the fill style */
+                        let fillStyle = { // default values
+                            opacity: 1,
+                            paletteColor: UI_COLOR.BLACK
+                        }
+                        if (polygon.polygonBody !== undefined) {
+                            if (record.fillStyle === undefined) {
+                                record.fillStyle = new Map()
+                            }
+                            calculatedStyle = record.fillStyle.get(polygon.id)
+                            if (calculatedStyle !== undefined) {
+                                /* We use the already calculated style */
+                                fillStyle = calculatedStyle
+                            } else {
+                                /* Get the default style if exists */
+                                if (polygon.polygonBody.style !== undefined) {
+                                    if (polygon.polygonBody.style.config !== undefined) {
+                                        if (polygon.polygonBody.style.config.default !== undefined) {
+                                            let bodyStyle = polygon.polygonBody.style.config.default
                                             if (bodyStyle.opacity !== undefined) { fillStyle.opacity = bodyStyle.opacity }
                                             if (bodyStyle.paletteColor !== undefined) { fillStyle.paletteColor = eval(bodyStyle.paletteColor) }
                                         }
                                     }
                                 }
-                            }
-                            /* Get the atMousePosition style if exists */
-                            if (polygon.polygonBody.style !== undefined) {
-                                if (polygon.polygonBody.style.config.atMousePosition !== undefined) {
-                                    let atMousePositionStyleDefinition = polygon.polygonBody.style.config.atMousePosition
-                                    let atMousePositionStyle = {}
-                                    if (atMousePositionStyleDefinition.opacity !== undefined) { atMousePositionStyle.opacity = atMousePositionStyleDefinition.opacity }
-                                    if (atMousePositionStyleDefinition.paletteColor !== undefined) { atMousePositionStyle.paletteColor = eval(atMousePositionStyleDefinition.paletteColor) }
-                                    atMousePositionFillStyles.set(polygon.id, atMousePositionStyle)
-                                }
-                            }
-
-                            record.fillStyle.set(polygon.id, fillStyle)
-                        }
-                    }
-
-                    /* Finding out the stroke style */
-                    let strokeStyle = { // default values
-                        opacity: 1,
-                        paletteColor: UI_COLOR.BLACK,
-                        lineWidth: 1,
-                        lineDash: [0, 0]
-                    }
-                    if (polygon.polygonBorder !== undefined) {
-                        if (record.strokeStyle === undefined) {
-                            record.strokeStyle = new Map()
-                        }
-                        calculatedStyle = record.strokeStyle.get(polygon.id)
-                        if (calculatedStyle !== undefined) {
-                            /* We use the already calculated style */
-                            strokeStyle = calculatedStyle
-                        } else {
-                            /* Get the default style if exists */
-                            if (polygon.polygonBorder.style !== undefined) {
-                                if (polygon.polygonBorder.style.config !== undefined) {
-                                    if (polygon.polygonBorder.style.config.default !== undefined) {
-                                        let borderStyle = polygon.polygonBorder.style.config.default
-                                        if (borderStyle.opacity !== undefined) { strokeStyle.opacity = borderStyle.opacity }
-                                        if (borderStyle.paletteColor !== undefined) { strokeStyle.paletteColor = eval(borderStyle.paletteColor) }
-                                        if (borderStyle.lineWidth !== undefined) { strokeStyle.lineWidth = borderStyle.lineWidth }
-                                        if (borderStyle.lineDash !== undefined) { strokeStyle.lineDash = borderStyle.lineDash }
+                                /* Apply conditional styles */
+                                if (polygon.polygonBody.styleConditions !== undefined) {
+                                    for (let k = 0; k < polygon.polygonBody.styleConditions.length; k++) {
+                                        let condition = polygon.polygonBody.styleConditions[k]
+                                        let value = eval(condition.code)
+                                        if (value === true) {
+                                            if (condition.style !== undefined) {
+                                                let bodyStyle = condition.style.config
+                                                if (bodyStyle.opacity !== undefined) { fillStyle.opacity = bodyStyle.opacity }
+                                                if (bodyStyle.paletteColor !== undefined) { fillStyle.paletteColor = eval(bodyStyle.paletteColor) }
+                                            }
+                                        }
                                     }
                                 }
+                                /* Get the atMousePosition style if exists */
+                                if (polygon.polygonBody.style !== undefined) {
+                                    if (polygon.polygonBody.style.config.atMousePosition !== undefined) {
+                                        let atMousePositionStyleDefinition = polygon.polygonBody.style.config.atMousePosition
+                                        let atMousePositionStyle = {}
+                                        if (atMousePositionStyleDefinition.opacity !== undefined) { atMousePositionStyle.opacity = atMousePositionStyleDefinition.opacity }
+                                        if (atMousePositionStyleDefinition.paletteColor !== undefined) { atMousePositionStyle.paletteColor = eval(atMousePositionStyleDefinition.paletteColor) }
+                                        atMousePositionFillStyles.set(polygon.id, atMousePositionStyle)
+                                    }
+                                }
+
+                                record.fillStyle.set(polygon.id, fillStyle)
                             }
-                            /* Apply conditional styles */
-                            if (polygon.polygonBorder.styleConditions !== undefined) {
-                                for (let k = 0; k < polygon.polygonBorder.styleConditions.length; k++) {
-                                    let condition = polygon.polygonBorder.styleConditions[k]
-                                    let value = eval(condition.code)
-                                    if (value === true) {
-                                        if (condition.style !== undefined) {
-                                            let borderStyle = condition.style.config
+                        }
+
+                        /* Finding out the stroke style */
+                        let strokeStyle = { // default values
+                            opacity: 1,
+                            paletteColor: UI_COLOR.BLACK,
+                            lineWidth: 1,
+                            lineDash: [0, 0]
+                        }
+                        if (polygon.polygonBorder !== undefined) {
+                            if (record.strokeStyle === undefined) {
+                                record.strokeStyle = new Map()
+                            }
+                            calculatedStyle = record.strokeStyle.get(polygon.id)
+                            if (calculatedStyle !== undefined) {
+                                /* We use the already calculated style */
+                                strokeStyle = calculatedStyle
+                            } else {
+                                /* Get the default style if exists */
+                                if (polygon.polygonBorder.style !== undefined) {
+                                    if (polygon.polygonBorder.style.config !== undefined) {
+                                        if (polygon.polygonBorder.style.config.default !== undefined) {
+                                            let borderStyle = polygon.polygonBorder.style.config.default
                                             if (borderStyle.opacity !== undefined) { strokeStyle.opacity = borderStyle.opacity }
                                             if (borderStyle.paletteColor !== undefined) { strokeStyle.paletteColor = eval(borderStyle.paletteColor) }
                                             if (borderStyle.lineWidth !== undefined) { strokeStyle.lineWidth = borderStyle.lineWidth }
@@ -709,173 +718,193 @@ function newPlotter() {
                                         }
                                     }
                                 }
+                                /* Apply conditional styles */
+                                if (polygon.polygonBorder.styleConditions !== undefined) {
+                                    for (let k = 0; k < polygon.polygonBorder.styleConditions.length; k++) {
+                                        let condition = polygon.polygonBorder.styleConditions[k]
+                                        let value = eval(condition.code)
+                                        if (value === true) {
+                                            if (condition.style !== undefined) {
+                                                let borderStyle = condition.style.config
+                                                if (borderStyle.opacity !== undefined) { strokeStyle.opacity = borderStyle.opacity }
+                                                if (borderStyle.paletteColor !== undefined) { strokeStyle.paletteColor = eval(borderStyle.paletteColor) }
+                                                if (borderStyle.lineWidth !== undefined) { strokeStyle.lineWidth = borderStyle.lineWidth }
+                                                if (borderStyle.lineDash !== undefined) { strokeStyle.lineDash = borderStyle.lineDash }
+                                            }
+                                        }
+                                    }
+                                }
+                                /* Get the atMousePosition style if exists */
+                                if (polygon.polygonBorder.style !== undefined) {
+                                    if (polygon.polygonBorder.style.config.atMousePosition !== undefined) {
+                                        let atMousePositionStyleDefinition = polygon.polygonBorder.style.config.atMousePosition
+                                        let atMousePositionStyle = {}
+                                        if (atMousePositionStyleDefinition.opacity !== undefined) { atMousePositionStyle.opacity = atMousePositionStyleDefinition.opacity }
+                                        if (atMousePositionStyleDefinition.paletteColor !== undefined) { atMousePositionStyle.paletteColor = eval(atMousePositionStyleDefinition.paletteColor) }
+                                        if (atMousePositionStyleDefinition.lineWidth !== undefined) { atMousePositionStyle.lineWidth = atMousePositionStyleDefinition.lineWidth }
+                                        if (atMousePositionStyleDefinition.lineDash !== undefined) { atMousePositionStyle.lineDash = atMousePositionStyleDefinition.lineDash }
+                                        atMousePositionStrokeStyles.set(polygon.id, atMousePositionStyle)
+                                    }
+                                }
+
+                                record.strokeStyle.set(polygon.id, strokeStyle)
                             }
-                            /* Get the atMousePosition style if exists */
-                            if (polygon.polygonBorder.style !== undefined) {
-                                if (polygon.polygonBorder.style.config.atMousePosition !== undefined) {
-                                    let atMousePositionStyleDefinition = polygon.polygonBorder.style.config.atMousePosition
-                                    let atMousePositionStyle = {}
-                                    if (atMousePositionStyleDefinition.opacity !== undefined) { atMousePositionStyle.opacity = atMousePositionStyleDefinition.opacity }
-                                    if (atMousePositionStyleDefinition.paletteColor !== undefined) { atMousePositionStyle.paletteColor = eval(atMousePositionStyleDefinition.paletteColor) }
-                                    if (atMousePositionStyleDefinition.lineWidth !== undefined) { atMousePositionStyle.lineWidth = atMousePositionStyleDefinition.lineWidth }
-                                    if (atMousePositionStyleDefinition.lineDash !== undefined) { atMousePositionStyle.lineDash = atMousePositionStyleDefinition.lineDash }
-                                    atMousePositionStrokeStyles.set(polygon.id, atMousePositionStyle)
+                        }
+
+                        /* Draw the Polygon */
+                        browserCanvasContext.beginPath()
+                        for (let k = 0; k < polygon.polygonVertexes.length; k++) {
+                            let polygonVertex = polygon.polygonVertexes[k]
+                            if (polygonVertex.referenceParent !== undefined) {
+                                let dataPointObject = dataPoints.get(polygonVertex.referenceParent.id)
+                                if (dataPointObject === undefined) {
+                                    polygonVertex.payload.uiObject.setErrorMessage('Vertex not referencing any Point')
+                                    console.log('[WARN] You have a Polygon Vertex not referencing any Point.')
+                                    continue
+                                }
+
+                                let dataPoint = {
+                                    x: dataPointObject.x,
+                                    y: dataPointObject.y
+                                }
+                                /* We make sure the points do not fall outside the viewport visible area. This step allways need to be done.  */
+                                dataPoint = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(dataPoint)
+                                dataPoint = thisObject.fitFunction(dataPoint)
+                                /* 
+                                Contributing to Auto-Scale: A point will contribute to the y coordinate only if the x coordinate is plotted in the screen.
+                                It can happen that objects that span through a long period of time could have its begin point inside the visible 
+                                viewport but not its end point. In those cases, the end point should not be reported. 
+                                */
+
+                                if (dataPointObject.rawPoint.y > 1 && dataPointObject.rawPoint.y !== undefined && isNaN(dataPointObject.rawPoint.y) === false) {
+                                    let rawPoint = coordinateSystem.transformThisPoint(dataPointObject.rawPoint)
+                                    if (dataPointObject.isInViewPort === true) {
+                                        coordinateSystem.reportYValue(dataPointObject.rawPoint.y)
+                                    }
+                                }
+
+                                if (k === 0) {
+                                    browserCanvasContext.moveTo(dataPoint.x, dataPoint.y)
+                                } else {
+                                    browserCanvasContext.lineTo(dataPoint.x, dataPoint.y)
+                                }
+                            }
+                        }
+                        browserCanvasContext.closePath()
+
+                        /* Apply the fill style to the canvas object */
+                        if (polygon.polygonBody !== undefined) {
+                            /* Replace the fill style if we are at mouse position */
+                            if (atMousePosition === true) {
+                                let atMousePositionFillStyle = atMousePositionFillStyles.get(polygon.id)
+                                if (atMousePositionFillStyle !== undefined) {
+                                    fillStyle = atMousePositionFillStyle
                                 }
                             }
 
-                            record.strokeStyle.set(polygon.id, strokeStyle)
+                            browserCanvasContext.fillStyle = 'rgba(' + fillStyle.paletteColor + ', ' + fillStyle.opacity + ')'
+                            browserCanvasContext.fill()
                         }
-                    }
 
-                    /* Draw the Polygon */
-                    browserCanvasContext.beginPath()
-                    for (let k = 0; k < polygon.polygonVertexes.length; k++) {
-                        let polygonVertex = polygon.polygonVertexes[k]
-                        if (polygonVertex.referenceParent !== undefined) {
-                            let dataPointObject = dataPoints.get(polygonVertex.referenceParent.id)
-                            if (dataPointObject === undefined) {
-                                polygonVertex.payload.uiObject.setErrorMessage('Vertex not referencing any Point')
-                                console.log('[WARN] You have a Polygon Vertex not referencing any Point.')
-                                continue
-                            }
-
-                            let dataPoint = {
-                                x: dataPointObject.x,
-                                y: dataPointObject.y
-                            }
-                            /* We make sure the points do not fall outside the viewport visible area. This step allways need to be done.  */
-                            dataPoint = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(dataPoint)
-                            dataPoint = thisObject.fitFunction(dataPoint)
-                            /* 
-                            Contributing to Auto-Scale: A point will contribute to the y coordinate only if the x coordinate is plotted in the screen.
-                            It can happen that objects that span through a long period of time could have its begin point inside the visible 
-                            viewport but not its end point. In those cases, the end point should not be reported. 
-                            */
-
-                            if (dataPointObject.rawPoint.y > 1 && dataPointObject.rawPoint.y !== undefined && isNaN(dataPointObject.rawPoint.y) === false) {
-                                let rawPoint = coordinateSystem.transformThisPoint(dataPointObject.rawPoint)
-                                if (dataPointObject.isInViewPort === true) {
-                                    coordinateSystem.reportYValue(dataPointObject.rawPoint.y)
+                        /* Apply the stroke style to the canvas object */
+                        if (polygon.polygonBorder !== undefined) {
+                            /* Replace the stroke style if we are at mouse position */
+                            if (atMousePosition === true) {
+                                let atMousePositionStrokeStyle = atMousePositionStrokeStyles.get(polygon.id)
+                                if (atMousePositionStrokeStyle !== undefined) {
+                                    strokeStyle = atMousePositionStrokeStyle
                                 }
                             }
 
-                            if (k === 0) {
-                                browserCanvasContext.moveTo(dataPoint.x, dataPoint.y)
-                            } else {
-                                browserCanvasContext.lineTo(dataPoint.x, dataPoint.y)
-                            }
+                            browserCanvasContext.lineWidth = strokeStyle.lineWidth
+                            browserCanvasContext.setLineDash(strokeStyle.lineDash)
+                            browserCanvasContext.strokeStyle = 'rgba(' + strokeStyle.paletteColor + ', ' + strokeStyle.opacity + ')'
+                            browserCanvasContext.stroke()
                         }
-                    }
-                    browserCanvasContext.closePath()
-
-                    /* Apply the fill style to the canvas object */
-                    if (polygon.polygonBody !== undefined) {
-                        /* Replace the fill style if we are at mouse position */
-                        if (atMousePosition === true) {
-                            let atMousePositionFillStyle = atMousePositionFillStyles.get(polygon.id)
-                            if (atMousePositionFillStyle !== undefined) {
-                                fillStyle = atMousePositionFillStyle
-                            }
-                        }
-
-                        browserCanvasContext.fillStyle = 'rgba(' + fillStyle.paletteColor + ', ' + fillStyle.opacity + ')'
-                        browserCanvasContext.fill()
-                    }
-
-                    /* Apply the stroke style to the canvas object */
-                    if (polygon.polygonBorder !== undefined) {
-                        /* Replace the stroke style if we are at mouse position */
-                        if (atMousePosition === true) {
-                            let atMousePositionStrokeStyle = atMousePositionStrokeStyles.get(polygon.id)
-                            if (atMousePositionStrokeStyle !== undefined) {
-                                strokeStyle = atMousePositionStrokeStyle
-                            }
-                        }
-
-                        browserCanvasContext.lineWidth = strokeStyle.lineWidth
-                        browserCanvasContext.setLineDash(strokeStyle.lineDash)
-                        browserCanvasContext.strokeStyle = 'rgba(' + strokeStyle.paletteColor + ', ' + strokeStyle.opacity + ')'
-                        browserCanvasContext.stroke()
                     }
                 }
 
-                /* Here we are going to plot images. */
-                for (let j = 0; j < productDefinition.referenceParent.shapes.images.length; j++) {
-                    let image = productDefinition.referenceParent.shapes.images[j]
-                    if (image.imagePosition === undefined) { continue }
-                    if (image.imagePosition.referenceParent === undefined) { continue }
-                    if (image.imageCondition !== undefined) {
-                        let mustPlot = eval(image.imageCondition.code)
-                        if (mustPlot !== true) { continue }
-                    }
-                    let imageName = ''
-                    let imageSize = 0
-                    let offsetX = 0
-                    let offsetY = 0
-                    let imagePosition = { x: 0, y: 0 }
-                    if (image.config.codeName !== undefined) { imageName = image.config.codeName }
-                    if (image.config.size !== undefined) { imageSize = image.config.size }
-                    if (image.imagePosition.config.offsetX !== undefined) { offsetX = image.imagePosition.config.offsetX }
-                    if (image.imagePosition.config.offsetY !== undefined) { offsetY = image.imagePosition.config.offsetY }
-                    let dataPointObject = dataPoints.get(image.imagePosition.referenceParent.id)
-                    if (dataPointObject === undefined) { continue }
-                    let dataPoint = {
-                        x: dataPointObject.x,
-                        y: dataPointObject.y
-                    }
-                    dataPoint = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(dataPoint)
-                    dataPoint = thisObject.fitFunction(dataPoint)
-
-                    imagePosition.x = dataPoint.x
-                    imagePosition.y = dataPoint.y
-                    let imageToDraw = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName('Superalgos', imageName)
-                    if (imageToDraw !== undefined) {
-                        if (imageToDraw.canDrawIcon === true) {
-                            browserCanvasContext.drawImage(imageToDraw, imagePosition.x - imageSize / 2 + offsetX, imagePosition.y - imageSize / 2 - offsetY, imageSize, imageSize)
+                function plotImages() {
+                    /* Here we are going to plot images. */
+                    for (let j = 0; j < productDefinition.referenceParent.shapes.images.length; j++) {
+                        let image = productDefinition.referenceParent.shapes.images[j]
+                        if (image.imagePosition === undefined) { continue }
+                        if (image.imagePosition.referenceParent === undefined) { continue }
+                        if (image.imageCondition !== undefined) {
+                            let mustPlot = eval(image.imageCondition.code)
+                            if (mustPlot !== true) { continue }
                         }
-                    } else {
-                        console.log('Can not plot image named ' + imageName + ' of product ' + productDefinition.name + ' because it does not exist.')
+                        let imageName = ''
+                        let imageSize = 0
+                        let offsetX = 0
+                        let offsetY = 0
+                        let imagePosition = { x: 0, y: 0 }
+                        if (image.config.codeName !== undefined) { imageName = image.config.codeName }
+                        if (image.config.size !== undefined) { imageSize = image.config.size }
+                        if (image.imagePosition.config.offsetX !== undefined) { offsetX = image.imagePosition.config.offsetX }
+                        if (image.imagePosition.config.offsetY !== undefined) { offsetY = image.imagePosition.config.offsetY }
+                        let dataPointObject = dataPoints.get(image.imagePosition.referenceParent.id)
+                        if (dataPointObject === undefined) { continue }
+                        let dataPoint = {
+                            x: dataPointObject.x,
+                            y: dataPointObject.y
+                        }
+                        dataPoint = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(dataPoint)
+                        dataPoint = thisObject.fitFunction(dataPoint)
+
+                        imagePosition.x = dataPoint.x
+                        imagePosition.y = dataPoint.y
+                        let imageToDraw = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName('Superalgos', imageName)
+                        if (imageToDraw !== undefined) {
+                            if (imageToDraw.canDrawIcon === true) {
+                                browserCanvasContext.drawImage(imageToDraw, imagePosition.x - imageSize / 2 + offsetX, imagePosition.y - imageSize / 2 - offsetY, imageSize, imageSize)
+                            }
+                        } else {
+                            console.log('Can not plot image named ' + imageName + ' of product ' + productDefinition.name + ' because it does not exist.')
+                        }
                     }
                 }
 
-                /* Here we are going to plot texts. */
-                for (let j = 0; j < productDefinition.referenceParent.shapes.texts.length; j++) {
-                    let text = productDefinition.referenceParent.shapes.texts[j]
-                    if (text.textPosition === undefined) { continue }
-                    if (text.textPosition.referenceParent === undefined) { continue }
-                    if (text.textCondition !== undefined) {
-                        let mustPlot = eval(text.textCondition.code)
-                        if (mustPlot !== true) { continue }
-                    }
-                    if (text.textFormula === undefined) { continue }
-                    if (text.textStyle === undefined) { continue }
-                    let value = eval(text.textFormula.code)
-                    let fontSize = 0
-                    let opacity = 0
-                    let paletteColor = UI_COLOR.GREY
-                    let offsetX = 0
-                    let offsetY = 0
-                    let textPosition = { x: 0, y: 0 }
-                    if (text.textStyle.config.fontSize !== undefined) { fontSize = text.textStyle.config.fontSize }
-                    if (text.textStyle.config.opacity !== undefined) { opacity = text.textStyle.config.opacity }
-                    if (text.textStyle.config.paletteColor !== undefined) { paletteColor = eval(text.textStyle.config.paletteColor) }
-                    if (text.textPosition.config.offsetX !== undefined) { offsetX = text.textPosition.config.offsetX }
-                    if (text.textPosition.config.offsetY !== undefined) { offsetY = text.textPosition.config.offsetY }
-                    let dataPointObject = dataPoints.get(text.textPosition.referenceParent.id)
-                    if (dataPointObject === undefined) { continue }
-                    let dataPoint = {
-                        x: dataPointObject.x,
-                        y: dataPointObject.y
-                    }
-                    dataPoint = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(dataPoint)
-                    dataPoint = thisObject.fitFunction(dataPoint)
+                function plotTexts() {
+                    /* Here we are going to plot texts. */
+                    for (let j = 0; j < productDefinition.referenceParent.shapes.texts.length; j++) {
+                        let text = productDefinition.referenceParent.shapes.texts[j]
+                        if (text.textPosition === undefined) { continue }
+                        if (text.textPosition.referenceParent === undefined) { continue }
+                        if (text.textCondition !== undefined) {
+                            let mustPlot = eval(text.textCondition.code)
+                            if (mustPlot !== true) { continue }
+                        }
+                        if (text.textFormula === undefined) { continue }
+                        if (text.textStyle === undefined) { continue }
+                        let value = eval(text.textFormula.code)
+                        let fontSize = 0
+                        let opacity = 0
+                        let paletteColor = UI_COLOR.GREY
+                        let offsetX = 0
+                        let offsetY = 0
+                        let textPosition = { x: 0, y: 0 }
+                        if (text.textStyle.config.fontSize !== undefined) { fontSize = text.textStyle.config.fontSize }
+                        if (text.textStyle.config.opacity !== undefined) { opacity = text.textStyle.config.opacity }
+                        if (text.textStyle.config.paletteColor !== undefined) { paletteColor = eval(text.textStyle.config.paletteColor) }
+                        if (text.textPosition.config.offsetX !== undefined) { offsetX = text.textPosition.config.offsetX }
+                        if (text.textPosition.config.offsetY !== undefined) { offsetY = text.textPosition.config.offsetY }
+                        let dataPointObject = dataPoints.get(text.textPosition.referenceParent.id)
+                        if (dataPointObject === undefined) { continue }
+                        let dataPoint = {
+                            x: dataPointObject.x,
+                            y: dataPointObject.y
+                        }
+                        dataPoint = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(dataPoint)
+                        dataPoint = thisObject.fitFunction(dataPoint)
 
-                    textPosition.x = dataPoint.x
-                    textPosition.y = dataPoint.y
+                        textPosition.x = dataPoint.x
+                        textPosition.y = dataPoint.y
 
-                    browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-                    browserCanvasContext.fillStyle = 'rgba(' + paletteColor + ', ' + opacity + ')'
-                    browserCanvasContext.fillText(value, textPosition.x + offsetX, textPosition.y - offsetY)
+                        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
+                        browserCanvasContext.fillStyle = 'rgba(' + paletteColor + ', ' + opacity + ')'
+                        browserCanvasContext.fillText(value, textPosition.x + offsetX, textPosition.y - offsetY)
+                    }
                 }
             }
 

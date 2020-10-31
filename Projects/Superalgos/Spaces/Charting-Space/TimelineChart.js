@@ -317,6 +317,12 @@ function newTimelineChart() {
         syncWithDesignerLayerManager()
     }
 
+    function plotterManagerPhysics() {
+        if (thisObject.plotterManager !== undefined) {
+            thisObject.plotterManager.physics()
+        }
+    }
+
     function thisObjectPhysics() {
         /* Only if the plotter manager has some layer turned on, we will pass the min and max upstream. */
         if (thisObject.plotterManager !== undefined && thisObject.plotterManager.connectors.length > 0) {

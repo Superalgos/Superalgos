@@ -9344,7 +9344,7 @@
             }
         ],
         "initialValues": {
-            "config": "{ \n\"positionRate\": 0.1,\n\"stopLoss\": 0.2,\n\"takeProfit\": 0.3\n}"
+            "config": "{ \n\"marketOrderRate\": 0.1,\n\"stopLoss\": 0.2,\n\"takeProfit\": 0.3\n}"
         },
         "addLeftIcons": true,
         "editors": {

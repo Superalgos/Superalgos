@@ -83,7 +83,7 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
                 case 'Market Order': {
 
                     /* Actual Rate is simulated based on the Session Paremeters */
-                    let slippageAmount = tradingEngineOrder.rate.value * sessionParameters.slippage.config.positionRate / 100
+                    let slippageAmount = tradingEngineOrder.rate.value * sessionParameters.slippage.config.marketOrderRate / 100
                     if (slippageAmount !== 0) {
                         switch (tradingSystemOrder.type) {
                             case 'Market Sell Order': {
@@ -93,7 +93,7 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
                                 tradingSystem.warnings.push(
                                     [
                                         [sessionParameters.slippage.id, tradingEngineOrder.rate.id, tradingEngineOrder.orderStatistics.actualRate.id],
-                                        'slippage.config.positionRate Slippage Amount (' + slippageAmount + ') substracted from Order Rate (' + tradingEngineOrder.rate.value + ') to get the Actual Rate (' + tradingEngineOrder.orderStatistics.actualRate.value + ')'
+                                        'slippage.config.marketOrderRate Slippage Amount (' + slippageAmount + ') substracted from Order Rate (' + tradingEngineOrder.rate.value + ') to get the Actual Rate (' + tradingEngineOrder.orderStatistics.actualRate.value + ')'
                                     ]
                                 )
                                 break
@@ -105,7 +105,7 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
                                 tradingSystem.warnings.push(
                                     [
                                         [sessionParameters.slippage.id, tradingEngineOrder.rate.id, tradingEngineOrder.orderStatistics.actualRate.id],
-                                        'slippage.config.positionRate Slippage Amount (' + slippageAmount + ') added to Order Rate (' + tradingEngineOrder.rate.value + ') to get the Actual Rate (' + tradingEngineOrder.orderStatistics.actualRate.value + ')'
+                                        'slippage.config.marketOrderRate Slippage Amount (' + slippageAmount + ') added to Order Rate (' + tradingEngineOrder.rate.value + ') to get the Actual Rate (' + tradingEngineOrder.orderStatistics.actualRate.value + ')'
                                     ]
                                 )
                                 break
@@ -414,7 +414,7 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
                 /*
                 In this case the Amount Received is in Base Asset.
                 */
-                tradingEngineOrder.orderBaseAsset.amountReceived.value.value =
+                tradingEngineOrder.orderBaseAsset.amountReceived.value =
                     tradingEngineOrder.orderBaseAsset.sizeFilled.value -
                     tradingEngineOrder.orderBaseAsset.feesPaid.value
                 break
@@ -423,7 +423,7 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
                 /*
                 In this case the Amount Received is in Quoted Asset.
                 */
-                tradingEngineOrder.orderQuotedAsset.amountReceived.value.value =
+                tradingEngineOrder.orderQuotedAsset.amountReceived.value =
                     tradingEngineOrder.orderQuotedAsset.sizeFilled.value -
                     tradingEngineOrder.orderQuotedAsset.feesPaid.value
                 break

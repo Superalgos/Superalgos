@@ -15,6 +15,7 @@ function newPlottersManager() {
         setDatetime: setDatetime,
         setTimeFrame: setTimeFrame,
         setCoordinateSystem: setCoordinateSystem,
+        physics: physics, 
         draw: draw,
         getContainer: getContainer,
         initialize: initialize,
@@ -485,5 +486,15 @@ function newPlottersManager() {
             }
         }
         return maxElementsPlotted
+    }
+
+    function physics() {
+        if (thisObject.connectors === undefined) { return } // We need to wait
+         for (let i = 0; i < thisObject.connectors.length; i++) {
+            let connector = thisObject.connectors[thisObject.connectors.length - i - 1]
+            if (connector.plotter.physics !== undefined) {
+                connector.plotter.physics()
+            }
+        }
     }
 }

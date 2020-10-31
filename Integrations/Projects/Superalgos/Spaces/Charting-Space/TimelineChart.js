@@ -167,7 +167,7 @@ function newTimelineChart() {
             minValue,
             maxValue,
             thisObject.container.frame.width,
-            thisObject.container.frame.heigh  
+            thisObject.container.frame.heigh
         )
     }
 
@@ -311,10 +311,17 @@ function newTimelineChart() {
     }
 
     function physics() {
+        plotterManagerPhysics()
         thisObjectPhysics()
         childrenPhysics()
         syncWithDesignerScales()
         syncWithDesignerLayerManager()
+    }
+
+    function plotterManagerPhysics() {
+        if (thisObject.plotterManager !== undefined) {
+            thisObject.plotterManager.physics()
+        }
     }
 
     function thisObjectPhysics() {

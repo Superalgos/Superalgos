@@ -326,14 +326,14 @@
                         name: 'Missing Slippage',
                         type: 'Slippage',
                         config: {
-                            positionRate: 0,
+                            marketOrderRate: 0,
                             stopLoss: 0,
                             takeProfit: 0
                         }
                     }
                 }
-                if (bot.SESSION.parameters.slippage.config.positionRate === undefined) { // if the positionRate is missing we create a default one.
-                    bot.SESSION.parameters.slippage.config.positionRate = 0
+                if (bot.SESSION.parameters.slippage.config.marketOrderRate === undefined) { // if the marketOrderRate is missing we create a default one.
+                    bot.SESSION.parameters.slippage.config.marketOrderRate = 0
                 }
                 if (bot.SESSION.parameters.slippage.config.stopLoss === undefined) { // if the stopLoss is missing we create a default one.
                     bot.SESSION.parameters.slippage.config.stopLoss = 0

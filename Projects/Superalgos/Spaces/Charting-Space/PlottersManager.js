@@ -492,7 +492,9 @@ function newPlottersManager() {
         if (thisObject.connectors === undefined) { return } // We need to wait
          for (let i = 0; i < thisObject.connectors.length; i++) {
             let connector = thisObject.connectors[thisObject.connectors.length - i - 1]
-            let elementsPlotted = connector.plotter.physics()
+            if (connector.plotter.physics !== undefined) {
+                connector.plotter.physics()
+            }
         }
     }
 }

@@ -252,7 +252,16 @@ function newPlotter() {
     }
 
     function physics() {
+        for (let i = 0; i < records.length; i++) {
+            let record = records[i]
 
+            if (checkOutOfScreen(i, record) !== true) { continue }
+
+            if (productDefinition.referenceParent.shapes === undefined) { continue }
+            if (productDefinition.referenceParent.shapes.chartPoints === undefined) { continue }
+
+            dataPointsCalculation(record)
+        }
     }
 
     function recalculate() {
@@ -484,7 +493,7 @@ function newPlotter() {
             for (let i = 0; i < records.length; i++) {
                 let record = records[i]
 
-                if (checkOutOfScreen() !== true) {continue}
+                if (checkOutOfScreen(i, record) !== true) { continue }
 
                 let atMousePosition = false
                 checkAtMousePosition()
@@ -497,52 +506,9 @@ function newPlotter() {
                 if (productDefinition.referenceParent.shapes === undefined) { continue }
                 if (productDefinition.referenceParent.shapes.chartPoints === undefined) { continue }
 
-                let dataPoints = new Map()
-
-                dataPointsCalculation()
                 plotPolygons()
                 plotImages()
                 plotTexts()
-
-                function checkOutOfScreen() {
-                    /*
-                    In the formulas to create plotters, we allos users to reference the previous record.
-                    To enable that we need to link all records to the previous one in this way.
-                    */
-                    if (i == 0) {
-                        record.previous = {} // this way it wont be undefined
-                    } else {
-                        record.previous = records[i - 1]
-                    }
-
-                    let beginPoint = {
-                        x: record.begin,
-                        y: 0
-                    }
-
-                    let endPoint = {
-                        x: record.end,
-                        y: 0
-                    }
-
-                    beginPoint = coordinateSystem.transformThisPoint(beginPoint)
-                    endPoint = coordinateSystem.transformThisPoint(endPoint)
-
-                    beginPoint = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(beginPoint, thisObject.container)
-                    endPoint = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(endPoint, thisObject.container)
-
-                    beginPoint = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(beginPoint)
-                    endPoint = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(endPoint)
-
-                    beginPoint = thisObject.fitFunction(beginPoint)
-                    endPoint = thisObject.fitFunction(endPoint)
-
-                    if (endPoint.x < UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomLeft.x || beginPoint.x > UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomRight.x) {
-                        return false
-                    } else {
-                        return true
-                    }
-                }
 
                 function checkAtMousePosition() {
 
@@ -569,59 +535,6 @@ function newPlotter() {
                             atMousePosition = true
                             thisObject.container.eventHandler.raiseEvent('Current Record Changed', record)
                         }
-                    }
-                }
-
-                function dataPointsCalculation() {
-                    if (record.dataPoints !== undefined && mustRecalculateDataPoints === false) {
-                        /* We use the datapoints already calculated. */
-                        dataPoints = record.dataPoints
-                    } else {
-                        if (logged === false) {
-                            logged = true
-                        }
-                        /* It seems we need to calculate the data points this time. */
-                        for (let k = 0; k < productDefinition.referenceParent.shapes.chartPoints.length; k++) {
-                            let chartPoints = productDefinition.referenceParent.shapes.chartPoints[k]
-                            for (let j = 0; j < chartPoints.points.length; j++) {
-                                let point = chartPoints.points[j]
-                                if (point.pointFormula !== undefined) {
-                                    let x = 0
-                                    let y = 0
-                                    eval(point.pointFormula.code)
-                                    let rawPoint = {
-                                        x: x,
-                                        y: y
-                                    }
-
-                                    /*
-                                    The information we store in files is independent from the charing system and its coordinate systems.
-                                    That means that the first thing we allways need to do is to trasform these points to the coordinate system of the timeline.
-                                    */
-                                    let dataPoint
-                                    dataPoint = coordinateSystem.transformThisPoint(rawPoint)
-                                    dataPoint = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(dataPoint, thisObject.container)
-                                    let testPoint = {
-                                        x: dataPoint.x,
-                                        y: dataPoint.y
-                                    }
-                                    dataPoint = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(dataPoint)
-                                    dataPoint = thisObject.fitFunction(dataPoint)
-
-                                    if (testPoint.x === dataPoint.x) {
-                                        dataPoint.isInViewPort = true
-                                    } else {
-                                        dataPoint.isInViewPort = false
-                                    }
-                                    /* Store the data point at the local map */
-                                    dataPoint.rawPoint = rawPoint
-                                    dataPoints.set(point.id, dataPoint)
-                                }
-                            }
-                        }
-
-                        /* Remember this datapoints, so that we do not need to calculate them again. */
-                        record.dataPoints = dataPoints
                     }
                 }
 
@@ -756,7 +669,7 @@ function newPlotter() {
                         for (let k = 0; k < polygon.polygonVertexes.length; k++) {
                             let polygonVertex = polygon.polygonVertexes[k]
                             if (polygonVertex.referenceParent !== undefined) {
-                                let dataPointObject = dataPoints.get(polygonVertex.referenceParent.id)
+                                let dataPointObject = record.dataPoints.get(polygonVertex.referenceParent.id)
                                 if (dataPointObject === undefined) {
                                     polygonVertex.payload.uiObject.setErrorMessage('Vertex not referencing any Point')
                                     console.log('[WARN] You have a Polygon Vertex not referencing any Point.')
@@ -770,18 +683,6 @@ function newPlotter() {
                                 /* We make sure the points do not fall outside the viewport visible area. This step allways need to be done.  */
                                 dataPoint = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(dataPoint)
                                 dataPoint = thisObject.fitFunction(dataPoint)
-                                /* 
-                                Contributing to Auto-Scale: A point will contribute to the y coordinate only if the x coordinate is plotted in the screen.
-                                It can happen that objects that span through a long period of time could have its begin point inside the visible 
-                                viewport but not its end point. In those cases, the end point should not be reported. 
-                                */
-
-                                if (dataPointObject.rawPoint.y > 1 && dataPointObject.rawPoint.y !== undefined && isNaN(dataPointObject.rawPoint.y) === false) {
-                                    let rawPoint = coordinateSystem.transformThisPoint(dataPointObject.rawPoint)
-                                    if (dataPointObject.isInViewPort === true) {
-                                        coordinateSystem.reportYValue(dataPointObject.rawPoint.y)
-                                    }
-                                }
 
                                 if (k === 0) {
                                     browserCanvasContext.moveTo(dataPoint.x, dataPoint.y)
@@ -843,7 +744,7 @@ function newPlotter() {
                         if (image.config.size !== undefined) { imageSize = image.config.size }
                         if (image.imagePosition.config.offsetX !== undefined) { offsetX = image.imagePosition.config.offsetX }
                         if (image.imagePosition.config.offsetY !== undefined) { offsetY = image.imagePosition.config.offsetY }
-                        let dataPointObject = dataPoints.get(image.imagePosition.referenceParent.id)
+                        let dataPointObject = record.dataPoints.get(image.imagePosition.referenceParent.id)
                         if (dataPointObject === undefined) { continue }
                         let dataPoint = {
                             x: dataPointObject.x,
@@ -889,7 +790,7 @@ function newPlotter() {
                         if (text.textStyle.config.paletteColor !== undefined) { paletteColor = eval(text.textStyle.config.paletteColor) }
                         if (text.textPosition.config.offsetX !== undefined) { offsetX = text.textPosition.config.offsetX }
                         if (text.textPosition.config.offsetY !== undefined) { offsetY = text.textPosition.config.offsetY }
-                        let dataPointObject = dataPoints.get(text.textPosition.referenceParent.id)
+                        let dataPointObject = record.dataPoints.get(text.textPosition.referenceParent.id)
                         if (dataPointObject === undefined) { continue }
                         let dataPoint = {
                             x: dataPointObject.x,
@@ -908,15 +809,109 @@ function newPlotter() {
                 }
             }
 
-            if (coordinateSystem.autoMinYScale === true || coordinateSystem.autoMaxYScale === true) {
-                mustRecalculateDataPoints = true
-            } else {
-                mustRecalculateDataPoints = false
-            }
-
             logged = false
         } catch (err) {
             if (ERROR_LOG === true) { logger.write('[ERROR] plot -> err = ' + err.stack) }
+        }
+    }
+
+    function checkOutOfScreen(i, record) {
+        /*
+        In the formulas to create plotters, we allos users to reference the previous record.
+        To enable that we need to link all records to the previous one in this way.
+        */
+        if (i == 0) {
+            record.previous = {} // this way it wont be undefined
+        } else {
+            record.previous = records[i - 1]
+        }
+
+        let beginPoint = {
+            x: record.begin,
+            y: 0
+        }
+
+        let endPoint = {
+            x: record.end,
+            y: 0
+        }
+
+        beginPoint = coordinateSystem.transformThisPoint(beginPoint)
+        endPoint = coordinateSystem.transformThisPoint(endPoint)
+
+        beginPoint = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(beginPoint, thisObject.container)
+        endPoint = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(endPoint, thisObject.container)
+
+        beginPoint = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(beginPoint)
+        endPoint = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(endPoint)
+
+        beginPoint = thisObject.fitFunction(beginPoint)
+        endPoint = thisObject.fitFunction(endPoint)
+
+        if (endPoint.x < UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomLeft.x || beginPoint.x > UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomRight.x) {
+            return false
+        } else {
+            return true
+        }
+    }
+
+    function dataPointsCalculation(record) {
+        if (record.dataPoints !== undefined && mustRecalculateDataPoints === false) {
+            /* We use the datapoints already calculated. */
+            dataPoints = record.dataPoints
+        } else {
+             if (logged === false) {
+                logged = true
+            }
+            let dataPoints = new Map()
+            /* It seems we need to calculate the data points this time. */
+            for (let k = 0; k < productDefinition.referenceParent.shapes.chartPoints.length; k++) {
+                let chartPoints = productDefinition.referenceParent.shapes.chartPoints[k]
+                for (let j = 0; j < chartPoints.points.length; j++) {
+                    let point = chartPoints.points[j]
+                    if (point.pointFormula !== undefined) {
+                        let x = 0
+                        let y = 0
+                        eval(point.pointFormula.code)
+                        let rawPoint = {
+                            x: x,
+                            y: y
+                        }
+
+                        /*
+                        The information we store in files is independent from the charing system and its coordinate systems.
+                        That means that the first thing we allways need to do is to trasform these points to the coordinate system of the timeline.
+                        */
+                        let dataPoint
+                        dataPoint = coordinateSystem.transformThisPoint(rawPoint)
+                        dataPoint = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(dataPoint, thisObject.container)
+                        let testPoint = {
+                            x: dataPoint.x,
+                            y: dataPoint.y
+                        }
+                        dataPoint = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(dataPoint)
+                        dataPoint = thisObject.fitFunction(dataPoint)
+
+                        if (testPoint.x === dataPoint.x) {
+                            /* 
+                            Contributing to Auto-Scale: A point will contribute to the y coordinate only if the x coordinate is plotted in the screen.
+                            It can happen that objects that span through a long period of time could have its begin point inside the visible 
+                            viewport but not its end point. In those cases, the end point should not be reported. 
+                            */
+
+                            if (rawPoint.y > 0 && rawPoint.y !== undefined && isNaN(rawPoint.y) === false) {
+                                coordinateSystem.reportYValue(rawPoint.y)
+                            }
+                        }
+                        /* Store the data point at the local map */
+                        dataPoint.rawPoint = rawPoint
+                        dataPoints.set(point.id, dataPoint)
+                    }
+                }
+            }
+
+            /* Remember this datapoints, so that we do not need to calculate them again. */
+            record.dataPoints = dataPoints
         }
     }
 

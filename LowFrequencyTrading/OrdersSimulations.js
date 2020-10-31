@@ -414,7 +414,7 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
                 /*
                 In this case the Amount Received is in Base Asset.
                 */
-                tradingEngineOrder.orderBaseAsset.amountReceived.value.value =
+                tradingEngineOrder.orderBaseAsset.amountReceived.value =
                     tradingEngineOrder.orderBaseAsset.sizeFilled.value -
                     tradingEngineOrder.orderBaseAsset.feesPaid.value
                 break
@@ -423,7 +423,7 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
                 /*
                 In this case the Amount Received is in Quoted Asset.
                 */
-                tradingEngineOrder.orderQuotedAsset.amountReceived.value.value =
+                tradingEngineOrder.orderQuotedAsset.amountReceived.value =
                     tradingEngineOrder.orderQuotedAsset.sizeFilled.value -
                     tradingEngineOrder.orderQuotedAsset.feesPaid.value
                 break

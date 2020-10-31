@@ -63,7 +63,7 @@ exports.newOrdersCalculations = function newOrdersCalculations(bot, logger) {
 
         function recalculateActualSize() {
             /*
-            We will recalculate the Quoted Asset Actual Size. This will also give to it an initial value the first time we do this. 
+            We will recalculate the Quoted Asset Actual Size. This will also give to it an initial value. 
             In the next formula, we are unsing the rate of the order because we dont know yet the Actual Rate.
             This rate might be replaced afteerwards for the Actual Rate when this is calculated again once 
             the Actual Rate is known. 
@@ -279,7 +279,7 @@ exports.newOrdersCalculations = function newOrdersCalculations(bot, logger) {
         need to calculate that by ourselves. 
         */
         tradingEngineOrder.orderQuotedAsset.sizeFilled.value =
-            tradingEngineOrder.orderQuotedAsset.sizeFilled.value * tradingEngineOrder.orderStatistics.percentageFilled.value / 100
+            tradingEngineOrder.orderQuotedAsset.actualSize.value * tradingEngineOrder.orderStatistics.percentageFilled.value / 100
 
         tradingEngineOrder.orderQuotedAsset.sizeFilled.value = global.PRECISE(tradingEngineOrder.orderQuotedAsset.sizeFilled.value, 10)
     }
@@ -297,7 +297,7 @@ exports.newOrdersCalculations = function newOrdersCalculations(bot, logger) {
                 /*
                 In this case the Amount Received is in Base Asset.
                 */
-                tradingEngineOrder.orderBaseAsset.amountReceived.value.value =
+                tradingEngineOrder.orderBaseAsset.amountReceived.value =
                     tradingEngineOrder.orderBaseAsset.sizeFilled.value -
                     tradingEngineOrder.orderBaseAsset.feesPaid.value
                 break
@@ -306,7 +306,7 @@ exports.newOrdersCalculations = function newOrdersCalculations(bot, logger) {
                 /*
                 In this case the Amount Received is in Quoted Asset.
                 */
-                tradingEngineOrder.orderQuotedAsset.amountReceived.value.value =
+                tradingEngineOrder.orderQuotedAsset.amountReceived.value =
                     tradingEngineOrder.orderQuotedAsset.sizeFilled.value -
                     tradingEngineOrder.orderQuotedAsset.feesPaid.value
                 break

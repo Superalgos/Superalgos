@@ -1,4 +1,4 @@
-function newDataMineFunctions() {
+function newMineFunctions() {
     thisObject = {
         addAllOutputDatasets: addAllOutputDatasets,
         addAllDataDependencies: addAllDataDependencies, 

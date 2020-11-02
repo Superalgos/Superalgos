@@ -13,16 +13,22 @@ function newTaskFunctions() {
         stopAllExchangeDataTasks: stopAllExchangeDataTasks,
         runAllExchangeTradingTasks: runAllExchangeTradingTasks,
         stopAllExchangeTradingTasks: stopAllExchangeTradingTasks,
+        runAllExchangeLearningTasks: runAllExchangeLearningTasks,
+        stopAllExchangeLearningTasks: stopAllExchangeLearningTasks,
 
         runAllMarketDataTasks: runAllMarketDataTasks,
         stopAllMarketDataTasks: stopAllMarketDataTasks,
         runAllMarketTradingTasks: runAllMarketTradingTasks,
         stopAllMarketTradingTasks: stopAllMarketTradingTasks,
+        runAllMarketLearningTasks: runAllMarketLearningTasks,
+        stopAllMarketLearningTasks: stopAllMarketLearningTasks,
 
         runAllDataMineTasks: runAllDataMineTasks,
         stopAllDataMineTasks: stopAllDataMineTasks,
         runAllTradingMineTasks: runAllTradingMineTasks,
         stopAllTradingMineTasks: stopAllTradingMineTasks,
+        runAllIntelMineTasks: runAllIntelMineTasks,
+        stopAllIntelMineTasks: stopAllIntelMineTasks,
 
         addMissingExchangeDataTasks: addMissingExchangeDataTasks,
         addMissingMarketDataTasks: addMissingMarketDataTasks,
@@ -30,6 +36,10 @@ function newTaskFunctions() {
         addMissingExchangeTradingTasks: addMissingExchangeTradingTasks,
         addMissingMarketTradingTasks: addMissingMarketTradingTasks,
         addMissingTradingMineTasks: addMissingTradingMineTasks,
+        addMissingExchangeLearningTasks: addMissingExchangeLearningTasks,
+        addMissingMarketLearningTasks: addMissingMarketLearningTasks,
+        addMissingIntelMineTasks: addMissingIntelMineTasks,
+
         addAllTasks: addAllTasks
     }
 
@@ -323,6 +333,16 @@ function newTaskFunctions() {
         }
     }
 
+    function runAllExchangeLearningTasks(parent, functionLibraryProtocolNode) {
+        for (let i = 0; i < parent.exchangeLearningTasks.length; i++) {
+            let node = parent.exchangeLearningTasks[i]
+            let menu = node.payload.uiObject.menu
+
+            menu.internalClick('Run All Market Learning Tasks')
+            menu.internalClick('Run All Market Learning Tasks')
+        }
+    }
+
     function stopAllExchangeTradingTasks(parent, functionLibraryProtocolNode) {
         for (let i = 0; i < parent.exchangeTradingTasks.length; i++) {
             let node = parent.exchangeTradingTasks[i]
@@ -330,6 +350,16 @@ function newTaskFunctions() {
 
             menu.internalClick('Stop All Market Trading Tasks')
             menu.internalClick('Stop All Market Trading Tasks')
+        }
+    }
+
+    function stopAllExchangeLearningTasks(parent, functionLibraryProtocolNode) {
+        for (let i = 0; i < parent.exchangeLearningTasks.length; i++) {
+            let node = parent.exchangeLearningTasks[i]
+            let menu = node.payload.uiObject.menu
+
+            menu.internalClick('Stop All Market Learning Tasks')
+            menu.internalClick('Stop All Market Learning Tasks')
         }
     }
 
@@ -363,6 +393,16 @@ function newTaskFunctions() {
         }
     }
 
+    function runAllMarketLearningTasks(parent, functionLibraryProtocolNode) {
+        for (let i = 0; i < parent.marketLearningTasks.length; i++) {
+            let node = parent.marketLearningTasks[i]
+            let menu = node.payload.uiObject.menu
+
+            menu.internalClick('Run All Intel Mine Tasks')
+            menu.internalClick('Run All Intel Mine Tasks')
+        }
+    }
+
     function stopAllMarketTradingTasks(parent, functionLibraryProtocolNode) {
         for (let i = 0; i < parent.marketTradingTasks.length; i++) {
             let node = parent.marketTradingTasks[i]
@@ -370,6 +410,16 @@ function newTaskFunctions() {
 
             menu.internalClick('Stop All Trading Mine Tasks')
             menu.internalClick('Stop All Trading Mine Tasks')
+        }
+    }
+
+    function stopAllMarketLearningTasks(parent, functionLibraryProtocolNode) {
+        for (let i = 0; i < parent.marketLearningTasks.length; i++) {
+            let node = parent.marketLearningTasks[i]
+            let menu = node.payload.uiObject.menu
+
+            menu.internalClick('Stop All Intel Mine Tasks')
+            menu.internalClick('Stop All Intel Mine Tasks')
         }
     }
 
@@ -403,9 +453,29 @@ function newTaskFunctions() {
         }
     }
 
+    function runAllIntelMineTasks(parent, functionLibraryProtocolNode) {
+        for (let i = 0; i < parent.intelMineTasks.length; i++) {
+            let node = parent.intelMineTasks[i]
+            let menu = node.payload.uiObject.menu
+
+            menu.internalClick('Run All Task Managers')
+            menu.internalClick('Run All Task Managers')
+        }
+    }
+
     function stopAllTradingMineTasks(parent, functionLibraryProtocolNode) {
         for (let i = 0; i < parent.tradingMineTasks.length; i++) {
             let node = parent.tradingMineTasks[i]
+            let menu = node.payload.uiObject.menu
+
+            menu.internalClick('Stop All Task Managers')
+            menu.internalClick('Stop All Task Managers')
+        }
+    }
+
+    function stopAllIntelMineTasks(parent, functionLibraryProtocolNode) {
+        for (let i = 0; i < parent.intelMineTasks.length; i++) {
+            let node = parent.intelMineTasks[i]
             let menu = node.payload.uiObject.menu
 
             menu.internalClick('Stop All Task Managers')
@@ -419,6 +489,10 @@ function newTaskFunctions() {
 
     function addMissingExchangeTradingTasks(node, rootNodes, functionLibraryUiObjectsFromNodes) {
         addMissingExchangeTasks(node, rootNodes, 'Exchange Trading Tasks', functionLibraryUiObjectsFromNodes)
+    }
+
+    function addMissingExchangeLearningTasks(node, rootNodes, functionLibraryUiObjectsFromNodes) {
+        addMissingExchangeTasks(node, rootNodes, 'Exchange Learning Tasks', functionLibraryUiObjectsFromNodes)
     }
 
     function addMissingExchangeTasks(node, rootNodes, newNodeType, functionLibraryUiObjectsFromNodes) {
@@ -448,6 +522,10 @@ function newTaskFunctions() {
         addMissingMarketTasks(node, 'Market Trading Tasks', functionLibraryUiObjectsFromNodes)
     }
 
+    function addMissingMarketLearningTasks(node, functionLibraryUiObjectsFromNodes) {
+        addMissingMarketTasks(node, 'Market Learning Tasks', functionLibraryUiObjectsFromNodes)
+    }
+
     function addMissingMarketTasks(node,  newNodeType, functionLibraryUiObjectsFromNodes) {
         if (node.payload === undefined) { return }
         if (node.payload.referenceParent === undefined) { return }
@@ -471,6 +549,10 @@ function newTaskFunctions() {
 
     function addMissingTradingMineTasks(node, rootNodes, functionLibraryUiObjectsFromNodes) {
         addMissingMineTasks(node, rootNodes, 'Trading Mine', 'Trading Mine Tasks', functionLibraryUiObjectsFromNodes)
+    }
+
+    function addMissingIntelMineTasks(node, rootNodes, functionLibraryUiObjectsFromNodes) {
+        addMissingMineTasks(node, rootNodes, 'Intel Mine', 'Intel Mine Tasks', functionLibraryUiObjectsFromNodes)
     }
 
     function addMissingMineTasks(node, rootNodes, rootNodeType, newNodeType, functionLibraryUiObjectsFromNodes) {

@@ -3,6 +3,7 @@ function newDataStorageFunctions() {
         addAllDataProducts: addAllDataProducts,
         addAllDataMineProducts: addAllDataMineProducts,
         addAllTradingMineProducts: addAllTradingMineProducts,
+        addAllIntelMineProducts: addAllIntelMineProducts,
         addMissingSessionReferences: addMissingSessionReferences,
         addMissingMarketDataProducts: addMissingMarketDataProducts,
         addMissingMarketTradingProducts: addMissingMarketTradingProducts,
@@ -80,6 +81,17 @@ function newDataStorageFunctions() {
             if (rootNode.type === 'Trading Mine') {
                 let tradingMineProducts = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Trading Mine Products')
                 tradingMineProducts.payload.referenceParent = rootNode
+            }
+        }
+    }
+
+    function addAllIntelMineProducts(node, rootNodes, functionLibraryUiObjectsFromNodes) {
+        for (let i = 0; i < rootNodes.length; i++) {
+            let rootNode = rootNodes[i]
+
+            if (rootNode.type === 'Intel Mine') {
+                let intelMineProducts = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Intel Mine Products')
+                intelMineProducts.payload.referenceParent = rootNode
             }
         }
     }

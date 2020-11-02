@@ -28,6 +28,12 @@
             },
             {
                 "action": "Add UI Object",
+                "label": "Add Intel Mine",
+                "relatedUiObject": "Intel Mine",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
                 "label": "Add Super Scripts",
                 "relatedUiObject": "Super Scripts",
                 "actionFunction": "payload.executeAction"
@@ -1917,6 +1923,14 @@
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "intelMining",
+                "label": "Add Intel Mining",
+                "relatedUiObject": "Intel Mining",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
                 "propertyToCheckFor": "testingEnvironment",
                 "label": "Add Testing Environment",
                 "relatedUiObject": "Testing Environment",
@@ -1965,6 +1979,12 @@
                 "name": "dataMining",
                 "type": "node",
                 "childType": "Data Mining",
+                "autoAdd": true
+            },
+            {
+                "name": "intelMining",
+                "type": "node",
+                "childType": "Intel Mining",
                 "autoAdd": true
             },
             {
@@ -2030,7 +2050,7 @@
         "addLeftIcons": true,
         "level": 2,
         "chainAttachesTo": {
-            "compatibleTypes": "->Data Mine Tasks->Trading Mine Tasks->"
+            "compatibleTypes": "->Data Mine Tasks->Trading Mine Tasks->Intel Mine Tasks->"
         },
         "properties": [
             {
@@ -2099,6 +2119,14 @@
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "bot",
+                "label": "Add AI Bot Instance",
+                "relatedUiObject": "AI Bot Instance",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
                 "propertyToCheckFor": "keyReference",
                 "label": "Add Key Reference",
                 "relatedUiObject": "Key Reference",
@@ -2135,6 +2163,11 @@
                 "name": "bot",
                 "type": "node",
                 "childType": "Indicator Bot Instance"
+            },
+            {
+                "name": "bot",
+                "type": "node",
+                "childType": "AI Bot Instance"
             },
             {
                 "name": "keyReference",
@@ -2191,6 +2224,55 @@
             }
         ],
         "propertyNameAtParent": "bot"
+    },
+    {
+        "type": "AI Bot Instance",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Process Instance",
+                "relatedUiObject": "AI Process Instance",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{}"
+        },
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Task->"
+        },
+        "properties": [
+            {
+                "name": "processes",
+                "type": "array",
+                "childType": "AI Process Instance",
+                "autoAdd": false
+            }
+        ],
+        "propertyNameAtParent": "bot",
+        "icon": "bitcoin"
     },
     {
         "type": "Sensor Process Instance",
@@ -2257,7 +2339,7 @@
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
                 "propertyToCheckFor": "session",
-                "label": "Add Backtesting",
+                "label": "Add Backtesting Session",
                 "relatedUiObject": "Backtesting Session",
                 "actionFunction": "payload.executeAction"
             },
@@ -2265,7 +2347,7 @@
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
                 "propertyToCheckFor": "session",
-                "label": "Add Live Trading",
+                "label": "Add Live Trading Session",
                 "relatedUiObject": "Live Trading Session",
                 "actionFunction": "payload.executeAction"
             },
@@ -2273,7 +2355,7 @@
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
                 "propertyToCheckFor": "session",
-                "label": "Add Forward Testing",
+                "label": "Add Forward Testing Session",
                 "relatedUiObject": "Forward Testing Session",
                 "actionFunction": "payload.executeAction"
             },
@@ -2281,7 +2363,7 @@
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
                 "propertyToCheckFor": "session",
-                "label": "Add Paper Trading",
+                "label": "Add Paper Trading Session",
                 "relatedUiObject": "Paper Trading Session",
                 "actionFunction": "payload.executeAction"
             },
@@ -2345,6 +2427,64 @@
             }
         ],
         "propertyNameAtParent": "processes"
+    },
+    {
+        "type": "AI Process Instance",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "session",
+                "label": "Add Learning Session",
+                "relatedUiObject": "Learning Session",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "executionStartedEvent",
+                "label": "Add Execution Started Event",
+                "relatedUiObject": "Execution Started Event",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "title": [
+            "Use Reference Parent Parent",
+            "Use Reference Parent"
+        ],
+        "addLeftIcons": true,
+        "level": 2,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Process Definition->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Trading Bot Instance->"
+        },
+        "properties": [
+            {
+                "name": "session",
+                "type": "node",
+                "childType": "Learning Session"
+            },
+            {
+                "name": "executionStartedEvent",
+                "type": "node",
+                "childType": "Execution Started Event",
+                "autoAdd": false
+            }
+        ],
+        "propertyNameAtParent": "processes",
+        "icon": "bitcoin"
     },
     {
         "type": "Backtesting Session",
@@ -9007,7 +9147,7 @@
         "addLeftIcons": true,
         "level": 2,
         "chainAttachesTo": {
-            "compatibleTypes": "->Backtesting Session->Live Trading Session->Paper Trading Session->Forward Testing Session->"
+            "compatibleTypes": "->Backtesting Session->Live Trading Session->Paper Trading Session->Forward Testing Session->Learning Session->"
         },
         "properties": [
             {
@@ -9851,6 +9991,108 @@
         "propertyNameAtParent": "session"
     },
     {
+        "type": "Learning Session",
+        "menuItems": [
+            {
+                "action": "Run Session",
+                "label": "Run",
+                "workingLabel": "Run Request Sent",
+                "workDoneLabel": "Session Running",
+                "workFailedLabel": "Session Cannot be Run",
+                "secondaryAction": "Stop Session",
+                "secondaryLabel": "Stop",
+                "secondaryWorkingLabel": "Stopping...",
+                "secondaryWorkDoneLabel": "Session Stopped",
+                "secondaryWorkFailedLabel": "Session Cannot be Stopped",
+                "secondaryIcon": "stop",
+                "iconPathOn": "run",
+                "iconPathOff": "run",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Resume Session",
+                "label": "Resume",
+                "workingLabel": "Resume Request Sent",
+                "workDoneLabel": "Session Running",
+                "workFailedLabel": "Session Cannot be Resumed",
+                "secondaryAction": "Stop Session",
+                "secondaryLabel": "Stop",
+                "secondaryWorkingLabel": "Stopping...",
+                "secondaryWorkDoneLabel": "Session Stopped",
+                "secondaryWorkFailedLabel": "Session Cannot be Stopped",
+                "secondaryIcon": "stop",
+                "iconPathOn": "resume",
+                "iconPathOff": "resume",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Add Missing Children",
+                "label": "Add Missing Children",
+                "relatedUiObject": "Parameters",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "addLeftIcons": true,
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n\"folderName\": \"Your-Session-Folder-Name\"\n}"
+        },
+        "level": 2,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Trading System->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Trading Process Instance->"
+        },
+        "properties": [
+            {
+                "name": "parameters",
+                "type": "node",
+                "childType": "Parameters",
+                "autoAdd": true
+            },
+            {
+                "name": "tradingSystemReference",
+                "type": "node",
+                "childType": "Trading System Reference",
+                "autoAdd": true
+            },
+            {
+                "name": "tradingEngineReference",
+                "type": "node",
+                "childType": "Trading Engine Reference",
+                "autoAdd": true
+            },
+            {
+                "name": "socialBots",
+                "type": "node",
+                "childType": "Social Bots"
+            }
+        ],
+        "propertyNameAtParent": "session",
+        "icon": "bitcoin"
+    },
+    {
         "type": "Sensor Bot Instance",
         "menuItems": [
             {
@@ -10085,6 +10327,63 @@
         ]
     },
     {
+        "type": "Intel Mine",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add AI Bot",
+                "relatedUiObject": "AI Bot",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Plotter",
+                "relatedUiObject": "Plotter",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "isHierarchyHead": true,
+        "addLeftIcons": true,
+        "editors": {
+            "config": true
+        },
+        "level": 0,
+        "initialValues": {
+            "config": "{ \n\"codeName\": \"Type a name with no spaces or dashes\"\n}"
+        },
+        "properties": [
+            {
+                "name": "aiBots",
+                "type": "array",
+                "childType": "AI Bot"
+            },
+            {
+                "name": "plotters",
+                "type": "array",
+                "childType": "Plotter"
+            }
+        ],
+        "icon": "bitcoin"
+    },
+    {
         "type": "Sensor Bot",
         "menuItems": [
             {
@@ -10182,7 +10481,7 @@
         },
         "level": 1,
         "chainAttachesTo": {
-            "compatibleTypes": "->Sensor Bot->Indicator Bot->Trading Bot->"
+            "compatibleTypes": "->Sensor Bot->Indicator Bot->Trading Bot->AI Bot->"
         },
         "properties": [
             {
@@ -10524,7 +10823,7 @@
         "addLeftIcons": true,
         "level": 3,
         "chainAttachesTo": {
-            "compatibleTypes": "->Trading Bot->Product Definition Folder->"
+            "compatibleTypes": "->Trading Bot->AI Bot->Product Definition Folder->"
         },
         "properties": [
             {
@@ -10596,7 +10895,7 @@
             "compatibleTypes": "->Plotter Module->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Sensor Bot->Indicator Bot->Trading Bot->Product Definition Folder->"
+            "compatibleTypes": "->Sensor Bot->Indicator Bot->Trading Bot->AI Bot->Product Definition Folder->"
         },
         "properties": [
             {
@@ -11149,7 +11448,7 @@
         },
         "level": 3,
         "chainAttachesTo": {
-            "compatibleTypes": "->Data Mine->"
+            "compatibleTypes": "->Trading Mine->"
         },
         "properties": [
             {
@@ -11172,6 +11471,80 @@
             }
         ],
         "propertyNameAtParent": "tradingBots"
+    },
+    {
+        "type": "AI Bot",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Process Definition",
+                "relatedUiObject": "Process Definition",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Product Definition",
+                "relatedUiObject": "Product Definition",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Product Definition Folder",
+                "relatedUiObject": "Product Definition Folder",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "addLeftIcons": true,
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n  \"codeName\": \"\"\n}"
+        },
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Intel Mine->"
+        },
+        "properties": [
+            {
+                "name": "processes",
+                "type": "array",
+                "childType": "Process Definition",
+                "autoAdd": true
+            },
+            {
+                "name": "products",
+                "type": "array",
+                "childType": "Product Definition",
+                "autoAdd": true
+            },
+            {
+                "name": "productDefinitionFolders",
+                "type": "array",
+                "childType": "Product Definition Folder",
+                "autoAdd": true
+            }
+        ],
+        "propertyNameAtParent": "aiBots",
+        "icon": "bitcoin"
     },
     {
         "type": "Plotter",
@@ -12901,7 +13274,7 @@
         "addLeftIcons": true,
         "level": 4,
         "chainAttachesTo": {
-            "compatibleTypes": "->Backtesting Session->Live Trading Session->Paper Trading Session->Forward Testing Session->"
+            "compatibleTypes": "->Backtesting Session->Live Trading Session->Paper Trading Session->Forward Testing Session->Learning Session->"
         },
         "properties": [
             {
@@ -14773,6 +15146,78 @@
         ]
     },
     {
+        "type": "Intel Mine Tasks",
+        "menuItems": [
+            {
+                "action": "Run All Task Managers",
+                "label": "Run All Task Managers",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Run",
+                "workDoneLabel": "Run Request Sent",
+                "iconPathOn": "run",
+                "iconPathOff": "run",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Stop All Task Managers",
+                "label": "Stop All Task Managers",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Stop",
+                "workDoneLabel": "Stop Request Sent",
+                "iconPathOn": "stop",
+                "iconPathOff": "stop",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Task Manager",
+                "relatedUiObject": "Task Manager",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add All Tasks",
+                "label": "Add All Tasks",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Task",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 2,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Intel Mine->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Market Learning Tasks->"
+        },
+        "alternativeIcons": "Use Reference Parent",
+        "title": [
+            "Use Reference Parent"
+        ],
+        "isTitleAllwaysVisible": true,
+        "propertyNameAtParent": "intelMineTasks",
+        "properties": [
+            {
+                "name": "taskManagers",
+                "type": "array",
+                "childType": "Task Manager",
+                "monitorChildrenRunning": true
+            }
+        ],
+        "icon": "bitcoin"
+    },
+    {
         "type": "Market Data Tasks",
         "menuItems": [
             {
@@ -14917,6 +15362,79 @@
         ]
     },
     {
+        "type": "Market Learning Tasks",
+        "menuItems": [
+            {
+                "action": "Run All Intel Mine Tasks",
+                "label": "Run All Intel Mine Tasks",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Run",
+                "workDoneLabel": "Run Request Sent",
+                "iconPathOn": "run",
+                "iconPathOff": "run",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Stop All Intel Mine Tasks",
+                "label": "Stop All Intel Mine Tasks",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Stop",
+                "workDoneLabel": "Stop Request Sent",
+                "iconPathOn": "stop",
+                "iconPathOff": "stop",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Intel Mine Tasks",
+                "relatedUiObject": "Intel Mine Tasks",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add Missing Intel Mine Tasks",
+                "label": "Add Missing Intel Mine Tasks",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Intel Mine Tasks",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 2,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Market->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Exchange Learning Tasks->"
+        },
+        "alternativeIcons": "Use Reference Parent",
+        "title": [
+            "Use Reference Parent Parent Parent",
+            "Use Reference Parent"
+        ],
+        "isTitleAllwaysVisible": true,
+        "propertyNameAtParent": "marketLearningTasks",
+        "properties": [
+            {
+                "name": "intelMineTasks",
+                "type": "array",
+                "childType": "Intel Mine Tasks",
+                "monitorChildrenRunning": true
+            }
+        ],
+        "icon": "bitcoin"
+    },
+    {
         "type": "Exchange Data Tasks",
         "menuItems": [
             {
@@ -15059,6 +15577,78 @@
         ]
     },
     {
+        "type": "Exchange Learning Tasks",
+        "menuItems": [
+            {
+                "action": "Run All Market Learning Tasks",
+                "label": "Run All Market Learning Tasks",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Run",
+                "workDoneLabel": "Run Request Sent",
+                "iconPathOn": "run",
+                "iconPathOff": "run",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Stop All Market Learning Tasks",
+                "label": "Stop All Market Learning Tasks",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Stop",
+                "workDoneLabel": "Stop Request Sent",
+                "iconPathOn": "stop",
+                "iconPathOff": "stop",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Market Learning Tasks",
+                "relatedUiObject": "Market Learning Tasks",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add Missing Market Learning Tasks",
+                "label": "Add Missing Markets",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Market Learning Tasks",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 2,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Crypto Exchange->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Intel Mining->"
+        },
+        "alternativeIcons": "Use Reference Parent",
+        "title": [
+            "Use Reference Parent"
+        ],
+        "isTitleAllwaysVisible": true,
+        "propertyNameAtParent": "exchangeLearningTasks",
+        "properties": [
+            {
+                "name": "marketLearningTasks",
+                "type": "array",
+                "childType": "Market Learning Tasks",
+                "monitorChildrenRunning": true
+            }
+        ],
+        "icon": "bitcoin"
+    },
+    {
         "type": "Data Mining",
         "menuItems": [
             {
@@ -15120,6 +15710,70 @@
                 "monitorChildrenRunning": true
             }
         ]
+    },
+    {
+        "type": "Intel Mining",
+        "menuItems": [
+            {
+                "action": "Run All Exchange Learning Tasks",
+                "label": "Run All Exchange Learning Tasks",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Run",
+                "workDoneLabel": "Run Request Sent",
+                "iconPathOn": "run",
+                "iconPathOff": "run",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Stop All Exchange Learning Tasks",
+                "label": "Stop All Exchange Learning Tasks",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Stop",
+                "workDoneLabel": "Stop Request Sent",
+                "iconPathOn": "stop",
+                "iconPathOff": "stop",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Exchange Learning Tasks",
+                "relatedUiObject": "Exchange Learning Tasks",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add Missing Exchange Learning Tasks",
+                "label": "Add Missing Exchanges",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Exchange Learning Tasks",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 2,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Network Node->"
+        },
+        "propertyNameAtParent": "intelMining",
+        "properties": [
+            {
+                "name": "exchangeLearningTasks",
+                "type": "array",
+                "childType": "Exchange Learning Tasks",
+                "monitorChildrenRunning": true
+            }
+        ],
+        "icon": "bitcoin"
     },
     {
         "type": "Testing Environment",

@@ -1,6 +1,6 @@
-﻿exports.newSession = function newSession(bot, parentLogger) {
+﻿exports.newTradingSession = function newTradingSession(bot, parentLogger) {
 
-    const MODULE_NAME = "Session"
+    const MODULE_NAME = "Trading Session"
     const FULL_LOG = true;
 
     let thisObject = {

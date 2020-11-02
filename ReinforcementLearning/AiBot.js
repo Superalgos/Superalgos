@@ -1,14 +1,14 @@
-﻿exports.newTradingBot = function newTradingBot(bot, parentLogger) {
+exports.newAiBot = function newAiBot(bot, parentLogger) {
 
-    const MODULE_NAME = "Trading Bot";
+    const MODULE_NAME = "Ai Bot";
     const FULL_LOG = true;
 
-    const TRADING_PROCESS_MODULE = require(global.ROOT_DIR + '/LowFrequencyTrading/TradingProcess.js');
+    const TRADING_PROCESS_MODULE = require(global.ROOT_DIR + '/LowFrequencyTrading/MachineLearningProcess.js');
     const FILE_STORAGE = require('./FileStorage.js');
     const SESSION = require(global.ROOT_DIR + 'TradingSession');
 
     let fileStorage = FILE_STORAGE.newFileStorage(parentLogger);
-    let session = SESSION.newTradingSession(bot, parentLogger)
+    let session = SESSION.newTrainingSession(bot, parentLogger)
 
     const DEBUG_MODULE = require(global.ROOT_DIR + 'DebugLog');
     let logger; // We need this here in order for the loopHealth function to work and be able to rescue the loop when it gets in trouble.
@@ -287,7 +287,7 @@
                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeDataDependencies -> onInizialized -> Execution finished well."); }
                                             switch (processConfig.framework.name) {
                                                 case 'Low-Frequency-Trading-Process': {
-                                                    processFramework = TRADING_PROCESS_MODULE.newTradingProcess(bot, logger, UTILITIES);
+                                                    processFramework = TRADING_PROCESS_MODULE.newMachineLearningProcess(bot, logger, UTILITIES);
                                                     intitializeProcessFramework();
                                                     break;
                                                 }

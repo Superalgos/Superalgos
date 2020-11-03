@@ -104,8 +104,8 @@
                 sessionPath = bot.TRADING_SESSION.folderName + "/"
             }
 
-            if (bot.AI_SESSION !== undefined && statusDependencyNode.bottype === "AI Bot") {
-                sessionPath = bot.AI_SESSION.folderName + "/"
+            if (bot.LEARNING_SESSION !== undefined && statusDependencyNode.bottype === "Learning Bot") {
+                sessionPath = bot.LEARNING_SESSION.folderName + "/"
             }
 
             /* Now we will see where do we need to fetch this status report from. */
@@ -268,7 +268,7 @@
             On the contraty, if we are running a Sensor bot or an Indicator bot, we might, if necesary, use a previous version of a Status Report since
             there will be no big impact, just some reprocessing.
             */
-            if (bot.TRADING_SESSION !== undefined || bot.AI_SESSION !== undefined) {
+            if (bot.TRADING_SESSION !== undefined || bot.LEARNING_SESSION !== undefined) {
                 canUserPrevious = false
             } else {
                 canUserPrevious = true

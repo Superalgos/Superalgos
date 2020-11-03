@@ -1,6 +1,6 @@
-exports.newAiBot = function newAiBot(bot, parentLogger) {
+exports.newLearningBot = function newLearningBot(bot, parentLogger) {
 
-    const MODULE_NAME = "Ai Bot";
+    const MODULE_NAME = "Learning Bot";
     const FULL_LOG = true;
 
     const TRADING_PROCESS_MODULE = require(global.ROOT_DIR + '/LowFrequencyTrading/MachineLearningProcess.js');
@@ -8,7 +8,7 @@ exports.newAiBot = function newAiBot(bot, parentLogger) {
     const SESSION = require(global.ROOT_DIR + 'TradingSession');
 
     let fileStorage = FILE_STORAGE.newFileStorage(parentLogger);
-    let session = SESSION.newTrainingSession(bot, parentLogger)
+    let session = SESSION.newLearningSession(bot, parentLogger)
 
     const DEBUG_MODULE = require(global.ROOT_DIR + 'DebugLog');
     let logger; // We need this here in order for the loopHealth function to work and be able to rescue the loop when it gets in trouble.
@@ -560,17 +560,17 @@ exports.newAiBot = function newAiBot(bot, parentLogger) {
                                     if (processConfig.waitsForExecutionFinishedEvent === true) {
                                         waitTime = 0
                                     } else {
-                                        switch (bot.AI_SESSION.type) {
+                                        switch (bot.LEARNING_SESSION.type) {
                                             case 'Live Trading Session': {
-                                                waitTime = bot.AI_SESSION.parameters.timeFrame.config.value
+                                                waitTime = bot.LEARNING_SESSION.parameters.timeFrame.config.value
                                                 break
                                             }
                                             case 'Fordward Tessting Session': {
-                                                waitTime = bot.AI_SESSION.parameters.timeFrame.config.value
+                                                waitTime = bot.LEARNING_SESSION.parameters.timeFrame.config.value
                                                 break
                                             }
                                             case 'Paper Trading Session': {
-                                                waitTime = bot.AI_SESSION.parameters.timeFrame.config.value
+                                                waitTime = bot.LEARNING_SESSION.parameters.timeFrame.config.value
                                                 break
                                             }
                                             case 'Backtesting Session': {

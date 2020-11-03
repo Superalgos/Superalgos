@@ -65,7 +65,7 @@
             let skipCount = 0
 
             /* 
-            The current nodeArray that we have includes all the dependencies daclared in the Data Mine | Trading Mine | Intel Mine
+            The current nodeArray that we have includes all the dependencies daclared in the Data Mine | Trading Mine | Learning Mine
             process dependencies, minus the ones without reference parent, meaning that references Data Mines that are
             not present at the workspace. From all the remaining dependencies there will be others that we need to 
             filter out, and they are the ones which the user does not have a data product anywhere on the network where

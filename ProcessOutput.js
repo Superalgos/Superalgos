@@ -33,7 +33,7 @@
                         botNode = global.FIND_NODE_IN_NODE_MESH(outputDataset, 'Sensor Bot')
                     }
                     if (botNode === undefined) { 
-                        botNode = global.FIND_NODE_IN_NODE_MESH(outputDataset, 'AI Bot')
+                        botNode = global.FIND_NODE_IN_NODE_MESH(outputDataset, 'Learning Bot')
                     }
 
                     /* Some validations to verify that everything is in place. */
@@ -123,7 +123,7 @@
                     botNode = global.FIND_NODE_IN_NODE_MESH(outputDataset, 'Sensor Bot')
                 }
                 if (botNode === undefined) { 
-                    botNode = global.FIND_NODE_IN_NODE_MESH(outputDataset, 'AI Bot')
+                    botNode = global.FIND_NODE_IN_NODE_MESH(outputDataset, 'Learning Bot')
                 }
 
                 /* Some validations to verify that everything is in place. */
@@ -148,7 +148,7 @@
                                     throw (global.DEFAULT_FAIL_RESPONSE);
                                 }
                             } else {
-                                logger.write(MODULE_NAME, "[ERROR] raiseEvents -> Bot not attached to a Data Mine | Trading Mine | Intel Mine. Bot = " + JSON.stringify(botNode));
+                                logger.write(MODULE_NAME, "[ERROR] raiseEvents -> Bot not attached to a Data Mine | Trading Mine | Learning Mine. Bot = " + JSON.stringify(botNode));
                                 throw (global.DEFAULT_FAIL_RESPONSE);
                             }
                         } else {

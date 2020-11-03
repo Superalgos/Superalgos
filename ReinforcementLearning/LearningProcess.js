@@ -1,10 +1,10 @@
-exports.newTrainingProcess = function newTrainingProcess(bot, logger, UTILITIES) {
+exports.newLearningProcess = function newLearningProcess(bot, logger, UTILITIES) {
     /*
     This Module will load all the process data dependencies from files and send them downstream.
     After execution, will save the time range and status report of the process.
     */
     const FULL_LOG = true;
-    const MODULE_NAME = "Training Process";
+    const MODULE_NAME = "Learning Process";
     const GMT_SECONDS = ':00.000 GMT+0000';
 
     thisObject = {
@@ -115,7 +115,7 @@ exports.newTrainingProcess = function newTrainingProcess(bot, logger, UTILITIES)
             the simulation loop, once we discover that all candles from a certain date have benn processed.
             Here is the point where we sync one and the other.
             */
-            let TrainingProcessDate = global.REMOVE_TIME(bot.simulationState.tradingEngine.current.episode.processDate.value)
+            let LearningProcessDate = global.REMOVE_TIME(bot.simulationState.tradingEngine.current.episode.processDate.value)
             await processSingleFiles()
 
             if (await processMarketFiles() === false) {
@@ -166,7 +166,7 @@ exports.newTrainingProcess = function newTrainingProcess(bot, logger, UTILITIES)
                     use it to save Output Files and later the Data Ranges. This is the point where
                     the date calculated by the Simulation is applied at the Trading Process Level.
                     */
-                    TrainingProcessDate = global.REMOVE_TIME(bot.simulationState.tradingEngine.current.episode.processDate.value)
+                    LearningProcessDate = global.REMOVE_TIME(bot.simulationState.tradingEngine.current.episode.processDate.value)
 
                     if (checkStopTaskGracefully() === false) { break }
                     if (checkStopProcessing() === false) { break }
@@ -447,7 +447,7 @@ exports.newTrainingProcess = function newTrainingProcess(bot, logger, UTILITIES)
 
             async function processDailyFiles() {
                 /*  Telling the world we are alive and doing well and which date we are processing right now. */
-                let processingDateString = TrainingProcessDate.getUTCFullYear() + '-' + utilities.pad(TrainingProcessDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(TrainingProcessDate.getUTCDate(), 2);
+                let processingDateString = LearningProcessDate.getUTCFullYear() + '-' + utilities.pad(LearningProcessDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(LearningProcessDate.getUTCDate(), 2);
                 bot.processHeartBeat(processingDateString, undefined, "Running...")
 
                 /*
@@ -493,7 +493,7 @@ exports.newTrainingProcess = function newTrainingProcess(bot, logger, UTILITIES)
                             }
                         }
 
-                        let dateForPath = TrainingProcessDate.getUTCFullYear() + '/' + utilities.pad(TrainingProcessDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(TrainingProcessDate.getUTCDate(), 2);
+                        let dateForPath = LearningProcessDate.getUTCFullYear() + '/' + utilities.pad(LearningProcessDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(LearningProcessDate.getUTCDate(), 2);
                         let filePath
                         if (dependency.referenceParent.config.codeName === "Multi-Period-Daily") {
                             filePath = dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName + "/" + timeFrameLabel + "/" + dateForPath;
@@ -612,7 +612,7 @@ exports.newTrainingProcess = function newTrainingProcess(bot, logger, UTILITIES)
                     chart,
                     currentTimeFrame,
                     currentTimeFrameLabel,
-                    TrainingProcessDate
+                    LearningProcessDate
                 )
 
                 /*
@@ -648,7 +648,7 @@ exports.newTrainingProcess = function newTrainingProcess(bot, logger, UTILITIES)
                     async function writeDataRange(productCodeName) {
                         let dataRange = {
                             begin: contextVariables.dateBeginOfMarket.valueOf(),
-                            end: TrainingProcessDate.valueOf() + global.ONE_DAY_IN_MILISECONDS
+                            end: LearningProcessDate.valueOf() + global.ONE_DAY_IN_MILISECONDS
                         }
 
                         let fileContent = JSON.stringify(dataRange);
@@ -707,7 +707,7 @@ exports.newTrainingProcess = function newTrainingProcess(bot, logger, UTILITIES)
                     let thisReport = statusDependencies.statusReports.get(reportKey)
 
                     thisReport.file.lastExecution = bot.currentDaytime
-                    thisReport.file.lastFile = TrainingProcessDate
+                    thisReport.file.lastFile = LearningProcessDate
                     thisReport.file.simulationState = bot.simulationState
                     thisReport.file.timeFrames = currentTimeFrameLabel
                     await thisReport.asyncSave()
@@ -721,7 +721,7 @@ exports.newTrainingProcess = function newTrainingProcess(bot, logger, UTILITIES)
                     thisReport.file.simulationState = bot.simulationState
                     thisReport.file.timeFrames = currentTimeFrameLabel
 
-                    logger.newInternalLoop(bot.codeName, bot.process, TrainingProcessDate)
+                    logger.newInternalLoop(bot.codeName, bot.process, LearningProcessDate)
                     await thisReport.asyncSave()
                 }
             }

@@ -83,8 +83,8 @@ exports.newDebugLog = function newDebugLog() {
             if (thisObject.bot.TRADING_SESSION !== undefined) {
                 filePath = filePath + thisObject.bot.TRADING_SESSION.folderName + "/" + executionDatetime;
             } else {
-                if (thisObject.bot.AI_SESSION !== undefined) {
-                    filePath = filePath + thisObject.bot.AI_SESSION.folderName + "/" + executionDatetime;
+                if (thisObject.bot.LEARNING_SESSION !== undefined) {
+                    filePath = filePath + thisObject.bot.LEARNING_SESSION.folderName + "/" + executionDatetime;
                 } else {
                     filePath = filePath + executionDatetime;
                 }

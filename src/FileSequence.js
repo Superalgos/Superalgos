@@ -20,7 +20,7 @@ function newFileSequence () {
   let files = new Map()
   let maxSequence = -1 // This is replaced by the content of the sequence file, which contains an index that starts on zero. In the case that the sequence file is not found the default value is -1 so when you add 1 it gives you the amount of files in the sequence, zero.
   let market
-  let dataMine
+  let mine
   let bot
   let session
   let dataset
@@ -48,7 +48,7 @@ function newFileSequence () {
       files = undefined
       maxSequence = undefined
       market = undefined
-      dataMine = undefined
+      mine = undefined
       bot = undefined
       session = undefined
       dataset = undefined
@@ -62,7 +62,7 @@ function newFileSequence () {
   }
 
   function initialize (
-    pDataMine,
+    pMine,
     pBot,
     pSession,
     pProduct,
@@ -76,7 +76,7 @@ function newFileSequence () {
     try {
       exchange = pExchange
       market = pMarket
-      dataMine = pDataMine
+      mine = pMine
       bot = pBot
       session = pSession
       dataset = pDataset
@@ -88,7 +88,7 @@ function newFileSequence () {
 
       callerId = newUniqueId()
 
-      let key = dataMine.config.codeName + '-' + bot.config.codeName + '-' + product.config.codeName + '-' + dataset.config.codeName + '-' + exchange.name + '-' + market.baseAsset + '/' + market.quotedAsset
+      let key = mine.config.codeName + '-' + bot.config.codeName + '-' + product.config.codeName + '-' + dataset.config.codeName + '-' + exchange.name + '-' + market.baseAsset + '/' + market.quotedAsset
       eventsServerClient.listenToEvent(key, 'Dataset Updated', undefined, callerId, onResponse, updateFiles)
 
       function onResponse (message) {
@@ -97,7 +97,7 @@ function newFileSequence () {
 
             /* First we will get the sequence max number */
 
-      fileCloud.getFile(dataMine, bot, session, product, dataset, exchange, market, undefined, undefined, 'Sequence', undefined, undefined, onSequenceFileReceived)
+      fileCloud.getFile(mine, bot, session, product, dataset, exchange, market, undefined, undefined, 'Sequence', undefined, undefined, onSequenceFileReceived)
 
       function onSequenceFileReceived (err, file) {
         try {
@@ -142,7 +142,7 @@ function newFileSequence () {
                     /* Now we will get the sequence of files */
 
           for (let i = 0; i <= maxSequence; i++) {
-            fileCloud.getFile(dataMine, bot, session, product, dataset, exchange, market, undefined, undefined, i, undefined, undefined, onFileReceived)
+            fileCloud.getFile(mine, bot, session, product, dataset, exchange, market, undefined, undefined, i, undefined, undefined, onFileReceived)
 
             function onFileReceived (err, file) {
               try {
@@ -207,7 +207,7 @@ function newFileSequence () {
 
       let currentMaxSequence = maxSequence
 
-      fileCloud.getFile(dataMine, bot, session, product, dataset, exchange, market, undefined, undefined, 'Sequence', undefined, undefined, onSequenceFileReceived)
+      fileCloud.getFile(mine, bot, session, product, dataset, exchange, market, undefined, undefined, 'Sequence', undefined, undefined, onSequenceFileReceived)
 
       function onSequenceFileReceived (err, sequenceFile) {
         try {
@@ -243,7 +243,7 @@ function newFileSequence () {
                     /* Now we will get the sequence of files, but in this case only from the currentMaxSequence and above. */
 
           for (let i = currentMaxSequence; i <= maxSequence; i++) {
-            fileCloud.getFile(dataMine, bot, session, product, dataset, exchange, market, undefined, undefined, i, undefined, undefined, onFileReceived)
+            fileCloud.getFile(mine, bot, session, product, dataset, exchange, market, undefined, undefined, i, undefined, undefined, onFileReceived)
 
             function onFileReceived (err, file) {
               try {

@@ -144,11 +144,11 @@
                             }
                             if (botNode.parentNode !== undefined) {
                                 if (botNode.parentNode.config.codeName === undefined) {
-                                    logger.write(MODULE_NAME, "[ERROR] raiseEvents -> codeName at Data Mine not defined. Data Mine = " + JSON.stringify(botNode.parentNode));
+                                    logger.write(MODULE_NAME, "[ERROR] raiseEvents -> codeName at Mine not defined. Mine = " + JSON.stringify(botNode.parentNode));
                                     throw (global.DEFAULT_FAIL_RESPONSE);
                                 }
                             } else {
-                                logger.write(MODULE_NAME, "[ERROR] raiseEvents -> Bot not attached to a Data Mine or Trading Mine. Bot = " + JSON.stringify(botNode));
+                                logger.write(MODULE_NAME, "[ERROR] raiseEvents -> Bot not attached to a Data Mine | Trading Mine | Intel Mine. Bot = " + JSON.stringify(botNode));
                                 throw (global.DEFAULT_FAIL_RESPONSE);
                             }
                         } else {

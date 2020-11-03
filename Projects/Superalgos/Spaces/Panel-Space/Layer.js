@@ -163,7 +163,7 @@ function newLayer() {
                 'Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->' +
                 'Bot Products->Data Mine Products->Trading Mine Products->Intel Mine Products->' +
                 'Market Data Products->Exchange Data Products->' +
-                'Session Reference->' +
+                'Trading Session Reference->' +
                 'Market Trading Products->Exchange Trading Products->' +
                 'Market Intel Products->Exchange Intel Products->' +
                 'Data Mines Data->Trading Mines Data->Intel Mines Data->Data Storage->Network Node->' +

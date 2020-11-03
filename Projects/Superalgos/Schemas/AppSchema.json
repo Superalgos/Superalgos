@@ -1800,9 +1800,9 @@
                 "childType": "Market Data Products"
             },
             {
-                "name": "sessionReferences",
+                "name": "tradingSessionReferences",
                 "type": "node",
-                "childType": "Session Reference"
+                "childType": "Trading Session Reference"
             },
             {
                 "name": "timeMachines",
@@ -14787,7 +14787,7 @@
             "compatibleTypes": "->Timeline Chart->"
         },
         "referenceAttachesTo": {
-            "compatibleTypes": "->Data Mine Products->Trading Mine Products->"
+            "compatibleTypes": "->Data Mine Products->Trading Mine Products->Intel Mine Products->"
         },
         "propertyNameAtParent": "layerManager",
         "properties": [
@@ -14960,7 +14960,7 @@
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
                 "propertyToCheckFor": "dataMinesData",
-                "label": "Add Session Ind Data",
+                "label": "Add Data Mines Data",
                 "relatedUiObject": "Data Mines Data",
                 "actionFunction": "payload.executeAction"
             },
@@ -14970,6 +14970,14 @@
                 "propertyToCheckFor": "tradingMinesData",
                 "label": "Add Trading Mines Data",
                 "relatedUiObject": "Trading Mines Data",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "intelMinesData",
+                "label": "Add Intel Mines Data",
+                "relatedUiObject": "Intel Mines Data",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -14999,6 +15007,12 @@
                 "name": "tradingMinesData",
                 "type": "node",
                 "childType": "Trading Mines Data",
+                "autoAdd": true
+            },
+            {
+                "name": "intelMinesData",
+                "type": "node",
+                "childType": "Intel Mines Data",
                 "autoAdd": true
             }
         ]
@@ -15999,8 +16013,6 @@
             {
                 "action": "Add UI Object",
                 "label": "Add Market Trading Products",
-                "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "marketTradingProducts",
                 "relatedUiObject": "Market Trading Products",
                 "actionFunction": "payload.executeAction"
             },
@@ -16052,8 +16064,6 @@
             {
                 "action": "Add UI Object",
                 "label": "Add Market Intel Products",
-                "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "marketIntelProducts",
                 "relatedUiObject": "Market Intel Products",
                 "actionFunction": "payload.executeAction"
             },
@@ -16097,7 +16107,8 @@
                 "childType": "Market Intel Products",
                 "autoAdd": false
             }
-        ]
+        ],
+        "icon": "bitcoin"
     },
     {
         "type": "Trading Mines Data",
@@ -16185,7 +16196,7 @@
         "icon": "bitcoin"
     },
     {
-        "type": "Session Reference",
+        "type": "Trading Session Reference",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -16233,7 +16244,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Market Trading Products->"
         },
-        "propertyNameAtParent": "sessionReferences",
+        "propertyNameAtParent": "tradingSessionReferences",
         "properties": [
             {
                 "name": "dataProducts",
@@ -16248,6 +16259,72 @@
                 "autoAdd": false
             }
         ]
+    },
+    {
+        "type": "AI Session Reference",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Data Product",
+                "relatedUiObject": "Data Product",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Intel Mine Products",
+                "relatedUiObject": "Intel Mine Products",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add All Intel Mine Products",
+                "label": "Add All Intel Mine Products",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Intel Mine Products",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "title": [
+            "Use Reference Parent",
+            "Use Reference Parent Type",
+            "Use Child @marketDataProducts"
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "alternativeIcons": "Use Reference Parent",
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Learning Session->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Market Intel Products->"
+        },
+        "propertyNameAtParent": "aiSessionReferences",
+        "properties": [
+            {
+                "name": "dataProducts",
+                "type": "array",
+                "childType": "Data Product",
+                "autoAdd": false
+            },
+            {
+                "name": "intelMineProducts",
+                "type": "array",
+                "childType": "Intel Mine Products",
+                "autoAdd": false
+            }
+        ],
+        "icon": "bitcoin"
     },
     {
         "type": "Market Data Products",
@@ -16317,8 +16394,8 @@
         "menuItems": [
             {
                 "action": "Add UI Object",
-                "label": "Add Session Reference",
-                "relatedUiObject": "Session Reference",
+                "label": "Add Trading Session Reference",
+                "relatedUiObject": "Trading Session Reference",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -16327,7 +16404,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Proceed",
                 "workDoneLabel": "Done",
-                "relatedUiObject": "Session Reference",
+                "relatedUiObject": "Trading Session Reference",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -16356,9 +16433,9 @@
         "propertyNameAtParent": "marketTradingProducts",
         "properties": [
             {
-                "name": "sessionReferences",
+                "name": "tradingSessionReferences",
                 "type": "array",
-                "childType": "Session Reference"
+                "childType": "Trading Session Reference"
             }
         ]
     },
@@ -16367,8 +16444,8 @@
         "menuItems": [
             {
                 "action": "Add UI Object",
-                "label": "Add Session Reference",
-                "relatedUiObject": "Session Reference",
+                "label": "Add AI Session Reference",
+                "relatedUiObject": "AI Session Reference",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -16377,7 +16454,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Proceed",
                 "workDoneLabel": "Done",
-                "relatedUiObject": "Session Reference",
+                "relatedUiObject": "AI Session Reference",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -16406,11 +16483,12 @@
         "propertyNameAtParent": "marketIntelProducts",
         "properties": [
             {
-                "name": "sessionReferences",
+                "name": "aiSessionReferences",
                 "type": "array",
-                "childType": "Session Reference"
+                "childType": "AI Session Reference"
             }
-        ]
+        ],
+        "icon": "bitcoin"
     },
     {
         "type": "Data Product",
@@ -16435,7 +16513,7 @@
             "compatibleTypes": "->Product Definition->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Market Data Products->Data Product Folder->Bot Products->Session Reference->"
+            "compatibleTypes": "->Market Data Products->Data Product Folder->Bot Products->Trading Session Reference->"
         },
         "propertyNameAtParent": "dataProducts",
         "properties": []
@@ -16528,7 +16606,7 @@
             "compatibleTypes": "->Trading Mine->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Session Reference->"
+            "compatibleTypes": "->Trading Session Reference->"
         },
         "propertyNameAtParent": "tradingMineProducts",
         "properties": [
@@ -16539,6 +16617,57 @@
                 "autoAdd": false
             }
         ]
+    },
+    {
+        "type": "Intel Mine Products",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Bot Products",
+                "relatedUiObject": "Bot Products",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add All Data Products",
+                "label": "Add All Data Products",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Data Product",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "isTitleAllwaysVisible": true,
+        "title": [
+            "Use Reference Parent"
+        ],
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Intel Mine->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->AI Session Reference->"
+        },
+        "propertyNameAtParent": "intelMineProducts",
+        "properties": [
+            {
+                "name": "botProducts",
+                "type": "array",
+                "childType": "Bot Products",
+                "autoAdd": false
+            }
+        ],
+        "icon": "bitcoin"
     },
     {
         "type": "Bot Products",
@@ -16568,7 +16697,7 @@
         "addLeftIcons": true,
         "level": 3,
         "chainAttachesTo": {
-            "compatibleTypes": "->Data Mine Products->Trading Mine Products->"
+            "compatibleTypes": "->Data Mine Products->Trading Mine Products->Intel Mine Products->"
         },
         "propertyNameAtParent": "botProducts",
         "properties": [

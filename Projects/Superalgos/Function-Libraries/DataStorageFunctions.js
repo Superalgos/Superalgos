@@ -124,7 +124,7 @@ function newDataStorageFunctions() {
     }
 
     function createSessionReference(node, session, functionLibraryUiObjectsFromNodes) {
-        let sessionReference = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Session Reference')
+        let sessionReference = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Trading Session Reference')
         sessionReference.payload.referenceParent = session
     }
 

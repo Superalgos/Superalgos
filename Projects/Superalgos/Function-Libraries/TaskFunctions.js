@@ -336,16 +336,6 @@ function newTaskFunctions() {
         }
     }
 
-    function runAllExchangeLearningTasks(parent, functionLibraryProtocolNode) {
-        for (let i = 0; i < parent.exchangeLearningTasks.length; i++) {
-            let node = parent.exchangeLearningTasks[i]
-            let menu = node.payload.uiObject.menu
-
-            menu.internalClick('Run All Market Learning Tasks')
-            menu.internalClick('Run All Market Learning Tasks')
-        }
-    }
-
     function stopAllExchangeTradingTasks(parent, functionLibraryProtocolNode) {
         for (let i = 0; i < parent.exchangeTradingTasks.length; i++) {
             let node = parent.exchangeTradingTasks[i]
@@ -353,6 +343,16 @@ function newTaskFunctions() {
 
             menu.internalClick('Stop All Market Trading Tasks')
             menu.internalClick('Stop All Market Trading Tasks')
+        }
+    }
+
+    function runAllExchangeLearningTasks(parent, functionLibraryProtocolNode) {
+        for (let i = 0; i < parent.exchangeLearningTasks.length; i++) {
+            let node = parent.exchangeLearningTasks[i]
+            let menu = node.payload.uiObject.menu
+
+            menu.internalClick('Run All Market Learning Tasks')
+            menu.internalClick('Run All Market Learning Tasks')
         }
     }
 

@@ -147,7 +147,7 @@ function newTaskFunctions() {
             'Data Mine Products->Bot Products->' +
             'Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->' +
             'Data Product->Product Definition->' +
-            'Data Mining->Testing Environment->Production Environment->' +
+            'Data Mining->Learning Mining->Testing Environment->Production Environment->' +
             'Exchange Data Tasks->Exchange Trading Tasks->Exchange Learning Tasks->Crypto Exchange->' +
             'Market Data Tasks->Market Trading Tasks->Market Learning Tasks->Market->' +
             'Data Mine Tasks->Trading Mine Tasks->Learning Mine Tasks->' +
@@ -240,7 +240,7 @@ function newTaskFunctions() {
         }
 
         if (taskManager.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
-            node.payload.uiObject.setErrorMessage('Task needs to be inside a Data Mining, Testing or Production Environment.')
+            node.payload.uiObject.setErrorMessage('Task needs to be inside a Data Mining, Learning Mining, Testing or Production Environment node.')
             return
         }
 

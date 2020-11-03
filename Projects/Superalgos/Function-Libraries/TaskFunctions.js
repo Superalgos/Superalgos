@@ -107,7 +107,7 @@ function newTaskFunctions() {
             'Key Reference->Exchange Account Key->' +
             'Task Manager->' +
             'Data Mine Tasks->Trading Mine Tasks->Learning Mine Tasks->' +
-            'Market Data Tasks->Market Trading Tasks->' +
+            'Market Data Tasks->Market Trading Tasks->Market Learning Tasks->' +
             'Exchange Data Tasks->Exchange Trading Tasks->Exchange Learning Tasks->' +
             'Market->Exchange Markets->Crypto Exchange->' +
             'Market Base Asset->Market Quoted Asset->Asset->' +

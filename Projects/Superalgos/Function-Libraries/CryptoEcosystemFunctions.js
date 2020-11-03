@@ -481,13 +481,17 @@ function newCryptoEcosystemFunctions() {
 
             let marketDataTasksArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(network, 'Market Data Tasks')
             let marketTradingTasksArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(network, 'Market Trading Tasks')
+            let marketLearningTasksArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(network, 'Market Learning Tasks')
             let marketDataProductsArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(network, 'Market Data Products')
             let marketTradingProductsArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(network, 'Market Trading Products')
+            let marketLearningProductsArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(network, 'Market Learning Products')
 
             uninstalMarketArray(marketDataTasksArray)
             uninstalMarketArray(marketTradingTasksArray)
+            uninstalMarketArray(marketLearningTasksArray)
             uninstalMarketArray(marketDataProductsArray)
             uninstalMarketArray(marketTradingProductsArray)
+            uninstalMarketArray(marketLearningProductsArray)
 
             function uninstalMarketArray(marketArray) {
                 for (let i = 0; i < marketArray.length; i++) {

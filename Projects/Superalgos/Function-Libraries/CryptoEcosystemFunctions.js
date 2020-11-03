@@ -266,6 +266,21 @@ function newCryptoEcosystemFunctions() {
 
                 UI.projects.superalgos.utilities.menu.menuClick(marketDataTask, 'Add Missing Data Mine Tasks', true)
                 UI.projects.superalgos.utilities.menu.menuClickOfNodeArray(marketDataTask.dataMineTasks, 'Add All Tasks', true)
+                /*
+                Here we complete the missing stuff at Intel Mining
+                */
+                let intelMining = UI.projects.superalgos.utilities.branches.findInBranch(networkNode, 'Intel Mining', node, true)
+                if (intelMining === undefined) {
+                    node.payload.uiObject.setErrorMessage('Intel Mining node not found at Network Node ' + networkNode.name)
+                    return
+                }
+
+                let exchangeLearningTasks = UI.projects.superalgos.utilities.children.findOrCreateChildWithReference(intelMining, 'Exchange Learning Tasks', cryptoExchange, functionLibraryUiObjectsFromNodes)
+                exchangeLearningTasks.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+                let marketLearningTask = UI.projects.superalgos.utilities.children.findAndRecreateChildWithReference(exchangeLearningTasks, 'Market Learning Tasks', market, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
+
+                UI.projects.superalgos.utilities.menu.menuClick(marketLearningTask, 'Add Missing Intel Mine Tasks', true)
+                UI.projects.superalgos.utilities.menu.menuClickOfNodeArray(marketLearningTask.intelMineTasks, 'Add All Tasks', true)
 
                 let sessionsCreatedArray = []
                 /*
@@ -318,6 +333,22 @@ function newCryptoEcosystemFunctions() {
 
                 UI.projects.superalgos.utilities.menu.menuClick(marketDataProducts, 'Add All Data Mine Products', true)
                 UI.projects.superalgos.utilities.menu.menuClickOfNodeArray(marketDataProducts.dataMineProducts, 'Add All Data Products', true)
+                /*
+                Here we complete the missing stuff at Intel Mines Data
+                */
+                let intelMineData = UI.projects.superalgos.utilities.branches.findInBranch(networkNode, 'Intel Mines Data', node, true)
+                if (intelMineData === undefined) {
+                    node.payload.uiObject.setErrorMessage('Intel Mines Data node not found at Network Node ' + networkNode.name)
+                    return
+                }
+
+                let exchangeIntelProducts = UI.projects.superalgos.utilities.children.findOrCreateChildWithReference(intelMineData, 'Exchange Intel Products', cryptoExchange, functionLibraryUiObjectsFromNodes)
+                exchangeIntelProducts.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+                let marketIntelProducts = UI.projects.superalgos.utilities.children.findAndRecreateChildWithReference(exchangeIntelProducts, 'Market Intel Products', market, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
+                marketIntelProducts.payload.floatingObject.collapseToggle()
+
+                UI.projects.superalgos.utilities.menu.menuClick(marketIntelProducts, 'Add All Intel Mine Products', true)
+                UI.projects.superalgos.utilities.menu.menuClickOfNodeArray(marketIntelProducts.intelMineProducts, 'Add All Intel Products', true)
                 /*
                 Finally we complete the missing stuff at Trading Mines Data
                 */

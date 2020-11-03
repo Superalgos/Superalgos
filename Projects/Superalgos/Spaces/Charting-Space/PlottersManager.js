@@ -134,7 +134,7 @@ function newPlottersManager() {
             }
             let productDefinition = layer.productDefinition
             let bot = layer.bot
-            let dataMine = layer.dataMine
+            let mine = layer.mine
             let exchange = layer.exchange
             let plotterModule = layer.plotterModule
             let session
@@ -170,7 +170,7 @@ function newPlottersManager() {
             let eventsServerClient = UI.projects.superalgos.spaces.designSpace.workspace.eventsServerClients.get(layer.networkNode.id)
 
             storage.initialize(
-                dataMine,
+                mine,
                 bot,
                 session,
                 productDefinition,
@@ -192,7 +192,7 @@ function newPlottersManager() {
                     if (plotterModule.config.isLegacy !== true) {
                         plotter = newPlotter()
                     } else {
-                        plotter = getNewPlotter(dataMine.config.codeName, plotterModule.parentNode.config.codeName, plotterModule.config.codeName)
+                        plotter = getNewPlotter(mine.config.codeName, plotterModule.parentNode.config.codeName, plotterModule.config.codeName)
                     }
 
                     plotter.container.connectToParent(thisObject.container, true, true, false, true, true, true, false, false, true)
@@ -218,7 +218,7 @@ function newPlottersManager() {
                                 let panel = plotterModule.panels[i]
 
                                 let parameters = {
-                                    dataMine: dataMine.config.codeName,
+                                    mine: mine.config.codeName,
                                     plotterCodeName: plotterModule.parentNode.config.codeName,
                                     moduleCodeName: plotterModule.config.codeName,
                                     panelNode: panel

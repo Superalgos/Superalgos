@@ -16047,6 +16047,59 @@
         ]
     },
     {
+        "type": "Exchange Intel Products",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Market Intel Products",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "marketIntelProducts",
+                "relatedUiObject": "Market Intel Products",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add Missing Market Intel Products",
+                "label": "Add Missing Markets",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Market Intel Products",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "alternativeIcons": "Use Reference Parent",
+        "title": [
+            "Use Reference Parent"
+        ],
+        "isTitleAllwaysVisible": true,
+        "addLeftIcons": true,
+        "level": 3,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Crypto Exchange->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Intel Mines Data->"
+        },
+        "propertyNameAtParent": "exchangeIntelProducts",
+        "properties": [
+            {
+                "name": "marketIntelProducts",
+                "type": "array",
+                "childType": "Market Intel Products",
+                "autoAdd": false
+            }
+        ]
+    },
+    {
         "type": "Trading Mines Data",
         "menuItems": [
             {
@@ -16087,6 +16140,49 @@
                 "childType": "Exchange Trading Products"
             }
         ]
+    },
+    {
+        "type": "Intel Mines Data",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Exchange Intel Products",
+                "relatedUiObject": "Exchange Intel Products",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add Missing Exchange Intel Products",
+                "label": "Add Missing Exchanges",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Exchange Intel Products",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Data Storage->"
+        },
+        "propertyNameAtParent": "intelMinesData",
+        "properties": [
+            {
+                "name": "exchangeIntelProducts",
+                "type": "array",
+                "childType": "Exchange Intel Products"
+            }
+        ],
+        "icon": "bitcoin"
     },
     {
         "type": "Session Reference",
@@ -16258,6 +16354,56 @@
             "compatibleTypes": "->Exchange Trading Products->"
         },
         "propertyNameAtParent": "marketTradingProducts",
+        "properties": [
+            {
+                "name": "sessionReferences",
+                "type": "array",
+                "childType": "Session Reference"
+            }
+        ]
+    },
+    {
+        "type": "Market Intel Products",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Session Reference",
+                "relatedUiObject": "Session Reference",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add Missing Session References",
+                "label": "Add Missing Sessions",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Session Reference",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "isTitleAllwaysVisible": true,
+        "title": [
+            "Use Reference Parent Parent Parent",
+            "Use Reference Parent"
+        ],
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Market->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Exchange Intel Products->"
+        },
+        "propertyNameAtParent": "marketIntelProducts",
         "properties": [
             {
                 "name": "sessionReferences",

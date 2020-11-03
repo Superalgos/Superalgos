@@ -101,16 +101,18 @@ function newTaskFunctions() {
             'Sensor Bot Instance->' +
             'Indicator Bot Instance->Time Frames Filter->' +
             'Trading Bot Instance->' +
-            'Sensor Process Instance->Indicator Process Instance->Trading Process Instance->' +
+            'AI Bot Instance->' +
+            'Sensor Process Instance->Indicator Process Instance->Trading Process Instance->AI Process Instance->' +
             'Execution Started Event->' +
             'Key Reference->Exchange Account Key->' +
             'Task Manager->' +
-            'Data Mine Tasks->Trading Mine Tasks->' +
+            'Data Mine Tasks->Trading Mine Tasks->Intel Mine Tasks->' +
             'Market Data Tasks->Market Trading Tasks->' +
-            'Exchange Data Tasks->Exchange Trading Tasks->' +
+            'Exchange Data Tasks->Exchange Trading Tasks->Exchange Learning Tasks->' +
             'Market->Exchange Markets->Crypto Exchange->' +
             'Market Base Asset->Market Quoted Asset->Asset->' +
             'Backtesting Session->Live Trading Session->Paper Trading Session->Forward Testing Session->' +
+            'Learning Session->' +
             'Process Definition->' +
             'Process Output->' +
             'Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->' +
@@ -134,7 +136,8 @@ function newTaskFunctions() {
             'Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->' +
             'Indicator Bot->' +
             'Trading Bot->' +
-            'Data Mine->Trading Mine->'
+            'AI Bot->' +
+            'Data Mine->Trading Mine->Intel Mine->'
 
         let taskDefinition = functionLibraryProtocolNode.getProtocolNode(node, false, true, true, false, false, taskLightingPath)
 
@@ -145,13 +148,13 @@ function newTaskFunctions() {
             'Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->' +
             'Data Product->Product Definition->' +
             'Data Mining->Testing Environment->Production Environment->' +
-            'Exchange Data Tasks->Exchange Trading Tasks->Crypto Exchange->' +
-            'Market Data Tasks->Market Trading Tasks->Market->' +
-            'Data Mine Tasks->Trading Mine Tasks->' +
+            'Exchange Data Tasks->Exchange Trading Tasks->Exchange Learning Tasks->Crypto Exchange->' +
+            'Market Data Tasks->Market Trading Tasks->Market Learning Tasks->Market->' +
+            'Data Mine Tasks->Trading Mine Tasks->Intel Mine Tasks->' +
             'Task Manager->Task->' +
-            'Indicator Bot Instance->Sensor Bot Instance->Trading Bot Instance->' +
-            'Indicator Process Instance->Sensor Process Instance->Trading Process Instance->' +
-            'Paper Trading Session->Forward Testing Session->Backtesting Session->Live Trading Session->' +
+            'Indicator Bot Instance->Sensor Bot Instance->Trading Bot Instance->AI Bot Instance->' +
+            'Indicator Process Instance->Sensor Process Instance->Trading Process Instance->AI Process Instance->' +
+            'Paper Trading Session->Forward Testing Session->Backtesting Session->Live Trading Session->Learning Session->' +
             'Market->' +
             'Process Definition->'
 
@@ -582,6 +585,10 @@ function newTaskFunctions() {
                 addDataTasks()
                 break
             }
+            case 'Intel Mine Tasks': {
+                addLearningTasks()
+                break
+            }
             case 'Trading Mine Tasks': {
                 addTradingTasks()
                 break
@@ -589,6 +596,10 @@ function newTaskFunctions() {
         }
 
         function addDataTasks() {
+            addTaskForTradinSystem()
+        }
+
+        function addLearningTasks() {
             addTaskForTradinSystem()
         }
 
@@ -639,6 +650,11 @@ function newTaskFunctions() {
                             botInstance.name = bot.name
                             break
                         }
+                        case 'AI Bot': {
+                            botInstance = functionLibraryUiObjectsFromNodes.addUIObject(task, 'AI Bot Instance')
+                            botInstance.name = bot.name
+                            break
+                        }
                     }
 
                     for (let j = 0; j < bot.processes.length; j++) {
@@ -678,6 +694,32 @@ function newTaskFunctions() {
                                         break
                                     }
                                 }
+                                break
+
+                                function addSession(sessionType) {
+                                    session = functionLibraryUiObjectsFromNodes.addUIObject(processInstance, sessionType)
+                                    session.name = task.name
+                                    let config = JSON.parse(session.config)
+                                    config.folderName = session.name.split(" ").join("-")
+                                    session.config = JSON.stringify(config)
+
+                                    for (let m = 0; m < rootNodes.length; m++) {
+                                        let rootNode = rootNodes[m]
+                                        if (rootNode.type === 'Trading Engine' && rootNode.isPlugin === true) {
+                                            let tradingEngine = rootNode
+                                            session.tradingEngineReference.payload.referenceParent = tradingEngine
+                                            session.tradingSystemReference.payload.referenceParent = tradingSystem
+                                        }
+                                    }
+                                }
+                            }
+                            case 'AI Bot': {
+                                processInstance = functionLibraryUiObjectsFromNodes.addUIObject(botInstance, 'AI Process Instance')
+                                processInstance.payload.referenceParent = process
+
+                                let session
+
+                                addSession('Learning Session')
                                 break
 
                                 function addSession(sessionType) {

@@ -74,7 +74,7 @@ function newProductStorage(name) {
         }
     }
 
-    function initialize(dataMine, bot, session, product, exchange, market, pDatetime, pTimeFrame, host, port, eventsServerClient, callBackFunction) {
+    function initialize(mine, bot, session, product, exchange, market, pDatetime, pTimeFrame, host, port, eventsServerClient, callBackFunction) {
         try {
             datetime = pDatetime
             timeFrame = pTimeFrame
@@ -90,7 +90,7 @@ function newProductStorage(name) {
                         dataSetsToLoad++
 
                         let marketFiles = newMarketFiles()
-                        marketFiles.initialize(dataMine, bot, session, product, dataset, exchange, market, host, port, eventsServerClient, onMarketFileReady)
+                        marketFiles.initialize(mine, bot, session, product, dataset, exchange, market, host, port, eventsServerClient, onMarketFileReady)
                         thisObject.marketFiles.push(marketFiles)
                     }
                         break
@@ -99,7 +99,7 @@ function newProductStorage(name) {
                         dataSetsToLoad++
 
                         let dailyFiles = newDailyFiles()
-                        dailyFiles.initialize(dataMine, bot, session, product, dataset, exchange, market, pDatetime, pTimeFrame, host, port, eventsServerClient, onDailyFileReady)
+                        dailyFiles.initialize(mine, bot, session, product, dataset, exchange, market, pDatetime, pTimeFrame, host, port, eventsServerClient, onDailyFileReady)
                         thisObject.dailyFiles.push(dailyFiles)
                     }
                         break
@@ -108,7 +108,7 @@ function newProductStorage(name) {
                         dataSetsToLoad++
 
                         let singleFile = newSingleFile()
-                        singleFile.initialize(dataMine, bot, session, product, dataset, exchange, market, host, port, eventsServerClient, onSingleFileReady)
+                        singleFile.initialize(mine, bot, session, product, dataset, exchange, market, host, port, eventsServerClient, onSingleFileReady)
                         thisObject.singleFile.push(singleFile)
                     }
                         break
@@ -117,7 +117,7 @@ function newProductStorage(name) {
                         dataSetsToLoad++
 
                         let fileSequences = newFileSequence()
-                        fileSequences.initialize(dataMine, bot, session, product, dataset, exchange, market, host, port, eventsServerClient, onFileSequenceReady)
+                        fileSequences.initialize(mine, bot, session, product, dataset, exchange, market, host, port, eventsServerClient, onFileSequenceReady)
                         thisObject.fileSequences.push(fileSequences)
                     }
                         break

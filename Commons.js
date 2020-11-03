@@ -100,6 +100,9 @@
                 botNode = global.FIND_NODE_IN_NODE_MESH(outputDatasetNode, 'Trading Bot')
             }
             if (botNode === undefined) {
+                botNode = global.FIND_NODE_IN_NODE_MESH(outputDatasetNode, 'AI Bot')
+            }
+            if (botNode === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] start -> Product Definition not attached to a Bot. Product Definition = ");
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return

@@ -560,17 +560,17 @@ exports.newAiBot = function newAiBot(bot, parentLogger) {
                                     if (processConfig.waitsForExecutionFinishedEvent === true) {
                                         waitTime = 0
                                     } else {
-                                        switch (bot.SESSION.type) {
+                                        switch (bot.AI_SESSION.type) {
                                             case 'Live Trading Session': {
-                                                waitTime = bot.SESSION.parameters.timeFrame.config.value
+                                                waitTime = bot.AI_SESSION.parameters.timeFrame.config.value
                                                 break
                                             }
                                             case 'Fordward Tessting Session': {
-                                                waitTime = bot.SESSION.parameters.timeFrame.config.value
+                                                waitTime = bot.AI_SESSION.parameters.timeFrame.config.value
                                                 break
                                             }
                                             case 'Paper Trading Session': {
-                                                waitTime = bot.SESSION.parameters.timeFrame.config.value
+                                                waitTime = bot.AI_SESSION.parameters.timeFrame.config.value
                                                 break
                                             }
                                             case 'Backtesting Session': {

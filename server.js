@@ -30,8 +30,8 @@ global.ROOT_DIR = './';
 global.ONE_YEAR_IN_MILISECONDS = 365 * 24 * 60 * 60 * 1000
 global.ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000
 global.ONE_MIN_IN_MILISECONDS = 60 * 1000
-global.LOGGER_MAP = new Map()
-global.SESSION_MAP = new Map()
+global.LOGGER_MAP = new Map()   // We will put all the loggers in a map, so that we can eventually finalize them.
+global.SESSION_MAP = new Map()  // We will put all the sessions in a map, so that we can eventually finalize them.
 
 global.UNIQUE_ID = function () {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {

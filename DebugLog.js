@@ -80,10 +80,14 @@ exports.newDebugLog = function newDebugLog() {
 
             let filePath = thisObject.bot.filePathRoot + "/Logs/" + thisObject.bot.process + "/"
 
-            if (thisObject.bot.SESSION !== undefined) {
-                filePath = filePath + thisObject.bot.SESSION.folderName + "/" + executionDatetime;
+            if (thisObject.bot.TRADING_SESSION !== undefined) {
+                filePath = filePath + thisObject.bot.TRADING_SESSION.folderName + "/" + executionDatetime;
             } else {
-                filePath = filePath + executionDatetime;
+                if (thisObject.bot.AI_SESSION !== undefined) {
+                    filePath = filePath + thisObject.bot.AI_SESSION.folderName + "/" + executionDatetime;
+                } else {
+                    filePath = filePath + executionDatetime;
+                }
             }
 
             if (thisObject.bot.debug.year !== undefined) {

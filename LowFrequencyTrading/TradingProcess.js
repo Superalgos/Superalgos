@@ -103,7 +103,7 @@
                 This variable tell us which day we are standing at, specially while working
                 with Daily Files. From this Date is that we are going to load the Daily Files.
                 */
-                bot.simulationState.tradingEngine.current.episode.processDate.value = global.REMOVE_TIME(bot.SESSION.parameters.timeRange.config.initialDatetime).valueOf()
+                bot.simulationState.tradingEngine.current.episode.processDate.value = global.REMOVE_TIME(bot.TRADING_SESSION.parameters.timeRange.config.initialDatetime).valueOf()
             }
 
             /* 
@@ -119,7 +119,7 @@
             await processSingleFiles()
 
             if (await processMarketFiles() === false) {
-                bot.sessionHeartBeat(undefined, undefined, 'Waiting for Data Mining to be run')
+                bot.TRADING_SESSIONHeartBeat(undefined, undefined, 'Waiting for Data Mining to be run')
                 callBackFunction(global.DEFAULT_RETRY_RESPONSE)
                 return
             }
@@ -141,17 +141,17 @@
                 With all the indicators data files loaded, we will build the chart object 
                 data structure that will be used in user-defied conditions and formulas.
                 */
-                bot.sessionHeartBeat(undefined, undefined, 'Waking up')
+                bot.TRADING_SESSIONHeartBeat(undefined, undefined, 'Waking up')
                 buildCharts(chart)
 
                 if (checkThereAreCandles(chart) === true) {
-                    bot.sessionHeartBeat(undefined, undefined, 'Running')
+                    bot.TRADING_SESSIONHeartBeat(undefined, undefined, 'Running')
                     await generateOutput(chart)
-                    bot.sessionHeartBeat(undefined, undefined, 'Saving')
+                    bot.TRADING_SESSIONHeartBeat(undefined, undefined, 'Saving')
                     await writeProcessFiles()
-                    bot.sessionHeartBeat(undefined, undefined, 'Sleeping')
+                    bot.TRADING_SESSIONHeartBeat(undefined, undefined, 'Sleeping')
                 } else {
-                    bot.sessionHeartBeat(undefined, undefined, 'Waiting for Data Mining to be up to date. No candles found at.')
+                    bot.TRADING_SESSIONHeartBeat(undefined, undefined, 'Waiting for Data Mining to be up to date. No candles found at.')
                     callBackFunction(global.DEFAULT_RETRY_RESPONSE)
                     return
                 }
@@ -159,7 +159,7 @@
             } else {
                 /* We are processing Daily Files */
                 do {
-                    global.EMIT_SESSION_STATUS(bot.SESSION_STATUS, bot.sessionKey)
+                    global.EMIT_SESSION_STATUS(bot.TRADING_SESSION_STATUS, bot.TRADING_SESSIONKey)
                     /* 
                     We update the Trading Process Date with the date calculated at the simulation.
                     We will use this date to load indicator and output files. After that we will 
@@ -171,9 +171,9 @@
                     if (checkStopTaskGracefully() === false) { break }
                     if (checkStopProcessing() === false) { break }
 
-                    bot.sessionHeartBeat(undefined, undefined, 'Waking up')
+                    bot.TRADING_SESSIONHeartBeat(undefined, undefined, 'Waking up')
                     if (await processDailyFiles() === false) {
-                        bot.sessionHeartBeat(undefined, undefined, 'Waiting for Data Mining to be run')
+                        bot.TRADING_SESSIONHeartBeat(undefined, undefined, 'Waiting for Data Mining to be run')
                         callBackFunction(global.DEFAULT_RETRY_RESPONSE)
                         return
                     }
@@ -186,13 +186,13 @@
                     The process of generating the output includes the trading simulation.
                     */
                     if (checkThereAreCandles(chart) === true) {
-                        bot.sessionHeartBeat(undefined, undefined, 'Running')
+                        bot.TRADING_SESSIONHeartBeat(undefined, undefined, 'Running')
                         await generateOutput(chart)
-                        bot.sessionHeartBeat(undefined, undefined, 'Saving')
+                        bot.TRADING_SESSIONHeartBeat(undefined, undefined, 'Saving')
                         await writeProcessFiles()
-                        bot.sessionHeartBeat(undefined, undefined, 'Sleeping')
+                        bot.TRADING_SESSIONHeartBeat(undefined, undefined, 'Sleeping')
                     } else {
-                        bot.sessionHeartBeat(undefined, undefined, 'Waiting for Data Mining to be up to date')
+                        bot.TRADING_SESSIONHeartBeat(undefined, undefined, 'Waiting for Data Mining to be up to date')
                         callBackFunction(global.DEFAULT_RETRY_RESPONSE)
                         return
                     }
@@ -219,7 +219,7 @@
             callBackFunction(global.DEFAULT_OK_RESPONSE)
 
             function checkThereAreCandles(chart) {
-                let sessionParameters = bot.SESSION.parameters
+                let sessionParameters = bot.TRADING_SESSION.parameters
                 let propertyName = 'at' + sessionParameters.timeFrame.config.label.replace('-', '')
                 let candles = chart[propertyName].candles
 
@@ -236,7 +236,7 @@
                     let statusReport;
 
                     /* We are going to use the start date as beging of market date. */
-                    contextVariables.dateBeginOfMarket = global.REMOVE_TIME(bot.SESSION.parameters.timeRange.config.initialDatetime)
+                    contextVariables.dateBeginOfMarket = global.REMOVE_TIME(bot.TRADING_SESSION.parameters.timeRange.config.initialDatetime)
                     /*
                     Here we get the status report from the bot who knows which is the end of the market.
                     */
@@ -371,7 +371,7 @@
 
                     dataFiles = new Map();
 
-                    if (bot.SESSION.parameters.timeFrame.config.label === timeFrameLabel) {
+                    if (bot.TRADING_SESSION.parameters.timeFrame.config.label === timeFrameLabel) {
                         currentTimeFrame = global.marketFilesPeriods[n][0];
                         currentTimeFrameLabel = global.marketFilesPeriods[n][1];
                     }
@@ -384,7 +384,7 @@
                         }
 
                         if (dataDependenciesModule.isItADepenency(timeFrameLabel, datasetModule.node.parentNode.config.singularVariableName) !== true) {
-                            if (!(bot.SESSION.parameters.timeFrame.config.label === timeFrameLabel && datasetModule.node.parentNode.config.pluralVariableName === 'candles')) {
+                            if (!(bot.TRADING_SESSION.parameters.timeFrame.config.label === timeFrameLabel && datasetModule.node.parentNode.config.pluralVariableName === 'candles')) {
                                 continue
                             }
                         }
@@ -431,8 +431,8 @@
                                 let dataRecord = dataFile[i]
                                 let begin = dataRecord[beginIndex]
                                 let end = dataRecord[endIndex]
-                                if (end + timeFrame < bot.SESSION.parameters.timeRange.config.initialDatetime - 1) { continue } // /1 because we need the previous closed element
-                                if (begin > bot.SESSION.parameters.timeRange.config.finalDatetime) { continue }
+                                if (end + timeFrame < bot.TRADING_SESSION.parameters.timeRange.config.initialDatetime - 1) { continue } // /1 because we need the previous closed element
+                                if (begin > bot.TRADING_SESSION.parameters.timeRange.config.finalDatetime) { continue }
                                 result.push(dataRecord)
                             }
                             return result
@@ -468,7 +468,7 @@
                         }
                     }
 
-                    if (bot.SESSION.parameters.timeFrame.config.label === timeFrameLabel) {
+                    if (bot.TRADING_SESSION.parameters.timeFrame.config.label === timeFrameLabel) {
                         currentTimeFrame = global.dailyFilePeriods[n][0];
                         currentTimeFrameLabel = global.dailyFilePeriods[n][1];
                     }
@@ -488,7 +488,7 @@
                         }
 
                         if (dataDependenciesModule.isItADepenency(timeFrameLabel, datasetModule.node.parentNode.config.singularVariableName) !== true) {
-                            if (!(bot.SESSION.parameters.timeFrame.config.label === timeFrameLabel && datasetModule.node.parentNode.config.pluralVariableName === 'candles')) {
+                            if (!(bot.TRADING_SESSION.parameters.timeFrame.config.label === timeFrameLabel && datasetModule.node.parentNode.config.pluralVariableName === 'candles')) {
                                 continue
                             }
                         }
@@ -653,7 +653,7 @@
 
                         let fileContent = JSON.stringify(dataRange);
                         let fileName = '/Data.Range.json';
-                        let filePath = bot.filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + productCodeName + "/" + 'Multi-Period-Daily' + fileName;
+                        let filePath = bot.filePathRoot + "/Output/" + bot.TRADING_SESSION.folderName + "/" + productCodeName + "/" + 'Multi-Period-Daily' + fileName;
 
                         let response = await fileStorage.asyncCreateTextFile(filePath, fileContent + '\n')
 
@@ -692,7 +692,7 @@
                             let fileContent = JSON.stringify(timeFramesArray)
                             let fileName = '/Time.Frames.json';
 
-                            let filePath = bot.filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + productCodeName + "/" + processType + fileName;
+                            let filePath = bot.filePathRoot + "/Output/" + bot.TRADING_SESSION.folderName + "/" + productCodeName + "/" + processType + fileName;
 
                             let response = await fileStorage.asyncCreateTextFile(filePath, fileContent + '\n')
                             if (response.err.result !== global.DEFAULT_OK_RESPONSE.result) {
@@ -728,12 +728,12 @@
 
             function checkIfSessionMustStop() {
 
-                if (bot.SESSION.type === 'Backtesting Session') {
+                if (bot.TRADING_SESSION.type === 'Backtesting Session') {
                     /*
                     Backtests needs only one execution of this process to complete.
                     */
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, '[IMPORTANT] checkIfSessionMustStop -> Backtesting Session Finished. Stopping the Session now. ') }
-                    bot.SESSION.stop('Backtesting Session Finished.')
+                    bot.TRADING_SESSION.stop('Backtesting Session Finished.')
                 }
             }
         }

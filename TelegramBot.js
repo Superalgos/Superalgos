@@ -23,7 +23,7 @@ exports.newTelegramBot = function newTelegramBot(bot, logger) {
             thisObject.telegramBot = new Telegraf(botToken)
             thisObject.telegramBot.start((ctx) => ctx.reply('Hi! I am the Telegram Bot that will tell you what happens with your trading session.'))
             thisObject.telegramBot.help((ctx) => ctx.reply('I can stop the session if you type STOP.'))
-            thisObject.telegramBot.hears('STOP', (ctx) => bot.SESSION.stop(' by STOP command at Telegram.'))
+            thisObject.telegramBot.hears('STOP', (ctx) => bot.TRADING_SESSION.stop(' by STOP command at Telegram.'))
             thisObject.telegramBot.launch()
 
             const Telegram = require('telegraf/telegram')

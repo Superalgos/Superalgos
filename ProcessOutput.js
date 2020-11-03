@@ -32,6 +32,9 @@
                     if (botNode === undefined) { 
                         botNode = global.FIND_NODE_IN_NODE_MESH(outputDataset, 'Sensor Bot')
                     }
+                    if (botNode === undefined) { 
+                        botNode = global.FIND_NODE_IN_NODE_MESH(outputDataset, 'AI Bot')
+                    }
 
                     /* Some validations to verify that everything is in place. */
                     if (outputDataset.referenceParent !== undefined) {
@@ -118,6 +121,9 @@
                 }
                 if (botNode === undefined) { 
                     botNode = global.FIND_NODE_IN_NODE_MESH(outputDataset, 'Sensor Bot')
+                }
+                if (botNode === undefined) { 
+                    botNode = global.FIND_NODE_IN_NODE_MESH(outputDataset, 'AI Bot')
                 }
 
                 /* Some validations to verify that everything is in place. */

@@ -266,6 +266,10 @@
                                     runTradingBot(botConfig, processConfig);
                                     break;
                                 }
+                                case 'AI Bot': {
+                                    runAIBot(botConfig, processConfig);
+                                    break;
+                                }
                                 default: {
                                     console.log(logDisplace + "Root : [ERROR] start -> bootingBot -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
                                 }
@@ -294,6 +298,10 @@
                                     }
                                     case 'Trading Bot': {
                                         runTradingBot(botConfig, processConfig);
+                                        break;
+                                    }
+                                    case 'AI Bot': {
+                                        runAIBot(botConfig, processConfig);
                                         break;
                                     }
                                     default: {
@@ -337,6 +345,10 @@
                                 switch (botConfig.type) {
                                     case 'Trading Bot': {
                                         runTradingBot(botConfig, processConfig);
+                                        break;
+                                    }
+                                    case 'AI Bot': {
+                                        runAIBot(botConfig, processConfig);
                                         break;
                                     }
                                     default: {
@@ -537,6 +549,71 @@
                         }
                         catch (err) {
                             console.log(logDisplace + "Root : [ERROR] start -> bootingBot -> runTradingBot -> err = " + err.stack);
+                            setTimeout(exitProcessInstance, WAIT_TIME_FOR_ALL_PROCESS_INSTANCES_TO_START)
+                        }
+                    }
+                    
+                    function runAIBot(pBotConfig, pProcessConfig) {
+
+                        global.TOTAL_PROCESS_INSTANCES_CREATED++
+
+                        try {
+                            const DEBUG_MODULE = require(global.ROOT_DIR + 'DebugLog');
+                            let logger;
+
+                            logger = DEBUG_MODULE.newDebugLog();
+                            global.LOGGER_MAP.set('runAIBot', logger)
+                            logger.bot = pBotConfig;
+
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> bootingBot -> runAIBot -> Entering function."); }
+
+                            let aiBot = TRADING_BOT_MODULE.newAIBot(pBotConfig, logger);
+                            aiBot.initialize(pProcessConfig, onInitializeReady);
+
+                            function onInitializeReady(err) {
+
+                                if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+
+                                    aiBot.run(whenRunFinishes);
+
+                                    function whenRunFinishes(err) {
+
+                                        pBotConfig.loopCounter = 0;
+
+                                        let botId;
+
+                                        botId = pBotConfig.dataMine + "." + pBotConfig.codeName + "." + pBotConfig.process;
+
+                                        if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+
+                                            logger.write(MODULE_NAME, "[INFO] start -> bootingBot -> runAIBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
+                                            logger.write(MODULE_NAME, "[INFO] start -> bootingBot -> runAIBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
+
+                                            logger.persist();
+
+                                        } else {
+
+                                            logger.write(MODULE_NAME, "[ERROR] start -> bootingBot -> runAIBot -> onInitializeReady -> whenStartFinishes -> err = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> bootingBot -> runAIBot -> onInitializeReady -> whenStartFinishes -> Execution will be stopped. ");
+                                            logger.write(MODULE_NAME, "[ERROR] start -> bootingBot -> runAIBot -> onInitializeReady -> whenStartFinishes -> Bye.");
+                                            logger.write(MODULE_NAME, "[ERROR] start -> bootingBot -> runAIBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
+                                            console.log(logDisplace + "Root : [ERROR] start -> bootingBot -> runAIBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished with errors. Please check the logs.");
+                                            logger.persist();
+                                        }
+                                        setTimeout(exitProcessInstance, WAIT_TIME_FOR_ALL_PROCESS_INSTANCES_TO_START)
+                                    }
+
+                                } else {
+                                    logger.write(MODULE_NAME, "[ERROR] start -> bootingBot -> runAIBot -> onInitializeReady -> err = " + err.message);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> bootingBot -> runAIBot -> onInitializeReady -> Failed to initialize the bot. ");
+                                    console.log(logDisplace + "Root : [ERROR] start -> bootingBot -> runAIBot -> onInitializeReady -> err = " + err.message);
+                                    logger.persist();
+                                    setTimeout(exitProcessInstance, WAIT_TIME_FOR_ALL_PROCESS_INSTANCES_TO_START)
+                                }
+                            }
+                        }
+                        catch (err) {
+                            console.log(logDisplace + "Root : [ERROR] start -> bootingBot -> runAIBot -> err = " + err.stack);
                             setTimeout(exitProcessInstance, WAIT_TIME_FOR_ALL_PROCESS_INSTANCES_TO_START)
                         }
                     }

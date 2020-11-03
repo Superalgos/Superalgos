@@ -4,7 +4,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
     the execution at each loop cycle of the Trading System Protocol.
     */
     const FULL_LOG = true
-    const MODULE_NAME = 'Trading Simulation -> ' + bot.SESSION.name
+    const MODULE_NAME = 'Trading Simulation -> ' + bot.TRADING_SESSION.name
 
     let thisObject = {
         finalize: finalize,
@@ -28,7 +28,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
 
             let tradingSystem = bot.simulationState.tradingSystem
             let tradingEngine = bot.simulationState.tradingEngine
-            let sessionParameters = bot.SESSION.parameters
+            let sessionParameters = bot.TRADING_SESSION.parameters
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> initialDatetime = ' + sessionParameters.timeRange.config.initialDatetime) }
             if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> finalDatetime = ' + sessionParameters.timeRange.config.finalDatetime) }
@@ -71,7 +71,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
                     This will happen when the sessionParameters.timeRange.config.initialDatetime is beyond the last candle available, 
                     meaning that the dataSet needs to be updated with more up-to-date data. 
                     */
-                    bot.SESSION.stop('Data is not up-to-date enough. Please start the Masters Data Mining Operation.')
+                    bot.TRADING_SESSION.stop('Data is not up-to-date enough. Please start the Masters Data Mining Operation.')
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, '[IMPORTANT] runSimulation -> Data is not up-to-date enough. Stopping the Session now. ') }
                     return
                 }
@@ -210,7 +210,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
                     if (checkFinalDatetime() === false) {
                         closeEpisode('Final Datetime Reached')
                         breakLoop = true
-                        bot.SESSION.stop('Final Datetime Reached')
+                        bot.TRADING_SESSION.stop('Final Datetime Reached')
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[IMPORTANT] runSimulation -> Final Datetime Reached. Stopping the Session now. ') }
                         return
                     }
@@ -218,7 +218,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
                     if (checkMinimunAndMaximunBalance() === false) {
                         closeEpisode('Min or Max Balance Reached')
                         breakLoop = true
-                        bot.SESSION.stop('Min or Max Balance Reached')
+                        bot.TRADING_SESSION.stop('Min or Max Balance Reached')
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[IMPORTANT] runSimulation -> Min or Max Balance Reached. Stopping the Session now. ') }
                         return
                     }
@@ -276,7 +276,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
 
                             let processingDate = heartBeatDate.getUTCFullYear() + '-' + utilities.pad(heartBeatDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(heartBeatDate.getUTCDate(), 2)
 
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Simulation ' + bot.sessionKey + ' Loop # ' + tradingEngine.current.episode.candle.index.value + ' @ ' + processingDate) }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Simulation ' + bot.TRADING_SESSIONKey + ' Loop # ' + tradingEngine.current.episode.candle.index.value + ' @ ' + processingDate) }
 
                             /*  Logging to console and disk */
                             if (global.areEqualDates(currentDate, new Date()) === false) {

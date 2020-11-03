@@ -47,7 +47,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
     function initialize() {
         tradingSystem = bot.simulationState.tradingSystem
         tradingEngine = bot.simulationState.tradingEngine
-        sessionParameters = bot.SESSION.parameters
+        sessionParameters = bot.TRADING_SESSION.parameters
 
         tradingStrategyModule.initialize()
         tradingPositionModule.initialize()
@@ -160,7 +160,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
                                     announcementsModule.makeAnnoucements(triggerStage.triggerOn)
                                     announcementsModule.makeAnnoucements(triggerStage)
 
-                                    if (bot.SESSION.type === 'Backtesting Session') {
+                                    if (bot.TRADING_SESSION.type === 'Backtesting Session') {
                                         if (sessionParameters.snapshots !== undefined) {
                                             if (sessionParameters.snapshots.config.strategy === true) {
                                                 snapshotsModule.strategyEntry()
@@ -245,7 +245,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
                                 announcementsModule.makeAnnoucements(triggerStage.takePosition)
                                 announcementsModule.makeAnnoucements(strategy.openStage)
 
-                                if (bot.SESSION.type === 'Backtesting Session') {
+                                if (bot.TRADING_SESSION.type === 'Backtesting Session') {
                                     if (sessionParameters.snapshots !== undefined) {
                                         if (sessionParameters.snapshots.config.position === true) {
                                             snapshotsModule.positionEntry()
@@ -856,7 +856,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
 
         function closePositionAndStrategy() {
             /* Taking Position Snapshot */
-            if (bot.SESSION.type === 'Backtesting Session') {
+            if (bot.TRADING_SESSION.type === 'Backtesting Session') {
                 if (sessionParameters.snapshots !== undefined) {
                     if (sessionParameters.snapshots.config.position === true) {
                         snapshotsModule.positionExit()
@@ -865,7 +865,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
             }
 
             /* Taking Strategy Snapshot */
-            if (bot.SESSION.type === 'Backtesting Session') {
+            if (bot.TRADING_SESSION.type === 'Backtesting Session') {
                 if (sessionParameters.snapshots !== undefined) {
                     if (sessionParameters.snapshots.config.strategy === true) {
                         snapshotsModule.strategyExit()

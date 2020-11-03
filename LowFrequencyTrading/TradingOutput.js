@@ -3,7 +3,7 @@ exports.newTradingOutput = function newTradingOutput(bot, logger, tradingEngineM
     This module will load if necesary all the data outputs so that they can be appended with new
     records if needed. After running the simulation, it will save all the data outputs.
     */
-    const MODULE_NAME = 'Trading Bot'
+    const MODULE_NAME = 'Trading Output'
 
     let thisObject = {
         initialize: initialize,
@@ -133,7 +133,7 @@ exports.newTradingOutput = function newTradingOutput(bot, logger, tradingEngineM
                     if (dataset.config.type === 'Market Files') {
 
                         let fileName = 'Data.json'
-                        let filePath = bot.filePathRoot + '/Output/' + bot.SESSION.folderName + '/' + dataset.parentNode.config.codeName + '/' + dataset.config.codeName + '/' + timeFrameLabel
+                        let filePath = bot.filePathRoot + '/Output/' + bot.TRADING_SESSION.folderName + '/' + dataset.parentNode.config.codeName + '/' + dataset.config.codeName + '/' + timeFrameLabel
 
                         await readOutputFile(fileName, filePath, dataset.parentNode.config.codeName)
                     }
@@ -149,7 +149,7 @@ exports.newTradingOutput = function newTradingOutput(bot, logger, tradingEngineM
 
                         let dateForPath = tradingProcessDate.getUTCFullYear() + '/' + utilities.pad(tradingProcessDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(tradingProcessDate.getUTCDate(), 2);
                         let fileName = 'Data.json'
-                        let filePath = bot.filePathRoot + '/Output/' + bot.SESSION.folderName + '/' + dataset.parentNode.config.codeName + '/' + dataset.config.codeName + '/' + timeFrameLabel + "/" + dateForPath
+                        let filePath = bot.filePathRoot + '/Output/' + bot.TRADING_SESSION.folderName + '/' + dataset.parentNode.config.codeName + '/' + dataset.config.codeName + '/' + timeFrameLabel + "/" + dateForPath
 
                         await readOutputFile(fileName, filePath, dataset.parentNode.config.codeName)
                     }
@@ -190,7 +190,7 @@ exports.newTradingOutput = function newTradingOutput(bot, logger, tradingEngineM
                     if (dataset.config.type === 'Market Files') {
 
                         let fileName = 'Data.json'
-                        let filePath = bot.filePathRoot + '/Output/' + bot.SESSION.folderName + '/' + dataset.parentNode.config.codeName + '/' + dataset.config.codeName + '/' + timeFrameLabel
+                        let filePath = bot.filePathRoot + '/Output/' + bot.TRADING_SESSION.folderName + '/' + dataset.parentNode.config.codeName + '/' + dataset.config.codeName + '/' + timeFrameLabel
 
                         await writeOutputFile(fileName, filePath, dataset.parentNode.config.codeName)
                     }
@@ -206,7 +206,7 @@ exports.newTradingOutput = function newTradingOutput(bot, logger, tradingEngineM
 
                         let dateForPath = tradingProcessDate.getUTCFullYear() + '/' + utilities.pad(tradingProcessDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(tradingProcessDate.getUTCDate(), 2);
                         let fileName = 'Data.json'
-                        let filePath = bot.filePathRoot + '/Output/' + bot.SESSION.folderName + '/' + dataset.parentNode.config.codeName + '/' + dataset.config.codeName + '/' + timeFrameLabel + "/" + dateForPath
+                        let filePath = bot.filePathRoot + '/Output/' + bot.TRADING_SESSION.folderName + '/' + dataset.parentNode.config.codeName + '/' + dataset.config.codeName + '/' + timeFrameLabel + "/" + dateForPath
 
                         await writeOutputFile(fileName, filePath, dataset.parentNode.config.codeName)
                     }

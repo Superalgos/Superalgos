@@ -243,9 +243,9 @@ function newLayer() {
             if (thisObject.mine === undefined) {
                 thisObject.mine = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Trading Mine', undefined, false, true, true, true)
                 if (thisObject.mine === undefined) {
-                    thisObject.mine = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Intelli Mine', undefined, false, true, true, true)
+                    thisObject.mine = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Intel Mine', undefined, false, true, true, true)
                     if (thisObject.mine === undefined) {
-                        thisObject.payload.uiObject.setErrorMessage('Data Mine or Trading Mine or Intelli Mine not Found')
+                        thisObject.payload.uiObject.setErrorMessage('Data Mine or Trading Mine or Intel Mine not Found')
                         return
                     }
                 }

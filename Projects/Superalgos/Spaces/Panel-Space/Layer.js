@@ -232,6 +232,9 @@ function newLayer() {
                 thisObject.bot = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Trading Bot', undefined, false, true, true, true)
             }
             if (thisObject.bot === undefined) {
+                thisObject.bot = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'AI Bot', undefined, false, true, true, true)
+            }
+            if (thisObject.bot === undefined) {
                 thisObject.payload.uiObject.setErrorMessage('Bot not Found')
                 return
             }

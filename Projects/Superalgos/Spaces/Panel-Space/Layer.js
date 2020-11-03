@@ -161,12 +161,12 @@ function newLayer() {
                 '->Layer->' +
                 'Data Product->' +
                 'Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->' +
-                'Bot Products->Data Mine Products->Trading Mine Products->Intel Mine Products->' +
+                'Bot Products->Data Mine Products->Trading Mine Products->Learning Mine Products->' +
                 'Market Data Products->Exchange Data Products->' +
                 'Trading Session Reference->' +
                 'Market Trading Products->Exchange Trading Products->' +
-                'Market Intel Products->Exchange Intel Products->' +
-                'Data Mines Data->Trading Mines Data->Intel Mines Data->Data Storage->Network Node->' +
+                'Market Learning Products->Exchange Learning Products->' +
+                'Data Mines Data->Trading Mines Data->Learning Mines Data->Data Storage->Network Node->' +
                 'Data Storage->Network Node->' +
                 'Backtesting Session->Paper Trading Session->Forward Testing Session->Live Trading Session->' +
                 'Learning Session->' +
@@ -176,8 +176,8 @@ function newLayer() {
                 'Exchange Markets->Crypto Exchange->' +
                 'Product Definition->' +
                 'Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->' +
-                'Sensor Bot->Indicator Bot->Trading Bot->AI Bot->' +
-                'Data Mine->Trading Mine->Intel Mine->' +
+                'Sensor Bot->Indicator Bot->Trading Bot->Learning Bot->' +
+                'Data Mine->Trading Mine->Learning Mine->' +
                 'Dataset Definition->' +
                 'Record Definition->Record Property->Formula->' +
                 'Data Building Procedure->Procedure Loop->Javascript Code->Procedure Initialization->Javascript Code->' +
@@ -232,7 +232,7 @@ function newLayer() {
                 thisObject.bot = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Trading Bot', undefined, false, true, true, true)
             }
             if (thisObject.bot === undefined) {
-                thisObject.bot = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'AI Bot', undefined, false, true, true, true)
+                thisObject.bot = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Learning Bot', undefined, false, true, true, true)
             }
             if (thisObject.bot === undefined) {
                 thisObject.payload.uiObject.setErrorMessage('Bot not Found')
@@ -243,9 +243,9 @@ function newLayer() {
             if (thisObject.mine === undefined) {
                 thisObject.mine = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Trading Mine', undefined, false, true, true, true)
                 if (thisObject.mine === undefined) {
-                    thisObject.mine = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Intel Mine', undefined, false, true, true, true)
+                    thisObject.mine = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Learning Mine', undefined, false, true, true, true)
                     if (thisObject.mine === undefined) {
-                        thisObject.payload.uiObject.setErrorMessage('Data Mine or Trading Mine or Intel Mine not Found')
+                        thisObject.payload.uiObject.setErrorMessage('Data Mine or Trading Mine or Learning Mine not Found')
                         return
                     }
                 }

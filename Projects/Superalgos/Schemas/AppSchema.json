@@ -28,8 +28,8 @@
             },
             {
                 "action": "Add UI Object",
-                "label": "Add Intel Mine",
-                "relatedUiObject": "Intel Mine",
+                "label": "Add Learning Mine",
+                "relatedUiObject": "Learning Mine",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -1923,9 +1923,9 @@
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "intelMining",
-                "label": "Add Intel Mining",
-                "relatedUiObject": "Intel Mining",
+                "propertyToCheckFor": "learningMining",
+                "label": "Add Learning Mining",
+                "relatedUiObject": "Learning Mining",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -1982,9 +1982,9 @@
                 "autoAdd": true
             },
             {
-                "name": "intelMining",
+                "name": "learningMining",
                 "type": "node",
-                "childType": "Intel Mining",
+                "childType": "Learning Mining",
                 "autoAdd": true
             },
             {
@@ -2050,7 +2050,7 @@
         "addLeftIcons": true,
         "level": 2,
         "chainAttachesTo": {
-            "compatibleTypes": "->Data Mine Tasks->Trading Mine Tasks->Intel Mine Tasks->"
+            "compatibleTypes": "->Data Mine Tasks->Trading Mine Tasks->Learning Mine Tasks->"
         },
         "properties": [
             {
@@ -2120,8 +2120,8 @@
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
                 "propertyToCheckFor": "bot",
-                "label": "Add AI Bot Instance",
-                "relatedUiObject": "AI Bot Instance",
+                "label": "Add Learning Bot Instance",
+                "relatedUiObject": "Learning Bot Instance",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -2167,7 +2167,7 @@
             {
                 "name": "bot",
                 "type": "node",
-                "childType": "AI Bot Instance"
+                "childType": "Learning Bot Instance"
             },
             {
                 "name": "keyReference",
@@ -2226,7 +2226,7 @@
         "propertyNameAtParent": "bot"
     },
     {
-        "type": "AI Bot Instance",
+        "type": "Learning Bot Instance",
         "menuItems": [
             {
                 "action": "Configure",
@@ -2239,7 +2239,7 @@
             {
                 "action": "Add UI Object",
                 "label": "Add Process Instance",
-                "relatedUiObject": "AI Process Instance",
+                "relatedUiObject": "Learning Process Instance",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -2267,7 +2267,7 @@
             {
                 "name": "processes",
                 "type": "array",
-                "childType": "AI Process Instance",
+                "childType": "Learning Process Instance",
                 "autoAdd": false
             }
         ],
@@ -2429,7 +2429,7 @@
         "propertyNameAtParent": "processes"
     },
     {
-        "type": "AI Process Instance",
+        "type": "Learning Process Instance",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -10327,7 +10327,7 @@
         ]
     },
     {
-        "type": "Intel Mine",
+        "type": "Learning Mine",
         "menuItems": [
             {
                 "action": "Configure",
@@ -10339,8 +10339,8 @@
             },
             {
                 "action": "Add UI Object",
-                "label": "Add AI Bot",
-                "relatedUiObject": "AI Bot",
+                "label": "Add Learning Bot",
+                "relatedUiObject": "Learning Bot",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -10371,9 +10371,9 @@
         },
         "properties": [
             {
-                "name": "aiBots",
+                "name": "learningBots",
                 "type": "array",
-                "childType": "AI Bot"
+                "childType": "Learning Bot"
             },
             {
                 "name": "plotters",
@@ -10481,7 +10481,7 @@
         },
         "level": 1,
         "chainAttachesTo": {
-            "compatibleTypes": "->Sensor Bot->Indicator Bot->Trading Bot->AI Bot->"
+            "compatibleTypes": "->Sensor Bot->Indicator Bot->Trading Bot->Learning Bot->"
         },
         "properties": [
             {
@@ -10823,7 +10823,7 @@
         "addLeftIcons": true,
         "level": 3,
         "chainAttachesTo": {
-            "compatibleTypes": "->Trading Bot->AI Bot->Product Definition Folder->"
+            "compatibleTypes": "->Trading Bot->Learning Bot->Product Definition Folder->"
         },
         "properties": [
             {
@@ -10895,7 +10895,7 @@
             "compatibleTypes": "->Plotter Module->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Sensor Bot->Indicator Bot->Trading Bot->AI Bot->Product Definition Folder->"
+            "compatibleTypes": "->Sensor Bot->Indicator Bot->Trading Bot->Learning Bot->Product Definition Folder->"
         },
         "properties": [
             {
@@ -11473,7 +11473,7 @@
         "propertyNameAtParent": "tradingBots"
     },
     {
-        "type": "AI Bot",
+        "type": "Learning Bot",
         "menuItems": [
             {
                 "action": "Configure",
@@ -11521,7 +11521,7 @@
         },
         "level": 3,
         "chainAttachesTo": {
-            "compatibleTypes": "->Intel Mine->"
+            "compatibleTypes": "->Learning Mine->"
         },
         "properties": [
             {
@@ -11543,7 +11543,7 @@
                 "autoAdd": true
             }
         ],
-        "propertyNameAtParent": "aiBots",
+        "propertyNameAtParent": "learningBots",
         "icon": "bitcoin"
     },
     {
@@ -14787,7 +14787,7 @@
             "compatibleTypes": "->Timeline Chart->"
         },
         "referenceAttachesTo": {
-            "compatibleTypes": "->Data Mine Products->Trading Mine Products->Intel Mine Products->"
+            "compatibleTypes": "->Data Mine Products->Trading Mine Products->Learning Mine Products->"
         },
         "propertyNameAtParent": "layerManager",
         "properties": [
@@ -14975,9 +14975,9 @@
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "intelMinesData",
-                "label": "Add Intel Mines Data",
-                "relatedUiObject": "Intel Mines Data",
+                "propertyToCheckFor": "learningMinesData",
+                "label": "Add Learning Mines Data",
+                "relatedUiObject": "Learning Mines Data",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -15010,9 +15010,9 @@
                 "autoAdd": true
             },
             {
-                "name": "intelMinesData",
+                "name": "learningMinesData",
                 "type": "node",
-                "childType": "Intel Mines Data",
+                "childType": "Learning Mines Data",
                 "autoAdd": true
             }
         ]
@@ -15160,7 +15160,7 @@
         ]
     },
     {
-        "type": "Intel Mine Tasks",
+        "type": "Learning Mine Tasks",
         "menuItems": [
             {
                 "action": "Run All Task Managers",
@@ -15210,7 +15210,7 @@
         "addLeftIcons": true,
         "level": 2,
         "referenceAttachesTo": {
-            "compatibleTypes": "->Intel Mine->"
+            "compatibleTypes": "->Learning Mine->"
         },
         "chainAttachesTo": {
             "compatibleTypes": "->Market Learning Tasks->"
@@ -15220,7 +15220,7 @@
             "Use Reference Parent"
         ],
         "isTitleAllwaysVisible": true,
-        "propertyNameAtParent": "intelMineTasks",
+        "propertyNameAtParent": "learningMineTasks",
         "properties": [
             {
                 "name": "taskManagers",
@@ -15379,8 +15379,8 @@
         "type": "Market Learning Tasks",
         "menuItems": [
             {
-                "action": "Run All Intel Mine Tasks",
-                "label": "Run All Intel Mine Tasks",
+                "action": "Run All Learning Mine Tasks",
+                "label": "Run All Learning Mine Tasks",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Run",
                 "workDoneLabel": "Run Request Sent",
@@ -15389,8 +15389,8 @@
                 "actionFunction": "payload.executeAction"
             },
             {
-                "action": "Stop All Intel Mine Tasks",
-                "label": "Stop All Intel Mine Tasks",
+                "action": "Stop All Learning Mine Tasks",
+                "label": "Stop All Learning Mine Tasks",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Stop",
                 "workDoneLabel": "Stop Request Sent",
@@ -15400,17 +15400,17 @@
             },
             {
                 "action": "Add UI Object",
-                "label": "Add Intel Mine Tasks",
-                "relatedUiObject": "Intel Mine Tasks",
+                "label": "Add Learning Mine Tasks",
+                "relatedUiObject": "Learning Mine Tasks",
                 "actionFunction": "payload.executeAction"
             },
             {
-                "action": "Add Missing Intel Mine Tasks",
-                "label": "Add Missing Intel Mine Tasks",
+                "action": "Add Missing Learning Mine Tasks",
+                "label": "Add Missing Learning Mine Tasks",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Proceed",
                 "workDoneLabel": "Done",
-                "relatedUiObject": "Intel Mine Tasks",
+                "relatedUiObject": "Learning Mine Tasks",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -15440,9 +15440,9 @@
         "propertyNameAtParent": "marketLearningTasks",
         "properties": [
             {
-                "name": "intelMineTasks",
+                "name": "learningMineTasks",
                 "type": "array",
-                "childType": "Intel Mine Tasks",
+                "childType": "Learning Mine Tasks",
                 "monitorChildrenRunning": true
             }
         ],
@@ -15644,7 +15644,7 @@
             "compatibleTypes": "->Crypto Exchange->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Intel Mining->"
+            "compatibleTypes": "->Learning Mining->"
         },
         "alternativeIcons": "Use Reference Parent",
         "title": [
@@ -15726,7 +15726,7 @@
         ]
     },
     {
-        "type": "Intel Mining",
+        "type": "Learning Mining",
         "menuItems": [
             {
                 "action": "Run All Exchange Learning Tasks",
@@ -15778,7 +15778,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Network Node->"
         },
-        "propertyNameAtParent": "intelMining",
+        "propertyNameAtParent": "learningMining",
         "properties": [
             {
                 "name": "exchangeLearningTasks",
@@ -16059,21 +16059,21 @@
         ]
     },
     {
-        "type": "Exchange Intel Products",
+        "type": "Exchange Learning Products",
         "menuItems": [
             {
                 "action": "Add UI Object",
-                "label": "Add Market Intel Products",
-                "relatedUiObject": "Market Intel Products",
+                "label": "Add Market Learning Products",
+                "relatedUiObject": "Market Learning Products",
                 "actionFunction": "payload.executeAction"
             },
             {
-                "action": "Add Missing Market Intel Products",
+                "action": "Add Missing Market Learning Products",
                 "label": "Add Missing Markets",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Proceed",
                 "workDoneLabel": "Done",
-                "relatedUiObject": "Market Intel Products",
+                "relatedUiObject": "Market Learning Products",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -16097,14 +16097,14 @@
             "compatibleTypes": "->Crypto Exchange->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Intel Mines Data->"
+            "compatibleTypes": "->Learning Mines Data->"
         },
-        "propertyNameAtParent": "exchangeIntelProducts",
+        "propertyNameAtParent": "exchangeLearningProducts",
         "properties": [
             {
-                "name": "marketIntelProducts",
+                "name": "marketLearningProducts",
                 "type": "array",
-                "childType": "Market Intel Products",
+                "childType": "Market Learning Products",
                 "autoAdd": false
             }
         ],
@@ -16153,21 +16153,21 @@
         ]
     },
     {
-        "type": "Intel Mines Data",
+        "type": "Learning Mines Data",
         "menuItems": [
             {
                 "action": "Add UI Object",
-                "label": "Add Exchange Intel Products",
-                "relatedUiObject": "Exchange Intel Products",
+                "label": "Add Exchange Learning Products",
+                "relatedUiObject": "Exchange Learning Products",
                 "actionFunction": "payload.executeAction"
             },
             {
-                "action": "Add Missing Exchange Intel Products",
+                "action": "Add Missing Exchange Learning Products",
                 "label": "Add Missing Exchanges",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Proceed",
                 "workDoneLabel": "Done",
-                "relatedUiObject": "Exchange Intel Products",
+                "relatedUiObject": "Exchange Learning Products",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -16185,12 +16185,12 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Data Storage->"
         },
-        "propertyNameAtParent": "intelMinesData",
+        "propertyNameAtParent": "learningMinesData",
         "properties": [
             {
-                "name": "exchangeIntelProducts",
+                "name": "exchangeLearningProducts",
                 "type": "array",
-                "childType": "Exchange Intel Products"
+                "childType": "Exchange Learning Products"
             }
         ],
         "icon": "bitcoin"
@@ -16261,7 +16261,7 @@
         ]
     },
     {
-        "type": "AI Session Reference",
+        "type": "Learning Session Reference",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -16271,17 +16271,17 @@
             },
             {
                 "action": "Add UI Object",
-                "label": "Add Intel Mine Products",
-                "relatedUiObject": "Intel Mine Products",
+                "label": "Add Learning Mine Products",
+                "relatedUiObject": "Learning Mine Products",
                 "actionFunction": "payload.executeAction"
             },
             {
-                "action": "Add All Intel Mine Products",
-                "label": "Add All Intel Mine Products",
+                "action": "Add All Learning Mine Products",
+                "label": "Add All Learning Mine Products",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Proceed",
                 "workDoneLabel": "Done",
-                "relatedUiObject": "Intel Mine Products",
+                "relatedUiObject": "Learning Mine Products",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -16307,9 +16307,9 @@
             "compatibleTypes": "->Learning Session->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Market Intel Products->"
+            "compatibleTypes": "->Market Learning Products->"
         },
-        "propertyNameAtParent": "aiSessionReferences",
+        "propertyNameAtParent": "learningSessionReferences",
         "properties": [
             {
                 "name": "dataProducts",
@@ -16318,9 +16318,9 @@
                 "autoAdd": false
             },
             {
-                "name": "intelMineProducts",
+                "name": "learningMineProducts",
                 "type": "array",
-                "childType": "Intel Mine Products",
+                "childType": "Learning Mine Products",
                 "autoAdd": false
             }
         ],
@@ -16440,12 +16440,12 @@
         ]
     },
     {
-        "type": "Market Intel Products",
+        "type": "Market Learning Products",
         "menuItems": [
             {
                 "action": "Add UI Object",
-                "label": "Add AI Session Reference",
-                "relatedUiObject": "AI Session Reference",
+                "label": "Add Learning Session Reference",
+                "relatedUiObject": "Learning Session Reference",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -16454,7 +16454,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Proceed",
                 "workDoneLabel": "Done",
-                "relatedUiObject": "AI Session Reference",
+                "relatedUiObject": "Learning Session Reference",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -16478,14 +16478,14 @@
             "compatibleTypes": "->Market->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Exchange Intel Products->"
+            "compatibleTypes": "->Exchange Learning Products->"
         },
-        "propertyNameAtParent": "marketIntelProducts",
+        "propertyNameAtParent": "marketLearningProducts",
         "properties": [
             {
-                "name": "aiSessionReferences",
+                "name": "learningSessionReferences",
                 "type": "array",
-                "childType": "AI Session Reference"
+                "childType": "Learning Session Reference"
             }
         ],
         "icon": "bitcoin"
@@ -16619,7 +16619,7 @@
         ]
     },
     {
-        "type": "Intel Mine Products",
+        "type": "Learning Mine Products",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -16653,12 +16653,12 @@
             "Use Reference Parent"
         ],
         "referenceAttachesTo": {
-            "compatibleTypes": "->Intel Mine->"
+            "compatibleTypes": "->Learning Mine->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->AI Session Reference->"
+            "compatibleTypes": "->Learning Session Reference->"
         },
-        "propertyNameAtParent": "intelMineProducts",
+        "propertyNameAtParent": "learningMineProducts",
         "properties": [
             {
                 "name": "botProducts",
@@ -16697,7 +16697,7 @@
         "addLeftIcons": true,
         "level": 3,
         "chainAttachesTo": {
-            "compatibleTypes": "->Data Mine Products->Trading Mine Products->Intel Mine Products->"
+            "compatibleTypes": "->Data Mine Products->Trading Mine Products->Learning Mine Products->"
         },
         "propertyNameAtParent": "botProducts",
         "properties": [

@@ -27,8 +27,8 @@ function newTaskFunctions() {
         stopAllDataMineTasks: stopAllDataMineTasks,
         runAllTradingMineTasks: runAllTradingMineTasks,
         stopAllTradingMineTasks: stopAllTradingMineTasks,
-        runAllIntelMineTasks: runAllIntelMineTasks,
-        stopAllIntelMineTasks: stopAllIntelMineTasks,
+        runAllLearningMineTasks: runAllLearningMineTasks,
+        stopAllLearningMineTasks: stopAllLearningMineTasks,
 
         addMissingExchangeDataTasks: addMissingExchangeDataTasks,
         addMissingMarketDataTasks: addMissingMarketDataTasks,
@@ -38,7 +38,7 @@ function newTaskFunctions() {
         addMissingTradingMineTasks: addMissingTradingMineTasks,
         addMissingExchangeLearningTasks: addMissingExchangeLearningTasks,
         addMissingMarketLearningTasks: addMissingMarketLearningTasks,
-        addMissingIntelMineTasks: addMissingIntelMineTasks,
+        addMissingLearningMineTasks: addMissingLearningMineTasks,
 
         addAllTasks: addAllTasks
     }
@@ -101,12 +101,12 @@ function newTaskFunctions() {
             'Sensor Bot Instance->' +
             'Indicator Bot Instance->Time Frames Filter->' +
             'Trading Bot Instance->' +
-            'AI Bot Instance->' +
-            'Sensor Process Instance->Indicator Process Instance->Trading Process Instance->AI Process Instance->' +
+            'Learning Bot Instance->' +
+            'Sensor Process Instance->Indicator Process Instance->Trading Process Instance->Learning Process Instance->' +
             'Execution Started Event->' +
             'Key Reference->Exchange Account Key->' +
             'Task Manager->' +
-            'Data Mine Tasks->Trading Mine Tasks->Intel Mine Tasks->' +
+            'Data Mine Tasks->Trading Mine Tasks->Learning Mine Tasks->' +
             'Market Data Tasks->Market Trading Tasks->' +
             'Exchange Data Tasks->Exchange Trading Tasks->Exchange Learning Tasks->' +
             'Market->Exchange Markets->Crypto Exchange->' +
@@ -136,8 +136,8 @@ function newTaskFunctions() {
             'Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->' +
             'Indicator Bot->' +
             'Trading Bot->' +
-            'AI Bot->' +
-            'Data Mine->Trading Mine->Intel Mine->'
+            'Learning Bot->' +
+            'Data Mine->Trading Mine->Learning Mine->'
 
         let taskDefinition = functionLibraryProtocolNode.getProtocolNode(node, false, true, true, false, false, taskLightingPath)
 
@@ -150,10 +150,10 @@ function newTaskFunctions() {
             'Data Mining->Testing Environment->Production Environment->' +
             'Exchange Data Tasks->Exchange Trading Tasks->Exchange Learning Tasks->Crypto Exchange->' +
             'Market Data Tasks->Market Trading Tasks->Market Learning Tasks->Market->' +
-            'Data Mine Tasks->Trading Mine Tasks->Intel Mine Tasks->' +
+            'Data Mine Tasks->Trading Mine Tasks->Learning Mine Tasks->' +
             'Task Manager->Task->' +
-            'Indicator Bot Instance->Sensor Bot Instance->Trading Bot Instance->AI Bot Instance->' +
-            'Indicator Process Instance->Sensor Process Instance->Trading Process Instance->AI Process Instance->' +
+            'Indicator Bot Instance->Sensor Bot Instance->Trading Bot Instance->Learning Bot Instance->' +
+            'Indicator Process Instance->Sensor Process Instance->Trading Process Instance->Learning Process Instance->' +
             'Paper Trading Session->Forward Testing Session->Backtesting Session->Live Trading Session->Learning Session->' +
             'Market->' +
             'Process Definition->'
@@ -401,8 +401,8 @@ function newTaskFunctions() {
             let node = parent.marketLearningTasks[i]
             let menu = node.payload.uiObject.menu
 
-            menu.internalClick('Run All Intel Mine Tasks')
-            menu.internalClick('Run All Intel Mine Tasks')
+            menu.internalClick('Run All Learning Mine Tasks')
+            menu.internalClick('Run All Learning Mine Tasks')
         }
     }
 
@@ -421,8 +421,8 @@ function newTaskFunctions() {
             let node = parent.marketLearningTasks[i]
             let menu = node.payload.uiObject.menu
 
-            menu.internalClick('Stop All Intel Mine Tasks')
-            menu.internalClick('Stop All Intel Mine Tasks')
+            menu.internalClick('Stop All Learning Mine Tasks')
+            menu.internalClick('Stop All Learning Mine Tasks')
         }
     }
 
@@ -456,9 +456,9 @@ function newTaskFunctions() {
         }
     }
 
-    function runAllIntelMineTasks(parent, functionLibraryProtocolNode) {
-        for (let i = 0; i < parent.intelMineTasks.length; i++) {
-            let node = parent.intelMineTasks[i]
+    function runAllLearningMineTasks(parent, functionLibraryProtocolNode) {
+        for (let i = 0; i < parent.learningMineTasks.length; i++) {
+            let node = parent.learningMineTasks[i]
             let menu = node.payload.uiObject.menu
 
             menu.internalClick('Run All Task Managers')
@@ -476,9 +476,9 @@ function newTaskFunctions() {
         }
     }
 
-    function stopAllIntelMineTasks(parent, functionLibraryProtocolNode) {
-        for (let i = 0; i < parent.intelMineTasks.length; i++) {
-            let node = parent.intelMineTasks[i]
+    function stopAllLearningMineTasks(parent, functionLibraryProtocolNode) {
+        for (let i = 0; i < parent.learningMineTasks.length; i++) {
+            let node = parent.learningMineTasks[i]
             let menu = node.payload.uiObject.menu
 
             menu.internalClick('Stop All Task Managers')
@@ -554,8 +554,8 @@ function newTaskFunctions() {
         addMissingMineTasks(node, rootNodes, 'Trading Mine', 'Trading Mine Tasks', functionLibraryUiObjectsFromNodes)
     }
 
-    function addMissingIntelMineTasks(node, rootNodes, functionLibraryUiObjectsFromNodes) {
-        addMissingMineTasks(node, rootNodes, 'Intel Mine', 'Intel Mine Tasks', functionLibraryUiObjectsFromNodes)
+    function addMissingLearningMineTasks(node, rootNodes, functionLibraryUiObjectsFromNodes) {
+        addMissingMineTasks(node, rootNodes, 'Learning Mine', 'Learning Mine Tasks', functionLibraryUiObjectsFromNodes)
     }
 
     function addMissingMineTasks(node, rootNodes, rootNodeType, newNodeType, functionLibraryUiObjectsFromNodes) {
@@ -585,7 +585,7 @@ function newTaskFunctions() {
                 addDataTasks()
                 break
             }
-            case 'Intel Mine Tasks': {
+            case 'Learning Mine Tasks': {
                 addLearningTasks()
                 break
             }
@@ -650,8 +650,8 @@ function newTaskFunctions() {
                             botInstance.name = bot.name
                             break
                         }
-                        case 'AI Bot': {
-                            botInstance = functionLibraryUiObjectsFromNodes.addUIObject(task, 'AI Bot Instance')
+                        case 'Learning Bot': {
+                            botInstance = functionLibraryUiObjectsFromNodes.addUIObject(task, 'Learning Bot Instance')
                             botInstance.name = bot.name
                             break
                         }
@@ -713,8 +713,8 @@ function newTaskFunctions() {
                                     }
                                 }
                             }
-                            case 'AI Bot': {
-                                processInstance = functionLibraryUiObjectsFromNodes.addUIObject(botInstance, 'AI Process Instance')
+                            case 'Learning Bot': {
+                                processInstance = functionLibraryUiObjectsFromNodes.addUIObject(botInstance, 'Learning Process Instance')
                                 processInstance.payload.referenceParent = process
 
                                 let session

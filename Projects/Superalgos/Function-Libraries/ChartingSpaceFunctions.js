@@ -211,9 +211,9 @@ function newChartingSpaceFunctions() {
             menu.internalClick('Add All Mine Layers')
         }
         /*
-        We need to create a Timeline Chart for each Intel Mine Products.
+        We need to create a Timeline Chart for each Learning Mine Products.
         */
-        mineProducts = UI.projects.superalgos.utilities.branches.nodeBranchToArray(networkNode, 'Intel Mine Products')
+        mineProducts = UI.projects.superalgos.utilities.branches.nodeBranchToArray(networkNode, 'Learning Mine Products')
         for (let j = 0; j < mineProducts.length; j++) {
             let mineProduct = mineProducts[j]
             /*

@@ -10062,7 +10062,7 @@
             "compatibleTypes": "->Trading System->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Trading Process Instance->"
+            "compatibleTypes": "->Learning Process Instance->"
         },
         "properties": [
             {
@@ -10725,7 +10725,7 @@
             "compatibleTypes": "->Execution Finished Event->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Process Definition->Trading Process Instance->"
+            "compatibleTypes": "->Process Definition->Trading Process Instance->Learning Process Instance->"
         },
         "propertyNameAtParent": "executionStartedEvent"
     },

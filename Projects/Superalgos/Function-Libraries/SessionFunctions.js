@@ -168,7 +168,7 @@ function newSessionFunctions() {
         }
 
         if (node.payload.parentNode.payload.parentNode === undefined) {
-            node.payload.uiObject.setErrorMessage('Session needs to be inside a Trading Process Instance.')
+            node.payload.uiObject.setErrorMessage('Session needs to be inside a Process Instance node.')
             return
         }
 

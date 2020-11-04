@@ -27,8 +27,8 @@ function newChartingSpaceFunctions() {
         we find there inside the layers manager. We will end up having at the end
         all layers referencing the data products inside the referenced branch.
         */
-        let dataMine = node.payload.referenceParent
-        scanBotArray(dataMine.botProducts)
+        let mine = node.payload.referenceParent
+        scanBotArray(mine.botProducts)
 
         function scanBotArray(botArray) {
             for (let i = 0; i < botArray.length; i++) {

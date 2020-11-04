@@ -342,11 +342,6 @@ function newSuperalgosActionSwitch() {
                     functionLibraryTaskFunctions.addMissingDataMineTasks(action.node, action.rootNodes, functionLibraryUiObjectsFromNodes)
                 }
                 break
-            case 'Add Missing Learning Mine Tasks':
-                {
-                    functionLibraryTaskFunctions.addMissingLearningMineTasks(action.node, action.rootNodes, functionLibraryUiObjectsFromNodes)
-                }
-                break
             case 'Add Missing Exchange Trading Tasks':
                 {
                     functionLibraryTaskFunctions.addMissingExchangeTradingTasks(action.node, action.rootNodes, functionLibraryUiObjectsFromNodes)

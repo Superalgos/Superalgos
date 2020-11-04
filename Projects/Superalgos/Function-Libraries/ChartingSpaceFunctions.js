@@ -201,7 +201,7 @@ function newChartingSpaceFunctions() {
             sets its own name, which we are going to reuse here.
             */
             mineProduct.payload.uiObject.invisiblePhysics()
-            timelineChart.name = mineProduct.name
+            timelineChart.name = mineProduct.name + ' Data'
             timelineChart.layerManager.payload.referenceParent = mineProduct
             timelineChart.payload.floatingObject.collapseToggle()
             timelineChart.layerManager.payload.floatingObject.collapseToggle()
@@ -222,8 +222,8 @@ function newChartingSpaceFunctions() {
             We need to filter out the ones that do not belong to the market where 
             the session is running at. 
             */
-            if (mineProduct.payload.parentNode.payload.referenceParent === undefined) { continue }
-            if (mineProduct.payload.parentNode.payload.referenceParent.id !== market.id) { continue }
+            if (mineProduct.payload.parentNode.payload.parentNode.payload.referenceParent === undefined) { continue }
+            if (mineProduct.payload.parentNode.payload.parentNode.payload.referenceParent.id !== market.id) { continue }
 
             let timelineChart = functionLibraryUiObjectsFromNodes.addUIObject(timeMachine, 'Timeline Chart')
             /* 
@@ -232,7 +232,7 @@ function newChartingSpaceFunctions() {
             sets its own name, which we are going to reuse here.
             */
             mineProduct.payload.uiObject.invisiblePhysics()
-            timelineChart.name = mineProduct.name
+            timelineChart.name = mineProduct.name + ' Learning'
             timelineChart.layerManager.payload.referenceParent = mineProduct
             timelineChart.payload.floatingObject.collapseToggle()
             timelineChart.layerManager.payload.floatingObject.collapseToggle()

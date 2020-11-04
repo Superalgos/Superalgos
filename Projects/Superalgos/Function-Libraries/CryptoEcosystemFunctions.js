@@ -384,7 +384,7 @@ function newCryptoEcosystemFunctions() {
                     for (let i = 0; i < learningSessionsCreatedArray.length; i++) {
                         let session = learningSessionsCreatedArray[i]
                         if (UI.projects.superalgos.utilities.children.isMissingChildren(marketLearningProducts, session, true) === true) {
-                            functionLibraryDataStorageFunctions.createSessionReference(marketLearningProducts, session, 'Trading Session Reference', functionLibraryUiObjectsFromNodes)
+                            functionLibraryDataStorageFunctions.createSessionReference(marketLearningProducts, session, 'Learning Session Reference', functionLibraryUiObjectsFromNodes)
                         }
                     }
                     /*

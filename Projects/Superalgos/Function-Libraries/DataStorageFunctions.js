@@ -39,6 +39,7 @@ function newDataStorageFunctions() {
         scanBotArray(mine.sensorBots)
         scanBotArray(mine.indicatorBots)
         scanBotArray(mine.tradingBots)
+        scanBotArray(mine.learningBots)
 
         function scanBotArray(botArray) {
             if (botArray === undefined) { return }

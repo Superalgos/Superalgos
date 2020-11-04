@@ -562,11 +562,11 @@ function newTaskFunctions() {
         for (let i = 0; i < rootNodes.length; i++) {
             let rootNode = rootNodes[i]
             if (rootNode.type === rootNodeType) {
-                let dataMine = rootNode
+                let mine = rootNode
 
-                if (UI.projects.superalgos.utilities.children.isMissingChildren(node, dataMine, true) === true) {
+                if (UI.projects.superalgos.utilities.children.isMissingChildren(node, mine, true) === true) {
                     let dataMineTasks = functionLibraryUiObjectsFromNodes.addUIObject(node, newNodeType)
-                    dataMineTasks.payload.referenceParent = dataMine
+                    dataMineTasks.payload.referenceParent = mine
                 }
             }
         }
@@ -618,6 +618,7 @@ function newTaskFunctions() {
             addTasksForBotArray(mine.sensorBots)
             addTasksForBotArray(mine.indicatorBots)
             addTasksForBotArray(mine.tradingBots)
+            addTasksForBotArray(mine.learningBots)
 
             function addTasksForBotArray(botsArray) {
                 if (botsArray === undefined) { return }

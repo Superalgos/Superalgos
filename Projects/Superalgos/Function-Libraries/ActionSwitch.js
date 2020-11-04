@@ -19,7 +19,8 @@ function newSuperalgosActionSwitch() {
     let functionLibraryDependenciesFilter = newDependenciesFilter()
     let functionLibraryNodePath = newNodePath()
     let functionLibraryTaskFunctions = newTaskFunctions()
-    let functionLibrarySessionFunctions = newSessionFunctions()
+    let functionLibraryTradingSessionFunctions = newTradingSessionFunctions()
+    let functionLibraryLearningSessionFunctions = newLearningSessionFunctions()
     let functionLibraryCryptoEcosystemFunctions = newCryptoEcosystemFunctions()
     let functionLibraryMineFunctions = newMineFunctions()
     let functionLibraryDataStorageFunctions = newDataStorageFunctions()
@@ -42,7 +43,8 @@ function newSuperalgosActionSwitch() {
         functionLibraryDependenciesFilter = undefined
         functionLibraryNodePath = undefined
         functionLibraryTaskFunctions = undefined
-        functionLibrarySessionFunctions = undefined
+        functionLibraryTradingSessionFunctions = undefined
+        functionLibraryLearningSessionFunctions = undefined
         functionLibraryCryptoEcosystemFunctions = undefined
         functionLibraryMineFunctions = undefined
         functionLibraryDataStorageFunctions = undefined
@@ -84,8 +86,12 @@ function newSuperalgosActionSwitch() {
                 functionLibraryUiObjectsFromNodes.syncronizeTasksFoundAtWorkspaceWithBackEnd(functionLibraryTaskFunctions)
             }
                 break
-            case 'Syncronize Sessions': {
-                functionLibraryUiObjectsFromNodes.syncronizeSessionsFoundAtWorkspaceWithBackEnd(functionLibrarySessionFunctions)
+            case 'Syncronize Trading Sessions': {
+                functionLibraryUiObjectsFromNodes.syncronizeTradingSessionsFoundAtWorkspaceWithBackEnd(functionLibraryTradingSessionFunctions)
+            }
+                break
+            case 'Syncronize Learning Sessions': {
+                functionLibraryUiObjectsFromNodes.syncronizeLearningSessionsFoundAtWorkspaceWithBackEnd(functionLibraryLearningSessionFunctions)
             }
                 break
             case 'Play Tutorials': {
@@ -521,19 +527,34 @@ function newSuperalgosActionSwitch() {
                     functionLibraryWebhookFunctions.sendTestMessage(action.node, action.callBackFunction)
                 }
                 break
-            case 'Run Session':
+            case 'Run Trading Session':
                 {
-                    functionLibrarySessionFunctions.runSession(action.node, functionLibraryProtocolNode, functionLibraryDependenciesFilter, false, action.callBackFunction)
+                    functionLibraryTradingSessionFunctions.runSession(action.node, functionLibraryProtocolNode, functionLibraryDependenciesFilter, false, action.callBackFunction)
                 }
                 break
-            case 'Resume Session':
+            case 'Resume Trading Session':
                 {
-                    functionLibrarySessionFunctions.runSession(action.node, functionLibraryProtocolNode, functionLibraryDependenciesFilter, true, action.callBackFunction)
+                    functionLibraryTradingSessionFunctions.runSession(action.node, functionLibraryProtocolNode, functionLibraryDependenciesFilter, true, action.callBackFunction)
                 }
                 break
-            case 'Stop Session':
+            case 'Stop Trading Session':
                 {
-                    functionLibrarySessionFunctions.stopSession(action.node, functionLibraryProtocolNode, action.callBackFunction)
+                    functionLibraryTradingSessionFunctions.stopSession(action.node, functionLibraryProtocolNode, action.callBackFunction)
+                }
+                break
+            case 'Run Learning Session':
+                {
+                    functionLibraryLearningSessionFunctions.runSession(action.node, functionLibraryProtocolNode, functionLibraryDependenciesFilter, false, action.callBackFunction)
+                }
+                break
+            case 'Resume Learning Session':
+                {
+                    functionLibraryLearningSessionFunctions.runSession(action.node, functionLibraryProtocolNode, functionLibraryDependenciesFilter, true, action.callBackFunction)
+                }
+                break
+            case 'Stop Learning Session':
+                {
+                    functionLibraryLearningSessionFunctions.stopSession(action.node, functionLibraryProtocolNode, action.callBackFunction)
                 }
                 break
             case 'Run Super Action':

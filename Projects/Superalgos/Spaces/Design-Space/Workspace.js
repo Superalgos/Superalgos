@@ -114,7 +114,8 @@ function newWorkspace() {
 
     function runTasksAndSessions() {
         executeAction({ name: 'Syncronize Tasks', project: 'Superalgos' })
-        executeAction({ name: 'Syncronize Sessions', project: 'Superalgos' })
+        executeAction({ name: 'Syncronize Trading Sessions', project: 'Superalgos' })
+        executeAction({ name: 'Syncronize Learning Sessions', project: 'Superalgos' })
         executeAction({ name: 'Play Tutorials', project: 'Superalgos' })
     }
 

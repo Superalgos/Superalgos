@@ -2490,12 +2490,12 @@
         "type": "Backtesting Session",
         "menuItems": [
             {
-                "action": "Run Session",
+                "action": "Run Trading Session",
                 "label": "Run",
                 "workingLabel": "Run Request Sent",
                 "workDoneLabel": "Session Running",
                 "workFailedLabel": "Session Cannot be Ran",
-                "secondaryAction": "Stop Session",
+                "secondaryAction": "Stop Trading Session",
                 "secondaryLabel": "Stop",
                 "secondaryWorkingLabel": "Stopping...",
                 "secondaryWorkDoneLabel": "Session Stopped",
@@ -2506,12 +2506,12 @@
                 "actionFunction": "payload.executeAction"
             },
             {
-                "action": "Resume Session",
+                "action": "Resume Trading Session",
                 "label": "Resume",
                 "workingLabel": "Resume Request Sent",
                 "workDoneLabel": "Session Running",
                 "workFailedLabel": "Session Cannot be Resumed",
-                "secondaryAction": "Stop Session",
+                "secondaryAction": "Stop Trading Session",
                 "secondaryLabel": "Stop",
                 "secondaryWorkingLabel": "Stopping...",
                 "secondaryWorkDoneLabel": "Session Stopped",
@@ -9665,12 +9665,12 @@
         "type": "Paper Trading Session",
         "menuItems": [
             {
-                "action": "Run Session",
+                "action": "Run Trading Session",
                 "label": "Run",
                 "workingLabel": "Run Request Sent",
                 "workDoneLabel": "Session Running",
                 "workFailedLabel": "Session Cannot be Run",
-                "secondaryAction": "Stop Session",
+                "secondaryAction": "Stop Trading Session",
                 "secondaryLabel": "Stop",
                 "secondaryWorkingLabel": "Stopping...",
                 "secondaryWorkDoneLabel": "Session Stopped",
@@ -9681,12 +9681,12 @@
                 "actionFunction": "payload.executeAction"
             },
             {
-                "action": "Resume Session",
+                "action": "Resume Trading Session",
                 "label": "Resume",
                 "workingLabel": "Resume Request Sent",
                 "workDoneLabel": "Session Running",
                 "workFailedLabel": "Session Cannot be Resumed",
-                "secondaryAction": "Stop Session",
+                "secondaryAction": "Stop Trading Session",
                 "secondaryLabel": "Stop",
                 "secondaryWorkingLabel": "Stopping...",
                 "secondaryWorkDoneLabel": "Session Stopped",
@@ -9766,12 +9766,12 @@
         "type": "Forward Testing Session",
         "menuItems": [
             {
-                "action": "Run Session",
+                "action": "Run Trading Session",
                 "label": "Run",
                 "workingLabel": "Run Request Sent",
                 "workDoneLabel": "Session Running",
                 "workFailedLabel": "Session Cannot be Run",
-                "secondaryAction": "Stop Session",
+                "secondaryAction": "Stop Trading Session",
                 "secondaryLabel": "Stop",
                 "secondaryWorkingLabel": "Stopping...",
                 "secondaryWorkDoneLabel": "Session Stopped",
@@ -9782,12 +9782,12 @@
                 "actionFunction": "payload.executeAction"
             },
             {
-                "action": "Resume Session",
+                "action": "Resume Trading Session",
                 "label": "Resume",
                 "workingLabel": "Resume Request Sent",
                 "workDoneLabel": "Session Running",
                 "workFailedLabel": "Session Cannot be Resumed",
-                "secondaryAction": "Stop Session",
+                "secondaryAction": "Stop Trading Session",
                 "secondaryLabel": "Stop",
                 "secondaryWorkingLabel": "Stopping...",
                 "secondaryWorkDoneLabel": "Session Stopped",
@@ -9893,12 +9893,12 @@
         "type": "Live Trading Session",
         "menuItems": [
             {
-                "action": "Run Session",
+                "action": "Run Trading Session",
                 "label": "Run",
                 "workingLabel": "Run Request Sent",
                 "workDoneLabel": "Session Running",
                 "workFailedLabel": "Session Cannot be Run",
-                "secondaryAction": "Stop Session",
+                "secondaryAction": "Stop Trading Session",
                 "secondaryLabel": "Stop",
                 "secondaryWorkingLabel": "Stopping...",
                 "secondaryWorkDoneLabel": "Session Stopped",
@@ -9909,12 +9909,12 @@
                 "actionFunction": "payload.executeAction"
             },
             {
-                "action": "Resume Session",
+                "action": "Resume Trading Session",
                 "label": "Resume",
                 "workingLabel": "Resume Request Sent",
                 "workDoneLabel": "Session Running",
                 "workFailedLabel": "Session Cannot be Resumed",
-                "secondaryAction": "Stop Session",
+                "secondaryAction": "Stop Trading Session",
                 "secondaryLabel": "Stop",
                 "secondaryWorkingLabel": "Stopping...",
                 "secondaryWorkDoneLabel": "Session Stopped",
@@ -9994,12 +9994,12 @@
         "type": "Learning Session",
         "menuItems": [
             {
-                "action": "Run Session",
+                "action": "Run Learning Session",
                 "label": "Run",
                 "workingLabel": "Run Request Sent",
                 "workDoneLabel": "Session Running",
                 "workFailedLabel": "Session Cannot be Run",
-                "secondaryAction": "Stop Session",
+                "secondaryAction": "Stop Learning Session",
                 "secondaryLabel": "Stop",
                 "secondaryWorkingLabel": "Stopping...",
                 "secondaryWorkDoneLabel": "Session Stopped",
@@ -10010,12 +10010,12 @@
                 "actionFunction": "payload.executeAction"
             },
             {
-                "action": "Resume Session",
+                "action": "Resume Learning Session",
                 "label": "Resume",
                 "workingLabel": "Resume Request Sent",
                 "workDoneLabel": "Session Running",
                 "workFailedLabel": "Session Cannot be Resumed",
-                "secondaryAction": "Stop Session",
+                "secondaryAction": "Stop Learning Session",
                 "secondaryLabel": "Stop",
                 "secondaryWorkingLabel": "Stopping...",
                 "secondaryWorkDoneLabel": "Session Stopped",

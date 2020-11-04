@@ -1,7 +1,8 @@
 function newUiObjectsFromNodes() {
     thisObject = {
         syncronizeTasksFoundAtWorkspaceWithBackEnd: syncronizeTasksFoundAtWorkspaceWithBackEnd,
-        syncronizeSessionsFoundAtWorkspaceWithBackEnd: syncronizeSessionsFoundAtWorkspaceWithBackEnd,
+        syncronizeTradingSessionsFoundAtWorkspaceWithBackEnd: syncronizeTradingSessionsFoundAtWorkspaceWithBackEnd,
+        syncronizeLearningSessionsFoundAtWorkspaceWithBackEnd: syncronizeLearningSessionsFoundAtWorkspaceWithBackEnd, 
         playTutorials: playTutorials,
         recreateWorkspace: recreateWorkspace,
         getNodeById: getNodeById,
@@ -14,7 +15,8 @@ function newUiObjectsFromNodes() {
     let mapOfReferenceChildren = new Map()
     let mapOfNodes
     let tasksFoundAtWorkspace
-    let sessionsFoundAtWorkspace
+    let tradingSessionsFoundAtWorkspace
+    let learningSessionsFoundAtWorkspace
     let tutorialsToPlay
 
     return thisObject
@@ -26,7 +28,8 @@ function newUiObjectsFromNodes() {
     function recreateWorkspace(node, callBackFunction) {
         mapOfNodes = new Map()
         tasksFoundAtWorkspace = []
-        sessionsFoundAtWorkspace = []
+        tradingSessionsFoundAtWorkspace = []
+        learningSessionsFoundAtWorkspace = []
         tutorialsToPlay = []
 
         removeNullRootNodes()
@@ -163,12 +166,20 @@ function newUiObjectsFromNodes() {
         tasksFoundAtWorkspace = undefined
     }
 
-    function syncronizeSessionsFoundAtWorkspaceWithBackEnd(functionLibrarySessionFunctions) {
-        for (let i = 0; i < sessionsFoundAtWorkspace.length; i++) {
-            let node = sessionsFoundAtWorkspace[i]
+    function syncronizeTradingSessionsFoundAtWorkspaceWithBackEnd(functionLibrarySessionFunctions) {
+        for (let i = 0; i < tradingSessionsFoundAtWorkspace.length; i++) {
+            let node = tradingSessionsFoundAtWorkspace[i]
             functionLibrarySessionFunctions.syncronizeSessionWithBackEnd(node)
         }
-        sessionsFoundAtWorkspace = undefined
+        tradingSessionsFoundAtWorkspace = undefined
+    }
+
+    function syncronizeLearningSessionsFoundAtWorkspaceWithBackEnd(functionLibrarySessionFunctions) {
+        for (let i = 0; i < learningSessionsFoundAtWorkspace.length; i++) {
+            let node = learningSessionsFoundAtWorkspace[i]
+            functionLibrarySessionFunctions.syncronizeSessionWithBackEnd(node)
+        }
+        learningSessionsFoundAtWorkspace = undefined
     }
 
     function playTutorials() {
@@ -642,9 +653,14 @@ function newUiObjectsFromNodes() {
 
         /* Check if there are sessions to run */
         if (userAddingNew === false && node.savedPayload !== undefined) {
-            if (uiObjectType === 'Live Trading Session' || uiObjectType === 'Forward Testing Session' || uiObjectType === 'Backtesting Session' || uiObjectType === 'Paper Trading Session' || uiObjectType === 'Learning Session') {
-                if (sessionsFoundAtWorkspace !== undefined) { // it might be undefined when you are spawning a session that was running while backed up
-                    sessionsFoundAtWorkspace.push(node)
+            if (uiObjectType === 'Live Trading Session' || uiObjectType === 'Forward Testing Session' || uiObjectType === 'Backtesting Session' || uiObjectType === 'Paper Trading Session') {
+                if (tradingSessionsFoundAtWorkspace !== undefined) { // it might be undefined when you are spawning a session that was running while backed up
+                    tradingSessionsFoundAtWorkspace.push(node)
+                }
+            }
+            if (uiObjectType === 'Learning Session') {
+                if (learningSessionsFoundAtWorkspace !== undefined) { // it might be undefined when you are spawning a session that was running while backed up
+                    learningSessionsFoundAtWorkspace.push(node)
                 }
             }
         }

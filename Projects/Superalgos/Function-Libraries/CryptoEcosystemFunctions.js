@@ -299,7 +299,7 @@ function newCryptoEcosystemFunctions() {
                     UI.projects.superalgos.utilities.menu.menuClickOfNodeArray(marketLearningTask.learningMineTasks, 'Add All Tasks', true)
 
                     /* This will be needed at the charting space, for creating Dashboards */
-                    let learningSessionsArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(marketTradingTask, 'Learning Session')
+                    let learningSessionsArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(marketLearningTask, 'Learning Session')
                     learningSessionsCreatedArray = learningSessionsCreatedArray.concat(learningSessionsArray)
                 }
 
@@ -384,7 +384,7 @@ function newCryptoEcosystemFunctions() {
                     for (let i = 0; i < learningSessionsCreatedArray.length; i++) {
                         let session = learningSessionsCreatedArray[i]
                         if (UI.projects.superalgos.utilities.children.isMissingChildren(marketLearningProducts, session, true) === true) {
-                            functionLibraryDataStorageFunctions.createSessionReference(marketLearningProducts, session, functionLibraryUiObjectsFromNodes)
+                            functionLibraryDataStorageFunctions.createSessionReference(marketLearningProducts, session, 'Trading Session Reference', functionLibraryUiObjectsFromNodes)
                         }
                     }
                     /*
@@ -418,7 +418,7 @@ function newCryptoEcosystemFunctions() {
                     for (let i = 0; i < tradingSessionsCreatedArray.length; i++) {
                         let session = tradingSessionsCreatedArray[i]
                         if (UI.projects.superalgos.utilities.children.isMissingChildren(marketTradingProducts, session, true) === true) {
-                            functionLibraryDataStorageFunctions.createSessionReference(marketTradingProducts, session, functionLibraryUiObjectsFromNodes)
+                            functionLibraryDataStorageFunctions.createSessionReference(marketTradingProducts, session, 'Trading Session Reference', functionLibraryUiObjectsFromNodes)
                         }
                     }
                     /*

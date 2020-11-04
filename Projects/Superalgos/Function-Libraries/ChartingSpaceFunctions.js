@@ -87,11 +87,13 @@ function newChartingSpaceFunctions() {
             let fordwardTestingSessionsArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(networkNode, 'Forward Testing Session')
             let paperTradingSessionsArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(networkNode, 'Paper Trading Session')
             let liveTradingSessionsArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(networkNode, 'Live Trading Session')
+            let learningSessionsArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(networkNode, 'Learning Session')
 
             scanSessionArray(backtestingSessionsArray)
             scanSessionArray(fordwardTestingSessionsArray)
             scanSessionArray(paperTradingSessionsArray)
             scanSessionArray(liveTradingSessionsArray)
+            scanSessionArray(learningSessionsArray)
 
             function scanSessionArray(sessionsArray) {
                 for (let i = 0; i < sessionsArray.length; i++) {

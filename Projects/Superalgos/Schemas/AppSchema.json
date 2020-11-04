@@ -16399,7 +16399,7 @@
                 "actionFunction": "payload.executeAction"
             },
             {
-                "action": "Add Missing Session References",
+                "action": "Add Missing Trading Session References",
                 "label": "Add Missing Sessions",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Proceed",
@@ -16449,7 +16449,7 @@
                 "actionFunction": "payload.executeAction"
             },
             {
-                "action": "Add Missing Session References",
+                "action": "Add Missing Learning Session References",
                 "label": "Add Missing Sessions",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Proceed",

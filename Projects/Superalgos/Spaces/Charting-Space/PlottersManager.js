@@ -142,15 +142,18 @@ function newPlottersManager() {
             let tradingEngine
 
             /*
-            A layer can be referencing a Data Product in two different branches of the Network hiriatchy.
-            In one of those braches we can get the Session node, at the other we Cannot.
+            A layer can be referencing a Data Product in 3 different branches of the Network hiriatchy.
+            Two of those branches have sessions.
             */
             let sessionReference = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(layer.definition, 'Trading Session Reference', undefined, false, true, true, true)
+            if (sessionReference === undefined) {
+                sessionReference = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(layer.definition, 'Learning Session Reference', undefined, false, true, true, true)
+            }
 
             if (sessionReference !== undefined) {
                 session = sessionReference.referenceParent
                 if (session === undefined) {
-                    logger.write('[ERROR] initializePlotter -> Sessioin is Undefined at Trading Session Reference -> Plotter will not be loaded. ')
+                    logger.write('[ERROR] initializePlotter -> Session Reference without a Reference Parent -> Plotter will not be loaded. ')
                     return
                 }
                 /* From the session we might be able to reach the Trading System or the Trading Engine */

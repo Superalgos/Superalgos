@@ -426,9 +426,14 @@ function newSuperalgosActionSwitch() {
                     functionLibraryDataStorageFunctions.addAllTradingMineProducts(action.node, action.rootNodes, functionLibraryUiObjectsFromNodes)
                 }
                 break
-            case 'Add Missing Session References':
+            case 'Add Missing Trading Session References':
                 {
-                    functionLibraryDataStorageFunctions.addMissingSessionReferences(action.node, action.rootNodes, functionLibraryUiObjectsFromNodes)
+                    functionLibraryDataStorageFunctions.addMissingTradingSessionReferences(action.node, action.rootNodes, functionLibraryUiObjectsFromNodes)
+                }
+                break
+            case 'Add Missing Learning Session References':
+                {
+                    functionLibraryDataStorageFunctions.addMissingLearningSessionReferences(action.node, action.rootNodes, functionLibraryUiObjectsFromNodes)
                 }
                 break
             case 'Add Missing Market Data Products':

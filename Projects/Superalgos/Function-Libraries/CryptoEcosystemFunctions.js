@@ -251,134 +251,185 @@ function newCryptoEcosystemFunctions() {
             }
 
             function installInNetworkNode(networkNode) {
-                /*
-                Here we complete the missing stuff at Data Mining
-                */
-                let dataMining = UI.projects.superalgos.utilities.branches.findInBranch(networkNode, 'Data Mining', node, true)
-                if (dataMining === undefined) {
-                    node.payload.uiObject.setErrorMessage('Data Mining node not found at Network Node ' + networkNode.name)
-                    return
-                }
 
-                let exchangeDataTasks = UI.projects.superalgos.utilities.children.findOrCreateChildWithReference(dataMining, 'Exchange Data Tasks', cryptoExchange, functionLibraryUiObjectsFromNodes)
-                exchangeDataTasks.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
-                let marketDataTask = UI.projects.superalgos.utilities.children.findAndRecreateChildWithReference(exchangeDataTasks, 'Market Data Tasks', market, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
+                let tradingSessionsCreatedArray = []
+                let learningSessionsCreatedArray = []
 
-                UI.projects.superalgos.utilities.menu.menuClick(marketDataTask, 'Add Missing Data Mine Tasks', true)
-                UI.projects.superalgos.utilities.menu.menuClickOfNodeArray(marketDataTask.dataMineTasks, 'Add All Tasks', true)
-                /*
-                Here we complete the missing stuff at Learning Mining
-                */
-                let learningMining = UI.projects.superalgos.utilities.branches.findInBranch(networkNode, 'Learning Mining', node, true)
-                if (learningMining === undefined) {
-                    node.payload.uiObject.setErrorMessage('Learning Mining node not found at Network Node ' + networkNode.name)
-                    return
-                }
+                installDataMiningTasks()
+                installLearningMiningTasks()
+                isntallTradingMiningTasks()
 
-                let exchangeLearningTasks = UI.projects.superalgos.utilities.children.findOrCreateChildWithReference(learningMining, 'Exchange Learning Tasks', cryptoExchange, functionLibraryUiObjectsFromNodes)
-                exchangeLearningTasks.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
-                let marketLearningTask = UI.projects.superalgos.utilities.children.findAndRecreateChildWithReference(exchangeLearningTasks, 'Market Learning Tasks', market, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
+                installDataMinesData()
+                installLearningMinesData()
+                installTradingMineData()
 
-                UI.projects.superalgos.utilities.menu.menuClick(marketLearningTask, 'Add Missing Learning Mine Tasks', true)
-                UI.projects.superalgos.utilities.menu.menuClickOfNodeArray(marketLearningTask.learningMineTasks, 'Add All Tasks', true)
-
-                let sessionsCreatedArray = []
-                /*
-                Next we complete the missing stuff at Testing Environment
-                */
-                installEnvironment('Testing Environment')
-                /*
-                Next we complete the missing stuff at Production Environment
-                */
-                installEnvironment('Production Environment')
-
-                function installEnvironment(environment) {
+                function installDataMiningTasks() {
                     /*
-                    Now we install the environmnet at the current Network Node
+                    Here we complete the missing stuff at Data Mining
                     */
-                    let environmentFound = UI.projects.superalgos.utilities.branches.findInBranch(networkNode, environment, node, true)
-                    if (environmentFound === undefined) {
-                        node.payload.uiObject.setErrorMessage(environment + ' node not found at Network Node ' + networkNode.name)
+                    let dataMining = UI.projects.superalgos.utilities.branches.findInBranch(networkNode, 'Data Mining', node, true)
+                    if (dataMining === undefined) {
+                        node.payload.uiObject.setErrorMessage('Data Mining node not found at Network Node ' + networkNode.name)
                         return
                     }
 
-                    let exchangeTradingTasks = UI.projects.superalgos.utilities.children.findOrCreateChildWithReference(environmentFound, 'Exchange Trading Tasks', cryptoExchange, functionLibraryUiObjectsFromNodes)
-                    exchangeTradingTasks.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
-                    let marketTradingTask = UI.projects.superalgos.utilities.children.findAndRecreateChildWithReference(exchangeTradingTasks, 'Market Trading Tasks', market, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
+                    let exchangeDataTasks = UI.projects.superalgos.utilities.children.findOrCreateChildWithReference(dataMining, 'Exchange Data Tasks', cryptoExchange, functionLibraryUiObjectsFromNodes)
+                    exchangeDataTasks.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+                    let marketDataTask = UI.projects.superalgos.utilities.children.findAndRecreateChildWithReference(exchangeDataTasks, 'Market Data Tasks', market, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
 
-                    UI.projects.superalgos.utilities.menu.menuClick(marketTradingTask, 'Add Missing Trading Mine Tasks', true)
-                    UI.projects.superalgos.utilities.menu.menuClickOfNodeArray(marketTradingTask.tradingMineTasks, 'Add All Tasks', true)
-
-                    /* This will be needed at the charging space, for creating Dashboards */
-                    let backtestingSessionsArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(marketTradingTask, 'Backtesting Session')
-                    let liveTradingSessionsArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(marketTradingTask, 'Live Trading Session')
-                    let allSessionsArray = backtestingSessionsArray.concat(liveTradingSessionsArray)
-                    sessionsCreatedArray = sessionsCreatedArray.concat(allSessionsArray)
-
-                    dashboardsArray.push({ environmentNode: environmentFound, networkNode: networkNode, sessionsArray: allSessionsArray })
-                }
-                /*
-                Here we complete the missing stuff at Data Mines Data
-                */
-                let dataMinesData = UI.projects.superalgos.utilities.branches.findInBranch(networkNode, 'Data Mines Data', node, true)
-                if (dataMinesData === undefined) {
-                    node.payload.uiObject.setErrorMessage('Data Mines Data node not found at Network Node ' + networkNode.name)
-                    return
+                    UI.projects.superalgos.utilities.menu.menuClick(marketDataTask, 'Add Missing Data Mine Tasks', true)
+                    UI.projects.superalgos.utilities.menu.menuClickOfNodeArray(marketDataTask.dataMineTasks, 'Add All Tasks', true)
                 }
 
-                let exchangeDataProducts = UI.projects.superalgos.utilities.children.findOrCreateChildWithReference(dataMinesData, 'Exchange Data Products', cryptoExchange, functionLibraryUiObjectsFromNodes)
-                exchangeDataProducts.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
-                let marketDataProducts = UI.projects.superalgos.utilities.children.findAndRecreateChildWithReference(exchangeDataProducts, 'Market Data Products', market, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
-                marketDataProducts.payload.floatingObject.collapseToggle()
+                function installLearningMiningTasks() {
+                    /*
+                    Here we complete the missing stuff at Learning Mining
+                    */
+                    let learningMining = UI.projects.superalgos.utilities.branches.findInBranch(networkNode, 'Learning Mining', node, true)
+                    if (learningMining === undefined) {
+                        node.payload.uiObject.setErrorMessage('Learning Mining node not found at Network Node ' + networkNode.name)
+                        return
+                    }
 
-                UI.projects.superalgos.utilities.menu.menuClick(marketDataProducts, 'Add All Data Mine Products', true)
-                UI.projects.superalgos.utilities.menu.menuClickOfNodeArray(marketDataProducts.dataMineProducts, 'Add All Data Products', true)
-                /*
-                Here we complete the missing stuff at Learning Mines Data
-                */
-                let learningMineData = UI.projects.superalgos.utilities.branches.findInBranch(networkNode, 'Learning Mines Data', node, true)
-                if (learningMineData === undefined) {
-                    node.payload.uiObject.setErrorMessage('Learning Mines Data node not found at Network Node ' + networkNode.name)
-                    return
+                    let exchangeLearningTasks = UI.projects.superalgos.utilities.children.findOrCreateChildWithReference(learningMining, 'Exchange Learning Tasks', cryptoExchange, functionLibraryUiObjectsFromNodes)
+                    exchangeLearningTasks.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+                    let marketLearningTask = UI.projects.superalgos.utilities.children.findAndRecreateChildWithReference(exchangeLearningTasks, 'Market Learning Tasks', market, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
+
+                    UI.projects.superalgos.utilities.menu.menuClick(marketLearningTask, 'Add Missing Learning Mine Tasks', true)
+                    UI.projects.superalgos.utilities.menu.menuClickOfNodeArray(marketLearningTask.learningMineTasks, 'Add All Tasks', true)
+
+                    /* This will be needed at the charting space, for creating Dashboards */
+                    let learningSessionsArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(marketTradingTask, 'Learning Session')
+                    learningSessionsCreatedArray = learningSessionsCreatedArray.concat(learningSessionsArray)
                 }
 
-                let exchangeLearningProducts = UI.projects.superalgos.utilities.children.findOrCreateChildWithReference(learningMineData, 'Exchange Learning Products', cryptoExchange, functionLibraryUiObjectsFromNodes)
-                exchangeLearningProducts.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
-                let marketLearningProducts = UI.projects.superalgos.utilities.children.findAndRecreateChildWithReference(exchangeLearningProducts, 'Market Learning Products', market, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
-                marketLearningProducts.payload.floatingObject.collapseToggle()
+                function isntallTradingMiningTasks() {
+                    /*
+                    Next we complete the missing stuff at Testing Environment
+                    */
+                    installEnvironment('Testing Environment')
+                    /*
+                    Next we complete the missing stuff at Production Environment
+                    */
+                    installEnvironment('Production Environment')
 
-                UI.projects.superalgos.utilities.menu.menuClick(marketLearningProducts, 'Add All Learning Mine Products', true)
-                UI.projects.superalgos.utilities.menu.menuClickOfNodeArray(marketLearningProducts.learningMineProducts, 'Add All Learning Products', true)
-                /*
-                Finally we complete the missing stuff at Trading Mines Data
-                */
-                let tradingMinesData = UI.projects.superalgos.utilities.branches.findInBranch(networkNode, 'Trading Mines Data', node, true)
-                if (tradingMinesData === undefined) {
-                    node.payload.uiObject.setErrorMessage('Trading Mines Data node not found at Network Node ' + networkNode.name)
-                    return
-                }
+                    function installEnvironment(environment) {
+                        /*
+                        Now we install the environmnet at the current Network Node
+                        */
+                        let environmentFound = UI.projects.superalgos.utilities.branches.findInBranch(networkNode, environment, node, true)
+                        if (environmentFound === undefined) {
+                            node.payload.uiObject.setErrorMessage(environment + ' node not found at Network Node ' + networkNode.name)
+                            return
+                        }
 
-                let exchangeTradingProducts = UI.projects.superalgos.utilities.children.findOrCreateChildWithReference(tradingMinesData, 'Exchange Trading Products', cryptoExchange, functionLibraryUiObjectsFromNodes)
-                exchangeTradingProducts.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
-                let marketTradingProducts = UI.projects.superalgos.utilities.children.findAndRecreateChildWithReference(exchangeTradingProducts, 'Market Trading Products', market, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
-                marketTradingProducts.payload.floatingObject.collapseToggle()
-                /*
-                Create the new session references.
-                */
-                for (let i = 0; i < sessionsCreatedArray.length; i++) {
-                    let session = sessionsCreatedArray[i]
-                    if (UI.projects.superalgos.utilities.children.isMissingChildren(marketTradingProducts, session, true) === true) {
-                        functionLibraryDataStorageFunctions.createSessionReference(marketTradingProducts, session, functionLibraryUiObjectsFromNodes)
+                        let exchangeTradingTasks = UI.projects.superalgos.utilities.children.findOrCreateChildWithReference(environmentFound, 'Exchange Trading Tasks', cryptoExchange, functionLibraryUiObjectsFromNodes)
+                        exchangeTradingTasks.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+                        let marketTradingTask = UI.projects.superalgos.utilities.children.findAndRecreateChildWithReference(exchangeTradingTasks, 'Market Trading Tasks', market, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
+
+                        UI.projects.superalgos.utilities.menu.menuClick(marketTradingTask, 'Add Missing Trading Mine Tasks', true)
+                        UI.projects.superalgos.utilities.menu.menuClickOfNodeArray(marketTradingTask.tradingMineTasks, 'Add All Tasks', true)
+
+                        /* This will be needed at the charting space, for creating Dashboards */
+                        let backtestingSessionsArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(marketTradingTask, 'Backtesting Session')
+                        let liveTradingSessionsArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(marketTradingTask, 'Live Trading Session')
+                        let paperTradingSessionsArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(marketTradingTask, 'Paper Trading Session')
+                        let forwardSessionsArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(marketTradingTask, 'Forward Testing Session')
+                        let allSessionsArray = backtestingSessionsArray
+                            .concat(liveTradingSessionsArray)
+                            .concat(paperTradingSessionsArray)
+                            .concat(forwardSessionsArray)
+                        tradingSessionsCreatedArray = tradingSessionsCreatedArray.concat(allSessionsArray)
+
+                        dashboardsArray.push({ environmentNode: environmentFound, networkNode: networkNode, sessionsArray: allSessionsArray })
                     }
                 }
-                /*
-                Create everything inside the session references.
-                */
-                for (let j = 0; j < marketTradingProducts.tradingSessionReferences.length; j++) {
-                    let sessionReference = marketTradingProducts.tradingSessionReferences[j]
-                    UI.projects.superalgos.utilities.menu.menuClick(sessionReference, 'Add All Trading Mine Products', true)
-                    UI.projects.superalgos.utilities.menu.menuClickOfNodeArray(sessionReference.tradingMineProducts, 'Add All Data Products', true)
-                    sessionReference.payload.floatingObject.collapseToggle()
+
+                function installDataMinesData() {
+                    /*
+                    Here we complete the missing stuff at Data Mines Data
+                    */
+                    let dataMinesData = UI.projects.superalgos.utilities.branches.findInBranch(networkNode, 'Data Mines Data', node, true)
+                    if (dataMinesData === undefined) {
+                        node.payload.uiObject.setErrorMessage('Data Mines Data node not found at Network Node ' + networkNode.name)
+                        return
+                    }
+
+                    let exchangeDataProducts = UI.projects.superalgos.utilities.children.findOrCreateChildWithReference(dataMinesData, 'Exchange Data Products', cryptoExchange, functionLibraryUiObjectsFromNodes)
+                    exchangeDataProducts.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+                    let marketDataProducts = UI.projects.superalgos.utilities.children.findAndRecreateChildWithReference(exchangeDataProducts, 'Market Data Products', market, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
+                    marketDataProducts.payload.floatingObject.collapseToggle()
+
+                    UI.projects.superalgos.utilities.menu.menuClick(marketDataProducts, 'Add All Data Mine Products', true)
+                    UI.projects.superalgos.utilities.menu.menuClickOfNodeArray(marketDataProducts.dataMineProducts, 'Add All Data Products', true)
+                }
+
+                function installLearningMinesData() {
+                    /*
+                    Here we complete the missing stuff at Learning Mines Data
+                    */
+                    let learningMinesData = UI.projects.superalgos.utilities.branches.findInBranch(networkNode, 'Learning Mines Data', node, true)
+                    if (learningMinesData === undefined) {
+                        node.payload.uiObject.setErrorMessage('Learning Mines Data node not found at Network Node ' + networkNode.name)
+                        return
+                    }
+
+                    let exchangeLearningProducts = UI.projects.superalgos.utilities.children.findOrCreateChildWithReference(learningMinesData, 'Exchange Learning Products', cryptoExchange, functionLibraryUiObjectsFromNodes)
+                    exchangeLearningProducts.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+                    let marketLearningProducts = UI.projects.superalgos.utilities.children.findAndRecreateChildWithReference(exchangeLearningProducts, 'Market Learning Products', market, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
+                    marketLearningProducts.payload.floatingObject.collapseToggle()
+                    /*
+                    Create the new session references.
+                    */
+                    for (let i = 0; i < learningSessionsCreatedArray.length; i++) {
+                        let session = learningSessionsCreatedArray[i]
+                        if (UI.projects.superalgos.utilities.children.isMissingChildren(marketLearningProducts, session, true) === true) {
+                            functionLibraryDataStorageFunctions.createSessionReference(marketLearningProducts, session, functionLibraryUiObjectsFromNodes)
+                        }
+                    }
+                    /*
+                    Create everything inside the session references.
+                    */
+                    for (let j = 0; j < marketLearningProducts.learningSessionReferences.length; j++) {
+                        let sessionReference = marketLearningProducts.learningSessionReferences[j]
+                        UI.projects.superalgos.utilities.menu.menuClick(sessionReference, 'Add All Learning Mine Products', true)
+                        UI.projects.superalgos.utilities.menu.menuClickOfNodeArray(sessionReference.learningMineProducts, 'Add All Data Products', true)
+                        sessionReference.payload.floatingObject.collapseToggle()
+                    }
+                }
+
+                function installTradingMineData() {
+                    /*
+                    Finally we complete the missing stuff at Trading Mines Data
+                    */
+                    let tradingMinesData = UI.projects.superalgos.utilities.branches.findInBranch(networkNode, 'Trading Mines Data', node, true)
+                    if (tradingMinesData === undefined) {
+                        node.payload.uiObject.setErrorMessage('Trading Mines Data node not found at Network Node ' + networkNode.name)
+                        return
+                    }
+
+                    let exchangeTradingProducts = UI.projects.superalgos.utilities.children.findOrCreateChildWithReference(tradingMinesData, 'Exchange Trading Products', cryptoExchange, functionLibraryUiObjectsFromNodes)
+                    exchangeTradingProducts.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+                    let marketTradingProducts = UI.projects.superalgos.utilities.children.findAndRecreateChildWithReference(exchangeTradingProducts, 'Market Trading Products', market, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
+                    marketTradingProducts.payload.floatingObject.collapseToggle()
+                    /*
+                    Create the new session references.
+                    */
+                    for (let i = 0; i < tradingSessionsCreatedArray.length; i++) {
+                        let session = tradingSessionsCreatedArray[i]
+                        if (UI.projects.superalgos.utilities.children.isMissingChildren(marketTradingProducts, session, true) === true) {
+                            functionLibraryDataStorageFunctions.createSessionReference(marketTradingProducts, session, functionLibraryUiObjectsFromNodes)
+                        }
+                    }
+                    /*
+                    Create everything inside the session references.
+                    */
+                    for (let j = 0; j < marketTradingProducts.tradingSessionReferences.length; j++) {
+                        let sessionReference = marketTradingProducts.tradingSessionReferences[j]
+                        UI.projects.superalgos.utilities.menu.menuClick(sessionReference, 'Add All Trading Mine Products', true)
+                        UI.projects.superalgos.utilities.menu.menuClickOfNodeArray(sessionReference.tradingMineProducts, 'Add All Data Products', true)
+                        sessionReference.payload.floatingObject.collapseToggle()
+                    }
                 }
             }
         }

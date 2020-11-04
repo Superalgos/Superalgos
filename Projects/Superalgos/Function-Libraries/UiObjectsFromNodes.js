@@ -642,7 +642,7 @@ function newUiObjectsFromNodes() {
 
         /* Check if there are sessions to run */
         if (userAddingNew === false && node.savedPayload !== undefined) {
-            if (uiObjectType === 'Live Trading Session' || uiObjectType === 'Forward Testing Session' || uiObjectType === 'Backtesting Session' || uiObjectType === 'Paper Trading Session') {
+            if (uiObjectType === 'Live Trading Session' || uiObjectType === 'Forward Testing Session' || uiObjectType === 'Backtesting Session' || uiObjectType === 'Paper Trading Session' || uiObjectType === 'Learning Session') {
                 if (sessionsFoundAtWorkspace !== undefined) { // it might be undefined when you are spawning a session that was running while backed up
                     sessionsFoundAtWorkspace.push(node)
                 }

@@ -27,13 +27,13 @@ function newLearningSessionFunctions() {
 
         function onStatus(message) {
             eventsServerClient.stopListening(key, eventSubscriptionIdOnStatus, node.id)
-            if (message.event.status === 'Session Runnning' ) {
+            if (message.event.status === 'Learning Session Runnning' ) {
                 node.payload.uiObject.menu.internalClick('Run Learning Session')
             }
         }
 
         /* Second we ask the Task Server if this Session is Running. */
-        eventsServerClient.raiseEvent(key, 'Session Status')
+        eventsServerClient.raiseEvent(key, 'Learning Session Status')
     }
 
     function runSession(node, functionLibraryProtocolNode, functionLibraryDependenciesFilter, resume, callBackFunction) {

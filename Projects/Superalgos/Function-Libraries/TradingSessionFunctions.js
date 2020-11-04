@@ -27,13 +27,13 @@ function newTradingSessionFunctions() {
 
         function onStatus(message) {
             eventsServerClient.stopListening(key, eventSubscriptionIdOnStatus, node.id)
-            if (message.event.status === 'Session Runnning' ) {
+            if (message.event.status === 'Trading Session Runnning' ) {
                 node.payload.uiObject.menu.internalClick('Run Trading Session')
             }
         }
 
         /* Second we ask the Task Server if this Session is Running. */
-        eventsServerClient.raiseEvent(key, 'Session Status')
+        eventsServerClient.raiseEvent(key, 'Trading Session Status')
     }
 
     function runSession(node, functionLibraryProtocolNode, functionLibraryDependenciesFilter, resume, callBackFunction) {

@@ -38,10 +38,10 @@
             bot.TRADING_SESSIONKey = bot.processNode.session.name + '-' + bot.processNode.session.type + '-' + bot.processNode.session.id
             global.SESSION_MAP.set(bot.TRADING_SESSIONKey, bot.TRADING_SESSIONKey)
 
-            global.EVENT_SERVER_CLIENT.listenToEvent(bot.TRADING_SESSIONKey, 'Session Status', undefined, bot.TRADING_SESSIONKey, undefined, onSessionStatus)
-            global.EVENT_SERVER_CLIENT.listenToEvent(bot.TRADING_SESSIONKey, 'Run Session', undefined, bot.TRADING_SESSIONKey, undefined, onSessionRun)
-            global.EVENT_SERVER_CLIENT.listenToEvent(bot.TRADING_SESSIONKey, 'Stop Session', undefined, bot.TRADING_SESSIONKey, undefined, onSessionStop)
-            global.EVENT_SERVER_CLIENT.listenToEvent(bot.TRADING_SESSIONKey, 'Resume Session', undefined, bot.TRADING_SESSIONKey, undefined, onSessionResume)
+            global.EVENT_SERVER_CLIENT.listenToEvent(bot.TRADING_SESSIONKey, 'Trading Session Status', undefined, bot.TRADING_SESSIONKey, undefined, onSessionStatus)
+            global.EVENT_SERVER_CLIENT.listenToEvent(bot.TRADING_SESSIONKey, 'Run Trading Session', undefined, bot.TRADING_SESSIONKey, undefined, onSessionRun)
+            global.EVENT_SERVER_CLIENT.listenToEvent(bot.TRADING_SESSIONKey, 'Stop Trading Session', undefined, bot.TRADING_SESSIONKey, undefined, onSessionStop)
+            global.EVENT_SERVER_CLIENT.listenToEvent(bot.TRADING_SESSIONKey, 'Resume Trading Session', undefined, bot.TRADING_SESSIONKey, undefined, onSessionResume)
 
             /* Connect this here so that it is accesible from other places */
             bot.TRADING_SESSIONError = sessionError
@@ -57,12 +57,12 @@
             function onSessionStatus() {
                 if (bot.TRADING_SESSION_STATUS === 'Running') {
                     let event = {
-                        status: 'Session Runnning' 
+                        status: 'Trading Session Runnning' 
                     }
                     global.EVENT_SERVER_CLIENT.raiseEvent(bot.TRADING_SESSIONKey, 'Status Response', event)
                 } else {
                     let event = {
-                        status: 'Not Session Runnning' 
+                        status: 'Trading Session Not Runnning' 
                     }
                     global.EVENT_SERVER_CLIENT.raiseEvent(bot.TRADING_SESSIONKey, 'Status Response', event)
                 }

@@ -38,10 +38,10 @@ exports.newLearningSession = function newLearningSession(bot, parentLogger) {
             bot.sessionKey = bot.processNode.session.name + '-' + bot.processNode.session.type + '-' + bot.processNode.session.id
             global.SESSION_MAP.set(bot.sessionKey, bot.sessionKey)
 
-            global.EVENT_SERVER_CLIENT.listenToEvent(bot.sessionKey, 'Session Status', undefined, bot.sessionKey, undefined, onSessionStatus)
-            global.EVENT_SERVER_CLIENT.listenToEvent(bot.sessionKey, 'Run Session', undefined, bot.sessionKey, undefined, onSessionRun)
-            global.EVENT_SERVER_CLIENT.listenToEvent(bot.sessionKey, 'Stop Session', undefined, bot.sessionKey, undefined, onSessionStop)
-            global.EVENT_SERVER_CLIENT.listenToEvent(bot.sessionKey, 'Resume Session', undefined, bot.sessionKey, undefined, onSessionResume)
+            global.EVENT_SERVER_CLIENT.listenToEvent(bot.sessionKey, 'Learning Session Status', undefined, bot.sessionKey, undefined, onSessionStatus)
+            global.EVENT_SERVER_CLIENT.listenToEvent(bot.sessionKey, 'Run Learning Session', undefined, bot.sessionKey, undefined, onSessionRun)
+            global.EVENT_SERVER_CLIENT.listenToEvent(bot.sessionKey, 'Stop Learning Session', undefined, bot.sessionKey, undefined, onSessionStop)
+            global.EVENT_SERVER_CLIENT.listenToEvent(bot.sessionKey, 'Resume Learning Session', undefined, bot.sessionKey, undefined, onSessionResume)
 
             /* Connect this here so that it is accesible from other places */
             bot.sessionError = sessionError
@@ -57,12 +57,12 @@ exports.newLearningSession = function newLearningSession(bot, parentLogger) {
             function onSessionStatus() {
                 if (bot.SESSION_STATUS === 'Running') {
                     let event = {
-                        status: 'Session Runnning' 
+                        status: 'Learning Session Runnning' 
                     }
                     global.EVENT_SERVER_CLIENT.raiseEvent(bot.sessionKey, 'Status Response', event)
                 } else {
                     let event = {
-                        status: 'Not Session Runnning' 
+                        status: 'Learning Session Not Runnning' 
                     }
                     global.EVENT_SERVER_CLIENT.raiseEvent(bot.sessionKey, 'Status Response', event)
                 }

@@ -14,7 +14,7 @@ function dynamicDecimals(value, minDecimals) {
     }
     let decimals = 0
     if (value < 1) { decimals = 2 }
-    
+
     if (Math.abs(Math.trunc(value * 10)) < 1) { decimals = 4 }
     if (Math.abs(Math.trunc(value * 100)) < 1) { decimals = 5 }
     if (Math.abs(Math.trunc(value * 1000)) < 1) { decimals = 6 }
@@ -24,8 +24,8 @@ function dynamicDecimals(value, minDecimals) {
     if (Math.abs(Math.trunc(value * 10000000)) < 1) { decimals = 10 }
     if (Math.abs(Math.trunc(value * 100000000000)) < 1) { value = 0; decimals = 0 }
 
-    if (decimals < minDecimals) {decimals = minDecimals}
-   
+    if (decimals < minDecimals) { decimals = minDecimals }
+
     let returnValue = Number(value).toFixed(decimals)
     return returnValue
 }
@@ -98,4 +98,28 @@ function newUniqueId() {
         var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8)
         return v.toString(16)
     })
+}
+
+function splitTextIntoPhrases(text, wordsPerLine) {
+    let splittedLabel = text.split(' ')
+    let phrases = []
+    let phrase = ''
+    let wordCount = 0
+    for (let i = 0; i < splittedLabel.length; i++) {
+        phrase = phrase + splittedLabel[i]
+        wordCount++
+
+        if (i < splittedLabel.length - 1 && wordCount < wordsPerLine) {
+            phrase = phrase + ' '
+        }
+        if (wordCount >= wordsPerLine) {
+            phrases.push(phrase)
+            phrase = ''
+            wordCount = 0
+        }
+    }
+    if (wordCount > 0) {
+        phrases.push(phrase)
+    }
+    return phrases
 }

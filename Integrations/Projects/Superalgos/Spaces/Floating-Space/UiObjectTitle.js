@@ -327,7 +327,7 @@ function newUiObjectTitle() {
                     label = trimTitle(label)
 
                     labelPoint = {
-                        x: 5,
+                        x: -5,
                         y: thisObject.container.frame.height * 0.8
                     }
 
@@ -344,11 +344,41 @@ function newUiObjectTitle() {
                                 return
                             }
                         }
+
+                        printMessage(label, labelPoint)
+                        return
                     }
 
-                    browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-                    browserCanvasContext.fillStyle = thisObject.payload.floatingObject.typeStrokeStyle
-                    browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
+                    if (thisObject.payload.uiObject.isOnFocus === true) {
+                        printMessage(label, labelPoint)
+                        return
+                    }
+
+                    /* Split the line into Phrases */    
+                    const FRAME_WIDTH = (label.length + 2) / 2 * thisObject.payload.floatingObject.currentFontSize * FONT_ASPECT_RATIO * 1.2 * 2 
+                    label = thisObject.payload.title               
+                    let phrases = splitTextIntoPhrases(label, 2)
+                    let lineSeparator = thisObject.payload.floatingObject.currentFontSize * 1.2
+                    
+                    if (phrases.length > 3) {
+                        let a = 1
+                    }
+                    for (let i = 0; i < phrases.length; i++) {
+                        let phrase = phrases[i]
+                        let point = {
+                            x: labelPoint.x - phrase.length / 2 * fontSize * FONT_ASPECT_RATIO + FRAME_WIDTH / 2, 
+                            y: labelPoint.y - lineSeparator * (phrases.length - 1 - i)
+                        }
+                         
+                        if (UI.projects.superalgos.spaces.floatingSpace.inMapMode === false) {
+                            printMessage(phrase, point)
+                        }
+                    }
+                    function printMessage(text, position) {
+                        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
+                        browserCanvasContext.fillStyle = thisObject.payload.floatingObject.nameStrokeStyle
+                        browserCanvasContext.fillText(text, position.x, position.y)
+                    }
                 }
             }
         }
@@ -356,7 +386,7 @@ function newUiObjectTitle() {
 
     function trimTitle(title) {
         if (title === undefined) { return }
-        const MAX_LABEL_LENGTH = 50
+        const MAX_LABEL_LENGTH = 35
         if (title.length > MAX_LABEL_LENGTH) {
             title = title.substring(0, MAX_LABEL_LENGTH) + '...'
         }

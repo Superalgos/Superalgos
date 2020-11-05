@@ -28,7 +28,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
 
             let tradingSystem = bot.simulationState.tradingSystem
             let tradingEngine = bot.simulationState.tradingEngine
-            let sessionParameters = bot.TRADING_SESSION.parameters
+            let sessionParameters = bot.TRADING_SESSION.tradingParameters
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> initialDatetime = ' + sessionParameters.timeRange.config.initialDatetime) }
             if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> finalDatetime = ' + sessionParameters.timeRange.config.finalDatetime) }

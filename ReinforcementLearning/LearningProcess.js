@@ -103,7 +103,7 @@ exports.newLearningProcess = function newLearningProcess(bot, logger, UTILITIES)
                 This variable tell us which day we are standing at, specially while working
                 with Daily Files. From this Date is that we are going to load the Daily Files.
                 */
-                bot.simulationState.tradingEngine.current.episode.processDate.value = global.REMOVE_TIME(bot.TRADING_SESSION.parameters.timeRange.config.initialDatetime).valueOf()
+                bot.simulationState.tradingEngine.current.episode.processDate.value = global.REMOVE_TIME(bot.TRADING_SESSION.tradingParameters.timeRange.config.initialDatetime).valueOf()
             }
 
             /* 
@@ -219,7 +219,7 @@ exports.newLearningProcess = function newLearningProcess(bot, logger, UTILITIES)
             callBackFunction(global.DEFAULT_OK_RESPONSE)
 
             function checkThereAreCandles(chart) {
-                let sessionParameters = bot.TRADING_SESSION.parameters
+                let sessionParameters = bot.TRADING_SESSION.tradingParameters
                 let propertyName = 'at' + sessionParameters.timeFrame.config.label.replace('-', '')
                 let candles = chart[propertyName].candles
 
@@ -236,7 +236,7 @@ exports.newLearningProcess = function newLearningProcess(bot, logger, UTILITIES)
                     let statusReport;
 
                     /* We are going to use the start date as beging of market date. */
-                    contextVariables.dateBeginOfMarket = global.REMOVE_TIME(bot.TRADING_SESSION.parameters.timeRange.config.initialDatetime)
+                    contextVariables.dateBeginOfMarket = global.REMOVE_TIME(bot.TRADING_SESSION.tradingParameters.timeRange.config.initialDatetime)
                     /*
                     Here we get the status report from the bot who knows which is the end of the market.
                     */
@@ -371,7 +371,7 @@ exports.newLearningProcess = function newLearningProcess(bot, logger, UTILITIES)
 
                     dataFiles = new Map();
 
-                    if (bot.TRADING_SESSION.parameters.timeFrame.config.label === timeFrameLabel) {
+                    if (bot.TRADING_SESSION.tradingParameters.timeFrame.config.label === timeFrameLabel) {
                         currentTimeFrame = global.marketFilesPeriods[n][0];
                         currentTimeFrameLabel = global.marketFilesPeriods[n][1];
                     }
@@ -384,7 +384,7 @@ exports.newLearningProcess = function newLearningProcess(bot, logger, UTILITIES)
                         }
 
                         if (dataDependenciesModule.isItADepenency(timeFrameLabel, datasetModule.node.parentNode.config.singularVariableName) !== true) {
-                            if (!(bot.TRADING_SESSION.parameters.timeFrame.config.label === timeFrameLabel && datasetModule.node.parentNode.config.pluralVariableName === 'candles')) {
+                            if (!(bot.TRADING_SESSION.tradingParameters.timeFrame.config.label === timeFrameLabel && datasetModule.node.parentNode.config.pluralVariableName === 'candles')) {
                                 continue
                             }
                         }
@@ -431,8 +431,8 @@ exports.newLearningProcess = function newLearningProcess(bot, logger, UTILITIES)
                                 let dataRecord = dataFile[i]
                                 let begin = dataRecord[beginIndex]
                                 let end = dataRecord[endIndex]
-                                if (end + timeFrame < bot.TRADING_SESSION.parameters.timeRange.config.initialDatetime - 1) { continue } // /1 because we need the previous closed element
-                                if (begin > bot.TRADING_SESSION.parameters.timeRange.config.finalDatetime) { continue }
+                                if (end + timeFrame < bot.TRADING_SESSION.tradingParameters.timeRange.config.initialDatetime - 1) { continue } // /1 because we need the previous closed element
+                                if (begin > bot.TRADING_SESSION.tradingParameters.timeRange.config.finalDatetime) { continue }
                                 result.push(dataRecord)
                             }
                             return result
@@ -468,7 +468,7 @@ exports.newLearningProcess = function newLearningProcess(bot, logger, UTILITIES)
                         }
                     }
 
-                    if (bot.TRADING_SESSION.parameters.timeFrame.config.label === timeFrameLabel) {
+                    if (bot.TRADING_SESSION.tradingParameters.timeFrame.config.label === timeFrameLabel) {
                         currentTimeFrame = global.dailyFilePeriods[n][0];
                         currentTimeFrameLabel = global.dailyFilePeriods[n][1];
                     }
@@ -488,7 +488,7 @@ exports.newLearningProcess = function newLearningProcess(bot, logger, UTILITIES)
                         }
 
                         if (dataDependenciesModule.isItADepenency(timeFrameLabel, datasetModule.node.parentNode.config.singularVariableName) !== true) {
-                            if (!(bot.TRADING_SESSION.parameters.timeFrame.config.label === timeFrameLabel && datasetModule.node.parentNode.config.pluralVariableName === 'candles')) {
+                            if (!(bot.TRADING_SESSION.tradingParameters.timeFrame.config.label === timeFrameLabel && datasetModule.node.parentNode.config.pluralVariableName === 'candles')) {
                                 continue
                             }
                         }

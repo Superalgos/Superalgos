@@ -25,7 +25,7 @@ exports.newMarkovDecisionProcess = function newMarkovDecisionProcess(bot, logger
     function initialize() {
 
         tradingEngine = bot.simulationState.tradingEngine
-        sessionParameters = bot.LEARNING_SESSION.parameters
+        sessionParameters = bot.LEARNING_SESSION.learningParameters
 
         initializeNodeMap(tradingEngine)
 

@@ -23,7 +23,7 @@ exports.newOrdersCalculations = function newOrdersCalculations(bot, logger) {
     return thisObject
 
     function initialize() {
-        sessionParameters = bot.TRADING_SESSION.parameters
+        sessionParameters = bot.TRADING_SESSION.tradingParameters
         tradingEngine = bot.simulationState.tradingEngine
         tradingSystem = bot.simulationState.tradingSystem
     }

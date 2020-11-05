@@ -1289,7 +1289,7 @@ function newUiObject() {
             drawPercentage()
             drawStatus()
             thisObject.uiObjectTitle.draw()
-            drawText()
+            drawNodeType()
         }
     }
 
@@ -1370,7 +1370,7 @@ function newUiObject() {
             drawValue()
             drawPercentage()
             drawStatus()
-            drawText()
+            drawNodeType()
 
             if (drawTitle === true) {
                 thisObject.uiObjectTitle.draw()
@@ -1381,7 +1381,7 @@ function newUiObject() {
     function drawChainLine() {
         if (UI.projects.superalgos.spaces.floatingSpace.drawChainLines === false) { return }
         if (thisObject.payload.chainParent === undefined) { return }
-        if (thisObject.payload.chainParent.payload === undefined) {return}
+        if (thisObject.payload.chainParent.payload === undefined) { return }
 
         let targetPoint = {
             x: thisObject.payload.chainParent.payload.floatingObject.container.frame.position.x,
@@ -1532,7 +1532,7 @@ function newUiObject() {
         }
     }
 
-    function drawText() {
+    function drawNodeType() {
         if (isEditorVisible() === true) { return }
         /* Text Follows */
         let position = {
@@ -1580,19 +1580,34 @@ function newUiObject() {
                         y: position.y + radius * 2 / 3 + lineSeparator * 1 + 30
                     }
                 } else {
-                    labelPoint = {
-                        x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
-                        y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 1
+                    /* Split the line into Phrases */
+                    let phrases = splitTextIntoPhrases(label, 2)
+
+                    for (let i = 0; i < phrases.length; i++) {
+                        let phrase = phrases[i]
+                        labelPoint = {
+                            x: position.x - phrase.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
+                            y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * ( 1 + i)  
+                        }
+                        if (UI.projects.superalgos.spaces.floatingSpace.inMapMode === false) {
+                            printMessage(phrase)
+                        }
+                    }
+                    if (UI.projects.superalgos.spaces.floatingSpace.inMapMode === false) {
+                        return
                     }
                 }
 
                 if (UI.projects.superalgos.spaces.floatingSpace.inMapMode === true) {
                     labelPoint.y = position.y + 50 / 2 + lineSeparator * 2
                 }
+                printMessage(label)
 
-                browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-                browserCanvasContext.fillStyle = thisObject.payload.floatingObject.nameStrokeStyle
-                browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
+                function printMessage(text) {
+                    browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
+                    browserCanvasContext.fillStyle = thisObject.payload.floatingObject.nameStrokeStyle
+                    browserCanvasContext.fillText(text, labelPoint.x, labelPoint.y)
+                }
             }
         }
     }
@@ -1620,10 +1635,10 @@ function newUiObject() {
         if (UI.projects.superalgos.spaces.floatingSpace.inMapMode === true) {
             return
         }
-        if (thisObject.codeEditor !== undefined && thisObject.codeEditor.visible === true) {return}
-        if (thisObject.formulaEditor !== undefined && thisObject.formulaEditor.visible === true) {return}
-        if (thisObject.confitionEditor !== undefined && thisObject.confitionEditor.visible === true) {return}
-        if (thisObject.configEditor !== undefined && thisObject.configEditor.visible === true) {return}
+        if (thisObject.codeEditor !== undefined && thisObject.codeEditor.visible === true) { return }
+        if (thisObject.formulaEditor !== undefined && thisObject.formulaEditor.visible === true) { return }
+        if (thisObject.confitionEditor !== undefined && thisObject.confitionEditor.visible === true) { return }
+        if (thisObject.configEditor !== undefined && thisObject.configEditor.visible === true) { return }
 
         /* Text Follows */
         let position = {
@@ -1659,25 +1674,10 @@ function newUiObject() {
 
                 if (thisObject.isOnFocus === true) {
                     /* Split the line into Phrases */
-                    let splittedLabel = label.split(' ')
-                    let phrases = []
-                    let phrase = ''
-                    let wordCount = 0
-                    for (let i = 0; i < splittedLabel.length; i++) {
-                        phrase = phrase + splittedLabel[i] + ' '
-                        wordCount++
-                        if (wordCount > 5) {
-                            phrases.push(phrase)
-                            phrase = ''
-                            wordCount = 0
-                        }
-                    }
-                    if (wordCount > 0) {
-                        phrases.push(phrase)
-                    }
+                    let phrases = splitTextIntoPhrases(label, 5)
 
                     for (let i = 0; i < phrases.length; i++) {
-                        phrase = phrases[i]
+                        let phrase = phrases[i]
                         labelPoint = {
                             x: position.x - phrase.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
                             y: position.y + lineSeparator * (6 - phrases.length + 1 + i) + 30

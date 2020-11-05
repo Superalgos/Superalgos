@@ -202,7 +202,7 @@
             {
                 "action": "Add Missing Children",
                 "label": "Add Missing Children",
-                "relatedUiObject": "Parameters",
+                "relatedUiObject": "Trading Parameters",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -2532,7 +2532,7 @@
             {
                 "action": "Add Missing Children",
                 "label": "Add Missing Children",
-                "relatedUiObject": "Parameters",
+                "relatedUiObject": "Trading Parameters",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -2559,9 +2559,9 @@
         },
         "properties": [
             {
-                "name": "parameters",
+                "name": "tradingParameters",
                 "type": "node",
-                "childType": "Parameters",
+                "childType": "Trading Parameters",
                 "autoAdd": true
             },
             {
@@ -2716,7 +2716,7 @@
             {
                 "action": "Add Missing Children",
                 "label": "Add Missing Children",
-                "relatedUiObject": "Parameters",
+                "relatedUiObject": "Trading Parameters",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -2846,7 +2846,7 @@
             {
                 "action": "Add Missing Children",
                 "label": "Add Missing Children",
-                "relatedUiObject": "Parameters",
+                "relatedUiObject": "Trading Parameters",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -3444,7 +3444,7 @@
             {
                 "action": "Add Missing Children",
                 "label": "Add Missing Children",
-                "relatedUiObject": "Parameters",
+                "relatedUiObject": "Trading Parameters",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -3521,7 +3521,7 @@
             {
                 "action": "Add Missing Children",
                 "label": "Add Missing Children",
-                "relatedUiObject": "Parameters",
+                "relatedUiObject": "Trading Parameters",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -3619,7 +3619,7 @@
             {
                 "action": "Add Missing Children",
                 "label": "Add Missing Children",
-                "relatedUiObject": "Parameters",
+                "relatedUiObject": "Trading Parameters",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -4040,7 +4040,7 @@
             {
                 "action": "Add Missing Children",
                 "label": "Add Missing Children",
-                "relatedUiObject": "Parameters",
+                "relatedUiObject": "Trading Parameters",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -4098,7 +4098,7 @@
             {
                 "action": "Add Missing Children",
                 "label": "Add Missing Children",
-                "relatedUiObject": "Parameters",
+                "relatedUiObject": "Trading Parameters",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -4150,7 +4150,7 @@
             {
                 "action": "Add Missing Children",
                 "label": "Add Missing Children",
-                "relatedUiObject": "Parameters",
+                "relatedUiObject": "Trading Parameters",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -4202,7 +4202,7 @@
             {
                 "action": "Add Missing Children",
                 "label": "Add Missing Children",
-                "relatedUiObject": "Parameters",
+                "relatedUiObject": "Trading Parameters",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -4290,7 +4290,7 @@
             {
                 "action": "Add Missing Children",
                 "label": "Add Missing Children",
-                "relatedUiObject": "Parameters",
+                "relatedUiObject": "Trading Parameters",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -4378,7 +4378,7 @@
             {
                 "action": "Add Missing Children",
                 "label": "Add Missing Children",
-                "relatedUiObject": "Parameters",
+                "relatedUiObject": "Trading Parameters",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -4448,7 +4448,7 @@
             {
                 "action": "Add Missing Children",
                 "label": "Add Missing Children",
-                "relatedUiObject": "Parameters",
+                "relatedUiObject": "Trading Parameters",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -4518,7 +4518,7 @@
             {
                 "action": "Add Missing Children",
                 "label": "Add Missing Children",
-                "relatedUiObject": "Parameters",
+                "relatedUiObject": "Trading Parameters",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -4576,7 +4576,7 @@
             {
                 "action": "Add Missing Children",
                 "label": "Add Missing Children",
-                "relatedUiObject": "Parameters",
+                "relatedUiObject": "Trading Parameters",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -4640,7 +4640,7 @@
             {
                 "action": "Add Missing Children",
                 "label": "Add Missing Children",
-                "relatedUiObject": "Parameters",
+                "relatedUiObject": "Trading Parameters",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -5314,7 +5314,7 @@
             {
                 "action": "Add Missing Children",
                 "label": "Add Missing Children",
-                "relatedUiObject": "Parameters",
+                "relatedUiObject": "Trading Parameters",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -5546,7 +5546,7 @@
             {
                 "action": "Add Missing Children",
                 "label": "Add Missing Children",
-                "relatedUiObject": "Parameters",
+                "relatedUiObject": "Trading Parameters",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -6114,7 +6114,7 @@
             {
                 "action": "Add Missing Children",
                 "label": "Add Missing Children",
-                "relatedUiObject": "Parameters",
+                "relatedUiObject": "Trading Parameters",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -6178,7 +6178,7 @@
             {
                 "action": "Add Missing Children",
                 "label": "Add Missing Children",
-                "relatedUiObject": "Parameters",
+                "relatedUiObject": "Trading Parameters",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -6242,7 +6242,7 @@
             {
                 "action": "Add Missing Children",
                 "label": "Add Missing Children",
-                "relatedUiObject": "Parameters",
+                "relatedUiObject": "Trading Parameters",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -6324,7 +6324,7 @@
             {
                 "action": "Add Missing Children",
                 "label": "Add Missing Children",
-                "relatedUiObject": "Parameters",
+                "relatedUiObject": "Trading Parameters",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -6406,7 +6406,7 @@
             {
                 "action": "Add Missing Children",
                 "label": "Add Missing Children",
-                "relatedUiObject": "Parameters",
+                "relatedUiObject": "Trading Parameters",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -7534,7 +7534,7 @@
             {
                 "action": "Add Missing Children",
                 "label": "Add Missing Children",
-                "relatedUiObject": "Parameters",
+                "relatedUiObject": "Trading Parameters",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -8474,7 +8474,7 @@
             {
                 "action": "Add Missing Children",
                 "label": "Add Missing Children",
-                "relatedUiObject": "Parameters",
+                "relatedUiObject": "Trading Parameters",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -8526,7 +8526,7 @@
             {
                 "action": "Add Missing Children",
                 "label": "Add Missing Children",
-                "relatedUiObject": "Parameters",
+                "relatedUiObject": "Trading Parameters",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -8596,7 +8596,7 @@
             {
                 "action": "Add Missing Children",
                 "label": "Add Missing Children",
-                "relatedUiObject": "Parameters",
+                "relatedUiObject": "Trading Parameters",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -9126,12 +9126,12 @@
         ]
     },
     {
-        "type": "Parameters",
+        "type": "Trading Parameters",
         "menuItems": [
             {
                 "action": "Add Missing Children",
                 "label": "Add Missing Params",
-                "relatedUiObject": "Parameters",
+                "relatedUiObject": "Trading Parameters",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -9205,7 +9205,7 @@
                 "autoAdd": true
             }
         ],
-        "propertyNameAtParent": "parameters"
+        "propertyNameAtParent": "tradingParameters"
     },
     {
         "type": "Trading System Reference",
@@ -9707,7 +9707,7 @@
             {
                 "action": "Add Missing Children",
                 "label": "Add Missing Children",
-                "relatedUiObject": "Parameters",
+                "relatedUiObject": "Trading Parameters",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -9737,9 +9737,9 @@
         },
         "properties": [
             {
-                "name": "parameters",
+                "name": "tradingParameters",
                 "type": "node",
-                "childType": "Parameters",
+                "childType": "Trading Parameters",
                 "autoAdd": true
             },
             {
@@ -9808,7 +9808,7 @@
             {
                 "action": "Add Missing Children",
                 "label": "Add Missing Children",
-                "relatedUiObject": "Parameters",
+                "relatedUiObject": "Trading Parameters",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -9838,9 +9838,9 @@
         },
         "properties": [
             {
-                "name": "parameters",
+                "name": "tradingParameters",
                 "type": "node",
-                "childType": "Parameters",
+                "childType": "Trading Parameters",
                 "autoAdd": true
             },
             {
@@ -9935,7 +9935,7 @@
             {
                 "action": "Add Missing Children",
                 "label": "Add Missing Children",
-                "relatedUiObject": "Parameters",
+                "relatedUiObject": "Trading Parameters",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -9965,9 +9965,9 @@
         },
         "properties": [
             {
-                "name": "parameters",
+                "name": "tradingParameters",
                 "type": "node",
-                "childType": "Parameters",
+                "childType": "Trading Parameters",
                 "autoAdd": true
             },
             {
@@ -10036,7 +10036,7 @@
             {
                 "action": "Add Missing Children",
                 "label": "Add Missing Children",
-                "relatedUiObject": "Parameters",
+                "relatedUiObject": "Trading Parameters",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -10066,9 +10066,9 @@
         },
         "properties": [
             {
-                "name": "parameters",
+                "name": "tradingParameters",
                 "type": "node",
-                "childType": "Parameters",
+                "childType": "Trading Parameters",
                 "autoAdd": true
             },
             {

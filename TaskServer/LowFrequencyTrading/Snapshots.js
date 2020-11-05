@@ -45,7 +45,7 @@ exports.newSnapshots = function newSnapshots(bot, logger) {
     function initialize() {
         tradingEngine = bot.simulationState.tradingEngine
         tradingSystem = bot.simulationState.tradingSystem
-        sessionParameters = bot.TRADING_SESSION.parameters
+        sessionParameters = bot.TRADING_SESSION.tradingParameters
     }
 
     function finalize() {

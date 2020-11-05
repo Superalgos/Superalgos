@@ -25,7 +25,7 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
     function initialize() {
 
         tradingEngine = bot.simulationState.tradingEngine
-        sessionParameters = bot.TRADING_SESSION.parameters
+        sessionParameters = bot.TRADING_SESSION.tradingParameters
 
         initializeNodeMap(tradingEngine)
 

@@ -47,7 +47,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
     function initialize() {
         tradingSystem = bot.simulationState.tradingSystem
         tradingEngine = bot.simulationState.tradingEngine
-        sessionParameters = bot.TRADING_SESSION.parameters
+        sessionParameters = bot.TRADING_SESSION.tradingParameters
 
         tradingStrategyModule.initialize()
         tradingPositionModule.initialize()

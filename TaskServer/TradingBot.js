@@ -562,15 +562,15 @@
                                     } else {
                                         switch (bot.TRADING_SESSION.type) {
                                             case 'Live Trading Session': {
-                                                waitTime = bot.TRADING_SESSION.parameters.timeFrame.config.value
+                                                waitTime = bot.TRADING_SESSION.tradingParameters.timeFrame.config.value
                                                 break
                                             }
                                             case 'Fordward Tessting Session': {
-                                                waitTime = bot.TRADING_SESSION.parameters.timeFrame.config.value
+                                                waitTime = bot.TRADING_SESSION.tradingParameters.timeFrame.config.value
                                                 break
                                             }
                                             case 'Paper Trading Session': {
-                                                waitTime = bot.TRADING_SESSION.parameters.timeFrame.config.value
+                                                waitTime = bot.TRADING_SESSION.tradingParameters.timeFrame.config.value
                                                 break
                                             }
                                             case 'Backtesting Session': {

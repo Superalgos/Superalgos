@@ -562,15 +562,15 @@ exports.newLearningBot = function newLearningBot(bot, parentLogger) {
                                     } else {
                                         switch (bot.LEARNING_SESSION.type) {
                                             case 'Live Trading Session': {
-                                                waitTime = bot.LEARNING_SESSION.parameters.timeFrame.config.value
+                                                waitTime = bot.LEARNING_SESSION.learningParameters.timeFrame.config.value
                                                 break
                                             }
                                             case 'Fordward Tessting Session': {
-                                                waitTime = bot.LEARNING_SESSION.parameters.timeFrame.config.value
+                                                waitTime = bot.LEARNING_SESSION.learningParameters.timeFrame.config.value
                                                 break
                                             }
                                             case 'Paper Trading Session': {
-                                                waitTime = bot.LEARNING_SESSION.parameters.timeFrame.config.value
+                                                waitTime = bot.LEARNING_SESSION.learningParameters.timeFrame.config.value
                                                 break
                                             }
                                             case 'Backtesting Session': {

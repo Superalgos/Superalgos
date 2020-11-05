@@ -183,7 +183,7 @@
                 non critical is missing, we complete it with a default value.
                 */
 
-                if (bot.TRADING_SESSION.parameters === undefined) {
+                if (bot.TRADING_SESSION.tradingParameters === undefined) {
                     let errorMessage = "Session Node with no Parameters."
                     parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
                     bot.TRADING_SESSIONError(bot.TRADING_SESSION, errorMessage)
@@ -191,8 +191,8 @@
                 }
 
                 /* Time Range */
-                if (bot.TRADING_SESSION.parameters.timeRange === undefined) { // if the Time Range is missing we create a default one.
-                    bot.TRADING_SESSION.parameters.timeRange = {
+                if (bot.TRADING_SESSION.tradingParameters.timeRange === undefined) { // if the Time Range is missing we create a default one.
+                    bot.TRADING_SESSION.tradingParameters.timeRange = {
                         name: 'Missing Time Range',
                         type: 'Time Range',
                         config: {
@@ -203,17 +203,17 @@
                 } else {
                     /* Check that we received valid dates */
                     if (bot.TRADING_SESSION.type === 'Backtesting Session') {
-                        if (isNaN(new Date(bot.TRADING_SESSION.parameters.timeRange.config.initialDatetime)).valueOf()) {
+                        if (isNaN(new Date(bot.TRADING_SESSION.tradingParameters.timeRange.config.initialDatetime)).valueOf()) {
                             let errorMessage = "sessionParameters.timeRange.config.initialDatetime is not a valid date."
                             parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
-                            bot.TRADING_SESSIONError(bot.TRADING_SESSION.parameters, errorMessage)
+                            bot.TRADING_SESSIONError(bot.TRADING_SESSION.tradingParameters, errorMessage)
                             return false
                         }
                     }
-                    if (isNaN(new Date(bot.TRADING_SESSION.parameters.timeRange.config.finalDatetime)).valueOf()) {
+                    if (isNaN(new Date(bot.TRADING_SESSION.tradingParameters.timeRange.config.finalDatetime)).valueOf()) {
                         let errorMessage = "sessionParameters.timeRange.config.initialDatetime is not a valid date."
                         parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
-                        bot.TRADING_SESSIONError(bot.TRADING_SESSION.parameters, errorMessage)
+                        bot.TRADING_SESSIONError(bot.TRADING_SESSION.tradingParameters, errorMessage)
                         return false
                     }
                 }
@@ -249,80 +249,80 @@
 
                     /* Initial Datetime */
                     if (bot.TRADING_SESSION.type === 'Backtesting Session') {
-                        if (bot.TRADING_SESSION.parameters.timeRange.config.initialDatetime === undefined) {
-                            bot.TRADING_SESSION.parameters.timeRange.config.initialDatetime = initialDefault
+                        if (bot.TRADING_SESSION.tradingParameters.timeRange.config.initialDatetime === undefined) {
+                            bot.TRADING_SESSION.tradingParameters.timeRange.config.initialDatetime = initialDefault
                         } else {
-                            bot.TRADING_SESSION.parameters.timeRange.config.initialDatetime = (new Date(bot.TRADING_SESSION.parameters.timeRange.config.initialDatetime)).valueOf()
+                            bot.TRADING_SESSION.tradingParameters.timeRange.config.initialDatetime = (new Date(bot.TRADING_SESSION.tradingParameters.timeRange.config.initialDatetime)).valueOf()
                         }
                     } else {
                         /* Non backtest session can start from the past only if explicitly configured that way */
-                        if (bot.TRADING_SESSION.parameters.timeRange.config.initialDatetime === undefined || bot.TRADING_SESSION.parameters.timeRange.config.allowStartingFromThePast !== true) {
-                            bot.TRADING_SESSION.parameters.timeRange.config.initialDatetime = initialDefault
+                        if (bot.TRADING_SESSION.tradingParameters.timeRange.config.initialDatetime === undefined || bot.TRADING_SESSION.tradingParameters.timeRange.config.allowStartingFromThePast !== true) {
+                            bot.TRADING_SESSION.tradingParameters.timeRange.config.initialDatetime = initialDefault
                         } else {
-                            bot.TRADING_SESSION.parameters.timeRange.config.initialDatetime = (new Date(bot.TRADING_SESSION.parameters.timeRange.config.initialDatetime)).valueOf()
+                            bot.TRADING_SESSION.tradingParameters.timeRange.config.initialDatetime = (new Date(bot.TRADING_SESSION.tradingParameters.timeRange.config.initialDatetime)).valueOf()
                         }
                     }
 
                     /* Final Datetime */
-                    if (bot.TRADING_SESSION.parameters.timeRange.config.finalDatetime === undefined) {
-                        bot.TRADING_SESSION.parameters.timeRange.config.finalDatetime = finalDefault
+                    if (bot.TRADING_SESSION.tradingParameters.timeRange.config.finalDatetime === undefined) {
+                        bot.TRADING_SESSION.tradingParameters.timeRange.config.finalDatetime = finalDefault
                     } else {
-                        bot.TRADING_SESSION.parameters.timeRange.config.finalDatetime = (new Date(bot.TRADING_SESSION.parameters.timeRange.config.finalDatetime)).valueOf()
+                        bot.TRADING_SESSION.tradingParameters.timeRange.config.finalDatetime = (new Date(bot.TRADING_SESSION.tradingParameters.timeRange.config.finalDatetime)).valueOf()
                     }
                 }
 
                 /* Time Frame */
-                if (bot.TRADING_SESSION.parameters.timeFrame === undefined) {
+                if (bot.TRADING_SESSION.tradingParameters.timeFrame === undefined) {
                     let errorMessage = "Session Parameters Node with no Time Frame."
                     parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
-                    bot.TRADING_SESSIONError(bot.TRADING_SESSION.parameters, errorMessage)
+                    bot.TRADING_SESSIONError(bot.TRADING_SESSION.tradingParameters, errorMessage)
                     return false
                 }
-                if (bot.TRADING_SESSION.parameters.timeFrame.config.label === undefined) {
+                if (bot.TRADING_SESSION.tradingParameters.timeFrame.config.label === undefined) {
                     let errorMessage = "Session Parameters Node with no Time Frame Label configuration."
                     parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
-                    bot.TRADING_SESSIONError(bot.TRADING_SESSION.parameters.timeFrame, errorMessage)
+                    bot.TRADING_SESSIONError(bot.TRADING_SESSION.tradingParameters.timeFrame, errorMessage)
                     return false
                 }
-                bot.TRADING_SESSION.parameters.timeFrame.config.value = getTimeFrameFromLabel(bot.TRADING_SESSION.parameters.timeFrame.config.label)
-                if (bot.TRADING_SESSION.parameters.timeFrame.config.value === undefined) {
+                bot.TRADING_SESSION.tradingParameters.timeFrame.config.value = getTimeFrameFromLabel(bot.TRADING_SESSION.tradingParameters.timeFrame.config.label)
+                if (bot.TRADING_SESSION.tradingParameters.timeFrame.config.value === undefined) {
                     let errorMessage = "Config error: label value not recognized. Try 01-min or 01-hs for example."
                     parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
-                    bot.TRADING_SESSIONError(bot.TRADING_SESSION.parameters.timeFrame, errorMessage)
+                    bot.TRADING_SESSIONError(bot.TRADING_SESSION.tradingParameters.timeFrame, errorMessage)
                     return false
                 }
 
                 /* Session Base Asset */
-                if (bot.TRADING_SESSION.parameters.sessionBaseAsset === undefined) {
+                if (bot.TRADING_SESSION.tradingParameters.sessionBaseAsset === undefined) {
                     let errorMessage = "Session Parameters Node with no Session Base Asset."
                     parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
-                    bot.TRADING_SESSIONError(bot.TRADING_SESSION.parameters, errorMessage)
+                    bot.TRADING_SESSIONError(bot.TRADING_SESSION.tradingParameters, errorMessage)
                     return false
                 }
-                if (bot.TRADING_SESSION.parameters.sessionBaseAsset.config.initialBalance === undefined) {
+                if (bot.TRADING_SESSION.tradingParameters.sessionBaseAsset.config.initialBalance === undefined) {
                     let errorMessage = "Session Parameters Session Base Asset with no initialBalance configuration."
                     parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
-                    bot.TRADING_SESSIONError(bot.TRADING_SESSION.parameters.sessionBaseAsset, errorMessage)
+                    bot.TRADING_SESSIONError(bot.TRADING_SESSION.tradingParameters.sessionBaseAsset, errorMessage)
                     return false
                 }
 
                 /* Session Quoted Asset */
-                if (bot.TRADING_SESSION.parameters.sessionQuotedAsset === undefined) {
+                if (bot.TRADING_SESSION.tradingParameters.sessionQuotedAsset === undefined) {
                     let errorMessage = "Session Parameters Node with no Session Quoted Asset."
                     parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
-                    bot.TRADING_SESSIONError(bot.TRADING_SESSION.parameters, errorMessage)
+                    bot.TRADING_SESSIONError(bot.TRADING_SESSION.tradingParameters, errorMessage)
                     return false
                 }
-                if (bot.TRADING_SESSION.parameters.sessionQuotedAsset.config.initialBalance === undefined) {
+                if (bot.TRADING_SESSION.tradingParameters.sessionQuotedAsset.config.initialBalance === undefined) {
                     let errorMessage = "Session Parameters Session Quoted Asset with no initialBalance configuration."
                     parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
-                    bot.TRADING_SESSIONError(bot.TRADING_SESSION.parameters.sessionQuotedAsset, errorMessage)
+                    bot.TRADING_SESSIONError(bot.TRADING_SESSION.tradingParameters.sessionQuotedAsset, errorMessage)
                     return false
                 }
 
                 /* Slippage */
-                if (bot.TRADING_SESSION.parameters.slippage === undefined) { // if the Slippage is missing we create a default one.
-                    bot.TRADING_SESSION.parameters.slippage = {
+                if (bot.TRADING_SESSION.tradingParameters.slippage === undefined) { // if the Slippage is missing we create a default one.
+                    bot.TRADING_SESSION.tradingParameters.slippage = {
                         name: 'Missing Slippage',
                         type: 'Slippage',
                         config: {
@@ -332,19 +332,19 @@
                         }
                     }
                 }
-                if (bot.TRADING_SESSION.parameters.slippage.config.marketOrderRate === undefined) { // if the marketOrderRate is missing we create a default one.
-                    bot.TRADING_SESSION.parameters.slippage.config.marketOrderRate = 0
+                if (bot.TRADING_SESSION.tradingParameters.slippage.config.marketOrderRate === undefined) { // if the marketOrderRate is missing we create a default one.
+                    bot.TRADING_SESSION.tradingParameters.slippage.config.marketOrderRate = 0
                 }
-                if (bot.TRADING_SESSION.parameters.slippage.config.stopLoss === undefined) { // if the stopLoss is missing we create a default one.
-                    bot.TRADING_SESSION.parameters.slippage.config.stopLoss = 0
+                if (bot.TRADING_SESSION.tradingParameters.slippage.config.stopLoss === undefined) { // if the stopLoss is missing we create a default one.
+                    bot.TRADING_SESSION.tradingParameters.slippage.config.stopLoss = 0
                 }
-                if (bot.TRADING_SESSION.parameters.slippage.config.takeProfit === undefined) { // if the takeProfit is missing we create a default one.
-                    bot.TRADING_SESSION.parameters.slippage.config.takeProfit = 0
+                if (bot.TRADING_SESSION.tradingParameters.slippage.config.takeProfit === undefined) { // if the takeProfit is missing we create a default one.
+                    bot.TRADING_SESSION.tradingParameters.slippage.config.takeProfit = 0
                 }
 
                 /* Fee Structure */
-                if (bot.TRADING_SESSION.parameters.feeStructure === undefined) { // if the Fee Structure is missing we create a default one.
-                    bot.TRADING_SESSION.parameters.feeStructure = {
+                if (bot.TRADING_SESSION.tradingParameters.feeStructure === undefined) { // if the Fee Structure is missing we create a default one.
+                    bot.TRADING_SESSION.tradingParameters.feeStructure = {
                         name: 'Missing Fee Structure',
                         type: 'Fee Structure',
                         config: {
@@ -353,11 +353,11 @@
                         }
                     }
                 }
-                if (bot.TRADING_SESSION.parameters.feeStructure.config.maker === undefined) { // if the maker is missing we create a default one.
-                    bot.TRADING_SESSION.parameters.feeStructure.config.maker = 0
+                if (bot.TRADING_SESSION.tradingParameters.feeStructure.config.maker === undefined) { // if the maker is missing we create a default one.
+                    bot.TRADING_SESSION.tradingParameters.feeStructure.config.maker = 0
                 }
-                if (bot.TRADING_SESSION.parameters.feeStructure.config.taker === undefined) { // if the taker is missing we create a default one.
-                    bot.TRADING_SESSION.parameters.feeStructure.config.taker = 0
+                if (bot.TRADING_SESSION.tradingParameters.feeStructure.config.taker === undefined) { // if the taker is missing we create a default one.
+                    bot.TRADING_SESSION.tradingParameters.feeStructure.config.taker = 0
                 }
 
                 return true
@@ -391,16 +391,16 @@
                     balancePercentage = bot.TRADING_SESSION.config.balancePercentage
                 }
 
-                bot.TRADING_SESSION.parameters.sessionBaseAsset.config.initialBalance = bot.TRADING_SESSION.parameters.sessionBaseAsset.config.initialBalance * balancePercentage / 100
-                bot.TRADING_SESSION.parameters.sessionQuotedAsset.config.initialBalance = bot.TRADING_SESSION.parameters.sessionQuotedAsset.config.initialBalance * balancePercentage / 100
+                bot.TRADING_SESSION.tradingParameters.sessionBaseAsset.config.initialBalance = bot.TRADING_SESSION.tradingParameters.sessionBaseAsset.config.initialBalance * balancePercentage / 100
+                bot.TRADING_SESSION.tradingParameters.sessionQuotedAsset.config.initialBalance = bot.TRADING_SESSION.tradingParameters.sessionQuotedAsset.config.initialBalance * balancePercentage / 100
 
-                bot.TRADING_SESSION.parameters.sessionBaseAsset.config.minimumBalance = bot.TRADING_SESSION.parameters.sessionBaseAsset.config.minimumBalance * balancePercentage / 100
-                bot.TRADING_SESSION.parameters.sessionQuotedAsset.config.minimumBalance = bot.TRADING_SESSION.parameters.sessionQuotedAsset.config.minimumBalance * balancePercentage / 100
+                bot.TRADING_SESSION.tradingParameters.sessionBaseAsset.config.minimumBalance = bot.TRADING_SESSION.tradingParameters.sessionBaseAsset.config.minimumBalance * balancePercentage / 100
+                bot.TRADING_SESSION.tradingParameters.sessionQuotedAsset.config.minimumBalance = bot.TRADING_SESSION.tradingParameters.sessionQuotedAsset.config.minimumBalance * balancePercentage / 100
 
-                bot.TRADING_SESSION.parameters.sessionBaseAsset.config.maximumBalance = bot.TRADING_SESSION.parameters.sessionBaseAsset.config.maximumBalance * balancePercentage / 100
-                bot.TRADING_SESSION.parameters.sessionQuotedAsset.config.maximumBalance = bot.TRADING_SESSION.parameters.sessionQuotedAsset.config.maximumBalance * balancePercentage / 100
+                bot.TRADING_SESSION.tradingParameters.sessionBaseAsset.config.maximumBalance = bot.TRADING_SESSION.tradingParameters.sessionBaseAsset.config.maximumBalance * balancePercentage / 100
+                bot.TRADING_SESSION.tradingParameters.sessionQuotedAsset.config.maximumBalance = bot.TRADING_SESSION.tradingParameters.sessionQuotedAsset.config.maximumBalance * balancePercentage / 100
 
-                pProcessConfig.normalWaitTime = bot.TRADING_SESSION.parameters.timeFrame.config.value
+                pProcessConfig.normalWaitTime = bot.TRADING_SESSION.tradingParameters.timeFrame.config.value
 
                 return true
             }

@@ -115,7 +115,7 @@ function newLearningSessionFunctions() {
 
         lightingPath = '' +
             'Learning Session->' +
-            'Parameters->' +
+            'Learning Parameters->' +
             'Session Base Asset->Session Quoted Asset->Time Range->Time Frame->Slippage->Fee Structure->Snapshots->Heartbeats->User Defined Parameters->' +
             'Exchange Account Asset->Asset->' +
             'Social Bots->Telegram Bot->'

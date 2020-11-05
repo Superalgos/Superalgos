@@ -115,7 +115,7 @@ function newTradingSessionFunctions() {
 
         lightingPath = '' +
             'Backtesting Session->Paper Trading Session->Forward Testing Session->Live Trading Session->' +
-            'Parameters->' +
+            'Trading Parameters->' +
             'Session Base Asset->Session Quoted Asset->Time Range->Time Frame->Slippage->Fee Structure->Snapshots->Heartbeats->User Defined Parameters->' +
             'Exchange Account Asset->Asset->' +
             'Social Bots->Telegram Bot->'

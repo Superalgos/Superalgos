@@ -27,7 +27,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
     function initialize() {
         tradingSystem = bot.simulationState.tradingSystem
         tradingEngine = bot.simulationState.tradingEngine
-        sessionParameters = bot.TRADING_SESSION.parameters
+        sessionParameters = bot.TRADING_SESSION.tradingParameters
 
         exchangeAPIModule.initialize()
         announcementsModule.initialize()

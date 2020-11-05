@@ -91,6 +91,17 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
                 break
             }
         }
+        /* 
+        We can not have the last begin or last end to be zero, because that would prevent
+        objects starting with lastBegin in zero to being saved on file. For that reason
+        we will do this:
+        */
+        if (tradingEngine.current.episode.cycle.lastBegin.value === 0) {
+            tradingEngine.current.episode.cycle.lastBegin.value = tradingEngine.current.episode.cycle.begin.value
+        }
+        if (tradingEngine.current.episode.cycle.lastEnd.value === 0) {
+            tradingEngine.current.episode.cycle.lastEnd.value = tradingEngine.current.episode.cycle.end.value
+        }
     }
 
     function cloneValues(originNode, destinationNode) {

@@ -1,6 +1,6 @@
-﻿exports.newSession = function newSession(bot, parentLogger) {
+exports.newLearningSession = function newLearningSession(bot, parentLogger) {
 
-    const MODULE_NAME = "Session"
+    const MODULE_NAME = "Learning Session"
     const FULL_LOG = true;
 
     let thisObject = {
@@ -15,16 +15,16 @@
     function initialize(pProcessConfig, callBackFunction) {
         try {
             /* Initialize this info so that everything is logged propeerly */
-            bot.SESSION = {
+            bot.LEARNING_SESSION = {
                 name: bot.processNode.session.name,
                 id: bot.processNode.session.id
             }
 
             /* Set the folderName for early logging */
             if (bot.processNode.session.config.folderName === undefined) {
-                bot.SESSION.folderName = bot.processNode.session.type.replace(' ', '-').replace(' ', '-') + '-' + bot.SESSION.id
+                bot.LEARNING_SESSION.folderName = bot.processNode.session.type.replace(' ', '-').replace(' ', '-') + '-' + bot.LEARNING_SESSION.id
             } else {
-                bot.SESSION.folderName = bot.processNode.session.type.replace(' ', '-').replace(' ', '-') + '-' + bot.processNode.session.config.folderName
+                bot.LEARNING_SESSION.folderName = bot.processNode.session.type.replace(' ', '-').replace(' ', '-') + '-' + bot.processNode.session.config.folderName
             }
 
             /* Check if there is a session */
@@ -38,10 +38,10 @@
             bot.sessionKey = bot.processNode.session.name + '-' + bot.processNode.session.type + '-' + bot.processNode.session.id
             global.SESSION_MAP.set(bot.sessionKey, bot.sessionKey)
 
-            global.EVENT_SERVER_CLIENT.listenToEvent(bot.sessionKey, 'Session Status', undefined, bot.sessionKey, undefined, onSessionStatus)
-            global.EVENT_SERVER_CLIENT.listenToEvent(bot.sessionKey, 'Run Session', undefined, bot.sessionKey, undefined, onSessionRun)
-            global.EVENT_SERVER_CLIENT.listenToEvent(bot.sessionKey, 'Stop Session', undefined, bot.sessionKey, undefined, onSessionStop)
-            global.EVENT_SERVER_CLIENT.listenToEvent(bot.sessionKey, 'Resume Session', undefined, bot.sessionKey, undefined, onSessionResume)
+            global.EVENT_SERVER_CLIENT.listenToEvent(bot.sessionKey, 'Learning Session Status', undefined, bot.sessionKey, undefined, onSessionStatus)
+            global.EVENT_SERVER_CLIENT.listenToEvent(bot.sessionKey, 'Run Learning Session', undefined, bot.sessionKey, undefined, onSessionRun)
+            global.EVENT_SERVER_CLIENT.listenToEvent(bot.sessionKey, 'Stop Learning Session', undefined, bot.sessionKey, undefined, onSessionStop)
+            global.EVENT_SERVER_CLIENT.listenToEvent(bot.sessionKey, 'Resume Learning Session', undefined, bot.sessionKey, undefined, onSessionResume)
 
             /* Connect this here so that it is accesible from other places */
             bot.sessionError = sessionError
@@ -57,12 +57,12 @@
             function onSessionStatus() {
                 if (bot.SESSION_STATUS === 'Running') {
                     let event = {
-                        status: 'Session Runnning' 
+                        status: 'Learning Session Runnning' 
                     }
                     global.EVENT_SERVER_CLIENT.raiseEvent(bot.sessionKey, 'Status Response', event)
                 } else {
                     let event = {
-                        status: 'Not Session Runnning' 
+                        status: 'Learning Session Not Runnning' 
                     }
                     global.EVENT_SERVER_CLIENT.raiseEvent(bot.sessionKey, 'Status Response', event)
                 }
@@ -79,11 +79,11 @@
                     /* We are going to run the Definition comming at the event. */
                     bot.TRADING_SYSTEM = JSON.parse(message.event.tradingSystem)
                     bot.TRADING_ENGINE = JSON.parse(message.event.tradingEngine)
-                    bot.SESSION = JSON.parse(message.event.session)
+                    bot.LEARNING_SESSION = JSON.parse(message.event.session)
                     bot.DEPENDENCY_FILTER = JSON.parse(message.event.dependencyFilter)
                     bot.RESUME = false
                     bot.FIRST_EXECUTION = true
-                    bot.SESSION.stop = stopSession // stop function
+                    bot.LEARNING_SESSION.stop = stopSession // stop function
 
                     setUpSessionFolderName()
 
@@ -93,7 +93,7 @@
                     socialBotsModule.initialize()
 
                     let allGood
-                    switch (bot.SESSION.type) {
+                    switch (bot.LEARNING_SESSION.type) {
                         case 'Backtesting Session': {
                             allGood = startBackTesting(message)
                             break
@@ -119,7 +119,7 @@
                         if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, '[IMPORTANT] onSessionRun -> Stopping the Session now. ') }
                     }
 
-                    socialBotsModule.sendMessage(bot.SESSION.type + " '" + bot.SESSION.name + "' is starting.")
+                    socialBotsModule.sendMessage(bot.LEARNING_SESSION.type + " '" + bot.LEARNING_SESSION.name + "' is starting.")
                 } catch (err) {
                     parentLogger.write(MODULE_NAME, "[ERROR] initialize -> onSessionRun -> err = " + err.stack);
                 }
@@ -131,7 +131,7 @@
 
             function onSessionResume(message) {
                 try {
-                    if (bot.SESSION.stop === undefined) { 
+                    if (bot.LEARNING_SESSION.stop === undefined) { 
                         parentLogger.write(MODULE_NAME, "[WARN] onSessionResume -> Event received to resume the Session that have never be ran before. ")
                         return 
                     }
@@ -145,7 +145,7 @@
                     bot.RESUME = true
                     bot.STOP_SESSION = false
 
-                    socialBotsModule.sendMessage(bot.SESSION.type + " '" + bot.SESSION.name + "' is resuming.")
+                    socialBotsModule.sendMessage(bot.LEARNING_SESSION.type + " '" + bot.LEARNING_SESSION.name + "' is resuming.")
                 } catch (err) {
                     parentLogger.write(MODULE_NAME, "[ERROR] initialize -> onSessionResume -> err = " + err.stack);
                 }
@@ -153,11 +153,11 @@
 
             function stopSession(commandOrigin) {
 
-                socialBotsModule.sendMessage(bot.SESSION.type + " '" + bot.SESSION.name + "' is stopping " + commandOrigin)
+                socialBotsModule.sendMessage(bot.LEARNING_SESSION.type + " '" + bot.LEARNING_SESSION.name + "' is stopping " + commandOrigin)
                 socialBotsModule.finalize()
                 bot.STOP_SESSION = true
                 if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, '[IMPORTANT] stopSession -> Stopping the Session now. ') }
-                sessionInfo(bot.SESSION, commandOrigin)
+                sessionInfo(bot.LEARNING_SESSION, commandOrigin)
             }
 
             function setUpSessionFolderName() {
@@ -167,12 +167,12 @@
                 Set the folderName for logging, reports, context and data output 
                 */
                 let config
-                if (bot.SESSION.config !== undefined) {
-                    config = bot.SESSION.config
+                if (bot.LEARNING_SESSION.config !== undefined) {
+                    config = bot.LEARNING_SESSION.config
                     if (config.folderName === undefined) {
-                        bot.SESSION.folderName = bot.processNode.session.type.replace(' ', '-').replace(' ', '-') + '-' + bot.SESSION.id
+                        bot.LEARNING_SESSION.folderName = bot.processNode.session.type.replace(' ', '-').replace(' ', '-') + '-' + bot.LEARNING_SESSION.id
                     } else {
-                        bot.SESSION.folderName = bot.processNode.session.type.replace(' ', '-').replace(' ', '-') + '-' + bot.processNode.session.config.folderName
+                        bot.LEARNING_SESSION.folderName = bot.processNode.session.type.replace(' ', '-').replace(' ', '-') + '-' + bot.processNode.session.config.folderName
                     }
                 }
             }
@@ -183,16 +183,16 @@
                 non critical is missing, we complete it with a default value.
                 */
 
-                if (bot.SESSION.parameters === undefined) {
+                if (bot.LEARNING_SESSION.parameters === undefined) {
                     let errorMessage = "Session Node with no Parameters."
                     parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
-                    bot.sessionError(bot.SESSION, errorMessage)
+                    bot.sessionError(bot.LEARNING_SESSION, errorMessage)
                     return false
                 }
 
                 /* Time Range */
-                if (bot.SESSION.parameters.timeRange === undefined) { // if the Time Range is missing we create a default one.
-                    bot.SESSION.parameters.timeRange = {
+                if (bot.LEARNING_SESSION.parameters.timeRange === undefined) { // if the Time Range is missing we create a default one.
+                    bot.LEARNING_SESSION.parameters.timeRange = {
                         name: 'Missing Time Range',
                         type: 'Time Range',
                         config: {
@@ -202,18 +202,18 @@
                     }
                 } else {
                     /* Check that we received valid dates */
-                    if (bot.SESSION.type === 'Backtesting Session') {
-                        if (isNaN(new Date(bot.SESSION.parameters.timeRange.config.initialDatetime)).valueOf()) {
+                    if (bot.LEARNING_SESSION.type === 'Backtesting Session') {
+                        if (isNaN(new Date(bot.LEARNING_SESSION.parameters.timeRange.config.initialDatetime)).valueOf()) {
                             let errorMessage = "sessionParameters.timeRange.config.initialDatetime is not a valid date."
                             parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
-                            bot.sessionError(bot.SESSION.parameters, errorMessage)
+                            bot.sessionError(bot.LEARNING_SESSION.parameters, errorMessage)
                             return false
                         }
                     }
-                    if (isNaN(new Date(bot.SESSION.parameters.timeRange.config.finalDatetime)).valueOf()) {
+                    if (isNaN(new Date(bot.LEARNING_SESSION.parameters.timeRange.config.finalDatetime)).valueOf()) {
                         let errorMessage = "sessionParameters.timeRange.config.initialDatetime is not a valid date."
                         parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
-                        bot.sessionError(bot.SESSION.parameters, errorMessage)
+                        bot.sessionError(bot.LEARNING_SESSION.parameters, errorMessage)
                         return false
                     }
                 }
@@ -222,7 +222,7 @@
                 let today = (new Date()).valueOf()
                 let aYearAgo = today - global.ONE_YEAR_IN_MILISECONDS
                 let aYearFromNow = today + global.ONE_YEAR_IN_MILISECONDS
-                switch (bot.SESSION.type) {
+                switch (bot.LEARNING_SESSION.type) {
                     case 'Backtesting Session': {
                         useDefaultDatetimes(aYearAgo, today)
                         break
@@ -248,81 +248,81 @@
                     */
 
                     /* Initial Datetime */
-                    if (bot.SESSION.type === 'Backtesting Session') {
-                        if (bot.SESSION.parameters.timeRange.config.initialDatetime === undefined) {
-                            bot.SESSION.parameters.timeRange.config.initialDatetime = initialDefault
+                    if (bot.LEARNING_SESSION.type === 'Backtesting Session') {
+                        if (bot.LEARNING_SESSION.parameters.timeRange.config.initialDatetime === undefined) {
+                            bot.LEARNING_SESSION.parameters.timeRange.config.initialDatetime = initialDefault
                         } else {
-                            bot.SESSION.parameters.timeRange.config.initialDatetime = (new Date(bot.SESSION.parameters.timeRange.config.initialDatetime)).valueOf()
+                            bot.LEARNING_SESSION.parameters.timeRange.config.initialDatetime = (new Date(bot.LEARNING_SESSION.parameters.timeRange.config.initialDatetime)).valueOf()
                         }
                     } else {
                         /* Non backtest session can start from the past only if explicitly configured that way */
-                        if (bot.SESSION.parameters.timeRange.config.initialDatetime === undefined || bot.SESSION.parameters.timeRange.config.allowStartingFromThePast !== true) {
-                            bot.SESSION.parameters.timeRange.config.initialDatetime = initialDefault
+                        if (bot.LEARNING_SESSION.parameters.timeRange.config.initialDatetime === undefined || bot.LEARNING_SESSION.parameters.timeRange.config.allowStartingFromThePast !== true) {
+                            bot.LEARNING_SESSION.parameters.timeRange.config.initialDatetime = initialDefault
                         } else {
-                            bot.SESSION.parameters.timeRange.config.initialDatetime = (new Date(bot.SESSION.parameters.timeRange.config.initialDatetime)).valueOf()
+                            bot.LEARNING_SESSION.parameters.timeRange.config.initialDatetime = (new Date(bot.LEARNING_SESSION.parameters.timeRange.config.initialDatetime)).valueOf()
                         }
                     }
 
                     /* Final Datetime */
-                    if (bot.SESSION.parameters.timeRange.config.finalDatetime === undefined) {
-                        bot.SESSION.parameters.timeRange.config.finalDatetime = finalDefault
+                    if (bot.LEARNING_SESSION.parameters.timeRange.config.finalDatetime === undefined) {
+                        bot.LEARNING_SESSION.parameters.timeRange.config.finalDatetime = finalDefault
                     } else {
-                        bot.SESSION.parameters.timeRange.config.finalDatetime = (new Date(bot.SESSION.parameters.timeRange.config.finalDatetime)).valueOf()
+                        bot.LEARNING_SESSION.parameters.timeRange.config.finalDatetime = (new Date(bot.LEARNING_SESSION.parameters.timeRange.config.finalDatetime)).valueOf()
                     }
                 }
 
                 /* Time Frame */
-                if (bot.SESSION.parameters.timeFrame === undefined) {
+                if (bot.LEARNING_SESSION.parameters.timeFrame === undefined) {
                     let errorMessage = "Session Parameters Node with no Time Frame."
                     parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
-                    bot.sessionError(bot.SESSION.parameters, errorMessage)
+                    bot.sessionError(bot.LEARNING_SESSION.parameters, errorMessage)
                     return false
                 }
-                if (bot.SESSION.parameters.timeFrame.config.label === undefined) {
+                if (bot.LEARNING_SESSION.parameters.timeFrame.config.label === undefined) {
                     let errorMessage = "Session Parameters Node with no Time Frame Label configuration."
                     parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
-                    bot.sessionError(bot.SESSION.parameters.timeFrame, errorMessage)
+                    bot.sessionError(bot.LEARNING_SESSION.parameters.timeFrame, errorMessage)
                     return false
                 }
-                bot.SESSION.parameters.timeFrame.config.value = getTimeFrameFromLabel(bot.SESSION.parameters.timeFrame.config.label)
-                if (bot.SESSION.parameters.timeFrame.config.value === undefined) {
+                bot.LEARNING_SESSION.parameters.timeFrame.config.value = getTimeFrameFromLabel(bot.LEARNING_SESSION.parameters.timeFrame.config.label)
+                if (bot.LEARNING_SESSION.parameters.timeFrame.config.value === undefined) {
                     let errorMessage = "Config error: label value not recognized. Try 01-min or 01-hs for example."
                     parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
-                    bot.sessionError(bot.SESSION.parameters.timeFrame, errorMessage)
+                    bot.sessionError(bot.LEARNING_SESSION.parameters.timeFrame, errorMessage)
                     return false
                 }
 
                 /* Session Base Asset */
-                if (bot.SESSION.parameters.sessionBaseAsset === undefined) {
+                if (bot.LEARNING_SESSION.parameters.sessionBaseAsset === undefined) {
                     let errorMessage = "Session Parameters Node with no Session Base Asset."
                     parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
-                    bot.sessionError(bot.SESSION.parameters, errorMessage)
+                    bot.sessionError(bot.LEARNING_SESSION.parameters, errorMessage)
                     return false
                 }
-                if (bot.SESSION.parameters.sessionBaseAsset.config.initialBalance === undefined) {
+                if (bot.LEARNING_SESSION.parameters.sessionBaseAsset.config.initialBalance === undefined) {
                     let errorMessage = "Session Parameters Session Base Asset with no initialBalance configuration."
                     parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
-                    bot.sessionError(bot.SESSION.parameters.sessionBaseAsset, errorMessage)
+                    bot.sessionError(bot.LEARNING_SESSION.parameters.sessionBaseAsset, errorMessage)
                     return false
                 }
 
                 /* Session Quoted Asset */
-                if (bot.SESSION.parameters.sessionQuotedAsset === undefined) {
+                if (bot.LEARNING_SESSION.parameters.sessionQuotedAsset === undefined) {
                     let errorMessage = "Session Parameters Node with no Session Quoted Asset."
                     parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
-                    bot.sessionError(bot.SESSION.parameters, errorMessage)
+                    bot.sessionError(bot.LEARNING_SESSION.parameters, errorMessage)
                     return false
                 }
-                if (bot.SESSION.parameters.sessionQuotedAsset.config.initialBalance === undefined) {
+                if (bot.LEARNING_SESSION.parameters.sessionQuotedAsset.config.initialBalance === undefined) {
                     let errorMessage = "Session Parameters Session Quoted Asset with no initialBalance configuration."
                     parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
-                    bot.sessionError(bot.SESSION.parameters.sessionQuotedAsset, errorMessage)
+                    bot.sessionError(bot.LEARNING_SESSION.parameters.sessionQuotedAsset, errorMessage)
                     return false
                 }
 
                 /* Slippage */
-                if (bot.SESSION.parameters.slippage === undefined) { // if the Slippage is missing we create a default one.
-                    bot.SESSION.parameters.slippage = {
+                if (bot.LEARNING_SESSION.parameters.slippage === undefined) { // if the Slippage is missing we create a default one.
+                    bot.LEARNING_SESSION.parameters.slippage = {
                         name: 'Missing Slippage',
                         type: 'Slippage',
                         config: {
@@ -332,19 +332,19 @@
                         }
                     }
                 }
-                if (bot.SESSION.parameters.slippage.config.marketOrderRate === undefined) { // if the marketOrderRate is missing we create a default one.
-                    bot.SESSION.parameters.slippage.config.marketOrderRate = 0
+                if (bot.LEARNING_SESSION.parameters.slippage.config.marketOrderRate === undefined) { // if the marketOrderRate is missing we create a default one.
+                    bot.LEARNING_SESSION.parameters.slippage.config.marketOrderRate = 0
                 }
-                if (bot.SESSION.parameters.slippage.config.stopLoss === undefined) { // if the stopLoss is missing we create a default one.
-                    bot.SESSION.parameters.slippage.config.stopLoss = 0
+                if (bot.LEARNING_SESSION.parameters.slippage.config.stopLoss === undefined) { // if the stopLoss is missing we create a default one.
+                    bot.LEARNING_SESSION.parameters.slippage.config.stopLoss = 0
                 }
-                if (bot.SESSION.parameters.slippage.config.takeProfit === undefined) { // if the takeProfit is missing we create a default one.
-                    bot.SESSION.parameters.slippage.config.takeProfit = 0
+                if (bot.LEARNING_SESSION.parameters.slippage.config.takeProfit === undefined) { // if the takeProfit is missing we create a default one.
+                    bot.LEARNING_SESSION.parameters.slippage.config.takeProfit = 0
                 }
 
                 /* Fee Structure */
-                if (bot.SESSION.parameters.feeStructure === undefined) { // if the Fee Structure is missing we create a default one.
-                    bot.SESSION.parameters.feeStructure = {
+                if (bot.LEARNING_SESSION.parameters.feeStructure === undefined) { // if the Fee Structure is missing we create a default one.
+                    bot.LEARNING_SESSION.parameters.feeStructure = {
                         name: 'Missing Fee Structure',
                         type: 'Fee Structure',
                         config: {
@@ -353,11 +353,11 @@
                         }
                     }
                 }
-                if (bot.SESSION.parameters.feeStructure.config.maker === undefined) { // if the maker is missing we create a default one.
-                    bot.SESSION.parameters.feeStructure.config.maker = 0
+                if (bot.LEARNING_SESSION.parameters.feeStructure.config.maker === undefined) { // if the maker is missing we create a default one.
+                    bot.LEARNING_SESSION.parameters.feeStructure.config.maker = 0
                 }
-                if (bot.SESSION.parameters.feeStructure.config.taker === undefined) { // if the taker is missing we create a default one.
-                    bot.SESSION.parameters.feeStructure.config.taker = 0
+                if (bot.LEARNING_SESSION.parameters.feeStructure.config.taker === undefined) { // if the taker is missing we create a default one.
+                    bot.LEARNING_SESSION.parameters.feeStructure.config.taker = 0
                 }
 
                 return true
@@ -371,7 +371,7 @@
                 if (bot.KEY === undefined || bot.SECRET === undefined) {
                     let errorMessage = "Key 'codeName' or 'secret' not provided. Plese check that and try again."
                     if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[ERROR] initialize -> startLiveTrading -> " + errorMessage); }
-                    bot.sessionError(bot.SESSION, errorMessage)
+                    bot.sessionError(bot.LEARNING_SESSION, errorMessage)
                     return false
                 }
                 return true
@@ -387,20 +387,20 @@
                 /* Reduce the balance */
                 let balancePercentage = 1 // This is the default value
 
-                if (bot.SESSION.config.balancePercentage !== undefined) {
-                    balancePercentage = bot.SESSION.config.balancePercentage
+                if (bot.LEARNING_SESSION.config.balancePercentage !== undefined) {
+                    balancePercentage = bot.LEARNING_SESSION.config.balancePercentage
                 }
 
-                bot.SESSION.parameters.sessionBaseAsset.config.initialBalance = bot.SESSION.parameters.sessionBaseAsset.config.initialBalance * balancePercentage / 100
-                bot.SESSION.parameters.sessionQuotedAsset.config.initialBalance = bot.SESSION.parameters.sessionQuotedAsset.config.initialBalance * balancePercentage / 100
+                bot.LEARNING_SESSION.parameters.sessionBaseAsset.config.initialBalance = bot.LEARNING_SESSION.parameters.sessionBaseAsset.config.initialBalance * balancePercentage / 100
+                bot.LEARNING_SESSION.parameters.sessionQuotedAsset.config.initialBalance = bot.LEARNING_SESSION.parameters.sessionQuotedAsset.config.initialBalance * balancePercentage / 100
 
-                bot.SESSION.parameters.sessionBaseAsset.config.minimumBalance = bot.SESSION.parameters.sessionBaseAsset.config.minimumBalance * balancePercentage / 100
-                bot.SESSION.parameters.sessionQuotedAsset.config.minimumBalance = bot.SESSION.parameters.sessionQuotedAsset.config.minimumBalance * balancePercentage / 100
+                bot.LEARNING_SESSION.parameters.sessionBaseAsset.config.minimumBalance = bot.LEARNING_SESSION.parameters.sessionBaseAsset.config.minimumBalance * balancePercentage / 100
+                bot.LEARNING_SESSION.parameters.sessionQuotedAsset.config.minimumBalance = bot.LEARNING_SESSION.parameters.sessionQuotedAsset.config.minimumBalance * balancePercentage / 100
 
-                bot.SESSION.parameters.sessionBaseAsset.config.maximumBalance = bot.SESSION.parameters.sessionBaseAsset.config.maximumBalance * balancePercentage / 100
-                bot.SESSION.parameters.sessionQuotedAsset.config.maximumBalance = bot.SESSION.parameters.sessionQuotedAsset.config.maximumBalance * balancePercentage / 100
+                bot.LEARNING_SESSION.parameters.sessionBaseAsset.config.maximumBalance = bot.LEARNING_SESSION.parameters.sessionBaseAsset.config.maximumBalance * balancePercentage / 100
+                bot.LEARNING_SESSION.parameters.sessionQuotedAsset.config.maximumBalance = bot.LEARNING_SESSION.parameters.sessionQuotedAsset.config.maximumBalance * balancePercentage / 100
 
-                pProcessConfig.normalWaitTime = bot.SESSION.parameters.timeFrame.config.value
+                pProcessConfig.normalWaitTime = bot.LEARNING_SESSION.parameters.timeFrame.config.value
 
                 return true
             }

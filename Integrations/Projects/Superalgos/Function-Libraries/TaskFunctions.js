@@ -13,16 +13,22 @@ function newTaskFunctions() {
         stopAllExchangeDataTasks: stopAllExchangeDataTasks,
         runAllExchangeTradingTasks: runAllExchangeTradingTasks,
         stopAllExchangeTradingTasks: stopAllExchangeTradingTasks,
+        runAllExchangeLearningTasks: runAllExchangeLearningTasks,
+        stopAllExchangeLearningTasks: stopAllExchangeLearningTasks,
 
         runAllMarketDataTasks: runAllMarketDataTasks,
         stopAllMarketDataTasks: stopAllMarketDataTasks,
         runAllMarketTradingTasks: runAllMarketTradingTasks,
         stopAllMarketTradingTasks: stopAllMarketTradingTasks,
+        runAllMarketLearningTasks: runAllMarketLearningTasks,
+        stopAllMarketLearningTasks: stopAllMarketLearningTasks,
 
         runAllDataMineTasks: runAllDataMineTasks,
         stopAllDataMineTasks: stopAllDataMineTasks,
         runAllTradingMineTasks: runAllTradingMineTasks,
         stopAllTradingMineTasks: stopAllTradingMineTasks,
+        runAllLearningMineTasks: runAllLearningMineTasks,
+        stopAllLearningMineTasks: stopAllLearningMineTasks,
 
         addMissingExchangeDataTasks: addMissingExchangeDataTasks,
         addMissingMarketDataTasks: addMissingMarketDataTasks,
@@ -30,6 +36,10 @@ function newTaskFunctions() {
         addMissingExchangeTradingTasks: addMissingExchangeTradingTasks,
         addMissingMarketTradingTasks: addMissingMarketTradingTasks,
         addMissingTradingMineTasks: addMissingTradingMineTasks,
+        addMissingExchangeLearningTasks: addMissingExchangeLearningTasks,
+        addMissingMarketLearningTasks: addMissingMarketLearningTasks,
+        addMissingLearningMineTasks: addMissingLearningMineTasks,
+
         addAllTasks: addAllTasks
     }
 
@@ -91,16 +101,18 @@ function newTaskFunctions() {
             'Sensor Bot Instance->' +
             'Indicator Bot Instance->Time Frames Filter->' +
             'Trading Bot Instance->' +
-            'Sensor Process Instance->Indicator Process Instance->Trading Process Instance->' +
+            'Learning Bot Instance->' +
+            'Sensor Process Instance->Indicator Process Instance->Trading Process Instance->Learning Process Instance->' +
             'Execution Started Event->' +
             'Key Reference->Exchange Account Key->' +
             'Task Manager->' +
-            'Data Mine Tasks->Trading Mine Tasks->' +
-            'Market Data Tasks->Market Trading Tasks->' +
-            'Exchange Data Tasks->Exchange Trading Tasks->' +
+            'Data Mine Tasks->Trading Mine Tasks->Learning Mine Tasks->' +
+            'Market Data Tasks->Market Trading Tasks->Market Learning Tasks->' +
+            'Exchange Data Tasks->Exchange Trading Tasks->Exchange Learning Tasks->' +
             'Market->Exchange Markets->Crypto Exchange->' +
             'Market Base Asset->Market Quoted Asset->Asset->' +
             'Backtesting Session->Live Trading Session->Paper Trading Session->Forward Testing Session->' +
+            'Learning Session->' +
             'Process Definition->' +
             'Process Output->' +
             'Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->' +
@@ -124,7 +136,8 @@ function newTaskFunctions() {
             'Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->' +
             'Indicator Bot->' +
             'Trading Bot->' +
-            'Data Mine->Trading Mine->'
+            'Learning Bot->' +
+            'Data Mine->Trading Mine->Learning Mine->'
 
         let taskDefinition = functionLibraryProtocolNode.getProtocolNode(node, false, true, true, false, false, taskLightingPath)
 
@@ -134,14 +147,14 @@ function newTaskFunctions() {
             'Data Mine Products->Bot Products->' +
             'Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->' +
             'Data Product->Product Definition->' +
-            'Data Mining->Testing Environment->Production Environment->' +
-            'Exchange Data Tasks->Exchange Trading Tasks->Crypto Exchange->' +
-            'Market Data Tasks->Market Trading Tasks->Market->' +
-            'Data Mine Tasks->Trading Mine Tasks->' +
+            'Data Mining->Learning Mining->Testing Environment->Production Environment->' +
+            'Exchange Data Tasks->Exchange Trading Tasks->Exchange Learning Tasks->Crypto Exchange->' +
+            'Market Data Tasks->Market Trading Tasks->Market Learning Tasks->Market->' +
+            'Data Mine Tasks->Trading Mine Tasks->Learning Mine Tasks->' +
             'Task Manager->Task->' +
-            'Indicator Bot Instance->Sensor Bot Instance->Trading Bot Instance->' +
-            'Indicator Process Instance->Sensor Process Instance->Trading Process Instance->' +
-            'Paper Trading Session->Forward Testing Session->Backtesting Session->Live Trading Session->' +
+            'Indicator Bot Instance->Sensor Bot Instance->Trading Bot Instance->Learning Bot Instance->' +
+            'Indicator Process Instance->Sensor Process Instance->Trading Process Instance->Learning Process Instance->' +
+            'Paper Trading Session->Forward Testing Session->Backtesting Session->Live Trading Session->Learning Session->' +
             'Market->' +
             'Process Definition->'
 
@@ -227,7 +240,7 @@ function newTaskFunctions() {
         }
 
         if (taskManager.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
-            node.payload.uiObject.setErrorMessage('Task needs to be inside a Data Mining, Testing or Production Environment.')
+            node.payload.uiObject.setErrorMessage('Task needs to be inside a Data Mining, Learning Mining, Testing or Production Environment node.')
             return
         }
 
@@ -333,6 +346,26 @@ function newTaskFunctions() {
         }
     }
 
+    function runAllExchangeLearningTasks(parent, functionLibraryProtocolNode) {
+        for (let i = 0; i < parent.exchangeLearningTasks.length; i++) {
+            let node = parent.exchangeLearningTasks[i]
+            let menu = node.payload.uiObject.menu
+
+            menu.internalClick('Run All Market Learning Tasks')
+            menu.internalClick('Run All Market Learning Tasks')
+        }
+    }
+
+    function stopAllExchangeLearningTasks(parent, functionLibraryProtocolNode) {
+        for (let i = 0; i < parent.exchangeLearningTasks.length; i++) {
+            let node = parent.exchangeLearningTasks[i]
+            let menu = node.payload.uiObject.menu
+
+            menu.internalClick('Stop All Market Learning Tasks')
+            menu.internalClick('Stop All Market Learning Tasks')
+        }
+    }
+
     function runAllMarketDataTasks(parent, functionLibraryProtocolNode) {
         for (let i = 0; i < parent.marketDataTasks.length; i++) {
             let node = parent.marketDataTasks[i]
@@ -363,6 +396,16 @@ function newTaskFunctions() {
         }
     }
 
+    function runAllMarketLearningTasks(parent, functionLibraryProtocolNode) {
+        for (let i = 0; i < parent.marketLearningTasks.length; i++) {
+            let node = parent.marketLearningTasks[i]
+            let menu = node.payload.uiObject.menu
+
+            menu.internalClick('Run All Learning Mine Tasks')
+            menu.internalClick('Run All Learning Mine Tasks')
+        }
+    }
+
     function stopAllMarketTradingTasks(parent, functionLibraryProtocolNode) {
         for (let i = 0; i < parent.marketTradingTasks.length; i++) {
             let node = parent.marketTradingTasks[i]
@@ -370,6 +413,16 @@ function newTaskFunctions() {
 
             menu.internalClick('Stop All Trading Mine Tasks')
             menu.internalClick('Stop All Trading Mine Tasks')
+        }
+    }
+
+    function stopAllMarketLearningTasks(parent, functionLibraryProtocolNode) {
+        for (let i = 0; i < parent.marketLearningTasks.length; i++) {
+            let node = parent.marketLearningTasks[i]
+            let menu = node.payload.uiObject.menu
+
+            menu.internalClick('Stop All Learning Mine Tasks')
+            menu.internalClick('Stop All Learning Mine Tasks')
         }
     }
 
@@ -403,9 +456,29 @@ function newTaskFunctions() {
         }
     }
 
+    function runAllLearningMineTasks(parent, functionLibraryProtocolNode) {
+        for (let i = 0; i < parent.learningMineTasks.length; i++) {
+            let node = parent.learningMineTasks[i]
+            let menu = node.payload.uiObject.menu
+
+            menu.internalClick('Run All Task Managers')
+            menu.internalClick('Run All Task Managers')
+        }
+    }
+
     function stopAllTradingMineTasks(parent, functionLibraryProtocolNode) {
         for (let i = 0; i < parent.tradingMineTasks.length; i++) {
             let node = parent.tradingMineTasks[i]
+            let menu = node.payload.uiObject.menu
+
+            menu.internalClick('Stop All Task Managers')
+            menu.internalClick('Stop All Task Managers')
+        }
+    }
+
+    function stopAllLearningMineTasks(parent, functionLibraryProtocolNode) {
+        for (let i = 0; i < parent.learningMineTasks.length; i++) {
+            let node = parent.learningMineTasks[i]
             let menu = node.payload.uiObject.menu
 
             menu.internalClick('Stop All Task Managers')
@@ -419,6 +492,10 @@ function newTaskFunctions() {
 
     function addMissingExchangeTradingTasks(node, rootNodes, functionLibraryUiObjectsFromNodes) {
         addMissingExchangeTasks(node, rootNodes, 'Exchange Trading Tasks', functionLibraryUiObjectsFromNodes)
+    }
+
+    function addMissingExchangeLearningTasks(node, rootNodes, functionLibraryUiObjectsFromNodes) {
+        addMissingExchangeTasks(node, rootNodes, 'Exchange Learning Tasks', functionLibraryUiObjectsFromNodes)
     }
 
     function addMissingExchangeTasks(node, rootNodes, newNodeType, functionLibraryUiObjectsFromNodes) {
@@ -448,6 +525,10 @@ function newTaskFunctions() {
         addMissingMarketTasks(node, 'Market Trading Tasks', functionLibraryUiObjectsFromNodes)
     }
 
+    function addMissingMarketLearningTasks(node, functionLibraryUiObjectsFromNodes) {
+        addMissingMarketTasks(node, 'Market Learning Tasks', functionLibraryUiObjectsFromNodes)
+    }
+
     function addMissingMarketTasks(node,  newNodeType, functionLibraryUiObjectsFromNodes) {
         if (node.payload === undefined) { return }
         if (node.payload.referenceParent === undefined) { return }
@@ -473,15 +554,19 @@ function newTaskFunctions() {
         addMissingMineTasks(node, rootNodes, 'Trading Mine', 'Trading Mine Tasks', functionLibraryUiObjectsFromNodes)
     }
 
+    function addMissingLearningMineTasks(node, rootNodes, functionLibraryUiObjectsFromNodes) {
+        addMissingMineTasks(node, rootNodes, 'Learning Mine', 'Learning Mine Tasks', functionLibraryUiObjectsFromNodes)
+    }
+
     function addMissingMineTasks(node, rootNodes, rootNodeType, newNodeType, functionLibraryUiObjectsFromNodes) {
         for (let i = 0; i < rootNodes.length; i++) {
             let rootNode = rootNodes[i]
             if (rootNode.type === rootNodeType) {
-                let dataMine = rootNode
+                let mine = rootNode
 
-                if (UI.projects.superalgos.utilities.children.isMissingChildren(node, dataMine, true) === true) {
+                if (UI.projects.superalgos.utilities.children.isMissingChildren(node, mine, true) === true) {
                     let dataMineTasks = functionLibraryUiObjectsFromNodes.addUIObject(node, newNodeType)
-                    dataMineTasks.payload.referenceParent = dataMine
+                    dataMineTasks.payload.referenceParent = mine
                 }
             }
         }
@@ -500,6 +585,10 @@ function newTaskFunctions() {
                 addDataTasks()
                 break
             }
+            case 'Learning Mine Tasks': {
+                addLearningTasks()
+                break
+            }
             case 'Trading Mine Tasks': {
                 addTradingTasks()
                 break
@@ -507,6 +596,10 @@ function newTaskFunctions() {
         }
 
         function addDataTasks() {
+            addTaskForTradinSystem()
+        }
+
+        function addLearningTasks() {
             addTaskForTradinSystem()
         }
 
@@ -525,6 +618,7 @@ function newTaskFunctions() {
             addTasksForBotArray(mine.sensorBots)
             addTasksForBotArray(mine.indicatorBots)
             addTasksForBotArray(mine.tradingBots)
+            addTasksForBotArray(mine.learningBots)
 
             function addTasksForBotArray(botsArray) {
                 if (botsArray === undefined) { return }
@@ -554,6 +648,11 @@ function newTaskFunctions() {
                         }
                         case 'Trading Bot': {
                             botInstance = functionLibraryUiObjectsFromNodes.addUIObject(task, 'Trading Bot Instance')
+                            botInstance.name = bot.name
+                            break
+                        }
+                        case 'Learning Bot': {
+                            botInstance = functionLibraryUiObjectsFromNodes.addUIObject(task, 'Learning Bot Instance')
                             botInstance.name = bot.name
                             break
                         }
@@ -596,6 +695,32 @@ function newTaskFunctions() {
                                         break
                                     }
                                 }
+                                break
+
+                                function addSession(sessionType) {
+                                    session = functionLibraryUiObjectsFromNodes.addUIObject(processInstance, sessionType)
+                                    session.name = task.name
+                                    let config = JSON.parse(session.config)
+                                    config.folderName = session.name.split(" ").join("-")
+                                    session.config = JSON.stringify(config)
+
+                                    for (let m = 0; m < rootNodes.length; m++) {
+                                        let rootNode = rootNodes[m]
+                                        if (rootNode.type === 'Trading Engine' && rootNode.isPlugin === true) {
+                                            let tradingEngine = rootNode
+                                            session.tradingEngineReference.payload.referenceParent = tradingEngine
+                                            session.tradingSystemReference.payload.referenceParent = tradingSystem
+                                        }
+                                    }
+                                }
+                            }
+                            case 'Learning Bot': {
+                                processInstance = functionLibraryUiObjectsFromNodes.addUIObject(botInstance, 'Learning Process Instance')
+                                processInstance.payload.referenceParent = process
+
+                                let session
+
+                                addSession('Learning Session')
                                 break
 
                                 function addSession(sessionType) {

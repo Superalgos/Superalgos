@@ -100,6 +100,9 @@
                 botNode = global.FIND_NODE_IN_NODE_MESH(outputDatasetNode, 'Trading Bot')
             }
             if (botNode === undefined) {
+                botNode = global.FIND_NODE_IN_NODE_MESH(outputDatasetNode, 'Learning Bot')
+            }
+            if (botNode === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] start -> Product Definition not attached to a Bot. Product Definition = ");
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return
@@ -115,9 +118,18 @@
             if (dataMineNode === undefined) {
                 let tradingMineNode = global.FIND_NODE_IN_NODE_MESH(outputDatasetNode, 'Trading Mine')
                 if (tradingMineNode === undefined) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> Bot not attached to a Data Mine or a Trading Mine.");
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                    return
+                    let learningMineNode = global.FIND_NODE_IN_NODE_MESH(outputDatasetNode, 'Learning Mine')
+                    if (learningMineNode === undefined) {
+                        logger.write(MODULE_NAME, "[ERROR] start -> Bot not attached to a Data Mine, Trading Mine or Learning Mine.");
+                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                        return
+                    } else {
+                        if (tradingMineNode.config.codeName === undefined) {
+                            logger.write(MODULE_NAME, "[ERROR] start -> Learning Mine witn no codeName defined.");
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                            return
+                        }
+                    }  
                 } else {
                     if (tradingMineNode.config.codeName === undefined) {
                         logger.write(MODULE_NAME, "[ERROR] start -> Trading Mine witn no codeName defined.");

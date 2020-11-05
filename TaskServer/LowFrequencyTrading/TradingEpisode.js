@@ -23,7 +23,7 @@ exports.newTradingEpisode = function newTradingEpisode(bot, logger, tradingEngin
     function initialize() {
         tradingSystem = bot.simulationState.tradingSystem
         tradingEngine = bot.simulationState.tradingEngine
-        sessionParameters = bot.SESSION.parameters
+        sessionParameters = bot.TRADING_SESSION.parameters
     }
 
     function finalize() {

@@ -56,7 +56,7 @@ function newSuperalgosPanelSpace() {
                         panel.session = pSession
                         panel.initialize(pParameters.panelNode)
                     } else {
-                        panel = getNewPlotterPanel(pParameters.dataMine, pParameters.plotterCodeName, pParameters.moduleCodeName, pParameters.panelNode.config.codeName)
+                        panel = getNewPlotterPanel(pParameters.mine, pParameters.plotterCodeName, pParameters.moduleCodeName, pParameters.panelNode.config.codeName)
                         panel.fitFunction = UI.projects.superalgos.spaces.chartingSpace.fitFunction
                         panel.container.isVisibleFunction = UI.projects.superalgos.spaces.chartingSpace.isThisPointVisible
                         panel.session = pSession

@@ -17,7 +17,7 @@ function newLayer() {
         exchange: undefined,
         bot: undefined,
         productDefinition: undefined,
-        dataMine: undefined,
+        mine: undefined,
         plotterModule: undefined,
         exchangeIcon: undefined,
         plotterTypeIcon: undefined,
@@ -135,7 +135,7 @@ function newLayer() {
         thisObject.networkNode = undefined
         thisObject.bot = undefined
         thisObject.productDefinition = undefined
-        thisObject.dataMine = undefined
+        thisObject.mine = undefined
     }
 
     function initialize(callBackFunction) {
@@ -161,20 +161,23 @@ function newLayer() {
                 '->Layer->' +
                 'Data Product->' +
                 'Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->' +
-                'Bot Products->Data Mine Products->Trading Mine Products->' +
+                'Bot Products->Data Mine Products->Trading Mine Products->Learning Mine Products->' +
                 'Market Data Products->Exchange Data Products->' +
-                'Session Reference->Market Trading Products->Exchange Trading Products->' +
-                'Data Mines Data->Trading Mines Data->Data Storage->Network Node->' +
+                'Trading Session Reference->Learning Session Reference->' +
+                'Market Trading Products->Exchange Trading Products->' +
+                'Market Learning Products->Exchange Learning Products->' +
+                'Data Mines Data->Trading Mines Data->Learning Mines Data->Data Storage->Network Node->' +
                 'Data Storage->Network Node->' +
                 'Backtesting Session->Paper Trading Session->Forward Testing Session->Live Trading Session->' +
+                'Learning Session->' +
                 'Trading System Reference->Trading Engine Reference->Trading System->Trading Engine->' +
                 'Market->Market Base Asset->Asset->' +
                 'Market Quoted Asset->Asset->' +
                 'Exchange Markets->Crypto Exchange->' +
                 'Product Definition->' +
                 'Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->' +
-                'Sensor Bot->Indicator Bot->Trading Bot->' +
-                'Data Mine->Trading Mine->' +
+                'Sensor Bot->Indicator Bot->Trading Bot->Learning Bot->' +
+                'Data Mine->Trading Mine->Learning Mine->' +
                 'Dataset Definition->' +
                 'Record Definition->Record Property->Formula->' +
                 'Data Building Procedure->Procedure Loop->Javascript Code->Procedure Initialization->Javascript Code->' +
@@ -229,16 +232,22 @@ function newLayer() {
                 thisObject.bot = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Trading Bot', undefined, false, true, true, true)
             }
             if (thisObject.bot === undefined) {
+                thisObject.bot = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Learning Bot', undefined, false, true, true, true)
+            }
+            if (thisObject.bot === undefined) {
                 thisObject.payload.uiObject.setErrorMessage('Bot not Found')
                 return
             }
 
-            thisObject.dataMine = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Data Mine', undefined, false, true, true, true)
-            if (thisObject.dataMine === undefined) {
-                thisObject.dataMine = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Trading Mine', undefined, false, true, true, true)
-                if (thisObject.dataMine === undefined) {
-                    thisObject.payload.uiObject.setErrorMessage('Data Mine or Trading Mine not Found')
-                    return
+            thisObject.mine = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Data Mine', undefined, false, true, true, true)
+            if (thisObject.mine === undefined) {
+                thisObject.mine = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Trading Mine', undefined, false, true, true, true)
+                if (thisObject.mine === undefined) {
+                    thisObject.mine = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Learning Mine', undefined, false, true, true, true)
+                    if (thisObject.mine === undefined) {
+                        thisObject.payload.uiObject.setErrorMessage('Data Mine or Trading Mine or Learning Mine not Found')
+                        return
+                    }
                 }
             }
 

@@ -21,7 +21,7 @@ exports.newAnnouncements = function newAnnouncements(bot, logger) {
     function finalize() {
         tradingSystem = undefined
         tradingEngine = undefined
-        bot.SESSION.messagesSent = undefined
+        bot.TRADING_SESSION.messagesSent = undefined
     }
 
     function makeAnnoucements(node) {
@@ -44,8 +44,8 @@ exports.newAnnouncements = function newAnnouncements(bot, logger) {
                         text = tradingSystem.formulas.get(announcement.formula.id)
                     }
 
-                    if (bot.SESSION.socialBots !== undefined) {
-                        bot.SESSION.socialBots.announce(text)
+                    if (bot.TRADING_SESSION.socialBots !== undefined) {
+                        bot.TRADING_SESSION.socialBots.announce(text)
                         tradingSystem.announcements.push([announcement.id, text])
                     } else {
                         tradingSystem.errors.push([announcement.id, 'Could not announce because session does not have Social Bots.'])

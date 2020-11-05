@@ -1,4 +1,4 @@
-function newDataMineFunctions() {
+function newMineFunctions() {
     thisObject = {
         addAllOutputDatasets: addAllOutputDatasets,
         addAllDataDependencies: addAllDataDependencies, 
@@ -68,6 +68,7 @@ function newDataMineFunctions() {
         scanBotArray(dataMine.sensorBots)
         scanBotArray(dataMine.indicatorBots)
         scanBotArray(dataMine.tradingBots)
+        scanBotArray(dataMine.learningBots)
 
         function scanBotArray(botArray) {
             for (let i = 0; i < botArray.length; i++) {

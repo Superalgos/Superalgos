@@ -27,8 +27,8 @@ function newChartingSpaceFunctions() {
         we find there inside the layers manager. We will end up having at the end
         all layers referencing the data products inside the referenced branch.
         */
-        let dataMine = node.payload.referenceParent
-        scanBotArray(dataMine.botProducts)
+        let mine = node.payload.referenceParent
+        scanBotArray(mine.botProducts)
 
         function scanBotArray(botArray) {
             for (let i = 0; i < botArray.length; i++) {
@@ -87,11 +87,13 @@ function newChartingSpaceFunctions() {
             let fordwardTestingSessionsArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(networkNode, 'Forward Testing Session')
             let paperTradingSessionsArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(networkNode, 'Paper Trading Session')
             let liveTradingSessionsArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(networkNode, 'Live Trading Session')
+            let learningSessionsArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(networkNode, 'Learning Session')
 
             scanSessionArray(backtestingSessionsArray)
             scanSessionArray(fordwardTestingSessionsArray)
             scanSessionArray(paperTradingSessionsArray)
             scanSessionArray(liveTradingSessionsArray)
+            scanSessionArray(learningSessionsArray)
 
             function scanSessionArray(sessionsArray) {
                 for (let i = 0; i < sessionsArray.length; i++) {
@@ -180,7 +182,7 @@ function newChartingSpaceFunctions() {
             }
         }
         /*
-        We need to create a Timeline Chart for each Data Mine Indicators.
+        We need to create a Timeline Chart for each Data Mine Products.
         */
         mineProducts = UI.projects.superalgos.utilities.branches.nodeBranchToArray(networkNode, 'Data Mine Products')
         for (let j = 0; j < mineProducts.length; j++) {
@@ -199,7 +201,38 @@ function newChartingSpaceFunctions() {
             sets its own name, which we are going to reuse here.
             */
             mineProduct.payload.uiObject.invisiblePhysics()
-            timelineChart.name = mineProduct.name
+            timelineChart.name = mineProduct.name + ' Data'
+            timelineChart.layerManager.payload.referenceParent = mineProduct
+            timelineChart.payload.floatingObject.collapseToggle()
+            timelineChart.layerManager.payload.floatingObject.collapseToggle()
+            timelineChart.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+            timelineChart.layerManager.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+
+            let menu = timelineChart.layerManager.payload.uiObject.menu
+            menu.internalClick('Add All Mine Layers')
+            menu.internalClick('Add All Mine Layers')
+        }
+        /*
+        We need to create a Timeline Chart for each Learning Mine Products.
+        */
+        mineProducts = UI.projects.superalgos.utilities.branches.nodeBranchToArray(networkNode, 'Learning Mine Products')
+        for (let j = 0; j < mineProducts.length; j++) {
+            let mineProduct = mineProducts[j]
+            /*
+            We need to filter out the ones that do not belong to the market where 
+            the session is running at. 
+            */
+            if (mineProduct.payload.parentNode.payload.parentNode.payload.referenceParent === undefined) { continue }
+            if (mineProduct.payload.parentNode.payload.parentNode.payload.referenceParent.id !== market.id) { continue }
+
+            let timelineChart = functionLibraryUiObjectsFromNodes.addUIObject(timeMachine, 'Timeline Chart')
+            /* 
+            The Mine Product Node might be collapesd and since its creation it never 
+            received the physics call, so we will do the call so that it properly
+            sets its own name, which we are going to reuse here.
+            */
+            mineProduct.payload.uiObject.invisiblePhysics()
+            timelineChart.name = mineProduct.name + ' Learning'
             timelineChart.layerManager.payload.referenceParent = mineProduct
             timelineChart.payload.floatingObject.collapseToggle()
             timelineChart.layerManager.payload.floatingObject.collapseToggle()

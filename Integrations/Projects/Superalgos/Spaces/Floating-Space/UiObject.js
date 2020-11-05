@@ -1381,6 +1381,7 @@ function newUiObject() {
     function drawChainLine() {
         if (UI.projects.superalgos.spaces.floatingSpace.drawChainLines === false) { return }
         if (thisObject.payload.chainParent === undefined) { return }
+        if (thisObject.payload.chainParent.payload === undefined) {return}
 
         let targetPoint = {
             x: thisObject.payload.chainParent.payload.floatingObject.container.frame.position.x,

@@ -1,4 +1,4 @@
-function newSessionFunctions() {
+function newLearningSessionFunctions() {
     thisObject = {
         syncronizeSessionWithBackEnd: syncronizeSessionWithBackEnd, 
         runSession: runSession,
@@ -27,13 +27,13 @@ function newSessionFunctions() {
 
         function onStatus(message) {
             eventsServerClient.stopListening(key, eventSubscriptionIdOnStatus, node.id)
-            if (message.event.status === 'Session Runnning' ) {
-                node.payload.uiObject.menu.internalClick('Run Session')
+            if (message.event.status === 'Learning Session Runnning' ) {
+                node.payload.uiObject.menu.internalClick('Run Learning Session')
             }
         }
 
         /* Second we ask the Task Server if this Session is Running. */
-        eventsServerClient.raiseEvent(key, 'Session Status')
+        eventsServerClient.raiseEvent(key, 'Learning Session Status')
     }
 
     function runSession(node, functionLibraryProtocolNode, functionLibraryDependenciesFilter, resume, callBackFunction) {
@@ -114,7 +114,7 @@ function newSessionFunctions() {
         let tradingEngine = functionLibraryProtocolNode.getProtocolNode(node.tradingEngineReference.payload.referenceParent, false, true, true, false, false, lightingPath)
 
         lightingPath = '' +
-            'Backtesting Session->Paper Trading Session->Forward Testing Session->Live Trading Session->' +
+            'Learning Session->' +
             'Parameters->' +
             'Session Base Asset->Session Quoted Asset->Time Range->Time Frame->Slippage->Fee Structure->Snapshots->Heartbeats->User Defined Parameters->' +
             'Exchange Account Asset->Asset->' +
@@ -134,9 +134,9 @@ function newSessionFunctions() {
         }
 
         if (resume !== true) {
-            eventsServerClient.raiseEvent(key, 'Run Session', event)
+            eventsServerClient.raiseEvent(key, 'Run Learning Session', event)
         } else {
-            eventsServerClient.raiseEvent(key, 'Resume Session', event)
+            eventsServerClient.raiseEvent(key, 'Resume Learning Session', event)
         }
 
         if (node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
@@ -156,7 +156,7 @@ function newSessionFunctions() {
         let eventsServerClient = UI.projects.superalgos.spaces.designSpace.workspace.eventsServerClients.get(networkNode.id)
 
         let key = node.name + '-' + node.type + '-' + node.id
-        eventsServerClient.raiseEvent(key, 'Stop Session')
+        eventsServerClient.raiseEvent(key, 'Stop Learning Session')
 
         node.payload.uiObject.stop(callBackFunction)
     }
@@ -168,7 +168,7 @@ function newSessionFunctions() {
         }
 
         if (node.payload.parentNode.payload.parentNode === undefined) {
-            node.payload.uiObject.setErrorMessage('Session needs to be inside a Trading Process Instance.')
+            node.payload.uiObject.setErrorMessage('Session needs to be inside a Process Instance node.')
             return
         }
 

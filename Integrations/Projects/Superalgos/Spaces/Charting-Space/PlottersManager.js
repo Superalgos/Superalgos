@@ -134,7 +134,7 @@ function newPlottersManager() {
             }
             let productDefinition = layer.productDefinition
             let bot = layer.bot
-            let dataMine = layer.dataMine
+            let mine = layer.mine
             let exchange = layer.exchange
             let plotterModule = layer.plotterModule
             let session
@@ -142,15 +142,18 @@ function newPlottersManager() {
             let tradingEngine
 
             /*
-            A layer can be referencing a Data Product in two different branches of the Network hiriatchy.
-            In one of those braches we can get the Session node, at the other we Cannot.
+            A layer can be referencing a Data Product in 3 different branches of the Network hiriatchy.
+            Two of those branches have sessions.
             */
-            let sessionReference = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(layer.definition, 'Session Reference', undefined, false, true, true, true)
+            let sessionReference = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(layer.definition, 'Trading Session Reference', undefined, false, true, true, true)
+            if (sessionReference === undefined) {
+                sessionReference = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(layer.definition, 'Learning Session Reference', undefined, false, true, true, true)
+            }
 
             if (sessionReference !== undefined) {
                 session = sessionReference.referenceParent
                 if (session === undefined) {
-                    logger.write('[ERROR] initializePlotter -> Sessioin is Undefined at Session Reference -> Plotter will not be loaded. ')
+                    logger.write('[ERROR] initializePlotter -> Session Reference without a Reference Parent -> Plotter will not be loaded. ')
                     return
                 }
                 /* From the session we might be able to reach the Trading System or the Trading Engine */
@@ -170,7 +173,7 @@ function newPlottersManager() {
             let eventsServerClient = UI.projects.superalgos.spaces.designSpace.workspace.eventsServerClients.get(layer.networkNode.id)
 
             storage.initialize(
-                dataMine,
+                mine,
                 bot,
                 session,
                 productDefinition,
@@ -192,7 +195,7 @@ function newPlottersManager() {
                     if (plotterModule.config.isLegacy !== true) {
                         plotter = newPlotter()
                     } else {
-                        plotter = getNewPlotter(dataMine.config.codeName, plotterModule.parentNode.config.codeName, plotterModule.config.codeName)
+                        plotter = getNewPlotter(mine.config.codeName, plotterModule.parentNode.config.codeName, plotterModule.config.codeName)
                     }
 
                     plotter.container.connectToParent(thisObject.container, true, true, false, true, true, true, false, false, true)
@@ -218,7 +221,7 @@ function newPlottersManager() {
                                 let panel = plotterModule.panels[i]
 
                                 let parameters = {
-                                    dataMine: dataMine.config.codeName,
+                                    mine: mine.config.codeName,
                                     plotterCodeName: plotterModule.parentNode.config.codeName,
                                     moduleCodeName: plotterModule.config.codeName,
                                     panelNode: panel

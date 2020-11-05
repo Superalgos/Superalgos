@@ -19,9 +19,10 @@ function newSuperalgosActionSwitch() {
     let functionLibraryDependenciesFilter = newDependenciesFilter()
     let functionLibraryNodePath = newNodePath()
     let functionLibraryTaskFunctions = newTaskFunctions()
-    let functionLibrarySessionFunctions = newSessionFunctions()
+    let functionLibraryTradingSessionFunctions = newTradingSessionFunctions()
+    let functionLibraryLearningSessionFunctions = newLearningSessionFunctions()
     let functionLibraryCryptoEcosystemFunctions = newCryptoEcosystemFunctions()
-    let functionLibraryDataMineFunctions = newDataMineFunctions()
+    let functionLibraryMineFunctions = newMineFunctions()
     let functionLibraryDataStorageFunctions = newDataStorageFunctions()
     let functionLibraryChartingSpaceFunctions = newChartingSpaceFunctions()
     let functionLibraryPluginsFunctions = newPluginsFunctions()
@@ -42,9 +43,10 @@ function newSuperalgosActionSwitch() {
         functionLibraryDependenciesFilter = undefined
         functionLibraryNodePath = undefined
         functionLibraryTaskFunctions = undefined
-        functionLibrarySessionFunctions = undefined
+        functionLibraryTradingSessionFunctions = undefined
+        functionLibraryLearningSessionFunctions = undefined
         functionLibraryCryptoEcosystemFunctions = undefined
-        functionLibraryDataMineFunctions = undefined
+        functionLibraryMineFunctions = undefined
         functionLibraryDataStorageFunctions = undefined
         functionLibraryChartingSpaceFunctions = undefined
         functionLibraryPluginsFunctions = undefined
@@ -84,8 +86,12 @@ function newSuperalgosActionSwitch() {
                 functionLibraryUiObjectsFromNodes.syncronizeTasksFoundAtWorkspaceWithBackEnd(functionLibraryTaskFunctions)
             }
                 break
-            case 'Syncronize Sessions': {
-                functionLibraryUiObjectsFromNodes.syncronizeSessionsFoundAtWorkspaceWithBackEnd(functionLibrarySessionFunctions)
+            case 'Syncronize Trading Sessions': {
+                functionLibraryUiObjectsFromNodes.syncronizeTradingSessionsFoundAtWorkspaceWithBackEnd(functionLibraryTradingSessionFunctions)
+            }
+                break
+            case 'Syncronize Learning Sessions': {
+                functionLibraryUiObjectsFromNodes.syncronizeLearningSessionsFoundAtWorkspaceWithBackEnd(functionLibraryLearningSessionFunctions)
             }
                 break
             case 'Play Tutorials': {
@@ -124,7 +130,7 @@ function newSuperalgosActionSwitch() {
                 break
             case 'Copy Node Type':
                 {
-                    let value = action.node.type 
+                    let value = action.node.type
 
                     UI.projects.superalgos.utilities.clipboard.copyTextToClipboard(value)
 
@@ -251,6 +257,16 @@ function newSuperalgosActionSwitch() {
                     functionLibraryTaskFunctions.stopAllExchangeTradingTasks(action.node, functionLibraryProtocolNode)
                 }
                 break
+            case 'Run All Exchange Learning Tasks':
+                {
+                    functionLibraryTaskFunctions.runAllExchangeLearningTasks(action.node, functionLibraryProtocolNode)
+                }
+                break
+            case 'Stop All Exchange Learning Tasks':
+                {
+                    functionLibraryTaskFunctions.stopAllExchangeLearningTasks(action.node, functionLibraryProtocolNode)
+                }
+                break
             case 'Run All Market Data Tasks':
                 {
                     functionLibraryTaskFunctions.runAllMarketDataTasks(action.node, functionLibraryProtocolNode)
@@ -271,6 +287,16 @@ function newSuperalgosActionSwitch() {
                     functionLibraryTaskFunctions.stopAllMarketTradingTasks(action.node, functionLibraryProtocolNode)
                 }
                 break
+            case 'Run All Market Learning Tasks':
+                {
+                    functionLibraryTaskFunctions.runAllMarketLearningTasks(action.node, functionLibraryProtocolNode)
+                }
+                break
+            case 'Stop All Market Learning Tasks':
+                {
+                    functionLibraryTaskFunctions.stopAllMarketLearningTasks(action.node, functionLibraryProtocolNode)
+                }
+                break
             case 'Run All Data Mine Tasks':
                 {
                     functionLibraryTaskFunctions.runAllDataMineTasks(action.node, functionLibraryProtocolNode)
@@ -289,6 +315,16 @@ function newSuperalgosActionSwitch() {
             case 'Stop All Trading Mine Tasks':
                 {
                     functionLibraryTaskFunctions.stopAllTradingMineTasks(action.node, functionLibraryProtocolNode)
+                }
+                break
+            case 'Run All Learning Mine Tasks':
+                {
+                    functionLibraryTaskFunctions.runAllLearningMineTasks(action.node, functionLibraryProtocolNode)
+                }
+                break
+            case 'Stop All Learning Mine Tasks':
+                {
+                    functionLibraryTaskFunctions.stopAllLearningMineTasks(action.node, functionLibraryProtocolNode)
                 }
                 break
             case 'Add Missing Exchange Data Tasks':
@@ -319,6 +355,21 @@ function newSuperalgosActionSwitch() {
             case 'Add Missing Trading Mine Tasks':
                 {
                     functionLibraryTaskFunctions.addMissingTradingMineTasks(action.node, action.rootNodes, functionLibraryUiObjectsFromNodes)
+                }
+                break
+            case 'Add Missing Exchange Learning Tasks':
+                {
+                    functionLibraryTaskFunctions.addMissingExchangeLearningTasks(action.node, action.rootNodes, functionLibraryUiObjectsFromNodes)
+                }
+                break
+            case 'Add Missing Market Learning Tasks':
+                {
+                    functionLibraryTaskFunctions.addMissingMarketLearningTasks(action.node, functionLibraryUiObjectsFromNodes)
+                }
+                break
+            case 'Add Missing Learning Mine Tasks':
+                {
+                    functionLibraryTaskFunctions.addMissingLearningMineTasks(action.node, action.rootNodes, functionLibraryUiObjectsFromNodes)
                 }
                 break
             case 'Add All Tasks':
@@ -353,7 +404,7 @@ function newSuperalgosActionSwitch() {
                 break
             case 'Add All Output Datasets':
                 {
-                    functionLibraryDataMineFunctions.addAllOutputDatasets(action.node, functionLibraryUiObjectsFromNodes)
+                    functionLibraryMineFunctions.addAllOutputDatasets(action.node, functionLibraryUiObjectsFromNodes)
                 }
                 break
             case 'Add All Data Products':
@@ -366,14 +417,24 @@ function newSuperalgosActionSwitch() {
                     functionLibraryDataStorageFunctions.addAllDataMineProducts(action.node, action.rootNodes, functionLibraryUiObjectsFromNodes)
                 }
                 break
+            case 'Add All Learning Mine Products':
+                {
+                    functionLibraryDataStorageFunctions.addAllLearningMineProducts(action.node, action.rootNodes, functionLibraryUiObjectsFromNodes)
+                }
+                break
             case 'Add All Trading Mine Products':
                 {
                     functionLibraryDataStorageFunctions.addAllTradingMineProducts(action.node, action.rootNodes, functionLibraryUiObjectsFromNodes)
                 }
                 break
-            case 'Add Missing Session References':
+            case 'Add Missing Trading Session References':
                 {
-                    functionLibraryDataStorageFunctions.addMissingSessionReferences(action.node, action.rootNodes, functionLibraryUiObjectsFromNodes)
+                    functionLibraryDataStorageFunctions.addMissingTradingSessionReferences(action.node, action.rootNodes, functionLibraryUiObjectsFromNodes)
+                }
+                break
+            case 'Add Missing Learning Session References':
+                {
+                    functionLibraryDataStorageFunctions.addMissingLearningSessionReferences(action.node, action.rootNodes, functionLibraryUiObjectsFromNodes)
                 }
                 break
             case 'Add Missing Market Data Products':
@@ -398,12 +459,12 @@ function newSuperalgosActionSwitch() {
                 break
             case 'Add All Data Dependencies':
                 {
-                    functionLibraryDataMineFunctions.addAllDataDependencies(action.node, functionLibraryUiObjectsFromNodes)
+                    functionLibraryMineFunctions.addAllDataDependencies(action.node, functionLibraryUiObjectsFromNodes)
                 }
                 break
             case 'Add All Data Mine Dependencies':
                 {
-                    functionLibraryDataMineFunctions.addAllDataMineDataDependencies(action.node, action.rootNodes, functionLibraryUiObjectsFromNodes)
+                    functionLibraryMineFunctions.addAllDataMineDataDependencies(action.node, action.rootNodes, functionLibraryUiObjectsFromNodes)
                 }
                 break
             case 'Add All Mine Layers':
@@ -461,19 +522,34 @@ function newSuperalgosActionSwitch() {
                     functionLibraryWebhookFunctions.sendTestMessage(action.node, action.callBackFunction)
                 }
                 break
-            case 'Run Session':
+            case 'Run Trading Session':
                 {
-                    functionLibrarySessionFunctions.runSession(action.node, functionLibraryProtocolNode, functionLibraryDependenciesFilter, false, action.callBackFunction)
+                    functionLibraryTradingSessionFunctions.runSession(action.node, functionLibraryProtocolNode, functionLibraryDependenciesFilter, false, action.callBackFunction)
                 }
                 break
-            case 'Resume Session':
+            case 'Resume Trading Session':
                 {
-                    functionLibrarySessionFunctions.runSession(action.node, functionLibraryProtocolNode, functionLibraryDependenciesFilter, true, action.callBackFunction)
+                    functionLibraryTradingSessionFunctions.runSession(action.node, functionLibraryProtocolNode, functionLibraryDependenciesFilter, true, action.callBackFunction)
                 }
                 break
-            case 'Stop Session':
+            case 'Stop Trading Session':
                 {
-                    functionLibrarySessionFunctions.stopSession(action.node, functionLibraryProtocolNode, action.callBackFunction)
+                    functionLibraryTradingSessionFunctions.stopSession(action.node, functionLibraryProtocolNode, action.callBackFunction)
+                }
+                break
+            case 'Run Learning Session':
+                {
+                    functionLibraryLearningSessionFunctions.runSession(action.node, functionLibraryProtocolNode, functionLibraryDependenciesFilter, false, action.callBackFunction)
+                }
+                break
+            case 'Resume Learning Session':
+                {
+                    functionLibraryLearningSessionFunctions.runSession(action.node, functionLibraryProtocolNode, functionLibraryDependenciesFilter, true, action.callBackFunction)
+                }
+                break
+            case 'Stop Learning Session':
+                {
+                    functionLibraryLearningSessionFunctions.stopSession(action.node, functionLibraryProtocolNode, action.callBackFunction)
                 }
                 break
             case 'Run Super Action':

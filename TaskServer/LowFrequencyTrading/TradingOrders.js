@@ -27,7 +27,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
     function initialize() {
         tradingSystem = bot.simulationState.tradingSystem
         tradingEngine = bot.simulationState.tradingEngine
-        sessionParameters = bot.SESSION.parameters
+        sessionParameters = bot.TRADING_SESSION.parameters
 
         exchangeAPIModule.initialize()
         announcementsModule.initialize()
@@ -476,7 +476,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
         async function createOrderAtExchange(tradingSystemOrder, tradingEngineOrder) {
 
             /* Filter by Session Type */
-            switch (bot.SESSION.type) {
+            switch (bot.TRADING_SESSION.type) {
                 case 'Backtesting Session': {
                     return true
                 }
@@ -503,7 +503,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
     async function checkExchangeEvents(tradingEngineStage, tradingSystemOrder, tradingEngineOrder) {
 
         /* Filter by Session Type */
-        switch (bot.SESSION.type) {
+        switch (bot.TRADING_SESSION.type) {
             case 'Backtesting Session': {
                 return true
             }
@@ -613,7 +613,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
     function simulateCheckExchangeEvents(tradingEngineStage, tradingSystemOrder, tradingEngineOrder) {
 
         /* Filter by Session Type */
-        switch (bot.SESSION.type) {
+        switch (bot.TRADING_SESSION.type) {
             case 'Backtesting Session': {
                 break
             }
@@ -839,7 +839,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
     function simulateCancelOrder(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, exitType) {
 
         /* Filter by Session Type */
-        switch (bot.SESSION.type) {
+        switch (bot.TRADING_SESSION.type) {
             case 'Backtesting Session': {
                 break
             }
@@ -870,7 +870,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
     async function exchangeCancelOrder(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, exitType) {
 
         /* Filter by Session Type */
-        switch (bot.SESSION.type) {
+        switch (bot.TRADING_SESSION.type) {
             case 'Backtesting Session': {
                 return
             }

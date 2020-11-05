@@ -114,7 +114,8 @@ function newWorkspace() {
 
     function runTasksAndSessions() {
         executeAction({ name: 'Syncronize Tasks', project: 'Superalgos' })
-        executeAction({ name: 'Syncronize Sessions', project: 'Superalgos' })
+        executeAction({ name: 'Syncronize Trading Sessions', project: 'Superalgos' })
+        executeAction({ name: 'Syncronize Learning Sessions', project: 'Superalgos' })
         executeAction({ name: 'Play Tutorials', project: 'Superalgos' })
     }
 
@@ -319,6 +320,10 @@ function newWorkspace() {
                         if (networkNode.dataMining !== undefined && networkNode.dataMining.payload !== undefined) {
                             networkNode.dataMining.payload.uiObject.menu.internalClick('Stop All Exchange Data Tasks')
                             networkNode.dataMining.payload.uiObject.menu.internalClick('Stop All Exchange Data Tasks')
+                        }
+                        if (networkNode.learningMining !== undefined && networkNode.learningMining.payload !== undefined) {
+                            networkNode.learningMining.payload.uiObject.menu.internalClick('Stop All Exchange Learning Tasks')
+                            networkNode.learningMining.payload.uiObject.menu.internalClick('Stop All Exchange Learning Tasks')
                         }
                         if (networkNode.testingEnvironment !== undefined && networkNode.testingEnvironment.payload !== undefined) {
                             networkNode.testingEnvironment.payload.uiObject.menu.internalClick('Stop All Exchange Trading Tasks')

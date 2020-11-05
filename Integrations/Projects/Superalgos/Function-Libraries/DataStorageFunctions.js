@@ -3,7 +3,9 @@ function newDataStorageFunctions() {
         addAllDataProducts: addAllDataProducts,
         addAllDataMineProducts: addAllDataMineProducts,
         addAllTradingMineProducts: addAllTradingMineProducts,
-        addMissingSessionReferences: addMissingSessionReferences,
+        addAllLearningMineProducts: addAllLearningMineProducts,
+        addMissingTradingSessionReferences: addMissingTradingSessionReferences,
+        addMissingLearningSessionReferences: addMissingLearningSessionReferences, 
         addMissingMarketDataProducts: addMissingMarketDataProducts,
         addMissingMarketTradingProducts: addMissingMarketTradingProducts,
         addMissingExchangeTradingProducts: addMissingExchangeTradingProducts,
@@ -37,6 +39,7 @@ function newDataStorageFunctions() {
         scanBotArray(mine.sensorBots)
         scanBotArray(mine.indicatorBots)
         scanBotArray(mine.tradingBots)
+        scanBotArray(mine.learningBots)
 
         function scanBotArray(botArray) {
             if (botArray === undefined) { return }
@@ -84,7 +87,18 @@ function newDataStorageFunctions() {
         }
     }
 
-    function addMissingSessionReferences(node, rootNodes, functionLibraryUiObjectsFromNodes) {
+    function addAllLearningMineProducts(node, rootNodes, functionLibraryUiObjectsFromNodes) {
+        for (let i = 0; i < rootNodes.length; i++) {
+            let rootNode = rootNodes[i]
+
+            if (rootNode.type === 'Learning Mine') {
+                let learningMineProducts = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Learning Mine Products')
+                learningMineProducts.payload.referenceParent = rootNode
+            }
+        }
+    }
+
+    function addMissingTradingSessionReferences(node, rootNodes, functionLibraryUiObjectsFromNodes) {
         let networkNode = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(node, 'Network Node', undefined, true, false, true, false)
         if (networkNode === undefined) { return }
 
@@ -105,14 +119,35 @@ function newDataStorageFunctions() {
                 let marketTradingTasks = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
                 if (node.payload.referenceParent.id !== marketTradingTasks.payload.referenceParent.id) { continue }
                 if (UI.projects.superalgos.utilities.children.isMissingChildren(node, session, true) === true) {
-                    createSessionReference(node, session, functionLibraryUiObjectsFromNodes)
+                    createSessionReference(node, session, 'Trading Session Reference', functionLibraryUiObjectsFromNodes)
                 }
             }
         }
     }
 
-    function createSessionReference(node, session, functionLibraryUiObjectsFromNodes) {
-        let sessionReference = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Session Reference')
+    function addMissingLearningSessionReferences(node, rootNodes, functionLibraryUiObjectsFromNodes) {
+        let networkNode = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(node, 'Network Node', undefined, true, false, true, false)
+        if (networkNode === undefined) { return }
+
+        let learningSessionsArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(networkNode, 'Learning Session')
+
+        addMissingSession(learningSessionsArray)
+
+        function addMissingSession(sessionsArray) {
+            for (let i = 0; i < sessionsArray.length; i++) {
+                let session = sessionsArray[i]
+                /* We will filter out all the sessions that does not belong to the market we are in */
+                let marketLearningTasks = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(session, 'Market Learning Tasks', undefined, true, false, true, false)
+                if (node.payload.referenceParent.id !== marketLearningTasks.payload.referenceParent.id) { continue }
+                if (UI.projects.superalgos.utilities.children.isMissingChildren(node, session, true) === true) {
+                    createSessionReference(node, session, 'Learning Session Reference', functionLibraryUiObjectsFromNodes)
+                }
+            }
+        }
+    }
+
+    function createSessionReference(node, session, nodeType, functionLibraryUiObjectsFromNodes) {
+        let sessionReference = functionLibraryUiObjectsFromNodes.addUIObject(node, nodeType)
         sessionReference.payload.referenceParent = session
     }
 

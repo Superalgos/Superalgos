@@ -154,13 +154,13 @@ function newPlotter() {
 
         let minPositionPoint = {
             x: event.x,
-            y: event.y + 4
+            y: event.y + 8
         }
         minUserPositionRate = UI.projects.superalgos.utilities.dateRateTransformations.getRateFromPointAtBrowserCanvas(minPositionPoint, thisObject.container, coordinateSystem)
 
         let maxPositionPoint = {
             x: event.x,
-            y: event.y - 4
+            y: event.y - 8
         }
         maxUserPositionRate = UI.projects.superalgos.utilities.dateRateTransformations.getRateFromPointAtBrowserCanvas(maxPositionPoint, thisObject.container, coordinateSystem)
     }

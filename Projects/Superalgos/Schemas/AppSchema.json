@@ -1499,7 +1499,7 @@
         "addLeftIcons": true,
         "level": 1,
         "chainAttachesTo": {
-            "compatibleTypes": "->Take Position Event->Trigger On Event->Trigger Off Event->Next Phase Event->Move To Phase Event->"
+            "compatibleTypes": "->Take Position Event->Trigger On Event->Trigger Off Event->Next Phase Event->Move To Phase Event->Create Order Event->Cancel Order Event->Close Stage Event->"
         },
         "properties": [
             {

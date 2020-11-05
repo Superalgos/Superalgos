@@ -48,6 +48,9 @@ Superalgos is a platform to automate crypto-trading. It is implemented as a Node
 * No need to debug what went wrong line by line or diving into log files with tons of data. You can see each variable of the state of the Trading Engine at every candle by hovering the mouse over the charts.
 * No need to integrate a charting library, Superalgos has its own integrated Charting System.
 * No need to manage task data or execution dependencies by yourself. Superalgos allows you to define Tasks and distribute them across a Trading Farm, and it takes care of the data and execution dependencies, so that each task automatically starts when their dependencies are ready.
+
+# Superalgos for Individuals
+
 * Superalgos is easy to install / uninstall.
 * Superalgos is easy to run.
 * Superalgos is easy to use.
@@ -55,8 +58,6 @@ Superalgos is a platform to automate crypto-trading. It is implemented as a Node
 * Superalgos is easy to debug.
 * Superalgos is well documented.
 * You have free online support via Telegram.
-
-# Superalgos for Individuals
 
 ## Superalgos saves you money
 

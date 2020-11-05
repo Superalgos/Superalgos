@@ -54,7 +54,9 @@ Superalgos is a platform to automate crypto-trading. It is implemented as a Node
 * Superalgos is easy to learn.
 * Superalgos is easy to debug.
 * Superalgos is well documented.
-* You have online support via Telegram.
+* You have free online support via Telegram.
+
+# Superalgos for Individuals
 
 ## Superalgos saves you money
 
@@ -76,6 +78,13 @@ Superalgos is a platform to automate crypto-trading. It is implemented as a Node
 * No one can steal your trading ideas.
 * No one knows how much money you have / trade.
 * No one can see your exchange keys.
+
+# Superalgos for Companies
+
+* No need to buy expensive software for monitoring crypto markets or trading execution.
+* All your employees can use Superalgos for free.
+* You can use Superalgos at its full capacity or just the features you are currently interested in.
+* Superalgos could be integrated into your existing operation, feeding itself from other systems or feeding other systems as well.
 
 # Getting Started
 

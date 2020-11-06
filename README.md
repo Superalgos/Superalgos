@@ -25,6 +25,11 @@ Superalgos is a platform to automate crypto-trading. It is implemented as a Node
 * Run arbitrary data-mining operations of any size.
 * Feed your trading strategies with the data mined.
 
+## Superalgos Development Pipeline
+
+* Ethereum Integration, which will allow you to data mine your own Ethereum node and use the mined data in your strategies.
+* Machine Learning, which will allow you to run a Reinforcement Learning Algorithm and feed it with mined data so as to learn how to take decisions relevant for your strategies.
+
 ## Superalgos is user-centric
 
 * No ads, anywhere.

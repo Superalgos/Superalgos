@@ -95,8 +95,8 @@ All procedures are the same for Windows, Linux or Mac OS. Note: only tested with
 
 ### Pre-Requisites
 
-1. If you don't have it yet, [download install Node.js.](https://nodejs.org/en/download/)
-2. If you don't have it yet, [download install Git.](https://git-scm.com/downloads)
+1. If you don't have it yet, [download and install Node.js.](https://nodejs.org/en/download/)
+2. If you don't have it yet, [download and install Git.](https://git-scm.com/downloads)
 
 ### App Setup
 

@@ -160,7 +160,7 @@ To stay up-to-date, follow [Superalgos on Facebook](https://www.facebook.com/sup
 
 # Contributing
 
-Superalgos is a Community Project. Learn [how to become a Contributor](https://docs.superalgos.org/contributing-to-superalgos.html).
+Superalgos is a Community Project built by Contributors. Learn [how to become a Contributor](https://docs.superalgos.org/contributing-to-superalgos.html).
 
 ## Contributors 
 

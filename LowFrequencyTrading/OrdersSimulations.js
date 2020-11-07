@@ -284,13 +284,13 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
         let orderWasHit
         switch (tradingSystemOrder.type) {
             case 'Limit Buy Order': {
-                if (tradingEngine.current.episode.candle.min.value <= tradingEngineOrder.actualRate.value) {
+                if (tradingEngine.current.episode.candle.min.value <= tradingEngineOrder.orderStatistics.actualRate.value) {
                     orderWasHit = true
                 }
                 break
             }
             case 'Limit Sell Order': {
-                if (tradingEngine.current.episode.candle.max.value >= tradingEngineOrder.actualRate.value) {
+                if (tradingEngine.current.episode.candle.max.value >= tradingEngineOrder.orderStatistics.actualRate.value) {
                     orderWasHit = true
                 }
                 break

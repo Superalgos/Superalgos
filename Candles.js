@@ -317,7 +317,7 @@
 
             while (currentDate.valueOf() <= farRightDate.valueOf() + ONE_DAY_IN_MILISECONDS) {
 
-                let stringDate = currentDate.getFullYear() + '-' + pad(currentDate.getMonth() + 1, 2) + '-' + pad(currentDate.getDate(), 2);
+                let stringDate = currentDate.getUTCFullYear() + '-' + pad(currentDate.getUTCMonth() + 1, 2) + '-' + pad(currentDate.getUTCDate(), 2);
 
                 let dailyFile = fileCursor.files.get(stringDate);
 
@@ -383,7 +383,7 @@
 
             if (candles.length > 0) {
                 if (candles[0].begin > lowerEnd || candles[candles.length - 1].end < upperEnd) {
-                    setTimeout(recalculate, 2000);
+                    //setTimeout(recalculate, 2000);
                 }
             }
         } catch (err) {

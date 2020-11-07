@@ -1034,7 +1034,7 @@ function newUiObject() {
             In those cases, the stop function would never be called (from the UI). So what we will do is to call it from
             here with and event, and passing our own callBackFunction. In case there is an external source stopping this,
             this will produce an execution of the callback with our event, which will produce that the menu item is restored
-            to its default stage.
+            to its default value.
         
             If on the other side, it is executed from the UI, then we will be processing the Stopped event twice, which in
             both cases will reset the menu item to its default state.
@@ -1110,8 +1110,9 @@ function newUiObject() {
         return uiObject
     }
 
-    function stop(callBackFunction, event) {
-        /* We will wait to the event that the execution was terminated in order to call back the menu item */
+    function stop(callBackFunction, event, requestFromUI) {
+        let wasStopped = false
+        /* We will wait for the event that the execution was terminated in order to call back the menu item */
         let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
         eventsServerClient.listenToEvent(key, 'Stopped', undefined, 'UiObject', onResponse, onStopped)
 
@@ -1121,6 +1122,25 @@ function newUiObject() {
 
         function onStopped() {
             completeStop(callBackFunction, event)
+            wasStopped = true
+        }
+
+        /*
+        When the request comes from the UI, we need to consider the possibility that the backend is down or it 
+        was restarted while this node was running.
+        */
+        if (requestFromUI === true) {
+            /* 
+            It can happen that the backend is down, the task is down, session is down of for whatever reason there is no
+            answer to the command to stop. In those cases, we will stop execute the onStopped funcion anyways so as to 
+            return the UI to its default state.
+            */
+            setTimeout(returnToDefaultState, 90000)
+            function returnToDefaultState() {
+                if (wasStopped === false) {
+                    completeStop(callBackFunction, event)
+                }
+            }
         }
     }
 
@@ -1587,7 +1607,7 @@ function newUiObject() {
                         let phrase = phrases[i]
                         labelPoint = {
                             x: position.x - phrase.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
-                            y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * ( 1 + i)  
+                            y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * (1 + i)
                         }
                         if (UI.projects.superalgos.spaces.floatingSpace.inMapMode === false) {
                             printMessage(phrase)
@@ -1688,7 +1708,7 @@ function newUiObject() {
                     if (label.length < 50) {
                         labelPoint = {
                             x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
-                            y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 5
+                            y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 6
                         }
                         printMessage(label)
                     }
@@ -1767,7 +1787,7 @@ function newUiObject() {
                     } else {
                         labelPoint = {
                             x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 10,
-                            y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 3
+                            y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 4
                         }
                     }
                 }
@@ -1820,7 +1840,7 @@ function newUiObject() {
             } else {
                 labelPoint = {
                     x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 10,
-                    y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 4
+                    y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 5
                 }
             }
 
@@ -1871,7 +1891,7 @@ function newUiObject() {
                 } else {
                     labelPoint = {
                         x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 10,
-                        y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 2
+                        y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 3
                     }
                 }
 

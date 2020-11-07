@@ -132,7 +132,7 @@ function newAnimation() {
                 row++
                 UI.projects.superalgos.utilities.drawPrint.printLabel(DEBUG.variable4, 300, 100 + row * 30, 1, 20, UI_COLOR.RED)
                 row++
-                UI.projects.superalgos.utilities.drawPrint.printLabel('Animation Frame Per Seconds: ' + ANIMATION_FRAME_PER_SECONDS, 300, 100 + row * 30, 1, 20, UI_COLOR.TITANIUM_YELLOW)
+                UI.projects.superalgos.utilities.drawPrint.printLabel('Animation Frame Per Seconds: ' + ANIMATION_FRAME_PER_SECONDS, 300, 100 + row * 30, 1, 20, UI_COLOR.RED)
             }
 
             /* Video Recording */

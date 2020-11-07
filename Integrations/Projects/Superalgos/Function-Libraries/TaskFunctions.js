@@ -192,7 +192,7 @@ function newTaskFunctions() {
             taskName: node.name
         }
 
-        node.payload.uiObject.stop(callBackFunction)
+        node.payload.uiObject.stop(callBackFunction, undefined, true)
         eventsServerClient.raiseEvent('Task Manager', 'Stop Task', event)
 
         if (node.bot === undefined) { return }
@@ -200,7 +200,7 @@ function newTaskFunctions() {
 
         for (let i = 0; i < node.bot.processes.length; i++) {
             let process = node.bot.processes[i]
-            process.payload.uiObject.stop()
+            process.payload.uiObject.stop(undefined, undefined, true)
             if (process.session !== undefined) {
                 process.session.payload.uiObject.reset()
             }

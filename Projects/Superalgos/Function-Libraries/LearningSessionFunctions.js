@@ -158,7 +158,7 @@ function newLearningSessionFunctions() {
         let key = node.name + '-' + node.type + '-' + node.id
         eventsServerClient.raiseEvent(key, 'Stop Learning Session')
 
-        node.payload.uiObject.stop(callBackFunction)
+        node.payload.uiObject.stop(callBackFunction, undefined, true)
     }
 
     function validations(node) {

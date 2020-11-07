@@ -1688,7 +1688,7 @@ function newUiObject() {
                     if (label.length < 50) {
                         labelPoint = {
                             x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
-                            y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 5
+                            y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 6
                         }
                         printMessage(label)
                     }
@@ -1767,7 +1767,7 @@ function newUiObject() {
                     } else {
                         labelPoint = {
                             x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 10,
-                            y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 3
+                            y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 4
                         }
                     }
                 }
@@ -1820,7 +1820,7 @@ function newUiObject() {
             } else {
                 labelPoint = {
                     x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 10,
-                    y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 4
+                    y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 5
                 }
             }
 
@@ -1871,7 +1871,7 @@ function newUiObject() {
                 } else {
                     labelPoint = {
                         x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 10,
-                        y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 2
+                        y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 3
                     }
                 }
 

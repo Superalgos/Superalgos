@@ -68,10 +68,10 @@ Superalgos is a platform to automate crypto-trading. It is implemented as a Node
 
 * There are no paid plans or anything that costs you money.
 * There is no locked functionality, you can use the full capacity of the software.
-* There is no limit in the amount of backtests you can run. 
-* There is no limit in the amount of live sessions you can run.
-* There is no limit in the amount of historical data you can download.
-* There is no limit in the amount of data you can process.
+* There is no limit in the number of backtests you can run. 
+* There is no limit in the number of live sessions you can run.
+* There is no limit in the number of historical data you can download.
+* There is no limit in the number of data you can process.
 * You can use all the plugins available (indicators / plotters / strategies / etc.)
 * You can install Superalgos in as many machines as you want.
 * Your installations can be used by as many people as you want.

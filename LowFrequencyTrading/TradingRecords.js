@@ -143,7 +143,7 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                 the Root Node specifically for this property only.
                 */
                 if (recordProperty.config.nodePath !== undefined) {
-                    if ( recordProperty.config.nodePath === "tradingEngine.exchangeOrders.marketBuyOrders.marketOrders[index].orderBaseAsset") {
+                    if (recordProperty.config.nodePath === "tradingEngine.exchangeOrders.marketBuyOrders.marketOrders[index].orderBaseAsset") {
                         let a = tradingEngine
                     }
                     try {
@@ -287,8 +287,31 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                     }
                 }
             } else {
-                /* When we are not dealing with objects, we add every record to the existing file. */
-                outputDatasetArray.push(record)
+                /* 
+                When we are not dealing with objects, we add every record to the existing file except 
+                for the ones that are filtered out at the Product Definition.
+                */
+                if (product.config.codeName === "Trading-System-Errors") {
+                    let a = 1
+                }
+                if (product.config.propertyNameThatDefinesStatus !== undefined && product.config.propertyValueThatPreventsSavingObject !== undefined) {
+                    for (let j = 0; j < product.record.properties.length; j++) {
+                        let recordProperty = product.record.properties[j]
+                        if (recordProperty.config.codeName === product.config.propertyNameThatDefinesStatus) {
+                            let propertyValue = record[j]
+                            
+                            if (product.config.propertyValueThatPreventsSavingObject === "->Empty Array->" && propertyValue.length === 0) {
+                                break
+                            }
+                            if (propertyValue !== product.config.propertyValueThatPreventsSavingObject) {
+                                outputDatasetArray.push(record)
+                            }
+                            break
+                        }
+                    }
+                } else {
+                    outputDatasetArray.push(record)
+                }
             }
         }
 

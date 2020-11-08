@@ -10,8 +10,8 @@ function newPluginsFunctions() {
     }
     return thisObject
 
-    function getPluginFileNames(pluginType, callBack) {
-        callWebServer(undefined, 'PluginFileNames/' + 'Superalgos' + '/' + pluginType, onResponse)
+    function getPluginFileNames(projectName, pluginType, callBack) {
+        callWebServer(undefined, 'PluginFileNames/' + projectName + '/' + pluginType, onResponse)
 
         function onResponse(err, data) {
             if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
@@ -46,13 +46,37 @@ function newPluginsFunctions() {
                 if (UI.projects.superalgos.utilities.children.isMissingChildrenByName(node, project) === true) {
                     let child = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Plugin Project')
                     child.name = project
+                    let config = JSON.parse(child.config)
+                    config.codeName = project
+                    child.config = JSON.stringify(config)
                 }
             }
         }
     }
 
+    function getProjectName(node) {
+        /* Validations to see if we can do this or not. */
+        if (node.payload === undefined) { return }
+        if (node.payload.uiObject === undefined) { return }
+
+        if (node.payload.parentNode === undefined) {
+            node.payload.uiObject.setErrorMessage('You need to have a Plugin Project node as a parent to execute this action.')
+            return
+        }
+        if (node.payload.parentNode.payload === undefined) {
+            node.payload.uiObject.setErrorMessage('You need to have a Plugin Project node as a parent to execute this action.')
+            return
+        }
+        let pluginProject = node.payload.parentNode
+        let config = JSON.parse(pluginProject.config)
+
+        return config.codeName
+    }
+
     function pluginMissingDataMines(node, rootNodes, functionLibraryUiObjectsFromNodes) {
-        getPluginFileNames('Data-Mines', onNamesArrived)
+        let projectName = getProjectName(node)
+
+        getPluginFileNames(projectName, 'Data-Mines', onNamesArrived)
 
         function onNamesArrived(fileNames) {
             addPluginFileIfNeeded(node, fileNames, functionLibraryUiObjectsFromNodes)
@@ -60,7 +84,9 @@ function newPluginsFunctions() {
     }
 
     function pluginMissingTradingMines(node, rootNodes, functionLibraryUiObjectsFromNodes) {
-        getPluginFileNames('Trading-Mines', onNamesArrived)
+        let projectName = getProjectName(node)
+
+        getPluginFileNames(projectName, 'Trading-Mines', onNamesArrived)
 
         function onNamesArrived(fileNames) {
             addPluginFileIfNeeded(node, fileNames, functionLibraryUiObjectsFromNodes)
@@ -68,7 +94,9 @@ function newPluginsFunctions() {
     }
 
     function pluginMissingTradingSystems(node, rootNodes, functionLibraryUiObjectsFromNodes) {
-        getPluginFileNames('Trading-Systems', onNamesArrived)
+        let projectName = getProjectName(node)
+
+        getPluginFileNames(projectName, 'Trading-Systems', onNamesArrived)
 
         function onNamesArrived(fileNames) {
             addPluginFileIfNeeded(node, fileNames, functionLibraryUiObjectsFromNodes)
@@ -76,7 +104,9 @@ function newPluginsFunctions() {
     }
 
     function pluginMissingTradingEngines(node, rootNodes, functionLibraryUiObjectsFromNodes) {
-        getPluginFileNames('Trading-Engines', onNamesArrived)
+        let projectName = getProjectName(node)
+
+        getPluginFileNames(projectName, 'Trading-Engines', onNamesArrived)
 
         function onNamesArrived(fileNames) {
             addPluginFileIfNeeded(node, fileNames, functionLibraryUiObjectsFromNodes)
@@ -84,7 +114,9 @@ function newPluginsFunctions() {
     }
 
     function pluginMissingSuperScripts(node, rootNodes, functionLibraryUiObjectsFromNodes) {
-        getPluginFileNames('Super-Scripts', onNamesArrived)
+        let projectName = getProjectName(node)
+
+        getPluginFileNames(projectName, 'Super-Scripts', onNamesArrived)
 
         function onNamesArrived(fileNames) {
             addPluginFileIfNeeded(node, fileNames, functionLibraryUiObjectsFromNodes)
@@ -92,7 +124,9 @@ function newPluginsFunctions() {
     }
 
     function pluginMissingTutorials(node, rootNodes, functionLibraryUiObjectsFromNodes) {
-        getPluginFileNames('Tutorials', onNamesArrived)
+        let projectName = getProjectName(node)
+
+        getPluginFileNames(projectName, 'Tutorials', onNamesArrived)
 
         function onNamesArrived(fileNames) {
             addPluginFileIfNeeded(node, fileNames, functionLibraryUiObjectsFromNodes)

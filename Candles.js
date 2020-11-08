@@ -383,7 +383,7 @@
 
             if (candles.length > 0) {
                 if (candles[0].begin > lowerEnd || candles[candles.length - 1].end < upperEnd) {
-                    //setTimeout(recalculate, 2000);
+                    setTimeout(recalculate, 2000);
                 }
             }
         } catch (err) {

@@ -14899,10 +14899,26 @@
             },
             {
                 "action": "Add UI Object",
-                "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "timeFrameScale",
-                "label": "Add Time Frame Scale",
-                "relatedUiObject": "Time Frame Scale",
+                "label": "Add Layer Panel",
+                "relatedUiObject": "Layer Panel",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Layer Polygon",
+                "relatedUiObject": "Layer Polygon",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add All Layer Panels",
+                "label": "Add All Layer Panels",
+                "relatedUiObject": "Layer Panel",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add All Layer Polygons",
+                "label": "Add All Layer Polygons",
+                "relatedUiObject": "Layer Polygon",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -14936,11 +14952,96 @@
         "propertyNameAtParent": "layers",
         "properties": [
             {
-                "name": "timeFrameScale",
-                "type": "node",
-                "childType": "Time Frame Scale"
+                "name": "layerPanels",
+                "type": "array",
+                "childType": "Layer Panel"
+            },
+            {
+                "name": "layerPolygons",
+                "type": "array",
+                "childType": "Layer Polygon"
             }
         ]
+    },
+    {
+        "type": "Layer Panel",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "initialValues": {
+            "config": "{ \n\"status\": \"on\"\n}"
+        },
+        "editors": {
+            "config": true
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Plotter Panel->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Layer->"
+        },
+        "propertyNameAtParent": "layerPanels",
+        "properties": [
+        ],
+        "icon": "bitcoin"
+    },
+    {
+        "type": "Layer Polygon",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "initialValues": {
+            "config": "{ \n\"status\": \"on\"\n}"
+        },
+        "editors": {
+            "config": true
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Polygon->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Layer->"
+        },
+        "propertyNameAtParent": "layerPolygons",
+        "properties": [
+        ],
+        "icon": "bitcoin"
     },
     {
         "type": "Bot Layers",

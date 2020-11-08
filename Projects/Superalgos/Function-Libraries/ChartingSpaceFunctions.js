@@ -1,5 +1,7 @@
 function newChartingSpaceFunctions() {
     thisObject = {
+        addAllLayerPanels: addAllLayerPanels,
+        addAllLayerPolygons: addAllLayerPolygons,
         addAllMineLayers: addAllMineLayers,
         addMissingDashboards: addMissingDashboards,
         addMissingTimeMachines: addMissingTimeMachines,
@@ -280,4 +282,62 @@ function newChartingSpaceFunctions() {
             }
         }
     }
+
+    function addAllLayerPanels(node, functionLibraryUiObjectsFromNodes) {
+        if (validateReferences(node) !== true) { return }
+        let plotterModule = node.payload.referenceParent.payload.referenceParent.payload.referenceParent
+        for (let i = 0; i < plotterModule.panels.length; i++) {
+            let plotterPanel = plotterModule.panels[i]
+            let layerPanel = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Layer Panel')
+            layerPanel.payload.referenceParent = plotterPanel
+        }
+    }
+
+    function addAllLayerPolygons(node, functionLibraryUiObjectsFromNodes) {
+        if (validateReferences(node) !== true) { return }
+        let plotterModule = node.payload.referenceParent.payload.referenceParent.payload.referenceParent
+
+        if (plotterModule.shapes === undefined) {
+            node.payload.uiObject.setErrorMessage('Referenced Plotter Module does not have a Shapes child.')
+            return
+        }
+
+        for (let i = 0; i < plotterModule.shapes.polygons.length; i++) {
+            let polygon = plotterModule.shapes.polygons[i]
+            let layerPolygon = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Layer Polygon')
+            layerPolygon.payload.referenceParent = polygon
+        }
+    }
+
+    function validateReferences(node) {
+        /* Validations to see if we can do this or not. */
+        if (node.payload === undefined) { return }
+        if (node.payload.uiObject === undefined) { return }
+        if (node.payload.referenceParent === undefined) {
+            node.payload.uiObject.setErrorMessage('You need to have a reference parent node to execute this action.')
+            return
+        }
+        if (node.payload.referenceParent.payload === undefined) {
+            node.payload.uiObject.setErrorMessage('You need to have a reference parent node to execute this action.')
+            return
+        }
+        if (node.payload.referenceParent.payload.referenceParent === undefined) {
+            node.payload.uiObject.setErrorMessage('You need to have a reference grand parent node to execute this action.')
+            return
+        }
+        if (node.payload.referenceParent.payload.referenceParent.payload === undefined) {
+            node.payload.uiObject.setErrorMessage('You need to have a reference grand parent node to execute this action.')
+            return
+        }
+        if (node.payload.referenceParent.payload.referenceParent.payload.referenceParent === undefined) {
+            node.payload.uiObject.setErrorMessage('You need to have a reference grand grand parent node to execute this action.')
+            return
+        }
+        if (node.payload.referenceParent.payload.referenceParent.payload.referenceParent.payload === undefined) {
+            node.payload.uiObject.setErrorMessage('You need to have a reference grand grand parent node to execute this action.')
+            return
+        }
+        return true
+    }
+
 }

@@ -14984,6 +14984,9 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
+        "title": [
+            "Use Reference Parent"
+        ],
         "initialValues": {
             "config": "{ \n\"status\": \"on\"\n}"
         },
@@ -15023,6 +15026,9 @@
                 "iconPathOff": "delete",
                 "actionFunction": "payload.executeAction"
             }
+        ],
+        "title": [
+            "Use Reference Parent"
         ],
         "initialValues": {
             "config": "{ \n\"status\": \"on\"\n}"

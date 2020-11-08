@@ -467,6 +467,16 @@ function newSuperalgosActionSwitch() {
                     functionLibraryMineFunctions.addAllDataMineDataDependencies(action.node, action.rootNodes, functionLibraryUiObjectsFromNodes)
                 }
                 break
+            case 'Add All Layer Panels':
+                {
+                    functionLibraryChartingSpaceFunctions.addAllLayerPanels(action.node, functionLibraryUiObjectsFromNodes)
+                }
+                break
+            case 'Add All Layer Polygons':
+                {
+                    functionLibraryChartingSpaceFunctions.addAllLayerPolygons(action.node, functionLibraryUiObjectsFromNodes)
+                }
+                break
             case 'Add All Mine Layers':
                 {
                     functionLibraryChartingSpaceFunctions.addAllMineLayers(action.node, action.rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)

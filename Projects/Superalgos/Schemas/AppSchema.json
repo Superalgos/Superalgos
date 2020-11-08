@@ -3,17 +3,83 @@
         "type": "Superalgos Project",
         "menuItems": [
             {
+                "action": "Add Missing Children",
+                "label": "Add Missing Children",
+                "relatedUiObject": "Superalgos Project",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "actionFunction": "payload.executeAction",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete"
+            }
+        ],
+        "isProjectHead": true,
+        "isTitleAllwaysVisible": false,
+        "addLeftIcons": true,
+        "isPinned": true,
+        "positionLocked": true,
+        "icon": "superalgos",
+        "properties": [
+            {
+                "name": "spaces",
+                "type": "node",
+                "childType": "Spaces",
+                "autoAdd": true
+            },
+            {
+                "name": "mines",
+                "type": "node",
+                "childType": "Mines",
+                "autoAdd": true
+            },
+            {
+                "name": "otherHierarchies",
+                "type": "node",
+                "childType": "Other Hierarchies",
+                "autoAdd": true
+            }
+        ]
+    },
+    {
+        "type": "Spaces",
+        "menuItems": [
+            {
                 "action": "Add UI Object",
-                "label": "Add Trading System",
-                "relatedUiObject": "Trading System",
+                "label": "Add Charting Space",
+                "relatedUiObject": "Charting Space",
                 "actionFunction": "payload.executeAction"
             },
             {
                 "action": "Add UI Object",
-                "label": "Add Network",
-                "relatedUiObject": "Network",
+                "label": "Add Design Space",
+                "relatedUiObject": "Design Space",
                 "actionFunction": "payload.executeAction"
             },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "actionFunction": "payload.executeAction",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete"
+            }
+        ],
+        "isTitleAllwaysVisible": false,
+        "addLeftIcons": true,
+        "isPinned": false,
+        "level": 2,
+        "propertyNameAtParent": "spaces",
+        "icon": "bitcoin"
+    },
+    {
+        "type": "Mines",
+        "menuItems": [
             {
                 "action": "Add UI Object",
                 "label": "Add Data Mine",
@@ -33,6 +99,38 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "actionFunction": "payload.executeAction",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete"
+            }
+        ],
+        "isTitleAllwaysVisible": false,
+        "addLeftIcons": true,
+        "isPinned": false,
+        "level": 2,
+        "propertyNameAtParent": "mines",
+        "icon": "bitcoin"
+    },
+    {
+        "type": "Other Hierarchies",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Trading System",
+                "relatedUiObject": "Trading System",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Network",
+                "relatedUiObject": "Network",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Add UI Object",
                 "label": "Add Super Scripts",
                 "relatedUiObject": "Super Scripts",
@@ -49,14 +147,23 @@
                 "label": "Add Tutorial",
                 "relatedUiObject": "Tutorial",
                 "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "actionFunction": "payload.executeAction",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete"
             }
         ],
-        "isProjectHead": true,
         "isTitleAllwaysVisible": false,
         "addLeftIcons": true,
-        "isPinned": true,
-        "positionLocked": true,
-        "icon": "superalgos"
+        "isPinned": false,
+        "level": 2,
+        "propertyNameAtParent": "otherHierarchies",
+        "icon": "bitcoin"
     },
     {
         "type": "Workspace",
@@ -14323,7 +14430,16 @@
                 "label": "Add Space Settings",
                 "relatedUiObject": "Space Settings",
                 "actionFunction": "payload.executeAction"
-            }
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "actionFunction": "payload.executeAction",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete"
+            }            
         ],
         "isHierarchyHead": true,
         "addLeftIcons": true,
@@ -14450,6 +14566,15 @@
                 "workDoneLabel": "Done",
                 "relatedUiObject": "Dashboard",
                 "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "actionFunction": "payload.executeAction",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete"
             }
         ],
         "isHierarchyHead": true,
@@ -14985,7 +15110,7 @@
                 "childType": "Layer Panel"
             }
         ],
-        "icon": "bitcoin"
+        "icon": "under-construction"
     },
     {
         "type": "Layer Panel",
@@ -15027,7 +15152,7 @@
         },
         "propertyNameAtParent": "layerPanels",
         "properties": [],
-        "icon": "bitcoin"
+        "icon": "under-construction"
     },
     {
         "type": "Layer Polygons",
@@ -15067,7 +15192,7 @@
                 "childType": "Layer Polygon"
             }
         ],
-        "icon": "bitcoin"
+        "icon": "under-construction"
     },
     {
         "type": "Layer Polygon",
@@ -15109,7 +15234,7 @@
         },
         "propertyNameAtParent": "layerPolygons",
         "properties": [],
-        "icon": "bitcoin"
+        "icon": "under-construction"
     },
     {
         "type": "Bot Layers",
@@ -17104,7 +17229,6 @@
                 "autoAdd": false
             }
         ],
-        "icon": "bitcoin",
         "alternativeIcons": [
             {
                 "codeName": "Superalgos",

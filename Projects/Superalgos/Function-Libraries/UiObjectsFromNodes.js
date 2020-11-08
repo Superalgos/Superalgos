@@ -2,7 +2,7 @@ function newUiObjectsFromNodes() {
     thisObject = {
         syncronizeTasksFoundAtWorkspaceWithBackEnd: syncronizeTasksFoundAtWorkspaceWithBackEnd,
         syncronizeTradingSessionsFoundAtWorkspaceWithBackEnd: syncronizeTradingSessionsFoundAtWorkspaceWithBackEnd,
-        syncronizeLearningSessionsFoundAtWorkspaceWithBackEnd: syncronizeLearningSessionsFoundAtWorkspaceWithBackEnd, 
+        syncronizeLearningSessionsFoundAtWorkspaceWithBackEnd: syncronizeLearningSessionsFoundAtWorkspaceWithBackEnd,
         playTutorials: playTutorials,
         recreateWorkspace: recreateWorkspace,
         getNodeById: getNodeById,
@@ -362,7 +362,7 @@ function newUiObjectsFromNodes() {
             }
         }
 
-        if (nodeDefinition.isHierarchyHead === true) {
+        if (nodeDefinition.isHierarchyHead === true || nodeDefinition.isProjectHead) {
             rootNodes.push(object)
             createUiObject(true, object.type, object.name, object, parentNode, undefined)
             return object

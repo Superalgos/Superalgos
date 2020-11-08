@@ -14898,27 +14898,9 @@
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
-                "action": "Add UI Object",
-                "label": "Add Layer Panel",
-                "relatedUiObject": "Layer Panel",
-                "actionFunction": "payload.executeAction"
-            },
-            {
-                "action": "Add UI Object",
-                "label": "Add Layer Polygon",
-                "relatedUiObject": "Layer Polygon",
-                "actionFunction": "payload.executeAction"
-            },
-            {
-                "action": "Add All Layer Panels",
-                "label": "Add All Layer Panels",
-                "relatedUiObject": "Layer Panel",
-                "actionFunction": "payload.executeAction"
-            },
-            {
-                "action": "Add All Layer Polygons",
-                "label": "Add All Layer Polygons",
-                "relatedUiObject": "Layer Polygon",
+                "action": "Add Missing Children",
+                "label": "Add Missing Children",
+                "relatedUiObject": "Layer",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -14953,15 +14935,55 @@
         "properties": [
             {
                 "name": "layerPanels",
-                "type": "array",
-                "childType": "Layer Panel"
+                "type": "node",
+                "childType": "Layer Panels"
             },
             {
                 "name": "layerPolygons",
-                "type": "array",
-                "childType": "Layer Polygon"
+                "type": "node",
+                "childType": "Layer Polygons"
             }
         ]
+    },
+    {
+        "type": "Layer Panels",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Layer Panel",
+                "relatedUiObject": "Layer Panel",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add All Layer Panels",
+                "label": "Add All Layer Panels",
+                "relatedUiObject": "Layer Panel",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Layer->"
+        },
+        "propertyNameAtParent": "layerPanels",
+        "properties": [
+            {
+                "name": "layerPanels",
+                "type": "array",
+                "childType": "Layer Panel"
+            }
+        ],
+        "icon": "bitcoin"
     },
     {
         "type": "Layer Panel",
@@ -14999,10 +15021,50 @@
             "compatibleTypes": "->Plotter Panel->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Layer->"
+            "compatibleTypes": "->Layer Panels->"
         },
         "propertyNameAtParent": "layerPanels",
         "properties": [
+        ],
+        "icon": "bitcoin"
+    },
+    {
+        "type": "Layer Polygons",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Layer Polygon",
+                "relatedUiObject": "Layer Polygon",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add All Layer Polygons",
+                "label": "Add All Layer Polygons",
+                "relatedUiObject": "Layer Polygon",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Layer->"
+        },
+        "propertyNameAtParent": "layerPolygons",
+        "properties": [
+            {
+                "name": "layerPolygons",
+                "type": "array",
+                "childType": "Layer Polygon"
+            }
         ],
         "icon": "bitcoin"
     },
@@ -15042,7 +15104,7 @@
             "compatibleTypes": "->Polygon->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Layer->"
+            "compatibleTypes": "->Layer Polygons->"
         },
         "propertyNameAtParent": "layerPolygons",
         "properties": [

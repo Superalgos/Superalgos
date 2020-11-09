@@ -23,7 +23,7 @@ function newWorkspaceFunctions() {
                 }
 
                 if (alreadyExist === false) {
-                    let child = functionLibraryUiObjectsFromNodes.addUIObject(node, project + ' Project', rootNodes)
+                    let child = functionLibraryUiObjectsFromNodes.addUIObject(node, project + ' Project', rootNodes, project)
                     child.project = project
                 }
             }

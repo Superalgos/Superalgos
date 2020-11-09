@@ -26,6 +26,7 @@ function newSuperalgosActionSwitch() {
     let functionLibraryDataStorageFunctions = newDataStorageFunctions()
     let functionLibraryChartingSpaceFunctions = newChartingSpaceFunctions()
     let functionLibraryPluginsFunctions = newPluginsFunctions()
+    let functionLibraryWorkspaceFunctions = newWorkspaceFunctions()
 
     return thisObject
 
@@ -50,6 +51,7 @@ function newSuperalgosActionSwitch() {
         functionLibraryDataStorageFunctions = undefined
         functionLibraryChartingSpaceFunctions = undefined
         functionLibraryPluginsFunctions = undefined
+        functionLibraryWorkspaceFunctions = undefined
     }
 
     function initialize() {
@@ -467,6 +469,16 @@ function newSuperalgosActionSwitch() {
                     functionLibraryMineFunctions.addAllDataMineDataDependencies(action.node, action.rootNodes, functionLibraryUiObjectsFromNodes)
                 }
                 break
+            case 'Add All Layer Panels':
+                {
+                    functionLibraryChartingSpaceFunctions.addAllLayerPanels(action.node, functionLibraryUiObjectsFromNodes)
+                }
+                break
+            case 'Add All Layer Polygons':
+                {
+                    functionLibraryChartingSpaceFunctions.addAllLayerPolygons(action.node, functionLibraryUiObjectsFromNodes)
+                }
+                break
             case 'Add All Mine Layers':
                 {
                     functionLibraryChartingSpaceFunctions.addAllMineLayers(action.node, action.rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
@@ -637,6 +649,11 @@ function newSuperalgosActionSwitch() {
             case 'Add Missing Plugin Tutorials':
                 {
                     functionLibraryPluginsFunctions.pluginMissingTutorials(action.node, action.rootNodes, functionLibraryUiObjectsFromNodes)
+                }
+                break
+            case 'Add Missing Workspace Projects':
+                {
+                    functionLibraryWorkspaceFunctions.addMissingWorkspaceProjects(action.node, action.rootNodes, functionLibraryUiObjectsFromNodes)
                 }
                 break
         }

@@ -3,17 +3,82 @@
         "type": "Superalgos Project",
         "menuItems": [
             {
+                "action": "Add Missing Children",
+                "label": "Add Missing Children",
+                "relatedUiObject": "Superalgos Project",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "actionFunction": "payload.executeAction",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete"
+            }
+        ],
+        "isProjectHead": true,
+        "isTitleAllwaysVisible": false,
+        "addLeftIcons": true,
+        "isPinned": true,
+        "positionLocked": true,
+        "icon": "superalgos",
+        "properties": [
+            {
+                "name": "spaces",
+                "type": "node",
+                "childType": "Spaces",
+                "autoAdd": true
+            },
+            {
+                "name": "mines",
+                "type": "node",
+                "childType": "Mines",
+                "autoAdd": true
+            },
+            {
+                "name": "otherHierarchies",
+                "type": "node",
+                "childType": "Other Hierarchies",
+                "autoAdd": true
+            }
+        ]
+    },
+    {
+        "type": "Spaces",
+        "menuItems": [
+            {
                 "action": "Add UI Object",
-                "label": "Add Trading System",
-                "relatedUiObject": "Trading System",
+                "label": "Add Charting Space",
+                "relatedUiObject": "Charting Space",
                 "actionFunction": "payload.executeAction"
             },
             {
                 "action": "Add UI Object",
-                "label": "Add Network",
-                "relatedUiObject": "Network",
+                "label": "Add Design Space",
+                "relatedUiObject": "Design Space",
                 "actionFunction": "payload.executeAction"
             },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "actionFunction": "payload.executeAction",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete"
+            }
+        ],
+        "isTitleAllwaysVisible": false,
+        "addLeftIcons": true,
+        "isPinned": false,
+        "level": 2,
+        "propertyNameAtParent": "spaces"
+    },
+    {
+        "type": "Mines",
+        "menuItems": [
             {
                 "action": "Add UI Object",
                 "label": "Add Data Mine",
@@ -33,6 +98,37 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "actionFunction": "payload.executeAction",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete"
+            }
+        ],
+        "isTitleAllwaysVisible": false,
+        "addLeftIcons": true,
+        "isPinned": false,
+        "level": 2,
+        "propertyNameAtParent": "mines"
+    },
+    {
+        "type": "Other Hierarchies",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Trading System",
+                "relatedUiObject": "Trading System",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Network",
+                "relatedUiObject": "Network",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Add UI Object",
                 "label": "Add Super Scripts",
                 "relatedUiObject": "Super Scripts",
@@ -49,14 +145,22 @@
                 "label": "Add Tutorial",
                 "relatedUiObject": "Tutorial",
                 "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "actionFunction": "payload.executeAction",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete"
             }
         ],
-        "isProjectHead": true,
         "isTitleAllwaysVisible": false,
         "addLeftIcons": true,
-        "isPinned": true,
-        "positionLocked": true,
-        "icon": "bitcoin"
+        "isPinned": false,
+        "level": 2,
+        "propertyNameAtParent": "otherHierarchies"
     },
     {
         "type": "Workspace",
@@ -80,6 +184,15 @@
                 "iconPathOff": "backup",
                 "actionFunction": "UI.projects.superalgos.spaces.designSpace.workspace.backup",
                 "ring": 1
+            },
+            {
+                "action": "Add Missing Workspace Projects",
+                "label": "Add Missing Projects",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Workspace",
+                "actionFunction": "payload.executeAction"
             }
         ],
         "isTitleAllwaysVisible": true,
@@ -2271,8 +2384,7 @@
                 "autoAdd": false
             }
         ],
-        "propertyNameAtParent": "bot",
-        "icon": "bitcoin"
+        "propertyNameAtParent": "bot"
     },
     {
         "type": "Sensor Process Instance",
@@ -2483,8 +2595,7 @@
                 "autoAdd": false
             }
         ],
-        "propertyNameAtParent": "processes",
-        "icon": "bitcoin"
+        "propertyNameAtParent": "processes"
     },
     {
         "type": "Backtesting Session",
@@ -9251,8 +9362,7 @@
                 "autoAdd": true
             }
         ],
-        "propertyNameAtParent": "learningParameters",
-        "icon": "bitcoin"
+        "propertyNameAtParent": "learningParameters"
     },
     {
         "type": "Trading System Reference",
@@ -9673,8 +9783,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Learning Parameters->"
         },
-        "propertyNameAtParent": "learningAlgorithm",
-        "icon": "bitcoin"
+        "propertyNameAtParent": "learningAlgorithm"
     },
     {
         "type": "User Defined Parameters",
@@ -10170,8 +10279,7 @@
                 "childType": "Social Bots"
             }
         ],
-        "propertyNameAtParent": "session",
-        "icon": "bitcoin"
+        "propertyNameAtParent": "session"
     },
     {
         "type": "Sensor Bot Instance",
@@ -10461,8 +10569,7 @@
                 "type": "array",
                 "childType": "Plotter"
             }
-        ],
-        "icon": "bitcoin"
+        ]
     },
     {
         "type": "Sensor Bot",
@@ -11624,8 +11731,7 @@
                 "autoAdd": true
             }
         ],
-        "propertyNameAtParent": "learningBots",
-        "icon": "bitcoin"
+        "propertyNameAtParent": "learningBots"
     },
     {
         "type": "Plotter",
@@ -14321,6 +14427,15 @@
                 "label": "Add Space Settings",
                 "relatedUiObject": "Space Settings",
                 "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "actionFunction": "payload.executeAction",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete"
             }
         ],
         "isHierarchyHead": true,
@@ -14448,6 +14563,15 @@
                 "workDoneLabel": "Done",
                 "relatedUiObject": "Dashboard",
                 "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "actionFunction": "payload.executeAction",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete"
             }
         ],
         "isHierarchyHead": true,
@@ -14898,11 +15022,9 @@
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
-                "action": "Add UI Object",
-                "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "timeFrameScale",
-                "label": "Add Time Frame Scale",
-                "relatedUiObject": "Time Frame Scale",
+                "action": "Add Missing Children",
+                "label": "Add Missing Children",
+                "relatedUiObject": "Layer",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -14936,11 +15058,180 @@
         "propertyNameAtParent": "layers",
         "properties": [
             {
-                "name": "timeFrameScale",
+                "name": "layerPanels",
                 "type": "node",
-                "childType": "Time Frame Scale"
+                "childType": "Layer Panels"
+            },
+            {
+                "name": "layerPolygons",
+                "type": "node",
+                "childType": "Layer Polygons"
             }
         ]
+    },
+    {
+        "type": "Layer Panels",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Layer Panel",
+                "relatedUiObject": "Layer Panel",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add All Layer Panels",
+                "label": "Add All Layer Panels",
+                "relatedUiObject": "Layer Panel",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Layer->"
+        },
+        "propertyNameAtParent": "layerPanels",
+        "properties": [
+            {
+                "name": "layerPanels",
+                "type": "array",
+                "childType": "Layer Panel"
+            }
+        ],
+        "icon": "under-construction"
+    },
+    {
+        "type": "Layer Panel",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "title": [
+            "Use Reference Parent"
+        ],
+        "initialValues": {
+            "config": "{ \n\"status\": \"on\"\n}"
+        },
+        "editors": {
+            "config": true
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Plotter Panel->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Layer Panels->"
+        },
+        "propertyNameAtParent": "layerPanels",
+        "properties": [],
+        "icon": "under-construction"
+    },
+    {
+        "type": "Layer Polygons",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Layer Polygon",
+                "relatedUiObject": "Layer Polygon",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add All Layer Polygons",
+                "label": "Add All Layer Polygons",
+                "relatedUiObject": "Layer Polygon",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Layer->"
+        },
+        "propertyNameAtParent": "layerPolygons",
+        "properties": [
+            {
+                "name": "layerPolygons",
+                "type": "array",
+                "childType": "Layer Polygon"
+            }
+        ],
+        "icon": "under-construction"
+    },
+    {
+        "type": "Layer Polygon",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "title": [
+            "Use Reference Parent"
+        ],
+        "initialValues": {
+            "config": "{ \n\"status\": \"on\"\n}"
+        },
+        "editors": {
+            "config": true
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Polygon->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Layer Polygons->"
+        },
+        "propertyNameAtParent": "layerPolygons",
+        "properties": [],
+        "icon": "under-construction"
     },
     {
         "type": "Bot Layers",
@@ -15309,8 +15600,7 @@
                 "childType": "Task Manager",
                 "monitorChildrenRunning": true
             }
-        ],
-        "icon": "bitcoin"
+        ]
     },
     {
         "type": "Market Data Tasks",
@@ -15526,8 +15816,7 @@
                 "childType": "Learning Mine Tasks",
                 "monitorChildrenRunning": true
             }
-        ],
-        "icon": "bitcoin"
+        ]
     },
     {
         "type": "Exchange Data Tasks",
@@ -15740,8 +16029,7 @@
                 "childType": "Market Learning Tasks",
                 "monitorChildrenRunning": true
             }
-        ],
-        "icon": "bitcoin"
+        ]
     },
     {
         "type": "Data Mining",
@@ -15867,8 +16155,7 @@
                 "childType": "Exchange Learning Tasks",
                 "monitorChildrenRunning": true
             }
-        ],
-        "icon": "bitcoin"
+        ]
     },
     {
         "type": "Testing Environment",
@@ -16188,8 +16475,7 @@
                 "childType": "Market Learning Products",
                 "autoAdd": false
             }
-        ],
-        "icon": "bitcoin"
+        ]
     },
     {
         "type": "Trading Mines Data",
@@ -16273,8 +16559,7 @@
                 "type": "array",
                 "childType": "Exchange Learning Products"
             }
-        ],
-        "icon": "bitcoin"
+        ]
     },
     {
         "type": "Trading Session Reference",
@@ -16404,8 +16689,7 @@
                 "childType": "Learning Mine Products",
                 "autoAdd": false
             }
-        ],
-        "icon": "bitcoin"
+        ]
     },
     {
         "type": "Market Data Products",
@@ -16568,8 +16852,7 @@
                 "type": "array",
                 "childType": "Learning Session Reference"
             }
-        ],
-        "icon": "bitcoin"
+        ]
     },
     {
         "type": "Data Product",
@@ -16747,8 +17030,7 @@
                 "childType": "Bot Products",
                 "autoAdd": false
             }
-        ],
-        "icon": "bitcoin"
+        ]
     },
     {
         "type": "Bot Products",
@@ -16872,6 +17154,13 @@
         "type": "Plugin Project",
         "menuItems": [
             {
+                "action": "Configure",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
+            },
+            {
                 "action": "Add Missing Children",
                 "label": "Add Missing Children",
                 "relatedUiObject": "Plugins",
@@ -16887,6 +17176,12 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
+        "initialValues": {
+            "config": "{ \n  \"codeName\": \"\"\n}"
+        },
+        "editors": {
+            "config": true
+        },
         "addLeftIcons": true,
         "level": 1,
         "propertyNameAtParent": "pluginProjects",
@@ -16931,7 +17226,16 @@
                 "autoAdd": false
             }
         ],
-        "icon": "bitcoin"
+        "alternativeIcons": [
+            {
+                "codeName": "Superalgos",
+                "iconName": "superalgos"
+            },
+            {
+                "codeName": "Ethereum",
+                "iconName": "ethereum"
+            }
+        ]
     },
     {
         "type": "Plugin Data Mines",

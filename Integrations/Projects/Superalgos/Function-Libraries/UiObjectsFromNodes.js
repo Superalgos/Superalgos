@@ -2,7 +2,7 @@ function newUiObjectsFromNodes() {
     thisObject = {
         syncronizeTasksFoundAtWorkspaceWithBackEnd: syncronizeTasksFoundAtWorkspaceWithBackEnd,
         syncronizeTradingSessionsFoundAtWorkspaceWithBackEnd: syncronizeTradingSessionsFoundAtWorkspaceWithBackEnd,
-        syncronizeLearningSessionsFoundAtWorkspaceWithBackEnd: syncronizeLearningSessionsFoundAtWorkspaceWithBackEnd, 
+        syncronizeLearningSessionsFoundAtWorkspaceWithBackEnd: syncronizeLearningSessionsFoundAtWorkspaceWithBackEnd,
         playTutorials: playTutorials,
         recreateWorkspace: recreateWorkspace,
         getNodeById: getNodeById,
@@ -332,19 +332,21 @@ function newUiObjectsFromNodes() {
         }
     }
 
-    function addUIObject(parentNode, type, rootNodes) {
+    function addUIObject(parentNode, type, rootNodes, project) {
+        if (project === undefined) { project = parentNode.project }
+
         let object = {
             name: 'New ' + type,
             type: type,
-            project: parentNode.project
+            project: project
         }
 
-        let parentNodeDefinition = getNodeDefinition(parentNode)
+        let parentNodeDefinition = getNodeDefinition(parentNode, project)
         if (parentNodeDefinition === undefined) {
             console.log('Cannot addUIOBject from parent of ' + type + ' because that type it is not defined at the APP_SCHEMA.')
         }
         /* Resolve Initial Values */
-        let nodeDefinition = getNodeDefinition(object)
+        let nodeDefinition = getNodeDefinition(object, project)
 
         if (nodeDefinition === undefined) {
             console.log('Cannot addUIOBject of ' + type + ' because that type it is not defined at the APP_SCHEMA.')
@@ -362,7 +364,7 @@ function newUiObjectsFromNodes() {
             }
         }
 
-        if (nodeDefinition.isHierarchyHead === true) {
+        if (nodeDefinition.isHierarchyHead === true || nodeDefinition.isProjectHead) {
             rootNodes.push(object)
             createUiObject(true, object.type, object.name, object, parentNode, undefined)
             return object

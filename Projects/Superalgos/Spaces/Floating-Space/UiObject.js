@@ -1573,6 +1573,8 @@ function newUiObject() {
         let lineSeparator = thisObject.payload.floatingObject.currentFontSize * 1.2
         let label
 
+        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
+
         if (radius > 6) {
             const MAX_LABEL_LENGTH = 30
 
@@ -1600,7 +1602,7 @@ function newUiObject() {
                         label = label.substring(0, MAX_LABEL_LENGTH) + '...'
                     }
                     labelPoint = {
-                        x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
+                        x: position.x - getTextWidth(label) / 2,
                         y: position.y + radius * 2 / 3 + lineSeparator * 1 + 30
                     }
                 } else {
@@ -1610,7 +1612,7 @@ function newUiObject() {
                     for (let i = 0; i < phrases.length; i++) {
                         let phrase = phrases[i]
                         labelPoint = {
-                            x: position.x - phrase.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
+                            x: position.x - getTextWidth(phrase) / 2,
                             y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * (1 + i)
                         }
                         if (UI.projects.superalgos.spaces.floatingSpace.inMapMode === false) {
@@ -1628,7 +1630,6 @@ function newUiObject() {
                 printMessage(label)
 
                 function printMessage(text) {
-                    browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
                     browserCanvasContext.fillStyle = thisObject.payload.floatingObject.nameStrokeStyle
                     browserCanvasContext.fillText(text, labelPoint.x, labelPoint.y)
                 }
@@ -1683,6 +1684,8 @@ function newUiObject() {
         let lineSeparator = thisObject.payload.floatingObject.currentFontSize * 1.2
         let label
 
+        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
+
         if (radius > 6) {
             const IDEAL_LABEL_LENGTH = 80
 
@@ -1703,7 +1706,7 @@ function newUiObject() {
                     for (let i = 0; i < phrases.length; i++) {
                         let phrase = phrases[i]
                         labelPoint = {
-                            x: position.x - phrase.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
+                            x: position.x - getTextWidth(phrase) / 2,
                             y: position.y + lineSeparator * (6 - phrases.length + 1 + i) + 30
                         }
                         printMessage(phrase)
@@ -1711,7 +1714,7 @@ function newUiObject() {
                 } else {
                     if (label.length < 50) {
                         labelPoint = {
-                            x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
+                            x: position.x - getTextWidth(label) / 2,
                             y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 6
                         }
                         printMessage(label)
@@ -1719,8 +1722,6 @@ function newUiObject() {
                 }
 
                 function printMessage(text) {
-                    browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-
                     browserCanvasContext.fillStyle = 'rgba(' + textColor + ', 1)'
                     browserCanvasContext.fillText(text, labelPoint.x, labelPoint.y)
                 }
@@ -1756,6 +1757,8 @@ function newUiObject() {
         let lineSeparator = thisObject.payload.floatingObject.currentFontSize * 1.2
         let label
 
+        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
+
         if (radius > 6) {
             const MAX_LABEL_LENGTH = 65
 
@@ -1777,7 +1780,7 @@ function newUiObject() {
 
                 if (thisObject.valueAtAngle === true && thisObject.payload.angle !== undefined) {
                     labelPoint = {
-                        x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 10,
+                        x: position.x - getTextWidth(label) / 2,
                         y: position.y
                     }
                     labelPoint.x = labelPoint.x + radius * 7 / 3 * Math.cos(toRadians(thisObject.payload.angle))
@@ -1785,18 +1788,17 @@ function newUiObject() {
                 } else {
                     if (thisObject.isOnFocus === true) {
                         labelPoint = {
-                            x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 10,
+                            x: position.x - getTextWidth(label) / 2,
                             y: position.y + radius * 2 / 3 + lineSeparator * 4 + 30
                         }
                     } else {
                         labelPoint = {
-                            x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 10,
+                            x: position.x - getTextWidth(label) / 2,
                             y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 4
                         }
                     }
                 }
 
-                browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
                 browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TURQUOISE + ', 1)'
                 browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
             }
@@ -1827,6 +1829,8 @@ function newUiObject() {
         let lineSeparator = thisObject.payload.floatingObject.currentFontSize * 1.2
         let label
 
+        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
+
         if (radius > 6) {
             const MAX_LABEL_LENGTH = 65
 
@@ -1838,17 +1842,16 @@ function newUiObject() {
 
             if (thisObject.isOnFocus === true) {
                 labelPoint = {
-                    x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
+                    x: position.x - getTextWidth(label) / 2,
                     y: position.y + radius * 2 / 3 + lineSeparator * 5 + 30
                 }
             } else {
                 labelPoint = {
-                    x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 10,
+                    x: position.x - getTextWidth(label) / 2,
                     y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 5
                 }
             }
 
-            browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
             browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TURQUOISE + ', 1)'
             browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
 
@@ -1877,6 +1880,8 @@ function newUiObject() {
         let lineSeparator = thisObject.payload.floatingObject.currentFontSize * 1.2
         let label
 
+        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
+
         if (radius > 6) {
             const MAX_LABEL_LENGTH = 100
 
@@ -1889,17 +1894,16 @@ function newUiObject() {
 
                 if (thisObject.isOnFocus === true) {
                     labelPoint = {
-                        x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 10,
+                        x: position.x - getTextWidth(label) / 2,
                         y: position.y + radius * 2 / 3 + lineSeparator * 3 + 30
                     }
                 } else {
                     labelPoint = {
-                        x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 10,
+                        x: position.x - getTextWidth(label) / 2,
                         y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 3
                     }
                 }
 
-                browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
                 browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'
                 browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
             }

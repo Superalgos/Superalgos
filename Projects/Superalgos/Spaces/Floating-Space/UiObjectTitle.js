@@ -316,6 +316,8 @@ function newUiObjectTitle() {
             let fontSize = thisObject.payload.floatingObject.currentFontSize
             let label
 
+            browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
+
             if (radius > 6 && (thisObject.isOnFocus === true || thisObject.allwaysVisible === true || thisObject.isDefault === false)) {
                 browserCanvasContext.strokeStyle = thisObject.payload.floatingObject.typeStrokeStyle
 
@@ -327,7 +329,7 @@ function newUiObjectTitle() {
                     label = trimTitle(label)
 
                     labelPoint = {
-                        x: -5,
+                        x: 0,
                         y: thisObject.container.frame.height * 0.8
                     }
 
@@ -335,7 +337,7 @@ function newUiObjectTitle() {
 
                     if (UI.projects.superalgos.spaces.floatingSpace.inMapMode === true) {
                         labelPoint = UI.projects.superalgos.spaces.floatingSpace.transformPointToMap(labelPoint)
-                        labelPoint.x = labelPoint.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO
+                        labelPoint.x = labelPoint.x -  getTextWidth(label) / 2,
                         labelPoint.y = labelPoint.y - 35
 
                         let nodeDefinition = getNodeDefinition(thisObject.payload.node)
@@ -366,7 +368,7 @@ function newUiObjectTitle() {
                     for (let i = 0; i < phrases.length; i++) {
                         let phrase = phrases[i]
                         let point = {
-                            x: labelPoint.x - phrase.length / 2 * fontSize * FONT_ASPECT_RATIO + FRAME_WIDTH / 2, 
+                            x: labelPoint.x - getTextWidth(phrase) / 2  + FRAME_WIDTH / 2, 
                             y: labelPoint.y - lineSeparator * (phrases.length - 1 - i)
                         }
                          
@@ -375,7 +377,6 @@ function newUiObjectTitle() {
                         }
                     }
                     function printMessage(text, position) {
-                        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
                         browserCanvasContext.fillStyle = thisObject.payload.floatingObject.nameStrokeStyle
                         browserCanvasContext.fillText(text, position.x, position.y)
                     }

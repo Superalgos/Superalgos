@@ -166,6 +166,10 @@ Superalgos is a Community Project built by Contributors. Learn [how to become a 
 
 Luis Fernando Molina, Julian Molina, Andreja Cobeljic, Matías Benitez, Ira Miller, Eduardo Remis, Jeff Braun, rico4dev, 9808us, Barry Low, Nikola Bjelogrlic, Hirajin Koizuko, Francisco J. Santillán, Viktoria B., Guillermo V., Daniel J., Javier A., Gustavo J., Romina GS, Pedro P., Thais M., Andrey M., Loui M., Natalia M., Bashar A., Carlos V., Diego M., Sebastian E., Bogdan P., Marko V., Igor S., Niksa K., Rodrigo M., Nicanor M., Alejandro P., Mateo H., Lan T., Leon A., Uroš R., Filip M., Vladimir J. and Pavle B.
 
+# About this Repository
+
+This repository is the one that stores the output of the build process and it is the one that users actually download to their machines and run. As a system, Superalgos is distributed across different repositories that combined during the build process produces the content of this one.
+
 # License
 
 Superalgos is open-source software released under [Apache License 2.0](LICENSE).

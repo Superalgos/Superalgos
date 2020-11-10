@@ -168,7 +168,7 @@ Luis Fernando Molina, Julian Molina, Andreja Cobeljic, Matías Benitez, Ira Mill
 
 # About this Repository
 
-This repository is the one that stores the output of the build process and it is the one that users actually download to their machines and run. As a system, Superalgos is distributed across different repositories that combined during the build process produces the content of this one.
+This repository is the one that stores the output of the build process and it is the one that users actually download to their machines and run. As a system, Superalgos is distributed across different repositories that are combined during the build process to produce the content of this one. A secondary use case for this repo is as issue tracker for the overall project. 
 
 # License
 

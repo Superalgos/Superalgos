@@ -211,6 +211,11 @@ function newSuperalgosUtilitiesDrawPrint() {
         if (fontSize === undefined) { fontSize = 10 }
         if (isNaN(label) === false && label !== '') { isItANumber = true }
 
+        if (isItANumber === true && Number(label) > 1000000000000) {
+            label = "Very Large Number"
+            isItANumber = false
+        }
+
         browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
 
         if (isItANumber === true) {
@@ -271,8 +276,11 @@ function newSuperalgosUtilitiesDrawPrint() {
             let isDecimal = false
             let hasDecimals
             let decimalCounter = 0
+            let integerCounter = 0
             let characterOpacity = opacity
+            let characterFontSize = fontSize
             let insignificantZeroPossible = true
+            let insignificantPointPossible = false
 
             if (label.indexOf('.') >= 0) {
                 hasDecimals = true
@@ -280,20 +288,34 @@ function newSuperalgosUtilitiesDrawPrint() {
             }
 
             for (let i = 0; i < label.length; i++) {
+                characterOpacity = opacity
+
                 let character = label[label.length - 1 - i]
 
                 if (hasDecimals === true && character === '.') {
                     isDecimal = false
+                    characterFontSize = fontSize * 2
+                } else {
+                    characterFontSize = fontSize
+                }
+
+                if (character === '.') {
+                    if (insignificantPointPossible === true) {
+                        characterOpacity = opacity / 4
+                    } 
                 }
 
                 if (hasDecimals === true && character === '0' && insignificantZeroPossible === true) {
                     characterOpacity = opacity / 4
+                    insignificantPointPossible = true
                 } else {
                     insignificantZeroPossible = false
-                    characterOpacity = opacity
+                    insignificantPointPossible = false
                 }
 
                 labelPoint.x = labelPoint.x - fontSize * FONT_ASPECT_RATIO * 1.5
+
+                browserCanvasContext.font = characterFontSize + 'px ' + UI_FONT.PRIMARY
                 browserCanvasContext.fillStyle = 'rgba(' + color + ', ' + characterOpacity + ')'
                 browserCanvasContext.fillText(character, labelPoint.x, labelPoint.y)
 
@@ -301,6 +323,14 @@ function newSuperalgosUtilitiesDrawPrint() {
                     decimalCounter++
                     if (decimalCounter === 5) {
                         labelPoint.x = labelPoint.x - fontSize * FONT_ASPECT_RATIO * 1.5 / 2
+                    }
+                }
+
+                if (isDecimal === false && character !== '.') {
+                    integerCounter++
+                    if (integerCounter === 3) {
+                        labelPoint.x = labelPoint.x - fontSize * FONT_ASPECT_RATIO * 1.5 / 2
+                        integerCounter = 0
                     }
                 }
             }

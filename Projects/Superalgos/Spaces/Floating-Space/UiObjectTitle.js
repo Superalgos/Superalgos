@@ -366,7 +366,7 @@ function newUiObjectTitle() {
                     for (let i = 0; i < phrases.length; i++) {
                         let phrase = phrases[i]
                         let point = {
-                            x: labelPoint.x - phrase.length / 2 * fontSize * FONT_ASPECT_RATIO + FRAME_WIDTH / 2 - 5, 
+                            x: labelPoint.x - phrase.length / 2 * fontSize * FONT_ASPECT_RATIO + FRAME_WIDTH / 2, 
                             y: labelPoint.y - lineSeparator * (phrases.length - 1 - i)
                         }
                          

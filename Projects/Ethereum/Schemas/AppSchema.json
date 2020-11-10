@@ -21,6 +21,12 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Add UI Object",
+                "label": "Add ETH Wallet",
+                "relatedUiObject": "ETH Wallet",
+                "actionFunction": "payload.executeAction"
+            },  
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -35,6 +41,122 @@
         "addLeftIcons": true,
         "isPinned": true,
         "positionLocked": true,
+        "icon": "ethereum"
+    },
+    {
+        "type": "ETH Wallet",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Wallet Keys",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "walletKeys",
+                "relatedUiObject": "Wallet Keys",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Wallet Account",
+                "relatedUiObject": "Wallet Account",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "isHierarchyHead": true,
+        "addLeftIcons": true,
+        "level": 0,
+        "properties": [
+            {
+                "name": "walletKeys",
+                "type": "node",
+                "childType": "Wallet Keys",
+                "autoAdd": true
+            },
+            {
+                "name": "walletAccount",
+                "type": "array",
+                "childType": "Wallet Account"
+            }
+        ],
+        "icon": "ethereum"
+    },
+    {
+        "type": "Wallet Keys",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n\"privateKey\": \"\", \n\"publicKey\": \"\"\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->ETH Wallet->"
+        },
+        "propertyNameAtParent": "walletKeys",
+        "isPersonalData": true,
+        "icon": "ethereum"
+    },
+    {
+        "type": "Wallet Account",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n\"value\": \"\"\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->ETH Wallet->"
+        },
+        "propertyNameAtParent": "walletAccount",
         "icon": "ethereum"
     },
     {
@@ -89,6 +211,8 @@
             {
                 "action": "Add UI Object",
                 "label": "Add Token Definition",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "tokenDefinition",
                 "relatedUiObject": "Token Definition",
                 "actionFunction": "payload.executeAction"
             },
@@ -104,6 +228,10 @@
         ],
         "addLeftIcons": true,
         "level": 1,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Ethereum Tokens->"
+        },
+        "propertyNameAtParent": "erc-720TokenType",
         "properties": [
             {
                 "name": "tokenDefinition",
@@ -119,6 +247,8 @@
             {
                 "action": "Add UI Object",
                 "label": "Add Token Definition",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "tokenDefinition",
                 "relatedUiObject": "Token Definition",
                 "actionFunction": "payload.executeAction"
             },
@@ -134,6 +264,10 @@
         ],
         "addLeftIcons": true,
         "level": 1,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Ethereum Tokens->"
+        },
+        "propertyNameAtParent": "erc-723TokenType",
         "properties": [
             {
                 "name": "tokenDefinition",
@@ -149,6 +283,8 @@
             {
                 "action": "Add UI Object",
                 "label": "Add Token Definition",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "tokenDefinition",
                 "relatedUiObject": "Token Definition",
                 "actionFunction": "payload.executeAction"
             },
@@ -164,6 +300,10 @@
         ],
         "addLeftIcons": true,
         "level": 1,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Ethereum Tokens->"
+        },
+        "propertyNameAtParent": "erc-721TokenType",
         "properties": [
             {
                 "name": "tokenDefinition",
@@ -179,6 +319,8 @@
             {
                 "action": "Add UI Object",
                 "label": "Add Token Definition",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "tokenDefinition",
                 "relatedUiObject": "Token Definition",
                 "actionFunction": "payload.executeAction"
             },
@@ -194,6 +336,10 @@
         ],
         "addLeftIcons": true,
         "level": 1,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Ethereum Tokens->"
+        },
+        "propertyNameAtParent": "erc-777TokenType",
         "properties": [
             {
                 "name": "tokenDefinition",
@@ -209,6 +355,8 @@
             {
                 "action": "Add UI Object",
                 "label": "Add Smart Contract",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "smartContract",
                 "relatedUiObject": "Smart Contract",
                 "actionFunction": "payload.executeAction"
             },
@@ -224,6 +372,10 @@
         ],
         "addLeftIcons": true,
         "level": 2,
+        "chainAttachesTo": {
+            "compatibleTypes": "->ERC-20 Token Type->ERC-223 Token Type->ERC-721 Token Type->ERC-777 Token Type->"
+        },
+        "propertyNameAtParent": "tokenDefinition",
         "properties": [
             {
                 "name": "smartContract",
@@ -370,6 +522,14 @@
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "smartContractAccount",
+                "label": "Add Smart Contract Account",
+                "relatedUiObject": "Smart Contract Account",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
                 "propertyToCheckFor": "solidityCode",
                 "label": "Add Solidity Code",
                 "relatedUiObject": "Solidity Code",
@@ -385,16 +545,59 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
+        "chainAttachesTo": {
+            "compatibleTypes": "->Token Definition->Decentralized Application->"
+        },
         "propertyNameAtParent": "smartContracts",
         "addLeftIcons": true,
         "level": 1,
         "properties": [
+            {
+                "name": "smartContractAccount",
+                "type": "node",
+                "childType": "Smart Contract Account"
+            },
             {
                 "name": "solidityCode",
                 "type": "node",
                 "childType": "Solidity Code"
             }
         ],
+        "icon": "ethereum"
+    },
+    {
+        "type": "Smart Contract Account",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n\"value\": \"\"\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Smart Contract->"
+        },
+        "propertyNameAtParent": "smartContractAccount",
         "icon": "ethereum"
     },
     {
@@ -422,6 +625,9 @@
         },
         "initialValues": {
             "code": "// Type your smart contract code here."
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Smart Contract->"
         },
         "propertyNameAtParent": "solidityCode",
         "addLeftIcons": true,

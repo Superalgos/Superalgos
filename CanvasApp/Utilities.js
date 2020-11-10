@@ -124,3 +124,8 @@ function splitTextIntoPhrases(text, wordsPerLine) {
     }
     return phrases
 }
+
+function getTextWidth(text) {
+    var metrics = browserCanvasContext.measureText(text);
+    return metrics.width;
+}

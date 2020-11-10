@@ -148,7 +148,7 @@ function newSuperalgosActionSwitch() {
                 break
             case 'Add Missing Children':
                 {
-                    functionLibraryUiObjectsFromNodes.addMissingChildren(action.node)
+                    functionLibraryUiObjectsFromNodes.addMissingChildren(action.node, action.rootNodes)
                 }
                 break
             case 'Delete UI Object':

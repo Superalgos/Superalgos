@@ -1625,6 +1625,7 @@ function newUiObject() {
                 }
 
                 if (UI.projects.superalgos.spaces.floatingSpace.inMapMode === true) {
+                    labelPoint.x =  position.x - getTextWidth(label) / 2,
                     labelPoint.y = position.y + 50 / 2 + lineSeparator * 2
                 }
                 printMessage(label)

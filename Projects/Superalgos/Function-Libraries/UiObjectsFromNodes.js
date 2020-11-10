@@ -477,7 +477,7 @@ function newUiObjectsFromNodes() {
         return object
     }
 
-    function addMissingChildren(node) {
+    function addMissingChildren(node, rootNodes) {
         let nodeDefinition = getNodeDefinition(node)
 
         /* Connect to Parent */
@@ -488,7 +488,7 @@ function newUiObjectsFromNodes() {
                 if (property.type === 'node') {
                     if (property.name !== previousPropertyName) {
                         if (node[property.name] === undefined) {
-                            addUIObject(node, property.childType)
+                            addUIObject(node, property.childType, rootNodes)
                             previousPropertyName = property.name
                         }
                     }

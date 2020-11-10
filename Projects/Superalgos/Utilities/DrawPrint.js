@@ -186,16 +186,34 @@ function newSuperalgosUtilitiesDrawPrint() {
         browserCanvasContext.fill()
     }
 
-    function printLabel(labelToPrint, x, y, opacity, fontSize, color, align, container, fitFunction, noDecimals, fixedDecimals, minDecimals) {
-        if (labelToPrint === undefined) { return }
+    function printLabel(
+        labelToPrint,
+        x,
+        y,
+        opacity,
+        fontSize,
+        color,
+        align,
+        container,
+        fitFunction,
+        noDecimals,
+        fixedDecimals,
+        minDecimals,
+        simulateMonospace
+    ) {
+
+        let isItANumber
         let labelPoint
+        let label = labelToPrint
+
+        if (labelToPrint === undefined) { return }
         if (color === undefined) { color = UI_COLOR.DARK }
-        if (fontSize === undefined) { fontSize = 10 };
+        if (fontSize === undefined) { fontSize = 10 }
+        if (isNaN(label) === false && label !== '') { isItANumber = true }
 
         browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
 
-        let label = labelToPrint
-        if (isNaN(label) === false && label !== '') {
+        if (isItANumber === true) {
             if (fixedDecimals !== true) {
                 label = dynamicDecimals(labelToPrint, minDecimals)
             }
@@ -234,6 +252,12 @@ function newSuperalgosUtilitiesDrawPrint() {
                 }
             }
         }
+        if (isItANumber === true && simulateMonospace === true) {
+            labelPoint = {
+                x: x,
+                y: y
+            }
+        }
 
         if (container !== undefined) {
             labelPoint = container.frame.frameThisPoint(labelPoint)
@@ -243,7 +267,47 @@ function newSuperalgosUtilitiesDrawPrint() {
             labelPoint = fitFunction(labelPoint)
         }
 
-        browserCanvasContext.fillStyle = 'rgba(' + color + ', ' + opacity + ')'
-        browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
+        if (isItANumber === true && simulateMonospace === true) {
+            let isDecimal = false
+            let hasDecimals
+            let decimalCounter = 0
+            let characterOpacity = opacity
+            let insignificantZeroPossible = true
+
+            if (label.indexOf('.') >= 0) {
+                hasDecimals = true
+                isDecimal = true
+            }
+
+            for (let i = 0; i < label.length; i++) {
+                let character = label[label.length - 1 - i]
+
+                if (hasDecimals === true && character === '.') {
+                    isDecimal = false
+                }
+
+                if (hasDecimals === true && character === '0' && insignificantZeroPossible === true) {
+                    characterOpacity = opacity / 4
+                } else {
+                    insignificantZeroPossible = false
+                    characterOpacity = opacity
+                }
+
+                labelPoint.x = labelPoint.x - fontSize * FONT_ASPECT_RATIO * 1.5
+                browserCanvasContext.fillStyle = 'rgba(' + color + ', ' + characterOpacity + ')'
+                browserCanvasContext.fillText(character, labelPoint.x, labelPoint.y)
+
+                if (isDecimal === true) {
+                    decimalCounter++
+                    if (decimalCounter === 5) {
+                        labelPoint.x = labelPoint.x - fontSize * FONT_ASPECT_RATIO * 1.5 / 2
+                    }
+                }
+            }
+        }
+        else {
+            browserCanvasContext.fillStyle = 'rgba(' + color + ', ' + opacity + ')'
+            browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
+        }
     }
 }

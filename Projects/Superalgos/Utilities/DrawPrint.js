@@ -186,13 +186,14 @@ function newSuperalgosUtilitiesDrawPrint() {
         browserCanvasContext.fill()
     }
 
-    function printLabel(labelToPrint, x, y, opacity, fontSize, color, center, container, fitFunction, noDecimals, fixedDecimals, minDecimals) {
+    function printLabel(labelToPrint, x, y, opacity, fontSize, color, align, container, fitFunction, noDecimals, fixedDecimals, minDecimals) {
         if (labelToPrint === undefined) { return }
         let labelPoint
         if (color === undefined) { color = UI_COLOR.DARK }
         if (fontSize === undefined) { fontSize = 10 };
 
         browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
+
         let label = labelToPrint
         if (isNaN(label) === false && label !== '') {
             if (fixedDecimals !== true) {
@@ -204,17 +205,33 @@ function newSuperalgosUtilitiesDrawPrint() {
             }
         }
 
-        let xOffset = label.length / 2 * fontSize * FONT_ASPECT_RATIO
-
-        if (center === true) {
-            labelPoint = {
-                x: x - xOffset,
-                y: y
+        switch (align) {
+            case 'Center': {
+                labelPoint = {
+                    x: x - getTextWidth(label) / 2,
+                    y: y
+                }
+                break
             }
-        } else {
-            labelPoint = {
-                x: x,
-                y: y
+            case 'Left': {
+                labelPoint = {
+                    x: x,
+                    y: y
+                }
+                break
+            }
+            case 'Right': {
+                labelPoint = {
+                    x: x - getTextWidth(label),
+                    y: y
+                }
+                break
+            }
+            default: {
+                labelPoint = {
+                    x: x,
+                    y: y
+                }
             }
         }
 

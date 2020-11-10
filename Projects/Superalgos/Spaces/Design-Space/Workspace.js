@@ -237,26 +237,32 @@ function newWorkspace() {
 
             switch (workingAtTask) {
                 case 1:
+                    console.log('Replacing Workspace Procedure Started')
+                    console.log('Deleting Workspace')
                     UI.projects.superalgos.spaces.tutorialSpace.stop()
                     executeAction({ node: thisObject.workspaceNode, name: 'Delete Workspace', project: 'Superalgos' })
                     workingAtTask++
                     break
                 case 2:
+                    console.log('Closing Events Server')
                     finalizeEventsServerClients()
                     thisObject.eventsServerClients = new Map()
                     workingAtTask++
                     break
                 case 3:
+                    console.log('Stopping Automatic Saving')
                     clearInterval(savingWorkspaceIntervalId)
                     workingAtTask++
                     break
                 case 4:
+                    console.log('Loading new Workspace')
                     thisObject.workspaceNode = loadedWorkspaceNode
                     thisObject.workspaceNode.project = 'Superalgos'
                     loadedWorkspaceNode = undefined
                     workingAtTask++
                     break
                 case 5:
+                    console.log('Setting up Workspace')
                     executeAction({ node: thisObject.workspaceNode, name: 'Recreate Workspace', project: 'Superalgos', callBackFunction: finishInitialization })
                     function finishInitialization() {
                         setupEventsServerClients()
@@ -265,10 +271,12 @@ function newWorkspace() {
                     workingAtTask++
                     break
                 case 6:
+                    console.log('Resetting Spaces')
                     UI.projects.superalgos.spaces.chartingSpace.reset()
                     workingAtTask++
                     break
                 case 7:
+                    console.log('Replacing Workspace Procedure Finished')
                     workingAtTask = 0
                     circularProgressBar.visible = false
                     break

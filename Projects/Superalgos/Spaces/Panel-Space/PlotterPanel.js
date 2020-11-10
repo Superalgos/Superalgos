@@ -93,7 +93,8 @@ function newPlotterPanel() {
         const frameBodyHeight = thisObject.container.frame.getBodyHeight()
         const frameTitleHeight = thisObject.container.frame.height - frameBodyHeight
 
-        const X_AXIS = thisObject.container.frame.width / 2
+        const X_AXIS_A = thisObject.container.frame.width * 7 / 8
+        const X_AXIS_B = thisObject.container.frame.width * 7 / 8
         const Y_AXIS = frameTitleHeight + frameBodyHeight / 2
 
         const PANEL_HEIGHT = UI_PANEL.HEIGHT.NORMAL
@@ -168,7 +169,7 @@ function newPlotterPanel() {
 
             let opacity = '1.00'
             let fontSize = 14
-            let paletteColor 
+            let paletteColor
 
             if (panelData.textStyle !== undefined) {
                 if (panelData.textStyle.config.fontSize !== undefined) { fontSize = panelData.textStyle.config.fontSize }
@@ -176,8 +177,8 @@ function newPlotterPanel() {
                 if (panelData.textStyle.config.paletteColor !== undefined) { paletteColor = eval(panelData.textStyle.config.paletteColor) }
             }
 
-            UI.projects.superalgos.utilities.drawPrint.printLabel(labelText, X_AXIS, UI_PANEL.HEIGHT.NORMAL * labelPosition / 100 / heightFactor, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction)
-            UI.projects.superalgos.utilities.drawPrint.printLabel(value, X_AXIS, UI_PANEL.HEIGHT.NORMAL * valuePosition / 100 / heightFactor, opacity, fontSize, paletteColor, true, thisObject.container, thisObject.fitFunction, false, true)
+            UI.projects.superalgos.utilities.drawPrint.printLabel(labelText, X_AXIS_A, UI_PANEL.HEIGHT.NORMAL * labelPosition / 100 / heightFactor, '0.60', undefined, undefined, 'Right', thisObject.container, thisObject.fitFunction)
+            UI.projects.superalgos.utilities.drawPrint.printLabel(value, X_AXIS_B, UI_PANEL.HEIGHT.NORMAL * valuePosition / 100 / heightFactor, opacity, fontSize, paletteColor, 'Right', thisObject.container, thisObject.fitFunction, false, true)
         }
     }
 }

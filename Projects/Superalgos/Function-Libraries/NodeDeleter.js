@@ -24,6 +24,7 @@ function newNodeDeleter() {
     }
 
     function deleteUIObject(node, rootNodes) {
+        console.log('Deleting Node: ' + node.type + ' ' + node.name)
         /* First we restore the reference parent to its default state */
         if (node.payload !== undefined && node.payload.referenceParent !== undefined && node.payload.referenceParent.payload !== undefined && node.payload.referenceParent.payload.uiObject !== undefined) {
             node.payload.referenceParent.payload.uiObject.isShowing = false

@@ -11,7 +11,7 @@
             {
                 "action": "Add UI Object",
                 "label": "Add Decentralized Application",
-                "relatedUiObject": "Decentralized Application",
+                "relatedUiObject": "Ethereum Decentralized Application",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -486,7 +486,7 @@
         "icon": "ethereum"
     },
     {
-        "type": "Decentralized Application",
+        "type": "Ethereum Decentralized Application",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -546,7 +546,7 @@
             }
         ],
         "chainAttachesTo": {
-            "compatibleTypes": "->Token Definition->Decentralized Application->"
+            "compatibleTypes": "->Token Definition->Ethereum Decentralized Application->"
         },
         "propertyNameAtParent": "smartContracts",
         "addLeftIcons": true,

@@ -1588,13 +1588,17 @@ function newUiObject() {
                             return
                         }
                     }
+                    if (label.length > MAX_LABEL_LENGTH) {
+                        label = label.substring(0, MAX_LABEL_LENGTH) + '...'
+                    }
                 }
 
-                if (label.length > MAX_LABEL_LENGTH) {
-                    label = label.substring(0, MAX_LABEL_LENGTH) + '...'
-                }
+
 
                 if (thisObject.isOnFocus === true) {
+                    if (label.length > MAX_LABEL_LENGTH) {
+                        label = label.substring(0, MAX_LABEL_LENGTH) + '...'
+                    }
                     labelPoint = {
                         x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
                         y: position.y + radius * 2 / 3 + lineSeparator * 1 + 30

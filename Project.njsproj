@@ -159,7 +159,6 @@
     <Compile Include="Panels\LayersPanel.js" />
     <Compile Include="Panels\TimeControlPanel.js" />
     <Compile Include="coordinateSystem.js" />
-    <Compile Include="SplashScreen.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ProductStorage.js">

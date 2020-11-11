@@ -20,12 +20,12 @@ function newVideoRecorder() {
             const DISTANCE_BETWEEN_ICONS = 35
             const ICON_SIZES = 50
 
-            let mousePointerIcon = canvas.designSpace.iconCollection.get('mouse-pointer')
-            let draggingIcon = canvas.designSpace.iconCollection.get('hand-drag')
+            let mousePointerIcon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName( 'Superalgos', 'mouse-pointer')
+            let draggingIcon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName( 'Superalgos', 'hand-drag')
 
-            let leftClickIcon = canvas.designSpace.iconCollection.get('mouse-left-click')
-            let rightClickIcon = canvas.designSpace.iconCollection.get('mouse-right-click')
-            let wheelClickIcon = canvas.designSpace.iconCollection.get('mouse-wheel-click')
+            let leftClickIcon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName( 'Superalgos', 'mouse-left-click')
+            let rightClickIcon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName( 'Superalgos', 'mouse-right-click')
+            let wheelClickIcon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName( 'Superalgos', 'mouse-wheel-click')
 
             let imagePosition
             let buttonPressedIcon
@@ -45,10 +45,10 @@ function newVideoRecorder() {
                 case 'wheel': {
                     wheelAnimationCounter = 25
                     if (canvas.mouse.event.delta > 0) {
-                        pointerIcon = canvas.designSpace.iconCollection.get('mouse-wheel-up')
+                        pointerIcon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName( 'Superalgos', 'mouse-wheel-up')
                         lastWheelPointerIcon = pointerIcon
                     } else {
-                        pointerIcon = canvas.designSpace.iconCollection.get('mouse-wheel-down')
+                        pointerIcon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName( 'Superalgos', 'mouse-wheel-down')
                         lastWheelPointerIcon = pointerIcon
                     }
 
@@ -63,29 +63,29 @@ function newVideoRecorder() {
                     let key = canvas.mouse.event.key
                     if (key === undefined) { break }
                     switch (key.toLowerCase()) {
-                        case 'Escape':
+                        case 'escape':
                             {
-                                pointerIcon = canvas.designSpace.iconCollection.get('key-m')
+                                pointerIcon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName( 'Superalgos', 'key-m')
                                 break
                             }
                         case 'm':
                             {
-                                pointerIcon = canvas.designSpace.iconCollection.get('key-m')
+                                pointerIcon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName( 'Superalgos', 'key-m')
                                 break
                             }
                         case 'a':
                             {
-                                pointerIcon = canvas.designSpace.iconCollection.get('key-a')
+                                pointerIcon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName( 'Superalgos', 'key-a')
                                 break
                             }
                         case 'r':
                             {
-                                pointerIcon = canvas.designSpace.iconCollection.get('key-r')
+                                pointerIcon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName( 'Superalgos', 'key-r')
                                 break
                             }
                         case 'c':
                             {
-                                pointerIcon = canvas.designSpace.iconCollection.get('key-r')
+                                pointerIcon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName( 'Superalgos', 'key-r')
                                 break
                             }
                     }
@@ -139,7 +139,7 @@ function newVideoRecorder() {
             drawMousePointer(buttonPressedIcon, imagePosition, ICON_SIZES)
 
             if (canvas.mouse.event.shiftKey === true) {
-                icon = canvas.designSpace.iconCollection.get('key-shift')
+                icon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName( 'Superalgos', 'key-shift')
                 imagePosition = {
                     x: canvas.mouse.position.x - DISTANCE_BETWEEN_ICONS * 3,
                     y: canvas.mouse.position.y + firstRow
@@ -148,7 +148,7 @@ function newVideoRecorder() {
             }
 
             if (canvas.mouse.event.ctrlKey === true || canvas.mouse.event.metaKey === true) {
-                icon = canvas.designSpace.iconCollection.get('key-ctrl')
+                icon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName( 'Superalgos', 'key-ctrl')
                 imagePosition = {
                     x: canvas.mouse.position.x - DISTANCE_BETWEEN_ICONS * 3,
                     y: canvas.mouse.position.y + secondRow
@@ -157,7 +157,7 @@ function newVideoRecorder() {
             }
 
             if (canvas.mouse.event.altKey === true) {
-                icon = canvas.designSpace.iconCollection.get('key-alt')
+                icon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName( 'Superalgos', 'key-alt')
                 imagePosition = {
                     x: canvas.mouse.position.x + DISTANCE_BETWEEN_ICONS * 3 + ICON_SIZES * 0,
                     y: canvas.mouse.position.y + secondRow
@@ -166,7 +166,7 @@ function newVideoRecorder() {
             }
 
             if (canvas.mouse.event.code === 'ArrowUp') {
-                icon = canvas.designSpace.iconCollection.get('key-up')
+                icon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName( 'Superalgos', 'key-up')
                 imagePosition = {
                     x: canvas.mouse.position.x - 0,
                     y: canvas.mouse.position.y + firstRow
@@ -175,7 +175,7 @@ function newVideoRecorder() {
             }
 
             if (canvas.mouse.event.code === 'ArrowDown') {
-                icon = canvas.designSpace.iconCollection.get('key-down')
+                icon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName( 'Superalgos', 'key-down')
                 imagePosition = {
                     x: canvas.mouse.position.x - 0,
                     y: canvas.mouse.position.y + secondRow
@@ -184,7 +184,7 @@ function newVideoRecorder() {
             }
 
             if (canvas.mouse.event.code === 'ArrowLeft') {
-                icon = canvas.designSpace.iconCollection.get('key-left')
+                icon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName( 'Superalgos', 'key-left')
                 imagePosition = {
                     x: canvas.mouse.position.x - DISTANCE_BETWEEN_ICONS * 0 - ICON_SIZES * 1,
                     y: canvas.mouse.position.y + secondRow
@@ -193,7 +193,7 @@ function newVideoRecorder() {
             }
 
             if (canvas.mouse.event.code === 'ArrowRight') {
-                icon = canvas.designSpace.iconCollection.get('key-right')
+                icon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName( 'Superalgos', 'key-right')
                 imagePosition = {
                     x: canvas.mouse.position.x + DISTANCE_BETWEEN_ICONS * 0 + ICON_SIZES * 1,
                     y: canvas.mouse.position.y + secondRow

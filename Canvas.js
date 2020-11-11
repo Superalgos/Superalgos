@@ -1,9 +1,6 @@
 
 let browserCanvasContext          // The context of the canvas object.
 
-let stepsInitializationCounter = 0         // This counter the initialization steps required to be able to turn off the splash screen.
-let marketInitializationCounter = 0        // This counter the initialization of markets required to be able to turn off the splash screen.
-
 function newCanvas() {
     const MODULE_NAME = 'Canvas'
     const ERROR_LOG = true
@@ -14,7 +11,6 @@ function newCanvas() {
 
     let containerDragStarted = false
     let floatingObjectDragStarted = false
-    let floatingObjectBeingDragged
     let containerBeingDragged
     let viewPortBeingDragged = false
     let ignoreNextClick = false
@@ -30,17 +26,6 @@ function newCanvas() {
 
     let thisObject = {
         eventHandler: undefined,
-        topSpace: undefined,
-        sideSpace: undefined,
-        docSpace: undefined,
-        chatSpace: undefined,
-        tutorialSpace: undefined,
-        chartingSpace: undefined,
-        floatingSpace: undefined,
-        panelsSpace: undefined,
-        cockpitSpace: undefined,
-        designSpace: undefined,
-        splashScreen: undefined,
         animation: undefined,
         mouse: undefined,
         shorcutNumbers: new Map(),
@@ -65,37 +50,37 @@ function newCanvas() {
 
     function finalize() {
         try {
-            thisObject.tutorialSpace.finalize()
-            thisObject.docSpace.finalize()
+            UI.projects.superalgos.spaces.tutorialSpace.finalize()
+            UI.projects.superalgos.spaces.docSpace.finalize()
             //thisObject.chatSpace.finalize()
-            thisObject.sideSpace.finalize()
-            thisObject.chartingSpace.finalize()
-            thisObject.floatingSpace.finalize()
+            UI.projects.superalgos.spaces.sideSpace.finalize()
+            UI.projects.superalgos.spaces.chartingSpace.finalize()
+            UI.projects.superalgos.spaces.floatingSpace.finalize()
             thisObject.shorcutNumbers = undefined
-
-            browserCanvas.removeEventListener('mousedown', onMouseDown, false)
-            browserCanvas.removeEventListener('mouseup', onMouseUp, false)
-            browserCanvas.removeEventListener('mousemove', onMouseMove, false)
-            browserCanvas.removeEventListener('click', onMouseClick, false)
-            browserCanvas.removeEventListener('mouseout', onMouseOut, false)
 
             if (browserCanvas.removeEventListener) {
                 browserCanvas.removeEventListener('mousewheel', onMouseWheel, false)// IE9, Chrome, Safari, Opera
                 browserCanvas.removeEventListener('DOMMouseScroll', onMouseWheel, false) // Firefox
-            } else browserCanvas.detachEvent('onmousewheel', onMouseWheel)  // IE 6/7/8
+                browserCanvas.removeEventListener('mousedown', onMouseDown, false)
+                browserCanvas.removeEventListener('mouseup', onMouseUp, false)
+                browserCanvas.removeEventListener('mousemove', onMouseMove, false)
+                browserCanvas.removeEventListener('click', onMouseClick, false)
+                browserCanvas.removeEventListener('mouseout', onMouseOut, false)
 
-            browserCanvas.removeEventListener('dragenter', onDragEnter, false)
-            browserCanvas.removeEventListener('dragleave', onDragLeave, false)
-            browserCanvas.removeEventListener('dragover', onDragOver, false)
-            browserCanvas.removeEventListener('drop', onDragDrop, false)
+                browserCanvas.removeEventListener('dragenter', onDragEnter, false)
+                browserCanvas.removeEventListener('dragleave', onDragLeave, false)
+                browserCanvas.removeEventListener('dragover', onDragOver, false)
+                browserCanvas.removeEventListener('drop', onDragDrop, false)
 
-            browserCanvas.removeEventListener('keydown', onKeyDown, false)
-            browserCanvas.removeEventListener('keyup', onKeyUp, false)
+                browserCanvas.removeEventListener('keydown', onKeyDown, false)
+                browserCanvas.removeEventListener('keyup', onKeyUp, false)
+            } else {
+                browserCanvas.detachEvent('onmousewheel', onMouseWheel)  // IE 6/7/8
+            }
 
-            thisObject.splashScreen = undefined
             lastContainerMouseOver = undefined
 
-            hisObject.mouse = undefined
+            thisObject.mouse = undefined
         } catch (err) {
             if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack) }
         }
@@ -103,72 +88,121 @@ function newCanvas() {
 
     function initialize() {
         try {
+
             browserResized()
             initializeBrowserCanvas()
             addCanvasEvents()
 
-            /* Instantiate all the children spaces of Canvas object */
-            thisObject.floatingSpace = newFloatingSpace()
-            thisObject.floatingSpace.initialize()
+            thisObject.animation = newAnimation()
+            thisObject.animation.initialize()
 
-            thisObject.topSpace = newTopSpace()
-            thisObject.topSpace.initialize()
+            /*
+            Here we will setup the UI object, with all the
+            projects and spaces.
+            */
+            for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
+                let projectDefinition = PROJECTS_SCHEMA[i]
+                UI.projects[projectDefinition.propertyName] = {}
+                let projectInstance = UI.projects[projectDefinition.propertyName]
+                projectInstance.spaces = {}
+                projectInstance.events = {}
+                projectInstance.utilities = {}
+                projectInstance.globals = {}
 
-            thisObject.cockpitSpace = newCockpitSpace()
-            thisObject.cockpitSpace.initialize()
+                projectInstance.events.onMouseWheelMap = new Map()
+                projectInstance.events.onMouseOverMap = new Map()
+                projectInstance.events.onMouseClickMap = new Map()
+                projectInstance.events.onMouseDownMap = new Map()
 
-            thisObject.designSpace = newDesignSpace()
-            thisObject.designSpace.initialize()
+                let spaceInitializationMap = new Map()
+                let spaceAnimationPhysicsMap = new Map()
+                let spaceDefinitionPhysicsMap = new Map()
+                let spaceAnimationDrawMap = new Map()
+                let spaceDefinitionDrawMap = new Map()
 
-            thisObject.panelsSpace = newPanelsSpace()
-            thisObject.panelsSpace.initialize()
+                /* Space Instantiation */
+                if (projectDefinition.spaces === undefined) { continue }
+                for (let j = 0; j < projectDefinition.spaces.length; j++) {
+                    let spaceDefinition = projectDefinition.spaces[j]
+                    projectInstance.spaces[spaceDefinition.propertyName] = eval(spaceDefinition.functionName + '()')
+                    let spaceInstance = projectInstance.spaces[spaceDefinition.propertyName]
+                    spaceInstance.definition = spaceDefinition
 
-            thisObject.chartingSpace = newChartingSpace()
-            thisObject.chartingSpace.initialize()
+                    if (spaceDefinition.initializationIndex !== undefined) {
+                        spaceInitializationMap.set(spaceDefinition.initializationIndex, spaceInstance)
+                    }
 
-            thisObject.sideSpace = newSideSpace()
-            thisObject.sideSpace.initialize()
+                    if (spaceDefinition.animationPhysicsIndex !== undefined) {
+                        spaceAnimationPhysicsMap.set(spaceDefinition.animationPhysicsIndex, spaceInstance)
+                        spaceDefinitionPhysicsMap.set(spaceDefinition.animationPhysicsIndex, spaceDefinition)
+                    }
 
-            thisObject.docSpace = newDocSpace()
-            thisObject.docSpace.initialize()
+                    if (spaceDefinition.animationDrawIndex !== undefined) {
+                        spaceAnimationDrawMap.set(spaceDefinition.animationDrawIndex, spaceInstance)
+                        spaceDefinitionDrawMap.set(spaceDefinition.animationDrawIndex, spaceDefinition)
+                    }
 
-            //thisObject.chatSpace = newChatSpace()
-            //thisObject.chatSpace.initialize()
+                    /* Build the maps that defines the secuence of execution of different events. */
+                    if (spaceDefinition.onMouseWheelIndex !== undefined) {
+                        projectInstance.events.onMouseWheelMap.set(spaceDefinition.onMouseWheelIndex, spaceInstance)
+                    }
+                    if (spaceDefinition.onMouseOverIndex !== undefined) {
+                        projectInstance.events.onMouseOverMap.set(spaceDefinition.onMouseOverIndex, spaceInstance)
+                    }
+                    if (spaceDefinition.onMouseOverIndex !== undefined) {
+                        projectInstance.events.onMouseClickMap.set(spaceDefinition.onMouseClickIndex, spaceInstance)
+                    }
+                    if (spaceDefinition.onMouseDownIndex !== undefined) {
+                        projectInstance.events.onMouseDownMap.set(spaceDefinition.onMouseDownIndex, spaceInstance)
+                    }
+                }
 
-            thisObject.tutorialSpace = newTutorialSpace()
-            thisObject.tutorialSpace.initialize()
+                /* Space Initialization */
+                for (let j = 0; j < projectDefinition.spaces.length; j++) {
+                    let spaceInstance = spaceInitializationMap.get(j)
+                    if (spaceInstance !== undefined) {
+                        spaceInstance.initialize()
+                    }
+                }
 
-            thisObject.splashScreen = newSplashScreen()
+                /* Space Animation Physics */
+                for (let j = 0; j < projectDefinition.spaces.length; j++) {
+                    let spaceInstance = spaceAnimationPhysicsMap.get(j)
+                    let spaceDefinition = spaceDefinitionPhysicsMap.get(j)
+                    if (spaceInstance === undefined || spaceDefinition === undefined) { continue }
+                    if (spaceInstance.physics !== undefined) {
+                        thisObject.animation.addCallBackFunction(spaceDefinition.name + ' ' + 'Physics', spaceInstance.physics)
+                    }
+                }
 
-            let animation = newAnimation()
-            animation.initialize()
+                /* Space Animation Drawing*/
+                for (let j = 0; j < projectDefinition.spaces.length; j++) {
+                    let spaceInstance = spaceAnimationDrawMap.get(j)
+                    let spaceDefinition = spaceDefinitionDrawMap.get(j)
+                    if (spaceInstance === undefined || spaceDefinition === undefined) { continue }
+                    if (spaceInstance.draw !== undefined) {
+                        thisObject.animation.addCallBackFunction(spaceDefinition.name + ' ' + 'Draw', spaceInstance.draw)
+                    }
+                }
 
-            thisObject.animation = animation
+                /* Set up Utilities of this Project */
+                if (projectDefinition.utilities === undefined) { continue }
+                for (let j = 0; j < projectDefinition.utilities.length; j++) {
+                    let utilityDefinition = projectDefinition.utilities[j]
 
-            /* Spcaces Physics */
-            animation.addCallBackFunction('CockpitSpace Physics', thisObject.cockpitSpace.physics)
-            animation.addCallBackFunction('Floating Space Physics', thisObject.floatingSpace.physics)
-            animation.addCallBackFunction('Charting Space Physics', thisObject.chartingSpace.physics)
-            animation.addCallBackFunction('Design Space Physics', thisObject.designSpace.physics)
-            animation.addCallBackFunction('Panels Space Physics', thisObject.panelsSpace.physics)
-            animation.addCallBackFunction('Side Space Physics', thisObject.sideSpace.physics)
-            animation.addCallBackFunction('Doc Space Physics', thisObject.docSpace.physics)
-            //animation.addCallBackFunction('Chat Space Physics', thisObject.chatSpace.physics)
-            animation.addCallBackFunction('Tutorial Space Physics', thisObject.tutorialSpace.physics)
+                    projectInstance.utilities[utilityDefinition.propertyName] = eval(utilityDefinition.functionName + '()')
+                }
 
-            /* Spcaces Drawing */
-            animation.addCallBackFunction('Floating Space Draw', thisObject.floatingSpace.draw)
-            animation.addCallBackFunction('Charting Space Draw', thisObject.chartingSpace.draw)
-            animation.addCallBackFunction('Panels Space', thisObject.panelsSpace.draw)
-            animation.addCallBackFunction('CockpitSpace Draw', thisObject.cockpitSpace.draw)
-            animation.addCallBackFunction('Design Space Draw', thisObject.designSpace.draw)
-            animation.addCallBackFunction('Top Space Draw', thisObject.topSpace.draw)
-            animation.addCallBackFunction('Side Space Draw', thisObject.sideSpace.draw)
-            animation.addCallBackFunction('Doc Space Draw', thisObject.docSpace.draw)
-            //animation.addCallBackFunction('Chat Space Draw', thisObject.chatSpace.draw)
-            animation.addCallBackFunction('Tutorial Space Draw', thisObject.tutorialSpace.draw)
-            animation.addCallBackFunction('Splash Screen Draw', thisObject.splashScreen.draw)
-            animation.start()
+                /* Set up Globals of this Project */
+                if (projectDefinition.globals === undefined) { continue }
+                for (let j = 0; j < projectDefinition.globals.length; j++) {
+                    let globalDefinition = projectDefinition.globals[j]
+
+                    projectInstance.globals[globalDefinition.propertyName] = eval(globalDefinition.functionName + '()')
+                }
+            }
+            thisObject.animation.start()
+
         } catch (err) {
             if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
         }
@@ -185,29 +219,30 @@ function newCanvas() {
 
     function addCanvasEvents() {
         try {
-            canvas.eventHandler.listenToEvent('Browser Resized', browserResized)
-
             /* Keyboard events */
             window.addEventListener('keydown', onKeyDown, true)
             window.addEventListener('keyup', onKeyUp, true)
 
-            /* Mouse Events */
-            browserCanvas.addEventListener('mousedown', onMouseDown, false)
-            browserCanvas.addEventListener('mouseup', onMouseUp, false)
-            browserCanvas.addEventListener('mousemove', onMouseMove, false)
-            browserCanvas.addEventListener('click', onMouseClick, false)
-            browserCanvas.addEventListener('mouseout', onMouseOut, false)
-
             if (browserCanvas.addEventListener) {
+                canvas.eventHandler.listenToEvent('Browser Resized', browserResized)
+
+                /* Mouse Events */
+                browserCanvas.addEventListener('mousedown', onMouseDown, false)
+                browserCanvas.addEventListener('mouseup', onMouseUp, false)
+                browserCanvas.addEventListener('mousemove', onMouseMove, false)
+                browserCanvas.addEventListener('click', onMouseClick, false)
+                browserCanvas.addEventListener('mouseout', onMouseOut, false)
+
                 browserCanvas.addEventListener('mousewheel', onMouseWheel, false) // IE9, Chrome, Safari, Opera
                 browserCanvas.addEventListener('DOMMouseScroll', onMouseWheel, false)  // Firefox
-            } else browserCanvas.attachEvent('onmousewheel', onMouseWheel)// IE 6/7/8
 
-            /* Dragging Files Over the Canvas */
-            browserCanvas.addEventListener('dragenter', onDragEnter, false)
-            browserCanvas.addEventListener('dragleave', onDragLeave, false)
-            browserCanvas.addEventListener('dragover', onDragOver, false)
-            browserCanvas.addEventListener('drop', onDragDrop, false)
+                /* Dragging Files Over the Canvas */
+                browserCanvas.addEventListener('dragenter', onDragEnter, false)
+                browserCanvas.addEventListener('dragleave', onDragLeave, false)
+                browserCanvas.addEventListener('dragover', onDragOver, false)
+                browserCanvas.addEventListener('drop', onDragDrop, false)
+
+            } else browserCanvas.attachEvent('onmousewheel', onMouseWheel)// IE 6/7/8
 
             //  Disables the context menu when you right mouse click the canvas.
             browserCanvas.oncontextmenu = function (e) {
@@ -271,12 +306,12 @@ function newCanvas() {
                     break
                 }
                 case 118: { //  F7
-                    downloadPanorama('Superalgos.Market.Panorama')
+                    UI.projects.superalgos.utilities.download.downloadPanorama('Superalgos.Market.Panorama')
                     return
                     break
                 }
                 case 119: { //  F8
-                    downloadCanvas('Superalgos.Image.Capture', browserCanvas)
+                    UI.projects.superalgos.utilities.download.downloadCanvas('Superalgos.Image.Capture', browserCanvas)
                     return
                     break
                 }
@@ -319,13 +354,13 @@ function newCanvas() {
         thisObject.mouse.action = 'key up'
     }
 
-    function onKeyDown(event) {
+    async function onKeyDown(event) {
         if (EDITOR_ON_FOCUS === true) { return }
         thisObject.mouse.event = event
         thisObject.mouse.action = 'key down'
 
         checkMediaRecording(event)
-        canvas.chartingSpace.onKeyPressed(event)
+        UI.projects.superalgos.spaces.chartingSpace.onKeyPressed(event)
 
         /* Shourcuts to Menu Items */
         if ((event.keyCode >= 48 && event.keyCode <= 57)) {
@@ -345,37 +380,37 @@ function newCanvas() {
             }
         }
 
-        if (event.key === 'Escape' && canvas.floatingSpace.inMapMode === true) {
-            canvas.floatingSpace.exitMapMode()
+        if (event.key === 'Escape' && UI.projects.superalgos.spaces.floatingSpace.inMapMode === true) {
+            UI.projects.superalgos.spaces.floatingSpace.exitMapMode()
         }
 
         if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && (event.key === 'M' || event.key === 'm')) {
-            canvas.floatingSpace.toggleMapMode()
+            UI.projects.superalgos.spaces.floatingSpace.toggleMapMode()
             event.preventDefault()
             return
         }
 
         if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && (event.key === 'R' || event.key === 'r')) {
-            canvas.floatingSpace.toggleDrawReferenceLines()
+            UI.projects.superalgos.spaces.floatingSpace.toggleDrawReferenceLines()
             event.preventDefault()
             return
         }
 
         if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && (event.key === 'C' || event.key === 'c')) {
-            canvas.floatingSpace.toggleDrawChainLines()
+            UI.projects.superalgos.spaces.floatingSpace.toggleDrawChainLines()
             event.preventDefault()
             return
         }
 
         if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && (event.key === 'S' || event.key === 's')) {
-            canvas.designSpace.workspace.save()
+            UI.projects.superalgos.spaces.designSpace.workspace.save()
             if (event.preventDefault !== undefined) {
                 event.preventDefault()
             }
             return
         }
 
-        let nodeOnFocus = canvas.designSpace.workspace.getNodeThatIsOnFocus()
+        let nodeOnFocus = await UI.projects.superalgos.spaces.designSpace.workspace.getNodeThatIsOnFocus()
         if (nodeOnFocus !== undefined) {
             if (nodeOnFocus.payload.uiObject.codeEditor !== undefined) {
                 if (nodeOnFocus.payload.uiObject.codeEditor.visible === true) {
@@ -421,55 +456,55 @@ function newCanvas() {
         }
 
         if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowUp') {
-            thisObject.cockpitSpace.toTop()
+            UI.projects.superalgos.spaces.cockpitSpace.toTop()
             event.preventDefault()
             return
         }
 
         if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowDown') {
-            thisObject.cockpitSpace.toBottom()
+            UI.projects.superalgos.spaces.cockpitSpace.toBottom()
             event.preventDefault()
             return
         }
 
         if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowLeft') {
-            thisObject.cockpitSpace.moveUp()
+            UI.projects.superalgos.spaces.cockpitSpace.moveUp()
             event.preventDefault()
             return
         }
 
         if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowRight') {
-            thisObject.cockpitSpace.moveDown()
+            UI.projects.superalgos.spaces.cockpitSpace.moveDown()
             event.preventDefault()
             return
         }
 
         if (event.shiftKey === true && (event.ctrlKey === false && event.metaKey === false) && event.code === 'ArrowLeft') {
-            canvas.chartingSpace.oneScreenLeft()
+            UI.projects.superalgos.spaces.chartingSpace.oneScreenLeft()
             event.preventDefault()
             return
         }
 
         if (event.shiftKey === true && (event.ctrlKey === false && event.metaKey === false) && event.code === 'ArrowRight') {
-            canvas.chartingSpace.oneScreenRight()
+            UI.projects.superalgos.spaces.chartingSpace.oneScreenRight()
             event.preventDefault()
             return
         }
 
         if (event.shiftKey === true && (event.ctrlKey === false && event.metaKey === false) && event.code === 'ArrowUp') {
-            canvas.chartingSpace.oneScreenUp()
+            UI.projects.superalgos.spaces.chartingSpace.oneScreenUp()
             event.preventDefault()
             return
         }
 
         if (event.shiftKey === true && (event.ctrlKey === false && event.metaKey === false) && event.code === 'ArrowDown') {
-            canvas.chartingSpace.oneScreenDown()
+            UI.projects.superalgos.spaces.chartingSpace.oneScreenDown()
             event.preventDefault()
             return
         }
 
         if ((event.ctrlKey === true || event.metaKey === true) && event.shiftKey === false && event.code === 'ArrowLeft') {
-            let displaceVector = canvas.floatingSpace.oneScreenLeft()
+            let displaceVector = UI.projects.superalgos.spaces.floatingSpace.oneScreenLeft()
             if (displaceVector !== undefined) {
                 dragVector.downX = dragVector.downX + displaceVector.x
                 dragVector.downY = dragVector.downY + displaceVector.y
@@ -480,7 +515,7 @@ function newCanvas() {
         }
 
         if ((event.ctrlKey === true || event.metaKey === true) && event.shiftKey === false && event.code === 'ArrowRight') {
-            let displaceVector = canvas.floatingSpace.oneScreenRight()
+            let displaceVector = UI.projects.superalgos.spaces.floatingSpace.oneScreenRight()
             if (displaceVector !== undefined) {
                 dragVector.downX = dragVector.downX + displaceVector.x
                 dragVector.downY = dragVector.downY + displaceVector.y
@@ -491,7 +526,7 @@ function newCanvas() {
         }
 
         if ((event.ctrlKey === true || event.metaKey === true) && event.shiftKey === false && event.code === 'ArrowUp') {
-            let displaceVector = canvas.floatingSpace.oneScreenUp()
+            let displaceVector = UI.projects.superalgos.spaces.floatingSpace.oneScreenUp()
             if (displaceVector !== undefined) {
                 dragVector.downX = dragVector.downX + displaceVector.x
                 dragVector.downY = dragVector.downY + displaceVector.y
@@ -502,7 +537,7 @@ function newCanvas() {
         }
 
         if ((event.ctrlKey === true || event.metaKey === true) && event.shiftKey === false && event.code === 'ArrowDown') {
-            let displaceVector = canvas.floatingSpace.oneScreenDown()
+            let displaceVector = UI.projects.superalgos.spaces.floatingSpace.oneScreenDown()
             if (displaceVector !== undefined) {
                 dragVector.downX = dragVector.downX + displaceVector.x
                 dragVector.downY = dragVector.downY + displaceVector.y
@@ -519,42 +554,40 @@ function newCanvas() {
                 return
             }
         }
-
         if ((event.ctrlKey === true || event.metaKey === true) && event.altKey === true) {
             /* Shortcuts to nodes */
             if ((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 65 && event.keyCode <= 90)) {
                 /* From here we prevent the default behaviour. Putting it earlier prevents imput box and text area to receive keystrokes */
                 event.preventDefault()
+                let nodeUsingThisKey = await UI.projects.superalgos.spaces.designSpace.workspace.getNodeByShortcutKey(event.key)
 
-                let nodeUsingThisKey = canvas.designSpace.workspace.getNodeByShortcutKey(event.key)
-
-                if (nodeOnFocus === undefined && nodeUsingThisKey !== undefined) {
-                    /* Then we displace the whole workspace to center it at the node using this key */
-                    nodeUsingThisKey = canvas.floatingSpace.positionAtNode(nodeUsingThisKey)
-                    return
-                }
-
-                /* If there is a node in focus, we try to assign the key to it. */
-                if (nodeUsingThisKey !== undefined && nodeOnFocus !== undefined) {
-                    if (nodeUsingThisKey.id === nodeOnFocus.id) {
-                        nodeOnFocus.payload.uiObject.shortcutKey = ''
-                        nodeOnFocus.payload.uiObject.valueAtAngle = false
-                        nodeOnFocus.payload.uiObject.setValue('Shortcut Key Removed ')
-                        return
+                if (nodeUsingThisKey !== undefined) {
+                    if (nodeOnFocus !== undefined) {
+                        if (nodeUsingThisKey.id === nodeOnFocus.id) {
+                            nodeOnFocus.payload.uiObject.shortcutKey = ''
+                            nodeOnFocus.payload.uiObject.valueAtAngle = false
+                            nodeOnFocus.payload.uiObject.setValue('Shortcut Key Removed ')
+                        } else {
+                            nodeUsingThisKey.payload.uiObject.shortcutKey = ''
+                            nodeUsingThisKey = undefined
+                            nodeOnFocus.payload.uiObject.shortcutKey = event.key
+                            nodeOnFocus.payload.uiObject.valueAtAngle = false
+                            nodeOnFocus.payload.uiObject.setValue('Shortcut Key: Ctrl + Alt + ' + event.key)
+                        }
                     } else {
-                        /* After the warning, we allow the key to be re-assigned */
-                        nodeUsingThisKey.payload.uiObject.shortcutKey = ''
-                        nodeUsingThisKey === undefined
+                        UI.projects.superalgos.spaces.floatingSpace.positionAtNode(nodeUsingThisKey)
+                    }
+                    return
+                } else {
+                    if (nodeOnFocus !== undefined) {
                         nodeOnFocus.payload.uiObject.shortcutKey = event.key
                         nodeOnFocus.payload.uiObject.valueAtAngle = false
                         nodeOnFocus.payload.uiObject.setValue('Shortcut Key: Ctrl + Alt + ' + event.key)
                     }
                 }
-                return
             }
         }
-
-        if (event.ctrlKey === true && event.altKey === true && nodeOnFocus !== undefined) {
+        if ((event.ctrlKey === true || event.metaKey === true) && event.altKey === true && nodeOnFocus !== undefined) {
             if (nodeOnFocus.payload.uiObject.shortcutKey !== undefined && nodeOnFocus.payload.uiObject.shortcutKey !== '') {
                 nodeOnFocus.payload.uiObject.valueAtAngle = false
                 nodeOnFocus.payload.uiObject.setValue('Shortcut Key: Ctrl + Alt + ' + nodeOnFocus.payload.uiObject.shortcutKey)
@@ -566,7 +599,7 @@ function newCanvas() {
         try {
             event.preventDefault()
             event.stopPropagation()
-            thisObject.cockpitSpace.toTop()
+            UI.projects.superalgos.spaces.cockpitSpace.toTop()
         } catch (err) {
             if (ERROR_LOG === true) { logger.write('[ERROR] onDragEnter -> err = ' + err.stack) }
         }
@@ -610,7 +643,7 @@ function newCanvas() {
                         x: event.x,
                         y: event.y
                     }
-                    thisObject.designSpace.workspace.spawn(reader.result, mousePosition)
+                    UI.projects.superalgos.spaces.designSpace.workspace.spawn(reader.result, mousePosition)
                 }
             }
         } catch (err) {
@@ -642,160 +675,92 @@ function newCanvas() {
             dragVector.downY = point.y
 
             let container
+            /*
+            We will go through all the spaces defined at the project schema for each project
+            and we are going to query each space to see if they have the container that is at
+            the mouse position. We will order firt the spaces by the sequence order defined
+            at the project schema specifically for this mouse event.
+            */
+            for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
+                let projectDefinition = PROJECTS_SCHEMA[i]
+                let projectInstance = UI.projects[projectDefinition.propertyName]
 
-            /* We check if the mouse is over an element of the Doc Space / */
-            container = thisObject.tutorialSpace.getContainer(point)
+                for (let j = 0; j < projectDefinition.spaces.length; j++) {
+                    let spaceInstance = projectInstance.events.onMouseDownMap.get(j)
+                    if (spaceInstance === undefined) { continue }
 
-            if (container !== undefined && container.isDraggeable === true) {
-                containerBeingDragged = container
-                containerDragStarted = true
-                containerBeingDragged.eventHandler.raiseEvent('onDragStarted', point)
-                return
-            }
+                    /*
+                    Here we manage a few exceptional behaviours. Specifically with the
+                    charting space and the floating space, since they have a non standard
+                    way of handling this event.
+                    */
+                    if (spaceInstance.definition.name === 'Charting Space') {
+                        /*  we check if it is over any of the existing containers at the Charting Space. */
+                        container = spaceInstance.getContainer(point, GET_CONTAINER_PURPOSE.DRAGGING)
 
-            if (container !== undefined && container.isDraggeable === false) {
-                return
-            }
-
-            /* We check if the mouse is over an element of the Doc Space / */
-            container = thisObject.docSpace.getContainer(point)
-
-            if (container !== undefined && container.isDraggeable === true) {
-                containerBeingDragged = container
-                containerDragStarted = true
-                containerBeingDragged.eventHandler.raiseEvent('onDragStarted', point)
-                return
-            }
-
-            if (container !== undefined && container.isDraggeable === false) {
-                return
-            }
-
-            /* We check if the mouse is over an element of the Chat Space / */
-            //container = thisObject.chatSpace.getContainer(point)
-
-            if (container !== undefined && container.isDraggeable === true) {
-                containerBeingDragged = container
-                containerDragStarted = true
-                containerBeingDragged.eventHandler.raiseEvent('onDragStarted', point)
-                return
-            }
-
-            if (container !== undefined && container.isDraggeable === false) {
-                return
-            }
-
-            /* We check if the mouse is over an element of the Side Space / */
-            container = thisObject.sideSpace.getContainer(point)
-
-            if (container !== undefined && container.isDraggeable === true) {
-                containerBeingDragged = container
-                containerDragStarted = true
-                containerBeingDragged.eventHandler.raiseEvent('onDragStarted', point)
-                return
-            }
-
-            if (container !== undefined && container.isDraggeable === false) {
-                return
-            }
-
-            /* We check if the mouse is over an element of the Design Space / */
-            container = thisObject.designSpace.getContainer(point)
-
-            if (container !== undefined && container.isDraggeable === true) {
-                containerBeingDragged = container
-                containerDragStarted = true
-                containerBeingDragged.eventHandler.raiseEvent('onDragStarted', point)
-                return
-            }
-
-            if (container !== undefined && container.isDraggeable === false) {
-                return
-            }
-
-            /* We check if the mouse is over an element of the Top Space / */
-            container = thisObject.topSpace.getContainer(point)
-
-            if (container !== undefined && container.isDraggeable === true) {
-                containerBeingDragged = container
-                containerDragStarted = true
-                containerBeingDragged.eventHandler.raiseEvent('onDragStarted', point)
-                return
-            }
-
-            /* We check if the mouse is over an element of the CockpitSpace / */
-            container = thisObject.cockpitSpace.getContainer(point)
-
-            if (container !== undefined && container.isDraggeable === true) {
-                containerBeingDragged = container
-                containerDragStarted = true
-                containerBeingDragged.eventHandler.raiseEvent('onDragStarted', point)
-                return
-            }
-
-            if (container !== undefined && container.isClickeable === true) {
-                /* We dont want to mess up with the click */
-                return
-            }
-
-            /* We check if the mouse is over a panel/ */
-            container = thisObject.panelsSpace.getContainer(point, GET_CONTAINER_PURPOSE.DRAGGING)
-
-            if (container !== undefined && event.shiftKey === false) {
-                if (container.isDraggeable === true) {
-                    containerBeingDragged = container
-                    containerDragStarted = true
-                    containerBeingDragged.eventHandler.raiseEvent('onDragStarted', point)
-                    return
-                } else {
-                    return
-                }
-            }
-
-            if (container !== undefined && container.isClickeable === true) {
-                /* We dont want to mess up with the click */
-                return
-            }
-
-            /*  we check if it is over any of the existing containers at the Charting Space. */
-            container = thisObject.chartingSpace.getContainer(point, GET_CONTAINER_PURPOSE.DRAGGING)
-
-            if (container !== undefined) {
-                if (container.isDraggeable === true) {
-                    containerBeingDragged = container
-                    containerDragStarted = true
-                    containerBeingDragged.eventHandler.raiseEvent('onDragStarted', point)
-                    return
-                } else {
-                    if (container.isClickeable === false) {
-                        if (event.buttons === 2) {
-                            viewPortBeingDragged = true
+                        if (container !== undefined) {
+                            if (container.isDraggeable === true) {
+                                containerBeingDragged = container
+                                containerDragStarted = true
+                                containerBeingDragged.eventHandler.raiseEvent('onDragStarted', point)
+                                return
+                            } else {
+                                if (container.isClickeable === false) {
+                                    viewPortBeingDragged = true
+                                }
+                                return
+                            }
                         }
+                        continue
                     }
-                    return
+
+                    if (spaceInstance.definition.name === 'Floating Space') {
+                        /*  we check if it is over any of the existing containers at the Floating Space. */
+                        container = spaceInstance.getContainer(point)
+
+                        if (container !== undefined && container.isDraggeable === true) {
+                            containerBeingDragged = container
+                            containerDragStarted = true
+                            floatingObjectDragStarted = true
+                            containerBeingDragged.eventHandler.raiseEvent('onDragStarted', point)
+
+                            if (event.candelDragging === true) {
+                                containerBeingDragged = undefined
+                                containerDragStarted = false
+                                floatingObjectDragStarted = false
+                            }
+                            return
+                        }
+
+                        if (container !== undefined && container.isClickeable === true) {
+                            /* We dont want to mess up with the click */
+                            return
+                        }
+                        continue
+                    }
+
+                    /* Next is what happens to all non exceptional behaviour */
+                    if (spaceInstance.getContainer === undefined) { continue }
+                    container = spaceInstance.getContainer(point)
+
+                    if (container !== undefined && container.isDraggeable === true) {
+                        containerBeingDragged = container
+                        containerDragStarted = true
+                        containerBeingDragged.eventHandler.raiseEvent('onDragStarted', point)
+                        return
+                    }
+
+                    if (container !== undefined && container.isDraggeable === false) {
+                        return
+                    }
+
+                    if (container !== undefined && container.isClickeable === true) {
+                        /* We dont want to mess up with the click */
+                        return
+                    }
                 }
             }
 
-            container = thisObject.floatingSpace.getContainer(point)
-
-            if (container !== undefined && container.isDraggeable === true) {
-                containerBeingDragged = container
-                containerDragStarted = true
-                floatingObjectDragStarted = true
-                containerBeingDragged.eventHandler.raiseEvent('onDragStarted', point)
-
-                if (event.candelDragging === true) {
-                    containerBeingDragged = undefined
-                    containerDragStarted = false
-                    floatingObjectDragStarted = false
-                }
-                return
-            }
-
-            if (container !== undefined && container.isClickeable === true) {
-                /* We dont want to mess up with the click */
-                return
-            }
         } catch (err) {
             if (ERROR_LOG === true) { logger.write('[ERROR] onMouseDown -> err = ' + err.stack) }
         }
@@ -813,86 +778,30 @@ function newCanvas() {
             point.y = event.pageY - CURRENT_TOP_MARGIN
 
             let container
+            /*
+            We will go through all the spaces defined at the project schema for each project
+            and we are going to query each space to see if they have the container that is at
+            the mouse position. We will order firt the spaces by the sequence order defined
+            at the project schema specifically for this mouse event.
+            */
+            for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
+                let projectDefinition = PROJECTS_SCHEMA[i]
+                let projectInstance = UI.projects[projectDefinition.propertyName]
 
-            /* We check if the mouse is over an element of the Tutorial Space / */
-            container = thisObject.tutorialSpace.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_CLICK)
+                for (let j = 0; j < projectDefinition.spaces.length; j++) {
+                    let spaceInstance = projectInstance.events.onMouseClickMap.get(j)
+                    if (spaceInstance === undefined) { continue }
 
-            if (container !== undefined && container.isClickeable === true) {
-                container.eventHandler.raiseEvent('onMouseClick', point)
-                return
+                    if (spaceInstance.getContainer === undefined) { continue }
+                    container = spaceInstance.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_CLICK)
+
+                    if (container !== undefined && container.isClickeable === true) {
+                        container.eventHandler.raiseEvent('onMouseClick', point)
+                        return
+                    }
+                }
             }
 
-            /* We check if the mouse is over an element of the Doc Space / */
-            container = thisObject.docSpace.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_CLICK)
-
-            if (container !== undefined && container.isClickeable === true) {
-                container.eventHandler.raiseEvent('onMouseClick', point)
-                return
-            }
-
-            /* We check if the mouse is over an element of the Chat Space / */
-            //container = thisObject.chatSpace.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_CLICK)
-
-            if (container !== undefined && container.isClickeable === true) {
-                container.eventHandler.raiseEvent('onMouseClick', point)
-                return
-            }
-
-            /* We check if the mouse is over an element of the Side Space / */
-            container = thisObject.sideSpace.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_CLICK)
-
-            if (container !== undefined && container.isClickeable === true) {
-                container.eventHandler.raiseEvent('onMouseClick', point)
-                return
-            }
-
-            /* We check if the mouse is over an element of the Design Space / */
-            container = thisObject.designSpace.getContainer(point)
-
-            if (container !== undefined && container.isClickeable === true) {
-                container.eventHandler.raiseEvent('onMouseClick', point)
-                return
-            }
-
-            /* We check if the mouse is over an element of the Top Space / */
-            container = thisObject.topSpace.getContainer(point)
-
-            if (container !== undefined && container.isClickeable === true) {
-                container.eventHandler.raiseEvent('onMouseClick', point)
-                return
-            }
-
-            /* We check if the mouse is over an element of the CockpitSpace / */
-            container = thisObject.cockpitSpace.getContainer(point)
-
-            if (container !== undefined && container.isClickeable === true) {
-                container.eventHandler.raiseEvent('onMouseClick', point)
-                return
-            }
-
-            /* We check if the mouse is over a panel/ */
-            container = thisObject.panelsSpace.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_CLICK)
-
-            if (container !== undefined && container.isClickeable === true) {
-                container.eventHandler.raiseEvent('onMouseClick', point)
-                return
-            }
-
-            /* If it is not, then we check if it is over any of the existing containers at the Charting Space. */
-            container = thisObject.chartingSpace.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_CLICK)
-
-            if (container !== undefined && container.isClickeable === true) {
-                container.eventHandler.raiseEvent('onMouseClick', point)
-                return
-            }
-
-            /* We check if the mouse is over a floatingObject/ */
-            container = thisObject.floatingSpace.getContainer(point)
-
-            if (container !== undefined && container.isClickeable === true) {
-                container.eventHandler.raiseEvent('onMouseClick', point)
-                return
-            }
         } catch (err) {
             if (ERROR_LOG === true) { logger.write('[ERROR] onMouseClick -> err = ' + err.stack) }
         }
@@ -925,14 +834,14 @@ function newCanvas() {
             point.x = event.pageX
             point.y = event.pageY - CURRENT_TOP_MARGIN
 
-            if (canvas.chartingSpace.viewport !== undefined) {
-                canvas.chartingSpace.viewport.mousePosition.x = point.x
-                canvas.chartingSpace.viewport.mousePosition.y = point.y
+            if (UI.projects.superalgos.spaces.chartingSpace.viewport !== undefined) {
+                UI.projects.superalgos.spaces.chartingSpace.viewport.mousePosition.x = point.x
+                UI.projects.superalgos.spaces.chartingSpace.viewport.mousePosition.y = point.y
             }
 
             if (containerDragStarted === true || floatingObjectDragStarted === true || viewPortBeingDragged === true) {
                 if (floatingObjectDragStarted === true) {
-                    let targetContainer = thisObject.floatingSpace.getContainer(point)
+                    let targetContainer = UI.projects.superalgos.spaces.floatingSpace.getContainer(point)
                     if (targetContainer !== undefined) {
                         if (targetContainer.id !== containerBeingDragged.id) {
                             containerBeingDragged.eventHandler.raiseEvent('onDragFinished', point)
@@ -980,103 +889,27 @@ function newCanvas() {
 
             let container
 
-            /* We check if the mouse is over an element of the Tutorial Space / */
-            if (thisObject.tutorialSpace !== undefined) {
-                container = thisObject.tutorialSpace.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_OVER)
+            /*
+            We will go through all the spaces defined at the project schema for each project
+            and we are going to query each space to see if they have the container that is at
+            the mouse position. We will order firt the spaces by the sequence order defined
+            at the project schema specifically for this mouse event.
+            */
+            for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
+                let projectDefinition = PROJECTS_SCHEMA[i]
+                let projectInstance = UI.projects[projectDefinition.propertyName]
 
-                if (container !== undefined && container.detectMouseOver === true) {
-                    containerFound()
-                    return
-                }
-            }
+                for (let j = 0; j < projectDefinition.spaces.length; j++) {
+                    let spaceInstance = projectInstance.events.onMouseOverMap.get(j)
+                    if (spaceInstance === undefined) { continue }
 
-            /* We check if the mouse is over an element of the Doc Space / */
-            if (thisObject.docSpace !== undefined) {
-                container = thisObject.docSpace.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_OVER)
+                    if (spaceInstance.getContainer === undefined) { continue }
+                    container = spaceInstance.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_OVER)
 
-                if (container !== undefined && container.detectMouseOver === true) {
-                    containerFound()
-                    return
-                }
-            }
-
-            /* We check if the mouse is over an element of the Chat Space / */
-            if (thisObject.chatSpace !== undefined) {
-                //container = thisObject.chatSpace.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_OVER)
-
-                if (container !== undefined && container.detectMouseOver === true) {
-                    containerFound()
-                    return
-                }
-            }
-
-            /* We check if the mouse is over an element of the Side Space / */
-            if (thisObject.sideSpace !== undefined) {
-                container = thisObject.sideSpace.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_OVER)
-
-                if (container !== undefined && container.detectMouseOver === true) {
-                    containerFound()
-                    return
-                }
-            }
-
-            /* We check if the mouse is over an element of the Designe Space / */
-            if (thisObject.designSpace !== undefined) {
-                container = thisObject.designSpace.getContainer(point)
-
-                if (container !== undefined && container.detectMouseOver === true) {
-                    containerFound()
-                    return
-                }
-            }
-
-            /* We check if the mouse is over an element of the Top Space / */
-            if (thisObject.topSpace !== undefined) {
-                container = thisObject.topSpace.getContainer(point)
-
-                if (container !== undefined && container.detectMouseOver === true) {
-                    containerFound()
-                    return
-                }
-            }
-
-            /* We check if the mouse is over an element of the CockpitSpace / */
-            if (thisObject.cockpitSpace !== undefined) {
-                container = thisObject.cockpitSpace.getContainer(point)
-
-                if (container !== undefined && container.detectMouseOver === true) {
-                    containerFound()
-                    return
-                }
-            }
-
-            /* We check if the mouse is over a panel/ */
-            if (thisObject.panelsSpace !== undefined) {
-                container = thisObject.panelsSpace.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_OVER)
-
-                if (container !== undefined && container.detectMouseOver === true) {
-                    containerFound()
-                    return
-                }
-            }
-
-            /* If it is not, then we check if it is over any of the existing containers at the Charting Space. */
-            if (thisObject.chartingSpace !== undefined) {
-                container = thisObject.chartingSpace.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_OVER)
-
-                if (container !== undefined && container.detectMouseOver === true) {
-                    containerFound()
-                    return
-                }
-            }
-
-            /* We check if the mouse is over a floatingObject/ */
-            if (thisObject.floatingSpace !== undefined) {
-                container = thisObject.floatingSpace.getContainer(point)
-
-                if (container !== undefined && container.detectMouseOver === true) {
-                    containerFound()
-                    return
+                    if (container !== undefined && container.detectMouseOver === true) {
+                        containerFound()
+                        return
+                    }
                 }
             }
 
@@ -1108,8 +941,6 @@ function newCanvas() {
                 event.delta = event.delta / MAC_AMOUNT_FACTOR
             }
 
-            /* We try first with panels. */
-
             let point = {
                 x: event.pageX,
                 y: event.pageY - CURRENT_TOP_MARGIN
@@ -1118,72 +949,28 @@ function newCanvas() {
             event.mousePosition = point
             let container
 
-            /* Doc Space */
-            container = canvas.tutorialSpace.getContainer({ x: point.x, y: point.y })
+            /*
+            We will go through all the spaces defined at the project schema for each project
+            and we are going to query each space to see if they have the container that is at
+            the mouse position. We will order firt the spaces by the sequence order defined
+            at the project schema specifically for this mouse event.
+            */
+            for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
+                let projectDefinition = PROJECTS_SCHEMA[i]
+                let projectInstance = UI.projects[projectDefinition.propertyName]
 
-            if (container !== undefined && container.isWheelable === true) {
-                container.eventHandler.raiseEvent('onMouseWheel', event)
-                return false  // This instructs the browser not to take the event and scroll the page.
-            }
+                for (let j = 0; j < projectDefinition.spaces.length; j++) {
+                    let spaceInstance = projectInstance.events.onMouseWheelMap.get(j)
+                    if (spaceInstance === undefined) { continue }
 
-            /* Doc Space */
-            container = canvas.docSpace.getContainer({ x: point.x, y: point.y })
+                    if (spaceInstance.getContainer === undefined) { continue }
+                    container = spaceInstance.getContainer({ x: point.x, y: point.y }, GET_CONTAINER_PURPOSE.MOUSE_WHEEL)
 
-            if (container !== undefined && container.isWheelable === true) {
-                container.eventHandler.raiseEvent('onMouseWheel', event)
-                return false  // This instructs the browser not to take the event and scroll the page.
-            }
-
-            /* Chat Space */
-            //container = canvas.chatSpace.getContainer({ x: point.x, y: point.y })
-
-            if (container !== undefined && container.isWheelable === true) {
-                container.eventHandler.raiseEvent('onMouseWheel', event)
-                return false  // This instructs the browser not to take the event and scroll the page.
-            }
-
-            /* Side Space */
-            container = canvas.sideSpace.getContainer({ x: point.x, y: point.y })
-
-            if (container !== undefined && container.isWheelable === true) {
-                container.eventHandler.raiseEvent('onMouseWheel', event)
-                return false  // This instructs the browser not to take the event and scroll the page.
-            }
-
-            /* Panel Space */
-            container = canvas.panelsSpace.getContainer({ x: point.x, y: point.y })
-
-            if (container !== undefined && container.isWheelable === true) {
-                container.eventHandler.raiseEvent('onMouseWheel', event)
-                return false  // This instructs the browser not to take the event and scroll the page.
-            }
-
-            /* We try the CockpitSpace. */
-            container = canvas.cockpitSpace.getContainer({ x: point.x, y: point.y })
-
-            if (container !== undefined && container.isWheelable === true) {
-                container.eventHandler.raiseEvent('onMouseWheel', event)
-                return false  // This instructs the browser not to take the event and scroll the page.
-            }
-
-            /*   Charting Space. */
-            container = canvas.chartingSpace.getContainer({ x: point.x, y: point.y }, GET_CONTAINER_PURPOSE.MOUSE_WHEEL)
-            if (container !== undefined && container.isWheelable === true) {
-                container.eventHandler.raiseEvent('onMouseWheel', event)
-                return false  // This instructs the browser not to take the event and scroll the page.
-            }
-
-            if (container !== undefined) {
-                canvas.chartingSpace.viewport.onMouseWheel(event)
-                return false
-            }
-
-            /* We try second with floating objects. */
-            container = canvas.floatingSpace.getContainer({ x: point.x, y: point.y })
-
-            if (container !== undefined && container.isWheelable === true) {
-                container.eventHandler.raiseEvent('onMouseWheel', event)
-                return false  // This instructs the browser not to take the event and scroll the page.
+                    if (container !== undefined && container.isWheelable === true) {
+                        container.eventHandler.raiseEvent('onMouseWheel', event)
+                        return false  // This instructs the browser not to take the event and scroll the page.
+                    }
+                }
             }
 
             return false
@@ -1241,7 +1028,7 @@ function newCanvas() {
                         y: dragVector.upY - dragVector.downY
                     }
 
-                    canvas.chartingSpace.viewport.displace(displaceVector)
+                    UI.projects.superalgos.spaces.chartingSpace.viewport.displace(displaceVector)
                 }
                 if (containerDragStarted) {
                     if (containerBeingDragged !== undefined) {
@@ -1252,7 +1039,7 @@ function newCanvas() {
                             }
 
                             let downNoZoom
-                            downNoZoom = canvas.chartingSpace.viewport.unTransformThisPoint(downCopy)
+                            downNoZoom = UI.projects.superalgos.spaces.chartingSpace.viewport.unTransformThisPoint(downCopy)
 
                             let upCopy = {
                                 x: dragVector.upX,
@@ -1260,7 +1047,7 @@ function newCanvas() {
                             }
 
                             let upNoZoom
-                            upNoZoom = canvas.chartingSpace.viewport.unTransformThisPoint(upCopy)
+                            upNoZoom = UI.projects.superalgos.spaces.chartingSpace.viewport.unTransformThisPoint(upCopy)
 
                             displaceVector = {
                                 x: upNoZoom.x - downNoZoom.x,

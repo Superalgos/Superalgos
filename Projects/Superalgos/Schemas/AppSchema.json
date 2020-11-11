@@ -5201,7 +5201,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Order Statistics->"
         },
-        "propertyNameAtParent": "search"
+        "propertyNameAtParent": "actualRate"
     },
     {
         "type": "Fees Paid",

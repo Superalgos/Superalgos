@@ -14,7 +14,8 @@ function newNodeDeleter() {
         if (node.rootNodes !== undefined) {
             while (node.rootNodes.length > 0) {
                 let rootNode = node.rootNodes[0]
-                deleteUIObject(rootNode, rootNodes)
+                let result = deleteUIObject(rootNode, rootNodes)
+                if (result === false) { return false}
             }
         }
 
@@ -24,7 +25,7 @@ function newNodeDeleter() {
     }
 
     function deleteUIObject(node, rootNodes) {
-        console.log('Deleting Node: ' + node.type + ' ' + node.name)
+
         /* First we restore the reference parent to its default state */
         if (node.payload !== undefined && node.payload.referenceParent !== undefined && node.payload.referenceParent.payload !== undefined && node.payload.referenceParent.payload.uiObject !== undefined) {
             node.payload.referenceParent.payload.uiObject.isShowing = false
@@ -42,7 +43,8 @@ function newNodeDeleter() {
                         case 'node': {
                             if (property.name !== previousPropertyName) {
                                 if (node[property.name] !== undefined) {
-                                    deleteUIObject(node[property.name], rootNodes)
+                                    let result = deleteUIObject(node[property.name], rootNodes)
+                                    if (result === false) { return false}
                                 }
                                 previousPropertyName = property.name
                             }
@@ -52,7 +54,8 @@ function newNodeDeleter() {
                             let nodePropertyArray = node[property.name]
                             if (nodePropertyArray !== undefined) {
                                 while (nodePropertyArray.length > 0) {
-                                    deleteUIObject(nodePropertyArray[0], rootNodes)
+                                    let result = deleteUIObject(nodePropertyArray[0], rootNodes)
+                                    if (result === false) { return false}
                                 }
                             }
                         }
@@ -62,6 +65,7 @@ function newNodeDeleter() {
             }
 
             /* Remove node from parent */
+            let removedFromParent = false
             if (node.payload !== undefined) {
                 if (node.payload.parentNode !== undefined) {
                     let parentNodeDefinition = getNodeDefinition(node.payload.parentNode)
@@ -73,6 +77,7 @@ function newNodeDeleter() {
                                     switch (property.type) {
                                         case 'node': {
                                             node.payload.parentNode[property.name] = undefined
+                                            removedFromParent = true
                                         }
                                             break
                                         case 'array': {
@@ -90,6 +95,7 @@ function newNodeDeleter() {
                                                         }
 
                                                         nodePropertyArray.splice(j, 1)
+                                                        removedFromParent = true
                                                     }
                                                 }
                                             }
@@ -99,6 +105,10 @@ function newNodeDeleter() {
                                 }
                             }
                         }
+                    }
+                    if (removedFromParent === false) {
+                        console.log('[ERROR] Deleting Node: ' + node.type + ' ' + node.name + '. This node could not be deleted from its parent node (' + node.payload.parentNode.type + ') because its configured propertyNameAtParent (' + nodeDefinition.propertyNameAtParent + ') does not match any of the properties of its parent.')
+                        return false
                     }
                 }
             }

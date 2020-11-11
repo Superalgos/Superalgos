@@ -230,7 +230,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Wallet Account->"
         },
-        "propertyNameAtParent": "ethBalance",
+        "propertyNameAtParent": "tokenBalance",
         "icon": "ethereum"
     },
     {
@@ -305,7 +305,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Ethereum Token Definitions->"
         },
-        "propertyNameAtParent": "erc-720TokenType",
+        "propertyNameAtParent": "erc-20TokenType",
         "properties": [
             {
                 "name": "ethereumToken",
@@ -341,7 +341,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Ethereum Token Definitions->"
         },
-        "propertyNameAtParent": "erc-723TokenType",
+        "propertyNameAtParent": "erc-223TokenType",
         "properties": [
             {
                 "name": "ethereumToken",
@@ -466,7 +466,7 @@
         "propertyNameAtParent": "ethereumToken",
         "properties": [
             {
-                "name": "smartContract",
+                "name": "smartContracts",
                 "type": "node",
                 "childType": "Smart Contract"
             }

@@ -105,7 +105,7 @@ function newSuperalgosActionSwitch() {
             }
                 break
             case 'Delete Workspace': {
-                functionLibraryNodeDeleter.deleteWorkspace(action.node, action.rootNodes)
+                return functionLibraryNodeDeleter.deleteWorkspace(action.node, action.rootNodes)
             }
                 break
             case 'Copy Node Path':

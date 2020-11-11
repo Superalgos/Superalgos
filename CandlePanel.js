@@ -324,27 +324,27 @@ function newMastersPlottersCandlesVolumesCandlesCandlePanel() {
 
         let y;
 
-        UI.projects.superalgos.utilities.drawPrint.printLabel('Max', X_AXIS, frameTitleHeight + frameBodyHeight * 0.05, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
-        UI.projects.superalgos.utilities.drawPrint.printLabel(currentCandle.innerCandle.max, X_AXIS, frameTitleHeight + frameBodyHeight * 0.10, '1.00', 15, undefined, true, thisObject.container, thisObject.fitFunction);
+        UI.projects.superalgos.utilities.drawPrint.printLabel('Max', undefined, undefined, X_AXIS, frameTitleHeight + frameBodyHeight * 0.05, '0.60', undefined, undefined, 'Center', thisObject.container, thisObject.fitFunction);
+        UI.projects.superalgos.utilities.drawPrint.printLabel(currentCandle.innerCandle.max, undefined, undefined, X_AXIS, frameTitleHeight + frameBodyHeight * 0.10, '1.00', 15, undefined, 'Center', thisObject.container, thisObject.fitFunction);
 
-        UI.projects.superalgos.utilities.drawPrint.printLabel('Min', X_AXIS, frameTitleHeight + frameBodyHeight * 0.95, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
-        UI.projects.superalgos.utilities.drawPrint.printLabel(currentCandle.innerCandle.min, X_AXIS, frameTitleHeight + frameBodyHeight * 0.90, '1.00', 15, undefined, true, thisObject.container, thisObject.fitFunction);
+        UI.projects.superalgos.utilities.drawPrint.printLabel('Min', undefined, undefined, X_AXIS, frameTitleHeight + frameBodyHeight * 0.95, '0.60', undefined, undefined, 'Center', thisObject.container, thisObject.fitFunction);
+        UI.projects.superalgos.utilities.drawPrint.printLabel(currentCandle.innerCandle.min, undefined, undefined, X_AXIS, frameTitleHeight + frameBodyHeight * 0.90, '1.00', 15, undefined, 'Center', thisObject.container, thisObject.fitFunction);
 
         y = Y_AXIS - currentCandle.bodyHeight / 2;
 
         if (y < frameTitleHeight + frameBodyHeight * 0.15) { y = frameTitleHeight + frameBodyHeight * 0.15; }
         if (y > frameTitleHeight + frameBodyHeight * 0.80) { y = frameTitleHeight + frameBodyHeight * 0.80; }
 
-        UI.projects.superalgos.utilities.drawPrint.printLabel('Open', X_AXIS * 2 / 5, y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
-        UI.projects.superalgos.utilities.drawPrint.printLabel(currentCandle.innerCandle.open, X_AXIS * 2 / 5, y + frameBodyHeight * 0.05, '1.00', 15, undefined, true, thisObject.container, thisObject.fitFunction);
+        UI.projects.superalgos.utilities.drawPrint.printLabel('Open', undefined, undefined, X_AXIS * 2 / 5, y, '0.60', undefined, undefined, 'Center', thisObject.container, thisObject.fitFunction);
+        UI.projects.superalgos.utilities.drawPrint.printLabel(currentCandle.innerCandle.open, undefined, undefined, X_AXIS * 2 / 5, y + frameBodyHeight * 0.05, '1.00', 15, undefined, 'Center', thisObject.container, thisObject.fitFunction);
 
         y = Y_AXIS + currentCandle.bodyHeight / 2;
 
         if (y < frameTitleHeight + frameBodyHeight * 0.15) { y = frameTitleHeight + frameBodyHeight * 0.15; }
         if (y > frameTitleHeight + frameBodyHeight * 0.80) { y = frameTitleHeight + frameBodyHeight * 0.80; }
 
-        UI.projects.superalgos.utilities.drawPrint.printLabel('Close', X_AXIS * 7 / 5, y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
-        UI.projects.superalgos.utilities.drawPrint.printLabel(currentCandle.innerCandle.close, X_AXIS * 7 / 5, y + frameBodyHeight * 0.05, '1.00', 15, undefined, true, thisObject.container, thisObject.fitFunction);
+        UI.projects.superalgos.utilities.drawPrint.printLabel('Close', undefined, undefined, X_AXIS * 7 / 5, y, '0.60', undefined, undefined, 'Center', thisObject.container, thisObject.fitFunction);
+        UI.projects.superalgos.utilities.drawPrint.printLabel(currentCandle.innerCandle.close, undefined, undefined, X_AXIS * 7 / 5, y + frameBodyHeight * 0.05, '1.00', 15, undefined, 'Center', thisObject.container, thisObject.fitFunction);
 
     }
 }

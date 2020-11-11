@@ -188,7 +188,9 @@ function newSuperalgosUtilitiesDrawPrint() {
 
     function printLabel(
         labelToPrint,
-        x,
+        xLeft,
+        xRight,
+        xCenter,
         y,
         opacity,
         fontSize,
@@ -231,35 +233,49 @@ function newSuperalgosUtilitiesDrawPrint() {
         switch (align) {
             case 'Center': {
                 labelPoint = {
-                    x: x - getTextWidth(label) / 2,
+                    x: xCenter - getTextWidth(label) / 2,
                     y: y
                 }
                 break
             }
             case 'Left': {
                 labelPoint = {
-                    x: x,
+                    x: xLeft,
                     y: y
                 }
                 break
             }
             case 'Right': {
                 labelPoint = {
-                    x: x - getTextWidth(label),
+                    x: xRight - getTextWidth(label),
                     y: y
+                }
+                break
+            }
+            case 'Left Numbers at Right': {
+                if (isItANumber === true) {
+                    labelPoint = {
+                        x: xRight - getTextWidth(label),
+                        y: y
+                    }
+                } else {
+                    labelPoint = {
+                        x: xLeft,
+                        y: y
+                    }
                 }
                 break
             }
             default: {
                 labelPoint = {
-                    x: x,
+                    x: xCenter - getTextWidth(label) / 2,
                     y: y
                 }
             }
         }
         if (isItANumber === true && simulateMonospace === true) {
             labelPoint = {
-                x: x,
+                x: xRight,
                 y: y
             }
         }
@@ -302,7 +318,7 @@ function newSuperalgosUtilitiesDrawPrint() {
                 if (character === '.') {
                     if (insignificantPointPossible === true) {
                         characterOpacity = opacity / 4
-                    } 
+                    }
                 }
 
                 if (hasDecimals === true && character === '0' && insignificantZeroPossible === true) {

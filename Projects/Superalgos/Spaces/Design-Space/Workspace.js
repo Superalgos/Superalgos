@@ -447,6 +447,9 @@ function newWorkspace() {
                 y: browserCanvas.height / 2
             }
 
+            UI.projects.superalgos.spaces.floatingSpace.container.frame.position.x = browserCanvas.width / 2 - UI.projects.superalgos.spaces.floatingSpace.container.frame.width / 2
+            UI.projects.superalgos.spaces.floatingSpace.container.frame.position.y = browserCanvas.height / 2 - UI.projects.superalgos.spaces.floatingSpace.container.frame.height / 2
+
             circularProgressBar.initialize(position)
             circularProgressBar.visible = true
             workingAtTask = 1

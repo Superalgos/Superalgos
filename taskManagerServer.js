@@ -1,7 +1,5 @@
 ﻿exports.newTaskManagerServer = function newTaskManagerServer(WEB_SOCKETS_SERVER, EVENTS_SERVER) {
 
-    const MODULE = "Task Manager Server"
-
     let thisObject = {
         initialize: initialize,
         finalize: finalize,

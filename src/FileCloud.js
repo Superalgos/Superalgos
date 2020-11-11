@@ -21,12 +21,12 @@ function newFileCloud () {
     fileStorage = newFileStorage(pHost, pPort)
   }
 
-  function getFile (pDataMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, pTimeFrames, callBackFunction) {
+  function getFile (pMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, pTimeFrames, callBackFunction) {
     try {
       const MAX_RETRIES = 3
-      getFileRecursively(0, pDataMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, pTimeFrames, callBackFunction)
+      getFileRecursively(0, pMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, pTimeFrames, callBackFunction)
 
-      function getFileRecursively (pRetryCounter, pDataMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, pTimeFrames, callBackFunction) {
+      function getFileRecursively (pRetryCounter, pMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, pTimeFrames, callBackFunction) {
         try {
           let fileName
           let filePath
@@ -78,7 +78,7 @@ function newFileCloud () {
 
           if (fileName === undefined) {
             logger.write('[ERROR] getFile -> getFileRecursively -> Inconsistant data. Check the following: ')
-            logger.write('[ERROR] getFile -> getFileRecursively -> pDataMine = ' + JSON.stringify(pDataMine))
+            logger.write('[ERROR] getFile -> getFileRecursively -> pMine = ' + JSON.stringify(pMine))
             logger.write('[ERROR] getFile -> getFileRecursively -> pBot = ' + JSON.stringify(pBot))
             logger.write('[ERROR] getFile -> getFileRecursively -> pDataset = ' + JSON.stringify(pDataset))
             logger.write('[ERROR] getFile -> getFileRecursively -> pExchange = ' + JSON.stringify(pExchange))
@@ -93,8 +93,8 @@ function newFileCloud () {
             filePath = filePath.replace('@QuotedAsset', pMarket.quotedAsset)
           }
 
-          if (pDataMine !== undefined) {
-            filePath = filePath.replace('@DataMine', pDataMine.config.codeName)
+          if (pMine !== undefined) {
+            filePath = filePath.replace('@DataMine', pMine.config.codeName)
           }
 
           if (pBot !== undefined) {
@@ -139,7 +139,7 @@ function newFileCloud () {
               let data
 
               if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                if (err.code === 'BlobNotFound' | err.code === 'FileNotFound' | err.code === 'ParentNotFound' | err.code === 'The specified key does not exist.') {
+                if (err.code === 'BlobNotFound' || err.code === 'FileNotFound' || err.code === 'ParentNotFound' || err.code === 'The specified key does not exist.') {
                   let customErr = {
                     result: GLOBAL.CUSTOM_FAIL_RESPONSE.result,
                     message: 'File does not exist.'
@@ -161,7 +161,7 @@ function newFileCloud () {
                     if (ERROR_LOG === true) { logger.write('[ERROR] getFile -> getFileRecursively -> onFileReceived -> MAX_RETRIES = ' + MAX_RETRIES) }
                     if (ERROR_LOG === true) { logger.write('[ERROR] getFile -> getFileRecursively -> onFileReceived -> pRetryCounter = ' + pRetryCounter) }
 
-                    getFileRecursively(pRetryCounter + 1, pDataMine, pBot, pDataset, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction)
+                    getFileRecursively(pRetryCounter + 1, pMine, pBot, pDataset, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction)
                     return
                   } else {
                     if (ERROR_LOG === true) { logger.write('[ERROR] getFile -> getFileRecursively -> onFileReceived -> Could not get this file from storage. ') }

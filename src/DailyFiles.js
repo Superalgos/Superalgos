@@ -45,7 +45,7 @@ function newDailyFiles() {
     }
   }
 
-  function initialize(pDataMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, pDatetime, pTimeFrame, pHost, pPort, pEventsServerClient, callBackFunction) {
+  function initialize(pMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, pDatetime, pTimeFrame, pHost, pPort, pEventsServerClient, callBackFunction) {
     try {
       callBackWhenFileReceived = callBackFunction
 
@@ -69,7 +69,7 @@ function newDailyFiles() {
 
       function getDataRangeFile() {
         /* First we will get the Data Range */
-        fileCloud.getFile(pDataMine, pBot, pSession, pProduct, pDataset, exchange, pMarket, undefined, undefined, undefined, true, undefined, onDataRangeReceived)
+        fileCloud.getFile(pMine, pBot, pSession, pProduct, pDataset, exchange, pMarket, undefined, undefined, undefined, true, undefined, onDataRangeReceived)
 
         function onDataRangeReceived(err, pFile) {
           switch (err.result) {
@@ -109,7 +109,7 @@ function newDailyFiles() {
 
       function getTimeFramesFile() {
         /* First we will get the Data Range */
-        fileCloud.getFile(pDataMine, pBot, pSession, pProduct, pDataset, exchange, pMarket, undefined, undefined, undefined, undefined, true, onTimeFramesReceived)
+        fileCloud.getFile(pMine, pBot, pSession, pProduct, pDataset, exchange, pMarket, undefined, undefined, undefined, undefined, true, onTimeFramesReceived)
 
         function onTimeFramesReceived(err, pFile) {
           switch (err.result) {
@@ -150,7 +150,7 @@ function newDailyFiles() {
       function createFileCursors() {
         try {
           /* Now we will get the daily files */
-          for (i = 0; i < dailyFilePeriods.length; i++) {
+          for (let i = 0; i < dailyFilePeriods.length; i++) {
             let periodTime = dailyFilePeriods[i][0]
             let periodName = dailyFilePeriods[i][1]
 
@@ -165,7 +165,7 @@ function newDailyFiles() {
 
             let fileCursor = newFileCursor()
             fileCursor.eventHandler = thisObject.eventHandler // We share our event handler with each file cursor, so that they can raise events there when files are changed.s
-            fileCursor.initialize(fileCloud, pDataMine, pBot, pSession, pProduct, pDataset, exchange, pMarket, periodName, periodTime, pDatetime, pTimeFrame, beginDateRange, endDateRange, pEventsServerClient, onInitialized)
+            fileCursor.initialize(fileCloud, pMine, pBot, pSession, pProduct, pDataset, exchange, pMarket, periodName, periodTime, pDatetime, pTimeFrame, beginDateRange, endDateRange, pEventsServerClient, onInitialized)
             function onInitialized(err) {
               try {
                 switch (err.result) {
@@ -198,7 +198,7 @@ function newDailyFiles() {
 
       function loadThemAll() {
         try {
-          for (i = 0; i < dailyFilePeriods.length; i++) {
+          for (let i = 0; i < dailyFilePeriods.length; i++) {
             let periodTime = dailyFilePeriods[i][0]
             let periodName = dailyFilePeriods[i][1]
 

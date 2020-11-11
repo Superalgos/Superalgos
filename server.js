@@ -65,7 +65,9 @@ try {
     WEB_SERVER.initialize()
     WEB_SERVER.run()
 
-    console.log("You are running Superalgos Beta 7: What's new? Multi-Project & Machine Learning Infrastructure is being implemented here.")
+    console.log("You are running Superalgos Beta 6 SP4: What's new? Some bugs fixed and improved performance.")
+
+    //console.log("You are running Superalgos Beta 7: What's new? Multi-Project & Machine Learning Infrastructure is being implemented here.")
 
 } catch (err) {
     console.log('[ERROR] BackendServers -> Task Manager -> server -> Error = ' + err.stack)

@@ -100,6 +100,9 @@
                 botNode = global.FIND_NODE_IN_NODE_MESH(outputDatasetNode, 'Trading Bot')
             }
             if (botNode === undefined) {
+                botNode = global.FIND_NODE_IN_NODE_MESH(outputDatasetNode, 'Learning Bot')
+            }
+            if (botNode === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] start -> Product Definition not attached to a Bot. Product Definition = ");
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return
@@ -115,9 +118,18 @@
             if (dataMineNode === undefined) {
                 let tradingMineNode = global.FIND_NODE_IN_NODE_MESH(outputDatasetNode, 'Trading Mine')
                 if (tradingMineNode === undefined) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> Bot not attached to a Data Mine or a Trading Mine.");
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                    return
+                    let learningMineNode = global.FIND_NODE_IN_NODE_MESH(outputDatasetNode, 'Learning Mine')
+                    if (learningMineNode === undefined) {
+                        logger.write(MODULE_NAME, "[ERROR] start -> Bot not attached to a Data Mine, Trading Mine or Learning Mine.");
+                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                        return
+                    } else {
+                        if (tradingMineNode.config.codeName === undefined) {
+                            logger.write(MODULE_NAME, "[ERROR] start -> Learning Mine witn no codeName defined.");
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                            return
+                        }
+                    }  
                 } else {
                     if (tradingMineNode.config.codeName === undefined) {
                         logger.write(MODULE_NAME, "[ERROR] start -> Trading Mine witn no codeName defined.");
@@ -380,12 +392,6 @@
                     let product = {}
                     product[variableName] = {}
 
-                    /* Here is how we know if we are processing Yesterday. */
-                    let positionedAtYesterday = false
-                    if (processingDailyFiles) {
-                        positionedAtYesterday = (record.current.end < currentDay.valueOf())
-                    }
-
                     /* This is Loop Code */
                     try {
                         eval(dataBuildingProcedure.loop.javascriptCode.code)
@@ -423,9 +429,9 @@
                         results.push(product[variableName]);
                     }
 
-                    /* While we are positioned at Yesterday, we keep updating this data structure. */
+                    /* At the last instant of yesterday, we update the yesterday object. */
                     if (processingDailyFiles) {
-                        if (positionedAtYesterday) {
+                        if (record.current.end + 1 === currentDay.valueOf()) {
                             yesterday.variable = JSON.parse(JSON.stringify(variable))
                         }
                     }

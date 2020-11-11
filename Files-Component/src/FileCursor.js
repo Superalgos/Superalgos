@@ -25,7 +25,7 @@ function newFileCursor() {
   let market
   let exchange
   let fileCloud
-  let dataMine
+  let mine
   let bot
   let session
   let product
@@ -53,7 +53,7 @@ function newFileCursor() {
       market = undefined
       exchange = undefined
       fileCloud = undefined
-      dataMine = undefined
+      mine = undefined
       bot = undefined
       session = undefined
       product = undefined
@@ -77,7 +77,7 @@ function newFileCursor() {
 
   function initialize(
     pFileCloud,
-    pDataMine,
+    pMine,
     pBot,
     pSession,
     pProduct,
@@ -96,7 +96,7 @@ function newFileCursor() {
       market = pMarket
       exchange = pExchange
       fileCloud = pFileCloud
-      dataMine = pDataMine
+      mine = pMine
       bot = pBot
       session = pSession
       product = pProduct
@@ -108,11 +108,11 @@ function newFileCursor() {
       endDateRange = pEndDateRange
       eventsServerClient = pEventsServerClient
 
-      let key = dataMine.config.codeName + '-' + bot.config.codeName + '-' + product.config.codeName + '-' + dataset.config.codeName + '-' + exchange.name + '-' + market.baseAsset + '/' + market.quotedAsset
+      let key = mine.config.codeName + '-' + bot.config.codeName + '-' + product.config.codeName + '-' + dataset.config.codeName + '-' + exchange.name + '-' + market.baseAsset + '/' + market.quotedAsset
       let callerId = key + '-' + periodName + newUniqueId()
       eventsServerClient.listenToEvent(key, 'Dataset Updated', undefined, callerId, onResponseDataSet, updateFiles)
 
-      key = dataMine.config.codeName + '-' + bot.config.codeName + '-' + product.config.codeName + '-' + exchange.name + '-' + market.baseAsset + '/' + market.quotedAsset
+      key = mine.config.codeName + '-' + bot.config.codeName + '-' + product.config.codeName + '-' + exchange.name + '-' + market.baseAsset + '/' + market.quotedAsset
       callerId = key + '-' + periodName + newUniqueId()
       eventsServerClient.listenToEvent(key, 'Data Range Updated', undefined, callerId, onResponseDataRange, updateDataRange)
 
@@ -168,7 +168,7 @@ function newFileCursor() {
 
       dateString = targetDate.getUTCFullYear() + '-' + pad(targetDate.getUTCMonth() + 1, 2) + '-' + pad(targetDate.getUTCDate(), 2)
 
-      fileCloud.getFile(dataMine, bot, session, product, dataset, exchange, market, periodName, targetDate, undefined, undefined, undefined, onFileReceived)
+      fileCloud.getFile(mine, bot, session, product, dataset, exchange, market, periodName, targetDate, undefined, undefined, undefined, onFileReceived)
 
       function onFileReceived(err, file) {
         try {
@@ -468,7 +468,7 @@ function newFileCursor() {
             if (thisObject.files.get(dateString) === undefined) {
               // We dont reload files we already have.
 
-              fileCloud.getFile(dataMine, bot, session, product, dataset, exchange, market, periodName, targetDate, undefined, undefined, undefined, onFileReceived)
+              fileCloud.getFile(mine, bot, session, product, dataset, exchange, market, periodName, targetDate, undefined, undefined, undefined, onFileReceived)
             } else {
               controlLoop()
             }

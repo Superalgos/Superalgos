@@ -44,7 +44,7 @@ function newFileStorage(host, port) {
         url = folder + filePath
       }
 
-      callServer(undefined, url, (response, fileContent) => {
+      callWebServer(undefined, url, (response, fileContent) => {
         if (response.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
           callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, fileContent)
         } else {

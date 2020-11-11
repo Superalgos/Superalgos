@@ -17,7 +17,7 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
 
     let http = require('http')
     let isHttpServerStarted = false
-  
+
     let webhook = new Map()
 
     return thisObject
@@ -301,6 +301,27 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                 }
                 break
 
+            case 'Icons': // This means the Icons folder under Projects.
+                {
+                    let path = process.env.PROJECTS_PATH + '/' + requestParameters[2] + '/Icons'
+
+                    if (requestParameters[3] !== undefined) {
+                        path = path + '/' + requestParameters[3]
+                    }
+
+                    if (requestParameters[4] !== undefined) {
+                        path = path + '/' + requestParameters[4]
+                    }
+
+                    if (requestParameters[5] !== undefined) {
+                        path = path + '/' + requestParameters[5]
+                    }
+
+                    path = unescape(path)
+                    respondWithImage(path, response)
+                }
+                break
+
             case 'favicon.ico': // This means the Scripts folder.
                 {
                     respondWithImage(process.env.PATH_TO_WEB_SERVER + 'WebServer/Images/' + 'favicon.ico', response)
@@ -349,12 +370,6 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                 }
                 break
 
-            case 'Utilities': // This means the DesignSpace folder.
-                {
-                    respondWithFile(process.env.PATH_TO_CANVAS_APP + '/Utilities/' + requestParameters[2], response)
-                }
-                break
-
             case 'WebServer': // This means the WebServer folder.
                 {
                     respondWithFile(process.env.PATH_TO_WEB_SERVER + 'WebServer/' + requestParameters[2], response)
@@ -384,12 +399,6 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                     let moduleName = requestParameters[4]
                     let filePath = process.env.PLOTTERS_PATH + '/' + dataMine + '/plotters/' + codeName + '/' + moduleName
                     respondWithFile(filePath, response)
-                }
-                break
-
-            case 'Panels':
-                {
-                    respondWithFile(process.env.PATH_TO_CANVAS_APP + '/' + requestParameters[1] + '/' + requestParameters[2], response)
                 }
                 break
 
@@ -423,65 +432,55 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                 }
                 break
 
-            case 'FloatingSpace':
+            case 'ProjectNames':
                 {
-                    respondWithFile(process.env.PATH_TO_CANVAS_APP + '/' + requestParameters[1] + '/' + requestParameters[2], response)
+                    let projects = getDirectories(process.env.PROJECTS_PATH)
+                    respondWithContent(JSON.stringify(projects), response)
                 }
                 break
 
-            case 'ChartingSpace':
+            case 'Schema':
                 {
-                    respondWithFile(process.env.PATH_TO_CANVAS_APP + '/' + requestParameters[1] + '/' + requestParameters[2], response)
+                    sendSchema(process.env.PROJECTS_PATH + '/' + requestParameters[2] + '/Schemas/', requestParameters[3] + '.json')
                 }
                 break
 
-            case 'SideSpace':
+            case 'IconNames':
                 {
-                    respondWithFile(process.env.PATH_TO_CANVAS_APP + '/' + requestParameters[1] + '/' + requestParameters[2], response)
-                }
-                break
-
-            case 'ImagesNames':
-                {
-                    const folder = process.env.PATH_TO_WEB_SERVER + 'WebServer/Images/Icons/style-01/'
+                    let projects = getDirectories(process.env.PROJECTS_PATH)
                     const fs = require('fs')
 
-                    fs.readdir(folder, (err, files) => {
-                        respondWithContent(JSON.stringify(files), response)
-                    })
+                    let icons = []
+                    let totalProjects = projects.length
+                    let projectCounter = 0
+
+                    for (let i = 0; i < projects.length; i++) {
+                        let project = projects[i]
+
+                        const folder = process.env.PROJECTS_PATH + '/' + project + '/Icons/'
+
+                        fs.readdir(folder, (err, files) => {
+                            for (let j = 0; j < files.length; j++) {
+                                let file = files[j]
+                                icons.push([project, file])
+                            }
+
+                            projectCounter++
+                            if (projectCounter === totalProjects) {
+                                respondWithContent(JSON.stringify(icons), response)
+                            }
+                        })
+                    }
                 }
                 break
 
             case 'PluginFileNames':
                 {
+                    let project = unescape(requestParameters[2])
+                    let pluginType = unescape(requestParameters[3])
+
                     const fs = require('fs')
-                    let folder
-                    switch (requestParameters[2]) {
-                        case 'Data-Mines': {
-                            folder = process.env.DATA_MINES_PATH + '/'
-                            break
-                        }
-                        case 'Trading-Mines': {
-                            folder = process.env.TRADING_MINES_PATH + '/'
-                            break
-                        }
-                        case 'Trading-Systems': {
-                            folder = process.env.TRADING_SYSTEMS_PATH + '/'
-                            break
-                        }
-                        case 'Trading-Engines': {
-                            folder = process.env.TRADING_ENGINES_PATH + '/'
-                            break
-                        }
-                        case 'Super-Scripts': {
-                            folder = process.env.SUPER_SCRIPTS_PATH + '/'
-                            break
-                        }
-                        case 'Tutorials': {
-                            folder = process.env.TUTORIALS_PATH + '/'
-                            break
-                        }
-                    }
+                    let folder = process.env.PROJECTS_PATH + '/' + project + '/Plugins/' + pluginType
 
                     fs.readdir(folder, (err, files) => {
                         respondWithContent(JSON.stringify(files), response)
@@ -489,21 +488,14 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                 }
                 break
 
-            case 'AppSchema.js':
-                {
-                    sendSchema(process.env.PROJECTS_PATH + '/Superalgos/Schemas/', 'AppSchema', 'getAppSchema')
-                }
-                break
 
-            case 'DocSchema.js':
+            case 'LoadPlugin':
                 {
-                    sendSchema(process.env.PROJECTS_PATH + '/Superalgos/Schemas/', 'DocSchema', 'getDocSchema')
-                }
-                break
-
-            case 'ConceptSchema.js':
-                {
-                    sendSchema(process.env.PROJECTS_PATH + '/Superalgos/Schemas/', 'ConceptSchema', 'getConceptSchema')
+                    let project = unescape(requestParameters[2])
+                    let pluginType = unescape(requestParameters[3])
+                    let fileName = unescape(requestParameters[4])
+                    let filePath = process.env.PROJECTS_PATH + '/' + project + '/Plugins/' + pluginType + '/' + fileName
+                    respondWithFile(filePath, response)
                 }
                 break
 
@@ -532,33 +524,42 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
             case 'ListWorkspaces':
                 {
                     let allWorkspaces = []
-                    readPluginWorkspaces()
-                    function readPluginWorkspaces() {
-                        let dirPath = process.env.WORKSPACES_PATH
-                        try {
-                            let fs = require('fs')
-                            fs.readdir(dirPath, onDirRead)
+                    let projects = getDirectories(process.env.PROJECTS_PATH)
+                    let projectsCount = 0
 
-                            function onDirRead(err, fileList) {
-                                if (err) {
-                                    if (CONSOLE_LOG === true) { console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath) }
-                                    respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
-                                    return
-                                } else {
-                                    let updatedFileList = []
-                                    for (let i = 0; i < fileList.length; i++) {
-                                        let name = 'Plugin \u2192 ' + fileList[i]
-                                        updatedFileList.push(name)
+                    for (let i = 0; i < projects.length; i++) {
+                        let project = projects[i]
+                        readPluginWorkspaces()
+                        function readPluginWorkspaces() {
+                            let dirPath = process.env.PROJECTS_PATH + '/' + project + '/Plugins/Workspaces'
+                            try {
+                                let fs = require('fs')
+                                fs.readdir(dirPath, onDirRead)
+
+                                function onDirRead(err, fileList) {
+                                    if (err) {
+                                        if (CONSOLE_ERROR_LOG === true) { console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath) }
+                                        respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
+                                        return
+                                    } else {
+                                        let updatedFileList = []
+                                        for (let i = 0; i < fileList.length; i++) {
+                                            let name = 'Plugin \u2192 ' + fileList[i]
+                                            updatedFileList.push([project, name])
+                                        }
+                                        allWorkspaces = allWorkspaces.concat(updatedFileList)
+                                        projectsCount++
+                                        if (projectsCount === projects.length) {
+                                            readMyWorkspaces()
+                                        }
+                                        return
                                     }
-                                    allWorkspaces = allWorkspaces.concat(updatedFileList)
-                                    readMyWorkspaces()
-                                    return
                                 }
+                            } catch (err) {
+                                if (CONSOLE_ERROR_LOG === true) { console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath) }
+                                respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
+                                return
                             }
-                        } catch (err) {
-                            if (CONSOLE_LOG === true) { console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath) }
-                            respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
-                            return
                         }
                     }
 
@@ -570,17 +571,22 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
 
                             function onDirRead(err, fileList) {
                                 if (err) {
-                                    if (CONSOLE_LOG === true) { console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath) }
+                                    if (CONSOLE_ERROR_LOG === true) { console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath) }
                                     respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
                                     return
                                 } else {
-                                    allWorkspaces = allWorkspaces.concat(fileList)
+                                    let updatedFileList = []
+                                        for (let i = 0; i < fileList.length; i++) {
+                                            let name = fileList[i]
+                                            updatedFileList.push(['', name])
+                                        }
+                                    allWorkspaces = allWorkspaces.concat(updatedFileList)
                                     respondWithContent(JSON.stringify(allWorkspaces), response)
                                     return
                                 }
                             }
                         } catch (err) {
-                            if (CONSOLE_LOG === true) { console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath) }
+                            if (CONSOLE_ERROR_LOG === true) { console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath) }
                             respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
                             return
                         }
@@ -588,18 +594,10 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                 }
                 break
 
-            case 'LoadWorkspace':
+            case 'LoadMyWorkspace':
                 {
                     let fileName = unescape(requestParameters[2])
                     let filePath = process.env.MY_WORKSPACES_PATH + '/' + fileName + '.json'
-                    respondWithFile(filePath, response)
-                }
-                break
-
-            case 'LoadPluginWorkspace':
-                {
-                    let fileName = unescape(requestParameters[2])
-                    let filePath = process.env.WORKSPACES_PATH + '/' + fileName + '.json'
                     respondWithFile(filePath, response)
                 }
                 break
@@ -627,7 +625,7 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
 
                             function onFileWritten(err) {
                                 if (err) {
-                                    if (CONSOLE_LOG === true) { console.log('[ERROR] Error writting the Workspace file. fileName = ' + fileName) }
+                                    if (CONSOLE_ERROR_LOG === true) { console.log('[ERROR] Error writting the Workspace file. fileName = ' + fileName) }
                                     respondWithContent(JSON.stringify(exchanges), response)
                                 } else {
                                     respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), response)
@@ -635,46 +633,109 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                             }
 
                         } catch (err) {
-                            if (CONSOLE_LOG === true) { console.log('[ERROR] Error writting the Workspace file. fileName = ' + fileName) }
+                            if (CONSOLE_ERROR_LOG === true) { console.log('[ERROR] Error writting the Workspace file. fileName = ' + fileName) }
                             respondWithContent(JSON.stringify(exchanges), response)
                         }
                     }
                 }
                 break
 
-            case 'Data-Mines':
+            case 'ListFunctionLibraries':
                 {
-                    respondWithFile(process.env.DATA_MINES_PATH + '/' + requestParameters[2], response)
+                    returnProjectFolderFileList('Function-Libraries')
                 }
                 break
 
-            case 'Trading-Mines':
+            case 'ProjectsSchema':
                 {
-                    respondWithFile(process.env.TRADING_MINES_PATH + '/' + requestParameters[2], response)
+                    let path = process.env.PROJECTS_PATH + '/' + 'ProjectsSchema.json'
+                    respondWithFile(path, response)
                 }
                 break
 
-            case 'Trading-Systems':
+            case 'ListSpaceFiles':
                 {
-                    respondWithFile(process.env.TRADING_SYSTEMS_PATH + '/' + requestParameters[2], response)
+                    let fs = require('fs')
+                    let allFiles = []
+                    let projects = getDirectories(process.env.PROJECTS_PATH)
+                    let dirCount = 0
+                    let totalDirs = 0
+
+                    for (let i = 0; i < projects.length; i++) {
+                        let project = projects[i]
+
+                        let dirPath = project + '/Spaces'
+                        let spaces = getDirectories(process.env.PROJECTS_PATH + '/' + dirPath)
+
+                        for (let j = 0; j < spaces.length; j++) {
+                            let space = spaces[j]
+                            readDirectory(dirPath + '/' + space)
+                        }
+
+                        function readDirectory(path) {
+                            try {
+
+                                totalDirs++
+                                fs.readdir(process.env.PROJECTS_PATH + '/' + path, onDirRead)
+
+                                let otherDirs = getDirectories(process.env.PROJECTS_PATH + '/' + path)
+                                for (let m = 0; m < otherDirs.length; m++) {
+                                    let otherDir = otherDirs[m]
+                                    readDirectory(path + '/' + otherDir)
+                                }
+
+                                function onDirRead(err, fileList) {
+                                    if (err) {
+                                        respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
+                                    } else {
+                                        let updatedFileList = []
+                                        for (let k = 0; k < fileList.length; k++) {
+                                            let name = fileList[k]
+                                            if (name.indexOf('.js') < 0) { continue }
+                                            updatedFileList.push(path + '/' + name)
+                                        }
+                                        allFiles = allFiles.concat(updatedFileList)
+                                        dirCount++
+                                        if (dirCount === totalDirs) {
+                                            respondWithContent(JSON.stringify(allFiles), response)
+                                        }
+                                    }
+                                }
+                            } catch (err) {
+                                console.log('[ERROR] Error reading a directory content. filePath = ' + path)
+                                console.log(err.stack)
+                                respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
+                                return
+                            }
+                        }
+                    }
                 }
                 break
 
-            case 'Super-Scripts':
+            case 'ListUtilitiesFiles':
                 {
-                    respondWithFile(process.env.SUPER_SCRIPTS_PATH + '/' + requestParameters[2], response)
+                    returnProjectFolderFileList('Utilities')
                 }
                 break
 
-            case 'Trading-Engines':
+            case 'ListGlobalFiles':
                 {
-                    respondWithFile(process.env.TRADING_ENGINES_PATH + '/' + requestParameters[2], response)
+                    returnProjectFolderFileList('Globals')
                 }
                 break
 
-            case 'Tutorials':
+            case 'Projects':
                 {
-                    respondWithFile(process.env.TUTORIALS_PATH + '/' + requestParameters[2], response)
+                    let path = ''
+                    for (let i = 2; i < 10; i++) {
+                        if (requestParameters[i] !== undefined) {
+                            let parameter = unescape(requestParameters[i])
+                            path = path + '/' + parameter
+                        }
+
+                    }
+                    let filePath = process.env.PROJECTS_PATH + path
+                    respondWithFile(filePath, response)
                 }
                 break
 
@@ -695,18 +756,80 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                     sendStyleSheet('font-awasome.css')
                 }
                 break
-
+            case 'ExecuteTerminalCommand':
+                {
+                    let command = unescape(requestParameters[2])
+                    executeTerminalCommand(command)
+                }
+                break
             default:
                 {
                     homePage()
                 }
         }
 
-        function sendSchema(filePath, fileName, functionName) {
+        function returnProjectFolderFileList(projectFolderName) {
+            {
+                let allLibraries = []
+                let projects = getDirectories(process.env.PROJECTS_PATH)
+                let projectsCount = 0
+
+                for (let i = 0; i < projects.length; i++) {
+                    let project = projects[i]
+
+                    let dirPath = process.env.PROJECTS_PATH + '/' + project + '/' + projectFolderName
+                    try {
+                        let fs = require('fs')
+                        fs.readdir(dirPath, onDirRead)
+
+                        function onDirRead(err, fileList) {
+                            if (err) {
+                                if (CONSOLE_ERROR_LOG === true) { console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath) }
+                                if (CONSOLE_ERROR_LOG === true) { console.log(err.stack) }
+                                return
+                            } else {
+                                let updatedFileList = []
+                                for (let i = 0; i < fileList.length; i++) {
+                                    let name = fileList[i]
+                                    updatedFileList.push([project, name])
+                                }
+                                allLibraries = allLibraries.concat(updatedFileList)
+                                projectsCount++
+                                if (projectsCount === projects.length) {
+                                    respondWithContent(JSON.stringify(allLibraries), response)
+                                }
+                                return
+                            }
+                        }
+                    } catch (err) {
+                        if (CONSOLE_ERROR_LOG === true) { console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath) }
+                        respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
+                        return
+                    }
+                }
+            }
+        }
+
+        function executeTerminalCommand(command) {
+            const util = require('util');
+            const exec = util.promisify(require('child_process').exec);
+            async function lsWithGrep() {
+                try {
+                    const { stdout, stderr } = await exec(command);
+                    console.log('stdout:', stdout);
+                    console.log('stderr:', stderr);
+                } catch (err) {
+                    console.error(err.stack);
+                };
+            };
+            lsWithGrep();
+        }
+
+        function sendSchema(filePath, fileName) {
             let fs = require('fs')
 
             try {
-                filePath = filePath + fileName + '.json'
+                filePath = filePath + fileName
                 fs.readFile(filePath, onFileRead)
             } catch (e) {
                 console.log('[ERROR] Error reading the ' + fileName, e)
@@ -716,8 +839,7 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                 if (err) {
                     respondWithContent(undefined, response)
                 } else {
-                    let responseContent = 'function ' + functionName + '(){ return ' + schema + '}'
-                    respondWithContent(responseContent, response)
+                    respondWithContent(schema, response)
                 }
             }
         }
@@ -773,7 +895,6 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
 
     function respondWithFile(fileName, response) {
         if (CONSOLE_LOG === true) { console.log('[INFO] webServer -> respondWithFile -> Entering function.') }
-
         let fs = require('fs')
         if (fileName.indexOf('undefined') > 0) {
             console.log('[WRN] webServer -> respondWithFile -> Received request for undefined file. ')
@@ -889,8 +1010,7 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
 
     function returnEmptyArray(response) {
         try {
-            if (CONSOLE_LOG === true) { console.log('[INFO] webServer -> respondWithFile -> returnEmptyArray -> Entering function.') }
-
+            if (CONSOLE_LOG === true) { console.log('[INFO] webServer -> returnEmptyArray -> Entering function.') }
             response.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate') // HTTP 1.1.
             response.setHeader('Pragma', 'no-cache') // HTTP 1.0.
             response.setHeader('Expires', '0') // Proxies.
@@ -899,7 +1019,14 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
             response.write('[]')
             response.end('\n')
         } catch (err) {
-            console.log('[ERROR] webServer -> returnEmptyArray -> err.message ' + err.message)
+            console.log('[ERROR] webServer -> returnEmptyArray -> err.stack ' + err.stack)
         }
+    }
+
+    function getDirectories(path) {
+        const fs = require('fs')
+        return fs.readdirSync(path).filter(function (file) {
+            return fs.statSync(path + '/' + file).isDirectory();
+        });
     }
 }

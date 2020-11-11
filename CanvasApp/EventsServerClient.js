@@ -76,6 +76,8 @@ function newEventsServerClient(networkNode) {
     }
 
     function sendToWebSocketServer(command) {
+        if (commandsWaitingConfirmation === undefined) {return} // object already finalized
+
         nonce++
         let stringNonce = nonce.toString()
         let timestamp = (new Date()).valueOf()

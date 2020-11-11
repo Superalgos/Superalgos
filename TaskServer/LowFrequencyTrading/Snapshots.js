@@ -45,7 +45,7 @@ exports.newSnapshots = function newSnapshots(bot, logger) {
     function initialize() {
         tradingEngine = bot.simulationState.tradingEngine
         tradingSystem = bot.simulationState.tradingSystem
-        sessionParameters = bot.SESSION.parameters
+        sessionParameters = bot.TRADING_SESSION.tradingParameters
     }
 
     function finalize() {
@@ -322,7 +322,7 @@ exports.newSnapshots = function newSnapshots(bot, logger) {
             fileContent = "" + fileContent + "";
 
             let fileName = pFileName + '.csv';
-            let filePath = bot.filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + SNAPSHOTS_FOLDER_NAME;
+            let filePath = bot.filePathRoot + "/Output/" + bot.TRADING_SESSION.folderName + "/" + SNAPSHOTS_FOLDER_NAME;
             filePath += '/' + fileName
 
             fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);

@@ -5,10 +5,10 @@
 
     const TRADING_PROCESS_MODULE = require(global.ROOT_DIR + '/LowFrequencyTrading/TradingProcess.js');
     const FILE_STORAGE = require('./FileStorage.js');
-    const SESSION = require(global.ROOT_DIR + 'Session');
+    const SESSION = require(global.ROOT_DIR + 'TradingSession');
 
     let fileStorage = FILE_STORAGE.newFileStorage(parentLogger);
-    let session = SESSION.newSession(bot, parentLogger)
+    let session = SESSION.newTradingSession(bot, parentLogger)
 
     const DEBUG_MODULE = require(global.ROOT_DIR + 'DebugLog');
     let logger; // We need this here in order for the loopHealth function to work and be able to rescue the loop when it gets in trouble.
@@ -93,15 +93,15 @@
                         + "      Main Loop     # " + pad(Number(bot.loopCounter), 8) + " " + bot.processNode.session.type + " " + bot.processNode.session.name)
 
                     /* Checking if we need to need to emit any event */
-                    if (bot.SESSION_STATUS === 'Idle' && bot.STOP_SESSION === false) {
-                        bot.SESSION_STATUS = 'Running'
+                    if (bot.TRADING_SESSION_STATUS === 'Idle' && bot.STOP_SESSION === false) {
+                        bot.TRADING_SESSION_STATUS = 'Running'
                     }
 
-                    if (bot.SESSION_STATUS === 'Running' && bot.STOP_SESSION === true) {
-                        bot.SESSION_STATUS = 'Stopped'
+                    if (bot.TRADING_SESSION_STATUS === 'Running' && bot.STOP_SESSION === true) {
+                        bot.TRADING_SESSION_STATUS = 'Stopped'
                     } 
 
-                    global.EMIT_SESSION_STATUS (bot.SESSION_STATUS, bot.sessionKey)
+                    global.EMIT_SESSION_STATUS (bot.TRADING_SESSION_STATUS, bot.TRADING_SESSIONKey)
 
                     /* Checking if we should process this loop or not.*/
                     if (bot.STOP_SESSION === true) {
@@ -534,7 +534,7 @@
                                 logger.persist();
                             }
 
-                            global.EVENT_SERVER_CLIENT.raiseEvent(bot.sessionKey, 'Stopped')
+                            global.EVENT_SERVER_CLIENT.raiseEvent(bot.TRADING_SESSIONKey, 'Stopped')
                             processStopped()
                             return;
                         }
@@ -560,17 +560,17 @@
                                     if (processConfig.waitsForExecutionFinishedEvent === true) {
                                         waitTime = 0
                                     } else {
-                                        switch (bot.SESSION.type) {
+                                        switch (bot.TRADING_SESSION.type) {
                                             case 'Live Trading Session': {
-                                                waitTime = bot.SESSION.parameters.timeFrame.config.value
+                                                waitTime = bot.TRADING_SESSION.tradingParameters.timeFrame.config.value
                                                 break
                                             }
                                             case 'Fordward Tessting Session': {
-                                                waitTime = bot.SESSION.parameters.timeFrame.config.value
+                                                waitTime = bot.TRADING_SESSION.tradingParameters.timeFrame.config.value
                                                 break
                                             }
                                             case 'Paper Trading Session': {
-                                                waitTime = bot.SESSION.parameters.timeFrame.config.value
+                                                waitTime = bot.TRADING_SESSION.tradingParameters.timeFrame.config.value
                                                 break
                                             }
                                             case 'Backtesting Session': {
@@ -669,9 +669,9 @@
             }
 
             function sessionStopped() {
-                if (bot.SESSION_STATUS === 'Running') {
-                    global.EVENT_SERVER_CLIENT.raiseEvent(bot.sessionKey, 'Stopped')
-                    bot.SESSION_STATUS = 'Stopped'
+                if (bot.TRADING_SESSION_STATUS === 'Running') {
+                    global.EVENT_SERVER_CLIENT.raiseEvent(bot.TRADING_SESSIONKey, 'Stopped')
+                    bot.TRADING_SESSION_STATUS = 'Stopped'
                 }
             }
 

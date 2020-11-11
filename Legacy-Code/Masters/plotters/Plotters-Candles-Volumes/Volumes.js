@@ -65,8 +65,8 @@
 
             /* Stop listening to the necesary events. */
             thisObject.container.eventHandler.stopListening(onMouseOverEventSuscriptionId)
-            canvas.chartingSpace.viewport.eventHandler.stopListening(zoomChangedEventSubscriptionId);
-            canvas.chartingSpace.viewport.eventHandler.stopListening(offsetChangedEventSubscriptionId);
+            UI.projects.superalgos.spaces.chartingSpace.viewport.eventHandler.stopListening(zoomChangedEventSubscriptionId);
+            UI.projects.superalgos.spaces.chartingSpace.viewport.eventHandler.stopListening(offsetChangedEventSubscriptionId);
             canvas.eventHandler.stopListening(dragFinishedEventSubscriptionId);
             thisObject.container.eventHandler.stopListening(dimmensionsChangedEventSubscriptionId)
             marketFiles.eventHandler.stopListening(marketFilesUpdatedEventSubscriptionId);
@@ -118,8 +118,8 @@
 
             /* Listen to the necesary events. */
 
-            zoomChangedEventSubscriptionId = canvas.chartingSpace.viewport.eventHandler.listenToEvent("Zoom Changed", onViewportZoomChanged);
-            offsetChangedEventSubscriptionId = canvas.chartingSpace.viewport.eventHandler.listenToEvent("Position Changed", onViewportPositionChanged);
+            zoomChangedEventSubscriptionId = UI.projects.superalgos.spaces.chartingSpace.viewport.eventHandler.listenToEvent("Zoom Changed", onViewportZoomChanged);
+            offsetChangedEventSubscriptionId = UI.projects.superalgos.spaces.chartingSpace.viewport.eventHandler.listenToEvent("Position Changed", onViewportPositionChanged);
             dragFinishedEventSubscriptionId = canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
             marketFilesUpdatedEventSubscriptionId = marketFiles.eventHandler.listenToEvent("Files Updated", onMarketFilesUpdated);
             dailyFilesUpdatedEventSubscriptionId = dailyFiles.eventHandler.listenToEvent("Files Updated", onDailyFilesUpdated);
@@ -154,7 +154,7 @@
     }
 
     function onMouseOver(event) {
-        let userPosition = getDateFromPointAtBrowserCanvas(event, thisObject.container, coordinateSystem)
+        let userPosition = UI.projects.superalgos.utilities.dateRateTransformations.getDateFromPointAtBrowserCanvas(event, thisObject.container, coordinateSystem)
         userPositionDate = userPosition.valueOf()
     }
 
@@ -298,8 +298,8 @@
 
             if (fileCursor.files.size === 0) { return; } // We need to wait until there are files in the cursor
 
-            let leftDate = getDateFromPointAtBrowserCanvas(canvas.chartingSpace.viewport.visibleArea.topLeft, thisObject.container, coordinateSystem);
-            let rightDate = getDateFromPointAtBrowserCanvas(canvas.chartingSpace.viewport.visibleArea.topRight, thisObject.container, coordinateSystem);
+            let leftDate = UI.projects.superalgos.utilities.dateRateTransformations.getDateFromPointAtBrowserCanvas(UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topLeft, thisObject.container, coordinateSystem);
+            let rightDate = UI.projects.superalgos.utilities.dateRateTransformations.getDateFromPointAtBrowserCanvas(UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topRight, thisObject.container, coordinateSystem);
 
             let dateDiff = rightDate.valueOf() - leftDate.valueOf();
 
@@ -312,7 +312,7 @@
 
             while (currentDate.valueOf() <= farRightDate.valueOf() + ONE_DAY_IN_MILISECONDS) {
 
-                let stringDate = currentDate.getFullYear() + '-' + pad(currentDate.getMonth() + 1, 2) + '-' + pad(currentDate.getDate(), 2);
+                let stringDate = currentDate.getUTCFullYear() + '-' + pad(currentDate.getUTCMonth() + 1, 2) + '-' + pad(currentDate.getUTCDate(), 2);
 
                 let dailyFile = fileCursor.files.get(stringDate);
 
@@ -382,8 +382,8 @@
 
             if (marketFile === undefined) { return; } // Initialization not complete yet.
 
-            let leftDate = getDateFromPointAtBrowserCanvas(canvas.chartingSpace.viewport.visibleArea.topLeft, thisObject.container, coordinateSystem);
-            let rightDate = getDateFromPointAtBrowserCanvas(canvas.chartingSpace.viewport.visibleArea.topRight, thisObject.container, coordinateSystem);
+            let leftDate = UI.projects.superalgos.utilities.dateRateTransformations.getDateFromPointAtBrowserCanvas(UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topLeft, thisObject.container, coordinateSystem);
+            let rightDate = UI.projects.superalgos.utilities.dateRateTransformations.getDateFromPointAtBrowserCanvas(UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topRight, thisObject.container, coordinateSystem);
 
             let dateDiff = rightDate.valueOf() - leftDate.valueOf();
 
@@ -435,7 +435,7 @@
         try {
 
             let lowResolution = false
-            if (canvas.chartingSpace.viewport.zoomTargetLevel < ZOOM_OUT_THRESHOLD_FOR_PLOTTING_IN_LOW_RESOLUTION) {
+            if (UI.projects.superalgos.spaces.chartingSpace.viewport.zoomTargetLevel < UI.projects.superalgos.globals.zoom.ZOOM_OUT_THRESHOLD_FOR_PLOTTING_IN_LOW_RESOLUTION) {
                 if (volumes.length > 100) {
                     lowResolution = true
                 }
@@ -445,7 +445,7 @@
 
                 /* Now we calculate and plot the volumes */
 
-                let visibleHeight = canvas.chartingSpace.viewport.visibleArea.bottomRight.y - canvas.chartingSpace.viewport.visibleArea.topLeft.y;
+                let visibleHeight = UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomRight.y - UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topLeft.y;
 
                 let frameCorner1 = {
                     x: 0,
@@ -460,8 +460,8 @@
 
                 /* Now the transformations. */
 
-                frameCorner1 = transformThisPoint(frameCorner1, thisObject.container.frame.container);
-                frameCorner2 = transformThisPoint(frameCorner2, thisObject.container.frame.container);
+                frameCorner1 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(frameCorner1, thisObject.container.frame.container);
+                frameCorner2 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(frameCorner2, thisObject.container.frame.container);
 
                 let frameHeightInViewPort = frameCorner2.y - frameCorner1.y;
 
@@ -503,17 +503,17 @@
                             volumePointA3 = plot.transformThisPoint(volumePointA3);
                             volumePointA4 = plot.transformThisPoint(volumePointA4);
 
-                            volumePointA1 = transformThisPoint(volumePointA1, thisObject.container);
-                            volumePointA2 = transformThisPoint(volumePointA2, thisObject.container);
-                            volumePointA3 = transformThisPoint(volumePointA3, thisObject.container);
-                            volumePointA4 = transformThisPoint(volumePointA4, thisObject.container);
+                            volumePointA1 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(volumePointA1, thisObject.container);
+                            volumePointA2 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(volumePointA2, thisObject.container);
+                            volumePointA3 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(volumePointA3, thisObject.container);
+                            volumePointA4 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(volumePointA4, thisObject.container);
 
                             let baseIncrement = (volumePointA3.x - volumePointA1.x) * WIDHTER_VOLUME_BAR_BASE_FACTOR;
 
                             volumePointA1.x = volumePointA1.x - baseIncrement;
                             volumePointA4.x = volumePointA4.x + baseIncrement;
 
-                            if (volumePointA4.x < canvas.chartingSpace.viewport.visibleArea.bottomLeft.x || volumePointA1.x > canvas.chartingSpace.viewport.visibleArea.bottomRight.x) {
+                            if (volumePointA4.x < UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomLeft.x || volumePointA1.x > UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomRight.x) {
                                 return false;
                             }
 
@@ -523,7 +523,7 @@
 
                         if (calculateBuys(coordinateSystem, thisObject.container.frame.height) === false) { continue; } // We try to see if it fits in the visible area.
 
-                        let diffA = volumePointA1.y - canvas.chartingSpace.viewport.visibleArea.bottomLeft.y
+                        let diffA = volumePointA1.y - UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.bottomLeft.y
                         if (diffA > 0) {
                             volumePointA1.y = volumePointA1.y - diffA
                             volumePointA2.y = volumePointA2.y - diffA
@@ -563,15 +563,15 @@
                             volumePointB3 = plot.transformThisPoint2(volumePointB3);
                             volumePointB4 = plot.transformThisPoint2(volumePointB4);
 
-                            volumePointB1 = transformThisPoint(volumePointB1, thisObject.container);
-                            volumePointB2 = transformThisPoint(volumePointB2, thisObject.container);
-                            volumePointB3 = transformThisPoint(volumePointB3, thisObject.container);
-                            volumePointB4 = transformThisPoint(volumePointB4, thisObject.container);
+                            volumePointB1 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(volumePointB1, thisObject.container);
+                            volumePointB2 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(volumePointB2, thisObject.container);
+                            volumePointB3 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(volumePointB3, thisObject.container);
+                            volumePointB4 = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(volumePointB4, thisObject.container);
                         }
 
                         calculateSells(coordinateSystem, thisObject.container.frame.height); // We try to see if it fits in the visible area.
 
-                        let diffB = volumePointB1.y - canvas.chartingSpace.viewport.visibleArea.topLeft.y
+                        let diffB = volumePointB1.y - UI.projects.superalgos.spaces.chartingSpace.viewport.visibleArea.topLeft.y
                         if (diffB < 0) {
                             volumePointB1.y = volumePointB1.y - diffB
                             volumePointB2.y = volumePointB2.y - diffB
@@ -599,15 +599,15 @@
 
                         /* Everything must fit within the visible area */
 
-                        volumePointA1 = canvas.chartingSpace.viewport.fitIntoVisibleArea(volumePointA1);
-                        volumePointA2 = canvas.chartingSpace.viewport.fitIntoVisibleArea(volumePointA2);
-                        volumePointA3 = canvas.chartingSpace.viewport.fitIntoVisibleArea(volumePointA3);
-                        volumePointA4 = canvas.chartingSpace.viewport.fitIntoVisibleArea(volumePointA4);
+                        volumePointA1 = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(volumePointA1);
+                        volumePointA2 = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(volumePointA2);
+                        volumePointA3 = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(volumePointA3);
+                        volumePointA4 = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(volumePointA4);
 
-                        volumePointB1 = canvas.chartingSpace.viewport.fitIntoVisibleArea(volumePointB1);
-                        volumePointB2 = canvas.chartingSpace.viewport.fitIntoVisibleArea(volumePointB2);
-                        volumePointB3 = canvas.chartingSpace.viewport.fitIntoVisibleArea(volumePointB3);
-                        volumePointB4 = canvas.chartingSpace.viewport.fitIntoVisibleArea(volumePointB4);
+                        volumePointB1 = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(volumePointB1);
+                        volumePointB2 = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(volumePointB2);
+                        volumePointB3 = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(volumePointB3);
+                        volumePointB4 = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(volumePointB4);
 
                         volumePointA1 = thisObject.fitFunction(volumePointA1);
                         volumePointA2 = thisObject.fitFunction(volumePointA2);

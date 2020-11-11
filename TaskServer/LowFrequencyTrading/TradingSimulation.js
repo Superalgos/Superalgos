@@ -4,7 +4,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
     the execution at each loop cycle of the Trading System Protocol.
     */
     const FULL_LOG = true
-    const MODULE_NAME = 'Trading Simulation -> ' + bot.SESSION.name
+    const MODULE_NAME = 'Trading Simulation -> ' + bot.TRADING_SESSION.name
 
     let thisObject = {
         finalize: finalize,
@@ -28,7 +28,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
 
             let tradingSystem = bot.simulationState.tradingSystem
             let tradingEngine = bot.simulationState.tradingEngine
-            let sessionParameters = bot.SESSION.parameters
+            let sessionParameters = bot.TRADING_SESSION.tradingParameters
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> initialDatetime = ' + sessionParameters.timeRange.config.initialDatetime) }
             if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> finalDatetime = ' + sessionParameters.timeRange.config.finalDatetime) }
@@ -53,7 +53,6 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
             /* Variables needed for heartbeat functionality */
             let heartBeatDate
             let previousHeartBeatDate
-            let firstLoopExecution = true
             /*
             Estimation of the Initial Candle to Process in this Run.
             */
@@ -72,8 +71,8 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
                     This will happen when the sessionParameters.timeRange.config.initialDatetime is beyond the last candle available, 
                     meaning that the dataSet needs to be updated with more up-to-date data. 
                     */
-                    bot.SESSION.stop('Data is not up-to-date enough. Please start the Masters Data Mining Operation.')
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, '[IMPORTANT] runSimulation -> Data is not up-to-date enough. Stopping the Session now. ' ) }
+                    bot.TRADING_SESSION.stop('Data is not up-to-date enough. Please start the Masters Data Mining Operation.')
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, '[IMPORTANT] runSimulation -> Data is not up-to-date enough. Stopping the Session now. ') }
                     return
                 }
             } else {
@@ -107,7 +106,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
                 tradingEngine.current.episode.candle.index.value = i
 
                 /* This is the current candle the Simulation is working at. */
-                let candle = candles[tradingEngine.current.episode.candle.index.value] 
+                let candle = candles[tradingEngine.current.episode.candle.index.value]
 
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Candle Begin @ ' + (new Date(candle.begin)).toLocaleString()) }
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Candle End @ ' + (new Date(candle.end)).toLocaleString()) }
@@ -117,10 +116,8 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
                 /* We emit a heart beat so that the UI can now where we are at the overal process.*/
                 heartBeat()
 
-                if (firstLoopExecution === true) {
-                    tradingEpisodeModule.openEpisode()
-                    firstLoopExecution = false
-                }
+                /* Opening the Episode, if needed. */
+                tradingEpisodeModule.openEpisode()
 
                 if (checkInitialDatetime() === false) {
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Candle Before the Initia Date Time @ ' + (new Date(candle.begin)).toLocaleString()) }
@@ -213,16 +210,16 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
                     if (checkFinalDatetime() === false) {
                         closeEpisode('Final Datetime Reached')
                         breakLoop = true
-                        bot.SESSION.stop('Final Datetime Reached')
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[IMPORTANT] runSimulation -> Final Datetime Reached. Stopping the Session now. ' ) }
+                        bot.TRADING_SESSION.stop('Final Datetime Reached')
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[IMPORTANT] runSimulation -> Final Datetime Reached. Stopping the Session now. ') }
                         return
                     }
 
                     if (checkMinimunAndMaximunBalance() === false) {
                         closeEpisode('Min or Max Balance Reached')
                         breakLoop = true
-                        bot.SESSION.stop('Min or Max Balance Reached')
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[IMPORTANT] runSimulation -> Min or Max Balance Reached. Stopping the Session now. ' ) }
+                        bot.TRADING_SESSION.stop('Min or Max Balance Reached')
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[IMPORTANT] runSimulation -> Min or Max Balance Reached. Stopping the Session now. ') }
                         return
                     }
                 }
@@ -279,7 +276,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
 
                             let processingDate = heartBeatDate.getUTCFullYear() + '-' + utilities.pad(heartBeatDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(heartBeatDate.getUTCDate(), 2)
 
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Simulation ' + bot.sessionKey + ' Loop # ' + tradingEngine.current.episode.candle.index.value + ' @ ' + processingDate) }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Simulation ' + bot.TRADING_SESSIONKey + ' Loop # ' + tradingEngine.current.episode.candle.index.value + ' @ ' + processingDate) }
 
                             /*  Logging to console and disk */
                             if (global.areEqualDates(currentDate, new Date()) === false) {
@@ -287,23 +284,23 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
                             }
 
                             /* Date only hearbeat */
-                            if (sessionParameters.heartbeats.config.date === true  && sessionParameters.heartbeats.config.candleIndex === false) {
+                            if (sessionParameters.heartbeats.config.date === true && sessionParameters.heartbeats.config.candleIndex === false) {
                                 hartbeatText = hartbeatText + currentDateString
                                 bot.processHeartBeat(hartbeatText, percentage)
                                 return
                             }
                         }
-                        
+
                         /* 
                         When the Candle Index nees to be shown, then we can not send the hearbet
                         only when the dates changes, we have to send it for every candle.
                         It might also contain the date information.
                         */
-                        if (sessionParameters.heartbeats.config.candleIndex === true ) {
-                            if (sessionParameters.heartbeats.config.date === true ) {
+                        if (sessionParameters.heartbeats.config.candleIndex === true) {
+                            if (sessionParameters.heartbeats.config.date === true) {
                                 hartbeatText = hartbeatText + currentDateString
                             }
-                            hartbeatText = hartbeatText + ' Candle # ' + tradingEngine.current.episode.candle.index.value  
+                            hartbeatText = hartbeatText + ' Candle # ' + tradingEngine.current.episode.candle.index.value
                             bot.processHeartBeat(hartbeatText, percentage)
                         }
                     }
@@ -420,7 +417,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
                 The second +1 is because we need to compare the next candle (remember that the loops allways avoid the
                 last candle of the dataset available.)
                 */
-                if (tradingEngine.current.episode.candle.index.value  + 1 + 1 === candles.length ) {
+                if (tradingEngine.current.episode.candle.index.value + 1 + 1 === candles.length) {
                     /*
                     When processing daily files, we need a mechanism to turn from one day to the next one.
                     That mechanism is the one implemented here. If we detect that the next candle is the last candle of 

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="font-awasome.css" type="text/css" />
     <link rel="shortcut icon" type="image/png/ico" href="Images/favicon.ico" />
     <script type="text/javascript" src="WebServer/require.js"></script>
-    <script type="text/javascript" src="WebServer/AppPreLoader.js"></script>
+    <script type="text/javascript" src="AppPreLoader.js"></script>
     <script src="externalScripts/CCapture.all.min.js"></script>
 
     <!-- Documentation Style Sheets -->
@@ -49,12 +49,12 @@
     style="overflow:hidden; background: url(Images/superalgos-platform.jpg); background-size: cover;"
     onresize="onResize()">
     <div id="contributors" class="credits">
-        <p>Superalgos is <span class="red">open-source</span> and <span class="red">free</span> thanks to the generosity of contributors:</p>
+        <p>Superalgos is <span class="red">free</span> and <span class="red">open-source</span>, and is <span class="red">constantly improving</span> thanks to the involvement of contributors:</p>
         <p>Luis Fernando Molina, Julian Molina, Andreja Cobeljic, Matías Benitez, Ira Miller, Eduardo Remis, 
-            Jeff Braun, rico4dev, Barry Low, Nikola Bjelogrlic, Hirajin Koizuko, Francisco J. Santillán, Viktoria B., 
-            Javier A., Gustavo J., Romina GS, Pedro P., Thais M., Loui M., Natalia M., Bashar A., Carlos V., Diego M., 
-            Sebastian E., Bogdan P., Marko V., Igor S., Niksa K., Rodrigo M. and Nicanor M.</p>
-        <p><span class="red">Help us keep Superalgos free for all. Become a contributor!</span></p>
+            Jeff Braun, rico4dev, 9808us, Barry Low, Nikola Bjelogrlic, Hirajin Koizuko, Francisco J. Santillán, Viktoria B., Guillermo V., Daniel J., 
+            Javier A., Gustavo J., Romina GS, Pedro P., Thais M., Andrey M., Loui M., Natalia M., Bashar A., Carlos V., Diego M., 
+            Sebastian E., Bogdan P., Marko V., Igor S., Niksa K., Rodrigo M., Nicanor M., Alejandro P., Mateo H., Lan T., Leon A., Uroš R., Filip M., Vladimir J. and Pavle B.</p>
+        <p><span class="red">You too can help grow and improve Superalgos. Become a contributor!</span></p>
     </div>
     <div id="masterApp"></div>
     <div id="canvasApp"></div>
@@ -74,19 +74,19 @@
             <table class="tutorial-buttonsTable">
                 <tr>
                     <td align="center">
-                        <label class="tutorial-font-small tutorial-stop-button" onclick="canvas.tutorialSpace.stop()"
+                        <label class="tutorial-font-small tutorial-stop-button" onclick="UI.projects.superalgos.spaces.tutorialSpace.stop()"
                             value="">&nbsp;&nbsp;Stop&nbsp;&nbsp;&nbsp;</label>
                     </td>
                     <td align="center">
-                        <label class="tutorial-font-small tutorial-skip-button" onclick="canvas.tutorialSpace.skip()"
+                        <label class="tutorial-font-small tutorial-skip-button" onclick="UI.projects.superalgos.spaces.tutorialSpace.skip()"
                             value="">&nbsp;&nbsp;Skip&nbsp;&nbsp;&nbsp;</label>
                     </td>
                     <td align="center">
                         <label class="tutorial-font-small tutorial-previous-button"
-                            onclick="canvas.tutorialSpace.previous()" value="">Previous</label>
+                            onclick="UI.projects.superalgos.spaces.tutorialSpace.previous()" value="">Previous</label>
                     </td>
                     <td align="center">
-                        <label class="tutorial-font-small tutorial-next-button" onclick="canvas.tutorialSpace.next()"
+                        <label class="tutorial-font-small tutorial-next-button" onclick="UI.projects.superalgos.spaces.tutorialSpace.next()"
                             value="">&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;</label>
                     </td>
                 </tr>

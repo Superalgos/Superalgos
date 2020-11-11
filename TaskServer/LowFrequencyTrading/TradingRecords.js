@@ -20,7 +20,7 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
     function initialize(pOutputDatasetsMap) {
         tradingEngine = bot.simulationState.tradingEngine
         tradingSystem = bot.simulationState.tradingSystem
-        sessionParameters = bot.SESSION.parameters
+        sessionParameters = bot.TRADING_SESSION.tradingParameters
         outputDatasetsMap = pOutputDatasetsMap  // These are the files turned into arrays, stored in a Map by Product codeName.
     }
 
@@ -143,16 +143,19 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                 the Root Node specifically for this property only.
                 */
                 if (recordProperty.config.nodePath !== undefined) {
+                    if (recordProperty.config.nodePath === "tradingEngine.exchangeOrders.marketBuyOrders.marketOrders[index].orderBaseAsset") {
+                        let a = tradingEngine
+                    }
                     try {
                         propertyRootNode = eval(recordProperty.config.nodePath)
                     } catch (err) {
-                        badDefinitionUnhandledException(err, 'Error Evaluation Record Property nodePath -> nodePath = ' + recordProperty.config.nodePath, product, recordProperty)
+                        badDefinitionUnhandledException(err, 'Error Evaluating Record Property nodePath -> nodePath = ' + recordProperty.config.nodePath, product, recordProperty)
                     }
                 }
                 /* 
                 The Target Node is the node from where we are going to exctract the value.
                 We will use the codeName of the Record Property to match it with 
-                the any of the properties of the Root Node to get the Target Node.  
+                any of the properties of the Root Node to get the Target Node.  
                 */
                 let targetNode
                 try {
@@ -284,8 +287,31 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                     }
                 }
             } else {
-                /* When we are not dealing with objects, we add every record to the existing file. */
-                outputDatasetArray.push(record)
+                /* 
+                When we are not dealing with objects, we add every record to the existing file except 
+                for the ones that are filtered out at the Product Definition.
+                */
+                if (product.config.codeName === "Trading-System-Errors") {
+                    let a = 1
+                }
+                if (product.config.propertyNameThatDefinesStatus !== undefined && product.config.propertyValueThatPreventsSavingObject !== undefined) {
+                    for (let j = 0; j < product.record.properties.length; j++) {
+                        let recordProperty = product.record.properties[j]
+                        if (recordProperty.config.codeName === product.config.propertyNameThatDefinesStatus) {
+                            let propertyValue = record[j]
+                            
+                            if (product.config.propertyValueThatPreventsSavingObject === "->Empty Array->" && propertyValue.length === 0) {
+                                break
+                            }
+                            if (propertyValue !== product.config.propertyValueThatPreventsSavingObject) {
+                                outputDatasetArray.push(record)
+                            }
+                            break
+                        }
+                    }
+                } else {
+                    outputDatasetArray.push(record)
+                }
             }
         }
 

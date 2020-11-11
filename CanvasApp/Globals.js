@@ -1,6 +1,14 @@
 
-/* User Interface Colors */
+let canvas  
+let PROJECTS_ARRAY 
+let PROJECTS_SCHEMA
+let SCHEMAS_BY_PROJECT = new Map()
+/* New Root object*/
+let UI = {
+    projects: {}
+} 
 
+/* User Interface Colors */
 const UI_COLOR = {
     DARK: "48, 48, 54",
     LIGHT: "234, 226, 222",
@@ -20,31 +28,15 @@ const UI_COLOR = {
 };
 
 /* User Interface Fonts */
-
 const UI_FONT = {
     PRIMARY: "Saira Condensed",
     SECONDARY: "Source Code Pro"
 };
 
-const DOCUMENTATION_URL_PREFIX = 'https://docs.superalgos.org/'
-const DOCUMENTATION_URL_DEFAULT = 'https://docs.superalgos.org/suite-about-this-documentation.html'
-
 const MAC_AMOUNT_FACTOR = 5
 const IS_MAC = navigator.platform.toUpperCase().indexOf('MAC') >= 0
 
-const DOUBLE_CLICK_ZOOM_OUT_LEVEL = 0
-const DOUBLE_CLICK_ZOOM_IN_LEVEL = 6
-const DOUBLE_CLICK_ZOOM_IN_IN_LEVEL = 7
-
 const DEBUG = {}
-const ZOOM_OUT_THRESHOLD_FOR_NOT_HIDDING_PANELS = 12
-const ZOOM_OUT_THRESHOLD_FOR_HIDDING_PANELS = 7
-const ZOOM_OUT_THRESHOLD_FOR_HIDDING_CHARTS_LABELS = 7
-const ZOOM_OUT_THRESHOLD_FOR_CHANGING_TIME_FRAME = 3  // This help regulate when to change the Time Frame base on the level of zoom out.
-const ZOOM_OUT_THRESHOLD_FOR_PACKING_OBJECTS_AT_THE_BOTTOM_OR_TOP_OF_VIEWPORT = 2
-const ZOOM_OUT_THRESHOLD_FOR_PLOTTING_IN_LOW_RESOLUTION = 3
-const ZOOM_OUT_THRESHOLD_FOR_DISPLAYING_TIME_MACHINES_ICONIZED = 5
-const ZOOM_OUT_THRESHOLD_FOR_DISPLAYING_SCALES = 3
 
 let FONT_ASPECT_RATIO = 0.32;
 let ANIMATION_FRAME_PER_SECONDS
@@ -176,9 +168,9 @@ const _1_MINUTE_IN_MILISECONDS = 1 * 60 * 1000;
 
 
 
-let NEW_SESSION_INITIAL_DATE = new Date();  // This value will be overwritten at the canvas.chartingSpace.viewport.initialize if the user had a prevous session with this same browser.
+let NEW_SESSION_INITIAL_DATE = new Date();  // This value will be overwritten at the UI.projects.superalgos.spaces.chartingSpace.viewport.initialize if the user had a prevous session with this same browser.
 let INITIAL_ZOOM_LEVEL = -28.25       // This is the zoom level at the view port in which the APP starts.
-let INITIAL_TIME_PERIOD = ONE_DAY_IN_MILISECONDS  // This value will be overwritten at the canvas.chartingSpace.viewport.initialize if the user had a prevous session with this same browser.
+let INITIAL_TIME_PERIOD = ONE_DAY_IN_MILISECONDS  // This value will be overwritten at the UI.projects.superalgos.spaces.chartingSpace.viewport.initialize if the user had a prevous session with this same browser.
 let VERY_LARGE_NUMBER = 100000000000000
 
 const TOP_MARGIN = 0

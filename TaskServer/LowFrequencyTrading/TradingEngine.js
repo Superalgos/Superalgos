@@ -25,7 +25,7 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
     function initialize() {
 
         tradingEngine = bot.simulationState.tradingEngine
-        sessionParameters = bot.SESSION.parameters
+        sessionParameters = bot.TRADING_SESSION.tradingParameters
 
         initializeNodeMap(tradingEngine)
 
@@ -66,6 +66,8 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
 
     function setCurrentCycle(cycle) {
         tradingEngine.current.episode.cycle.value = cycle
+        tradingEngine.current.episode.cycle.lastBegin.value = tradingEngine.current.episode.cycle.begin.value
+        tradingEngine.current.episode.cycle.lastEnd.value = tradingEngine.current.episode.cycle.end.value
         switch (cycle) {
             case 'First': {
                 tradingEngine.current.episode.cycle.begin.value =
@@ -88,6 +90,17 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
                     sessionParameters.timeFrame.config.value * 4 / 4 - 1
                 break
             }
+        }
+        /* 
+        We can not have the last begin or last end to be zero, because that would prevent
+        objects starting with lastBegin in zero to being saved on file. For that reason
+        we will do this:
+        */
+        if (tradingEngine.current.episode.cycle.lastBegin.value === 0) {
+            tradingEngine.current.episode.cycle.lastBegin.value = tradingEngine.current.episode.cycle.begin.value
+        }
+        if (tradingEngine.current.episode.cycle.lastEnd.value === 0) {
+            tradingEngine.current.episode.cycle.lastEnd.value = tradingEngine.current.episode.cycle.end.value
         }
     }
 

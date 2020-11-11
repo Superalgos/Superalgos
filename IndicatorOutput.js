@@ -40,8 +40,6 @@
 
         try {
 
-            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> Entering function."); }
-
             let products = {}
             let mainDependency = {}
             let processingDailyFiles

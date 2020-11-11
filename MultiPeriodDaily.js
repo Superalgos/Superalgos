@@ -67,7 +67,6 @@
             function getContextVariables() {
                 try {
                     let thisReport;
-                    let reportKey;
                     let statusReport;
                     /*
                     We look first for the bot who knows the begining of the market in order to get when the market starts.
@@ -89,7 +88,7 @@
                     thisReport = statusReport.file;
 
                     if (thisReport.beginingOfMarket === undefined) {
-                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey)
+                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Undefined Last File. -> thisReport.beginingOfMarket === undefined ")
                         logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> It is too early too run this process since the trade history of the market is not there yet.")
 
                         let customOK = {
@@ -122,7 +121,7 @@
                     thisReport = statusReport.file;
 
                     if (thisReport.lastFile === undefined) {
-                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey)
+                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Undefined Last File. -> thisReport.lastFile === undefined")
 
                         let customOK = {
                             result: global.CUSTOM_OK_RESPONSE.result,
@@ -139,7 +138,7 @@
                     statusReport = statusDependencies.reportsByMainUtility.get("Self Reference")
 
                     if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
-                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Self Reference -> Status Report does not exist or Self Reference not defined. Retrying Later. ")
+                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Self Reference -> Status Report does not exist or Self Reference not defined or badly configured. Check that at the Status Dependency you have chosen Self Reference at the config. Retrying Later. ")
                         callBackFunction(global.DEFAULT_RETRY_RESPONSE)
                         return
                     }
@@ -157,7 +156,7 @@
                         beginingOfMarket = new Date(thisReport.beginingOfMarket)
 
                         if (beginingOfMarket.valueOf() !== contextVariables.dateBeginOfMarket.valueOf()) { // Reset Mechanism for Begining of the Market
-                            logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> Reset Mechanism for Begining of the Market Activated. -> reportKey = " + reportKey)
+                            logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> Reset Mechanism for Begining of the Market Activated.")
 
                             beginingOfMarket = new Date(contextVariables.dateBeginOfMarket.valueOf())
                             startFromBegining()

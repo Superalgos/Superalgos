@@ -32,6 +32,9 @@
                     if (botNode === undefined) { 
                         botNode = global.FIND_NODE_IN_NODE_MESH(outputDataset, 'Sensor Bot')
                     }
+                    if (botNode === undefined) { 
+                        botNode = global.FIND_NODE_IN_NODE_MESH(outputDataset, 'Learning Bot')
+                    }
 
                     /* Some validations to verify that everything is in place. */
                     if (outputDataset.referenceParent !== undefined) {
@@ -86,7 +89,7 @@
                     let product = outputDataset.referenceParent.parentNode.config.codeName
                     let dataset = outputDataset.referenceParent.config.codeName
 
-                    key = dataMine + "-" + botName + "-" + product + "-" + dataset + "-" + bot.exchange + "-" + bot.market.baseAsset + '/' + bot.market.quotedAsset
+                    let key = dataMine + "-" + botName + "-" + product + "-" + dataset + "-" + bot.exchange + "-" + bot.market.baseAsset + '/' + bot.market.quotedAsset
                     let event = {
                         lastFile: lastFile,
                         timeFrames: timeFrames
@@ -119,6 +122,9 @@
                 if (botNode === undefined) { 
                     botNode = global.FIND_NODE_IN_NODE_MESH(outputDataset, 'Sensor Bot')
                 }
+                if (botNode === undefined) { 
+                    botNode = global.FIND_NODE_IN_NODE_MESH(outputDataset, 'Learning Bot')
+                }
 
                 /* Some validations to verify that everything is in place. */
                 if (outputDataset.referenceParent !== undefined) {
@@ -138,11 +144,11 @@
                             }
                             if (botNode.parentNode !== undefined) {
                                 if (botNode.parentNode.config.codeName === undefined) {
-                                    logger.write(MODULE_NAME, "[ERROR] raiseEvents -> codeName at Data Mine not defined. Data Mine = " + JSON.stringify(botNode.parentNode));
+                                    logger.write(MODULE_NAME, "[ERROR] raiseEvents -> codeName at Mine not defined. Mine = " + JSON.stringify(botNode.parentNode));
                                     throw (global.DEFAULT_FAIL_RESPONSE);
                                 }
                             } else {
-                                logger.write(MODULE_NAME, "[ERROR] raiseEvents -> Bot not attached to a Data Mine or Trading Mine. Bot = " + JSON.stringify(botNode));
+                                logger.write(MODULE_NAME, "[ERROR] raiseEvents -> Bot not attached to a Data Mine | Trading Mine | Learning Mine. Bot = " + JSON.stringify(botNode));
                                 throw (global.DEFAULT_FAIL_RESPONSE);
                             }
                         } else {
@@ -165,7 +171,7 @@
                 let product = outputDataset.referenceParent.parentNode.config.codeName
                 let dataset = outputDataset.referenceParent.config.codeName
 
-                key = dataMine + "-" + botName + "-" + product + "-" + dataset + "-" + bot.exchange + "-" + bot.market.baseAsset + '/' + bot.market.quotedAsset
+                let key = dataMine + "-" + botName + "-" + product + "-" + dataset + "-" + bot.exchange + "-" + bot.market.baseAsset + '/' + bot.market.quotedAsset
                 let event = {
                     lastFile: lastFile,
                     timeFrames: timeFrames

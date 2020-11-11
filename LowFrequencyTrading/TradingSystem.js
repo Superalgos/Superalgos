@@ -17,7 +17,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
     let tradingSystem
     let tradingEngine
     let sessionParameters
-    let dynamicIndicators 
+    let dynamicIndicators
 
     const TRADING_STAGES_MODULE = require('./TradingStages.js')
     let tradingStagesModule = TRADING_STAGES_MODULE.newTradingStages(bot, logger, tradingEngineModule)
@@ -28,7 +28,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
     function initialize() {
         tradingSystem = bot.simulationState.tradingSystem
         tradingEngine = bot.simulationState.tradingEngine
-        sessionParameters = bot.SESSION.parameters
+        sessionParameters = bot.TRADING_SESSION.tradingParameters
 
         tradingSystem.conditions = new Map()
         tradingSystem.formulas = new Map()
@@ -131,8 +131,8 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
 
             for (let i = 0; i < tradingSystem.dynamicIndicators.indicatorFunctions.length; i++) {
                 let indicatorFunction = tradingSystem.dynamicIndicators.indicatorFunctions[i]
-                if (indicatorFunction.formula === undefined) { return}
-                if (indicatorFunction.config.codeName === undefined) { return}
+                if (indicatorFunction.formula === undefined) { return }
+                if (indicatorFunction.config.codeName === undefined) { return }
                 dynamicIndicators[indicatorFunction.config.codeName] = tradingSystem.formulas.get(indicatorFunction.formula.id)
             }
         }
@@ -257,15 +257,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                 will not be considered an error.
             */
             value = false
-
-            if (code.indexOf('previous') > -1 && err.message.indexOf('of undefined') > -1
-            ) {
-                /*
-                    We are not going to set an error for the casess we are using previous and the error is that the indicator is undefined.
-                */
-            } else {
-                error = err.message
-            }
+            error = err.message
         }
 
         tradingSystem.conditions.set(node.id, value)
@@ -297,19 +289,12 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                 will not be considered an error.
             */
             value = 0
-
-            if (node.code.indexOf('previous') > -1 && err.message.indexOf('of undefined') > -1
-            ) {
-                /*
-                    We are not going to set an error for the casess we are using previous and the error is that the indicator is undefined.
-                */
-            } else {
-                error = err.message
-            }
+            error = err.message
         }
 
         if (error !== undefined) {
             tradingSystem.errors.push([node.id, error])
+            logger.write(MODULE_NAME, '[INFO] evalFormula -> error = ' + error)
             return
         }
         if (value !== undefined) {
@@ -323,7 +308,6 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
         }
 
         logger.write(MODULE_NAME, '[INFO] evalFormula -> value = ' + value)
-        logger.write(MODULE_NAME, '[INFO] evalFormula -> error = ' + error)
     }
 }
 

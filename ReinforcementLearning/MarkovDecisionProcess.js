@@ -1,9 +1,9 @@
-exports.newTradingEngine = function newTradingEngine(bot, logger) {
+exports.newMarkovDecisionProcess = function newMarkovDecisionProcess(bot, logger) {
     /*
     We call the Trading Engine to the data structure that is needed in order to exevute the
     trading protocol with the specific rules defined at the Trading System.
     */
-    const MODULE_NAME = 'Trading Engine'
+    const MODULE_NAME = 'Markov Decision Process'
     let thisObject = {
         mantain: mantain,
         reset: reset,
@@ -25,7 +25,7 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
     function initialize() {
 
         tradingEngine = bot.simulationState.tradingEngine
-        sessionParameters = bot.TRADING_SESSION.tradingParameters
+        sessionParameters = bot.LEARNING_SESSION.learningParameters
 
         initializeNodeMap(tradingEngine)
 
@@ -90,17 +90,6 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
                     sessionParameters.timeFrame.config.value * 4 / 4 - 1
                 break
             }
-        }
-        /* 
-        We can not have the last begin or last end to be zero, because that would prevent
-        objects starting with lastBegin in zero to being saved on file. For that reason
-        we will do this:
-        */
-        if (tradingEngine.current.episode.cycle.lastBegin.value === 0) {
-            tradingEngine.current.episode.cycle.lastBegin.value = tradingEngine.current.episode.cycle.begin.value
-        }
-        if (tradingEngine.current.episode.cycle.lastEnd.value === 0) {
-            tradingEngine.current.episode.cycle.lastEnd.value = tradingEngine.current.episode.cycle.end.value
         }
     }
 

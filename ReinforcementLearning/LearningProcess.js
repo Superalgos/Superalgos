@@ -1,10 +1,10 @@
-﻿exports.newTradingProcess = function newTradingProcess(bot, logger, UTILITIES) {
+exports.newLearningProcess = function newLearningProcess(bot, logger, UTILITIES) {
     /*
     This Module will load all the process data dependencies from files and send them downstream.
     After execution, will save the time range and status report of the process.
     */
     const FULL_LOG = true;
-    const MODULE_NAME = "Trading Process";
+    const MODULE_NAME = "Learning Process";
     const GMT_SECONDS = ':00.000 GMT+0000';
 
     thisObject = {
@@ -23,11 +23,11 @@
     const FILE_STORAGE = require('../FileStorage.js');
     let fileStorage = FILE_STORAGE.newFileStorage(logger);
 
-    const TRADING_ENGINE_MODULE = require('./TradingEngine.js')
-    let tradingEngineModule = TRADING_ENGINE_MODULE.newTradingEngine(bot, logger)
+    const MARKOV_DECISION_PROCESS_MODULE = require('./MarkovDecisionProcess.js')
+    let markovDecisionProcessModule = MARKOV_DECISION_PROCESS_MODULE.newMarkovDecisionProcess(bot, logger)
 
-    let TRADING_OUTPUT_MODULE = require("./TradingOutput")
-    let tradingOutputModule = TRADING_OUTPUT_MODULE.newTradingOutput(bot, logger, tradingEngineModule, UTILITIES, FILE_STORAGE)
+    let ALGORITHM_MODULE = require("./Algorithm")
+    let algorithmModule = ALGORITHM_MODULE.newTradingOutput(bot, logger, markovDecisionProcessModule, UTILITIES, FILE_STORAGE)
 
     let processConfig;
 
@@ -42,7 +42,7 @@
             dataDependenciesModule = pDataDependencies
             processConfig = pProcessConfig
 
-            tradingOutputModule.initialize()
+            algorithmModule.initialize()
 
             callBackFunction(global.DEFAULT_OK_RESPONSE)
 
@@ -54,11 +54,11 @@
 
     function finalize() {
 
-        tradingEngineModule.finalize()
-        tradingEngineModule = undefined
+        markovDecisionProcessModule.finalize()
+        markovDecisionProcessModule = undefined
 
-        tradingOutputModule.finalize()
-        tradingOutputModule = undefined
+        algorithmModule.finalize()
+        algorithmModule = undefined
 
         dataFiles = undefined
         multiPeriodDataFiles = undefined
@@ -92,7 +92,7 @@
             }
 
             /* We set up the Trading Engine Module. */
-            tradingEngineModule.initialize()
+            markovDecisionProcessModule.initialize()
 
             /* Initializing the Trading Process Date */
             if (bot.FIRST_EXECUTION === true && bot.RESUME === false) {
@@ -115,7 +115,7 @@
             the simulation loop, once we discover that all candles from a certain date have benn processed.
             Here is the point where we sync one and the other.
             */
-            let tradingProcessDate = global.REMOVE_TIME(bot.simulationState.tradingEngine.current.episode.processDate.value)
+            let LearningProcessDate = global.REMOVE_TIME(bot.simulationState.tradingEngine.current.episode.processDate.value)
             await processSingleFiles()
 
             if (await processMarketFiles() === false) {
@@ -166,7 +166,7 @@
                     use it to save Output Files and later the Data Ranges. This is the point where
                     the date calculated by the Simulation is applied at the Trading Process Level.
                     */
-                    tradingProcessDate = global.REMOVE_TIME(bot.simulationState.tradingEngine.current.episode.processDate.value)
+                    LearningProcessDate = global.REMOVE_TIME(bot.simulationState.tradingEngine.current.episode.processDate.value)
 
                     if (checkStopTaskGracefully() === false) { break }
                     if (checkStopProcessing() === false) { break }
@@ -447,7 +447,7 @@
 
             async function processDailyFiles() {
                 /*  Telling the world we are alive and doing well and which date we are processing right now. */
-                let processingDateString = tradingProcessDate.getUTCFullYear() + '-' + utilities.pad(tradingProcessDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(tradingProcessDate.getUTCDate(), 2);
+                let processingDateString = LearningProcessDate.getUTCFullYear() + '-' + utilities.pad(LearningProcessDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(LearningProcessDate.getUTCDate(), 2);
                 bot.processHeartBeat(processingDateString, undefined, "Running...")
 
                 /*
@@ -493,7 +493,7 @@
                             }
                         }
 
-                        let dateForPath = tradingProcessDate.getUTCFullYear() + '/' + utilities.pad(tradingProcessDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(tradingProcessDate.getUTCDate(), 2);
+                        let dateForPath = LearningProcessDate.getUTCFullYear() + '/' + utilities.pad(LearningProcessDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(LearningProcessDate.getUTCDate(), 2);
                         let filePath
                         if (dependency.referenceParent.config.codeName === "Multi-Period-Daily") {
                             filePath = dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName + "/" + timeFrameLabel + "/" + dateForPath;
@@ -608,11 +608,11 @@
             }
 
             async function generateOutput(chart) {
-                await tradingOutputModule.start(
+                await algorithmModule.start(
                     chart,
                     currentTimeFrame,
                     currentTimeFrameLabel,
-                    tradingProcessDate
+                    LearningProcessDate
                 )
 
                 /*
@@ -648,7 +648,7 @@
                     async function writeDataRange(productCodeName) {
                         let dataRange = {
                             begin: contextVariables.dateBeginOfMarket.valueOf(),
-                            end: tradingProcessDate.valueOf() + global.ONE_DAY_IN_MILISECONDS
+                            end: LearningProcessDate.valueOf() + global.ONE_DAY_IN_MILISECONDS
                         }
 
                         let fileContent = JSON.stringify(dataRange);
@@ -707,7 +707,7 @@
                     let thisReport = statusDependencies.statusReports.get(reportKey)
 
                     thisReport.file.lastExecution = bot.currentDaytime
-                    thisReport.file.lastFile = tradingProcessDate
+                    thisReport.file.lastFile = LearningProcessDate
                     thisReport.file.simulationState = bot.simulationState
                     thisReport.file.timeFrames = currentTimeFrameLabel
                     await thisReport.asyncSave()
@@ -721,7 +721,7 @@
                     thisReport.file.simulationState = bot.simulationState
                     thisReport.file.timeFrames = currentTimeFrameLabel
 
-                    logger.newInternalLoop(bot.codeName, bot.process, tradingProcessDate)
+                    logger.newInternalLoop(bot.codeName, bot.process, LearningProcessDate)
                     await thisReport.asyncSave()
                 }
             }

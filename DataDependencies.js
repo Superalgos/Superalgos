@@ -36,7 +36,7 @@
                 thisObject.nodeArray = global.FILTER_OUT_NODES_WITHOUT_REFERENCE_PARENT_FROM_NODE_ARRAY(thisObject.nodeArray)
 
             } else {
-                logger.write(MODULE_NAME, "[ERROR] initialize -> onInitilized -> It is not possible to not have process dependencies, which means not data dependencies.");
+                logger.write(MODULE_NAME, "[ERROR] initialize -> onInitilized -> It is not possible not to have process dependencies, which means not data dependencies.");
                 callBackFunction(global.DEFAULT_OK_RESPONSE)
                 return
             }
@@ -65,7 +65,7 @@
             let skipCount = 0
 
             /* 
-            The current nodeArray that we have includes all the dependencies daclared in the Data Mine / Trading Mine
+            The current nodeArray that we have includes all the dependencies daclared in the Data Mine | Trading Mine | Learning Mine
             process dependencies, minus the ones without reference parent, meaning that references Data Mines that are
             not present at the workspace. From all the remaining dependencies there will be others that we need to 
             filter out, and they are the ones which the user does not have a data product anywhere on the network where

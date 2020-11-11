@@ -227,7 +227,7 @@ function newCryptoEcosystemFunctions() {
             node.payload.uiObject.setErrorMessage('Market must be a descendant of a Crypto Exchange')
             return
         }
-        node.payload.uiObject.setInfoMessage('This market is being installed. This might take a minute or two. Please hold one while we connect all the dots for you. ')
+        node.payload.uiObject.setInfoMessage('This market is being installed. This might take a minute or two. Please hold on while we connect all the dots for you. ')
 
         setTimeout(installMarketProcedure, 500)
 

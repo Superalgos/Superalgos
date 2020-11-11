@@ -93,7 +93,7 @@ function newPlotterPanel() {
         const frameBodyHeight = thisObject.container.frame.getBodyHeight()
         const frameTitleHeight = thisObject.container.frame.height - frameBodyHeight
 
-        const X_AXIS_A = thisObject.container.frame.width * 7 / 8
+        const X_AXIS_A = thisObject.container.frame.width * 1 / 8
         const X_AXIS_B = thisObject.container.frame.width * 7 / 8
         const Y_AXIS = frameTitleHeight + frameBodyHeight / 2
 
@@ -177,8 +177,37 @@ function newPlotterPanel() {
                 if (panelData.textStyle.config.paletteColor !== undefined) { paletteColor = eval(panelData.textStyle.config.paletteColor) }
             }
 
-            UI.projects.superalgos.utilities.drawPrint.printLabel(labelText, X_AXIS_A, UI_PANEL.HEIGHT.NORMAL * labelPosition / 100 / heightFactor, '0.60', undefined, undefined, 'Right', thisObject.container, thisObject.fitFunction)
-            UI.projects.superalgos.utilities.drawPrint.printLabel(value, X_AXIS_B, UI_PANEL.HEIGHT.NORMAL * valuePosition / 100 / heightFactor, opacity, fontSize, paletteColor, 'Right', thisObject.container, thisObject.fitFunction, false, true, undefined, true)
+            UI.projects.superalgos.utilities.drawPrint.printLabel(
+                labelText,
+                X_AXIS_A,
+                undefined,
+                undefined,
+                UI_PANEL.HEIGHT.NORMAL * labelPosition / 100 / heightFactor,
+                '0.60',
+                undefined,
+                undefined,
+                'Left',
+                thisObject.container,
+                thisObject.fitFunction
+            )
+
+            UI.projects.superalgos.utilities.drawPrint.printLabel(
+                value,
+                X_AXIS_A,
+                X_AXIS_B,
+                undefined,
+                UI_PANEL.HEIGHT.NORMAL * valuePosition / 100 / heightFactor,
+                opacity,
+                fontSize,
+                paletteColor,
+                'Left Numbers at Right',
+                thisObject.container,
+                thisObject.fitFunction,
+                false,
+                true,
+                undefined,
+                true
+            )
         }
     }
 }

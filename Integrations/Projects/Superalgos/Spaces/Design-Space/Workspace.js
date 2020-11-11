@@ -229,7 +229,7 @@ function newWorkspace() {
         }
     }
 
-    function replacingWorkspacePhysics() {
+    async function replacingWorkspacePhysics() {
         if (thisObject.enabled !== true) { return }
 
         if (workingAtTask > 0) {
@@ -237,32 +237,41 @@ function newWorkspace() {
 
             switch (workingAtTask) {
                 case 1:
-                    console.log('Replacing Workspace Procedure Started')
-                    console.log('Deleting Workspace')
+                    isInitialized = false
+                    console.log('[INFO] Replacing Workspace Procedure Started')
+                    console.log('[INFO] Deleting Workspace ' + thisObject.workspaceNode.name + '. This might take a few minutes depending on the size of the workspace.')
                     UI.projects.superalgos.spaces.tutorialSpace.stop()
-                    executeAction({ node: thisObject.workspaceNode, name: 'Delete Workspace', project: 'Superalgos' })
+                    let result = await executeAction({ node: thisObject.workspaceNode, name: 'Delete Workspace', project: 'Superalgos' })
+                    if (result === false) {
+                        console.log('[ERROR] Could not replace the current workspace because there was a problem removing one node from memory.')
+                        console.log('[ERROR] The system is at an inconsistent state and your workspace is partially deleted. Saving has been disabled to prevent data loss.')
+                        console.log('[ERROR] The only thing you can do now is to fix the APP SCHEMA and refresh the page to reaload the previously saved workspace again.')
+                        circularProgressBar.visible = false
+                        workingAtTask = 0
+                        return
+                    }
                     workingAtTask++
                     break
                 case 2:
-                    console.log('Closing Events Server')
+                    console.log('[INFO] Closing Events Server')
                     finalizeEventsServerClients()
                     thisObject.eventsServerClients = new Map()
                     workingAtTask++
                     break
                 case 3:
-                    console.log('Stopping Automatic Saving')
+                    console.log('[INFO] Stopping Automatic Saving')
                     clearInterval(savingWorkspaceIntervalId)
                     workingAtTask++
                     break
                 case 4:
-                    console.log('Loading new Workspace')
+                    console.log('[INFO] Loading new Workspace ' + loadedWorkspaceNode.name + '.')
                     thisObject.workspaceNode = loadedWorkspaceNode
                     thisObject.workspaceNode.project = 'Superalgos'
                     loadedWorkspaceNode = undefined
                     workingAtTask++
                     break
                 case 5:
-                    console.log('Setting up Workspace')
+                    console.log('[INFO] Setting up Workspace')
                     executeAction({ node: thisObject.workspaceNode, name: 'Recreate Workspace', project: 'Superalgos', callBackFunction: finishInitialization })
                     function finishInitialization() {
                         setupEventsServerClients()
@@ -271,14 +280,15 @@ function newWorkspace() {
                     workingAtTask++
                     break
                 case 6:
-                    console.log('Resetting Spaces')
+                    console.log('[INFO] Resetting Spaces')
                     UI.projects.superalgos.spaces.chartingSpace.reset()
                     workingAtTask++
                     break
                 case 7:
-                    console.log('Replacing Workspace Procedure Finished')
+                    console.log('[INFO] Replacing Workspace Procedure Finished')
                     workingAtTask = 0
                     circularProgressBar.visible = false
+                    isInitialized = true
                     break
             }
         }
@@ -436,6 +446,9 @@ function newWorkspace() {
                 x: browserCanvas.width / 2,
                 y: browserCanvas.height / 2
             }
+
+            UI.projects.superalgos.spaces.floatingSpace.container.frame.position.x = browserCanvas.width / 2 - UI.projects.superalgos.spaces.floatingSpace.container.frame.width / 2
+            UI.projects.superalgos.spaces.floatingSpace.container.frame.position.y = browserCanvas.height / 2 - UI.projects.superalgos.spaces.floatingSpace.container.frame.height / 2
 
             circularProgressBar.initialize(position)
             circularProgressBar.visible = true

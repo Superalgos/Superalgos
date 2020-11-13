@@ -219,6 +219,40 @@
     {
         "name": "Ethereum",
         "propertyName": "ethereum",
-        "spaces": []
+        "globals": [
+            {
+                "name": "ChainIds",
+                "propertyName": "chainIds",
+                "functionName": "newEthereumGlobalsChainIds"
+            }
+        ],
+        "spaces": [
+            {
+                "name": "Blockchain Space",
+                "folderName": "Blockchain-Space",
+                "propertyName": "blockchainSpace",
+                "functionName": "newEthereumBlockchainSpace",
+                "initializationIndex": 0,
+                "animationPhysicsIndex": 0,
+                "animationDrawIndex": 0,
+                "onMouseWheelIndex": 0,
+                "onMouseOverIndex": 0,
+                "onMouseClickIndex": 0,
+                "onMouseDownIndex": 0
+            },
+            {
+                "name": "Wallet Space",
+                "folderName": "Wallet-Space",
+                "propertyName": "walletSpace",
+                "functionName": "newEthereumWalletSpace",
+                "initializationIndex": 1,
+                "animationPhysicsIndex": 1,
+                "animationDrawIndex": 1,
+                "onMouseWheelIndex": 1,
+                "onMouseOverIndex": 1,
+                "onMouseClickIndex": 1,
+                "onMouseDownIndex": 1
+            }
+        ]
     }
 ]

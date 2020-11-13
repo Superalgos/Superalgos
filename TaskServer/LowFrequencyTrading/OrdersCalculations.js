@@ -9,7 +9,7 @@ exports.newOrdersCalculations = function newOrdersCalculations(bot, logger) {
         actualRateCalculation: actualRateCalculation,
         feesToBePaidCalculation: feesToBePaidCalculation,
         amountReceivedCalculation: amountReceivedCalculation,
-        finapercentageFilledCalculationlize: percentageFilledCalculation,
+        percentageFilledCalculation: percentageFilledCalculation,
         feesPaidCalculation: feesPaidCalculation,
         sizeFilledCalculation: sizeFilledCalculation,
         initialize: initialize,

@@ -130,6 +130,11 @@
         } catch (err) {
             tradingSystem.errors.push([tradingSystemOrder.id, "createOrder -> Error = " + err.message])
             logError("createOrder -> Error = " + err.message)
+            logError("createOrder -> symbol = " + symbol);
+            logError("createOrder -> side = " + side);
+            logError("createOrder -> type = " + type);
+            logError("createOrder -> amount = " + amount);
+            logError("createOrder -> price = " + price);
             if (err.message.indexOf('API-key format invalid') >= 0) {
                 logError ('The exchange says the API key provided is not good or it is not in the correct format. This is what you are using:')
                 errorFooter()

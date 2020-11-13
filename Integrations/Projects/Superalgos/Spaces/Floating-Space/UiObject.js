@@ -1835,7 +1835,7 @@ function newUiObject() {
         if (radius > 6) {
             const MAX_LABEL_LENGTH = 65
 
-            label = Number(currentPercentage).toFixed(0) + '%'
+            label = Number(currentPercentage) + '%'
 
             if (label.length > MAX_LABEL_LENGTH) {
                 label = label.substring(0, MAX_LABEL_LENGTH) + '...'

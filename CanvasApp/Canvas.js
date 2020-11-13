@@ -186,19 +186,21 @@ function newCanvas() {
                 }
 
                 /* Set up Utilities of this Project */
-                if (projectDefinition.utilities === undefined) { continue }
-                for (let j = 0; j < projectDefinition.utilities.length; j++) {
-                    let utilityDefinition = projectDefinition.utilities[j]
+                if (projectDefinition.utilities !== undefined) {
+                    for (let j = 0; j < projectDefinition.utilities.length; j++) {
+                        let utilityDefinition = projectDefinition.utilities[j]
 
-                    projectInstance.utilities[utilityDefinition.propertyName] = eval(utilityDefinition.functionName + '()')
+                        projectInstance.utilities[utilityDefinition.propertyName] = eval(utilityDefinition.functionName + '()')
+                    }
                 }
 
                 /* Set up Globals of this Project */
-                if (projectDefinition.globals === undefined) { continue }
-                for (let j = 0; j < projectDefinition.globals.length; j++) {
-                    let globalDefinition = projectDefinition.globals[j]
+                if (projectDefinition.globals !== undefined) {
+                    for (let j = 0; j < projectDefinition.globals.length; j++) {
+                        let globalDefinition = projectDefinition.globals[j]
 
-                    projectInstance.globals[globalDefinition.propertyName] = eval(globalDefinition.functionName + '()')
+                        projectInstance.globals[globalDefinition.propertyName] = eval(globalDefinition.functionName + '()')
+                    }
                 }
             }
             thisObject.animation.start()

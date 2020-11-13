@@ -48,6 +48,14 @@
         "menuItems": [
             {
                 "action": "Add UI Object",
+                "label": "Add Network Reference",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "networkReference",
+                "relatedUiObject": "Network Reference",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
                 "label": "Add Wallet Keys",
                 "disableIfPropertyIsDefined": true,
                 "propertyToCheckFor": "walletKeys",
@@ -75,6 +83,12 @@
         "level": 0,
         "properties": [
             {
+                "name": "networkReference",
+                "type": "node",
+                "childType": "Network Reference",
+                "autoAdd": true
+            },
+            {
                 "name": "walletKeys",
                 "type": "node",
                 "childType": "Wallet Keys",
@@ -86,6 +100,33 @@
                 "childType": "Wallet Account"
             }
         ],
+        "icon": "ethereum"
+    },
+    {
+        "type": "Network Reference",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "title": [
+            "Use Reference Parent"
+        ],
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Blockchain Network->"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Ethereum Wallet->"
+        },
+        "propertyNameAtParent": "networkReference",
         "icon": "ethereum"
     },
     {
@@ -563,7 +604,7 @@
             "config": true
         },
         "initialValues": {
-            "config": "{ \n\"host\": \"localhost\", \n\"webSocketsPort\": \"8545\"\n}"
+            "config": "{ \n\"host\": \"localhost\", \n\"httpPort\": \"8545\"\n}"
         },
         "addLeftIcons": true,
         "level": 1,

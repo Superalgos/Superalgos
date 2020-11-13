@@ -72,7 +72,7 @@ function newCircularProgressBar() {
             thisObject.payload.uiObject.setValue(message.event.processingDate, 2000)
         }
         if (message.event.percentage !== undefined) {
-            thisObject.payload.uiObject.setPercentage(message.event.percentage, 2000)
+            thisObject.payload.uiObject.setPercentage(message.event.percentage.toFixed(0), 2000)
         }
         if (message.event.status !== undefined) {
             needToDrawRing = false

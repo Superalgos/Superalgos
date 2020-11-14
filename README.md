@@ -11,6 +11,8 @@ Superalgos is a platform to automate crypto-trading. It is implemented as a Node
 * A Visual Strategy Debugger.
 * Task Management across a Trading Farm.
 * Community built strategies to learn and start from.
+* In-App Tutorials
+* Complete Documentation
 
 ## Superalgos allows you to
 

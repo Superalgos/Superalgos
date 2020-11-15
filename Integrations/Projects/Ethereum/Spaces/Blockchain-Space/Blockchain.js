@@ -67,21 +67,60 @@ function newEthereumBlockchainSpace() {
                             networkClient.payload.uiObject.setErrorMessage('Property host not defined at node config.')
                             continue
                         }
-                        if (config.httpPort === undefined) {
-                            networkClient.payload.uiObject.setErrorMessage('Property httpPort not defined at node config.')
+                        if (config.httpPort === undefined && config.webSocketsPort === undefined) {
+                            networkClient.payload.uiObject.setErrorMessage('Property httpPort or webSocketsPort must be defined at node config.')
                             continue
                         }
 
-                        try {
-                            client.web3 = new window.Web3('http://' + config.host + ':' + config.httpPort + '');
-                            if (client.web3.currentProvider.currentProvider === false) {
-                                networkClient.payload.uiObject.setErrorMessage('Can not connect to this client.')
-                                return
-                            }
+                        /* Web Sockets would be the default protocol */
+                        let providerURL
+                        let provider
+                        if (config.webSocketsPort !== undefined) {
+                            providerURL = 'ws://' + config.host + ':' + config.webSocketsPort + ''
+                            provider = new Web3.providers.WebsocketProvider(providerURL, {
+                                headers: {
+                                    Origin: "http://localhost"
+                                }
+                            });
+                        } else {
+                            providerURL = 'http://' + config.host + ':' + config.httpPort + ''
+                            provider = new Web3.providers.HttpProvider(providerURL, {
+                                headers: {
+                                    Origin: "http://localhost"
+                                }
+                            });
+                        }
 
-                            client.chainId = await client.web3.eth.getChainId()
-                            clientMap.set(networkClient.id, client)
-                            setStatus()
+                        try {
+                            client.web3 = new window.Web3('ws://localhost:8546'); // new window.Web3(provider);
+
+                            /* This is a way we found to wait for the connection to be stablished */
+                            
+                            await waitForConnectionToBeStablished()
+
+                            async function waitForConnectionToBeStablished() {
+                                let accounts = await web3.eth.getAccounts()
+                                 if (client.web3.currentProvider.connected === false) {
+                                    networkClient.payload.uiObject.setErrorMessage('Can not connect to this client.')                                    
+                                } else {
+                                    clientMap.set(networkClient.id, client)
+                                    setStatus()
+                                }
+                            }
+/*
+                            if (client.web3.currentProvider.connected === false) {
+                                networkClient.payload.uiObject.setErrorMessage('Can not connect to this client.')
+                                continue
+                            } 
+/*
+                            let isListening = await client.web3.eth.net.isListening()
+                            if (isListening === true) {
+                                clientMap.set(networkClient.id, client)
+                                setStatus()
+                            } else {
+                                networkClient.payload.uiObject.setStatus('Not connected to Ethereum Client.')
+                            }
+*/
                         } catch (err) {
                             networkClient.payload.uiObject.setErrorMessage('Error connecting to this client: ' + err.message)
                         }
@@ -111,7 +150,7 @@ function newEthereumBlockchainSpace() {
                         /* If it is not syncing, then we have the current block and the highets block too */
                         let percentage = (client.isSyncing.currentBlock * 100 / client.isSyncing.highestBlock).toFixed(4)
                         let extraStatus = ''
-                        if (client.isSyncing.highestBlock - client.isSyncing.currentBlock < 100) {
+                        if (client.isSyncing.highestBlock - client.isSyncing.currentBlock < 300) {
                             extraStatus = 'Block Download Finished. Downloading Trie Data Structure.'
                         } else {
                             extraStatus = 'Block Download Phase.'

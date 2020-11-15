@@ -81,6 +81,7 @@ function newConditionEditor() {
         thisObject.visible = true
         thisObject.payload = action.node.payload
         thisObject.payload.uiObject.resetErrorMessage()
+        thisObject.payload.uiObject.uiObjectTitle.exitEditMode()
 
         conditionStructure = {
             code: '',

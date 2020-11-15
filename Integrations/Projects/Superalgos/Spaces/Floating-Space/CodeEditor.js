@@ -64,6 +64,7 @@ function newCodeEditor() {
         thisObject.targetRadius = thisObject.container.frame.radius
         thisObject.currentRadius = 0
         thisObject.payload.uiObject.resetErrorMessage()
+        thisObject.payload.uiObject.uiObjectTitle.exitEditMode()
 
         let textArea = document.getElementById('textArea')
         textArea.value = thisObject.payload.node.code

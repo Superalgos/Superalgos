@@ -75,6 +75,12 @@ function newPluginsFunctions() {
 
     function pluginMissingDataMines(node, rootNodes, functionLibraryUiObjectsFromNodes) {
         let projectName = getProjectName(node)
+        if (projectName === "" || projectName === undefined) {
+            if (node.payload.parentNode !== undefined) {
+                node.payload.parentNode.payload.uiObject.setErrorMessage("Config codeName must have the name of the project.")
+                return
+            }
+        }
 
         getPluginFileNames(projectName, 'Data-Mines', onNamesArrived)
 
@@ -85,6 +91,12 @@ function newPluginsFunctions() {
 
     function pluginMissingTradingMines(node, rootNodes, functionLibraryUiObjectsFromNodes) {
         let projectName = getProjectName(node)
+        if (projectName === "" || projectName === undefined) {
+            if (node.payload.parentNode !== undefined) {
+                node.payload.parentNode.payload.uiObject.setErrorMessage("Config codeName must have the name of the project.")
+                return
+            }
+        }
 
         getPluginFileNames(projectName, 'Trading-Mines', onNamesArrived)
 
@@ -95,6 +107,12 @@ function newPluginsFunctions() {
 
     function pluginMissingTradingSystems(node, rootNodes, functionLibraryUiObjectsFromNodes) {
         let projectName = getProjectName(node)
+        if (projectName === "" || projectName === undefined) {
+            if (node.payload.parentNode !== undefined) {
+                node.payload.parentNode.payload.uiObject.setErrorMessage("Config codeName must have the name of the project.")
+                return
+            }
+        }
 
         getPluginFileNames(projectName, 'Trading-Systems', onNamesArrived)
 
@@ -105,6 +123,12 @@ function newPluginsFunctions() {
 
     function pluginMissingTradingEngines(node, rootNodes, functionLibraryUiObjectsFromNodes) {
         let projectName = getProjectName(node)
+        if (projectName === "" || projectName === undefined) {
+            if (node.payload.parentNode !== undefined) {
+                node.payload.parentNode.payload.uiObject.setErrorMessage("Config codeName must have the name of the project.")
+                return
+            }
+        }
 
         getPluginFileNames(projectName, 'Trading-Engines', onNamesArrived)
 
@@ -115,6 +139,12 @@ function newPluginsFunctions() {
 
     function pluginMissingSuperScripts(node, rootNodes, functionLibraryUiObjectsFromNodes) {
         let projectName = getProjectName(node)
+        if (projectName === "" || projectName === undefined) {
+            if (node.payload.parentNode !== undefined) {
+                node.payload.parentNode.payload.uiObject.setErrorMessage("Config codeName must have the name of the project.")
+                return
+            }
+        }
 
         getPluginFileNames(projectName, 'Super-Scripts', onNamesArrived)
 
@@ -125,6 +155,12 @@ function newPluginsFunctions() {
 
     function pluginMissingTutorials(node, rootNodes, functionLibraryUiObjectsFromNodes) {
         let projectName = getProjectName(node)
+        if (projectName === "" || projectName === undefined) {
+            if (node.payload.parentNode !== undefined) {
+                node.payload.parentNode.payload.uiObject.setErrorMessage("Config codeName must have the name of the project.")
+                return
+            }
+        }
 
         getPluginFileNames(projectName, 'Tutorials', onNamesArrived)
 

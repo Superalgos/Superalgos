@@ -2,7 +2,7 @@
 
 # What is Superalgos?
 
-Superalgos is a platform to automate crypto-trading. It is implemented as a Nodejs Backend + Web App that runs on your hardware and scales from a single Raspberry Pi to a Trading Farm. Superalgos is Free and Open Source.
+Superalgos is a platform to automate crypto-trading. It is implemented as a Nodejs Backend + Web App that runs on your hardware and scales from a single Raspberry Pi to a Trading Farm. Superalgos is **Free** and **Open Source**.
 
 ## Superalgos Features
 
@@ -11,6 +11,8 @@ Superalgos is a platform to automate crypto-trading. It is implemented as a Node
 * A Visual Strategy Debugger.
 * Task Management across a Trading Farm.
 * Community built strategies to learn and start from.
+* In-App Tutorials
+* Complete Documentation
 
 ## Superalgos allows you to
 
@@ -24,6 +26,11 @@ Superalgos is a platform to automate crypto-trading. It is implemented as a Node
 * Run live trading sessions.
 * Run arbitrary data-mining operations of any size.
 * Feed your trading strategies with the data mined.
+
+## Superalgos Development Pipeline
+
+* Ethereum Integration, which will allow you to data mine your own Ethereum node and use the mined data in your strategies.
+* Machine Learning, which will allow you to run a Reinforcement Learning Algorithm and feed it with mined data so as to learn how to take decisions relevant for your strategies.
 
 ## Superalgos is user-centric
 
@@ -48,22 +55,25 @@ Superalgos is a platform to automate crypto-trading. It is implemented as a Node
 * No need to debug what went wrong line by line or diving into log files with tons of data. You can see each variable of the state of the Trading Engine at every candle by hovering the mouse over the charts.
 * No need to integrate a charting library, Superalgos has its own integrated Charting System.
 * No need to manage task data or execution dependencies by yourself. Superalgos allows you to define Tasks and distribute them across a Trading Farm, and it takes care of the data and execution dependencies, so that each task automatically starts when their dependencies are ready.
+
+# Superalgos for Individuals
+
 * Superalgos is easy to install / uninstall.
 * Superalgos is easy to run.
 * Superalgos is easy to use.
 * Superalgos is easy to learn.
 * Superalgos is easy to debug.
 * Superalgos is well documented.
-* You have online support via Telegram.
+* You have free online support via Telegram.
 
 ## Superalgos saves you money
 
 * There are no paid plans or anything that costs you money.
 * There is no locked functionality, you can use the full capacity of the software.
-* There is no limit in the amount of backtests you can run. 
-* There is no limit in the amount of live sessions you can run.
-* There is no limit in the amount of historical data you can download.
-* There is no limit in the amount of data you can process.
+* There is no limit in the number of backtests you can run. 
+* There is no limit in the number of live sessions you can run.
+* There is no limit in the number of historical data you can download.
+* There is no limit in the number of data you can process.
 * You can use all the plugins available (indicators / plotters / strategies / etc.)
 * You can install Superalgos in as many machines as you want.
 * Your installations can be used by as many people as you want.
@@ -77,6 +87,13 @@ Superalgos is a platform to automate crypto-trading. It is implemented as a Node
 * No one knows how much money you have / trade.
 * No one can see your exchange keys.
 
+# Superalgos for Companies
+
+* No need to buy expensive software for monitoring crypto markets or trading execution.
+* All your employees can use Superalgos for free.
+* You can use Superalgos at its full capacity or just the features you are currently interested in.
+* Superalgos could be integrated into your existing operation, feeding itself from other systems or feeding other systems as well.
+
 # Getting Started
 
 All procedures are the same for Windows, Linux or Mac OS. Note: only tested with Google Chrome.
@@ -85,8 +102,8 @@ All procedures are the same for Windows, Linux or Mac OS. Note: only tested with
 
 ### Pre-Requisites
 
-1. If you don't have it yet, [download install Node.js.](https://nodejs.org/en/download/)
-2. If you don't have it yet, [download install Git.](https://git-scm.com/downloads)
+1. If you don't have it yet, [download and install Node.js.](https://nodejs.org/en/download/)
+2. If you don't have it yet, [download and install Git.](https://git-scm.com/downloads)
 
 ### App Setup
 
@@ -145,11 +162,15 @@ To stay up-to-date, follow [Superalgos on Facebook](https://www.facebook.com/sup
 
 # Contributing
 
-Superalgos is a Community Project. Learn [how to become a Contributor](https://docs.superalgos.org/contributing-to-superalgos.html).
+Superalgos is a Community Project built by Contributors. Learn [how to become a Contributor](https://docs.superalgos.org/contributing-to-superalgos.html).
 
 ## Contributors 
 
-Luis Fernando Molina, Julian Molina, Andreja Cobeljic, Matías Benitez, Ira Miller, Eduardo Remis, Jeff Braun, rico4dev, Barry Low, Nikola Bjelogrlic, Hirajin Koizuko, Francisco J. Santillán, Viktoria B., Guillermo V., Daniel J., Javier A., Gustavo J., Romina GS, Pedro P., Thais M., Loui M., Natalia M., Bashar A., Carlos V., Diego M., Sebastian E., Bogdan P., Marko V., Igor S., Niksa K., Rodrigo M. and Nicanor M.
+Luis Fernando Molina, Julian Molina, Andreja Cobeljic, Matías Benitez, Ira Miller, Eduardo Remis, Jeff Braun, rico4dev, 9808us, Barry Low, Nikola Bjelogrlic, Hirajin Koizuko, Francisco J. Santillán, Viktoria B., Guillermo V., Daniel J., Javier A., Gustavo J., Romina GS, Pedro P., Thais M., Andrey M., Loui M., Natalia M., Bashar A., Carlos V., Diego M., Sebastian E., Bogdan P., Marko V., Igor S., Niksa K., Rodrigo M., Nicanor M., Alejandro P., Mateo H., Lan T., Leon A., Uroš R., Filip M., Vladimir J. and Pavle B.
+
+# About this Repository
+
+This repository is the one that stores the output of the build process and it is the one that users actually download to their machines and run. As a system, Superalgos is distributed across different repositories that are combined during the build process to produce the content of this one. A secondary use case for this repo is as issue tracker for the overall project. 
 
 # License
 

@@ -46,7 +46,7 @@ global.CUSTOM_FAIL_RESPONSE = {
 let WEB_SERVER = require('./webServer.js')
 let DATA_FILE_SERVER = require('./dataFileServer.js')
 let PROJECT_FILE_SERVER = require('./projectFileServer.js')
-let WEB_APP_FILE_SERVER = require('./webAppFileServer.js')
+let UI_FILE_SERVER = require('./uiFileServer.js')
 let PLUGIN_SERVER = require('./pluginServer.js')
 let EVENT_SERVER = require('./eventServer.js')
 let TASK_MANAGER_SERVER = require('./taskManagerServer.js')
@@ -58,30 +58,33 @@ let WEB_SOCKETS_INTERFACE = require('./webSocketsServer.js')
 let HTTP_INTERFACE = require('./httpInterface.js')
 
 try {
+    console.log('CLIENT SERVERS:')
+    console.log('')
+
     WEB_SERVER = WEB_SERVER.newWebServer()
     WEB_SERVER.initialize()
     WEB_SERVER.run()
     console.log('Web Server ......................... Started')
 
-    DATA_FILE_SERVER = DATA_FILE_SERVER.newDataFileServer()
-    DATA_FILE_SERVER.initialize()
-    DATA_FILE_SERVER.run()
-    console.log('Data File Server ................... Started')
+    UI_FILE_SERVER = UI_FILE_SERVER.newUIFileServer()
+    UI_FILE_SERVER.initialize()
+    UI_FILE_SERVER.run()
+    console.log('UI File Server ..................... Started')
 
     PROJECT_FILE_SERVER = PROJECT_FILE_SERVER.newProjectFileServer()
     PROJECT_FILE_SERVER.initialize()
     PROJECT_FILE_SERVER.run()
     console.log('Project File Server ................ Started')
-
-    WEB_APP_FILE_SERVER = WEB_APP_FILE_SERVER.newWebAppFileServer()
-    WEB_APP_FILE_SERVER.initialize()
-    WEB_APP_FILE_SERVER.run()
-    console.log('Web App File Server ................ Started')
-
+    
     PLUGIN_SERVER = PLUGIN_SERVER.newPluginServer()
     PLUGIN_SERVER.initialize()
     PLUGIN_SERVER.run()
     console.log('Plugin Server ...................... Started')
+
+    DATA_FILE_SERVER = DATA_FILE_SERVER.newDataFileServer()
+    DATA_FILE_SERVER.initialize()
+    DATA_FILE_SERVER.run()
+    console.log('Data File Server ................... Started')
 
     EVENT_SERVER = EVENT_SERVER.newEventServer()
     EVENT_SERVER.initialize()
@@ -103,15 +106,19 @@ try {
     WEB3_SERVER.run()
     console.log('WEB3 Server ........................ Started')
 
+    console.log('')
+    console.log('CLIENT INTERFACES:')
+    console.log('')
+
     WEB_SOCKETS_INTERFACE = WEB_SOCKETS_INTERFACE.newWebSocketsInterface(EVENT_SERVER)
     WEB_SOCKETS_INTERFACE.initialize()
     WEB_SOCKETS_INTERFACE.run()
-    console.log('Web Sockets Interface .............. Started')
+    console.log('Web Sockets Interface .............. Listening at port ' + process.env.WEB_SOCKETS_INTERFACE_PORT)
 
-    HTTP_INTERFACE = HTTP_INTERFACE.newHttpInterface(WEB_SERVER, DATA_FILE_SERVER, PROJECT_FILE_SERVER, WEB_APP_FILE_SERVER, PLUGIN_SERVER, CCXT_SERVER, WEB3_SERVER)
+    HTTP_INTERFACE = HTTP_INTERFACE.newHttpInterface(WEB_SERVER, DATA_FILE_SERVER, PROJECT_FILE_SERVER, UI_FILE_SERVER, PLUGIN_SERVER, CCXT_SERVER, WEB3_SERVER)
     HTTP_INTERFACE.initialize()
     HTTP_INTERFACE.run()
-    console.log('Http Interface ..................... Started')
+    console.log('Http Interface ..................... Listening at port ' + process.env.HTTP_INTERFACE_PORT)
 
     console.log('')
     console.log("You are running Superalgos Beta 7")

@@ -99,7 +99,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
 
                     let http = require('http');
                     let url =   'http://' + process.env.WEB_SERVER_URL +
-                                ':' + process.env.WEB_SERVER_PORT +
+                                ':' + process.env.HTTP_INTERFACE_PORT +
                                 '/Webhook/Fetch-Messages/' +
                                 bot.exchange + "/" +
                                 bot.market.baseAsset + "-" + bot.market.quotedAsset

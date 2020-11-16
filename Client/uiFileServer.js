@@ -1,6 +1,6 @@
-exports.newWebAppFileServer = function newWebAppFileServer() {
+exports.newUIFileServer = function newUIFileServer() {
 
-    const MODULE = "Web App File Server"
+    const MODULE = "UI File Server"
 
     let thisObject = {
         initialize: initialize,

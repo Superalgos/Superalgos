@@ -1,4 +1,4 @@
-exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVER, PROJECT_FILE_SERVER, WEB_APP_FILE_SERVER, PLUGIN_SERVER, CCXT_SERVER, WEB3_SERVER) {
+exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVER, PROJECT_FILE_SERVER, UI_FILE_SERVER, PLUGIN_SERVER, CCXT_SERVER, WEB3_SERVER) {
 
     let thisObject = {
         initialize: initialize,
@@ -13,7 +13,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
     CONSOLE_ERROR_LOG = process.env.CONSOLE_ERROR_LOG === 'true'
     LOG_FILE_CONTENT = process.env.LOG_FILE_CONTENT === 'true'
 
-    let port = process.env.WEB_SERVER_PORT
+    let port = process.env.HTTP_INTERFACE_PORT
 
     let http = require('http')
     let isHttpServerStarted = false
@@ -43,7 +43,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                 isHttpServerStarted = true
                 /* Starting the browser now is optional */
                 if (process.argv.includes("noBrowser")) {
-                    console.log('Running Backend only with no UI.')
+                    //Running Backend only with no UI.
                 } else {
                     open('http://localhost:' + port)
                 }
@@ -798,9 +798,9 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                     try {
                         let fileContent = file.toString()
 
-                        fileContent = fileContent.replace('WEB_SERVER_PORT', process.env.WEB_SERVER_PORT)
-                        fileContent = fileContent.replace('WEB_SERVER_PORT', process.env.WEB_SERVER_PORT)
-                        fileContent = fileContent.replace('WEB_SERVER_PORT', process.env.WEB_SERVER_PORT)
+                        fileContent = fileContent.replace('HTTP_INTERFACE_PORT', process.env.HTTP_INTERFACE_PORT)
+                        fileContent = fileContent.replace('HTTP_INTERFACE_PORT', process.env.HTTP_INTERFACE_PORT)
+                        fileContent = fileContent.replace('HTTP_INTERFACE_PORT', process.env.HTTP_INTERFACE_PORT)
                         respondWithContent(fileContent, response, 'text/css')
                     } catch (err) {
                         console.log('[ERROR] httpInterface -> mainCSS -> File Not Found: ' + fileName + ' or Error = ' + err.stack)
@@ -822,7 +822,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                         try {
                             let fileContent = file.toString()
 
-                            fileContent = fileContent.replace('WEB_SERVER_PORT', process.env.WEB_SERVER_PORT)
+                            fileContent = fileContent.replace('HTTP_INTERFACE_PORT', process.env.HTTP_INTERFACE_PORT)
                             respondWithContent(fileContent, response)
                         } catch (err) {
                             console.log('[ERROR] httpInterface -> homePage -> File Not Found: ' + fileName + ' or Error = ' + err.stack)

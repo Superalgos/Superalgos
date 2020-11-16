@@ -122,7 +122,7 @@ node run
 
 ## Uninstall
 
-Just delete the folder Superalgos.
+Superalgos does not write anything outside the Superalgos folder. To completelly uninstall the software, just delete the Superalgos folder. 
 
 # Support
 

@@ -2079,7 +2079,7 @@
             "config": true
         },
         "initialValues": {
-            "config": "{ \n\"host\": \"localhost\", \n\"webPort\": \"34248\", \n\"webSocketsPort\": \"8081\"\n}"
+            "config": "{ \n\"host\": \"localhost\", \n\"webPort\": \"34248\", \n\"webSocketsPort\": \"18041\"\n}"
         },
         "isTitleAllwaysVisible": true,
         "addLeftIcons": true,

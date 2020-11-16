@@ -91,6 +91,46 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
         switch (requestParameters[1]) {
 
+            case 'WEB3':
+                {
+                    getBody(processRequest)
+
+                    async function processRequest(body) {
+                        try {
+                            let params = JSON.parse(body)
+
+                            switch (params.method) {
+                                case 'getNetworkClientStatus': {
+
+                                    let status = await WEB3_SERVER.getNetworkClientStatus(
+                                        params.host,
+                                        params.port,
+                                        params.interface
+                                    )
+
+                                    respondWithContent(JSON.stringify(status), response)
+                                    return
+                                }
+                                default: {
+                                    respondWithContent(JSON.stringify({ error: 'Method ' + params.method + ' is invalid.' }), response) 
+                                }
+                            }
+                        } catch (err) {
+                            if (CONSOLE_ERROR_LOG === true) { console.log('[ERROR] httpInterface -> WEB3s -> Method call produced an error.') }
+                            if (CONSOLE_ERROR_LOG === true) { console.log('[ERROR] httpInterface -> WEB3s -> err.stack = ' + err.stack) }
+                            if (CONSOLE_ERROR_LOG === true) { console.log('[ERROR] httpInterface -> WEB3s -> Params Received = ' + body) }
+
+                            let error = {
+                                result: 'Fail Because',
+                                message: err.message,
+                                stack: err.stack
+                            }
+                            respondWithContent(JSON.stringify(error), response)
+                        }
+                    }
+                    break
+                }
+
             case 'CCXT':
                 {
                     getBody(processRequest)
@@ -482,7 +522,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
                                 function onDirRead(err, fileList) {
                                     if (err) {
-                                        if (CONSOLE_ERROR_LOG === true) { console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath) }
+                                        if (CONSOLE_ERROR_LOG === true) { console.log('[WARN] Error reading a directory content. filePath = ' + dirPath) }
                                         respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
                                         return
                                     } else {
@@ -501,6 +541,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 }
                             } catch (err) {
                                 if (CONSOLE_ERROR_LOG === true) { console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath) }
+                                if (CONSOLE_ERROR_LOG === true) { console.log('[ERROR] err.stack = ' + err.stack) }
                                 respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
                                 return
                             }
@@ -515,7 +556,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
                             function onDirRead(err, fileList) {
                                 if (err) {
-                                    if (CONSOLE_ERROR_LOG === true) { console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath) }
+                                    if (CONSOLE_ERROR_LOG === true) { console.log('[WARN] Error reading a directory content. filePath = ' + dirPath) }
                                     respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
                                     return
                                 } else {
@@ -531,6 +572,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             }
                         } catch (err) {
                             if (CONSOLE_ERROR_LOG === true) { console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath) }
+                            if (CONSOLE_ERROR_LOG === true) { console.log('[ERROR] err.stack = ' + err.stack) }
                             respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
                             return
                         }
@@ -647,6 +689,8 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 }
                             } catch (err) {
                                 console.log('[ERROR] Error reading a directory content. filePath = ' + path)
+                                if (CONSOLE_ERROR_LOG === true) { console.log('[ERROR] err.stack = ' + err.stack) }
+
                                 console.log(err.stack)
                                 respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
                                 return
@@ -728,7 +772,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
                         function onDirRead(err, fileList) {
                             if (err) {
-                                if (CONSOLE_ERROR_LOG === true) { console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath) }
+                                if (CONSOLE_ERROR_LOG === true) { console.log('[WARN] Error reading a directory content. filePath = ' + dirPath) }
                                 if (CONSOLE_ERROR_LOG === true) { console.log(err.stack) }
                                 return
                             } else {
@@ -747,6 +791,8 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                         }
                     } catch (err) {
                         if (CONSOLE_ERROR_LOG === true) { console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath) }
+                        if (CONSOLE_ERROR_LOG === true) { console.log('[ERROR] err.stack = ' + err.stack) }
+
                         respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
                         return
                     }

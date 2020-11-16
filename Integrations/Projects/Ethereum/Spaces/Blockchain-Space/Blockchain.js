@@ -13,7 +13,6 @@ function newEthereumBlockchainSpace() {
     thisObject.container = newContainer()
     thisObject.container.initialize(MODULE_NAME)
 
-    let clientMap = new Map()
     let lastTryToReconnectDatetime
 
     return thisObject
@@ -30,38 +29,34 @@ function newEthereumBlockchainSpace() {
     }
 
     function physics() {
+        networkClientStatusPhysics()
+    }
+
+    async function networkClientStatusPhysics() {
 
         /* We will query the node only every 3 seconds */
         if (lastTryToReconnectDatetime === undefined) {
-            connectingPhysics()
+            checkStatus()
             lastTryToReconnectDatetime = (new Date()).valueOf()
         } else {
             let now = (new Date()).valueOf()
             if (now - lastTryToReconnectDatetime > 3000) {
-                connectingPhysics()
+                checkStatus()
                 lastTryToReconnectDatetime = now
             }
         }
-    }
 
-    async function connectingPhysics() {
-        try {
-            if (UI.projects.superalgos.spaces.designSpace.workspace === undefined) { return }
+        async function checkStatus() {
+            try {
+                if (UI.projects.superalgos.spaces.designSpace.workspace === undefined) { return }
 
-            let blockchain = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsByType('Ethereum Blockchain')
-            if (blockchain === undefined) { return }
-            for (let i = 0; i < blockchain.blockchainNetworks.length; i++) {
-                let blockchainNetwork = blockchain.blockchainNetworks[i]
-                for (let j = 0; j < blockchainNetwork.networkClients.length; j++) {
-                    let networkClient = blockchainNetwork.networkClients[j]
-                    /*
-                    We will check now if this network client is already at the networkClientsMap,
-                    if not, we will add it and stablish the connection to the ethereum node.
-                    */
-                    let client = clientMap.get(networkClient.id)
+                let blockchain = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsByType('Ethereum Blockchain')
+                if (blockchain === undefined) { return }
+                for (let i = 0; i < blockchain.blockchainNetworks.length; i++) {
+                    let blockchainNetwork = blockchain.blockchainNetworks[i]
+                    for (let j = 0; j < blockchainNetwork.networkClients.length; j++) {
+                        let networkClient = blockchainNetwork.networkClients[j]
 
-                    if (client === undefined) {
-                        client = {}
                         let config = JSON.parse(networkClient.config)
                         if (config.host === undefined) {
                             networkClient.payload.uiObject.setErrorMessage('Property host not defined at node config.')
@@ -73,103 +68,110 @@ function newEthereumBlockchainSpace() {
                         }
 
                         /* Web Sockets would be the default protocol */
-                        let providerURL
-                        let provider
+                        let clientPort
+                        let clientInterface
                         if (config.webSocketsPort !== undefined) {
-                            providerURL = 'ws://' + config.host + ':' + config.webSocketsPort + ''
-                            provider = new Web3.providers.WebsocketProvider(providerURL, {
-                                headers: {
-                                    Origin: "http://localhost"
-                                }
-                            });
+                            clientInterface = 'ws'
+                            clientPort = config.webSocketsPort
                         } else {
-                            providerURL = 'http://' + config.host + ':' + config.httpPort + ''
-                            provider = new Web3.providers.HttpProvider(providerURL, {
-                                headers: {
-                                    Origin: "http://localhost"
-                                }
-                            });
+                            clientInterface = 'http'
+                            clientPort = config.httpPort
                         }
 
-                        try {
-                            client.web3 = new window.Web3('ws://localhost:8546'); // new window.Web3(provider);
+                        let params = {
+                            method: 'getNetworkClientStatus',
+                            host: config.host,
+                            port: clientPort,
+                            interface: clientInterface
+                        }
 
-                            /* This is a way we found to wait for the connection to be stablished */
-                            
-                            await waitForConnectionToBeStablished()
+                        callWebServer(JSON.stringify(params), 'WEB3', onResponse)
 
-                            async function waitForConnectionToBeStablished() {
-                                let accounts = await web3.eth.getAccounts()
-                                 if (client.web3.currentProvider.connected === false) {
-                                    networkClient.payload.uiObject.setErrorMessage('Can not connect to this client.')                                    
-                                } else {
-                                    clientMap.set(networkClient.id, client)
-                                    setStatus()
-                                }
+                        function onResponse(err, data) {
+                            /* Lets check the result of the call through the http interface */
+                            if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                                networkClient.payload.uiObject.setErrorMessage('Call via HTTP Interface failed.')
+                                return
                             }
-/*
-                            if (client.web3.currentProvider.connected === false) {
-                                networkClient.payload.uiObject.setErrorMessage('Can not connect to this client.')
-                                continue
-                            } 
-/*
-                            let isListening = await client.web3.eth.net.isListening()
-                            if (isListening === true) {
-                                clientMap.set(networkClient.id, client)
-                                setStatus()
+
+                            let status = JSON.parse(data)
+
+                            /* Lets check the result of the method call */
+                            if (status.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                                networkClient.payload.uiObject.setErrorMessage('Call to WEB3 Server failed. ' + status.error)
+                                return
+                            }
+
+                            showStatus(status)
+                        }
+
+                        async function showStatus(status) {
+                            const ANNIMATION_CYCLES_TO_LAST = 300
+
+                            networkClient.payload.uiObject.resetErrorMessage()
+
+                            if (status.isSyncing === false) {
+                                networkClient.payload.uiObject.setStatus('Client is looking for peers...', ANNIMATION_CYCLES_TO_LAST)
+                                return
+                            }
+                            /* If it is not syncing, then we have the current block and the highets block too */
+                            let percentage = (status.isSyncing.currentBlock * 100 / status.isSyncing.highestBlock).toFixed(4)
+                            let extraStatus = ''
+                            if (status.isSyncing.highestBlock - status.isSyncing.currentBlock < 300) {
+                                extraStatus = 'Block Download Phase Finished. Downloading Trie Data Structure.'
                             } else {
-                                networkClient.payload.uiObject.setStatus('Not connected to Ethereum Client.')
+                                extraStatus = 'Block Download Phase.'
+                                networkClient.payload.uiObject.setPercentage(percentage, ANNIMATION_CYCLES_TO_LAST)
                             }
-*/
-                        } catch (err) {
-                            networkClient.payload.uiObject.setErrorMessage('Error connecting to this client: ' + err.message)
-                        }
 
-                    } else {
-                        setStatus()
-                    }
-                    async function setStatus() {
+                            networkClient.payload.uiObject.valueAtAngle = false
+                            networkClient.payload.uiObject.setValue(
+                                'Block ' + splitLargeNumber(status.isSyncing.currentBlock) +
+                                ' from ' + splitLargeNumber(status.isSyncing.highestBlock) +
+                                '. State ' + splitLargeNumber(status.isSyncing.pulledStates) +
+                                ' from ' + splitLargeNumber(status.isSyncing.knownStates)
+                                , 200)
 
-                        networkClient.payload.uiObject.resetErrorMessage()
-                        try {
-                            client.isSyncing = await client.web3.eth.isSyncing()
-                            client.chainId = await client.web3.eth.getChainId()
-                        } catch {
-                            networkClient.payload.uiObject.resetStatus()
-                            networkClient.payload.uiObject.setErrorMessage('Connection to client lost.')
-                            clientMap.delete(networkClient.id)
-                            return
-                        }
+                            if (status.isSyncing.currentBlock !== status.isSyncing.highestBlock) {
+                                networkClient.payload.uiObject.setStatus('Connected via http. Client is Syncing... ' + extraStatus, ANNIMATION_CYCLES_TO_LAST)
+                            } else {
+                                networkClient.payload.uiObject.setStatus('Connected to ' + client.networkName + ' via http. ', ANNIMATION_CYCLES_TO_LAST)
+                            }
 
-                        client.networkName = UI.projects.ethereum.globals.chainIds.chainNameById(client.chainId)
-
-                        if (client.isSyncing === false) {
-                            networkClient.payload.uiObject.setStatus('Client is looking for peers...')
-                            return
-                        }
-                        /* If it is not syncing, then we have the current block and the highets block too */
-                        let percentage = (client.isSyncing.currentBlock * 100 / client.isSyncing.highestBlock).toFixed(4)
-                        let extraStatus = ''
-                        if (client.isSyncing.highestBlock - client.isSyncing.currentBlock < 300) {
-                            extraStatus = 'Block Download Finished. Downloading Trie Data Structure.'
-                        } else {
-                            extraStatus = 'Block Download Phase.'
-                            networkClient.payload.uiObject.setPercentage(percentage)
-                        }
-
-                        networkClient.payload.uiObject.valueAtAngle = false
-                        networkClient.payload.uiObject.setValue('Block ' + client.isSyncing.currentBlock + ' from ' + client.isSyncing.highestBlock + '. State ' + client.isSyncing.pulledStates + ' from ' + client.isSyncing.knownStates)
-
-                        if (client.isSyncing.currentBlock !== client.isSyncing.highestBlock) {
-                            networkClient.payload.uiObject.setStatus('Connected via http. Client is Syncing... ' + extraStatus)
-                        } else {
-                            networkClient.payload.uiObject.setStatus('Connected to ' + client.networkName + ' via http. ')
+                            function splitLargeNumber(number) {
+                                let label = number.toString()
+                                let result = label
+                                switch (label.length) {
+                                    case 4: {
+                                        return label[0] + ',' + label[1] + label[2] + label[3]
+                                    }
+                                    case 5: {
+                                        return label[0] + label[1] + ',' + label[2] + label[3] + label[4]
+                                    }
+                                    case 6: {
+                                        return label[0] + label[1] + label[2] + ',' + label[3] + label[4] + label[5]
+                                    }
+                                    case 7: {
+                                        return label[0] + ',' + label[1] + label[2] + label[3] + ',' + label[4] + label[5] + label[6]
+                                    }
+                                    case 8: {
+                                        return label[0] + label[1] + ',' + label[2] + label[3] + label[4] + ',' + label[5] + label[6] + label[7]
+                                    }
+                                    case 9: {
+                                        return label[0] + label[1] + label[2] + ',' + label[3] + label[4] + label[5] + ',' + label[6] + label[7] + label[8]
+                                    }
+                                    case 10: {
+                                        return label[0] + ',' + label[1] + label[2] + label[3] + ',' + label[4] + label[5] + label[6] + ',' + label[7] + label[8] + label[9]
+                                    }
+                                }
+                                return result
+                            }
                         }
                     }
                 }
+            } catch (err) {
+                if (ERROR_LOG === true) { logger.write('[ERROR] checkStatus -> err = ' + err.stack) }
             }
-        } catch (err) {
-            if (ERROR_LOG === true) { logger.write('[ERROR] physics -> err = ' + err.stack) }
         }
     }
 

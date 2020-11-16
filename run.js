@@ -62,4 +62,4 @@ if (optionsAccepted === 0) {
 console.log('')
 
 const { fork } = require('child_process')
-fork('./Client/server.js', process.argv, options)
+fork('./Client/client.js', process.argv, options)

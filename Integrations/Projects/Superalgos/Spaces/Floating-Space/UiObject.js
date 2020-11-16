@@ -1761,7 +1761,7 @@ function newUiObject() {
         browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
 
         if (radius > 6) {
-            const MAX_LABEL_LENGTH = 65
+            const MAX_LABEL_LENGTH = 70
 
             label = currentValue
             if (!isNaN(currentValue)) {

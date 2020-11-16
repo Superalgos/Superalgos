@@ -1,17 +1,17 @@
 
 process.on('uncaughtException', function (err) {
     if (err.message.indexOf("EADDRINUSE") > 0) {
-        console.log("A Superalgos Backend Server cannot be started. Reason: the port " + port + " is already in use by another application.")
+        console.log("A Superalgos Client cannot be started. Reason: the port " + port + " is already in use by another application.")
         return
     }
-    console.log('[ERROR] Backend Server -> server -> uncaughtException -> err.message = ' + err.message)
-    console.log('[ERROR] Backend Server -> server -> uncaughtException -> err.stack = ' + err.stack)
+    console.log('[ERROR] Client -> client-> uncaughtException -> err.message = ' + err.message)
+    console.log('[ERROR] Client -> client-> uncaughtException -> err.stack = ' + err.stack)
     process.exit(1)
 })
 
 process.on('unhandledRejection', (reason, p) => {
-    console.log('[ERROR] Backend Server -> server -> unhandledRejection -> reason = ' + JSON.stringify(reason))
-    console.log('[ERROR] Backend Server -> server -> unhandledRejection -> p = ' + JSON.stringify(p))
+    console.log('[ERROR] Client -> client-> unhandledRejection -> reason = ' + JSON.stringify(reason))
+    console.log('[ERROR] Client -> client-> unhandledRejection -> p = ' + JSON.stringify(p))
     process.exit(1)
 })
 
@@ -131,6 +131,6 @@ try {
     
 
 } catch (err) {
-    console.log('[ERROR] Client -> Task Manager -> server -> Error = ' + err.stack)
+    console.log('[ERROR] Client -> Error = ' + err.stack)
 }
 

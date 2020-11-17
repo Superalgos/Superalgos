@@ -110,10 +110,17 @@ function newEthereumBlockchainSpace() {
 
                             networkClient.payload.uiObject.resetErrorMessage()
 
-                            if (status.isSyncing === false) {
+                            if (status.isSyncing === false && status.chainId === 0) {
                                 networkClient.payload.uiObject.setStatus('Client is looking for peers...', ANNIMATION_CYCLES_TO_LAST)
                                 return
                             }
+
+                            if (status.chainId > 0) {
+                                let networkName = UI.projects.ethereum.globals.chainIds.chainNameById(status.chainId)
+                                networkClient.payload.uiObject.setStatus('Connected to ' + networkName + ' via http. ', ANNIMATION_CYCLES_TO_LAST)
+                                return
+                            }
+
                             /* If it is not syncing, then we have the current block and the highets block too */
                             let percentage = (status.isSyncing.currentBlock * 100 / status.isSyncing.highestBlock).toFixed(4)
                             let extraStatus = ''
@@ -134,9 +141,7 @@ function newEthereumBlockchainSpace() {
 
                             if (status.isSyncing.currentBlock !== status.isSyncing.highestBlock) {
                                 networkClient.payload.uiObject.setStatus('Connected via http. Client is Syncing... ' + extraStatus, ANNIMATION_CYCLES_TO_LAST)
-                            } else {
-                                networkClient.payload.uiObject.setStatus('Connected to ' + client.networkName + ' via http. ', ANNIMATION_CYCLES_TO_LAST)
-                            }
+                            } 
 
                             function splitLargeNumber(number) {
                                 let label = number.toString()

@@ -600,6 +600,9 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Network Node->"
+        },
         "editors": {
             "config": true
         },

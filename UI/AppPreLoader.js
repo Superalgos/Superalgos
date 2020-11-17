@@ -109,7 +109,7 @@ function loadSuperalgos() {
 
     function setUpProjects() {
         let url = 'ProjectNames'
-        callWebServer(undefined, url, onResponse)
+        httpRequest(undefined, url, onResponse)
 
         function onResponse(err, projects) {
             window.PROJECTS = JSON.parse(projects)
@@ -130,26 +130,26 @@ function loadSuperalgos() {
     }
 }
 
-function callWebServer(pContentToSend, pPath, callBackFunction) {
-    let xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
+function httpRequest(pContentToSend, pPath, callBackFunction) {
+    let xmlHttpRequest = new XMLHttpRequest();
+    xmlHttpRequest.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {
-            callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, xhttp.responseText);
+            callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, xmlHttpRequest.responseText);
             return;
         } else if (this.readyState === 4 && this.status === 404) {
-            callBackFunction({ result: "Fail", message: xhttp.responseText.trim(), code: xhttp.responseText.trim() });
+            callBackFunction({ result: "Fail", message: xmlHttpRequest.responseText.trim(), code: xmlHttpRequest.responseText.trim() });
             return;
         }
     };
 
     if (pContentToSend === undefined) {
-        xhttp.open("GET", pPath, true);
-        xhttp.send();
+        xmlHttpRequest.open("GET", pPath, true);
+        xmlHttpRequest.send();
     } else {
         try {
             let blob = new Blob([pContentToSend], { type: 'text/plain' });
-            xhttp.open("POST", pPath, true);
-            xhttp.send(blob);
+            xmlHttpRequest.open("POST", pPath, true);
+            xmlHttpRequest.send(blob);
         } catch (err) {
             if (ERROR_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + " : " + "[ERROR] callServer -> err.message = " & err.message); }
             callBackFunction({ result: "Fail", message: err.message })

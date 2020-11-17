@@ -9,7 +9,7 @@ function newWebhookFunctions() {
         let testMessage = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(node.payload, 'testMessage')
         let letURL = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(node.payload, 'webhookURL')
 
-        callWebServer(testMessage, letURL, onResponse)
+        httpRequest(testMessage, letURL, onResponse)
 
         function onResponse(err) {
             if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {

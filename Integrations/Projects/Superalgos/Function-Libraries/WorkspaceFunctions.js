@@ -7,7 +7,7 @@ function newWorkspaceFunctions() {
 
     function addMissingWorkspaceProjects(node, rootNodes, functionLibraryUiObjectsFromNodes) {
         let url = 'ProjectNames'
-        callWebServer(undefined, url, onResponse)
+        httpRequest(undefined, url, onResponse)
 
         function onResponse(err, pProjects) {
             let projects = JSON.parse(pProjects)

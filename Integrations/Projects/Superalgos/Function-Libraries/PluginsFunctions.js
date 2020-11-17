@@ -11,7 +11,7 @@ function newPluginsFunctions() {
     return thisObject
 
     function getPluginFileNames(projectName, pluginType, callBack) {
-        callWebServer(undefined, 'PluginFileNames/' + projectName + '/' + pluginType, onResponse)
+        httpRequest(undefined, 'PluginFileNames/' + projectName + '/' + pluginType, onResponse)
 
         function onResponse(err, data) {
             if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
@@ -37,7 +37,7 @@ function newPluginsFunctions() {
 
     function pluginMissingProjects(node, rootNodes, functionLibraryUiObjectsFromNodes) {
         let url = 'ProjectNames'
-        callWebServer(undefined, url, onResponse)
+        httpRequest(undefined, url, onResponse)
 
         function onResponse(err, pProjects) {
             let projects = JSON.parse(pProjects)

@@ -99,7 +99,7 @@ function newUiObjectsFromNodes() {
                 for (let i = 0; i < pluginFiles.length; i++) {
                     let pluginFile = pluginFiles[i]
                     let name = pluginFile.name
-                    callWebServer(undefined, 'LoadPlugin' + '/' + 'Superalgos' + '/' + pluginType + '/' + name + '.json', onFileReceived)
+                    httpRequest(undefined, 'LoadPlugin' + '/' + 'Superalgos' + '/' + pluginType + '/' + name + '.json', onFileReceived)
 
                     function onFileReceived(err, text, response) {
 

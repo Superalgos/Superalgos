@@ -60,7 +60,7 @@ function newSuperalgosDesignSpace() {
 
     function loadIconCollection(callBack) {
 
-        callWebServer(undefined, 'IconNames', onResponse)
+        httpRequest(undefined, 'IconNames', onResponse)
 
         function onResponse(err, data) {
             if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {

@@ -22,7 +22,7 @@ function newAppPostLoader() {
             setupProjectsSchema()
 
             function setupProjectsSchema() {
-                callWebServer(undefined, 'ProjectsSchema', onResponse)
+                httpRequest(undefined, 'ProjectsSchema', onResponse)
 
                 function onResponse(err, file) {
                     PROJECTS_SCHEMA = JSON.parse(file)
@@ -52,7 +52,7 @@ function newAppPostLoader() {
                     SCHEMAS_BY_PROJECT.set(project, schemas)
 
                     totalWebServerCalls++
-                    callWebServer(undefined, 'Schema/' + project + '/AppSchema', onResponseAppSchema)
+                    httpRequest(undefined, 'Schema/' + project + '/AppSchema', onResponseAppSchema)
 
                     function onResponseAppSchema(err, schema) {
                         try {
@@ -72,7 +72,7 @@ function newAppPostLoader() {
                     }
 
                     totalWebServerCalls++
-                    callWebServer(undefined, 'Schema/' + project + '/DocSchema', onResponseDocSchema)
+                    httpRequest(undefined, 'Schema/' + project + '/DocSchema', onResponseDocSchema)
 
                     function onResponseDocSchema(err, schema) {
                         try {
@@ -92,7 +92,7 @@ function newAppPostLoader() {
                     }
 
                     totalWebServerCalls++
-                    callWebServer(undefined, 'Schema/' + project + '/ConceptSchema', onResponseConceptSchema)
+                    httpRequest(undefined, 'Schema/' + project + '/ConceptSchema', onResponseConceptSchema)
 
                     function onResponseConceptSchema(err, schema) {
                         try {

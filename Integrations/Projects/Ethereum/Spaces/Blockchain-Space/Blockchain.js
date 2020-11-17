@@ -85,7 +85,19 @@ function newEthereumBlockchainSpace() {
                             interface: clientInterface
                         }
 
-                        callWebServer(JSON.stringify(params), 'WEB3', onResponse)
+                        /*
+                        Next, we will check which Superalgos Network Node we need as a gateway
+                        to the Ethereum Client. We will use the current node reference parent for that. 
+                        */
+                        if (networkClient.payload.referenceParent === undefined) {
+                            networkClient.payload.uiObject.setErrorMessage('You need to reference a Superalgos Network Node so that it acts as a gateway to the Ethereum Client.')
+                            return
+                        }
+
+                        let networkNodeConfig = JSON.parse(networkClient.payload.referenceParent.config)
+                        let url = 'http://' + networkNodeConfig.host + ':' + networkNodeConfig.webPort + '/' + 'WEB3'
+
+                        httpRequest(JSON.stringify(params), url, onResponse)
 
                         function onResponse(err, data) {
                             /* Lets check the result of the call through the http interface */
@@ -117,7 +129,13 @@ function newEthereumBlockchainSpace() {
 
                             if (status.chainId > 0) {
                                 let networkName = UI.projects.ethereum.globals.chainIds.chainNameById(status.chainId)
-                                networkClient.payload.uiObject.setStatus('Connected to ' + networkName + ' via http. ', ANNIMATION_CYCLES_TO_LAST)
+                                networkClient.payload.uiObject.setStatus('Connected to ' + networkName + ' via the ' + clientInterface + ' interface, through ' + networkClient.payload.referenceParent.name + ' Network Node.', ANNIMATION_CYCLES_TO_LAST)
+                                
+                                networkClient.payload.uiObject.valueAtAngle = false
+                                networkClient.payload.uiObject.setValue(
+                                    'Current Block Number ' + splitLargeNumber(status.currentBlockNumber) 
+                                    , 200)     
+                                    networkClient.payload.uiObject.setPercentage('100.00', ANNIMATION_CYCLES_TO_LAST)                           
                                 return
                             }
 
@@ -141,7 +159,7 @@ function newEthereumBlockchainSpace() {
 
                             if (status.isSyncing.currentBlock !== status.isSyncing.highestBlock) {
                                 networkClient.payload.uiObject.setStatus('Connected via http. Client is Syncing... ' + extraStatus, ANNIMATION_CYCLES_TO_LAST)
-                            } 
+                            }
 
                             function splitLargeNumber(number) {
                                 let label = number.toString()

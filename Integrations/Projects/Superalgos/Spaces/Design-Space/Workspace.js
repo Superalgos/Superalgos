@@ -75,7 +75,7 @@ function newWorkspace() {
             let lastUsedWorkspace = window.localStorage.getItem('Last Used Workspace')
 
             if (lastUsedWorkspace !== 'undefined' && lastUsedWorkspace !== null && lastUsedWorkspace !== undefined) {
-                callWebServer(undefined, 'LoadMyWorkspace' + '/' + lastUsedWorkspace, onFileReceived)
+                httpRequest(undefined, 'LoadMyWorkspace' + '/' + lastUsedWorkspace, onFileReceived)
                 function onFileReceived(err, text, response) {
                     if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
                         UI.projects.superalgos.spaces.cockpitSpace.setStatus('Could not load the last Workspace used, called "' + lastUsedWorkspace + '". Will switch to the default Workspace instead.', 500, UI.projects.superalgos.spaces.cockpitSpace.statusTypes.WARNING)
@@ -172,7 +172,7 @@ function newWorkspace() {
         }
 
         let url = 'SaveWorkspace/' + workspace.name
-        callWebServer(textToSave, url, onResponse)
+        httpRequest(textToSave, url, onResponse)
         return true
 
         function onResponse(err) {
@@ -431,7 +431,7 @@ function newWorkspace() {
             webCommand = 'LoadMyWorkspace' + '/' + name
         }
 
-        callWebServer(undefined, webCommand, onFileReceived)
+        httpRequest(undefined, webCommand, onFileReceived)
         function onFileReceived(err, text, response) {
             if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
                 UI.projects.superalgos.spaces.cockpitSpace.setStatus('Could not load the Workspace called "' + name + '". ', 500, UI.projects.superalgos.spaces.cockpitSpace.statusTypes.WARNING)

@@ -68,6 +68,7 @@ exports.newWeb3Server = function newWeb3Server() {
                 let status = {}
                 status.isSyncing = await web3.eth.isSyncing()
                 status.chainId = await web3.eth.getChainId()
+                status.currentBlockNumber = await web3.eth.getBlockNumber()
                 status.result = 'Ok'
                 return status
             }

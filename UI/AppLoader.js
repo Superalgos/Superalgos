@@ -57,7 +57,7 @@ function newAppLoader() {
 
             function functionLibraries() {
                 let url = 'ListFunctionLibraries'
-                callWebServer(undefined, url, onResponse)
+                httpRequest(undefined, url, onResponse)
 
                 function onResponse(err, fileList) {
                     let urlArray = []
@@ -77,7 +77,7 @@ function newAppLoader() {
 
             function utilities() {
                 let url = 'ListUtilitiesFiles'
-                callWebServer(undefined, url, onResponse)
+                httpRequest(undefined, url, onResponse)
 
                 function onResponse(err, fileList) {
                     let urlArray = []
@@ -97,7 +97,7 @@ function newAppLoader() {
 
             function globals() {
                 let url = 'ListGlobalFiles'
-                callWebServer(undefined, url, onResponse)
+                httpRequest(undefined, url, onResponse)
 
                 function onResponse(err, fileList) {
                     let urlArray = []
@@ -117,7 +117,7 @@ function newAppLoader() {
 
             function spaces() {
                 let url = 'ListSpaceFiles'
-                callWebServer(undefined, url, onResponse)
+                httpRequest(undefined, url, onResponse)
 
                 function onResponse(err, fileList) {
                     let urlArray = []

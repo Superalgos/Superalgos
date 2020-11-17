@@ -8,7 +8,7 @@ function newGeth() {
     return thisObject
 
     function install(node) {
-        callWebServer('ExecuteTerminalCommand/dir')
+        httpRequest('ExecuteTerminalCommand/dir')
     }
 
     function run(node) {

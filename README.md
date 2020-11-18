@@ -128,11 +128,7 @@ Superalgos does not write anything outside the Superalgos folder. To completelly
 
 ### Via Telegram
 
-Users online support through our [Superalgos Telegram Community](https://t.me/superalgoscommunity).
-
-Developers online support through our [Superalgos Telegram Developer's Group](https://t.me/superalgosdevelop).
-
-Support in Spanish through our [Superalgos en Español Telegram Group](https://t.me/superalgos_es).
+Users online support through our [Superalgos User's Support](https://t.me/superalgossupport).
  
 ### Via Documentation Site
 
@@ -147,6 +143,14 @@ Self service support via video tutorials at the [Superalgos YouTube Channel](htt
 ### Web Site
 
 For an overview of what Superalgos can do for you, please check the [Superalgos Website](https://superalgos.org/).
+
+### Telegram
+
+Meet other users at our [Superalgos Telegram Community](https://t.me/superalgoscommunity).
+
+Meet the developers at our [Superalgos Telegram Developer's Group](https://t.me/superalgosdevelop).
+
+Spanish speaking users hang out at our [Superalgos en Español Telegram Group](https://t.me/superalgos_es).
 
 ### Blog
 

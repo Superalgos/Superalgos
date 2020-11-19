@@ -6,12 +6,11 @@ function newEthereumActionSwitch() {
         finalize: finalize
     }
 
-    let functionLibraryGeth = newGeth()
 
     return thisObject
 
     function finalize() {
-        functionLibraryGeth = undefined
+
     }
 
     function initialize() {
@@ -20,16 +19,8 @@ function newEthereumActionSwitch() {
 
     async function executeAction(action) {
         switch (action.name) {
-            case 'Install Geth': {
-                functionLibraryGeth.install(action.node)
-                break
-            }
-            case 'Run Geth': {
-                functionLibraryGeth.run(action.node)
-                break
-            }
-            case 'Stop Geth': {
-                functionLibraryGeth.stop(action.node)
+            case 'Create Wallet Account': {
+                UI.projects.ethereum.functionLibraries.accounts.createWalletAccount(action.node)
                 break
             }
         }

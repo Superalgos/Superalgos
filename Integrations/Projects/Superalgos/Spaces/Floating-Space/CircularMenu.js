@@ -168,6 +168,7 @@ function newCircularMenu() {
             if (menuItem.visible === true) {
                 if (menuItem.nextAction === action) {
                     menuItem.internalClick()
+                    if (menuItems === undefined) { return } // It might happen that the action executed is to delete the node that has this menu.
                 }
             }
         }

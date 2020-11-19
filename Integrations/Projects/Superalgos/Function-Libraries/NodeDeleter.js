@@ -1,4 +1,4 @@
-function newNodeDeleter() {
+function newSuperalgosFunctionLibraryNodeDeleter() {
     thisObject = {
         deleteWorkspace: deleteWorkspace,
         deleteUIObject: deleteUIObject

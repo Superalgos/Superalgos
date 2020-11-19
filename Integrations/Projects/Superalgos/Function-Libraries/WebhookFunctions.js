@@ -1,4 +1,4 @@
-function newWebhookFunctions() {
+function newSuperalgosFunctionLibraryWebhookFunctions() {
     thisObject = {
         sendTestMessage: sendTestMessage
     }

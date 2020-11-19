@@ -1,4 +1,4 @@
-function newNodeCloning() {
+function newSuperalgosFunctionLibraryNodeCloning() {
     const MODULE_NAME = 'Node Cloning'
     const ERROR_LOG = true
     const logger = newWebDebugLog()

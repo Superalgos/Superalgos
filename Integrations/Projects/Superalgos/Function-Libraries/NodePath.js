@@ -1,4 +1,4 @@
-function newNodePath() {
+function newSuperalgosFunctionLibraryNodePath() {
     thisObject = {
         getNodePath: getNodePath
     }

@@ -1,4 +1,4 @@
-function newChartingSpaceFunctions() {
+function newSuperalgosFunctionLibraryChartingSpaceFunctions() {
     thisObject = {
         addAllLayerPanels: addAllLayerPanels,
         addAllLayerPolygons: addAllLayerPolygons,
@@ -10,7 +10,7 @@ function newChartingSpaceFunctions() {
 
     return thisObject
 
-    function addAllMineLayers(node, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter) {
+    function addAllMineLayers(node, rootNodes) {
 
         /* Validations to see if we can do this or not. */
         if (node.payload === undefined) { return }
@@ -35,7 +35,7 @@ function newChartingSpaceFunctions() {
         function scanBotArray(botArray) {
             for (let i = 0; i < botArray.length; i++) {
                 let bot = botArray[i]
-                let botLayers = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Bot Layers')
+                let botLayers = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Bot Layers')
                 botLayers.name = bot.name
 
                 UI.projects.superalgos.utilities.folders.asymetricalFolderStructureCloning(
@@ -46,8 +46,7 @@ function newChartingSpaceFunctions() {
                     'layerFolders',
                     'Layer',
                     'Layer Folder',
-                    undefined,
-                    functionLibraryUiObjectsFromNodes
+                    undefined
                 )
                 /*
                 There are some layers that should not exist, for example the ones related to Data Products
@@ -61,7 +60,7 @@ function newChartingSpaceFunctions() {
 
                     let plotterModule = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(layer, 'Plotter Module', undefined, true, false, false, true)
                     if (plotterModule === undefined) {
-                        functionLibraryNodeDeleter.deleteUIObject(layer, rootNodes)
+                        UI.projects.superalgos.functionLibraries.nodeDeleter.deleteUIObject(layer, rootNodes)
                     }
                 }
                 /*
@@ -90,7 +89,7 @@ function newChartingSpaceFunctions() {
         }
     }
 
-    function addMissingTimeMachines(node, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter) {
+    function addMissingTimeMachines(node, rootNodes) {
         if (node.payload.referenceParent === undefined) {
             node.payload.uiObject.setErrorMessage('This node needs to have a Reference Parent for this command tu run.')
             return
@@ -128,16 +127,16 @@ function newChartingSpaceFunctions() {
                     let market = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
                     if (market.payload.referenceParent === undefined) { continue }
                     if (UI.projects.superalgos.utilities.children.isMissingChildren(node, session, true) === true) {
-                        createTimeMachine(node, session, market.payload.referenceParent, networkNode, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
+                        createTimeMachine(node, session, market.payload.referenceParent, networkNode, rootNodes)
                     }
                 }
             }
         }
     }
 
-    function createTimeMachine(dashboard, session, market, networkNode, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter) {
+    function createTimeMachine(dashboard, session, market, networkNode, rootNodes) {
         let mineProducts
-        let timeMachine = functionLibraryUiObjectsFromNodes.addUIObject(dashboard, 'Time Machine')
+        let timeMachine = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(dashboard, 'Time Machine')
         let exchange = market.payload.parentNode.payload.parentNode
         timeMachine.payload.referenceParent = session
         timeMachine.name = session.name + ' ' + session.type + ' ' + networkNode.name + ' ' + exchange.name + ' ' + market.name
@@ -166,7 +165,7 @@ function newChartingSpaceFunctions() {
             */
 
             for (let k = 0; k < 3; k++) {
-                let timelineChart = functionLibraryUiObjectsFromNodes.addUIObject(timeMachine, 'Timeline Chart')
+                let timelineChart = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(timeMachine, 'Timeline Chart')
 
                 timelineChart.layerManager.payload.referenceParent = mineProduct
                 timelineChart.payload.floatingObject.collapseToggle()
@@ -201,7 +200,7 @@ function newChartingSpaceFunctions() {
                 function deleteNodeByName(nodeName) {
                     let nodeToDelete = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(timelineChart.layerManager, undefined, nodeName, true, true, false, false)
                     if (nodeToDelete === undefined) { return }
-                    functionLibraryNodeDeleter.deleteUIObject(nodeToDelete, rootNodes)
+                    UI.projects.superalgos.functionLibraries.nodeDeleter.deleteUIObject(nodeToDelete, rootNodes)
                 }
             }
         }
@@ -218,7 +217,7 @@ function newChartingSpaceFunctions() {
             if (mineProduct.payload.parentNode.payload.referenceParent === undefined) { continue }
             if (mineProduct.payload.parentNode.payload.referenceParent.id !== market.id) { continue }
 
-            let timelineChart = functionLibraryUiObjectsFromNodes.addUIObject(timeMachine, 'Timeline Chart')
+            let timelineChart = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(timeMachine, 'Timeline Chart')
             /* 
             The Mine Product Node might be collapesd and since its creation it never 
             received the physics call, so we will do the call so that it properly
@@ -249,7 +248,7 @@ function newChartingSpaceFunctions() {
             if (mineProduct.payload.parentNode.payload.parentNode.payload.referenceParent === undefined) { continue }
             if (mineProduct.payload.parentNode.payload.parentNode.payload.referenceParent.id !== market.id) { continue }
 
-            let timelineChart = functionLibraryUiObjectsFromNodes.addUIObject(timeMachine, 'Timeline Chart')
+            let timelineChart = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(timeMachine, 'Timeline Chart')
             /* 
             The Mine Product Node might be collapesd and since its creation it never 
             received the physics call, so we will do the call so that it properly
@@ -269,7 +268,7 @@ function newChartingSpaceFunctions() {
         }
     }
 
-    function addMissingDashboards(node, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter) {
+    function addMissingDashboards(node, rootNodes) {
         for (let i = 0; i < rootNodes.length; i++) {
             let rootNode = rootNodes[i]
             if (rootNode.type === 'Network') {
@@ -291,13 +290,13 @@ function newChartingSpaceFunctions() {
                 let productionEnvironment = UI.projects.superalgos.utilities.branches.findInBranch(networkNode, 'Production Environment', node, true)
 
                 if (UI.projects.superalgos.utilities.children.isMissingChildren(node, testingEnvironment, true) === true) {
-                    let dashboard = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Dashboard')
+                    let dashboard = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Dashboard')
                     dashboard.payload.referenceParent = testingEnvironment
                     dashboard.name = testingEnvironment.type + ' ' + networkNode.name
                 }
 
                 if (UI.projects.superalgos.utilities.children.isMissingChildren(node, productionEnvironment, true) === true) {
-                    let dashboard = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Dashboard')
+                    let dashboard = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Dashboard')
                     dashboard.payload.referenceParent = productionEnvironment
                     dashboard.name = productionEnvironment.type + ' ' + networkNode.name
                 }
@@ -305,19 +304,19 @@ function newChartingSpaceFunctions() {
         }
     }
 
-    function addAllLayerPanels(node, functionLibraryUiObjectsFromNodes) {
+    function addAllLayerPanels(node) {
         if (validateReferences(node) !== true) { return }
         let layerNode = node.payload.parentNode
 
         let plotterModule = layerNode.payload.referenceParent.payload.referenceParent.payload.referenceParent
         for (let i = 0; i < plotterModule.panels.length; i++) {
             let plotterPanel = plotterModule.panels[i]
-            let layerPanel = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Layer Panel')
+            let layerPanel = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Layer Panel')
             layerPanel.payload.referenceParent = plotterPanel
         }
     }
 
-    function addAllLayerPolygons(node, functionLibraryUiObjectsFromNodes) {
+    function addAllLayerPolygons(node) {
         if (validateReferences(node) !== true) { return }
         let layerNode = node.payload.parentNode
 
@@ -330,7 +329,7 @@ function newChartingSpaceFunctions() {
 
         for (let i = 0; i < plotterModule.shapes.polygons.length; i++) {
             let polygon = plotterModule.shapes.polygons[i]
-            let layerPolygon = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Layer Polygon')
+            let layerPolygon = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Layer Polygon')
             layerPolygon.payload.referenceParent = polygon
         }
     }

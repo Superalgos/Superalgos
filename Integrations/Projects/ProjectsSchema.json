@@ -14,6 +14,113 @@
                 "functionName": "newSuperalgosGlobalsZoom"
             }
         ],
+        "functionLibraries": [
+            {
+                "name": "Attach Detach",
+                "propertyName": "attachDetach",
+                "functionName": "newSuperalgosFunctionLibraryAttachDetach"
+            },
+            {
+                "name": "Chain Attach Detach",
+                "propertyName": "chainAttachDetach",
+                "functionName": "newSuperalgosFunctionLibraryChainAttachDetach"
+            },
+            {
+                "name": "Node Deleter",
+                "propertyName": "nodeDeleter",
+                "functionName": "newSuperalgosFunctionLibraryNodeDeleter"
+            },
+            {
+                "name": "Ui Objects From Nodes",
+                "propertyName": "uiObjectsFromNodes",
+                "functionName": "newSuperalgosFunctionLibraryUiObjectsFromNodes"
+            },
+            {
+                "name": "Protocol Node",
+                "propertyName": "protocolNode",
+                "functionName": "newSuperalgosFunctionLibraryProtocolNode"
+            },
+            {
+                "name": "Node Cloning",
+                "propertyName": "nodeCloning",
+                "functionName": "newSuperalgosFunctionLibraryNodeCloning"
+            },
+            {
+                "name": "Shortcut Keys",
+                "propertyName": "shortcutKeys",
+                "functionName": "newSuperalgosFunctionLibraryShortcutKeys"
+            },
+            {
+                "name": "On Focus",
+                "propertyName": "onFocus",
+                "functionName": "newSuperalgosFunctionLibraryOnFocus"
+            },
+            {
+                "name": "Super Scripts Functions",
+                "propertyName": "superScriptsFunctions",
+                "functionName": "newSuperalgosFunctionLibrarySuperScriptsFunctions"
+            },
+            {
+                "name": "Webhook Functions",
+                "propertyName": "webhookFunctions",
+                "functionName": "newSuperalgosFunctionLibraryWebhookFunctions"
+            },
+            {
+                "name": "Dependencies Filter",
+                "propertyName": "dependenciesFilter",
+                "functionName": "newSuperalgosFunctionLibraryDependenciesFilter"
+            },
+            {
+                "name": "Node Path",
+                "propertyName": "nodePath",
+                "functionName": "newSuperalgosFunctionLibraryNodePath"
+            },
+            {
+                "name": "Task Functions",
+                "propertyName": "taskFunctions",
+                "functionName": "newSuperalgosFunctionLibraryTaskFunctions"
+            },
+            {
+                "name": "Trading Session Functions",
+                "propertyName": "tradingSessionFunctions",
+                "functionName": "newSuperalgosFunctionLibraryTradingSessionFunctions"
+            },
+            {
+                "name": "Learning Session Functions",
+                "propertyName": "learningSessionFunctions",
+                "functionName": "newSuperalgosFunctionLibraryLearningSessionFunctions"
+            },
+            {
+                "name": "Crypto Ecosystem Functions",
+                "propertyName": "cryptoEcosystemFunctions",
+                "functionName": "newSuperalgosFunctionLibraryCryptoEcosystemFunctions"
+            },
+            {
+                "name": "Mine Functions",
+                "propertyName": "mineFunctions",
+                "functionName": "newSuperalgosFunctionLibraryMineFunctions"
+            },
+            {
+                "name": "Data Storage Functions",
+                "propertyName": "dataStorageFunctions",
+                "functionName": "newSuperalgosFunctionLibraryDataStorageFunctions"
+            },
+            {
+                "name": "Charting Space Functions",
+                "propertyName": "chartingSpaceFunctions",
+                "functionName": "newSuperalgosFunctionLibraryChartingSpaceFunctions"
+            },
+            {
+                "name": "Plugins Functions",
+                "propertyName": "pluginsFunctions",
+                "functionName": "newSuperalgosFunctionLibraryPluginsFunctions"
+            },
+            {
+                "name": "Workspace Functions",
+                "propertyName": "workspaceFunctions",
+                "functionName": "newSuperalgosFunctionLibraryWorkspaceFunctions"
+            }
+        ],
         "utilities": [
             {
                 "name": "Branches",
@@ -110,7 +217,7 @@
                 "folderName": "Top-Space",
                 "propertyName": "topSpace",
                 "functionName": "newSuperalgosTopSpace",
-                "initializationIndex": 1,                
+                "initializationIndex": 1,
                 "animationPhysicsIndex": 7,
                 "animationDrawIndex": 6,
                 "onMouseOverIndex": 4,
@@ -224,6 +331,20 @@
                 "name": "ChainIds",
                 "propertyName": "chainIds",
                 "functionName": "newEthereumGlobalsChainIds"
+            }
+        ],
+        "functionLibraries": [
+            {
+                "name": "Accounts",
+                "propertyName": "accounts",
+                "functionName": "newEthereumFunctionLibraryAccounts"
+            }
+        ],
+        "utilities": [
+            {
+                "name": "Route To Client",
+                "propertyName": "routeToClient",
+                "functionName": "newEthereumUtilitiesRouteToClient"
             }
         ],
         "spaces": [

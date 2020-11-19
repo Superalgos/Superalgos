@@ -124,7 +124,7 @@ function newSuperalgosUtilitiesNodeChildren() {
         }
     }
 
-    function findOrCreateChildWithReference(startingNode, childType, referencedNode, functionLibraryUiObjectsFromNodes) {
+    function findOrCreateChildWithReference(startingNode, childType, referencedNode) {
         /*
         This function find the child node of starting node that references
         refereced node. If there is none, then it creates a child and stablish
@@ -132,7 +132,7 @@ function newSuperalgosUtilitiesNodeChildren() {
         */
         let child
         if (isMissingChildren(startingNode, referencedNode, true) === true) {
-            child = functionLibraryUiObjectsFromNodes.addUIObject(startingNode, childType)
+            child = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(startingNode, childType)
             child.payload.referenceParent = referencedNode
         } else {
             child = findChildReferencingThisNode(startingNode, referencedNode)
@@ -140,7 +140,7 @@ function newSuperalgosUtilitiesNodeChildren() {
         return child
     }
 
-    function findAndRecreateChildWithReference(startingNode, childType, referencedNode, rootNodes, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter) {
+    function findAndRecreateChildWithReference(startingNode, childType, referencedNode, rootNodes) {
         /* 
         This function finds the child of the starting node that references
         the reference node and if found it deletes it. Existing or not
@@ -149,9 +149,9 @@ function newSuperalgosUtilitiesNodeChildren() {
         let child
         child = findChildReferencingThisNode(startingNode, referencedNode)
         if (child !== undefined) {
-            functionLibraryNodeDeleter.deleteUIObject(child, rootNodes)
+            UI.projects.superalgos.functionLibraries.nodeDeleter.deleteUIObject(child, rootNodes)
         }
-        child = functionLibraryUiObjectsFromNodes.addUIObject(startingNode, childType)
+        child = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(startingNode, childType)
         child.payload.referenceParent = referencedNode
         return child
     }

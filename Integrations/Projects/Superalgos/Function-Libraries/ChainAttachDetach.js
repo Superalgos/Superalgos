@@ -1,4 +1,4 @@
-function newChainAttachDetach() {
+function newSuperalgosFunctionLibraryChainAttachDetach() {
     thisObject = {
         chainDetachNode: chainDetachNode,
         chainAttachNode: chainAttachNode

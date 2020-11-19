@@ -126,9 +126,9 @@ try {
     console.log("What's new? The following is being implemented here:")
     console.log('')
     console.log('Multi-Project Infrastructure ....... This will allow us to integrate crypto projects into Superalgos.')
-    console.log('Machine Learning Infrastructure .... This will enable a new kind of Learning Bot that can learn from data mined. Later that knowledge can be used at trading strategies.')
+    console.log('Machine Learning Infrastructure .... This will enable a new kind of Bot that can learn from data mined. Later that knowledge can be used at trading strategies.')
     console.log('Ethereum Integration ............... This will allow mining data from an Ethereum network node, create indicators with it, an use it on strategies.')
-    
+    console.log('')
 
 } catch (err) {
     console.log('[ERROR] Client -> Error = ' + err.stack)

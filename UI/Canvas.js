@@ -108,6 +108,7 @@ function newCanvas() {
                 projectInstance.events = {}
                 projectInstance.utilities = {}
                 projectInstance.globals = {}
+                projectInstance.functionLibraries = {}
 
                 projectInstance.events.onMouseWheelMap = new Map()
                 projectInstance.events.onMouseOverMap = new Map()
@@ -200,6 +201,15 @@ function newCanvas() {
                         let globalDefinition = projectDefinition.globals[j]
 
                         projectInstance.globals[globalDefinition.propertyName] = eval(globalDefinition.functionName + '()')
+                    }
+                }
+
+                /* Set up Function Libraries of this Project */
+                if (projectDefinition.functionLibraries !== undefined) {
+                    for (let j = 0; j < projectDefinition.functionLibraries.length; j++) {
+                        let functionLibraryDefinition = projectDefinition.functionLibraries[j]
+
+                        projectInstance.functionLibraries[functionLibraryDefinition.propertyName] = eval(functionLibraryDefinition.functionName + '()')
                     }
                 }
             }

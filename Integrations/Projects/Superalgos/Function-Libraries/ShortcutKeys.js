@@ -1,4 +1,4 @@
-function newShortcutKeys() {
+function newSuperalgosFunctionLibraryShortcutKeys() {
     thisObject = {
         getNodeByShortcutKey: getNodeByShortcutKey
     }

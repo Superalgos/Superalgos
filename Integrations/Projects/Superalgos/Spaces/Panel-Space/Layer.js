@@ -156,7 +156,6 @@ function newLayer() {
             thisObject.container.frame.width = UI_PANEL.WIDTH.NORMAL
             thisObject.container.frame.height = 70
 
-            let functionLibraryProtocolNode = newProtocolNode()
             let lightingPath =
                 '->Layer->' +
                 'Data Product->' +
@@ -192,7 +191,7 @@ function newLayer() {
                 'Text->Text Condition->Text Position->Point->Text Formula->Text Style->' +
                 'Plotter Panel->Javascript Code->Panel Data->Data Formula->Text Style->' +
                 'Nodes Highlights->Nodes Values->Nodes Errors->Nodes Warnings->Nodes Infos->Nodes Status->Nodes Progress->Nodes Running->Nodes Announcements->Record Values->'
-            thisObject.definition = functionLibraryProtocolNode.getProtocolNode(thisObject.payload.node, false, true, true, false, false, lightingPath)
+            thisObject.definition = UI.projects.superalgos.functionLibraries.protocolNode.getProtocolNode(thisObject.payload.node, false, true, true, false, false, lightingPath)
 
             /* Without this I can not continue, because I can not even show error. */
             if (thisObject.payload === undefined) {

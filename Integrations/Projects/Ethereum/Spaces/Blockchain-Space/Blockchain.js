@@ -57,47 +57,13 @@ function newEthereumBlockchainSpace() {
                     for (let j = 0; j < blockchainNetwork.networkClients.length; j++) {
                         let networkClient = blockchainNetwork.networkClients[j]
 
-                        let config = JSON.parse(networkClient.config)
-                        if (config.host === undefined) {
-                            networkClient.payload.uiObject.setErrorMessage('Property host not defined at node config.')
-                            continue
-                        }
-                        if (config.httpPort === undefined && config.webSocketsPort === undefined) {
-                            networkClient.payload.uiObject.setErrorMessage('Property httpPort or webSocketsPort must be defined at node config.')
-                            continue
-                        }
+                        let route = UI.projects.ethereum.utilities.routeToClient.buildRouteToClient(networkClient)
 
-                        /* Web Sockets would be the default protocol */
-                        let clientPort
-                        let clientInterface
-                        if (config.webSocketsPort !== undefined) {
-                            clientInterface = 'ws'
-                            clientPort = config.webSocketsPort
-                        } else {
-                            clientInterface = 'http'
-                            clientPort = config.httpPort
-                        }
+                        if (route === undefined) { continue } // something went wrong building the route.
 
-                        let params = {
-                            method: 'getNetworkClientStatus',
-                            host: config.host,
-                            port: clientPort,
-                            interface: clientInterface
-                        }
+                        route.params.method = 'getNetworkClientStatus'
 
-                        /*
-                        Next, we will check which Superalgos Network Node we need as a gateway
-                        to the Ethereum Client. We will use the current node reference parent for that. 
-                        */
-                        if (networkClient.payload.referenceParent === undefined) {
-                            networkClient.payload.uiObject.setErrorMessage('You need to reference a Superalgos Network Node so that it acts as a gateway to the Ethereum Client.')
-                            return
-                        }
-
-                        let networkNodeConfig = JSON.parse(networkClient.payload.referenceParent.config)
-                        let url = 'http://' + networkNodeConfig.host + ':' + networkNodeConfig.webPort + '/' + 'WEB3'
-
-                        httpRequest(JSON.stringify(params), url, onResponse)
+                        httpRequest(JSON.stringify(route.params), route.url, onResponse)
 
                         function onResponse(err, data) {
                             /* Lets check the result of the call through the http interface */
@@ -129,13 +95,13 @@ function newEthereumBlockchainSpace() {
 
                             if (status.chainId > 0) {
                                 let networkName = UI.projects.ethereum.globals.chainIds.chainNameById(status.chainId)
-                                networkClient.payload.uiObject.setStatus('Connected to ' + networkName + ' via the ' + clientInterface + ' interface, through ' + networkClient.payload.referenceParent.name + ' Network Node.', ANNIMATION_CYCLES_TO_LAST)
-                                
+                                networkClient.payload.uiObject.setStatus('Connected to ' + networkName + ' via the ' + route.params.interface + ' interface, through ' + networkClient.payload.referenceParent.name + ' Network Node.', ANNIMATION_CYCLES_TO_LAST)
+
                                 networkClient.payload.uiObject.valueAtAngle = false
                                 networkClient.payload.uiObject.setValue(
-                                    'Current Block Number ' + splitLargeNumber(status.currentBlockNumber) 
-                                    , 200)     
-                                    networkClient.payload.uiObject.setPercentage('100.00', ANNIMATION_CYCLES_TO_LAST)                           
+                                    'Current Block Number ' + splitLargeNumber(status.currentBlockNumber)
+                                    , 200)
+                                networkClient.payload.uiObject.setPercentage('100.00', ANNIMATION_CYCLES_TO_LAST)
                                 return
                             }
 
@@ -193,7 +159,7 @@ function newEthereumBlockchainSpace() {
                     }
                 }
             } catch (err) {
-                if (ERROR_LOG === true) { logger.write('[ERROR] checkStatus -> err = ' + err.stack) }
+                console.log('[ERROR] checkStatus -> err = ' + err.stack)
             }
         }
     }

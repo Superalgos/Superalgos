@@ -1,4 +1,4 @@
-function newTradingSessionFunctions() {
+function newSuperalgosFunctionLibraryTradingSessionFunctions() {
     thisObject = {
         syncronizeSessionWithBackEnd: syncronizeSessionWithBackEnd, 
         runSession: runSession,
@@ -36,7 +36,7 @@ function newTradingSessionFunctions() {
         eventsServerClient.raiseEvent(key, 'Trading Session Status')
     }
 
-    function runSession(node, functionLibraryProtocolNode, functionLibraryDependenciesFilter, resume, callBackFunction) {
+    function runSession(node, resume, callBackFunction) {
         let networkNode = validations(node)
         if (networkNode === undefined) {
             /* This means that the validations failed. */
@@ -73,7 +73,7 @@ function newTradingSessionFunctions() {
             'Market Order->Limit Order->' +
             'Simulated Exchange Events->Simulated Partial Fill->Simulated Actual Rate->Simulated Fees Paid->Formula->'
 
-        let tradingSystem = functionLibraryProtocolNode.getProtocolNode(node.tradingSystemReference.payload.referenceParent, false, true, true, false, false, lightingPath)
+        let tradingSystem = UI.projects.superalgos.functionLibraries.protocolNode.getProtocolNode(node.tradingSystemReference.payload.referenceParent, false, true, true, false, false, lightingPath)
 
         lightingPath = '' +
             'Trading Engine->' +
@@ -111,7 +111,7 @@ function newTradingSessionFunctions() {
             'Balance->Begin Balance->End Balance->' +
             'Index->Situation Name->Formula->Periods->'
 
-        let tradingEngine = functionLibraryProtocolNode.getProtocolNode(node.tradingEngineReference.payload.referenceParent, false, true, true, false, false, lightingPath)
+        let tradingEngine = UI.projects.superalgos.functionLibraries.protocolNode.getProtocolNode(node.tradingEngineReference.payload.referenceParent, false, true, true, false, false, lightingPath)
 
         lightingPath = '' +
             'Backtesting Session->Paper Trading Session->Forward Testing Session->Live Trading Session->' +
@@ -120,9 +120,9 @@ function newTradingSessionFunctions() {
             'Exchange Account Asset->Asset->' +
             'Social Bots->Telegram Bot->'
 
-        let session = functionLibraryProtocolNode.getProtocolNode(node, false, true, true, false, false, lightingPath)
+        let session = UI.projects.superalgos.functionLibraries.protocolNode.getProtocolNode(node, false, true, true, false, false, lightingPath)
 
-        let dependencyFilter = functionLibraryDependenciesFilter.createFilter(node.tradingSystemReference.payload.referenceParent)
+        let dependencyFilter = UI.projects.superalgos.functionLibraries.dependenciesFilter.createFilter(node.tradingSystemReference.payload.referenceParent)
 
         /* Raise event to run the session */
         let event = {
@@ -145,7 +145,7 @@ function newTradingSessionFunctions() {
         }
     }
 
-    function stopSession(node, functionLibraryProtocolNode, callBackFunction) {
+    function stopSession(node, callBackFunction) {
         let networkNode = validations(node)
         if (networkNode === undefined) {
             /* This means that the validations failed. */

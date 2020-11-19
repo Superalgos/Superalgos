@@ -1,4 +1,4 @@
-function newOnFocus() {
+function newSuperalgosFunctionLibraryOnFocus() {
     thisObject = {
         getNodeThatIsOnFocus: getNodeThatIsOnFocus
     }

@@ -1,4 +1,4 @@
-function newTaskFunctions() {
+function newSuperalgosFunctionLibraryTaskFunctions() {
     thisObject = {
         syncronizeTaskWithBackEnd: syncronizeTaskWithBackEnd,
 
@@ -78,7 +78,7 @@ function newTaskFunctions() {
         eventsServerClient.raiseEvent('Task Manager', 'Task Status', event)
     }
 
-    function runTask(node, functionLibraryProtocolNode, isDebugging, callBackFunction) {
+    function runTask(node, isDebugging, callBackFunction) {
 
         let networkNode = validations(node)
         if (networkNode === undefined) {
@@ -139,7 +139,7 @@ function newTaskFunctions() {
             'Learning Bot->' +
             'Data Mine->Trading Mine->Learning Mine->'
 
-        let taskDefinition = functionLibraryProtocolNode.getProtocolNode(node, false, true, true, false, false, taskLightingPath)
+        let taskDefinition = UI.projects.superalgos.functionLibraries.protocolNode.getProtocolNode(node, false, true, true, false, false, taskLightingPath)
 
         let networkLightingPath = '->Network->Network Node->' +
             'Data Storage->Data Mines Data->Exchange Data Products->' +
@@ -158,7 +158,7 @@ function newTaskFunctions() {
             'Market->' +
             'Process Definition->'
 
-        let networkDefinition = functionLibraryProtocolNode.getProtocolNode(networkNode.payload.parentNode, false, true, true, false, false, networkLightingPath)
+        let networkDefinition = UI.projects.superalgos.functionLibraries.protocolNode.getProtocolNode(networkNode.payload.parentNode, false, true, true, false, false, networkLightingPath)
 
         let event = {
             appSchema: JSON.stringify(SCHEMAS_BY_PROJECT.get('Superalgos').array.appSchema),
@@ -178,7 +178,7 @@ function newTaskFunctions() {
         eventsServerClient.raiseEvent('Task Manager', 'Run Task', event)
     }
 
-    function stopTask(node, functionLibraryProtocolNode, callBackFunction) {
+    function stopTask(node, callBackFunction) {
         let networkNode = validations(node)
         if (networkNode === undefined) {
             /* This means that the validations failed. */
@@ -268,7 +268,7 @@ function newTaskFunctions() {
         return networkNode
     }
 
-    function runAllTasks(taskManager, functionLibraryProtocolNode) {
+    function runAllTasks(taskManager) {
         for (let i = 0; i < taskManager.tasks.length; i++) {
             let node = taskManager.tasks[i]
             let menu = node.payload.uiObject.menu
@@ -277,7 +277,7 @@ function newTaskFunctions() {
         }
     }
 
-    function stopAllTasks(taskManager, functionLibraryProtocolNode) {
+    function stopAllTasks(taskManager) {
         for (let i = 0; i < taskManager.tasks.length; i++) {
             let node = taskManager.tasks[i]
             let menu = node.payload.uiObject.menu
@@ -286,7 +286,7 @@ function newTaskFunctions() {
         }
     }
 
-    function runAllTaskManagers(parent, functionLibraryProtocolNode) {
+    function runAllTaskManagers(parent) {
         for (let i = 0; i < parent.taskManagers.length; i++) {
             let node = parent.taskManagers[i]
             let menu = node.payload.uiObject.menu
@@ -296,7 +296,7 @@ function newTaskFunctions() {
         }
     }
 
-    function stopAllTaskManagers(parent, functionLibraryProtocolNode) {
+    function stopAllTaskManagers(parent) {
         for (let i = 0; i < parent.taskManagers.length; i++) {
             let node = parent.taskManagers[i]
             let menu = node.payload.uiObject.menu
@@ -306,7 +306,7 @@ function newTaskFunctions() {
         }
     }
 
-    function runAllExchangeDataTasks(parent, functionLibraryProtocolNode) {
+    function runAllExchangeDataTasks(parent) {
         for (let i = 0; i < parent.exchangeDataTasks.length; i++) {
             let node = parent.exchangeDataTasks[i]
             let menu = node.payload.uiObject.menu
@@ -316,7 +316,7 @@ function newTaskFunctions() {
         }
     }
 
-    function stopAllExchangeDataTasks(parent, functionLibraryProtocolNode) {
+    function stopAllExchangeDataTasks(parent) {
         for (let i = 0; i < parent.exchangeDataTasks.length; i++) {
             let node = parent.exchangeDataTasks[i]
             let menu = node.payload.uiObject.menu
@@ -326,7 +326,7 @@ function newTaskFunctions() {
         }
     }
 
-    function runAllExchangeTradingTasks(parent, functionLibraryProtocolNode) {
+    function runAllExchangeTradingTasks(parent) {
         for (let i = 0; i < parent.exchangeTradingTasks.length; i++) {
             let node = parent.exchangeTradingTasks[i]
             let menu = node.payload.uiObject.menu
@@ -336,7 +336,7 @@ function newTaskFunctions() {
         }
     }
 
-    function stopAllExchangeTradingTasks(parent, functionLibraryProtocolNode) {
+    function stopAllExchangeTradingTasks(parent) {
         for (let i = 0; i < parent.exchangeTradingTasks.length; i++) {
             let node = parent.exchangeTradingTasks[i]
             let menu = node.payload.uiObject.menu
@@ -346,7 +346,7 @@ function newTaskFunctions() {
         }
     }
 
-    function runAllExchangeLearningTasks(parent, functionLibraryProtocolNode) {
+    function runAllExchangeLearningTasks(parent) {
         for (let i = 0; i < parent.exchangeLearningTasks.length; i++) {
             let node = parent.exchangeLearningTasks[i]
             let menu = node.payload.uiObject.menu
@@ -356,7 +356,7 @@ function newTaskFunctions() {
         }
     }
 
-    function stopAllExchangeLearningTasks(parent, functionLibraryProtocolNode) {
+    function stopAllExchangeLearningTasks(parent) {
         for (let i = 0; i < parent.exchangeLearningTasks.length; i++) {
             let node = parent.exchangeLearningTasks[i]
             let menu = node.payload.uiObject.menu
@@ -366,7 +366,7 @@ function newTaskFunctions() {
         }
     }
 
-    function runAllMarketDataTasks(parent, functionLibraryProtocolNode) {
+    function runAllMarketDataTasks(parent) {
         for (let i = 0; i < parent.marketDataTasks.length; i++) {
             let node = parent.marketDataTasks[i]
             let menu = node.payload.uiObject.menu
@@ -376,7 +376,7 @@ function newTaskFunctions() {
         }
     }
 
-    function stopAllMarketDataTasks(parent, functionLibraryProtocolNode) {
+    function stopAllMarketDataTasks(parent) {
         for (let i = 0; i < parent.marketDataTasks.length; i++) {
             let node = parent.marketDataTasks[i]
             let menu = node.payload.uiObject.menu
@@ -386,7 +386,7 @@ function newTaskFunctions() {
         }
     }
 
-    function runAllMarketTradingTasks(parent, functionLibraryProtocolNode) {
+    function runAllMarketTradingTasks(parent) {
         for (let i = 0; i < parent.marketTradingTasks.length; i++) {
             let node = parent.marketTradingTasks[i]
             let menu = node.payload.uiObject.menu
@@ -396,7 +396,7 @@ function newTaskFunctions() {
         }
     }
 
-    function runAllMarketLearningTasks(parent, functionLibraryProtocolNode) {
+    function runAllMarketLearningTasks(parent) {
         for (let i = 0; i < parent.marketLearningTasks.length; i++) {
             let node = parent.marketLearningTasks[i]
             let menu = node.payload.uiObject.menu
@@ -406,7 +406,7 @@ function newTaskFunctions() {
         }
     }
 
-    function stopAllMarketTradingTasks(parent, functionLibraryProtocolNode) {
+    function stopAllMarketTradingTasks(parent) {
         for (let i = 0; i < parent.marketTradingTasks.length; i++) {
             let node = parent.marketTradingTasks[i]
             let menu = node.payload.uiObject.menu
@@ -416,7 +416,7 @@ function newTaskFunctions() {
         }
     }
 
-    function stopAllMarketLearningTasks(parent, functionLibraryProtocolNode) {
+    function stopAllMarketLearningTasks(parent) {
         for (let i = 0; i < parent.marketLearningTasks.length; i++) {
             let node = parent.marketLearningTasks[i]
             let menu = node.payload.uiObject.menu
@@ -426,7 +426,7 @@ function newTaskFunctions() {
         }
     }
 
-    function runAllDataMineTasks(parent, functionLibraryProtocolNode) {
+    function runAllDataMineTasks(parent) {
         for (let i = 0; i < parent.dataMineTasks.length; i++) {
             let node = parent.dataMineTasks[i]
             let menu = node.payload.uiObject.menu
@@ -436,7 +436,7 @@ function newTaskFunctions() {
         }
     }
 
-    function stopAllDataMineTasks(parent, functionLibraryProtocolNode) {
+    function stopAllDataMineTasks(parent) {
         for (let i = 0; i < parent.dataMineTasks.length; i++) {
             let node = parent.dataMineTasks[i]
             let menu = node.payload.uiObject.menu
@@ -446,7 +446,7 @@ function newTaskFunctions() {
         }
     }
 
-    function runAllTradingMineTasks(parent, functionLibraryProtocolNode) {
+    function runAllTradingMineTasks(parent) {
         for (let i = 0; i < parent.tradingMineTasks.length; i++) {
             let node = parent.tradingMineTasks[i]
             let menu = node.payload.uiObject.menu
@@ -456,7 +456,7 @@ function newTaskFunctions() {
         }
     }
 
-    function runAllLearningMineTasks(parent, functionLibraryProtocolNode) {
+    function runAllLearningMineTasks(parent) {
         for (let i = 0; i < parent.learningMineTasks.length; i++) {
             let node = parent.learningMineTasks[i]
             let menu = node.payload.uiObject.menu
@@ -466,7 +466,7 @@ function newTaskFunctions() {
         }
     }
 
-    function stopAllTradingMineTasks(parent, functionLibraryProtocolNode) {
+    function stopAllTradingMineTasks(parent) {
         for (let i = 0; i < parent.tradingMineTasks.length; i++) {
             let node = parent.tradingMineTasks[i]
             let menu = node.payload.uiObject.menu
@@ -476,7 +476,7 @@ function newTaskFunctions() {
         }
     }
 
-    function stopAllLearningMineTasks(parent, functionLibraryProtocolNode) {
+    function stopAllLearningMineTasks(parent) {
         for (let i = 0; i < parent.learningMineTasks.length; i++) {
             let node = parent.learningMineTasks[i]
             let menu = node.payload.uiObject.menu
@@ -486,19 +486,19 @@ function newTaskFunctions() {
         }
     }
 
-    function addMissingExchangeDataTasks(node, rootNodes, functionLibraryUiObjectsFromNodes) {
-        addMissingExchangeTasks(node, rootNodes, 'Exchange Data Tasks', functionLibraryUiObjectsFromNodes)
+    function addMissingExchangeDataTasks(node, rootNodes) {
+        addMissingExchangeTasks(node, rootNodes, 'Exchange Data Tasks')
     }
 
-    function addMissingExchangeTradingTasks(node, rootNodes, functionLibraryUiObjectsFromNodes) {
-        addMissingExchangeTasks(node, rootNodes, 'Exchange Trading Tasks', functionLibraryUiObjectsFromNodes)
+    function addMissingExchangeTradingTasks(node, rootNodes) {
+        addMissingExchangeTasks(node, rootNodes, 'Exchange Trading Tasks')
     }
 
-    function addMissingExchangeLearningTasks(node, rootNodes, functionLibraryUiObjectsFromNodes) {
-        addMissingExchangeTasks(node, rootNodes, 'Exchange Learning Tasks', functionLibraryUiObjectsFromNodes)
+    function addMissingExchangeLearningTasks(node, rootNodes) {
+        addMissingExchangeTasks(node, rootNodes, 'Exchange Learning Tasks')
     }
 
-    function addMissingExchangeTasks(node, rootNodes, newNodeType, functionLibraryUiObjectsFromNodes) {
+    function addMissingExchangeTasks(node, rootNodes, newNodeType) {
         for (let i = 0; i < rootNodes.length; i++) {
             let rootNode = rootNodes[i]
             if (rootNode.type === 'Crypto Ecosystem') {
@@ -508,7 +508,7 @@ function newTaskFunctions() {
                     for (let k = 0; k < cryptoExchanges.exchanges.length; k++) {
                         let cryptoExchange = cryptoExchanges.exchanges[k]
                         if (UI.projects.superalgos.utilities.children.isMissingChildren(node, cryptoExchange, true) === true) {
-                            let exchangeTasks = functionLibraryUiObjectsFromNodes.addUIObject(node, newNodeType)
+                            let exchangeTasks = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType)
                             exchangeTasks.payload.referenceParent = cryptoExchange
                         }
                     }
@@ -517,19 +517,19 @@ function newTaskFunctions() {
         }
     }
 
-    function addMissingMarketDataTasks(node, functionLibraryUiObjectsFromNodes) {
-        addMissingMarketTasks(node, 'Market Data Tasks', functionLibraryUiObjectsFromNodes)
+    function addMissingMarketDataTasks(node) {
+        addMissingMarketTasks(node, 'Market Data Tasks')
     }
 
-    function addMissingMarketTradingTasks(node, functionLibraryUiObjectsFromNodes) {
-        addMissingMarketTasks(node, 'Market Trading Tasks', functionLibraryUiObjectsFromNodes)
+    function addMissingMarketTradingTasks(node) {
+        addMissingMarketTasks(node, 'Market Trading Tasks')
     }
 
-    function addMissingMarketLearningTasks(node, functionLibraryUiObjectsFromNodes) {
-        addMissingMarketTasks(node, 'Market Learning Tasks', functionLibraryUiObjectsFromNodes)
+    function addMissingMarketLearningTasks(node) {
+        addMissingMarketTasks(node, 'Market Learning Tasks')
     }
 
-    function addMissingMarketTasks(node,  newNodeType, functionLibraryUiObjectsFromNodes) {
+    function addMissingMarketTasks(node,  newNodeType) {
         if (node.payload === undefined) { return }
         if (node.payload.referenceParent === undefined) { return }
         if (node.payload.referenceParent.exchangeMarkets === undefined) { return }
@@ -540,43 +540,43 @@ function newTaskFunctions() {
             let market = markets[i]
 
             if (UI.projects.superalgos.utilities.children.isMissingChildren(node, market, true) === true) {
-                let marketDataTasks = functionLibraryUiObjectsFromNodes.addUIObject(node, newNodeType)
+                let marketDataTasks = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType)
                 marketDataTasks.payload.referenceParent = market
             }
         }
     }
 
-    function addMissingDataMineTasks(node, rootNodes, functionLibraryUiObjectsFromNodes) {
-        addMissingMineTasks(node, rootNodes, 'Data Mine', 'Data Mine Tasks', functionLibraryUiObjectsFromNodes)
+    function addMissingDataMineTasks(node, rootNodes) {
+        addMissingMineTasks(node, rootNodes, 'Data Mine', 'Data Mine Tasks')
     }
 
-    function addMissingTradingMineTasks(node, rootNodes, functionLibraryUiObjectsFromNodes) {
-        addMissingMineTasks(node, rootNodes, 'Trading Mine', 'Trading Mine Tasks', functionLibraryUiObjectsFromNodes)
+    function addMissingTradingMineTasks(node, rootNodes) {
+        addMissingMineTasks(node, rootNodes, 'Trading Mine', 'Trading Mine Tasks')
     }
 
-    function addMissingLearningMineTasks(node, rootNodes, functionLibraryUiObjectsFromNodes) {
-        addMissingMineTasks(node, rootNodes, 'Learning Mine', 'Learning Mine Tasks', functionLibraryUiObjectsFromNodes)
+    function addMissingLearningMineTasks(node, rootNodes) {
+        addMissingMineTasks(node, rootNodes, 'Learning Mine', 'Learning Mine Tasks')
     }
 
-    function addMissingMineTasks(node, rootNodes, rootNodeType, newNodeType, functionLibraryUiObjectsFromNodes) {
+    function addMissingMineTasks(node, rootNodes, rootNodeType, newNodeType) {
         for (let i = 0; i < rootNodes.length; i++) {
             let rootNode = rootNodes[i]
             if (rootNode.type === rootNodeType) {
                 let mine = rootNode
 
                 if (UI.projects.superalgos.utilities.children.isMissingChildren(node, mine, true) === true) {
-                    let dataMineTasks = functionLibraryUiObjectsFromNodes.addUIObject(node, newNodeType)
+                    let dataMineTasks = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType)
                     dataMineTasks.payload.referenceParent = mine
                 }
             }
         }
     }
 
-    function addAllTasks(node, rootNodes, functionLibraryUiObjectsFromNodes) {
+    function addAllTasks(node, rootNodes) {
         if (node.payload === undefined) { return }
         if (node.payload.referenceParent === undefined) { return }
 
-        let taskManager = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Task Manager')
+        let taskManager = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Task Manager')
         taskManager.name = node.payload.referenceParent.name
         taskManager.payload.floatingObject.collapseToggle()
 
@@ -626,7 +626,7 @@ function newTaskFunctions() {
                 for (let i = 0; i < botsArray.length; i++) {
                     let bot = botsArray[i]
 
-                    let task = functionLibraryUiObjectsFromNodes.addUIObject(taskManager, 'Task')
+                    let task = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(taskManager, 'Task')
 
                     if (tradingSystem !== undefined) {
                         task.name = tradingSystem.name
@@ -637,22 +637,22 @@ function newTaskFunctions() {
                     let botInstance
                     switch (bot.type) {
                         case 'Sensor Bot': {
-                            botInstance = functionLibraryUiObjectsFromNodes.addUIObject(task, 'Sensor Bot Instance')
+                            botInstance = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(task, 'Sensor Bot Instance')
                             botInstance.name = bot.name
                             break
                         }
                         case 'Indicator Bot': {
-                            botInstance = functionLibraryUiObjectsFromNodes.addUIObject(task, 'Indicator Bot Instance')
+                            botInstance = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(task, 'Indicator Bot Instance')
                             botInstance.name = bot.name
                             break
                         }
                         case 'Trading Bot': {
-                            botInstance = functionLibraryUiObjectsFromNodes.addUIObject(task, 'Trading Bot Instance')
+                            botInstance = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(task, 'Trading Bot Instance')
                             botInstance.name = bot.name
                             break
                         }
                         case 'Learning Bot': {
-                            botInstance = functionLibraryUiObjectsFromNodes.addUIObject(task, 'Learning Bot Instance')
+                            botInstance = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(task, 'Learning Bot Instance')
                             botInstance.name = bot.name
                             break
                         }
@@ -663,17 +663,17 @@ function newTaskFunctions() {
                         let processInstance
                         switch (bot.type) {
                             case 'Sensor Bot': {
-                                processInstance = functionLibraryUiObjectsFromNodes.addUIObject(botInstance, 'Sensor Process Instance')
+                                processInstance = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'Sensor Process Instance')
                                 processInstance.payload.referenceParent = process
                                 break
                             }
                             case 'Indicator Bot': {
-                                processInstance = functionLibraryUiObjectsFromNodes.addUIObject(botInstance, 'Indicator Process Instance')
+                                processInstance = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'Indicator Process Instance')
                                 processInstance.payload.referenceParent = process
                                 break
                             }
                             case 'Trading Bot': {
-                                processInstance = functionLibraryUiObjectsFromNodes.addUIObject(botInstance, 'Trading Process Instance')
+                                processInstance = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'Trading Process Instance')
                                 processInstance.payload.referenceParent = process
 
                                 if (node.payload.parentNode === undefined) { return }
@@ -698,7 +698,7 @@ function newTaskFunctions() {
                                 break
 
                                 function addSession(sessionType) {
-                                    session = functionLibraryUiObjectsFromNodes.addUIObject(processInstance, sessionType)
+                                    session = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(processInstance, sessionType)
                                     session.name = task.name
                                     let config = JSON.parse(session.config)
                                     config.folderName = session.name.split(" ").join("-")
@@ -715,7 +715,7 @@ function newTaskFunctions() {
                                 }
                             }
                             case 'Learning Bot': {
-                                processInstance = functionLibraryUiObjectsFromNodes.addUIObject(botInstance, 'Learning Process Instance')
+                                processInstance = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'Learning Process Instance')
                                 processInstance.payload.referenceParent = process
 
                                 let session
@@ -724,7 +724,7 @@ function newTaskFunctions() {
                                 break
 
                                 function addSession(sessionType) {
-                                    session = functionLibraryUiObjectsFromNodes.addUIObject(processInstance, sessionType)
+                                    session = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(processInstance, sessionType)
                                     session.name = task.name
                                     let config = JSON.parse(session.config)
                                     config.folderName = session.name.split(" ").join("-")

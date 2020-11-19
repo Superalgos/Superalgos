@@ -1,4 +1,4 @@
-function newDependenciesFilter() {
+function newSuperalgosFunctionLibraryDependenciesFilter() {
     thisObject = {
         createFilter: createFilter
     }

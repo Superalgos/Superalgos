@@ -4,6 +4,8 @@ exports.newWeb3Server = function newWeb3Server() {
 
     let thisObject = {
         getNetworkClientStatus: getNetworkClientStatus,
+        createWalletAccount: createWalletAccount,
+        getWalletBalances: getWalletBalances,
         initialize: initialize,
         finalize: finalize,
         run: run
@@ -35,30 +37,11 @@ exports.newWeb3Server = function newWeb3Server() {
 
             if (web3 === undefined) {
                 /* This means that we never got connected to this client before */
-                switch (interface) {
-                    case 'ws': {
-                        web3 = new Web3('ws://' + host + ':' + port + '');
-                        break
-                    }
-                    case 'http': {
-                        web3 = new Web3('http://' + host + ':' + port + '');
-                        break
-                    }
-                    default: {
-                        return { error: 'Interface parameter must be eithre ws or http. Received ' + interface }
-                    }
+                let web3 = await connectToClient(key, host, port, interface)
+                if (web3.error !== undefined) {
+                    return web3
                 }
-
-                return await testConnection()
-
-                async function testConnection() {
-                    let accounts = await web3.eth.getAccounts()
-                    if (web3.currentProvider.connected === false) {
-                        return { error: 'Connection to ' + key + ' could not be established.' }
-                    } else {
-                        return await returnStatus(web3)
-                    }
-                }
+                return await returnStatus(web3)
             } else {
                 return await returnStatus(web3)
             }
@@ -72,8 +55,105 @@ exports.newWeb3Server = function newWeb3Server() {
                 status.result = 'Ok'
                 return status
             }
-        } catch(err) {
-            return { error: 'Could not connect to ' + key }
+        } catch (err) {
+            return { error: 'Could not connect to ' + key + '. ' + err.message + '.' }
+        }
+    }
+
+    async function createWalletAccount(entropy) {
+        try {
+
+            let web3 = new Web3()
+            let account = web3.eth.accounts.create()
+
+            return {
+                address: account.address,
+                privateKey: account.privateKey,
+                result: 'Ok'
+            }
+
+        } catch (err) {
+            return { error: 'Could not create the account. ' + err.message }
+        }
+    }
+
+    async function getWalletBalances(host, port, interface, walletDefinition) {
+        let key = 'host (' + host + ') at port (' + port + ') via interface (' + interface + ')'
+
+        try {
+
+            let web3 = web3Map.get(key)
+
+            if (web3 === undefined) {
+                /* This means that we never got connected to this client before */
+                let web3 = await connectToClient(key, host, port, interface)
+                if (web3.error !== undefined) {
+                    return web3
+                }
+                return await returnAccountBalances(web3)
+            } else {
+                return await returnAccountBalances(web3)
+            }
+
+            async function returnAccountBalances(web3) {
+
+                let responseData = {}
+                for (let i = 0; i < walletDefinition.walletAccounts.length; i++) {
+                    let walletAccount = walletDefinition.walletAccounts[i]
+
+                    if (walletAccount.ethBalance !== undefined) {
+                        try {
+                            walletAccount.ethBalance.value = await web3.eth.getBalance(walletAccount.config.address)
+                        } catch (err) {
+                            if (err.message.indexOf('Provided address') >= 0) {
+                                walletAccount.error = 'Invalid configured address.'
+                            } else {
+                                walletAccount.error = err.message
+                            }
+                        }
+                    }
+
+                    for (let j = 0; j < walletAccount.tokenBalances.length; j++) {
+                        let tokenBalance = walletAccount.tokenBalances[j]
+                        tokenBalance.value = 0
+                    }
+                }
+
+                responseData.result = 'Ok'
+                responseData.walletDefinition = walletDefinition
+                return responseData
+            }
+        } catch (err) {
+            return { error: 'Could not connect to ' + key + '. ' + err.message + '.' }
+        }
+    }
+
+    async function connectToClient(key, host, port, interface) {
+        let web3
+        switch (interface) {
+            case 'ws': {
+                web3 = new Web3('ws://' + host + ':' + port + '');
+                break
+            }
+            case 'http': {
+                web3 = new Web3('http://' + host + ':' + port + '');
+                break
+            }
+            default: {
+                return { error: 'Interface parameter must be either ws or http. Received ' + interface }
+            }
+        }
+
+        return await testConnection()
+
+        async function testConnection() {
+            let accounts = await web3.eth.getAccounts()
+            if (web3.currentProvider.connected === false) {
+                return { error: 'Connection to ' + key + ' could not be established.' }
+            } else {
+                web3Map.set(key, web3)
+                return web3
+            }
         }
     }
 }

@@ -1,11 +1,11 @@
-function newWorkspaceFunctions() {
+function newSuperalgosFunctionLibraryWorkspaceFunctions() {
     thisObject = {
         addMissingWorkspaceProjects: addMissingWorkspaceProjects
     }
 
     return thisObject
 
-    function addMissingWorkspaceProjects(node, rootNodes, functionLibraryUiObjectsFromNodes) {
+    function addMissingWorkspaceProjects(node, rootNodes) {
         let url = 'ProjectNames'
         httpRequest(undefined, url, onResponse)
 
@@ -23,7 +23,7 @@ function newWorkspaceFunctions() {
                 }
 
                 if (alreadyExist === false) {
-                    let child = functionLibraryUiObjectsFromNodes.addUIObject(node, project + ' Project', rootNodes, project)
+                    let child = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(node, project + ' Project', rootNodes, project)
                     child.project = project
                 }
             }

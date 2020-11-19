@@ -13,8 +13,7 @@ function newSuperalgosUtilitiesFolders() {
         destinationFoldersArrayPropertyName,
         clonedObjectType,
         destinationFolderType,
-        originObjectArrayPropertyName,
-        functionLibraryUiObjectsFromNodes
+        originObjectArrayPropertyName
     ) {
         /*
         This function will scan one branch of the workspace, and recreate 
@@ -43,7 +42,7 @@ function newSuperalgosUtilitiesFolders() {
                                     In this first Use Case, we are going to connect each orgin object clone
                                     to its origin object counter part.
                                 */
-                                let clonedObject = functionLibraryUiObjectsFromNodes.addUIObject(destinationNode, clonedObjectType)
+                                let clonedObject = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(destinationNode, clonedObjectType)
                                 clonedObject.payload.referenceParent = originObject
                             } else {
                                 /*
@@ -54,7 +53,7 @@ function newSuperalgosUtilitiesFolders() {
                                 let originObjectArray = originObject[originObjectArrayPropertyName]
                                 for (let n = 0; n < originObjectArray.length; n++) {
                                     let originObjectArrayItem = originObjectArray[n]
-                                    let clonedObject = functionLibraryUiObjectsFromNodes.addUIObject(destinationNode, clonedObjectType)
+                                    let clonedObject = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(destinationNode, clonedObjectType)
                                     clonedObject.payload.referenceParent = originObjectArrayItem
                                 }
                             }
@@ -75,7 +74,7 @@ function newSuperalgosUtilitiesFolders() {
                                 }
                             }
                             if (found === false) {
-                                destinationFolder = functionLibraryUiObjectsFromNodes.addUIObject(destinationNode, destinationFolderType)
+                                destinationFolder = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(destinationNode, destinationFolderType)
                                 destinationFolder.name = originFolder.name
                             }
                             asymetricalFolderStructureCloning(
@@ -86,8 +85,7 @@ function newSuperalgosUtilitiesFolders() {
                                 destinationFoldersArrayPropertyName,
                                 clonedObjectType,
                                 destinationFolderType,
-                                originObjectArrayPropertyName,
-                                functionLibraryUiObjectsFromNodes
+                                originObjectArrayPropertyName
                             )
                         }
                         break

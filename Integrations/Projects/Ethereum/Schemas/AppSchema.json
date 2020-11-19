@@ -48,22 +48,15 @@
         "menuItems": [
             {
                 "action": "Add UI Object",
-                "label": "Add Network Reference",
+                "label": "Add Client Reference",
                 "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "networkReference",
-                "relatedUiObject": "Network Reference",
+                "propertyToCheckFor": "networkClientReference",
+                "relatedUiObject": "Network Client Reference",
                 "actionFunction": "payload.executeAction"
             },
             {
-                "action": "Add UI Object",
-                "label": "Add Wallet Keys",
-                "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "walletKeys",
-                "relatedUiObject": "Wallet Keys",
-                "actionFunction": "payload.executeAction"
-            },
-            {
-                "action": "Add UI Object",
+                "action": "Create Wallet Account",
+                "actionProject": "Ethereum",
                 "label": "Add Wallet Account",
                 "relatedUiObject": "Wallet Account",
                 "actionFunction": "payload.executeAction"
@@ -83,19 +76,13 @@
         "level": 0,
         "properties": [
             {
-                "name": "networkReference",
+                "name": "networkClientReference",
                 "type": "node",
-                "childType": "Network Reference",
+                "childType": "Network Client Reference",
                 "autoAdd": true
             },
             {
-                "name": "walletKeys",
-                "type": "node",
-                "childType": "Wallet Keys",
-                "autoAdd": true
-            },
-            {
-                "name": "walletAccount",
+                "name": "walletAccounts",
                 "type": "array",
                 "childType": "Wallet Account"
             }
@@ -103,7 +90,7 @@
         "icon": "ethereum"
     },
     {
-        "type": "Network Reference",
+        "type": "Network Client Reference",
         "menuItems": [
             {
                 "action": "Delete UI Object",
@@ -116,53 +103,18 @@
             }
         ],
         "title": [
+            "Use Reference Parent Parent",
             "Use Reference Parent"
         ],
         "referenceAttachesTo": {
-            "compatibleTypes": "->Blockchain Network->"
+            "compatibleTypes": "->Network Client->"
         },
         "addLeftIcons": true,
         "level": 3,
         "chainAttachesTo": {
             "compatibleTypes": "->Ethereum Wallet->"
         },
-        "propertyNameAtParent": "networkReference",
-        "icon": "ethereum"
-    },
-    {
-        "type": "Wallet Keys",
-        "menuItems": [
-            {
-                "action": "Configure",
-                "label": "Configure",
-                "iconPathOn": "configuration",
-                "iconPathOff": "configuration",
-                "dontShowAtFullscreen": true,
-                "actionFunction": "uiObject.configEditor.activate"
-            },
-            {
-                "action": "Delete UI Object",
-                "askConfirmation": true,
-                "confirmationLabel": "Confirm to Delete",
-                "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
-                "actionFunction": "payload.executeAction"
-            }
-        ],
-        "editors": {
-            "config": true
-        },
-        "initialValues": {
-            "config": "{ \n\"privateKey\": \"\", \n\"publicKey\": \"\"\n}"
-        },
-        "addLeftIcons": true,
-        "level": 3,
-        "chainAttachesTo": {
-            "compatibleTypes": "->Ethereum Wallet->"
-        },
-        "propertyNameAtParent": "walletKeys",
-        "isPersonalData": true,
+        "propertyNameAtParent": "networkClientReference",
         "icon": "ethereum"
     },
     {
@@ -204,14 +156,14 @@
             "config": true
         },
         "initialValues": {
-            "config": "{ \n\"value\": \"\"\n}"
+            "config": "{ \n\"address\": \"\",  \n\"privateKey\": \"\"\n}"
         },
         "addLeftIcons": true,
-        "level": 3,
+        "level": 0,
         "chainAttachesTo": {
             "compatibleTypes": "->Ethereum Wallet->"
         },
-        "propertyNameAtParent": "walletAccount",
+        "propertyNameAtParent": "walletAccounts",
         "properties": [
             {
                 "name": "ethBalance",
@@ -219,12 +171,13 @@
                 "childType": "ETH Balance"
             },
             {
-                "name": "tokenBalance",
+                "name": "tokenBalances",
                 "type": "array",
                 "childType": "Token Balance"
             }
         ],
-        "icon": "ethereum"
+        "icon": "ethereum",
+        "isPersonalData": true
     },
     {
         "type": "ETH Balance",
@@ -271,7 +224,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Wallet Account->"
         },
-        "propertyNameAtParent": "tokenBalance",
+        "propertyNameAtParent": "tokenBalances",
         "icon": "ethereum"
     },
     {

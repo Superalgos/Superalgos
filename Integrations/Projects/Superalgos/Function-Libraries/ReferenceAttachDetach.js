@@ -1,4 +1,4 @@
-function newReferenceAttachDetach() {
+function newSuperalgosFunctionLibraryAttachDetach() {
     thisObject = {
         referenceDetachNode: referenceDetachNode,
         referenceAttachNode: referenceAttachNode

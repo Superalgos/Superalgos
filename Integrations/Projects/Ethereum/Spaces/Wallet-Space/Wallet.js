@@ -89,7 +89,7 @@ function newEthereumWalletSpace() {
                         'Wallet Account->' +
                         'ETH Balance->' +
                         'Token Balance->' +
-                        'Ethereum Token->' +
+                        'Ethereum Token->Smart Contract->' +
                         'ERC-20 Token Type->ERC-223 Token Type->ERC-721 Token Type->ERC-777 Token Type->'
 
                     route.params.walletDefinition = UI.projects.superalgos.functionLibraries.protocolNode.getProtocolNode(wallet, false, true, true, false, false, lightingPath)
@@ -134,8 +134,9 @@ function newEthereumWalletSpace() {
                             for (let j = 0; j < walletAccount.tokenBalances.length; j++) {
                                 let tokenBalance = walletAccount.tokenBalances[j]
                                 let uiObject = wallet.walletAccounts[i].tokenBalances[j].payload.uiObject
+                                let value = tokenBalance.value / 1000000000000000000
                                 uiObject.valueAtAngle = false
-                                uiObject.setValue(tokenBalance.value + ' ' + uiObject.payload.node.name)
+                                uiObject.setValue(value + ' ' + tokenBalance.referenceParent.config.codeName)
                             }
                         }
                     }

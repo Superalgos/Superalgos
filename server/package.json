@@ -1,0 +1,35 @@
+{
+  "name": "@superalgos/users-api",
+  "version": "0.1.0",
+  "description": "Superalgos Users backend API",
+  "author": "Superalgos, ltd.",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Superalgos/UsersModule.git"
+  },
+  "main": "src/index.js",
+  "scripts": {
+    "start": "nodemon --exec babel-node --presets env,stage-2 src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "nodemon": "^1.18.10"
+  },
+  "dependencies": {
+    "cors": "^2.8.4",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "express-graphql": "^0.6.12",
+    "express-jwt": "^5.3.1",
+    "graphql": "^14.0.0",
+    "jsonwebtoken": "^8.3.0",
+    "jwks-rsa": "^1.3.0",
+    "lodash": "^4.17.10",
+    "mongoose": "^5.2.12",
+    "winston": "^3.1.0"
+  }
+}

@@ -1,0 +1,14 @@
+# Ignore files to be uploaded to the image
+.env
+.env.dev
+.env.prod
+.git
+.gitignore
+Dockerfile
+Dockerfile.prod
+README.md
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
+
+/coverage
+/.nyc_output

@@ -1,0 +1,1 @@
+This is the backend of the Strategizer module. It enables you to save and change your strategies for the Jason indicator approch.

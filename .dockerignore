@@ -1,0 +1,14 @@
+.vs/**
+obj/**
+
+bin/**
+
+*.config
+*.log
+*.cache
+.env*
+
+\.vscode/
+Project.njsproj
+coverage/
+.nyc_output/

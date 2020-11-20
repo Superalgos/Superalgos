@@ -1,0 +1,21 @@
+{
+  "name": "@superalgos/taskserver",
+  "version": "2.0.0",
+  "description": "Executes Tasks.",
+  "author": "Superalgos.org",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Superalgos/TaskServer.git"
+  },
+  "main": "Run.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "ccxt": "^1.25.80",
+    "dotenv": "^8.2.0",
+    "telegraf": "^3.37.0",
+    "ws": "^7.1.2"
+  }
+}

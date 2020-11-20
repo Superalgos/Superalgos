@@ -1,0 +1,17 @@
+{
+  "name": "backend-servers",
+  "version": "0.0.6",
+  "description": "BackendServer",
+  "main": "server.js",
+  "author": {
+    "name": "Luis-Fernando-Molina"
+  },
+  "dependencies": {
+    "child_process": "^1.0.2",
+    "dotenv": "^8.2.0",
+    "ws": "^7.1.2",
+    "ccxt": "^1.23.67",
+    "open": "^6.4.0",
+    "rimraf": "^3.0.2"
+  }
+}

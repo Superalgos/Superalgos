@@ -315,7 +315,8 @@ Read the candles and volumes from Exchange Raw Data and produce a file for each 
 
                                 let dateForPath = contextVariables.lastCandleFile.getUTCFullYear() + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCDate(), 2);
                                 let fileName = "Data.json"
-                                let filePathRoot = bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset + "/" + bot.dataMine + "/" + "Exchange-Raw-Data";
+
+                                let filePathRoot = 'Project/' + bot.project + "/" + bot.mineType + "/" + bot.dataMine + "/" + "Exchange-Raw-Data" + '/' + bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset
                                 let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
                                 filePath += '/' + fileName
 
@@ -441,7 +442,8 @@ Read the candles and volumes from Exchange Raw Data and produce a file for each 
 
                                     let dateForPath = contextVariables.lastCandleFile.getUTCFullYear() + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCDate(), 2);
                                     let fileName = "Data.json"
-                                    let filePathRoot = bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset + "/" + bot.dataMine + "/" + "Exchange-Raw-Data";
+
+                                    let filePathRoot = 'Project/' + bot.project + "/" + bot.mineType + "/" + bot.dataMine + "/" + "Exchange-Raw-Data" + '/' + bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset
                                     let filePath = filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + VOLUMES_ONE_MIN + '/' + dateForPath;
                                     filePath += '/' + fileName
 

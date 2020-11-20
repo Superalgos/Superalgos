@@ -1,0 +1,143 @@
+{
+  "displayName": "Bruce",
+  "codeName": "AABruce",
+  "type": "Indicator Bot",
+  "version": {
+    "major": 1,
+    "minor": 0,
+    "patch": 0
+  },
+  "dataMine": "AAMasters",
+  "profilePicture": "Bruce.png",
+  "dataSetVersion": "dataSet.V1",
+  "processes": [
+    {
+      "name": "Single-Period-Daily",
+      "description": "Produces two data-sets with candles and volumes.",
+      "startMode": {
+        "allMonths": {
+          "run": "true",
+          "minYear": "2019",
+          "maxYear": "2019"
+        },
+        "oneMonth": {
+          "run": "false",
+          "year": "2018",
+          "month": "6"
+        },
+        "noTime": {
+          "run": "false"
+        },
+        "fixedInterval": {
+          "run": "false",
+          "interval": 0
+        }
+      },
+      "deadWaitTime": 0,
+      "normalWaitTime": 0,
+      "retryWaitTime": 10000,
+      "sleepWaitTime": 3600000,
+      "comaWaitTime": 86400000,
+      "statusDependencies": [
+        {
+          "dataMine": "AAMasters",
+          "bot": "AACharly",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "process": "Historic-Trades",
+          "dataSetVersion": "dataSet.V1"
+        },
+        {
+          "dataMine": "AAMasters",
+          "bot": "AACharly",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "process": "Hole-Fixing",
+          "dataSetVersion": "dataSet.V1",
+          "dataSetSection": "Month",
+          "waitUntilNextUpdate": true
+        },
+        {
+          "dataMine": "AAMasters",
+          "bot": "AABruce",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "process": "Single-Period-Daily",
+          "dataSetVersion": "dataSet.V1",
+          "dataSetSection": "Month"
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "codeName": "Candles",
+      "displayName": "Candles",
+      "description": "01 Min Candles.",
+      "storageAccount": "aamasters",
+      "dataSets": [
+        {
+          "codeName": "One-Min",
+          "type": "Daily Files",
+          "validPeriods": [ "01-min" ],
+          "filePath": "AAMasters/AAOlivia.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Candles/One-Min",
+          "fileName": "Data.json"
+        }
+      ],
+      "exchangeList": [
+        {
+          "name": "Poloniex"
+        },
+        {
+          "name": "Coss"
+        }
+      ],
+      "plotter": {
+        "dataMine": "AAMasters",
+        "codeName": "PlottersCandlesVolumes",
+        "moduleName": "Candles"
+      }
+    },
+    {
+      "codeName": "Volumes",
+      "displayName": "Buy and Sell Volumes",
+      "description": "01 Min Volumes.",
+      "storageAccount": "aamasters",
+      "dataSets": [
+        {
+          "codeName": "One-Min",
+          "type": "Daily Files",
+          "validPeriods": [ "01-min" ],
+          "filePath": "AAMasters/AAOlivia.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Volumes/One-Min",
+          "fileName": "Data.json"
+        }
+      ],
+      "exchangeList": [
+        {
+          "name": "Poloniex"
+        },
+        {
+          "name": "Coss"
+        }
+      ],
+      "plotter": {
+        "dataMine": "AAMasters",
+        "codeName": "PlottersCandlesVolumes",
+        "moduleName": "Volumes"
+      }
+    }
+  ],
+  "storage": {
+    "sas": "?sv=2017-07-29&ss=b&srt=sco&sp=rl&se=2018-12-31T22:59:59Z&st=2018-04-01T12:59:54Z&spr=https&sig=Fre%2FUWrF9IAXNnJSOZ%2F5q5LUow9uno7dXg5pGZ3YDzo%3D",
+    "fileUri": "https://aamasters.blob.core.windows.net"
+  }
+}
+
+
+

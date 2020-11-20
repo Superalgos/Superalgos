@@ -1,0 +1,11 @@
+
+.vs/*
+obj/*
+
+bin/*
+
+*.config
+*.log
+*.cache
+node_modules/*
+

@@ -1,0 +1,15 @@
+{
+  "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "16.0"
+    }
+  },
+  "extends": ["standard", "standard-react"],
+  "rules":{
+    "react/prop-types": 0
+  },
+  "env": {
+    "browser": true
+  }
+}

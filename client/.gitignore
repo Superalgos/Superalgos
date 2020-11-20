@@ -1,0 +1,29 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependency directories
+node_modules/
+
+# Optional npm cache directory
+.npm
+
+# dotenv environment variables file
+.env
+.env.dev
+.env.prod
+
+# Build folder js files
+build*
+dist/
+
+# Visual Studio Code
+.vscode
+
+#Mac specific files
+.DS_Store
+
+#yalc npm link
+.yalc
+yalc.lock

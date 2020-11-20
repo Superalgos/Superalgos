@@ -1,0 +1,33 @@
+{
+  "apiVersion": "batch/v1",
+  "kind": "Job",
+  "metadata": {
+    "labels": {
+      "app": "clone-executor"
+    },
+    "name": "clone-executor"
+  },
+  "spec": {
+    "template": {
+      "spec": {
+        "restartPolicy": "OnFailure",
+        "ttlSecondsAfterFinished": 1,
+        "containers": [
+          {
+            "name": "clone-executor",
+            "image": "superalgos/clone-executor:1.0.12",
+            "command": ["node", "Run.js"],
+            "env": [
+            ]
+          }
+        ],
+        "hostNetwork": true
+      },
+      "metadata": {
+        "labels": {
+          "app": "clone-executor"
+        }
+      }
+    }
+  }
+}

@@ -94,7 +94,9 @@ function newFileCloud () {
           }
 
           if (pMine !== undefined) {
-            filePath = filePath.replace('@DataMine', pMine.config.codeName)
+            filePath = filePath.replace('@MineType', pMine.type.replace(' ', '-'))
+            filePath = filePath.replace('@Mine', pMine.config.codeName)
+            filePath = filePath.replace('@Project', pMine.project)
           }
 
           if (pBot !== undefined) {

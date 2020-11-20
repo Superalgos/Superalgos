@@ -308,25 +308,6 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                 }
                 break
 
-            case 'ResetLogsAndData':
-                {
-                    try {
-                        let rimraf = require('rimraf')
-                        rimraf.sync(process.env.STORAGE_PATH + '/Masters/Masters/AAJason.1.0')
-                        rimraf.sync(process.env.LOG_PATH)
-
-                        respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
-                    } catch (err) {
-                        if (CONSOLE_LOG === true) { console.log('[INFO] httpInterface -> ResetLogsAndData -> Could not delete Logs and Data.') }
-                        let error = {
-                            result: 'Fail Because',
-                            message: err.message
-                        }
-                        respondWithContent(JSON.stringify(error), httpResponse)
-                    }
-                    break
-                }
-
             case 'LegacyPlotter.js':
                 {
                     respondWithFile(process.env.PATH_TO_CLIENT + 'WebServer/LegacyPlotter.js', httpResponse)

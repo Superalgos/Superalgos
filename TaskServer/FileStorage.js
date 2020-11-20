@@ -197,10 +197,9 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
             }
 
             function retry() {
-                console.log(new Date(), '[WARN] Read File Retry #: ' + currentRetryGetTextFile, fileLocation)
                 if (currentRetryGetTextFile < MAX_RETRY) {
                     currentRetryGetTextFile++
-                    logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> retry -> Will try to read the file again -> Retry #: ' + currentRetryGetTextFile)
+                    logger.write(MODULE_NAME, '[INFO] FileStorage -> getTextFile -> retry -> Will try to read the file again -> Retry #: ' + currentRetryGetTextFile)
                     recursiveGetTextFile(filePath, callBackFunction, noRetry, canUsePrevious)
                 } else {
                     currentRetryGetTextFile = 0
@@ -368,7 +367,7 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
             function retry() {
                 if (currentRetryWriteTextFile < MAX_RETRY) {
                     currentRetryWriteTextFile++
-                    logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> retry -> Will try to write the file again -> Retry #: ' + currentRetryWriteTextFile)
+                    logger.write(MODULE_NAME, '[INFO] FileStorage -> createTextFile -> retry -> Will try to write the file again -> Retry #: ' + currentRetryWriteTextFile)
                     recursiveCreateTextFile(filePath, fileContent, callBackFunction, keepPrevious)
                 } else {
                     currentRetryWriteTextFile = 0
@@ -428,7 +427,7 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
             function retry() {
                 if (currentRetryDeleteTextFile < MAX_RETRY) {
                     currentRetryDeleteTextFile++
-                    logger.write(MODULE_NAME, '[WARN] FileStorage -> deleteTextFile -> retry -> Will try to delete the file again -> Retry #: ' + currentRetryDeleteTextFile)
+                    logger.write(MODULE_NAME, '[INFO] FileStorage -> deleteTextFile -> retry -> Will try to delete the file again -> Retry #: ' + currentRetryDeleteTextFile)
                     recursiveDeleteTextFile(filePath, callBackFunction)
                 } else {
                     currentRetryDeleteTextFile = 0

@@ -183,6 +183,8 @@
 
                     /* Simplifying the access to basic info */
                     botConfig.dataMine = global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName
+                    botConfig.mineType = global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.type.replace(' ', '-')
+                    botConfig.project = global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.project
                     botConfig.exchange = global.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name
                     botConfig.exchangeNode = global.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode
                     botConfig.market = {
@@ -196,7 +198,7 @@
                     botConfig.loopCounter = 0;
 
                     /* File Path Root */
-                    botConfig.filePathRoot = botConfig.exchange + "/" + botConfig.market.baseAsset + "-" + botConfig.market.quotedAsset + "/" + botConfig.dataMine + "/" + botConfig.codeName;
+                    botConfig.filePathRoot = 'Project/' + botConfig.project + "/" + botConfig.mineType + "/" + botConfig.dataMine + "/" + botConfig.codeName + '/' + botConfig.exchange + "/" + botConfig.market.baseAsset + "-" + botConfig.market.quotedAsset
 
                     /* Process Key */
                     botConfig.processKey = global.TASK_NODE.bot.processes[processIndex].name + '-' + global.TASK_NODE.bot.processes[processIndex].type + '-' + global.TASK_NODE.bot.processes[processIndex].id

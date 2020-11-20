@@ -117,10 +117,12 @@ exports.newDataSet = function newDataSet(BOT, logger) {
 
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getTextFile -> Entering function."); }
 
-            let dataMineCodeName = thisObject.node.parentNode.parentNode.parentNode.config.codeName
+            let mine = thisObject.node.parentNode.parentNode.parentNode.config.codeName
+            let mineType = thisObject.node.parentNode.parentNode.parentNode.type.replace(' ', '-')
+            let project = thisObject.node.parentNode.parentNode.parentNode.project
             let botCodeName = thisObject.node.parentNode.parentNode.config.codeName
 
-            let filePathRoot = bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset + "/" + dataMineCodeName + "/" + botCodeName;
+            let filePathRoot = 'Project/' + project + "/" + mineType + "/" + mine + "/" + botCodeName + '/' + bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset
             let filePath = filePathRoot + "/Output/" + pFolderPath;
             filePath += '/' + pFileName
 
@@ -162,7 +164,7 @@ exports.newDataSet = function newDataSet(BOT, logger) {
                 return;
             }
 
-            let filePathRoot = bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset + "/" + thisObject.node.dataMine + "/" + thisObject.node.bot;
+            let filePathRoot = 'Project/' + thisObject.node.project + "/" + thisObject.node.mineType + "/" + thisObject.node.dataMine + "/" + thisObject.node.bot + '/' + bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset
             let filePath = filePathRoot + "/Output/" + pFolderPath + '/' + pFileName;
 
             fileStorage.createTextFile(filePath, pFileContent, onFileCreated);

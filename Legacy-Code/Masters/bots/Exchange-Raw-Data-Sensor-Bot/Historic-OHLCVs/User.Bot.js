@@ -2,9 +2,7 @@
 exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_STORAGE, STATUS_REPORT, EXCHANGE_API) {
 
     const FULL_LOG = true;
-    const LOG_FILE_CONTENT = false;
     const GMT_SECONDS = ':00.000 GMT+0000';
-    const GMT_MILI_SECONDS = '.000 GMT+0000';
     const MODULE_NAME = "User Bot";
     const CANDLES_FOLDER_NAME = "Candles/One-Min";
     const VOLUMES_FOLDER_NAME = "Volumes/One-Min";

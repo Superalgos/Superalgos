@@ -111,7 +111,7 @@
 
                                     let fileName = "Data.json";
 
-                                    let filePathRoot = bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset + "/" + bot.dataMine + "/" + "Candles-Volumes";
+                                    let filePathRoot = 'Project/' + bot.project + "/" + bot.mineType + "/" + bot.dataMine + "/" + "Candles-Volumes" + '/' + bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset
                                     let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrame;
                                     filePath += '/' + fileName
 

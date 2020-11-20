@@ -92,6 +92,8 @@
             statusDependencyNode.process = statusDependencyNode.referenceParent.parentNode.config.codeName
             statusDependencyNode.bottype = statusDependencyNode.referenceParent.parentNode.parentNode.type
             statusDependencyNode.dataMine = statusDependencyNode.referenceParent.parentNode.parentNode.parentNode.config.codeName
+            statusDependencyNode.mineType = statusDependencyNode.referenceParent.parentNode.parentNode.parentNode.type.replace(' ', '-')
+            statusDependencyNode.project = statusDependencyNode.referenceParent.parentNode.parentNode.parentNode.project
 
             /* We retrieve the report main utility */
             if (statusDependencyNode.config !== undefined) {
@@ -251,9 +253,8 @@
 
             if (ownerId !== botId) {
 
-                let rootPath = bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset + "/" + statusDependencyNode.dataMine + "/" + statusDependencyNode.bot
-
-                filePath = rootPath + "/Reports/" + sessionPath + statusDependencyNode.process;
+                let filePathRoot = 'Project/' + statusDependencyNode.project + "/" + statusDependencyNode.mineType + "/" + statusDependencyNode.dataMine + "/" + statusDependencyNode.bot + '/' + bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset
+                filePath = filePathRoot + "/Reports/" + sessionPath + statusDependencyNode.process;
             } else {
                 filePath = bot.filePathRoot + "/Reports/" + sessionPath + statusDependencyNode.process;
             }

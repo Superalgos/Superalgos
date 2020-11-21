@@ -363,6 +363,27 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                 }
                 break
 
+            case 'Gifs': // This means the Gifs folder under Projects.
+                {
+                    let path = process.env.PROJECTS_PATH + '/' + requestParameters[2] + '/Gifs'
+
+                    if (requestParameters[3] !== undefined) {
+                        path = path + '/' + requestParameters[3]
+                    }
+
+                    if (requestParameters[4] !== undefined) {
+                        path = path + '/' + requestParameters[4]
+                    }
+
+                    if (requestParameters[5] !== undefined) {
+                        path = path + '/' + requestParameters[5]
+                    }
+
+                    path = unescape(path)
+                    respondWithImage(path, httpResponse)
+                }
+                break
+
             case 'favicon.ico': // This means the Scripts folder.
                 {
                     respondWithImage(process.env.PATH_TO_CLIENT + 'WebServer/Images/' + 'favicon.ico', httpResponse)

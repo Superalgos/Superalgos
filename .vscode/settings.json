@@ -1,0 +1,14 @@
+{
+    "files.exclude": {
+        "**/Data-Storage": true,
+        "**/Documentation": true,
+        "**/Log-Files": true,
+        "**/node_modules": true
+    },
+    "search.exclude": {
+        "**/Data-Storage": true,
+        "**/Documentation": true,
+        "**/Log-Files": true
+    },
+    "search.maintainFileSearchCache": true
+}

@@ -289,6 +289,7 @@ function newWorkspace() {
                     workingAtTask = 0
                     circularProgressBar.visible = false
                     isInitialized = true
+                    saveWorkspace()
                     break
             }
         }

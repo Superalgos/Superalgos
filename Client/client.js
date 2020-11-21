@@ -123,11 +123,14 @@ try {
     console.log('')
     console.log("You are running Superalgos Beta 7")
     console.log('')
-    console.log("What's new? The following is being implemented here:")
+    console.log("What's new? The following was implemented here:")
     console.log('')
-    console.log('Multi-Project Infrastructure ....... This will allow us to integrate crypto projects into Superalgos.')
-    console.log('Machine Learning Infrastructure .... This will enable a new kind of Bot that can learn from data mined. Later that knowledge can be used at trading strategies.')
+    console.log('Multi-Project Infrastructure ....... This allow us to integrate crypto projects into Superalgos. Note that with this upgrade you will need to download and calculate market data again.')
+    console.log('')
+    console.log("What's next? At the development pipeline we have:")
+    console.log('')
     console.log('Ethereum Integration ............... This will allow mining data from an Ethereum network node, create indicators with it, an use it on strategies.')
+    console.log('Machine Learning Infrastructure .... This will enable a new kind of Bot that can learn from data mined. Later that knowledge can be used at trading strategies.')
     console.log('')
 
 } catch (err) {

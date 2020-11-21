@@ -140,7 +140,13 @@
                     const FILE_STORAGE = require('./FileStorage.js');
                     let fileStorage = FILE_STORAGE.newFileStorage();
 
-                    let filePath = global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + '/bots/' + processInstance.referenceParent.parentNode.config.repo + '/this.bot.config.json';
+                    let filePath =
+                        global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.project +    // project
+                        '/Bots-Plotters-Code/' +
+                        global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + // mine
+                        '/bots/' +
+                        processInstance.referenceParent.parentNode.config.repo + // bot
+                        '/this.bot.config.json'
 
                     fileStorage.getTextFile(filePath, onFileReceived);
 
@@ -554,7 +560,7 @@
                             setTimeout(exitProcessInstance, WAIT_TIME_FOR_ALL_PROCESS_INSTANCES_TO_START)
                         }
                     }
-                    
+
                     function runLearningBot(pBotConfig, pProcessConfig) {
 
                         global.TOTAL_PROCESS_INSTANCES_CREATED++

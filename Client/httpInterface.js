@@ -404,20 +404,11 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
             case 'Plotters': // This means the plotter folder, not to be confused with the Plotters script!
                 {
-                    let dataMine = requestParameters[2]
-                    let codeName = requestParameters[3]
-                    let moduleName = requestParameters[4]
-                    let filePath = process.env.PLOTTERS_PATH + '/' + dataMine + '/plotters/' + codeName + '/' + moduleName
-                    respondWithFile(filePath, httpResponse)
-                }
-                break
-
-            case 'PlotterPanels': // This means the PlotterPanels folder, not to be confused with the Plotter Panels scripts!
-                {
-                    let dataMine = requestParameters[2]
-                    let codeName = requestParameters[3]
-                    let moduleName = requestParameters[4]
-                    let filePath = process.env.PLOTTERS_PATH + '/' + dataMine + '/plotters/' + codeName + '/' + moduleName
+                    let project = requestParameters[2]
+                    let dataMine = requestParameters[3]
+                    let codeName = requestParameters[4]
+                    let moduleName = requestParameters[5]
+                    let filePath = process.env.PROJECTS_PATH + '/' + project  + '/' + 'Bots-Plotters-Code' +  '/' + dataMine + '/plotters/' + codeName + '/' + moduleName
                     respondWithFile(filePath, httpResponse)
                 }
                 break

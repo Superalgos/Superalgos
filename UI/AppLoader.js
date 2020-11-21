@@ -177,13 +177,13 @@ function newAppLoader() {
 
     function defaultPlotters() {
         return [
-            'Plotters/Masters/Plotters-Candles-Volumes/Candles.js',
-            'Plotters/Masters/Plotters-Candles-Volumes/CandlePanel.js',
-            'Plotters/Masters/Plotters-Candles-Volumes/Volumes.js',
-            'Plotters/Masters/Plotters-Candles-Volumes/VolumePanel.js',
-            'Plotters/Masters/Plotters-Bollinger-Bands/BollingerBands.js',
-            'Plotters/Masters/Plotters-Bollinger-Bands/BollingerBandsPanel.js',
-            'Plotters/Masters/Plotters-Bollinger-Bands/PercentageBandwidth.js'
+            'Plotters/Superalgos/Masters/Plotters-Candles-Volumes/Candles.js',
+            'Plotters/Superalgos/Masters/Plotters-Candles-Volumes/CandlePanel.js',
+            'Plotters/Superalgos/Masters/Plotters-Candles-Volumes/Volumes.js',
+            'Plotters/Superalgos/Masters/Plotters-Candles-Volumes/VolumePanel.js',
+            'Plotters/Superalgos/Masters/Plotters-Bollinger-Bands/BollingerBands.js',
+            'Plotters/Superalgos/Masters/Plotters-Bollinger-Bands/BollingerBandsPanel.js',
+            'Plotters/Superalgos/Masters/Plotters-Bollinger-Bands/PercentageBandwidth.js'
         ]
     }
 }

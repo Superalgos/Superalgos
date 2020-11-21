@@ -34,7 +34,13 @@
                 return
             }
 
-            let filePath = bot.dataMine + "/" + "bots" + "/" + bot.processNode.referenceParent.parentNode.config.repo + "/" + pProcessConfig.codeName
+            let filePath =
+                bot.processNode.referenceParent.parentNode.parentNode.project +    // project
+                '/Bots-Plotters-Code/' +
+                bot.dataMine +
+                "/" + "bots" + "/" +
+                bot.processNode.referenceParent.parentNode.config.repo + "/" +
+                pProcessConfig.codeName
             filePath += "/User.Bot.js"
 
             fileStorage.getTextFile(filePath, onBotDownloaded);
@@ -63,7 +69,7 @@
 
                 function onCommonsDownloaded(err, text) {
                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                        parentLogger.write(MODULE_NAME, "[WARN] initialize -> onBotDownloaded -> onCommonsDownloaded -> Commons not found: " +  err.message);
+                        parentLogger.write(MODULE_NAME, "[WARN] initialize -> onBotDownloaded -> onCommonsDownloaded -> Commons not found: " + err.message);
                         callBackFunction(global.DEFAULT_OK_RESPONSE);
                         return;
                     }

@@ -74,7 +74,7 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
             let fileLocation
             let mustBeJason
             if (filePath.indexOf("/bots/") > 0) {
-                fileLocation = process.env.BOTS_PATH + '/' + filePath
+                fileLocation = process.env.PROJECTS_PATH + '/' + filePath
                 mustBeJason = false
             } else {
                 fileLocation = process.env.STORAGE_PATH + '/' + filePath

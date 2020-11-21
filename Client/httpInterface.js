@@ -43,7 +43,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                 isHttpServerStarted = true
                 /* Starting the browser now is optional */
                 if (process.argv.includes("noBrowser")) {
-                    //Running Backend only with no UI.
+                    //Running Client only with no UI.
                 } else {
                     open('http://localhost:' + port)
                 }

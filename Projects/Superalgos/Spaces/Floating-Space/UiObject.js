@@ -1126,12 +1126,12 @@ function newUiObject() {
         }
 
         /*
-        When the request comes from the UI, we need to consider the possibility that the backend is down or it 
+        When the request comes from the UI, we need to consider the possibility that the client is down or it 
         was restarted while this node was running.
         */
         if (requestFromUI === true) {
             /* 
-            It can happen that the backend is down, the task is down, session is down of for whatever reason there is no
+            It can happen that the client is down, the task is down, session is down of for whatever reason there is no
             answer to the command to stop. In those cases, we will stop execute the onStopped funcion anyways so as to 
             return the UI to its default state.
             */

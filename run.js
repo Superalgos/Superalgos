@@ -26,7 +26,7 @@ if (
     console.log('OPTIONS:')
     console.log('')
     console.log('                  help:        Optional. Use it to see this helping information.')
-    console.log('                  noBrowser:   Optional. Use it to launch Superalgos Backend only. The UI will not be loaded.')
+    console.log('                  noBrowser:   Optional. Use it to launch Superalgos Client only. The UI will not be loaded.')
     console.log('                  minMemo:     Optional. Use it when your hardware has less than 8 Gb or memory.')
 
     return

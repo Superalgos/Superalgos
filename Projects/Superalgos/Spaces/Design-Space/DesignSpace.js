@@ -64,7 +64,7 @@ function newSuperalgosDesignSpace() {
 
         function onResponse(err, data) {
             if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                console.log('Failed to Fetch Image Names from the Backend')
+                console.log('Failed to Fetch Image Names from the Client')
                 return
             }
 

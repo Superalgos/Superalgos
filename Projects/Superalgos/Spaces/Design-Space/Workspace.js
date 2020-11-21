@@ -183,7 +183,7 @@ function newWorkspace() {
                     UI.projects.superalgos.spaces.cockpitSpace.setStatus(workspace.name + ' Saved.', 50, UI.projects.superalgos.spaces.cockpitSpace.statusTypes.ALL_GOOD)
                 }
             } else {
-                UI.projects.superalgos.spaces.cockpitSpace.setStatus('Could not save the Workspace at the Backend. Please check the Backend Console for more information.', 150, UI.projects.superalgos.spaces.cockpitSpace.statusTypes.WARNING)
+                UI.projects.superalgos.spaces.cockpitSpace.setStatus('Could not save the Workspace at the Client. Please check the Client Console for more information.', 150, UI.projects.superalgos.spaces.cockpitSpace.statusTypes.WARNING)
             }
         }
     }

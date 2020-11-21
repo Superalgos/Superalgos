@@ -94,7 +94,7 @@ function newListView() {
 
         function onResponse(err, text) {
             if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> Could not load the list of your workspaces from the backend.  ') }
+                if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> Could not load the list of your workspaces from the client.  ') }
                 return
             }
 

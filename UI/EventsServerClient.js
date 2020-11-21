@@ -195,7 +195,7 @@ function newEventsServerClient(networkNode) {
                 if (networkNode !== undefined) {
                     if (networkNode.payload !== undefined) {
                         if (networkNode.payload.uiObject !== undefined) {
-                            networkNode.payload.uiObject.setErrorMessage('Failed to Connect to Superalgos Backend via WebSockets. Retrying in 1 minute.')
+                            networkNode.payload.uiObject.setErrorMessage('Failed to Connect to Superalgos Client via WebSockets. Retrying in 1 minute.')
                         }
                     }
                 }
@@ -204,7 +204,7 @@ function newEventsServerClient(networkNode) {
             if (networkNode !== undefined) {
                 if (networkNode.payload !== undefined) {
                     if (networkNode.payload.uiObject !== undefined) {
-                        networkNode.payload.uiObject.setStatus('Connected to Superalgos Backend via WebSockets.')
+                        networkNode.payload.uiObject.setStatus('Connected to Superalgos Client via WebSockets.')
                         retryCommandsPhysics()
                     }   
                 }   

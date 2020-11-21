@@ -646,7 +646,7 @@ function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
         /* This is the point where we build a map with all nodes present at the workspace */
         mapOfNodes.set(node.id, node)
 
-        /* We will collect all tasks at the workspace in order to later syncronize them with the backend */
+        /* We will collect all tasks at the workspace in order to later syncronize them with the client */
         if (userAddingNew === false && uiObjectType === 'Task' && node.savedPayload !== undefined) {
             if (tasksFoundAtWorkspace !== undefined) { // it might be undefined when you are spawning a task that was backed up
                 tasksFoundAtWorkspace.push(node)

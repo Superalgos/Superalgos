@@ -1,0 +1,17 @@
+
+.vs/*
+obj/*
+bin/*
+/.vscode
+
+.env
+.env.dev
+
+/node_modules
+/dependency
+
+/.nyc_output
+/coverage
+debug.log
+package-lock.json
+

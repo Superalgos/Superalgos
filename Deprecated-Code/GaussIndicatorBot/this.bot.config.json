@@ -1,0 +1,153 @@
+{
+    "displayName": "Gauss",
+    "codeName": "AAGauss",
+    "type": "Indicator",
+    "version": {
+        "major": 1,
+        "minor": 0,
+        "patch": 0
+    },
+    "devTeam": "AAVikings",
+	"profilePicture": "Gauss.png",
+    "dataSetVersion": "dataSet.V1",
+    "processes": [
+        {
+            "name": "Multi-Period-Market",
+            "description": "Produces files with the LRC Points for the entire market.",
+            "startMode": {
+                "allMonths": {
+                    "run": "false",
+                    "minYear": "",
+                    "maxYear": ""
+                },
+                "oneMonth": {
+                    "run": "false",
+                    "year": "",
+                    "month": ""
+                },
+                "noTime": {
+                    "run": "true"
+                },
+                "fixedInterval": {
+                    "run": "false",
+                    "interval": 0
+                }
+            },
+            "normalWaitTime": 60000,
+            "retryWaitTime": 10000,
+            "sleepWaitTime": 3600000,
+            "comaWaitTime": 86400000,
+            "statusDependencies": [
+                {
+                    "devTeam": "AAVikings",
+                    "bot": "AAGauss",
+                    "botVersion": {
+                        "major": 1,
+                        "minor": 0
+                    },
+                    "process": "Multi-Period-Market",
+                    "dataSetVersion": "dataSet.V1"
+                },
+                {
+                    "devTeam": "AAMasters",
+                    "bot": "AAOlivia",
+                    "botVersion": {
+                        "major": 1,
+                        "minor": 0
+                    },
+                    "process": "Multi-Period-Market",
+                    "dataSetVersion": "dataSet.V1"
+                }
+            ]
+        },
+        {
+            "name": "Multi-Period-Daily",
+            "description": "Produces files with the LRC Points on a daily format.",
+            "startMode": {
+                "allMonths": {
+                    "run": "false",
+                    "minYear": "",
+                    "maxYear": ""
+                },
+                "oneMonth": {
+                    "run": "false",
+                    "year": "",
+                    "month": ""
+                },
+                "noTime": {
+                    "run": "true"
+                },
+                "fixedInterval": {
+                    "run": "false",
+                    "interval": 0
+                }
+            },
+            "normalWaitTime": 60000,
+            "retryWaitTime": 10000,
+            "sleepWaitTime": 3600000,
+            "comaWaitTime": 86400000,
+            "timePeriod": 1800000,
+            "statusDependencies": [
+                {
+                    "devTeam": "AAVikings",
+                    "bot": "AAGauss",
+                    "botVersion": {
+                        "major": 1,
+                        "minor": 0
+                    },
+                    "process": "Multi-Period-Daily",
+                    "dataSetVersion": "dataSet.V1"
+                },
+                {
+                    "devTeam": "AAMasters",
+                    "bot": "AAOlivia",
+                    "botVersion": {
+                        "major": 1,
+                        "minor": 0
+                    },
+                    "process": "Multi-Period-Daily",
+                    "dataSetVersion": "dataSet.V1"
+                }
+            ]
+        }
+    ],
+    "products": [
+        {
+            "codeName": "LRCPoints",
+            "displayName": "LRCPoints",
+            "description": "Two sets of files per period that contains LRC points.",
+            "storageAccount": "aagauss",
+            "dataSets": [
+                {
+                    "codeName": "Multi-Period-Market",
+                    "type": "Market Files",
+                    "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs" ],
+                    "filePath": "AAVikings/AAGauss.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/LRC-Points/Multi-Period-Market/@Period",
+                    "fileName": "@AssetA_@AssetB.json"
+                },
+                {
+                    "codeName": "Multi-Period-Daily",
+                    "type": "Daily Files",
+                    "validPeriods": [ "45-min", "40-min", "30-min", "20-min", "15-min", "10-min", "05-min", "04-min", "03-min", "02-min", "01-min" ],
+                    "filePath": "AAVikings/AAGauss.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/LRC-Points/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+                    "fileName": "@AssetA_@AssetB.json",
+                    "dataRange": {
+                        "filePath": "AAVikings/AAGauss.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/LRC-Points/Multi-Period-Daily",
+                        "fileName": "Data.Range.@AssetA_@AssetB.json"
+                    }
+                }
+            ],
+            "exchangeList": [
+                {
+                    "name": "Poloniex"
+                }
+            ],
+            "plotter": {
+                "devTeam": "AAVikings",
+                "codeName": "PlotterLinearRegressionCurve",
+                "moduleName": "LRC"
+            }
+        }
+    ]
+
+}

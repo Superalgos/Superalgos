@@ -1,0 +1,35 @@
+{
+  "name": "@superalgos/users-client",
+  "version": "0.0.27",
+  "description": "Superalgos Users client-side web app",
+  "author": "Superalgos, ltd.",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Superalgos/UsersModule.git"
+  },
+  "main": "src/index.js",
+  "dependencies": {
+    "@material-ui/core": "^3.2.2",
+    "@material-ui/icons": "^3.0.1",
+    "apollo-client": "2.4.2",
+    "graphql": "^14.0.2",
+    "graphql-tag": "^2.10.0",
+    "prop-types": "^15.6.2",
+    "react": "^16.6.1",
+    "react-apollo": "^2.2.4",
+    "react-dom": "^16.6.1",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "^3.0.0",
+    "recompose": "^0.30.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "react-hot-loader": "^4.3.11"
+  }
+}

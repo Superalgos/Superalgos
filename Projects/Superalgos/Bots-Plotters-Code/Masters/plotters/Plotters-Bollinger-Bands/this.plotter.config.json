@@ -1,0 +1,28 @@
+{
+  "displayName": "Plotters Bollinger Bands",
+  "codeName": "PlottersBollingerBands",
+  "dataMine": "Masters",
+  "modules": [
+    {
+      "codeName": "BollingerBands",
+      "moduleName": "BollingerBands",
+      "description": "Plots Bollinger Bands.",
+      "profilePicture": "BollingerBands.png",
+      "panels": [
+        {
+          "codeName": "BollingerBandsPanel",
+          "moduleName": "BollingerBandsPanel",
+          "event": "Current Record Changed"
+        }
+      ]
+    },
+    {
+      "codeName": "PercentageBandwidth",
+      "moduleName": "PercentageBandwidth",
+      "description": "Plots Bollinger Bands.",
+      "profilePicture": "PercentageBandwidth.png",
+      "panels": [
+      ]
+    }
+  ]
+}

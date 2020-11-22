@@ -530,7 +530,7 @@
                 dateForPath = "/" + currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
             }
 
-            let filePathRoot = bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset + "/" + contextSummary.dataMine + "/" + contextSummary.bot;
+            let filePathRoot = 'Project/' + contextSummary.project + "/" + contextSummary.mineType + "/" + contextSummary.dataMine + "/" + contextSummary.bot + '/' + bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset
             let filePath = filePathRoot + "/Output/" + contextSummary.product + "/" + contextSummary.dataset + "/" + timeFrameLabel + dateForPath;
             filePath += '/' + fileName
 

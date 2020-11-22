@@ -1,0 +1,15 @@
+dist
+build
+node_modules
+html
+tools/docker
+tools/webpack
+.env
+.env.prod
+.env.sample
+.eslintrc
+docker-compose.yml
+Dockerfile
+postcss.config.js
+webpack.config.js
+.DS_Store

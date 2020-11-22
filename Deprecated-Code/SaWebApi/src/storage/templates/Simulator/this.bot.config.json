@@ -1,0 +1,387 @@
+{
+  "displayName": "Jason",
+  "codeName": "AAJason",
+  "type": "Indicator",
+  "version": {
+    "major": 1,
+    "minor": 0,
+    "patch": 0
+  },
+  "devTeam": "AAMasters",
+  "profilePicture": "Jason.png",
+  "dataSetVersion": "dataSet.V1",
+  "processes": [
+    {
+      "name": "Multi-Period-Market",
+      "description": "Produces a single file for each time period covering all the market.",
+      "normalWaitTime": 60000,
+      "retryWaitTime": 10000,
+      "sleepWaitTime": 3600000,
+      "comaWaitTime": 86400000,
+      "framework": {
+        "name": "Multi-Period-Market",
+        "startDate": {
+          "fixedDate": "2018-07-01"
+        },
+        "endDate": {
+        }
+      },
+      "statusDependencies": [
+        {
+          "devTeam": "AAMasters",
+          "bot": "AAJason",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "process": "Multi-Period-Market",
+          "dataSetVersion": "dataSet.V1"
+        }
+      ],
+      "dataDependencies": [
+        {
+          "devTeam": "AAVikings",
+          "bot": "AAGauss",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "product": "LRC-Points",
+          "dataSetVersion": "dataSet.V1",
+          "dataSet": "Multi-Period-Market"
+        },
+        {
+          "devTeam": "AAMasters",
+          "bot": "AAChris",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "product": "Percentage-Bandwidth",
+          "dataSetVersion": "dataSet.V1",
+          "dataSet": "Multi-Period-Market"
+        },
+        {
+          "devTeam": "AAMasters",
+          "bot": "AAChris",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "product": "Bollinger-Bands",
+          "dataSetVersion": "dataSet.V1",
+          "dataSet": "Multi-Period-Market"
+        },
+        {
+          "devTeam": "AAMasters",
+          "bot": "AAPaula",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "product": "Bollinger-Standard-Channels",
+          "dataSetVersion": "dataSet.V1",
+          "dataSet": "Multi-Period-Market"
+        },
+        {
+          "devTeam": "AAMasters",
+          "bot": "AAPaula",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "product": "Bollinger-Standard-Sub-Channels",
+          "dataSetVersion": "dataSet.V1",
+          "dataSet": "Multi-Period-Market"
+        },
+        {
+          "devTeam": "AAMasters",
+          "bot": "AAOlivia",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "product": "Candles",
+          "dataSetVersion": "dataSet.V1",
+          "dataSet": "Multi-Period-Market"
+        }
+      ]
+    },
+    {
+      "name": "Multi-Period-Daily",
+      "description": "Produces a Daily File at each time period.",
+      "normalWaitTime": 60000,
+      "retryWaitTime": 10000,
+      "sleepWaitTime": 3600000,
+      "comaWaitTime": 86400000,
+      "framework": {
+        "name": "Multi-Period-Daily",
+        "validPeriods": [ "15-min", "10-min", "05-min"],
+        "startDate": {
+          "fixedDate": "2018-07-01"
+        },
+        "endDate": {
+          "takeItFromStatusDependency": 1
+        }
+      },
+      "statusDependencies": [
+        {
+          "devTeam": "AAMasters",
+          "bot": "AACharly",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "process": "Historic-Trades",
+          "dataSetVersion": "dataSet.V1"
+        },
+        {
+          "devTeam": "AAMasters",
+          "bot": "AAOlivia",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "process": "Multi-Period-Daily",
+          "dataSetVersion": "dataSet.V1"
+        },
+        {
+          "devTeam": "AAMasters",
+          "bot": "AAJason",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "process": "Multi-Period-Daily",
+          "dataSetVersion": "dataSet.V1"
+        }
+      ],
+      "dataDependencies": [
+        {
+          "devTeam": "AAVikings",
+          "bot": "AAGauss",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "product": "LRC-Points",
+          "dataSetVersion": "dataSet.V1",
+          "dataSet": "Multi-Period-Daily"
+        },
+        {
+          "devTeam": "AAMasters",
+          "bot": "AAChris",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "product": "Percentage-Bandwidth",
+          "dataSetVersion": "dataSet.V1",
+          "dataSet": "Multi-Period-Daily"
+        },
+        {
+          "devTeam": "AAMasters",
+          "bot": "AAChris",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "product": "Bollinger-Bands",
+          "dataSetVersion": "dataSet.V1",
+          "dataSet": "Multi-Period-Daily"
+        },
+        {
+          "devTeam": "AAMasters",
+          "bot": "AAPaula",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "product": "Bollinger-Standard-Channels",
+          "dataSetVersion": "dataSet.V1",
+          "dataSet": "Multi-Period-Daily"
+        },
+        {
+          "devTeam": "AAMasters",
+          "bot": "AAPaula",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "product": "Bollinger-Standard-Sub-Channels",
+          "dataSetVersion": "dataSet.V1",
+          "dataSet": "Multi-Period-Daily"
+        },
+        {
+          "devTeam": "AAMasters",
+          "bot": "AAOlivia",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "product": "Candles",
+          "dataSetVersion": "dataSet.V1",
+          "dataSet": "Multi-Period-Daily"
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "codeName": "Trading-Simulation",
+      "displayName": "Trading Simulation",
+      "description": "Trading Simulation",
+      "storageAccount": "aajason",
+      "dataSets": [
+        {
+          "codeName": "Multi-Period-Market",
+          "type": "Market Files",
+          "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs" ],
+          "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Trading-Simulation/Multi-Period-Market/@Period",
+          "fileName": "@AssetA_@AssetB.json"
+        },
+        {
+          "codeName": "Multi-Period-Daily",
+          "type": "Daily Files",
+          "validPeriods": [ "15-min", "10-min", "05-min" ],
+          "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Trading-Simulation/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+          "fileName": "@AssetA_@AssetB.json",
+          "dataRange": {
+            "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Trading-Simulation/Multi-Period-Daily",
+            "fileName": "Data.Range.@AssetA_@AssetB.json"
+          }
+        }
+      ],
+      "exchangeList": [
+        {
+          "name": "Poloniex"
+        },
+        {
+          "name": "Coss"
+        }
+      ],
+      "plotter": {
+        "devTeam": "AAMasters",
+        "codeName": "PlottersTradingSimulation",
+        "moduleName": "TradingSimulation"
+      }
+    },
+    {
+      "codeName": "Simulation-Conditions",
+      "displayName": "Simulation Conditions",
+      "description": "Simulation Conditions",
+      "storageAccount": "aajason",
+      "dataSets": [
+        {
+          "codeName": "Multi-Period-Market",
+          "type": "Market Files",
+          "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs" ],
+          "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Simulation-Conditions/Multi-Period-Market/@Period",
+          "fileName": "@AssetA_@AssetB.json"
+        },
+        {
+          "codeName": "Multi-Period-Daily",
+          "type": "Daily Files",
+          "validPeriods": [ "15-min", "10-min", "05-min" ],
+          "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Simulation-Conditions/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+          "fileName": "@AssetA_@AssetB.json",
+          "dataRange": {
+            "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Simulation-Conditions/Multi-Period-Daily",
+            "fileName": "Data.Range.@AssetA_@AssetB.json"
+          }
+        }
+      ],
+      "exchangeList": [
+        {
+          "name": "Poloniex"
+        },
+        {
+          "name": "Coss"
+        }
+      ],
+      "plotter": {
+        "devTeam": "AAMasters",
+        "codeName": "PlottersTradingSimulation",
+        "moduleName": "Conditions"
+      }
+    },
+    {
+      "codeName": "Simulation-Strategies",
+      "displayName": "Simulation Strategies",
+      "description": "Simulation Strategies",
+      "storageAccount": "aajason",
+      "dataSets": [
+        {
+          "codeName": "Multi-Period-Market",
+          "type": "Market Files",
+          "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs" ],
+          "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Simulation-Strategies/Multi-Period-Market/@Period",
+          "fileName": "@AssetA_@AssetB.json"
+        },
+        {
+          "codeName": "Multi-Period-Daily",
+          "type": "Daily Files",
+          "validPeriods": [ "15-min", "10-min", "05-min" ],
+          "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Simulation-Strategies/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+          "fileName": "@AssetA_@AssetB.json",
+          "dataRange": {
+            "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Simulation-Strategies/Multi-Period-Daily",
+            "fileName": "Data.Range.@AssetA_@AssetB.json"
+          }
+        }
+      ],
+      "exchangeList": [
+        {
+          "name": "Poloniex"
+        },
+        {
+          "name": "Coss"
+        }
+      ],
+      "plotter": {
+        "devTeam": "AAMasters",
+        "codeName": "PlottersTradingSimulation",
+        "moduleName": "Strategies"
+      }
+    },
+    {
+      "codeName": "Simulation-Trades",
+      "displayName": "Simulation Trades",
+      "description": "Simulation Trades",
+      "storageAccount": "aajason",
+      "dataSets": [
+        {
+          "codeName": "Multi-Period-Market",
+          "type": "Market Files",
+          "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs" ],
+          "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Simulation-Trades/Multi-Period-Market/@Period",
+          "fileName": "@AssetA_@AssetB.json"
+        },
+        {
+          "codeName": "Multi-Period-Daily",
+          "type": "Daily Files",
+          "validPeriods": [ "15-min", "10-min", "05-min" ],
+          "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Simulation-Trades/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+          "fileName": "@AssetA_@AssetB.json",
+          "dataRange": {
+            "filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Simulation-Trades/Multi-Period-Daily",
+            "fileName": "Data.Range.@AssetA_@AssetB.json"
+          }
+        }
+      ],
+      "exchangeList": [
+        {
+          "name": "Poloniex"
+        },
+        {
+          "name": "Coss"
+        }
+      ],
+      "plotter": {
+        "devTeam": "AAMasters",
+        "codeName": "PlottersTradingSimulation",
+        "moduleName": "Trades"
+      }
+    }
+  ]
+}

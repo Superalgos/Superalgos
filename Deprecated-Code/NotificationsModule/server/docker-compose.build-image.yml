@@ -1,0 +1,19 @@
+version: '3'
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file: ./.env.dev
+    container_name: aanotificationapi
+    ports:
+      - "4101:4101"
+    volumes:
+      - .:/var/www/app
+      - /var/www/app/node_modules
+    tty: true
+    stdin_open: true
+    volumes:
+    working_dir: /var/www/app
+    restart: always
+    command: node --require @babel/register --require dotenv/config src/index.js

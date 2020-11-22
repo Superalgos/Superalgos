@@ -134,6 +134,8 @@
                 contextSummary.bot = botNode.config.codeName
                 let dataMineNode = global.FIND_NODE_IN_NODE_MESH(outputDatasetNode, 'Data Mine')
                 contextSummary.dataMine = dataMineNode.config.codeName
+                contextSummary.mineType = dataMineNode.type.replace(' ', '-')
+                contextSummary.project = dataMineNode.project
 
                 let fileContent = commons.generateFileContent(outputData, outputDatasetNode.referenceParent.parentNode.record, resultsWithIrregularPeriods, processingDailyFiles, currentDay, callBackFunction)
                 commons.writeFile(contextSummary, fileContent, anotherFileWritten, processingDailyFiles, timeFrameLabel, currentDay, callBackFunction)

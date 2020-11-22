@@ -1,0 +1,926 @@
+﻿function newAAMastersPlottersTradingHistory() {
+
+    const MODULE_NAME = "AAMasters Plotters Trading History";
+    const INTENSIVE_LOG = false;
+    const ERROR_LOG = true;
+    const logger = newWebDebugLog();
+    logger.fileName = MODULE_NAME;
+
+    let thisObject = {
+
+        // Main functions and properties.
+
+        initialize: initialize,
+        finalize: finalize,
+        container: undefined,
+        getContainer: getContainer,
+        setTimePeriod: setTimePeriod,
+        setDatetime: setDatetime,
+        recalculateScale: recalculateScale, 
+        draw: draw,
+        payload: {
+            profile: {
+                position: {
+                    x: 0,
+                    y: 0
+                },
+                visible: false
+            },
+            notes: []
+        }
+    };
+
+    /* this is part of the module template */
+
+    thisObject.container = newContainer()
+    thisObject.container.initialize(MODULE_NAME)
+
+    let timeLineCoordinateSystem = newTimeLineCoordinateSystem();       // Needed to be able to plot on the timeline, otherwise not.
+
+    let timePeriod;                             // This will hold the current Time Period the user is at.
+    let datetime;                               // This will hold the current Datetime the user is at.
+
+    /* these are module specific variables: */
+
+    let fileSequence;                           
+    let plotElements = [];                      // This is where the elements to be plotted are stored before plotting.
+    let plotLines = [];                         // Here we store the lines of open positions.
+    let notes = [];                             // Here we store the notes with messages from the bot.
+
+    let notesChangedEventRaised = true;         // This controls when to raise the event that notes changed.
+
+    let previousNotesSetKey;
+    let currentNotesSetKey;
+
+    let offsetChangedEventSubscriptionId
+    let filesUpdatedEventSubscriptionId
+    let dimmensionsChangedEventSubscriptionId
+
+    return thisObject;
+
+    function finalize() {
+        try {
+
+            /* Stop listening to the necesary events. */
+
+            viewPort.eventHandler.stopListening(offsetChangedEventSubscriptionId);
+            fileSequence.eventHandler.stopListening(filesUpdatedEventSubscriptionId);
+            thisObject.container.eventHandler.stopListening(dimmensionsChangedEventSubscriptionId)
+
+            /* Destroyd References */
+
+            datetime = undefined;
+            timePeriod = undefined;
+
+            fileSequence = undefined;
+            plotElements = undefined;
+            plotLines = undefined;
+            notes = undefined;
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] finalize -> err.message = " + err.message); }
+        }
+    }
+
+    function initialize(pStorage, pExchange, pMarket, pDatetime, pTimePeriod, callBackFunction) {
+
+        try {
+
+            datetime = pDatetime;
+            timePeriod = pTimePeriod;
+
+            fileSequence = pStorage.fileSequences[0];
+
+            recalculate(callBackFunction);
+            recalculateScale(callBackFunction);
+
+            filesUpdatedEventSubscriptionId = fileSequence.eventHandler.listenToEvent("Files Updated", onFilesUpdated);// Only the first sequence is supported right now.
+            offsetChangedEventSubscriptionId = viewPort.eventHandler.listenToEvent("Offset Changed", onOffsetChanged);
+
+            immensionsChangedEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('Dimmensions Changed', function () {
+                recalculate(callBackFunction);
+                recalculateScale(callBackFunction);
+            })
+
+            callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE);
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err = " + err.stack); }
+            callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
+        }
+    }
+
+    function getContainer(point) {
+
+        try {
+
+            let container;
+
+            /* First we check if this point is inside this space. */
+
+            if (thisObject.container.frame.isThisPointHere(point) === true) {
+
+                return thisObject.container;
+
+            } else {
+
+                /* This point does not belong to this space. */
+
+                return undefined;
+            }
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err = " + err.stack); }
+        }
+    }
+
+    function onFilesUpdated() {
+
+        recalculate();
+
+    }
+
+    function setTimePeriod(pTimePeriod) {
+
+        try {
+
+            timePeriod = pTimePeriod;
+
+            recalculate();
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] setTimePeriod -> err = " + err.stack); }
+        }
+    }
+
+    function setDatetime(newDatetime) {
+
+        try {
+
+            datetime = newDatetime;
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] setTimePeriod -> err = " + err.stack); }
+        }
+    }
+
+    function onOffsetChanged() {
+
+        if (Math.random() * 100 > 95) {
+
+            recalculate()
+        };
+
+    }
+
+    function recalculate(callBackFunction) {    
+
+        try {
+
+            if (fileSequence === undefined) { return; }
+
+            /*
+    
+            We are going to filter the records depending on the Time Period. We want that for a 1 min time peroid all the records appears on screen,
+            but for higher periods, we will filter out some records, so that they do not overlap ever. 
+    
+            */
+
+            plotElements = [];
+            plotLines = [];
+            notes = [];
+
+            let lastSellRate;
+            let lastSellDate;
+            let sellExecRate;
+
+            let lastBuyRate;
+            let lastBuyDate;
+            let buyExecRate;
+
+            let maxSequence = fileSequence.getFilesLoaded();
+
+            for (let j = 0; j < maxSequence; j++) {
+
+                let file = fileSequence.getFile(j);
+
+                let history = [];
+                let lines = [];
+                
+                /* First the small balls */
+
+                const ONE_MIN_IN_MILISECONDS = 60 * 1000;
+                let step = timePeriod / ONE_MIN_IN_MILISECONDS;
+
+                let i = 0;
+                let lastRecordPushed = 0;
+
+                for (i = 0; i < file.length; i = i + step) {
+
+                    let newHistoryRecord = {
+
+                        date: Math.trunc(file[i][0] / 60000) * 60000 + 30000,
+                        buyAvgRate: file[i][1],
+                        sellAvgRate: file[i][2],
+
+                        lastSellRate: file[i][3],
+                        sellExecRate: file[i][4],
+                        lastBuyRate: file[i][5],
+                        buyExecRate: file[i][6],
+
+                        marketRate: file[i][7],
+                        newPositions: file[i][8],
+                        newTrades: file[i][9],
+                        movedPositions: file[i][10],
+                        profitsAssetA: file[i][11],
+                        profitsAssetB: file[i][12],
+                        combinedProfitsA: file[i][13],
+                        combinedProfitsB: file[i][14],
+
+                        messageRelevance: file[i][15],
+                        messageTitle: file[i][16],
+                        messageBody: file[i][17]
+                    };
+
+                    history.push(newHistoryRecord);
+                    lastRecordPushed = i;
+
+                    /* Here we build the lines. */
+
+                    if (timePeriod <= 1 * 60 * 1000) {
+
+                        if (newHistoryRecord.lastSellRate > 0) {
+
+                            lastSellRate = newHistoryRecord.lastSellRate;
+                            lastSellDate = newHistoryRecord.date;
+
+                        }
+
+                        if (newHistoryRecord.sellExecRate > 0) {
+
+                            let newLine = {
+                                type: "sell",
+                                x1: lastSellDate,
+                                y1: lastSellRate,
+                                x2: newHistoryRecord.date,
+                                y2: newHistoryRecord.sellExecRate
+                            };
+
+                            lines.push(newLine);
+
+                        }
+
+                        if (newHistoryRecord.lastBuyRate > 0) {
+
+                            lastBuyRate = newHistoryRecord.lastBuyRate;
+                            lastBuyDate = newHistoryRecord.date;
+
+                        }
+
+                        if (newHistoryRecord.buyExecRate > 0) {
+
+                            let newLine = {
+                                type: "buy",
+                                x1: lastBuyDate,
+                                y1: lastBuyRate,
+                                x2: newHistoryRecord.date,
+                                y2: newHistoryRecord.buyExecRate
+                            };
+
+                            lines.push(newLine);
+
+                        }
+                    }
+
+                }
+
+                /* We allways want to put the last record of the file on the filterd dataset, so as to allways show the latest advance of the bot. */
+
+                i = file.length - 1;
+
+                if (lastRecordPushed !== i) {
+
+                    let newHistoryRecord = {
+
+                        date: Math.trunc(file[i][0] / 60000) * 60000 + 30000,
+                        buyAvgRate: file[i][1],
+                        sellAvgRate: file[i][2],
+
+                        lastSellRate: file[i][3],
+                        sellExecRate: file[i][4],
+                        lastBuyRate: file[i][5],
+                        buyExecRate: file[i][6],
+
+                        marketRate: file[i][7],
+                        newPositions: file[i][8],
+                        newTrades: file[i][9],
+                        movedPositions: file[i][10],
+                        profitsAssetA: file[i][11],
+                        profitsAssetB: file[i][12],
+                        combinedProfitsA: file[i][13],
+                        combinedProfitsB: file[i][14],
+
+                        messageRelevance: file[i][15],
+                        messageTitle: file[i][16],
+                        messageBody: file[i][17]
+                    };
+
+                    history.push(newHistoryRecord);
+
+                }
+
+
+                /* Second we process the text */
+
+                for (let i = 0; i < file.length; i++) {
+
+                    let newHistoryRecord = {
+
+                        date: Math.trunc(file[i][0] / 60000) * 60000 + 30000,
+                        buyAvgRate: file[i][1],
+                        sellAvgRate: file[i][2],
+
+                        lastSellRate: file[i][3],
+                        sellExecRate: file[i][4],
+                        lastBuyRate: file[i][5],
+                        buyExecRate: file[i][6],
+
+                        marketRate: file[i][7],
+                        newPositions: file[i][8],
+                        newTrades: file[i][9],
+                        movedPositions: file[i][10],
+                        profitsAssetA: file[i][11],
+                        profitsAssetB: file[i][12],
+                        combinedProfitsA: file[i][13],
+                        combinedProfitsB: file[i][14],
+
+                        messageRelevance: file[i][15],
+                        messageTitle: file[i][16],
+                        messageBody: file[i][17]
+                    };
+
+                    if (newHistoryRecord.messageTitle !== "" && newHistoryRecord.messageBody !== "") {
+
+                        if (newHistoryRecord.messageRelevance >= 0 && newHistoryRecord.messageRelevance <= 10) {
+
+                            let relevanceTimePeriod = (dailyFilePeriods[10 - newHistoryRecord.messageRelevance][0]);
+
+                            if (timePeriod <= relevanceTimePeriod) {
+
+                                let note = {
+                                    title: newHistoryRecord.messageTitle,
+                                    body: newHistoryRecord.messageBody,
+                                    date: newHistoryRecord.date,
+                                    rate: newHistoryRecord.marketRate,
+                                    position: {
+                                        x: 0,
+                                        y: 0
+                                    },
+                                    visible: false
+                                };
+
+                                notes.push(note);
+                            }
+                        }
+                    }
+                }
+
+                plotElements.push(history);
+                plotLines.push(lines);
+
+            }
+
+            notesChangedEventRaised = false;
+
+            thisObject.container.eventHandler.raiseEvent("History Changed", history);
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] recalculate -> err = " + err.stack); }
+            callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
+        }
+    }
+
+    function recalculateScale(callBackFunction) {
+
+        try {
+
+            if (fileSequence === undefined) { return; } // We need the market file to be loaded to make the calculation.
+
+            if (timeLineCoordinateSystem.maxValue > 0) { return; } // Already calculated.
+
+            let minValue = {
+                x: MIN_PLOTABLE_DATE.valueOf(),
+                y: 0
+            };
+
+            let maxValue = {
+                x: MAX_PLOTABLE_DATE.valueOf(),
+                y: nextPorwerOf10(USDT_BTC_HTH) / 4 // TODO: This 4 is temporary
+            };
+
+
+            timeLineCoordinateSystem.initialize(
+                minValue,
+                maxValue,
+                thisObject.container.frame.width,
+                thisObject.container.frame.height
+            );
+
+            function getMaxRate() {
+
+                try {
+
+                    let maxValue = 0;
+
+                    let maxSequence = fileSequence.getFilesLoaded();
+
+                    for (let j = 0; j < maxSequence; j++) {
+
+                        let file = fileSequence.getFile(j);
+
+                        for (let i = 0; i < file.length; i++) {
+
+                            let currentMax = file[i][1] + file[i][2];   // 1 = rates.
+
+                            if (maxValue < currentMax) {
+                                maxValue = currentMax;
+                            }
+                        }
+                    }
+
+                    return maxValue;
+
+                } catch (err) {
+
+                    if (ERROR_LOG === true) { logger.write("[ERROR] recalculateScale -> getMaxRate -> err = " + err.stack); }
+                    callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
+                }
+            }
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] recalculateScale -> err = " + err.stack); }
+            callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
+        }
+    }
+
+    function draw() {
+
+        try {
+
+            if (INTENSIVE_LOG === true) { logger.write("[INFO] draw -> Entering function."); }
+
+            plotChart();
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] draw -> err = " + err.stack); }
+        }
+    }
+
+    function plotChart() {
+
+        try {
+
+            let userPosition = getUserPosition()
+            let userPositionDate = userPosition.point.x
+
+            let point = {
+                x: 0,
+                y: 0
+            };
+
+            let history;
+
+            for (let j = 0; j < plotElements.length; j++) {
+
+                let history = plotElements[j];
+
+                for (let i = 0; i < history.length; i++) {
+
+                    record = history[i];
+
+                    let timestamp = Math.trunc(record.date / timePeriod) * timePeriod + timePeriod / 2;
+
+                    point = {
+                        x: timestamp,
+                        y: record.marketRate
+                    };
+
+                    point = timeLineCoordinateSystem.transformThisPoint(point);
+                    point = transformThisPoint(point, thisObject.container);
+
+                    if (point.x < viewPort.visibleArea.bottomLeft.x || point.x > viewPort.visibleArea.bottomRight.x) { continue; }
+
+                    point = viewPort.fitIntoVisibleArea(point);
+
+                    let isCurrentRecord = false;
+
+                    if (userPositionDate >= record.date - timePeriod / 2 && userPositionDate <= record.date + timePeriod / 2 - 1) {
+                        isCurrentRecord = true;
+                    }
+                 
+                    let radius = 3;
+
+                    let opacity = '0.2';
+
+                    browserCanvasContext.lineWidth = 1;
+
+                    /* Outer Circle */
+
+                    browserCanvasContext.beginPath();
+
+                    browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK + ', ' + opacity + ')';
+
+                    if (isCurrentRecord === false) {
+                        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.LIGHT + ', ' + opacity + ')';
+                    } else {
+                        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', ' + opacity + ')';  /* highlight the current record */
+                    }
+
+                    browserCanvasContext.arc(point.x, point.y, radius, 0, Math.PI * 2, true);
+                    browserCanvasContext.closePath();
+
+                    if (point.x < viewPort.visibleArea.topLeft.x + 50 || point.x > viewPort.visibleArea.bottomRight.x - 50) {/*we leave this history without fill. */ } else {
+                        browserCanvasContext.fill();
+                    }
+
+                    browserCanvasContext.stroke();
+
+                    /* Draw a red inverted triangle on exec sell */
+
+                    if (record.sellExecRate > 0) {
+
+                        opacity = '0.5';
+
+                        let point1 = {
+                            x: record.date,
+                            y: record.sellExecRate
+                        };
+
+                        let point2 = {
+                            x: record.date + timePeriod / 7 * 2,
+                            y: record.sellExecRate
+                        };
+
+                        let point3 = {
+                            x: record.date - timePeriod / 7 * 2,
+                            y: record.sellExecRate
+                        };
+
+                        point1 = timeLineCoordinateSystem.transformThisPoint(point1);
+                        point1 = transformThisPoint(point1, thisObject.container);
+                        point1 = viewPort.fitIntoVisibleArea(point1);
+
+                        point2 = timeLineCoordinateSystem.transformThisPoint(point2);
+                        point2 = transformThisPoint(point2, thisObject.container);
+                        point2 = viewPort.fitIntoVisibleArea(point2);
+
+                        point3 = timeLineCoordinateSystem.transformThisPoint(point3);
+                        point3 = transformThisPoint(point3, thisObject.container);
+                        point3 = viewPort.fitIntoVisibleArea(point3);
+
+                        let diff = point2.x - point3.x;
+                        point2.y = point2.y - diff;
+                        point3.y = point3.y - diff;
+
+                        point2 = viewPort.fitIntoVisibleArea(point2);
+                        point3 = viewPort.fitIntoVisibleArea(point3);
+
+                        browserCanvasContext.beginPath();
+
+                        browserCanvasContext.moveTo(point1.x, point1.y);
+                        browserCanvasContext.lineTo(point2.x, point2.y);
+                        browserCanvasContext.lineTo(point3.x, point3.y);
+                        browserCanvasContext.lineTo(point1.x, point1.y);
+
+                        browserCanvasContext.closePath();
+
+                        if (isCurrentRecord === false) {
+                            browserCanvasContext.fillStyle = 'rgba(219, 18, 18, ' + opacity + ')';
+                        } else {
+                            browserCanvasContext.fillStyle = 'rgba(255, 233, 31, ' + opacity + ')';  /* highlight the current record */
+                        }
+
+                        browserCanvasContext.fill();
+
+                        browserCanvasContext.strokeStyle = 'rgba(130, 9, 9, ' + opacity + ')';
+                        browserCanvasContext.stroke();
+
+                    }
+
+                    /* Draw a green triangle on exec buy */
+
+                    if (record.buyExecRate > 0) {
+
+                        opacity = '0.5';
+
+                        let point1 = {
+                            x: record.date,
+                            y: record.buyExecRate
+                        };
+
+                        let point2 = {
+                            x: record.date + timePeriod / 7 * 2,
+                            y: record.buyExecRate
+                        };
+
+                        let point3 = {
+                            x: record.date - timePeriod / 7 * 2,
+                            y: record.buyExecRate
+                        };
+
+                        point1 = timeLineCoordinateSystem.transformThisPoint(point1);
+                        point1 = transformThisPoint(point1, thisObject.container);
+                        point1 = viewPort.fitIntoVisibleArea(point1);
+
+                        point2 = timeLineCoordinateSystem.transformThisPoint(point2);
+                        point2 = transformThisPoint(point2, thisObject.container);
+                        point2 = viewPort.fitIntoVisibleArea(point2);
+
+                        point3 = timeLineCoordinateSystem.transformThisPoint(point3);
+                        point3 = transformThisPoint(point3, thisObject.container);
+                        point3 = viewPort.fitIntoVisibleArea(point3);
+
+                        let diff = point2.x - point3.x;
+                        point2.y = point2.y + diff;
+                        point3.y = point3.y + diff;
+
+                        point2 = viewPort.fitIntoVisibleArea(point2);
+                        point3 = viewPort.fitIntoVisibleArea(point3);
+
+                        browserCanvasContext.beginPath();
+
+                        browserCanvasContext.moveTo(point1.x, point1.y);
+                        browserCanvasContext.lineTo(point2.x, point2.y);
+                        browserCanvasContext.lineTo(point3.x, point3.y);
+                        browserCanvasContext.lineTo(point1.x, point1.y);
+
+                        browserCanvasContext.closePath();
+
+                        if (isCurrentRecord === false) {
+                            browserCanvasContext.fillStyle = 'rgba(64, 217, 26, ' + opacity + ')';
+                        } else {
+                            browserCanvasContext.fillStyle = 'rgba(255, 233, 31, ' + opacity + ')';  /* highlight the current record */
+                        }
+
+                        browserCanvasContext.fill();
+
+                        browserCanvasContext.strokeStyle = 'rgba(27, 105, 7, ' + opacity + ')';
+                        browserCanvasContext.stroke();
+
+                    }
+
+                    /* Draw a red inverted triangle on sell */
+
+                    if (record.lastSellRate > 0) {
+
+                        opacity = '0.5';
+
+                        let point1 = {
+                            x: record.date,
+                            y: record.lastSellRate
+                        };
+
+                        let point2 = {
+                            x: record.date + timePeriod / 7 * 2,
+                            y: record.lastSellRate
+                        };
+
+                        let point3 = {
+                            x: record.date - timePeriod / 7 * 2,
+                            y: record.lastSellRate
+                        };
+
+                        point1 = timeLineCoordinateSystem.transformThisPoint(point1);
+                        point1 = transformThisPoint(point1, thisObject.container);
+                        point1 = viewPort.fitIntoVisibleArea(point1);
+
+                        point2 = timeLineCoordinateSystem.transformThisPoint(point2);
+                        point2 = transformThisPoint(point2, thisObject.container);
+                        point2 = viewPort.fitIntoVisibleArea(point2);
+
+                        point3 = timeLineCoordinateSystem.transformThisPoint(point3);
+                        point3 = transformThisPoint(point3, thisObject.container);
+                        point3 = viewPort.fitIntoVisibleArea(point3);
+
+                        let diff = point2.x - point3.x;
+                        point2.y = point2.y - diff;
+                        point3.y = point3.y - diff;
+
+                        point2 = viewPort.fitIntoVisibleArea(point2);
+                        point3 = viewPort.fitIntoVisibleArea(point3);
+
+                        browserCanvasContext.beginPath();
+
+                        browserCanvasContext.moveTo(point1.x, point1.y);
+                        browserCanvasContext.lineTo(point2.x, point2.y);
+                        browserCanvasContext.lineTo(point3.x, point3.y);
+                        browserCanvasContext.lineTo(point1.x, point1.y);
+
+                        browserCanvasContext.closePath();
+
+                        if (isCurrentRecord === false) {
+                            browserCanvasContext.fillStyle = 'rgba(255, 255, 255, ' + opacity + ')';
+                        } else {
+                            browserCanvasContext.fillStyle = 'rgba(255, 233, 31, ' + opacity + ')';  /* highlight the current record */
+                        }
+
+                        browserCanvasContext.fill();
+
+                        browserCanvasContext.strokeStyle = 'rgba(130, 9, 9, ' + opacity + ')';
+                        browserCanvasContext.stroke();
+
+                    }
+
+                    /* Draw a green triangle on buy */
+
+                    if (record.lastBuyRate > 0) {
+
+                        opacity = '0.5';
+
+                        let point1 = {
+                            x: record.date,
+                            y: record.lastBuyRate
+                        };
+
+                        let point2 = {
+                            x: record.date + timePeriod / 7 * 2,
+                            y: record.lastBuyRate
+                        };
+
+                        let point3 = {
+                            x: record.date - timePeriod / 7 * 2,
+                            y: record.lastBuyRate
+                        };
+
+                        point1 = timeLineCoordinateSystem.transformThisPoint(point1);
+                        point1 = transformThisPoint(point1, thisObject.container);
+                        point1 = viewPort.fitIntoVisibleArea(point1);
+
+                        point2 = timeLineCoordinateSystem.transformThisPoint(point2);
+                        point2 = transformThisPoint(point2, thisObject.container);
+                        point2 = viewPort.fitIntoVisibleArea(point2);
+
+                        point3 = timeLineCoordinateSystem.transformThisPoint(point3);
+                        point3 = transformThisPoint(point3, thisObject.container);
+                        point3 = viewPort.fitIntoVisibleArea(point3);
+
+                        let diff = point2.x - point3.x;
+                        point2.y = point2.y + diff;
+                        point3.y = point3.y + diff;
+
+                        point2 = viewPort.fitIntoVisibleArea(point2);
+                        point3 = viewPort.fitIntoVisibleArea(point3);
+
+                        browserCanvasContext.beginPath();
+
+                        browserCanvasContext.moveTo(point1.x, point1.y);
+                        browserCanvasContext.lineTo(point2.x, point2.y);
+                        browserCanvasContext.lineTo(point3.x, point3.y);
+                        browserCanvasContext.lineTo(point1.x, point1.y);
+
+                        browserCanvasContext.closePath();
+
+                        if (isCurrentRecord === false) {
+                            browserCanvasContext.fillStyle = 'rgba(255, 255, 255, ' + opacity + ')';
+                        } else {
+                            browserCanvasContext.fillStyle = 'rgba(255, 233, 31, ' + opacity + ')';  /* highlight the current record */
+                        }
+
+                        browserCanvasContext.fill();
+
+                        browserCanvasContext.strokeStyle = 'rgba(27, 105, 7, ' + opacity + ')';
+                        browserCanvasContext.stroke();
+
+                    }
+
+
+                    /* Since there is at least some point plotted, then the profile should be visible. */
+
+                    thisObject.payload.profile.visible = true;
+                }
+
+                /* Draw the lines connecting plot elements. */
+
+                let lines = plotLines[j];
+
+                for (let i = 0; i < lines.length; i++) {
+
+                    let line = lines[i];
+
+                    opacity = '0.2';
+
+                    let point1 = {
+                        x: line.x1,
+                        y: line.y1
+                    };
+
+                    let point2 = {
+                        x: line.x2,
+                        y: line.y2
+                    };
+
+                    point1 = timeLineCoordinateSystem.transformThisPoint(point1);
+                    point1 = transformThisPoint(point1, thisObject.container);
+                    point1 = viewPort.fitIntoVisibleArea(point1);
+
+                    point2 = timeLineCoordinateSystem.transformThisPoint(point2);
+                    point2 = transformThisPoint(point2, thisObject.container);
+                    point2 = viewPort.fitIntoVisibleArea(point2);
+
+                    browserCanvasContext.beginPath();
+
+                    browserCanvasContext.moveTo(point1.x, point1.y);
+                    browserCanvasContext.lineTo(point2.x, point2.y);
+
+                    browserCanvasContext.closePath();
+
+                    if (line.type === "sell") {
+
+                        browserCanvasContext.strokeStyle = 'rgba(130, 9, 9, ' + opacity + ')';
+
+                    } else {
+
+                        browserCanvasContext.strokeStyle = 'rgba(27, 105, 7, ' + opacity + ')';
+
+                    }
+
+                    browserCanvasContext.stroke();
+
+                }
+
+                /* Now we calculate the anchor position of notes. */
+
+                currentNotesSetKey = "";
+
+                for (let i = 0; i < notes.length; i++) {
+
+                    let note = notes[i];
+
+                    opacity = '0.2';
+
+                    note.position = {
+                        x: note.date,
+                        y: note.rate
+                    };
+
+                    note.position = timeLineCoordinateSystem.transformThisPoint(note.position);
+                    note.position = transformThisPoint(note.position, thisObject.container);
+
+                    if (note.position.x < (viewPort.visibleArea.bottomRight.x / 2) * (-1) || note.position.x > (viewPort.visibleArea.bottomRight.x) * (1.5)) {
+                        note.visible = false;
+                        currentNotesSetKey = currentNotesSetKey + "0";
+                    } else {
+                        note.visible = true;
+                        currentNotesSetKey = currentNotesSetKey + "1";
+                    }
+                }
+
+                if (notesChangedEventRaised === false) {
+
+                    /* In this case the event is raised because we might have a different set of notes. */
+
+                    thisObject.container.eventHandler.raiseEvent("Notes Changed", notes);
+                    thisObject.payload.notes = notes;
+
+                    notesChangedEventRaised = true;
+                    
+                } else {
+
+                    if (currentNotesSetKey !== previousNotesSetKey) {
+
+                        /* In this case the event is raised because the visibility of some of the notes changed. */
+
+                        thisObject.container.eventHandler.raiseEvent("Notes Changed", notes);
+                        thisObject.payload.notes = notes;
+
+                        previousNotesSetKey = currentNotesSetKey;
+                    }
+                }
+
+            }
+
+            /*
+    
+            We replace the coordinate of the profile point so that whoever has a reference to it, gets the new position.
+            We will use the last point plotted on screen as the profilePoint.
+    
+            */
+
+            thisObject.payload.profile.position.x = point.x;
+            thisObject.payload.profile.position.y = point.y;
+
+        } catch (err) {
+
+            if (ERROR_LOG === true) { logger.write("[ERROR] plotChart -> err = " + err.stack); }
+        }
+    }
+}
+

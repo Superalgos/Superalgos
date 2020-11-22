@@ -1,0 +1,725 @@
+[
+    {
+        "type": "Ethereum Project",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Blockchain",
+                "relatedUiObject": "Ethereum Blockchain",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Decentralized Application",
+                "relatedUiObject": "Ethereum Decentralized Application",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Token Definitions",
+                "relatedUiObject": "Ethereum Token Definitions",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Wallet",
+                "relatedUiObject": "Ethereum Wallet",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "actionFunction": "payload.executeAction",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete"
+            }
+        ],
+        "isProjectHead": true,
+        "isTitleAllwaysVisible": false,
+        "addLeftIcons": true,
+        "isPinned": true,
+        "positionLocked": true,
+        "icon": "ethereum"
+    },
+    {
+        "type": "Ethereum Wallet",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Wallet Keys",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "walletKeys",
+                "relatedUiObject": "Wallet Keys",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Wallet Account",
+                "relatedUiObject": "Wallet Account",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "isHierarchyHead": true,
+        "addLeftIcons": true,
+        "level": 0,
+        "properties": [
+            {
+                "name": "walletKeys",
+                "type": "node",
+                "childType": "Wallet Keys",
+                "autoAdd": true
+            },
+            {
+                "name": "walletAccount",
+                "type": "array",
+                "childType": "Wallet Account"
+            }
+        ],
+        "icon": "ethereum"
+    },
+    {
+        "type": "Wallet Keys",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n\"privateKey\": \"\", \n\"publicKey\": \"\"\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Ethereum Wallet->"
+        },
+        "propertyNameAtParent": "walletKeys",
+        "isPersonalData": true,
+        "icon": "ethereum"
+    },
+    {
+        "type": "Wallet Account",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add ETH Balance",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "ethBalance",
+                "relatedUiObject": "ETH Balance",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Token Balance",
+                "relatedUiObject": "Token Balance",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n\"value\": \"\"\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Ethereum Wallet->"
+        },
+        "propertyNameAtParent": "walletAccount",
+        "properties": [
+            {
+                "name": "ethBalance",
+                "type": "node",
+                "childType": "ETH Balance"
+            },
+            {
+                "name": "tokenBalance",
+                "type": "array",
+                "childType": "Token Balance"
+            }
+        ],
+        "icon": "ethereum"
+    },
+    {
+        "type": "ETH Balance",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 4,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Wallet Account->"
+        },
+        "propertyNameAtParent": "ethBalance",
+        "icon": "ethereum"
+    },
+        {
+        "type": "Token Balance",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "title": [
+            "Use Reference Parent"
+        ],
+        "addLeftIcons": true,
+        "level": 4,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Ethereum Token->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Wallet Account->"
+        },
+        "propertyNameAtParent": "tokenBalance",
+        "icon": "ethereum"
+    },
+    {
+        "type": "Ethereum Token Definitions",
+        "menuItems": [
+            {
+                "action": "Add Missing Children",
+                "label": "Add Missing Children",
+                "relatedUiObject": "Ethereum Token Definitions",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "isHierarchyHead": true,
+        "addLeftIcons": true,
+        "level": 0,
+        "properties": [
+            {
+                "name": "erc-20TokenType",
+                "type": "node",
+                "childType": "ERC-20 Token Type"
+            },
+            {
+                "name": "erc-223TokenType",
+                "type": "node",
+                "childType": "ERC-223 Token Type"
+            },
+            {
+                "name": "erc-721TokenType",
+                "type": "node",
+                "childType": "ERC-721 Token Type"
+            },
+            {
+                "name": "erc-777TokenType",
+                "type": "node",
+                "childType": "ERC-777 Token Type"
+            }
+        ],
+        "icon": "ethereum"
+    },
+    {
+        "type": "ERC-20 Token Type",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Token Definition",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "ethereumToken",
+                "relatedUiObject": "Ethereum Token",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 1,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Ethereum Token Definitions->"
+        },
+        "propertyNameAtParent": "erc-20TokenType",
+        "properties": [
+            {
+                "name": "ethereumToken",
+                "type": "node",
+                "childType": "Ethereum Token"
+            }
+        ],
+        "icon": "ethereum"
+    },
+    {
+        "type": "ERC-223 Token Type",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Token Definition",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "ethereumToken",
+                "relatedUiObject": "Ethereum Token",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 1,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Ethereum Token Definitions->"
+        },
+        "propertyNameAtParent": "erc-223TokenType",
+        "properties": [
+            {
+                "name": "ethereumToken",
+                "type": "node",
+                "childType": "Ethereum Token"
+            }
+        ],
+        "icon": "ethereum"
+    },
+    {
+        "type": "ERC-721 Token Type",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Token Definition",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "ethereumToken",
+                "relatedUiObject": "Ethereum Token",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 1,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Ethereum Token Definitions->"
+        },
+        "propertyNameAtParent": "erc-721TokenType",
+        "properties": [
+            {
+                "name": "ethereumToken",
+                "type": "node",
+                "childType": "Ethereum Token"
+            }
+        ],
+        "icon": "ethereum"
+    },
+    {
+        "type": "ERC-777 Token Type",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Token Definition",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "ethereumToken",
+                "relatedUiObject": "Ethereum Token",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 1,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Ethereum Token Definitions->"
+        },
+        "propertyNameAtParent": "erc-777TokenType",
+        "properties": [
+            {
+                "name": "ethereumToken",
+                "type": "node",
+                "childType": "Ethereum Token"
+            }
+        ],
+        "icon": "ethereum"
+    },
+    {
+        "type": "Ethereum Token",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Smart Contract",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "smartContract",
+                "relatedUiObject": "Smart Contract",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n\"codeName\": \"\"\n}"
+        },
+        "addLeftIcons": true,
+        "level": 2,
+        "chainAttachesTo": {
+            "compatibleTypes": "->ERC-20 Token Type->ERC-223 Token Type->ERC-721 Token Type->ERC-777 Token Type->"
+        },
+        "propertyNameAtParent": "ethereumToken",
+        "properties": [
+            {
+                "name": "smartContracts",
+                "type": "node",
+                "childType": "Smart Contract"
+            }
+        ],
+        "icon": "ethereum"
+    },
+    {
+        "type": "Ethereum Blockchain",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Blockchain Network",
+                "relatedUiObject": "Blockchain Network",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "isHierarchyHead": true,
+        "addLeftIcons": true,
+        "level": 0,
+        "properties": [
+            {
+                "name": "blockchainNetworks",
+                "type": "array",
+                "childType": "Blockchain Network"
+            }
+        ],
+        "icon": "ethereum"
+    },
+    {
+        "type": "Blockchain Network",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Network Client",
+                "relatedUiObject": "Network Client",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 1,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Ethereum Blockchain->"
+        },
+        "propertyNameAtParent": "blockchainNetworks",
+        "properties": [
+            {
+                "name": "networkClients",
+                "type": "array",
+                "childType": "Network Client"
+            }
+        ],
+        "icon": "ethereum"
+    },
+    {
+        "type": "Network Client",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n\"host\": \"localhost\", \n\"webSocketsPort\": \"8545\"\n}"
+        },
+        "addLeftIcons": true,
+        "level": 1,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Blockchain Network->"
+        },
+        "propertyNameAtParent": "networkClients",
+        "icon": "ethereum"
+    },
+    {
+        "type": "Ethereum Decentralized Application",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Smart Contract",
+                "relatedUiObject": "Smart Contract",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "isHierarchyHead": true,
+        "addLeftIcons": true,
+        "level": 0,
+        "properties": [
+            {
+                "name": "smartContracts",
+                "type": "array",
+                "childType": "Smart Contract"
+            }
+        ],
+        "icon": "ethereum"
+    },
+    {
+        "type": "Smart Contract",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "smartContractAccount",
+                "label": "Add Smart Contract Account",
+                "relatedUiObject": "Smart Contract Account",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "solidityCode",
+                "label": "Add Solidity Code",
+                "relatedUiObject": "Solidity Code",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "chainAttachesTo": {
+            "compatibleTypes": "->Token Definition->Ethereum Decentralized Application->"
+        },
+        "propertyNameAtParent": "smartContracts",
+        "addLeftIcons": true,
+        "level": 1,
+        "properties": [
+            {
+                "name": "smartContractAccount",
+                "type": "node",
+                "childType": "Smart Contract Account"
+            },
+            {
+                "name": "solidityCode",
+                "type": "node",
+                "childType": "Solidity Code"
+            }
+        ],
+        "icon": "ethereum"
+    },
+    {
+        "type": "Smart Contract Account",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n\"value\": \"\"\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Smart Contract->"
+        },
+        "propertyNameAtParent": "smartContractAccount",
+        "icon": "ethereum"
+    },
+    {
+        "type": "Solidity Code",
+        "menuItems": [
+            {
+                "action": "Edit",
+                "actionFunction": "uiObject.codeEditor.activate",
+                "label": "Edit",
+                "iconPathOn": "ethereum",
+                "iconPathOff": "ethereum"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "code": true
+        },
+        "initialValues": {
+            "code": "// Type your smart contract code here."
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Smart Contract->"
+        },
+        "propertyNameAtParent": "solidityCode",
+        "addLeftIcons": true,
+        "level": 2,
+        "icon": "ethereum"
+    }
+]

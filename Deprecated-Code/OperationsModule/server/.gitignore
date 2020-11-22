@@ -1,0 +1,9 @@
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+.env
+.env.dev
+
+/node_modules
+/coverage
+
+config
+config-dev

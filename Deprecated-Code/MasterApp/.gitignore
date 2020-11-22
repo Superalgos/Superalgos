@@ -1,0 +1,26 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# dotenv environment variables file
+.env
+.env.prod
+
+# Visual Studio Code
+.vscode
+
+#Mac specific files
+.DS_Store
+client/package-lock.json
+
+
+docker-compose\.demo\.yml
+
+docker-compose\.demo_with_prisma\.yml
+
+env_demo/
+
+client/\.env-demo
+
+docker-compose\.demo\.prisma\.yml

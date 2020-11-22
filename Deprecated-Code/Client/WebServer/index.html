@@ -1,0 +1,98 @@
+﻿<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Superalgos</title>
+    <meta name="description" content="Free and Open Source Crypto Trading Tools">
+    <link rel="stylesheet" href="main.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="font-awasome.css" type="text/css" />
+    <link rel="shortcut icon" type="image/png/ico" href="Images/favicon.ico" />
+    <script type="text/javascript" src="WebServer/require.js"></script>
+    <script type="text/javascript" src="AppPreLoader.js"></script>
+    <script src="externalScripts/CCapture.all.min.js"></script>
+
+    <!-- Documentation Style Sheets -->
+    <!-- -->
+
+    <script type="text/javascript">
+        function loadCanvas() {
+            // Prevent click-jacking
+            try {
+                if (window == window.top || window.chrome && chrome.app && chrome.app.window) {
+                    document.documentElement.style.display = 'block'
+                } else {
+                    top.location = self.location
+                }
+            } catch (e) { console.error('CJ protection', e) }
+
+            try {
+                loadSuperalgos();
+            } catch (err) {
+                console.log("[ERROR] CanvasApp can not be started. Please check that WebServer is running.", err);
+            }
+        }
+
+        function onResize() {
+            try {
+                if (canvas === undefined) { return }
+                if (canvas.eventHandler === undefined) { return }
+                if (DISABLE_BROWSER_RESIZE_EVENT === true) { return }
+                canvas.eventHandler.raiseEvent('Browser Resized')
+            } catch (err) {
+                console.log('Error Resizing. ' + err.stack)
+            }
+        }
+    </script>
+</head>
+
+<body id="body" onload="loadCanvas()"
+    style="overflow:hidden; background: url(Images/superalgos-platform.jpg); background-size: cover;"
+    onresize="onResize()">
+    <div id="contributors" class="credits">
+        <p>Superalgos is <span class="red">free</span> and <span class="red">open-source</span>, and is <span class="red">constantly improving</span> thanks to the involvement of contributors:</p>
+        <p>Luis Fernando Molina, Julian Molina, Andreja Cobeljic, Matías Benitez, Ira Miller, Eduardo Remis, 
+            Jeff Braun, rico4dev, 9808us, Barry Low, Nikola Bjelogrlic, Hirajin Koizuko, Francisco J. Santillán, Viktoria B., Guillermo V., Daniel J., 
+            Javier A., Gustavo J., Romina GS, Pedro P., Thais M., Andrey M., Loui M., Natalia M., Bashar A., Carlos V., Diego M., 
+            Sebastian E., Bogdan P., Marko V., Igor S., Niksa K., Rodrigo M., Nicanor M., Alejandro P., Mateo H., Lan T., Leon A., Uroš R., Filip M., Vladimir J. and Pavle B.</p>
+        <p><span class="red">You too can help grow and improve Superalgos. Become a contributor!</span></p>
+    </div>
+    <div id="masterApp"></div>
+    <div id="canvasApp"></div>
+    <div id="docApp" style="position:fixed; top:100000px; left:100000px">
+        <iframe id="docIFrame" style="border:none; " height="2000" width="900"></iframe>
+    </div>
+    <div id="chatApp" style="position:fixed; top:100000px; left:100000px">
+        <iframe id="chatIFrame" style="border:none; " height="2000" width="900"></iframe>
+    </div>
+    <div id="textAreaDiv"></div>
+    <div id="inputDiv" style="font-family:saira condensed;">&nbsp;</div>
+
+    <!-- Tutorial Template Divs -->
+    <div id="tutorialDiv" class="tutorial-step" style="position:fixed; top:100000px; left:100000px;"></div>
+    <div id="tutorialFormDiv" class="tutorial-form" style="position:fixed; top:100000px; left:100000px;">
+        <form>
+            <table class="tutorial-buttonsTable">
+                <tr>
+                    <td align="center">
+                        <label class="tutorial-font-small tutorial-stop-button" onclick="UI.projects.superalgos.spaces.tutorialSpace.stop()"
+                            value="">&nbsp;&nbsp;Stop&nbsp;&nbsp;&nbsp;</label>
+                    </td>
+                    <td align="center">
+                        <label class="tutorial-font-small tutorial-skip-button" onclick="UI.projects.superalgos.spaces.tutorialSpace.skip()"
+                            value="">&nbsp;&nbsp;Skip&nbsp;&nbsp;&nbsp;</label>
+                    </td>
+                    <td align="center">
+                        <label class="tutorial-font-small tutorial-previous-button"
+                            onclick="UI.projects.superalgos.spaces.tutorialSpace.previous()" value="">Previous</label>
+                    </td>
+                    <td align="center">
+                        <label class="tutorial-font-small tutorial-next-button" onclick="UI.projects.superalgos.spaces.tutorialSpace.next()"
+                            value="">&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;</label>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+
+</html>

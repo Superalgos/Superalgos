@@ -1,0 +1,169 @@
+{
+  "displayName": "Mariam",
+  "codeName": "AAMariam",
+  "type": "Trading",
+  "version": {
+    "major": 1,
+    "minor": 0,
+    "patch": 0
+  },
+  "devTeam": "AAMasters",
+  "profilePicture": "Mariam.png",
+  "dataSetVersion": "dataSet.V1",
+  "processes": [
+    {
+      "name": "Trading-Process",
+      "description": "Simple trading strategy to be used as a template.",
+      "startMode": {
+        "live": {
+          "run": "false",
+          "resumeExecution": "false"
+        },
+        "backtest": {
+          "run": "true",
+          "beginDatetime": "2018-04-21T18:00:00.000Z",
+          "endDatetime": "2018-04-21T18:15:00.000Z",
+          "waitTime": 1000
+        },
+        "competition": {
+          "run": "false",
+          "beginDatetime": "2018-05-17T00:00:00.000Z",
+          "endDatetime": "2018-05-18T00:00:00.000Z",
+          "resumeExecution": "false"
+        }
+      },
+      "normalWaitTime": 60000,
+      "retryWaitTime": 10000,
+      "sleepWaitTime": 3600000,
+      "comaWaitTime": 86400000,
+      "timePeriod": 60000,
+      "statusDependencies": [
+        {
+          "devTeam": "AAMasters",
+          "bot": "AAMariam",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "process": "Trading-Process",
+          "dataSetVersion": "dataSet.V1"
+        }
+      ],
+      "dataDependencies": [
+        {
+          "devTeam": "AAMasters",
+          "bot": "AAOlivia",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "product": "Candles",
+          "dataSet": "Multi-Period-Market",
+          "dataSetVersion": "dataSet.V1"
+        },
+        {
+          "devTeam": "AAMasters",
+          "bot": "AAOlivia",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "product": "Candles",
+          "dataSet": "Multi-Period-Daily",
+          "dataSetVersion": "dataSet.V1"
+        },
+        {
+          "devTeam": "AAMasters",
+          "bot": "AABruce",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "product": "Candles",
+          "dataSet": "One-Min",
+          "dataSetVersion": "dataSet.V1"
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "codeName": "Live Trading History",
+      "displayName": "Live Trading History",
+      "shortDisplayName": "Live",
+      "description": "General information about Mariam live trading history.",
+      "dataSets": [
+        {
+          "codeName": "Live History",
+          "type": "File Sequence",
+          "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs", "45-min", "40-min", "30-min", "20-min", "15-min", "10-min", "05-min", "04-min", "03-min", "02-min", "01-min" ],
+          "filePath": "@DevTeam/@Bot.1.0/AACloud.1.1/Poloniex/dataSet.V1/Output/Trading-Process",
+          "fileName": "Execution.History.Live.@Sequence.json"
+        }
+      ],
+      "exchangeList": [
+        {
+          "name": "Poloniex"
+        }
+      ],
+      "plotter": {
+        "devTeam": "AAMasters",
+        "codeName": "PlottersTrading",
+        "moduleName": "History"
+      }
+    },
+    {
+      "codeName": "Backtest Trading History",
+      "displayName": "Backtest Trading History",
+      "shortDisplayName": "Backtest",
+      "description": "General information about Mariam backtest trading history.",
+      "dataSets": [
+        {
+          "codeName": "Backtest History",
+          "type": "File Sequence",
+          "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs", "45-min", "40-min", "30-min", "20-min", "15-min", "10-min", "05-min", "04-min", "03-min", "02-min", "01-min" ],
+          "filePath": "@DevTeam/@Bot.1.0/AACloud.1.1/Poloniex/dataSet.V1/Output/Trading-Process",
+          "fileName": "Execution.History.Backtest.@Sequence.json"
+        }
+      ],
+      "exchangeList": [
+        {
+          "name": "Poloniex"
+        }
+      ],
+      "plotter": {
+        "devTeam": "AAMasters",
+        "codeName": "PlottersTrading",
+        "moduleName": "History"
+      }
+    },
+    {
+      "codeName": "Competition Trading History",
+      "displayName": "Competition Trading History",
+      "shortDisplayName": "Competition",
+      "description": "General information about Mariam competition trading history.",
+      "dataSets": [
+        {
+          "codeName": "Competition History",
+          "type": "File Sequence",
+          "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs", "45-min", "40-min", "30-min", "20-min", "15-min", "10-min", "05-min", "04-min", "03-min", "02-min", "01-min" ],
+          "filePath": "@DevTeam/@Bot.1.0/AACloud.1.1/Poloniex/dataSet.V1/Output/Trading-Process",
+          "fileName": "Execution.History.Competition.@Sequence.json"
+        }
+      ],
+      "exchangeList": [
+        {
+          "name": "Poloniex"
+        }
+      ],
+      "plotter": {
+        "devTeam": "AAMasters",
+        "codeName": "PlottersTrading",
+        "moduleName": "History"
+      }
+    }
+  ]
+}
+
+
+

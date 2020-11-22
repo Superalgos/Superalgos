@@ -1,0 +1,379 @@
+[
+    {
+        "name": "Superalgos",
+        "propertyName": "superalgos",
+        "globals": [
+            {
+                "name": "Docs",
+                "propertyName": "docs",
+                "functionName": "newSuperalgosGlobalsDocs"
+            },
+            {
+                "name": "Zoom",
+                "propertyName": "zoom",
+                "functionName": "newSuperalgosGlobalsZoom"
+            }
+        ],
+        "functionLibraries": [
+            {
+                "name": "Attach Detach",
+                "propertyName": "attachDetach",
+                "functionName": "newSuperalgosFunctionLibraryAttachDetach"
+            },
+            {
+                "name": "Chain Attach Detach",
+                "propertyName": "chainAttachDetach",
+                "functionName": "newSuperalgosFunctionLibraryChainAttachDetach"
+            },
+            {
+                "name": "Node Deleter",
+                "propertyName": "nodeDeleter",
+                "functionName": "newSuperalgosFunctionLibraryNodeDeleter"
+            },
+            {
+                "name": "Ui Objects From Nodes",
+                "propertyName": "uiObjectsFromNodes",
+                "functionName": "newSuperalgosFunctionLibraryUiObjectsFromNodes"
+            },
+            {
+                "name": "Protocol Node",
+                "propertyName": "protocolNode",
+                "functionName": "newSuperalgosFunctionLibraryProtocolNode"
+            },
+            {
+                "name": "Node Cloning",
+                "propertyName": "nodeCloning",
+                "functionName": "newSuperalgosFunctionLibraryNodeCloning"
+            },
+            {
+                "name": "Shortcut Keys",
+                "propertyName": "shortcutKeys",
+                "functionName": "newSuperalgosFunctionLibraryShortcutKeys"
+            },
+            {
+                "name": "On Focus",
+                "propertyName": "onFocus",
+                "functionName": "newSuperalgosFunctionLibraryOnFocus"
+            },
+            {
+                "name": "Super Scripts Functions",
+                "propertyName": "superScriptsFunctions",
+                "functionName": "newSuperalgosFunctionLibrarySuperScriptsFunctions"
+            },
+            {
+                "name": "Webhook Functions",
+                "propertyName": "webhookFunctions",
+                "functionName": "newSuperalgosFunctionLibraryWebhookFunctions"
+            },
+            {
+                "name": "Dependencies Filter",
+                "propertyName": "dependenciesFilter",
+                "functionName": "newSuperalgosFunctionLibraryDependenciesFilter"
+            },
+            {
+                "name": "Node Path",
+                "propertyName": "nodePath",
+                "functionName": "newSuperalgosFunctionLibraryNodePath"
+            },
+            {
+                "name": "Task Functions",
+                "propertyName": "taskFunctions",
+                "functionName": "newSuperalgosFunctionLibraryTaskFunctions"
+            },
+            {
+                "name": "Trading Session Functions",
+                "propertyName": "tradingSessionFunctions",
+                "functionName": "newSuperalgosFunctionLibraryTradingSessionFunctions"
+            },
+            {
+                "name": "Learning Session Functions",
+                "propertyName": "learningSessionFunctions",
+                "functionName": "newSuperalgosFunctionLibraryLearningSessionFunctions"
+            },
+            {
+                "name": "Crypto Ecosystem Functions",
+                "propertyName": "cryptoEcosystemFunctions",
+                "functionName": "newSuperalgosFunctionLibraryCryptoEcosystemFunctions"
+            },
+            {
+                "name": "Mine Functions",
+                "propertyName": "mineFunctions",
+                "functionName": "newSuperalgosFunctionLibraryMineFunctions"
+            },
+            {
+                "name": "Data Storage Functions",
+                "propertyName": "dataStorageFunctions",
+                "functionName": "newSuperalgosFunctionLibraryDataStorageFunctions"
+            },
+            {
+                "name": "Charting Space Functions",
+                "propertyName": "chartingSpaceFunctions",
+                "functionName": "newSuperalgosFunctionLibraryChartingSpaceFunctions"
+            },
+            {
+                "name": "Plugins Functions",
+                "propertyName": "pluginsFunctions",
+                "functionName": "newSuperalgosFunctionLibraryPluginsFunctions"
+            },
+            {
+                "name": "Workspace Functions",
+                "propertyName": "workspaceFunctions",
+                "functionName": "newSuperalgosFunctionLibraryWorkspaceFunctions"
+            }
+        ],
+        "utilities": [
+            {
+                "name": "Branches",
+                "propertyName": "branches",
+                "functionName": "newSuperalgosUtilitiesBranches"
+            },
+            {
+                "name": "Clipboard",
+                "propertyName": "clipboard",
+                "functionName": "newSuperalgosUtilitiesClipboard"
+            },
+            {
+                "name": "Coordinate Transformations",
+                "propertyName": "coordinateTransformations",
+                "functionName": "newSuperalgosUtilitiesCoordinateTransformations"
+            },
+            {
+                "name": "Date Rate Transformations",
+                "propertyName": "dateRateTransformations",
+                "functionName": "newSuperalgosUtilitiesDateRateTransformations"
+            },
+            {
+                "name": "Dates",
+                "propertyName": "dates",
+                "functionName": "newSuperalgosUtilitiesDates"
+            },
+            {
+                "name": "Download",
+                "propertyName": "download",
+                "functionName": "newSuperalgosUtilitiesDownload"
+            },
+            {
+                "name": "Draw Print",
+                "propertyName": "drawPrint",
+                "functionName": "newSuperalgosUtilitiesDrawPrint"
+            },
+            {
+                "name": "Hierarchy",
+                "propertyName": "hierarchy",
+                "functionName": "newSuperalgosUtilitiesHierarchy"
+            },
+            {
+                "name": "Load Save Frame",
+                "propertyName": "loadSaveFrame",
+                "functionName": "newSuperalgosUtilitiesLoadSaveFrame"
+            },
+            {
+                "name": "Tutorial",
+                "propertyName": "tutorial",
+                "functionName": "newSuperalgosUtilitiesTutorial"
+            },
+            {
+                "name": "Menu",
+                "propertyName": "menu",
+                "functionName": "newSuperalgosUtilitiesMenu"
+            },
+            {
+                "name": "Meshes",
+                "propertyName": "meshes",
+                "functionName": "newSuperalgosUtilitiesMeshes"
+            },
+            {
+                "name": "Children",
+                "propertyName": "children",
+                "functionName": "newSuperalgosUtilitiesNodeChildren"
+            },
+            {
+                "name": "Node Config",
+                "propertyName": "nodeConfig",
+                "functionName": "newSuperalgosUtilitiesNodeConfig"
+            },
+            {
+                "name": "Folders",
+                "propertyName": "folders",
+                "functionName": "newSuperalgosUtilitiesFolders"
+            }
+        ],
+        "spaces": [
+            {
+                "name": "Floating Space",
+                "folderName": "Floating-Space",
+                "propertyName": "floatingSpace",
+                "functionName": "newSuperalgosFloatingSpace",
+                "initializationIndex": 0,
+                "animationPhysicsIndex": 1,
+                "animationDrawIndex": 0,
+                "onMouseWheelIndex": 6,
+                "onMouseOverIndex": 8,
+                "onMouseClickIndex": 8,
+                "onMouseDownIndex": 8
+            },
+            {
+                "name": "Top Space",
+                "folderName": "Top-Space",
+                "propertyName": "topSpace",
+                "functionName": "newSuperalgosTopSpace",
+                "initializationIndex": 1,
+                "animationPhysicsIndex": 7,
+                "animationDrawIndex": 6,
+                "onMouseOverIndex": 4,
+                "onMouseClickIndex": 4,
+                "onMouseDownIndex": 4
+            },
+            {
+                "name": "Cockpit Space",
+                "folderName": "Cocksit-Space",
+                "propertyName": "cockpitSpace",
+                "functionName": "newSuperalgosCockpitSpace",
+                "initializationIndex": 2,
+                "animationPhysicsIndex": 0,
+                "animationDrawIndex": 7,
+                "onMouseWheelIndex": 4,
+                "onMouseOverIndex": 5,
+                "onMouseClickIndex": 5,
+                "onMouseDownIndex": 5
+            },
+            {
+                "name": "Design Space",
+                "folderName": "Design-Space",
+                "propertyName": "designSpace",
+                "functionName": "newSuperalgosDesignSpace",
+                "initializationIndex": 3,
+                "animationPhysicsIndex": 3,
+                "animationDrawIndex": 2,
+                "onMouseWheelIndex": 0,
+                "onMouseOverIndex": 3,
+                "onMouseClickIndex": 3,
+                "onMouseDownIndex": 3
+            },
+            {
+                "name": "Panel Space",
+                "folderName": "Panel-Space",
+                "propertyName": "panelSpace",
+                "functionName": "newSuperalgosPanelSpace",
+                "initializationIndex": 4,
+                "animationPhysicsIndex": 4,
+                "animationDrawIndex": 3,
+                "onMouseWheelIndex": 3,
+                "onMouseOverIndex": 6,
+                "onMouseClickIndex": 6,
+                "onMouseDownIndex": 6
+            },
+            {
+                "name": "Charting Space",
+                "folderName": "Charting-Space",
+                "propertyName": "chartingSpace",
+                "functionName": "newSuperalgosChartingSpace",
+                "initializationIndex": 5,
+                "animationPhysicsIndex": 2,
+                "animationDrawIndex": 1,
+                "onMouseWheelIndex": 5,
+                "onMouseOverIndex": 7,
+                "onMouseClickIndex": 7,
+                "onMouseDownIndex": 7
+            },
+            {
+                "name": "Side Space",
+                "folderName": "Floating-Space",
+                "propertyName": "sideSpace",
+                "functionName": "newSuperalgosSideSpace",
+                "initializationIndex": 6,
+                "animationPhysicsIndex": 8,
+                "animationDrawIndex": 8,
+                "onMouseWheelIndex": 2,
+                "onMouseOverIndex": 2,
+                "onMouseClickIndex": 2,
+                "onMouseDownIndex": 2
+            },
+            {
+                "name": "Doc Space",
+                "folderName": "Doc-Space",
+                "propertyName": "docSpace",
+                "functionName": "newSuperalgosDocSpace",
+                "initializationIndex": 7,
+                "animationPhysicsIndex": 5,
+                "animationDrawIndex": 4,
+                "onMouseWheelIndex": 1,
+                "onMouseOverIndex": 1,
+                "onMouseClickIndex": 1,
+                "onMouseDownIndex": 1
+            },
+            {
+                "name": "Chat Space",
+                "folderName": "Chat-Space",
+                "propertyName": "chatSpace",
+                "functionName": "newSuperalgosChatSpace"
+            },
+            {
+                "name": "Tutorial Space",
+                "folderName": "Tutorial-Space",
+                "propertyName": "tutorialSpace",
+                "functionName": "newSuperalgosTutorialSpace",
+                "initializationIndex": 8,
+                "animationPhysicsIndex": 6,
+                "animationDrawIndex": 5,
+                "onMouseWheelIndex": 0,
+                "onMouseOverIndex": 0,
+                "onMouseClickIndex": 0,
+                "onMouseDownIndex": 0
+            }
+        ]
+    },
+    {
+        "name": "Ethereum",
+        "propertyName": "ethereum",
+        "globals": [
+            {
+                "name": "ChainIds",
+                "propertyName": "chainIds",
+                "functionName": "newEthereumGlobalsChainIds"
+            }
+        ],
+        "functionLibraries": [
+            {
+                "name": "Accounts",
+                "propertyName": "accounts",
+                "functionName": "newEthereumFunctionLibraryAccounts"
+            }
+        ],
+        "utilities": [
+            {
+                "name": "Route To Client",
+                "propertyName": "routeToClient",
+                "functionName": "newEthereumUtilitiesRouteToClient"
+            }
+        ],
+        "spaces": [
+            {
+                "name": "Blockchain Space",
+                "folderName": "Blockchain-Space",
+                "propertyName": "blockchainSpace",
+                "functionName": "newEthereumBlockchainSpace",
+                "initializationIndex": 0,
+                "animationPhysicsIndex": 0,
+                "animationDrawIndex": 0,
+                "onMouseWheelIndex": 0,
+                "onMouseOverIndex": 0,
+                "onMouseClickIndex": 0,
+                "onMouseDownIndex": 0
+            },
+            {
+                "name": "Wallet Space",
+                "folderName": "Wallet-Space",
+                "propertyName": "walletSpace",
+                "functionName": "newEthereumWalletSpace",
+                "initializationIndex": 1,
+                "animationPhysicsIndex": 1,
+                "animationDrawIndex": 1,
+                "onMouseWheelIndex": 1,
+                "onMouseOverIndex": 1,
+                "onMouseClickIndex": 1,
+                "onMouseDownIndex": 1
+            }
+        ]
+    }
+]

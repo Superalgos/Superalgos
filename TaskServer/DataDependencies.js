@@ -1,7 +1,5 @@
 ﻿exports.newDataDependencies = function newDataDependencies(BOT, logger, DATA_SET) {
 
-    const FULL_LOG = true;
-    const LOG_FILE_CONTENT = false;
     const MODULE_NAME = "Data Dependencies";
 
     let bot = BOT

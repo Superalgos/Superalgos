@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "BackendServers", "BackendServers.njsproj", "{6A53AD2E-C389-4D2C-BDED-23DBAB231315}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BEEFD357-76B2-431F-A1A9-045C52E7F2C6}"
+	ProjectSection(SolutionItems) = preProject
+		.env = .env
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6A53AD2E-C389-4D2C-BDED-23DBAB231315}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A53AD2E-C389-4D2C-BDED-23DBAB231315}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A53AD2E-C389-4D2C-BDED-23DBAB231315}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A53AD2E-C389-4D2C-BDED-23DBAB231315}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9E8A5837-6A3F-44AC-AB5C-7CCAFDE75049}
+	EndGlobalSection
+EndGlobal

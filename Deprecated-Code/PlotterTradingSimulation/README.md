@@ -1,1 +1,0 @@
-# Plotter Bollinger Bands

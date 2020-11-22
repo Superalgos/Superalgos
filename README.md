@@ -1,5 +1,35 @@
 ![Superalgos video capture (16)](https://user-images.githubusercontent.com/9479367/77251218-76d25980-6c4d-11ea-8e47-be7db2e8abdb.gif)
 
+# Getting Started
+
+All procedures are the same for Windows, Linux or Mac OS. Note: only tested with Google Chrome.
+
+## Installation
+
+### Pre-Requisites
+
+1. If you don't have it yet, [download and install Node.js.](https://nodejs.org/en/download/)
+2. If you don't have it yet, [download and install Git.](https://git-scm.com/downloads)
+
+### App Setup
+
+1. Open a command prompt or terminal as an administrator and type:
+```
+git clone https://github.com/Superalgos/Superalgos
+```
+
+## Usage
+
+1. Change to the Superalgos directory / folder and type:
+```
+node run
+```
+2. Follow the in-app Welcome Tutorial to learn the basics.
+
+## Uninstall
+
+Superalgos does not write anything outside the Superalgos folder. To completelly uninstall the software, just delete the Superalgos folder. 
+
 # What is Superalgos?
 
 Superalgos is a platform to automate crypto-trading. It is implemented as a Nodejs Client + Web App that runs on your hardware and scales from a single Raspberry Pi to a Trading Farm. Superalgos is **Free** and **Open Source**.
@@ -93,36 +123,6 @@ Superalgos is a platform to automate crypto-trading. It is implemented as a Node
 * All your employees can use Superalgos for free.
 * You can use Superalgos at its full capacity or just the features you are currently interested in.
 * Superalgos could be integrated into your existing operation, feeding itself from other systems or feeding other systems as well.
-
-# Getting Started
-
-All procedures are the same for Windows, Linux or Mac OS. Note: only tested with Google Chrome.
-
-## Installation
-
-### Pre-Requisites
-
-1. If you don't have it yet, [download and install Node.js.](https://nodejs.org/en/download/)
-2. If you don't have it yet, [download and install Git.](https://git-scm.com/downloads)
-
-### App Setup
-
-1. Open a command prompt or terminal as an administrator and type:
-```
-git clone https://github.com/Superalgos/Superalgos
-```
-
-## Usage
-
-1. Change to the Superalgos directory / folder and type:
-```
-node run
-```
-2. Follow the in-app Welcome Tutorial to learn the basics.
-
-## Uninstall
-
-Superalgos does not write anything outside the Superalgos folder. To completelly uninstall the software, just delete the Superalgos folder. 
 
 # Support
 

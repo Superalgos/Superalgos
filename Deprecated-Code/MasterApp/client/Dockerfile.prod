@@ -1,5 +1,0 @@
-FROM duluca/minimal-nginx-web-server
-COPY ./default /etc/nginx/sites-enabled/default
-COPY . /var/www
-CMD 'nginx'
-

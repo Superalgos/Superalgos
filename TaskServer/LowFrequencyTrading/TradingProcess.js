@@ -81,7 +81,7 @@
                 dateEndOfMarket: undefined          // Datetime of the last file available to be used as an input of this process.
             };
 
-            getContextVariables()
+            if (getContextVariables() !== true) { return }
 
             if (bot.FIRST_EXECUTION === true && bot.RESUME === false) {
                 /* 
@@ -245,13 +245,13 @@
                     if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
                         logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
                         callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                        return
+                        return false
                     }
 
                     if (statusReport.status === "Status Report is corrupt.") {
                         logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
                         callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                        return
+                        return false
                     }
 
                     thisReport = statusReport.file;
@@ -265,7 +265,7 @@
                         }
                         logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> customOK = " + customOK.message);
                         callBackFunction(customOK);
-                        return
+                        return false
                     }
 
                     contextVariables.dateEndOfMarket = new Date(thisReport.lastFile.valueOf());
@@ -276,13 +276,13 @@
                     if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
                         logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
                         callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                        return
+                        return false
                     }
 
                     if (statusReport.status === "Status Report is corrupt.") {
                         logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> Can not continue because self dependecy Status Report is corrupt. Aborting Process.");
                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                        return
+                        return false
                     }
 
                     thisReport = statusReport.file;
@@ -293,10 +293,10 @@
                         if (bot.RESUME !== true) {
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> Starting from the begining because bot has just started and resume execution was true."); }
                             startFromBegining();
-                            return
+                            return true
                         }
                         contextVariables.lastFile = new Date(thisReport.lastFile);
-                        return
+                        return true
 
                     } else {
                         /*
@@ -306,7 +306,7 @@
                         */
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> Starting from the begining of the market because own status report not found or lastFile was undefined."); }
                         startFromBegining();
-                        return
+                        return true
                     }
 
                     function startFromBegining() {

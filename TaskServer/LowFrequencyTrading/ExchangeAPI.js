@@ -24,7 +24,7 @@
         tradingSystem = bot.simulationState.tradingSystem
 
         exchangeId = bot.exchange.toLowerCase()
-
+        
         let key = bot.KEY
         let secret = bot.SECRET
         
@@ -135,11 +135,18 @@
             logError("createOrder -> type = " + type);
             logError("createOrder -> amount = " + amount);
             logError("createOrder -> price = " + price);
-            if (err.message.indexOf('API-key format invalid') >= 0) {
+            if (
+                err.message.indexOf('API-key format invalid') >= 0 || 
+                err.message.indexOf('Invalid API-key, IP, or permissions for action.') >= 0 ||
+                err.message.indexOf('"code":-2015') >= 0
+                ) {
                 logError ('The exchange says the API key provided is not good or it is not in the correct format. This is what you are using:')
                 errorFooter()
             }
-            if (err.message.indexOf('Signature for this request is not valid.') >= 0) { 
+            if (
+                err.message.indexOf('Signature for this request is not valid.') >= 0 ||
+                err.message.indexOf('"code":-1022') >= 0
+                ) { 
                 logError ('The exchange says the secret provided is not good, incorrect or not in the correct format. This is what you are using:')
                 errorFooter()
             }

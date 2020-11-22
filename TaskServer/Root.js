@@ -140,7 +140,13 @@
                     const FILE_STORAGE = require('./FileStorage.js');
                     let fileStorage = FILE_STORAGE.newFileStorage();
 
-                    let filePath = global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + '/bots/' + processInstance.referenceParent.parentNode.config.repo + '/this.bot.config.json';
+                    let filePath =
+                        global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.project +    // project
+                        '/Bots-Plotters-Code/' +
+                        global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + // mine
+                        '/bots/' +
+                        processInstance.referenceParent.parentNode.config.repo + // bot
+                        '/this.bot.config.json'
 
                     fileStorage.getTextFile(filePath, onFileReceived);
 
@@ -183,6 +189,8 @@
 
                     /* Simplifying the access to basic info */
                     botConfig.dataMine = global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName
+                    botConfig.mineType = global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.type.replace(' ', '-')
+                    botConfig.project = global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.project
                     botConfig.exchange = global.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name
                     botConfig.exchangeNode = global.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode
                     botConfig.market = {
@@ -196,7 +204,7 @@
                     botConfig.loopCounter = 0;
 
                     /* File Path Root */
-                    botConfig.filePathRoot = botConfig.exchange + "/" + botConfig.market.baseAsset + "-" + botConfig.market.quotedAsset + "/" + botConfig.dataMine + "/" + botConfig.codeName;
+                    botConfig.filePathRoot = 'Project/' + botConfig.project + "/" + botConfig.mineType + "/" + botConfig.dataMine + "/" + botConfig.codeName + '/' + botConfig.exchange + "/" + botConfig.market.baseAsset + "-" + botConfig.market.quotedAsset
 
                     /* Process Key */
                     botConfig.processKey = global.TASK_NODE.bot.processes[processIndex].name + '-' + global.TASK_NODE.bot.processes[processIndex].type + '-' + global.TASK_NODE.bot.processes[processIndex].id
@@ -552,7 +560,7 @@
                             setTimeout(exitProcessInstance, WAIT_TIME_FOR_ALL_PROCESS_INSTANCES_TO_START)
                         }
                     }
-                    
+
                     function runLearningBot(pBotConfig, pProcessConfig) {
 
                         global.TOTAL_PROCESS_INSTANCES_CREATED++

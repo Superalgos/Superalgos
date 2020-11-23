@@ -147,7 +147,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
             'Data Mine Products->Bot Products->' +
             'Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->' +
             'Data Product->Product Definition->' +
-            'Data Tasks->Learning Tasks->Testing Environment->Production Environment->' +
+            'Data Tasks->Learning Tasks->Testing Trading Tasks->Production Trading Tasks->' +
             'Exchange Data Tasks->Exchange Trading Tasks->Exchange Learning Tasks->Crypto Exchange->' +
             'Market Data Tasks->Market Trading Tasks->Market Learning Tasks->Market->' +
             'Data Mine Tasks->Trading Mine Tasks->Learning Mine Tasks->' +
@@ -240,7 +240,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
         }
 
         if (taskManager.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
-            node.payload.uiObject.setErrorMessage('Task needs to be inside a Data Tasks, Learning Tasks, Testing or Production Environment node.')
+            node.payload.uiObject.setErrorMessage('Task needs to be inside a Data Tasks, Learning Tasks, Testing or Production Trading Tasks node.')
             return
         }
 
@@ -686,11 +686,11 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
                                 let session
 
                                 switch (environment.type) {
-                                    case 'Testing Environment': {
+                                    case 'Testing Trading Tasks': {
                                         addSession('Backtesting Session')
                                         break
                                     }
-                                    case 'Production Environment': {
+                                    case 'Production Trading Tasks': {
                                         addSession('Live Trading Session')
                                         break
                                     }

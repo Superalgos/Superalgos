@@ -308,13 +308,13 @@ function newSuperalgosFunctionLibraryCryptoEcosystemFunctions() {
 
                     function isntallTradingMiningTasks() {
                         /*
-                        Next we complete the missing stuff at Testing Environment
+                        Next we complete the missing stuff at Testing Trading Tasks
                         */
-                        installEnvironment('Testing Environment')
+                        installEnvironment('Testing Trading Tasks')
                         /*
-                        Next we complete the missing stuff at Production Environment
+                        Next we complete the missing stuff at Production Trading Tasks
                         */
-                        installEnvironment('Production Environment')
+                        installEnvironment('Production Trading Tasks')
 
                         function installEnvironment(environment) {
                             /*

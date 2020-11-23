@@ -118,8 +118,8 @@
                 let networkNode = network.networkNodes[i]
 
                 if (checkThisDataBranch(networkNode.dataTasks) === true) { return }
-                if (checkThisTradingBranch(networkNode.testingEnvironment) === true) { return }
-                if (checkThisTradingBranch(networkNode.productionEnvironment) === true) { return }
+                if (checkThisTradingBranch(networkNode.testingTradingTasks) === true) { return }
+                if (checkThisTradingBranch(networkNode.productionTradingTasks) === true) { return }
 
                 function checkThisDataBranch(branch) {
                     if (branch === undefined) { return }

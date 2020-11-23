@@ -200,7 +200,7 @@ function newSuperalgosFunctionLibraryTradingSessionFunctions() {
         }
 
         if (taskManager.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
-            node.payload.uiObject.setErrorMessage('Session needs to be inside a Testing or Production Environment.')
+            node.payload.uiObject.setErrorMessage('Session needs to be inside a Testing or Production Trading Tasks.')
             return
         }
 

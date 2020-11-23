@@ -1972,7 +1972,7 @@
             "compatibleTypes": "->Template Script->"
         },
         "referenceAttachesTo": {
-            "compatibleTypes": "->Dashboard->Data Mines Data->Trading Mines Data->Data Tasks->Testing Environment->Production Environment->"
+            "compatibleTypes": "->Dashboard->Data Mines Data->Trading Mines Data->Data Tasks->Testing Trading Tasks->Production Trading Tasks->"
         },
         "properties": []
     },
@@ -2071,17 +2071,17 @@
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "testingEnvironment",
-                "label": "Add Testing Environment",
-                "relatedUiObject": "Testing Environment",
+                "propertyToCheckFor": "testingTradingTasks",
+                "label": "Add Testing Trading Tasks",
+                "relatedUiObject": "Testing Trading Tasks",
                 "actionFunction": "payload.executeAction"
             },
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "productionEnvironment",
-                "label": "Add Production Environment",
-                "relatedUiObject": "Production Environment",
+                "propertyToCheckFor": "productionTradingTasks",
+                "label": "Add Production Trading Tasks",
+                "relatedUiObject": "Production Trading Tasks",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -2128,15 +2128,15 @@
                 "autoAdd": true
             },
             {
-                "name": "testingEnvironment",
+                "name": "testingTradingTasks",
                 "type": "node",
-                "childType": "Testing Environment",
+                "childType": "Testing Trading Tasks",
                 "autoAdd": true
             },
             {
-                "name": "productionEnvironment",
+                "name": "productionTradingTasks",
                 "type": "node",
-                "childType": "Production Environment",
+                "childType": "Production Trading Tasks",
                 "autoAdd": true
             },
             {
@@ -14661,7 +14661,7 @@
         "addLeftIcons": true,
         "level": 1,
         "referenceAttachesTo": {
-            "compatibleTypes": "->Testing Environment->Production Environment->"
+            "compatibleTypes": "->Testing Trading Tasks->Production Trading Tasks->"
         },
         "chainAttachesTo": {
             "compatibleTypes": "->Charting Space->"
@@ -15970,7 +15970,7 @@
             "compatibleTypes": "->Crypto Exchange->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Testing Environment->Production Environment->"
+            "compatibleTypes": "->Testing Trading Tasks->Production Trading Tasks->"
         },
         "alternativeIcons": "Use Reference Parent",
         "title": [
@@ -16256,7 +16256,7 @@
         ]
     },
     {
-        "type": "Testing Environment",
+        "type": "Testing Trading Tasks",
         "menuItems": [
             {
                 "action": "Run All Exchange Trading Tasks",
@@ -16308,7 +16308,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Network Node->"
         },
-        "propertyNameAtParent": "testingEnvironment",
+        "propertyNameAtParent": "testingTradingTasks",
         "properties": [
             {
                 "name": "exchangeTradingTasks",
@@ -16319,7 +16319,7 @@
         ]
     },
     {
-        "type": "Production Environment",
+        "type": "Production Trading Tasks",
         "menuItems": [
             {
                 "action": "Run All Exchange Trading Tasks",
@@ -16371,7 +16371,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Network Node->"
         },
-        "propertyNameAtParent": "productionEnvironment",
+        "propertyNameAtParent": "productionTradingTasks",
         "properties": [
             {
                 "name": "exchangeTradingTasks",

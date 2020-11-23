@@ -286,19 +286,19 @@ function newSuperalgosFunctionLibraryChartingSpaceFunctions() {
             }
 
             function scanNetworkNode(networkNode) {
-                let testingEnvironment = UI.projects.superalgos.utilities.branches.findInBranch(networkNode, 'Testing Environment', node, true)
-                let productionEnvironment = UI.projects.superalgos.utilities.branches.findInBranch(networkNode, 'Production Environment', node, true)
+                let testingTradingTasks = UI.projects.superalgos.utilities.branches.findInBranch(networkNode, 'Testing Trading Tasks', node, true)
+                let productionTradingTasks = UI.projects.superalgos.utilities.branches.findInBranch(networkNode, 'Production Trading Tasks', node, true)
 
-                if (UI.projects.superalgos.utilities.children.isMissingChildren(node, testingEnvironment, true) === true) {
+                if (UI.projects.superalgos.utilities.children.isMissingChildren(node, testingTradingTasks, true) === true) {
                     let dashboard = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Dashboard')
-                    dashboard.payload.referenceParent = testingEnvironment
-                    dashboard.name = testingEnvironment.type + ' ' + networkNode.name
+                    dashboard.payload.referenceParent = testingTradingTasks
+                    dashboard.name = testingTradingTasks.type + ' ' + networkNode.name
                 }
 
-                if (UI.projects.superalgos.utilities.children.isMissingChildren(node, productionEnvironment, true) === true) {
+                if (UI.projects.superalgos.utilities.children.isMissingChildren(node, productionTradingTasks, true) === true) {
                     let dashboard = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Dashboard')
-                    dashboard.payload.referenceParent = productionEnvironment
-                    dashboard.name = productionEnvironment.type + ' ' + networkNode.name
+                    dashboard.payload.referenceParent = productionTradingTasks
+                    dashboard.name = productionTradingTasks.type + ' ' + networkNode.name
                 }
             }
         }

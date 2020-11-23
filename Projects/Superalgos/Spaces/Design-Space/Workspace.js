@@ -344,13 +344,13 @@ function newWorkspace() {
                             networkNode.learningTasks.payload.uiObject.menu.internalClick('Stop All Exchange Learning Tasks')
                             networkNode.learningTasks.payload.uiObject.menu.internalClick('Stop All Exchange Learning Tasks')
                         }
-                        if (networkNode.testingEnvironment !== undefined && networkNode.testingEnvironment.payload !== undefined) {
-                            networkNode.testingEnvironment.payload.uiObject.menu.internalClick('Stop All Exchange Trading Tasks')
-                            networkNode.testingEnvironment.payload.uiObject.menu.internalClick('Stop All Exchange Trading Tasks')
+                        if (networkNode.testingTradingTasks !== undefined && networkNode.testingTradingTasks.payload !== undefined) {
+                            networkNode.testingTradingTasks.payload.uiObject.menu.internalClick('Stop All Exchange Trading Tasks')
+                            networkNode.testingTradingTasks.payload.uiObject.menu.internalClick('Stop All Exchange Trading Tasks')
                         }
-                        if (networkNode.productionEnvironment !== undefined && networkNode.productionEnvironment.payload !== undefined) {
-                            networkNode.productionEnvironment.payload.uiObject.menu.internalClick('Stop All Exchange Trading Tasks')
-                            networkNode.productionEnvironment.payload.uiObject.menu.internalClick('Stop All Exchange Trading Tasks')
+                        if (networkNode.productionTradingTasks !== undefined && networkNode.productionTradingTasks.payload !== undefined) {
+                            networkNode.productionTradingTasks.payload.uiObject.menu.internalClick('Stop All Exchange Trading Tasks')
+                            networkNode.productionTradingTasks.payload.uiObject.menu.internalClick('Stop All Exchange Trading Tasks')
                         }
                     }
                 }

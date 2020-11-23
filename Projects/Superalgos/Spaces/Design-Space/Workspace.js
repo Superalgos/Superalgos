@@ -336,9 +336,9 @@ function newWorkspace() {
                 if (rootNode.networkNodes !== undefined) {
                     for (let j = 0; j < rootNode.networkNodes.length; j++) {
                         let networkNode = rootNode.networkNodes[j]
-                        if (networkNode.dataMining !== undefined && networkNode.dataMining.payload !== undefined) {
-                            networkNode.dataMining.payload.uiObject.menu.internalClick('Stop All Exchange Data Tasks')
-                            networkNode.dataMining.payload.uiObject.menu.internalClick('Stop All Exchange Data Tasks')
+                        if (networkNode.dataTasks !== undefined && networkNode.dataTasks.payload !== undefined) {
+                            networkNode.dataTasks.payload.uiObject.menu.internalClick('Stop All Exchange Data Tasks')
+                            networkNode.dataTasks.payload.uiObject.menu.internalClick('Stop All Exchange Data Tasks')
                         }
                         if (networkNode.learningMining !== undefined && networkNode.learningMining.payload !== undefined) {
                             networkNode.learningMining.payload.uiObject.menu.internalClick('Stop All Exchange Learning Tasks')

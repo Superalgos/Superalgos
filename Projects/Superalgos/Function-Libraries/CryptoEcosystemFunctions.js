@@ -258,7 +258,7 @@ function newSuperalgosFunctionLibraryCryptoEcosystemFunctions() {
                     let tradingSessionsCreatedArray = []
                     let learningSessionsCreatedArray = []
 
-                    installDataMiningTasks()
+                    installDataTasksTasks()
                     installLearningMiningTasks()
                     isntallTradingMiningTasks()
 
@@ -266,17 +266,17 @@ function newSuperalgosFunctionLibraryCryptoEcosystemFunctions() {
                     installLearningMinesData()
                     installTradingMineData()
 
-                    function installDataMiningTasks() {
+                    function installDataTasksTasks() {
                         /*
-                        Here we complete the missing stuff at Data Mining
+                        Here we complete the missing stuff at Data Tasks
                         */
-                        let dataMining = UI.projects.superalgos.utilities.branches.findInBranch(networkNode, 'Data Mining', node, true)
-                        if (dataMining === undefined) {
-                            node.payload.uiObject.setErrorMessage('Data Mining node not found at Network Node ' + networkNode.name)
+                        let dataTasks = UI.projects.superalgos.utilities.branches.findInBranch(networkNode, 'Data Tasks', node, true)
+                        if (dataTasks === undefined) {
+                            node.payload.uiObject.setErrorMessage('Data Tasks node not found at Network Node ' + networkNode.name)
                             return
                         }
 
-                        let exchangeDataTasks = UI.projects.superalgos.utilities.children.findOrCreateChildWithReference(dataMining, 'Exchange Data Tasks', cryptoExchange)
+                        let exchangeDataTasks = UI.projects.superalgos.utilities.children.findOrCreateChildWithReference(dataTasks, 'Exchange Data Tasks', cryptoExchange)
                         exchangeDataTasks.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
                         let marketDataTask = UI.projects.superalgos.utilities.children.findAndRecreateChildWithReference(exchangeDataTasks, 'Market Data Tasks', market, rootNodes)
 

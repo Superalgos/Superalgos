@@ -96,9 +96,9 @@
                 */
                 for (let i = 0; i < network.networkNodes.length; i++) {
                     let networkNode = network.networkNodes[i]
-                    if (networkNode.dataMining !== undefined) {
-                        for (let j = 0; j < networkNode.dataMining.exchangeDataTasks.length; j++) {
-                            let exchangeTasks = networkNode.dataMining.exchangeDataTasks[j]
+                    if (networkNode.dataTasks !== undefined) {
+                        for (let j = 0; j < networkNode.dataTasks.exchangeDataTasks.length; j++) {
+                            let exchangeTasks = networkNode.dataTasks.exchangeDataTasks[j]
                             for (let p = 0; p < exchangeTasks.marketDataTasks.length; p++) {
                                 let marketTasks = exchangeTasks.marketDataTasks[p]
                                 if (marketTasks.referenceParent === undefined) { continue }

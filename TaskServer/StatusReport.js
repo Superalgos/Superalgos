@@ -117,7 +117,7 @@
             for (let i = 0; i < network.networkNodes.length; i++) {
                 let networkNode = network.networkNodes[i]
 
-                if (checkThisDataBranch(networkNode.dataMining) === true) { return }
+                if (checkThisDataBranch(networkNode.dataTasks) === true) { return }
                 if (checkThisTradingBranch(networkNode.testingEnvironment) === true) { return }
                 if (checkThisTradingBranch(networkNode.productionEnvironment) === true) { return }
 

@@ -1972,7 +1972,7 @@
             "compatibleTypes": "->Template Script->"
         },
         "referenceAttachesTo": {
-            "compatibleTypes": "->Dashboard->Data Mines Data->Trading Mines Data->Data Mining->Testing Environment->Production Environment->"
+            "compatibleTypes": "->Dashboard->Data Mines Data->Trading Mines Data->Data Tasks->Testing Environment->Production Environment->"
         },
         "properties": []
     },
@@ -2055,9 +2055,9 @@
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "dataMining",
-                "label": "Add Data Mining",
-                "relatedUiObject": "Data Mining",
+                "propertyToCheckFor": "dataTasks",
+                "label": "Add Data Tasks",
+                "relatedUiObject": "Data Tasks",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -2116,9 +2116,9 @@
         },
         "properties": [
             {
-                "name": "dataMining",
+                "name": "dataTasks",
                 "type": "node",
-                "childType": "Data Mining",
+                "childType": "Data Tasks",
                 "autoAdd": true
             },
             {
@@ -16116,7 +16116,7 @@
             "compatibleTypes": "->Project Definition->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Data Mining->"
+            "compatibleTypes": "->Data Tasks->"
         },
         "propertyNameAtParent": "projectDataTasks",
         "properties": [
@@ -16130,7 +16130,7 @@
         "icon": "bitcoin"
     },
     {
-        "type": "Data Mining",
+        "type": "Data Tasks",
         "menuItems": [
             {
                 "action": "Run All Project Data Tasks",
@@ -16182,7 +16182,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Network Node->"
         },
-        "propertyNameAtParent": "dataMining",
+        "propertyNameAtParent": "dataTasks",
         "properties": [
             {
                 "name": "projectDataTasks",

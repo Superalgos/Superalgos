@@ -16041,7 +16041,7 @@
             "compatibleTypes": "->Crypto Exchange->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Learning Tasks->"
+            "compatibleTypes": "->Project Learning Tasks->"
         },
         "alternativeIcons": "Use Reference Parent",
         "title": [
@@ -16193,7 +16193,7 @@
         ]
     },
     {
-        "type": "Learning Tasks",
+        "type": "Project Learning Tasks",
         "menuItems": [
             {
                 "action": "Run All Exchange Learning Tasks",
@@ -16240,6 +16240,77 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
+        "title": [
+            "Use Reference Parent"
+        ],
+        "alternativeIcons": "Use Reference Parent Parent",
+        "addLeftIcons": true,
+        "level": 2,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Project Definition->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Learning Tasks->"
+        },
+        "propertyNameAtParent": "projectLearningTasks",
+        "properties": [
+            {
+                "name": "exchangeLearningTasks",
+                "type": "array",
+                "childType": "Exchange Learning Tasks",
+                "monitorChildrenRunning": true
+            }
+        ],
+        "icon": "bitcoin"
+    },
+    {
+        "type": "Learning Tasks",
+        "menuItems": [
+            {
+                "action": "Run All Project Learning Tasks",
+                "label": "Run All Project Learning Tasks",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Run",
+                "workDoneLabel": "Run Request Sent",
+                "iconPathOn": "run",
+                "iconPathOff": "run",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Stop All Project Learning Tasks",
+                "label": "Stop All Project Learning Tasks",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Stop",
+                "workDoneLabel": "Stop Request Sent",
+                "iconPathOn": "stop",
+                "iconPathOff": "stop",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Project Learning Tasks",
+                "relatedUiObject": "Project Learning Tasks",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add Missing Project Learning Tasks",
+                "label": "Add Missing Project",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Project Learning Tasks",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
         "addLeftIcons": true,
         "level": 2,
         "chainAttachesTo": {
@@ -16248,9 +16319,9 @@
         "propertyNameAtParent": "learningTasks",
         "properties": [
             {
-                "name": "exchangeLearningTasks",
+                "name": "projectLearningTasks",
                 "type": "array",
-                "childType": "Exchange Learning Tasks",
+                "childType": "Project Learning Tasks",
                 "monitorChildrenRunning": true
             }
         ]

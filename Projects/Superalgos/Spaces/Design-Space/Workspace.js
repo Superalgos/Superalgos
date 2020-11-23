@@ -340,9 +340,9 @@ function newWorkspace() {
                             networkNode.dataTasks.payload.uiObject.menu.internalClick('Stop All Exchange Data Tasks')
                             networkNode.dataTasks.payload.uiObject.menu.internalClick('Stop All Exchange Data Tasks')
                         }
-                        if (networkNode.learningMining !== undefined && networkNode.learningMining.payload !== undefined) {
-                            networkNode.learningMining.payload.uiObject.menu.internalClick('Stop All Exchange Learning Tasks')
-                            networkNode.learningMining.payload.uiObject.menu.internalClick('Stop All Exchange Learning Tasks')
+                        if (networkNode.learningTasks !== undefined && networkNode.learningTasks.payload !== undefined) {
+                            networkNode.learningTasks.payload.uiObject.menu.internalClick('Stop All Exchange Learning Tasks')
+                            networkNode.learningTasks.payload.uiObject.menu.internalClick('Stop All Exchange Learning Tasks')
                         }
                         if (networkNode.testingEnvironment !== undefined && networkNode.testingEnvironment.payload !== undefined) {
                             networkNode.testingEnvironment.payload.uiObject.menu.internalClick('Stop All Exchange Trading Tasks')

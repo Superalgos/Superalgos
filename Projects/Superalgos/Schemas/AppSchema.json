@@ -2063,9 +2063,9 @@
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "learningMining",
-                "label": "Add Learning Mining",
-                "relatedUiObject": "Learning Mining",
+                "propertyToCheckFor": "learningTasks",
+                "label": "Add Learning Tasks",
+                "relatedUiObject": "Learning Tasks",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -2122,9 +2122,9 @@
                 "autoAdd": true
             },
             {
-                "name": "learningMining",
+                "name": "learningTasks",
                 "type": "node",
-                "childType": "Learning Mining",
+                "childType": "Learning Tasks",
                 "autoAdd": true
             },
             {
@@ -16041,7 +16041,7 @@
             "compatibleTypes": "->Crypto Exchange->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Learning Mining->"
+            "compatibleTypes": "->Learning Tasks->"
         },
         "alternativeIcons": "Use Reference Parent",
         "title": [
@@ -16193,7 +16193,7 @@
         ]
     },
     {
-        "type": "Learning Mining",
+        "type": "Learning Tasks",
         "menuItems": [
             {
                 "action": "Run All Exchange Learning Tasks",
@@ -16245,7 +16245,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Network Node->"
         },
-        "propertyNameAtParent": "learningMining",
+        "propertyNameAtParent": "learningTasks",
         "properties": [
             {
                 "name": "exchangeLearningTasks",

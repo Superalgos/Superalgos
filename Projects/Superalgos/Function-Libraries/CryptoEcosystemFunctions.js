@@ -259,7 +259,7 @@ function newSuperalgosFunctionLibraryCryptoEcosystemFunctions() {
                     let learningSessionsCreatedArray = []
 
                     installDataTasksTasks()
-                    installLearningMiningTasks()
+                    installLearningTasksTasks()
                     isntallTradingMiningTasks()
 
                     installDataMinesData()
@@ -284,17 +284,17 @@ function newSuperalgosFunctionLibraryCryptoEcosystemFunctions() {
                         UI.projects.superalgos.utilities.menu.menuClickOfNodeArray(marketDataTask.dataMineTasks, 'Add All Tasks', true)
                     }
 
-                    function installLearningMiningTasks() {
+                    function installLearningTasksTasks() {
                         /*
-                        Here we complete the missing stuff at Learning Mining
+                        Here we complete the missing stuff at Learning Tasks
                         */
-                        let learningMining = UI.projects.superalgos.utilities.branches.findInBranch(networkNode, 'Learning Mining', node, true)
-                        if (learningMining === undefined) {
-                            node.payload.uiObject.setErrorMessage('Learning Mining node not found at Network Node ' + networkNode.name)
+                        let learningTasks = UI.projects.superalgos.utilities.branches.findInBranch(networkNode, 'Learning Tasks', node, true)
+                        if (learningTasks === undefined) {
+                            node.payload.uiObject.setErrorMessage('Learning Tasks node not found at Network Node ' + networkNode.name)
                             return
                         }
 
-                        let exchangeLearningTasks = UI.projects.superalgos.utilities.children.findOrCreateChildWithReference(learningMining, 'Exchange Learning Tasks', cryptoExchange)
+                        let exchangeLearningTasks = UI.projects.superalgos.utilities.children.findOrCreateChildWithReference(learningTasks, 'Exchange Learning Tasks', cryptoExchange)
                         exchangeLearningTasks.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
                         let marketLearningTask = UI.projects.superalgos.utilities.children.findAndRecreateChildWithReference(exchangeLearningTasks, 'Market Learning Tasks', market, rootNodes)
 

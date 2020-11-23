@@ -16716,6 +16716,56 @@
         "icon":"bitcoin"
     },
     {
+        "type": "Project Learning Products",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Exchange Learning Products",
+                "relatedUiObject": "Exchange Learning Products",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add Missing Exchange Learning Products",
+                "label": "Add Missing Exchanges",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Exchange Learning Products",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "title": [
+            "Use Reference Parent"
+        ],
+        "alternativeIcons": "Use Reference Parent Parent",
+        "addLeftIcons": true,
+        "level": 2,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Project Definition->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Learning Mines Data->"
+        },
+        "propertyNameAtParent": "projectLearningProducts",
+        "properties": [
+            {
+                "name": "exchangeLearningProducts",
+                "type": "array",
+                "childType": "Exchange Learning Products"
+            }
+        ],
+        "icon":"bitcoin"
+    },
+    {
         "type": "Exchange Trading Products",
         "menuItems": [
             {
@@ -16805,7 +16855,7 @@
             "compatibleTypes": "->Crypto Exchange->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Learning Mines Data->"
+            "compatibleTypes": "->Project Learning Products->"
         },
         "propertyNameAtParent": "exchangeLearningProducts",
         "properties": [
@@ -16864,17 +16914,17 @@
         "menuItems": [
             {
                 "action": "Add UI Object",
-                "label": "Add Exchange Learning Products",
-                "relatedUiObject": "Exchange Learning Products",
+                "label": "Add Project Learning Products",
+                "relatedUiObject": "Project Learning Products",
                 "actionFunction": "payload.executeAction"
             },
             {
-                "action": "Add Missing Exchange Learning Products",
-                "label": "Add Missing Exchanges",
+                "action": "Add Missing Project Learning Products",
+                "label": "Add Missing Projects",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Proceed",
                 "workDoneLabel": "Done",
-                "relatedUiObject": "Exchange Learning Products",
+                "relatedUiObject": "Project Learning Products",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -16895,9 +16945,9 @@
         "propertyNameAtParent": "learningMinesData",
         "properties": [
             {
-                "name": "exchangeLearningProducts",
+                "name": "projectLearningProducts",
                 "type": "array",
-                "childType": "Exchange Learning Products"
+                "childType": "Project Learning Products"
             }
         ]
     },

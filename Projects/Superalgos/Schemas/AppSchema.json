@@ -15970,7 +15970,7 @@
             "compatibleTypes": "->Crypto Exchange->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Testing Trading Tasks->Production Trading Tasks->"
+            "compatibleTypes": "->Project Trading Tasks->"
         },
         "alternativeIcons": "Use Reference Parent",
         "title": [
@@ -16327,7 +16327,7 @@
         ]
     },
     {
-        "type": "Testing Trading Tasks",
+        "type": "Project Trading Tasks",
         "menuItems": [
             {
                 "action": "Run All Exchange Trading Tasks",
@@ -16362,6 +16362,77 @@
                 "confirmationLabel": "Confirm to Proceed",
                 "workDoneLabel": "Done",
                 "relatedUiObject": "Exchange Trading Tasks",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "title": [
+            "Use Reference Parent"
+        ],
+        "alternativeIcons": "Use Reference Parent Parent",
+        "addLeftIcons": true,
+        "level": 2,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Project Definition->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Testing Trading Tasks->Production Trading Tasks->"
+        },
+        "propertyNameAtParent": "projectTradingTasks",
+        "properties": [
+            {
+                "name": "exchangeTradingTasks",
+                "type": "array",
+                "childType": "Exchange Trading Tasks",
+                "monitorChildrenRunning": true
+            }
+        ],
+        "icon": "bitcoin"
+    },
+    {
+        "type": "Testing Trading Tasks",
+        "menuItems": [
+            {
+                "action": "Run All Project Trading Tasks",
+                "label": "Run All Project Trading Tasks",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Run",
+                "workDoneLabel": "Run Request Sent",
+                "iconPathOn": "run",
+                "iconPathOff": "run",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Stop All Project Trading Tasks",
+                "label": "Stop All Project Trading Tasks",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Stop",
+                "workDoneLabel": "Stop Request Sent",
+                "iconPathOn": "stop",
+                "iconPathOff": "stop",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Project Trading Tasks",
+                "relatedUiObject": "Project Trading Tasks",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add Missing Project Trading Tasks",
+                "label": "Add Missing Projects",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Project Trading Tasks",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -16382,9 +16453,9 @@
         "propertyNameAtParent": "testingTradingTasks",
         "properties": [
             {
-                "name": "exchangeTradingTasks",
+                "name": "projectTradingTasks",
                 "type": "array",
-                "childType": "Exchange Trading Tasks",
+                "childType": "Project Trading Tasks",
                 "monitorChildrenRunning": true
             }
         ]
@@ -16393,8 +16464,8 @@
         "type": "Production Trading Tasks",
         "menuItems": [
             {
-                "action": "Run All Exchange Trading Tasks",
-                "label": "Run All Exchange Trading Tasks",
+                "action": "Run All Project Trading Tasks",
+                "label": "Run All Project Trading Tasks",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Run",
                 "workDoneLabel": "Run Request Sent",
@@ -16403,8 +16474,8 @@
                 "actionFunction": "payload.executeAction"
             },
             {
-                "action": "Stop All Exchange Trading Tasks",
-                "label": "Stop All Exchange Trading Tasks",
+                "action": "Stop All Project Trading Tasks",
+                "label": "Stop All Project Trading Tasks",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Stop",
                 "workDoneLabel": "Stop Request Sent",
@@ -16414,17 +16485,17 @@
             },
             {
                 "action": "Add UI Object",
-                "label": "Add Exchange Trading Tasks",
-                "relatedUiObject": "Exchange Trading Tasks",
+                "label": "Add Project Trading Tasks",
+                "relatedUiObject": "Project Trading Tasks",
                 "actionFunction": "payload.executeAction"
             },
             {
-                "action": "Add Missing Exchange Trading Tasks",
-                "label": "Add Missing Exchanges",
+                "action": "Add Missing Project Trading Tasks",
+                "label": "Add Missing Projects",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Proceed",
                 "workDoneLabel": "Done",
-                "relatedUiObject": "Exchange Trading Tasks",
+                "relatedUiObject": "Project Trading Tasks",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -16445,9 +16516,9 @@
         "propertyNameAtParent": "productionTradingTasks",
         "properties": [
             {
-                "name": "exchangeTradingTasks",
+                "name": "projectTradingTasks",
                 "type": "array",
-                "childType": "Exchange Trading Tasks",
+                "childType": "Project Trading Tasks",
                 "monitorChildrenRunning": true
             }
         ]

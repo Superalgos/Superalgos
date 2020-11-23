@@ -16562,7 +16562,7 @@
             "compatibleTypes": "->Crypto Exchange->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Data Mines Data->"
+            "compatibleTypes": "->Project Data Products->"
         },
         "propertyNameAtParent": "exchangeDataProducts",
         "properties": [
@@ -16575,6 +16575,48 @@
     },
     {
         "type": "Data Mines Data",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Project Data Products",
+                "relatedUiObject": "Project Data Products",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add Missing Project Data Products",
+                "label": "Add Missing Projects",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Project Data Products",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Data Storage->"
+        },
+        "propertyNameAtParent": "dataMinesData",
+        "properties": [
+            {
+                "name": "projectDataProducts",
+                "type": "array",
+                "childType": "Project Data Products"
+            }
+        ]
+    },
+    {
+        "type": "Project Data Products",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -16601,19 +16643,27 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
+        "title": [
+            "Use Reference Parent"
+        ],
+        "alternativeIcons": "Use Reference Parent Parent",
         "addLeftIcons": true,
-        "level": 3,
-        "chainAttachesTo": {
-            "compatibleTypes": "->Data Storage->"
+        "level": 2,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Project Definition->"
         },
-        "propertyNameAtParent": "dataMinesData",
+        "chainAttachesTo": {
+            "compatibleTypes": "->Data Mines Data->Trading Mines Data->Learning Mines Data->"
+        },
+        "propertyNameAtParent": "projectDataProducts",
         "properties": [
             {
                 "name": "exchangeDataProducts",
                 "type": "array",
                 "childType": "Exchange Data Products"
             }
-        ]
+        ],
+        "icon":"bitcoin"
     },
     {
         "type": "Exchange Trading Products",

@@ -249,7 +249,8 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
             return
         }
 
-        let networkNode = taskManager.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode
+        let networkNode = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(taskManager, 'Network Node', undefined, true, false, true, false)
+
         if (UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(networkNode.payload, 'host') === undefined) {
             node.payload.uiObject.setErrorMessage('Network Node needs to have a valid Host property at its config.')
             return

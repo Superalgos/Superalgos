@@ -209,7 +209,7 @@ function newSuperalgosFunctionLibraryTradingSessionFunctions() {
             return
         }
 
-        let networkNode = taskManager.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode
+        let networkNode = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(taskManager, 'Network Node', undefined, true, false, true, false)
 
         if (node.tradingSystemReference === undefined) {
             node.payload.uiObject.setErrorMessage('Session needs a child Trading System Reference.')

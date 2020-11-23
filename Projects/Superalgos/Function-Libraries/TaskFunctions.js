@@ -114,6 +114,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
             'Exchange Data Tasks->Exchange Trading Tasks->Exchange Learning Tasks->' +
             'Market->Exchange Markets->Crypto Exchange->' +
             'Market Base Asset->Market Quoted Asset->Asset->' +
+            'Project Data Tasks->Project Trading Tasks->Project Learning Tasks->Project Definition->' +
             'Backtesting Session->Live Trading Session->Paper Trading Session->Forward Testing Session->' +
             'Learning Session->' +
             'Process Definition->' +
@@ -145,12 +146,16 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
         let taskDefinition = UI.projects.superalgos.functionLibraries.protocolNode.getProtocolNode(node, false, true, true, false, false, taskLightingPath)
 
         let networkLightingPath = '->Network->Network Node->' +
-            'Data Storage->Data Mines Data->Exchange Data Products->' +
-            'Market Data Products->' +
+            'Data Storage->' +
+            'Data Mines Data->Trading Mines Data->Learning Mines Data->' +
+            'Project Data Products->Project Trading Products->Project Learning Products->' +
+            'Exchange Data Products->Exchange Trading Products->Exchange Learning Products->' +
+            'Market Data Products->Market Trading Products->Market Learning Products->' +
             'Data Mine Products->Bot Products->' +
             'Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->' +
             'Data Product->Product Definition->' +
             'Data Tasks->Learning Tasks->Testing Trading Tasks->Production Trading Tasks->' +
+            'Project Data Tasks->Project Trading Tasks->Project Learning Tasks->' +
             'Exchange Data Tasks->Exchange Trading Tasks->Exchange Learning Tasks->Crypto Exchange->' +
             'Market Data Tasks->Market Trading Tasks->Market Learning Tasks->Market->' +
             'Data Mine Tasks->Trading Mine Tasks->Learning Mine Tasks->' +

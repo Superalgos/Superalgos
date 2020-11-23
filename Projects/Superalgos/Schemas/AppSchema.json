@@ -55,6 +55,13 @@
         "type": "Project Definition",
         "menuItems": [
             {
+                "action": "Configure",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -64,6 +71,12 @@
                 "iconPathOff": "delete"
             }
         ],
+        "initialValues": {
+            "config": "{ \n  \"codeName\": \"\"\n}"
+        },
+        "editors": {
+            "config": true
+        },
         "alternativeIcons": "Use Parent",
         "isTitleAllwaysVisible": false,
         "addLeftIcons": true,

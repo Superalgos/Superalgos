@@ -341,10 +341,7 @@ function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
             project: project
         }
 
-        let parentNodeDefinition = getNodeDefinition(parentNode, project)
-        if (parentNodeDefinition === undefined) {
-            console.log('Cannot addUIOBject from parent of ' + type + ' because that type it is not defined at the APP_SCHEMA.')
-        }
+        let parentNodeDefinition 
         /* Resolve Initial Values */
         let nodeDefinition = getNodeDefinition(object, project)
 
@@ -372,7 +369,14 @@ function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
             createUiObject(true, object.type, object.name, object, parentNode, undefined)
             autoAddChildren()
             return object
+
         } else {
+
+            parentNodeDefinition = getNodeDefinition(parentNode, parentNode.project)
+            if (parentNodeDefinition === undefined) {
+                console.log('Cannot addUIOBject from parent of ' + type + ' because that type it is not defined at the APP_SCHEMA.')
+                return
+            }
             checkChainToSelfTypeCollection()
             initializeArrayProperties()
             applyInitialValues()
@@ -384,7 +388,7 @@ function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
 
         function checkChainToSelfTypeCollection() {
             /* For the cases where a node is not chained to its parent but to the one at the parent before it at its own collection */
-            
+
             if (nodeDefinition.chainedToSameType === true) {
                 if (parentNodeDefinition.properties !== undefined) {
                     for (let i = 0; i < parentNodeDefinition.properties.length; i++) {
@@ -474,7 +478,8 @@ function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
                         case 'node': {
                             if (property.name !== previousPropertyName) {
                                 if (property.autoAdd === true) {
-                                    addUIObject(object, property.childType)
+                                    let project = property.project
+                                    addUIObject(object, property.childType, undefined, project)
                                     previousPropertyName = property.name
                                 }
                             }
@@ -485,7 +490,8 @@ function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
                                 if (object[property.name] === undefined) {
                                     object[property.name] = []
                                 }
-                                addUIObject(object, property.childType)
+                                let project = property.project
+                                addUIObject(object, property.childType, undefined, project)
                             }
                         }
                             break

@@ -47,24 +47,7 @@
                 "name": "projectDefinition",
                 "type": "node",
                 "childType": "Project Definition",
-                "autoAdd": true
-            },
-            {
-                "name": "spaces",
-                "type": "node",
-                "childType": "Spaces",
-                "autoAdd": true
-            },
-            {
-                "name": "mines",
-                "type": "node",
-                "childType": "Mines",
-                "autoAdd": true
-            },
-            {
-                "name": "otherHierarchies",
-                "type": "node",
-                "childType": "Other Hierarchies",
+                "project" : "Superalgos",
                 "autoAdd": true
             }
         ]

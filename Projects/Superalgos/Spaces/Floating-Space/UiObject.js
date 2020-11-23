@@ -1166,8 +1166,27 @@ function newUiObject() {
     function iconPhysics() {
         icon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.payload.node.type)
         let nodeDefinition = getNodeDefinition(thisObject.payload.node)
+
+        /*
+        If we want this object to have an alternative icon (defined on a list of possible icons) but
+        this definition does not belong to the current node but to a relative of it, then
+        the property to use is alternativeIcons with a value of a string defining the nodePath to the
+        node that actually has the icon list.
+
+        On the other hand, if this icon has the icon list definition, then the value of alternativeIcons
+        shoudl be an array of the possible icons. Then to pick one icon from that list we will check 
+        the config.condeName of the node to see with which icon on the list matches.
+
+        Finally, if the node we are pointing to does not have a config or does not have a list of 
+        alternativeIcons, we will just use that node's icon for the current node.
+        */
         if (nodeDefinition.alternativeIcons !== undefined) {
             let nodeToUse = thisObject.payload.node
+            if (nodeDefinition.alternativeIcons === 'Use Parent') {
+                if (thisObject.payload.node.payload.parentNode !== undefined) {
+                    nodeToUse = thisObject.payload.node.payload.parentNode
+                }
+            }
             if (nodeDefinition.alternativeIcons === 'Use Reference Parent') {
                 if (thisObject.payload.node.payload.referenceParent !== undefined) {
                     nodeToUse = thisObject.payload.node.payload.referenceParent
@@ -1184,22 +1203,31 @@ function newUiObject() {
             }
             nodeDefinition = getNodeDefinition(nodeToUse)
             let config = nodeToUse.config
-            try {
-                config = JSON.parse(config)
-                let alternativeIcon
-                let iconName
-                for (let i = 0; i < nodeDefinition.alternativeIcons.length; i++) {
-                    alternativeIcon = nodeDefinition.alternativeIcons[i]
-                    if (alternativeIcon.codeName === config.codeName) {
-                        iconName = alternativeIcon.iconName
+            if (config !== undefined && (Array.isArray(nodeDefinition.alternativeIcons) === true)) {
+                try {
+                    config = JSON.parse(config)
+                    let alternativeIcon
+                    let iconName
+                    for (let i = 0; i < nodeDefinition.alternativeIcons.length; i++) {
+                        alternativeIcon = nodeDefinition.alternativeIcons[i]
+                        if (alternativeIcon.codeName === config.codeName) {
+                            iconName = alternativeIcon.iconName
+                        }
+                    }
+                    let newIcon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName(nodeToUse.project, iconName)
+                    if (newIcon !== undefined) {
+                        icon = newIcon
+                    }
+                } catch (err) {
+                    nodeToUse.payload.uiObject.setErrorMessage('The config is not well formatted as a JSON object.')
+                }
+            } else {
+                if (nodeDefinition.icon !== undefined) {
+                    let newIcon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName(nodeToUse.project, nodeDefinition.icon)
+                    if (newIcon !== undefined) {
+                        icon = newIcon
                     }
                 }
-                let newIcon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName('Superalgos', iconName)
-                if (newIcon !== undefined) {
-                    icon = newIcon
-                }
-            } catch (err) {
-                // Nothing to do if JSON is baddly formated.
             }
         }
 
@@ -1625,8 +1653,8 @@ function newUiObject() {
                 }
 
                 if (UI.projects.superalgos.spaces.floatingSpace.inMapMode === true) {
-                    labelPoint.x =  position.x - getTextWidth(label) / 2,
-                    labelPoint.y = position.y + 50 / 2 + lineSeparator * 2
+                    labelPoint.x = position.x - getTextWidth(label) / 2,
+                        labelPoint.y = position.y + 50 / 2 + lineSeparator * 2
                 }
                 printMessage(label)
 

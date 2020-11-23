@@ -26,6 +26,12 @@
         "icon": "superalgos",
         "properties": [
             {
+                "name": "projectDefinition",
+                "type": "node",
+                "childType": "Project Definition",
+                "autoAdd": true
+            },
+            {
                 "name": "spaces",
                 "type": "node",
                 "childType": "Spaces",
@@ -44,6 +50,26 @@
                 "autoAdd": true
             }
         ]
+    },
+    {
+        "type": "Project Definition",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "actionFunction": "payload.executeAction",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete"
+            }
+        ],
+        "alternativeIcons": "Use Parent",
+        "isTitleAllwaysVisible": false,
+        "addLeftIcons": true,
+        "isPinned": false,
+        "level": 2,
+        "propertyNameAtParent": "projectDefinition"
     },
     {
         "type": "Spaces",

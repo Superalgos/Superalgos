@@ -65,50 +65,52 @@ function newSuperalgosFunctionLibraryNodeDeleter() {
             }
 
             /* Remove node from parent */
-            let removedFromParent = false
-            if (node.payload !== undefined) {
-                if (node.payload.parentNode !== undefined) {
-                    let parentNodeDefinition = getNodeDefinition(node.payload.parentNode)
-                    if (parentNodeDefinition !== undefined) {
-                        if (parentNodeDefinition.properties !== undefined) {
-                            for (let i = 0; i < parentNodeDefinition.properties.length; i++) {
-                                let property = parentNodeDefinition.properties[i]
-                                if (nodeDefinition.propertyNameAtParent === property.name) {
-                                    switch (property.type) {
-                                        case 'node': {
-                                            node.payload.parentNode[property.name] = undefined
-                                            removedFromParent = true
-                                        }
-                                            break
-                                        case 'array': {
-                                            let nodePropertyArray = node.payload.parentNode[property.name]
-                                            if (nodePropertyArray !== undefined) {
-                                                for (let j = 0; j < nodePropertyArray.length; j++) {
-                                                    let arrayItem = nodePropertyArray[j]
-                                                    if (arrayItem.id === node.id) {
-                                                        /* If this object is chained to the ones of the same type we need to give the next in the chain the reference to the current chain parent */
-                                                        if (nodeDefinition.chainedToSameType === true) {
-                                                            if (j < nodePropertyArray.length - 1) {
-                                                                let nextArrayItem = nodePropertyArray[j + 1]
-                                                                nextArrayItem.payload.chainParent = node.payload.chainParent
+            if (nodeDefinition.propertyNameAtParent !== undefined) {
+                let removedFromParent = false
+                if (node.payload !== undefined) {
+                    if (node.payload.parentNode !== undefined) {
+                        let parentNodeDefinition = getNodeDefinition(node.payload.parentNode)
+                        if (parentNodeDefinition !== undefined) {
+                            if (parentNodeDefinition.properties !== undefined) {
+                                for (let i = 0; i < parentNodeDefinition.properties.length; i++) {
+                                    let property = parentNodeDefinition.properties[i]
+                                    if (nodeDefinition.propertyNameAtParent === property.name) {
+                                        switch (property.type) {
+                                            case 'node': {
+                                                node.payload.parentNode[property.name] = undefined
+                                                removedFromParent = true
+                                            }
+                                                break
+                                            case 'array': {
+                                                let nodePropertyArray = node.payload.parentNode[property.name]
+                                                if (nodePropertyArray !== undefined) {
+                                                    for (let j = 0; j < nodePropertyArray.length; j++) {
+                                                        let arrayItem = nodePropertyArray[j]
+                                                        if (arrayItem.id === node.id) {
+                                                            /* If this object is chained to the ones of the same type we need to give the next in the chain the reference to the current chain parent */
+                                                            if (nodeDefinition.chainedToSameType === true) {
+                                                                if (j < nodePropertyArray.length - 1) {
+                                                                    let nextArrayItem = nodePropertyArray[j + 1]
+                                                                    nextArrayItem.payload.chainParent = node.payload.chainParent
+                                                                }
                                                             }
+    
+                                                            nodePropertyArray.splice(j, 1)
+                                                            removedFromParent = true
                                                         }
-
-                                                        nodePropertyArray.splice(j, 1)
-                                                        removedFromParent = true
                                                     }
                                                 }
                                             }
+                                                break
                                         }
-                                            break
                                     }
                                 }
                             }
                         }
-                    }
-                    if (removedFromParent === false) {
-                        console.log('[ERROR] Deleting Node: ' + node.type + ' ' + node.name + '. This node could not be deleted from its parent node (' + node.payload.parentNode.type + ') because its configured propertyNameAtParent (' + nodeDefinition.propertyNameAtParent + ') does not match any of the properties of its parent.')
-                        return false
+                        if (removedFromParent === false) {
+                            console.log('[ERROR] Deleting Node: ' + node.type + ' ' + node.name + '. This node could not be deleted from its parent node (' + node.payload.parentNode.type + ') because its configured propertyNameAtParent (' + nodeDefinition.propertyNameAtParent + ') does not match any of the properties of its parent.')
+                            return false
+                        }
                     }
                 }
             }

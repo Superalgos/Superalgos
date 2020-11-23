@@ -364,24 +364,38 @@ function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
             }
         }
 
+        let chainParent = parentNode
         if (nodeDefinition.isHierarchyHead === true || nodeDefinition.isProjectHead) {
             rootNodes.push(object)
+            initializeArrayProperties()
+            applyInitialValues()
             createUiObject(true, object.type, object.name, object, parentNode, undefined)
+            autoAddChildren()
+            return object
+        } else {
+            checkChainToSelfTypeCollection()
+            initializeArrayProperties()
+            applyInitialValues()
+            connectToParent()
+            createUiObject(true, object.type, object.name, object, parentNode, chainParent)
+            autoAddChildren()
             return object
         }
 
-        /* For the cases where an node is not chained to its parent but to the one at the parent before it at its collection */
-        let chainParent = parentNode
-        if (nodeDefinition.chainedToSameType === true) {
-            if (parentNodeDefinition.properties !== undefined) {
-                for (let i = 0; i < parentNodeDefinition.properties.length; i++) {
-                    let property = parentNodeDefinition.properties[i]
-                    if (property.childType === type) {
-                        if (property.type === 'array') {
-                            if (parentNode[property.name] !== undefined) {
-                                if (parentNode[property.name].length > 0) {
-                                    let nodeChildren = parentNode[property.name]
-                                    chainParent = nodeChildren[nodeChildren.length - 1]
+        function checkChainToSelfTypeCollection() {
+            /* For the cases where a node is not chained to its parent but to the one at the parent before it at its own collection */
+            
+            if (nodeDefinition.chainedToSameType === true) {
+                if (parentNodeDefinition.properties !== undefined) {
+                    for (let i = 0; i < parentNodeDefinition.properties.length; i++) {
+                        let property = parentNodeDefinition.properties[i]
+                        if (property.childType === type) {
+                            if (property.type === 'array') {
+                                if (parentNode[property.name] !== undefined) {
+                                    if (parentNode[property.name].length > 0) {
+                                        let nodeChildren = parentNode[property.name]
+                                        chainParent = nodeChildren[nodeChildren.length - 1]
+                                    }
                                 }
                             }
                         }
@@ -390,51 +404,88 @@ function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
             }
         }
 
-        /* Create Empty Arrays for properties of type Array */
-        if (nodeDefinition.properties !== undefined) {
-            for (let i = 0; i < nodeDefinition.properties.length; i++) {
-                let property = nodeDefinition.properties[i]
-                if (property.type === 'array') {
-                    object[property.name] = []
+        function initializeArrayProperties() {
+            /* Create Empty Arrays for properties of type Array */
+            if (nodeDefinition.properties !== undefined) {
+                for (let i = 0; i < nodeDefinition.properties.length; i++) {
+                    let property = nodeDefinition.properties[i]
+                    if (property.type === 'array') {
+                        object[property.name] = []
+                    }
                 }
             }
         }
 
-        if (nodeDefinition.initialValues !== undefined) {
-            if (nodeDefinition.initialValues.code !== undefined) {
-                object.code = nodeDefinition.initialValues.code
-            }
-            if (nodeDefinition.initialValues.config !== undefined) {
-                object.config = nodeDefinition.initialValues.config
+        function applyInitialValues() {
+            if (nodeDefinition.initialValues !== undefined) {
+                if (nodeDefinition.initialValues.code !== undefined) {
+                    object.code = nodeDefinition.initialValues.code
+                }
+                if (nodeDefinition.initialValues.config !== undefined) {
+                    object.config = nodeDefinition.initialValues.config
+                }
             }
         }
 
-        /* Connect to Parent */
-        if (parentNodeDefinition.properties !== undefined) {
-            let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
-            for (let i = 0; i < parentNodeDefinition.properties.length; i++) {
-                let property = parentNodeDefinition.properties[i]
-                if (property.childType === type) {
+        function connectToParent() {
+            /* Connect to Parent */
+            if (parentNodeDefinition.properties !== undefined) {
+                let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
+                for (let i = 0; i < parentNodeDefinition.properties.length; i++) {
+                    let property = parentNodeDefinition.properties[i]
+                    if (property.childType === type) {
+                        switch (property.type) {
+                            case 'node': {
+                                if (property.name !== previousPropertyName) {
+                                    parentNode[property.name] = object
+                                    previousPropertyName = property.name
+                                }
+                            }
+                                break
+                            case 'array': {
+                                if (parentNode[property.name] === undefined) {
+                                    parentNode[property.name] = []
+                                }
+                                if (property.maxItems !== undefined) {
+                                    if (parentNode[property.name].length < property.maxItems) {
+                                        parentNode[property.name].push(object)
+                                    } else {
+                                        return // Object can not be created.
+                                    }
+                                } else {
+                                    parentNode[property.name].push(object)
+                                }
+                            }
+                                break
+                        }
+                    }
+                }
+            }
+        }
+
+        function autoAddChildren() {
+            /* Auto Add more Children */
+            if (nodeDefinition.properties !== undefined) {
+                let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
+                for (let i = 0; i < nodeDefinition.properties.length; i++) {
+                    let property = nodeDefinition.properties[i]
+
                     switch (property.type) {
                         case 'node': {
                             if (property.name !== previousPropertyName) {
-                                parentNode[property.name] = object
-                                previousPropertyName = property.name
+                                if (property.autoAdd === true) {
+                                    addUIObject(object, property.childType)
+                                    previousPropertyName = property.name
+                                }
                             }
                         }
                             break
                         case 'array': {
-                            if (parentNode[property.name] === undefined) {
-                                parentNode[property.name] = []
-                            }
-                            if (property.maxItems !== undefined) {
-                                if (parentNode[property.name].length < property.maxItems) {
-                                    parentNode[property.name].push(object)
-                                } else {
-                                    return // Object can not be created.
+                            if (property.autoAdd === true) {
+                                if (object[property.name] === undefined) {
+                                    object[property.name] = []
                                 }
-                            } else {
-                                parentNode[property.name].push(object)
+                                addUIObject(object, property.childType)
                             }
                         }
                             break
@@ -442,39 +493,6 @@ function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
                 }
             }
         }
-
-        createUiObject(true, object.type, object.name, object, parentNode, chainParent)
-
-        /* Auto Add more Children */
-        if (nodeDefinition.properties !== undefined) {
-            let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
-            for (let i = 0; i < nodeDefinition.properties.length; i++) {
-                let property = nodeDefinition.properties[i]
-
-                switch (property.type) {
-                    case 'node': {
-                        if (property.name !== previousPropertyName) {
-                            if (property.autoAdd === true) {
-                                addUIObject(object, property.childType)
-                                previousPropertyName = property.name
-                            }
-                        }
-                    }
-                        break
-                    case 'array': {
-                        if (property.autoAdd === true) {
-                            if (object[property.name] === undefined) {
-                                object[property.name] = []
-                            }
-                            addUIObject(object, property.childType)
-                        }
-                    }
-                        break
-                }
-            }
-        }
-
-        return object
     }
 
     function addMissingChildren(node, rootNodes) {

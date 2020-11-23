@@ -570,7 +570,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
                             function onDirRead(err, fileList) {
                                 if (err) {
-                                    if (CONSOLE_ERROR_LOG === true) { console.log('[WARN] Error reading a directory content. filePath = ' + dirPath) }
+                                    if (CONSOLE_ERROR_LOG === true) { console.log('[WARN] Could not read this directory content. filePath = ' + dirPath) }
                                     respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                                     return
                                 } else {

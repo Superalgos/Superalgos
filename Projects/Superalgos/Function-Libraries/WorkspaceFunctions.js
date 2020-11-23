@@ -25,6 +25,7 @@ function newSuperalgosFunctionLibraryWorkspaceFunctions() {
                 if (alreadyExist === false) {
                     let child = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(node, project + ' Project', rootNodes, project)
                     child.project = project
+                    child.projectDefinition.name = project
                 }
             }
         }

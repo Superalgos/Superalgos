@@ -69,7 +69,8 @@
         "addLeftIcons": true,
         "isPinned": false,
         "level": 2,
-        "propertyNameAtParent": "projectDefinition"
+        "propertyNameAtParent": "projectDefinition",
+        "icon": "bitcoin"
     },
     {
         "type": "Spaces",
@@ -15898,7 +15899,7 @@
             "compatibleTypes": "->Crypto Exchange->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Data Mining->"
+            "compatibleTypes": "->Project Data Tasks->"
         },
         "alternativeIcons": "Use Reference Parent",
         "title": [
@@ -16058,7 +16059,7 @@
         ]
     },
     {
-        "type": "Data Mining",
+        "type": "Project Data Tasks",
         "menuItems": [
             {
                 "action": "Run All Exchange Data Tasks",
@@ -16105,6 +16106,77 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
+        "title": [
+            "Use Reference Parent"
+        ],
+        "alternativeIcons": "Use Reference Parent Parent",
+        "addLeftIcons": true,
+        "level": 2,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Project Definition->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Data Mining->"
+        },
+        "propertyNameAtParent": "projectDataTasks",
+        "properties": [
+            {
+                "name": "exchangeDataTasks",
+                "type": "array",
+                "childType": "Exchange Data Tasks",
+                "monitorChildrenRunning": true
+            }
+        ],
+        "icon": "bitcoin"
+    },
+    {
+        "type": "Data Mining",
+        "menuItems": [
+            {
+                "action": "Run All Project Data Tasks",
+                "label": "Run All Project Data Tasks",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Run",
+                "workDoneLabel": "Run Request Sent",
+                "iconPathOn": "run",
+                "iconPathOff": "run",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Stop All Project Data Tasks",
+                "label": "Stop All Project Data Tasks",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Stop",
+                "workDoneLabel": "Stop Request Sent",
+                "iconPathOn": "stop",
+                "iconPathOff": "stop",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Project Data Tasks",
+                "relatedUiObject": "Project Data Tasks",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add Missing Project Data Tasks",
+                "label": "Add Missing Projects",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Project Data Tasks",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
         "addLeftIcons": true,
         "level": 2,
         "chainAttachesTo": {
@@ -16113,9 +16185,9 @@
         "propertyNameAtParent": "dataMining",
         "properties": [
             {
-                "name": "exchangeDataTasks",
+                "name": "projectDataTasks",
                 "type": "array",
-                "childType": "Exchange Data Tasks",
+                "childType": "Project Data Tasks",
                 "monitorChildrenRunning": true
             }
         ]

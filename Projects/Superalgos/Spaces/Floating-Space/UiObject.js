@@ -1201,6 +1201,15 @@ function newUiObject() {
                     }
                 }
             }
+            if (nodeDefinition.alternativeIcons === 'Use Reference Parent Parent') {
+                if (thisObject.payload.node.payload.referenceParent !== undefined) {
+                    if (thisObject.payload.node.payload.referenceParent.payload !== undefined) {
+                        if (thisObject.payload.node.payload.referenceParent.payload.parentNode !== undefined) {
+                            nodeToUse = thisObject.payload.node.payload.referenceParent.payload.parentNode
+                        }
+                    }
+                }
+            }
             nodeDefinition = getNodeDefinition(nodeToUse)
             let config = nodeToUse.config
             if (config !== undefined && (Array.isArray(nodeDefinition.alternativeIcons) === true)) {

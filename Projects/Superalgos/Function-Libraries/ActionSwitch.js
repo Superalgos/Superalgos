@@ -287,6 +287,11 @@ function newSuperalgosActionSwitch() {
                     UI.projects.superalgos.functionLibraries.taskFunctions.stopAllLearningMineTasks(action.node)
                 }
                 break
+            case 'Add Missing Project Data Tasks':
+                {
+                    UI.projects.superalgos.functionLibraries.taskFunctions.addMissingProjectDataTasks(action.node, action.rootNodes)
+                }
+                break
             case 'Add Missing Exchange Data Tasks':
                 {
                     UI.projects.superalgos.functionLibraries.taskFunctions.addMissingExchangeDataTasks(action.node, action.rootNodes)
@@ -302,6 +307,11 @@ function newSuperalgosActionSwitch() {
                     UI.projects.superalgos.functionLibraries.taskFunctions.addMissingDataMineTasks(action.node, action.rootNodes)
                 }
                 break
+            case 'Add Missing Project Trading Tasks':
+                {
+                    UI.projects.superalgos.functionLibraries.taskFunctions.addMissingProjectTradingTasks(action.node, action.rootNodes)
+                }
+                break
             case 'Add Missing Exchange Trading Tasks':
                 {
                     UI.projects.superalgos.functionLibraries.taskFunctions.addMissingExchangeTradingTasks(action.node, action.rootNodes)
@@ -315,6 +325,11 @@ function newSuperalgosActionSwitch() {
             case 'Add Missing Trading Mine Tasks':
                 {
                     UI.projects.superalgos.functionLibraries.taskFunctions.addMissingTradingMineTasks(action.node, action.rootNodes)
+                }
+                break
+            case 'Add Missing Project Learning Tasks':
+                {
+                    UI.projects.superalgos.functionLibraries.taskFunctions.addMissingProjectLearningTasks(action.node, action.rootNodes)
                 }
                 break
             case 'Add Missing Exchange Learning Tasks':
@@ -407,6 +422,16 @@ function newSuperalgosActionSwitch() {
                     UI.projects.superalgos.functionLibraries.dataStorageFunctions.addMissingMarketTradingProducts(action.node, action.rootNodes)
                 }
                 break
+            case 'Add Missing Market Learning Products':
+                {
+                    UI.projects.superalgos.functionLibraries.dataStorageFunctions.addMissingMarketLearningProducts(action.node, action.rootNodes)
+                }
+                break
+            case 'Add Missing Exchange Learning Products':
+                {
+                    UI.projects.superalgos.functionLibraries.dataStorageFunctions.addMissingExchangeLearningProducts(action.node, action.rootNodes)
+                }
+                break
             case 'Add Missing Exchange Trading Products':
                 {
                     UI.projects.superalgos.functionLibraries.dataStorageFunctions.addMissingExchangeTradingProducts(action.node, action.rootNodes)
@@ -415,6 +440,21 @@ function newSuperalgosActionSwitch() {
             case 'Add Missing Exchange Data Products':
                 {
                     UI.projects.superalgos.functionLibraries.dataStorageFunctions.addMissingExchangeDataProducts(action.node, action.rootNodes)
+                }
+                break
+            case 'Add Missing Project Learning Products':
+                {
+                    UI.projects.superalgos.functionLibraries.dataStorageFunctions.addMissingProjectLearningProducts(action.node, action.rootNodes)
+                }
+                break
+            case 'Add Missing Project Trading Products':
+                {
+                    UI.projects.superalgos.functionLibraries.dataStorageFunctions.addMissingProjectTradingProducts(action.node, action.rootNodes)
+                }
+                break
+            case 'Add Missing Project Data Products':
+                {
+                    UI.projects.superalgos.functionLibraries.dataStorageFunctions.addMissingProjectDataProducts(action.node, action.rootNodes)
                 }
                 break
             case 'Add All Data Dependencies':

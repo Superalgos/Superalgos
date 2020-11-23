@@ -16294,7 +16294,7 @@
             },
             {
                 "action": "Add Missing Project Learning Tasks",
-                "label": "Add Missing Project",
+                "label": "Add Missing Projects",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Proceed",
                 "workDoneLabel": "Done",

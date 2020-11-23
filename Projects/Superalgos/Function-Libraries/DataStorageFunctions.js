@@ -5,11 +5,16 @@ function newSuperalgosFunctionLibraryDataStorageFunctions() {
         addAllTradingMineProducts: addAllTradingMineProducts,
         addAllLearningMineProducts: addAllLearningMineProducts,
         addMissingTradingSessionReferences: addMissingTradingSessionReferences,
-        addMissingLearningSessionReferences: addMissingLearningSessionReferences, 
+        addMissingLearningSessionReferences: addMissingLearningSessionReferences,
         addMissingMarketDataProducts: addMissingMarketDataProducts,
         addMissingMarketTradingProducts: addMissingMarketTradingProducts,
+        addMissingMarketLearningProducts: addMissingMarketLearningProducts,
+        addMissingExchangeDataProducts: addMissingExchangeDataProducts,
         addMissingExchangeTradingProducts: addMissingExchangeTradingProducts,
-        addMissingExchangeDataProducts: addMissingExchangeDataProducts, 
+        addMissingExchangeLearningProducts: addMissingExchangeLearningProducts,
+        addMissingProjectDataProducts: addMissingProjectDataProducts,
+        addMissingProjectTradingProducts: addMissingProjectTradingProducts,
+        addMissingProjectLearningProducts: addMissingProjectLearningProducts,
         createSessionReference: createSessionReference
     }
 
@@ -158,6 +163,10 @@ function newSuperalgosFunctionLibraryDataStorageFunctions() {
         addMissingMarketProducts(node, rootNodes, 'Market Trading Products')
     }
 
+    function addMissingMarketLearningProducts(node, rootNodes) {
+        addMissingMarketProducts(node, rootNodes, 'Market Learning Products')
+    }
+
     function addMissingMarketProducts(node, rootNodes, newNodeType) {
         if (node.payload.referenceParent === undefined) { return }
         if (node.payload.referenceParent.exchangeMarkets === undefined) { return }
@@ -172,12 +181,16 @@ function newSuperalgosFunctionLibraryDataStorageFunctions() {
         }
     }
 
+    function addMissingExchangeDataProducts(node, rootNodes) {
+        addMissingExchange(node, rootNodes, 'Exchange Data Products')
+    }
+
     function addMissingExchangeTradingProducts(node, rootNodes) {
         addMissingExchange(node, rootNodes, 'Exchange Trading Products')
     }
 
-    function addMissingExchangeDataProducts(node, rootNodes) {
-        addMissingExchange(node, rootNodes, 'Exchange Data Products')
+    function addMissingExchangeLearningProducts(node, rootNodes) {
+        addMissingExchange(node, rootNodes, 'Exchange Learning Products')
     }
 
     function addMissingExchange(node, rootNodes, newNodeType) {
@@ -192,6 +205,44 @@ function newSuperalgosFunctionLibraryDataStorageFunctions() {
                         if (UI.projects.superalgos.utilities.children.isMissingChildren(node, cryptoExchange, true) === true) {
                             let exchange = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType)
                             exchange.payload.referenceParent = cryptoExchange
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    function addMissingProjectDataProducts(node, rootNodes) {
+        addMissingProject(node, rootNodes, 'Project Data Products')
+    }
+
+    function addMissingProjectTradingProducts(node, rootNodes) {
+        addMissingProject(node, rootNodes, 'Project Trading Products')
+    }
+
+    function addMissingProjectLearningProducts(node, rootNodes) {
+        addMissingProject(node, rootNodes, 'Project Learning Products')
+    }
+
+    function addMissingProject(node, rootNodes, newNodeType) {
+        let url = 'ProjectNames'
+        httpRequest(undefined, url, onResponse)
+
+        function onResponse(err, pProjects) {
+            let projects = JSON.parse(pProjects)
+            for (let i = 0; i < projects.length; i++) {
+                let project = projects[i]
+
+                for (let j = 0; j < rootNodes.length; j++) {
+                    let rootNode = rootNodes[j]
+                    if (rootNode.type === project + ' Project') {
+                        let projectDefinition = rootNode.projectDefinition
+                        if (projectDefinition !== undefined) {
+                            if (UI.projects.superalgos.utilities.children.isMissingChildren(node, projectDefinition, true) === true) {
+                                let projectTasks = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType)
+                                projectTasks.payload.referenceParent = projectDefinition
+                            }
                         }
                     }
                 }

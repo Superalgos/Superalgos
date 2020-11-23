@@ -30,12 +30,15 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
         runAllLearningMineTasks: runAllLearningMineTasks,
         stopAllLearningMineTasks: stopAllLearningMineTasks,
 
+        addMissingProjectDataTasks: addMissingProjectDataTasks,
         addMissingExchangeDataTasks: addMissingExchangeDataTasks,
         addMissingMarketDataTasks: addMissingMarketDataTasks,
         addMissingDataMineTasks: addMissingDataMineTasks,
+        addMissingProjectTradingTasks: addMissingProjectTradingTasks,
         addMissingExchangeTradingTasks: addMissingExchangeTradingTasks,
         addMissingMarketTradingTasks: addMissingMarketTradingTasks,
         addMissingTradingMineTasks: addMissingTradingMineTasks,
+        addMissingProjectLearningTasks: addMissingProjectLearningTasks,
         addMissingExchangeLearningTasks: addMissingExchangeLearningTasks,
         addMissingMarketLearningTasks: addMissingMarketLearningTasks,
         addMissingLearningMineTasks: addMissingLearningMineTasks,
@@ -65,7 +68,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
 
         function onStatus(message) {
             eventsServerClient.stopListening(key, eventSubscriptionIdOnStatus, node.id)
-            if (message.event.status === 'Task Process Running' ) {
+            if (message.event.status === 'Task Process Running') {
                 node.payload.uiObject.menu.internalClick('Run Task')
             }
         }
@@ -487,6 +490,44 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
         }
     }
 
+    function addMissingProjectDataTasks(node, rootNodes) {
+        addMissingProjectTasks(node, rootNodes, 'Project Data Tasks')
+    }
+
+    function addMissingProjectTradingTasks(node, rootNodes) {
+        addMissingProjectTasks(node, rootNodes, 'Project Trading Tasks')
+    }
+
+    function addMissingProjectLearningTasks(node, rootNodes) {
+        addMissingProjectTasks(node, rootNodes, 'Project Learning Tasks')
+    }
+
+    function addMissingProjectTasks(node, rootNodes, newNodeType) {
+
+        let url = 'ProjectNames'
+        httpRequest(undefined, url, onResponse)
+
+        function onResponse(err, pProjects) {
+            let projects = JSON.parse(pProjects)
+            for (let i = 0; i < projects.length; i++) {
+                let project = projects[i]
+
+                for (let j = 0; j < rootNodes.length; j++) {
+                    let rootNode = rootNodes[j]
+                    if (rootNode.type === project + ' Project') {
+                        let projectDefinition = rootNode.projectDefinition
+                        if (projectDefinition !== undefined) {
+                            if (UI.projects.superalgos.utilities.children.isMissingChildren(node, projectDefinition, true) === true) {
+                                let projectTasks = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType)
+                                projectTasks.payload.referenceParent = projectDefinition
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     function addMissingExchangeDataTasks(node, rootNodes) {
         addMissingExchangeTasks(node, rootNodes, 'Exchange Data Tasks')
     }
@@ -530,7 +571,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
         addMissingMarketTasks(node, 'Market Learning Tasks')
     }
 
-    function addMissingMarketTasks(node,  newNodeType) {
+    function addMissingMarketTasks(node, newNodeType) {
         if (node.payload === undefined) { return }
         if (node.payload.referenceParent === undefined) { return }
         if (node.payload.referenceParent.exchangeMarkets === undefined) { return }

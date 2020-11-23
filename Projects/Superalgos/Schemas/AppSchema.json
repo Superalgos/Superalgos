@@ -16653,7 +16653,7 @@
             "compatibleTypes": "->Project Definition->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Data Mines Data->Trading Mines Data->Learning Mines Data->"
+            "compatibleTypes": "->Data Mines Data->"
         },
         "propertyNameAtParent": "projectDataProducts",
         "properties": [
@@ -16661,6 +16661,56 @@
                 "name": "exchangeDataProducts",
                 "type": "array",
                 "childType": "Exchange Data Products"
+            }
+        ],
+        "icon":"bitcoin"
+    },
+    {
+        "type": "Project Trading Products",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Exchange Trading Products",
+                "relatedUiObject": "Exchange Trading Products",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add Missing Exchange Trading Products",
+                "label": "Add Missing Exchanges",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Exchange Trading Products",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "title": [
+            "Use Reference Parent"
+        ],
+        "alternativeIcons": "Use Reference Parent Parent",
+        "addLeftIcons": true,
+        "level": 2,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Project Definition->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Trading Mines Data->"
+        },
+        "propertyNameAtParent": "projectTradingProducts",
+        "properties": [
+            {
+                "name": "exchangeTradingProducts",
+                "type": "array",
+                "childType": "Exchange Trading Products"
             }
         ],
         "icon":"bitcoin"
@@ -16704,7 +16754,7 @@
             "compatibleTypes": "->Crypto Exchange->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Trading Mines Data->"
+            "compatibleTypes": "->Project Trading Products->"
         },
         "propertyNameAtParent": "exchangeTradingProducts",
         "properties": [
@@ -16772,17 +16822,17 @@
         "menuItems": [
             {
                 "action": "Add UI Object",
-                "label": "Add Exchange Trading Products",
-                "relatedUiObject": "Exchange Trading Products",
+                "label": "Add Project Trading Products",
+                "relatedUiObject": "Project Trading Products",
                 "actionFunction": "payload.executeAction"
             },
             {
-                "action": "Add Missing Exchange Trading Products",
-                "label": "Add Missing Exchanges",
+                "action": "Add Missing Project Trading Products",
+                "label": "Add Missing Projects",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Proceed",
                 "workDoneLabel": "Done",
-                "relatedUiObject": "Exchange Trading Products",
+                "relatedUiObject": "Project Trading Products",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -16803,9 +16853,9 @@
         "propertyNameAtParent": "tradingMinesData",
         "properties": [
             {
-                "name": "exchangeTradingProducts",
+                "name": "projectTradingProducts",
                 "type": "array",
-                "childType": "Exchange Trading Products"
+                "childType": "Project Trading Products"
             }
         ]
     },

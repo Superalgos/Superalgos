@@ -4,6 +4,7 @@ function newSuperalgosFunctionLibraryChartingSpaceFunctions() {
         addAllLayerPolygons: addAllLayerPolygons,
         addAllMineLayers: addAllMineLayers,
         addMissingDashboards: addMissingDashboards,
+        addMissingProjectDashboards: addMissingProjectDashboards, 
         addMissingTimeMachines: addMissingTimeMachines,
         createTimeMachine: createTimeMachine
     }
@@ -299,6 +300,26 @@ function newSuperalgosFunctionLibraryChartingSpaceFunctions() {
                     let dashboard = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Dashboard')
                     dashboard.payload.referenceParent = productionTradingTasks
                     dashboard.name = productionTradingTasks.type + ' ' + networkNode.name
+                }
+            }
+        }
+    }
+
+    function addMissingProjectDashboards(node, rootNodes) {
+        for (let k = 0; k < PROJECTS_SCHEMA.length; k++) {
+            let projectDefinition = PROJECTS_SCHEMA[k]
+            let project = projectDefinition.name
+
+            for (let j = 0; j < rootNodes.length; j++) {
+                let rootNode = rootNodes[j]
+                if (rootNode.type === project + ' Project') {
+                    let projectDefinition = rootNode.projectDefinition
+                    if (projectDefinition !== undefined) {
+                        if (UI.projects.superalgos.utilities.children.isMissingChildren(node, projectDefinition, true) === true) {
+                            let projectTasks = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Project Dashboards')
+                            projectTasks.payload.referenceParent = projectDefinition
+                        }
+                    }
                 }
             }
         }

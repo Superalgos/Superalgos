@@ -14591,17 +14591,17 @@
             },
             {
                 "action": "Add UI Object",
-                "label": "Add Dashboard",
-                "relatedUiObject": "Dashboard",
+                "label": "Add Project Dashboards",
+                "relatedUiObject": "Project Dashboards",
                 "actionFunction": "payload.executeAction"
             },
             {
-                "action": "Add Missing Dashboards",
-                "label": "Add Missing Dashboards",
+                "action": "Add Missing Project Dashboards",
+                "label": "Add Missing Projects",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Proceed",
                 "workDoneLabel": "Done",
-                "relatedUiObject": "Dashboard",
+                "relatedUiObject": "Project Dashboards",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -14637,11 +14637,58 @@
                 "autoAdd": true
             },
             {
+                "name": "projectDashboards",
+                "type": "array",
+                "childType": "Project Dashboards" 
+            }
+        ]
+    },
+    {
+        "type": "Project Dashboards",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Dashboard",
+                "relatedUiObject": "Dashboard",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add Missing Dashboards",
+                "label": "Add Missing Dashboards",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Dashboard",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "title": [
+            "Use Reference Parent"
+        ],
+        "alternativeIcons": "Use Reference Parent Parent",
+        "addLeftIcons": true,
+        "level": 2,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Project Definition->"
+        },
+        "propertyNameAtParent": "projectDashboards",
+        "properties": [
+            {
                 "name": "dashboards",
                 "type": "array",
                 "childType": "Dashboard"
             }
-        ]
+        ],
+        "icon": "bitcoin"
     },
     {
         "type": "Dashboard",
@@ -14677,7 +14724,7 @@
             "compatibleTypes": "->Testing Trading Tasks->Production Trading Tasks->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Charting Space->"
+            "compatibleTypes": "->Project Dashboards->"
         },
         "propertyNameAtParent": "dashboards",
         "properties": [

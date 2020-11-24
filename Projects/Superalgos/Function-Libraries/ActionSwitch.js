@@ -492,6 +492,11 @@ function newSuperalgosActionSwitch() {
                     UI.projects.superalgos.functionLibraries.chartingSpaceFunctions.addMissingDashboards(action.node, action.rootNodes)
                 }
                 break
+            case 'Add Missing Project Dashboards':
+                {
+                    UI.projects.superalgos.functionLibraries.chartingSpaceFunctions.addMissingProjectDashboards(action.node, action.rootNodes)
+                }
+                break
             case 'Play Tutorial':
                 {
                     UI.projects.superalgos.spaces.tutorialSpace.playTutorial(action.node)

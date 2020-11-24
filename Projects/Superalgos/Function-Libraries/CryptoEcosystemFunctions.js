@@ -423,7 +423,7 @@ function newSuperalgosFunctionLibraryCryptoEcosystemFunctions() {
 
                         function installTheRestOfTheBranch(projectDataProducts) {
                             let exchangeDataProducts = UI.projects.superalgos.utilities.children.findOrCreateChildWithReference(projectDataProducts, 'Exchange Data Products', cryptoExchange)
-                            exchangeDataProducts.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_90
+                            exchangeDataProducts.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
                             let marketDataProducts = UI.projects.superalgos.utilities.children.findAndRecreateChildWithReference(exchangeDataProducts, 'Market Data Products', market, rootNodes)
                             marketDataProducts.payload.floatingObject.collapseToggle()
 
@@ -463,7 +463,7 @@ function newSuperalgosFunctionLibraryCryptoEcosystemFunctions() {
                         function installTheRestOfTheBranch(projectLearningProducts) {
 
                             let exchangeLearningProducts = UI.projects.superalgos.utilities.children.findOrCreateChildWithReference(projectLearningProducts, 'Exchange Learning Products', cryptoExchange)
-                            exchangeLearningProducts.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_90
+                            exchangeLearningProducts.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
                             let marketLearningProducts = UI.projects.superalgos.utilities.children.findAndRecreateChildWithReference(exchangeLearningProducts, 'Market Learning Products', market, rootNodes)
                             marketLearningProducts.payload.floatingObject.collapseToggle()
                             /*
@@ -518,7 +518,7 @@ function newSuperalgosFunctionLibraryCryptoEcosystemFunctions() {
                         function installTheRestOfTheBranch(projectTradingProducts) {
 
                             let exchangeTradingProducts = UI.projects.superalgos.utilities.children.findOrCreateChildWithReference(projectTradingProducts, 'Exchange Trading Products', cryptoExchange)
-                            exchangeTradingProducts.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_90
+                            exchangeTradingProducts.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
                             let marketTradingProducts = UI.projects.superalgos.utilities.children.findAndRecreateChildWithReference(exchangeTradingProducts, 'Market Trading Products', market, rootNodes)
                             marketTradingProducts.payload.floatingObject.collapseToggle()
                             /*

@@ -545,50 +545,67 @@ function newSuperalgosFunctionLibraryCryptoEcosystemFunctions() {
             }
 
             function installInChartingSpace(chartingSpace) {
+                /*
+                We will make ourserves sure that the Project Data Tasks nodes are there.
+                */
+                chartingSpace.payload.uiObject.menu.internalClick('Add Missing Project Dashboards')
+                chartingSpace.payload.uiObject.menu.internalClick('Add Missing Project Dashboards')
 
-                for (let i = 0; i < dashboardsArray.length; i++) {
-                    /*
-                    If the Dashboard we need is not already there we create a new one. 
-                    */
-                    let arrayItem = dashboardsArray[i]
-                    let dashboard = UI.projects.superalgos.utilities.children.findOrCreateChildWithReference(chartingSpace, 'Dashboard', arrayItem.environmentNode)
-                    dashboard.name = arrayItem.environmentNode.type + ' ' + arrayItem.networkNode.name
-                    /*
-                    We delete all the existing Time Machines related to the market we are currently installing. 
-                    For that, we make a new array with the existing Time Machines so that the deleting
-                    of each node does not affect the proccessing of the whole set.
-                    */
-                    let timeMachines = []
-                    for (let i = 0; i < dashboard.timeMachines.length; i++) {
-                        let timeMachine = dashboard.timeMachines[i]
-                        timeMachines.push(timeMachine)
+                for (let i = 0; i < chartingSpace.projectDashboards.length; i++) {
+                    let projectDashboards = chartingSpace.projectDashboards[i]
+                    projectDashboards.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_90
+
+                    if (projectDashboards.project === "Superalgos") {
+                        installTheRestOfTheBranch(projectDashboards)
                     }
-                    for (let i = 0; i < timeMachines.length; i++) {
-                        let timeMachine = timeMachines[i]
-                        let session = timeMachine.payload.referenceParent
-                        if (session === undefined || session.cleaned === true) {
-                            /* 
-                            This is what usually happens, that the intall process make these 
-                            time machines to lose their reference parent since the install
-                            process deletes them.
-                            */
-                            UI.projects.superalgos.functionLibraries.nodeDeleter.deleteUIObject(timeMachine, rootNodes)
-                            continue
+                }
+
+                function installTheRestOfTheBranch(projectDashboards) {
+
+                    for (let i = 0; i < dashboardsArray.length; i++) {
+                        /*
+                        If the Dashboard we need is not already there we create a new one. 
+                        */
+                        let arrayItem = dashboardsArray[i]
+                        let dashboard = UI.projects.superalgos.utilities.children.findOrCreateChildWithReference(projectDashboards, 'Dashboard', arrayItem.environmentNode)
+                        dashboard.name = arrayItem.environmentNode.type + ' ' + arrayItem.networkNode.name
+                        /*
+                        We delete all the existing Time Machines related to the market we are currently installing. 
+                        For that, we make a new array with the existing Time Machines so that the deleting
+                        of each node does not affect the proccessing of the whole set.
+                        */
+                        let timeMachines = []
+                        for (let i = 0; i < dashboard.timeMachines.length; i++) {
+                            let timeMachine = dashboard.timeMachines[i]
+                            timeMachines.push(timeMachine)
                         }
-                        let marketTradingTasks = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
-                        if (marketTradingTasks === undefined) { continue }
-                        if (marketTradingTasks.payload === undefined) { continue }
-                        if (marketTradingTasks.payload.referenceParent === undefined) { continue }
-                        if (marketTradingTasks.payload.referenceParent.id === market.id) {
-                            UI.projects.superalgos.functionLibraries.nodeDeleter.deleteUIObject(timeMachine, rootNodes)
+                        for (let i = 0; i < timeMachines.length; i++) {
+                            let timeMachine = timeMachines[i]
+                            let session = timeMachine.payload.referenceParent
+                            if (session === undefined || session.cleaned === true) {
+                                /* 
+                                This is what usually happens, that the intall process make these 
+                                time machines to lose their reference parent since the install
+                                process deletes them.
+                                */
+                                UI.projects.superalgos.functionLibraries.nodeDeleter.deleteUIObject(timeMachine, rootNodes)
+                                continue
+                            }
+                            let marketTradingTasks = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
+                            if (marketTradingTasks === undefined) { continue }
+                            if (marketTradingTasks.payload === undefined) { continue }
+                            if (marketTradingTasks.payload.referenceParent === undefined) { continue }
+                            if (marketTradingTasks.payload.referenceParent.id === market.id) {
+                                UI.projects.superalgos.functionLibraries.nodeDeleter.deleteUIObject(timeMachine, rootNodes)
+                            }
                         }
-                    }
-                    /*
-                    We create a time machine for each session added during the previous processing. 
-                    */
-                    for (let j = 0; j < arrayItem.sessionsArray.length; j++) {
-                        let session = arrayItem.sessionsArray[j]
-                        UI.projects.superalgos.functionLibraries.chartingSpaceFunctions.createTimeMachine(dashboard, session, node, arrayItem.networkNode, rootNodes)
+                        /*
+                        We create a time machine for each session added during the previous processing. 
+                        */
+                        for (let j = 0; j < arrayItem.sessionsArray.length; j++) {
+                            let session = arrayItem.sessionsArray[j]
+                            UI.projects.superalgos.functionLibraries.chartingSpaceFunctions.createTimeMachine(dashboard, session, node, arrayItem.networkNode, rootNodes)
+                        }
                     }
                 }
             }

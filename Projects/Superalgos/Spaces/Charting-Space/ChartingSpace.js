@@ -310,7 +310,7 @@ function newSuperalgosChartingSpace() {
             if (timeMachine.payload.node.id === node.id) {
                 return timeMachine
             }
-        } 
+        }
     }
 
     function syncWithDesigner() {
@@ -318,19 +318,22 @@ function newSuperalgosChartingSpace() {
         if (thisObject.payload.node === undefined) { return }
         syncWithDesignerLoop = syncWithDesignerLoop + 0.00000000001
 
-        if (thisObject.payload.node.dashboards !== undefined) {
-            for (let i = 0; i < thisObject.payload.node.dashboards.length; i++) {
-                let dashboard = thisObject.payload.node.dashboards[i]
-                if (dashboard.timeMachines !== undefined) {
-                    for (let j = 0; j < dashboard.timeMachines.length; j++) {
-                        let node = dashboard.timeMachines[j]
-                        let timeMachine = timeMachinesMap.get(node.id)
-                        if (timeMachine === undefined) {
-                            /* The time machine node is new, thus we need to initialize a new timeMachine */
-                            initializeTimeMachine(node, syncWithDesignerLoop)
-                        } else {
-                            /* The time machine already exists, we tag it as existing at the current loop. */
-                            timeMachine.syncWithDesignerLoop = syncWithDesignerLoop
+        for (let k = 0; k < thisObject.payload.node.projectDashboards.length; k++) {
+            let projectDashboards = thisObject.payload.node.projectDashboards[k]
+            if (projectDashboards.dashboards !== undefined) {
+                for (let i = 0; i < projectDashboards.dashboards.length; i++) {
+                    let dashboard = projectDashboards.dashboards[i]
+                    if (dashboard.timeMachines !== undefined) {
+                        for (let j = 0; j < dashboard.timeMachines.length; j++) {
+                            let node = dashboard.timeMachines[j]
+                            let timeMachine = timeMachinesMap.get(node.id)
+                            if (timeMachine === undefined) {
+                                /* The time machine node is new, thus we need to initialize a new timeMachine */
+                                initializeTimeMachine(node, syncWithDesignerLoop)
+                            } else {
+                                /* The time machine already exists, we tag it as existing at the current loop. */
+                                timeMachine.syncWithDesignerLoop = syncWithDesignerLoop
+                            }
                         }
                     }
                 }

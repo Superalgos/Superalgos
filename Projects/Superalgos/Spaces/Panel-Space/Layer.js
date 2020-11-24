@@ -165,6 +165,7 @@ function newLayer() {
                 'Trading Session Reference->Learning Session Reference->' +
                 'Market Trading Products->Exchange Trading Products->' +
                 'Market Learning Products->Exchange Learning Products->' +
+                'Project Data Products->Project Learning Products->Project Trading Products->' +
                 'Data Mines Data->Trading Mines Data->Learning Mines Data->Data Storage->Network Node->' +
                 'Data Storage->Network Node->' +
                 'Backtesting Session->Paper Trading Session->Forward Testing Session->Live Trading Session->' +

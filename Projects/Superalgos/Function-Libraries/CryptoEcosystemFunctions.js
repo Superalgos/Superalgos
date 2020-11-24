@@ -260,7 +260,7 @@ function newSuperalgosFunctionLibraryCryptoEcosystemFunctions() {
 
                     installDataTasksTasks()
                     installLearningTasksTasks()
-                    isntallTradingMiningTasks()
+                    isntallTradingTasksTasks()
 
                     installDataMinesData()
                     installLearningMinesData()
@@ -306,7 +306,7 @@ function newSuperalgosFunctionLibraryCryptoEcosystemFunctions() {
                         learningSessionsCreatedArray = learningSessionsCreatedArray.concat(learningSessionsArray)
                     }
 
-                    function isntallTradingMiningTasks() {
+                    function isntallTradingTasksTasks() {
                         /*
                         Next we complete the missing stuff at Testing Trading Tasks
                         */

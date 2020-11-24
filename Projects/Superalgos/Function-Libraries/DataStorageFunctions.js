@@ -226,23 +226,18 @@ function newSuperalgosFunctionLibraryDataStorageFunctions() {
     }
 
     function addMissingProject(node, rootNodes, newNodeType) {
-        let url = 'ProjectNames'
-        httpRequest(undefined, url, onResponse)
+        for (let k = 0; k < PROJECTS_SCHEMA.length; k++) {
+            let projectDefinition = PROJECTS_SCHEMA[k]
+            let project = projectDefinition.name
 
-        function onResponse(err, pProjects) {
-            let projects = JSON.parse(pProjects)
-            for (let i = 0; i < projects.length; i++) {
-                let project = projects[i]
-
-                for (let j = 0; j < rootNodes.length; j++) {
-                    let rootNode = rootNodes[j]
-                    if (rootNode.type === project + ' Project') {
-                        let projectDefinition = rootNode.projectDefinition
-                        if (projectDefinition !== undefined) {
-                            if (UI.projects.superalgos.utilities.children.isMissingChildren(node, projectDefinition, true) === true) {
-                                let projectTasks = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType)
-                                projectTasks.payload.referenceParent = projectDefinition
-                            }
+            for (let j = 0; j < rootNodes.length; j++) {
+                let rootNode = rootNodes[j]
+                if (rootNode.type === project + ' Project') {
+                    let projectDefinition = rootNode.projectDefinition
+                    if (projectDefinition !== undefined) {
+                        if (UI.projects.superalgos.utilities.children.isMissingChildren(node, projectDefinition, true) === true) {
+                            let projectTasks = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType)
+                            projectTasks.payload.referenceParent = projectDefinition
                         }
                     }
                 }

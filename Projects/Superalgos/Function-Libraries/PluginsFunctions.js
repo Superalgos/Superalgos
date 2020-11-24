@@ -36,20 +36,15 @@ function newSuperalgosFunctionLibraryPluginsFunctions() {
     }
 
     function pluginMissingProjects(node, rootNodes) {
-        let url = 'ProjectNames'
-        httpRequest(undefined, url, onResponse)
-
-        function onResponse(err, pProjects) {
-            let projects = JSON.parse(pProjects)
-            for (let i = 0; i < projects.length; i++) {
-                let project = projects[i]
-                if (UI.projects.superalgos.utilities.children.isMissingChildrenByName(node, project) === true) {
-                    let child = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Plugin Project')
-                    child.name = project
-                    let config = JSON.parse(child.config)
-                    config.codeName = project
-                    child.config = JSON.stringify(config)
-                }
+        for (let k = 0; k < PROJECTS_SCHEMA.length; k++) {
+            let projectDefinition = PROJECTS_SCHEMA[k]
+            let project = projectDefinition.name
+            if (UI.projects.superalgos.utilities.children.isMissingChildrenByName(node, project) === true) {
+                let child = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Plugin Project')
+                child.name = project
+                let config = JSON.parse(child.config)
+                config.codeName = project
+                child.config = JSON.stringify(config)
             }
         }
     }

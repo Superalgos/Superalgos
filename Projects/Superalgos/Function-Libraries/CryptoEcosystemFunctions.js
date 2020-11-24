@@ -423,7 +423,7 @@ function newSuperalgosFunctionLibraryCryptoEcosystemFunctions() {
 
                         function installTheRestOfTheBranch(projectDataProducts) {
                             let exchangeDataProducts = UI.projects.superalgos.utilities.children.findOrCreateChildWithReference(projectDataProducts, 'Exchange Data Products', cryptoExchange)
-                            exchangeDataProducts.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_45
+                            exchangeDataProducts.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_90
                             let marketDataProducts = UI.projects.superalgos.utilities.children.findAndRecreateChildWithReference(exchangeDataProducts, 'Market Data Products', market, rootNodes)
                             marketDataProducts.payload.floatingObject.collapseToggle()
 
@@ -463,7 +463,7 @@ function newSuperalgosFunctionLibraryCryptoEcosystemFunctions() {
                         function installTheRestOfTheBranch(projectLearningProducts) {
 
                             let exchangeLearningProducts = UI.projects.superalgos.utilities.children.findOrCreateChildWithReference(projectLearningProducts, 'Exchange Learning Products', cryptoExchange)
-                            exchangeLearningProducts.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_45
+                            exchangeLearningProducts.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_90
                             let marketLearningProducts = UI.projects.superalgos.utilities.children.findAndRecreateChildWithReference(exchangeLearningProducts, 'Market Learning Products', market, rootNodes)
                             marketLearningProducts.payload.floatingObject.collapseToggle()
                             /*
@@ -518,7 +518,7 @@ function newSuperalgosFunctionLibraryCryptoEcosystemFunctions() {
                         function installTheRestOfTheBranch(projectTradingProducts) {
 
                             let exchangeTradingProducts = UI.projects.superalgos.utilities.children.findOrCreateChildWithReference(projectTradingProducts, 'Exchange Trading Products', cryptoExchange)
-                            exchangeTradingProducts.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_45
+                            exchangeTradingProducts.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_90
                             let marketTradingProducts = UI.projects.superalgos.utilities.children.findAndRecreateChildWithReference(exchangeTradingProducts, 'Market Trading Products', market, rootNodes)
                             marketTradingProducts.payload.floatingObject.collapseToggle()
                             /*
@@ -553,7 +553,7 @@ function newSuperalgosFunctionLibraryCryptoEcosystemFunctions() {
 
                 for (let i = 0; i < chartingSpace.projectDashboards.length; i++) {
                     let projectDashboards = chartingSpace.projectDashboards[i]
-                    projectDashboards.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_90
+                    projectDashboards.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
 
                     if (projectDashboards.project === "Superalgos") {
                         installTheRestOfTheBranch(projectDashboards)
@@ -651,7 +651,20 @@ function newSuperalgosFunctionLibraryCryptoEcosystemFunctions() {
                 for (let i = 0; i < dashboardArray.length; i++) {
                     let dashboard = dashboardArray[i]
                     if (dashboard.timeMachines.length === 0) {
+                        /* 
+                        If possible, after we delete the dashboards, we will also
+                        delete the project reference.
+                        */
+                        let projectReference = dashboard.payload.parentNode
+                        nodeDefinition = getNodeDefinition(dashboard)
                         UI.projects.superalgos.functionLibraries.nodeDeleter.deleteUIObject(dashboard, rootNodes)
+                        if (projectReference !== undefined && nodeDefinition.propertyNameAtParent !== undefined) {
+                            if (projectReference[nodeDefinition.propertyNameAtParent] !== undefined) {
+                                if (projectReference[nodeDefinition.propertyNameAtParent].length === 0) {
+                                    UI.projects.superalgos.functionLibraries.nodeDeleter.deleteUIObject(projectReference, rootNodes)
+                                }
+                            }
+                        }
                     }
                 }
 
@@ -686,7 +699,29 @@ function newSuperalgosFunctionLibraryCryptoEcosystemFunctions() {
                         if (marketReference.payload === undefined) { continue }
                         if (marketReference.payload.referenceParent === undefined) { continue }
                         if (marketReference.payload.referenceParent.id === market.id) {
+                            /* 
+                            If possible, after we delete the market reference, we will also
+                            delete the exchange reference.
+                            */
+                            let exchangeReference = marketReference.payload.parentNode
+                            let nodeDefinition = getNodeDefinition(marketReference)
                             UI.projects.superalgos.functionLibraries.nodeDeleter.deleteUIObject(marketReference, rootNodes)
+                            if (exchangeReference !== undefined && nodeDefinition.propertyNameAtParent !== undefined) {
+                                if (exchangeReference[nodeDefinition.propertyNameAtParent].length === 0) {
+                                    /* 
+                                    If possible, after we delete the exchange reference, we will also
+                                    delete the project reference.
+                                    */
+                                    let projectReference = exchangeReference.payload.parentNode
+                                    nodeDefinition = getNodeDefinition(exchangeReference)
+                                    UI.projects.superalgos.functionLibraries.nodeDeleter.deleteUIObject(exchangeReference, rootNodes)
+                                    if (projectReference !== undefined && nodeDefinition.propertyNameAtParent !== undefined) {
+                                        if (projectReference[nodeDefinition.propertyNameAtParent].length === 0) {
+                                            UI.projects.superalgos.functionLibraries.nodeDeleter.deleteUIObject(projectReference, rootNodes)
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }

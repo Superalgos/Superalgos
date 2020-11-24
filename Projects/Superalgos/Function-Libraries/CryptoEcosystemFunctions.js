@@ -291,7 +291,7 @@ function newSuperalgosFunctionLibraryCryptoEcosystemFunctions() {
 
                         function installTheRestOfTheBranch(projectDataTasks) {
                             let exchangeDataTasks = UI.projects.superalgos.utilities.children.findOrCreateChildWithReference(projectDataTasks, 'Exchange Data Tasks', cryptoExchange)
-                            exchangeDataTasks.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_90
+                            exchangeDataTasks.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
                             let marketDataTask = UI.projects.superalgos.utilities.children.findAndRecreateChildWithReference(exchangeDataTasks, 'Market Data Tasks', market, rootNodes)
 
                             UI.projects.superalgos.utilities.menu.menuClick(marketDataTask, 'Add Missing Data Mine Tasks', true)
@@ -324,7 +324,7 @@ function newSuperalgosFunctionLibraryCryptoEcosystemFunctions() {
 
                         function installTheRestOfTheBranch(projectLearningTasks) {
                             let exchangeLearningTasks = UI.projects.superalgos.utilities.children.findOrCreateChildWithReference(projectLearningTasks, 'Exchange Learning Tasks', cryptoExchange)
-                            exchangeLearningTasks.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_90
+                            exchangeLearningTasks.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
                             let marketLearningTask = UI.projects.superalgos.utilities.children.findAndRecreateChildWithReference(exchangeLearningTasks, 'Market Learning Tasks', market, rootNodes)
 
                             UI.projects.superalgos.utilities.menu.menuClick(marketLearningTask, 'Add Missing Learning Mine Tasks', true)
@@ -371,7 +371,7 @@ function newSuperalgosFunctionLibraryCryptoEcosystemFunctions() {
 
                             function installTheRestOfTheBranch(projectTradingTasks) {
                                 let exchangeTradingTasks = UI.projects.superalgos.utilities.children.findOrCreateChildWithReference(projectTradingTasks, 'Exchange Trading Tasks', cryptoExchange)
-                                exchangeTradingTasks.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_90
+                                exchangeTradingTasks.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
                                 let marketTradingTask = UI.projects.superalgos.utilities.children.findAndRecreateChildWithReference(exchangeTradingTasks, 'Market Trading Tasks', market, rootNodes)
 
                                 UI.projects.superalgos.utilities.menu.menuClick(marketTradingTask, 'Add Missing Trading Mine Tasks', true)

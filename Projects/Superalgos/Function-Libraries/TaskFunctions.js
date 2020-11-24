@@ -723,8 +723,9 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
                                 if (node.payload.parentNode.payload.parentNode === undefined) { return }
                                 if (node.payload.parentNode.payload.parentNode.payload === undefined) { return }
                                 if (node.payload.parentNode.payload.parentNode.payload.parentNode === undefined) { return }
+                                if (node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) { return }
 
-                                let environment = node.payload.parentNode.payload.parentNode.payload.parentNode
+                                let environment = node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode
                                 let session
 
                                 switch (environment.type) {

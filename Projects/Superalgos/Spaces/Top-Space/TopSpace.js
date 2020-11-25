@@ -24,7 +24,7 @@ function newSuperalgosTopSpace() {
         logoImage = new Image()
 
         loadImage('superalgos-header-background', backgroundImage)
-        loadImage('superalgos-logo-for-color-background', logoImage)
+        loadImage('sa-beta8-logo-horiz-dark', logoImage)
 
         function loadImage(name, image) {
             const PATH = 'Images/'

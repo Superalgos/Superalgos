@@ -27,6 +27,12 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Add UI Object",
+                "label": "Add Data Mine",
+                "relatedUiObject": "Data Mine",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -47,7 +53,7 @@
                 "name": "projectDefinition",
                 "type": "node",
                 "childType": "Project Definition",
-                "project" : "Superalgos",
+                "project": "Superalgos",
                 "autoAdd": true
             }
         ]
@@ -209,7 +215,7 @@
         "propertyNameAtParent": "ethBalance",
         "icon": "ethereum"
     },
-        {
+    {
         "type": "Token Balance",
         "menuItems": [
             {
@@ -722,8 +728,7 @@
             "compatibleTypes": "->Data Tasks->"
         },
         "propertyNameAtParent": "projectDataTasks",
-        "properties": [
-        ],
+        "properties": [],
         "icon": "bitcoin"
     },
     {
@@ -752,8 +757,7 @@
             "compatibleTypes": "->Learning Tasks->"
         },
         "propertyNameAtParent": "projectLearningTasks",
-        "properties": [
-        ],
+        "properties": [],
         "icon": "bitcoin"
     },
     {
@@ -782,8 +786,7 @@
             "compatibleTypes": "->Trading Tasks->"
         },
         "propertyNameAtParent": "projectTradingTasks",
-        "properties": [
-        ],
+        "properties": [],
         "icon": "bitcoin"
     },
     {
@@ -812,8 +815,7 @@
             "compatibleTypes": "->Data Mines Data->"
         },
         "propertyNameAtParent": "projectDataProducts",
-        "properties": [
-        ],
+        "properties": [],
         "icon": "bitcoin"
     },
     {
@@ -842,8 +844,7 @@
             "compatibleTypes": "->Learning Mine Data->"
         },
         "propertyNameAtParent": "projectLearningProducts",
-        "properties": [
-        ],
+        "properties": [],
         "icon": "bitcoin"
     },
     {
@@ -872,8 +873,7 @@
             "compatibleTypes": "->Trading Mine Data->"
         },
         "propertyNameAtParent": "projectTradingProducts",
-        "properties": [
-        ],
+        "properties": [],
         "icon": "bitcoin"
     },
     {
@@ -902,8 +902,117 @@
             "compatibleTypes": "->Charting Space->"
         },
         "propertyNameAtParent": "projectDashboards",
-        "properties": [
-        ],
+        "properties": [],
         "icon": "bitcoin"
+    },
+    {
+        "type": "Data Mine",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Blockchain Scanner Bot",
+                "relatedUiObject": "Blockchain Scanner Bot",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "isHierarchyHead": true,
+        "addLeftIcons": true,
+        "editors": {
+            "config": true
+        },
+        "level": 0,
+        "initialValues": {
+            "config": "{ \n\"codeName\": \"Type a name with no spaces or dashes\"\n}"
+        },
+        "properties": [
+            {
+                "name": "blockchainScannerBots",
+                "type": "array",
+                "childType": "Blockchain Scanner Bot"
+            }
+        ],
+        "icon": "ethereum"
+    },
+    {
+        "type": "Blockchain Scanner Bot",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Process Definition",
+                "relatedUiObject": "Process Definition",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Product Definition",
+                "relatedUiObject": "Product Definition",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "addLeftIcons": true,
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n  \"codeName\": \"\"\n}"
+        },
+        "level": 1,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Data Mine->"
+        },
+        "properties": [
+            {
+                "name": "processes",
+                "type": "array",
+                "childType": "Process Definition",
+                "project": "Superalgos",
+                "autoAdd": true
+            },
+            {
+                "name": "products",
+                "type": "array",
+                "childType": "Product Definition",
+                "project": "Superalgos",
+                "autoAdd": true
+            }
+        ],
+        "propertyNameAtParent": "blockchainScannerBots",
+        "icon": "ethereum"
     }
 ]

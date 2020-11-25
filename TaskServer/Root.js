@@ -61,16 +61,6 @@
 
     function start(processIndex) {
         try {
-
-            /* Now we will run according to what we see at the config file. */
-
-            /* Small Function to fix numbers into strings in a cool way. */
-
-            function pad(str, max) {
-                str = str.toString();
-                return str.length < max ? pad("0" + str, max) : str;
-            }
-
             /* Process Loops Declarations. */
 
             const INDICATOR_BOT_MODULE = require('./IndicatorBot');
@@ -111,6 +101,7 @@
                         processInstance.referenceParent.parentNode.config.repo + // bot
                         '/this.bot.config.json'
 
+                    console.log('Reading Bot Config File al: ' + filePath)    
                     fileStorage.getTextFile(filePath, onFileReceived);
 
                     function onFileReceived(err, text) {

@@ -66,68 +66,10 @@
             const INDICATOR_BOT_MODULE = require('./IndicatorBot');
             const SENSOR_BOT = require('./SensorBot');
             const TRADING_BOT_MODULE = require('./TradingBot');
-
-            let botConfig;
+            
             let processInstance = global.TASK_NODE.bot.processes[processIndex]
-
-            /* Here we will check if we need to load the configuration and code of the bot from a file or we will take that from the UI. */
-            if (
-                processInstance.referenceParent.config.framework !== undefined &&
-                (processInstance.referenceParent.config.framework.name === 'Multi-Period-Market' ||
-                    processInstance.referenceParent.config.framework.name === 'Multi-Period-Daily' ||
-                    processInstance.referenceParent.config.framework.name === 'Low-Frequency-Trading-Process')
-            ) {
-                botConfig = processInstance.referenceParent.parentNode.config
-                botConfig.definedByUI = true
-                bootingBot(processIndex)
-                return
-            } else {
-                getBotConfigFromFile();
-                return
-            }
-
-            function getBotConfigFromFile() {
-
-                try {
-
-                    const FILE_STORAGE = require('./FileStorage.js');
-                    let fileStorage = FILE_STORAGE.newFileStorage();
-
-                    let filePath =
-                        global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.project +    // project
-                        '/Bots-Plotters-Code/' +
-                        global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + // mine
-                        '/bots/' +
-                        processInstance.referenceParent.parentNode.config.repo + // bot
-                        '/this.bot.config.json'
-
-                    console.log('Reading Bot Config File al: ' + filePath)    
-                    fileStorage.getTextFile(filePath, onFileReceived);
-
-                    function onFileReceived(err, text) {
-
-                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                            console.log(logDisplace + "Root : [ERROR] start -> getBotConfigFromFile -> onInizialized -> onFileReceived -> err = " + JSON.stringify(err));
-                            console.log(logDisplace + "Root : [ERROR] start -> getBotConfigFromFile -> onInizialized -> onFileReceived -> filePath = " + filePath);
-                            console.log(logDisplace + "Root : [ERROR] start -> getBotConfigFromFile -> onInizialized -> onFileReceived -> dataMine = " + global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName);
-                            return;
-                        }
-
-                        try {
-                            botConfig = JSON.parse(text);
-                            botConfig.repo = global.TASK_NODE.bot.config.repo;
-                            bootingBot(processIndex);
-                        } catch (err) {
-                            console.log(logDisplace + "Root : [ERROR] start -> getBotConfigFromFile -> onInizialized -> onFileReceived -> err = " + err.stack);
-                            return;
-                        }
-                    }
-                }
-                catch (err) {
-                    console.log(logDisplace + "Root : [ERROR] start -> getBotConfigFromFile -> err = " + err.stack);
-                    return;
-                }
-            }
+            let botConfig = processInstance.referenceParent.parentNode.config
+            bootingBot(processIndex)
 
             function bootingBot(processIndex) {
 

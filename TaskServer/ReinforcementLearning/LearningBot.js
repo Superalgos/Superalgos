@@ -28,7 +28,7 @@ exports.newLearningBot = function newLearningBot(bot, parentLogger) {
         /*  This function is exactly the same in the 3 modules representing the 2 different bot types loops. */
         try {
             processConfig = pProcessConfig;
-            if (bot.definedByUI === true) {
+            if (bot.repo === undefined) {
                 /* The code of the bot is defined at the UI. No need to load a file with the code. */
                 session.initialize(processConfig, callBackFunction)
             }

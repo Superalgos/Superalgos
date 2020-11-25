@@ -28,7 +28,7 @@
         try {
             processConfig = pProcessConfig;
 
-            if (bot.definedByUI === true) {
+            if (bot.repo === undefined) {
                 /* The code of the bot is defined at the UI. No need to load a file with the code. */
                 callBackFunction(global.DEFAULT_OK_RESPONSE);
                 return

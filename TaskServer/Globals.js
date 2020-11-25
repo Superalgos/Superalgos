@@ -365,7 +365,7 @@ exports.newGlobals = function newGlobals() {
         global.EXIT_NODE_PROCESS = function exitProcess() {
 
             if (global.unexpectedError !== undefined) {
-                global.taskError(undefined, "An unexpected error caused the Task to stop.")
+                global.TASK_ERROR(undefined, "An unexpected error caused the Task to stop.")
             }
 
             if (global.SHUTTING_DOWN_PROCESS === true) { return }
@@ -408,7 +408,7 @@ exports.newGlobals = function newGlobals() {
 
         global.STOP_TASK_GRACEFULLY = false;
 
-        global.getPercentage = function (fromDate, currentDate, lastDate) {
+        global.GET_PERCENTAGE = function (fromDate, currentDate, lastDate) {
             let fromDays = Math.trunc(fromDate.valueOf() / global.ONE_DAY_IN_MILISECONDS)
             let currentDays = Math.trunc(currentDate.valueOf() / global.ONE_DAY_IN_MILISECONDS)
             let lastDays = Math.trunc(lastDate.valueOf() / global.ONE_DAY_IN_MILISECONDS)
@@ -419,7 +419,7 @@ exports.newGlobals = function newGlobals() {
             return percentage
         }
         
-        global.areEqualDates = function (date1, date2) {
+        global.GET_EQUAL_DATES = function (date1, date2) {
             let day1Days = Math.trunc(date1.valueOf() / global.ONE_DAY_IN_MILISECONDS)
             let day2Days = Math.trunc(date2.valueOf() / global.ONE_DAY_IN_MILISECONDS)
         
@@ -428,6 +428,24 @@ exports.newGlobals = function newGlobals() {
             } else {
                 return false
             }
+        }
+
+        global.TASK_ERROR = function taskError(node, errorMessage) {
+            let event
+            if (node !== undefined) {
+                event = {
+                    nodeName: node.name,
+                    nodeType: node.type,
+                    nodeId: node.id,
+                    errorMessage: errorMessage
+                }
+            } else {
+                event = {
+                    errorMessage: errorMessage
+                }
+            }
+    
+            global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(key, 'Error', event)
         }
     }
 }

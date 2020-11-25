@@ -281,10 +281,10 @@
                             /*  Telling the world we are alive and doing well */
                             let currentDateString = processDate.getUTCFullYear() + '-' + utilities.pad(processDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(processDate.getUTCDate(), 2);
                             let currentDate = new Date(processDate)
-                            let percentage = global.getPercentage(fromDate, currentDate, lastDate)
+                            let percentage = global.GET_PERCENTAGE(fromDate, currentDate, lastDate)
                             bot.processHeartBeat(currentDateString, percentage) 
 
-                            if (global.areEqualDates(currentDate, new Date()) === false) {
+                            if (global.GET_EQUAL_DATES(currentDate, new Date()) === false) {
                                 logger.newInternalLoop(bot.codeName, bot.process, currentDate, percentage);
                             }
                             periodsLoop();

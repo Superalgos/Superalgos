@@ -471,7 +471,7 @@
                     thisReport.file.lastExecution = bot.processDatetime;
                     thisReport.save(callBack);
 
-                    if (global.areEqualDates(bot.processDatetime, new Date()) === false) {
+                    if (global.GET_EQUAL_DATES(bot.processDatetime, new Date()) === false) {
                         logger.newInternalLoop(bot.codeName, bot.process, bot.processDatetime);
                     }
 
@@ -479,7 +479,7 @@
                     let currentDateString = bot.processDatetime.getUTCFullYear() + '-' + utilities.pad(bot.processDatetime.getUTCMonth() + 1, 2) + '-' + utilities.pad(bot.processDatetime.getUTCDate(), 2);
                     let currentDate = new Date(bot.processDatetime)
                     let lastDate = new Date()
-                    bot.processHeartBeat(currentDateString, global.getPercentage(currentDate, currentDate, lastDate)) 
+                    bot.processHeartBeat(currentDateString, global.GET_PERCENTAGE(currentDate, currentDate, lastDate)) 
                 }
                 catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> err = " + err.stack);

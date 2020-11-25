@@ -42,9 +42,13 @@ function preLoader() {
             console.log('[ERROR] Task Server -> server -> preLoader -> global.TASK_NODE = ' + JSON.stringify(global.TASK_NODE).substring(0, 1000))
         }
     }
-    else {  /* This process was started not by the Task Manager, but independently (most likely for debugging purposes). In this case we listen to an event with the Task Info that should be emitted at the UI */
+    else {  
+        /* 
+        This process was started not by the Task Manager, but independently 
+        (most likely for debugging purposes). In this case we listen to an event 
+        with the Task Info that should be emitted at the UI 
+        */
         try {
-            //console.log('[INFO] Task Server -> server -> preLoader -> Waiting for event to start debugging...')
             global.EVENT_SERVER_CLIENT_MODULE.listenToEvent('Task Server', 'Debug Task Started', undefined, 'Task Server', undefined, startDebugging)
             function startDebugging(message) {
                 try {
@@ -93,25 +97,6 @@ function bootLoader() {
         }
         global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(key, 'Heartbeat', event)
     }
-
-    global.taskError = function taskError(node, errorMessage) {
-        let event
-        if (node !== undefined) {
-            event = {
-                nodeName: node.name,
-                nodeType: node.type,
-                nodeId: node.id,
-                errorMessage: errorMessage
-            }
-        } else {
-            event = {
-                errorMessage: errorMessage
-            }
-        }
-
-        global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(key, 'Error', event)
-    }
-
 
     for (let processIndex = 0; processIndex < global.TASK_NODE.bot.processes.length; processIndex++) {
         let config = global.TASK_NODE.bot.processes[processIndex].config

@@ -265,7 +265,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
 
                         let currentDateString = heartBeatDate.getUTCFullYear() + '-' + utilities.pad(heartBeatDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(heartBeatDate.getUTCDate(), 2)
                         let currentDate = new Date(heartBeatDate)
-                        let percentage = global.getPercentage(fromDate, currentDate, lastDate)
+                        let percentage = global.GET_PERCENTAGE(fromDate, currentDate, lastDate)
 
                         /*
                         Theere are a few tasks that we need to do only when the date changes,
@@ -279,7 +279,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Simulation ' + bot.TRADING_SESSIONKey + ' Loop # ' + tradingEngine.current.episode.candle.index.value + ' @ ' + processingDate) }
 
                             /*  Logging to console and disk */
-                            if (global.areEqualDates(currentDate, new Date()) === false) {
+                            if (global.GET_EQUAL_DATES(currentDate, new Date()) === false) {
                                 logger.newInternalLoop(bot.codeName, bot.process, currentDate, percentage)
                             }
 

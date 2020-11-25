@@ -1,7 +1,6 @@
 ﻿exports.newTradingSession = function newTradingSession(bot, parentLogger) {
 
     const MODULE_NAME = "Trading Session"
-    const FULL_LOG = true;
 
     let thisObject = {
         initialize: initialize
@@ -57,12 +56,12 @@
             function onSessionStatus() {
                 if (bot.TRADING_SESSION_STATUS === 'Running') {
                     let event = {
-                        status: 'Trading Session Runnning' 
+                        status: 'Trading Session Runnning'
                     }
                     global.EVENT_SERVER_CLIENT.raiseEvent(bot.TRADING_SESSIONKey, 'Status Response', event)
                 } else {
                     let event = {
-                        status: 'Trading Session Not Runnning' 
+                        status: 'Trading Session Not Runnning'
                     }
                     global.EVENT_SERVER_CLIENT.raiseEvent(bot.TRADING_SESSIONKey, 'Status Response', event)
                 }
@@ -71,10 +70,10 @@
             function onSessionRun(message) {
                 try {
                     /* This happens when the UI is reloaded, the session was running and tries to run it again. */
-                    if (bot.TRADING_SESSION_STATUS === 'Idle' || bot.TRADING_SESSION_STATUS === 'Running') { 
+                    if (bot.TRADING_SESSION_STATUS === 'Idle' || bot.TRADING_SESSION_STATUS === 'Running') {
                         parentLogger.write(MODULE_NAME, "[WARN] onSessionRun -> Event received to run the Session while it was already running. ")
-                        return 
-                    } 
+                        return
+                    }
 
                     /* We are going to run the Definition comming at the event. */
                     bot.TRADING_SYSTEM = JSON.parse(message.event.tradingSystem)
@@ -116,7 +115,7 @@
                         bot.STOP_SESSION = false
                     } else {
                         bot.STOP_SESSION = true
-                        if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, '[IMPORTANT] onSessionRun -> Stopping the Session now. ') }
+                        parentLogger.write(MODULE_NAME, '[IMPORTANT] onSessionRun -> Stopping the Session now. ')
                     }
 
                     socialBotsModule.sendMessage(bot.TRADING_SESSION.type + " '" + bot.TRADING_SESSION.name + "' is starting.")
@@ -131,16 +130,16 @@
 
             function onSessionResume(message) {
                 try {
-                    if (bot.TRADING_SESSION.stop === undefined) { 
+                    if (bot.TRADING_SESSION.stop === undefined) {
                         parentLogger.write(MODULE_NAME, "[WARN] onSessionResume -> Event received to resume the Session that have never be ran before. ")
-                        return 
+                        return
                     }
 
                     /* This happens when the UI is reloaded, the session was running and tries to run it again. */
-                    if (bot.TRADING_SESSION_STATUS === 'Idle' || bot.TRADING_SESSION_STATUS === 'Running') { 
+                    if (bot.TRADING_SESSION_STATUS === 'Idle' || bot.TRADING_SESSION_STATUS === 'Running') {
                         parentLogger.write(MODULE_NAME, "[WARN] onSessionResume -> Event received to resume the Session while it was already running. ")
-                        return 
-                    } 
+                        return
+                    }
 
                     bot.RESUME = true
                     bot.STOP_SESSION = false
@@ -156,7 +155,7 @@
                 socialBotsModule.sendMessage(bot.TRADING_SESSION.type + " '" + bot.TRADING_SESSION.name + "' is stopping " + commandOrigin)
                 socialBotsModule.finalize()
                 bot.STOP_SESSION = true
-                if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, '[IMPORTANT] stopSession -> Stopping the Session now. ') }
+                parentLogger.write(MODULE_NAME, '[IMPORTANT] stopSession -> Stopping the Session now. ')
                 sessionInfo(bot.TRADING_SESSION, commandOrigin)
             }
 
@@ -370,7 +369,7 @@
             function startLiveTrading(message) {
                 if (bot.KEY === undefined || bot.SECRET === undefined) {
                     let errorMessage = "Key 'codeName' or 'secret' not provided. Plese check that and try again."
-                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[ERROR] initialize -> startLiveTrading -> " + errorMessage); }
+                    parentLogger.write(MODULE_NAME, "[ERROR] initialize -> startLiveTrading -> " + errorMessage)
                     bot.TRADING_SESSIONError(bot.TRADING_SESSION, errorMessage)
                     return false
                 }
@@ -379,7 +378,7 @@
 
             function startFordwardTesting(message) {
                 if (bot.KEY === undefined || bot.SECRET === undefined) {
-                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[WARN] initialize -> startFordwardTesting -> Key name or Secret not provided, not possible to run the process in Forward Testing mode."); }
+                    parentLogger.write(MODULE_NAME, "[WARN] initialize -> startFordwardTesting -> Key name or Secret not provided, not possible to run the process in Forward Testing mode.")
                     console.log("Key 'codeName' or 'secret' not provided. Plese check that and try again.")
                     return false
                 }
@@ -441,7 +440,7 @@
 
                 if (global.STOP_TASK_GRACEFULLY === true) {
                     bot.STOP_SESSION = true
-                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, '[IMPORTANT] sessionHeartBeat -> Stopping the Session now. ') }
+                    parentLogger.write(MODULE_NAME, '[IMPORTANT] sessionHeartBeat -> Stopping the Session now. ')
                 }
             }
 
@@ -463,7 +462,7 @@
 
                 if (global.STOP_TASK_GRACEFULLY === true) {
                     bot.STOP_SESSION = true
-                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, '[IMPORTANT] sessionError -> Stopping the Session now. ') }
+                    parentLogger.write(MODULE_NAME, '[IMPORTANT] sessionError -> Stopping the Session now. ')
                 }
             }
 
@@ -485,7 +484,7 @@
 
                 if (global.STOP_TASK_GRACEFULLY === true) {
                     bot.STOP_SESSION = true
-                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, '[IMPORTANT] sessionWarning -> Stopping the Session now. ') }
+                    parentLogger.write(MODULE_NAME, '[IMPORTANT] sessionWarning -> Stopping the Session now. ')
                 }
             }
 
@@ -507,7 +506,7 @@
 
                 if (global.STOP_TASK_GRACEFULLY === true) {
                     bot.STOP_SESSION = true
-                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, '[IMPORTANT] sessionInfo -> Stopping the Session now. ') }
+                    parentLogger.write(MODULE_NAME, '[IMPORTANT] sessionInfo -> Stopping the Session now. ')
                 }
             }
 

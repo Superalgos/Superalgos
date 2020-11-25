@@ -1,6 +1,5 @@
 ﻿exports.newStatusDependencies = function newStatusDependencies(BOT, logger, STATUS_REPORT, UTILITIES, PROCESS_OUTPUT) {
 
-    const FULL_LOG = true;
     const MODULE_NAME = "Status Dependencies";
 
     let bot = BOT
@@ -66,7 +65,7 @@
                             alreadyCalledBack = true;
                             callBackFunction(err);
                         } else {
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[WARN] initialize -> Can not call back because I already did."); }
+                            logger.write(MODULE_NAME, "[WARN] initialize -> Can not call back because I already did.")
                         }
                         return;
                     }
@@ -123,7 +122,7 @@
 
                 function addReport() {
 
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> addReport -> Entering function."); }
+                    logger.write(MODULE_NAME, "[INFO] initialize -> addReport -> Entering function.")
                     logger.write(MODULE_NAME, "[INFO] initialize -> addReport -> Adding Status Report # " + (i + 1));
 
                     loadCount++;
@@ -138,7 +137,7 @@
                         thisObject.reportsByMainUtility.set(statusReportModule.mainUtility, statusReportModule)
                     }
 
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> addReport -> Report added to Map. -> key = " + key); }
+                    logger.write(MODULE_NAME, "[INFO] initialize -> addReport -> Report added to Map. -> key = " + key)
 
                     if (loadCount === dependenciesToProcess.length) {
                         if (alreadyCalledBack === false) {
@@ -146,7 +145,7 @@
                             callBackFunction(global.DEFAULT_OK_RESPONSE);
                             return;
                         } else {
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[WARN] initialize -> addReport -> Can not call back because I already did."); }
+                            logger.write(MODULE_NAME, "[WARN] initialize -> addReport -> Can not call back because I already did.")
                         }
                     }
                 }

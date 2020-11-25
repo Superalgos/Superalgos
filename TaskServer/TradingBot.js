@@ -534,7 +534,7 @@
                                 logger.persist();
                             }
 
-                            global.EVENT_SERVER_CLIENT.raiseEvent(bot.TRADING_SESSIONKey, 'Stopped')
+                            global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(bot.TRADING_SESSIONKey, 'Stopped')
                             processStopped()
                             return;
                         }
@@ -648,14 +648,14 @@
                     percentage: percentage,
                     status: status
                 }
-                global.EVENT_SERVER_CLIENT.raiseEvent(bot.processKey, 'Heartbeat', event)
+                global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(bot.processKey, 'Heartbeat', event)
             }
 
             function processStopped() {
                 if (global.unexpectedError !== undefined) {
                     global.PROCESS_ERROR(bot.processKey, undefined, "An unexpected error caused the Process to stop.")
                 } else {
-                    global.EVENT_SERVER_CLIENT.raiseEvent(bot.processKey, 'Stopped')
+                    global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(bot.processKey, 'Stopped')
                 }
                 sessionStopped()
                 logger.persist();
@@ -670,7 +670,7 @@
 
             function sessionStopped() {
                 if (bot.TRADING_SESSION_STATUS === 'Running') {
-                    global.EVENT_SERVER_CLIENT.raiseEvent(bot.TRADING_SESSIONKey, 'Stopped')
+                    global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(bot.TRADING_SESSIONKey, 'Stopped')
                     bot.TRADING_SESSION_STATUS = 'Stopped'
                 }
             }

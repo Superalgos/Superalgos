@@ -37,10 +37,10 @@
             bot.TRADING_SESSIONKey = bot.processNode.session.name + '-' + bot.processNode.session.type + '-' + bot.processNode.session.id
             global.SESSION_MAP.set(bot.TRADING_SESSIONKey, bot.TRADING_SESSIONKey)
 
-            global.EVENT_SERVER_CLIENT.listenToEvent(bot.TRADING_SESSIONKey, 'Trading Session Status', undefined, bot.TRADING_SESSIONKey, undefined, onSessionStatus)
-            global.EVENT_SERVER_CLIENT.listenToEvent(bot.TRADING_SESSIONKey, 'Run Trading Session', undefined, bot.TRADING_SESSIONKey, undefined, onSessionRun)
-            global.EVENT_SERVER_CLIENT.listenToEvent(bot.TRADING_SESSIONKey, 'Stop Trading Session', undefined, bot.TRADING_SESSIONKey, undefined, onSessionStop)
-            global.EVENT_SERVER_CLIENT.listenToEvent(bot.TRADING_SESSIONKey, 'Resume Trading Session', undefined, bot.TRADING_SESSIONKey, undefined, onSessionResume)
+            global.EVENT_SERVER_CLIENT_MODULE.listenToEvent(bot.TRADING_SESSIONKey, 'Trading Session Status', undefined, bot.TRADING_SESSIONKey, undefined, onSessionStatus)
+            global.EVENT_SERVER_CLIENT_MODULE.listenToEvent(bot.TRADING_SESSIONKey, 'Run Trading Session', undefined, bot.TRADING_SESSIONKey, undefined, onSessionRun)
+            global.EVENT_SERVER_CLIENT_MODULE.listenToEvent(bot.TRADING_SESSIONKey, 'Stop Trading Session', undefined, bot.TRADING_SESSIONKey, undefined, onSessionStop)
+            global.EVENT_SERVER_CLIENT_MODULE.listenToEvent(bot.TRADING_SESSIONKey, 'Resume Trading Session', undefined, bot.TRADING_SESSIONKey, undefined, onSessionResume)
 
             /* Connect this here so that it is accesible from other places */
             bot.TRADING_SESSIONError = sessionError
@@ -58,12 +58,12 @@
                     let event = {
                         status: 'Trading Session Runnning'
                     }
-                    global.EVENT_SERVER_CLIENT.raiseEvent(bot.TRADING_SESSIONKey, 'Status Response', event)
+                    global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(bot.TRADING_SESSIONKey, 'Status Response', event)
                 } else {
                     let event = {
                         status: 'Trading Session Not Runnning'
                     }
-                    global.EVENT_SERVER_CLIENT.raiseEvent(bot.TRADING_SESSIONKey, 'Status Response', event)
+                    global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(bot.TRADING_SESSIONKey, 'Status Response', event)
                 }
             }
 
@@ -436,7 +436,7 @@
                     percentage: percentage,
                     status: status
                 }
-                global.EVENT_SERVER_CLIENT.raiseEvent(bot.TRADING_SESSIONKey, 'Heartbeat', event)
+                global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(bot.TRADING_SESSIONKey, 'Heartbeat', event)
 
                 if (global.STOP_TASK_GRACEFULLY === true) {
                     bot.STOP_SESSION = true
@@ -458,7 +458,7 @@
                         errorMessage: errorMessage
                     }
                 }
-                global.EVENT_SERVER_CLIENT.raiseEvent(bot.TRADING_SESSIONKey, 'Error', event)
+                global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(bot.TRADING_SESSIONKey, 'Error', event)
 
                 if (global.STOP_TASK_GRACEFULLY === true) {
                     bot.STOP_SESSION = true
@@ -480,7 +480,7 @@
                         warningMessage: warningMessage
                     }
                 }
-                global.EVENT_SERVER_CLIENT.raiseEvent(bot.TRADING_SESSIONKey, 'Warning', event)
+                global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(bot.TRADING_SESSIONKey, 'Warning', event)
 
                 if (global.STOP_TASK_GRACEFULLY === true) {
                     bot.STOP_SESSION = true
@@ -502,7 +502,7 @@
                         infoMessage: infoMessage
                     }
                 }
-                global.EVENT_SERVER_CLIENT.raiseEvent(bot.TRADING_SESSIONKey, 'Info', event)
+                global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(bot.TRADING_SESSIONKey, 'Info', event)
 
                 if (global.STOP_TASK_GRACEFULLY === true) {
                     bot.STOP_SESSION = true

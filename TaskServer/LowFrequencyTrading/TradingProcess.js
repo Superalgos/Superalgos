@@ -669,7 +669,7 @@
                             dateRange: dataRange
                         }
 
-                        global.EVENT_SERVER_CLIENT.raiseEvent(key, 'Data Range Updated', event)
+                        global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(key, 'Data Range Updated', event)
                     }
                 }
 

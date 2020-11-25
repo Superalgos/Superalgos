@@ -94,8 +94,8 @@
                         lastFile: lastFile,
                         timeFrames: timeFrames
                     }
-                    global.EVENT_SERVER_CLIENT.createEventHandler(key, 'Dataset Updated')
-                    global.EVENT_SERVER_CLIENT.raiseEvent(key, 'Dataset Updated', event)
+                    global.EVENT_SERVER_CLIENT_MODULE.createEventHandler(key, 'Dataset Updated')
+                    global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(key, 'Dataset Updated', event)
                 }
             }
 
@@ -176,8 +176,8 @@
                     lastFile: lastFile,
                     timeFrames: timeFrames
                 }
-                global.EVENT_SERVER_CLIENT.createEventHandler(key, 'Dataset Updated')
-                global.EVENT_SERVER_CLIENT.raiseEvent(key, 'Dataset Updated', event)
+                global.EVENT_SERVER_CLIENT_MODULE.createEventHandler(key, 'Dataset Updated')
+                global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(key, 'Dataset Updated', event)
             }
         }
     }

@@ -31,8 +31,8 @@ let taskId = process.argv[2] // reading what comes as an argument of the nodejs 
 
 let EVENT_SERVER_CLIENT = require('./EventServerClient.js');
 
-global.EVENT_SERVER_CLIENT = EVENT_SERVER_CLIENT.newEventsServerClient()
-global.EVENT_SERVER_CLIENT.initialize(preLoader)
+global.EVENT_SERVER_CLIENT_MODULE = EVENT_SERVER_CLIENT.newEventsServerClient()
+global.EVENT_SERVER_CLIENT_MODULE.initialize(preLoader)
 global.STOP_TASK_GRACEFULLY = false;
 
 function preLoader() {
@@ -40,8 +40,8 @@ function preLoader() {
         /* The Task Manager sent the info via a process argument. In this case we listen to an event with the Task Info that should be emitted at the UI */
         try {
             //console.log('[INFO] Task Server -> server -> preLoader -> Listening to starting event -> key = ' + 'Task Server - ' + taskId)
-            global.EVENT_SERVER_CLIENT.listenToEvent('Task Server - ' + taskId, 'Run Task', undefined, 'Task Server - ' + taskId, undefined, eventReceived)
-            global.EVENT_SERVER_CLIENT.raiseEvent('Task Manager - ' + taskId, 'Nodejs Process Ready for Task')
+            global.EVENT_SERVER_CLIENT_MODULE.listenToEvent('Task Server - ' + taskId, 'Run Task', undefined, 'Task Server - ' + taskId, undefined, eventReceived)
+            global.EVENT_SERVER_CLIENT_MODULE.raiseEvent('Task Manager - ' + taskId, 'Nodejs Process Ready for Task')
             function eventReceived(message) {
                 try {
                     global.APP_SCHEMA_ARRAY = JSON.parse(message.event.appSchema)
@@ -61,7 +61,7 @@ function preLoader() {
     else {  /* This process was started not by the Task Manager, but independently (most likely for debugging purposes). In this case we listen to an event with the Task Info that should be emitted at the UI */
         try {
             //console.log('[INFO] Task Server -> server -> preLoader -> Waiting for event to start debugging...')
-            global.EVENT_SERVER_CLIENT.listenToEvent('Task Server', 'Debug Task Started', undefined, 'Task Server', undefined, startDebugging)
+            global.EVENT_SERVER_CLIENT_MODULE.listenToEvent('Task Server', 'Debug Task Started', undefined, 'Task Server', undefined, startDebugging)
             function startDebugging(message) {
                 try {
                     global.APP_SCHEMA_ARRAY = JSON.parse(message.event.appSchema)
@@ -97,8 +97,8 @@ function bootLoader() {
 
     let key = global.TASK_NODE.name + '-' + global.TASK_NODE.type + '-' + global.TASK_NODE.id
 
-    global.EVENT_SERVER_CLIENT.createEventHandler(key)
-    global.EVENT_SERVER_CLIENT.raiseEvent(key, 'Running') // Meaning Task Running
+    global.EVENT_SERVER_CLIENT_MODULE.createEventHandler(key)
+    global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(key, 'Running') // Meaning Task Running
     global.HEARTBEAT_INTERVAL_HANDLER = setInterval(taskHearBeat, 1000)
 
     function taskHearBeat() {
@@ -107,7 +107,7 @@ function bootLoader() {
         let event = {
             seconds: (new Date()).getSeconds()
         }
-        global.EVENT_SERVER_CLIENT.raiseEvent(key, 'Heartbeat', event)
+        global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(key, 'Heartbeat', event)
     }
 
     global.taskError = function taskError(node, errorMessage) {
@@ -125,7 +125,7 @@ function bootLoader() {
             }
         }
 
-        global.EVENT_SERVER_CLIENT.raiseEvent(key, 'Error', event)
+        global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(key, 'Error', event)
     }
 
 

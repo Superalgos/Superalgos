@@ -37,10 +37,10 @@ exports.newLearningSession = function newLearningSession(bot, parentLogger) {
             bot.sessionKey = bot.processNode.session.name + '-' + bot.processNode.session.type + '-' + bot.processNode.session.id
             global.SESSION_MAP.set(bot.sessionKey, bot.sessionKey)
 
-            global.EVENT_SERVER_CLIENT.listenToEvent(bot.sessionKey, 'Learning Session Status', undefined, bot.sessionKey, undefined, onSessionStatus)
-            global.EVENT_SERVER_CLIENT.listenToEvent(bot.sessionKey, 'Run Learning Session', undefined, bot.sessionKey, undefined, onSessionRun)
-            global.EVENT_SERVER_CLIENT.listenToEvent(bot.sessionKey, 'Stop Learning Session', undefined, bot.sessionKey, undefined, onSessionStop)
-            global.EVENT_SERVER_CLIENT.listenToEvent(bot.sessionKey, 'Resume Learning Session', undefined, bot.sessionKey, undefined, onSessionResume)
+            global.EVENT_SERVER_CLIENT_MODULE.listenToEvent(bot.sessionKey, 'Learning Session Status', undefined, bot.sessionKey, undefined, onSessionStatus)
+            global.EVENT_SERVER_CLIENT_MODULE.listenToEvent(bot.sessionKey, 'Run Learning Session', undefined, bot.sessionKey, undefined, onSessionRun)
+            global.EVENT_SERVER_CLIENT_MODULE.listenToEvent(bot.sessionKey, 'Stop Learning Session', undefined, bot.sessionKey, undefined, onSessionStop)
+            global.EVENT_SERVER_CLIENT_MODULE.listenToEvent(bot.sessionKey, 'Resume Learning Session', undefined, bot.sessionKey, undefined, onSessionResume)
 
             /* Connect this here so that it is accesible from other places */
             bot.sessionError = sessionError
@@ -58,12 +58,12 @@ exports.newLearningSession = function newLearningSession(bot, parentLogger) {
                     let event = {
                         status: 'Learning Session Runnning'
                     }
-                    global.EVENT_SERVER_CLIENT.raiseEvent(bot.sessionKey, 'Status Response', event)
+                    global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(bot.sessionKey, 'Status Response', event)
                 } else {
                     let event = {
                         status: 'Learning Session Not Runnning'
                     }
-                    global.EVENT_SERVER_CLIENT.raiseEvent(bot.sessionKey, 'Status Response', event)
+                    global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(bot.sessionKey, 'Status Response', event)
                 }
             }
 
@@ -436,7 +436,7 @@ exports.newLearningSession = function newLearningSession(bot, parentLogger) {
                     percentage: percentage,
                     status: status
                 }
-                global.EVENT_SERVER_CLIENT.raiseEvent(bot.sessionKey, 'Heartbeat', event)
+                global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(bot.sessionKey, 'Heartbeat', event)
 
                 if (global.STOP_TASK_GRACEFULLY === true) {
                     bot.STOP_SESSION = true
@@ -458,7 +458,7 @@ exports.newLearningSession = function newLearningSession(bot, parentLogger) {
                         errorMessage: errorMessage
                     }
                 }
-                global.EVENT_SERVER_CLIENT.raiseEvent(bot.sessionKey, 'Error', event)
+                global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(bot.sessionKey, 'Error', event)
 
                 if (global.STOP_TASK_GRACEFULLY === true) {
                     bot.STOP_SESSION = true
@@ -480,7 +480,7 @@ exports.newLearningSession = function newLearningSession(bot, parentLogger) {
                         warningMessage: warningMessage
                     }
                 }
-                global.EVENT_SERVER_CLIENT.raiseEvent(bot.sessionKey, 'Warning', event)
+                global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(bot.sessionKey, 'Warning', event)
 
                 if (global.STOP_TASK_GRACEFULLY === true) {
                     bot.STOP_SESSION = true
@@ -502,7 +502,7 @@ exports.newLearningSession = function newLearningSession(bot, parentLogger) {
                         infoMessage: infoMessage
                     }
                 }
-                global.EVENT_SERVER_CLIENT.raiseEvent(bot.sessionKey, 'Info', event)
+                global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(bot.sessionKey, 'Info', event)
 
                 if (global.STOP_TASK_GRACEFULLY === true) {
                     bot.STOP_SESSION = true

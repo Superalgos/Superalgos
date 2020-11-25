@@ -231,8 +231,8 @@
                         let event = {
                             err: global.DEFAULT_OK_RESPONSE
                         }
-                        global.EVENT_SERVER_CLIENT.createEventHandler(currentProcessKey, 'Process Execution Started')
-                        global.EVENT_SERVER_CLIENT.raiseEvent(currentProcessKey, 'Process Execution Started', event)
+                        global.EVENT_SERVER_CLIENT_MODULE.createEventHandler(currentProcessKey, 'Process Execution Started')
+                        global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(currentProcessKey, 'Process Execution Started', event)
 
                         bot.processHeartBeat(undefined, undefined, "Running...")
 
@@ -247,8 +247,8 @@
                 let event = {
                     err: global.DEFAULT_OK_RESPONSE
                 }
-                global.EVENT_SERVER_CLIENT.createEventHandler(currentProcessKey, 'Process Execution Started')
-                global.EVENT_SERVER_CLIENT.raiseEvent(currentProcessKey, 'Process Execution Started', event)
+                global.EVENT_SERVER_CLIENT_MODULE.createEventHandler(currentProcessKey, 'Process Execution Started')
+                global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(currentProcessKey, 'Process Execution Started', event)
 
                 logger.write(MODULE_NAME, "[INFO] start -> " + currentProcessKey + " Process Execution Started ")
 
@@ -271,8 +271,8 @@
                 err: global.DEFAULT_OK_RESPONSE
             }
 
-            global.EVENT_SERVER_CLIENT.createEventHandler(currentProcessKey, 'Process Execution Finished')
-            global.EVENT_SERVER_CLIENT.raiseEvent(currentProcessKey, 'Process Execution Finished', event)
+            global.EVENT_SERVER_CLIENT_MODULE.createEventHandler(currentProcessKey, 'Process Execution Finished')
+            global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(currentProcessKey, 'Process Execution Finished', event)
 
             logger.write(MODULE_NAME, "[INFO] finish -> " + currentProcessKey + " Process Execution Finished ")
 

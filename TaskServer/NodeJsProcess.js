@@ -28,9 +28,9 @@ exports.newNodeJsProcess = function newNodeJsProcess() {
                 /* We send an event signaling that the Task is being terminated. */
                 let key = global.TASK_NODE.name + '-' + global.TASK_NODE.type + '-' + global.TASK_NODE.id
 
-                global.EVENT_SERVER_CLIENT.raiseEvent(key, 'Stopped') // Meaning Task Stopped
-                global.EVENT_SERVER_CLIENT.finalize()
-                global.EVENT_SERVER_CLIENT = undefined
+                global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(key, 'Stopped') // Meaning Task Stopped
+                global.EVENT_SERVER_CLIENT_MODULE.finalize()
+                global.EVENT_SERVER_CLIENT_MODULE = undefined
             }
 
             //console.log('[INFO] Task Server -> server -> process.on.exit -> About to exit -> config = ' + config)

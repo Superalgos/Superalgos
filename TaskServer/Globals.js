@@ -108,7 +108,7 @@ exports.newGlobals = function newGlobals() {
                     errorMessage: errorMessage
                 }
             }
-            global.EVENT_SERVER_CLIENT.raiseEvent(processKey, 'Error', event)
+            global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(processKey, 'Error', event)
         }
 
         global.PROCESS_WARNING = function (processKey, node, warningMessage) {
@@ -125,7 +125,7 @@ exports.newGlobals = function newGlobals() {
                     warningMessage: warningMessage
                 }
             }
-            global.EVENT_SERVER_CLIENT.raiseEvent(processKey, 'Warning', event)
+            global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(processKey, 'Warning', event)
         }
 
         global.PROCESS_INFO = function (processKey, node, infoMessage) {
@@ -142,7 +142,7 @@ exports.newGlobals = function newGlobals() {
                     infoMessage: infoMessage
                 }
             }
-            global.EVENT_SERVER_CLIENT.raiseEvent(processKey, 'Info', event)
+            global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(processKey, 'Info', event)
         }
 
         global.NODE_BRANCH_TO_ARRAY = function (node, nodeType) {
@@ -331,11 +331,11 @@ exports.newGlobals = function newGlobals() {
         global.EMIT_SESSION_STATUS = function (status, key) {
             switch (status) {
                 case 'Running': {
-                    global.EVENT_SERVER_CLIENT.raiseEvent(key, 'Running')
+                    global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(key, 'Running')
                     break
                 }
                 case 'Stopped': {
-                    global.EVENT_SERVER_CLIENT.raiseEvent(key, 'Stopped')
+                    global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(key, 'Stopped')
                     break
                 }
             }
@@ -356,7 +356,7 @@ exports.newGlobals = function newGlobals() {
             global.SESSION_MAP.forEach(forEachSession)
 
             function forEachSession(session) {
-                global.EVENT_SERVER_CLIENT.raiseEvent(session, 'Stopped')
+                global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(session, 'Stopped')
             }
         }
 
@@ -383,7 +383,7 @@ exports.newGlobals = function newGlobals() {
                     let process = global.TASK_NODE.bot.processes[i]
 
                     let key = process.name + '-' + process.type + '-' + process.id
-                    global.EVENT_SERVER_CLIENT.raiseEvent(key, 'Stopped') // Meaning Process Stopped
+                    global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(key, 'Stopped') // Meaning Process Stopped
                 }
             }
 

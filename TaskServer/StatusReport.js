@@ -125,6 +125,7 @@
                     if (branch === undefined) { return }
                     for (let z = 0; z < branch.projectDataTasks.length; z++) {
                         let projectDataTasks = branch.projectDataTasks[z]
+                        if (projectDataTasks.exchangeDataTasks === undefined) {continue} 
                         for (let j = 0; j < projectDataTasks.exchangeDataTasks.length; j++) {
                             let exchangeTasks = projectDataTasks.exchangeDataTasks[j]
                             for (let p = 0; p < exchangeTasks.marketDataTasks.length; p++) {

@@ -99,6 +99,7 @@
                     if (networkNode.dataTasks !== undefined) {
                         for (let z = 0; z < networkNode.dataTasks.projectDataTasks.length; z++) {
                             let projectDataTasks = networkNode.dataTasks.projectDataTasks[z]
+                            if (projectDataTasks.exchangeDataTasks === undefined) {continue} 
                             for (let j = 0; j < projectDataTasks.exchangeDataTasks.length; j++) {
                                 let exchangeTasks = projectDataTasks.exchangeDataTasks[j]
                                 for (let p = 0; p < exchangeTasks.marketDataTasks.length; p++) {

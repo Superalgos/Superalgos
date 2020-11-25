@@ -50,44 +50,8 @@
     return thisObject;
 
     function initialize(callBackFunction) {
-
         try {
-
-            /* Global control of logging. */
-
-            global.LOG_CONTROL = {
-                "Status Report": {
-                    logInfo: false,
-                    logWarnings: false,
-                    logErrors: true,
-                    logContent: false,
-                    intensiveLogging: false
-                },
-                "Dataset": {
-                    logInfo: false,
-                    logWarnings: false,
-                    logErrors: true,
-                    logContent: false,
-                    intensiveLogging: false
-                },
-                "Process Execution Events": {
-                    logInfo: false,
-                    logWarnings: false,
-                    logErrors: true,
-                    logContent: false,
-                    intensiveLogging: false
-                },
-                "Process Output": {
-                    logInfo: false,
-                    logWarnings: false,
-                    logErrors: true,
-                    logContent: false,
-                    intensiveLogging: false
-                }
-            };
-
             callBackFunction();
-
         }
         catch (err) {
             console.log(logDisplace + "Root : [ERROR] initialize -> err = " + err.stack);
@@ -96,7 +60,6 @@
     }
 
     function start(processIndex) {
-
         try {
 
             /* Now we will run according to what we see at the config file. */

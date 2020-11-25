@@ -57,7 +57,7 @@
                         processThisDependsOn = bot.processNode.referenceParent.executionStartedEvent.referenceParent.parentNode
 
                         name = processThisDependsOn.name
-                        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> " + currentProcessKey + " based on the Data Mine depends on " + name); }
+                        logger.write(MODULE_NAME, "[INFO] initialize -> " + currentProcessKey + " based on the Data Mine depends on " + name)
                     }
                 }
             }
@@ -71,7 +71,7 @@
                         processThisDependsOn = bot.processNode.executionStartedEvent.referenceParent.parentNode
 
                         name = processThisDependsOn.name
-                        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> " + currentProcessKey + " based on the User's Task depends on " + name); }
+                        logger.write(MODULE_NAME, "[INFO] initialize -> " + currentProcessKey + " based on the User's Task depends on " + name)
                     }
                 }
             }
@@ -122,23 +122,23 @@
                                                                 we are waiting for is located on the network. 
                                                                 */
                                                                 thisObject.networkNode = networkNode
-                                                                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) {
-                                                                    logger.write(MODULE_NAME,
-                                                                        "[INFO] initialize -> Connecting to Websockets Server " + networkNode.name +
-                                                                        "  -> host = " + networkNode.config.host +
-                                                                        ' -> port = ' + networkNode.config.webSocketsPort + '.');
-                                                                }
-    
+
+                                                                logger.write(MODULE_NAME,
+                                                                    "[INFO] initialize -> Connecting to Websockets Server " + networkNode.name +
+                                                                    "  -> host = " + networkNode.config.host +
+                                                                    ' -> port = ' + networkNode.config.webSocketsPort + '.');
+
+
                                                                 eventServerClient = EVENT_SERVER_CLIENT.newEventsServerClient(networkNode.config.host, networkNode.config.webSocketsPort)
                                                                 eventServerClient.initialize(onConnected)
-    
+
                                                                 function onConnected() {
-                                                                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) {
-                                                                        logger.write(MODULE_NAME, "[INFO] initialize -> Connected to Websockets Server " + networkNode.name +
-                                                                            "  -> host = " + networkNode.config.host +
-                                                                            ' -> port = ' + networkNode.config.webSocketsPort + '.');
-                                                                    }
-    
+
+                                                                    logger.write(MODULE_NAME, "[INFO] initialize -> Connected to Websockets Server " + networkNode.name +
+                                                                        "  -> host = " + networkNode.config.host +
+                                                                        ' -> port = ' + networkNode.config.webSocketsPort + '.');
+
+
                                                                     callBackFunction(global.DEFAULT_OK_RESPONSE);
                                                                     return
                                                                 }
@@ -186,7 +186,7 @@
 
             if (processThisDependsOn !== undefined) {
 
-                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] start -> waitForDependantProcess -> Entering Code Block."); }
+                logger.write(MODULE_NAME, "[INFO] start -> waitForDependantProcess -> Entering Code Block.")
 
                 /* This forces this process to wait until the process that this one depends on, emits its event signaling that the process execution has finished. */
 
@@ -198,9 +198,9 @@
 
                 let subscriptionId
 
-                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] start -> waitForDependantProcess -> started listening to Process Execution Finished. "); }
-                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] start -> waitForDependantProcess -> key = " + key); }
-                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] start -> waitForDependantProcess -> callerId = " + callerId); }
+                logger.write(MODULE_NAME, "[INFO] start -> waitForDependantProcess -> started listening to Process Execution Finished. ")
+                logger.write(MODULE_NAME, "[INFO] start -> waitForDependantProcess -> key = " + key)
+                logger.write(MODULE_NAME, "[INFO] start -> waitForDependantProcess -> callerId = " + callerId)
 
                 eventServerClient.listenToEvent(key, 'Process Execution Finished', undefined, callerId, responseCallBack, eventsCallBack)
 
@@ -212,17 +212,17 @@
                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     } else {
                         subscriptionId = message.eventSubscriptionId
-                        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] start -> waitForDependantProcess -> subscriptionId = " + subscriptionId); }
+                        logger.write(MODULE_NAME, "[INFO] start -> waitForDependantProcess -> subscriptionId = " + subscriptionId)
                     }
                 }
 
                 function eventsCallBack(message) {
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] start -> eventsCallBack -> Entering function."); }
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] start -> eventsCallBack -> message = " + JSON.stringify(message)); }
+                    logger.write(MODULE_NAME, "[INFO] start -> eventsCallBack -> Entering function.")
+                    logger.write(MODULE_NAME, "[INFO] start -> eventsCallBack -> message = " + JSON.stringify(message))
 
                     /* We continue the normal flow after we learn the dependent process has finished its execution. */
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] start -> eventsCallBack -> stopListening to Process Execution Finished. "); }
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] start -> eventsCallBack -> subscriptionId = " + subscriptionId); }
+                    logger.write(MODULE_NAME, "[INFO] start -> eventsCallBack -> stopListening to Process Execution Finished. ")
+                    logger.write(MODULE_NAME, "[INFO] start -> eventsCallBack -> subscriptionId = " + subscriptionId)
                     eventServerClient.stopListening(key, 'Process Execution Finished', subscriptionId)
 
                     if (message.event.err.result === global.DEFAULT_OK_RESPONSE.result) {
@@ -235,7 +235,7 @@
 
                         bot.processHeartBeat(undefined, undefined, "Running...")
 
-                        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] start -> eventsCallBack -> " + currentProcessKey + " Process Execution Started because " + key + " Finished."); }
+                        logger.write(MODULE_NAME, "[INFO] start -> eventsCallBack -> " + currentProcessKey + " Process Execution Started because " + key + " Finished.")
                     }
 
                     callBackFunction(message.event.err);
@@ -249,7 +249,7 @@
                 global.EVENT_SERVER_CLIENT.createEventHandler(currentProcessKey, 'Process Execution Started')
                 global.EVENT_SERVER_CLIENT.raiseEvent(currentProcessKey, 'Process Execution Started', event)
 
-                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] start -> " + currentProcessKey + " Process Execution Started "); }
+                logger.write(MODULE_NAME, "[INFO] start -> " + currentProcessKey + " Process Execution Started ")
 
                 callBackFunction(global.DEFAULT_OK_RESPONSE);
             }
@@ -264,7 +264,7 @@
 
         try {
 
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] finish -> Entering function."); }
+            logger.write(MODULE_NAME, "[INFO] finish -> Entering function.")
 
             let event = {
                 err: global.DEFAULT_OK_RESPONSE
@@ -273,7 +273,7 @@
             global.EVENT_SERVER_CLIENT.createEventHandler(currentProcessKey, 'Process Execution Finished')
             global.EVENT_SERVER_CLIENT.raiseEvent(currentProcessKey, 'Process Execution Finished', event)
 
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] finish -> " + currentProcessKey + " Process Execution Finished "); }
+            logger.write(MODULE_NAME, "[INFO] finish -> " + currentProcessKey + " Process Execution Finished ")
 
             callBackFunction(global.DEFAULT_OK_RESPONSE);
 

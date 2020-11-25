@@ -84,7 +84,7 @@
                 let nodeString = JSON.stringify(errorInNode)
                 logger.write(MODULE_NAME, "[ERROR] initialize -> " + errorMessage + ' -> nodeString = ' + nodeString)
                 global.PROCESS_ERROR(bot.processKey, errorInNode, errorMessage)
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE)
             }
 
             /* Simplifying the access to basic info */
@@ -157,10 +157,10 @@
                                                     and where it is located on the network. 
                                                     */
                                                     thisObject.networkNode = networkNode
-                                                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Retrieving status report from " + networkNode.name + " -> host = " + networkNode.config.host + ' -> port = ' + networkNode.config.webPort + '.'); }
-    
-                                                    fileStorage = FILE_STORAGE.newFileStorage(logger, networkNode.config.host, networkNode.config.webPort);
-                                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                                    logger.write(MODULE_NAME, "[INFO] initialize -> Retrieving status report from " + networkNode.name + " -> host = " + networkNode.config.host + ' -> port = ' + networkNode.config.webPort + '.')
+
+                                                    fileStorage = FILE_STORAGE.newFileStorage(logger, networkNode.config.host, networkNode.config.webPort)
+                                                    callBackFunction(global.DEFAULT_OK_RESPONSE)
                                                     return true
                                                 }
                                             }
@@ -208,10 +208,10 @@
                                                     and where it is located on the network. 
                                                     */
                                                     thisObject.networkNode = networkNode
-                                                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Retrieving status report from " + networkNode.name + " -> host = " + networkNode.config.host + ' -> port = ' + networkNode.config.webPort + '.'); }
-    
-                                                    fileStorage = FILE_STORAGE.newFileStorage(logger, networkNode.config.host, networkNode.config.webPort);
-                                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                                    logger.write(MODULE_NAME, "[INFO] initialize -> Retrieving status report from " + networkNode.name + " -> host = " + networkNode.config.host + ' -> port = ' + networkNode.config.webPort + '.')
+
+                                                    fileStorage = FILE_STORAGE.newFileStorage(logger, networkNode.config.host, networkNode.config.webPort)
+                                                    callBackFunction(global.DEFAULT_OK_RESPONSE)
                                                     return true
                                                 }
                                             }
@@ -225,10 +225,10 @@
             }
 
             logger.write(MODULE_NAME, "[ERROR] initialize -> Initialization Failed because we could not find where the data of this status report is located within the network. Check the logs for more info.");
-            logger.write(MODULE_NAME, "[ERROR] initialize -> bot = " + statusDependencyNode.bot);
-            logger.write(MODULE_NAME, "[ERROR] initialize -> process = " + statusDependencyNode.process);
-            logger.write(MODULE_NAME, "[ERROR] initialize -> bottype = " + statusDependencyNode.bottype);
-            logger.write(MODULE_NAME, "[ERROR] initialize -> dataMine = " + statusDependencyNode.dataMine);
+            logger.write(MODULE_NAME, "[ERROR] initialize -> bot = " + statusDependencyNode.bot)
+            logger.write(MODULE_NAME, "[ERROR] initialize -> process = " + statusDependencyNode.process)
+            logger.write(MODULE_NAME, "[ERROR] initialize -> bottype = " + statusDependencyNode.bottype)
+            logger.write(MODULE_NAME, "[ERROR] initialize -> dataMine = " + statusDependencyNode.dataMine)
 
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
 
@@ -249,8 +249,6 @@
 
         try {
 
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] load -> Entering function."); }
-
             let fileName = "Status.Report.json";
             let filePath;
 
@@ -260,9 +258,9 @@
             if (ownerId !== botId) {
 
                 let filePathRoot = 'Project/' + statusDependencyNode.project + "/" + statusDependencyNode.mineType + "/" + statusDependencyNode.dataMine + "/" + statusDependencyNode.bot + '/' + bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset
-                filePath = filePathRoot + "/Reports/" + sessionPath + statusDependencyNode.process;
+                filePath = filePathRoot + "/Reports/" + sessionPath + statusDependencyNode.process
             } else {
-                filePath = bot.filePathRoot + "/Reports/" + sessionPath + statusDependencyNode.process;
+                filePath = bot.filePathRoot + "/Reports/" + sessionPath + statusDependencyNode.process
             }
 
             filePath += '/' + fileName
@@ -288,7 +286,7 @@
                 if (err.result === global.CUSTOM_FAIL_RESPONSE.result && (err.message === 'Folder does not exist.' || err.message === 'File does not exist.')
                     || err.code === "The specified key does not exist.") {
 
-                    logger.write(MODULE_NAME, "[INFO] load -> onFileReceived -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[INFO] load -> onFileReceived -> err = " + err.message)
 
                     /* In this case we can assume that this is the first execution ever of this bot.*/
 
@@ -298,26 +296,20 @@
                         result: global.CUSTOM_OK_RESPONSE.result,
                         message: "Status Report was never created."
                     };
-                    logger.write(MODULE_NAME, "[WARN] load -> onFileReceived -> customOK = " + customOK.message);
+                    logger.write(MODULE_NAME, "[WARN] load -> onFileReceived -> customOK = " + customOK.message)
                     callBackFunction(customOK);
                     return;
                 }
 
                 if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                    logger.write(MODULE_NAME, "[ERROR] load -> onFileReceived -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] load -> onFileReceived -> err = " + err.message)
                     callBackFunction(err);
                     return;
                 }
 
-                if (global.LOG_CONTROL[MODULE_NAME].logContent === true) {
-                    logger.write(MODULE_NAME, "[INFO] load -> onFileReceived -> Content received = " + text);
-                }
-
                 try {
-
                     thisObject.file = JSON.parse(text);
-                    callBackFunction(global.DEFAULT_OK_RESPONSE);
-
+                    callBackFunction(global.DEFAULT_OK_RESPONSE)
                 } catch (err) {
 
                     /*
@@ -325,30 +317,28 @@
                     is being updated at the moment of the read. The bot can not run without a valid Status Report but we can request the platform to retry later.
                     */
 
-                    logger.write(MODULE_NAME, "[ERROR] load -> onFileReceived -> Error Parsing the Status report. -> Err = " + err.message);
-                    logger.write(MODULE_NAME, "[WARN] load -> onFileReceived -> Error Parsing the Status report. -> text = " + text);
+                    logger.write(MODULE_NAME, "[ERROR] load -> onFileReceived -> Error Parsing the Status report. -> Err = " + err.message)
+                    logger.write(MODULE_NAME, "[WARN] load -> onFileReceived -> Error Parsing the Status report. -> text = " + text)
 
                     let customFail = {
                         result: global.CUSTOM_FAIL_RESPONSE.result,
                         message: "Status Report is corrupt."
                     };
-                    logger.write(MODULE_NAME, "[WARN] load -> onFileReceived -> customFail = " + customFail.message);
+                    logger.write(MODULE_NAME, "[WARN] load -> onFileReceived -> customFail = " + customFail.message)
                     callBackFunction(customFail);
                     return;
                 }
             }
 
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] load -> err = " + err.stack);
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+            logger.write(MODULE_NAME, "[ERROR] load -> err = " + err.stack)
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE)
         }
     }
 
     function save(callBackFunction) {
 
         try {
-
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] save -> Entering function."); }
 
             let ownerId = statusDependencyNode.dataMine + "-" + statusDependencyNode.bot + "-" + statusDependencyNode.process
             let botId = bot.dataMine + "-" + bot.codeName + "-" + bot.process
@@ -359,45 +349,36 @@
                     result: global.CUSTOM_FAIL_RESPONSE.result,
                     message: "Only bots owners of a Status Report can save them."
                 };
-                logger.write(MODULE_NAME, "[ERROR] save -> customErr = " + customErr.message);
-                callBackFunction(customErr);
+                logger.write(MODULE_NAME, "[ERROR] save -> customErr = " + customErr.message)
+                callBackFunction(customErr)
                 return;
             }
 
-            let fileName = "Status.Report.json";
-            let filePath = bot.filePathRoot + "/Reports/" + sessionPath + statusDependencyNode.process;
+            let fileName = "Status.Report.json"
+            let filePath = bot.filePathRoot + "/Reports/" + sessionPath + statusDependencyNode.process
 
             filePath += '/' + fileName
             let fileContent = JSON.stringify(thisObject.file);
 
-            fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated, true);
+            fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated, true)
 
             function onFileCreated(err) {
-
-                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] save -> onFileCreated -> Entering function."); }
-
                 if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                    logger.write(MODULE_NAME, "[ERROR] save -> onFileCreated -> err = " + err.stack);
-                    callBackFunction(err);
-                    return;
-                }
-
-                if (global.LOG_CONTROL[MODULE_NAME].logContent === true) {
-                    logger.write(MODULE_NAME, "[INFO] save -> onFileCreated ->  Content written = " + fileContent);
+                    logger.write(MODULE_NAME, "[ERROR] save -> onFileCreated -> err = " + err.stack)
+                    callBackFunction(err)
+                    return
                 }
 
                 /* All good, lets emit the event that means data has been updated. */
 
                 let processOutput = PROCESS_OUTPUT.newProcessOutput(bot, logger)
-
                 processOutput.raiseEvents(thisObject.file.lastFile, thisObject.file.timeFrames, callBackFunction);
-
-                return;
+                return
             }
 
         }
         catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] save -> err = " + err.stack);
+            logger.write(MODULE_NAME, "[ERROR] save -> err = " + err.stack)
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -405,7 +386,7 @@
     async function asyncSave() {
 
         let fileName = "Status.Report.json";
-        let filePath = bot.filePathRoot + "/Reports/" + sessionPath + statusDependencyNode.process;
+        let filePath = bot.filePathRoot + "/Reports/" + sessionPath + statusDependencyNode.process
 
         filePath += '/' + fileName
         let fileContent = JSON.stringify(thisObject.file);

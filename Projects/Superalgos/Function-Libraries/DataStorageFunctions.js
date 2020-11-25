@@ -236,7 +236,7 @@ function newSuperalgosFunctionLibraryDataStorageFunctions() {
                     let projectDefinition = rootNode.projectDefinition
                     if (projectDefinition !== undefined) {
                         if (UI.projects.superalgos.utilities.children.isMissingChildren(node, projectDefinition, true) === true) {
-                            let projectTasks = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType)
+                            let projectTasks = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType, undefined, project)
                             projectTasks.payload.referenceParent = projectDefinition
                         }
                     }

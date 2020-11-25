@@ -1,50 +1,5 @@
 {
-  "displayName": "Webhooks",
-  "codeName": "Webhooks",
-  "type": "Sensor Bot",
-  "version": {
-    "major": 1,
-    "minor": 0,
-    "patch": 0
-  },
-  "dataMine": "Masters",
-  "processes": [
-    {
-      "name": "Check-Webhook",
-      "description": "",
-      "startMode": {
-        "allMonths": {
-          "run": "false",
-          "minYear": "",
-          "maxYear": ""
-        },
-        "oneMonth": {
-          "run": "false",
-          "year": "",
-          "month": ""
-        },
-        "noTime": {
-          "run": "false"
-        },
-        "fixedInterval": {
-          "run": "true",
-          "interval": 60000
-        }
-      },
-      "deadWaitTime": 0,
-      "normalWaitTime": 30000,
-      "retryWaitTime": 10000,
-      "sleepWaitTime": 3600000,
-      "comaWaitTime": 86400000,
-      "statusDependencies": [
-        {
-          "dataMine": "Masters",
-          "bot": "Webhooks",
-          "process": "Check-Webhook"
-        }
-      ]
-    }
-  ]
+  "codeName": "Webhooks"
 }
 
 

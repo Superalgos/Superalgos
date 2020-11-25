@@ -1,63 +1,14 @@
 ﻿exports.newRoot = function newRoot() {
 
-    /* This is the Execution Datetime */
-
-    global.EXECUTION_DATETIME = new Date();
-
-    /* Time Frames Definitions. */
-
-    global.marketFilesPeriods =
-        '[' +
-        '[' + 24 * 60 * 60 * 1000 + ',' + '"24-hs"' + ']' + ',' +
-        '[' + 12 * 60 * 60 * 1000 + ',' + '"12-hs"' + ']' + ',' +
-        '[' + 8 * 60 * 60 * 1000 + ',' + '"08-hs"' + ']' + ',' +
-        '[' + 6 * 60 * 60 * 1000 + ',' + '"06-hs"' + ']' + ',' +
-        '[' + 4 * 60 * 60 * 1000 + ',' + '"04-hs"' + ']' + ',' +
-        '[' + 3 * 60 * 60 * 1000 + ',' + '"03-hs"' + ']' + ',' +
-        '[' + 2 * 60 * 60 * 1000 + ',' + '"02-hs"' + ']' + ',' +
-        '[' + 1 * 60 * 60 * 1000 + ',' + '"01-hs"' + ']' + ']';
-
-    global.marketFilesPeriods = JSON.parse(global.marketFilesPeriods);
-
-    global.dailyFilePeriods =
-        '[' +
-        '[' + 45 * 60 * 1000 + ',' + '"45-min"' + ']' + ',' +
-        '[' + 40 * 60 * 1000 + ',' + '"40-min"' + ']' + ',' +
-        '[' + 30 * 60 * 1000 + ',' + '"30-min"' + ']' + ',' +
-        '[' + 20 * 60 * 1000 + ',' + '"20-min"' + ']' + ',' +
-        '[' + 15 * 60 * 1000 + ',' + '"15-min"' + ']' + ',' +
-        '[' + 10 * 60 * 1000 + ',' + '"10-min"' + ']' + ',' +
-        '[' + 05 * 60 * 1000 + ',' + '"05-min"' + ']' + ',' +
-        '[' + 04 * 60 * 1000 + ',' + '"04-min"' + ']' + ',' +
-        '[' + 03 * 60 * 1000 + ',' + '"03-min"' + ']' + ',' +
-        '[' + 02 * 60 * 1000 + ',' + '"02-min"' + ']' + ',' +
-        '[' + 01 * 60 * 1000 + ',' + '"01-min"' + ']' + ']';
-
-    global.dailyFilePeriods = JSON.parse(global.dailyFilePeriods);
-
     const MODULE_NAME = "Root";
     const WAIT_TIME_FOR_ALL_PROCESS_INSTANCES_TO_START = 10000 // This avoid a race condition that could happen if one process finished before all the other even started.
 
     let thisObject = {
-        initialize: initialize,
         start: start
     }
 
-    const FULL_LOG = true;
-
     let logDisplace = "Task Server" + "                                              ";
-
     return thisObject;
-
-    function initialize(callBackFunction) {
-        try {
-            callBackFunction();
-        }
-        catch (err) {
-            console.log(logDisplace + "Root : [ERROR] initialize -> err = " + err.stack);
-            return;
-        }
-    }
 
     function start(processIndex) {
         try {
@@ -279,8 +230,6 @@
                             global.LOGGER_MAP.set('runSensorBot', logger)
                             logger.bot = pBotConfig;
 
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> bootingBot -> runSensorBot -> Entering function."); }
-
                             let sensorBot = SENSOR_BOT.newSensorBot(pBotConfig, logger);
                             sensorBot.initialize(pProcessConfig, onInitializeReady);
 
@@ -340,8 +289,6 @@
                             logger = DEBUG_MODULE.newDebugLog();
                             global.LOGGER_MAP.set('runIndicatorBot', logger)
                             logger.bot = pBotConfig;
-
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> bootingBot -> runIndicatorBot -> Entering function."); }
 
                             let indicatorBot = INDICATOR_BOT_MODULE.newIndicatorBot(pBotConfig, logger);
                             indicatorBot.initialize(pProcessConfig, onInitializeReady);
@@ -403,8 +350,6 @@
                             logger = DEBUG_MODULE.newDebugLog();
                             global.LOGGER_MAP.set('runTradingBot', logger)
                             logger.bot = pBotConfig;
-
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> bootingBot -> runTradingBot -> Entering function."); }
 
                             let tradingBot = TRADING_BOT_MODULE.newTradingBot(pBotConfig, logger);
                             tradingBot.initialize(pProcessConfig, onInitializeReady);
@@ -468,8 +413,6 @@
                             logger = DEBUG_MODULE.newDebugLog();
                             global.LOGGER_MAP.set('runLearningBot', logger)
                             logger.bot = pBotConfig;
-
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> bootingBot -> runLearningBot -> Entering function."); }
 
                             let learningBot = TRADING_BOT_MODULE.newLearningBot(pBotConfig, logger);
                             learningBot.initialize(pProcessConfig, onInitializeReady);

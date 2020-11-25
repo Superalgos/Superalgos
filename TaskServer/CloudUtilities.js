@@ -1,8 +1,6 @@
 ﻿
 exports.newCloudUtilities = function newCloudUtilities(logger) {
 
-    const FULL_LOG = true;
-
     const MODULE_NAME = "Cloud Utilities";
 
     let utilities = {
@@ -16,9 +14,7 @@ exports.newCloudUtilities = function newCloudUtilities(logger) {
     function createFolderIfNeeded(path, azureFileStorage, callBackFunction) {
 
         try {
-
-            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] createFolderIfNeeded -> Entering function."); }
-            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] createFolderIfNeeded -> path = " + path); }
+            logger.write(MODULE_NAME, "[INFO] createFolderIfNeeded -> path = " + path)
 
             let splittedPath = path.split("/");
 
@@ -29,36 +25,26 @@ exports.newCloudUtilities = function newCloudUtilities(logger) {
             loop();
 
             function loop() {
-
-                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] createFolderIfNeeded -> path = " + path); }
+                logger.write(MODULE_NAME, "[INFO] createFolderIfNeeded -> path = " + path)
 
                 partialPath = partialPath + separator + splittedPath[i];
                 separator = "/";
-
                 i++;
-
-                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] createFolderIfNeeded -> partialPath = " + partialPath); }
+                logger.write(MODULE_NAME, "[INFO] createFolderIfNeeded -> partialPath = " + partialPath)
 
                 azureFileStorage.createFolder(partialPath, checkLoop);
 
                 function checkLoop(err) {
-
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] createFolderIfNeeded -> loop -> checkLoop -> Entering function."); }
-
                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                        logger.write(MODULE_NAME, "[ERROR] createFolderIfNeeded -> loop -> checkLoop -> err = "+ err.stack);
+                        logger.write(MODULE_NAME, "[ERROR] createFolderIfNeeded -> loop -> checkLoop -> err = " + err.stack);
                         callBackFunction(err);
                         return;
                     }
 
                     if (i === splittedPath.length) {
-
                         callBackFunction(global.DEFAULT_OK_RESPONSE);
-
                     } else {
-
                         loop();
-
                     }
                 }
             }

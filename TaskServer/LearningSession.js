@@ -1,7 +1,6 @@
 exports.newLearningSession = function newLearningSession(bot, parentLogger) {
 
     const MODULE_NAME = "Learning Session"
-    const FULL_LOG = true;
 
     let thisObject = {
         initialize: initialize

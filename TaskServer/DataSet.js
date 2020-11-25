@@ -25,7 +25,7 @@ exports.newDataSet = function newDataSet(BOT, logger) {
         try {
             thisObject.node = dataDependency.referenceParent;
             logger.fileName = MODULE_NAME
-            
+
             /* Some very basic validations that we have all the information needed. */
             if (thisObject.node === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] initialize -> Data Dependency without Reference Parent -> dataDependency = " + JSON.stringify(dataDependency));
@@ -87,13 +87,13 @@ exports.newDataSet = function newDataSet(BOT, logger) {
             if (networkNode === undefined) {
                 logger.write(MODULE_NAME, "[WARN] initialize -> Network Node not found.")
                 logger.write(MODULE_NAME, "[WARN] initialize -> Initialization Failed because we could not find where the data of this dataset is located within the network. Check the logs for more info.");
-                logger.write(MODULE_NAME, "[WARN] initialize -> Could not find where " + datasetProductDefinition.name + " for " + bot.exchange + " " + bot.market.baseAsset + "/" + bot.market.quotedAsset + " is stored within the network.");    
+                logger.write(MODULE_NAME, "[WARN] initialize -> Could not find where " + datasetProductDefinition.name + " for " + bot.exchange + " " + bot.market.baseAsset + "/" + bot.market.quotedAsset + " is stored within the network.");
                 callBackFunction(global.DEFAULT_OK_RESPONSE, false);
                 return
             }
 
             /* We found where the data is located on the network. */
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Retrieving data from " + networkNode.name + "  -> host = " + networkNode.config.host + ' -> port = ' + networkNode.config.webPort + '.'); }
+            logger.write(MODULE_NAME, "[INFO] initialize -> Retrieving data from " + networkNode.name + "  -> host = " + networkNode.config.host + ' -> port = ' + networkNode.config.webPort + '.')
 
             fileStorage = FILE_STORAGE.newFileStorage(logger, networkNode.config.host, networkNode.config.webPort);
             callBackFunction(global.DEFAULT_OK_RESPONSE, true);
@@ -114,9 +114,6 @@ exports.newDataSet = function newDataSet(BOT, logger) {
     function getTextFile(pFolderPath, pFileName, callBackFunction) {
 
         try {
-
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getTextFile -> Entering function."); }
-
             let mine = thisObject.node.parentNode.parentNode.parentNode.config.codeName
             let mineType = thisObject.node.parentNode.parentNode.parentNode.type.replace(' ', '-')
             let project = thisObject.node.parentNode.parentNode.parentNode.project
@@ -129,11 +126,7 @@ exports.newDataSet = function newDataSet(BOT, logger) {
             fileStorage.getTextFile(filePath, onFileReceived);
 
             function onFileReceived(err, text) {
-
-                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getTextFile -> onFileReceived -> Entering function."); }
-
                 callBackFunction(err, text);
-
             }
         }
         catch (err) {
@@ -146,9 +139,8 @@ exports.newDataSet = function newDataSet(BOT, logger) {
 
         try {
 
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] createTextFile -> Entering function."); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] createTextFile -> pFolderPath = " + pFolderPath); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] createTextFile -> pFileName = " + pFileName); }
+            logger.write(MODULE_NAME, "[INFO] createTextFile -> pFolderPath = " + pFolderPath)
+            logger.write(MODULE_NAME, "[INFO] createTextFile -> pFileName = " + pFileName)
 
             let ownerId = thisObject.node.dataMine + "-" + thisObject.node.bot
             let botId = bot.dataMine + "-" + bot.codeName
@@ -170,11 +162,7 @@ exports.newDataSet = function newDataSet(BOT, logger) {
             fileStorage.createTextFile(filePath, pFileContent, onFileCreated);
 
             function onFileCreated(err) {
-
-                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] createTextFile -> onFileCreated -> Entering function."); }
-
                 callBackFunction(err);
-
             }
         }
         catch (err) {
@@ -182,5 +170,4 @@ exports.newDataSet = function newDataSet(BOT, logger) {
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
-
 };

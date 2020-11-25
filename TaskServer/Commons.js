@@ -1,8 +1,5 @@
 ﻿exports.newCommons = function newCommons(bot, logger, UTILITIES, FILE_STORAGE) {
 
-    const FULL_LOG = true;
-    const LOG_FILE_CONTENT = false;
-
     const MODULE_NAME = "Commons";
 
     let thisObject = {
@@ -454,9 +451,6 @@
     function generateFileContent(records, recordDefinition, resultsWithIrregularPeriods, processingDailyFiles, currentDay, callBackFunction) {
 
         try {
-
-            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> generateFileContent -> Entering function."); }
-
             let fileContent = "";
             let recordSeparator = "";
 
@@ -519,9 +513,6 @@
     function writeFile(contextSummary, fileContent, anotherFileWritten, processingDailyFiles, timeFrameLabel, currentDay, callBackFunction) {
 
         try {
-
-            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFile -> Entering function."); }
-
             let market = bot.market;
             let fileName = 'Data.json';
             let dateForPath = ''
@@ -539,10 +530,6 @@
             function onFileCreated(err) {
 
                 try {
-
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFile -> onFileCreated -> Entering function."); }
-                    if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFile -> onFileCreated -> fileContent = " + fileContent); }
-
                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
                         logger.write(MODULE_NAME, "[ERROR] start -> writeFile -> onFileCreated -> err = " + err.stack);

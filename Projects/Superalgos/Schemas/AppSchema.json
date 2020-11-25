@@ -187,6 +187,12 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Add UI Object",
+                "label": "Add Plugins",
+                "relatedUiObject": "Plugins",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -17585,6 +17591,15 @@
                 "workDoneLabel": "Done",
                 "relatedUiObject": "Plugin Project",
                 "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "actionFunction": "payload.executeAction",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete"
             }
         ],
         "isHierarchyHead": true,

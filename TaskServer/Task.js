@@ -23,7 +23,7 @@ function preLoader() {
     if (taskId !== undefined) {
         /* The Task Manager sent the info via a process argument. In this case we listen to an event with the Task Info that should be emitted at the UI */
         try {
-            //console.log('[INFO] Task Server -> server -> preLoader -> Listening to starting event -> key = ' + 'Task Server - ' + taskId)
+            //console.log('[INFO] Task Server -> Task -> preLoader -> Listening to starting event -> key = ' + 'Task Server - ' + taskId)
             global.EVENT_SERVER_CLIENT_MODULE.listenToEvent('Task Server - ' + taskId, 'Run Task', undefined, 'Task Server - ' + taskId, undefined, eventReceived)
             global.EVENT_SERVER_CLIENT_MODULE.raiseEvent('Task Manager - ' + taskId, 'Nodejs Process Ready for Task')
             function eventReceived(message) {
@@ -34,12 +34,12 @@ function preLoader() {
                     global.TASK_NETWORK = JSON.parse(message.event.networkDefinition)
                     bootLoader()
                 } catch (err) {
-                    console.log('[ERROR] Task Server -> server -> preLoader -> eventReceived -> ' + err.stack)
+                    console.log('[ERROR] Task Server -> Task -> preLoader -> eventReceived -> ' + err.stack)
                 }
             }
         } catch (err) {
-            console.log('[ERROR] Task Server -> server -> preLoader -> global.TASK_NODE -> ' + err.stack)
-            console.log('[ERROR] Task Server -> server -> preLoader -> global.TASK_NODE = ' + JSON.stringify(global.TASK_NODE).substring(0, 1000))
+            console.log('[ERROR] Task Server -> Task -> preLoader -> global.TASK_NODE -> ' + err.stack)
+            console.log('[ERROR] Task Server -> Task -> preLoader -> global.TASK_NODE = ' + JSON.stringify(global.TASK_NODE).substring(0, 1000))
         }
     }
     else {  
@@ -59,12 +59,12 @@ function preLoader() {
                     bootLoader()
 
                 } catch (err) {
-                    console.log('[ERROR] Task Server -> server -> preLoader -> startDebugging -> ' + err.stack)
+                    console.log('[ERROR] Task Server -> Task -> preLoader -> startDebugging -> ' + err.stack)
                 }
             }
         } catch (err) {
-            console.log('[ERROR] Task Server -> server -> preLoader -> global.TASK_NODE -> ' + err.stack)
-            console.log('[ERROR] Task Server -> server -> preLoader -> global.TASK_NODE = ' + JSON.stringify(global.TASK_NODE).substring(0, 1000))
+            console.log('[ERROR] Task Server -> Task -> preLoader -> global.TASK_NODE -> ' + err.stack)
+            console.log('[ERROR] Task Server -> Task -> preLoader -> global.TASK_NODE = ' + JSON.stringify(global.TASK_NODE).substring(0, 1000))
         }
     }
 
@@ -104,84 +104,84 @@ function bootLoader() {
         /* Validate that the minimun amount of input required are defined. */
 
         if (global.TASK_NODE.parentNode === undefined) {
-            console.log("[ERROR] Task Server -> server -> bootLoader -> Task without a Task Manager. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex]));
+            console.log("[ERROR] Task Server -> Task -> bootLoader -> Task without a Task Manager. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex]));
             continue
         }
 
         if (global.TASK_NODE.parentNode.parentNode === undefined) {
-            console.log("[ERROR] Task Server -> server -> bootLoader -> Task Manager without Mine Tasks. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex]));
+            console.log("[ERROR] Task Server -> Task -> bootLoader -> Task Manager without Mine Tasks. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex]));
             continue
         }
 
         if (global.TASK_NODE.parentNode.parentNode.parentNode === undefined) {
-            console.log("[ERROR] Task Server -> server -> bootLoader -> Mine Tasks without Market Tasks. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex]));
+            console.log("[ERROR] Task Server -> Task -> bootLoader -> Mine Tasks without Market Tasks. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex]));
             continue
         }
 
         if (global.TASK_NODE.parentNode.parentNode.parentNode.referenceParent === undefined) {
-            console.log("[ERROR] Task Server -> server -> bootLoader -> Market Tasks without a Market. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex]));
+            console.log("[ERROR] Task Server -> Task -> bootLoader -> Market Tasks without a Market. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex]));
             continue
         }
 
         global.MARKET_NODE = global.TASK_NODE.parentNode.parentNode.parentNode.referenceParent
 
         if (global.MARKET_NODE.parentNode === undefined) {
-            console.log("[ERROR] Task Server -> server -> bootLoader -> Market without a Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(global.MARKET_NODE));
+            console.log("[ERROR] Task Server -> Task -> bootLoader -> Market without a Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(global.MARKET_NODE));
             continue
         }
 
         if (global.MARKET_NODE.parentNode.parentNode === undefined) {
-            console.log("[ERROR] Task Server -> server -> bootLoader -> Exchange Markets without a Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(global.MARKET_NODE.parentNode));
+            console.log("[ERROR] Task Server -> Task -> bootLoader -> Exchange Markets without a Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(global.MARKET_NODE.parentNode));
             continue
         }
 
         if (global.MARKET_NODE.baseAsset === undefined) {
-            console.log("[ERROR] Task Server -> server -> bootLoader -> Market without a Base Asset. This process will not be executed. -> Process Instance = " + JSON.stringify(global.MARKET_NODE));
+            console.log("[ERROR] Task Server -> Task -> bootLoader -> Market without a Base Asset. This process will not be executed. -> Process Instance = " + JSON.stringify(global.MARKET_NODE));
             continue
         }
 
         if (global.MARKET_NODE.quotedAsset === undefined) {
-            console.log("[ERROR] Task Server -> server -> bootLoader -> Market without a Quoted Asset. This process will not be executed. -> Process Instance = " + JSON.stringify(global.MARKET_NODE));
+            console.log("[ERROR] Task Server -> Task -> bootLoader -> Market without a Quoted Asset. This process will not be executed. -> Process Instance = " + JSON.stringify(global.MARKET_NODE));
             continue
         }
 
         if (global.MARKET_NODE.baseAsset.referenceParent === undefined) {
-            console.log("[ERROR] Task Server -> server -> bootLoader -> Base Asset without a Reference Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(global.MARKET_NODE.baseAsset));
+            console.log("[ERROR] Task Server -> Task -> bootLoader -> Base Asset without a Reference Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(global.MARKET_NODE.baseAsset));
             continue
         }
 
         if (global.MARKET_NODE.quotedAsset.referenceParent === undefined) {
-            console.log("[ERROR] Task Server -> server -> bootLoader -> Quoted Asset without a Reference Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(global.MARKET_NODE.quotedAsset));
+            console.log("[ERROR] Task Server -> Task -> bootLoader -> Quoted Asset without a Reference Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(global.MARKET_NODE.quotedAsset));
             continue
         }
 
         if (global.TASK_NODE.bot.processes[processIndex].referenceParent === undefined) {
-            console.log("[ERROR] Task Server -> server -> bootLoader -> Process Instance without a Reference Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex]));
+            console.log("[ERROR] Task Server -> Task -> bootLoader -> Process Instance without a Reference Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex]));
             continue
         }
 
         if (global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode === undefined) {
-            console.log("[ERROR] Task Server -> server -> bootLoader -> Process Definition without parent Bot Definition. -> Process Definition = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].referenceParent));
+            console.log("[ERROR] Task Server -> Task -> bootLoader -> Process Definition without parent Bot Definition. -> Process Definition = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].referenceParent));
             continue
         }
 
         if (global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode === undefined) {
-            console.log("[ERROR] Task Server -> server -> bootLoader -> Bot Definition without parent Data Mine. -> Bot Definition = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode));
+            console.log("[ERROR] Task Server -> Task -> bootLoader -> Bot Definition without parent Data Mine. -> Bot Definition = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode));
             continue
         }
 
         if (global.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName === undefined) {
-            console.log("[ERROR] Task Server -> server -> bootLoader -> Process Definition without a codeName defined. -> Process Definition = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].referenceParent));
+            console.log("[ERROR] Task Server -> Task -> bootLoader -> Process Definition without a codeName defined. -> Process Definition = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].referenceParent));
             continue
         }
 
         if (global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config.codeName === undefined) {
-            console.log("[ERROR] Task Server -> server -> bootLoader -> Bot Definition without a codeName defined. -> Bot Definition = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode));
+            console.log("[ERROR] Task Server -> Task -> bootLoader -> Bot Definition without a codeName defined. -> Bot Definition = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode));
             continue
         }
 
         if (global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName === undefined) {
-            console.log("[ERROR] Task Server -> server -> bootLoader -> Data Mine without a codeName defined. -> Data Mine Definition = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode));
+            console.log("[ERROR] Task Server -> Task -> bootLoader -> Data Mine without a codeName defined. -> Data Mine Definition = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode));
             continue
         }
 
@@ -190,8 +190,6 @@ function bootLoader() {
 }
 
 function startRoot(processIndex) {
-
-    // console.log('[INFO] Task Server -> server -> startRoot -> Entering function. ')
 
     const ROOT_MODULE = require('./Root')
     let root = ROOT_MODULE.newRoot()

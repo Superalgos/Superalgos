@@ -9,15 +9,15 @@ exports.newNodeJsProcess = function newNodeJsProcess() {
     function initialize() {
 
         process.on('uncaughtException', function (err) {
-            console.log('[ERROR] Task Server -> server -> uncaughtException -> err.message = ' + err.message)
-            console.log('[ERROR] Task Server -> server -> uncaughtException -> err.stack = ' + err.stack)
+            console.log('[ERROR] Task Server -> Node JS Process -> uncaughtException -> err.message = ' + err.message)
+            console.log('[ERROR] Task Server -> Node JS Process -> uncaughtException -> err.stack = ' + err.stack)
             console.log(err.stack)
             global.EXIT_NODE_PROCESS()
         })
 
         process.on('unhandledRejection', (reason, p) => {
-            console.log('[ERROR] Task Server -> server -> unhandledRejection -> reason = ' + JSON.stringify(reason))
-            console.log('[ERROR] Task Server -> server -> unhandledRejection -> p = ' + JSON.stringify(p))
+            console.log('[ERROR] Task Server -> Node JS Process -> unhandledRejection -> reason = ' + JSON.stringify(reason))
+            console.log('[ERROR] Task Server -> Node JS Process -> unhandledRejection -> p = ' + JSON.stringify(p))
             console.log(reason.stack)
             global.EXIT_NODE_PROCESS()
         })
@@ -33,7 +33,7 @@ exports.newNodeJsProcess = function newNodeJsProcess() {
                 global.EVENT_SERVER_CLIENT_MODULE = undefined
             }
 
-            //console.log('[INFO] Task Server -> server -> process.on.exit -> About to exit -> config = ' + config)
+            //console.log('[INFO] Task Server -> Node JS Process -> process.on.exit -> About to exit -> config = ' + config)
         })
 
         /* Here we listen for the message to stop this Task / Process comming from the Task Manager, which is the paret of this node js process. */
@@ -47,7 +47,7 @@ exports.newNodeJsProcess = function newNodeJsProcess() {
                 In order to be sure that the process will be terminated, we schedulle one forced exit in 2 minutes from now.
                 */
                 let key = global.TASK_NODE.name + '-' + global.TASK_NODE.type + '-' + global.TASK_NODE.id
-                console.log('[INFO] Task Server -> server -> process.on -> Stopping Task ' + key + '. Nodejs process will be exited in less than 1 minute.')
+                console.log('[INFO] Task Server -> Node JS Process -> process.on -> Stopping Task ' + key + '. Nodejs process will be exited in less than 1 minute.')
                 setTimeout(global.EXIT_NODE_PROCESS, 60000);
             }
         });

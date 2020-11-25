@@ -1,8 +1,8 @@
 {
-  "name": "client",
+  "name": "Client",
   "version": "0.0.6",
   "description": "BackendServer",
-  "main": "server.js",
+  "main": "client.js",
   "author": {
     "name": "Luis-Fernando-Molina"
   },

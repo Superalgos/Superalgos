@@ -316,7 +316,7 @@ function newSuperalgosFunctionLibraryChartingSpaceFunctions() {
                     let projectDefinition = rootNode.projectDefinition
                     if (projectDefinition !== undefined) {
                         if (UI.projects.superalgos.utilities.children.isMissingChildren(node, projectDefinition, true) === true) {
-                            let projectTasks = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Project Dashboards')
+                            let projectTasks = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Project Dashboards', undefined, project)
                             projectTasks.payload.referenceParent = projectDefinition
                         }
                     }

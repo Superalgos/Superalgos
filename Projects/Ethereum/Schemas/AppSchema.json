@@ -875,5 +875,35 @@
         "properties": [
         ],
         "icon": "bitcoin"
+    },
+    {
+        "type": "Project Dashboards",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "title": [
+            "Use Reference Parent"
+        ],
+        "alternativeIcons": "Use Reference Parent Parent",
+        "addLeftIcons": true,
+        "level": 2,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Project Definition->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Charting Space->"
+        },
+        "propertyNameAtParent": "projectDashboards",
+        "properties": [
+        ],
+        "icon": "bitcoin"
     }
 ]

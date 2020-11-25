@@ -1,5 +1,4 @@
 ﻿exports.newIndicatorOutput = function newIndicatorOutput(bot, logger, UTILITIES, FILE_STORAGE) {
-    const FULL_LOG = true;
     const MODULE_NAME = "Indicator Bot";
 
     let thisObject = {

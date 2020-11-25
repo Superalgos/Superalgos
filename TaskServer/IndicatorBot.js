@@ -1,7 +1,6 @@
 ﻿exports.newIndicatorBot = function newIndicatorBot(bot, parentLogger) {
 
     const MODULE_NAME = "Indicator Bot";
-    const FULL_LOG = true;
 
     let USER_BOT_MODULE;
     let COMMONS_MODULE;
@@ -682,7 +681,7 @@
                     }
 
                     function loopControl(nextWaitTime) {
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> nextWaitTime = " + nextWaitTime); }
+                        logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> nextWaitTime = " + nextWaitTime)
 
                         /* We show we reached the end of the loop. */
                         processHeartBeat()
@@ -691,7 +690,7 @@
                         shallWeStop(onStop, onContinue);
 
                         function onStop() {
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> onStop -> Stopping the Loop Gracefully. See you next time!"); }
+                            logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> onStop -> Stopping the Loop Gracefully. See you next time!")
                             processStopped()
                             return;
                         }
@@ -700,7 +699,7 @@
                             /* Indicator bots are going to be executed after a configured period of time after the last execution ended. This is to avoid overlapping executions. */
                             switch (nextWaitTime) {
                                 case 'Normal': {
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.normalWaitTime / 1000) + " seconds."); }
+                                    logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.normalWaitTime / 1000) + " seconds.")
                                     nextLoopTimeoutHandle = setTimeout(loop, processConfig.normalWaitTime);
                                     processHeartBeat(undefined, undefined, "Waiting " + processConfig.normalWaitTime / 1000 + " seconds for next execution.")
                                     if (global.WRITE_LOGS_TO_FILES === 'true') {
@@ -709,21 +708,21 @@
                                 }
                                     break;
                                 case 'Retry': {
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.retryWaitTime / 1000) + " seconds."); }
+                                    logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.retryWaitTime / 1000) + " seconds.")
                                     nextLoopTimeoutHandle = setTimeout(loop, processConfig.retryWaitTime);
                                     processHeartBeat(undefined, undefined, "Trying to recover from some problem. Waiting " + processConfig.retryWaitTime / 1000 + " seconds for next execution.")
                                     logger.persist();
                                 }
                                     break;
                                 case 'Sleep': {
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.sleepWaitTime / 60000) + " minutes."); }
+                                    logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.sleepWaitTime / 60000) + " minutes.")
                                     nextLoopTimeoutHandle = setTimeout(loop, processConfig.sleepWaitTime);
                                     processHeartBeat(undefined, undefined, "Waiting " + processConfig.sleepWaitTime / 60000 + " minutes for next execution.")
                                     logger.persist();
                                 }
                                     break;
                                 case 'Coma': {
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.comaWaitTime / 3600000) + " hours."); }
+                                    logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.comaWaitTime / 3600000) + " hours.")
                                     nextLoopTimeoutHandle = setTimeout(loop, processConfig.comaWaitTime);
                                     processHeartBeat(undefined, undefined, "Waiting " + processConfig.comaWaitTime / 3600000 + " hours for next execution.")
                                     logger.persist();

@@ -1,5 +1,4 @@
 ﻿exports.newMultiPeriodDaily = function newMultiPeriodDaily(bot, logger, UTILITIES, FILE_STORAGE) {
-    const FULL_LOG = true;
     const MODULE_NAME = "Multi Period Daily";
     const GMT_SECONDS = ':00.000 GMT+0000';
 
@@ -165,7 +164,7 @@
 
                         if (bot.hasTheBotJustStarted === true && processConfig.framework.startDate !== undefined && processConfig.framework.startDate.resumeExecution === false) {
 
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> Starting from the begining because bot has just started and resume execution was true.") }
+                            logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> Starting from the begining because bot has just started and resume execution was true.")
                             startFromBegining()
                             return
                         }
@@ -179,7 +178,7 @@
                         /*
                         In the case when there is no status report, we assume like the last processed file is the one on the date of Begining of Market.
                         */
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> Starting from the begining of the market because own status report not found or lastFile was undefined.") }
+                        logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> Starting from the begining of the market because own status report not found or lastFile was undefined.")
                         beginingOfMarket = new Date(contextVariables.dateBeginOfMarket.valueOf())
                         startFromBegining()
                     }
@@ -187,7 +186,7 @@
                     function startFromBegining() {
                         contextVariables.lastFile = new Date(contextVariables.dateBeginOfMarket.getUTCFullYear() + "-" + (contextVariables.dateBeginOfMarket.getUTCMonth() + 1) + "-" + contextVariables.dateBeginOfMarket.getUTCDate() + " " + "00:00" + GMT_SECONDS)
 
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> startFromBegining -> contextVariables.lastFile = " + contextVariables.lastFile) }
+                        logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> startFromBegining -> contextVariables.lastFile = " + contextVariables.lastFile)
                         /*
                         The first time the process is running is the right time to create the data structure that is going to be shared across different executions.
                         This data structure has one object per each timeFrame.
@@ -232,14 +231,14 @@
                     bot.multiPeriodDailyProcessDatetime = new Date(bot.multiPeriodDailyProcessDatetime.valueOf() + ONE_DAY_IN_MILISECONDS)
                     previousDay = new Date(bot.multiPeriodDailyProcessDatetime.valueOf() - ONE_DAY_IN_MILISECONDS)
 
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimeFrames -> advanceTime -> bot.multiPeriodDailyProcessDatetime = " + bot.multiPeriodDailyProcessDatetime) }
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimeFrames -> advanceTime -> previousDay = " + previousDay) }
+                    logger.write(MODULE_NAME, "[INFO] start -> processTimeFrames -> advanceTime -> bot.multiPeriodDailyProcessDatetime = " + bot.multiPeriodDailyProcessDatetime)
+                    logger.write(MODULE_NAME, "[INFO] start -> processTimeFrames -> advanceTime -> previousDay = " + previousDay)
 
                     /* Validation that we are not going past the head of the market. */
                     if (bot.multiPeriodDailyProcessDatetime.valueOf() > contextVariables.dateEndOfMarket.valueOf()) {
 
                         const logText = "Head of the market found @ " + previousDay.getUTCFullYear() + "/" + (previousDay.getUTCMonth() + 1) + "/" + previousDay.getUTCDate() + ".";
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimeFrames -> advanceTime -> " + logText) }
+                        logger.write(MODULE_NAME, "[INFO] start -> processTimeFrames -> advanceTime -> " + logText)
 
                         callBackFunction(global.DEFAULT_OK_RESPONSE)
                         return
@@ -295,7 +294,7 @@
                             if (period === timeFrameLabel) { validPeriod = true }
                         }
                         if (validPeriod === false) {
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimeFrames -> timeFramesLoopBody -> Discarding period for not being listed as a valid period. -> timeFrameLabel = " + timeFrameLabel) }
+                            logger.write(MODULE_NAME, "[INFO] start -> processTimeFrames -> timeFramesLoopBody -> Discarding period for not being listed as a valid period. -> timeFrameLabel = " + timeFrameLabel)
                             timeFramesControlLoop()
                             return
                         }
@@ -468,7 +467,7 @@
             }
 
             function writeDataRanges(callBack) {
-                let outputDatasets = global.NODE_BRANCH_TO_ARRAY (bot.processNode.referenceParent.processOutput, 'Output Dataset')
+                let outputDatasets = global.NODE_BRANCH_TO_ARRAY(bot.processNode.referenceParent.processOutput, 'Output Dataset')
                 let outputDatasetIndex = -1;
                 controlLoop()
 

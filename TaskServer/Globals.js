@@ -392,5 +392,42 @@ exports.newGlobals = function newGlobals() {
 
             setTimeout(process.exit, 10000) // We will give 10 seconds to logs be written on file
         }
+
+        require('dotenv').config();
+
+        global.WRITE_LOGS_TO_FILES = process.env.WRITE_LOGS_TO_FILES
+
+        /*
+        We need to count how many process instances we deployd and how many of them have already finished their job, either
+        because they just finished or because there was a request to stop the proceses. In this way, once we reach the
+        amount of instances started, we can safelly destroy the rest of the objects running and let this nodejs process die.
+        */
+
+        global.ENDED_PROCESSES_COUNTER = 0
+        global.TOTAL_PROCESS_INSTANCES_CREATED = 0
+
+        global.STOP_TASK_GRACEFULLY = false;
+
+        global.getPercentage = function (fromDate, currentDate, lastDate) {
+            let fromDays = Math.trunc(fromDate.valueOf() / global.ONE_DAY_IN_MILISECONDS)
+            let currentDays = Math.trunc(currentDate.valueOf() / global.ONE_DAY_IN_MILISECONDS)
+            let lastDays = Math.trunc(lastDate.valueOf() / global.ONE_DAY_IN_MILISECONDS)
+            let percentage = (currentDays - fromDays) * 100 / (lastDays - fromDays)
+            if ((lastDays - fromDays) === 0) {
+                percentage = 100
+            }
+            return percentage
+        }
+        
+        global.areEqualDates = function (date1, date2) {
+            let day1Days = Math.trunc(date1.valueOf() / global.ONE_DAY_IN_MILISECONDS)
+            let day2Days = Math.trunc(date2.valueOf() / global.ONE_DAY_IN_MILISECONDS)
+        
+            if (day1Days === day2Days) {
+                return true
+            } else {
+                return false
+            }
+        }
     }
 }

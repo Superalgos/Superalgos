@@ -98,11 +98,43 @@
                 }
             }
 
-            try {
+            if (processConfig.startMode === undefined) { // Default 
 
-                if (processConfig.startMode === undefined) { // Default 
+                botConfig.hasTheBotJustStarted = true;
 
-                    botConfig.hasTheBotJustStarted = true;
+                switch (botConfig.type) {
+                    case 'Sensor Bot': {
+                        runSensorBot(botConfig, processConfig);
+                        break;
+                    }
+                    case 'Indicator Bot': {
+                        runIndicatorBot(botConfig, processConfig);
+                        break;
+                    }
+                    case 'Trading Bot': {
+                        runTradingBot(botConfig, processConfig);
+                        break;
+                    }
+                    case 'Learning Bot': {
+                        runLearningBot(botConfig, processConfig);
+                        break;
+                    }
+                    default: {
+                        console.log(logDisplace + "Process Instance : [ERROR] start -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
+                    }
+                }
+                return
+            }
+
+            if (processConfig.startMode.noTime !== undefined) {
+
+                if (processConfig.startMode.noTime.run === "true") {
+
+                    if (processConfig.startMode.noTime.resumeExecution === true) {
+                        botConfig.hasTheBotJustStarted = false;
+                    } else {
+                        botConfig.hasTheBotJustStarted = true;
+                    }
 
                     switch (botConfig.type) {
                         case 'Sensor Bot': {
@@ -125,94 +157,55 @@
                             console.log(logDisplace + "Process Instance : [ERROR] start -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
                         }
                     }
-                    return
                 }
-
-                if (processConfig.startMode.noTime !== undefined) {
-
-                    if (processConfig.startMode.noTime.run === "true") {
-
-                        if (processConfig.startMode.noTime.resumeExecution === true) {
-                            botConfig.hasTheBotJustStarted = false;
-                        } else {
-                            botConfig.hasTheBotJustStarted = true;
-                        }
-
-                        switch (botConfig.type) {
-                            case 'Sensor Bot': {
-                                runSensorBot(botConfig, processConfig);
-                                break;
-                            }
-                            case 'Indicator Bot': {
-                                runIndicatorBot(botConfig, processConfig);
-                                break;
-                            }
-                            case 'Trading Bot': {
-                                runTradingBot(botConfig, processConfig);
-                                break;
-                            }
-                            case 'Learning Bot': {
-                                runLearningBot(botConfig, processConfig);
-                                break;
-                            }
-                            default: {
-                                console.log(logDisplace + "Process Instance : [ERROR] start -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
-                            }
-                        }
-                    }
-                }
-
-                if (processConfig.startMode.fixedInterval !== undefined) {
-
-                    if (processConfig.startMode.fixedInterval.run === "true") {
-
-                        botConfig.runAtFixedInterval = true;
-                        botConfig.fixedInterval = processConfig.startMode.fixedInterval.interval;
-
-                        switch (botConfig.type) {
-                            case 'Sensor Bot': {
-                                runSensorBot(botConfig, processConfig);
-                                break;
-                            }
-                            default: {
-                                console.log(logDisplace + "Process Instance : [ERROR] start -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
-                            }
-                        }
-                    }
-                }
-
-                if (processConfig.startMode.userDefined !== undefined) {
-
-                    if (processConfig.startMode.userDefined.run === "true") {
-
-                        botConfig.startMode = "User Defined";
-
-                        if (processConfig.startMode.userDefined.resumeExecution === true) {
-                            botConfig.hasTheBotJustStarted = false;
-                        } else {
-                            botConfig.hasTheBotJustStarted = true;
-                        }
-
-                        switch (botConfig.type) {
-                            case 'Trading Bot': {
-                                runTradingBot(botConfig, processConfig);
-                                break;
-                            }
-                            case 'Learning Bot': {
-                                runLearningBot(botConfig, processConfig);
-                                break;
-                            }
-                            default: {
-                                console.log(logDisplace + "Process Instance : [ERROR] start -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
-                            }
-                        }
-                    }
-                }
-
-            } catch (err) {
-                console.log(logDisplace + "Process Instance : [ERROR] start -> Unexpected exception. -> err = " + err.stack);
             }
 
+            if (processConfig.startMode.fixedInterval !== undefined) {
+
+                if (processConfig.startMode.fixedInterval.run === "true") {
+
+                    botConfig.runAtFixedInterval = true;
+                    botConfig.fixedInterval = processConfig.startMode.fixedInterval.interval;
+
+                    switch (botConfig.type) {
+                        case 'Sensor Bot': {
+                            runSensorBot(botConfig, processConfig);
+                            break;
+                        }
+                        default: {
+                            console.log(logDisplace + "Process Instance : [ERROR] start -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
+                        }
+                    }
+                }
+            }
+
+            if (processConfig.startMode.userDefined !== undefined) {
+
+                if (processConfig.startMode.userDefined.run === "true") {
+
+                    botConfig.startMode = "User Defined";
+
+                    if (processConfig.startMode.userDefined.resumeExecution === true) {
+                        botConfig.hasTheBotJustStarted = false;
+                    } else {
+                        botConfig.hasTheBotJustStarted = true;
+                    }
+
+                    switch (botConfig.type) {
+                        case 'Trading Bot': {
+                            runTradingBot(botConfig, processConfig);
+                            break;
+                        }
+                        case 'Learning Bot': {
+                            runLearningBot(botConfig, processConfig);
+                            break;
+                        }
+                        default: {
+                            console.log(logDisplace + "Process Instance : [ERROR] start -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
+                        }
+                    }
+                }
+            }
 
             function runSensorBot(pBotConfig, pProcessConfig) {
 

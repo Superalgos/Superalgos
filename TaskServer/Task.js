@@ -187,11 +187,11 @@ function bootLoader() {
             continue
         }
 
-        startRoot(processIndex);
+        startProcessInstance(processIndex);
     }
 }
 
-function startRoot(processIndex) {
+function startProcessInstance(processIndex) {
 
     const ROOT_MODULE = require('./ProcessInstance')
     let root = ROOT_MODULE.newProcessInstance()

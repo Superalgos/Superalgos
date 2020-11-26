@@ -17,6 +17,12 @@
             const INDICATOR_BOT_MODULE = require('./IndicatorBot');
             const SENSOR_BOT = require('./SensorBot');
             const TRADING_BOT_MODULE = require('./TradingBot');
+            const DEBUG_MODULE = require(global.ROOT_DIR + 'DebugLog');
+
+            let botInstance
+            let logger
+
+            logger = DEBUG_MODULE.newDebugLog();
 
             let processInstance = global.TASK_NODE.bot.processes[processIndex]
             let botConfig = processInstance.referenceParent.parentNode.config
@@ -104,19 +110,19 @@
 
                 switch (botConfig.type) {
                     case 'Sensor Bot': {
-                        runSensorBot(botConfig, processConfig);
+                        runSensorBot(processConfig);
                         break;
                     }
                     case 'Indicator Bot': {
-                        runIndicatorBot(botConfig, processConfig);
+                        runIndicatorBot(processConfig);
                         break;
                     }
                     case 'Trading Bot': {
-                        runTradingBot(botConfig, processConfig);
+                        runTradingBot(processConfig);
                         break;
                     }
                     case 'Learning Bot': {
-                        runLearningBot(botConfig, processConfig);
+                        runLearningBot(processConfig);
                         break;
                     }
                     default: {
@@ -138,19 +144,19 @@
 
                     switch (botConfig.type) {
                         case 'Sensor Bot': {
-                            runSensorBot(botConfig, processConfig);
+                            runSensorBot(processConfig);
                             break;
                         }
                         case 'Indicator Bot': {
-                            runIndicatorBot(botConfig, processConfig);
+                            runIndicatorBot(processConfig);
                             break;
                         }
                         case 'Trading Bot': {
-                            runTradingBot(botConfig, processConfig);
+                            runTradingBot(processConfig);
                             break;
                         }
                         case 'Learning Bot': {
-                            runLearningBot(botConfig, processConfig);
+                            runLearningBot(processConfig);
                             break;
                         }
                         default: {
@@ -169,7 +175,7 @@
 
                     switch (botConfig.type) {
                         case 'Sensor Bot': {
-                            runSensorBot(botConfig, processConfig);
+                            runSensorBot(processConfig);
                             break;
                         }
                         default: {
@@ -193,11 +199,11 @@
 
                     switch (botConfig.type) {
                         case 'Trading Bot': {
-                            runTradingBot(botConfig, processConfig);
+                            runTradingBot(processConfig);
                             break;
                         }
                         case 'Learning Bot': {
-                            runLearningBot(botConfig, processConfig);
+                            runLearningBot(processConfig);
                             break;
                         }
                         default: {
@@ -207,120 +213,32 @@
                 }
             }
 
-            function runSensorBot(pBotConfig, pProcessConfig) {
-
+            function runSensorBot(pProcessConfig) {
                 try {
                     global.TOTAL_PROCESS_INSTANCES_CREATED++
 
-                    const DEBUG_MODULE = require(global.ROOT_DIR + 'DebugLog');
-                    let logger;
-
-                    logger = DEBUG_MODULE.newDebugLog();
                     global.LOGGER_MAP.set('runSensorBot', logger)
-                    logger.bot = pBotConfig;
+                    logger.bot = botConfig;
 
-                    let sensorBot = SENSOR_BOT.newSensorBot(pBotConfig, logger);
-                    sensorBot.initialize(pProcessConfig, onInitializeReady);
-
-                    function onInitializeReady(err) {
-
-                        if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-
-                            sensorBot.run(whenRunFinishes);
-
-                            function whenRunFinishes(err) {
-
-                                pBotConfig.loopCounter = 0;
-
-                                let botId = pBotConfig.dataMine + "." + pBotConfig.codeName + "." + pBotConfig.process;
-
-                                if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-                                    logger.write(MODULE_NAME, "[INFO] start -> runSensorBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
-                                    logger.write(MODULE_NAME, "[INFO] start -> runSensorBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
-
-                                    logger.persist();
-                                } else {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> runSensorBot -> onInitializeReady -> whenStartFinishes -> err = " + err.message);
-                                    logger.write(MODULE_NAME, "[ERROR] start -> runSensorBot -> onInitializeReady -> whenStartFinishes -> Execution will be stopped. ");
-                                    logger.write(MODULE_NAME, "[ERROR] start -> runSensorBot -> onInitializeReady -> whenStartFinishes -> Bye.");
-                                    logger.write(MODULE_NAME, "[ERROR] start -> runSensorBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
-
-                                    console.log(logDisplace + "Process Instance : [ERROR] start -> runSensorBot -> onInitializeReady -> whenStartFinishes -> Bot execution was aborted.");
-                                    logger.persist();
-                                }
-                                setTimeout(exitProcessInstance, WAIT_TIME_FOR_ALL_PROCESS_INSTANCES_TO_START)
-                            }
-
-                        } else {
-                            logger.write(MODULE_NAME, "[ERROR] start -> runSensorBot -> onInitializeReady -> err = " + err.message);
-                            logger.write(MODULE_NAME, "[ERROR] start -> runSensorBot -> onInitializeReady -> Bot will not be started. ");
-                            console.log(logDisplace + "Process Instance : [ERROR] start -> runSensorBot -> onInitializeReady -> err = " + err.message);
-
-                            logger.persist();
-                            setTimeout(exitProcessInstance, WAIT_TIME_FOR_ALL_PROCESS_INSTANCES_TO_START)
-                        }
-                    }
+                    botInstance = SENSOR_BOT.newSensorBot(botConfig, logger);
+                    botInstance.initialize(pProcessConfig, onInitializeReady);
                 }
                 catch (err) {
-                    console.log(logDisplace + "Process Instance : [ERROR] start -> runSensorBot -> err = " + err.stack);
+                    console.log(logDisplace + "Process Instance : [ERROR] start -> err = " + err.stack);
                     setTimeout(exitProcessInstance, WAIT_TIME_FOR_ALL_PROCESS_INSTANCES_TO_START)
                 }
             }
 
-            function runIndicatorBot(pBotConfig, pProcessConfig) {
-
+            function runIndicatorBot(pProcessConfig) {
                 try {
                     global.TOTAL_PROCESS_INSTANCES_CREATED++
 
-                    const DEBUG_MODULE = require(global.ROOT_DIR + 'DebugLog');
-                    let logger;
-
-                    logger = DEBUG_MODULE.newDebugLog();
                     global.LOGGER_MAP.set('runIndicatorBot', logger)
-                    logger.bot = pBotConfig;
+                    logger.bot = botConfig;
 
-                    let indicatorBot = INDICATOR_BOT_MODULE.newIndicatorBot(pBotConfig, logger);
-                    indicatorBot.initialize(pProcessConfig, onInitializeReady);
+                    botInstance = INDICATOR_BOT_MODULE.newIndicatorBot(botConfig, logger);
+                    botInstance.initialize(pProcessConfig, onInitializeReady);
 
-                    function onInitializeReady(err) {
-
-                        if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-
-                            indicatorBot.run(whenRunFinishes);
-
-                            function whenRunFinishes(err) {
-
-                                pBotConfig.loopCounter = 0;
-
-                                let botId = pBotConfig.dataMine + "." + pBotConfig.codeName + "." + pBotConfig.process;
-
-                                if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-
-                                    logger.write(MODULE_NAME, "[INFO] start -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
-                                    logger.write(MODULE_NAME, "[INFO] start -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
-
-                                    logger.persist();
-
-                                } else {
-
-                                    logger.write(MODULE_NAME, "[ERROR] start -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> err = " + err.message);
-                                    logger.write(MODULE_NAME, "[ERROR] start -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> Execution will be stopped. ");
-                                    logger.write(MODULE_NAME, "[ERROR] start -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> Bye.");
-                                    logger.write(MODULE_NAME, "[ERROR] start -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
-                                    console.log(logDisplace + "Process Instance : [ERROR] start -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished with errors. Please check the logs.");
-                                    logger.persist();
-                                }
-                                setTimeout(exitProcessInstance, WAIT_TIME_FOR_ALL_PROCESS_INSTANCES_TO_START)
-                            }
-
-                        } else {
-                            logger.write(MODULE_NAME, "[ERROR] start -> runIndicatorBot -> onInitializeReady -> err = " + err.message);
-                            logger.write(MODULE_NAME, "[ERROR] start -> runIndicatorBot -> onInitializeReady -> Failed to initialize the bot. ");
-                            console.log(logDisplace + "Process Instance : [ERROR] start -> runIndicatorBot -> onInitializeReady -> err = " + err.message);
-                            logger.persist();
-                            setTimeout(exitProcessInstance, WAIT_TIME_FOR_ALL_PROCESS_INSTANCES_TO_START)
-                        }
-                    }
                 }
                 catch (err) {
                     console.log(logDisplace + "Process Instance : [ERROR] start -> runIndicatorBot -> err = " + err.stack);
@@ -328,62 +246,16 @@
                 }
             }
 
-            function runTradingBot(pBotConfig, pProcessConfig) {
+            function runTradingBot(pProcessConfig) {
 
                 global.TOTAL_PROCESS_INSTANCES_CREATED++
 
                 try {
-                    const DEBUG_MODULE = require(global.ROOT_DIR + 'DebugLog');
-                    let logger;
-
-                    logger = DEBUG_MODULE.newDebugLog();
                     global.LOGGER_MAP.set('runTradingBot', logger)
-                    logger.bot = pBotConfig;
+                    logger.bot = botConfig;
 
-                    let tradingBot = TRADING_BOT_MODULE.newTradingBot(pBotConfig, logger);
-                    tradingBot.initialize(pProcessConfig, onInitializeReady);
-
-                    function onInitializeReady(err) {
-
-                        if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-
-                            tradingBot.run(whenRunFinishes);
-
-                            function whenRunFinishes(err) {
-
-                                pBotConfig.loopCounter = 0;
-
-                                let botId;
-
-                                botId = pBotConfig.dataMine + "." + pBotConfig.codeName + "." + pBotConfig.process;
-
-                                if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-
-                                    logger.write(MODULE_NAME, "[INFO] start -> runTradingBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
-                                    logger.write(MODULE_NAME, "[INFO] start -> runTradingBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
-
-                                    logger.persist();
-
-                                } else {
-
-                                    logger.write(MODULE_NAME, "[ERROR] start -> runTradingBot -> onInitializeReady -> whenStartFinishes -> err = " + err.message);
-                                    logger.write(MODULE_NAME, "[ERROR] start -> runTradingBot -> onInitializeReady -> whenStartFinishes -> Execution will be stopped. ");
-                                    logger.write(MODULE_NAME, "[ERROR] start -> runTradingBot -> onInitializeReady -> whenStartFinishes -> Bye.");
-                                    logger.write(MODULE_NAME, "[ERROR] start -> runTradingBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
-                                    console.log(logDisplace + "Process Instance : [ERROR] start -> runTradingBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished with errors. Please check the logs.");
-                                    logger.persist();
-                                }
-                                setTimeout(exitProcessInstance, WAIT_TIME_FOR_ALL_PROCESS_INSTANCES_TO_START)
-                            }
-
-                        } else {
-                            logger.write(MODULE_NAME, "[ERROR] start -> runTradingBot -> onInitializeReady -> err = " + err.message);
-                            logger.write(MODULE_NAME, "[ERROR] start -> runTradingBot -> onInitializeReady -> Failed to initialize the bot. ");
-                            console.log(logDisplace + "Process Instance : [ERROR] start -> runTradingBot -> onInitializeReady -> err = " + err.message);
-                            logger.persist();
-                            setTimeout(exitProcessInstance, WAIT_TIME_FOR_ALL_PROCESS_INSTANCES_TO_START)
-                        }
-                    }
+                    botInstance = TRADING_BOT_MODULE.newTradingBot(botConfig, logger);
+                    botInstance.initialize(pProcessConfig, onInitializeReady);
                 }
                 catch (err) {
                     console.log(logDisplace + "Process Instance : [ERROR] start -> runTradingBot -> err = " + err.stack);
@@ -391,65 +263,58 @@
                 }
             }
 
-            function runLearningBot(pBotConfig, pProcessConfig) {
+            function runLearningBot(pProcessConfig) {
 
                 global.TOTAL_PROCESS_INSTANCES_CREATED++
 
                 try {
-                    const DEBUG_MODULE = require(global.ROOT_DIR + 'DebugLog');
-                    let logger;
-
-                    logger = DEBUG_MODULE.newDebugLog();
                     global.LOGGER_MAP.set('runLearningBot', logger)
-                    logger.bot = pBotConfig;
+                    logger.bot = botConfig;
 
-                    let learningBot = TRADING_BOT_MODULE.newLearningBot(pBotConfig, logger);
-                    learningBot.initialize(pProcessConfig, onInitializeReady);
-
-                    function onInitializeReady(err) {
-
-                        if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-
-                            learningBot.run(whenRunFinishes);
-
-                            function whenRunFinishes(err) {
-
-                                pBotConfig.loopCounter = 0;
-
-                                let botId;
-
-                                botId = pBotConfig.dataMine + "." + pBotConfig.codeName + "." + pBotConfig.process;
-
-                                if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-
-                                    logger.write(MODULE_NAME, "[INFO] start -> runLearningBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
-                                    logger.write(MODULE_NAME, "[INFO] start -> runLearningBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
-
-                                    logger.persist();
-
-                                } else {
-
-                                    logger.write(MODULE_NAME, "[ERROR] start -> runLearningBot -> onInitializeReady -> whenStartFinishes -> err = " + err.message);
-                                    logger.write(MODULE_NAME, "[ERROR] start -> runLearningBot -> onInitializeReady -> whenStartFinishes -> Execution will be stopped. ");
-                                    logger.write(MODULE_NAME, "[ERROR] start -> runLearningBot -> onInitializeReady -> whenStartFinishes -> Bye.");
-                                    logger.write(MODULE_NAME, "[ERROR] start -> runLearningBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
-                                    console.log(logDisplace + "Process Instance : [ERROR] start -> runLearningBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished with errors. Please check the logs.");
-                                    logger.persist();
-                                }
-                                setTimeout(exitProcessInstance, WAIT_TIME_FOR_ALL_PROCESS_INSTANCES_TO_START)
-                            }
-
-                        } else {
-                            logger.write(MODULE_NAME, "[ERROR] start -> runLearningBot -> onInitializeReady -> err = " + err.message);
-                            logger.write(MODULE_NAME, "[ERROR] start -> runLearningBot -> onInitializeReady -> Failed to initialize the bot. ");
-                            console.log(logDisplace + "Process Instance : [ERROR] start -> runLearningBot -> onInitializeReady -> err = " + err.message);
-                            logger.persist();
-                            setTimeout(exitProcessInstance, WAIT_TIME_FOR_ALL_PROCESS_INSTANCES_TO_START)
-                        }
-                    }
+                    botInstance = TRADING_BOT_MODULE.newLearningBot(botConfig, logger);
+                    botInstance.initialize(pProcessConfig, onInitializeReady);
                 }
                 catch (err) {
                     console.log(logDisplace + "Process Instance : [ERROR] start -> runLearningBot -> err = " + err.stack);
+                    setTimeout(exitProcessInstance, WAIT_TIME_FOR_ALL_PROCESS_INSTANCES_TO_START)
+                }
+            }
+
+            function onInitializeReady(err) {
+
+                if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+
+                    botInstance.run(whenRunFinishes);
+
+                    function whenRunFinishes(err) {
+
+                        botConfig.loopCounter = 0;
+
+                        let botId = botConfig.dataMine + "." + botConfig.codeName + "." + botConfig.process;
+
+                        if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+                            logger.write(MODULE_NAME, "[INFO] start -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
+                            logger.write(MODULE_NAME, "[INFO] start -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
+
+                            logger.persist();
+                        } else {
+                            logger.write(MODULE_NAME, "[ERROR] start -> onInitializeReady -> whenStartFinishes -> err = " + err.message);
+                            logger.write(MODULE_NAME, "[ERROR] start -> onInitializeReady -> whenStartFinishes -> Execution will be stopped. ");
+                            logger.write(MODULE_NAME, "[ERROR] start -> onInitializeReady -> whenStartFinishes -> Bye.");
+                            logger.write(MODULE_NAME, "[ERROR] start -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
+
+                            console.log(logDisplace + "Process Instance : [ERROR] start -> onInitializeReady -> whenStartFinishes -> Bot execution was aborted.");
+                            logger.persist();
+                        }
+                        setTimeout(exitProcessInstance, WAIT_TIME_FOR_ALL_PROCESS_INSTANCES_TO_START)
+                    }
+
+                } else {
+                    logger.write(MODULE_NAME, "[ERROR] start -> onInitializeReady -> err = " + err.message);
+                    logger.write(MODULE_NAME, "[ERROR] start -> onInitializeReady -> Bot will not be started. ");
+                    console.log(logDisplace + "Process Instance : [ERROR] start -> onInitializeReady -> err = " + err.message);
+
+                    logger.persist();
                     setTimeout(exitProcessInstance, WAIT_TIME_FOR_ALL_PROCESS_INSTANCES_TO_START)
                 }
             }

@@ -24,8 +24,7 @@
 
             logger = DEBUG_MODULE.newDebugLog()
 
-            let processInstance = global.TASK_NODE.bot.processes[processIndex]
-            let botConfig = processInstance.referenceParent.parentNode.config
+            let botConfig = global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config
             let processConfig = global.TASK_NODE.bot.processes[processIndex].referenceParent.config
 
             botConfig.process = global.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName

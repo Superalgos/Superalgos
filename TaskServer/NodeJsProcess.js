@@ -46,7 +46,7 @@ exports.newNodeJsProcess = function newNodeJsProcess() {
                 There are some process that might no be able to end grafully, for example the ones schedulle to process information in a future day or month.
                 In order to be sure that the process will be terminated, we schedulle one forced exit in 2 minutes from now.
                 */
-                let key = global.TASK_NODE.name + '-' + global.TASK_NODE.type + '-' + global.TASK_NODE.id
+                let key = global.TASK_NODE.name + '-' + global.TASK_NODE.type  
                 console.log('[INFO] Task Server -> Node JS Process -> process.on -> Stopping Task ' + key + '. Nodejs process will be exited in less than 1 minute.')
                 setTimeout(global.EXIT_NODE_PROCESS, 60000);
             }

@@ -74,7 +74,7 @@ function preLoader() {
 
             for (let j = 0; j < project.schema.length; j++) {
                 let nodeDefinition = project.schema[j]
-                let key = project + '-' + nodeDefinition.type
+                let key = project.name + '-' + nodeDefinition.type
                 global.APP_SCHEMA_MAP.set(key, nodeDefinition)
             }
         }

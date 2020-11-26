@@ -195,7 +195,7 @@ exports.newGlobals = function newGlobals() {
                 if (startingNode === undefined) { return }
                 if (nodeFound !== undefined) { return }
 
-                let nodeDefinition = APP_SCHEMA_MAP.get(startingNode.type)
+                let nodeDefinition = global.APP_SCHEMA_MAP.get(startingNode.project + '-' + startingNode.type)
                 if (nodeDefinition === undefined) { return }
 
                 if (startingNode.type === nodeType) {
@@ -249,7 +249,7 @@ exports.newGlobals = function newGlobals() {
             function scanNodeMesh(startingNode) {
                 if (startingNode === undefined) { return }
 
-                let nodeDefinition = APP_SCHEMA_MAP.get(startingNode.type)
+                let nodeDefinition = global.APP_SCHEMA_MAP.get(startingNode.project + '-' + startingNode.type)
                 if (nodeDefinition === undefined) { return }
 
                 if (startingNode.id === nodeId) {
@@ -444,7 +444,7 @@ exports.newGlobals = function newGlobals() {
                     errorMessage: errorMessage
                 }
             }
-
+            let key = global.TASK_NODE.name + '-' + global.TASK_NODE.type + '-' + global.TASK_NODE.id
             global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(key, 'Error', event)
         }
     }

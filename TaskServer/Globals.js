@@ -151,7 +151,7 @@ exports.newGlobals = function newGlobals() {
             return resultArray
 
             function scanNodeBranch(startingNode) {
-                let nodeDefinition = global.APP_SCHEMA_MAP.get(startingNode.type)
+                let nodeDefinition = global.APP_SCHEMA_MAP.get(startingNode.project + '-' + startingNode.type)
                 if (nodeDefinition === undefined) { return }
 
                 if (startingNode.type === nodeType) {
@@ -418,11 +418,11 @@ exports.newGlobals = function newGlobals() {
             }
             return percentage
         }
-        
+
         global.GET_EQUAL_DATES = function (date1, date2) {
             let day1Days = Math.trunc(date1.valueOf() / global.ONE_DAY_IN_MILISECONDS)
             let day2Days = Math.trunc(date2.valueOf() / global.ONE_DAY_IN_MILISECONDS)
-        
+
             if (day1Days === day2Days) {
                 return true
             } else {
@@ -444,7 +444,7 @@ exports.newGlobals = function newGlobals() {
                     errorMessage: errorMessage
                 }
             }
-    
+
             global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(key, 'Error', event)
         }
     }

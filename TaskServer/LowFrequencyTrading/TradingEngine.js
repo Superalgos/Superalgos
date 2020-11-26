@@ -112,7 +112,7 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
         destinationNode.value = originNode.value
 
         /* Now we go down through all the children  of the origin node, assuming the destination node has the same children structure*/
-        let nodeDefinition = global.APP_SCHEMA_MAP.get(originNode.type)
+        let nodeDefinition = global.APP_SCHEMA_MAP.get(originNode.project + '-' + originNode.type)
         if (nodeDefinition === undefined) { return }
 
         if (nodeDefinition.properties !== undefined) {
@@ -151,7 +151,7 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
         nodesMap.set(node.id, node)
 
         /* Now we go down through all this node children */
-        let nodeDefinition = global.APP_SCHEMA_MAP.get(node.type)
+        let nodeDefinition = global.APP_SCHEMA_MAP.get(node.project + '-' + node.type)
         if (nodeDefinition === undefined) { return }
 
         if (nodeDefinition.properties !== undefined) {
@@ -194,7 +194,7 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
         }
 
         /* Now we go down through all this node children */
-        let nodeDefinition = global.APP_SCHEMA_MAP.get(node.type)
+        let nodeDefinition = global.APP_SCHEMA_MAP.get(node.project + '-' + node.type)
         if (nodeDefinition === undefined) { return }
 
         if (nodeDefinition.properties !== undefined) {

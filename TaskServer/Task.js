@@ -28,8 +28,7 @@ function preLoader() {
             global.EVENT_SERVER_CLIENT_MODULE.raiseEvent('Task Manager - ' + taskId, 'Nodejs Process Ready for Task')
             function eventReceived(message) {
                 try {
-                    global.APP_SCHEMA_ARRAY = JSON.parse(message.event.appSchema)
-                    setUpAppSchema()
+                    setUpAppSchema(JSON.parse(message.event.projectSchemas))
                     global.TASK_NODE = JSON.parse(message.event.taskDefinition)
                     global.TASK_NETWORK = JSON.parse(message.event.networkDefinition)
                     bootLoader()
@@ -42,7 +41,7 @@ function preLoader() {
             console.log('[ERROR] Task Server -> Task -> preLoader -> global.TASK_NODE = ' + JSON.stringify(global.TASK_NODE).substring(0, 1000))
         }
     }
-    else {  
+    else {
         /* 
         This process was started not by the Task Manager, but independently 
         (most likely for debugging purposes). In this case we listen to an event 
@@ -52,8 +51,7 @@ function preLoader() {
             global.EVENT_SERVER_CLIENT_MODULE.listenToEvent('Task Server', 'Debug Task Started', undefined, 'Task Server', undefined, startDebugging)
             function startDebugging(message) {
                 try {
-                    global.APP_SCHEMA_ARRAY = JSON.parse(message.event.appSchema)
-                    setUpAppSchema()
+                    setUpAppSchema(JSON.parse(message.event.projectSchemas))
                     global.TASK_NODE = JSON.parse(message.event.taskDefinition)
                     global.TASK_NETWORK = JSON.parse(message.event.networkDefinition)
                     bootLoader()
@@ -68,13 +66,17 @@ function preLoader() {
         }
     }
 
-    function setUpAppSchema() {
+    function setUpAppSchema(projectSchemas) {
         /* Setup the APP_SCHEMA_MAP based on the APP_SCHEMA_ARRAY */
         global.APP_SCHEMA_MAP = new Map()
-        for (let i = 0; i < global.APP_SCHEMA_ARRAY.length; i++) {
-            let nodeDefinition = global.APP_SCHEMA_ARRAY[i]
-            let key = nodeDefinition.type
-            global.APP_SCHEMA_MAP.set(key, nodeDefinition)
+        for (let i = 0; i < projectSchemas.length; i++) {
+            let project = projectSchemas[i]
+
+            for (let j = 0; j < project.schema.length; j++) {
+                let nodeDefinition = project.schema[j]
+                let key = project + '-' + nodeDefinition.type
+                global.APP_SCHEMA_MAP.set(key, nodeDefinition)
+            }
         }
     }
 }

@@ -168,8 +168,20 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
 
         let networkDefinition = UI.projects.superalgos.functionLibraries.protocolNode.getProtocolNode(networkNode.payload.parentNode, false, true, true, false, false, networkLightingPath)
 
+        /*
+        We will also send all the project schemas we have to the Task Server.
+        */
+        let projectSchemas = []
+        for (let k = 0; k < PROJECTS_SCHEMA.length; k++) {
+            let projectDefinition = PROJECTS_SCHEMA[k]
+            let project = {
+                name: projectDefinition.name,
+                schema: SCHEMAS_BY_PROJECT.get(projectDefinition.name).array.appSchema
+            } 
+            projectSchemas.push(project)
+        }
         let event = {
-            appSchema: JSON.stringify(SCHEMAS_BY_PROJECT.get('Superalgos').array.appSchema),
+            projectSchemas: JSON.stringify(projectSchemas),
             taskId: node.id,
             taskName: node.name,
             taskDefinition: JSON.stringify(taskDefinition),

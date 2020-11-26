@@ -29,7 +29,7 @@ if (
     console.log('                  noBrowser:   Optional. Use it to launch Superalgos Client only. The UI will not be loaded.')
     console.log('                  minMemo:     Optional. Use it when your hardware has less than 8 Gb or memory.')
     console.log('')
-    console.log('If you are having an error while trying to run the this Client, consider this:')
+    console.log('If you are having an error while trying to run this Client, consider this:')
     
     fatalErrorHelp() 
     return
@@ -77,8 +77,8 @@ try {
 
 function fatalErrorHelp() {
     console.log('')
-    console.log('If your device does not have MORE than 8GB of RAM then please use the minMemo option.')
-    console.log('If your OS does not have a user interface, please use the noBrowser option.')
+    console.log('* If your device does not have MORE than 8GB of RAM then please use the minMemo option.')
+    console.log('* If your OS does not have a user interface, please use the noBrowser option.')
     console.log('')
     console.log('If you continue having trouble to start the Client try:')
     console.log('')

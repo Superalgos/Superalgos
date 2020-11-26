@@ -193,8 +193,8 @@ function bootLoader() {
 
 function startRoot(processIndex) {
 
-    const ROOT_MODULE = require('./Root')
-    let root = ROOT_MODULE.newRoot()
+    const ROOT_MODULE = require('./ProcessInstance')
+    let root = ROOT_MODULE.newProcessInstance()
 
     root.start(processIndex)
 }

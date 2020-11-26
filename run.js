@@ -66,7 +66,7 @@ console.log('')
 
 try {
     const { fork } = require('child_process')
-    fork('./Client/client.js', Xprocess.argv, options)
+    fork('./Client/client.js', process.argv, options)
 } catch (err) {
     console.log('')
     console.log('Fail to create Client Process.')

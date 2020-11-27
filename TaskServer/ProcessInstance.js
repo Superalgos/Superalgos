@@ -322,7 +322,7 @@
                 //console.log("[INFO] Task Server -> " + global.TASK_NODE.name + " -> exitProcessInstance -> Process #" + global.ENDED_PROCESSES_COUNTER + " from " + global.TOTAL_PROCESS_INSTANCES_CREATED + " exiting.");
 
                 if (global.ENDED_PROCESSES_COUNTER === global.TOTAL_PROCESS_INSTANCES_CREATED) {
-                    global.EXIT_NODE_PROCESS()
+                   TS.projects.superalgos.functionLibraries.nodeJSFunctions.exitProcess()
                 }
             }
         } catch (err) {

@@ -347,9 +347,15 @@
             ],
             "functionLibraries": [
                 {
+                    "name": "Node JS Functions",
+                    "propertyName": "nodeJSFunctions",
+                    "functionName": "newSuperalgosFunctionLibrariesNodeJSFunctions",
+                    "fileName": "NodeJSFunctions.js"
+                },
+                {
                     "name": "Task Functions",
                     "propertyName": "taskFunctions",
-                    "functionName": "newSuperalgosFunctionLibrariesTastFunctions",
+                    "functionName": "newSuperalgosFunctionLibrariesTaskFunctions",
                     "fileName": "TaskFunctions.js"
                 },
                 {

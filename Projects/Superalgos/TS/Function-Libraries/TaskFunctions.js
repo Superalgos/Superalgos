@@ -1,4 +1,4 @@
-exports.newSuperalgosFunctionLibrariesTastFunctions = function () {
+exports.newSuperalgosFunctionLibrariesTaskFunctions = function () {
 
     let thisObject = {
         taskError: taskError

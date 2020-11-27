@@ -12,14 +12,14 @@ exports.newNodeJsProcess = function newNodeJsProcess() {
             console.log('[ERROR] Task Server -> Node JS Process -> uncaughtException -> err.message = ' + err.message)
             console.log('[ERROR] Task Server -> Node JS Process -> uncaughtException -> err.stack = ' + err.stack)
             console.log(err.stack)
-            global.EXIT_NODE_PROCESS()
+           TS.projects.superalgos.functionLibraries.nodeJSFunctions.exitProcess()
         })
 
         process.on('unhandledRejection', (reason, p) => {
             console.log('[ERROR] Task Server -> Node JS Process -> unhandledRejection -> reason = ' + JSON.stringify(reason))
             console.log('[ERROR] Task Server -> Node JS Process -> unhandledRejection -> p = ' + JSON.stringify(p))
             console.log(reason.stack)
-            global.EXIT_NODE_PROCESS()
+           TS.projects.superalgos.functionLibraries.nodeJSFunctions.exitProcess()
         })
 
         process.on('exit', function (config) {

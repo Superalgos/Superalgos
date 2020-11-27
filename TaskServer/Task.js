@@ -31,6 +31,7 @@ function preLoader() {
                     setUpAppSchema(JSON.parse(message.event.projectSchemas))
                     global.TASK_NODE = JSON.parse(message.event.taskDefinition)
                     global.TASK_NETWORK = JSON.parse(message.event.networkDefinition)
+                    global.PROJECTS_SCHEMA = JSON.parse(message.event.projectsSchema)
                     bootLoader()
                 } catch (err) {
                     console.log('[ERROR] Task Server -> Task -> preLoader -> eventReceived -> ' + err.stack)
@@ -54,6 +55,7 @@ function preLoader() {
                     setUpAppSchema(JSON.parse(message.event.projectSchemas))
                     global.TASK_NODE = JSON.parse(message.event.taskDefinition)
                     global.TASK_NETWORK = JSON.parse(message.event.networkDefinition)
+                    global.PROJECTS_SCHEMA = JSON.parse(message.event.projectsSchema)
                     bootLoader()
 
                 } catch (err) {
@@ -79,6 +81,10 @@ function preLoader() {
             }
         }
     }
+}
+
+function setupUpTS() {
+
 }
 
 function bootLoader() {

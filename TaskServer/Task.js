@@ -89,7 +89,7 @@ function setupUpTS() {
     projects and modules that will have inside.
     */
     global.TS = {
-        projects: {}
+        projects: {}    
     }
     for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
         let projectDefinition = PROJECTS_SCHEMA[i]

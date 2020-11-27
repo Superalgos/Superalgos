@@ -2,12 +2,12 @@ exports.newDebugLog = function newDebugLog() {
 
     const MODULE_NAME = "DebugLog";
 
-    let executionDatetime = "D." + global.EXECUTION_DATETIME.getUTCFullYear() +
-        "." + pad(global.EXECUTION_DATETIME.getUTCMonth() + 1, 2) +
-        "." + pad(global.EXECUTION_DATETIME.getUTCDate(), 2) +
-        ".T." + pad(global.EXECUTION_DATETIME.getUTCHours(), 2) +
-        "." + pad(global.EXECUTION_DATETIME.getUTCMinutes(), 2) +
-        "." + pad(global.EXECUTION_DATETIME.getUTCSeconds(), 2);
+    let executionDatetime = "D." + TS.projects.superalgos.globals.nodeJSConstants.EXECUTION_DATETIME.getUTCFullYear() +
+        "." + pad(TS.projects.superalgos.globals.nodeJSConstants.EXECUTION_DATETIME.getUTCMonth() + 1, 2) +
+        "." + pad(TS.projects.superalgos.globals.nodeJSConstants.EXECUTION_DATETIME.getUTCDate(), 2) +
+        ".T." + pad(TS.projects.superalgos.globals.nodeJSConstants.EXECUTION_DATETIME.getUTCHours(), 2) +
+        "." + pad(TS.projects.superalgos.globals.nodeJSConstants.EXECUTION_DATETIME.getUTCMinutes(), 2) +
+        "." + pad(TS.projects.superalgos.globals.nodeJSConstants.EXECUTION_DATETIME.getUTCSeconds(), 2);
 
     let messageId = 0;
 

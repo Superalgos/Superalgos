@@ -4,6 +4,7 @@ exports.newSuperalgosFunctionLibrariesNodeJSFunctions = function () {
         exitProcess: exitProcess
     }
 
+    let isNodeJsProcessShuttingDown =  false
     return thisObject
 
     function exitProcess() {
@@ -12,8 +13,8 @@ exports.newSuperalgosFunctionLibrariesNodeJSFunctions = function () {
             TS.projects.superalgos.functionLibraries.taskFunctions.taskError(undefined, "An unexpected error caused the Task to stop.")
         }
 
-        if (global.SHUTTING_DOWN_PROCESS === true) { return }
-        global.SHUTTING_DOWN_PROCESS = true
+        if (isNodeJsProcessShuttingDown=== true) { return }
+        isNodeJsProcessShuttingDown = true
 
         /* Signal that all sessions are stopping. */
         TS.projects.superalgos.functionLibraries.sessionFunctions.finalizeSessions()

@@ -26,7 +26,6 @@ exports.newGlobals = function () {
             }
         }
 
-        global.SHUTTING_DOWN_PROCESS = false
         /*
         We need to count how many process instances we deployd and how many of them have already finished their job, either
         because they just finished or because there was a request to stop the proceses. In this way, once we reach the

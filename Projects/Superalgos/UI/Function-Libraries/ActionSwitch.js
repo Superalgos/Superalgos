@@ -227,6 +227,36 @@ function newSuperalgosActionSwitch() {
                     UI.projects.superalgos.functionLibraries.taskFunctions.stopAllExchangeLearningTasks(action.node)
                 }
                 break
+            case 'Run All Project Data Tasks':
+                {
+                    UI.projects.superalgos.functionLibraries.taskFunctions.runAllProjectDataTasks(action.node)
+                }
+                break
+            case 'Stop All Project Data Tasks':
+                {
+                    UI.projects.superalgos.functionLibraries.taskFunctions.stopAllProjectDataTasks(action.node)
+                }
+                break
+            case 'Run All Project Trading Tasks':
+                {
+                    UI.projects.superalgos.functionLibraries.taskFunctions.runAllProjectTradingTasks(action.node)
+                }
+                break
+            case 'Stop All Project Trading Tasks':
+                {
+                    UI.projects.superalgos.functionLibraries.taskFunctions.stopAllProjectTradingTasks(action.node)
+                }
+                break
+            case 'Run All Project Learning Tasks':
+                {
+                    UI.projects.superalgos.functionLibraries.taskFunctions.runAllProjectLearningTasks(action.node)
+                }
+                break
+            case 'Stop All Project Learning Tasks':
+                {
+                    UI.projects.superalgos.functionLibraries.taskFunctions.stopAllProjectLearningTasks(action.node)
+                }
+                break
             case 'Run All Market Data Tasks':
                 {
                     UI.projects.superalgos.functionLibraries.taskFunctions.runAllMarketDataTasks(action.node)

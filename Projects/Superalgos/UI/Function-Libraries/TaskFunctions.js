@@ -9,6 +9,13 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
         runAllTaskManagers: runAllTaskManagers,
         stopAllTaskManagers: stopAllTaskManagers,
 
+        runAllProjectDataTasks: runAllProjectDataTasks,
+        stopAllProjectDataTasks: stopAllProjectDataTasks,
+        runAllProjectTradingTasks: runAllProjectTradingTasks,
+        stopAllProjectTradingTasks: stopAllProjectTradingTasks,
+        runAllProjectLearningTasks: runAllProjectLearningTasks,
+        stopAllProjectLearningTasks: stopAllProjectLearningTasks,
+
         runAllExchangeDataTasks: runAllExchangeDataTasks,
         stopAllExchangeDataTasks: stopAllExchangeDataTasks,
         runAllExchangeTradingTasks: runAllExchangeTradingTasks,
@@ -325,6 +332,66 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
 
             menu.internalClick('Stop All Tasks')
             menu.internalClick('Stop All Tasks')
+        }
+    }
+
+    function runAllProjectDataTasks(parent) {
+        for (let i = 0; i < parent.projectDataTasks.length; i++) {
+            let node = parent.projectDataTasks[i]
+            let menu = node.payload.uiObject.menu
+
+            menu.internalClick('Run All Exchange Data Tasks')
+            menu.internalClick('Run All Exchange Data Tasks')
+        }
+    }
+
+    function stopAllProjectDataTasks(parent) {
+        for (let i = 0; i < parent.projectDataTasks.length; i++) {
+            let node = parent.projectDataTasks[i]
+            let menu = node.payload.uiObject.menu
+
+            menu.internalClick('Stop All Exchange Data Tasks')
+            menu.internalClick('Stop All Exchange Data Tasks')
+        }
+    }
+
+    function runAllProjectTradingTasks(parent) {
+        for (let i = 0; i < parent.projectTradingTasks.length; i++) {
+            let node = parent.projectTradingTasks[i]
+            let menu = node.payload.uiObject.menu
+
+            menu.internalClick('Run All Exchange Trading Tasks')
+            menu.internalClick('Run All Exchange Trading Tasks')
+        }
+    }
+
+    function stopAllProjectTradingTasks(parent) {
+        for (let i = 0; i < parent.projectTradingTasks.length; i++) {
+            let node = parent.projectTradingTasks[i]
+            let menu = node.payload.uiObject.menu
+
+            menu.internalClick('Stop All Exchange Trading Tasks')
+            menu.internalClick('Stop All Exchange Trading Tasks')
+        }
+    }
+
+    function runAllProjectLearningTasks(parent) {
+        for (let i = 0; i < parent.projectLearningTasks.length; i++) {
+            let node = parent.projectLearningTasks[i]
+            let menu = node.payload.uiObject.menu
+
+            menu.internalClick('Run All Exchange Learning Tasks')
+            menu.internalClick('Run All Exchange Learning Tasks')
+        }
+    }
+
+    function stopAllProjectLearningTasks(parent) {
+        for (let i = 0; i < parent.projectLearningTasks.length; i++) {
+            let node = parent.projectLearningTasks[i]
+            let menu = node.payload.uiObject.menu
+
+            menu.internalClick('Stop All Exchange Learning Tasks')
+            menu.internalClick('Stop All Exchange Learning Tasks')
         }
     }
 

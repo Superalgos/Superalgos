@@ -16,17 +16,6 @@ exports.newGlobals = function newGlobals() {
         global.LOGGER_MAP = new Map()   // We will put all the loggers in a map, so that we can eventually finalize them.
         global.SESSION_MAP = new Map()  // We will put all the sessions in a map, so that we can eventually finalize them.
 
-        global.UNIQUE_ID = function () {
-            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-                var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8)
-                return v.toString(16)
-            })
-        }
-
-        global.PRECISE = function (floatNumber, precision) {
-            return this.parseFloat(floatNumber.toFixed(precision))
-        }
-
         global.FINALIZE_LOGGERS = function () {
             global.LOGGER_MAP.forEach(forEachLogger)
 

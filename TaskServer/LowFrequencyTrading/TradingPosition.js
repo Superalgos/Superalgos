@@ -58,7 +58,7 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
         /* Recording the opening at the Trading Engine Data Structure */
         tradingEngine.current.position.status.value = 'Open'
         tradingEngine.current.position.serialNumber.value = tradingEngine.current.episode.episodeCounters.positions.value + 1
-        tradingEngine.current.position.identifier.value = global.UNIQUE_ID()
+        tradingEngine.current.position.identifier.value = TS.projects.superalgos.utilities.miscellaneousFunctions.genereteUniqueId()
         tradingEngine.current.position.beginRate.value = tradingEngine.current.episode.candle.close.value
         tradingEngine.current.position.positionBaseAsset.beginBalance.value = tradingEngine.current.episode.episodeBaseAsset.balance.value
         tradingEngine.current.position.positionQuotedAsset.beginBalance.value = tradingEngine.current.episode.episodeQuotedAsset.balance.value
@@ -210,11 +210,11 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
 
             switch (tradingSystemStageNode.type) {
                 case 'Open Stage': {
-                    tradingEngine.current.position.entryTargetRate.value = global.PRECISE(value, 10)
+                    tradingEngine.current.position.entryTargetRate.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(value, 10)
                     break
                 }
                 case 'Close Stage': {
-                    tradingEngine.current.position.exitTargetRate.value = global.PRECISE(value, 10)
+                    tradingEngine.current.position.exitTargetRate.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(value, 10)
                     break
                 }
             }
@@ -245,15 +245,15 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
 
                     switch (tradingSystemStageNode.type) {
                         case 'Open Stage': {
-                            tradingEngine.current.position.positionBaseAsset.entryTargetSize.value = global.PRECISE(value, 10)
+                            tradingEngine.current.position.positionBaseAsset.entryTargetSize.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(value, 10)
                             tradingEngine.current.position.positionQuotedAsset.entryTargetSize.value =
-                                global.PRECISE(value * tradingEngine.current.position.entryTargetRate.value, 10)
+                                TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(value * tradingEngine.current.position.entryTargetRate.value, 10)
                             break
                         }
                         case 'Close Stage': {
-                            tradingEngine.current.position.positionBaseAsset.exitTargetSize.value = global.PRECISE(value, 10)
+                            tradingEngine.current.position.positionBaseAsset.exitTargetSize.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(value, 10)
                             tradingEngine.current.position.positionQuotedAsset.exitTargetSize.value =
-                                global.PRECISE(value * tradingEngine.current.position.exitTargetRate.value, 10)
+                                TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(value * tradingEngine.current.position.exitTargetRate.value, 10)
                             break
                         }
                     }
@@ -280,15 +280,15 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
                     }
                     switch (tradingSystemStageNode.type) {
                         case 'Open Stage': {
-                            tradingEngine.current.position.positionQuotedAsset.entryTargetSize.value = global.PRECISE(value, 10)
+                            tradingEngine.current.position.positionQuotedAsset.entryTargetSize.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(value, 10)
                             tradingEngine.current.position.positionBaseAsset.entryTargetSize.value =
-                                global.PRECISE(value / tradingEngine.current.position.entryTargetRate.value, 10)
+                                TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(value / tradingEngine.current.position.entryTargetRate.value, 10)
                             break
                         }
                         case 'Close Stage': {
-                            tradingEngine.current.position.positionQuotedAsset.exitTargetSize.value = global.PRECISE(value, 10)
+                            tradingEngine.current.position.positionQuotedAsset.exitTargetSize.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(value, 10)
                             tradingEngine.current.position.positionBaseAsset.exitTargetSize.value =
-                                global.PRECISE(value / tradingEngine.current.position.exitTargetRate.value, 10)
+                                TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(value / tradingEngine.current.position.exitTargetRate.value, 10)
                             break
                         }
                     }
@@ -339,8 +339,8 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
                 tradingEngine.current.episode.episodeQuotedAsset.balance.value -
                 tradingEngine.current.position.positionQuotedAsset.beginBalance
 
-            tradingEngine.current.position.positionBaseAsset.profitLoss.value = global.PRECISE(tradingEngine.current.position.positionBaseAsset.profitLoss.value, 10)
-            tradingEngine.current.position.positionQuotedAsset.profitLoss.value = global.PRECISE(tradingEngine.current.position.positionQuotedAsset.profitLoss.value, 10)
+            tradingEngine.current.position.positionBaseAsset.profitLoss.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.current.position.positionBaseAsset.profitLoss.value, 10)
+            tradingEngine.current.position.positionQuotedAsset.profitLoss.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.current.position.positionQuotedAsset.profitLoss.value, 10)
 
             /* ROI Calculation */
             tradingEngine.current.position.positionBaseAsset.ROI.value =
@@ -351,8 +351,8 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
                 tradingEngine.current.position.positionQuotedAsset.profitLoss.value * 100 /
                 tradingEngine.current.strategyOpenStage.stageQuotedAsset.targetSize.value
 
-            tradingEngine.current.position.positionBaseAsset.ROI.value = global.PRECISE(tradingEngine.current.position.positionBaseAsset.ROI.value, 10)
-            tradingEngine.current.position.positionQuotedAsset.ROI.value = global.PRECISE(tradingEngine.current.position.positionQuotedAsset.ROI.value, 10)
+            tradingEngine.current.position.positionBaseAsset.ROI.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.current.position.positionBaseAsset.ROI.value, 10)
+            tradingEngine.current.position.positionQuotedAsset.ROI.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.current.position.positionQuotedAsset.ROI.value, 10)
 
             /* Hit Fail Calculation */
             if (tradingEngine.current.position.positionBaseAsset.ROI.value > 0) {
@@ -383,7 +383,7 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
                     tradingEngine.current.episode.episodeQuotedAsset.profitLoss.value
                 )
 
-            tradingEngine.current.position.positionStatistics.profitLoss.value = global.PRECISE(tradingEngine.current.position.positionStatistics.profitLoss.value, 10)
+            tradingEngine.current.position.positionStatistics.profitLoss.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.current.position.positionStatistics.profitLoss.value, 10)
 
             /* ROI Calculation */
             tradingEngine.current.position.positionStatistics.ROI.value =
@@ -395,7 +395,7 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
                     tradingEngine.current.position.positionBaseAsset.beginBalance * tradingEngine.current.position.beginRate.value +
                     tradingEngine.current.position.positionQuotedAsset.beginBalance
                 )
-            tradingEngine.current.position.positionStatistics.ROI.value = global.PRECISE(tradingEngine.current.position.positionStatistics.ROI.value, 10)
+            tradingEngine.current.position.positionStatistics.ROI.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.current.position.positionStatistics.ROI.value, 10)
 
             /* Hit Fail Calculation */
             if (tradingEngine.current.position.positionStatistics.ROI.value > 0) {
@@ -413,7 +413,7 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
                 tradingEngine.current.position.positionCounters.periods.value *
                 sessionParameters.timeFrame.config.value / TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS
 
-            tradingEngine.current.position.positionStatistics.days.value = global.PRECISE(tradingEngine.current.position.positionStatistics.days.value, 10)
+            tradingEngine.current.position.positionStatistics.days.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.current.position.positionStatistics.days.value, 10)
         }
     }
 

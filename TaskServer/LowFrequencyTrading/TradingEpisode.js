@@ -66,7 +66,7 @@ exports.newTradingEpisode = function newTradingEpisode(bot, logger, tradingEngin
         /* Recording the opening at the Trading Engine Data Structure */
         tradingEngine.current.episode.status.value = 'Open'
         tradingEngine.current.episode.serialNumber.value = 1
-        tradingEngine.current.episode.identifier.value = global.UNIQUE_ID()
+        tradingEngine.current.episode.identifier.value = TS.projects.superalgos.utilities.miscellaneousFunctions.genereteUniqueId()
         tradingEngine.current.episode.beginRate.value = tradingEngine.current.episode.candle.close.value
     }
 
@@ -131,8 +131,8 @@ exports.newTradingEpisode = function newTradingEpisode(bot, logger, tradingEngin
                 tradingEngine.current.episode.episodeQuotedAsset.balance.value -
                 sessionParameters.sessionQuotedAsset.config.initialBalance
 
-            tradingEngine.current.episode.episodeBaseAsset.profitLoss.value = global.PRECISE(tradingEngine.current.episode.episodeBaseAsset.profitLoss.value, 10)
-            tradingEngine.current.episode.episodeQuotedAsset.profitLoss.value = global.PRECISE(tradingEngine.current.episode.episodeQuotedAsset.profitLoss.value, 10)
+            tradingEngine.current.episode.episodeBaseAsset.profitLoss.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.current.episode.episodeBaseAsset.profitLoss.value, 10)
+            tradingEngine.current.episode.episodeQuotedAsset.profitLoss.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.current.episode.episodeQuotedAsset.profitLoss.value, 10)
 
             /* 
             Updating ROI 
@@ -147,8 +147,8 @@ exports.newTradingEpisode = function newTradingEpisode(bot, logger, tradingEngin
                 tradingEngine.current.episode.episodeQuotedAsset.profitLoss.value /
                 tradingEngine.current.episode.episodeQuotedAsset.beginBalance.value * 100
 
-            tradingEngine.current.episode.episodeBaseAsset.ROI.value = global.PRECISE(tradingEngine.current.episode.episodeBaseAsset.ROI.value, 10)
-            tradingEngine.current.episode.episodeQuotedAsset.ROI.value = global.PRECISE(tradingEngine.current.episode.episodeQuotedAsset.ROI.value, 10)
+            tradingEngine.current.episode.episodeBaseAsset.ROI.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.current.episode.episodeBaseAsset.ROI.value, 10)
+            tradingEngine.current.episode.episodeQuotedAsset.ROI.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.current.episode.episodeQuotedAsset.ROI.value, 10)
 
             /* Updating Hit Ratio */
             if (tradingEngine.current.episode.episodeCounters.positions.value > 0) {
@@ -160,8 +160,8 @@ exports.newTradingEpisode = function newTradingEpisode(bot, logger, tradingEngin
                     tradingEngine.current.episode.episodeQuotedAsset.hits.value /
                     tradingEngine.current.episode.episodeCounters.positions.value
 
-                tradingEngine.current.episode.episodeBaseAsset.hitRatio.value = global.PRECISE(tradingEngine.current.episode.episodeBaseAsset.hitRatio.value, 10)
-                tradingEngine.current.episode.episodeQuotedAsset.hitRatio.value = global.PRECISE(tradingEngine.current.episode.episodeQuotedAsset.hitRatio.value, 10)
+                tradingEngine.current.episode.episodeBaseAsset.hitRatio.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.current.episode.episodeBaseAsset.hitRatio.value, 10)
+                tradingEngine.current.episode.episodeQuotedAsset.hitRatio.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.current.episode.episodeQuotedAsset.hitRatio.value, 10)
             }
 
             /* 
@@ -189,8 +189,8 @@ exports.newTradingEpisode = function newTradingEpisode(bot, logger, tradingEngin
                     (365 / tradingEngine.current.episode.episodeStatistics.days.value)
                 ) - 1
 
-            tradingEngine.current.episode.episodeBaseAsset.annualizedRateOfReturn.value = global.PRECISE(tradingEngine.current.episode.episodeBaseAsset.annualizedRateOfReturn.value, 10)
-            tradingEngine.current.episode.episodeQuotedAsset.annualizedRateOfReturn.value = global.PRECISE(tradingEngine.current.episode.episodeQuotedAsset.annualizedRateOfReturn.value, 10)
+            tradingEngine.current.episode.episodeBaseAsset.annualizedRateOfReturn.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.current.episode.episodeBaseAsset.annualizedRateOfReturn.value, 10)
+            tradingEngine.current.episode.episodeQuotedAsset.annualizedRateOfReturn.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.current.episode.episodeQuotedAsset.annualizedRateOfReturn.value, 10)
 
             /* Updating Hit or Fail */
             if (tradingEngine.current.episode.episodeBaseAsset.profitLoss.value > 0) {
@@ -211,7 +211,7 @@ exports.newTradingEpisode = function newTradingEpisode(bot, logger, tradingEngin
                 tradingEngine.current.episode.episodeBaseAsset.profitLoss.value * tradingEngine.current.episode.candle.close.value +
                 tradingEngine.current.episode.episodeQuotedAsset.profitLoss.value
 
-            tradingEngine.current.episode.episodeStatistics.profitLoss.value = global.PRECISE(tradingEngine.current.episode.episodeStatistics.profitLoss.value, 10)
+            tradingEngine.current.episode.episodeStatistics.profitLoss.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.current.episode.episodeStatistics.profitLoss.value, 10)
 
             /* 
             Updating ROI 
@@ -227,7 +227,7 @@ exports.newTradingEpisode = function newTradingEpisode(bot, logger, tradingEngin
                     tradingEngine.current.episode.episodeQuotedAsset.beginBalance.value
                 ) * 100
 
-            tradingEngine.current.episode.episodeStatistics.ROI.value = global.PRECISE(tradingEngine.current.episode.episodeStatistics.ROI.value, 10)
+            tradingEngine.current.episode.episodeStatistics.ROI.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.current.episode.episodeStatistics.ROI.value, 10)
 
             /* 
             Updating Annualized Rate Of Return
@@ -250,7 +250,7 @@ exports.newTradingEpisode = function newTradingEpisode(bot, logger, tradingEngin
                     (365 / tradingEngine.current.episode.episodeStatistics.days.value)
                 ) - 1
 
-            tradingEngine.current.episode.episodeStatistics.annualizedRateOfReturn.value = global.PRECISE(tradingEngine.current.episode.episodeStatistics.annualizedRateOfReturn.value, 10)
+            tradingEngine.current.episode.episodeStatistics.annualizedRateOfReturn.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.current.episode.episodeStatistics.annualizedRateOfReturn.value, 10)
 
             /* Updating Hit or Fail */
             if (tradingEngine.current.episode.episodeStatistics.profitLoss.value > 0) {

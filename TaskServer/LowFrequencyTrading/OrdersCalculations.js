@@ -70,8 +70,8 @@ exports.newOrdersCalculations = function newOrdersCalculations(bot, logger) {
              */
             tradingEngineOrder.orderQuotedAsset.actualSize.value = tradingEngineOrder.orderBaseAsset.actualSize.value * tradingEngineOrder.rate.value
 
-            tradingEngineOrder.orderBaseAsset.actualSize.value = global.PRECISE(tradingEngineOrder.orderBaseAsset.actualSize.value, 10)
-            tradingEngineOrder.orderQuotedAsset.actualSize.value = global.PRECISE(tradingEngineOrder.orderQuotedAsset.actualSize.value, 10)
+            tradingEngineOrder.orderBaseAsset.actualSize.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineOrder.orderBaseAsset.actualSize.value, 10)
+            tradingEngineOrder.orderQuotedAsset.actualSize.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineOrder.orderQuotedAsset.actualSize.value, 10)
         }
 
         function recalculateSizePlaced() {
@@ -98,8 +98,8 @@ exports.newOrdersCalculations = function newOrdersCalculations(bot, logger) {
                 tradingEngineStage.stageQuotedAsset.sizePlaced.value +
                 tradingEngineOrder.orderQuotedAsset.actualSize.value
 
-            tradingEngineStage.stageBaseAsset.sizePlaced.value = global.PRECISE(tradingEngineStage.stageBaseAsset.sizePlaced.value, 10)
-            tradingEngineStage.stageQuotedAsset.sizePlaced.value = global.PRECISE(tradingEngineStage.stageQuotedAsset.sizePlaced.value, 10)
+            tradingEngineStage.stageBaseAsset.sizePlaced.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineStage.stageBaseAsset.sizePlaced.value, 10)
+            tradingEngineStage.stageQuotedAsset.sizePlaced.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineStage.stageQuotedAsset.sizePlaced.value, 10)
         }
     }
 
@@ -129,7 +129,7 @@ exports.newOrdersCalculations = function newOrdersCalculations(bot, logger) {
             tradingEngineOrder.orderStatistics.actualRate.value = order.price
         }
 
-        tradingEngineOrder.orderStatistics.actualRate.value = global.PRECISE(tradingEngineOrder.orderStatistics.actualRate.value, 10)
+        tradingEngineOrder.orderStatistics.actualRate.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineOrder.orderStatistics.actualRate.value, 10)
 
         /*
         If the Actual Rate happens to be exctly the same than the order rate, then there is
@@ -160,7 +160,7 @@ exports.newOrdersCalculations = function newOrdersCalculations(bot, logger) {
                 tradingEngineOrder.orderBaseAsset.actualSize.value *
                 tradingEngineOrder.orderStatistics.actualRate.value
 
-            tradingEngineOrder.orderQuotedAsset.actualSize.value = global.PRECISE(tradingEngineOrder.orderQuotedAsset.actualSize.value, 10)
+            tradingEngineOrder.orderQuotedAsset.actualSize.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineOrder.orderQuotedAsset.actualSize.value, 10)
 
             tradingSystem.warnings.push(
                 [
@@ -184,7 +184,7 @@ exports.newOrdersCalculations = function newOrdersCalculations(bot, logger) {
                 tradingEngineStage.stageQuotedAsset.sizePlaced.value +
                 tradingEngineOrder.orderQuotedAsset.actualSize.value
 
-            tradingEngineStage.stageQuotedAsset.sizePlaced.value = global.PRECISE(tradingEngineStage.stageQuotedAsset.sizePlaced.value, 10)
+            tradingEngineStage.stageQuotedAsset.sizePlaced.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineStage.stageQuotedAsset.sizePlaced.value, 10)
 
             tradingSystem.warnings.push(
                 [
@@ -230,7 +230,7 @@ exports.newOrdersCalculations = function newOrdersCalculations(bot, logger) {
         the order will be 100% filled. 
         */
         tradingEngineOrder.orderStatistics.percentageFilled.value = order.filled * 100 / tradingEngineOrder.orderBaseAsset.actualSize.value
-        tradingEngineOrder.orderStatistics.percentageFilled.value = global.PRECISE(tradingEngineOrder.orderStatistics.percentageFilled.value, 10)
+        tradingEngineOrder.orderStatistics.percentageFilled.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineOrder.orderStatistics.percentageFilled.value, 10)
     }
 
     async function feesPaidCalculation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order, applyFeePercentage) {
@@ -273,7 +273,7 @@ exports.newOrdersCalculations = function newOrdersCalculations(bot, logger) {
         not reflect the Fees Paid, even if we are paying the fees in Base Asset. 
         */
         tradingEngineOrder.orderBaseAsset.sizeFilled.value = order.filled
-        tradingEngineOrder.orderBaseAsset.sizeFilled.value = global.PRECISE(tradingEngineOrder.orderBaseAsset.sizeFilled.value, 10)
+        tradingEngineOrder.orderBaseAsset.sizeFilled.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineOrder.orderBaseAsset.sizeFilled.value, 10)
         /*
         For Quoted Asset, CCXT does not return any field with the size filled, so we 
         need to calculate that by ourselves. 
@@ -281,7 +281,7 @@ exports.newOrdersCalculations = function newOrdersCalculations(bot, logger) {
         tradingEngineOrder.orderQuotedAsset.sizeFilled.value =
             tradingEngineOrder.orderQuotedAsset.actualSize.value * tradingEngineOrder.orderStatistics.percentageFilled.value / 100
 
-        tradingEngineOrder.orderQuotedAsset.sizeFilled.value = global.PRECISE(tradingEngineOrder.orderQuotedAsset.sizeFilled.value, 10)
+        tradingEngineOrder.orderQuotedAsset.sizeFilled.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineOrder.orderQuotedAsset.sizeFilled.value, 10)
     }
 
     async function amountReceivedCalculation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order, applyFeePercentage) {

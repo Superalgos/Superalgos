@@ -44,7 +44,7 @@ exports.newTradingStrategy = function newTradingStrategy(bot, logger, tradingEng
         /* Recording the opening at the Trading Engine Data Structure */
         tradingEngine.current.strategy.status.value = 'Open'
         tradingEngine.current.strategy.serialNumber.value = tradingEngine.current.episode.episodeCounters.strategies.value
-        tradingEngine.current.strategy.identifier.value = global.UNIQUE_ID()
+        tradingEngine.current.strategy.identifier.value = TS.projects.superalgos.utilities.miscellaneousFunctions.genereteUniqueId()
         tradingEngine.current.strategy.beginRate.value = tradingEngine.current.episode.candle.min.value
 
         tradingEngine.current.strategy.index.value = index

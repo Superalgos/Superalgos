@@ -386,8 +386,8 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
             tradingEngine.current.strategyOpenStage.stageBaseAsset.targetSize.value = tradingEngine.current.position.positionBaseAsset.entryTargetSize.value
             tradingEngine.current.strategyOpenStage.stageQuotedAsset.targetSize.value = tradingEngine.current.position.positionQuotedAsset.entryTargetSize.value
 
-            tradingEngine.current.strategyOpenStage.stageBaseAsset.targetSize.value = global.PRECISE(tradingEngine.current.strategyOpenStage.stageBaseAsset.targetSize.value, 10)
-            tradingEngine.current.strategyOpenStage.stageQuotedAsset.targetSize.value = global.PRECISE(tradingEngine.current.strategyOpenStage.stageQuotedAsset.targetSize.value, 10)
+            tradingEngine.current.strategyOpenStage.stageBaseAsset.targetSize.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.current.strategyOpenStage.stageBaseAsset.targetSize.value, 10)
+            tradingEngine.current.strategyOpenStage.stageQuotedAsset.targetSize.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.current.strategyOpenStage.stageQuotedAsset.targetSize.value, 10)
         }
     }
 
@@ -850,8 +850,8 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
             tradingEngine.current.strategyCloseStage.stageBaseAsset.targetSize.value = tradingEngine.current.position.positionBaseAsset.exitTargetSize.value
             tradingEngine.current.strategyCloseStage.stageQuotedAsset.targetSize.value = tradingEngine.current.position.positionQuotedAsset.exitTargetSize.value
 
-            tradingEngine.current.strategyCloseStage.stageBaseAsset.targetSize.value = global.PRECISE(tradingEngine.current.strategyCloseStage.stageBaseAsset.targetSize.value, 10)
-            tradingEngine.current.strategyCloseStage.stageQuotedAsset.targetSize.value = global.PRECISE(tradingEngine.current.strategyCloseStage.stageQuotedAsset.targetSize.value, 10)
+            tradingEngine.current.strategyCloseStage.stageBaseAsset.targetSize.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.current.strategyCloseStage.stageBaseAsset.targetSize.value, 10)
+            tradingEngine.current.strategyCloseStage.stageQuotedAsset.targetSize.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.current.strategyCloseStage.stageQuotedAsset.targetSize.value, 10)
         }
 
         function closePositionAndStrategy() {

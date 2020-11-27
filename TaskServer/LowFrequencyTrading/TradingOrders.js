@@ -293,9 +293,9 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
         /* Update Stage Placed Size */
         tradingEngineStage.stageBaseAsset.sizePlaced.value = tradingEngineStage.stageBaseAsset.sizePlaced.value + tradingEngineOrder.orderBaseAsset.size.value
-        tradingEngineStage.stageBaseAsset.sizePlaced.value = global.PRECISE(tradingEngineStage.stageBaseAsset.sizePlaced.value, 10)
+        tradingEngineStage.stageBaseAsset.sizePlaced.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineStage.stageBaseAsset.sizePlaced.value, 10)
         tradingEngineStage.stageQuotedAsset.sizePlaced.value = tradingEngineStage.stageQuotedAsset.sizePlaced.value + tradingEngineOrder.orderQuotedAsset.size.value
-        tradingEngineStage.stageQuotedAsset.sizePlaced.value = global.PRECISE(tradingEngineStage.stageQuotedAsset.sizePlaced.value, 10)
+        tradingEngineStage.stageQuotedAsset.sizePlaced.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineStage.stageQuotedAsset.sizePlaced.value, 10)
 
         /* Updating Episode Counters */
         tradingEngine.current.episode.episodeCounters.orders.value++
@@ -305,7 +305,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
         /* Create Order Procedure */
         tradingEngineOrder.status.value = 'Open'
-        tradingEngineOrder.identifier.value = global.UNIQUE_ID()
+        tradingEngineOrder.identifier.value = TS.projects.superalgos.utilities.miscellaneousFunctions.genereteUniqueId()
         tradingEngineOrder.begin.value = tradingEngine.current.episode.cycle.begin.value
         tradingEngineOrder.end.value = tradingEngine.current.episode.cycle.end.value
         tradingEngineOrder.serialNumber.value = tradingEngine.current.episode.episodeCounters.orders.value
@@ -328,7 +328,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
                 if (isNaN(tradingEngineOrder.rate.value) === true) { badDefinitionUnhandledException(undefined, 'isNaN(tradingEngineOrder.rate.value) === true', tradingSystemOrder) }
                 if (tradingEngineOrder.rate.value <= 0) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.rate.value <= 0', tradingSystemOrder) }
 
-                tradingEngineOrder.rate.value = global.PRECISE(tradingEngineOrder.rate.value, 10)
+                tradingEngineOrder.rate.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineOrder.rate.value, 10)
             } else {
                 /* 
                 For Market Orders, the rate is irrelevant, since it is not sent to the Exchange.
@@ -376,7 +376,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
                     case 'Base Asset': {
                         /* Size in Base Asset */
                         tradingEngineOrder.orderBaseAsset.size.value = algorithmSizeInBaseAsset * tradingSystemOrder.config.percentageOfAlgorithmSize / 100
-                        tradingEngineOrder.orderBaseAsset.size.value = global.PRECISE(tradingEngineOrder.orderBaseAsset.size.value, 10)
+                        tradingEngineOrder.orderBaseAsset.size.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineOrder.orderBaseAsset.size.value, 10)
 
                         /* Check that the Size calculated would not surpass Stage Target Size */
                         if (
@@ -403,7 +403,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
                     case 'Quoted Asset': {
                         /* Size in Quoted Asset */
                         tradingEngineOrder.orderQuotedAsset.size.value = algorithmSizeInQuotedAsset * tradingSystemOrder.config.percentageOfAlgorithmSize / 100
-                        tradingEngineOrder.orderQuotedAsset.size.value = global.PRECISE(tradingEngineOrder.orderQuotedAsset.size.value, 10)
+                        tradingEngineOrder.orderQuotedAsset.size.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineOrder.orderQuotedAsset.size.value, 10)
 
                         /* Check that the Size calculated would not surpass Stage Target Size */
                         if (
@@ -469,8 +469,8 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
                 }
             }
 
-            tradingEngineOrder.orderBaseAsset.size.value = global.PRECISE(tradingEngineOrder.orderBaseAsset.size.value, 10)
-            tradingEngineOrder.orderQuotedAsset.size.value = global.PRECISE(tradingEngineOrder.orderQuotedAsset.size.value, 10)
+            tradingEngineOrder.orderBaseAsset.size.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineOrder.orderBaseAsset.size.value, 10)
+            tradingEngineOrder.orderQuotedAsset.size.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineOrder.orderQuotedAsset.size.value, 10)
         }
 
         async function createOrderAtExchange(tradingSystemOrder, tradingEngineOrder) {
@@ -764,11 +764,11 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
                 tradingEngineStage.stageQuotedAsset.feesPaid.value +
                 tradingEngineOrder.orderQuotedAsset.feesPaid.value
 
-            tradingEngineStage.stageBaseAsset.sizeFilled.value = global.PRECISE(tradingEngineStage.stageBaseAsset.sizeFilled.value, 10)
-            tradingEngineStage.stageBaseAsset.feesPaid.value = global.PRECISE(tradingEngineStage.stageBaseAsset.feesPaid.value, 10)
+            tradingEngineStage.stageBaseAsset.sizeFilled.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineStage.stageBaseAsset.sizeFilled.value, 10)
+            tradingEngineStage.stageBaseAsset.feesPaid.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineStage.stageBaseAsset.feesPaid.value, 10)
 
-            tradingEngineStage.stageQuotedAsset.sizeFilled.value = global.PRECISE(tradingEngineStage.stageQuotedAsset.sizeFilled.value, 10)
-            tradingEngineStage.stageQuotedAsset.feesPaid.value = global.PRECISE(tradingEngineStage.stageQuotedAsset.feesPaid.value, 10)
+            tradingEngineStage.stageQuotedAsset.sizeFilled.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineStage.stageQuotedAsset.sizeFilled.value, 10)
+            tradingEngineStage.stageQuotedAsset.feesPaid.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineStage.stageQuotedAsset.feesPaid.value, 10)
         }
 
         async function updateBalances() {
@@ -831,8 +831,8 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
                     break
                 }
             }
-            tradingEngine.current.episode.episodeBaseAsset.balance.value = global.PRECISE(tradingEngine.current.episode.episodeBaseAsset.balance.value, 10)
-            tradingEngine.current.episode.episodeQuotedAsset.balance.value = global.PRECISE(tradingEngine.current.episode.episodeQuotedAsset.balance.value, 10)
+            tradingEngine.current.episode.episodeBaseAsset.balance.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.current.episode.episodeBaseAsset.balance.value, 10)
+            tradingEngine.current.episode.episodeQuotedAsset.balance.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.current.episode.episodeQuotedAsset.balance.value, 10)
         }
     }
 
@@ -953,8 +953,8 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
             tradingEngineStage.stageQuotedAsset.sizePlaced.value +
             tradingEngineOrder.orderQuotedAsset.sizeFilled.value
 
-        tradingEngineStage.stageBaseAsset.sizePlaced.value = global.PRECISE(tradingEngineStage.stageBaseAsset.sizePlaced.value, 10)
-        tradingEngineStage.stageQuotedAsset.sizePlaced.value = global.PRECISE(tradingEngineStage.stageQuotedAsset.sizePlaced.value, 10)
+        tradingEngineStage.stageBaseAsset.sizePlaced.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineStage.stageBaseAsset.sizePlaced.value, 10)
+        tradingEngineStage.stageQuotedAsset.sizePlaced.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineStage.stageQuotedAsset.sizePlaced.value, 10)
     }
 
     async function applyFeePercentage(feesNodePropertyName, tradingEngineOrder, tradingSystemOrder, feePercentage, percentageFilled) {
@@ -989,8 +989,8 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
             }
         }
 
-        feesNode.value = global.PRECISE(feesNode.value, 10)
-        feesNode.value = global.PRECISE(feesNode.value, 10)
+        feesNode.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(feesNode.value, 10)
+        feesNode.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(feesNode.value, 10)
     }
 
     async function checkOrderEvent(event, order, executionAlgorithm, executionNode) {
@@ -1037,7 +1037,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
 
     function updateStatistics(tradingEngineOrder) {
         tradingEngineOrder.orderStatistics.days.value = tradingEngineOrder.orderCounters.periods.value * sessionParameters.timeFrame.config.value / TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS
-        tradingEngineOrder.orderStatistics.days.value = global.PRECISE(tradingEngineOrder.orderStatistics.days.value, 10)
+        tradingEngineOrder.orderStatistics.days.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineOrder.orderStatistics.days.value, 10)
     }
 
     function resetTradingEngineDataStructure(tradingEngineOrder, tradingSystemOrder, stageStatus) {

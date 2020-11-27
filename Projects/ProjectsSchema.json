@@ -377,6 +377,12 @@
                     "propertyName": "dateTimeFunctions",
                     "functionName": "newSuperalgosUtilitiesDateTimeFunctions",
                     "fileName": "DateTimeFunctions.js"
+                },
+                {
+                    "name": "Miscellaneous Functions",
+                    "propertyName": "miscellaneousFunctions",
+                    "functionName": "newSuperalgosUtilitiesMiscellaneousFunctions",
+                    "fileName": "MiscellaneousFunctions.js"
                 }
             ],
             "botClasses": []

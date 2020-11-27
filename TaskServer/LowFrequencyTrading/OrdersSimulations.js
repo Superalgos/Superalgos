@@ -88,7 +88,7 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
                         switch (tradingSystemOrder.type) {
                             case 'Market Sell Order': {
                                 tradingEngineOrder.orderStatistics.actualRate.value = tradingEngineOrder.rate.value - slippageAmount
-                                tradingEngineOrder.orderStatistics.actualRate.value = global.PRECISE(tradingEngineOrder.orderStatistics.actualRate.value, 10)
+                                tradingEngineOrder.orderStatistics.actualRate.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineOrder.orderStatistics.actualRate.value, 10)
 
                                 tradingSystem.warnings.push(
                                     [
@@ -100,7 +100,7 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
                             }
                             case 'Market Buy Order': {
                                 tradingEngineOrder.orderStatistics.actualRate.value = tradingEngineOrder.rate.value + slippageAmount
-                                tradingEngineOrder.orderStatistics.actualRate.value = global.PRECISE(tradingEngineOrder.orderStatistics.actualRate.value, 10)
+                                tradingEngineOrder.orderStatistics.actualRate.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineOrder.orderStatistics.actualRate.value, 10)
 
                                 tradingSystem.warnings.push(
                                     [
@@ -134,7 +134,7 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
                         /* Calculate this only once for this order */
                         if (tradingEngineOrder.orderStatistics.actualRate.value === tradingEngineOrder.orderStatistics.actualRate.config.initialValue) {
                             let newValue = tradingSystem.formulas.get(tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate.formula.id)
-                            newValue = global.PRECISE(newValue, 10)
+                            newValue = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(newValue, 10)
 
                             tradingSystem.warnings.push(
                                 [
@@ -187,7 +187,7 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
                     break
                 }
             }
-            tradingEngineOrder.orderStatistics.actualRate.value = global.PRECISE(tradingEngineOrder.orderStatistics.actualRate.value, 10)
+            tradingEngineOrder.orderStatistics.actualRate.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineOrder.orderStatistics.actualRate.value, 10)
         }
 
         function recalculateActualSize() {
@@ -200,7 +200,7 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
                 tradingEngineOrder.orderBaseAsset.actualSize.value *
                 tradingEngineOrder.orderStatistics.actualRate.value
 
-            tradingEngineOrder.orderQuotedAsset.actualSize.value = global.PRECISE(tradingEngineOrder.orderQuotedAsset.actualSize.value, 10)
+            tradingEngineOrder.orderQuotedAsset.actualSize.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineOrder.orderQuotedAsset.actualSize.value, 10)
 
             tradingSystem.warnings.push(
                 [
@@ -229,7 +229,7 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
                 tradingEngineStage.stageQuotedAsset.sizePlaced.value +
                 tradingEngineOrder.orderQuotedAsset.actualSize.value
 
-            tradingEngineStage.stageQuotedAsset.sizePlaced.value = global.PRECISE(tradingEngineStage.stageQuotedAsset.sizePlaced.value, 10)
+            tradingEngineStage.stageQuotedAsset.sizePlaced.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineStage.stageQuotedAsset.sizePlaced.value, 10)
 
             tradingSystem.warnings.push(
                 [
@@ -323,7 +323,7 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
                             percentageFilled = 100 - tradingEngineOrder.orderStatistics.percentageFilled.value
                         }
                         tradingEngineOrder.orderStatistics.percentageFilled.value = tradingEngineOrder.orderStatistics.percentageFilled.value + percentageFilled
-                        tradingEngineOrder.orderStatistics.percentageFilled.value = global.PRECISE(tradingEngineOrder.orderStatistics.percentageFilled.value, 10)
+                        tradingEngineOrder.orderStatistics.percentageFilled.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineOrder.orderStatistics.percentageFilled.value, 10)
                     }
                 }
             }
@@ -397,8 +397,8 @@ exports.newOrdersSimulations = function newOrdersSimulations(bot, logger) {
             tradingEngineOrder.orderQuotedAsset.actualSize.value *
             tradingEngineOrder.orderStatistics.percentageFilled.value / 100
 
-        tradingEngineOrder.orderBaseAsset.sizeFilled.value = global.PRECISE(tradingEngineOrder.orderBaseAsset.sizeFilled.value, 10)
-        tradingEngineOrder.orderQuotedAsset.sizeFilled.value = global.PRECISE(tradingEngineOrder.orderQuotedAsset.sizeFilled.value, 10)
+        tradingEngineOrder.orderBaseAsset.sizeFilled.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineOrder.orderBaseAsset.sizeFilled.value, 10)
+        tradingEngineOrder.orderQuotedAsset.sizeFilled.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineOrder.orderQuotedAsset.sizeFilled.value, 10)
     }
 
     async function amountReceivedSimulation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order, applyFeePercentage) {

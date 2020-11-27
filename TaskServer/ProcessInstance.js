@@ -212,7 +212,7 @@
 
             function runSensorBot() {
                 try {
-                    global.TOTAL_PROCESS_INSTANCES_CREATED++
+                    TS.projects.superalgos.globals.processVariables.TOTAL_PROCESS_INSTANCES_CREATED++
 
                     global.LOGGER_MAP.set('runSensorBot', logger)
                     logger.bot = botConfig;
@@ -228,7 +228,7 @@
 
             function runIndicatorBot() {
                 try {
-                    global.TOTAL_PROCESS_INSTANCES_CREATED++
+                    TS.projects.superalgos.globals.processVariables.TOTAL_PROCESS_INSTANCES_CREATED++
 
                     global.LOGGER_MAP.set('runIndicatorBot', logger)
                     logger.bot = botConfig;
@@ -245,7 +245,7 @@
 
             function runTradingBot() {
 
-                global.TOTAL_PROCESS_INSTANCES_CREATED++
+                TS.projects.superalgos.globals.processVariables.TOTAL_PROCESS_INSTANCES_CREATED++
 
                 try {
                     global.LOGGER_MAP.set('runTradingBot', logger)
@@ -262,7 +262,7 @@
 
             function runLearningBot() {
 
-                global.TOTAL_PROCESS_INSTANCES_CREATED++
+                TS.projects.superalgos.globals.processVariables.TOTAL_PROCESS_INSTANCES_CREATED++
 
                 try {
                     global.LOGGER_MAP.set('runLearningBot', logger)
@@ -317,11 +317,9 @@
             }
 
             function exitProcessInstance() {
+                TS.projects.superalgos.globals.processVariables.ENDED_PROCESSES_COUNTER++
 
-                global.ENDED_PROCESSES_COUNTER++
-                //console.log("[INFO] Task Server -> " + global.TASK_NODE.name + " -> exitProcessInstance -> Process #" + global.ENDED_PROCESSES_COUNTER + " from " + global.TOTAL_PROCESS_INSTANCES_CREATED + " exiting.");
-
-                if (global.ENDED_PROCESSES_COUNTER === global.TOTAL_PROCESS_INSTANCES_CREATED) {
+                if (TS.projects.superalgos.globals.processVariables.ENDED_PROCESSES_COUNTER === TS.projects.superalgos.globals.processVariables.TOTAL_PROCESS_INSTANCES_CREATED) {
                    TS.projects.superalgos.functionLibraries.nodeJSFunctions.exitProcess()
                 }
             }

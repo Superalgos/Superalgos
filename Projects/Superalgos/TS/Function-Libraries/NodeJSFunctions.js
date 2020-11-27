@@ -4,7 +4,7 @@ exports.newSuperalgosFunctionLibrariesNodeJSFunctions = function () {
         exitProcess: exitProcess
     }
 
-    let isNodeJsProcessShuttingDown =  false
+    let isNodeJsProcessShuttingDown = false
     return thisObject
 
     function exitProcess() {
@@ -13,7 +13,7 @@ exports.newSuperalgosFunctionLibrariesNodeJSFunctions = function () {
             TS.projects.superalgos.functionLibraries.taskFunctions.taskError(undefined, "An unexpected error caused the Task to stop.")
         }
 
-        if (isNodeJsProcessShuttingDown=== true) { return }
+        if (isNodeJsProcessShuttingDown === true) { return }
         isNodeJsProcessShuttingDown = true
 
         /* Signal that all sessions are stopping. */
@@ -32,9 +32,18 @@ exports.newSuperalgosFunctionLibrariesNodeJSFunctions = function () {
             }
         }
 
-        global.FINALIZE_LOGGERS()
-        //console.log("[INFO] Task Server -> " + global.TASK_NODE.name + " -> EXIT_NODE_PROCESS -> Task Server will stop in 10 seconds.");
+        finalizeLoggers()
 
         setTimeout(process.exit, 10000) // We will give 10 seconds to logs be written on file
+
+        function finalizeLoggers() {
+            global.LOGGER_MAP.forEach(forEachLogger)
+
+            function forEachLogger(logger) {
+                if (logger !== undefined) {
+                    logger.finalize()
+                }
+            }
+        }
     }
 }

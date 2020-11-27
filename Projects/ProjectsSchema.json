@@ -343,6 +343,12 @@
                     "propertyName": "timeConstants",
                     "functionName": "newSuperalgosGlobalsTimeConstants",
                     "fileName": "TimeConstants.js"
+                },
+                {
+                    "name": "Process Variables",
+                    "propertyName": "processVariables",
+                    "functionName": "newSuperalgosGlobalsProcessVariables",
+                    "fileName": "ProcessVariables.js"
                 }
             ],
             "functionLibraries": [

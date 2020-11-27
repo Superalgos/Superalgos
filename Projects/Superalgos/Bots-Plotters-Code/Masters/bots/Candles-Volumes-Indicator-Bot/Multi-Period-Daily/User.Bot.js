@@ -41,11 +41,11 @@
 
             statusDependencies = pStatusDependencies;
 
-            callBackFunction(global.DEFAULT_OK_RESPONSE);
+            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
 
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
         }
     }
 
@@ -94,13 +94,13 @@ Read the candles and volumes from Exchange Raw Data and produce a file for each 
 
                     if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
                         logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
-                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
                         return;
                     }
 
                     if (statusReport.status === "Status Report is corrupt.") {
                         logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
-                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
                         return;
                     }
 
@@ -111,7 +111,7 @@ Read the candles and volumes from Exchange Raw Data and produce a file for each 
                         logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> It is too early too run this process since the trade history of the market is not there yet.");
 
                         let customOK = {
-                            result: global.CUSTOM_OK_RESPONSE.result,
+                            result: TS.projects.superalgos.globals.standardResponses.CUSTOM_OK_RESPONSE.result,
                             message: "Dependency does not exist."
                         }
                         logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> customOK = " + customOK.message);
@@ -130,13 +130,13 @@ Read the candles and volumes from Exchange Raw Data and produce a file for each 
 
                     if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
                         logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
-                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
                         return;
                     }
 
                     if (statusReport.status === "Status Report is corrupt.") {
                         logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
-                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
                         return;
                     }
 
@@ -146,7 +146,7 @@ Read the candles and volumes from Exchange Raw Data and produce a file for each 
                         logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
 
                         let customOK = {
-                            result: global.CUSTOM_OK_RESPONSE.result,
+                            result: TS.projects.superalgos.globals.standardResponses.CUSTOM_OK_RESPONSE.result,
                             message: "Dependency not ready."
                         }
                         logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> customOK = " + customOK.message);
@@ -165,13 +165,13 @@ Read the candles and volumes from Exchange Raw Data and produce a file for each 
 
                     if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
                         logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
-                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
                         return;
                     }
 
                     if (statusReport.status === "Status Report is corrupt.") {
                         logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> Can not continue because self dependecy Status Report is corrupt. Aborting Process.");
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                         return;
                     }
 
@@ -222,7 +222,7 @@ Read the candles and volumes from Exchange Raw Data and produce a file for each 
                         logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> Check the bot configuration to see if all of its statusDependencies declarations are correct. ");
                         logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> Dependencies loaded -> keys = " + JSON.stringify(statusDependencies.keys));
                     }
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
@@ -252,7 +252,7 @@ Read the candles and volumes from Exchange Raw Data and produce a file for each 
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> advanceTime -> Head of the market found @ " + contextVariables.lastCandleFile.getUTCFullYear() + "/" + (contextVariables.lastCandleFile.getUTCMonth() + 1) + "/" + contextVariables.lastCandleFile.getUTCDate() + "."); }
 
-                            callBackFunction(global.DEFAULT_OK_RESPONSE); // Here is where we finish processing and wait for the platform to run this module again.
+                            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE); // Here is where we finish processing and wait for the platform to run this module again.
                             return;
                         }
 
@@ -274,7 +274,7 @@ Read the candles and volumes from Exchange Raw Data and produce a file for each 
                         outputCandles = [];
                         outputVolumes = [];
 
-                        for (let n = 0; n < global.dailyFilePeriods.length; n++) {
+                        for (let n = 0; n < TS.projects.superalgos.globals.timeFrames.dailyFilePeriods().length; n++) {
 
                             const emptyArray1 = [];
                             const emptyArray2 = [];
@@ -304,8 +304,8 @@ Read the candles and volumes from Exchange Raw Data and produce a file for each 
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> Entering function."); }
 
-                            const outputPeriod = global.dailyFilePeriods[n][0];
-                            const timeFrame = global.dailyFilePeriods[n][1];
+                            const outputPeriod = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[n][0];
+                            const timeFrame = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[n][1];
 
                             nextCandleFile();
 
@@ -333,14 +333,14 @@ Read the candles and volumes from Exchange Raw Data and produce a file for each 
 
                                         let candlesFile;
 
-                                        if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+                                        if (err.result === TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                                             try {
                                                 candlesFile = JSON.parse(text);
 
                                             } catch (err) {
                                                 logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> Error Parsing JSON -> err = " + err.stack);
                                                 logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
-                                                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
                                                 return;
                                             }
                                         } else {
@@ -349,7 +349,7 @@ Read the candles and volumes from Exchange Raw Data and produce a file for each 
 
                                                 logger.write(MODULE_NAME, "[WARN] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> Dependency Not Ready -> err = " + err.stack);
                                                 logger.write(MODULE_NAME, "[WARN] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
-                                                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
                                                 return;
 
                                             } else {
@@ -429,7 +429,7 @@ Read the candles and volumes from Exchange Raw Data and produce a file for each 
 
                                     } catch (err) {
                                         logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> err = " + err.stack);
-                                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                                     }
                                 }
                             }
@@ -458,14 +458,14 @@ Read the candles and volumes from Exchange Raw Data and produce a file for each 
 
                                         let volumesFile;
 
-                                        if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+                                        if (err.result === TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                                             try {
                                                 volumesFile = JSON.parse(text);
 
                                             } catch (err) {
                                                 logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> Error Parsing JSON -> err = " + err.stack);
                                                 logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
-                                                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
                                                 return;
                                             }
                                         } else {
@@ -527,7 +527,7 @@ Read the candles and volumes from Exchange Raw Data and produce a file for each 
                                     }
                                 } catch (err) {
                                     logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> err = " + err.stack);
-                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
                         }
@@ -538,7 +538,7 @@ Read the candles and volumes from Exchange Raw Data and produce a file for each 
 
                             n++;
 
-                            if (n < global.dailyFilePeriods.length) {
+                            if (n < TS.projects.superalgos.globals.timeFrames.dailyFilePeriods().length) {
 
                                 loopBody();
 
@@ -550,7 +550,7 @@ Read the candles and volumes from Exchange Raw Data and produce a file for each 
 
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> controlLoop -> onWritten -> Entering function."); }
 
-                                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                    if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                                         logger.write(MODULE_NAME, "[ERROR] writeDataRanges -> writeDataRanges -> onCandlesDataRangeWritten -> err = " + err.stack);
                                         callBack(err);
                                         return;
@@ -565,7 +565,7 @@ Read the candles and volumes from Exchange Raw Data and produce a file for each 
                 }
                 catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> err = " + err.stack);
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
@@ -618,7 +618,7 @@ Read the candles and volumes from Exchange Raw Data and produce a file for each 
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeCandles -> onFileCreated -> Entering function."); }
 
-                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                            if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                                 logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> writeCandles -> onFileCreated -> err = " + err.stack);
                                 callBackFunction(err);
                                 return;
@@ -669,7 +669,7 @@ Read the candles and volumes from Exchange Raw Data and produce a file for each 
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeVolumes -> onFileCreated -> Entering function."); }
 
-                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                            if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                                 logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> writeVolumes -> onFileCreated -> err = " + err.stack);
                                 callBackFunction(err);
                                 return;
@@ -687,7 +687,7 @@ Read the candles and volumes from Exchange Raw Data and produce a file for each 
                 }
                 catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] start -> writeFiles -> err = " + err.stack);
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
@@ -703,7 +703,7 @@ Read the candles and volumes from Exchange Raw Data and produce a file for each 
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDataRanges -> Entering function."); }
 
-                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                        if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                             logger.write(MODULE_NAME, "[ERROR] writeDataRanges -> writeDataRanges -> onCandlesDataRangeWritten -> err = " + err.stack);
                             callBack(err);
                             return;
@@ -715,19 +715,19 @@ Read the candles and volumes from Exchange Raw Data and produce a file for each 
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] writeDataRanges -> writeDataRanges -> onVolumeDataRangeWritten -> Entering function."); }
 
-                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                            if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                                 logger.write(MODULE_NAME, "[ERROR] writeDataRanges -> writeDataRanges -> onVolumeDataRangeWritten -> err = " + err.stack);
                                 callBack(err);
                                 return;
                             }
 
-                            callBack(global.DEFAULT_OK_RESPONSE);
+                            callBack(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
                         }
                     }
                 }
                 catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] start -> writeDataRanges -> err = " + err.stack);
-                    callBack(global.DEFAULT_FAIL_RESPONSE);
+                    callBack(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 }
 
             }
@@ -755,7 +755,7 @@ Read the candles and volumes from Exchange Raw Data and produce a file for each 
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDataRange -> onFileCreated -> Entering function."); }
 
-                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                        if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                             logger.write(MODULE_NAME, "[ERROR] start -> writeDataRange -> onFileCreated -> err = " + err.stack);
                             callBack(err);
                             return;
@@ -772,12 +772,12 @@ Read the candles and volumes from Exchange Raw Data and produce a file for each 
 
                         global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(key, 'Data Range Updated', event)
 
-                        callBack(global.DEFAULT_OK_RESPONSE);
+                        callBack(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
                     }
                 }
                 catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] start -> writeDataRange -> err = " + err.stack);
-                    callBack(global.DEFAULT_FAIL_RESPONSE);
+                    callBack(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
@@ -799,14 +799,14 @@ Read the candles and volumes from Exchange Raw Data and produce a file for each 
                 }
                 catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> err = " + err.stack);
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
         }
         catch (err) {
             logger.write(MODULE_NAME, "[ERROR] 'Start' - ERROR : " + err.stack);
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
         }
     }
 };

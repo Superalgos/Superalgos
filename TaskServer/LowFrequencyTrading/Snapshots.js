@@ -328,7 +328,7 @@ exports.newSnapshots = function newSnapshots(bot, logger) {
             fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
 
             function onFileCreated(err) {
-                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                     logger.write(MODULE_NAME, "[ERROR] writeSnapshotFile -> onFileCreated -> err = " + err.stack);
                     logger.write(MODULE_NAME, "[ERROR] writeSnapshotFile -> onFileCreated -> filePath = " + filePath);
                     logger.write(MODULE_NAME, "[ERROR] writeSnapshotFile -> onFileCreated -> market = " + market.baseAsset + "_" + market.quotedAsset);

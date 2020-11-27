@@ -403,7 +403,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
                 } catch (err) {
                     logger.write(MODULE_NAME, '[ERROR] runSimulation -> getElement -> datasetName = ' + datasetName)
                     logger.write(MODULE_NAME, '[ERROR] runSimulation -> getElement -> err = ' + err.stack)
-                    throw (global.DEFAULT_FAIL_RESPONSE)
+                    throw (TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
                 }
             }
 
@@ -531,7 +531,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
             }
         } catch (err) {
             logger.write(MODULE_NAME, '[ERROR] runSimulation -> err = ' + err.stack)
-            throw (global.DEFAULT_FAIL_RESPONSE)
+            throw (TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
         }
     }
 }

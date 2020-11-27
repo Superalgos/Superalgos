@@ -27,11 +27,11 @@
             logger.fileName = MODULE_NAME;
             logger.initialize();
 
-            callBackFunction(global.DEFAULT_OK_RESPONSE);
+            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
 
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
         }
     }
 
@@ -144,13 +144,13 @@
             function anotherFileWritten() {
                 totalFilesWritten++
                 if (totalFilesWritten === outputDatasets.length) {
-                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
                 }
             }
         }
         catch (err) {
             logger.write(MODULE_NAME, "[ERROR] start -> err = " + err.stack);
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
         }
     }
 };

@@ -84,7 +84,7 @@
                 let nodeString = JSON.stringify(errorInNode)
                 logger.write(MODULE_NAME, "[ERROR] initialize -> " + errorMessage + ' -> nodeString = ' + nodeString)
                 global.PROCESS_ERROR(bot.processKey, errorInNode, errorMessage)
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE)
+                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
             }
 
             /* Simplifying the access to basic info */
@@ -161,7 +161,7 @@
                                                     logger.write(MODULE_NAME, "[INFO] initialize -> Retrieving status report from " + networkNode.name + " -> host = " + networkNode.config.host + ' -> port = ' + networkNode.config.webPort + '.')
 
                                                     fileStorage = FILE_STORAGE.newFileStorage(logger, networkNode.config.host, networkNode.config.webPort)
-                                                    callBackFunction(global.DEFAULT_OK_RESPONSE)
+                                                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
                                                     return true
                                                 }
                                             }
@@ -212,7 +212,7 @@
                                                     logger.write(MODULE_NAME, "[INFO] initialize -> Retrieving status report from " + networkNode.name + " -> host = " + networkNode.config.host + ' -> port = ' + networkNode.config.webPort + '.')
 
                                                     fileStorage = FILE_STORAGE.newFileStorage(logger, networkNode.config.host, networkNode.config.webPort)
-                                                    callBackFunction(global.DEFAULT_OK_RESPONSE)
+                                                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
                                                     return true
                                                 }
                                             }
@@ -231,11 +231,11 @@
             logger.write(MODULE_NAME, "[ERROR] initialize -> bottype = " + statusDependencyNode.bottype)
             logger.write(MODULE_NAME, "[ERROR] initialize -> dataMine = " + statusDependencyNode.dataMine)
 
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
 
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
         }
     }
 
@@ -284,7 +284,7 @@
 
             function onFileReceived(err, text) {
 
-                if (err.result === global.CUSTOM_FAIL_RESPONSE.result && (err.message === 'Folder does not exist.' || err.message === 'File does not exist.')
+                if (err.result === TS.projects.superalgos.globals.standardResponses.CUSTOM_FAIL_RESPONSE.result && (err.message === 'Folder does not exist.' || err.message === 'File does not exist.')
                     || err.code === "The specified key does not exist.") {
 
                     logger.write(MODULE_NAME, "[INFO] load -> onFileReceived -> err = " + err.message)
@@ -294,7 +294,7 @@
                     thisObject.file = JSON.parse('{}');
 
                     let customOK = {
-                        result: global.CUSTOM_OK_RESPONSE.result,
+                        result: TS.projects.superalgos.globals.standardResponses.CUSTOM_OK_RESPONSE.result,
                         message: "Status Report was never created."
                     };
                     logger.write(MODULE_NAME, "[WARN] load -> onFileReceived -> customOK = " + customOK.message)
@@ -302,7 +302,7 @@
                     return;
                 }
 
-                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                     logger.write(MODULE_NAME, "[ERROR] load -> onFileReceived -> err = " + err.message)
                     callBackFunction(err);
                     return;
@@ -310,7 +310,7 @@
 
                 try {
                     thisObject.file = JSON.parse(text);
-                    callBackFunction(global.DEFAULT_OK_RESPONSE)
+                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
                 } catch (err) {
 
                     /*
@@ -322,7 +322,7 @@
                     logger.write(MODULE_NAME, "[WARN] load -> onFileReceived -> Error Parsing the Status report. -> text = " + text)
 
                     let customFail = {
-                        result: global.CUSTOM_FAIL_RESPONSE.result,
+                        result: TS.projects.superalgos.globals.standardResponses.CUSTOM_FAIL_RESPONSE.result,
                         message: "Status Report is corrupt."
                     };
                     logger.write(MODULE_NAME, "[WARN] load -> onFileReceived -> customFail = " + customFail.message)
@@ -333,7 +333,7 @@
 
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] load -> err = " + err.stack)
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE)
+            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
         }
     }
 
@@ -347,7 +347,7 @@
             if (ownerId !== botId && statusDependencyNode.process !== "Context") { // Context is a special case where the report is created by the Context.js module itself.
 
                 let customErr = {
-                    result: global.CUSTOM_FAIL_RESPONSE.result,
+                    result: TS.projects.superalgos.globals.standardResponses.CUSTOM_FAIL_RESPONSE.result,
                     message: "Only bots owners of a Status Report can save them."
                 };
                 logger.write(MODULE_NAME, "[ERROR] save -> customErr = " + customErr.message)
@@ -364,7 +364,7 @@
             fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated, true)
 
             function onFileCreated(err) {
-                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                     logger.write(MODULE_NAME, "[ERROR] save -> onFileCreated -> err = " + err.stack)
                     callBackFunction(err)
                     return
@@ -380,7 +380,7 @@
         }
         catch (err) {
             logger.write(MODULE_NAME, "[ERROR] save -> err = " + err.stack)
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
         }
     }
 
@@ -394,7 +394,7 @@
 
         let response = await fileStorage.asyncCreateTextFile(filePath, fileContent + '\n', true)
 
-        if (response.err.result !== global.DEFAULT_OK_RESPONSE.result) {
+        if (response.err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
             throw (response.err)
         }
 

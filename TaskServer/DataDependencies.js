@@ -23,7 +23,7 @@
                 thisObject.nodeArray = global.NODE_BRANCH_TO_ARRAY(bot.processNode.referenceParent.processDependencies, 'Data Dependency')
                 if (thisObject.nodeArray.length === 0) {
                     logger.write(MODULE_NAME, "[ERROR] initialize -> onInitilized -> It is not possible to not have data dependencies at all.");
-                    callBackFunction(global.DEFAULT_OK_RESPONSE)
+                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
                     return
                 }
                 /* 
@@ -35,7 +35,7 @@
 
             } else {
                 logger.write(MODULE_NAME, "[ERROR] initialize -> onInitilized -> It is not possible not to have process dependencies, which means not data dependencies.");
-                callBackFunction(global.DEFAULT_OK_RESPONSE)
+                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
                 return
             }
 
@@ -43,7 +43,7 @@
 
                 // We allow old indicators not to declare their data dependencies.
 
-                callBackFunction(global.DEFAULT_OK_RESPONSE);
+                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
                 return;
             }
 
@@ -80,7 +80,7 @@
 
                 function onInitilized(err, wasInitialized) {
 
-                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                    if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                         logger.write(MODULE_NAME, "[ERROR] initialize -> onInitilized -> err = " + JSON.stringify(err));
 
                         alreadyCalledBack = true;
@@ -107,7 +107,7 @@
                         if (alreadyCalledBack === false) {
                             alreadyCalledBack = true
                             thisObject.nodeArray = newNodeArray
-                            callBackFunction(global.DEFAULT_OK_RESPONSE);
+                            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
                             return;
                         }
                     }
@@ -116,7 +116,7 @@
 
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
         }
     }
 

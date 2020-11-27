@@ -33,11 +33,11 @@
 
             statusDependencies = pStatusDependencies;
 
-            callBackFunction(global.DEFAULT_OK_RESPONSE);
+            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
 
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
         }
     }
 
@@ -88,7 +88,7 @@
                         }
                         catch (err) {
                             logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> err = " + err.stack);
-                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                         }
                     }
 
@@ -98,8 +98,8 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> Entering function."); }
 
-                            const outputPeriod = global.marketFilesPeriods[n][0];
-                            const timeFrame = global.marketFilesPeriods[n][1];
+                            const outputPeriod = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][0];
+                            const timeFrame = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][1];
 
                             nextCandleFile();
 
@@ -124,7 +124,7 @@
                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> Entering function."); }
                                             if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> text = " + text); }
 
-                                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                            if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
 
                                                 logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> err = " + err.stack);
                                                 callBackFunction(err);
@@ -174,7 +174,7 @@
                                                 }
                                                 catch (err) {
                                                     logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> buildCandles -> err = " + err.stack);
-                                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                                                 }
                                             }
 
@@ -265,7 +265,7 @@
                                                 }
                                                 catch (err) {
                                                     logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> buildBands -> err = " + err.stack);
-                                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                                                 }
                                             }
 
@@ -312,7 +312,7 @@
                                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writeBandsFile -> onFileCreated -> Entering function."); }
                                                             if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writeBandsFile -> onFileCreated -> fileContent = " + fileContent); }
 
-                                                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                                            if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
 
                                                                 logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writeBandsFile -> onFileCreated -> err = " + err.stack);
                                                                 logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writeBandsFile -> onFileCreated -> filePath = " + filePath);
@@ -328,13 +328,13 @@
                                                         }
                                                         catch (err) {
                                                             logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writeBandsFile -> onFileCreated -> err = " + err.stack);
-                                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                                            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                                                         }
                                                     }
                                                 }
                                                 catch (err) {
                                                     logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writeBandsFile -> err = " + err.stack);
-                                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                                                 }
                                             }
 
@@ -382,7 +382,7 @@
                                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writePBFile -> onFileCreated -> Entering function."); }
                                                             if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writePBFile -> onFileCreated -> fileContent = " + fileContent); }
 
-                                                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                                            if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
 
                                                                 logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writePBFile -> onFileCreated -> err = " + err.stack);
                                                                 logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writePBFile -> onFileCreated -> filePath = " + filePath);
@@ -398,33 +398,33 @@
                                                         }
                                                         catch (err) {
                                                             logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writePBFile -> onFileCreated -> err = " + err.stack);
-                                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                                            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                                                         }
                                                     }
                                                 }
                                                 catch (err) {
                                                     logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writePBFile -> err = " + err.stack);
-                                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                                                 }
                                             }
 
                                         }
                                         catch (err) {
                                             logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> err = " + err.stack);
-                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                                         }
                                     }
                                 }
                                 catch (err) {
                                     logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> err = " + err.stack);
-                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
 
                         }
                         catch (err) {
                             logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> err = " + err.stack);
-                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                         }
                     }
 
@@ -436,7 +436,7 @@
 
                             n++;
 
-                            if (n < global.marketFilesPeriods.length) {
+                            if (n < TS.projects.superalgos.globals.timeFrames.marketFilesPeriods().length) {
 
                                 loopBody();
 
@@ -448,14 +448,14 @@
                         }
                         catch (err) {
                             logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> controlLoop -> err = " + err.stack);
-                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                         }
                     }
 
                 }
                 catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> err = " + err.stack);
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
@@ -483,13 +483,13 @@
                 }
                 catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> err = " + err.stack);
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 }
             }
         }
         catch (err) {
             logger.write(MODULE_NAME, "[ERROR] start -> err = " + err.stack);
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
         }
     }
 };

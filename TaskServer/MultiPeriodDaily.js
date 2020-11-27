@@ -74,13 +74,13 @@
 
                     if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
                         logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Market Starting Point -> Status Report does not exist or Market Starting Point not defined. Retrying Later. ")
-                        callBackFunction(global.DEFAULT_RETRY_RESPONSE)
+                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                         return
                     }
 
                     if (statusReport.status === "Status Report is corrupt.") {
                         logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ")
-                        callBackFunction(global.DEFAULT_RETRY_RESPONSE)
+                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                         return
                     }
 
@@ -91,7 +91,7 @@
                         logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> It is too early too run this process since the trade history of the market is not there yet.")
 
                         let customOK = {
-                            result: global.CUSTOM_OK_RESPONSE.result,
+                            result: TS.projects.superalgos.globals.standardResponses.CUSTOM_OK_RESPONSE.result,
                             message: "Dependency does not exist."
                         }
                         logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> customOK = " + customOK.message)
@@ -107,13 +107,13 @@
 
                     if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
                         logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Market Ending Point -> Status Report does not exist or Market Ending Point not defined. Retrying Later. ")
-                        callBackFunction(global.DEFAULT_RETRY_RESPONSE)
+                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                         return
                     }
 
                     if (statusReport.status === "Status Report is corrupt.") {
                         logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ")
-                        callBackFunction(global.DEFAULT_RETRY_RESPONSE)
+                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                         return
                     }
 
@@ -123,7 +123,7 @@
                         logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Undefined Last File. -> thisReport.lastFile === undefined")
 
                         let customOK = {
-                            result: global.CUSTOM_OK_RESPONSE.result,
+                            result: TS.projects.superalgos.globals.standardResponses.CUSTOM_OK_RESPONSE.result,
                             message: "Dependency not ready."
                         }
                         logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> customOK = " + customOK.message)
@@ -138,13 +138,13 @@
 
                     if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
                         logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Self Reference -> Status Report does not exist or Self Reference not defined or badly configured. Check that at the Status Dependency you have chosen Self Reference at the config. Retrying Later. ")
-                        callBackFunction(global.DEFAULT_RETRY_RESPONSE)
+                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                         return
                     }
 
                     if (statusReport.status === "Status Report is corrupt.") {
                         logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> Can not continue because self dependecy Status Report is corrupt. Aborting Process.")
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE)
+                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
                         return
                     }
 
@@ -213,7 +213,7 @@
                         logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> Check the bot configuration to see if all of its statusDependencies declarations are correct. ")
                         logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> Dependencies loaded -> keys = " + JSON.stringify(statusDependencies.keys))
                     }
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE)
+                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
                 }
             }
 
@@ -240,7 +240,7 @@
                         const logText = "Head of the market found @ " + previousDay.getUTCFullYear() + "/" + (previousDay.getUTCMonth() + 1) + "/" + previousDay.getUTCDate() + ".";
                         logger.write(MODULE_NAME, "[INFO] start -> processTimeFrames -> advanceTime -> " + logText)
 
-                        callBackFunction(global.DEFAULT_OK_RESPONSE)
+                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
                         return
 
                     }
@@ -259,7 +259,7 @@
                 function checkStopTaskGracefully() {
                     /* Validation that we dont need to stop. */
                     if (global.STOP_TASK_GRACEFULLY === true) {
-                        callBackFunction(global.DEFAULT_OK_RESPONSE)
+                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
                         return
                     }
                     timeFramesLoop()
@@ -309,7 +309,7 @@
                         if (dependency === undefined) {
 
                             logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> timeFramesLoopBody -> dependencyLoopBody -> You need to add at least one Data Dependency to the process Multi Period Daily. Aborting process.")
-                            callBackFunction(global.DEFAULT_FAIL_RESPONSE)
+                            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
                             return
                         }
 
@@ -354,11 +354,11 @@
                                 if ((err.result === "Fail Because" && err.message === "File does not exist.") || err.code === 'The specified key does not exist.') {
 
                                     logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> timeFramesLoopBody -> dependencyLoopBody -> getPreviousFile -> onFileReceived -> err = " + err.stack)
-                                    callBackFunction(global.DEFAULT_RETRY_RESPONSE)
+                                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                                     return
                                 }
 
-                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
 
                                     logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> timeFramesLoopBody -> dependencyLoopBody -> getPreviousFile -> onFileReceived -> err = " + err.stack)
                                     callBackFunction(err)
@@ -398,11 +398,11 @@
                                     logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> timeFramesLoopBody -> dependencyLoopBody -> getCurrentFile -> onFileReceived -> err = " + err.code)
                                     logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> timeFramesLoopBody -> dependencyLoopBody -> getCurrentFile -> onFileReceived -> filePath = " + filePath)
                                     logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> timeFramesLoopBody -> dependencyLoopBody -> getCurrentFile -> onFileReceived -> fileName = " + fileName)
-                                    callBackFunction(global.DEFAULT_RETRY_RESPONSE)
+                                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                                     return
                                 }
 
-                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                                     logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> timeFramesLoopBody -> dependencyLoopBody -> getCurrentFile -> Not OK -> onFileReceived -> err = " + err.code)
                                     callBackFunction(err)
                                     return
@@ -435,7 +435,7 @@
                                 onOutputGenerated)
 
                             function onOutputGenerated(err) {
-                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                                     callBackFunction(err)
                                     return
                                 }
@@ -455,7 +455,7 @@
                         writeDataRanges(onWritten)
 
                         function onWritten(err) {
-                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                            if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                                 logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> controlLoop -> onWritten -> err = " + err.stack)
                                 callBackFunction(err)
                                 return
@@ -481,7 +481,7 @@
                     if (outputDatasetIndex < outputDatasets.length) {
                         productLoopBody()
                     } else {
-                        callBack(global.DEFAULT_OK_RESPONSE)
+                        callBack(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
                     }
                 }
             }
@@ -498,7 +498,7 @@
                 fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated)
 
                 function onFileCreated(err) {
-                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                    if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                         logger.write(MODULE_NAME, "[ERROR] start -> writeDataRange -> onFileCreated -> err = " + err.stack)
                         callBack(err)
                         return
@@ -536,12 +536,12 @@
                 fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated)
 
                 function onFileCreated(err) {
-                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                    if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                         logger.write(MODULE_NAME, "[ERROR] start -> writeTimeFramesFiles -> onFileCreated -> err = " + err.stack)
                         callBack(err)
                         return
                     }
-                    callBack(global.DEFAULT_OK_RESPONSE)
+                    callBack(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
                 }
             }
 
@@ -563,7 +563,7 @@
         }
         catch (err) {
             logger.write(MODULE_NAME, "[ERROR] start -> err = " + err.stack)
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE)
+            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
         }
     }
 };

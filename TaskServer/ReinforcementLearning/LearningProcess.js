@@ -44,11 +44,11 @@ exports.newLearningProcess = function newLearningProcess(bot, logger, UTILITIES)
 
             algorithmModule.initialize()
 
-            callBackFunction(global.DEFAULT_OK_RESPONSE)
+            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
 
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
         }
     }
 
@@ -120,7 +120,7 @@ exports.newLearningProcess = function newLearningProcess(bot, logger, UTILITIES)
 
             if (await processMarketFiles() === false) {
                 bot.TRADING_SESSIONHeartBeat(undefined, undefined, 'Waiting for Data Mining to be run')
-                callBackFunction(global.DEFAULT_RETRY_RESPONSE)
+                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                 return
             }
             /*
@@ -152,7 +152,7 @@ exports.newLearningProcess = function newLearningProcess(bot, logger, UTILITIES)
                     bot.TRADING_SESSIONHeartBeat(undefined, undefined, 'Sleeping')
                 } else {
                     bot.TRADING_SESSIONHeartBeat(undefined, undefined, 'Waiting for Data Mining to be up to date. No candles found at.')
-                    callBackFunction(global.DEFAULT_RETRY_RESPONSE)
+                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                     return
                 }
 
@@ -174,7 +174,7 @@ exports.newLearningProcess = function newLearningProcess(bot, logger, UTILITIES)
                     bot.TRADING_SESSIONHeartBeat(undefined, undefined, 'Waking up')
                     if (await processDailyFiles() === false) {
                         bot.TRADING_SESSIONHeartBeat(undefined, undefined, 'Waiting for Data Mining to be run')
-                        callBackFunction(global.DEFAULT_RETRY_RESPONSE)
+                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                         return
                     }
                     /*
@@ -193,7 +193,7 @@ exports.newLearningProcess = function newLearningProcess(bot, logger, UTILITIES)
                         bot.TRADING_SESSIONHeartBeat(undefined, undefined, 'Sleeping')
                     } else {
                         bot.TRADING_SESSIONHeartBeat(undefined, undefined, 'Waiting for Data Mining to be up to date')
-                        callBackFunction(global.DEFAULT_RETRY_RESPONSE)
+                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                         return
                     }
                     /*
@@ -216,7 +216,7 @@ exports.newLearningProcess = function newLearningProcess(bot, logger, UTILITIES)
             Everything worked as expected. We return an OK code and wait for
             the Bot Loop to call us again later. 
             */
-            callBackFunction(global.DEFAULT_OK_RESPONSE)
+            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
 
             function checkThereAreCandles(chart) {
                 let sessionParameters = bot.TRADING_SESSION.tradingParameters
@@ -244,13 +244,13 @@ exports.newLearningProcess = function newLearningProcess(bot, logger, UTILITIES)
 
                     if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
                         logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
-                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
                         return
                     }
 
                     if (statusReport.status === "Status Report is corrupt.") {
                         logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
-                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
                         return
                     }
 
@@ -260,7 +260,7 @@ exports.newLearningProcess = function newLearningProcess(bot, logger, UTILITIES)
                         logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Undefined Last File. -> thisReport = " + JSON.stringify(thisReport));
 
                         let customOK = {
-                            result: global.CUSTOM_OK_RESPONSE.result,
+                            result: TS.projects.superalgos.globals.standardResponses.CUSTOM_OK_RESPONSE.result,
                             message: "Dependency not ready."
                         }
                         logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> customOK = " + customOK.message);
@@ -275,13 +275,13 @@ exports.newLearningProcess = function newLearningProcess(bot, logger, UTILITIES)
 
                     if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
                         logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
-                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
                         return
                     }
 
                     if (statusReport.status === "Status Report is corrupt.") {
                         logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> Can not continue because self dependecy Status Report is corrupt. Aborting Process.");
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                         return
                     }
 
@@ -321,7 +321,7 @@ exports.newLearningProcess = function newLearningProcess(bot, logger, UTILITIES)
                         logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> Check the bot configuration to see if all of its statusDependencies declarations are correct. ");
                         logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> Dependencies loaded -> keys = " + JSON.stringify(statusDependencies.keys));
                     }
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
@@ -346,7 +346,7 @@ exports.newLearningProcess = function newLearningProcess(bot, logger, UTILITIES)
                     /* We cut the async calls via callBacks at this point, so as to have a clearer code upstream */
                     let response = await asyncGetDatasetFile(datasetModule, filePath, fileName)
 
-                    if (response.err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                    if (response.err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                         throw (response.err)
                     }
 
@@ -399,7 +399,7 @@ exports.newLearningProcess = function newLearningProcess(bot, logger, UTILITIES)
                             return false
                         }
 
-                        if (response.err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                        if (response.err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                             throw (response.err)
                         }
 
@@ -508,7 +508,7 @@ exports.newLearningProcess = function newLearningProcess(bot, logger, UTILITIES)
                         if (response.err.message === 'File does not exist.') {
                             return false
                         }
-                        if (response.err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                        if (response.err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                             throw (response.err)
                         }
 
@@ -657,7 +657,7 @@ exports.newLearningProcess = function newLearningProcess(bot, logger, UTILITIES)
 
                         let response = await fileStorage.asyncCreateTextFile(filePath, fileContent + '\n')
 
-                        if (response.err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                        if (response.err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                             throw (response.err)
                         }
 
@@ -695,7 +695,7 @@ exports.newLearningProcess = function newLearningProcess(bot, logger, UTILITIES)
                             let filePath = bot.filePathRoot + "/Output/" + bot.TRADING_SESSION.folderName + "/" + productCodeName + "/" + processType + fileName;
 
                             let response = await fileStorage.asyncCreateTextFile(filePath, fileContent + '\n')
-                            if (response.err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                            if (response.err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                                 throw (response.err)
                             }
                         }
@@ -741,21 +741,21 @@ exports.newLearningProcess = function newLearningProcess(bot, logger, UTILITIES)
             /* An unhandled exception occured. in this case we return Fail and log the stack. */
             if (err.stack) {
                 logger.write(MODULE_NAME, "[ERROR] start -> Unhandled Exception. Will Abort this process. err = " + err.stack);
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 return
             }
 
             /* Some expected file was not found. We will return a RETRY code and move on. */
             if ((err.result === "Fail Because" && err.message === "File does not exist.") || err.code === 'The specified key does not exist.') {
                 logger.write(MODULE_NAME, "[ERROR] File not Found. Will Retry the Process Loop.")
-                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
                 return
             }
 
             /* Some other handled exception occured. We return Fail and move on. */
-            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+            if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                 logger.write(MODULE_NAME, "[ERROR] start -> Handled Exception. Will Abort this process. err = " + err.message);
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 return
             }
         }

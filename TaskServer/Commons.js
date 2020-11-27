@@ -25,17 +25,17 @@
             /* Basic validations to see if we have everything we need. */
             if (dataDependencyNode.referenceParent.parentNode.config.singularVariableName === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] start -> Product Definition without a Single Variable Name defined. Product Definition = " + JSON.stringify(dataDependencyNode.referenceParent.parentNode));
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 return
             }
             if (dataDependencyNode.referenceParent.parentNode.config.pluralVariableName === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] start -> Product Definition without a Plural Variable Name defined. Product Definition = " + JSON.stringify(dataDependencyNode.referenceParent.parentNode));
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 return
             }
             if (dataDependencyNode.referenceParent.parentNode.record === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] start -> Product Definition without a Record Definition. Product Definition = " + JSON.stringify(dataDependencyNode.referenceParent.parentNode));
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 return
             }
         }
@@ -48,27 +48,27 @@
 
             if (outputDatasetNode.referenceParent === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] start -> Output Dataset without Reference Parent. Output Dataset = " + JSON.stringify(outputDatasetNode));
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 return
             }
             if (outputDatasetNode.referenceParent.parentNode === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] start -> Dataset not a child of a Product Definition. Dataset = " + JSON.stringify(outputDatasetNode.referenceParent));
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 return
             }
             if (outputDatasetNode.referenceParent.parentNode.config.singularVariableName === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] start -> Product Definition without a Single Variable Name defined. Product Definition = " + JSON.stringify(outputDatasetNode.referenceParent.parentNode));
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 return
             }
             if (outputDatasetNode.referenceParent.parentNode.config.pluralVariableName === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] start -> Product Definition without a Plural Variable Name defined. Product Definition = " + JSON.stringify(outputDatasetNode.referenceParent.parentNode));
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 return
             }
             if (outputDatasetNode.referenceParent.parentNode.record === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] start -> Product Definition without a Record Definition. Product Definition = " + JSON.stringify(outputDatasetNode.referenceParent.parentNode));
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 return
             }
             if (outputDatasetNode.referenceParent.parentNode.dataBuilding === undefined) {
@@ -76,19 +76,19 @@
             }
             if (outputDatasetNode.referenceParent.config.codeName === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] start -> Dataset witn no codeName defined. Product Dataset = " + JSON.stringify(outputDatasetNode.referenceParent));
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 return
             }
 
             if (outputDatasetNode.referenceParent.parentNode === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] start -> Dataset not attached to a Product Definition. Dataset = " + JSON.stringify(outputDatasetNode.referenceParent));
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 return
             }
 
             if (outputDatasetNode.referenceParent.parentNode.config.codeName === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] start -> Product Definition witn no codeName defined. Product Definition = " + JSON.stringify(outputDatasetNode.referenceParent.parentNode));
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 return
             }
 
@@ -101,13 +101,13 @@
             }
             if (botNode === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] start -> Product Definition not attached to a Bot. Product Definition = ");
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 return
             }
 
             if (botNode.config.codeName === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] start -> Bot witn no codeName defined.");
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 return
             }
 
@@ -118,26 +118,26 @@
                     let learningMineNode = global.FIND_NODE_IN_NODE_MESH(outputDatasetNode, 'Learning Mine')
                     if (learningMineNode === undefined) {
                         logger.write(MODULE_NAME, "[ERROR] start -> Bot not attached to a Data Mine, Trading Mine or Learning Mine.");
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                         return
                     } else {
                         if (tradingMineNode.config.codeName === undefined) {
                             logger.write(MODULE_NAME, "[ERROR] start -> Learning Mine witn no codeName defined.");
-                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                             return
                         }
                     }  
                 } else {
                     if (tradingMineNode.config.codeName === undefined) {
                         logger.write(MODULE_NAME, "[ERROR] start -> Trading Mine witn no codeName defined.");
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                         return
                     }
                 }  
             } else {
                 if (dataMineNode.config.codeName === undefined) {
                     logger.write(MODULE_NAME, "[ERROR] start -> Data Mine witn no codeName defined.");
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                     return
                 }
             }            
@@ -506,7 +506,7 @@
         }
         catch (err) {
             logger.write(MODULE_NAME, "[ERROR] start -> generateFileContent -> err = " + err.stack);
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
         }
     }
 
@@ -530,7 +530,7 @@
             function onFileCreated(err) {
 
                 try {
-                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                    if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
 
                         logger.write(MODULE_NAME, "[ERROR] start -> writeFile -> onFileCreated -> err = " + err.stack);
                         logger.write(MODULE_NAME, "[ERROR] start -> writeFile -> onFileCreated -> filePath = " + filePath);
@@ -546,13 +546,13 @@
                 }
                 catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] start -> writeFile -> onFileCreated -> err = " + err.stack);
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 }
             }
         }
         catch (err) {
             logger.write(MODULE_NAME, "[ERROR] start -> writeFile -> err = " + err.stack);
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
         }
     }
 }

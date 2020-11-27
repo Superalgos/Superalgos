@@ -331,6 +331,12 @@
                     "propertyName": "timeFrames",
                     "functionName": "newSuperalgosGlobalsTimeFrames",
                     "fileName": "TimeFrames.js"
+                },
+                {
+                    "name": "Standard Responses",
+                    "propertyName": "standardResponses",
+                    "functionName": "newSuperalgosGlobalsStandardResponses",
+                    "fileName": "StandardResponses.js"
                 }
             ],
             "functionLibraries": [],

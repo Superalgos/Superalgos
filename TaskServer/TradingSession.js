@@ -29,7 +29,7 @@
             /* Check if there is a session */
             if (bot.processNode.session === undefined) {
                 parentLogger.write(MODULE_NAME, "[ERROR] initialize -> Cannot run without a Session.");
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 return;
             }
 
@@ -50,7 +50,7 @@
             /* Heartbeats sent to the UI */
             bot.TRADING_SESSIONHeartBeat = sessionHeartBeat
 
-            callBackFunction(global.DEFAULT_OK_RESPONSE)
+            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
             return
 
             function onSessionStatus() {
@@ -512,7 +512,7 @@
 
         } catch (err) {
             parentLogger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
         }
     }
 };

@@ -279,7 +279,7 @@
 
             function onInitializeReady(err) {
 
-                if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+                if (err.result === TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
 
                     botInstance.run(whenRunFinishes);
 
@@ -289,7 +289,7 @@
 
                         let botId = botConfig.dataMine + "." + botConfig.codeName + "." + botConfig.process;
 
-                        if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+                        if (err.result === TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                             logger.write(MODULE_NAME, "[INFO] start -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
                             logger.write(MODULE_NAME, "[INFO] start -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
 

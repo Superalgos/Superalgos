@@ -165,7 +165,7 @@ exports.newTradingOutput = function newTradingOutput(bot, logger, tradingEngineM
                     outputDatasetsMap.set(productName, [])
                     return
                 }
-                if (response.err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                if (response.err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                     throw(response.err)
                 }
                 outputDatasetsMap.set(productName, JSON.parse(response.text))          
@@ -219,14 +219,14 @@ exports.newTradingOutput = function newTradingOutput(bot, logger, tradingEngineM
 
                 let response = await fileStorage.asyncCreateTextFile(filePath, fileContent)
 
-                if (response.err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                if (response.err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                     throw(response.err)
                 }
             }
 
         } catch (err) {
             logger.write(MODULE_NAME, '[ERROR] start -> err = ' + err.stack)
-            throw(global.DEFAULT_FAIL_RESPONSE)
+            throw(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
         }
     }
 }

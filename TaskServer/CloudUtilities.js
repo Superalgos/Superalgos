@@ -35,14 +35,14 @@ exports.newCloudUtilities = function newCloudUtilities(logger) {
                 azureFileStorage.createFolder(partialPath, checkLoop);
 
                 function checkLoop(err) {
-                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                    if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                         logger.write(MODULE_NAME, "[ERROR] createFolderIfNeeded -> loop -> checkLoop -> err = " + err.stack);
                         callBackFunction(err);
                         return;
                     }
 
                     if (i === splittedPath.length) {
-                        callBackFunction(global.DEFAULT_OK_RESPONSE);
+                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
                     } else {
                         loop();
                     }
@@ -50,7 +50,7 @@ exports.newCloudUtilities = function newCloudUtilities(logger) {
             }
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] createFolderIfNeeded -> Error = " + err.message);
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
         }
     }
 

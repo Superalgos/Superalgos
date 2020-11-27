@@ -85,7 +85,7 @@
                             datasetModule.getTextFile(filePath, fileName, onFileReceived)
 
                             function onFileReceived(err, text) {
-                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                                     logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> timeFramesLoopBody -> dependencyLoopBody -> getFile -> onFileReceived -> err = " + err.stack)
                                     callBackFunction(err)
                                     return;
@@ -117,7 +117,7 @@
                                 onOutputGenerated)
 
                             function onOutputGenerated(err) {
-                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                                     callBackFunction(err)
                                     return;
                                 }
@@ -183,7 +183,7 @@
                 fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated)
 
                 function onFileCreated(err) {
-                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                    if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                         logger.write(MODULE_NAME, "[ERROR] start -> writeTimeFramesFile -> onFileCreated -> err = " + err.stack)
                         callBack(err)
                         return
@@ -215,7 +215,7 @@
         }
         catch (err) {
             logger.write(MODULE_NAME, "[ERROR] start -> err = " + err.stack)
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE)
+            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
         }
     }
 }

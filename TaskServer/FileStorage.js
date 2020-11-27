@@ -106,7 +106,7 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
                             if (noRetry === true) {
                                 logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> onFileRead -> File does not exist. Not Retrying. ')
                                 let customResponse = {
-                                    result: global.CUSTOM_FAIL_RESPONSE.result,
+                                    result: TS.projects.superalgos.globals.standardResponses.CUSTOM_FAIL_RESPONSE.result,
                                     message: 'File does not exist.'
                                 }
                                 callBackFunction(customResponse)
@@ -139,7 +139,7 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
 
                     if (mustBeJason === false) {
                         /* In this case there is nothing else to check. */
-                        callBackFunction(global.DEFAULT_OK_RESPONSE, text.toString())
+                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE, text.toString())
                         return
                     }
 
@@ -150,7 +150,7 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
                         let jsonCheck = JSON.parse(text.toString())
 
                         /* The file was correctly read and could be parsed. */
-                        callBackFunction(global.DEFAULT_OK_RESPONSE, text.toString())
+                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE, text.toString())
                         return
 
                     } catch (err) {
@@ -172,12 +172,12 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
                                 if (err) {
                                     logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> onFileRead -> canUsePrevious -> Could not read the Previous file either. Giving up.')
                                     logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> onFileRead -> canUsePrevious -> err = ' + err.stack)
-                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE)
+                                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
                                     return
                                 }
 
                                 /* Returning the previous file */
-                                callBackFunction(global.DEFAULT_OK_RESPONSE, text.toString())
+                                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE, text.toString())
                                 return
                             }
                         } else {
@@ -207,7 +207,7 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
                     if (fileDoesNotExist === true) {
                         logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> retry -> Max retries reached reading a file. File Not Found.')
                         let customResponse = {
-                            result: global.CUSTOM_FAIL_RESPONSE.result,
+                            result: TS.projects.superalgos.globals.standardResponses.CUSTOM_FAIL_RESPONSE.result,
                             message: 'File does not exist.'
                         }
                         callBackFunction(customResponse)
@@ -216,7 +216,7 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
 
                         logger.write(MODULE_NAME, '[ERROR] FileStorage -> getTextFile -> retry -> Max retries reached reading a file. Giving up.')
                         logger.write(MODULE_NAME, '[ERROR] FileStorage -> getTextFile -> retry -> file = ' + fileLocation)
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE)
+                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
                         return
                     }
                 }
@@ -269,7 +269,7 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
                     } else {
 
                         if (noTemp === true) {
-                            callBackFunction(global.DEFAULT_OK_RESPONSE)
+                            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
                             return
                         }
                         if (keepPrevious === true) {
@@ -316,7 +316,7 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
                                             setTimeout(retry, retryTimeToUse)
                                         } else {
 
-                                            callBackFunction(global.DEFAULT_OK_RESPONSE)
+                                            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
 
                                         }
                                     }
@@ -349,7 +349,7 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
                                         setTimeout(retry, retryTimeToUse)
                                     } else {
 
-                                        callBackFunction(global.DEFAULT_OK_RESPONSE)
+                                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
 
                                     }
                                 }
@@ -373,7 +373,7 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
                     currentRetryWriteTextFile = 0
                     logger.write(MODULE_NAME, '[ERROR] FileStorage -> createTextFile -> retry -> Max retries reached writting a file. Giving up.')
                     logger.write(MODULE_NAME, '[ERROR] FileStorage -> createTextFile -> retry -> file = ' + fileLocation)
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE)
+                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
                 }
             }
         }
@@ -410,7 +410,7 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
                     }
                     if (err) {
                         if (callBackFunction !== undefined) {
-                            callBackFunction(global.DEFAULT_FAIL_RESPONSE)
+                            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
                         }
                     } else {
                         setTimeout(retry, retryTimeToUse)
@@ -420,7 +420,7 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
                 logger.write(MODULE_NAME, '[WARN] FileStorage -> deleteTextFile -> Error writing file -> file = ' + fileLocation)
                 logger.write(MODULE_NAME, '[WARN] FileStorage -> deleteTextFile -> Error writing file -> err = ' + err.stack)
                 if (callBackFunction !== undefined) {
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE)
+                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
                 }
             }
 
@@ -434,7 +434,7 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
                     logger.write(MODULE_NAME, '[ERROR] FileStorage -> deleteTextFile -> retry -> Max retries reached deleting a file. Giving up.')
                     logger.write(MODULE_NAME, '[ERROR] FileStorage -> deleteTextFile -> retry -> file = ' + fileLocation)
                     if (callBackFunction !== undefined) {
-                        callBackFunction(global.DEFAULT_OK_RESPONSE)
+                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
                     }
                 }
             }
@@ -491,7 +491,7 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
             request.on('error', function (err) {
                 logger.write(MODULE_NAME, "[ERROR] getFileViaHTTP -> onError -> err = " + err.stack);
                 logger.write(MODULE_NAME, "[ERROR] getFileViaHTTP -> onError -> Failed to fetch file via HTTP. Will retry later. ");
-                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
             })
 
             function onResponse(response) {
@@ -520,13 +520,13 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
                 } catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] getFileViaHTTP -> onResponse -> err = " + err.stack);
                     logger.write(MODULE_NAME, "[ERROR] getFileViaHTTP -> onResponse -> Failed to fetch file via HTTP. Will retry later. ");
-                    callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
                 }
             }
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] getFileViaHTTP -> err = " + err.stack);
             logger.write(MODULE_NAME, "[ERROR] getFileViaHTTP -> Failed to fetch file via HTTP. Will retry later. ");
-            callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
         }
     }
 }

@@ -23,12 +23,12 @@
                     thisObject.nodeArray = bot.processNode.referenceParent.processDependencies.statusDependencies
                 } else {
                     logger.write(MODULE_NAME, "[ERROR] initialize -> onInitilized -> It is not possible to not have status dependencies at all.");
-                    callBackFunction(global.DEFAULT_OK_RESPONSE)
+                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
                     return
                 }
             } else {
                 logger.write(MODULE_NAME, "[ERROR] initialize -> onInitilized -> It is not possible to not have process dependencies, which means not status dependencies.");
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE)
+                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
                 return
             }
 
@@ -58,7 +58,7 @@
 
                     logger.write(MODULE_NAME, "[INFO] initialize -> onInitilized -> Initialized Status Report # " + (i + 1));
 
-                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                    if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                         if (alreadyCalledBack === false) {
                             logger.write(MODULE_NAME, "[ERROR] initialize -> onInitilized -> err = " + err.stack);
                             logger.write(MODULE_NAME, "[ERROR] initialize -> onInitilized -> err.message = " + err.message);
@@ -81,7 +81,7 @@
                         statusReportModule.status = err.message;
 
                         switch (err.message) {
-                            case global.DEFAULT_OK_RESPONSE.message: {
+                            case TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.message: {
                                 addReport();
                                 return;
                             }
@@ -116,7 +116,7 @@
                     }
                     catch (err) {
                         logger.write(MODULE_NAME, "[ERROR] initialize -> onLoad -> err = " + err.stack);
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                     }
                 }
 
@@ -142,7 +142,7 @@
                     if (loadCount === dependenciesToProcess.length) {
                         if (alreadyCalledBack === false) {
                             alreadyCalledBack = true
-                            callBackFunction(global.DEFAULT_OK_RESPONSE);
+                            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
                             return;
                         } else {
                             logger.write(MODULE_NAME, "[WARN] initialize -> addReport -> Can not call back because I already did.")
@@ -153,7 +153,7 @@
 
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
         }
     }
 

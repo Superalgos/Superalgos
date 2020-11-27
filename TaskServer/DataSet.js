@@ -29,7 +29,7 @@ exports.newDataSet = function newDataSet(BOT, logger) {
             /* Some very basic validations that we have all the information needed. */
             if (thisObject.node === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] initialize -> Data Dependency without Reference Parent -> dataDependency = " + JSON.stringify(dataDependency));
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 return
             }
 
@@ -37,43 +37,43 @@ exports.newDataSet = function newDataSet(BOT, logger) {
 
             if (thisObject.node.config.codeName === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] initialize -> Dataset witn no codeName defined -> Product Dataset = " + JSON.stringify(thisObject.node));
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 return
             }
 
             if (thisObject.node.parentNode === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] initialize -> Dataset not attached to a Product Definition -> Dataset = " + JSON.stringify(thisObject.node));
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 return
             }
 
             if (thisObject.node.parentNode.config.codeName === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] initialize -> Product Definition witn no codeName defined -> Product Definition = " + JSON.stringify(thisObject.node.parentNode));
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 return
             }
 
             if (thisObject.node.parentNode.parentNode === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] initialize -> Product Definition not attached to a Bot -> Product Definition = " + JSON.stringify(thisObject.node.parentNode));
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 return
             }
 
             if (thisObject.node.parentNode.parentNode.config.codeName === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] initialize -> Bot witn no codeName defined. Bot = " + JSON.stringify(thisObject.node.parentNode.parentNode));
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 return
             }
 
             if (thisObject.node.parentNode.parentNode.parentNode === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] initialize -> Bot not attached to a Data Mine or Trading Mine. Bot = " + JSON.stringify(thisObject.node.parentNode.parentNode));
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 return
             }
 
             if (thisObject.node.parentNode.parentNode.parentNode.config.codeName === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] initialize -> Data Mine witn no codeName defined. Data Mine = " + JSON.stringify(thisObject.node.parentNode.parentNode.parentNode));
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 return
             }
 
@@ -88,7 +88,7 @@ exports.newDataSet = function newDataSet(BOT, logger) {
                 logger.write(MODULE_NAME, "[WARN] initialize -> Network Node not found.")
                 logger.write(MODULE_NAME, "[WARN] initialize -> Initialization Failed because we could not find where the data of this dataset is located within the network. Check the logs for more info.");
                 logger.write(MODULE_NAME, "[WARN] initialize -> Could not find where " + datasetProductDefinition.name + " for " + bot.exchange + " " + bot.market.baseAsset + "/" + bot.market.quotedAsset + " is stored within the network.");
-                callBackFunction(global.DEFAULT_OK_RESPONSE, false);
+                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE, false);
                 return
             }
 
@@ -96,11 +96,11 @@ exports.newDataSet = function newDataSet(BOT, logger) {
             logger.write(MODULE_NAME, "[INFO] initialize -> Retrieving data from " + networkNode.name + "  -> host = " + networkNode.config.host + ' -> port = ' + networkNode.config.webPort + '.')
 
             fileStorage = FILE_STORAGE.newFileStorage(logger, networkNode.config.host, networkNode.config.webPort);
-            callBackFunction(global.DEFAULT_OK_RESPONSE, true);
+            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE, true);
 
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
         }
     }
 
@@ -131,7 +131,7 @@ exports.newDataSet = function newDataSet(BOT, logger) {
         }
         catch (err) {
             logger.write(MODULE_NAME, "[ERROR] 'getTextFile' -> err = " + err.stack);
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
         }
     }
 
@@ -148,7 +148,7 @@ exports.newDataSet = function newDataSet(BOT, logger) {
             if (ownerId !== botId) {
 
                 let customErr = {
-                    result: global.CUSTOM_FAIL_RESPONSE.result,
+                    result: TS.projects.superalgos.globals.standardResponses.CUSTOM_FAIL_RESPONSE.result,
                     message: "Only bots owners of a Data Set can create text files on them."
                 };
                 logger.write(MODULE_NAME, "[ERROR] save -> customErr = " + customErr.message);
@@ -167,7 +167,7 @@ exports.newDataSet = function newDataSet(BOT, logger) {
         }
         catch (err) {
             logger.write(MODULE_NAME, "[ERROR] 'createTextFile' -> err = " + err.stack);
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
         }
     }
 };

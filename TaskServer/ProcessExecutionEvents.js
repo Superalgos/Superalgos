@@ -31,7 +31,7 @@
             logger.fileName = MODULE_NAME + "." + name;
 
             if (bot.processNode.referenceParent === undefined) {
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 logger.write(MODULE_NAME, "[ERROR] initialize -> Initialization Failed because the Process Instance needs to have a Reference Parent.");
                 return
             }
@@ -140,7 +140,7 @@
                                                                         ' -> port = ' + networkNode.config.webSocketsPort + '.');
 
 
-                                                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                                                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
                                                                     return
                                                                 }
                                                                 return
@@ -156,15 +156,15 @@
                         }
                     }
                 }
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 logger.write(MODULE_NAME, "[ERROR] initialize -> Initialization Failed because we could not find where the task that runs the Process Definition we are waiting for is located within the network. Check the logs for more info.");
                 return
             }
-            callBackFunction(global.DEFAULT_OK_RESPONSE);
+            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
 
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
         }
     }
 
@@ -208,9 +208,9 @@
                 bot.processHeartBeat(undefined, undefined, "Waiting for " + thisObject.networkNode.name + "->" + processThisDependsOn.parentNode.parentNode.name + "->" + processThisDependsOn.parentNode.config.codeName + "->" + processThisDependsOn.config.codeName)
 
                 function responseCallBack(message) {
-                    if (message.result !== global.DEFAULT_OK_RESPONSE.result) {
+                    if (message.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                         logger.write(MODULE_NAME, "[ERROR] start -> responseCallBack -> message = " + JSON.stringify(message))
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                     } else {
                         subscriptionId = message.eventSubscriptionId
                         logger.write(MODULE_NAME, "[INFO] start -> waitForDependantProcess -> subscriptionId = " + subscriptionId)
@@ -226,10 +226,10 @@
                     logger.write(MODULE_NAME, "[INFO] start -> eventsCallBack -> subscriptionId = " + subscriptionId)
                     eventServerClient.stopListening(key, 'Process Execution Finished', subscriptionId)
 
-                    if (message.event.err.result === global.DEFAULT_OK_RESPONSE.result) {
+                    if (message.event.err.result === TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                         /* We emit our own event that the process started. */
                         let event = {
-                            err: global.DEFAULT_OK_RESPONSE
+                            err: TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE
                         }
                         global.EVENT_SERVER_CLIENT_MODULE.createEventHandler(currentProcessKey, 'Process Execution Started')
                         global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(currentProcessKey, 'Process Execution Started', event)
@@ -245,19 +245,19 @@
                 /* In this case, the Process does not depends on a process which needs to wait for. */
                 /* We emit our own event that the process started. */
                 let event = {
-                    err: global.DEFAULT_OK_RESPONSE
+                    err: TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE
                 }
                 global.EVENT_SERVER_CLIENT_MODULE.createEventHandler(currentProcessKey, 'Process Execution Started')
                 global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(currentProcessKey, 'Process Execution Started', event)
 
                 logger.write(MODULE_NAME, "[INFO] start -> " + currentProcessKey + " Process Execution Started ")
 
-                callBackFunction(global.DEFAULT_OK_RESPONSE);
+                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
             }
 
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] start -> err = " + err.stack);
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
         }
     }
 
@@ -268,7 +268,7 @@
             logger.write(MODULE_NAME, "[INFO] finish -> Entering function.")
 
             let event = {
-                err: global.DEFAULT_OK_RESPONSE
+                err: TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE
             }
 
             global.EVENT_SERVER_CLIENT_MODULE.createEventHandler(currentProcessKey, 'Process Execution Finished')
@@ -276,11 +276,11 @@
 
             logger.write(MODULE_NAME, "[INFO] finish -> " + currentProcessKey + " Process Execution Finished ")
 
-            callBackFunction(global.DEFAULT_OK_RESPONSE);
+            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
 
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] finish -> err = " + err.stack);
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
         }
     }
 

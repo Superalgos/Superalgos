@@ -81,8 +81,8 @@ exports.newDataSet = function newDataSet(BOT, logger) {
             let network = global.TASK_NETWORK
             let datasetProductDefinition = thisObject.node.parentNode
 
-            let nodeArray = global.NODE_MESH_TO_PATH_ARRAY(network, datasetProductDefinition.id)
-            let networkNode = global.FIND_NODE_IN_NODE_ARRAY(nodeArray, 'Network Node')
+            let nodeArray = TS.projects.superalgos.utilities.nodeFunctions.nodeMeshToPathArray(network, datasetProductDefinition.id)
+            let networkNode = TS.projects.superalgos.utilities.nodeFunctions.findNodeInNodeArray(nodeArray, 'Network Node')
 
             if (networkNode === undefined) {
                 logger.write(MODULE_NAME, "[WARN] initialize -> Network Node not found.")

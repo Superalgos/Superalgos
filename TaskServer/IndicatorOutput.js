@@ -50,11 +50,11 @@
             }
 
             /* The first phase here is about checking that we have everything we need at the definition level. */
-            let dataDependencies = global.NODE_BRANCH_TO_ARRAY(bot.processNode.referenceParent.processDependencies, 'Data Dependency')
+            let dataDependencies = TS.projects.superalgos.utilities.nodeFunctions.nodeBrachToArray(bot.processNode.referenceParent.processDependencies, 'Data Dependency')
 
             if (commons.validateDataDependencies(dataDependencies, callBackFunction) !== true) { return }
 
-            let outputDatasets = global.NODE_BRANCH_TO_ARRAY (bot.processNode.referenceParent.processOutput, 'Output Dataset')
+            let outputDatasets = TS.projects.superalgos.utilities.nodeFunctions.nodeBrachToArray (bot.processNode.referenceParent.processOutput, 'Output Dataset')
             if (commons.validateOutputDatasets(outputDatasets, callBackFunction) !== true) { return }
 
             /* The second phase is about transforming the inputs into a format that can be used to apply the user defined code. */
@@ -129,9 +129,9 @@
                 contextSummary.dataset = outputDatasetNode.referenceParent.config.codeName
                 contextSummary.product = outputDatasetNode.referenceParent.parentNode.config.codeName
 
-                let botNode = global.FIND_NODE_IN_NODE_MESH(outputDatasetNode, 'Indicator Bot')
+                let botNode = TS.projects.superalgos.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Indicator Bot')
                 contextSummary.bot = botNode.config.codeName
-                let dataMineNode = global.FIND_NODE_IN_NODE_MESH(outputDatasetNode, 'Data Mine')
+                let dataMineNode = TS.projects.superalgos.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Data Mine')
                 contextSummary.dataMine = dataMineNode.config.codeName
                 contextSummary.mineType = dataMineNode.type.replace(' ', '-')
                 contextSummary.project = dataMineNode.project

@@ -141,7 +141,7 @@
             }
 
             function writeTimeFramesFiles(callBack) {
-                let outputDatasets = global.NODE_BRANCH_TO_ARRAY (bot.processNode.referenceParent.processOutput, 'Output Dataset')
+                let outputDatasets = TS.projects.superalgos.utilities.nodeFunctions.nodeBrachToArray (bot.processNode.referenceParent.processOutput, 'Output Dataset')
                 let outputDatasetIndex = -1;
                 controlLoop()
 

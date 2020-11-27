@@ -353,7 +353,14 @@
                     "fileName": "ProcessFunctions.js"
                 }
             ],
-            "utilities": [],
+            "utilities": [
+                {
+                    "name": "Node Functions",
+                    "propertyName": "nodeFunctions",
+                    "functionName": "newSuperalgosUtilitiesNodeFunctions",
+                    "fileName": "NodeFunctions.js"
+                }
+            ],
             "botClasses": []
         },
         "CL": {}

@@ -20,20 +20,20 @@
             /* We will reaise the events for the datasets impacted by the process that just finished. */
 
             if (bot.processNode.referenceParent.processOutput !== undefined) {
-                let outputDatasets = global.NODE_BRANCH_TO_ARRAY(bot.processNode.referenceParent.processOutput, 'Output Dataset')
+                let outputDatasets = TS.projects.superalgos.utilities.nodeFunctions.nodeBrachToArray(bot.processNode.referenceParent.processOutput, 'Output Dataset')
 
                 for (let j = 0; j < outputDatasets.length; j++) {
                     let outputDataset = outputDatasets[j]
 
-                    let botNode = global.FIND_NODE_IN_NODE_MESH(outputDataset, 'Indicator Bot')
+                    let botNode = TS.projects.superalgos.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Indicator Bot')
                     if (botNode === undefined) { 
-                        botNode = global.FIND_NODE_IN_NODE_MESH(outputDataset, 'Trading Bot')
+                        botNode = TS.projects.superalgos.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Trading Bot')
                     }
                     if (botNode === undefined) { 
-                        botNode = global.FIND_NODE_IN_NODE_MESH(outputDataset, 'Sensor Bot')
+                        botNode = TS.projects.superalgos.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Sensor Bot')
                     }
                     if (botNode === undefined) { 
-                        botNode = global.FIND_NODE_IN_NODE_MESH(outputDataset, 'Learning Bot')
+                        botNode = TS.projects.superalgos.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Learning Bot')
                     }
 
                     /* Some validations to verify that everything is in place. */
@@ -110,20 +110,20 @@
     function asyncRaiseEvents(lastFile, timeFrames) {
 
         if (bot.processNode.referenceParent.processOutput !== undefined) {
-            let outputDatasets = global.NODE_BRANCH_TO_ARRAY(bot.processNode.referenceParent.processOutput, 'Output Dataset')
+            let outputDatasets = TS.projects.superalgos.utilities.nodeFunctions.nodeBrachToArray(bot.processNode.referenceParent.processOutput, 'Output Dataset')
 
             for (let j = 0; j < outputDatasets.length; j++) {
                 let outputDataset = outputDatasets[j]
 
-                let botNode = global.FIND_NODE_IN_NODE_MESH(outputDataset, 'Indicator Bot')
+                let botNode = TS.projects.superalgos.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Indicator Bot')
                 if (botNode === undefined) { 
-                    botNode = global.FIND_NODE_IN_NODE_MESH(outputDataset, 'Trading Bot')
+                    botNode = TS.projects.superalgos.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Trading Bot')
                 }
                 if (botNode === undefined) { 
-                    botNode = global.FIND_NODE_IN_NODE_MESH(outputDataset, 'Sensor Bot')
+                    botNode = TS.projects.superalgos.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Sensor Bot')
                 }
                 if (botNode === undefined) { 
-                    botNode = global.FIND_NODE_IN_NODE_MESH(outputDataset, 'Learning Bot')
+                    botNode = TS.projects.superalgos.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Learning Bot')
                 }
 
                 /* Some validations to verify that everything is in place. */

@@ -20,7 +20,7 @@
         try {
             /* Basic Valdidations */
             if (bot.processNode.referenceParent.processDependencies !== undefined) {
-                thisObject.nodeArray = global.NODE_BRANCH_TO_ARRAY(bot.processNode.referenceParent.processDependencies, 'Data Dependency')
+                thisObject.nodeArray = TS.projects.superalgos.utilities.nodeFunctions.nodeBrachToArray(bot.processNode.referenceParent.processDependencies, 'Data Dependency')
                 if (thisObject.nodeArray.length === 0) {
                     logger.write(MODULE_NAME, "[ERROR] initialize -> onInitilized -> It is not possible to not have data dependencies at all.");
                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
@@ -31,7 +31,7 @@
                 This will allow the user to have less Data Mines loaded at the workspace
                 that the ones that a Trading Mine depends on.
                 */
-                thisObject.nodeArray = global.FILTER_OUT_NODES_WITHOUT_REFERENCE_PARENT_FROM_NODE_ARRAY(thisObject.nodeArray)
+                thisObject.nodeArray = TS.projects.superalgos.utilities.nodeFunctions.filterOutNodeWihtoutReferenceParentFromNodeArray(thisObject.nodeArray)
 
             } else {
                 logger.write(MODULE_NAME, "[ERROR] initialize -> onInitilized -> It is not possible not to have process dependencies, which means not data dependencies.");

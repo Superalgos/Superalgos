@@ -258,7 +258,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
                     if (sessionParameters.heartbeats.config.date === true || sessionParameters.heartbeats.config.candleIndex === true) {
                         /* We will produce a simulation level heartbeat in order to inform the user this is running. */
 
-                        heartBeatDate = new Date(Math.trunc(tradingEngine.current.episode.candle.begin.value / global.ONE_DAY_IN_MILISECONDS) * global.ONE_DAY_IN_MILISECONDS)
+                        heartBeatDate = new Date(Math.trunc(tradingEngine.current.episode.candle.begin.value / TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS) * TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
 
                         let fromDate = new Date(sessionParameters.timeRange.config.initialDatetime)
                         let lastDate = new Date(sessionParameters.timeRange.config.finalDatetime)
@@ -424,7 +424,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
                     the day, we will advance current process day one day. By doing so, during the next execution, the
                     simulation will receive the candles and indicators files of the next day. 
                     */
-                    let candlesPerDay = global.ONE_DAY_IN_MILISECONDS / sessionParameters.timeFrame.config.value
+                    let candlesPerDay = TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS / sessionParameters.timeFrame.config.value
                     if (
                         bot.processingDailyFiles &&
                         tradingEngine.current.episode.candle.index.value + 1 + 1 === candlesPerDay
@@ -438,7 +438,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
                         */
                         tradingEngine.current.episode.candle.index.value = 0
                         tradingEngine.current.episode.processDate.value =
-                            tradingEngine.current.episode.processDate.value + global.ONE_DAY_IN_MILISECONDS
+                            tradingEngine.current.episode.processDate.value + TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS
                         return false
                     }
 

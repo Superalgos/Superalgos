@@ -196,7 +196,7 @@ exports.newLearningSession = function newLearningSession(bot, parentLogger) {
                         type: 'Time Range',
                         config: {
                             initialDatetime: (new Date()).valueOf(),
-                            finalDatetime: (new Date()).valueOf() + global.ONE_YEAR_IN_MILISECONDS
+                            finalDatetime: (new Date()).valueOf() + TS.projects.superalgos.globals.timeConstants.ONE_YEAR_IN_MILISECONDS
                         }
                     }
                 } else {
@@ -219,8 +219,8 @@ exports.newLearningSession = function newLearningSession(bot, parentLogger) {
 
                 /* Session Type Forced Values */
                 let today = (new Date()).valueOf()
-                let aYearAgo = today - global.ONE_YEAR_IN_MILISECONDS
-                let aYearFromNow = today + global.ONE_YEAR_IN_MILISECONDS
+                let aYearAgo = today - TS.projects.superalgos.globals.timeConstants.ONE_YEAR_IN_MILISECONDS
+                let aYearFromNow = today + TS.projects.superalgos.globals.timeConstants.ONE_YEAR_IN_MILISECONDS
                 switch (bot.LEARNING_SESSION.type) {
                     case 'Backtesting Session': {
                         useDefaultDatetimes(aYearAgo, today)

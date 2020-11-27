@@ -221,15 +221,15 @@
                 let n;
                 let botNeverRan = true;
 
-                bot.multiPeriodDailyProcessDatetime = new Date(contextVariables.lastFile.valueOf() - ONE_DAY_IN_MILISECONDS) // Go back one day to start well when we advance time at the begining of the loop.
+                bot.multiPeriodDailyProcessDatetime = new Date(contextVariables.lastFile.valueOf() - TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS) // Go back one day to start well when we advance time at the begining of the loop.
                 let fromDate = new Date(bot.multiPeriodDailyProcessDatetime.valueOf())
                 let lastDate = new Date()
 
                 advanceTime()
 
                 function advanceTime() {
-                    bot.multiPeriodDailyProcessDatetime = new Date(bot.multiPeriodDailyProcessDatetime.valueOf() + ONE_DAY_IN_MILISECONDS)
-                    previousDay = new Date(bot.multiPeriodDailyProcessDatetime.valueOf() - ONE_DAY_IN_MILISECONDS)
+                    bot.multiPeriodDailyProcessDatetime = new Date(bot.multiPeriodDailyProcessDatetime.valueOf() + TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
+                    previousDay = new Date(bot.multiPeriodDailyProcessDatetime.valueOf() - TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
 
                     logger.write(MODULE_NAME, "[INFO] start -> processTimeFrames -> advanceTime -> bot.multiPeriodDailyProcessDatetime = " + bot.multiPeriodDailyProcessDatetime)
                     logger.write(MODULE_NAME, "[INFO] start -> processTimeFrames -> advanceTime -> previousDay = " + previousDay)
@@ -489,7 +489,7 @@
             function writeDataRange(pBegin, pEnd, productCodeName, callBack) {
                 let dataRange = {
                     begin: pBegin.valueOf(),
-                    end: pEnd.valueOf() + ONE_DAY_IN_MILISECONDS
+                    end: pEnd.valueOf() + TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS
                 };
                 let fileContent = JSON.stringify(dataRange)
                 let fileName = '/Data.Range.json';

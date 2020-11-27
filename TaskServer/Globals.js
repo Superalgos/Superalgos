@@ -11,13 +11,8 @@ exports.newGlobals = function newGlobals() {
         /* This is the Execution Datetime */
 
         global.EXECUTION_DATETIME = new Date();
-
-
         global.ROOT_DIR = './';
 
-        global.ONE_YEAR_IN_MILISECONDS = 365 * 24 * 60 * 60 * 1000
-        global.ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000
-        global.ONE_MIN_IN_MILISECONDS = 60 * 1000
         global.LOGGER_MAP = new Map()   // We will put all the loggers in a map, so that we can eventually finalize them.
         global.SESSION_MAP = new Map()  // We will put all the sessions in a map, so that we can eventually finalize them.
 
@@ -302,9 +297,9 @@ exports.newGlobals = function newGlobals() {
         global.STOP_TASK_GRACEFULLY = false;
 
         global.GET_PERCENTAGE = function (fromDate, currentDate, lastDate) {
-            let fromDays = Math.trunc(fromDate.valueOf() / global.ONE_DAY_IN_MILISECONDS)
-            let currentDays = Math.trunc(currentDate.valueOf() / global.ONE_DAY_IN_MILISECONDS)
-            let lastDays = Math.trunc(lastDate.valueOf() / global.ONE_DAY_IN_MILISECONDS)
+            let fromDays = Math.trunc(fromDate.valueOf() / TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
+            let currentDays = Math.trunc(currentDate.valueOf() / TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
+            let lastDays = Math.trunc(lastDate.valueOf() / TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
             let percentage = (currentDays - fromDays) * 100 / (lastDays - fromDays)
             if ((lastDays - fromDays) === 0) {
                 percentage = 100
@@ -313,8 +308,8 @@ exports.newGlobals = function newGlobals() {
         }
 
         global.GET_EQUAL_DATES = function (date1, date2) {
-            let day1Days = Math.trunc(date1.valueOf() / global.ONE_DAY_IN_MILISECONDS)
-            let day2Days = Math.trunc(date2.valueOf() / global.ONE_DAY_IN_MILISECONDS)
+            let day1Days = Math.trunc(date1.valueOf() / TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
+            let day2Days = Math.trunc(date2.valueOf() / TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
 
             if (day1Days === day2Days) {
                 return true

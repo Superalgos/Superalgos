@@ -113,7 +113,7 @@ exports.newTradingEpisode = function newTradingEpisode(bot, logger, tradingEngin
         tradingEngine.current.episode.episodeStatistics.days.value =
             tradingEngine.current.episode.episodeCounters.periods.value *
             sessionParameters.timeFrame.config.value /
-            global.ONE_DAY_IN_MILISECONDS
+            TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS
     }
 
     function cycleBasedStatistics() {

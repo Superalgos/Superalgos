@@ -337,6 +337,12 @@
                     "propertyName": "standardResponses",
                     "functionName": "newSuperalgosGlobalsStandardResponses",
                     "fileName": "StandardResponses.js"
+                },
+                {
+                    "name": "Time Constants",
+                    "propertyName": "timeConstants",
+                    "functionName": "newSuperalgosGlobalsTimeConstants",
+                    "fileName": "TimeConstants.js"
                 }
             ],
             "functionLibraries": [

@@ -648,7 +648,7 @@
                     async function writeDataRange(productCodeName) {
                         let dataRange = {
                             begin: contextVariables.dateBeginOfMarket.valueOf(),
-                            end: tradingProcessDate.valueOf() + global.ONE_DAY_IN_MILISECONDS
+                            end: tradingProcessDate.valueOf() + TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS
                         }
 
                         let fileContent = JSON.stringify(dataRange);

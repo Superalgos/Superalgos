@@ -411,7 +411,7 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
             /* Days Calculation */
             tradingEngine.current.position.positionStatistics.days.value =
                 tradingEngine.current.position.positionCounters.periods.value *
-                sessionParameters.timeFrame.config.value / global.ONE_DAY_IN_MILISECONDS
+                sessionParameters.timeFrame.config.value / TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS
 
             tradingEngine.current.position.positionStatistics.days.value = global.PRECISE(tradingEngine.current.position.positionStatistics.days.value, 10)
         }

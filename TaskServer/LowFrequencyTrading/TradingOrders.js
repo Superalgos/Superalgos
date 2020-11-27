@@ -1036,7 +1036,7 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
     }
 
     function updateStatistics(tradingEngineOrder) {
-        tradingEngineOrder.orderStatistics.days.value = tradingEngineOrder.orderCounters.periods.value * sessionParameters.timeFrame.config.value / global.ONE_DAY_IN_MILISECONDS
+        tradingEngineOrder.orderStatistics.days.value = tradingEngineOrder.orderCounters.periods.value * sessionParameters.timeFrame.config.value / TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS
         tradingEngineOrder.orderStatistics.days.value = global.PRECISE(tradingEngineOrder.orderStatistics.days.value, 10)
     }
 

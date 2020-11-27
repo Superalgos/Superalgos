@@ -88,13 +88,13 @@ function setupUpTS() {
     Here we will setup the TS object, with all the
     projects and modules that will have inside.
     */
-    TS = {
-        projects: []
+    global.TS = {
+        projects: {}
     }
     for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
         let projectDefinition = PROJECTS_SCHEMA[i]
-        TS.projects[projectDefinition.propertyName] = {}
-        let projectInstance = TS.projects[projectDefinition.propertyName]
+        global.TS.projects[projectDefinition.propertyName] = {}
+        let projectInstance = global.TS.projects[projectDefinition.propertyName]
 
         projectInstance.utilities = {}
         projectInstance.globals = {}

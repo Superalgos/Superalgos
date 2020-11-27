@@ -676,7 +676,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                     for (let i = 0; i < projects.length; i++) {
                         let project = projects[i]
 
-                        let dirPath = project + '/Spaces'
+                        let dirPath = project + '/UI/Spaces'
                         let spaces = getDirectories(process.env.PROJECTS_PATH + '/' + dirPath)
 
                         for (let j = 0; j < spaces.length; j++) {
@@ -791,7 +791,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                 for (let i = 0; i < projects.length; i++) {
                     let project = projects[i]
 
-                    let dirPath = process.env.PROJECTS_PATH + '/' + project + '/' + projectFolderName
+                    let dirPath = process.env.PROJECTS_PATH + '/' + project + '/' + 'UI' + '/' + projectFolderName
                     try {
                         let fs = require('fs')
                         fs.readdir(dirPath, onDirRead)

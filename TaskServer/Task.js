@@ -84,7 +84,58 @@ function preLoader() {
 }
 
 function setupUpTS() {
+    /*
+    Here we will setup the TS object, with all the
+    projects and modules that will have inside.
+    */
+    global.TS = {
+        projects: []
+    }
+    for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
+        let projectDefinition = PROJECTS_SCHEMA[i]
+        global.TS.projects[projectDefinition.propertyName] = {}
+        let projectInstance = global.TS.projects[projectDefinition.propertyName]
 
+        projectInstance.utilities = {}
+        projectInstance.globals = {}
+        projectInstance.functionLibraries = {}
+
+        /* Set up Utilities of this Project */
+        if (projectDefinition.global.TS.utilities !== undefined) {
+            for (let j = 0; j < projectDefinition.global.TS.utilities.length; j++) {
+                let utilityDefinition = projectDefinition.global.TS.utilities[j]
+
+                projectInstance.utilities[utilityDefinition.propertyName] = eval(utilityDefinition.functionName + '()')
+            }
+        }
+
+        /* Set up Globals of this Project */
+        if (projectDefinition.global.TS.globals !== undefined) {
+            for (let j = 0; j < projectDefinition.global.TS.globals.length; j++) {
+                let globalDefinition = projectDefinition.global.TS.globals[j]
+
+                projectInstance.globals[globalDefinition.propertyName] = eval(globalDefinition.functionName + '()')
+            }
+        }
+
+        /* Set up Function Libraries of this Project */
+        if (projectDefinition.global.TS.functionLibraries !== undefined) {
+            for (let j = 0; j < projectDefinition.global.TS.functionLibraries.length; j++) {
+                let functionLibraryDefinition = projectDefinition.global.TS.functionLibraries[j]
+
+                projectInstance.functionLibraries[functionLibraryDefinition.propertyName] = eval(functionLibraryDefinition.functionName + '()')
+            }
+        }
+
+        /* Set up Bot Classes of this Project */
+        if (projectDefinition.global.TS.botClasses !== undefined) {
+            for (let j = 0; j < projectDefinition.global.TS.botClasses.length; j++) {
+                let botClassDefinition = projectDefinition.global.TS.botClasses[j]
+
+                projectInstance.botClasses[botClassDefinition.propertyName] = eval(botClassDefinition.functionName + '()')
+            }
+        }
+    }
 }
 
 function bootLoader() {
@@ -99,7 +150,7 @@ function bootLoader() {
 
     function taskHearBeat() {
 
-        /* The heartbeat event is raised at the event handler of the instance of this task, created at the UI. */
+        /* The heartbeat event is raised at the event handler of the instance of this task, created at the global.TS. */
         let event = {
             seconds: (new Date()).getSeconds()
         }

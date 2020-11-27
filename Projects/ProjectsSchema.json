@@ -325,11 +325,12 @@
             ]
         },
         "TS": {
-
+            "globals": [],
+            "functionLibraries": [],
+            "utilities": [],
+            "botClasses": []
         },
-        "CL": {
-
-        }
+        "CL": {}
     },
     {
         "name": "Ethereum",
@@ -385,11 +386,7 @@
                 }
             ]
         },
-        "TS": {
-
-        },
-        "CL": {
-
-        }
+        "TS": {},
+        "CL": {}
     }
 ]

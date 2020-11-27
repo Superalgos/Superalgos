@@ -185,6 +185,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
             taskId: node.id,
             taskName: node.name,
             taskDefinition: JSON.stringify(taskDefinition),
+            networkDefinition: JSON.stringify(networkDefinition),
             projectsSchema: JSON.stringify(PROJECTS_SCHEMA)
         }
 

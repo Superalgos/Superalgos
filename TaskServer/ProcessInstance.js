@@ -17,7 +17,7 @@
             const INDICATOR_BOT_MODULE = require('./IndicatorBot');
             const SENSOR_BOT = require('./SensorBot');
             const TRADING_BOT_MODULE = require('./TradingBot');
-            const DEBUG_MODULE = require(global.ROOT_DIR + 'DebugLog');
+            const DEBUG_MODULE = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + 'DebugLog');
 
             let botInstance
             let logger

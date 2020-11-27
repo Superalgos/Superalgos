@@ -349,6 +349,12 @@
                     "propertyName": "processVariables",
                     "functionName": "newSuperalgosGlobalsProcessVariables",
                     "fileName": "ProcessVariables.js"
+                },
+                {
+                    "name": "NODE JS Constants",
+                    "propertyName": "nodeJSConstants",
+                    "functionName": "newSuperalgosGlobalsNodeJSConstants",
+                    "fileName": "NodeJSConstants.js"
                 }
             ],
             "functionLibraries": [

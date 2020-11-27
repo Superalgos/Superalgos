@@ -38,57 +38,6 @@ exports.newGlobals = function newGlobals() {
             return new Date(date.getUTCFullYear() + "-" + (date.getUTCMonth() + 1) + "-" + date.getUTCDate() + " " + "00:00" + GMT_SECONDS);
         }
 
-        global.PROCESS_ERROR = function (processKey, node, errorMessage) {
-            let event
-            if (node !== undefined) {
-                event = {
-                    nodeName: node.name,
-                    nodeType: node.type,
-                    nodeId: node.id,
-                    errorMessage: errorMessage
-                }
-            } else {
-                event = {
-                    errorMessage: errorMessage
-                }
-            }
-            global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(processKey, 'Error', event)
-        }
-
-        global.PROCESS_WARNING = function (processKey, node, warningMessage) {
-            let event
-            if (node !== undefined) {
-                event = {
-                    nodeName: node.name,
-                    nodeType: node.type,
-                    nodeId: node.id,
-                    warningMessage: warningMessage
-                }
-            } else {
-                event = {
-                    warningMessage: warningMessage
-                }
-            }
-            global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(processKey, 'Warning', event)
-        }
-
-        global.PROCESS_INFO = function (processKey, node, infoMessage) {
-            let event
-            if (node !== undefined) {
-                event = {
-                    nodeName: node.name,
-                    nodeType: node.type,
-                    nodeId: node.id,
-                    infoMessage: infoMessage
-                }
-            } else {
-                event = {
-                    infoMessage: infoMessage
-                }
-            }
-            global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(processKey, 'Info', event)
-        }
-
         global.NODE_BRANCH_TO_ARRAY = function (node, nodeType) {
             let resultArray = []
             scanNodeBranch(node, nodeType)

@@ -339,7 +339,14 @@
                     "fileName": "StandardResponses.js"
                 }
             ],
-            "functionLibraries": [],
+            "functionLibraries": [
+                {
+                    "name": "Process Functions",
+                    "propertyName": "processFunctions",
+                    "functionName": "newSuperalgosFunctionLibrariesProcessFunctions",
+                    "fileName": "ProcessFunctions.js"
+                }
+            ],
             "utilities": [],
             "botClasses": []
         },

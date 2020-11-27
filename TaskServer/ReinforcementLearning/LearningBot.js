@@ -653,7 +653,7 @@ exports.newLearningBot = function newLearningBot(bot, parentLogger) {
 
             function processStopped() {
                 if (global.unexpectedError !== undefined) {
-                    global.PROCESS_ERROR(bot.processKey, undefined, "An unexpected error caused the Process to stop.")
+                    TS.projects.superalgos.functionLibraries.processFunctions.processError(bot.processKey, undefined, "An unexpected error caused the Process to stop.")
                 } else {
                     global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(bot.processKey, 'Stopped')
                 }

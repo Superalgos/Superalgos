@@ -83,7 +83,7 @@
             function validationFailed(errorInNode, errorMessage) {
                 let nodeString = JSON.stringify(errorInNode)
                 logger.write(MODULE_NAME, "[ERROR] initialize -> " + errorMessage + ' -> nodeString = ' + nodeString)
-                global.PROCESS_ERROR(bot.processKey, errorInNode, errorMessage)
+                TS.projects.superalgos.functionLibraries.processFunctions.processError(bot.processKey, errorInNode, errorMessage)
                 callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
             }
 

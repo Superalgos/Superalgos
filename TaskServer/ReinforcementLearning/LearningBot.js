@@ -101,7 +101,7 @@ exports.newLearningBot = function newLearningBot(bot, parentLogger) {
                         bot.SESSION_STATUS = 'Stopped'
                     } 
 
-                    global.EMIT_SESSION_STATUS (bot.SESSION_STATUS, bot.sessionKey)
+                    TS.projects.superalgos.functionLibraries.sessionFunctions.emitSessionStatus (bot.SESSION_STATUS, bot.sessionKey)
 
                     /* Checking if we should process this loop or not.*/
                     if (bot.STOP_SESSION === true) {

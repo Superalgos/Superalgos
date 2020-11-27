@@ -159,7 +159,7 @@
             } else {
                 /* We are processing Daily Files */
                 do {
-                    global.EMIT_SESSION_STATUS(bot.TRADING_SESSION_STATUS, bot.TRADING_SESSIONKey)
+                    TS.projects.superalgos.functionLibraries.sessionFunctions.emitSessionStatus(bot.TRADING_SESSION_STATUS, bot.TRADING_SESSIONKey)
                     /* 
                     We update the Trading Process Date with the date calculated at the simulation.
                     We will use this date to load indicator and output files. After that we will 

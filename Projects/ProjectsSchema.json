@@ -347,10 +347,22 @@
             ],
             "functionLibraries": [
                 {
+                    "name": "Task Functions",
+                    "propertyName": "taskFunctions",
+                    "functionName": "newSuperalgosFunctionLibrariesTastFunctions",
+                    "fileName": "TaskFunctions.js"
+                },
+                {
                     "name": "Process Functions",
                     "propertyName": "processFunctions",
                     "functionName": "newSuperalgosFunctionLibrariesProcessFunctions",
                     "fileName": "ProcessFunctions.js"
+                },
+                {
+                    "name": "Session Functions",
+                    "propertyName": "sessionFunctions",
+                    "functionName": "newSuperalgosFunctionLibrariesSessionFunctions",
+                    "fileName": "SessionFunctions.js"
                 }
             ],
             "utilities": [

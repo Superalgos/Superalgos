@@ -33,20 +33,6 @@ exports.newGlobals = function newGlobals() {
             return new Date(date.getUTCFullYear() + "-" + (date.getUTCMonth() + 1) + "-" + date.getUTCDate() + " " + "00:00" + GMT_SECONDS);
         }
 
-        global.EMIT_SESSION_STATUS = function (status, key) {
-            switch (status) {
-                case 'Running': {
-                    global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(key, 'Running')
-                    break
-                }
-                case 'Stopped': {
-                    global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(key, 'Stopped')
-                    break
-                }
-            }
-        }
-
-
         global.FINALIZE_LOGGERS = function () {
             global.LOGGER_MAP.forEach(forEachLogger)
 
@@ -57,27 +43,19 @@ exports.newGlobals = function newGlobals() {
             }
         }
 
-        global.FINALIZE_SESSIONS = function () {
-            global.SESSION_MAP.forEach(forEachSession)
-
-            function forEachSession(session) {
-                global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(session, 'Stopped')
-            }
-        }
-
         global.SHUTTING_DOWN_PROCESS = false
 
         global.EXIT_NODE_PROCESS = function exitProcess() {
 
             if (global.unexpectedError !== undefined) {
-                global.TASK_ERROR(undefined, "An unexpected error caused the Task to stop.")
+                TS.projects.superalgos.functionLibraries.taskFunctions.taskError(undefined, "An unexpected error caused the Task to stop.")
             }
 
             if (global.SHUTTING_DOWN_PROCESS === true) { return }
             global.SHUTTING_DOWN_PROCESS = true
 
             /* Signal that all sessions are stopping. */
-            global.FINALIZE_SESSIONS()
+            TS.projects.superalgos.functionLibraries.sessionFunctions.finalizeSessions()
 
             /* Cleaning Before Exiting. */
             clearInterval(global.HEARTBEAT_INTERVAL_HANDLER)
@@ -133,24 +111,6 @@ exports.newGlobals = function newGlobals() {
             } else {
                 return false
             }
-        }
-
-        global.TASK_ERROR = function taskError(node, errorMessage) {
-            let event
-            if (node !== undefined) {
-                event = {
-                    nodeName: node.name,
-                    nodeType: node.type,
-                    nodeId: node.id,
-                    errorMessage: errorMessage
-                }
-            } else {
-                event = {
-                    errorMessage: errorMessage
-                }
-            }
-            let key = global.TASK_NODE.name + '-' + global.TASK_NODE.type + '-' + global.TASK_NODE.id
-            global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(key, 'Error', event)
         }
     }
 }

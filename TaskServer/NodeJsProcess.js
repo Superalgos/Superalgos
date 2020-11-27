@@ -48,7 +48,7 @@ exports.newNodeJsProcess = function newNodeJsProcess() {
                 */
                 let key = global.TASK_NODE.name + '-' + global.TASK_NODE.type  
                 console.log('[INFO] Task Server -> Node JS Process -> process.on -> Stopping Task ' + key + '. Nodejs process will be exited in less than 1 minute.')
-                setTimeout(global.EXIT_NODE_PROCESS, 60000);
+                setTimeout(TS.projects.superalgos.functionLibraries.nodeJSFunctions.exitProcess, 60000);
             }
         });
 

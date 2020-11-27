@@ -318,8 +318,8 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
 
                 /* Finding the Current Element on Market Files */
                 if (bot.processingDailyFiles) {
-                    for (let j = 0; j < global.dailyFilePeriods.length; j++) {
-                        let mapKey = dailyFilePeriods[j][1]
+                    for (let j = 0; j < TS.projects.superalgos.globals.timeFrames.dailyFilePeriods().length; j++) {
+                        let mapKey = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[j][1]
                         let propertyName = 'at' + mapKey.replace('-', '')
                         let thisChart = chart[propertyName]
 
@@ -339,8 +339,8 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
                 }
 
                 /* Finding the Current Element on Market Files */
-                for (let j = 0; j < global.marketFilesPeriods.length; j++) {
-                    let mapKey = marketFilesPeriods[j][1]
+                for (let j = 0; j < TS.projects.superalgos.globals.timeFrames.marketFilesPeriods().length; j++) {
+                    let mapKey = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[j][1]
                     let propertyName = 'at' + mapKey.replace('-', '')
                     let thisChart = chart[propertyName]
 

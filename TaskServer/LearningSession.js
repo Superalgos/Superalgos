@@ -410,18 +410,18 @@ exports.newLearningSession = function newLearningSession(bot, parentLogger) {
 
             function getTimeFrameFromLabel(timeFrameLabel) {
 
-                for (let i = 0; i < global.marketFilesPeriods.length; i++) {
-                    let value = global.marketFilesPeriods[i][0]
-                    let label = global.marketFilesPeriods[i][1]
+                for (let i = 0; i < TS.projects.superalgos.globals.timeFrames.marketFilesPeriods().length; i++) {
+                    let value = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[i][0]
+                    let label = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[i][1]
 
                     if (timeFrameLabel === label) {
                         return value
                     }
                 }
 
-                for (let i = 0; i < global.dailyFilePeriods.length; i++) {
-                    let value = global.dailyFilePeriods[i][0]
-                    let label = global.dailyFilePeriods[i][1]
+                for (let i = 0; i < TS.projects.superalgos.globals.timeFrames.dailyFilePeriods().length; i++) {
+                    let value = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[i][0]
+                    let label = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[i][1]
 
                     if (timeFrameLabel === label) {
                         return value

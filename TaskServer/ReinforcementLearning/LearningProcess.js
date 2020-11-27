@@ -365,15 +365,15 @@ exports.newLearningProcess = function newLearningProcess(bot, logger, UTILITIES)
 
                 We will iterate through all posible timeFrames.
                 */
-                for (let n = 0; n < global.marketFilesPeriods.length; n++) {
-                    const timeFrame = global.marketFilesPeriods[n][0];
-                    const timeFrameLabel = global.marketFilesPeriods[n][1];
+                for (let n = 0; n < TS.projects.superalgos.globals.timeFrames.marketFilesPeriods().length; n++) {
+                    const timeFrame = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][0];
+                    const timeFrameLabel = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][1];
 
                     dataFiles = new Map();
 
                     if (bot.TRADING_SESSION.tradingParameters.timeFrame.config.label === timeFrameLabel) {
-                        currentTimeFrame = global.marketFilesPeriods[n][0];
-                        currentTimeFrameLabel = global.marketFilesPeriods[n][1];
+                        currentTimeFrame = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][0];
+                        currentTimeFrameLabel = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][1];
                     }
                     for (let dependencyIndex = 0; dependencyIndex < dataDependenciesModule.nodeArray.length; dependencyIndex++) {
                         let dependency = dataDependenciesModule.nodeArray[dependencyIndex];
@@ -439,7 +439,7 @@ exports.newLearningProcess = function newLearningProcess(bot, logger, UTILITIES)
                         }
                     }
 
-                    let mapKey = global.marketFilesPeriods[n][1];
+                    let mapKey = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][1];
                     multiPeriodDataFiles.set(mapKey, dataFiles)
                 }
                 return true
@@ -453,9 +453,9 @@ exports.newLearningProcess = function newLearningProcess(bot, logger, UTILITIES)
                 /*
                 We will iterate through all posible timeFrames.
                 */
-                for (let n = 0; n < global.dailyFilePeriods.length; n++) {
-                    const timeFrame = global.dailyFilePeriods[n][0];
-                    const timeFrameLabel = global.dailyFilePeriods[n][1];
+                for (let n = 0; n < TS.projects.superalgos.globals.timeFrames.dailyFilePeriods().length; n++) {
+                    const timeFrame = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[n][0];
+                    const timeFrameLabel = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[n][1];
 
                     if (processConfig.framework.validtimeFrames !== undefined) {
                         let validPeriod = false;
@@ -469,8 +469,8 @@ exports.newLearningProcess = function newLearningProcess(bot, logger, UTILITIES)
                     }
 
                     if (bot.TRADING_SESSION.tradingParameters.timeFrame.config.label === timeFrameLabel) {
-                        currentTimeFrame = global.dailyFilePeriods[n][0];
-                        currentTimeFrameLabel = global.dailyFilePeriods[n][1];
+                        currentTimeFrame = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[n][0];
+                        currentTimeFrameLabel = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[n][1];
                     }
 
                     dataFiles = new Map();
@@ -516,7 +516,7 @@ exports.newLearningProcess = function newLearningProcess(bot, logger, UTILITIES)
                         dataFiles.set(dependency.id, dataFile);
                     }
 
-                    let mapKey = global.dailyFilePeriods[n][1];
+                    let mapKey = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[n][1];
                     multiPeriodDataFiles.set(mapKey, dataFiles)
                 }
                 return true
@@ -569,8 +569,8 @@ exports.newLearningProcess = function newLearningProcess(bot, logger, UTILITIES)
                 if (commons.validateOutputDatasets(outputDatasets, callBackFunction) !== true) { return }
 
                 /* The second phase is about transforming the inputs into a format that can be used to apply the user defined code. */
-                for (let j = 0; j < global.marketFilesPeriods.length; j++) {
-                    let timeFrameLabel = marketFilesPeriods[j][1]
+                for (let j = 0; j < TS.projects.superalgos.globals.timeFrames.marketFilesPeriods().length; j++) {
+                    let timeFrameLabel = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[j][1]
                     let dataFiles = multiPeriodDataFiles.get(timeFrameLabel)
                     let products = {}
 
@@ -582,8 +582,8 @@ exports.newLearningProcess = function newLearningProcess(bot, logger, UTILITIES)
                     }
                 }
 
-                for (let j = 0; j < global.dailyFilePeriods.length; j++) {
-                    let timeFrameLabel = global.dailyFilePeriods[j][1]
+                for (let j = 0; j < TS.projects.superalgos.globals.timeFrames.dailyFilePeriods().length; j++) {
+                    let timeFrameLabel = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[j][1]
                     let dataFiles = multiPeriodDataFiles.get(timeFrameLabel)
                     let products = {}
 
@@ -629,7 +629,7 @@ exports.newLearningProcess = function newLearningProcess(bot, logger, UTILITIES)
                 await writeTimeFramesFiles(currentTimeFrame, currentTimeFrameLabel)
                 await writeDataRanges()
 
-                if (currentTimeFrame > global.dailyFilePeriods[0][0]) {
+                if (currentTimeFrame > TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[0][0]) {
                     await writeMarketStatusReport(currentTimeFrameLabel)
                 } else {
                     await writeDailyStatusReport(currentTimeFrameLabel)

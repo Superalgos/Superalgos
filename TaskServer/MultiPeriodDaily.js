@@ -199,7 +199,7 @@
                         */
                         bootstrappingTheProcess = true
 
-                        for (let i = 0; i < global.dailyFilePeriods.length; i++) {
+                        for (let i = 0; i < TS.projects.superalgos.globals.timeFrames.dailyFilePeriods().length; i++) {
                             let emptyObject = {};
                             interExecutionMemoryArray.push(emptyObject)
                         }
@@ -275,8 +275,8 @@
 
                 function timeFramesLoopBody() {
 
-                    const timeFrame = global.dailyFilePeriods[n][0]
-                    const timeFrameLabel = global.dailyFilePeriods[n][1]
+                    const timeFrame = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[n][0]
+                    const timeFrameLabel = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[n][1]
 
                     /* Check Time Frames Filter */
                     if (bot.dailyTimeFrames !== undefined) {
@@ -448,7 +448,7 @@
 
                 function timeFramesControlLoop() {
                     n++
-                    if (n < global.dailyFilePeriods.length) {
+                    if (n < TS.projects.superalgos.globals.timeFrames.dailyFilePeriods().length) {
                         timeFramesLoopBody()
                     } else {
                         n = 0;
@@ -516,8 +516,8 @@
             function writeTimeFramesFile(productCodeName, callBack) {
 
                 let timeFramesArray = []
-                for (let n = 0; n < global.dailyFilePeriods.length; n++) {
-                    let timeFrameLabel = global.dailyFilePeriods[n][1]
+                for (let n = 0; n < TS.projects.superalgos.globals.timeFrames.dailyFilePeriods().length; n++) {
+                    let timeFrameLabel = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[n][1]
 
                     /* Check Time Frames Filter */
                     if (bot.dailyTimeFrames !== undefined) {

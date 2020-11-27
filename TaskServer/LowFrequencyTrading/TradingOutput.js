@@ -30,7 +30,7 @@ exports.newTradingOutput = function newTradingOutput(bot, logger, tradingEngineM
     async function start(chart, timeFrame, timeFrameLabel, tradingProcessDate) {
         try {
 
-            if (timeFrame > global.dailyFilePeriods[0][0]) {
+            if (timeFrame > TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[0][0]) {
                 bot.processingDailyFiles = false
             } else {
                 bot.processingDailyFiles = true

@@ -56,8 +56,8 @@
                 }
 
                 function timeFramesLoopBody() {
-                    const timeFrame = global.marketFilesPeriods[n][0]
-                    const timeFrameLabel = global.marketFilesPeriods[n][1]
+                    const timeFrame = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][0]
+                    const timeFrameLabel = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][1]
 
                     /* Check Time Frames Filter */
                     if (bot.marketTimeFrames !== undefined) {
@@ -129,7 +129,7 @@
 
                 function timeFramesControlLoop() {
                     n++;
-                    if (n < global.marketFilesPeriods.length) {
+                    if (n < TS.projects.superalgos.globals.timeFrames.marketFilesPeriods().length) {
                         timeFramesLoopBody()
                     } else {
                         writeTimeFramesFiles(onTimeFrameFilesWritten)
@@ -163,8 +163,8 @@
             function writeTimeFramesFile(productCodeName, callBack) {
 
                 let timeFramesArray = []
-                for (let n = 0; n < global.marketFilesPeriods.length; n++) {
-                    let timeFrameLabel = global.marketFilesPeriods[n][1]
+                for (let n = 0; n < TS.projects.superalgos.globals.timeFrames.marketFilesPeriods().length; n++) {
+                    let timeFrameLabel = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][1]
 
                     /* Check Time Frames Filter */
                     if (bot.marketTimeFrames !== undefined) {

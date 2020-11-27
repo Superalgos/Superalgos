@@ -702,9 +702,7 @@
                                     logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.normalWaitTime / 1000) + " seconds.")
                                     nextLoopTimeoutHandle = setTimeout(loop, processConfig.normalWaitTime);
                                     processHeartBeat(undefined, undefined, "Waiting " + processConfig.normalWaitTime / 1000 + " seconds for next execution.")
-                                    if (global.WRITE_LOGS_TO_FILES === 'true') {
-                                        logger.persist();
-                                    }
+                                    logger.persist();
                                 }
                                     break;
                                 case 'Retry': {

@@ -529,10 +529,7 @@
 
                         function onStop() {
                             logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> onStop -> Stopping the Loop Gracefully. See you next time!")
-
-                            if (global.WRITE_LOGS_TO_FILES === 'true') {
-                                logger.persist();
-                            }
+                            logger.persist();
 
                             global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(bot.TRADING_SESSIONKey, 'Stopped')
                             processStopped()

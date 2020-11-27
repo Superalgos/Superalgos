@@ -259,10 +259,10 @@ Read the candles and volumes from Exchange Raw Data and produce a file for each 
                         /*  Telling the world we are alive and doing well */
                         let currentDateString = contextVariables.lastCandleFile.getUTCFullYear() + '-' + utilities.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '-' + utilities.pad(contextVariables.lastCandleFile.getUTCDate(), 2);
                         let currentDate = new Date(contextVariables.lastCandleFile)
-                        let percentage = global.GET_PERCENTAGE(fromDate, currentDate, lastDate)
+                        let percentage = TS.projects.superalgos.utilities.dateTimeFunctions.getPercentage(fromDate, currentDate, lastDate)
                         bot.processHeartBeat(currentDateString, percentage) 
 
-                        if (global.GET_EQUAL_DATES(currentDate, new Date()) === false) {
+                        if (TS.projects.superalgos.utilities.dateTimeFunctions.areTheseDatesEqual(currentDate, new Date()) === false) {
                             logger.newInternalLoop(bot.codeName, bot.process, currentDate, percentage);
                         }
                         /*

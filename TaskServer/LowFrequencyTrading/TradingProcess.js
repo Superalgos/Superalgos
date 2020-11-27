@@ -103,7 +103,7 @@
                 This variable tell us which day we are standing at, specially while working
                 with Daily Files. From this Date is that we are going to load the Daily Files.
                 */
-                bot.simulationState.tradingEngine.current.episode.processDate.value = global.REMOVE_TIME(bot.TRADING_SESSION.tradingParameters.timeRange.config.initialDatetime).valueOf()
+                bot.simulationState.tradingEngine.current.episode.processDate.value = TS.projects.superalgos.utilities.dateTimeFunctions.removeTime(bot.TRADING_SESSION.tradingParameters.timeRange.config.initialDatetime).valueOf()
             }
 
             /* 
@@ -115,7 +115,7 @@
             the simulation loop, once we discover that all candles from a certain date have benn processed.
             Here is the point where we sync one and the other.
             */
-            let tradingProcessDate = global.REMOVE_TIME(bot.simulationState.tradingEngine.current.episode.processDate.value)
+            let tradingProcessDate = TS.projects.superalgos.utilities.dateTimeFunctions.removeTime(bot.simulationState.tradingEngine.current.episode.processDate.value)
             await processSingleFiles()
 
             if (await processMarketFiles() === false) {
@@ -166,7 +166,7 @@
                     use it to save Output Files and later the Data Ranges. This is the point where
                     the date calculated by the Simulation is applied at the Trading Process Level.
                     */
-                    tradingProcessDate = global.REMOVE_TIME(bot.simulationState.tradingEngine.current.episode.processDate.value)
+                    tradingProcessDate = TS.projects.superalgos.utilities.dateTimeFunctions.removeTime(bot.simulationState.tradingEngine.current.episode.processDate.value)
 
                     if (checkStopTaskGracefully() === false) { break }
                     if (checkStopProcessing() === false) { break }
@@ -236,7 +236,7 @@
                     let statusReport;
 
                     /* We are going to use the start date as beging of market date. */
-                    contextVariables.dateBeginOfMarket = global.REMOVE_TIME(bot.TRADING_SESSION.tradingParameters.timeRange.config.initialDatetime)
+                    contextVariables.dateBeginOfMarket = TS.projects.superalgos.utilities.dateTimeFunctions.removeTime(bot.TRADING_SESSION.tradingParameters.timeRange.config.initialDatetime)
                     /*
                     Here we get the status report from the bot who knows which is the end of the market.
                     */

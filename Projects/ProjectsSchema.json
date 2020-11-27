@@ -371,6 +371,12 @@
                     "propertyName": "nodeFunctions",
                     "functionName": "newSuperalgosUtilitiesNodeFunctions",
                     "fileName": "NodeFunctions.js"
+                },
+                {
+                    "name": "Date Time Functions",
+                    "propertyName": "dateTimeFunctions",
+                    "functionName": "newSuperalgosUtilitiesDateTimeFunctions",
+                    "fileName": "DateTimeFunctions.js"
                 }
             ],
             "botClasses": []

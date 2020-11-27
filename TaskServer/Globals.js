@@ -1,4 +1,4 @@
-exports.newGlobals = function newGlobals() {
+exports.newGlobals = function () {
 
     let thisObject = {
         initialize: initialize

@@ -124,7 +124,7 @@ exports.newSnapshots = function newSnapshots(bot, logger) {
         }
 
         /* Now we go down through all this node children */
-        let nodeDefinition = global.APP_SCHEMA_MAP.get(node.project + '-' + node.type)
+        let nodeDefinition = TS.projects.superalgos.globals.taskConstants.APP_SCHEMA_MAP.get(node.project + '-' + node.type)
         if (nodeDefinition === undefined) { return }
 
         if (nodeDefinition.properties !== undefined) {

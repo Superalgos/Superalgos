@@ -16,7 +16,7 @@ exports.newSuperalgosUtilitiesNodeFunctions = function () {
         return resultArray
 
         function scanNodeBranch(startingNode) {
-            let nodeDefinition = global.APP_SCHEMA_MAP.get(startingNode.project + '-' + startingNode.type)
+            let nodeDefinition = TS.projects.superalgos.globals.taskConstants.APP_SCHEMA_MAP.get(startingNode.project + '-' + startingNode.type)
             if (nodeDefinition === undefined) { return }
 
             if (startingNode.type === nodeType) {
@@ -60,7 +60,7 @@ exports.newSuperalgosUtilitiesNodeFunctions = function () {
             if (startingNode === undefined) { return }
             if (nodeFound !== undefined) { return }
 
-            let nodeDefinition = global.APP_SCHEMA_MAP.get(startingNode.project + '-' + startingNode.type)
+            let nodeDefinition = TS.projects.superalgos.globals.taskConstants.APP_SCHEMA_MAP.get(startingNode.project + '-' + startingNode.type)
             if (nodeDefinition === undefined) { return }
 
             if (startingNode.type === nodeType) {
@@ -114,7 +114,7 @@ exports.newSuperalgosUtilitiesNodeFunctions = function () {
         function scanNodeMesh(startingNode) {
             if (startingNode === undefined) { return }
 
-            let nodeDefinition = global.APP_SCHEMA_MAP.get(startingNode.project + '-' + startingNode.type)
+            let nodeDefinition = TS.projects.superalgos.globals.taskConstants.APP_SCHEMA_MAP.get(startingNode.project + '-' + startingNode.type)
             if (nodeDefinition === undefined) { return }
 
             if (startingNode.id === nodeId) {

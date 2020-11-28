@@ -101,7 +101,9 @@ function bootingProcess() {
         TS.projects.superalgos.globals.taskConstants.NETWORK_NODE = global.NETWORK_NODE
         NETWORK_NODE = undefined
         TS.projects.superalgos.globals.taskConstants.PROJECTS_SCHEMA = global.PROJECTS_SCHEMA
-        global.PROJECTS_SCHEMA = undefined        
+        global.PROJECTS_SCHEMA = undefined
+        TS.projects.superalgos.globals.taskConstants.APP_SCHEMA_MAP = global.APP_SCHEMA_MAP
+        global.APP_SCHEMA_MAP = undefined
     }
 
     function setupTaskHeartbeats() {

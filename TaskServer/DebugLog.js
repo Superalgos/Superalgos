@@ -14,6 +14,7 @@ exports.newDebugLog = function (processIndex) {
     let thisObject = {
         bot: undefined,
         write: write,
+        newMainLoop: newMainLoop, 
         newInternalLoop: newInternalLoop,
         persist: persist,           // This method is executed at the end of each Main Loop.
         initialize: initialize,
@@ -41,16 +42,13 @@ exports.newDebugLog = function (processIndex) {
         persist()
     }
 
-    function newInternalLoop(pBot, pProcess, date, percentage) {
-        if (percentage === undefined) {
-            percentage = ""
-        } else {
-            percentage = percentage.toFixed(2) + " %"
-        }
+    function strPad(str, max, fill) {
+        if (fill === undefined) { fill = " " }
+        str = str.toString();
+        return str.length < max ? strPad(fill + str, max) : str;
+    }
 
-        if (date === undefined) { date = thisObject.bot.processDatetime }
-        date = date.getUTCFullYear() + '-' + strPad(date.getUTCMonth() + 1, 2, "0") + '-' + strPad(date.getUTCDate(), 2, "0");
-
+    function logLoop(pBot, pProcess, date, percentage, loopType) {
         console.log(
             new Date().toISOString() +
             " " +
@@ -64,25 +62,37 @@ exports.newDebugLog = function (processIndex) {
                 TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
                 , 10) +
             " " +
+            strPad(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName, 30) +
+            " " +
             strPad(pBot, 30) +
             " " +
             strPad(pProcess, 30) +
-            "      Internal Loop # " +
-            strPad(internalLoopCounter + 1, 8) +
+            loopType +
+            strPad(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).MAIN_LOOP_COUNTER, 8) +
             " " +
             strPad(date, 30) +
             " " +
             strPad(percentage, 10)
         )
+    }
 
+    function newMainLoop(pBot, pProcess, date, percentage) {
+        logLoop(pBot, pProcess, date, percentage, "          Main Loop # ")
+    } 
+
+    function newInternalLoop(pBot, pProcess, date, percentage) {
+        if (percentage === undefined) {
+            percentage = ""
+        } else {
+            percentage = percentage.toFixed(2) + " %"
+        }
+
+        if (date === undefined) { date = thisObject.bot.processDatetime }
+        date = date.getUTCFullYear() + '-' + strPad(date.getUTCMonth() + 1, 2, "0") + '-' + strPad(date.getUTCDate(), 2, "0");
+
+        logLoop(pBot, pProcess, date, percentage, "      Internal Loop # ")
 
         persist();
-
-        function strPad(str, max, fill) {
-            if (fill === undefined) { fill = " " }
-            str = str.toString();
-            return str.length < max ? strPad(fill + str, max) : str;
-        }
     }
 
     function persist() {

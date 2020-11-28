@@ -1,7 +1,3 @@
-let GLOBALS = require('./Globals.js');
-let GLOBALS_MODULE = GLOBALS.newGlobals()
-GLOBALS_MODULE.initialize()
-
 let NODE_JS_PROCESS = require('./NodeJsProcess.js');
 let NODE_JS_PROCESS_MODULE = NODE_JS_PROCESS.newNodeJsProcess()
 NODE_JS_PROCESS_MODULE.initialize()

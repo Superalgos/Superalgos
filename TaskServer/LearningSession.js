@@ -35,7 +35,7 @@ exports.newLearningSession = function newLearningSession(bot, parentLogger) {
 
             /* Listen to event to start or stop the session. */
             bot.sessionKey = bot.processNode.session.name + '-' + bot.processNode.session.type + '-' + bot.processNode.session.id
-            global.SESSION_MAP.set(bot.sessionKey, bot.sessionKey)
+            TS.projects.superalgos.globals.taskVariables.SESSION_MAP.set(bot.sessionKey, bot.sessionKey)
 
             global.EVENT_SERVER_CLIENT_MODULE.listenToEvent(bot.sessionKey, 'Learning Session Status', undefined, bot.sessionKey, undefined, onSessionStatus)
             global.EVENT_SERVER_CLIENT_MODULE.listenToEvent(bot.sessionKey, 'Run Learning Session', undefined, bot.sessionKey, undefined, onSessionRun)

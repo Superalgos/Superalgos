@@ -29,7 +29,7 @@
             id to its key so that it is unique and it can later be finalized.
             */
             let logger = DEBUG_MODULE.newDebugLog()
-            global.LOGGER_MAP.set('Pre-Bot-Main-Loop' + global.TASK_NODE.bot.processes[processIndex].id, logger)
+            TS.projects.superalgos.globals.taskVariables.LOGGER_MAP.set('Pre-Bot-Main-Loop' + global.TASK_NODE.bot.processes[processIndex].id, logger)
             logger.bot = botConfig;
 
             botConfig.process = global.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName

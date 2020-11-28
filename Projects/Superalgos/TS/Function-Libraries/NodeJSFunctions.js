@@ -37,7 +37,7 @@ exports.newSuperalgosFunctionLibrariesNodeJSFunctions = function () {
         setTimeout(process.exit, 10000) // We will give 10 seconds to logs be written on file
 
         function finalizeLoggers() {
-            global.LOGGER_MAP.forEach(forEachLogger)
+            TS.projects.superalgos.globals.taskVariables.LOGGER_MAP.forEach(forEachLogger)
 
             function forEachLogger(logger) {
                 if (logger !== undefined) {

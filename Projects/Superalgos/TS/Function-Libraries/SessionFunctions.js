@@ -21,7 +21,7 @@ exports.newSuperalgosFunctionLibrariesSessionFunctions = function () {
     }
 
     function finalizeSessions () {
-        global.SESSION_MAP.forEach(forEachSession)
+        TS.projects.superalgos.globals.taskVariables.SESSION_MAP.forEach(forEachSession)
 
         function forEachSession(session) {
             global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(session, 'Stopped')

@@ -4,7 +4,9 @@ exports.newSuperalgosGlobalsTaskVariables = function () {
     we turn on this switch that will signal every internal procedure that it must stop.
     */
     let thisObject = {
-        IS_TASK_STOPPING: false
+        IS_TASK_STOPPING: false,
+        LOGGER_MAP: new Map(),   // We will put all the loggers in a map, so that we can eventually finalize them.
+        SESSION_MAP: new Map()   // We will put all the sessions in a map, so that we can eventually finalize them.
     }
 
     return thisObject

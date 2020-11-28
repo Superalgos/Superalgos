@@ -35,7 +35,7 @@
 
             /* Listen to event to start or stop the session. */
             bot.TRADING_SESSIONKey = bot.processNode.session.name + '-' + bot.processNode.session.type + '-' + bot.processNode.session.id
-            global.SESSION_MAP.set(bot.TRADING_SESSIONKey, bot.TRADING_SESSIONKey)
+            TS.projects.superalgos.globals.taskVariables.SESSION_MAP.set(bot.TRADING_SESSIONKey, bot.TRADING_SESSIONKey)
 
             global.EVENT_SERVER_CLIENT_MODULE.listenToEvent(bot.TRADING_SESSIONKey, 'Trading Session Status', undefined, bot.TRADING_SESSIONKey, undefined, onSessionStatus)
             global.EVENT_SERVER_CLIENT_MODULE.listenToEvent(bot.TRADING_SESSIONKey, 'Run Trading Session', undefined, bot.TRADING_SESSIONKey, undefined, onSessionRun)

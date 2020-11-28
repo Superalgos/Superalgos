@@ -84,8 +84,8 @@ exports.newUserBot = function (processIndex, bot, logger, COMMONS, UTILITIES, FI
                 }
             }
 
-            if (bot.config.fetchLimit !== undefined) {
-                limit = bot.config.fetchLimit
+            if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.config.fetchLimit !== undefined) {
+                limit = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.config.fetchLimit
             }
 
             let key = process.env.KEY

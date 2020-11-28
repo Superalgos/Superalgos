@@ -82,7 +82,7 @@
                 processConfig.waitsForExecutionFinishedEvent = true
 
                 /* We need to find at which network node is running the process that we need to hear from when it finished. */
-                let network = global.TASK_NETWORK
+                let network = TS.projects.superalgos.globals.taskConstants.NETWORK_NODE
 
                 /* 
                 Notice that the first task that matches the dependency is going to be considered.

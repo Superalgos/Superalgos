@@ -22,10 +22,10 @@ exports.newSuperalgosFunctionLibrariesNodeJSFunctions = function () {
         /* Cleaning Before Exiting. */
         clearInterval(global.HEARTBEAT_INTERVAL_HANDLER)
 
-        if (global.TASK_NODE !== undefined) {
-            for (let i = 0; i < global.TASK_NODE.bot.processes.length; i++) {
-                let config = global.TASK_NODE.bot.processes[i].config
-                let process = global.TASK_NODE.bot.processes[i]
+        if (TS.projects.superalgos.globals.taskConstants.TASK_NODE !== undefined) {
+            for (let i = 0; i < TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes.length; i++) {
+                let config = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[i].config
+                let process = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[i]
 
                 let key = process.name + '-' + process.type + '-' + process.id
                 global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(key, 'Stopped') // Meaning Process Stopped

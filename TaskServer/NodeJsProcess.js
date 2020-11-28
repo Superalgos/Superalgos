@@ -24,9 +24,9 @@ exports.newNodeJsProcess = function newNodeJsProcess() {
 
         process.on('exit', function (config) {
 
-            if (global.TASK_NODE !== undefined) {
+            if (TS.projects.superalgos.globals.taskConstants.TASK_NODE !== undefined) {
                 /* We send an event signaling that the Task is being terminated. */
-                let key = global.TASK_NODE.name + '-' + global.TASK_NODE.type + '-' + global.TASK_NODE.id
+                let key = TS.projects.superalgos.globals.taskConstants.TASK_NODE.name + '-' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.type + '-' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.id
 
                 global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(key, 'Stopped') // Meaning Task Stopped
                 global.EVENT_SERVER_CLIENT_MODULE.finalize()
@@ -46,7 +46,7 @@ exports.newNodeJsProcess = function newNodeJsProcess() {
                 There are some process that might no be able to end grafully, for example the ones schedulle to process information in a future day or month.
                 In order to be sure that the process will be terminated, we schedulle one forced exit in 2 minutes from now.
                 */
-                let key = global.TASK_NODE.name + '-' + global.TASK_NODE.type  
+                let key = TS.projects.superalgos.globals.taskConstants.TASK_NODE.name + '-' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.type  
                 console.log('[INFO] Task Server -> Node JS Process -> process.on -> Stopping Task ' + key + '. Nodejs process will be exited in less than 1 minute.')
                 setTimeout(TS.projects.superalgos.functionLibraries.nodeJSFunctions.exitProcess, 60000);
             }

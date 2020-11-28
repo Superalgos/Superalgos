@@ -78,7 +78,7 @@ exports.newDataSet = function newDataSet(BOT, logger) {
             }
 
             /* Now we will see where do we need to fetch this data from. */
-            let network = global.TASK_NETWORK
+            let network = TS.projects.superalgos.globals.taskConstants.NETWORK_NODE
             let datasetProductDefinition = thisObject.node.parentNode
 
             let nodeArray = TS.projects.superalgos.utilities.nodeFunctions.nodeMeshToPathArray(network, datasetProductDefinition.id)

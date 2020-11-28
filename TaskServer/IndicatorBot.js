@@ -107,7 +107,7 @@
                         logger.finalize()
                     }
                     logger = DEBUG_MODULE.newDebugLog();
-                    TS.projects.superalgos.globals.taskVariables.LOGGER_MAP.set(MODULE_NAME + global.TASK_NODE.bot.processes[processIndex].id, logger)
+                    TS.projects.superalgos.globals.taskVariables.LOGGER_MAP.set(MODULE_NAME + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].id, logger)
                     logger.bot = bot;
                     logger.initialize();
 

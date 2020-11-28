@@ -21,37 +21,37 @@
 
             let botInstance
 
-            let botConfig = global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config
-            let processConfig = global.TASK_NODE.bot.processes[processIndex].referenceParent.config
+            let botConfig = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config
+            let processConfig = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config
 
             /*
             We will use a logger for what happens before and after the bot main loop. We will add the process
             id to its key so that it is unique and it can later be finalized.
             */
             let logger = DEBUG_MODULE.newDebugLog()
-            TS.projects.superalgos.globals.taskVariables.LOGGER_MAP.set('Pre-Bot-Main-Loop' + global.TASK_NODE.bot.processes[processIndex].id, logger)
+            TS.projects.superalgos.globals.taskVariables.LOGGER_MAP.set('Pre-Bot-Main-Loop' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].id, logger)
             logger.bot = botConfig;
 
-            botConfig.process = global.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName
+            botConfig.process = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName
             botConfig.debug = {};
-            botConfig.processNode = global.TASK_NODE.bot.processes[processIndex] 
+            botConfig.processNode = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex] 
 
             /* Logs Mantainance Stuff */
             botConfig.LOGS_TO_DELETE_QUEUE = []
             botConfig.DELETE_QUEUE_SIZE = 10 // This number represents how many log files can be at the queue at any point in time, which means how many logs are not still deleted.
 
             /* Simplifying the access to basic info */
-            botConfig.dataMine = global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName
-            botConfig.mineType = global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.type.replace(' ', '-')
-            botConfig.project = global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.project
-            botConfig.exchange = global.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name
-            botConfig.exchangeNode = global.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode
+            botConfig.dataMine = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName
+            botConfig.mineType = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.type.replace(' ', '-')
+            botConfig.project = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.project
+            botConfig.exchange = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name
+            botConfig.exchangeNode = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode
             botConfig.market = {
-                baseAsset: global.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName,
-                quotedAsset: global.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
+                baseAsset: TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName,
+                quotedAsset: TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
             }
-            botConfig.uiStartDate = global.TASK_NODE.bot.config.startDate
-            botConfig.config = global.TASK_NODE.bot.config
+            botConfig.uiStartDate = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.config.startDate
+            botConfig.config = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.config
 
             /* Loop Counter */
             botConfig.loopCounter = 0;
@@ -60,20 +60,20 @@
             botConfig.filePathRoot = 'Project/' + botConfig.project + "/" + botConfig.mineType + "/" + botConfig.dataMine + "/" + botConfig.codeName + '/' + botConfig.exchange + "/" + botConfig.market.baseAsset + "-" + botConfig.market.quotedAsset
 
             /* Process Key */
-            botConfig.processKey = global.TASK_NODE.bot.processes[processIndex].name + '-' + global.TASK_NODE.bot.processes[processIndex].type + '-' + global.TASK_NODE.bot.processes[processIndex].id
+            botConfig.processKey = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].name + '-' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].type + '-' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].id
 
             /* Bot Type */
-            botConfig.type = global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.type
+            botConfig.type = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.type
 
             /* Time Frame Filter */
-            if (global.TASK_NODE.bot.timeFramesFilter !== undefined) {
-                botConfig.dailyTimeFrames = global.TASK_NODE.bot.timeFramesFilter.config.dailyTimeFrames
-                botConfig.marketTimeFrames = global.TASK_NODE.bot.timeFramesFilter.config.marketTimeFrames
+            if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.timeFramesFilter !== undefined) {
+                botConfig.dailyTimeFrames = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.timeFramesFilter.config.dailyTimeFrames
+                botConfig.marketTimeFrames = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.timeFramesFilter.config.marketTimeFrames
             }
 
-            if (global.TASK_NODE.keyReference !== undefined) {
-                if (global.TASK_NODE.keyReference.referenceParent !== undefined) {
-                    let key = global.TASK_NODE.keyReference.referenceParent
+            if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference !== undefined) {
+                if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent !== undefined) {
+                    let key = TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent
 
                     botConfig.KEY = key.config.codeName
                     botConfig.SECRET = key.config.secret
@@ -315,7 +315,7 @@
                 }
             }
         } catch (err) {
-            console.log("[ERROR] Task Server -> " + global.TASK_NODE.name + " -> Process Instance -> Start -> Err = " + err.stack);
+            console.log("[ERROR] Task Server -> " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.name + " -> Process Instance -> Start -> Err = " + err.stack);
         }
     }
 }

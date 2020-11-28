@@ -111,7 +111,7 @@
             }
 
             /* Now we will see where do we need to fetch this status report from. */
-            let network = global.TASK_NETWORK
+            let network = TS.projects.superalgos.globals.taskConstants.NETWORK_NODE
             let processThisDependsOn = statusDependencyNode.referenceParent.parentNode
 
             for (let i = 0; i < network.networkNodes.length; i++) {

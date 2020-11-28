@@ -27,7 +27,7 @@ function preLoader() {
                 try {
                     setUpAppSchema(JSON.parse(message.event.projectSchemas))
                     global.TASK_NODE = JSON.parse(message.event.taskDefinition)
-                    global.TASK_NETWORK = JSON.parse(message.event.networkDefinition)
+                    global.NETWORK_NODE = JSON.parse(message.event.networkDefinition)
                     global.PROJECTS_SCHEMA = JSON.parse(message.event.projectsSchema)
                     bootingProcess()
                 } catch (err) {
@@ -35,8 +35,8 @@ function preLoader() {
                 }
             }
         } catch (err) {
-            console.log('[ERROR] Task Server -> Task -> preLoader -> global.TASK_NODE -> ' + err.stack)
-            console.log('[ERROR] Task Server -> Task -> preLoader -> global.TASK_NODE = ' + JSON.stringify(global.TASK_NODE).substring(0, 1000))
+            console.log('[ERROR] Task Server -> Task -> preLoader -> TS.projects.superalgos.globals.taskConstants.TASK_NODE -> ' + err.stack)
+            console.log('[ERROR] Task Server -> Task -> preLoader -> TS.projects.superalgos.globals.taskConstants.TASK_NODE = ' + JSON.stringify(TS.projects.superalgos.globals.taskConstants.TASK_NODE).substring(0, 1000))
         }
     }
     else {
@@ -51,7 +51,7 @@ function preLoader() {
                 try {
                     setUpAppSchema(JSON.parse(message.event.projectSchemas))
                     global.TASK_NODE = JSON.parse(message.event.taskDefinition)
-                    global.TASK_NETWORK = JSON.parse(message.event.networkDefinition)
+                    global.NETWORK_NODE = JSON.parse(message.event.networkDefinition)
                     global.PROJECTS_SCHEMA = JSON.parse(message.event.projectsSchema)
                     bootingProcess()
 
@@ -60,8 +60,8 @@ function preLoader() {
                 }
             }
         } catch (err) {
-            console.log('[ERROR] Task Server -> Task -> preLoader -> global.TASK_NODE -> ' + err.stack)
-            console.log('[ERROR] Task Server -> Task -> preLoader -> global.TASK_NODE = ' + JSON.stringify(global.TASK_NODE).substring(0, 1000))
+            console.log('[ERROR] Task Server -> Task -> preLoader -> TS.projects.superalgos.globals.taskConstants.TASK_NODE -> ' + err.stack)
+            console.log('[ERROR] Task Server -> Task -> preLoader -> TS.projects.superalgos.globals.taskConstants.TASK_NODE = ' + JSON.stringify(TS.projects.superalgos.globals.taskConstants.TASK_NODE).substring(0, 1000))
         }
     }
 
@@ -83,6 +83,7 @@ function preLoader() {
 function bootingProcess() {
 
     setupMultiProjectFramework()
+    initializeTaskConstants()
     setupTaskHeartbeats()
 
     function setupMultiProjectFramework() {
@@ -91,9 +92,21 @@ function bootingProcess() {
         MULTI_PROJECT_MODULE.initialize()
     }
 
+    function initializeTaskConstants() {
+        /*
+        These constants could not be initialized before since they are received via websockets.
+        */
+        TS.projects.superalgos.globals.taskConstants.TASK_NODE = global.TASK_NODE
+        global.TASK_NODE = undefined
+        TS.projects.superalgos.globals.taskConstants.NETWORK_NODE = global.NETWORK_NODE
+        NETWORK_NODE = undefined
+        TS.projects.superalgos.globals.taskConstants.PROJECTS_SCHEMA = global.PROJECTS_SCHEMA
+        global.PROJECTS_SCHEMA = undefined        
+    }
+
     function setupTaskHeartbeats() {
         /* Heartbeat sent to the UI */
-        let key = global.TASK_NODE.name + '-' + global.TASK_NODE.type + '-' + global.TASK_NODE.id
+        let key = TS.projects.superalgos.globals.taskConstants.TASK_NODE.name + '-' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.type + '-' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.id
 
         global.EVENT_SERVER_CLIENT_MODULE.createEventHandler(key)
         global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(key, 'Running') // Meaning Task Running
@@ -108,33 +121,31 @@ function bootingProcess() {
             global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(key, 'Heartbeat', event)
         }
     }
-    
-    for (let processIndex = 0; processIndex < global.TASK_NODE.bot.processes.length; processIndex++) {
-        let config = global.TASK_NODE.bot.processes[processIndex].config
+
+    for (let processIndex = 0; processIndex < TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes.length; processIndex++) {
 
         /* Validate that the minimun amount of input required are defined. */
-
-        if (global.TASK_NODE.parentNode === undefined) {
-            console.log("[ERROR] Task Server -> Task -> bootingProcess -> Task without a Task Manager. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex]));
+        if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode === undefined) {
+            console.log("[ERROR] Task Server -> Task -> bootingProcess -> Task without a Task Manager. This process will not be executed. -> Process Instance = " + JSON.stringify(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex]));
             continue
         }
 
-        if (global.TASK_NODE.parentNode.parentNode === undefined) {
-            console.log("[ERROR] Task Server -> Task -> bootingProcess -> Task Manager without Mine Tasks. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex]));
+        if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode === undefined) {
+            console.log("[ERROR] Task Server -> Task -> bootingProcess -> Task Manager without Mine Tasks. This process will not be executed. -> Process Instance = " + JSON.stringify(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex]));
             continue
         }
 
-        if (global.TASK_NODE.parentNode.parentNode.parentNode === undefined) {
-            console.log("[ERROR] Task Server -> Task -> bootingProcess -> Mine Tasks without Market Tasks. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex]));
+        if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode === undefined) {
+            console.log("[ERROR] Task Server -> Task -> bootingProcess -> Mine Tasks without Market Tasks. This process will not be executed. -> Process Instance = " + JSON.stringify(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex]));
             continue
         }
 
-        if (global.TASK_NODE.parentNode.parentNode.parentNode.referenceParent === undefined) {
-            console.log("[ERROR] Task Server -> Task -> bootingProcess -> Market Tasks without a Market. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex]));
+        if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent === undefined) {
+            console.log("[ERROR] Task Server -> Task -> bootingProcess -> Market Tasks without a Market. This process will not be executed. -> Process Instance = " + JSON.stringify(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex]));
             continue
         }
 
-        global.MARKET_NODE = global.TASK_NODE.parentNode.parentNode.parentNode.referenceParent
+        global.MARKET_NODE = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent
 
         if (global.MARKET_NODE.parentNode === undefined) {
             console.log("[ERROR] Task Server -> Task -> bootingProcess -> Market without a Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(global.MARKET_NODE));
@@ -166,33 +177,33 @@ function bootingProcess() {
             continue
         }
 
-        if (global.TASK_NODE.bot.processes[processIndex].referenceParent === undefined) {
-            console.log("[ERROR] Task Server -> Task -> bootingProcess -> Process Instance without a Reference Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex]));
+        if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent === undefined) {
+            console.log("[ERROR] Task Server -> Task -> bootingProcess -> Process Instance without a Reference Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex]));
             continue
         }
 
-        if (global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode === undefined) {
-            console.log("[ERROR] Task Server -> Task -> bootingProcess -> Process Definition without parent Bot Definition. -> Process Definition = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].referenceParent));
+        if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode === undefined) {
+            console.log("[ERROR] Task Server -> Task -> bootingProcess -> Process Definition without parent Bot Definition. -> Process Definition = " + JSON.stringify(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent));
             continue
         }
 
-        if (global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode === undefined) {
-            console.log("[ERROR] Task Server -> Task -> bootingProcess -> Bot Definition without parent Data Mine. -> Bot Definition = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode));
+        if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode === undefined) {
+            console.log("[ERROR] Task Server -> Task -> bootingProcess -> Bot Definition without parent Data Mine. -> Bot Definition = " + JSON.stringify(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode));
             continue
         }
 
-        if (global.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName === undefined) {
-            console.log("[ERROR] Task Server -> Task -> bootingProcess -> Process Definition without a codeName defined. -> Process Definition = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].referenceParent));
+        if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName === undefined) {
+            console.log("[ERROR] Task Server -> Task -> bootingProcess -> Process Definition without a codeName defined. -> Process Definition = " + JSON.stringify(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent));
             continue
         }
 
-        if (global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config.codeName === undefined) {
-            console.log("[ERROR] Task Server -> Task -> bootingProcess -> Bot Definition without a codeName defined. -> Bot Definition = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode));
+        if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config.codeName === undefined) {
+            console.log("[ERROR] Task Server -> Task -> bootingProcess -> Bot Definition without a codeName defined. -> Bot Definition = " + JSON.stringify(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode));
             continue
         }
 
-        if (global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName === undefined) {
-            console.log("[ERROR] Task Server -> Task -> bootingProcess -> Data Mine without a codeName defined. -> Data Mine Definition = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode));
+        if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName === undefined) {
+            console.log("[ERROR] Task Server -> Task -> bootingProcess -> Data Mine without a codeName defined. -> Data Mine Definition = " + JSON.stringify(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode));
             continue
         }
 

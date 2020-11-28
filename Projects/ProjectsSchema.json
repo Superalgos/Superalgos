@@ -357,6 +357,12 @@
                     "fileName": "TaskVariables.js"
                 },
                 {
+                    "name": "Task Constants",
+                    "propertyName": "taskConstants",
+                    "functionName": "newSuperalgosGlobalsTaskConstants",
+                    "fileName": "TaskConstants.js"
+                },
+                {
                     "name": "NODE JS Constants",
                     "propertyName": "nodeJSConstants",
                     "functionName": "newSuperalgosGlobalsNodeJSConstants",

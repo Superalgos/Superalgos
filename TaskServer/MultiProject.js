@@ -14,8 +14,8 @@ exports.newMultiProject = function () {
         global.TS = {
             projects: {}
         }
-        for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
-            let projectDefinition = PROJECTS_SCHEMA[i]
+        for (let i = 0; i < global.PROJECTS_SCHEMA.length; i++) {
+            let projectDefinition = global.PROJECTS_SCHEMA[i]
             global.TS.projects[projectDefinition.propertyName] = {}
             let projectInstance = global.TS.projects[projectDefinition.propertyName]
 

@@ -107,7 +107,9 @@ function bootingProcess() {
     }
 
     function setupTaskHeartbeats() {
-        /* Heartbeat sent to the UI */
+        /* 
+        Heartbeat sent to the UI 
+        */
         let key = TS.projects.superalgos.globals.taskConstants.TASK_NODE.name + '-' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.type + '-' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.id
 
         global.EVENT_SERVER_CLIENT_MODULE.createEventHandler(key)

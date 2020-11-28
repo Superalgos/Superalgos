@@ -89,7 +89,7 @@
                     let product = outputDataset.referenceParent.parentNode.config.codeName
                     let dataset = outputDataset.referenceParent.config.codeName
 
-                    let key = dataMine + "-" + botName + "-" + product + "-" + dataset + "-" + bot.exchange + "-" + bot.market.baseAsset + '/' + bot.market.quotedAsset
+                    let key = dataMine + "-" + botName + "-" + product + "-" + dataset + "-" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + "-" + bot.market.baseAsset + '/' + bot.market.quotedAsset
                     let event = {
                         lastFile: lastFile,
                         timeFrames: timeFrames
@@ -171,7 +171,7 @@
                 let product = outputDataset.referenceParent.parentNode.config.codeName
                 let dataset = outputDataset.referenceParent.config.codeName
 
-                let key = dataMine + "-" + botName + "-" + product + "-" + dataset + "-" + bot.exchange + "-" + bot.market.baseAsset + '/' + bot.market.quotedAsset
+                let key = dataMine + "-" + botName + "-" + product + "-" + dataset + "-" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + "-" + bot.market.baseAsset + '/' + bot.market.quotedAsset
                 let event = {
                     lastFile: lastFile,
                     timeFrames: timeFrames

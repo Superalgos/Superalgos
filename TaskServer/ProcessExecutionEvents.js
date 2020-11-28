@@ -37,7 +37,7 @@
             }
 
             let market = bot.market.baseAsset + '/' + bot.market.quotedAsset
-            currentProcessKey = bot.processNode.referenceParent.name + "-" + bot.processNode.referenceParent.type + "-" + bot.processNode.referenceParent.id + "-" + bot.exchange + "-" + market
+            currentProcessKey = bot.processNode.referenceParent.name + "-" + bot.processNode.referenceParent.type + "-" + bot.processNode.referenceParent.id + "-" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + "-" + market
 
             /*
             A process can depend for its own execution on another process to finish, and
@@ -194,7 +194,7 @@
                 let extraCallerId = '-' + Math.trunc(Math.random() * 10000) + '-'
 
                 let market = bot.market.baseAsset + '/' + bot.market.quotedAsset
-                let key = processThisDependsOn.name + "-" + processThisDependsOn.type + "-" + processThisDependsOn.id + "-" + bot.exchange + "-" + market
+                let key = processThisDependsOn.name + "-" + processThisDependsOn.type + "-" + processThisDependsOn.id + "-" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + "-" + market
                 let callerId = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "-" + bot.codeName + "-" + bot.process + extraCallerId
 
                 let subscriptionId

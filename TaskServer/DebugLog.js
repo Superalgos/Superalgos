@@ -51,8 +51,30 @@ exports.newDebugLog = function (processIndex) {
         if (date === undefined) { date = thisObject.bot.processDatetime }
         date = date.getUTCFullYear() + '-' + strPad(date.getUTCMonth() + 1, 2, "0") + '-' + strPad(date.getUTCDate(), 2, "0");
 
-        console.log(new Date().toISOString() + " " + strPad(thisObject.bot.exchange, 20) + " " + strPad(thisObject.bot.market.baseAsset + '/' + thisObject.bot.market.quotedAsset, 10) + " " + strPad(pBot, 30) + " " + strPad(pProcess, 30)
-            + "      Internal Loop # " + strPad(internalLoopCounter + 1, 8) + " " + strPad(date, 30) + " " + strPad(percentage, 10))
+        console.log(
+            new Date().toISOString() +
+            " " +
+            strPad(
+                TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name
+                , 20) +
+            " " +
+            strPad(
+                thisObject.bot.market.baseAsset +
+                '/' +
+                thisObject.bot.market.quotedAsset
+                , 10) +
+            " " +
+            strPad(pBot, 30) +
+            " " +
+            strPad(pProcess, 30) +
+            "      Internal Loop # " +
+            strPad(internalLoopCounter + 1, 8) +
+            " " +
+            strPad(date, 30) +
+            " " +
+            strPad(percentage, 10)
+        )
+
 
         persist();
 
@@ -165,10 +187,7 @@ exports.newDebugLog = function (processIndex) {
             let logLine = '\r\n' + message;
 
             if (process.env.CONSOLE_LOG === "true" || message.indexOf("ERROR") > 0) {
-                let key = ''
-                if (thisObject.bot) {
-                    key = thisObject.TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + '-' + thisObject.bot.codeName + '-' + thisObject.bot.process
-                }
+                let key = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + '-' + thisObject.bot.codeName + '-' + thisObject.bot.process
                 console.log('*********** ' + message + ' @ ' + key)
             }
 

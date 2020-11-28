@@ -23,7 +23,7 @@
     function initialize() {
         tradingSystem = bot.simulationState.tradingSystem
 
-        exchangeId = bot.exchange.toLowerCase()
+        exchangeId = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name.toLowerCase()
         
         let key = bot.KEY
         let secret = bot.SECRET

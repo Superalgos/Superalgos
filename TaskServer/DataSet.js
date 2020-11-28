@@ -87,7 +87,7 @@ exports.newDataSet = function (processIndex, BOT, logger) {
             if (networkNode === undefined) {
                 logger.write(MODULE_NAME, "[WARN] initialize -> Network Node not found.")
                 logger.write(MODULE_NAME, "[WARN] initialize -> Initialization Failed because we could not find where the data of this dataset is located within the network. Check the logs for more info.");
-                logger.write(MODULE_NAME, "[WARN] initialize -> Could not find where " + datasetProductDefinition.name + " for " + bot.exchange + " " + bot.market.baseAsset + "/" + bot.market.quotedAsset + " is stored within the network.");
+                logger.write(MODULE_NAME, "[WARN] initialize -> Could not find where " + datasetProductDefinition.name + " for " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " " + bot.market.baseAsset + "/" + bot.market.quotedAsset + " is stored within the network.");
                 callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE, false);
                 return
             }
@@ -119,7 +119,7 @@ exports.newDataSet = function (processIndex, BOT, logger) {
             let project = thisObject.node.parentNode.parentNode.parentNode.project
             let botCodeName = thisObject.node.parentNode.parentNode.config.codeName
 
-            let filePathRoot = 'Project/' + project + "/" + mineType + "/" + mine + "/" + botCodeName + '/' + bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset
+            let filePathRoot = 'Project/' + project + "/" + mineType + "/" + mine + "/" + botCodeName + '/' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset
             let filePath = filePathRoot + "/Output/" + pFolderPath;
             filePath += '/' + pFileName
 
@@ -156,7 +156,7 @@ exports.newDataSet = function (processIndex, BOT, logger) {
                 return;
             }
 
-            let filePathRoot = 'Project/' + thisObject.node.project + "/" + thisObject.node.mineType + "/" + thisObject.node.dataMine + "/" + thisObject.node.bot + '/' + bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset
+            let filePathRoot = 'Project/' + thisObject.node.project + "/" + thisObject.node.mineType + "/" + thisObject.node.dataMine + "/" + thisObject.node.bot + '/' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset
             let filePath = filePathRoot + "/Output/" + pFolderPath + '/' + pFileName;
 
             fileStorage.createTextFile(filePath, pFileContent, onFileCreated);

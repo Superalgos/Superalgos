@@ -101,7 +101,7 @@ exports.newUserBot = function (processIndex, bot, logger, COMMONS, UTILITIES, FI
                     let url =   'http://' + process.env.WEB_SERVER_URL +
                                 ':' + process.env.HTTP_INTERFACE_PORT +
                                 '/Webhook/Fetch-Messages/' +
-                                bot.exchange + "/" +
+                                TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + "/" +
                                 bot.market.baseAsset + "-" + bot.market.quotedAsset
 
                     http.get(url, onResponse);

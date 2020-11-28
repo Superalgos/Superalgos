@@ -54,31 +54,31 @@ exports.newUserBot = function (processIndex, bot, logger, COMMONS, UTILITIES, FI
 
             statusDependencies = pStatusDependencies;
 
-            exchangeId = bot.exchange.toLowerCase().replace(' ', '')
+            exchangeId = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name.toLowerCase().replace(' ', '')
 
             /* Applying the parameters defined by the user at the Exchange Node Config */
-            if (bot.exchangeNode.config.API !== undefined) {
-                for (let i = 0; i < bot.exchangeNode.config.API.length; i++) {
-                    if (bot.exchangeNode.config.API[i].method === 'fetch_ohlcv') {
-                        if (bot.exchangeNode.config.API[i].class !== undefined) {
-                            exchangeId = bot.exchangeNode.config.API[i].class
+            if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API !== undefined) {
+                for (let i = 0; i < TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API.length; i++) {
+                    if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API[i].method === 'fetch_ohlcv') {
+                        if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API[i].class !== undefined) {
+                            exchangeId = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API[i].class
                         }
-                        if (bot.exchangeNode.config.API[i].fetchOHLCVsMethod !== undefined) {
+                        if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API[i].fetchOHLCVsMethod !== undefined) {
                             options = {
-                                'fetchOHLCVsMethod': bot.exchangeNode.config.API[i].fetchOHLCVsMethod
+                                'fetchOHLCVsMethod': TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API[i].fetchOHLCVsMethod
                             }
                         }
-                        if (bot.exchangeNode.config.API[i].firstId !== undefined) {
-                            firstId = bot.exchangeNode.config.API[i].firstId
+                        if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API[i].firstId !== undefined) {
+                            firstId = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API[i].firstId
                         }
-                        if (bot.exchangeNode.config.API[i].rateLimit !== undefined) {
-                            rateLimit = bot.exchangeNode.config.API[i].rateLimit
+                        if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API[i].rateLimit !== undefined) {
+                            rateLimit = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API[i].rateLimit
                         }
-                        if (bot.exchangeNode.config.API[i].hostname !== undefined) {
-                            hostname = bot.exchangeNode.config.API[i].hostname
+                        if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API[i].hostname !== undefined) {
+                            hostname = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API[i].hostname
                         }
-                        if (bot.exchangeNode.config.API[i].fetchType !== undefined) {
-                            fetchType = bot.exchangeNode.config.API[i].fetchType
+                        if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API[i].fetchType !== undefined) {
+                            fetchType = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API[i].fetchType
                         }
                     }
                 }
@@ -259,8 +259,8 @@ exports.newUserBot = function (processIndex, bot, logger, COMMONS, UTILITIES, FI
                         function heartBeat(noNewInternalLoop) {
                             let processingDate = new Date(since)
                             processingDate = processingDate.getUTCFullYear() + '-' + utilities.pad(processingDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(processingDate.getUTCDate(), 2);
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getOHLCVs -> Fetching OHLCVs  @ " + processingDate + "-> exchange = " + bot.exchange + " -> symbol = " + symbol + " -> since = " + since + " -> limit = " + limit) }
-                            let heartBeatText = "Fetching " + allOHLCVs.length.toFixed(0) + " OHLCVs from " + bot.exchange + " " + symbol + " @ " + processingDate
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getOHLCVs -> Fetching OHLCVs  @ " + processingDate + "-> exchange = " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " -> symbol = " + symbol + " -> since = " + since + " -> limit = " + limit) }
+                            let heartBeatText = "Fetching " + allOHLCVs.length.toFixed(0) + " OHLCVs from " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " " + symbol + " @ " + processingDate
                             let currentDate = new Date(since)
                             let percentage = TS.projects.superalgos.utilities.dateTimeFunctions.getPercentage(fromDate, currentDate, lastDate)
                             bot.processHeartBeat(heartBeatText, percentage) // tell the world we are alive and doing well
@@ -355,17 +355,17 @@ exports.newUserBot = function (processIndex, bot, logger, COMMONS, UTILITIES, FI
                     }
                 } catch (err) {
                     if (err.stack.toString().indexOf('ERR_RATE_LIMIT') >= 0) {
-                        logger.write(MODULE_NAME, "[ERROR] start -> getOHLCVs -> Retrying Later -> The Exchange " + bot.exchange + " is saying you are requesting data too often. I will retry the request later, no action is required. To avoid this happening again please increase the rateLimit at the Exchange node config. You might continue seeing this if you are retrieving data from multiple markets at the same time. In this case I tried to get 1 min OHLCVs from " + symbol);
+                        logger.write(MODULE_NAME, "[ERROR] start -> getOHLCVs -> Retrying Later -> The Exchange " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " is saying you are requesting data too often. I will retry the request later, no action is required. To avoid this happening again please increase the rateLimit at the Exchange node config. You might continue seeing this if you are retrieving data from multiple markets at the same time. In this case I tried to get 1 min OHLCVs from " + symbol);
                         return
                     }
 
                     if (err.stack.toString().indexOf('RequestTimeout') >= 0) {
-                        logger.write(MODULE_NAME, "[ERROR] start -> getOHLCVs -> Retrying Later -> The Exchange " + bot.exchange + " is not responding at the moment. I will save the data already fetched and try to reconnect later to fetch the rest of the missing data.");
+                        logger.write(MODULE_NAME, "[ERROR] start -> getOHLCVs -> Retrying Later -> The Exchange " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " is not responding at the moment. I will save the data already fetched and try to reconnect later to fetch the rest of the missing data.");
                         return
                     }
 
                     if (err.stack.toString().indexOf('ExchangeNotAvailable') >= 0) {
-                        logger.write(MODULE_NAME, "[ERROR] start -> getOHLCVs -> Retrying Later -> The Exchange " + bot.exchange + " is not available at the moment. I will save the data already fetched and try to reconnect later to fetch the rest of the missing data.");
+                        logger.write(MODULE_NAME, "[ERROR] start -> getOHLCVs -> Retrying Later -> The Exchange " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " is not available at the moment. I will save the data already fetched and try to reconnect later to fetch the rest of the missing data.");
                         return
                     }
 
@@ -447,7 +447,7 @@ exports.newUserBot = function (processIndex, bot, logger, COMMONS, UTILITIES, FI
                                 saveFile(currentDay)
 
                                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> saveOHLCVs -> Before Fetch -> Saving OHLCVs  @ " + processingDate + " -> i = " + i + " -> total = " + allOHLCVs.length) }
-                                bot.processHeartBeat("Saving " + i.toFixed(0) + " / " + allOHLCVs.length + " OHLCVs from " + bot.exchange + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well
+                                bot.processHeartBeat("Saving " + i.toFixed(0) + " / " + allOHLCVs.length + " OHLCVs from " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well
 
                                 /* We exit the loop and we aint comming back*/
                                 return
@@ -514,7 +514,7 @@ exports.newUserBot = function (processIndex, bot, logger, COMMONS, UTILITIES, FI
                             if (heartBeatCounter <= 0) {
                                 heartBeatCounter = 1440
                                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> saveOHLCVs -> After Fetch -> Saving OHLCVs  @ " + processingDate + " -> i = " + i + " -> total = " + allOHLCVs.length) }
-                                bot.processHeartBeat("Saving " + i.toFixed(0) + " / " + allOHLCVs.length + " OHLCVs from " + bot.exchange + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well
+                                bot.processHeartBeat("Saving " + i.toFixed(0) + " / " + allOHLCVs.length + " OHLCVs from " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well
                             }
                             /* End Reporting */
 

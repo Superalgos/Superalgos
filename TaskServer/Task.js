@@ -181,6 +181,10 @@ function bootingProcess() {
             continue
         }
 
+        /*
+        Here we will validate that the process is connected all the way to a Mine
+        and that nodes in the middle have whatever config is mandatory.
+        */
         if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent === undefined) {
             console.log("[ERROR] Task Server -> Task -> bootingProcess -> Process Instance without a Reference Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex]));
             continue
@@ -192,7 +196,7 @@ function bootingProcess() {
         }
 
         if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode === undefined) {
-            console.log("[ERROR] Task Server -> Task -> bootingProcess -> Bot Definition without parent Data Mine. -> Bot Definition = " + JSON.stringify(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode));
+            console.log("[ERROR] Task Server -> Task -> bootingProcess -> Bot Definition without parent Mine. -> Bot Definition = " + JSON.stringify(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode));
             continue
         }
 
@@ -207,7 +211,7 @@ function bootingProcess() {
         }
 
         if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName === undefined) {
-            console.log("[ERROR] Task Server -> Task -> bootingProcess -> Data Mine without a codeName defined. -> Data Mine Definition = " + JSON.stringify(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode));
+            console.log("[ERROR] Task Server -> Task -> bootingProcess -> Mine without a codeName defined. -> Mine Definition = " + JSON.stringify(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode));
             continue
         }
 

@@ -22,6 +22,7 @@ function newSuperalgosFunctionLibraryWorkspaceFunctions() {
                 let child = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(node, project + ' Project', rootNodes, project)
                 child.project = project
                 child.projectDefinition.name = project
+                child.projectDefinition.config = "{ \n  \"codeName\": \"" + project + "\"\n}" 
             }
         }
     }

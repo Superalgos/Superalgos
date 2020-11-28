@@ -20,16 +20,21 @@
             const DEBUG_MODULE = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + 'DebugLog');
 
             let botInstance
-            let logger
-
-            logger = DEBUG_MODULE.newDebugLog()
 
             let botConfig = global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config
             let processConfig = global.TASK_NODE.bot.processes[processIndex].referenceParent.config
 
+            /*
+            We will use a logger for what happens before and after the bot main loop. We will add the process
+            id to its key so that it is unique and it can later be finalized.
+            */
+            let logger = DEBUG_MODULE.newDebugLog()
+            global.LOGGER_MAP.set('Pre-Bot-Main-Loop' + global.TASK_NODE.bot.processes[processIndex].id, logger)
+            logger.bot = botConfig;
+
             botConfig.process = global.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName
             botConfig.debug = {};
-            botConfig.processNode = global.TASK_NODE.bot.processes[processIndex]
+            botConfig.processNode = global.TASK_NODE.bot.processes[processIndex] 
 
             /* Logs Mantainance Stuff */
             botConfig.LOGS_TO_DELETE_QUEUE = []
@@ -214,10 +219,7 @@
                 try {
                     TS.projects.superalgos.globals.processVariables.TOTAL_PROCESS_INSTANCES_CREATED++
 
-                    global.LOGGER_MAP.set('runSensorBot', logger)
-                    logger.bot = botConfig;
-
-                    botInstance = SENSOR_BOT.newSensorBot(botConfig, logger);
+                    botInstance = SENSOR_BOT.newSensorBot(processIndex, botConfig, logger);
                     botInstance.initialize(processConfig, onInitializeReady);
                 }
                 catch (err) {
@@ -230,10 +232,7 @@
                 try {
                     TS.projects.superalgos.globals.processVariables.TOTAL_PROCESS_INSTANCES_CREATED++
 
-                    global.LOGGER_MAP.set('runIndicatorBot', logger)
-                    logger.bot = botConfig;
-
-                    botInstance = INDICATOR_BOT_MODULE.newIndicatorBot(botConfig, logger);
+                    botInstance = INDICATOR_BOT_MODULE.newIndicatorBot(processIndex, botConfig, logger);
                     botInstance.initialize(processConfig, onInitializeReady);
 
                 }
@@ -244,14 +243,10 @@
             }
 
             function runTradingBot() {
-
-                TS.projects.superalgos.globals.processVariables.TOTAL_PROCESS_INSTANCES_CREATED++
-
                 try {
-                    global.LOGGER_MAP.set('runTradingBot', logger)
-                    logger.bot = botConfig;
+                    TS.projects.superalgos.globals.processVariables.TOTAL_PROCESS_INSTANCES_CREATED++
 
-                    botInstance = TRADING_BOT_MODULE.newTradingBot(botConfig, logger);
+                    botInstance = TRADING_BOT_MODULE.newTradingBot(processIndex, botConfig, logger);
                     botInstance.initialize(processConfig, onInitializeReady);
                 }
                 catch (err) {
@@ -261,14 +256,10 @@
             }
 
             function runLearningBot() {
-
-                TS.projects.superalgos.globals.processVariables.TOTAL_PROCESS_INSTANCES_CREATED++
-
                 try {
-                    global.LOGGER_MAP.set('runLearningBot', logger)
-                    logger.bot = botConfig;
+                    TS.projects.superalgos.globals.processVariables.TOTAL_PROCESS_INSTANCES_CREATED++
 
-                    botInstance = TRADING_BOT_MODULE.newLearningBot(botConfig, logger);
+                    botInstance = TRADING_BOT_MODULE.newLearningBot(processIndex, botConfig, logger);
                     botInstance.initialize(processConfig, onInitializeReady);
                 }
                 catch (err) {

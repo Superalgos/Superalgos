@@ -1,4 +1,4 @@
-﻿exports.newIndicatorBot = function newIndicatorBot(bot, parentLogger) {
+﻿exports.newIndicatorBot = function newIndicatorBot(processIndex, bot, parentLogger) {
 
     const MODULE_NAME = "Indicator Bot";
 
@@ -107,7 +107,7 @@
                         logger.finalize()
                     }
                     logger = DEBUG_MODULE.newDebugLog();
-                    global.LOGGER_MAP.set(MODULE_NAME, logger)
+                    global.LOGGER_MAP.set(MODULE_NAME + global.TASK_NODE.bot.processes[processIndex].id, logger)
                     logger.bot = bot;
                     logger.initialize();
 

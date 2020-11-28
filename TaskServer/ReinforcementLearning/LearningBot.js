@@ -1,4 +1,4 @@
-exports.newLearningBot = function newLearningBot(bot, parentLogger) {
+exports.newLearningBot = function newLearningBot(processIndex, bot, parentLogger) {
 
     const MODULE_NAME = "Learning Bot";
     const FULL_LOG = true;
@@ -64,7 +64,7 @@ exports.newLearningBot = function newLearningBot(bot, parentLogger) {
                         logger.finalize()
                     }
                     logger = DEBUG_MODULE.newDebugLog();
-                    global.LOGGER_MAP.set(MODULE_NAME, logger)
+                    global.LOGGER_MAP.set(MODULE_NAME + global.TASK_NODE.bot.processes[processIndex].id, logger)
                     logger.bot = bot;
                     logger.initialize();
 

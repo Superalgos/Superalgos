@@ -1,4 +1,4 @@
-﻿exports.newTradingBot = function newTradingBot(bot, parentLogger) {
+﻿exports.newTradingBot = function newTradingBot(processIndex, bot, parentLogger) {
 
     const MODULE_NAME = "Trading Bot";
     const FULL_LOG = true;
@@ -64,7 +64,7 @@
                         logger.finalize()
                     }
                     logger = DEBUG_MODULE.newDebugLog();
-                    global.LOGGER_MAP.set(MODULE_NAME, logger)
+                    global.LOGGER_MAP.set(MODULE_NAME + global.TASK_NODE.bot.processes[processIndex].id, logger)
                     logger.bot = bot;
                     logger.initialize();
 

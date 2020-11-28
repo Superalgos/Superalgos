@@ -367,6 +367,12 @@
                     "propertyName": "nodeJSConstants",
                     "functionName": "newSuperalgosGlobalsNodeJSConstants",
                     "fileName": "NodeJSConstants.js"
+                },
+                {
+                    "name": "Logger Variables",
+                    "propertyName": "loggerVariables",
+                    "functionName": "newSuperalgosGlobalsLoggerVariables",
+                    "fileName": "LoggerVariables.js"
                 }
             ],
             "functionLibraries": [

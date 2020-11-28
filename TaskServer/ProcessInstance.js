@@ -32,11 +32,7 @@
             TS.projects.superalgos.globals.taskVariables.LOGGER_MAP.set('Pre-Bot-Main-Loop' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].id, logger)
             logger.bot = botConfig;
 
-            botConfig.debug = {};
-
-            /* Logs Mantainance Stuff */
-            botConfig.LOGS_TO_DELETE_QUEUE = []
-            botConfig.DELETE_QUEUE_SIZE = 10 // This number represents how many log files can be at the queue at any point in time, which means how many logs are not still deleted.
+            TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.set(processIndex, {LOGS_TO_DELETE_QUEUE: []})
 
             /* Loop Counter */
             botConfig.loopCounter = 0;

@@ -112,11 +112,6 @@ exports.newDebugLog = function (processIndex) {
                 }
             }
 
-            if (thisObject.bot.debug.year !== undefined) {
-
-                filePath = filePath + "/" + thisObject.bot.debug.year + "/" + thisObject.bot.debug.month;
-            }
-
             let fileName;
             if (internalLoopCounter >= 0) {
                 fileName = "Loop." + pad(thisObject.bot.loopCounter, 8) + "." + pad(internalLoopCounter, 4) + ".json";
@@ -128,11 +123,11 @@ exports.newDebugLog = function (processIndex) {
 
             /* This is the implementation of the mechanism to auto-mantain logs. */
             if (contentToPersist.indexOf('[ERROR]') < 0 && contentToPersist.indexOf('[PERSIST]') < 0 && contentToPersist.indexOf('[IMPORTANT]') < 0) {
-                thisObject.bot.LOGS_TO_DELETE_QUEUE.push(filePath + '/' + fileName)
+                TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).LOGS_TO_DELETE_QUEUE.push(filePath + '/' + fileName)
             }
-            if (thisObject.bot.LOGS_TO_DELETE_QUEUE.length > thisObject.bot.DELETE_QUEUE_SIZE) {
-                let fileToDelete = thisObject.bot.LOGS_TO_DELETE_QUEUE[0]
-                thisObject.bot.LOGS_TO_DELETE_QUEUE.splice(0, 1)
+            if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).LOGS_TO_DELETE_QUEUE.length > TS.projects.superalgos.globals.loggerVariables.DELETE_QUEUE_SIZE) {
+                let fileToDelete = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).LOGS_TO_DELETE_QUEUE[0]
+                TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).LOGS_TO_DELETE_QUEUE.splice(0, 1)
                 /* Will delete this file only if it does not contains ERROR inside. */
                 let fileContent = fileStorage.getTextFile(fileToDelete, onGetFile, true)
                 function onGetFile(err, fileContent) {

@@ -34,14 +34,13 @@
 
             botConfig.process = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName
             botConfig.debug = {};
-            botConfig.processNode = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex] 
+            botConfig.processNode = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex]
 
             /* Logs Mantainance Stuff */
             botConfig.LOGS_TO_DELETE_QUEUE = []
             botConfig.DELETE_QUEUE_SIZE = 10 // This number represents how many log files can be at the queue at any point in time, which means how many logs are not still deleted.
 
             /* Simplifying the access to basic info */
-            botConfig.mineType = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.type.replace(' ', '-')
             botConfig.project = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.project
             botConfig.exchange = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name
             botConfig.exchangeNode = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode
@@ -56,7 +55,21 @@
             botConfig.loopCounter = 0;
 
             /* File Path Root */
-            botConfig.filePathRoot = 'Project/' + botConfig.project + "/" + botConfig.mineType + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "/" + botConfig.codeName + '/' + botConfig.exchange + "/" + botConfig.market.baseAsset + "-" + botConfig.market.quotedAsset
+            botConfig.filePathRoot =
+                'Project/' +
+                botConfig.project +
+                "/" +
+                TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.type.replace(' ', '-') +
+                "/" +
+                TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName +
+                "/" +
+                botConfig.codeName +
+                '/' +
+                botConfig.exchange +
+                "/" +
+                botConfig.market.baseAsset +
+                "-" +
+                botConfig.market.quotedAsset
 
             /* Process Key */
             botConfig.processKey = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].name + '-' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].type + '-' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].id
@@ -310,7 +323,7 @@
                 TS.projects.superalgos.globals.processVariables.ENDED_PROCESSES_COUNTER++
 
                 if (TS.projects.superalgos.globals.processVariables.ENDED_PROCESSES_COUNTER === TS.projects.superalgos.globals.processVariables.TOTAL_PROCESS_INSTANCES_CREATED) {
-                   TS.projects.superalgos.functionLibraries.nodeJSFunctions.exitProcess()
+                    TS.projects.superalgos.functionLibraries.nodeJSFunctions.exitProcess()
                 }
             }
         } catch (err) {

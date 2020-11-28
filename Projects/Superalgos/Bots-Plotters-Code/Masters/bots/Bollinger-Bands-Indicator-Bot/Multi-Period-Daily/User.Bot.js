@@ -283,7 +283,7 @@
                             bot.processHeartBeat(currentDateString, percentage) 
 
                             if (TS.projects.superalgos.utilities.dateTimeFunctions.areTheseDatesEqual(currentDate, new Date()) === false) {
-                                logger.newInternalLoop(bot.codeName, bot.process, currentDate, percentage);
+                                logger.newInternalLoop(bot.codeName, TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName, currentDate, percentage);
                             }
                             periodsLoop();
 
@@ -606,7 +606,7 @@
 
                                     let dateForPath = processDate.getUTCFullYear() + '/' + utilities.pad(processDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDate.getUTCDate(), 2);
                                     let fileName = 'Data.json';
-                                    let filePath = bot.filePathRoot + "/Output/" + BOLLINGER_BANDS_FOLDER_NAME + "/" + bot.process + "/" + timeFrame + "/" + dateForPath;
+                                    let filePath = bot.filePathRoot + "/Output/" + BOLLINGER_BANDS_FOLDER_NAME + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + "/" + timeFrame + "/" + dateForPath;
                                     filePath += '/' + fileName
 
                                     fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
@@ -676,7 +676,7 @@
 
                                     let dateForPath = processDate.getUTCFullYear() + '/' + utilities.pad(processDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDate.getUTCDate(), 2);
                                     let fileName = 'Data.json';
-                                    let filePath = bot.filePathRoot + "/Output/" + PERCENTAGE_BANDWIDTH_FOLDER_NAME + "/" + bot.process + "/" + timeFrame + "/" + dateForPath;
+                                    let filePath = bot.filePathRoot + "/Output/" + PERCENTAGE_BANDWIDTH_FOLDER_NAME + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + "/" + timeFrame + "/" + dateForPath;
                                     filePath += '/' + fileName
 
                                     fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
@@ -830,7 +830,7 @@
                     let fileContent = JSON.stringify(dataRange);
 
                     let fileName = 'Data.Range.json';
-                    let filePath = bot.filePathRoot + "/Output/" + pProductFolder + "/" + bot.process;
+                    let filePath = bot.filePathRoot + "/Output/" + pProductFolder + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName;
 
                     filePath += '/' + fileName
 

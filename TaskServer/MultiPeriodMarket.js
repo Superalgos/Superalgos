@@ -178,7 +178,7 @@
 
                 let fileContent = JSON.stringify(timeFramesArray)
                 let fileName = '/Time.Frames.json';
-                let filePath = bot.filePathRoot + "/Output/" + productCodeName + "/" + bot.process + fileName;
+                let filePath = bot.filePathRoot + "/Output/" + productCodeName + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + fileName;
 
                 fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated)
 
@@ -203,7 +203,7 @@
                 thisReport.save(callBack)
 
                 if (TS.projects.superalgos.utilities.dateTimeFunctions.areTheseDatesEqual(bot.processDatetime, new Date()) === false) {
-                    logger.newInternalLoop(bot.codeName, bot.process, bot.processDatetime)
+                    logger.newInternalLoop(bot.codeName, TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName, bot.processDatetime)
                 }
 
                 /*  Telling the world we are alive and doing well */

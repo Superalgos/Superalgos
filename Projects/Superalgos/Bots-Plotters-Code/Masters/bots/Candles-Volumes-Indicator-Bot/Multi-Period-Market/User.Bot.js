@@ -269,7 +269,7 @@
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> loopBody -> getCandles -> Entering function."); }
 
                             let fileName = 'Data.json';
-                            let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + "/" + bot.process + "/" + timeFrame;
+                            let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + "/" + timeFrame;
                             filePath += '/' + fileName
 
                             fileStorage.getTextFile(filePath, onFileReceived);
@@ -310,7 +310,7 @@
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> loopBody -> getVolumes -> Entering function."); }
 
                             let fileName = 'Data.json';
-                            let filePath = bot.filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + "/" + bot.process + "/" + timeFrame;
+                            let filePath = bot.filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + "/" + timeFrame;
                             filePath += '/' + fileName
 
                             fileStorage.getTextFile(filePath, onFileReceived);
@@ -427,7 +427,7 @@
                         bot.processHeartBeat(currentDateString, percentage) 
 
                         if (TS.projects.superalgos.utilities.dateTimeFunctions.areTheseDatesEqual(currentDate, new Date()) === false) {
-                            logger.newInternalLoop(bot.codeName, bot.process, currentDate, percentage);
+                            logger.newInternalLoop(bot.codeName, TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName, currentDate, percentage);
                         }
 
                         periodsLoop();
@@ -814,7 +814,7 @@
                         fileContent = "[" + fileContent + "]";
 
                         let fileName = 'Data.json';
-                        let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + "/" + bot.process + "/" + timeFrame;
+                        let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + "/" + timeFrame;
                         filePath += '/' + fileName
 
                         fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
@@ -864,7 +864,7 @@
                         fileContent = "[" + fileContent + "]";
 
                         let fileName = 'Data.json';
-                        let filePath = bot.filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + "/" + bot.process + "/" + timeFrame;
+                        let filePath = bot.filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + "/" + timeFrame;
                         filePath += '/' + fileName
 
                         fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);

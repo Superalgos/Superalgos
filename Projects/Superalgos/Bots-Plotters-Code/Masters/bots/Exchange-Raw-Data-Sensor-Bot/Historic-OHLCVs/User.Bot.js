@@ -266,7 +266,7 @@ exports.newUserBot = function (processIndex, bot, logger, COMMONS, UTILITIES, FI
                             bot.processHeartBeat(heartBeatText, percentage) // tell the world we are alive and doing well
                             if (TS.projects.superalgos.utilities.dateTimeFunctions.areTheseDatesEqual(currentDate, new Date()) === false) {
                                 if (noNewInternalLoop !== true) {
-                                    logger.newInternalLoop(bot.codeName, bot.process, currentDate, percentage);
+                                    logger.newInternalLoop(bot.codeName, TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName, currentDate, percentage);
                                 }
                             }
                         }

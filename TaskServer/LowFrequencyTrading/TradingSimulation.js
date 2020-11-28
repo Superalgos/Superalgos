@@ -280,7 +280,7 @@ exports.newTradingSimulation = function (processIndex, bot, logger, tradingEngin
 
                             /*  Logging to console and disk */
                             if (TS.projects.superalgos.utilities.dateTimeFunctions.areTheseDatesEqual(currentDate, new Date()) === false) {
-                                logger.newInternalLoop(bot.codeName, bot.process, currentDate, percentage)
+                                logger.newInternalLoop(bot.codeName, TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName, currentDate, percentage)
                             }
 
                             /* Date only hearbeat */

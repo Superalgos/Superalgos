@@ -100,7 +100,7 @@ exports.newDebugLog = function (processIndex) {
             const FILE_STORAGE = require('./FileStorage.js');
             let fileStorage = FILE_STORAGE.newFileStorage();
 
-            let filePath = thisObject.bot.filePathRoot + "/Logs/" + thisObject.bot.process + "/"
+            let filePath = thisObject.bot.filePathRoot + "/Logs/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + "/"
 
             if (thisObject.bot.TRADING_SESSION !== undefined) {
                 filePath = filePath + thisObject.bot.TRADING_SESSION.folderName + "/" + executionDatetime;
@@ -187,7 +187,7 @@ exports.newDebugLog = function (processIndex) {
             let logLine = '\r\n' + message;
 
             if (process.env.CONSOLE_LOG === "true" || message.indexOf("ERROR") > 0) {
-                let key = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + '-' + thisObject.bot.codeName + '-' + thisObject.bot.process
+                let key = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + '-' + thisObject.bot.codeName + '-' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName
                 console.log('*********** ' + message + ' @ ' + key)
             }
 

@@ -102,7 +102,7 @@ exports.newUserBot = function (processIndex, bot, logger, COMMONS, UTILITIES, FI
                                 ':' + process.env.HTTP_INTERFACE_PORT +
                                 '/Webhook/Fetch-Messages/' +
                                 TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + "/" +
-                                bot.market.baseAsset + "-" + bot.market.quotedAsset
+                                TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "-" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
 
                     http.get(url, onResponse);
 

@@ -20,7 +20,7 @@ exports.newUserBot = function (processIndex, bot, logger, COMMONS, UTILITIES, FI
     const ONE_DAY = ONE_MIN * 60 * 24
 
     const MAX_OHLCVs_PER_EXECUTION = 10000000
-    const symbol = bot.market.baseAsset + '/' + bot.market.quotedAsset
+    const symbol = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + '/' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
     const ccxt = require('ccxt')
 
     let fetchType = "by Time"

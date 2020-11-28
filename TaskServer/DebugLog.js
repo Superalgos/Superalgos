@@ -59,9 +59,9 @@ exports.newDebugLog = function (processIndex) {
                 , 20) +
             " " +
             strPad(
-                thisObject.bot.market.baseAsset +
+                TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName +
                 '/' +
-                thisObject.bot.market.quotedAsset
+                TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
                 , 10) +
             " " +
             strPad(pBot, 30) +

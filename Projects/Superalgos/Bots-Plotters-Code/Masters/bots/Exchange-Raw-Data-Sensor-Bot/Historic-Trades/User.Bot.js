@@ -19,7 +19,7 @@ exports.newUserBot = function (processIndex, bot, logger, COMMONS, UTILITIES, FI
 
     const ONE_MINUTE = 60000
     const MAX_TRADES_PER_EXECUTION = 100000
-    const symbol = bot.market.baseAsset + '/' + bot.market.quotedAsset
+    const symbol = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + '/' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
     const ccxt = require('ccxt')
 
     let allTrades = []

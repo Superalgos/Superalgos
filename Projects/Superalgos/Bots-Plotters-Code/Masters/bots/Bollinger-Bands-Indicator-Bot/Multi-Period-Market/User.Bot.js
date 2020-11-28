@@ -55,8 +55,6 @@
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> Entering function."); }
 
-            let market = bot.market;
-
             buildBands();
 
             function buildBands() {
@@ -111,7 +109,7 @@
 
                                     let fileName = "Data.json";
 
-                                    let filePathRoot = 'Project/' + TS.projects.superalgos.globals.taskConstants.PROJECT_DEFINITION_NODE.config.codeName + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.type.replace(' ', '-') + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "/" + "Candles-Volumes" + '/' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset
+                                    let filePathRoot = 'Project/' + TS.projects.superalgos.globals.taskConstants.PROJECT_DEFINITION_NODE.config.codeName + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.type.replace(' ', '-') + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "/" + "Candles-Volumes" + '/' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "-" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
                                     let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrame;
                                     filePath += '/' + fileName
 
@@ -316,7 +314,7 @@
 
                                                                 logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writeBandsFile -> onFileCreated -> err = " + err.stack);
                                                                 logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writeBandsFile -> onFileCreated -> filePath = " + filePath);
-                                                                logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writeBandsFile -> onFileCreated -> market = " + market.baseAsset + "_" + market.quotedAsset);
+                                                                logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writeBandsFile -> onFileCreated -> market = " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "_" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName);
 
                                                                 callBackFunction(err);
                                                                 return;
@@ -386,7 +384,7 @@
 
                                                                 logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writePBFile -> onFileCreated -> err = " + err.stack);
                                                                 logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writePBFile -> onFileCreated -> filePath = " + filePath);
-                                                                logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writePBFile -> onFileCreated -> market = " + market.baseAsset + "_" + market.quotedAsset);
+                                                                logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writePBFile -> onFileCreated -> market = " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "_" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName);
 
                                                                 callBackFunction(err);
                                                                 return;

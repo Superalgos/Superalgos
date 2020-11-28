@@ -51,7 +51,7 @@
     async function getOrder(tradingSystemOrder, tradingEngineOrder) {
 
         let orderId = tradingEngineOrder.exchangeId.value
-        const symbol = bot.market.baseAsset + '/' + bot.market.quotedAsset
+        const symbol = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + '/' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
 
         /* Basic Logging */
         logInfo("getOrder -> orderId = " + orderId)
@@ -79,7 +79,7 @@
         let price = tradingEngineOrder.rate.value                           // CCXT: how much quote currency you are willing to pay for a trade lot of base currency (for limit orders only)
         let type                                                            // CCXT: a string literal type of order, ccxt currently unifies market and limit orders only
         let side                                                            // CCXT: a string literal for the direction of your order, buy or sell
-        let symbol = bot.market.baseAsset + '/' + bot.market.quotedAsset    // CCXT: a string literal symbol of the market you wish to trade on, like BTC/USD, ZEC/ETH, DOGE/DASH, etc
+        let symbol = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + '/' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName    // CCXT: a string literal symbol of the market you wish to trade on, like BTC/USD, ZEC/ETH, DOGE/DASH, etc
         let amount = tradingEngineOrder.orderBaseAsset.size.value           // CCXT: how much of currency you want to trade, in Base Asset.
 
         switch (tradingSystemOrder.type) {
@@ -168,7 +168,7 @@
         /* Basic Logging */
         logInfo("cancelOrder -> Entering function. orderId = " + orderId);
 
-        const symbol = bot.market.baseAsset + '/' + bot.market.quotedAsset
+        const symbol = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + '/' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
 
         /* Basic Validations */
         if (exchange.has['fetchOrder'] === false) {

@@ -331,7 +331,7 @@ exports.newSnapshots = function newSnapshots(bot, logger) {
                 if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                     logger.write(MODULE_NAME, "[ERROR] writeSnapshotFile -> onFileCreated -> err = " + err.stack);
                     logger.write(MODULE_NAME, "[ERROR] writeSnapshotFile -> onFileCreated -> filePath = " + filePath);
-                    logger.write(MODULE_NAME, "[ERROR] writeSnapshotFile -> onFileCreated -> market = " + market.baseAsset + "_" + market.quotedAsset);
+                    logger.write(MODULE_NAME, "[ERROR] writeSnapshotFile -> onFileCreated -> market = " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "_" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName);
                 }
             }
         }

@@ -63,7 +63,7 @@ exports.newLearningBot = function newLearningBot(processIndex, bot, parentLogger
                     if (logger !== undefined) {
                         logger.finalize()
                     }
-                    logger = DEBUG_MODULE.newDebugLog();
+                    logger = DEBUG_MODULE.newDebugLog(processIndex);
                     TS.projects.superalgos.globals.taskVariables.LOGGER_MAP.set(MODULE_NAME + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].id, logger)
                     logger.bot = bot;
                     logger.initialize();
@@ -99,9 +99,9 @@ exports.newLearningBot = function newLearningBot(processIndex, bot, parentLogger
 
                     if (bot.SESSION_STATUS === 'Running' && bot.STOP_SESSION === true) {
                         bot.SESSION_STATUS = 'Stopped'
-                    } 
+                    }
 
-                    TS.projects.superalgos.functionLibraries.sessionFunctions.emitSessionStatus (bot.SESSION_STATUS, bot.sessionKey)
+                    TS.projects.superalgos.functionLibraries.sessionFunctions.emitSessionStatus(bot.SESSION_STATUS, bot.sessionKey)
 
                     /* Checking if we should process this loop or not.*/
                     if (bot.STOP_SESSION === true) {
@@ -128,7 +128,7 @@ exports.newLearningBot = function newLearningBot(processIndex, bot, parentLogger
 
                     function initializeProcessExecutionEvents() {
                         try {
-                            processExecutionEvents = PROCESS_EXECUTION_EVENTS.newProcessExecutionEvents(bot, logger)
+                            processExecutionEvents = PROCESS_EXECUTION_EVENTS.newProcessExecutionEvents(processIndex, bot, logger)
                             processExecutionEvents.initialize(processConfig, onInizialized);
 
                             function onInizialized(err) {
@@ -229,7 +229,7 @@ exports.newLearningBot = function newLearningBot(processIndex, bot, parentLogger
 
                     function initializeStatusDependencies() {
                         try {
-                            statusDependencies = STATUS_DEPENDENCIES.newStatusDependencies(bot, logger, STATUS_REPORT, UTILITIES, PROCESS_OUTPUT);
+                            statusDependencies = STATUS_DEPENDENCIES.newStatusDependencies(processIndex, bot, logger, STATUS_REPORT, UTILITIES, PROCESS_OUTPUT);
                             statusDependencies.initialize(onInizialized);
 
                             function onInizialized(err) {
@@ -277,7 +277,7 @@ exports.newLearningBot = function newLearningBot(processIndex, bot, parentLogger
 
                     function initializeDataDependencies() {
                         try {
-                            dataDependencies = DATA_DEPENDENCIES.newDataDependencies(bot, logger, DATA_SET);
+                            dataDependencies = DATA_DEPENDENCIES.newDataDependencies(processIndex, bot, logger, DATA_SET);
                             dataDependencies.initialize(onInizialized);
 
                             function onInizialized(err) {

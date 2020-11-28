@@ -1,4 +1,4 @@
-﻿exports.newStatusDependencies = function newStatusDependencies(BOT, logger, STATUS_REPORT, UTILITIES, PROCESS_OUTPUT) {
+﻿exports.newStatusDependencies = function (processIndex, BOT, logger, STATUS_REPORT, UTILITIES, PROCESS_OUTPUT) {
 
     const MODULE_NAME = "Status Dependencies";
 
@@ -48,7 +48,7 @@
 
             for (let i = 0; i < dependenciesToProcess.length; i++) {
 
-                let statusReportModule = STATUS_REPORT.newStatusReport(BOT, logger, UTILITIES, PROCESS_OUTPUT);
+                let statusReportModule = STATUS_REPORT.newStatusReport(processIndex, BOT, logger, UTILITIES, PROCESS_OUTPUT);
 
                 logger.write(MODULE_NAME, "[INFO] initialize -> onInitilized -> Initializing Status Report # " + (i + 1));
                 let statusDependency = dependenciesToProcess[i]

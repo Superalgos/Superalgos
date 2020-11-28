@@ -28,7 +28,7 @@
             We will use a logger for what happens before and after the bot main loop. We will add the process
             id to its key so that it is unique and it can later be finalized.
             */
-            let logger = DEBUG_MODULE.newDebugLog()
+            let logger = DEBUG_MODULE.newDebugLog(processIndex)
             TS.projects.superalgos.globals.taskVariables.LOGGER_MAP.set('Pre-Bot-Main-Loop' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].id, logger)
             logger.bot = botConfig;
 

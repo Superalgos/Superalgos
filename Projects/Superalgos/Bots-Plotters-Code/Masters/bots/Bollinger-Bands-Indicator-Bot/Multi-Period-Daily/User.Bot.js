@@ -1,4 +1,4 @@
-﻿exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_STORAGE) {
+﻿exports.newUserBot = function (processIndex, bot, logger, COMMONS, UTILITIES, FILE_STORAGE) {
 
     const FULL_LOG = true;
     const INTENSIVE_LOG = false;

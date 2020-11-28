@@ -1,4 +1,4 @@
-﻿exports.newProcessExecutionEvents = function newProcessExecutionEvents(BOT, logger) {
+﻿exports.newProcessExecutionEvents = function (processIndex, BOT, logger) {
     /*
     Here we manage the process execution events. This allow us to emit events 
     when the process starts and finishes. Also to wait for a dependent event

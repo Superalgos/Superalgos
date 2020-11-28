@@ -1,4 +1,4 @@
-﻿exports.newStatusReport = function newStatusReport(BOT, logger, UTILITIES, PROCESS_OUTPUT) {
+﻿exports.newStatusReport = function (processIndex, BOT, logger, UTILITIES, PROCESS_OUTPUT) {
 
     /*
 

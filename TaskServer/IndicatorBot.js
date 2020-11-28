@@ -106,7 +106,7 @@
                     if (logger !== undefined) {
                         logger.finalize()
                     }
-                    logger = DEBUG_MODULE.newDebugLog();
+                    logger = DEBUG_MODULE.newDebugLog(processIndex);
                     TS.projects.superalgos.globals.taskVariables.LOGGER_MAP.set(MODULE_NAME + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].id, logger)
                     logger.bot = bot;
                     logger.initialize();
@@ -146,7 +146,7 @@
 
                     function initializeProcessExecutionEvents() {
                         try {
-                            processExecutionEvents = PROCESS_EXECUTION_EVENTS.newProcessExecutionEvents(bot, logger)
+                            processExecutionEvents = PROCESS_EXECUTION_EVENTS.newProcessExecutionEvents(processIndex, bot, logger)
                             processExecutionEvents.initialize(processConfig, onInizialized);
 
                             function onInizialized(err) {
@@ -247,7 +247,7 @@
 
                     function initializeStatusDependencies() {
                         try {
-                            statusDependencies = STATUS_DEPENDENCIES.newStatusDependencies(bot, logger, STATUS_REPORT, UTILITIES, PROCESS_OUTPUT);
+                            statusDependencies = STATUS_DEPENDENCIES.newStatusDependencies(processIndex, bot, logger, STATUS_REPORT, UTILITIES, PROCESS_OUTPUT);
                             statusDependencies.initialize(onInizialized);
 
                             function onInizialized(err) {
@@ -295,7 +295,7 @@
 
                     function initializeDataDependencies() {
                         try {
-                            dataDependencies = DATA_DEPENDENCIES.newDataDependencies(bot, logger, DATA_SET);
+                            dataDependencies = DATA_DEPENDENCIES.newDataDependencies(processIndex, bot, logger, DATA_SET);
                             dataDependencies.initialize(onInizialized);
 
                             function onInizialized(err) {
@@ -310,12 +310,12 @@
 
                                             switch (processConfig.framework.name) {
                                                 case 'Multi-Period-Market': {
-                                                    processFramework = MULTI_PERIOD_MARKET.newMultiPeriodMarket(bot, logger, UTILITIES, FILE_STORAGE);
+                                                    processFramework = MULTI_PERIOD_MARKET.newMultiPeriodMarket(processIndex, bot, logger, UTILITIES, FILE_STORAGE);
                                                     intitializeProcessFramework();
                                                     break;
                                                 }
                                                 case 'Multi-Period-Daily': {
-                                                    processFramework = MULTI_PERIOD_DAILY.newMultiPeriodDaily(bot, logger, UTILITIES, FILE_STORAGE);
+                                                    processFramework = MULTI_PERIOD_DAILY.newMultiPeriodDaily(processIndex, bot, logger, UTILITIES, FILE_STORAGE);
                                                     intitializeProcessFramework();
                                                     break;
                                                 }
@@ -367,7 +367,7 @@
 
                     function initializeUserBot() {
                         try {
-                            usertBot = USER_BOT_MODULE.newUserBot(bot, logger, COMMONS_MODULE, UTILITIES, FILE_STORAGE);
+                            usertBot = USER_BOT_MODULE.newUserBot(processIndex, bot, logger, COMMONS_MODULE, UTILITIES, FILE_STORAGE);
                             usertBot.initialize(statusDependencies, onInizialized);
 
                             function onInizialized(err) {

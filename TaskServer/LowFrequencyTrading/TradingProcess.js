@@ -1,4 +1,4 @@
-﻿exports.newTradingProcess = function newTradingProcess(bot, logger, UTILITIES) {
+﻿exports.newTradingProcess = function (processIndex, bot, logger, UTILITIES) {
     /*
     This Module will load all the process data dependencies from files and send them downstream.
     After execution, will save the time range and status report of the process.
@@ -27,7 +27,7 @@
     let tradingEngineModule = TRADING_ENGINE_MODULE.newTradingEngine(bot, logger)
 
     let TRADING_OUTPUT_MODULE = require("./TradingOutput")
-    let tradingOutputModule = TRADING_OUTPUT_MODULE.newTradingOutput(bot, logger, tradingEngineModule, UTILITIES, FILE_STORAGE)
+    let tradingOutputModule = TRADING_OUTPUT_MODULE.newTradingOutput(processIndex, bot, logger, tradingEngineModule, UTILITIES, FILE_STORAGE)
 
     let processConfig;
 

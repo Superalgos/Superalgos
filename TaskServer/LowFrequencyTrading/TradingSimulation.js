@@ -1,4 +1,4 @@
-exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradingEngineModule, UTILITIES) {
+exports.newTradingSimulation = function (processIndex, bot, logger, tradingEngineModule, UTILITIES) {
     /*
     This Module represents the trading simulacion. Escentially a loop through a set of candles and 
     the execution at each loop cycle of the Trading System Protocol.

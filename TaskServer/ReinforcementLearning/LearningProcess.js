@@ -1,4 +1,4 @@
-exports.newLearningProcess = function newLearningProcess(bot, logger, UTILITIES) {
+exports.newLearningProcess = function (processIndex, bot, logger, UTILITIES) {
     /*
     This Module will load all the process data dependencies from files and send them downstream.
     After execution, will save the time range and status report of the process.
@@ -27,7 +27,7 @@ exports.newLearningProcess = function newLearningProcess(bot, logger, UTILITIES)
     let markovDecisionProcessModule = MARKOV_DECISION_PROCESS_MODULE.newMarkovDecisionProcess(bot, logger)
 
     let ALGORITHM_MODULE = require("./Algorithm")
-    let algorithmModule = ALGORITHM_MODULE.newTradingOutput(bot, logger, markovDecisionProcessModule, UTILITIES, FILE_STORAGE)
+    let algorithmModule = ALGORITHM_MODULE.newTradingOutput(processIndex, bot, logger, markovDecisionProcessModule, UTILITIES, FILE_STORAGE)
 
     let processConfig;
 

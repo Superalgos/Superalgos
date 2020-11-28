@@ -1,4 +1,4 @@
-exports.newDebugLog = function newDebugLog() {
+exports.newDebugLog = function (processIndex) {
 
     const MODULE_NAME = "DebugLog";
 

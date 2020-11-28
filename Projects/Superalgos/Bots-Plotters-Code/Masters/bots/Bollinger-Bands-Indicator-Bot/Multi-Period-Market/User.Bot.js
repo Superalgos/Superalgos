@@ -470,7 +470,7 @@
                     thisReport.save(callBack);
 
                     if (TS.projects.superalgos.utilities.dateTimeFunctions.areTheseDatesEqual(bot.processDatetime, new Date()) === false) {
-                        logger.newInternalLoop(bot.codeName, TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName, bot.processDatetime);
+                        logger.newInternalLoop(bot.processDatetime);
                     }
 
                     /*  Telling the world we are alive and doing well */

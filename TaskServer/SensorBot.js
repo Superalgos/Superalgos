@@ -135,7 +135,7 @@
                     bot.processDatetime = new Date();           // This will be considered the process date and time, so as to have it consistenly all over the execution.
 
                     /* Main Loop Console Logging */
-                    logger.newMainLoop(bot.codeName, TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName, '', '');
+                    logger.newMainLoop()
 
                     /* We will prepare first the infraestructure needed for the bot to run. There are 4 modules we need to sucessfullly initialize first. */
                     let processExecutionEvents

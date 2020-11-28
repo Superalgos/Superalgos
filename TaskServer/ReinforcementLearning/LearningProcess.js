@@ -721,7 +721,7 @@ exports.newLearningProcess = function (processIndex, bot, logger, UTILITIES) {
                     thisReport.file.simulationState = bot.simulationState
                     thisReport.file.timeFrames = currentTimeFrameLabel
 
-                    logger.newInternalLoop(bot.codeName, TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName, LearningProcessDate)
+                    logger.newInternalLoop(LearningProcessDate)
                     await thisReport.asyncSave()
                 }
             }

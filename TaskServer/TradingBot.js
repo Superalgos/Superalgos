@@ -89,7 +89,7 @@
                     bot.processDatetime = new Date();           // This will be considered the process date and time, so as to have it consistenly all over the execution.
 
                     /* Main Loop Console Logging */
-                    logger.newMainLoop(bot.codeName, TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName, '', '');
+                    logger.newMainLoop()
 
                     /* Checking if we need to need to emit any event */
                     if (bot.TRADING_SESSION_STATUS === 'Idle' && bot.STOP_SESSION === false) {

@@ -261,7 +261,7 @@ Read the candles and volumes from Exchange Raw Data and produce a file for each 
                         bot.processHeartBeat(currentDateString, percentage) 
 
                         if (TS.projects.superalgos.utilities.dateTimeFunctions.areTheseDatesEqual(currentDate, new Date()) === false) {
-                            logger.newInternalLoop(bot.codeName, TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName, currentDate, percentage);
+                            logger.newInternalLoop(currentDate, percentage);
                         }
                         /*
 

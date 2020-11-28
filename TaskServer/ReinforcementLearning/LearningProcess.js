@@ -536,7 +536,7 @@ exports.newLearningProcess = function newLearningProcess(bot, logger, UTILITIES)
 
             function checkStopTaskGracefully() {
                 /* Validation that we dont need to stop. */
-                if (global.STOP_TASK_GRACEFULLY === true) {
+                if (TS.projects.superalgos.globals.taskVariables.IS_TASK_STOPPING === true) {
                     return false
                 }
             }

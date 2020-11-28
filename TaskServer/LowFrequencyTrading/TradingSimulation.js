@@ -200,7 +200,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, tradin
                         return
                     }
 
-                    if (global.STOP_TASK_GRACEFULLY === true) {
+                    if (TS.projects.superalgos.globals.taskVariables.IS_TASK_STOPPING === true) {
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> controlLoop -> We are going to stop here bacause we were requested to stop processing this task.') }
                         updateEpisode('Task Stopped')
                         breakLoop = true

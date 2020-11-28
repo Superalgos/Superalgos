@@ -438,7 +438,7 @@
                 }
                 global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(bot.TRADING_SESSIONKey, 'Heartbeat', event)
 
-                if (global.STOP_TASK_GRACEFULLY === true) {
+                if (TS.projects.superalgos.globals.taskVariables.IS_TASK_STOPPING === true) {
                     bot.STOP_SESSION = true
                     parentLogger.write(MODULE_NAME, '[IMPORTANT] sessionHeartBeat -> Stopping the Session now. ')
                 }
@@ -460,7 +460,7 @@
                 }
                 global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(bot.TRADING_SESSIONKey, 'Error', event)
 
-                if (global.STOP_TASK_GRACEFULLY === true) {
+                if (TS.projects.superalgos.globals.taskVariables.IS_TASK_STOPPING === true) {
                     bot.STOP_SESSION = true
                     parentLogger.write(MODULE_NAME, '[IMPORTANT] sessionError -> Stopping the Session now. ')
                 }
@@ -482,7 +482,7 @@
                 }
                 global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(bot.TRADING_SESSIONKey, 'Warning', event)
 
-                if (global.STOP_TASK_GRACEFULLY === true) {
+                if (TS.projects.superalgos.globals.taskVariables.IS_TASK_STOPPING === true) {
                     bot.STOP_SESSION = true
                     parentLogger.write(MODULE_NAME, '[IMPORTANT] sessionWarning -> Stopping the Session now. ')
                 }
@@ -504,7 +504,7 @@
                 }
                 global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(bot.TRADING_SESSIONKey, 'Info', event)
 
-                if (global.STOP_TASK_GRACEFULLY === true) {
+                if (TS.projects.superalgos.globals.taskVariables.IS_TASK_STOPPING === true) {
                     bot.STOP_SESSION = true
                     parentLogger.write(MODULE_NAME, '[IMPORTANT] sessionInfo -> Stopping the Session now. ')
                 }

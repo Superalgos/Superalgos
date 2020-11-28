@@ -36,7 +36,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
     function start(callBackFunction) {
         try {
 
-            if (global.STOP_TASK_GRACEFULLY === true) {
+            if (TS.projects.superalgos.globals.taskVariables.IS_TASK_STOPPING === true) {
                 callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
                 return
             }

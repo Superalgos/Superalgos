@@ -109,7 +109,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
     function start(callBackFunction) {
         try {
 
-            if (global.STOP_TASK_GRACEFULLY === true) {
+            if (TS.projects.superalgos.globals.taskVariables.IS_TASK_STOPPING === true) {
                 callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
                 return
             }
@@ -124,7 +124,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
                 await getFirstId()
                 await getTrades()
                 if (abort === true) { return}
-                if (global.STOP_TASK_GRACEFULLY === true) {
+                if (TS.projects.superalgos.globals.taskVariables.IS_TASK_STOPPING === true) {
                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
                     return
                 }
@@ -270,7 +270,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
 
                         if (
                             trades.length < limit - 1 ||
-                            global.STOP_TASK_GRACEFULLY === true ||
+                            TS.projects.superalgos.globals.taskVariables.IS_TASK_STOPPING === true ||
                             allTrades.length >= MAX_TRADES_PER_EXECUTION
                             ) {
                             break
@@ -431,7 +431,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
 
                     }
                     function controlLoop() {
-                        if (global.STOP_TASK_GRACEFULLY === true) {
+                        if (TS.projects.superalgos.globals.taskVariables.IS_TASK_STOPPING === true) {
                             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
                             return
                         }

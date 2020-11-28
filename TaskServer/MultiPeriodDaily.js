@@ -258,7 +258,7 @@
                 }
                 function checkStopTaskGracefully() {
                     /* Validation that we dont need to stop. */
-                    if (global.STOP_TASK_GRACEFULLY === true) {
+                    if (TS.projects.superalgos.globals.taskVariables.IS_TASK_STOPPING === true) {
                         callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
                         return
                     }

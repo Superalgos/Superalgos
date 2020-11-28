@@ -184,7 +184,7 @@ exports.newLearningBot = function newLearningBot(bot, parentLogger) {
                                         case TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result: {
                                             logger.write(MODULE_NAME, "[INFO] run -> loop -> startProcessExecutionEvents -> onStarted -> Execution finished well.");
 
-                                            if (global.STOP_TASK_GRACEFULLY === true) {
+                                            if (TS.projects.superalgos.globals.taskVariables.IS_TASK_STOPPING === true) {
                                                 loopControl()
                                                 return
                                             }
@@ -617,7 +617,7 @@ exports.newLearningBot = function newLearningBot(bot, parentLogger) {
                     function shallWeStop(stopCallBack, continueCallBack) {
                         try {
                             /* IMPORTANT: This function is exactly the same on the 3 modules. */
-                            if (!global.STOP_TASK_GRACEFULLY) {
+                            if (!TS.projects.superalgos.globals.taskVariables.IS_TASK_STOPPING) {
                                 continueCallBack();
                             } else {
                                 stopCallBack();

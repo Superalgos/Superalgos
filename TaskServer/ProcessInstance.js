@@ -41,7 +41,6 @@
             botConfig.DELETE_QUEUE_SIZE = 10 // This number represents how many log files can be at the queue at any point in time, which means how many logs are not still deleted.
 
             /* Simplifying the access to basic info */
-            botConfig.project = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.project
             botConfig.exchange = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name
             botConfig.exchangeNode = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode
             botConfig.market = {
@@ -57,7 +56,7 @@
             /* File Path Root */
             botConfig.filePathRoot =
                 'Project/' +
-                botConfig.project +
+                TS.projects.superalgos.globals.taskConstants.PROJECT_DEFINITION_NODE.config.codeName +
                 "/" +
                 TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.type.replace(' ', '-') +
                 "/" +

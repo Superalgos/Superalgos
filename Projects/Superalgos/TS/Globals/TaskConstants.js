@@ -6,6 +6,7 @@ exports.newSuperalgosGlobalsTaskConstants = function () {
     let thisObject = {
         TASK_NODE: undefined,
         NETWORK_NODE: undefined,
+        PROJECT_DEFINITION_NODE: undefined,
         PROJECTS_SCHEMA: undefined,
         APP_SCHEMA_MAP: undefined
     }

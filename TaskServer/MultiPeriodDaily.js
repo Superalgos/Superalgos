@@ -467,7 +467,7 @@
             }
 
             function writeDataRanges(callBack) {
-                let outputDatasets = TS.projects.superalgos.utilities.nodeFunctions.nodeBrachToArray(bot.processNode.referenceParent.processOutput, 'Output Dataset')
+                let outputDatasets = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray(bot.processNode.referenceParent.processOutput, 'Output Dataset')
                 let outputDatasetIndex = -1;
                 controlLoop()
 

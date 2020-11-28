@@ -313,7 +313,7 @@ exports.newTradingSimulation = function (processIndex, bot, logger, tradingEngin
                 easy access to the current candle for instance, or the current bollinger band, meaning the one the Simulation is currently standing at.
                 For that reason we do the following processing, to have at the chart data structure the current objects of each indicator / time frame.  
                 */
-                let dataDependencies = TS.projects.superalgos.utilities.nodeFunctions.nodeBrachToArray(bot.processNode.referenceParent.processDependencies, 'Data Dependency')
+                let dataDependencies = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray(bot.processNode.referenceParent.processDependencies, 'Data Dependency')
                 dataDependencies = TS.projects.superalgos.utilities.nodeFunctions.filterOutNodeWihtoutReferenceParentFromNodeArray(dataDependencies)
 
                 /* Finding the Current Element on Market Files */

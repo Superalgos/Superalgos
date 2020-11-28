@@ -1,7 +1,7 @@
 exports.newSuperalgosUtilitiesNodeFunctions = function () {
 
     let thisObject = {
-        nodeBrachToArray: nodeBrachToArray,
+        nodeBranchToArray: nodeBranchToArray,
         findNodeInNodeMesh: findNodeInNodeMesh,
         nodeMeshToPathArray: nodeMeshToPathArray,
         findNodeInNodeArray: findNodeInNodeArray,
@@ -10,7 +10,7 @@ exports.newSuperalgosUtilitiesNodeFunctions = function () {
 
     return thisObject
 
-    function nodeBrachToArray(node, nodeType) {
+    function nodeBranchToArray(node, nodeType) {
         let resultArray = []
         scanNodeBranch(node, nodeType)
         return resultArray

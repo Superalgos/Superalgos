@@ -20,7 +20,7 @@
             /* We will reaise the events for the datasets impacted by the process that just finished. */
 
             if (bot.processNode.referenceParent.processOutput !== undefined) {
-                let outputDatasets = TS.projects.superalgos.utilities.nodeFunctions.nodeBrachToArray(bot.processNode.referenceParent.processOutput, 'Output Dataset')
+                let outputDatasets = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray(bot.processNode.referenceParent.processOutput, 'Output Dataset')
 
                 for (let j = 0; j < outputDatasets.length; j++) {
                     let outputDataset = outputDatasets[j]
@@ -110,7 +110,7 @@
     function asyncRaiseEvents(lastFile, timeFrames) {
 
         if (bot.processNode.referenceParent.processOutput !== undefined) {
-            let outputDatasets = TS.projects.superalgos.utilities.nodeFunctions.nodeBrachToArray(bot.processNode.referenceParent.processOutput, 'Output Dataset')
+            let outputDatasets = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray(bot.processNode.referenceParent.processOutput, 'Output Dataset')
 
             for (let j = 0; j < outputDatasets.length; j++) {
                 let outputDataset = outputDatasets[j]

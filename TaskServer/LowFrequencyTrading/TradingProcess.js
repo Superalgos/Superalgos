@@ -555,7 +555,7 @@
                 let mainDependency = {}
 
                 /* The first phase here is about checking that we have everything we need at the definition level. */
-                let dataDependencies = TS.projects.superalgos.utilities.nodeFunctions.nodeBrachToArray(bot.processNode.referenceParent.processDependencies, 'Data Dependency')
+                let dataDependencies = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray(bot.processNode.referenceParent.processDependencies, 'Data Dependency')
                 /* 
                 We will filter ourt declared dependencies that are not present in the workspace.
                 This will allow the user to have less Data Mines loaded at the workspace
@@ -565,7 +565,7 @@
 
                 if (commons.validateDataDependencies(dataDependencies, callBackFunction) !== true) { return }
 
-                let outputDatasets = TS.projects.superalgos.utilities.nodeFunctions.nodeBrachToArray(bot.processNode.referenceParent.processOutput, 'Output Dataset')
+                let outputDatasets = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray(bot.processNode.referenceParent.processOutput, 'Output Dataset')
                 if (commons.validateOutputDatasets(outputDatasets, callBackFunction) !== true) { return }
 
                 /* The second phase is about transforming the inputs into a format that can be used to apply the user defined code. */
@@ -624,7 +624,7 @@
             }
 
             async function writeProcessFiles() {
-                let outputDatasets = TS.projects.superalgos.utilities.nodeFunctions.nodeBrachToArray(bot.processNode.referenceParent.processOutput, 'Output Dataset')
+                let outputDatasets = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray(bot.processNode.referenceParent.processOutput, 'Output Dataset')
 
                 await writeTimeFramesFiles(currentTimeFrame, currentTimeFrameLabel)
                 await writeDataRanges()

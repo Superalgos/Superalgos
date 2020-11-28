@@ -19,8 +19,8 @@
     function initialize(callBackFunction) {
         try {
             /* Basic Valdidations */
-            if (bot.processNode.referenceParent.processDependencies !== undefined) {
-                thisObject.nodeArray = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray(bot.processNode.referenceParent.processDependencies, 'Data Dependency')
+            if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processDependencies !== undefined) {
+                thisObject.nodeArray = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processDependencies, 'Data Dependency')
                 if (thisObject.nodeArray.length === 0) {
                     logger.write(MODULE_NAME, "[ERROR] initialize -> onInitilized -> It is not possible to not have data dependencies at all.");
                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)

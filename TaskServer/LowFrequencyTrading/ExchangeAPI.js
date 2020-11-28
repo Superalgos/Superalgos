@@ -1,4 +1,4 @@
-﻿exports.newExchangeAPI = function newExchangeAPI(bot, logger) {
+﻿exports.newExchangeAPI = function (processIndex, bot, logger) {
 
     let MODULE_NAME = "Exchange API";
 

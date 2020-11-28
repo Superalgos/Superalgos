@@ -30,14 +30,14 @@
             let name = 'Not Depends on any Process'
             logger.fileName = MODULE_NAME + "." + name;
 
-            if (bot.processNode.referenceParent === undefined) {
+            if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent === undefined) {
                 callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 logger.write(MODULE_NAME, "[ERROR] initialize -> Initialization Failed because the Process Instance needs to have a Reference Parent.");
                 return
             }
 
             let market = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + '/' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
-            currentProcessKey = bot.processNode.referenceParent.name + "-" + bot.processNode.referenceParent.type + "-" + bot.processNode.referenceParent.id + "-" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + "-" + market
+            currentProcessKey = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.name + "-" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.type + "-" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.id + "-" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + "-" + market
 
             /*
             A process can depend for its own execution on another process to finish, and
@@ -51,10 +51,10 @@
             /*
             Here we check if we can find this relationship at the Data Mine level.
             */
-            if (bot.processNode.referenceParent.executionStartedEvent !== undefined) {
-                if (bot.processNode.referenceParent.executionStartedEvent.referenceParent !== undefined) {
-                    if (bot.processNode.referenceParent.executionStartedEvent.referenceParent.parentNode !== undefined) {
-                        processThisDependsOn = bot.processNode.referenceParent.executionStartedEvent.referenceParent.parentNode
+            if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.executionStartedEvent !== undefined) {
+                if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.executionStartedEvent.referenceParent !== undefined) {
+                    if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.executionStartedEvent.referenceParent.parentNode !== undefined) {
+                        processThisDependsOn = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.executionStartedEvent.referenceParent.parentNode
 
                         name = processThisDependsOn.name
                         logger.write(MODULE_NAME, "[INFO] initialize -> " + currentProcessKey + " based on the Data Mine depends on " + name)
@@ -65,10 +65,10 @@
             /*
             Here we check if at the task level if there is an overriding configuration.
             */
-            if (bot.processNode.executionStartedEvent !== undefined) {
-                if (bot.processNode.executionStartedEvent.referenceParent !== undefined) {
-                    if (bot.processNode.executionStartedEvent.referenceParent.parentNode !== undefined) {
-                        processThisDependsOn = bot.processNode.executionStartedEvent.referenceParent.parentNode
+            if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].executionStartedEvent !== undefined) {
+                if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].executionStartedEvent.referenceParent !== undefined) {
+                    if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].executionStartedEvent.referenceParent.parentNode !== undefined) {
+                        processThisDependsOn = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].executionStartedEvent.referenceParent.parentNode
 
                         name = processThisDependsOn.name
                         logger.write(MODULE_NAME, "[INFO] initialize -> " + currentProcessKey + " based on the User's Task depends on " + name)

@@ -1,4 +1,4 @@
-﻿exports.newProcessOutput = function newProcessOutput(BOT, logger) {
+﻿exports.newProcessOutput = function (processIndex, BOT, logger) {
 
     /*
     Here we emit the events that signals that a Dataset was updated.
@@ -19,8 +19,8 @@
         try {
             /* We will reaise the events for the datasets impacted by the process that just finished. */
 
-            if (bot.processNode.referenceParent.processOutput !== undefined) {
-                let outputDatasets = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray(bot.processNode.referenceParent.processOutput, 'Output Dataset')
+            if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput !== undefined) {
+                let outputDatasets = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
 
                 for (let j = 0; j < outputDatasets.length; j++) {
                     let outputDataset = outputDatasets[j]
@@ -109,8 +109,8 @@
 
     function asyncRaiseEvents(lastFile, timeFrames) {
 
-        if (bot.processNode.referenceParent.processOutput !== undefined) {
-            let outputDatasets = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray(bot.processNode.referenceParent.processOutput, 'Output Dataset')
+        if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput !== undefined) {
+            let outputDatasets = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
 
             for (let j = 0; j < outputDatasets.length; j++) {
                 let outputDataset = outputDatasets[j]

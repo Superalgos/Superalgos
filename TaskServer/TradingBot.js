@@ -8,7 +8,7 @@
     const SESSION = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + 'TradingSession');
 
     let fileStorage = FILE_STORAGE.newFileStorage(parentLogger);
-    let session = SESSION.newTradingSession(bot, parentLogger)
+    let session = SESSION.newTradingSession(processIndex, bot, parentLogger)
 
     const DEBUG_MODULE = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + 'DebugLog');
     let logger; // We need this here in order for the loopHealth function to work and be able to rescue the loop when it gets in trouble.
@@ -90,7 +90,7 @@
 
                     /* High level log entry  */
                     console.log(new Date().toISOString() + " " + pad(TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name, 20) + " " + pad(TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + '/' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName, 10) + " " + pad(bot.codeName, 30) + " " + pad(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName, 30)
-                        + "      Main Loop     # " + pad(Number(bot.loopCounter), 8) + " " + bot.processNode.session.type + " " + bot.processNode.session.name)
+                        + "      Main Loop     # " + pad(Number(bot.loopCounter), 8) + " " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.type + " " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.name)
 
                     /* Checking if we need to need to emit any event */
                     if (bot.TRADING_SESSION_STATUS === 'Idle' && bot.STOP_SESSION === false) {
@@ -106,10 +106,10 @@
                     /* Checking if we should process this loop or not.*/
                     if (bot.STOP_SESSION === true) {
 
-                        logger.write(MODULE_NAME, "[INFO] run -> loop -> Waiting for " + bot.processNode.session.type + " " + bot.processNode.session.name + " to be run.")
+                        logger.write(MODULE_NAME, "[INFO] run -> loop -> Waiting for " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.type + " " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.name + " to be run.")
 
                         console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName, 30)
-                            + " Waiting for " + bot.processNode.session.type + " " + bot.processNode.session.name + " to be run. ");
+                            + " Waiting for " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.type + " " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.name + " to be run. ");
 
                         nextWaitTime = 'Waiting for Session';
                         loopControl(nextWaitTime);
@@ -548,7 +548,7 @@
                                         waitingTime = waitTime / 1000
                                         label = 'seconds'
                                     }
-                                    processHeartBeat(undefined, undefined, "Waiting " + waitingTime + " " + label + " for " + bot.processNode.session.type + " " + bot.processNode.session.name + " to be run. ")
+                                    processHeartBeat(undefined, undefined, "Waiting " + waitingTime + " " + label + " for " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.type + " " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.name + " to be run. ")
                                     logger.persist();
                                 }
                                     break

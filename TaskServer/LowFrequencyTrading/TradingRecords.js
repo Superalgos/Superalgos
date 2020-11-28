@@ -1,4 +1,4 @@
-exports.newTradingRecords = function newTradingRecords(bot, logger) {
+exports.newTradingRecords = function (processIndex, bot, logger) {
     /*
     This module facilitates the appending of records to the output of the process.
     */
@@ -37,7 +37,7 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
             we have a pointer to the node that have the information we need to extract.
             Later, based on the product record definition we will extract each individual value.
        */
-        let outputDatasets = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray(bot.processNode.referenceParent.processOutput, 'Output Dataset')
+        let outputDatasets = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
 
         for (let i = 0; i < outputDatasets.length; i++) {
             let outputDatasetNode = outputDatasets[i]

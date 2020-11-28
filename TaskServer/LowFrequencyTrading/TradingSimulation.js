@@ -35,15 +35,15 @@ exports.newTradingSimulation = function (processIndex, bot, logger, tradingEngin
 
             /* These are the Modules we will need to run the Simulation */
             const TRADING_RECORDS_MODULE = require('./TradingRecords.js')
-            let tradingRecordsModule = TRADING_RECORDS_MODULE.newTradingRecords(bot, logger)
+            let tradingRecordsModule = TRADING_RECORDS_MODULE.newTradingRecords(processIndex, bot, logger)
             tradingRecordsModule.initialize(outputDatasetsMap)
 
             const TRADING_SYSTEM_MODULE = require('./TradingSystem.js')
-            let tradingSystemModule = TRADING_SYSTEM_MODULE.newTradingSystem(bot, logger, tradingEngineModule)
+            let tradingSystemModule = TRADING_SYSTEM_MODULE.newTradingSystem(processIndex, bot, logger, tradingEngineModule)
             tradingSystemModule.initialize()
 
             const TRADING_EPISODE_MODULE = require('./TradingEpisode.js')
-            let tradingEpisodeModule = TRADING_EPISODE_MODULE.newTradingEpisode(bot, logger, tradingEngineModule)
+            let tradingEpisodeModule = TRADING_EPISODE_MODULE.newTradingEpisode(processIndex, bot, logger, tradingEngineModule)
             tradingEpisodeModule.initialize()
 
             /* Setting up the candles array: The whole simulation is based on the array of candles at the time-frame defined at the session parameters. */
@@ -313,7 +313,7 @@ exports.newTradingSimulation = function (processIndex, bot, logger, tradingEngin
                 easy access to the current candle for instance, or the current bollinger band, meaning the one the Simulation is currently standing at.
                 For that reason we do the following processing, to have at the chart data structure the current objects of each indicator / time frame.  
                 */
-                let dataDependencies = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray(bot.processNode.referenceParent.processDependencies, 'Data Dependency')
+                let dataDependencies = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processDependencies, 'Data Dependency')
                 dataDependencies = TS.projects.superalgos.utilities.nodeFunctions.filterOutNodeWihtoutReferenceParentFromNodeArray(dataDependencies)
 
                 /* Finding the Current Element on Market Files */

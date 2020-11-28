@@ -1,4 +1,4 @@
-exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineModule) {
+exports.newTradingStages = function (processIndex, bot, logger, tradingEngineModule) {
     /*
     This module packages all functions related to Stages.
     */
@@ -21,22 +21,22 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
     }
 
     const TRADING_STRATEGY_MODULE = require('./TradingStrategy.js')
-    let tradingStrategyModule = TRADING_STRATEGY_MODULE.newTradingStrategy(bot, logger, tradingEngineModule)
+    let tradingStrategyModule = TRADING_STRATEGY_MODULE.newTradingStrategy(processIndex, bot, logger, tradingEngineModule)
 
     const TRADING_POSITION_MODULE = require('./TradingPosition.js')
-    let tradingPositionModule = TRADING_POSITION_MODULE.newTradingPosition(bot, logger, tradingEngineModule)
+    let tradingPositionModule = TRADING_POSITION_MODULE.newTradingPosition(processIndex, bot, logger, tradingEngineModule)
 
     const TRADING_ENGINE_EXECUTION = require('./TradingExecution.js')
-    let tradingExecutionModule = TRADING_ENGINE_EXECUTION.newTradingExecution(bot, logger, tradingEngineModule)
+    let tradingExecutionModule = TRADING_ENGINE_EXECUTION.newTradingExecution(processIndex, bot, logger, tradingEngineModule)
 
     const ANNOUNCEMENTS_MODULE = require('./Announcements.js')
-    let announcementsModule = ANNOUNCEMENTS_MODULE.newAnnouncements(bot, logger)
+    let announcementsModule = ANNOUNCEMENTS_MODULE.newAnnouncements(processIndex, bot, logger)
 
     const SNAPSHOTS_MODULE = require('./Snapshots.js')
-    let snapshotsModule = SNAPSHOTS_MODULE.newSnapshots(bot, logger)
+    let snapshotsModule = SNAPSHOTS_MODULE.newSnapshots(processIndex, bot, logger)
 
     const TRADING_EPISODE_MODULE = require('./TradingEpisode.js')
-    let tradingEpisodeModule = TRADING_EPISODE_MODULE.newTradingEpisode(bot, logger)
+    let tradingEpisodeModule = TRADING_EPISODE_MODULE.newTradingEpisode(processIndex, bot, logger)
 
     let tradingEngine
     let tradingSystem
@@ -907,7 +907,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
             case 'Base Asset': {
                 if (
                     (
-                        tradingEngineStage.stageBaseAsset.sizeFilled.value 
+                        tradingEngineStage.stageBaseAsset.sizeFilled.value
                     )
                     * ROUNDING_ERROR_CORRECTION_FACTOR
                     >=
@@ -922,7 +922,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
             case 'Quoted Asset': {
                 if (
                     (
-                        tradingEngineStage.stageQuotedAsset.sizeFilled.value 
+                        tradingEngineStage.stageQuotedAsset.sizeFilled.value
                     )
                     * ROUNDING_ERROR_CORRECTION_FACTOR
                     >=

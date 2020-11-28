@@ -1,4 +1,4 @@
-exports.newAnnouncements = function newAnnouncements(bot, logger) {
+exports.newAnnouncements = function (processIndex, bot, logger) {
 
     const MODULE_NAME = 'Announcements'
 

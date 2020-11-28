@@ -1,4 +1,4 @@
-exports.newTradingStrategy = function newTradingStrategy(bot, logger, tradingEngineModule) {
+exports.newTradingStrategy = function (processIndex, bot, logger, tradingEngineModule) {
     /*
     This module packages all functions related to Strategies.
     */

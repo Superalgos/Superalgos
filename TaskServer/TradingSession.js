@@ -1,4 +1,4 @@
-﻿exports.newTradingSession = function newTradingSession(bot, parentLogger) {
+﻿exports.newTradingSession = function (processIndex, bot, parentLogger) {
 
     const MODULE_NAME = "Trading Session"
 
@@ -15,26 +15,26 @@
         try {
             /* Initialize this info so that everything is logged propeerly */
             bot.TRADING_SESSION = {
-                name: bot.processNode.session.name,
-                id: bot.processNode.session.id
+                name: TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.name,
+                id: TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.id
             }
 
             /* Set the folderName for early logging */
-            if (bot.processNode.session.config.folderName === undefined) {
-                bot.TRADING_SESSION.folderName = bot.processNode.session.type.replace(' ', '-').replace(' ', '-') + '-' + bot.TRADING_SESSION.id
+            if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.config.folderName === undefined) {
+                bot.TRADING_SESSION.folderName = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.type.replace(' ', '-').replace(' ', '-') + '-' + bot.TRADING_SESSION.id
             } else {
-                bot.TRADING_SESSION.folderName = bot.processNode.session.type.replace(' ', '-').replace(' ', '-') + '-' + bot.processNode.session.config.folderName
+                bot.TRADING_SESSION.folderName = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.type.replace(' ', '-').replace(' ', '-') + '-' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.config.folderName
             }
 
             /* Check if there is a session */
-            if (bot.processNode.session === undefined) {
+            if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session === undefined) {
                 parentLogger.write(MODULE_NAME, "[ERROR] initialize -> Cannot run without a Session.");
                 callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 return;
             }
 
             /* Listen to event to start or stop the session. */
-            bot.TRADING_SESSIONKey = bot.processNode.session.name + '-' + bot.processNode.session.type + '-' + bot.processNode.session.id
+            bot.TRADING_SESSIONKey = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.name + '-' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.type + '-' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.id
             TS.projects.superalgos.globals.taskVariables.SESSION_MAP.set(bot.TRADING_SESSIONKey, bot.TRADING_SESSIONKey)
 
             global.EVENT_SERVER_CLIENT_MODULE.listenToEvent(bot.TRADING_SESSIONKey, 'Trading Session Status', undefined, bot.TRADING_SESSIONKey, undefined, onSessionStatus)
@@ -169,9 +169,9 @@
                 if (bot.TRADING_SESSION.config !== undefined) {
                     config = bot.TRADING_SESSION.config
                     if (config.folderName === undefined) {
-                        bot.TRADING_SESSION.folderName = bot.processNode.session.type.replace(' ', '-').replace(' ', '-') + '-' + bot.TRADING_SESSION.id
+                        bot.TRADING_SESSION.folderName = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.type.replace(' ', '-').replace(' ', '-') + '-' + bot.TRADING_SESSION.id
                     } else {
-                        bot.TRADING_SESSION.folderName = bot.processNode.session.type.replace(' ', '-').replace(' ', '-') + '-' + bot.processNode.session.config.folderName
+                        bot.TRADING_SESSION.folderName = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.type.replace(' ', '-').replace(' ', '-') + '-' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.config.folderName
                     }
                 }
             }

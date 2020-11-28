@@ -1,4 +1,4 @@
-exports.newLearningSession = function newLearningSession(bot, parentLogger) {
+exports.newLearningSession = function (processIndex, bot, parentLogger) {
 
     const MODULE_NAME = "Learning Session"
 
@@ -15,26 +15,26 @@ exports.newLearningSession = function newLearningSession(bot, parentLogger) {
         try {
             /* Initialize this info so that everything is logged propeerly */
             bot.LEARNING_SESSION = {
-                name: bot.processNode.session.name,
-                id: bot.processNode.session.id
+                name: TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.name,
+                id: TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.id
             }
 
             /* Set the folderName for early logging */
-            if (bot.processNode.session.config.folderName === undefined) {
-                bot.LEARNING_SESSION.folderName = bot.processNode.session.type.replace(' ', '-').replace(' ', '-') + '-' + bot.LEARNING_SESSION.id
+            if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.config.folderName === undefined) {
+                bot.LEARNING_SESSION.folderName = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.type.replace(' ', '-').replace(' ', '-') + '-' + bot.LEARNING_SESSION.id
             } else {
-                bot.LEARNING_SESSION.folderName = bot.processNode.session.type.replace(' ', '-').replace(' ', '-') + '-' + bot.processNode.session.config.folderName
+                bot.LEARNING_SESSION.folderName = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.type.replace(' ', '-').replace(' ', '-') + '-' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.config.folderName
             }
 
             /* Check if there is a session */
-            if (bot.processNode.session === undefined) {
+            if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session === undefined) {
                 parentLogger.write(MODULE_NAME, "[ERROR] initialize -> Cannot run without a Session.");
                 callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 return;
             }
 
             /* Listen to event to start or stop the session. */
-            bot.sessionKey = bot.processNode.session.name + '-' + bot.processNode.session.type + '-' + bot.processNode.session.id
+            bot.sessionKey = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.name + '-' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.type + '-' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.id
             TS.projects.superalgos.globals.taskVariables.SESSION_MAP.set(bot.sessionKey, bot.sessionKey)
 
             global.EVENT_SERVER_CLIENT_MODULE.listenToEvent(bot.sessionKey, 'Learning Session Status', undefined, bot.sessionKey, undefined, onSessionStatus)
@@ -169,9 +169,9 @@ exports.newLearningSession = function newLearningSession(bot, parentLogger) {
                 if (bot.LEARNING_SESSION.config !== undefined) {
                     config = bot.LEARNING_SESSION.config
                     if (config.folderName === undefined) {
-                        bot.LEARNING_SESSION.folderName = bot.processNode.session.type.replace(' ', '-').replace(' ', '-') + '-' + bot.LEARNING_SESSION.id
+                        bot.LEARNING_SESSION.folderName = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.type.replace(' ', '-').replace(' ', '-') + '-' + bot.LEARNING_SESSION.id
                     } else {
-                        bot.LEARNING_SESSION.folderName = bot.processNode.session.type.replace(' ', '-').replace(' ', '-') + '-' + bot.processNode.session.config.folderName
+                        bot.LEARNING_SESSION.folderName = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.type.replace(' ', '-').replace(' ', '-') + '-' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.config.folderName
                     }
                 }
             }

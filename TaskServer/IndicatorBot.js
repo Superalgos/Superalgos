@@ -36,11 +36,11 @@
 
             /* This bot is not ready for taking its code from the UI, then we need to load it from its repo. */
             let filePath =
-                bot.processNode.referenceParent.parentNode.parentNode.project +    // project
+                TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.project +    // project
                 '/Bots-Plotters-Code/' +
                 TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName +
                 "/" + "bots" + "/" +
-                bot.processNode.referenceParent.parentNode.config.repo + "/" +
+                TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config.repo + "/" +
                 pProcessConfig.codeName
             filePath += "/User.Bot.js"
 
@@ -59,7 +59,7 @@
                 USER_BOT_MODULE = {}
                 USER_BOT_MODULE.newUserBot = eval(text); // TODO This needs to be changed function
 
-                filePath = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "/" + "bots" + "/" + bot.processNode.referenceParent.parentNode.config.repo
+                filePath = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "/" + "bots" + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config.repo
                 filePath += "/Commons.js"
 
                 fileStorage.getTextFile(filePath, onCommonsDownloaded);

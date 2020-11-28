@@ -40,7 +40,7 @@ exports.newTradingOutput = function (processIndex, bot, logger, tradingEngineMod
             const TRADING_SIMULATION = require('./TradingSimulation.js')
             let tradingSimulation = TRADING_SIMULATION.newTradingSimulation(processIndex, bot, logger, tradingEngineModule, UTILITIES)
 
-            let outputDatasets = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray(bot.processNode.referenceParent.processOutput, 'Output Dataset')
+            let outputDatasets = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
             let outputDatasetsMap = new Map()
 
             if (bot.processingDailyFiles === true) {

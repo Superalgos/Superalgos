@@ -1,4 +1,4 @@
-exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineModule) {
+exports.newTradingOrders = function (processIndex, bot, logger, tradingEngineModule) {
     /*
     The Trading Orders modules manages the execution of orders against the exchanges.
     */
@@ -17,10 +17,10 @@ exports.newTradingOrders = function newTradingOrders(bot, logger, tradingEngineM
     let sessionParameters
 
     const EXCHANGE_API_MODULE = require('./ExchangeAPI.js')
-    let exchangeAPIModule = EXCHANGE_API_MODULE.newExchangeAPI(bot, logger)
+    let exchangeAPIModule = EXCHANGE_API_MODULE.newExchangeAPI(processIndex, bot, logger)
 
     const ANNOUNCEMENTS_MODULE = require('./Announcements.js')
-    let announcementsModule = ANNOUNCEMENTS_MODULE.newAnnouncements(bot, logger)
+    let announcementsModule = ANNOUNCEMENTS_MODULE.newAnnouncements(processIndex, bot, logger)
 
     return thisObject
 

@@ -18,9 +18,9 @@
     function initialize(callBackFunction) {
         try {
             /* Basic Valdidations */
-            if (bot.processNode.referenceParent.processDependencies !== undefined) {
-                if (bot.processNode.referenceParent.processDependencies.statusDependencies !== undefined) {
-                    thisObject.nodeArray = bot.processNode.referenceParent.processDependencies.statusDependencies
+            if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processDependencies !== undefined) {
+                if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processDependencies.statusDependencies !== undefined) {
+                    thisObject.nodeArray = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processDependencies.statusDependencies
                 } else {
                     logger.write(MODULE_NAME, "[ERROR] initialize -> onInitilized -> It is not possible to not have status dependencies at all.");
                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)

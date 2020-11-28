@@ -32,9 +32,7 @@
             TS.projects.superalgos.globals.taskVariables.LOGGER_MAP.set('Pre-Bot-Main-Loop' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].id, logger)
             logger.bot = botConfig;
 
-            botConfig.process = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName
             botConfig.debug = {};
-            botConfig.processNode = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex]
 
             /* Logs Mantainance Stuff */
             botConfig.LOGS_TO_DELETE_QUEUE = []

@@ -1,4 +1,4 @@
-exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEngineModule) {
+exports.newTradingPosition = function (processIndex, bot, logger, tradingEngineModule) {
     /*
     This module packages all functions related to Positions.
     */

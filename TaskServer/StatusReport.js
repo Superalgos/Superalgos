@@ -146,7 +146,7 @@
                                                 if (processThisDependsOn.id === processDefinition.id) {
                                                     if (process.type === 'Trading Process Instance') {
                                                         if (process.session !== undefined) {
-                                                            if (bot.processNode.session.id !== process.session.id) {
+                                                            if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.id !== process.session.id) {
                                                                 continue
                                                             }
                                                         } else {
@@ -197,7 +197,7 @@
                                                 if (processThisDependsOn.id === processDefinition.id) {
                                                     if (process.type === 'Trading Process Instance') {
                                                         if (process.session !== undefined) {
-                                                            if (bot.processNode.session.id !== process.session.id) {
+                                                            if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.id !== process.session.id) {
                                                                 continue
                                                             }
                                                         } else {
@@ -372,7 +372,7 @@
 
                 /* All good, lets emit the event that means data has been updated. */
 
-                let processOutput = PROCESS_OUTPUT.newProcessOutput(bot, logger)
+                let processOutput = PROCESS_OUTPUT.newProcessOutput(processIndex, bot, logger)
                 processOutput.raiseEvents(thisObject.file.lastFile, thisObject.file.timeFrames, callBackFunction);
                 return
             }
@@ -399,7 +399,7 @@
         }
 
         /* All good, lets emit the event that means data has been updated. */
-        let processOutput = PROCESS_OUTPUT.newProcessOutput(bot, logger)
+        let processOutput = PROCESS_OUTPUT.newProcessOutput(processIndex, bot, logger)
         processOutput.asyncRaiseEvents(thisObject.file.lastFile, thisObject.file.timeFrames)
     }
 }

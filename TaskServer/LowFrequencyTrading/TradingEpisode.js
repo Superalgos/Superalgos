@@ -1,4 +1,4 @@
-exports.newTradingEpisode = function newTradingEpisode(bot, logger, tradingEngineModule) {
+exports.newTradingEpisode = function (processIndex, bot, logger, tradingEngineModule) {
     /*
     This module packages all functions related to Episodes.
     */

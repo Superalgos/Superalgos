@@ -32,7 +32,15 @@
             TS.projects.superalgos.globals.taskVariables.LOGGER_MAP.set('Pre-Bot-Main-Loop' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].id, logger)
             logger.bot = botConfig;
 
-            TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.set(processIndex, {LOGS_TO_DELETE_QUEUE: []})
+            /*
+            There are a few variables with the scope of the process instance. We will store it here so that it can be
+            accesed from where it is needed.
+            */
+            let VARIABLES_BY_PROCESS_INDEX = {
+                LOGS_TO_DELETE_QUEUE: [],
+                MAIN_LOOP_COUNTER: 0
+            }
+            TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.set(processIndex, VARIABLES_BY_PROCESS_INDEX)
 
             /* Loop Counter */
             botConfig.loopCounter = 0;
@@ -271,7 +279,7 @@
 
                     function whenRunFinishes(err) {
 
-                        botConfig.loopCounter = 0;
+                        TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).MAIN_LOOP_COUNTER = 0;
 
                         let botId = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "." + botConfig.codeName + "." + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName;
 

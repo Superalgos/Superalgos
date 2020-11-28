@@ -68,7 +68,7 @@ exports.newLearningBot = function (processIndex, bot, parentLogger) {
                     logger.bot = bot;
                     logger.initialize();
 
-                    bot.loopCounter++;
+                    TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).MAIN_LOOP_COUNTER++;
                     bot.loopStartTime = new Date().valueOf();
 
                     let nextWaitTime;
@@ -90,7 +90,7 @@ exports.newLearningBot = function (processIndex, bot, parentLogger) {
 
                     /* High level log entry  */
                     console.log(new Date().toISOString() + " " + pad(TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name, 20) + " " + pad(TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + '/' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName, 10) + " " + pad(bot.codeName, 30) + " " + pad(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName, 30)
-                        + "      Main Loop     # " + pad(Number(bot.loopCounter), 8) + " " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.type + " " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.name)
+                        + "      Main Loop     # " + pad(Number(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).MAIN_LOOP_COUNTER), 8) + " " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.type + " " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.name)
 
                     /* Checking if we need to need to emit any event */
                     if (bot.SESSION_STATUS === 'Idle' && bot.STOP_SESSION === false) {

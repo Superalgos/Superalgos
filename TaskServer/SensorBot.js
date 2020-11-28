@@ -118,7 +118,7 @@
                     logger.bot = bot;
                     logger.initialize();
 
-                    bot.loopCounter++;
+                    TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).MAIN_LOOP_COUNTER++;
                     bot.loopStartTime = new Date().valueOf();
 
                     /* We tell the UI that we are running. */
@@ -136,7 +136,7 @@
 
                     /* High level log entry  */
                     console.log(new Date().toISOString() + " " + pad(TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name, 20) + " " + pad(TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + '/' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName, 10) + " " + pad(bot.codeName, 30) + " " + pad(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName, 30)
-                        + "      Main Loop     # " + pad(Number(bot.loopCounter), 8))
+                        + "      Main Loop     # " + pad(Number(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).MAIN_LOOP_COUNTER), 8))
 
                     /* We will prepare first the infraestructure needed for the bot to run. There are 4 modules we need to sucessfullly initialize first. */
                     let processExecutionEvents

@@ -114,9 +114,9 @@ exports.newDebugLog = function (processIndex) {
 
             let fileName;
             if (internalLoopCounter >= 0) {
-                fileName = "Loop." + pad(thisObject.bot.loopCounter, 8) + "." + pad(internalLoopCounter, 4) + ".json";
+                fileName = "Loop." + pad(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).MAIN_LOOP_COUNTER, 8) + "." + pad(internalLoopCounter, 4) + ".json";
             } else {
-                fileName = "Loop." + pad(thisObject.bot.loopCounter, 8) + ".json";
+                fileName = "Loop." + pad(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).MAIN_LOOP_COUNTER, 8) + ".json";
             }
 
             writeLog();

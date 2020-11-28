@@ -36,7 +36,7 @@ exports.newUserBot = function (processIndex, bot, logger, COMMONS, UTILITIES, FI
     let options = {}
     let rateLimit = 500
     let exchange
-    let uiStartDate = new Date(bot.uiStartDate)
+    let uiStartDate = new Date(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.config.startDate)
     let fisrtTimeThisProcessRun = false
     let limit = 1000 // This is the default value
     let hostname

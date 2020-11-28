@@ -41,7 +41,6 @@
             botConfig.DELETE_QUEUE_SIZE = 10 // This number represents how many log files can be at the queue at any point in time, which means how many logs are not still deleted.
 
 
-            botConfig.uiStartDate = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.config.startDate
             botConfig.config = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.config
 
             /* Loop Counter */

@@ -35,7 +35,7 @@ exports.newUserBot = function (processIndex, bot, logger, COMMONS, UTILITIES, FI
     let firstId
     let rateLimit
     let exchange
-    let uiStartDate = new Date(bot.uiStartDate)
+    let uiStartDate = new Date(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.config.startDate)
 
     const limit = 1000
 

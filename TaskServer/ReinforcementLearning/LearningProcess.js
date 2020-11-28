@@ -664,7 +664,7 @@ exports.newLearningProcess = function (processIndex, bot, logger, UTILITIES) {
                         /* 
                         Raise the event that the Data Range was Updated.
                         */
-                        let key = bot.dataMine + "-" + bot.codeName + "-" + productCodeName + "-" + bot.exchange + "-" + bot.market.baseAsset + '/' + bot.market.quotedAsset
+                        let key = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "-" + bot.codeName + "-" + productCodeName + "-" + bot.exchange + "-" + bot.market.baseAsset + '/' + bot.market.quotedAsset
                         let event = {
                             dateRange: dataRange
                         }
@@ -703,7 +703,7 @@ exports.newLearningProcess = function (processIndex, bot, logger, UTILITIES) {
                 }
 
                 async function writeDailyStatusReport(currentTimeFrameLabel) {
-                    let reportKey = bot.dataMine + "-" + bot.codeName + "-" + bot.processNode.referenceParent.config.codeName
+                    let reportKey = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "-" + bot.codeName + "-" + bot.processNode.referenceParent.config.codeName
                     let thisReport = statusDependencies.statusReports.get(reportKey)
 
                     thisReport.file.lastExecution = bot.currentDaytime
@@ -714,7 +714,7 @@ exports.newLearningProcess = function (processIndex, bot, logger, UTILITIES) {
                 }
 
                 async function writeMarketStatusReport(currentTimeFrameLabel) {
-                    let reportKey = bot.dataMine + "-" + bot.codeName + "-" + bot.processNode.referenceParent.config.codeName
+                    let reportKey = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "-" + bot.codeName + "-" + bot.processNode.referenceParent.config.codeName
                     let thisReport = statusDependencies.statusReports.get(reportKey);
 
                     thisReport.file.lastExecution = bot.processDatetime

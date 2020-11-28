@@ -195,7 +195,7 @@
 
                 let market = bot.market.baseAsset + '/' + bot.market.quotedAsset
                 let key = processThisDependsOn.name + "-" + processThisDependsOn.type + "-" + processThisDependsOn.id + "-" + bot.exchange + "-" + market
-                let callerId = bot.dataMine + "-" + bot.codeName + "-" + bot.process + extraCallerId
+                let callerId = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "-" + bot.codeName + "-" + bot.process + extraCallerId
 
                 let subscriptionId
 

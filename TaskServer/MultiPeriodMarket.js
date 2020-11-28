@@ -193,7 +193,7 @@
             }
 
             function writeStatusReport(callBack) {
-                let reportKey = bot.dataMine + "-" + bot.codeName + "-" + "Multi-Period-Market"
+                let reportKey = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "-" + bot.codeName + "-" + "Multi-Period-Market"
                 let thisReport = statusDependencies.statusReports.get(reportKey)
 
                 thisReport.file.lastExecution = bot.processDatetime;

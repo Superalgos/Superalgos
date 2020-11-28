@@ -167,7 +167,7 @@ exports.newDebugLog = function (processIndex) {
             if (process.env.CONSOLE_LOG === "true" || message.indexOf("ERROR") > 0) {
                 let key = ''
                 if (thisObject.bot) {
-                    key = thisObject.bot.dataMine + '-' + thisObject.bot.codeName + '-' + thisObject.bot.process
+                    key = thisObject.TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + '-' + thisObject.bot.codeName + '-' + thisObject.bot.process
                 }
                 console.log('*********** ' + message + ' @ ' + key)
             }

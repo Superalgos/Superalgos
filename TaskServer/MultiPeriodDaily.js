@@ -503,7 +503,7 @@
                         callBack(err)
                         return
                     }
-                    let key = bot.dataMine + "-" + bot.codeName + "-" + productCodeName + "-" + bot.exchange + "-" + bot.market.baseAsset + '/' + bot.market.quotedAsset
+                    let key = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "-" + bot.codeName + "-" + productCodeName + "-" + bot.exchange + "-" + bot.market.baseAsset + '/' + bot.market.quotedAsset
                     let event = {
                         dateRange: dataRange
                     }
@@ -546,7 +546,7 @@
             }
 
             function writeStatusReport(lastFileDate, callBack) {
-                let reportKey = bot.dataMine + "-" + bot.codeName + "-" + "Multi-Period-Daily"
+                let reportKey = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "-" + bot.codeName + "-" + "Multi-Period-Daily"
                 let thisReport = statusDependencies.statusReports.get(reportKey)
 
                 thisReport.file.lastExecution = bot.currentDaytime;

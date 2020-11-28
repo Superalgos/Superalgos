@@ -37,7 +37,7 @@
             let filePath =
                 bot.processNode.referenceParent.parentNode.parentNode.project +    // project
                 '/Bots-Plotters-Code/' +
-                bot.dataMine +
+                TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName +
                 "/" + "bots" + "/" +
                 bot.processNode.referenceParent.parentNode.config.repo + "/" +
                 pProcessConfig.codeName
@@ -62,7 +62,7 @@
                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 }
 
-                filePath = bot.dataMine + "/" + "bots" + "/" + bot.processNode.referenceParent.parentNode.config.repo;
+                filePath = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "/" + "bots" + "/" + bot.processNode.referenceParent.parentNode.config.repo;
                 filePath += "/Commons.js"
 
                 fileStorage.getTextFile(filePath, onCommonsDownloaded);

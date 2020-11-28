@@ -143,7 +143,7 @@ exports.newDataSet = function (processIndex, BOT, logger) {
             logger.write(MODULE_NAME, "[INFO] createTextFile -> pFileName = " + pFileName)
 
             let ownerId = thisObject.node.dataMine + "-" + thisObject.node.bot
-            let botId = bot.dataMine + "-" + bot.codeName
+            let botId = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "-" + bot.codeName
 
             if (ownerId !== botId) {
 

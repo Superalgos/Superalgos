@@ -340,7 +340,7 @@
 
                                     let dateForPath = previousDay.getUTCFullYear() + '/' + utilities.pad(previousDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(previousDay.getUTCDate(), 2);
                                     let fileName = "Data.json"
-                                    let filePathRoot = 'Project/' + bot.project + "/" + bot.mineType + "/" + bot.dataMine + "/" + "Candles-Volumes" + '/' + bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset
+                                    let filePathRoot = 'Project/' + bot.project + "/" + bot.mineType + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "/" + "Candles-Volumes" + '/' + bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset
                                     let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timeFrame + "/" + dateForPath;
                                     filePath += '/' + fileName
 
@@ -379,7 +379,7 @@
 
                                     let dateForPath = processDate.getUTCFullYear() + '/' + utilities.pad(processDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDate.getUTCDate(), 2);
                                     let fileName = "Data.json"
-                                    let filePathRoot = 'Project/' + bot.project + "/" + bot.mineType + "/" + bot.dataMine + "/" + "Candles-Volumes" + '/' + bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset
+                                    let filePathRoot = 'Project/' + bot.project + "/" + bot.mineType + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "/" + "Candles-Volumes" + '/' + bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset
                                     let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timeFrame + "/" + dateForPath;
                                     filePath += '/' + fileName
 

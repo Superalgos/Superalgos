@@ -38,7 +38,7 @@
             let filePath =
                 bot.processNode.referenceParent.parentNode.parentNode.project +    // project
                 '/Bots-Plotters-Code/' +
-                bot.dataMine +
+                TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName +
                 "/" + "bots" + "/" +
                 bot.processNode.referenceParent.parentNode.config.repo + "/" +
                 pProcessConfig.codeName
@@ -59,7 +59,7 @@
                 USER_BOT_MODULE = {}
                 USER_BOT_MODULE.newUserBot = eval(text); // TODO This needs to be changed function
 
-                filePath = bot.dataMine + "/" + "bots" + "/" + bot.processNode.referenceParent.parentNode.config.repo
+                filePath = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "/" + "bots" + "/" + bot.processNode.referenceParent.parentNode.config.repo
                 filePath += "/Commons.js"
 
                 fileStorage.getTextFile(filePath, onCommonsDownloaded);

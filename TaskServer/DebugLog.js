@@ -191,7 +191,7 @@ exports.newDebugLog = function (processIndex) {
             let message = "['" + newDate + "'," + messageId + ",'" + pModule + "','" + pMessage + "']"
             let logLine = '\r\n' + message;
 
-            if (process.env.CONSOLE_LOG === "true" || message.indexOf("ERROR") > 0) {
+            if (message.indexOf("ERROR") > 0) {
                 let key = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + '-' + thisObject.bot.codeName + '-' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName
                 console.log('*********** ' + message + ' @ ' + key)
             }

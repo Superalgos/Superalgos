@@ -27,7 +27,7 @@ exports.newMultiProject = function () {
             if (projectDefinition.TS.utilities !== undefined) {
                 for (let j = 0; j < projectDefinition.TS.utilities.length; j++) {
                     let utilityDefinition = projectDefinition.TS.utilities[j]
-                    let path = process.env.REQUIRED_PROJECTS_PATH + '/' + projectDefinition.name + '/' + 'TS' + '/' + 'Utilities' + '/' + utilityDefinition.fileName
+                    let path = global.env.PROJECTS_REQUIRED_PATH + '/' + projectDefinition.name + '/' + 'TS' + '/' + 'Utilities' + '/' + utilityDefinition.fileName
 
                     let requiredObject = require(path)
                     let requiredFunction = requiredObject[utilityDefinition.functionName]
@@ -39,7 +39,7 @@ exports.newMultiProject = function () {
             if (projectDefinition.TS.globals !== undefined) {
                 for (let j = 0; j < projectDefinition.TS.globals.length; j++) {
                     let globalDefinition = projectDefinition.TS.globals[j]
-                    let path = process.env.REQUIRED_PROJECTS_PATH + '/' + projectDefinition.name + '/' + 'TS' + '/' + 'Globals' + '/' + globalDefinition.fileName
+                    let path = global.env.PROJECTS_REQUIRED_PATH + '/' + projectDefinition.name + '/' + 'TS' + '/' + 'Globals' + '/' + globalDefinition.fileName
 
                     let requiredObject = require(path)
                     let requiredFunction = requiredObject[globalDefinition.functionName]
@@ -51,7 +51,7 @@ exports.newMultiProject = function () {
             if (projectDefinition.TS.functionLibraries !== undefined) {
                 for (let j = 0; j < projectDefinition.TS.functionLibraries.length; j++) {
                     let functionLibraryDefinition = projectDefinition.TS.functionLibraries[j]
-                    let path = process.env.REQUIRED_PROJECTS_PATH + '/' + projectDefinition.name + '/' + 'TS' + '/' + 'Function-Libraries' + '/' + functionLibraryDefinition.fileName
+                    let path = global.env.PROJECTS_REQUIRED_PATH + '/' + projectDefinition.name + '/' + 'TS' + '/' + 'Function-Libraries' + '/' + functionLibraryDefinition.fileName
 
                     let requiredObject = require(path)
                     let requiredFunction = requiredObject[functionLibraryDefinition.functionName]
@@ -63,7 +63,7 @@ exports.newMultiProject = function () {
             if (projectDefinition.TS.botClasses !== undefined) {
                 for (let j = 0; j < projectDefinition.TS.botClasses.length; j++) {
                     let botClassDefinition = projectDefinition.TS.botClasses[j]
-                    let path = process.env.REQUIRED_PROJECTS_PATH + '/' + projectDefinition.name + '/' + 'TS' + '/' + 'Bot-Classes' + '/' + botClassDefinition.fileName
+                    let path = global.env.PROJECTS_REQUIRED_PATH + '/' + projectDefinition.name + '/' + 'TS' + '/' + 'Bot-Classes' + '/' + botClassDefinition.fileName
 
                     let requiredObject = require(path)
                     let requiredFunction = requiredObject[botClassDefinition.functionName]

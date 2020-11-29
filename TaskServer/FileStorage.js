@@ -74,10 +74,10 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
             let fileLocation
             let mustBeJason
             if (filePath.indexOf("/bots/") > 0) {
-                fileLocation = process.env.PROJECTS_PATH + '/' + filePath
+                fileLocation = global.env.PROJECTS_PATH + '/' + filePath
                 mustBeJason = false
             } else {
-                fileLocation = process.env.STORAGE_PATH + '/' + filePath
+                fileLocation = global.env.STORAGE_PATH + '/' + filePath
                 mustBeJason = true
             }
 
@@ -234,9 +234,9 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
             /* Choose path for either logs or data */
             let fileLocation
             if (filePath.indexOf("/Logs/") > 0) {
-                fileLocation = process.env.LOG_PATH + '/' + filePath
+                fileLocation = global.env.LOG_PATH + '/' + filePath
             } else {
-                fileLocation = process.env.STORAGE_PATH + '/' + filePath
+                fileLocation = global.env.STORAGE_PATH + '/' + filePath
             }
 
             try {
@@ -391,9 +391,9 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
             /* Choose path for either logs or data */
             let fileLocation
             if (filePath.indexOf("/Logs/") > 0) {
-                fileLocation = process.env.LOG_PATH + '/' + filePath
+                fileLocation = global.env.LOG_PATH + '/' + filePath
             } else {
-                fileLocation = process.env.STORAGE_PATH + '/' + filePath
+                fileLocation = global.env.STORAGE_PATH + '/' + filePath
             }
 
             try {

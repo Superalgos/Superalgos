@@ -1,3 +1,8 @@
+/* Load Environment Variables */
+let ENVIRONMENT = require('./Environment.js');
+let ENVIRONMENT_MODULE = ENVIRONMENT.newEnvironment()
+global.env = ENVIRONMENT_MODULE
+
 /* Setting up the handling of Node JS process events */
 let NODE_JS_PROCESS = require('./NodeJsProcess.js');
 let NODE_JS_PROCESS_MODULE = NODE_JS_PROCESS.newNodeJsProcess()
@@ -44,7 +49,13 @@ function preLoader() {
         This process was started not by the Task Manager, but independently 
         (most likely for debugging purposes). In this case we listen to an event 
         with the Task Info that should be emitted at the UI, bypassing the Task Manager. 
+        But before that, we need to change the path of these env variables since the home
+        directory now is TaskServer and not its parent.
         */
+        global.env.STORAGE_PATH = '.' + global.env.STORAGE_PATH
+        global.env.PROJECTS_PATH = '.' + global.env.PROJECTS_PATH
+        global.env.LOG_PATH = '.' + global.env.LOG_PATH
+
         try {
             global.EVENT_SERVER_CLIENT_MODULE.listenToEvent('Task Server', 'Debug Task Started', undefined, 'Task Server', undefined, startDebugging)
             function startDebugging(message) {
@@ -114,19 +125,19 @@ function bootingProcess() {
                     console.log("[ERROR] Task Server -> Task -> bootingProcess -> Project Definition not found. ")
                     global.unexpectedError = 'Project Definition not found. Fatal Error, can not continue. Fix the problem and try again.'
                     TS.projects.superalgos.functionLibraries.nodeJSFunctions.exitProcess
-                    throw('Fatal Error')
+                    throw ('Fatal Error')
                 }
                 if (TS.projects.superalgos.globals.taskConstants.PROJECT_DEFINITION_NODE.config.codeName === undefined) {
                     console.log("[ERROR] Task Server -> Task -> bootingProcess -> Project Definition with codeName undefined. ")
                     global.unexpectedError = 'Project Definition with codeName undefined. Fatal Error, can not continue. Fix the problem and try again.'
                     TS.projects.superalgos.functionLibraries.nodeJSFunctions.exitProcess
-                    throw('Fatal Error')
+                    throw ('Fatal Error')
                 }
                 if (TS.projects.superalgos.globals.taskConstants.PROJECT_DEFINITION_NODE.config.codeName === '') {
                     console.log("[ERROR] Task Server -> Task -> bootingProcess -> Project Definition without codeName. ")
                     global.unexpectedError = 'Project Definition without codeName. Fatal Error, can not continue. Fix the problem and try again.'
                     TS.projects.superalgos.functionLibraries.nodeJSFunctions.exitProcess
-                    throw('Fatal Error')
+                    throw ('Fatal Error')
                 }
             }
         }

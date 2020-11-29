@@ -32,20 +32,29 @@ exports.newLearningSession = function (processIndex, bot, parentLogger) {
                 callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 return;
             }
+            /* 
+            We will store here the session key, which we will need everytine
+            we need to emit an event related to the session itself.
+            */
+            let VARIABLES_BY_PROCESS_INDEX = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex)
+            VARIABLES_BY_PROCESS_INDEX.SESSION_KEY =
+                TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.name +
+                '-' +
+                TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.type +
+                '-' +
+                TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.id
+
+            /* 
+            We will store all session keys on a map so as to be able to send an event to all 
+            of them when the task stops. 
+            */
+            TS.projects.superalgos.globals.taskVariables.SESSION_MAP.set(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY, TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY)
 
             /* Listen to event to start or stop the session. */
-            bot.sessionKey = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.name + '-' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.type + '-' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.id
-            TS.projects.superalgos.globals.taskVariables.SESSION_MAP.set(bot.sessionKey, bot.sessionKey)
-
-            global.EVENT_SERVER_CLIENT_MODULE.listenToEvent(bot.sessionKey, 'Learning Session Status', undefined, bot.sessionKey, undefined, onSessionStatus)
-            global.EVENT_SERVER_CLIENT_MODULE.listenToEvent(bot.sessionKey, 'Run Learning Session', undefined, bot.sessionKey, undefined, onSessionRun)
-            global.EVENT_SERVER_CLIENT_MODULE.listenToEvent(bot.sessionKey, 'Stop Learning Session', undefined, bot.sessionKey, undefined, onSessionStop)
-            global.EVENT_SERVER_CLIENT_MODULE.listenToEvent(bot.sessionKey, 'Resume Learning Session', undefined, bot.sessionKey, undefined, onSessionResume)
-
-            /* Connect this here so that it is accesible from other places */
-            bot.sessionError = sessionError
-            bot.sessionWarning = sessionWarning
-            bot.sessionInfo = sessionInfo
+            global.EVENT_SERVER_CLIENT_MODULE.listenToEvent(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY, 'Learning Session Status', undefined, TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY, undefined, onSessionStatus)
+            global.EVENT_SERVER_CLIENT_MODULE.listenToEvent(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY, 'Run Learning Session', undefined, TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY, undefined, onSessionRun)
+            global.EVENT_SERVER_CLIENT_MODULE.listenToEvent(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY, 'Stop Learning Session', undefined, TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY, undefined, onSessionStop)
+            global.EVENT_SERVER_CLIENT_MODULE.listenToEvent(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY, 'Resume Learning Session', undefined, TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY, undefined, onSessionResume)
 
             /* Heartbeats sent to the UI */
             bot.sessionHeartBeat = sessionHeartBeat
@@ -58,12 +67,12 @@ exports.newLearningSession = function (processIndex, bot, parentLogger) {
                     let event = {
                         status: 'Learning Session Runnning'
                     }
-                    global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(bot.sessionKey, 'Status Response', event)
+                    global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY, 'Status Response', event)
                 } else {
                     let event = {
                         status: 'Learning Session Not Runnning'
                     }
-                    global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(bot.sessionKey, 'Status Response', event)
+                    global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY, 'Status Response', event)
                 }
             }
 
@@ -156,7 +165,7 @@ exports.newLearningSession = function (processIndex, bot, parentLogger) {
                 socialBotsModule.finalize()
                 bot.STOP_SESSION = true
                 parentLogger.write(MODULE_NAME, '[IMPORTANT] stopSession -> Stopping the Session now. ')
-                sessionInfo(bot.LEARNING_SESSION, commandOrigin)
+                sessionInfo(processIndex, bot.LEARNING_SESSION, commandOrigin, parentLogger)
             }
 
             function setUpSessionFolderName() {
@@ -185,7 +194,7 @@ exports.newLearningSession = function (processIndex, bot, parentLogger) {
                 if (bot.LEARNING_SESSION.learningParameters === undefined) {
                     let errorMessage = "Session Node with no Parameters."
                     parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
-                    bot.sessionError(bot.LEARNING_SESSION, errorMessage)
+                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, bot.LEARNING_SESSION, errorMessage, parentLogger)
                     return false
                 }
 
@@ -205,14 +214,14 @@ exports.newLearningSession = function (processIndex, bot, parentLogger) {
                         if (isNaN(new Date(bot.LEARNING_SESSION.learningParameters.timeRange.config.initialDatetime)).valueOf()) {
                             let errorMessage = "sessionParameters.timeRange.config.initialDatetime is not a valid date."
                             parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
-                            bot.sessionError(bot.LEARNING_SESSION.learningParameters, errorMessage)
+                            TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, bot.LEARNING_SESSION.learningParameters, errorMessage, parentLogger)
                             return false
                         }
                     }
                     if (isNaN(new Date(bot.LEARNING_SESSION.learningParameters.timeRange.config.finalDatetime)).valueOf()) {
                         let errorMessage = "sessionParameters.timeRange.config.initialDatetime is not a valid date."
                         parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
-                        bot.sessionError(bot.LEARNING_SESSION.learningParameters, errorMessage)
+                        TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, bot.LEARNING_SESSION.learningParameters, errorMessage, parentLogger)
                         return false
                     }
                 }
@@ -274,20 +283,20 @@ exports.newLearningSession = function (processIndex, bot, parentLogger) {
                 if (bot.LEARNING_SESSION.learningParameters.timeFrame === undefined) {
                     let errorMessage = "Session Parameters Node with no Time Frame."
                     parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
-                    bot.sessionError(bot.LEARNING_SESSION.learningParameters, errorMessage)
+                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, bot.LEARNING_SESSION.learningParameters, errorMessage, parentLogger)
                     return false
                 }
                 if (bot.LEARNING_SESSION.learningParameters.timeFrame.config.label === undefined) {
                     let errorMessage = "Session Parameters Node with no Time Frame Label configuration."
                     parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
-                    bot.sessionError(bot.LEARNING_SESSION.learningParameters.timeFrame, errorMessage)
+                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, bot.LEARNING_SESSION.learningParameters.timeFrame, errorMessage, parentLogger)
                     return false
                 }
                 bot.LEARNING_SESSION.learningParameters.timeFrame.config.value = getTimeFrameFromLabel(bot.LEARNING_SESSION.learningParameters.timeFrame.config.label)
                 if (bot.LEARNING_SESSION.learningParameters.timeFrame.config.value === undefined) {
                     let errorMessage = "Config error: label value not recognized. Try 01-min or 01-hs for example."
                     parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
-                    bot.sessionError(bot.LEARNING_SESSION.learningParameters.timeFrame, errorMessage)
+                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, bot.LEARNING_SESSION.learningParameters.timeFrame, errorMessage, parentLogger)
                     return false
                 }
 
@@ -295,13 +304,13 @@ exports.newLearningSession = function (processIndex, bot, parentLogger) {
                 if (bot.LEARNING_SESSION.learningParameters.sessionBaseAsset === undefined) {
                     let errorMessage = "Session Parameters Node with no Session Base Asset."
                     parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
-                    bot.sessionError(bot.LEARNING_SESSION.learningParameters, errorMessage)
+                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, bot.LEARNING_SESSION.learningParameters, errorMessage, parentLogger)
                     return false
                 }
                 if (bot.LEARNING_SESSION.learningParameters.sessionBaseAsset.config.initialBalance === undefined) {
                     let errorMessage = "Session Parameters Session Base Asset with no initialBalance configuration."
                     parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
-                    bot.sessionError(bot.LEARNING_SESSION.learningParameters.sessionBaseAsset, errorMessage)
+                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, bot.LEARNING_SESSION.learningParameters.sessionBaseAsset, errorMessage, parentLogger)
                     return false
                 }
 
@@ -309,13 +318,13 @@ exports.newLearningSession = function (processIndex, bot, parentLogger) {
                 if (bot.LEARNING_SESSION.learningParameters.sessionQuotedAsset === undefined) {
                     let errorMessage = "Session Parameters Node with no Session Quoted Asset."
                     parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
-                    bot.sessionError(bot.LEARNING_SESSION.learningParameters, errorMessage)
+                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, bot.LEARNING_SESSION.learningParameters, errorMessage, parentLogger)
                     return false
                 }
                 if (bot.LEARNING_SESSION.learningParameters.sessionQuotedAsset.config.initialBalance === undefined) {
                     let errorMessage = "Session Parameters Session Quoted Asset with no initialBalance configuration."
                     parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
-                    bot.sessionError(bot.LEARNING_SESSION.learningParameters.sessionQuotedAsset, errorMessage)
+                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, bot.LEARNING_SESSION.learningParameters.sessionQuotedAsset, errorMessage, parentLogger)
                     return false
                 }
 
@@ -366,22 +375,40 @@ exports.newLearningSession = function (processIndex, bot, parentLogger) {
                 return true
             }
 
-            function startLiveTrading(message) {
-                if (bot.KEY === undefined || bot.SECRET === undefined) {
-                    let errorMessage = "Key 'codeName' or 'secret' not provided. Plese check that and try again."
-                    parentLogger.write(MODULE_NAME, "[ERROR] initialize -> startLiveTrading -> " + errorMessage)
-                    bot.sessionError(bot.LEARNING_SESSION, errorMessage)
+            function checkKey() {
+                if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference === undefined) {
+                    let errorMessage = "Key Reference not defined. Please check that and try again."
+                    parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkKey -> " + errorMessage)
+                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, bot.LEARNING_SESSION, errorMessage, parentLogger)
+                    return false
+                }
+                if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent === undefined) {
+                    let errorMessage = "Key Reference not referencing an Exchange Account Key. Please check that and try again."
+                    parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkKey -> " + errorMessage)
+                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, bot.LEARNING_SESSION, errorMessage, parentLogger)
+                    return false
+                }
+                if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.codeName === undefined) {
+                    let errorMessage = "Key 'codeName' undefined. Paste there you key. Please check that and try again."
+                    parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkKey -> " + errorMessage)
+                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, bot.LEARNING_SESSION, errorMessage, parentLogger)
+                    return false
+                }
+                if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.secret === undefined) {
+                    let errorMessage = "Key 'secret' undefined. Paste there you key secret. Please check that and try again."
+                    parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkKey -> " + errorMessage)
+                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, bot.LEARNING_SESSION, errorMessage, parentLogger)
                     return false
                 }
                 return true
             }
 
-            function startFordwardTesting(message) {
-                if (bot.KEY === undefined || bot.SECRET === undefined) {
-                    parentLogger.write(MODULE_NAME, "[WARN] initialize -> startFordwardTesting -> Key name or Secret not provided, not possible to run the process in Forward Testing mode.")
-                    console.log("Key 'codeName' or 'secret' not provided. Plese check that and try again.")
-                    return false
-                }
+            function startLiveTrading() {
+                return checkKey()
+            }
+
+            function startFordwardTesting() {
+                if (checkKey() === false) { return false }
 
                 /* Reduce the balance */
                 let balancePercentage = 1 // This is the default value
@@ -436,77 +463,11 @@ exports.newLearningSession = function (processIndex, bot, parentLogger) {
                     percentage: percentage,
                     status: status
                 }
-                global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(bot.sessionKey, 'Heartbeat', event)
+                global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY, 'Heartbeat', event)
 
                 if (TS.projects.superalgos.globals.taskVariables.IS_TASK_STOPPING === true) {
                     bot.STOP_SESSION = true
                     parentLogger.write(MODULE_NAME, '[IMPORTANT] sessionHeartBeat -> Stopping the Session now. ')
-                }
-            }
-
-            function sessionError(node, errorMessage) {
-                let event
-                if (node !== undefined) {
-                    event = {
-                        nodeName: node.name,
-                        nodeType: node.type,
-                        nodeId: node.id,
-                        errorMessage: errorMessage
-                    }
-                } else {
-                    event = {
-                        errorMessage: errorMessage
-                    }
-                }
-                global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(bot.sessionKey, 'Error', event)
-
-                if (TS.projects.superalgos.globals.taskVariables.IS_TASK_STOPPING === true) {
-                    bot.STOP_SESSION = true
-                    parentLogger.write(MODULE_NAME, '[IMPORTANT] sessionError -> Stopping the Session now. ')
-                }
-            }
-
-            function sessionWarning(node, warningMessage) {
-                let event
-                if (node !== undefined) {
-                    event = {
-                        nodeName: node.name,
-                        nodeType: node.type,
-                        nodeId: node.id,
-                        warningMessage: warningMessage
-                    }
-                } else {
-                    event = {
-                        warningMessage: warningMessage
-                    }
-                }
-                global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(bot.sessionKey, 'Warning', event)
-
-                if (TS.projects.superalgos.globals.taskVariables.IS_TASK_STOPPING === true) {
-                    bot.STOP_SESSION = true
-                    parentLogger.write(MODULE_NAME, '[IMPORTANT] sessionWarning -> Stopping the Session now. ')
-                }
-            }
-
-            function sessionInfo(node, infoMessage) {
-                let event
-                if (node !== undefined) {
-                    event = {
-                        nodeName: node.name,
-                        nodeType: node.type,
-                        nodeId: node.id,
-                        infoMessage: infoMessage
-                    }
-                } else {
-                    event = {
-                        infoMessage: infoMessage
-                    }
-                }
-                global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(bot.sessionKey, 'Info', event)
-
-                if (TS.projects.superalgos.globals.taskVariables.IS_TASK_STOPPING === true) {
-                    bot.STOP_SESSION = true
-                    parentLogger.write(MODULE_NAME, '[IMPORTANT] sessionInfo -> Stopping the Session now. ')
                 }
             }
 

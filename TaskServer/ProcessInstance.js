@@ -39,7 +39,7 @@
             let VARIABLES_BY_PROCESS_INDEX = {
                 LOGS_TO_DELETE_QUEUE: [],
                 MAIN_LOOP_COUNTER: 0,
-                KEY_FOR_EVENTS:
+                PROCESS_KEY:
                     TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].name + '-' +
                     TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].type + '-' +
                     TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].id
@@ -62,15 +62,6 @@
                 TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName +
                 "-" +
                 TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
-
-            if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference !== undefined) {
-                if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent !== undefined) {
-                    let key = TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent
-
-                    botConfig.KEY = key.config.codeName
-                    botConfig.SECRET = key.config.secret
-                }
-            }
 
             switch (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.type) {
                 case 'Sensor Bot': {

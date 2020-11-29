@@ -147,7 +147,7 @@ function newWorkspace() {
         let savedSessionTimestamp = window.localStorage.getItem('Session Timestamp')
         if (Number(savedSessionTimestamp) !== sessionTimestamp) {
             UI.projects.superalgos.spaces.cockpitSpace.setStatus(
-                'Could not save the Workspace. You have more that one instance of the Superlagos User Interface open at the same time. Plese close this instance as it is older than the others.'
+                'Could not save the Workspace. You have more that one instance of the Superlagos User Interface open at the same time. Please close this instance as it is older than the others.'
                 , 150, UI.projects.superalgos.spaces.cockpitSpace.statusTypes.WARNING)
             return
         }

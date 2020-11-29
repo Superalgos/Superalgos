@@ -1,4 +1,4 @@
-exports.newNodeJsProcess = function newNodeJsProcess() {
+exports.newNodeJsProcess = function () {
 
     let thisObject = {
         initialize: initialize

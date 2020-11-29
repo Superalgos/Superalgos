@@ -24,7 +24,7 @@
         host = 'localhost'
     }
     if (port === undefined) {
-        port = process.env.WEB_SOCKETS_INTERFACE_PORT  
+        port = global.env.WEB_SOCKETS_INTERFACE_PORT  
     }
      
     let messageCounter = 0
@@ -48,7 +48,8 @@
 
             WEB_SOCKETS_CLIENT.onerror = err => {
                 console.log('[ERROR] Task Server -> Event Server Client -> setuptWebSockets -> On connection error -> error = ' + err.stack)
-                console.log('[ERROR] This could mean that the port '+ port +' is taken by some other app running at your system. To resolve this issue, please pick another port number and change it at the .ENV file inside the Superalgos folder AND at the .ENV file inside the TaskServer folder. After that run the app again. ')
+                console.log('[ERROR] This could mean that the port '+ port +' is taken by some other app running at your system. To resolve this issue, please pick another port number and change it at the .ENV file inside the Superalgos folder AND at the .Environment.js  file inside the TaskServer folder. After that run the app again. ')
+                console.log('[ERROR] If you are debugging, it can also mean that the Superalgos Client is not running. ')
             }
             WEB_SOCKETS_CLIENT.onopen = () => {
                 try {

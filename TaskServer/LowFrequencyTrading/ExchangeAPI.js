@@ -24,14 +24,11 @@
         tradingSystem = bot.simulationState.tradingSystem
 
         exchangeId = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name.toLowerCase()
-        
-        let key = bot.KEY
-        let secret = bot.SECRET
-        
+                
         const exchangeClass = ccxt[exchangeId]
         const exchangeConstructorParams = {
-            'apiKey': key,
-            'secret': secret,
+            'apiKey': TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.codeName,
+            'secret': TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.secret,
             'timeout': 30000,
             'enableRateLimit': true,
             verbose: false,
@@ -151,10 +148,10 @@
                 errorFooter()
             }
             function errorFooter(){
-                logError ('key: ->' + bot.KEY + '<-')
-                logError ('secret: ->' + bot.SECRET + '<-')
-                logError ('key.length:' + bot.KEY.length )
-                logError ('secret.length:' + bot.SECRET.length )
+                logError ('key: ->' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.codeName + '<-')
+                logError ('secret: ->' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.secret + '<-')
+                logError ('key.length:' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.codeName.length )
+                logError ('secret.length:' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.secret.length )
                 logError ('Double check that you copied the key at the codeName property and the secret at secret property without bringing any invisible caracter from the exchange web site, or leaving any character from the sample text. Also check that the keys are not disabled at the exchange ot that they are not restricted by IP.')
                 logError ('As a remainder. Binance key and secret are 64 bytes in lenght each one. ' )
             }

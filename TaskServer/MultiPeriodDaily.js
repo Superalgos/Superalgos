@@ -279,11 +279,13 @@
                     const timeFrameLabel = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[n][1]
 
                     /* Check Time Frames Filter */
-                    if (bot.dailyTimeFrames !== undefined) {
-                        if (bot.dailyTimeFrames.includes(timeFrameLabel) === false) {
-                            /* We are not going to process this Time Frame */
-                            timeFramesControlLoop()
-                            return
+                    if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.timeFramesFilter !== undefined) {
+                        if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.timeFramesFilter.config.dailyTimeFrames !== undefined) {
+                            if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.timeFramesFilter.config.dailyTimeFrames.includes(timeFrameLabel) === false) {
+                                /* We are not going to process this Time Frame */
+                                timeFramesControlLoop()
+                                return
+                            }
                         }
                     }
 
@@ -520,8 +522,12 @@
                     let timeFrameLabel = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[n][1]
 
                     /* Check Time Frames Filter */
-                    if (bot.dailyTimeFrames !== undefined) {
-                        if (bot.dailyTimeFrames.includes(timeFrameLabel) === true) {
+                    if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.timeFramesFilter !== undefined) {
+                        if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.timeFramesFilter.config.dailyTimeFrames !== undefined) {
+                            if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.timeFramesFilter.config.dailyTimeFrames.includes(timeFrameLabel) === true) {
+                                timeFramesArray.push(timeFrameLabel)
+                            }
+                        } else {
                             timeFramesArray.push(timeFrameLabel)
                         }
                     } else {
@@ -553,8 +559,10 @@
                 thisReport.file.lastFile = lastFileDate;
                 thisReport.file.interExecutionMemoryArray = interExecutionMemoryArray;
                 thisReport.file.beginingOfMarket = beginingOfMarket.toUTCString()
-                if (bot.dailyTimeFrames !== undefined) {
-                    thisReport.file.timeFrames = bot.dailyTimeFrames
+                if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.timeFramesFilter !== undefined) {
+                    if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.timeFramesFilter.config.dailyTimeFrames !== undefined) {
+                        thisReport.file.timeFrames = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.timeFramesFilter.config.dailyTimeFrames
+                    }
                 }
                 thisReport.save(callBack)
 

@@ -60,11 +60,13 @@
                     const timeFrameLabel = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][1]
 
                     /* Check Time Frames Filter */
-                    if (bot.marketTimeFrames !== undefined) {
-                        if (bot.marketTimeFrames.includes(timeFrameLabel) === false) {
-                            /* We are not going to process this Time Frame */
-                            timeFramesControlLoop()
-                            return
+                    if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.timeFramesFilter !== undefined) {
+                        if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.timeFramesFilter.config.marketTimeFrames !== undefined) {
+                            if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.timeFramesFilter.config.marketTimeFrames.includes(timeFrameLabel) === false) {
+                                /* We are not going to process this Time Frame */
+                                timeFramesControlLoop()
+                                return
+                            }
                         }
                     }
 
@@ -141,7 +143,7 @@
             }
 
             function writeTimeFramesFiles(callBack) {
-                let outputDatasets = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
+                let outputDatasets = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
                 let outputDatasetIndex = -1;
                 controlLoop()
 
@@ -167,8 +169,12 @@
                     let timeFrameLabel = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][1]
 
                     /* Check Time Frames Filter */
-                    if (bot.marketTimeFrames !== undefined) {
-                        if (bot.marketTimeFrames.includes(timeFrameLabel) === true) {
+                    if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.timeFramesFilter !== undefined) {
+                        if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.timeFramesFilter.config.marketTimeFrames !== undefined) {
+                            if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.timeFramesFilter.config.marketTimeFrames.includes(timeFrameLabel) === true) {
+                                timeFramesArray.push(timeFrameLabel)
+                            }
+                        } else {
                             timeFramesArray.push(timeFrameLabel)
                         }
                     } else {
@@ -197,8 +203,10 @@
                 let thisReport = statusDependencies.statusReports.get(reportKey)
 
                 thisReport.file.lastExecution = bot.processDatetime;
-                if (bot.marketTimeFrames !== undefined) {
-                    thisReport.file.timeFrames = bot.marketTimeFrames
+                if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.timeFramesFilter !== undefined) {
+                    if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.timeFramesFilter.config.marketTimeFrames !== undefined) {
+                        thisReport.file.timeFrames = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.timeFramesFilter.config.marketTimeFrames
+                    }
                 }
                 thisReport.save(callBack)
 

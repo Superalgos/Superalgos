@@ -63,13 +63,6 @@
                 "-" +
                 TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
 
-
-            /* Time Frame Filter */
-            if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.timeFramesFilter !== undefined) {
-                botConfig.dailyTimeFrames = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.timeFramesFilter.config.dailyTimeFrames
-                botConfig.marketTimeFrames = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.timeFramesFilter.config.marketTimeFrames
-            }
-
             if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference !== undefined) {
                 if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent !== undefined) {
                     let key = TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent

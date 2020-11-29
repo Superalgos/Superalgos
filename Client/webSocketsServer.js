@@ -9,7 +9,6 @@
         run: run
     }
 
-    require('dotenv').config()
     const WEB_SOCKET = require('ws')
     let socketServer
     let port = global.env.WEB_SOCKETS_INTERFACE_PORT  

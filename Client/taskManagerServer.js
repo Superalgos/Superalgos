@@ -13,7 +13,6 @@
     */
 
     const { fork } = require('child_process')
-    require('dotenv').config()
     tasksMap = new Map()
 
     return thisObject

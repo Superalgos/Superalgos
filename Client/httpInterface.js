@@ -6,7 +6,6 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
         run: run
     }
 
-    require('dotenv').config()
     const open = require('open')
 
     let port = global.env.HTTP_INTERFACE_PORT

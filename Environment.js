@@ -17,5 +17,5 @@ exports.newEnvironment = function () {
         PATH_TO_FONTS: './Client/WebServer/Fonts'
     }
 
-    return thisObject;
+    return thisObject
 }

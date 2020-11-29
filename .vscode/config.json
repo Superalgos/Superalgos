@@ -1,0 +1,12 @@
+{
+    "codeName": "Multi-Period-Market",
+    "description": "Calculates Candles Patterns for Time Frames of 01-hs and above.",
+    "deadWaitTime": 0,
+    "normalWaitTime": 0,
+    "retryWaitTime": 10000,
+    "sleepWaitTime": 3600000,
+    "comaWaitTime": 86400000,
+    "framework": {
+      "name": "Multi-Period-Market"
+    }
+  }

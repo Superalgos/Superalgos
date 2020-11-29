@@ -162,13 +162,6 @@
                             return
                         }
 
-                        if (bot.hasTheBotJustStarted === true && processConfig.framework.startDate !== undefined && processConfig.framework.startDate.resumeExecution === false) {
-
-                            logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> Starting from the begining because bot has just started and resume execution was true.")
-                            startFromBegining()
-                            return
-                        }
-
                         contextVariables.lastFile = new Date(thisReport.lastFile)
                         interExecutionMemoryArray = thisReport.interExecutionMemoryArray;
 
@@ -566,7 +559,6 @@
                 }
                 thisReport.save(callBack)
 
-                bot.hasTheBotJustStarted = false;
             }
         }
         catch (err) {

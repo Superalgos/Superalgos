@@ -72,34 +72,6 @@
                 }
             }
 
-            if (processConfig.framework !== undefined) {
-                if (processConfig.framework.name === "Multi-Period-Daily" || processConfig.framework.name === "Multi-Period-Market" || processConfig.framework.name === "Low-Frequency-Trading-Process") {
-                    if (processConfig.framework.startDate !== undefined) {
-                        processConfig.framework.startDate.resumeExecution = true;
-                        if (processConfig.startMode.noTime !== undefined) {
-                            if (processConfig.startMode.noTime.run === "true") {
-                                if (processConfig.startMode.noTime.beginDatetime !== undefined) {
-                                    processConfig.framework.startDate.fixedDate = processConfig.startMode.noTime.beginDatetime;
-                                    processConfig.framework.startDate.resumeExecution = true;
-                                }
-                            }
-                        }
-                    }
-                    if (processConfig.startMode !== undefined) {
-                        if (processConfig.startMode.userDefined !== undefined) {
-                            if (processConfig.startMode.userDefined.run === "true") {
-                                if (processConfig.startMode.userDefined.beginDatetime !== undefined) {
-                                    processConfig.framework.startDate.fixedDate = processConfig.startMode.userDefined.beginDatetime;
-                                    processConfig.framework.startDate.resumeExecution = processConfig.startMode.userDefined.resumeExecution;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-            botConfig.hasTheBotJustStarted = true;
-
             switch (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.type) {
                 case 'Sensor Bot': {
                     runSensorBot()

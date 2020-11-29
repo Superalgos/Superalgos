@@ -84,16 +84,10 @@
 
     function run(callBackFunction) {
         try {
-            let fixedTimeLoopIntervalHandle;
-
             /* Heartbeats sent to the UI */
             bot.processHeartBeat = processHeartBeat
 
-            if (bot.runAtFixedInterval === true) {
-                fixedTimeLoopIntervalHandle = setInterval(loop, bot.fixedInterval);
-            } else {
-                loop();
-            }
+            loop();
 
             function loop() {
                 try {
@@ -769,7 +763,6 @@
                     global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).KEY_FOR_EVENTS, 'Stopped')
                 }
                 logger.persist();
-                clearInterval(fixedTimeLoopIntervalHandle);
                 clearTimeout(nextLoopTimeoutHandle);
                 if (global.unexpectedError !== undefined) {
                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
@@ -780,7 +773,6 @@
 
         } catch (err) {
             parentLogger.write(MODULE_NAME, "[ERROR] run -> err = " + err.stack);
-            clearInterval(fixedTimeLoopIntervalHandle);
             clearTimeout(nextLoopTimeoutHandle);
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
         }

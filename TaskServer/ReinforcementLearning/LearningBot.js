@@ -42,7 +42,6 @@ exports.newLearningBot = function (processIndex, bot, parentLogger) {
     function run(callBackFunction) {
         try {
             /* Some initial values*/
-            let fixedTimeLoopIntervalHandle;
             bot.STOP_SESSION = true;
             if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, '[IMPORTANT] run -> Stopping the Session now. ') }
 
@@ -655,7 +654,6 @@ exports.newLearningBot = function (processIndex, bot, parentLogger) {
                 }
                 sessionStopped()
                 logger.persist();
-                clearInterval(fixedTimeLoopIntervalHandle);
                 clearTimeout(nextLoopTimeoutHandle);
                 if (global.unexpectedError !== undefined) {
                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
@@ -673,7 +671,6 @@ exports.newLearningBot = function (processIndex, bot, parentLogger) {
 
         } catch (err) {
             parentLogger.write(MODULE_NAME, "[ERROR] run -> err = " + err.stack);
-            clearInterval(fixedTimeLoopIntervalHandle);
             clearTimeout(nextLoopTimeoutHandle);
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
         }

@@ -98,112 +98,27 @@
                 }
             }
 
-            if (processConfig.startMode === undefined) { // Default 
+            botConfig.hasTheBotJustStarted = true;
 
-                botConfig.hasTheBotJustStarted = true;
-
-                switch (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.type) {
-                    case 'Sensor Bot': {
-                        runSensorBot()
-                        break;
-                    }
-                    case 'Indicator Bot': {
-                        runIndicatorBot()
-                        break;
-                    }
-                    case 'Trading Bot': {
-                        runTradingBot()
-                        break;
-                    }
-                    case 'Learning Bot': {
-                        runLearningBot()
-                        break;
-                    }
-                    default: {
-                        console.log(logDisplace + "Process Instance : [ERROR] start -> Unexpected bot type. -> TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.type = " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.type);
-                    }
+            switch (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.type) {
+                case 'Sensor Bot': {
+                    runSensorBot()
+                    break;
                 }
-                return
-            }
-
-            if (processConfig.startMode.noTime !== undefined) {
-
-                if (processConfig.startMode.noTime.run === "true") {
-
-                    if (processConfig.startMode.noTime.resumeExecution === true) {
-                        botConfig.hasTheBotJustStarted = false;
-                    } else {
-                        botConfig.hasTheBotJustStarted = true;
-                    }
-
-                    switch (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.type) {
-                        case 'Sensor Bot': {
-                            runSensorBot()
-                            break;
-                        }
-                        case 'Indicator Bot': {
-                            runIndicatorBot()
-                            break;
-                        }
-                        case 'Trading Bot': {
-                            runTradingBot()
-                            break;
-                        }
-                        case 'Learning Bot': {
-                            runLearningBot()
-                            break;
-                        }
-                        default: {
-                            console.log(logDisplace + "Process Instance : [ERROR] start -> Unexpected bot type. -> TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.type = " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.type);
-                        }
-                    }
+                case 'Indicator Bot': {
+                    runIndicatorBot()
+                    break;
                 }
-            }
-
-            if (processConfig.startMode.fixedInterval !== undefined) {
-
-                if (processConfig.startMode.fixedInterval.run === "true") {
-
-                    botConfig.runAtFixedInterval = true;
-                    botConfig.fixedInterval = processConfig.startMode.fixedInterval.interval;
-
-                    switch (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.type) {
-                        case 'Sensor Bot': {
-                            runSensorBot()
-                            break;
-                        }
-                        default: {
-                            console.log(logDisplace + "Process Instance : [ERROR] start -> Unexpected bot type. -> TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.type = " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.type);
-                        }
-                    }
+                case 'Trading Bot': {
+                    runTradingBot()
+                    break;
                 }
-            }
-
-            if (processConfig.startMode.userDefined !== undefined) {
-
-                if (processConfig.startMode.userDefined.run === "true") {
-
-                    botConfig.startMode = "User Defined";
-
-                    if (processConfig.startMode.userDefined.resumeExecution === true) {
-                        botConfig.hasTheBotJustStarted = false;
-                    } else {
-                        botConfig.hasTheBotJustStarted = true;
-                    }
-
-                    switch (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.type) {
-                        case 'Trading Bot': {
-                            runTradingBot(processConfig);
-                            break;
-                        }
-                        case 'Learning Bot': {
-                            runLearningBot(processConfig);
-                            break;
-                        }
-                        default: {
-                            console.log(logDisplace + "Process Instance : [ERROR] start -> Unexpected bot type. -> TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.type = " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.type);
-                        }
-                    }
+                case 'Learning Bot': {
+                    runLearningBot()
+                    break;
+                }
+                default: {
+                    console.log(logDisplace + "Process Instance : [ERROR] start -> Unexpected bot type. -> TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.type = " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.type);
                 }
             }
 

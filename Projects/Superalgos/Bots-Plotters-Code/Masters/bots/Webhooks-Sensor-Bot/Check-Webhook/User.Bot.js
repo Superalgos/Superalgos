@@ -98,8 +98,8 @@ exports.newUserBot = function (processIndex, bot, logger, COMMONS, UTILITIES, FI
                 try {
 
                     let http = require('http');
-                    let url =   'http://' + process.env.WEB_SERVER_URL +
-                                ':' + process.env.HTTP_INTERFACE_PORT +
+                    let url =   'http://' + global.env.WEB_SERVER_URL +
+                                ':' + global.env.HTTP_INTERFACE_PORT +
                                 '/Webhook/Fetch-Messages/' +
                                 TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + "/" +
                                 TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "-" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName

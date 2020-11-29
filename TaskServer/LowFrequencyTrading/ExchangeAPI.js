@@ -24,11 +24,20 @@
         tradingSystem = bot.simulationState.tradingSystem
 
         exchangeId = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name.toLowerCase()
-                
+               
+        let key 
+        let secret 
+
+        if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference !== undefined) {
+            if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent !== undefined) {
+                key = TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.codeName
+                secret = TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.secret
+            }
+        }
         const exchangeClass = ccxt[exchangeId]
         const exchangeConstructorParams = {
-            'apiKey': TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.codeName,
-            'secret': TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.secret,
+            'apiKey': key,
+            'secret': secret,
             'timeout': 30000,
             'enableRateLimit': true,
             verbose: false,

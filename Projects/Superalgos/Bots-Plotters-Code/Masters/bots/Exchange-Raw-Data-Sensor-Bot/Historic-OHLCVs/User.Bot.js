@@ -88,12 +88,8 @@ exports.newUserBot = function (processIndex, bot, logger, COMMONS, UTILITIES, FI
                 limit = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.config.fetchLimit
             }
 
-            let key = process.env.KEY
-            let secret = process.env.SECRET
-
-            if (key === "undefined") { key = undefined }
-            if (secret === "undefined") { secret = undefined }
-
+            let key 
+            let secret 
 
             exchangeClass = ccxt[exchangeId]
             const exchangeConstructorParams = {

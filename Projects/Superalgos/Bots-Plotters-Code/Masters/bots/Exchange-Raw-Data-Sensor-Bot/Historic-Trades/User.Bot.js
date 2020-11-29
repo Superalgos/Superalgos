@@ -76,12 +76,8 @@ exports.newUserBot = function (processIndex, bot, logger, COMMONS, UTILITIES, FI
                 }
             }
 
-            let key = process.env.KEY
-            let secret = process.env.SECRET
-
-            if (key === "undefined") { key = undefined }
-            if (secret === "undefined") { secret = undefined }
-
+            let key  
+            let secret  
             
             const exchangeClass = ccxt[exchangeId]
             const exchangeConstructorParams = {

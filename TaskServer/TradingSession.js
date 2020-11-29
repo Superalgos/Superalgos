@@ -166,7 +166,7 @@
                 socialBotsModule.finalize()
                 bot.STOP_SESSION = true
                 parentLogger.write(MODULE_NAME, '[IMPORTANT] stopSession -> Stopping the Session now. ')
-                sessionInfo(processIndex, bot.TRADING_SESSION, commandOrigin, parentLogger)
+                TS.projects.superalgos.functionLibraries.sessionFunctions.sessionInfo(processIndex, bot.TRADING_SESSION, commandOrigin, parentLogger)
             }
 
             function setUpSessionFolderName() {

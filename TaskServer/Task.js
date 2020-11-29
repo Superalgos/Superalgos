@@ -1,5 +1,5 @@
 /* Load Environment Variables */
-let ENVIRONMENT = require('./Environment.js');
+let ENVIRONMENT = require('../Environment.js');
 let ENVIRONMENT_MODULE = ENVIRONMENT.newEnvironment()
 global.env = ENVIRONMENT_MODULE
 
@@ -52,9 +52,9 @@ function preLoader() {
         But before that, we need to change the path of these env variables since the home
         directory now is TaskServer and not its parent.
         */
-        global.env.STORAGE_PATH = '.' + global.env.STORAGE_PATH
-        global.env.PROJECTS_PATH = '.' + global.env.PROJECTS_PATH
-        global.env.LOG_PATH = '.' + global.env.LOG_PATH
+        global.env.PATH_TO_DATA_STORAGE = '.' + global.env.PATH_TO_DATA_STORAGE
+        global.env.PATH_TO_PROJECTS = '.' + global.env.PATH_TO_PROJECTS
+        global.env.PATH_TO_LOG_FILES = '.' + global.env.PATH_TO_LOG_FILES
 
         try {
             global.EVENT_SERVER_CLIENT_MODULE.listenToEvent('Task Server', 'Debug Task Started', undefined, 'Task Server', undefined, startDebugging)

@@ -568,14 +568,14 @@
                     percentage: percentage,
                     status: status
                 }
-                global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(bot.processKey, 'Heartbeat', event)
+                global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).KEY_FOR_EVENTS, 'Heartbeat', event)
             }
 
             function processStopped() {
                 if (global.unexpectedError !== undefined) {
-                    TS.projects.superalgos.functionLibraries.processFunctions.processError(bot.processKey, undefined, "An unexpected error caused the Process to stop.")
+                    TS.projects.superalgos.functionLibraries.processFunctions.processError(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).KEY_FOR_EVENTS, undefined, "An unexpected error caused the Process to stop.")
                 } else {
-                    global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(bot.processKey, 'Stopped')
+                    global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).KEY_FOR_EVENTS, 'Stopped')
                 }
                 logger.persist();
                 clearInterval(fixedTimeLoopIntervalHandle);

@@ -38,7 +38,11 @@
             */
             let VARIABLES_BY_PROCESS_INDEX = {
                 LOGS_TO_DELETE_QUEUE: [],
-                MAIN_LOOP_COUNTER: 0
+                MAIN_LOOP_COUNTER: 0,
+                KEY_FOR_EVENTS:
+                    TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].name + '-' +
+                    TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].type + '-' +
+                    TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].id
             }
             TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.set(processIndex, VARIABLES_BY_PROCESS_INDEX)
 
@@ -62,8 +66,6 @@
                 "-" +
                 TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
 
-            /* Process Key */
-            botConfig.processKey = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].name + '-' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].type + '-' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].id
 
             /* Bot Type */
             botConfig.type = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.type

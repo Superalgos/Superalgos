@@ -30,6 +30,10 @@ node run
 
 Superalgos does not write anything outside the Superalgos folder. To completelly uninstall the software, just delete the Superalgos folder. 
 
+## Welcome Tutorial
+
+Once the app finishes loading, an interactive tutorial takes you by the hand and walks you all around the system while you learn the basic skills required to use the interface, mine data, backtest strategies, and even run a live trading session. It is highly recommended you follow the tutorial until the end, as it is carefully crafted to make your onboarding as easy as possible.
+
 # What is Superalgos?
 
 Superalgos is a platform to automate crypto-trading. It is implemented as a Nodejs Client + Web App that runs on your hardware and scales from a single Raspberry Pi to a Trading Farm. Superalgos is **Free** and **Open Source**.

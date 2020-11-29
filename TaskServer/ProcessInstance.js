@@ -46,9 +46,6 @@
             }
             TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.set(processIndex, VARIABLES_BY_PROCESS_INDEX)
 
-            /* Loop Counter */
-            botConfig.loopCounter = 0;
-
             /* File Path Root */
             botConfig.filePathRoot =
                 'Project/' +
@@ -66,9 +63,6 @@
                 "-" +
                 TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
 
-
-            /* Bot Type */
-            botConfig.type = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.type
 
             /* Time Frame Filter */
             if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.timeFramesFilter !== undefined) {
@@ -115,7 +109,7 @@
 
                 botConfig.hasTheBotJustStarted = true;
 
-                switch (botConfig.type) {
+                switch (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.type) {
                     case 'Sensor Bot': {
                         runSensorBot()
                         break;
@@ -133,7 +127,7 @@
                         break;
                     }
                     default: {
-                        console.log(logDisplace + "Process Instance : [ERROR] start -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
+                        console.log(logDisplace + "Process Instance : [ERROR] start -> Unexpected bot type. -> TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.type = " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.type);
                     }
                 }
                 return
@@ -149,7 +143,7 @@
                         botConfig.hasTheBotJustStarted = true;
                     }
 
-                    switch (botConfig.type) {
+                    switch (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.type) {
                         case 'Sensor Bot': {
                             runSensorBot()
                             break;
@@ -167,7 +161,7 @@
                             break;
                         }
                         default: {
-                            console.log(logDisplace + "Process Instance : [ERROR] start -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
+                            console.log(logDisplace + "Process Instance : [ERROR] start -> Unexpected bot type. -> TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.type = " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.type);
                         }
                     }
                 }
@@ -180,13 +174,13 @@
                     botConfig.runAtFixedInterval = true;
                     botConfig.fixedInterval = processConfig.startMode.fixedInterval.interval;
 
-                    switch (botConfig.type) {
+                    switch (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.type) {
                         case 'Sensor Bot': {
                             runSensorBot()
                             break;
                         }
                         default: {
-                            console.log(logDisplace + "Process Instance : [ERROR] start -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
+                            console.log(logDisplace + "Process Instance : [ERROR] start -> Unexpected bot type. -> TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.type = " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.type);
                         }
                     }
                 }
@@ -204,7 +198,7 @@
                         botConfig.hasTheBotJustStarted = true;
                     }
 
-                    switch (botConfig.type) {
+                    switch (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.type) {
                         case 'Trading Bot': {
                             runTradingBot(processConfig);
                             break;
@@ -214,7 +208,7 @@
                             break;
                         }
                         default: {
-                            console.log(logDisplace + "Process Instance : [ERROR] start -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
+                            console.log(logDisplace + "Process Instance : [ERROR] start -> Unexpected bot type. -> TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.type = " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.type);
                         }
                     }
                 }

@@ -87,7 +87,7 @@ exports.newDebugLog = function (processIndex) {
             percentage = percentage.toFixed(2) + " %"
         }
 
-        if (date === undefined) { date = thisObject.bot.processDatetime }
+        if (date === undefined) { date = thisObject.TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_DATETIME }
         date = date.getUTCFullYear() + '-' + strPad(date.getUTCMonth() + 1, 2, "0") + '-' + strPad(date.getUTCDate(), 2, "0");
 
         logLoop(date, percentage, "      Internal Loop # ")

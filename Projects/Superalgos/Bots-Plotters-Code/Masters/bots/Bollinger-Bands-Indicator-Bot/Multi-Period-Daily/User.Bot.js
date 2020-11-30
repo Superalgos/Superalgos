@@ -869,7 +869,7 @@
                     let reportKey = "Masters" + "-" + "Bollinger-Bands" + "-" + "Multi-Period-Daily" 
                     let thisReport = statusDependencies.statusReports.get(reportKey);
 
-                    thisReport.file.lastExecution = bot.processDatetime;
+                    thisReport.file.lastExecution = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_DATETIME;
                     thisReport.file.lastFile = lastFileDate;
                     thisReport.file.beginingOfMarket = beginingOfMarket.toUTCString()
                     thisReport.save(callBack);

@@ -27,6 +27,7 @@ exports.newSuperalgosGlobalsProcessVariables = function () {
     IS_SESSION_RESUMING         This tell us if a session is resuming from the state at the previous execution.
     IS_SESSION_FIRST_LOOP       This tell us if we are at the execution of the first loop of the bot related to this session.
     SIMULATION_STATE            This is the state of a simulaation, as it is loaded from disk. 
+    PROCESS_DATETIME            When processing daily files, this holds the date of the file being processed.
     */
     return thisObject
 }

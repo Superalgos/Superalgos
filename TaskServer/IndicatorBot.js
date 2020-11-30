@@ -118,7 +118,7 @@
                     const PROCESS_OUTPUT = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + 'ProcessOutput');
 
                     /* We define the datetime for the process that we are running now. This will be the official processing time for both the infraestructure and the bot. */
-                    bot.processDatetime = new Date();           // This will be considered the process date and time, so as to have it consistenly all over the execution.
+                    TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_DATETIME = new Date();           // This will be considered the process date and time, so as to have it consistenly all over the execution.
 
                     /* Main Loop Console Logging */
                     logger.newMainLoop()

@@ -29,7 +29,7 @@ exports.newMarkovDecisionProcess = function newMarkovDecisionProcess(bot, logger
 
         initializeNodeMap(tradingEngine)
 
-        if (bot.FIRST_EXECUTION === true) {
+        if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_FIRST_LOOP === true) {
             /* 
             Here we will go through all the nodes in the Trading Engine hiriarchy and
             apply the initial value to the value property when needed 

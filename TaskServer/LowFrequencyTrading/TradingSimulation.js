@@ -57,7 +57,7 @@ exports.newTradingSimulation = function (processIndex, bot, logger, tradingEngin
             Estimation of the Initial Candle to Process in this Run.
             */
             let initialCandle
-            if (bot.FIRST_EXECUTION === true && bot.RESUME === false) {
+            if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_FIRST_LOOP === true && TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_RESUMING === false) {
                 /* Estimate Initial Candle based on the timeRage configured for the session. */
                 let firstEnd = candles[0].end
                 let targetEnd = sessionParameters.timeRange.config.initialDatetime

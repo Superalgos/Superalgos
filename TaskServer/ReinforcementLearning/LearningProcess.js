@@ -83,7 +83,7 @@ exports.newLearningProcess = function (processIndex, bot, logger, UTILITIES) {
 
             getContextVariables()
 
-            if (bot.FIRST_EXECUTION === true && bot.RESUME === false) {
+            if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_FIRST_LOOP === true && TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_RESUMING === false) {
                 /* 
                 Here is where the Trading Engine and Trading Systems received are moved to the simulation state.
                 */
@@ -95,7 +95,7 @@ exports.newLearningProcess = function (processIndex, bot, logger, UTILITIES) {
             markovDecisionProcessModule.initialize()
 
             /* Initializing the Trading Process Date */
-            if (bot.FIRST_EXECUTION === true && bot.RESUME === false) {
+            if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_FIRST_LOOP === true && TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_RESUMING === false) {
                 /* 
                 This funcion is going to be called many times by the Trading Bot Loop.
                 Only during the first execution and when the User is not resuming the execution
@@ -290,7 +290,7 @@ exports.newLearningProcess = function (processIndex, bot, logger, UTILITIES) {
                     if (bot.simulationState === undefined) { bot.simulationState = {} } // This should happen only when there is no status report
 
                     if (thisReport.lastFile !== undefined) {
-                        if (bot.RESUME !== true) {
+                        if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_RESUMING !== true) {
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> Starting from the begining because bot has just started and resume execution was true."); }
                             startFromBegining();
                             return
@@ -619,8 +619,8 @@ exports.newLearningProcess = function (processIndex, bot, logger, UTILITIES) {
                 From here on, all other loops executions wont be the first execution and also
                 we will consider that it is not resuming a previous execution as well.
                 */
-                bot.FIRST_EXECUTION = false
-                bot.RESUME = false
+                TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_FIRST_LOOP = false
+                TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_RESUMING = false
             }
 
             async function writeProcessFiles() {

@@ -50,7 +50,7 @@ exports.newTradingOutput = function (processIndex, bot, logger, tradingEngineMod
                 we are at the head of the market, because at the head of the market we need to 
                 append more data to the same output files that already exists.
                 */
-                if (bot.FIRST_EXECUTION === true && bot.RESUME === false) {
+                if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_FIRST_LOOP === true && TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_RESUMING === false) {
                     await initializeOutputs()
                 } else {
                     if (bot.simulationState.tradingEngine.current.episode.headOfTheMarket.value === true) {
@@ -66,7 +66,7 @@ exports.newTradingOutput = function (processIndex, bot, logger, tradingEngineMod
                 head of the market. Remember that backtests finishes the session once the reach
                 the final datetime.
                 */
-                if (bot.FIRST_EXECUTION === true && bot.RESUME === false) {
+                if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_FIRST_LOOP === true && TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_RESUMING === false) {
                     await initializeOutputs()
                 } else {
                     await readFiles()

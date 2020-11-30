@@ -13,18 +13,12 @@
 
     function initialize(pProcessConfig, callBackFunction) {
         try {
-            /* Initialize this info so that everything is logged propeerly */
-            bot.TRADING_SESSION = {
-                name: TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.name,
-                id: TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.id
-            }
             /* Check if there is a session */
             if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session === undefined) {
                 parentLogger.write(MODULE_NAME, "[ERROR] initialize -> Cannot run without a Session.");
                 callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 return;
             }
-
             /* 
             We will store here the session key, which we will need everytine
             we need to emit an event related to the session itself.
@@ -41,7 +35,7 @@
             We will also store the session folder name, to be used for debug logging and session output.
             */
             if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.config.folderName === undefined) {
-                VARIABLES_BY_PROCESS_INDEX.SESSION_FOLDER_NAME = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.type.replace(' ', '-').replace(' ', '-') + '-' + bot.TRADING_SESSION.id
+                VARIABLES_BY_PROCESS_INDEX.SESSION_FOLDER_NAME = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.type.replace(' ', '-').replace(' ', '-') + '-' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.id
             } else {
                 VARIABLES_BY_PROCESS_INDEX.SESSION_FOLDER_NAME = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.type.replace(' ', '-').replace(' ', '-') + '-' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.config.folderName
             }
@@ -128,7 +122,7 @@
                         parentLogger.write(MODULE_NAME, '[IMPORTANT] onSessionRun -> Stopping the Session now. ')
                     }
 
-                    socialBotsModule.sendMessage(bot.TRADING_SESSION.type + " '" + bot.TRADING_SESSION.name + "' is starting.")
+                    socialBotsModule.sendMessage(bot.TRADING_SESSION.type + " '" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.name + "' is starting.")
                 } catch (err) {
                     parentLogger.write(MODULE_NAME, "[ERROR] initialize -> onSessionRun -> err = " + err.stack);
                 }
@@ -154,7 +148,7 @@
                     bot.RESUME = true
                     bot.STOP_SESSION = false
 
-                    socialBotsModule.sendMessage(bot.TRADING_SESSION.type + " '" + bot.TRADING_SESSION.name + "' is resuming.")
+                    socialBotsModule.sendMessage(bot.TRADING_SESSION.type + " '" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.name + "' is resuming.")
                 } catch (err) {
                     parentLogger.write(MODULE_NAME, "[ERROR] initialize -> onSessionResume -> err = " + err.stack);
                 }
@@ -162,7 +156,7 @@
 
             function stopSession(commandOrigin) {
 
-                socialBotsModule.sendMessage(bot.TRADING_SESSION.type + " '" + bot.TRADING_SESSION.name + "' is stopping " + commandOrigin)
+                socialBotsModule.sendMessage(bot.TRADING_SESSION.type + " '" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.name + "' is stopping " + commandOrigin)
                 socialBotsModule.finalize()
                 bot.STOP_SESSION = true
                 parentLogger.write(MODULE_NAME, '[IMPORTANT] stopSession -> Stopping the Session now. ')
@@ -179,7 +173,7 @@
                 if (bot.TRADING_SESSION.config !== undefined) {
                     config = bot.TRADING_SESSION.config
                     if (config.folderName === undefined) {
-                        TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_FOLDER_NAME = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.type.replace(' ', '-').replace(' ', '-') + '-' + bot.TRADING_SESSION.id
+                        TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_FOLDER_NAME = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.type.replace(' ', '-').replace(' ', '-') + '-' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.id
                     } else {
                         TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_FOLDER_NAME = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.type.replace(' ', '-').replace(' ', '-') + '-' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.config.folderName
                     }

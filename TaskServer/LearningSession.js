@@ -13,11 +13,6 @@ exports.newLearningSession = function (processIndex, bot, parentLogger) {
 
     function initialize(pProcessConfig, callBackFunction) {
         try {
-            /* Initialize this info so that everything is logged propeerly */
-            bot.LEARNING_SESSION = {
-                name: TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.name,
-                id: TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.id
-            }
             /* Check if there is a session */
             if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session === undefined) {
                 parentLogger.write(MODULE_NAME, "[ERROR] initialize -> Cannot run without a Session.");
@@ -39,7 +34,7 @@ exports.newLearningSession = function (processIndex, bot, parentLogger) {
             We will also store the session folder name, to be used for debug logging.
             */
             if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.config.folderName === undefined) {
-                VARIABLES_BY_PROCESS_INDEX.SESSION_FOLDER_NAME = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.type.replace(' ', '-').replace(' ', '-') + '-' + bot.TRADING_SESSION.id
+                VARIABLES_BY_PROCESS_INDEX.SESSION_FOLDER_NAME = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.type.replace(' ', '-').replace(' ', '-') + '-' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.id
             } else {
                 VARIABLES_BY_PROCESS_INDEX.SESSION_FOLDER_NAME = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.type.replace(' ', '-').replace(' ', '-') + '-' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.config.folderName
             }
@@ -126,7 +121,7 @@ exports.newLearningSession = function (processIndex, bot, parentLogger) {
                         parentLogger.write(MODULE_NAME, '[IMPORTANT] onSessionRun -> Stopping the Session now. ')
                     }
 
-                    socialBotsModule.sendMessage(bot.LEARNING_SESSION.type + " '" + bot.LEARNING_SESSION.name + "' is starting.")
+                    socialBotsModule.sendMessage(bot.LEARNING_SESSION.type + " '" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.name + "' is starting.")
                 } catch (err) {
                     parentLogger.write(MODULE_NAME, "[ERROR] initialize -> onSessionRun -> err = " + err.stack);
                 }
@@ -152,7 +147,7 @@ exports.newLearningSession = function (processIndex, bot, parentLogger) {
                     bot.RESUME = true
                     bot.STOP_SESSION = false
 
-                    socialBotsModule.sendMessage(bot.LEARNING_SESSION.type + " '" + bot.LEARNING_SESSION.name + "' is resuming.")
+                    socialBotsModule.sendMessage(bot.LEARNING_SESSION.type + " '" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.name + "' is resuming.")
                 } catch (err) {
                     parentLogger.write(MODULE_NAME, "[ERROR] initialize -> onSessionResume -> err = " + err.stack);
                 }
@@ -160,7 +155,7 @@ exports.newLearningSession = function (processIndex, bot, parentLogger) {
 
             function stopSession(commandOrigin) {
 
-                socialBotsModule.sendMessage(bot.LEARNING_SESSION.type + " '" + bot.LEARNING_SESSION.name + "' is stopping " + commandOrigin)
+                socialBotsModule.sendMessage(bot.LEARNING_SESSION.type + " '" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.name + "' is stopping " + commandOrigin)
                 socialBotsModule.finalize()
                 bot.STOP_SESSION = true
                 parentLogger.write(MODULE_NAME, '[IMPORTANT] stopSession -> Stopping the Session now. ')
@@ -177,7 +172,7 @@ exports.newLearningSession = function (processIndex, bot, parentLogger) {
                 if (bot.LEARNING_SESSION.config !== undefined) {
                     config = bot.LEARNING_SESSION.config
                     if (config.folderName === undefined) {
-                        bot.LEARNING_SESSION.folderName = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.type.replace(' ', '-').replace(' ', '-') + '-' + bot.LEARNING_SESSION.id
+                        bot.LEARNING_SESSION.folderName = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.type.replace(' ', '-').replace(' ', '-') + '-' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.id
                     } else {
                         bot.LEARNING_SESSION.folderName = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.type.replace(' ', '-').replace(' ', '-') + '-' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.config.folderName
                     }

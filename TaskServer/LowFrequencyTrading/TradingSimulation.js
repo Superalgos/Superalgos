@@ -4,7 +4,7 @@ exports.newTradingSimulation = function (processIndex, bot, logger, tradingEngin
     the execution at each loop cycle of the Trading System Protocol.
     */
     const FULL_LOG = true
-    const MODULE_NAME = 'Trading Simulation -> ' + bot.TRADING_SESSION.name
+    const MODULE_NAME = 'Trading Simulation -> ' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.name
 
     let thisObject = {
         finalize: finalize,

@@ -112,7 +112,7 @@ exports.newDebugLog = function (processIndex) {
 
             let filePath = thisObject.bot.filePathRoot + "/Logs/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + "/"
 
-            if (thisObject.bot.TRADING_SESSION !== undefined) {
+            if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_FOLDER_NAME !== undefined) {
                 filePath = filePath + TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_FOLDER_NAME + "/" + executionDatetime;
             } else {
                 if (thisObject.bot.LEARNING_SESSION !== undefined) {

@@ -1,6 +1,7 @@
 exports.newSuperalgosFunctionLibrariesSessionFunctions = function () {
 
     let thisObject = {
+        sessionHeartBeat: sessionHeartBeat,
         stopSession: stopSession,
         emitSessionStatus: emitSessionStatus,
         finalizeSessions: finalizeSessions,
@@ -10,6 +11,23 @@ exports.newSuperalgosFunctionLibrariesSessionFunctions = function () {
     }
 
     return thisObject
+
+    function sessionHeartBeat(processIndex, logger, processingDate, percentage, status) {
+        let event = {
+            seconds: (new Date()).getSeconds(),
+            processingDate: processingDate,
+            percentage: percentage,
+            status: status
+        }
+        global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY, 'Heartbeat', event)
+
+        if (TS.projects.superalgos.globals.taskVariables.IS_TASK_STOPPING === true) {
+            TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_STOPPING = true
+            if (logger !== undefined) {
+                logger.write(MODULE_NAME, '[IMPORTANT] sessionHeartBeat -> Stopping the Session now. ')
+            }
+        }
+    }
 
     function stopSession(processIndex, commandOrigin) {
 

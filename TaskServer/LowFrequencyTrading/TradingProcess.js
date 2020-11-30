@@ -119,7 +119,7 @@
             await processSingleFiles()
 
             if (await processMarketFiles() === false) {
-                bot.TRADING_SESSIONHeartBeat(undefined, undefined, 'Waiting for Data Mining to be run')
+                TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, logger, undefined, undefined, 'Waiting for Data Mining to be run')
                 callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                 return
             }
@@ -141,17 +141,17 @@
                 With all the indicators data files loaded, we will build the chart object 
                 data structure that will be used in user-defied conditions and formulas.
                 */
-                bot.TRADING_SESSIONHeartBeat(undefined, undefined, 'Waking up')
+                TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, logger, undefined, undefined, 'Waking up')
                 buildCharts(chart)
 
                 if (checkThereAreCandles(chart) === true) {
-                    bot.TRADING_SESSIONHeartBeat(undefined, undefined, 'Running')
+                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, logger, undefined, undefined, 'Running')
                     await generateOutput(chart)
-                    bot.TRADING_SESSIONHeartBeat(undefined, undefined, 'Saving')
+                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, logger, undefined, undefined, 'Saving')
                     await writeProcessFiles()
-                    bot.TRADING_SESSIONHeartBeat(undefined, undefined, 'Sleeping')
+                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, logger, undefined, undefined, 'Sleeping')
                 } else {
-                    bot.TRADING_SESSIONHeartBeat(undefined, undefined, 'Waiting for Data Mining to be up to date. No candles found at.')
+                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, logger, undefined, undefined, 'Waiting for Data Mining to be up to date. No candles found at.')
                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                     return
                 }
@@ -171,9 +171,9 @@
                     if (checkStopTaskGracefully() === false) { break }
                     if (checkStopProcessing() === false) { break }
 
-                    bot.TRADING_SESSIONHeartBeat(undefined, undefined, 'Waking up')
+                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, logger, undefined, undefined, 'Waking up')
                     if (await processDailyFiles() === false) {
-                        bot.TRADING_SESSIONHeartBeat(undefined, undefined, 'Waiting for Data Mining to be run')
+                        TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, logger, undefined, undefined, 'Waiting for Data Mining to be run')
                         callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                         return
                     }
@@ -186,13 +186,13 @@
                     The process of generating the output includes the trading simulation.
                     */
                     if (checkThereAreCandles(chart) === true) {
-                        bot.TRADING_SESSIONHeartBeat(undefined, undefined, 'Running')
+                        TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, logger, undefined, undefined, 'Running')
                         await generateOutput(chart)
-                        bot.TRADING_SESSIONHeartBeat(undefined, undefined, 'Saving')
+                        TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, logger, undefined, undefined, 'Saving')
                         await writeProcessFiles()
-                        bot.TRADING_SESSIONHeartBeat(undefined, undefined, 'Sleeping')
+                        TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, logger, undefined, undefined, 'Sleeping')
                     } else {
-                        bot.TRADING_SESSIONHeartBeat(undefined, undefined, 'Waiting for Data Mining to be up to date')
+                        TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, logger, undefined, undefined, 'Waiting for Data Mining to be up to date')
                         callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                         return
                     }

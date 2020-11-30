@@ -21,7 +21,7 @@ exports.newAnnouncements = function (processIndex, bot, logger) {
     function finalize() {
         tradingSystem = undefined
         tradingEngine = undefined
-        TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.messagesSent = undefined
+        TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.messagesSent = undefined
     }
 
     function makeAnnoucements(node) {
@@ -44,8 +44,8 @@ exports.newAnnouncements = function (processIndex, bot, logger) {
                         text = tradingSystem.formulas.get(announcement.formula.id)
                     }
 
-                    if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.socialBots !== undefined) {
-                        TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.socialBots.announce(text)
+                    if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.socialBots !== undefined) {
+                        TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.socialBots.announce(text)
                         tradingSystem.announcements.push([announcement.id, text])
                     } else {
                         tradingSystem.errors.push([announcement.id, 'Could not announce because session does not have Social Bots.'])

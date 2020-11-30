@@ -593,7 +593,7 @@ exports.newUserBot = function (processIndex, bot, logger, COMMONS, UTILITIES, FI
                             let dateForPath = datetime.getUTCFullYear() + '/' +
                                 utilities.pad(datetime.getUTCMonth() + 1, 2) + '/' +
                                 utilities.pad(datetime.getUTCDate(), 2)
-                            let filePath = bot.filePathRoot + "/Output/" + folderName + '/' + dateForPath;
+                            let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + folderName + '/' + dateForPath;
                             return filePath
                         }
                     }

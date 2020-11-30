@@ -298,7 +298,7 @@
                                                     fileContent = "[" + fileContent + "]";
 
                                                     let fileName = 'Data.json';
-                                                    let filePath = bot.filePathRoot + "/Output/" + BOLLINGER_BANDS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrame;
+                                                    let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + BOLLINGER_BANDS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrame;
                                                     filePath += '/' + fileName
 
                                                     fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
@@ -368,7 +368,7 @@
                                                     fileContent = "[" + fileContent + "]";
 
                                                     let fileName = 'Data.json';
-                                                    let filePath = bot.filePathRoot + "/Output/" + PERCENTAGE_BANDWIDTH_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrame;
+                                                    let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + PERCENTAGE_BANDWIDTH_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrame;
                                                     filePath += '/' + fileName
 
                                                     fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);

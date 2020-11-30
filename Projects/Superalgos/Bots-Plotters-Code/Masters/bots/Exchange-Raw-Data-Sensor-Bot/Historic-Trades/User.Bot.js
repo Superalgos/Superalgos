@@ -420,7 +420,7 @@ exports.newUserBot = function (processIndex, bot, logger, COMMONS, UTILITIES, FI
                                 utilities.pad(datetime.getUTCDate(), 2) + '/' +
                                 utilities.pad(datetime.getUTCHours(), 2) + '/' +
                                 utilities.pad(datetime.getUTCMinutes(), 2)
-                            let filePath = bot.filePathRoot + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
+                            let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
                             return filePath
                         }
 

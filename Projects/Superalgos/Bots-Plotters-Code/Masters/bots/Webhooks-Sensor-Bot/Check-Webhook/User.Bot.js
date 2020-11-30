@@ -65,7 +65,7 @@ exports.newUserBot = function (processIndex, bot, logger, COMMONS, UTILITIES, FI
                     if (thisReport.file.lasrRun !== undefined) {
                   
                         let fileName = 'Data.json'
-                        let filePath = bot.filePathRoot + "/Output/" + FOLDER_NAME + "/" + 'Single-File'
+                        let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + FOLDER_NAME + "/" + 'Single-File'
                         fileStorage.getTextFile(filePath + '/' + fileName, onFileReceived);
 
                         function onFileReceived(err, text) {
@@ -137,7 +137,7 @@ exports.newUserBot = function (processIndex, bot, logger, COMMONS, UTILITIES, FI
                             }
 
                             let fileName = 'Data.json'
-                            let filePath = bot.filePathRoot + "/Output/" + FOLDER_NAME + "/" + 'Single-File'
+                            let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + FOLDER_NAME + "/" + 'Single-File'
                             fileStorage.createTextFile(filePath + '/' + fileName, fileContent + '\n', onFileCreated);
 
                             function onFileCreated(err) {

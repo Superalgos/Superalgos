@@ -257,7 +257,7 @@
                 let filePathRoot = 'Project/' + statusDependencyNode.project + "/" + statusDependencyNode.mineType + "/" + statusDependencyNode.dataMine + "/" + statusDependencyNode.bot + '/' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "-" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
                 filePath = filePathRoot + "/Reports/" + sessionPath + statusDependencyNode.process
             } else {
-                filePath = bot.filePathRoot + "/Reports/" + sessionPath + statusDependencyNode.process
+                filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Reports/" + sessionPath + statusDependencyNode.process
             }
 
             filePath += '/' + fileName
@@ -352,7 +352,7 @@
             }
 
             let fileName = "Status.Report.json"
-            let filePath = bot.filePathRoot + "/Reports/" + sessionPath + statusDependencyNode.process
+            let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Reports/" + sessionPath + statusDependencyNode.process
 
             filePath += '/' + fileName
             let fileContent = JSON.stringify(thisObject.file);
@@ -383,7 +383,7 @@
     async function asyncSave() {
 
         let fileName = "Status.Report.json";
-        let filePath = bot.filePathRoot + "/Reports/" + sessionPath + statusDependencyNode.process
+        let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Reports/" + sessionPath + statusDependencyNode.process
 
         filePath += '/' + fileName
         let fileContent = JSON.stringify(thisObject.file);

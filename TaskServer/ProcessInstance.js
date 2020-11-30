@@ -52,7 +52,7 @@
             TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.set(processIndex, CONSTANTS_BY_PROCESS_INDEX)
 
             /* File Path Root */
-            botConfig.filePathRoot =
+            TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT =
                 'Project/' +
                 TS.projects.superalgos.globals.taskConstants.PROJECT_DEFINITION_NODE.config.codeName +
                 "/" +

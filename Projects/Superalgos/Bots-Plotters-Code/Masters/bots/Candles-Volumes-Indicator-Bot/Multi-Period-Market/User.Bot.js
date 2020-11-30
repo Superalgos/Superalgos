@@ -269,7 +269,7 @@
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> loopBody -> getCandles -> Entering function."); }
 
                             let fileName = 'Data.json';
-                            let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + "/" + timeFrame;
+                            let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + CANDLES_FOLDER_NAME + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + "/" + timeFrame;
                             filePath += '/' + fileName
 
                             fileStorage.getTextFile(filePath, onFileReceived);
@@ -310,7 +310,7 @@
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> loopBody -> getVolumes -> Entering function."); }
 
                             let fileName = 'Data.json';
-                            let filePath = bot.filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + "/" + timeFrame;
+                            let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + VOLUMES_FOLDER_NAME + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + "/" + timeFrame;
                             filePath += '/' + fileName
 
                             fileStorage.getTextFile(filePath, onFileReceived);
@@ -814,7 +814,7 @@
                         fileContent = "[" + fileContent + "]";
 
                         let fileName = 'Data.json';
-                        let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + "/" + timeFrame;
+                        let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + CANDLES_FOLDER_NAME + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + "/" + timeFrame;
                         filePath += '/' + fileName
 
                         fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
@@ -864,7 +864,7 @@
                         fileContent = "[" + fileContent + "]";
 
                         let fileName = 'Data.json';
-                        let filePath = bot.filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + "/" + timeFrame;
+                        let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + VOLUMES_FOLDER_NAME + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + "/" + timeFrame;
                         filePath += '/' + fileName
 
                         fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);

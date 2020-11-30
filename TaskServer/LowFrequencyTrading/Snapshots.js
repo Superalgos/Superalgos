@@ -322,7 +322,7 @@ exports.newSnapshots = function (processIndex, bot, logger) {
             fileContent = "" + fileContent + "";
 
             let fileName = pFileName + '.csv';
-            let filePath = bot.filePathRoot + "/Output/" + TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_FOLDER_NAME + "/" + SNAPSHOTS_FOLDER_NAME;
+            let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_FOLDER_NAME + "/" + SNAPSHOTS_FOLDER_NAME;
             filePath += '/' + fileName
 
             fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);

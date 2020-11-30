@@ -488,7 +488,7 @@
                 };
                 let fileContent = JSON.stringify(dataRange)
                 let fileName = '/Data.Range.json';
-                let filePath = bot.filePathRoot + "/Output/" + productCodeName + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + fileName;
+                let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + productCodeName + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + fileName;
 
                 fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated)
 
@@ -530,7 +530,7 @@
 
                 let fileContent = JSON.stringify(timeFramesArray)
                 let fileName = '/Time.Frames.json';
-                let filePath = bot.filePathRoot + "/Output/" + productCodeName + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + fileName;
+                let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + productCodeName + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + fileName;
 
                 fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated)
 

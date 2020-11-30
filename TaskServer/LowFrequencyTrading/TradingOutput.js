@@ -133,7 +133,7 @@ exports.newTradingOutput = function (processIndex, bot, logger, tradingEngineMod
                     if (dataset.config.type === 'Market Files') {
 
                         let fileName = 'Data.json'
-                        let filePath = bot.filePathRoot + '/Output/' + TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_FOLDER_NAME + '/' + dataset.parentNode.config.codeName + '/' + dataset.config.codeName + '/' + timeFrameLabel
+                        let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + '/Output/' + TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_FOLDER_NAME + '/' + dataset.parentNode.config.codeName + '/' + dataset.config.codeName + '/' + timeFrameLabel
 
                         await readOutputFile(fileName, filePath, dataset.parentNode.config.codeName)
                     }
@@ -149,7 +149,7 @@ exports.newTradingOutput = function (processIndex, bot, logger, tradingEngineMod
 
                         let dateForPath = tradingProcessDate.getUTCFullYear() + '/' + utilities.pad(tradingProcessDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(tradingProcessDate.getUTCDate(), 2);
                         let fileName = 'Data.json'
-                        let filePath = bot.filePathRoot + '/Output/' + TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_FOLDER_NAME + '/' + dataset.parentNode.config.codeName + '/' + dataset.config.codeName + '/' + timeFrameLabel + "/" + dateForPath
+                        let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + '/Output/' + TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_FOLDER_NAME + '/' + dataset.parentNode.config.codeName + '/' + dataset.config.codeName + '/' + timeFrameLabel + "/" + dateForPath
 
                         await readOutputFile(fileName, filePath, dataset.parentNode.config.codeName)
                     }
@@ -190,7 +190,7 @@ exports.newTradingOutput = function (processIndex, bot, logger, tradingEngineMod
                     if (dataset.config.type === 'Market Files') {
 
                         let fileName = 'Data.json'
-                        let filePath = bot.filePathRoot + '/Output/' + TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_FOLDER_NAME + '/' + dataset.parentNode.config.codeName + '/' + dataset.config.codeName + '/' + timeFrameLabel
+                        let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + '/Output/' + TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_FOLDER_NAME + '/' + dataset.parentNode.config.codeName + '/' + dataset.config.codeName + '/' + timeFrameLabel
 
                         await writeOutputFile(fileName, filePath, dataset.parentNode.config.codeName)
                     }
@@ -206,7 +206,7 @@ exports.newTradingOutput = function (processIndex, bot, logger, tradingEngineMod
 
                         let dateForPath = tradingProcessDate.getUTCFullYear() + '/' + utilities.pad(tradingProcessDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(tradingProcessDate.getUTCDate(), 2);
                         let fileName = 'Data.json'
-                        let filePath = bot.filePathRoot + '/Output/' + TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_FOLDER_NAME + '/' + dataset.parentNode.config.codeName + '/' + dataset.config.codeName + '/' + timeFrameLabel + "/" + dateForPath
+                        let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + '/Output/' + TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_FOLDER_NAME + '/' + dataset.parentNode.config.codeName + '/' + dataset.config.codeName + '/' + timeFrameLabel + "/" + dateForPath
 
                         await writeOutputFile(fileName, filePath, dataset.parentNode.config.codeName)
                     }

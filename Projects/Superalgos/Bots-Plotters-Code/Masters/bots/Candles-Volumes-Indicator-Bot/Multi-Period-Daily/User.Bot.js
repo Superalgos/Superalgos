@@ -605,7 +605,7 @@ Read the candles and volumes from Exchange Raw Data and produce a file for each 
 
                         let fileName = 'Data.json';
                         let dateForPath = contextVariables.lastCandleFile.getUTCFullYear() + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCDate(), 2);
-                        let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + "/" + timeFrame + "/" + dateForPath;
+                        let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + CANDLES_FOLDER_NAME + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + "/" + timeFrame + "/" + dateForPath;
                         filePath += '/' + fileName
 
                         fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
@@ -656,7 +656,7 @@ Read the candles and volumes from Exchange Raw Data and produce a file for each 
 
                         let fileName = 'Data.json';
                         let dateForPath = contextVariables.lastCandleFile.getUTCFullYear() + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCDate(), 2);
-                        let filePath = bot.filePathRoot  + "/Output/" + VOLUMES_FOLDER_NAME + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + "/" + timeFrame + "/" + dateForPath;
+                        let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT  + "/Output/" + VOLUMES_FOLDER_NAME + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + "/" + timeFrame + "/" + dateForPath;
                         filePath += '/' + fileName
 
                         fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
@@ -744,7 +744,7 @@ Read the candles and volumes from Exchange Raw Data and produce a file for each 
                     let fileContent = JSON.stringify(dataRange);
 
                     let fileName = 'Data.Range.json';
-                    let filePath = bot.filePathRoot + "/Output/" + pProductFolder + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName;
+                    let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + pProductFolder + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName;
                     filePath += '/' + fileName
 
                     fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);

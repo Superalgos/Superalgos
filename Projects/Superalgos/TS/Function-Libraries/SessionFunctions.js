@@ -13,10 +13,10 @@ exports.newSuperalgosFunctionLibrariesSessionFunctions = function () {
 
     function stopSession(processIndex, commandOrigin) {
 
-        TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SOCIAL_BOTS_MODULE.sendMessage(bot.TRADING_SESSION.type + " '" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.name + "' is stopping " + commandOrigin)
+        TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SOCIAL_BOTS_MODULE.sendMessage(TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.type + " '" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.name + "' is stopping " + commandOrigin)
         TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SOCIAL_BOTS_MODULE.finalize()
-        bot.STOP_SESSION = true
-        TS.projects.superalgos.functionLibraries.sessionFunctions.sessionInfo(processIndex, bot.TRADING_SESSION, commandOrigin, parentLogger)
+        TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_STOPPING = true
+        TS.projects.superalgos.functionLibraries.sessionFunctions.sessionInfo(processIndex, TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE, commandOrigin, undefined)
     }
 
     function emitSessionStatus(status, key) {
@@ -57,8 +57,10 @@ exports.newSuperalgosFunctionLibrariesSessionFunctions = function () {
         global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY, 'Error', event)
 
         if (TS.projects.superalgos.globals.taskVariables.IS_TASK_STOPPING === true) {
-            bot.STOP_SESSION = true
-            logger.write(MODULE_NAME, '[IMPORTANT] sessionError -> Stopping the Session now. ')
+            TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_STOPPING = true
+            if (logger !== undefined) {
+                logger.write(MODULE_NAME, '[IMPORTANT] sessionError -> Stopping the Session now. ')
+            }
         }
     }
 
@@ -79,8 +81,10 @@ exports.newSuperalgosFunctionLibrariesSessionFunctions = function () {
         global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY, 'Warning', event)
 
         if (TS.projects.superalgos.globals.taskVariables.IS_TASK_STOPPING === true) {
-            bot.STOP_SESSION = true
-            logger.write(MODULE_NAME, '[IMPORTANT] sessionWarning -> Stopping the Session now. ')
+            TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_STOPPING = true
+            if (logger !== undefined) {
+                logger.write(MODULE_NAME, '[IMPORTANT] sessionWarning -> Stopping the Session now. ')
+            }
         }
     }
 
@@ -101,8 +105,10 @@ exports.newSuperalgosFunctionLibrariesSessionFunctions = function () {
         global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY, 'Info', event)
 
         if (TS.projects.superalgos.globals.taskVariables.IS_TASK_STOPPING === true) {
-            bot.STOP_SESSION = true
-            logger.write(MODULE_NAME, '[IMPORTANT] sessionInfo -> Stopping the Session now. ')
+            TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_STOPPING = true
+            if (logger !== undefined) {
+                logger.write(MODULE_NAME, '[IMPORTANT] sessionInfo -> Stopping the Session now. ')
+            }
         }
     }
 

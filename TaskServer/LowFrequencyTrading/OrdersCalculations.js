@@ -1,4 +1,4 @@
-exports.newOrdersCalculations = function newOrdersCalculations(bot, logger) {
+exports.newOrdersCalculations = function (processIndex, bot, logger) {
     /*
     When we are live trading, we need to syncronize with the exchange.
     */
@@ -23,7 +23,7 @@ exports.newOrdersCalculations = function newOrdersCalculations(bot, logger) {
     return thisObject
 
     function initialize() {
-        sessionParameters = bot.TRADING_SESSION.tradingParameters
+        sessionParameters = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.tradingParameters
         tradingEngine = bot.simulationState.tradingEngine
         tradingSystem = bot.simulationState.tradingSystem
     }

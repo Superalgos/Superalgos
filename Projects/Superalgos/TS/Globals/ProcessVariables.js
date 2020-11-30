@@ -22,6 +22,7 @@ exports.newSuperalgosGlobalsProcessVariables = function () {
     MAIN_LOOP_COUNTER       This is the counter of main loops for a bot process.
     LOGS_TO_DELETE_QUEUE    This stores the logs that need to be deleted, for auto mantainance.
     SOCIAL_BOTS_MODULE      This is the module that controls social bots.
+    IS_SESSION_STOPPING     This tell us if a session is in the process of being stopped.
     */
     return thisObject
 }

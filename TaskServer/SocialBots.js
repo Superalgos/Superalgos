@@ -1,4 +1,4 @@
-exports.newSocialBots = function newSocialBots(bot, logger) {
+exports.newSocialBots = function (processIndex, bot, logger) {
 
     const MODULE_NAME = 'Social Bots'
 
@@ -13,10 +13,10 @@ exports.newSocialBots = function newSocialBots(bot, logger) {
     return thisObject
 
     function initialize() {
-        if (bot.TRADING_SESSION.socialBots !== undefined) {
-            if (bot.TRADING_SESSION.socialBots.bots !== undefined) {
-                for (let i = 0; i < bot.TRADING_SESSION.socialBots.bots.length; i++) {
-                    let socialBot = bot.TRADING_SESSION.socialBots.bots[i]
+        if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.socialBots !== undefined) {
+            if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.socialBots.bots !== undefined) {
+                for (let i = 0; i < TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.socialBots.bots.length; i++) {
+                    let socialBot = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.socialBots.bots[i]
                     if (socialBot.type === "Telegram Bot") {
                         let config = socialBot.config
                         socialBot.botInstance = TELEGRAM_BOT_MODULE.newTelegramBot(bot, logger)
@@ -26,9 +26,9 @@ exports.newSocialBots = function newSocialBots(bot, logger) {
             }
 
             function announce(text) {
-                if (bot.TRADING_SESSION.socialBots.bots !== undefined) {
-                    for (let i = 0; i < bot.TRADING_SESSION.socialBots.bots.length; i++) {
-                        let socialBot = bot.TRADING_SESSION.socialBots.bots[i]
+                if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.socialBots.bots !== undefined) {
+                    for (let i = 0; i < TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.socialBots.bots.length; i++) {
+                        let socialBot = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.socialBots.bots[i]
                         try {
                             if (socialBot.type === "Telegram Bot") {
                                 socialBot.botInstance.telegramAPI.sendMessage(socialBot.botInstance.chatId, text).catch(err => logger.write(MODULE_NAME, "[WARN] initialize -> initializeSocialBots -> announce -> Telegram API error -> err = " + err))
@@ -40,15 +40,15 @@ exports.newSocialBots = function newSocialBots(bot, logger) {
                 }
             }
 
-            bot.TRADING_SESSION.socialBots.announce = announce
+            TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.socialBots.announce = announce
         }
     }
 
     function finalize() {
-        if (bot.TRADING_SESSION.socialBots === undefined) { return }
-        if (bot.TRADING_SESSION.socialBots.bots !== undefined) {
-            for (let i = 0; i < bot.TRADING_SESSION.socialBots.bots.length; i++) {
-                let socialBot = bot.TRADING_SESSION.socialBots.bots[i]
+        if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.socialBots === undefined) { return }
+        if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.socialBots.bots !== undefined) {
+            for (let i = 0; i < TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.socialBots.bots.length; i++) {
+                let socialBot = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.socialBots.bots[i]
                 if (socialBot.type === "Telegram Bot") {
                     socialBot.botInstance.finalize()
                 }
@@ -57,10 +57,10 @@ exports.newSocialBots = function newSocialBots(bot, logger) {
     }
 
     function sendMessage(message) {
-        if (bot.TRADING_SESSION.socialBots !== undefined) {
-            if (bot.TRADING_SESSION.socialBots.bots !== undefined) {
-                for (let i = 0; i < bot.TRADING_SESSION.socialBots.bots.length; i++) {
-                    let socialBot = bot.TRADING_SESSION.socialBots.bots[i]
+        if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.socialBots !== undefined) {
+            if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.socialBots.bots !== undefined) {
+                for (let i = 0; i < TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.socialBots.bots.length; i++) {
+                    let socialBot = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.socialBots.bots[i]
                     if (socialBot.type === "Telegram Bot") {
                         socialBot.botInstance.sendMessage(message)
                     }

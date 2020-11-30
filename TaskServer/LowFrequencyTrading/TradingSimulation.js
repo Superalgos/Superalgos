@@ -28,7 +28,7 @@ exports.newTradingSimulation = function (processIndex, bot, logger, tradingEngin
 
             let tradingSystem = bot.simulationState.tradingSystem
             let tradingEngine = bot.simulationState.tradingEngine
-            let sessionParameters = bot.TRADING_SESSION.tradingParameters
+            let sessionParameters = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.tradingParameters
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> initialDatetime = ' + sessionParameters.timeRange.config.initialDatetime) }
             if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> finalDatetime = ' + sessionParameters.timeRange.config.finalDatetime) }
@@ -193,7 +193,7 @@ exports.newTradingSimulation = function (processIndex, bot, logger, tradingEngin
                 }
 
                 function checkIfWeNeedToStopBetweenCycles() {
-                    if (bot.STOP_SESSION === true) {
+                    if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_STOPPING === true) {
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> controlLoop -> We are going to stop here bacause we were requested to stop processing this session.') }
                         updateEpisode('Session Stopped')
                         breakLoop = true

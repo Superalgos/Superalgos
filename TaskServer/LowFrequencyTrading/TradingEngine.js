@@ -1,4 +1,4 @@
-exports.newTradingEngine = function newTradingEngine(bot, logger) {
+exports.newTradingEngine = function (processIndex, bot, logger) {
     /*
     We call the Trading Engine to the data structure that is needed in order to exevute the
     trading protocol with the specific rules defined at the Trading System.
@@ -25,7 +25,7 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
     function initialize() {
 
         tradingEngine = bot.simulationState.tradingEngine
-        sessionParameters = bot.TRADING_SESSION.tradingParameters
+        sessionParameters = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.tradingParameters
 
         initializeNodeMap(tradingEngine)
 

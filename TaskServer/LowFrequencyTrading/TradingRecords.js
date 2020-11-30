@@ -20,7 +20,7 @@ exports.newTradingRecords = function (processIndex, bot, logger) {
     function initialize(pOutputDatasetsMap) {
         tradingEngine = bot.simulationState.tradingEngine
         tradingSystem = bot.simulationState.tradingSystem
-        sessionParameters = bot.TRADING_SESSION.tradingParameters
+        sessionParameters = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.tradingParameters
         outputDatasetsMap = pOutputDatasetsMap  // These are the files turned into arrays, stored in a Map by Product codeName.
     }
 

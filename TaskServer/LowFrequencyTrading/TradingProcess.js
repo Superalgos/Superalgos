@@ -24,7 +24,7 @@
     let fileStorage = FILE_STORAGE.newFileStorage(logger);
 
     const TRADING_ENGINE_MODULE = require('./TradingEngine.js')
-    let tradingEngineModule = TRADING_ENGINE_MODULE.newTradingEngine(bot, logger)
+    let tradingEngineModule = TRADING_ENGINE_MODULE.newTradingEngine(processIndex, bot, logger)
 
     let TRADING_OUTPUT_MODULE = require("./TradingOutput")
     let tradingOutputModule = TRADING_OUTPUT_MODULE.newTradingOutput(processIndex, bot, logger, tradingEngineModule, UTILITIES, FILE_STORAGE)
@@ -103,7 +103,7 @@
                 This variable tell us which day we are standing at, specially while working
                 with Daily Files. From this Date is that we are going to load the Daily Files.
                 */
-                bot.simulationState.tradingEngine.current.episode.processDate.value = TS.projects.superalgos.utilities.dateTimeFunctions.removeTime(bot.TRADING_SESSION.tradingParameters.timeRange.config.initialDatetime).valueOf()
+                bot.simulationState.tradingEngine.current.episode.processDate.value = TS.projects.superalgos.utilities.dateTimeFunctions.removeTime(TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.tradingParameters.timeRange.config.initialDatetime).valueOf()
             }
 
             /* 
@@ -199,7 +199,7 @@
                     /*
                     If for any reason the session was stopped, we will break this loop and exit the process.
                     */
-                    if (bot.STOP_SESSION === true) { break }
+                    if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_STOPPING === true) { break }
                     /* 
                     When we get to the end of the market, we need to break this process loop in order
                     to let time pass, new information be collected from the exchange, new data built 
@@ -219,7 +219,7 @@
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
 
             function checkThereAreCandles(chart) {
-                let sessionParameters = bot.TRADING_SESSION.tradingParameters
+                let sessionParameters = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.tradingParameters
                 let propertyName = 'at' + sessionParameters.timeFrame.config.label.replace('-', '')
                 let candles = chart[propertyName].candles
 
@@ -236,7 +236,7 @@
                     let statusReport;
 
                     /* We are going to use the start date as beging of market date. */
-                    contextVariables.dateBeginOfMarket = TS.projects.superalgos.utilities.dateTimeFunctions.removeTime(bot.TRADING_SESSION.tradingParameters.timeRange.config.initialDatetime)
+                    contextVariables.dateBeginOfMarket = TS.projects.superalgos.utilities.dateTimeFunctions.removeTime(TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.tradingParameters.timeRange.config.initialDatetime)
                     /*
                     Here we get the status report from the bot who knows which is the end of the market.
                     */
@@ -371,7 +371,7 @@
 
                     dataFiles = new Map();
 
-                    if (bot.TRADING_SESSION.tradingParameters.timeFrame.config.label === timeFrameLabel) {
+                    if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.tradingParameters.timeFrame.config.label === timeFrameLabel) {
                         currentTimeFrame = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][0];
                         currentTimeFrameLabel = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][1];
                     }
@@ -384,7 +384,7 @@
                         }
 
                         if (dataDependenciesModule.isItADepenency(timeFrameLabel, datasetModule.node.parentNode.config.singularVariableName) !== true) {
-                            if (!(bot.TRADING_SESSION.tradingParameters.timeFrame.config.label === timeFrameLabel && datasetModule.node.parentNode.config.pluralVariableName === 'candles')) {
+                            if (!(TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.tradingParameters.timeFrame.config.label === timeFrameLabel && datasetModule.node.parentNode.config.pluralVariableName === 'candles')) {
                                 continue
                             }
                         }
@@ -431,8 +431,8 @@
                                 let dataRecord = dataFile[i]
                                 let begin = dataRecord[beginIndex]
                                 let end = dataRecord[endIndex]
-                                if (end + timeFrame < bot.TRADING_SESSION.tradingParameters.timeRange.config.initialDatetime - 1) { continue } // /1 because we need the previous closed element
-                                if (begin > bot.TRADING_SESSION.tradingParameters.timeRange.config.finalDatetime) { continue }
+                                if (end + timeFrame < TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.tradingParameters.timeRange.config.initialDatetime - 1) { continue } // /1 because we need the previous closed element
+                                if (begin > TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.tradingParameters.timeRange.config.finalDatetime) { continue }
                                 result.push(dataRecord)
                             }
                             return result
@@ -468,7 +468,7 @@
                         }
                     }
 
-                    if (bot.TRADING_SESSION.tradingParameters.timeFrame.config.label === timeFrameLabel) {
+                    if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.tradingParameters.timeFrame.config.label === timeFrameLabel) {
                         currentTimeFrame = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[n][0];
                         currentTimeFrameLabel = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[n][1];
                     }
@@ -488,7 +488,7 @@
                         }
 
                         if (dataDependenciesModule.isItADepenency(timeFrameLabel, datasetModule.node.parentNode.config.singularVariableName) !== true) {
-                            if (!(bot.TRADING_SESSION.tradingParameters.timeFrame.config.label === timeFrameLabel && datasetModule.node.parentNode.config.pluralVariableName === 'candles')) {
+                            if (!(TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.tradingParameters.timeFrame.config.label === timeFrameLabel && datasetModule.node.parentNode.config.pluralVariableName === 'candles')) {
                                 continue
                             }
                         }
@@ -543,7 +543,7 @@
 
             function checkStopProcessing() {
                 /* Validation that we dont need to stop. */
-                if (bot.STOP_SESSION === true) {
+                if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_STOPPING === true) {
                     return false
                 }
             }
@@ -728,7 +728,7 @@
 
             function checkIfSessionMustStop() {
 
-                if (bot.TRADING_SESSION.type === 'Backtesting Session') {
+                if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.type === 'Backtesting Session') {
                     /*
                     Backtests needs only one execution of this process to complete.
                     */

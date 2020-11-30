@@ -47,7 +47,7 @@ exports.newTradingStages = function (processIndex, bot, logger, tradingEngineMod
     function initialize() {
         tradingSystem = bot.simulationState.tradingSystem
         tradingEngine = bot.simulationState.tradingEngine
-        sessionParameters = bot.TRADING_SESSION.tradingParameters
+        sessionParameters = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.tradingParameters
 
         tradingStrategyModule.initialize()
         tradingPositionModule.initialize()
@@ -160,7 +160,7 @@ exports.newTradingStages = function (processIndex, bot, logger, tradingEngineMod
                                     announcementsModule.makeAnnoucements(triggerStage.triggerOn)
                                     announcementsModule.makeAnnoucements(triggerStage)
 
-                                    if (bot.TRADING_SESSION.type === 'Backtesting Session') {
+                                    if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.type === 'Backtesting Session') {
                                         if (sessionParameters.snapshots !== undefined) {
                                             if (sessionParameters.snapshots.config.strategy === true) {
                                                 snapshotsModule.strategyEntry()
@@ -245,7 +245,7 @@ exports.newTradingStages = function (processIndex, bot, logger, tradingEngineMod
                                 announcementsModule.makeAnnoucements(triggerStage.takePosition)
                                 announcementsModule.makeAnnoucements(strategy.openStage)
 
-                                if (bot.TRADING_SESSION.type === 'Backtesting Session') {
+                                if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.type === 'Backtesting Session') {
                                     if (sessionParameters.snapshots !== undefined) {
                                         if (sessionParameters.snapshots.config.position === true) {
                                             snapshotsModule.positionEntry()
@@ -856,7 +856,7 @@ exports.newTradingStages = function (processIndex, bot, logger, tradingEngineMod
 
         function closePositionAndStrategy() {
             /* Taking Position Snapshot */
-            if (bot.TRADING_SESSION.type === 'Backtesting Session') {
+            if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.type === 'Backtesting Session') {
                 if (sessionParameters.snapshots !== undefined) {
                     if (sessionParameters.snapshots.config.position === true) {
                         snapshotsModule.positionExit()
@@ -865,7 +865,7 @@ exports.newTradingStages = function (processIndex, bot, logger, tradingEngineMod
             }
 
             /* Taking Strategy Snapshot */
-            if (bot.TRADING_SESSION.type === 'Backtesting Session') {
+            if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.type === 'Backtesting Session') {
                 if (sessionParameters.snapshots !== undefined) {
                     if (sessionParameters.snapshots.config.strategy === true) {
                         snapshotsModule.strategyExit()

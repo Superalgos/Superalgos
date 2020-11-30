@@ -23,7 +23,7 @@ exports.newTradingEpisode = function (processIndex, bot, logger, tradingEngineMo
     function initialize() {
         tradingSystem = bot.simulationState.tradingSystem
         tradingEngine = bot.simulationState.tradingEngine
-        sessionParameters = bot.TRADING_SESSION.tradingParameters
+        sessionParameters = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.tradingParameters
     }
 
     function finalize() {

@@ -42,7 +42,7 @@
     function run(callBackFunction) {
         try {
             /* Some initial values*/
-            bot.STOP_SESSION = true;
+            TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_STOPPING = true;
             parentLogger.write(MODULE_NAME, '[IMPORTANT] run -> Stopping the Session now. ')
 
             /* Heartbeats sent to the UI */
@@ -91,18 +91,18 @@
                     logger.newMainLoop()
 
                     /* Checking if we need to need to emit any event */
-                    if (bot.TRADING_SESSION_STATUS === 'Idle' && bot.STOP_SESSION === false) {
+                    if (bot.TRADING_SESSION_STATUS === 'Idle' && TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_STOPPING === false) {
                         bot.TRADING_SESSION_STATUS = 'Running'
                     }
 
-                    if (bot.TRADING_SESSION_STATUS === 'Running' && bot.STOP_SESSION === true) {
+                    if (bot.TRADING_SESSION_STATUS === 'Running' && TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_STOPPING === true) {
                         bot.TRADING_SESSION_STATUS = 'Stopped'
                     }
 
                     TS.projects.superalgos.functionLibraries.sessionFunctions.emitSessionStatus(bot.TRADING_SESSION_STATUS, TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY)
 
                     /* Checking if we should process this loop or not.*/
-                    if (bot.STOP_SESSION === true) {
+                    if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_STOPPING === true) {
 
                         logger.write(MODULE_NAME, "[INFO] run -> loop -> Waiting for " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.type + " " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.name + " to be run.")
 
@@ -555,17 +555,17 @@
                                     if (processConfig.waitsForExecutionFinishedEvent === true) {
                                         waitTime = 0
                                     } else {
-                                        switch (bot.TRADING_SESSION.type) {
+                                        switch (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.type) {
                                             case 'Live Trading Session': {
-                                                waitTime = bot.TRADING_SESSION.tradingParameters.timeFrame.config.value
+                                                waitTime = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.tradingParameters.timeFrame.config.value
                                                 break
                                             }
                                             case 'Fordward Tessting Session': {
-                                                waitTime = bot.TRADING_SESSION.tradingParameters.timeFrame.config.value
+                                                waitTime = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.tradingParameters.timeFrame.config.value
                                                 break
                                             }
                                             case 'Paper Trading Session': {
-                                                waitTime = bot.TRADING_SESSION.tradingParameters.timeFrame.config.value
+                                                waitTime = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.tradingParameters.timeFrame.config.value
                                                 break
                                             }
                                             case 'Backtesting Session': {

@@ -42,7 +42,7 @@ exports.newLearningBot = function (processIndex, bot, parentLogger) {
     function run(callBackFunction) {
         try {
             /* Some initial values*/
-            bot.STOP_SESSION = true;
+            TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_STOPPING = true;
             if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, '[IMPORTANT] run -> Stopping the Session now. ') }
 
             /* Heartbeats sent to the UI */
@@ -91,18 +91,18 @@ exports.newLearningBot = function (processIndex, bot, parentLogger) {
                     logger.newMainLoop()
 
                     /* Checking if we need to need to emit any event */
-                    if (bot.SESSION_STATUS === 'Idle' && bot.STOP_SESSION === false) {
+                    if (bot.SESSION_STATUS === 'Idle' && TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_STOPPING === false) {
                         bot.SESSION_STATUS = 'Running'
                     }
 
-                    if (bot.SESSION_STATUS === 'Running' && bot.STOP_SESSION === true) {
+                    if (bot.SESSION_STATUS === 'Running' && TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_STOPPING === true) {
                         bot.SESSION_STATUS = 'Stopped'
                     }
 
                     TS.projects.superalgos.functionLibraries.sessionFunctions.emitSessionStatus(bot.SESSION_STATUS, TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY)
 
                     /* Checking if we should process this loop or not.*/
-                    if (bot.STOP_SESSION === true) {
+                    if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_STOPPING === true) {
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> Waiting for " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.type + " " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.name + " to be run."); }
 

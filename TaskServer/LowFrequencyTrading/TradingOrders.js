@@ -27,7 +27,7 @@ exports.newTradingOrders = function (processIndex, bot, logger, tradingEngineMod
     function initialize() {
         tradingSystem = bot.simulationState.tradingSystem
         tradingEngine = bot.simulationState.tradingEngine
-        sessionParameters = bot.TRADING_SESSION.tradingParameters
+        sessionParameters = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.tradingParameters
 
         exchangeAPIModule.initialize()
         announcementsModule.initialize()
@@ -476,7 +476,7 @@ exports.newTradingOrders = function (processIndex, bot, logger, tradingEngineMod
         async function createOrderAtExchange(tradingSystemOrder, tradingEngineOrder) {
 
             /* Filter by Session Type */
-            switch (bot.TRADING_SESSION.type) {
+            switch (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.type) {
                 case 'Backtesting Session': {
                     return true
                 }
@@ -503,7 +503,7 @@ exports.newTradingOrders = function (processIndex, bot, logger, tradingEngineMod
     async function checkExchangeEvents(tradingEngineStage, tradingSystemOrder, tradingEngineOrder) {
 
         /* Filter by Session Type */
-        switch (bot.TRADING_SESSION.type) {
+        switch (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.type) {
             case 'Backtesting Session': {
                 return true
             }
@@ -613,7 +613,7 @@ exports.newTradingOrders = function (processIndex, bot, logger, tradingEngineMod
     function simulateCheckExchangeEvents(tradingEngineStage, tradingSystemOrder, tradingEngineOrder) {
 
         /* Filter by Session Type */
-        switch (bot.TRADING_SESSION.type) {
+        switch (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.type) {
             case 'Backtesting Session': {
                 break
             }
@@ -658,7 +658,7 @@ exports.newTradingOrders = function (processIndex, bot, logger, tradingEngineMod
         let previousQuotedAssetFeesPaid = tradingEngineOrder.orderQuotedAsset.feesPaid.value
 
         const ORDERS_SIMULATIONS_MODULE = require('./OrdersSimulations.js')
-        let ordersSimulationsModule = ORDERS_SIMULATIONS_MODULE.newOrdersSimulations(bot, logger)
+        let ordersSimulationsModule = ORDERS_SIMULATIONS_MODULE.newOrdersSimulations(processIndex, bot, logger)
         ordersSimulationsModule.initialize()
 
         ordersSimulationsModule.actualSizeSimulation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, applyFeePercentage)
@@ -690,7 +690,7 @@ exports.newTradingOrders = function (processIndex, bot, logger, tradingEngineMod
         let previousQuotedAssetFeesPaid = tradingEngineOrder.orderQuotedAsset.feesPaid.value
 
         const ORDERS_CALCULATIONS_MODULE = require('./OrdersCalculations.js')
-        let ordersCalculationsModule = ORDERS_CALCULATIONS_MODULE.newOrdersCalculations(bot, logger)
+        let ordersCalculationsModule = ORDERS_CALCULATIONS_MODULE.newOrdersCalculations(processIndex, bot, logger)
         ordersCalculationsModule.initialize()
 
         await ordersCalculationsModule.actualSizeCalculation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order, applyFeePercentage)
@@ -839,7 +839,7 @@ exports.newTradingOrders = function (processIndex, bot, logger, tradingEngineMod
     function simulateCancelOrder(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, exitType) {
 
         /* Filter by Session Type */
-        switch (bot.TRADING_SESSION.type) {
+        switch (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.type) {
             case 'Backtesting Session': {
                 break
             }
@@ -870,7 +870,7 @@ exports.newTradingOrders = function (processIndex, bot, logger, tradingEngineMod
     async function exchangeCancelOrder(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, exitType) {
 
         /* Filter by Session Type */
-        switch (bot.TRADING_SESSION.type) {
+        switch (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SESSION_NODE.type) {
             case 'Backtesting Session': {
                 return
             }

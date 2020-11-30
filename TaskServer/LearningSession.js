@@ -115,9 +115,9 @@ exports.newLearningSession = function (processIndex, bot, parentLogger) {
                     }
                     if (allGood === true) {
                         bot.SESSION_STATUS = 'Idle'
-                        bot.STOP_SESSION = false
+                        TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_STOPPING = false
                     } else {
-                        bot.STOP_SESSION = true
+                        TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_STOPPING = true
                         parentLogger.write(MODULE_NAME, '[IMPORTANT] onSessionRun -> Stopping the Session now. ')
                     }
 
@@ -145,7 +145,7 @@ exports.newLearningSession = function (processIndex, bot, parentLogger) {
                     }
 
                     bot.RESUME = true
-                    bot.STOP_SESSION = false
+                    TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_STOPPING = false
 
                     TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SOCIAL_BOTS_MODULE.sendMessage(bot.LEARNING_SESSION.type + " '" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.name + "' is resuming.")
                 } catch (err) {
@@ -157,7 +157,7 @@ exports.newLearningSession = function (processIndex, bot, parentLogger) {
 
                 TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SOCIAL_BOTS_MODULE.sendMessage(bot.LEARNING_SESSION.type + " '" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.name + "' is stopping " + commandOrigin)
                 TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SOCIAL_BOTS_MODULE.finalize()
-                bot.STOP_SESSION = true
+                TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_STOPPING = true
                 parentLogger.write(MODULE_NAME, '[IMPORTANT] stopSession -> Stopping the Session now. ')
                 TS.projects.superalgos.functionLibraries.sessionFunctions.sessionInfo(processIndex, bot.LEARNING_SESSION, commandOrigin, parentLogger)
             }
@@ -460,7 +460,7 @@ exports.newLearningSession = function (processIndex, bot, parentLogger) {
                 global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY, 'Heartbeat', event)
 
                 if (TS.projects.superalgos.globals.taskVariables.IS_TASK_STOPPING === true) {
-                    bot.STOP_SESSION = true
+                    TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_STOPPING = true
                     parentLogger.write(MODULE_NAME, '[IMPORTANT] sessionHeartBeat -> Stopping the Session now. ')
                 }
             }

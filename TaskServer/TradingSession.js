@@ -7,7 +7,7 @@
     }
 
     const SOCIAL_BOTS_MODULE = require('./SocialBots.js')
-    let socialBotsModule = SOCIAL_BOTS_MODULE.newSocialBots(bot, parentLogger)
+    TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SOCIAL_BOTS_MODULE = SOCIAL_BOTS_MODULE.newSocialBots(bot, parentLogger)
 
     return thisObject;
 
@@ -86,14 +86,13 @@
                     bot.DEPENDENCY_FILTER = JSON.parse(message.event.dependencyFilter)
                     bot.RESUME = false
                     bot.FIRST_EXECUTION = true
-                    bot.TRADING_SESSION.stop = stopSession // stop function
 
                     setUpSessionFolderName()
 
                     /* We validate all parameters received and complete some that might be missing if needed. */
                     if (checkParemeters() === false) { return }
 
-                    socialBotsModule.initialize()
+                    TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SOCIAL_BOTS_MODULE.initialize()
 
                     let allGood
                     switch (bot.TRADING_SESSION.type) {
@@ -122,7 +121,7 @@
                         parentLogger.write(MODULE_NAME, '[IMPORTANT] onSessionRun -> Stopping the Session now. ')
                     }
 
-                    socialBotsModule.sendMessage(bot.TRADING_SESSION.type + " '" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.name + "' is starting.")
+                    TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SOCIAL_BOTS_MODULE.sendMessage(bot.TRADING_SESSION.type + " '" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.name + "' is starting.")
                 } catch (err) {
                     parentLogger.write(MODULE_NAME, "[ERROR] initialize -> onSessionRun -> err = " + err.stack);
                 }
@@ -134,7 +133,7 @@
 
             function onSessionResume(message) {
                 try {
-                    if (bot.TRADING_SESSION.stop === undefined) {
+                    if (TS.projects.superalgos.functionLibraries.sessionFunctions.stopSession === undefined) {
                         parentLogger.write(MODULE_NAME, "[WARN] onSessionResume -> Event received to resume the Session that have never be ran before. ")
                         return
                     }
@@ -148,19 +147,10 @@
                     bot.RESUME = true
                     bot.STOP_SESSION = false
 
-                    socialBotsModule.sendMessage(bot.TRADING_SESSION.type + " '" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.name + "' is resuming.")
+                    TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SOCIAL_BOTS_MODULE.sendMessage(bot.TRADING_SESSION.type + " '" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.name + "' is resuming.")
                 } catch (err) {
                     parentLogger.write(MODULE_NAME, "[ERROR] initialize -> onSessionResume -> err = " + err.stack);
                 }
-            }
-
-            function stopSession(commandOrigin) {
-
-                socialBotsModule.sendMessage(bot.TRADING_SESSION.type + " '" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.name + "' is stopping " + commandOrigin)
-                socialBotsModule.finalize()
-                bot.STOP_SESSION = true
-                parentLogger.write(MODULE_NAME, '[IMPORTANT] stopSession -> Stopping the Session now. ')
-                TS.projects.superalgos.functionLibraries.sessionFunctions.sessionInfo(processIndex, bot.TRADING_SESSION, commandOrigin, parentLogger)
             }
 
             function setUpSessionFolderName() {

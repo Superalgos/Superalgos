@@ -733,7 +733,7 @@ exports.newLearningProcess = function (processIndex, bot, logger, UTILITIES) {
                     Backtests needs only one execution of this process to complete.
                     */
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, '[IMPORTANT] checkIfSessionMustStop -> Backtesting Session Finished. Stopping the Session now. ') }
-                    bot.TRADING_SESSION.stop('Backtesting Session Finished.')
+                    TS.projects.superalgos.functionLibraries.sessionFunctions.stopSession(processIndex, 'Backtesting Session Finished.')
                 }
             }
         }

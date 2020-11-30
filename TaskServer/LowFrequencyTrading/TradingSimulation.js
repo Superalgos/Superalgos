@@ -71,7 +71,7 @@ exports.newTradingSimulation = function (processIndex, bot, logger, tradingEngin
                     This will happen when the sessionParameters.timeRange.config.initialDatetime is beyond the last candle available, 
                     meaning that the dataSet needs to be updated with more up-to-date data. 
                     */
-                    bot.TRADING_SESSION.stop('Data is not up-to-date enough. Please start the Masters Data Mining Operation.')
+                    TS.projects.superalgos.functionLibraries.sessionFunctions.stopSession(processIndex, 'Data is not up-to-date enough. Please start the Masters Data Mining Operation.')
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, '[IMPORTANT] runSimulation -> Data is not up-to-date enough. Stopping the Session now. ') }
                     return
                 }
@@ -210,7 +210,7 @@ exports.newTradingSimulation = function (processIndex, bot, logger, tradingEngin
                     if (checkFinalDatetime() === false) {
                         closeEpisode('Final Datetime Reached')
                         breakLoop = true
-                        bot.TRADING_SESSION.stop('Final Datetime Reached')
+                        TS.projects.superalgos.functionLibraries.sessionFunctions.stopSession(processIndex, 'Final Datetime Reached')
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[IMPORTANT] runSimulation -> Final Datetime Reached. Stopping the Session now. ') }
                         return
                     }
@@ -218,7 +218,7 @@ exports.newTradingSimulation = function (processIndex, bot, logger, tradingEngin
                     if (checkMinimunAndMaximunBalance() === false) {
                         closeEpisode('Min or Max Balance Reached')
                         breakLoop = true
-                        bot.TRADING_SESSION.stop('Min or Max Balance Reached')
+                        TS.projects.superalgos.functionLibraries.sessionFunctions.stopSession(processIndex, 'Min or Max Balance Reached')
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[IMPORTANT] runSimulation -> Min or Max Balance Reached. Stopping the Session now. ') }
                         return
                     }

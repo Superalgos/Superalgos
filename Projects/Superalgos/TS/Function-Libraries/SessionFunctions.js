@@ -1,6 +1,7 @@
 exports.newSuperalgosFunctionLibrariesSessionFunctions = function () {
 
     let thisObject = {
+        stopSession: stopSession,
         emitSessionStatus: emitSessionStatus,
         finalizeSessions: finalizeSessions,
         sessionError: sessionError,
@@ -9,6 +10,14 @@ exports.newSuperalgosFunctionLibrariesSessionFunctions = function () {
     }
 
     return thisObject
+
+    function stopSession(processIndex, commandOrigin) {
+
+        TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SOCIAL_BOTS_MODULE.sendMessage(bot.TRADING_SESSION.type + " '" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.name + "' is stopping " + commandOrigin)
+        TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SOCIAL_BOTS_MODULE.finalize()
+        bot.STOP_SESSION = true
+        TS.projects.superalgos.functionLibraries.sessionFunctions.sessionInfo(processIndex, bot.TRADING_SESSION, commandOrigin, parentLogger)
+    }
 
     function emitSessionStatus(status, key) {
         switch (status) {

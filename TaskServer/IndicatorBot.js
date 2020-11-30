@@ -84,9 +84,6 @@
 
     function run(callBackFunction) {
         try {
-            /* Heartbeats sent to the UI */
-            bot.processHeartBeat = processHeartBeat
-
             loop();
 
             function loop() {
@@ -109,7 +106,7 @@
                     bot.loopStartTime = new Date().valueOf();
 
                     /* We tell the UI that we are running. */
-                    processHeartBeat()
+                    TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex)
 
                     /* We define here all the modules that the rest of the infraestructure, including the bots themselves can consume. */
                     const UTILITIES = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + 'CloudUtilities');
@@ -677,7 +674,7 @@
                         logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> nextWaitTime = " + nextWaitTime)
 
                         /* We show we reached the end of the loop. */
-                        processHeartBeat()
+                        TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex)
 
                         /* Here we check if we must stop the loop gracefully. */
                         shallWeStop(onStop, onContinue);
@@ -694,28 +691,28 @@
                                 case 'Normal': {
                                     logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.normalWaitTime / 1000) + " seconds.")
                                     nextLoopTimeoutHandle = setTimeout(loop, processConfig.normalWaitTime);
-                                    processHeartBeat(undefined, undefined, "Waiting " + processConfig.normalWaitTime / 1000 + " seconds for next execution.")
+                                    TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, undefined, undefined, "Waiting " + processConfig.normalWaitTime / 1000 + " seconds for next execution.")
                                     logger.persist();
                                 }
                                     break;
                                 case 'Retry': {
                                     logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.retryWaitTime / 1000) + " seconds.")
                                     nextLoopTimeoutHandle = setTimeout(loop, processConfig.retryWaitTime);
-                                    processHeartBeat(undefined, undefined, "Trying to recover from some problem. Waiting " + processConfig.retryWaitTime / 1000 + " seconds for next execution.")
+                                    TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, undefined, undefined, "Trying to recover from some problem. Waiting " + processConfig.retryWaitTime / 1000 + " seconds for next execution.")
                                     logger.persist();
                                 }
                                     break;
                                 case 'Sleep': {
                                     logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.sleepWaitTime / 60000) + " minutes.")
                                     nextLoopTimeoutHandle = setTimeout(loop, processConfig.sleepWaitTime);
-                                    processHeartBeat(undefined, undefined, "Waiting " + processConfig.sleepWaitTime / 60000 + " minutes for next execution.")
+                                    TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, undefined, undefined, "Waiting " + processConfig.sleepWaitTime / 60000 + " minutes for next execution.")
                                     logger.persist();
                                 }
                                     break;
                                 case 'Coma': {
                                     logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.comaWaitTime / 3600000) + " hours.")
                                     nextLoopTimeoutHandle = setTimeout(loop, processConfig.comaWaitTime);
-                                    processHeartBeat(undefined, undefined, "Waiting " + processConfig.comaWaitTime / 3600000 + " hours for next execution.")
+                                    TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, undefined, undefined, "Waiting " + processConfig.comaWaitTime / 3600000 + " hours for next execution.")
                                     logger.persist();
                                 }
                                     break;
@@ -744,16 +741,6 @@
                     processStopped()
                     return
                 }
-            }
-
-            function processHeartBeat(processingDate, percentage, status) {
-                let event = {
-                    seconds: (new Date()).getSeconds(),
-                    processingDate: processingDate,
-                    percentage: percentage,
-                    status: status
-                }
-                global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_KEY, 'Heartbeat', event)
             }
 
             function processStopped() {

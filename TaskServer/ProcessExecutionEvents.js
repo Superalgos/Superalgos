@@ -205,7 +205,7 @@
 
                 eventServerClient.listenToEvent(key, 'Process Execution Finished', undefined, callerId, responseCallBack, eventsCallBack)
 
-                bot.processHeartBeat(undefined, undefined, "Waiting for " + thisObject.networkNode.name + "->" + processThisDependsOn.parentNode.parentNode.name + "->" + processThisDependsOn.parentNode.config.codeName + "->" + processThisDependsOn.config.codeName)
+                TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, undefined, undefined, "Waiting for " + thisObject.networkNode.name + "->" + processThisDependsOn.parentNode.parentNode.name + "->" + processThisDependsOn.parentNode.config.codeName + "->" + processThisDependsOn.config.codeName)
 
                 function responseCallBack(message) {
                     if (message.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
@@ -234,7 +234,7 @@
                         global.EVENT_SERVER_CLIENT_MODULE.createEventHandler(currentProcessKey, 'Process Execution Started')
                         global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(currentProcessKey, 'Process Execution Started', event)
 
-                        bot.processHeartBeat(undefined, undefined, "Running...")
+                        TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, undefined, undefined, "Running...")
 
                         logger.write(MODULE_NAME, "[INFO] start -> eventsCallBack -> " + currentProcessKey + " Process Execution Started because " + key + " Finished.")
                     }

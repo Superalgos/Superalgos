@@ -448,7 +448,7 @@
             async function processDailyFiles() {
                 /*  Telling the world we are alive and doing well and which date we are processing right now. */
                 let processingDateString = tradingProcessDate.getUTCFullYear() + '-' + utilities.pad(tradingProcessDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(tradingProcessDate.getUTCDate(), 2);
-                bot.processHeartBeat(processingDateString, undefined, "Running...")
+                TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, processingDateString, undefined, "Running...")
 
                 /*
                 We will iterate through all posible timeFrames.

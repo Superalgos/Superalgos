@@ -280,7 +280,7 @@
                             let currentDateString = processDate.getUTCFullYear() + '-' + utilities.pad(processDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(processDate.getUTCDate(), 2);
                             let currentDate = new Date(processDate)
                             let percentage = TS.projects.superalgos.utilities.dateTimeFunctions.getPercentage(fromDate, currentDate, lastDate)
-                            bot.processHeartBeat(currentDateString, percentage) 
+                            TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, currentDateString, percentage) 
 
                             if (TS.projects.superalgos.utilities.dateTimeFunctions.areTheseDatesEqual(currentDate, new Date()) === false) {
                                 logger.newInternalLoop(currentDate, percentage);

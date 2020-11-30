@@ -286,7 +286,7 @@ exports.newTradingSimulation = function (processIndex, bot, logger, tradingEngin
                             /* Date only hearbeat */
                             if (sessionParameters.heartbeats.config.date === true && sessionParameters.heartbeats.config.candleIndex === false) {
                                 hartbeatText = hartbeatText + currentDateString
-                                bot.processHeartBeat(hartbeatText, percentage)
+                                TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, hartbeatText, percentage)
                                 return
                             }
                         }
@@ -301,7 +301,7 @@ exports.newTradingSimulation = function (processIndex, bot, logger, tradingEngin
                                 hartbeatText = hartbeatText + currentDateString
                             }
                             hartbeatText = hartbeatText + ' Candle # ' + tradingEngine.current.episode.candle.index.value
-                            bot.processHeartBeat(hartbeatText, percentage)
+                            TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, hartbeatText, percentage)
                         }
                     }
                 }

@@ -1,12 +1,23 @@
 exports.newSuperalgosFunctionLibrariesProcessFunctions = function () {
 
     let thisObject = {
+        processHeartBeat: processHeartBeat, 
         processError: processError,
         processWarning: processWarning,
         processInfo: processInfo
     }
 
     return thisObject
+
+    function processHeartBeat(processIndex, processingDate, percentage, status) {
+        let event = {
+            seconds: (new Date()).getSeconds(),
+            processingDate: processingDate,
+            percentage: percentage,
+            status: status
+        }
+        global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_KEY, 'Heartbeat', event)
+    }
 
     function processError (processKey, node, errorMessage) {
         let event

@@ -448,7 +448,7 @@ exports.newLearningProcess = function (processIndex, bot, logger, UTILITIES) {
             async function processDailyFiles() {
                 /*  Telling the world we are alive and doing well and which date we are processing right now. */
                 let processingDateString = LearningProcessDate.getUTCFullYear() + '-' + utilities.pad(LearningProcessDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(LearningProcessDate.getUTCDate(), 2);
-                bot.processHeartBeat(processingDateString, undefined, "Running...")
+                TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, processingDateString, undefined, "Running...")
 
                 /*
                 We will iterate through all posible timeFrames.

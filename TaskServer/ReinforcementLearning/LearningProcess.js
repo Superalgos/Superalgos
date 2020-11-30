@@ -87,8 +87,8 @@ exports.newLearningProcess = function (processIndex, bot, logger, UTILITIES) {
                 /* 
                 Here is where the Trading Engine and Trading Systems received are moved to the simulation state.
                 */
-                bot.simulationState.tradingEngine = bot.TRADING_ENGINE
-                bot.simulationState.tradingSystem = bot.TRADING_SYSTEM
+                bot.simulationState.tradingEngine = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_NODE
+                bot.simulationState.tradingSystem = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SYSTEM_NODE
             }
 
             /* We set up the Trading Engine Module. */

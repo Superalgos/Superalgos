@@ -80,8 +80,8 @@
                     }
 
                     /* We are going to run the Definition comming at the event. */
-                    bot.TRADING_SYSTEM = JSON.parse(message.event.tradingSystem)
-                    bot.TRADING_ENGINE = JSON.parse(message.event.tradingEngine)
+                    TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SYSTEM_NODE = JSON.parse(message.event.tradingSystem)
+                    TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_NODE = JSON.parse(message.event.tradingEngine)
                     bot.TRADING_SESSION = JSON.parse(message.event.session)
                     bot.DEPENDENCY_FILTER = JSON.parse(message.event.dependencyFilter)
                     bot.RESUME = false

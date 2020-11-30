@@ -45,6 +45,11 @@
                     TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].id
             }
             TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.set(processIndex, VARIABLES_BY_PROCESS_INDEX)
+            /*
+            There are also a few constants at the process level. We initialize them here.
+            */
+            let CONSTANTS_BY_PROCESS_INDEX = {}
+            TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.set(processIndex, CONSTANTS_BY_PROCESS_INDEX)
 
             /* File Path Root */
             botConfig.filePathRoot =

@@ -18,7 +18,7 @@ exports.newTradingStrategy = function (processIndex, bot, logger, tradingEngineM
     return thisObject
 
     function initialize() {
-        tradingEngine = bot.simulationState.tradingEngine
+        tradingEngine = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingEngine
         sessionParameters = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters
     }
 

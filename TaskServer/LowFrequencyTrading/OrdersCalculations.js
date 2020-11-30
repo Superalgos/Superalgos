@@ -24,8 +24,8 @@ exports.newOrdersCalculations = function (processIndex, bot, logger) {
 
     function initialize() {
         sessionParameters = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters
-        tradingEngine = bot.simulationState.tradingEngine
-        tradingSystem = bot.simulationState.tradingSystem
+        tradingEngine = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingEngine
+        tradingSystem = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingSystem
     }
 
     function finalize() {

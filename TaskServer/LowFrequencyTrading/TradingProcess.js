@@ -83,19 +83,19 @@
 
             if (getContextVariables() !== true) { return }
 
-            if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_FIRST_LOOP === true && TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_RESUMING === false) {
+            if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_FIRST_LOOP === true && TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_RESUMING === false) {
                 /* 
                 Here is where the Trading Engine and Trading Systems received are moved to the simulation state.
                 */
-                bot.simulationState.tradingEngine = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_NODE
-                bot.simulationState.tradingSystem = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SYSTEM_NODE
+                TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingEngine = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_NODE
+                TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingSystem = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SYSTEM_NODE
             }
 
             /* We set up the Trading Engine Module. */
             tradingEngineModule.initialize()
 
             /* Initializing the Trading Process Date */
-            if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_FIRST_LOOP === true && TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_RESUMING === false) {
+            if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_FIRST_LOOP === true && TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_RESUMING === false) {
                 /* 
                 This funcion is going to be called many times by the Trading Bot Loop.
                 Only during the first execution and when the User is not resuming the execution
@@ -103,7 +103,7 @@
                 This variable tell us which day we are standing at, specially while working
                 with Daily Files. From this Date is that we are going to load the Daily Files.
                 */
-                bot.simulationState.tradingEngine.current.episode.processDate.value = TS.projects.superalgos.utilities.dateTimeFunctions.removeTime(TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeRange.config.initialDatetime).valueOf()
+                TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingEngine.current.episode.processDate.value = TS.projects.superalgos.utilities.dateTimeFunctions.removeTime(TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeRange.config.initialDatetime).valueOf()
             }
 
             /* 
@@ -115,7 +115,7 @@
             the simulation loop, once we discover that all candles from a certain date have benn processed.
             Here is the point where we sync one and the other.
             */
-            let tradingProcessDate = TS.projects.superalgos.utilities.dateTimeFunctions.removeTime(bot.simulationState.tradingEngine.current.episode.processDate.value)
+            let tradingProcessDate = TS.projects.superalgos.utilities.dateTimeFunctions.removeTime(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingEngine.current.episode.processDate.value)
             await processSingleFiles()
 
             if (await processMarketFiles() === false) {
@@ -166,7 +166,7 @@
                     use it to save Output Files and later the Data Ranges. This is the point where
                     the date calculated by the Simulation is applied at the Trading Process Level.
                     */
-                    tradingProcessDate = TS.projects.superalgos.utilities.dateTimeFunctions.removeTime(bot.simulationState.tradingEngine.current.episode.processDate.value)
+                    tradingProcessDate = TS.projects.superalgos.utilities.dateTimeFunctions.removeTime(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingEngine.current.episode.processDate.value)
 
                     if (checkStopTaskGracefully() === false) { break }
                     if (checkStopProcessing() === false) { break }
@@ -286,11 +286,11 @@
                     }
 
                     thisReport = statusReport.file;
-                    bot.simulationState = thisReport.simulationState;
-                    if (bot.simulationState === undefined) { bot.simulationState = {} } // This should happen only when there is no status report
+                    TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE = thisReport.simulationState;
+                    if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE === undefined) { TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE = {} } // This should happen only when there is no status report
 
                     if (thisReport.lastFile !== undefined) {
-                        if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_RESUMING !== true) {
+                        if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_RESUMING !== true) {
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> Starting from the begining because bot has just started and resume execution was true."); }
                             startFromBegining();
                             return true
@@ -529,7 +529,7 @@
                 indicators to be built and continue the processing once this process is called
                 again. 
                 */
-                if (bot.simulationState.tradingEngine.current.episode.headOfTheMarket.value === true) {
+                if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingEngine.current.episode.headOfTheMarket.value === true) {
                     return false
                 }
             }
@@ -619,8 +619,8 @@
                 From here on, all other loops executions wont be the first execution and also
                 we will consider that it is not resuming a previous execution as well.
                 */
-                TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_FIRST_LOOP = false
-                TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_RESUMING = false
+                TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_FIRST_LOOP = false
+                TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_RESUMING = false
             }
 
             async function writeProcessFiles() {
@@ -708,7 +708,7 @@
 
                     thisReport.file.lastExecution = bot.currentDaytime
                     thisReport.file.lastFile = tradingProcessDate
-                    thisReport.file.simulationState = bot.simulationState
+                    thisReport.file.simulationState = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE
                     thisReport.file.timeFrames = currentTimeFrameLabel
                     await thisReport.asyncSave()
                 }
@@ -718,7 +718,7 @@
                     let thisReport = statusDependencies.statusReports.get(reportKey);
 
                     thisReport.file.lastExecution = bot.processDatetime
-                    thisReport.file.simulationState = bot.simulationState
+                    thisReport.file.simulationState = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE
                     thisReport.file.timeFrames = currentTimeFrameLabel
 
                     logger.newInternalLoop(tradingProcessDate)

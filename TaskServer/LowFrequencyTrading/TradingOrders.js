@@ -25,8 +25,8 @@ exports.newTradingOrders = function (processIndex, bot, logger, tradingEngineMod
     return thisObject
 
     function initialize() {
-        tradingSystem = bot.simulationState.tradingSystem
-        tradingEngine = bot.simulationState.tradingEngine
+        tradingSystem = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingSystem
+        tradingEngine = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingEngine
         sessionParameters = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters
 
         exchangeAPIModule.initialize()

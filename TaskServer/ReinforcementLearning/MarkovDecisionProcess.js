@@ -24,12 +24,12 @@ exports.newMarkovDecisionProcess = function newMarkovDecisionProcess(bot, logger
 
     function initialize() {
 
-        tradingEngine = bot.simulationState.tradingEngine
+        tradingEngine = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingEngine
         sessionParameters = bot.LEARNING_SESSION.learningParameters
 
         initializeNodeMap(tradingEngine)
 
-        if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_FIRST_LOOP === true) {
+        if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_FIRST_LOOP === true) {
             /* 
             Here we will go through all the nodes in the Trading Engine hiriarchy and
             apply the initial value to the value property when needed 

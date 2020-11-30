@@ -26,8 +26,8 @@ exports.newTradingSimulation = function (processIndex, bot, logger, tradingEngin
     ) {
         try {
 
-            let tradingSystem = bot.simulationState.tradingSystem
-            let tradingEngine = bot.simulationState.tradingEngine
+            let tradingSystem = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingSystem
+            let tradingEngine = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingEngine
             let sessionParameters = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> initialDatetime = ' + sessionParameters.timeRange.config.initialDatetime) }
@@ -57,7 +57,7 @@ exports.newTradingSimulation = function (processIndex, bot, logger, tradingEngin
             Estimation of the Initial Candle to Process in this Run.
             */
             let initialCandle
-            if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_FIRST_LOOP === true && TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_RESUMING === false) {
+            if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_FIRST_LOOP === true && TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_RESUMING === false) {
                 /* Estimate Initial Candle based on the timeRage configured for the session. */
                 let firstEnd = candles[0].end
                 let targetEnd = sessionParameters.timeRange.config.initialDatetime

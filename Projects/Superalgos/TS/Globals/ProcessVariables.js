@@ -25,7 +25,8 @@ exports.newSuperalgosGlobalsProcessVariables = function () {
     SESSION_STATUS              This tell us the status of the session at any given time.
     IS_SESSION_STOPPING         This tell us if a session is in the process of being stopped.
     IS_SESSION_RESUMING         This tell us if a session is resuming from the state at the previous execution.
-    IS_SESSION_FIRST_LOOP       This tell us if we are at the execution of the first loop of the bot related to this session.   
+    IS_SESSION_FIRST_LOOP       This tell us if we are at the execution of the first loop of the bot related to this session.
+    SIMULATION_STATE            This is the state of a simulaation, as it is loaded from disk. 
     */
     return thisObject
 }

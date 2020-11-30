@@ -48,9 +48,9 @@
             }
 
             /* Session based dependency filters */
-            if (bot.DEPENDENCY_FILTER !== undefined) {
-                for (let i = 0; i < bot.DEPENDENCY_FILTER.length; i++) {
-                    let key = bot.DEPENDENCY_FILTER[i]
+            if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).DEPENDENCY_FILTER !== undefined) {
+                for (let i = 0; i < TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).DEPENDENCY_FILTER.length; i++) {
+                    let key = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).DEPENDENCY_FILTER[i]
                     filter.set(key, true)
                 }
             }

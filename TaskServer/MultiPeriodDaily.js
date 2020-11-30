@@ -49,7 +49,6 @@
 
     function start(callBackFunction) {
         try {
-            let market = bot.market;
 
             /* Context Variables */
             let contextVariables = {
@@ -548,7 +547,6 @@
                 let reportKey = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "-" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config.codeName + "-" + "Multi-Period-Daily"
                 let thisReport = statusDependencies.statusReports.get(reportKey)
 
-                thisReport.file.lastExecution = bot.currentDaytime;
                 thisReport.file.lastFile = lastFileDate;
                 thisReport.file.interExecutionMemoryArray = interExecutionMemoryArray;
                 thisReport.file.beginingOfMarket = beginingOfMarket.toUTCString()

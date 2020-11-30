@@ -65,7 +65,6 @@
                     logger.initialize();
 
                     TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).MAIN_LOOP_COUNTER++;
-                    bot.loopStartTime = new Date().valueOf();
 
                     let nextWaitTime;
 

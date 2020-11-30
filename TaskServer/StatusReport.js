@@ -103,7 +103,7 @@
             }
 
             if (bot.TRADING_SESSION !== undefined && statusDependencyNode.bottype === "Trading Bot") {
-                sessionPath = bot.TRADING_SESSION.folderName + "/"
+                sessionPath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_FOLDER_NAME + "/"
             }
 
             if (bot.LEARNING_SESSION !== undefined && statusDependencyNode.bottype === "Learning Bot") {

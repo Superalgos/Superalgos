@@ -653,7 +653,7 @@ exports.newLearningProcess = function (processIndex, bot, logger, UTILITIES) {
 
                         let fileContent = JSON.stringify(dataRange);
                         let fileName = '/Data.Range.json';
-                        let filePath = bot.filePathRoot + "/Output/" + bot.TRADING_SESSION.folderName + "/" + productCodeName + "/" + 'Multi-Period-Daily' + fileName;
+                        let filePath = bot.filePathRoot + "/Output/" + TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_FOLDER_NAME + "/" + productCodeName + "/" + 'Multi-Period-Daily' + fileName;
 
                         let response = await fileStorage.asyncCreateTextFile(filePath, fileContent + '\n')
 
@@ -692,7 +692,7 @@ exports.newLearningProcess = function (processIndex, bot, logger, UTILITIES) {
                             let fileContent = JSON.stringify(timeFramesArray)
                             let fileName = '/Time.Frames.json';
 
-                            let filePath = bot.filePathRoot + "/Output/" + bot.TRADING_SESSION.folderName + "/" + productCodeName + "/" + processType + fileName;
+                            let filePath = bot.filePathRoot + "/Output/" + TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_FOLDER_NAME + "/" + productCodeName + "/" + processType + fileName;
 
                             let response = await fileStorage.asyncCreateTextFile(filePath, fileContent + '\n')
                             if (response.err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {

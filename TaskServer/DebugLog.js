@@ -115,11 +115,7 @@ exports.newDebugLog = function (processIndex) {
             if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_FOLDER_NAME !== undefined) {
                 filePath = filePath + TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_FOLDER_NAME + "/" + executionDatetime;
             } else {
-                if (thisObject.bot.LEARNING_SESSION !== undefined) {
-                    filePath = filePath + thisObject.bot.LEARNING_SESSION.folderName + "/" + executionDatetime;
-                } else {
-                    filePath = filePath + executionDatetime;
-                }
+                filePath = filePath + executionDatetime;
             }
 
             let fileName;

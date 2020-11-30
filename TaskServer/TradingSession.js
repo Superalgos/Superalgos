@@ -373,25 +373,25 @@
                 if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference === undefined) {
                     let errorMessage = "Key Reference not defined. Please check that and try again."
                     parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkKey -> " + errorMessage)
-                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, bot.LEARNING_SESSION, errorMessage, parentLogger)
+                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE, errorMessage, parentLogger)
                     return false
                 }
                 if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent === undefined) {
                     let errorMessage = "Key Reference not referencing an Exchange Account Key. Please check that and try again."
                     parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkKey -> " + errorMessage)
-                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, bot.LEARNING_SESSION, errorMessage, parentLogger)
+                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE, errorMessage, parentLogger)
                     return false
                 }
                 if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.codeName === undefined) {
                     let errorMessage = "Key 'codeName' undefined. Paste there you key. Please check that and try again."
                     parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkKey -> " + errorMessage)
-                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, bot.LEARNING_SESSION, errorMessage, parentLogger)
+                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE, errorMessage, parentLogger)
                     return false
                 }
                 if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.secret === undefined) {
                     let errorMessage = "Key 'secret' undefined. Paste there you key secret. Please check that and try again."
                     parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkKey -> " + errorMessage)
-                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, bot.LEARNING_SESSION, errorMessage, parentLogger)
+                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE, errorMessage, parentLogger)
                     return false
                 }
                 return true

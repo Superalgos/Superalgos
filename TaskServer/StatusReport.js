@@ -106,10 +106,6 @@
                 sessionPath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_FOLDER_NAME + "/"
             }
 
-            if (bot.LEARNING_SESSION !== undefined && statusDependencyNode.bottype === "Learning Bot") {
-                sessionPath = bot.LEARNING_SESSION.folderName + "/"
-            }
-
             /* Now we will see where do we need to fetch this status report from. */
             let network = TS.projects.superalgos.globals.taskConstants.NETWORK_NODE
             let processThisDependsOn = statusDependencyNode.referenceParent.parentNode
@@ -274,7 +270,7 @@
             On the contraty, if we are running a Sensor bot or an Indicator bot, we might, if necesary, use a previous version of a Status Report since
             there will be no big impact, just some reprocessing.
             */
-            if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE !== undefined || bot.LEARNING_SESSION !== undefined) {
+            if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE !== undefined) {
                 canUserPrevious = false
             } else {
                 canUserPrevious = true

@@ -45,11 +45,11 @@ exports.newTradingRecords = function (processIndex, bot, logger) {
             let product = dataset.parentNode
             let outputDatasetArray = outputDatasetsMap.get(product.config.codeName)
 
-            if (bot.processingDailyFiles === true && dataset.config.type === 'Daily Files') {
+            if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES === true && dataset.config.type === 'Daily Files') {
                 persistRecords()
             }
 
-            if (bot.processingDailyFiles === false && dataset.config.type === 'Market Files') {
+            if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES === false && dataset.config.type === 'Market Files') {
                 persistRecords()
             }
 
@@ -241,7 +241,7 @@ exports.newTradingRecords = function (processIndex, bot, logger) {
                     if (recordProperty.config.codeName === product.config.propertyNameThatDefinesObject) {
                         let propertyValue = record[j]
 
-                        if (bot.processingDailyFiles) {
+                        if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES) {
                             if (product.config.doNotCutObjectInDays !== true) {
                                 /* 
                                 By default we will cut objects in days.

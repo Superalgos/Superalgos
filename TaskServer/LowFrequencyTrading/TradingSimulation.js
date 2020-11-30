@@ -317,7 +317,7 @@ exports.newTradingSimulation = function (processIndex, bot, logger, tradingEngin
                 dataDependencies = TS.projects.superalgos.utilities.nodeFunctions.filterOutNodeWihtoutReferenceParentFromNodeArray(dataDependencies)
 
                 /* Finding the Current Element on Market Files */
-                if (bot.processingDailyFiles) {
+                if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES) {
                     for (let j = 0; j < TS.projects.superalgos.globals.timeFrames.dailyFilePeriods().length; j++) {
                         let mapKey = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[j][1]
                         let propertyName = 'at' + mapKey.replace('-', '')
@@ -426,7 +426,7 @@ exports.newTradingSimulation = function (processIndex, bot, logger, tradingEngin
                     */
                     let candlesPerDay = TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS / sessionParameters.timeFrame.config.value
                     if (
-                        bot.processingDailyFiles &&
+                        TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES &&
                         tradingEngine.current.episode.candle.index.value + 1 + 1 === candlesPerDay
                     ) {
                         /*

@@ -31,9 +31,9 @@ exports.newTradingOutput = function (processIndex, bot, logger, tradingEngineMod
         try {
 
             if (timeFrame > TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[0][0]) {
-                bot.processingDailyFiles = false
+                TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES = false
             } else {
-                bot.processingDailyFiles = true
+                TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES = true
             }
 
             /* Preparing everything for the Simulation */
@@ -43,7 +43,7 @@ exports.newTradingOutput = function (processIndex, bot, logger, tradingEngineMod
             let outputDatasets = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
             let outputDatasetsMap = new Map()
 
-            if (bot.processingDailyFiles === true) {
+            if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES === true) {
                 /*
                 For Daily Files, we are going to initialize the outputs at the first execution
                 if we are not resuming, but also at every following execution except when 
@@ -83,7 +83,7 @@ exports.newTradingOutput = function (processIndex, bot, logger, tradingEngineMod
             return
 
             async function initializeOutputs() {
-                if (bot.processingDailyFiles) {
+                if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES) {
                     await initializeDailyFiles()
                 } else {
                     await initializeMarketFiles()
@@ -118,7 +118,7 @@ exports.newTradingOutput = function (processIndex, bot, logger, tradingEngineMod
                 files in order to later append more information after the execution is over. Here in this function we are going to
                 read those output files and get them ready for appending content during the simulation.
                 */
-                if (bot.processingDailyFiles) {
+                if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES) {
                     await readDailyFiles()
                 } else {
                     await readMarketFiles()
@@ -175,7 +175,7 @@ exports.newTradingOutput = function (processIndex, bot, logger, tradingEngineMod
                 /*
                 The output of files which were appended with information during the simulation execution, now needs to be saved.
                 */
-                if (bot.processingDailyFiles) {
+                if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES) {
                     await writeDailyFiles()
                 } else {
                     await writeMarketFiles()

@@ -29,6 +29,7 @@ exports.newSuperalgosGlobalsProcessVariables = function () {
     SIMULATION_STATE                        This is the state of a simulaation, as it is loaded from disk. 
     PROCESS_DATETIME                        This holds the date currently being processed.
     DAILY_FILES_PROCESS_DATETIME            When processing daily files, this holds the date of the file being processed.
+    TRADING_PROCESSING_DAILY_FILES          When in a trading process, this tell us if we are processing Daily Files or not.
     */
     return thisObject
 }

@@ -1,12 +1,10 @@
-﻿exports.newProcessOutput = function (processIndex, BOT, logger) {
+﻿exports.newProcessOutput = function (processIndex, logger) {
 
     /*
     Here we emit the events that signals that a Dataset was updated.
     */
 
     const MODULE_NAME = "Process Output";
-
-    let bot = BOT;
 
     let thisObject = {
         raiseEvents: raiseEvents,

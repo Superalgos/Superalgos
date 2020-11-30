@@ -1,4 +1,4 @@
-exports.newOrdersSimulations = function (processIndex, bot, logger) {
+exports.newOrdersSimulations = function (processIndex, logger) {
     /*
     When we are backtesting or paper trading, we need to simulate what would have happened at the exchange.
     */

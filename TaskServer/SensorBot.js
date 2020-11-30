@@ -1,7 +1,6 @@
-﻿exports.newSensorBot = function newSensorBot(processIndex, bot, parentLogger) {
+﻿exports.newSensorBot = function newSensorBot(processIndex, parentLogger) {
 
     const MODULE_NAME = "Sensor Bot";
-    const FULL_LOG = true;
 
     let USER_BOT_MODULE;
     let COMMONS_MODULE;
@@ -28,7 +27,7 @@
         try {
             processConfig = pProcessConfig;
 
-            if (bot.repo === undefined) {
+            if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config.repo === undefined) {
                 /* The code of the bot is defined at the UI. No need to load a file with the code. */
                 callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
                 return
@@ -105,7 +104,6 @@
                     }
                     logger = DEBUG_MODULE.newDebugLog(processIndex);
                     TS.projects.superalgos.globals.taskVariables.LOGGER_MAP.set(MODULE_NAME + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].id, logger)
-                    logger.bot = bot;
                     logger.initialize();
 
                     TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).MAIN_LOOP_COUNTER++;
@@ -138,7 +136,7 @@
 
                     function initializeProcessExecutionEvents() {
                         try {
-                            processExecutionEvents = PROCESS_EXECUTION_EVENTS.newProcessExecutionEvents(processIndex, bot, logger)
+                            processExecutionEvents = PROCESS_EXECUTION_EVENTS.newProcessExecutionEvents(processIndex, logger)
                             processExecutionEvents.initialize(processConfig, onInizialized);
 
                             function onInizialized(err) {
@@ -240,7 +238,7 @@
 
                     function initializeStatusDependencies() {
                         try {
-                            statusDependencies = STATUS_DEPENDENCIES.newStatusDependencies(processIndex, bot, logger, STATUS_REPORT, UTILITIES, PROCESS_OUTPUT);
+                            statusDependencies = STATUS_DEPENDENCIES.newStatusDependencies(processIndex, logger, STATUS_REPORT, UTILITIES, PROCESS_OUTPUT);
                             statusDependencies.initialize(onInizialized);
 
                             function onInizialized(err) {
@@ -288,7 +286,7 @@
 
                     function initializeUserBot() {
                         try {
-                            usertBot = USER_BOT_MODULE.newUserBot(processIndex, bot, logger, COMMONS_MODULE, UTILITIES, FILE_STORAGE, STATUS_REPORT, exchangeAPI);
+                            usertBot = USER_BOT_MODULE.newUserBot(processIndex, logger, COMMONS_MODULE, UTILITIES, FILE_STORAGE, STATUS_REPORT, exchangeAPI);
                             usertBot.initialize(statusDependencies, onInizialized);
 
                             function onInizialized(err) {

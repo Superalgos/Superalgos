@@ -1,4 +1,4 @@
-﻿exports.newStatusReport = function (processIndex, BOT, logger, UTILITIES, PROCESS_OUTPUT) {
+﻿exports.newStatusReport = function (processIndex, logger, UTILITIES, PROCESS_OUTPUT) {
 
     /*
 
@@ -9,8 +9,6 @@
     */
 
     const MODULE_NAME = "Status Report";
-
-    let bot = BOT;
 
     let thisObject = {
         networkNode: undefined,
@@ -267,7 +265,7 @@
             If we are funning Trading Engines, we can not allow ourselves to use a Status Report that is not the latest one, because it might contain
             transactioinal information related to the context of the operations the trading engine is doing.
 
-            On the contraty, if we are running a Sensor bot or an Indicator bot, we might, if necesary, use a previous version of a Status Report since
+            On the contraty, if we are running a Sensor bot or an Indicator we might, if necesary, use a previous version of a Status Report since
             there will be no big impact, just some reprocessing.
             */
             if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE !== undefined) {
@@ -368,7 +366,7 @@
 
                 /* All good, lets emit the event that means data has been updated. */
 
-                let processOutput = PROCESS_OUTPUT.newProcessOutput(processIndex, bot, logger)
+                let processOutput = PROCESS_OUTPUT.newProcessOutput(processIndex, logger)
                 processOutput.raiseEvents(thisObject.file.lastFile, thisObject.file.timeFrames, callBackFunction);
                 return
             }
@@ -395,7 +393,7 @@
         }
 
         /* All good, lets emit the event that means data has been updated. */
-        let processOutput = PROCESS_OUTPUT.newProcessOutput(processIndex, bot, logger)
+        let processOutput = PROCESS_OUTPUT.newProcessOutput(processIndex, logger)
         processOutput.asyncRaiseEvents(thisObject.file.lastFile, thisObject.file.timeFrames)
     }
 }

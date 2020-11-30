@@ -1,4 +1,4 @@
-﻿exports.newTradingSession = function (processIndex, bot, parentLogger) {
+﻿exports.newTradingSession = function (processIndex, parentLogger) {
 
     const MODULE_NAME = "Trading Session"
 
@@ -7,7 +7,7 @@
     }
 
     const SOCIAL_BOTS_MODULE = require('./SocialBots.js')
-    TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SOCIAL_BOTS_MODULE = SOCIAL_BOTS_MODULE.newSocialBots(processIndex, bot, parentLogger)
+    TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SOCIAL_BOTS_MODULE = SOCIAL_BOTS_MODULE.newSocialBots(processIndex, parentLogger)
 
     return thisObject;
 

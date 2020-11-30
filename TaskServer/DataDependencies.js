@@ -1,8 +1,6 @@
-﻿exports.newDataDependencies = function (processIndex, BOT, logger, DATA_SET) {
+﻿exports.newDataDependencies = function (processIndex, logger, DATA_SET) {
 
     const MODULE_NAME = "Data Dependencies";
-
-    let bot = BOT
 
     let thisObject = {
         nodeArray: undefined,
@@ -75,7 +73,7 @@
             let newNodeArray = []
 
             for (let i = 0; i < thisObject.nodeArray.length; i++) {
-                let dataSetModule = DATA_SET.newDataSet(processIndex, BOT, logger);
+                let dataSetModule = DATA_SET.newDataSet(processIndex, logger);
                 dataSetModule.initialize(thisObject.nodeArray[i], onInitilized);
 
                 function onInitilized(err, wasInitialized) {

@@ -1,4 +1,4 @@
-﻿exports.newMultiPeriodDaily = function (processIndex, bot, logger, UTILITIES, FILE_STORAGE) {
+﻿exports.newMultiPeriodDaily = function (processIndex, logger, UTILITIES, FILE_STORAGE) {
     const MODULE_NAME = "Multi Period Daily";
     const GMT_SECONDS = ':00.000 GMT+0000';
 
@@ -33,7 +33,7 @@
 
         let INDICATOR_OUTPUT_MODULE = require("./IndicatorOutput")
 
-        indicatorOutputModule = INDICATOR_OUTPUT_MODULE.newIndicatorOutput(processIndex, bot, logger, UTILITIES, FILE_STORAGE)
+        indicatorOutputModule = INDICATOR_OUTPUT_MODULE.newIndicatorOutput(processIndex, logger, UTILITIES, FILE_STORAGE)
         indicatorOutputModule.initialize(callBackFunction)
     }
 

@@ -1,4 +1,4 @@
-exports.newTradingOrders = function (processIndex, bot, logger, tradingEngineModule) {
+exports.newTradingOrders = function (processIndex, logger, tradingEngineModule) {
     /*
     The Trading Orders modules manages the execution of orders against the exchanges.
     */
@@ -17,10 +17,10 @@ exports.newTradingOrders = function (processIndex, bot, logger, tradingEngineMod
     let sessionParameters
 
     const EXCHANGE_API_MODULE = require('./ExchangeAPI.js')
-    let exchangeAPIModule = EXCHANGE_API_MODULE.newExchangeAPI(processIndex, bot, logger)
+    let exchangeAPIModule = EXCHANGE_API_MODULE.newExchangeAPI(processIndex, logger)
 
     const ANNOUNCEMENTS_MODULE = require('./Announcements.js')
-    let announcementsModule = ANNOUNCEMENTS_MODULE.newAnnouncements(processIndex, bot, logger)
+    let announcementsModule = ANNOUNCEMENTS_MODULE.newAnnouncements(processIndex, logger)
 
     return thisObject
 
@@ -572,7 +572,7 @@ exports.newTradingOrders = function (processIndex, bot, logger, tradingEngineMod
             tradingEngineOrder.status.value = 'Closed'
             /* 
             We must be carefull here not to overide an already defined exitType. It can happen
-            for instance that the order was cancellerd from the bot, but veryfing the cancellation
+            for instance that the order was cancellerd from the but veryfing the cancellation
             was not possible because of a connection to the exchange problem. In that case
             the exit type was defined but the order was kept open until the verification could be done.
             */
@@ -658,7 +658,7 @@ exports.newTradingOrders = function (processIndex, bot, logger, tradingEngineMod
         let previousQuotedAssetFeesPaid = tradingEngineOrder.orderQuotedAsset.feesPaid.value
 
         const ORDERS_SIMULATIONS_MODULE = require('./OrdersSimulations.js')
-        let ordersSimulationsModule = ORDERS_SIMULATIONS_MODULE.newOrdersSimulations(processIndex, bot, logger)
+        let ordersSimulationsModule = ORDERS_SIMULATIONS_MODULE.newOrdersSimulations(processIndex, logger)
         ordersSimulationsModule.initialize()
 
         ordersSimulationsModule.actualSizeSimulation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, applyFeePercentage)
@@ -690,7 +690,7 @@ exports.newTradingOrders = function (processIndex, bot, logger, tradingEngineMod
         let previousQuotedAssetFeesPaid = tradingEngineOrder.orderQuotedAsset.feesPaid.value
 
         const ORDERS_CALCULATIONS_MODULE = require('./OrdersCalculations.js')
-        let ordersCalculationsModule = ORDERS_CALCULATIONS_MODULE.newOrdersCalculations(processIndex, bot, logger)
+        let ordersCalculationsModule = ORDERS_CALCULATIONS_MODULE.newOrdersCalculations(processIndex, logger)
         ordersCalculationsModule.initialize()
 
         await ordersCalculationsModule.actualSizeCalculation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order, applyFeePercentage)

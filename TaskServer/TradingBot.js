@@ -1,4 +1,4 @@
-﻿exports.newTradingBot = function newTradingBot(processIndex, bot, parentLogger) {
+﻿exports.newTradingBot = function newTradingBot(processIndex, parentLogger) {
 
     const MODULE_NAME = "Trading Bot";
     const FULL_LOG = true;
@@ -8,7 +8,7 @@
     const SESSION = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + 'TradingSession');
 
     let fileStorage = FILE_STORAGE.newFileStorage(parentLogger);
-    let session = SESSION.newTradingSession(processIndex, bot, parentLogger)
+    let session = SESSION.newTradingSession(processIndex, parentLogger)
 
     const DEBUG_MODULE = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + 'DebugLog');
     let logger; // We need this here in order for the loopHealth function to work and be able to rescue the loop when it gets in trouble.
@@ -28,7 +28,7 @@
         /*  This function is exactly the same in the 3 modules representing the 2 different bot types loops. */
         try {
             processConfig = pProcessConfig;
-            if (bot.repo === undefined) {
+            if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config.repo === undefined) {
                 /* The code of the bot is defined at the UI. No need to load a file with the code. */
                 session.initialize(processConfig, callBackFunction)
             }
@@ -61,7 +61,6 @@
                     }
                     logger = DEBUG_MODULE.newDebugLog(processIndex);
                     TS.projects.superalgos.globals.taskVariables.LOGGER_MAP.set(MODULE_NAME + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].id, logger)
-                    logger.bot = bot;
                     logger.initialize();
 
                     TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).MAIN_LOOP_COUNTER++;
@@ -122,7 +121,7 @@
 
                     function initializeProcessExecutionEvents() {
                         try {
-                            processExecutionEvents = PROCESS_EXECUTION_EVENTS.newProcessExecutionEvents(processIndex, bot, logger)
+                            processExecutionEvents = PROCESS_EXECUTION_EVENTS.newProcessExecutionEvents(processIndex, logger)
                             processExecutionEvents.initialize(processConfig, onInizialized);
 
                             function onInizialized(err) {
@@ -223,7 +222,7 @@
 
                     function initializeStatusDependencies() {
                         try {
-                            statusDependencies = STATUS_DEPENDENCIES.newStatusDependencies(processIndex, bot, logger, STATUS_REPORT, UTILITIES, PROCESS_OUTPUT);
+                            statusDependencies = STATUS_DEPENDENCIES.newStatusDependencies(processIndex, logger, STATUS_REPORT, UTILITIES, PROCESS_OUTPUT);
                             statusDependencies.initialize(onInizialized);
 
                             function onInizialized(err) {
@@ -271,7 +270,7 @@
 
                     function initializeDataDependencies() {
                         try {
-                            dataDependencies = DATA_DEPENDENCIES.newDataDependencies(processIndex, bot, logger, DATA_SET);
+                            dataDependencies = DATA_DEPENDENCIES.newDataDependencies(processIndex, logger, DATA_SET);
                             dataDependencies.initialize(onInizialized);
 
                             function onInizialized(err) {
@@ -281,7 +280,7 @@
                                             logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeDataDependencies -> onInizialized -> Execution finished well.")
                                             switch (processConfig.framework.name) {
                                                 case 'Low-Frequency-Trading-Process': {
-                                                    processFramework = TRADING_PROCESS_MODULE.newTradingProcess(processIndex, bot, logger, UTILITIES);
+                                                    processFramework = TRADING_PROCESS_MODULE.newTradingProcess(processIndex, logger, UTILITIES);
                                                     intitializeProcessFramework();
                                                     break;
                                                 }

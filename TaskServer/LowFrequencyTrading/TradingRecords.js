@@ -1,4 +1,4 @@
-exports.newTradingRecords = function (processIndex, bot, logger) {
+exports.newTradingRecords = function (processIndex, logger) {
     /*
     This module facilitates the appending of records to the output of the process.
     */

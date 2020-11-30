@@ -12,7 +12,6 @@ exports.newDebugLog = function (processIndex) {
     let messageId = 0;
 
     let thisObject = {
-        bot: undefined,
         write: write,
         newMainLoop: newMainLoop,
         newInternalLoop: newInternalLoop,
@@ -170,8 +169,6 @@ exports.newDebugLog = function (processIndex) {
     function write(pModule, pMessage) {
         try {
             if (disableLogging === true) { return; }
-
-            if (thisObject.bot === undefined) { return; }
 
             if (pModule === "") { // For debugging purposes
                 console.log(pMessage)

@@ -1,4 +1,4 @@
-﻿exports.newIndicatorOutput = function (processIndex, bot, logger, UTILITIES, FILE_STORAGE) {
+﻿exports.newIndicatorOutput = function (processIndex, logger, UTILITIES, FILE_STORAGE) {
     const MODULE_NAME = "Indicator Bot";
 
     let thisObject = {
@@ -11,7 +11,7 @@
     let fileStorage = FILE_STORAGE.newFileStorage(logger);
 
     const COMMONS = require('./Commons.js');
-    let commons = COMMONS.newCommons(bot, logger, UTILITIES, FILE_STORAGE);
+    let commons = COMMONS.newCommons(logger, UTILITIES, FILE_STORAGE);
 
     return thisObject;
 

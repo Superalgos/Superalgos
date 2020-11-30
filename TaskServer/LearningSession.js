@@ -1,4 +1,4 @@
-exports.newLearningSession = function (processIndex, bot, parentLogger) {
+exports.newLearningSession = function (processIndex, parentLogger) {
 
     const MODULE_NAME = "Learning Session"
 

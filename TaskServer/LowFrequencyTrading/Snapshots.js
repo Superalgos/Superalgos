@@ -1,4 +1,4 @@
-exports.newSnapshots = function (processIndex, bot, logger) {
+exports.newSnapshots = function (processIndex, logger) {
     /*
     This module encapsulates the snapshots functionality.
     */

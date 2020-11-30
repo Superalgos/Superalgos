@@ -1,4 +1,4 @@
-﻿exports.newCommons = function newCommons(bot, logger, UTILITIES) {
+﻿exports.newCommons = function newCommons(logger, UTILITIES) {
 
     let thisObject = {
     

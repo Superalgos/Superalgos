@@ -1,4 +1,4 @@
-﻿exports.newIndicatorBot = function newIndicatorBot(processIndex, bot, parentLogger) {
+﻿exports.newIndicatorBot = function newIndicatorBot(processIndex, parentLogger) {
 
     const MODULE_NAME = "Indicator Bot";
 
@@ -28,7 +28,7 @@
         try {
             processConfig = pProcessConfig;
 
-            if (bot.repo === undefined) {
+            if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config.repo === undefined) {
                 /* The code of the bot is defined at the UI. No need to load a file with the code. */
                 callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
                 return
@@ -99,7 +99,6 @@
                     }
                     logger = DEBUG_MODULE.newDebugLog(processIndex);
                     TS.projects.superalgos.globals.taskVariables.LOGGER_MAP.set(MODULE_NAME + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].id, logger)
-                    logger.bot = bot;
                     logger.initialize();
 
                     TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).MAIN_LOOP_COUNTER++;
@@ -135,7 +134,7 @@
 
                     function initializeProcessExecutionEvents() {
                         try {
-                            processExecutionEvents = PROCESS_EXECUTION_EVENTS.newProcessExecutionEvents(processIndex, bot, logger)
+                            processExecutionEvents = PROCESS_EXECUTION_EVENTS.newProcessExecutionEvents(processIndex, logger)
                             processExecutionEvents.initialize(processConfig, onInizialized);
 
                             function onInizialized(err) {
@@ -236,7 +235,7 @@
 
                     function initializeStatusDependencies() {
                         try {
-                            statusDependencies = STATUS_DEPENDENCIES.newStatusDependencies(processIndex, bot, logger, STATUS_REPORT, UTILITIES, PROCESS_OUTPUT);
+                            statusDependencies = STATUS_DEPENDENCIES.newStatusDependencies(processIndex, logger, STATUS_REPORT, UTILITIES, PROCESS_OUTPUT);
                             statusDependencies.initialize(onInizialized);
 
                             function onInizialized(err) {
@@ -284,7 +283,7 @@
 
                     function initializeDataDependencies() {
                         try {
-                            dataDependencies = DATA_DEPENDENCIES.newDataDependencies(processIndex, bot, logger, DATA_SET);
+                            dataDependencies = DATA_DEPENDENCIES.newDataDependencies(processIndex, logger, DATA_SET);
                             dataDependencies.initialize(onInizialized);
 
                             function onInizialized(err) {
@@ -299,12 +298,12 @@
 
                                             switch (processConfig.framework.name) {
                                                 case 'Multi-Period-Market': {
-                                                    processFramework = MULTI_PERIOD_MARKET.newMultiPeriodMarket(processIndex, bot, logger, UTILITIES, FILE_STORAGE);
+                                                    processFramework = MULTI_PERIOD_MARKET.newMultiPeriodMarket(processIndex, logger, UTILITIES, FILE_STORAGE);
                                                     intitializeProcessFramework();
                                                     break;
                                                 }
                                                 case 'Multi-Period-Daily': {
-                                                    processFramework = MULTI_PERIOD_DAILY.newMultiPeriodDaily(processIndex, bot, logger, UTILITIES, FILE_STORAGE);
+                                                    processFramework = MULTI_PERIOD_DAILY.newMultiPeriodDaily(processIndex, logger, UTILITIES, FILE_STORAGE);
                                                     intitializeProcessFramework();
                                                     break;
                                                 }
@@ -356,7 +355,7 @@
 
                     function initializeUserBot() {
                         try {
-                            usertBot = USER_BOT_MODULE.newUserBot(processIndex, bot, logger, COMMONS_MODULE, UTILITIES, FILE_STORAGE);
+                            usertBot = USER_BOT_MODULE.newUserBot(processIndex, logger, COMMONS_MODULE, UTILITIES, FILE_STORAGE);
                             usertBot.initialize(statusDependencies, onInizialized);
 
                             function onInizialized(err) {

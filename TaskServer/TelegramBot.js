@@ -1,4 +1,4 @@
-exports.newTelegramBot = function newTelegramBot(bot, logger) {
+exports.newTelegramBot = function newTelegramBot(logger) {
 
     const MODULE_NAME = 'Telegram Bot'
 

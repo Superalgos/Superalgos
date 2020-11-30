@@ -1,4 +1,4 @@
-﻿exports.newCommons = function newCommons(bot, logger, UTILITIES, FILE_STORAGE) {
+﻿exports.newCommons = function newCommons(logger, UTILITIES, FILE_STORAGE) {
 
     const MODULE_NAME = "Commons";
 

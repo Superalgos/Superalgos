@@ -757,7 +757,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
                     }
 
                     let botInstance
-                    switch (bot.type) {
+                    switch (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.type) {
                         case 'Sensor Bot': {
                             botInstance = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(task, 'Sensor Bot Instance')
                             botInstance.name = bot.name
@@ -783,7 +783,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
                     for (let j = 0; j < bot.processes.length; j++) {
                         let process = bot.processes[j]
                         let processInstance
-                        switch (bot.type) {
+                        switch (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.type) {
                             case 'Sensor Bot': {
                                 processInstance = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'Sensor Process Instance')
                                 processInstance.payload.referenceParent = process

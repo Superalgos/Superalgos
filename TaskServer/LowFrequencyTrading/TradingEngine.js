@@ -1,4 +1,4 @@
-exports.newTradingEngine = function (processIndex, bot, logger) {
+exports.newTradingEngine = function (processIndex, logger) {
     /*
     We call the Trading Engine to the data structure that is needed in order to exevute the
     trading protocol with the specific rules defined at the Trading System.

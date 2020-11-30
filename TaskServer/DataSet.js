@@ -1,8 +1,6 @@
-exports.newDataSet = function (processIndex, BOT, logger) {
+exports.newDataSet = function (processIndex, logger) {
 
     const MODULE_NAME = "Dataset";
-
-    let bot = BOT;
 
     let thisObject = {
         node: undefined,

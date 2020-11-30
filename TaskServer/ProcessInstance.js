@@ -30,7 +30,6 @@
             */
             let logger = DEBUG_MODULE.newDebugLog(processIndex)
             TS.projects.superalgos.globals.taskVariables.LOGGER_MAP.set('Pre-Bot-Main-Loop' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].id, logger)
-            logger.bot = botConfig;
 
             /*
             There are a few variables with the scope of the process instance. We will store it here so that it can be
@@ -94,7 +93,7 @@
                 try {
                     TS.projects.superalgos.globals.processVariables.TOTAL_PROCESS_INSTANCES_CREATED++
 
-                    botInstance = SENSOR_BOT.newSensorBot(processIndex, botConfig, logger);
+                    botInstance = SENSOR_BOT.newSensorBot(processIndex, logger);
                     botInstance.initialize(processConfig, onInitializeReady);
                 }
                 catch (err) {
@@ -107,7 +106,7 @@
                 try {
                     TS.projects.superalgos.globals.processVariables.TOTAL_PROCESS_INSTANCES_CREATED++
 
-                    botInstance = INDICATOR_BOT_MODULE.newIndicatorBot(processIndex, botConfig, logger);
+                    botInstance = INDICATOR_BOT_MODULE.newIndicatorBot(processIndex, logger);
                     botInstance.initialize(processConfig, onInitializeReady);
 
                 }
@@ -121,7 +120,7 @@
                 try {
                     TS.projects.superalgos.globals.processVariables.TOTAL_PROCESS_INSTANCES_CREATED++
 
-                    botInstance = TRADING_BOT_MODULE.newTradingBot(processIndex, botConfig, logger);
+                    botInstance = TRADING_BOT_MODULE.newTradingBot(processIndex, logger);
                     botInstance.initialize(processConfig, onInitializeReady);
                 }
                 catch (err) {
@@ -134,7 +133,7 @@
                 try {
                     TS.projects.superalgos.globals.processVariables.TOTAL_PROCESS_INSTANCES_CREATED++
 
-                    botInstance = TRADING_BOT_MODULE.newLearningBot(processIndex, botConfig, logger);
+                    botInstance = TRADING_BOT_MODULE.newLearningBot(processIndex, logger);
                     botInstance.initialize(processConfig, onInitializeReady);
                 }
                 catch (err) {

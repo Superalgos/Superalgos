@@ -1,4 +1,4 @@
-﻿exports.newMultiPeriodMarket = function (processIndex, bot, logger, UTILITIES, FILE_STORAGE) {
+﻿exports.newMultiPeriodMarket = function (processIndex, logger, UTILITIES, FILE_STORAGE) {
     const MODULE_NAME = "Multi Period Market";
     thisObject = {
         initialize: initialize,
@@ -27,7 +27,7 @@
 
         let INDICATOR_OUTPUT_MODULE = require("./IndicatorOutput")
 
-        indicatorOutputModule = INDICATOR_OUTPUT_MODULE.newIndicatorOutput(processIndex, bot, logger, UTILITIES, FILE_STORAGE)
+        indicatorOutputModule = INDICATOR_OUTPUT_MODULE.newIndicatorOutput(processIndex, logger, UTILITIES, FILE_STORAGE)
         indicatorOutputModule.initialize(callBackFunction)
     }
 

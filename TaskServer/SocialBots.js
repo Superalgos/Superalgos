@@ -1,4 +1,4 @@
-exports.newSocialBots = function (processIndex, logger) {
+exports.newSocialBots = function (processIndex) {
 
     const MODULE_NAME = 'Social Bots'
 

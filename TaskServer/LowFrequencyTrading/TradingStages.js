@@ -1,4 +1,4 @@
-exports.newTradingStages = function (processIndex, logger, tradingEngineModule) {
+exports.newTradingStages = function (processIndex, tradingEngineModule) {
     /*
     This module packages all functions related to Stages.
     */
@@ -21,22 +21,22 @@ exports.newTradingStages = function (processIndex, logger, tradingEngineModule) 
     }
 
     const TRADING_STRATEGY_MODULE = require('./TradingStrategy.js')
-    let tradingStrategyModule = TRADING_STRATEGY_MODULE.newTradingStrategy(processIndex, logger, tradingEngineModule)
+    let tradingStrategyModule = TRADING_STRATEGY_MODULE.newTradingStrategy(processIndex, tradingEngineModule)
 
     const TRADING_POSITION_MODULE = require('./TradingPosition.js')
-    let tradingPositionModule = TRADING_POSITION_MODULE.newTradingPosition(processIndex, logger, tradingEngineModule)
+    let tradingPositionModule = TRADING_POSITION_MODULE.newTradingPosition(processIndex, tradingEngineModule)
 
     const TRADING_ENGINE_EXECUTION = require('./TradingExecution.js')
-    let tradingExecutionModule = TRADING_ENGINE_EXECUTION.newTradingExecution(processIndex, logger, tradingEngineModule)
+    let tradingExecutionModule = TRADING_ENGINE_EXECUTION.newTradingExecution(processIndex, tradingEngineModule)
 
     const ANNOUNCEMENTS_MODULE = require('./Announcements.js')
-    let announcementsModule = ANNOUNCEMENTS_MODULE.newAnnouncements(processIndex, logger)
+    let announcementsModule = ANNOUNCEMENTS_MODULE.newAnnouncements(processIndex)
 
     const SNAPSHOTS_MODULE = require('./Snapshots.js')
-    let snapshotsModule = SNAPSHOTS_MODULE.newSnapshots(processIndex, logger)
+    let snapshotsModule = SNAPSHOTS_MODULE.newSnapshots(processIndex)
 
     const TRADING_EPISODE_MODULE = require('./TradingEpisode.js')
-    let tradingEpisodeModule = TRADING_EPISODE_MODULE.newTradingEpisode(processIndex, logger)
+    let tradingEpisodeModule = TRADING_EPISODE_MODULE.newTradingEpisode(processIndex)
 
     let tradingEngine
     let tradingSystem

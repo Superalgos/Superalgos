@@ -119,7 +119,7 @@
 
                     function initializeProcessExecutionEvents() {
                         try {
-                            processExecutionEvents = PROCESS_EXECUTION_EVENTS.newProcessExecutionEvents(processIndex, logger)
+                            processExecutionEvents = PROCESS_EXECUTION_EVENTS.newProcessExecutionEvents(processIndex)
                             processExecutionEvents.initialize(processConfig, onInizialized);
 
                             function onInizialized(err) {
@@ -220,7 +220,7 @@
 
                     function initializeStatusDependencies() {
                         try {
-                            statusDependencies = STATUS_DEPENDENCIES.newStatusDependencies(processIndex, logger, STATUS_REPORT, UTILITIES, PROCESS_OUTPUT);
+                            statusDependencies = STATUS_DEPENDENCIES.newStatusDependencies(processIndex, STATUS_REPORT, UTILITIES, PROCESS_OUTPUT);
                             statusDependencies.initialize(onInizialized);
 
                             function onInizialized(err) {
@@ -268,7 +268,7 @@
 
                     function initializeDataDependencies() {
                         try {
-                            dataDependencies = DATA_DEPENDENCIES.newDataDependencies(processIndex, logger, DATA_SET);
+                            dataDependencies = DATA_DEPENDENCIES.newDataDependencies(processIndex, DATA_SET);
                             dataDependencies.initialize(onInizialized);
 
                             function onInizialized(err) {
@@ -278,7 +278,7 @@
                                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] run -> loop -> initializeDataDependencies -> onInizialized -> Execution finished well.")
                                             switch (processConfig.framework.name) {
                                                 case 'Low-Frequency-Trading-Process': {
-                                                    processFramework = TRADING_PROCESS_MODULE.newTradingProcess(processIndex, logger, UTILITIES);
+                                                    processFramework = TRADING_PROCESS_MODULE.newTradingProcess(processIndex, UTILITIES);
                                                     intitializeProcessFramework();
                                                     break;
                                                 }

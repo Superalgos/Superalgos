@@ -1,4 +1,4 @@
-﻿exports.newIndicatorOutput = function (processIndex, logger, UTILITIES, FILE_STORAGE) {
+﻿exports.newIndicatorOutput = function (processIndex, UTILITIES, FILE_STORAGE) {
     const MODULE_NAME = "Indicator Bot";
 
     let thisObject = {

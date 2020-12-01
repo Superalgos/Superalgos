@@ -1,4 +1,4 @@
-exports.newDataSet = function (processIndex, logger) {
+exports.newDataSet = function (processIndex) {
 
     const MODULE_NAME = "Dataset";
 

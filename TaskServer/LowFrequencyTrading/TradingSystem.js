@@ -1,4 +1,4 @@
-exports.newTradingSystem = function (processIndex, logger, tradingEngineModule) {
+exports.newTradingSystem = function (processIndex, tradingEngineModule) {
     /*
     The Trading System is the user defined set of rules compliant with the Trading Protocol that
     defines the trading logic to be applied during each cycle of the Simulation.
@@ -20,7 +20,7 @@ exports.newTradingSystem = function (processIndex, logger, tradingEngineModule) 
     let dynamicIndicators
 
     const TRADING_STAGES_MODULE = require('./TradingStages.js')
-    let tradingStagesModule = TRADING_STAGES_MODULE.newTradingStages(processIndex, logger, tradingEngineModule)
+    let tradingStagesModule = TRADING_STAGES_MODULE.newTradingStages(processIndex, tradingEngineModule)
 
 
     return thisObject

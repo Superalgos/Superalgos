@@ -1,4 +1,4 @@
-exports.newTradingOrders = function (processIndex, logger, tradingEngineModule) {
+exports.newTradingOrders = function (processIndex, tradingEngineModule) {
     /*
     The Trading Orders modules manages the execution of orders against the exchanges.
     */
@@ -17,10 +17,10 @@ exports.newTradingOrders = function (processIndex, logger, tradingEngineModule) 
     let sessionParameters
 
     const EXCHANGE_API_MODULE = require('./ExchangeAPI.js')
-    let exchangeAPIModule = EXCHANGE_API_MODULE.newExchangeAPI(processIndex, logger)
+    let exchangeAPIModule = EXCHANGE_API_MODULE.newExchangeAPI(processIndex)
 
     const ANNOUNCEMENTS_MODULE = require('./Announcements.js')
-    let announcementsModule = ANNOUNCEMENTS_MODULE.newAnnouncements(processIndex, logger)
+    let announcementsModule = ANNOUNCEMENTS_MODULE.newAnnouncements(processIndex)
 
     return thisObject
 
@@ -658,7 +658,7 @@ exports.newTradingOrders = function (processIndex, logger, tradingEngineModule) 
         let previousQuotedAssetFeesPaid = tradingEngineOrder.orderQuotedAsset.feesPaid.value
 
         const ORDERS_SIMULATIONS_MODULE = require('./OrdersSimulations.js')
-        let ordersSimulationsModule = ORDERS_SIMULATIONS_MODULE.newOrdersSimulations(processIndex, logger)
+        let ordersSimulationsModule = ORDERS_SIMULATIONS_MODULE.newOrdersSimulations(processIndex)
         ordersSimulationsModule.initialize()
 
         ordersSimulationsModule.actualSizeSimulation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, applyFeePercentage)
@@ -690,7 +690,7 @@ exports.newTradingOrders = function (processIndex, logger, tradingEngineModule) 
         let previousQuotedAssetFeesPaid = tradingEngineOrder.orderQuotedAsset.feesPaid.value
 
         const ORDERS_CALCULATIONS_MODULE = require('./OrdersCalculations.js')
-        let ordersCalculationsModule = ORDERS_CALCULATIONS_MODULE.newOrdersCalculations(processIndex, logger)
+        let ordersCalculationsModule = ORDERS_CALCULATIONS_MODULE.newOrdersCalculations(processIndex)
         ordersCalculationsModule.initialize()
 
         await ordersCalculationsModule.actualSizeCalculation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order, applyFeePercentage)

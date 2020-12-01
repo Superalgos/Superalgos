@@ -134,7 +134,7 @@
 
                     function initializeProcessExecutionEvents() {
                         try {
-                            processExecutionEvents = PROCESS_EXECUTION_EVENTS.newProcessExecutionEvents(processIndex, logger)
+                            processExecutionEvents = PROCESS_EXECUTION_EVENTS.newProcessExecutionEvents(processIndex)
                             processExecutionEvents.initialize(processConfig, onInizialized);
 
                             function onInizialized(err) {
@@ -236,7 +236,7 @@
 
                     function initializeStatusDependencies() {
                         try {
-                            statusDependencies = STATUS_DEPENDENCIES.newStatusDependencies(processIndex, logger, STATUS_REPORT, UTILITIES, PROCESS_OUTPUT);
+                            statusDependencies = STATUS_DEPENDENCIES.newStatusDependencies(processIndex, STATUS_REPORT, UTILITIES, PROCESS_OUTPUT);
                             statusDependencies.initialize(onInizialized);
 
                             function onInizialized(err) {
@@ -284,7 +284,7 @@
 
                     function initializeUserBot() {
                         try {
-                            usertBot = USER_BOT_MODULE.newUserBot(processIndex, logger, COMMONS_MODULE, UTILITIES, FILE_STORAGE, STATUS_REPORT, exchangeAPI);
+                            usertBot = USER_BOT_MODULE.newUserBot(processIndex, COMMONS_MODULE, UTILITIES, FILE_STORAGE, STATUS_REPORT, exchangeAPI);
                             usertBot.initialize(statusDependencies, onInizialized);
 
                             function onInizialized(err) {

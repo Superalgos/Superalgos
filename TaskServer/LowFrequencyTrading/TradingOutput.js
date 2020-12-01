@@ -1,4 +1,4 @@
-exports.newTradingOutput = function (processIndex, logger, tradingEngineModule, UTILITIES, FILE_STORAGE) {
+exports.newTradingOutput = function (processIndex, tradingEngineModule, UTILITIES, FILE_STORAGE) {
     /*
     This module will load if necesary all the data outputs so that they can be appended with new
     records if needed. After running the simulation, it will save all the data outputs.
@@ -38,7 +38,7 @@ exports.newTradingOutput = function (processIndex, logger, tradingEngineModule, 
 
             /* Preparing everything for the Simulation */
             const TRADING_SIMULATION = require('./TradingSimulation.js')
-            let tradingSimulation = TRADING_SIMULATION.newTradingSimulation(processIndex, logger, tradingEngineModule, UTILITIES)
+            let tradingSimulation = TRADING_SIMULATION.newTradingSimulation(processIndex, tradingEngineModule, UTILITIES)
 
             let outputDatasets = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
             let outputDatasetsMap = new Map()

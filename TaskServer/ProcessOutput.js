@@ -1,4 +1,4 @@
-﻿exports.newProcessOutput = function (processIndex, logger) {
+﻿exports.newProcessOutput = function (processIndex) {
 
     /*
     Here we emit the events that signals that a Dataset was updated.

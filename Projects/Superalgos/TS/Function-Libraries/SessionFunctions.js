@@ -12,7 +12,7 @@ exports.newSuperalgosFunctionLibrariesSessionFunctions = function () {
 
     return thisObject
 
-    function sessionHeartBeat(processIndex, logger, processingDate, percentage, status) {
+    function sessionHeartBeat(processIndex, processingDate, percentage, status) {
         let event = {
             seconds: (new Date()).getSeconds(),
             processingDate: processingDate,

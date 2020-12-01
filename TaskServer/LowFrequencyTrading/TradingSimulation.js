@@ -1,4 +1,4 @@
-exports.newTradingSimulation = function (processIndex, logger, tradingEngineModule, UTILITIES) {
+exports.newTradingSimulation = function (processIndex, tradingEngineModule, UTILITIES) {
     /*
     This Module represents the trading simulacion. Escentially a loop through a set of candles and 
     the execution at each loop cycle of the Trading System Protocol.
@@ -35,15 +35,15 @@ exports.newTradingSimulation = function (processIndex, logger, tradingEngineModu
 
             /* These are the Modules we will need to run the Simulation */
             const TRADING_RECORDS_MODULE = require('./TradingRecords.js')
-            let tradingRecordsModule = TRADING_RECORDS_MODULE.newTradingRecords(processIndex, logger)
+            let tradingRecordsModule = TRADING_RECORDS_MODULE.newTradingRecords(processIndex)
             tradingRecordsModule.initialize(outputDatasetsMap)
 
             const TRADING_SYSTEM_MODULE = require('./TradingSystem.js')
-            let tradingSystemModule = TRADING_SYSTEM_MODULE.newTradingSystem(processIndex, logger, tradingEngineModule)
+            let tradingSystemModule = TRADING_SYSTEM_MODULE.newTradingSystem(processIndex, tradingEngineModule)
             tradingSystemModule.initialize()
 
             const TRADING_EPISODE_MODULE = require('./TradingEpisode.js')
-            let tradingEpisodeModule = TRADING_EPISODE_MODULE.newTradingEpisode(processIndex, logger, tradingEngineModule)
+            let tradingEpisodeModule = TRADING_EPISODE_MODULE.newTradingEpisode(processIndex, tradingEngineModule)
             tradingEpisodeModule.initialize()
 
             /* Setting up the candles array: The whole simulation is based on the array of candles at the time-frame defined at the session parameters. */

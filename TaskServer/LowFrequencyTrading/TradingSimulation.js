@@ -11,7 +11,7 @@ exports.newTradingSimulation = function (processIndex, tradingEngineModule, UTIL
         runSimulation: runSimulation
     }
 
-    let utilities = UTILITIES.newCloudUtilities(logger)
+    let utilities = UTILITIES.newCloudUtilities()
 
     return thisObject
 

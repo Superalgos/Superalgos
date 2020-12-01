@@ -12,8 +12,8 @@ exports.newUserBot = function (processIndex, COMMONS, UTILITIES, FILE_STORAGE, S
         start: start
     };
 
-    let utilities = UTILITIES.newCloudUtilities(logger)
-    let fileStorage = FILE_STORAGE.newFileStorage(logger);
+    let utilities = UTILITIES.newCloudUtilities()
+    let fileStorage = FILE_STORAGE.newFileStorage();
     let statusDependencies
 
     const ONE_MIN = 60000

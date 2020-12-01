@@ -19,7 +19,7 @@ exports.newSocialBots = function (processIndex) {
                     let socialBot = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.socialBots.bots[i]
                     if (socialBot.type === "Telegram Bot") {
                         let config = socialBot.config
-                        socialBot.botInstance = TELEGRAM_BOT_MODULE.newTelegramBot(logger)
+                        socialBot.botInstance = TELEGRAM_BOT_MODULE.newTelegramBot()
                         socialBot.botInstance.initialize(config.botToken, config.chatId)
                     }
                 }

@@ -1,5 +1,5 @@
 ﻿
-exports.newCloudUtilities = function newCloudUtilities(logger) {
+exports.newCloudUtilities = function newCloudUtilities() {
 
     const MODULE_NAME = "Cloud Utilities";
 

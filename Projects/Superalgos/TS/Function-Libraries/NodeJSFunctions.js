@@ -39,7 +39,7 @@ exports.newSuperalgosFunctionLibrariesNodeJSFunctions = function () {
         function finalizeLoggers() {
             TS.projects.superalgos.globals.taskVariables.LOGGER_MAP.forEach(forEachLogger)
 
-            function forEachLogger(logger) {
+            function forEachLogger() {
                 if (TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE !== undefined) {
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.finalize()
                 }

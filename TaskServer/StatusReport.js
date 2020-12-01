@@ -26,7 +26,7 @@
 
     /* Utilities needed. */
 
-    let utilities = UTILITIES.newCloudUtilities(logger);
+    let utilities = UTILITIES.newCloudUtilities();
 
     /* Storage account to be used here. */
 

@@ -1,4 +1,4 @@
-exports.newMarkovDecisionProcess = function newMarkovDecisionProcess(logger) {
+exports.newMarkovDecisionProcess = function newMarkovDecisionProcess() {
  
     const MODULE_NAME = 'Markov Decision Process'
     let thisObject = {

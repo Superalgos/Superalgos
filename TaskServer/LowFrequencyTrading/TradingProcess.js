@@ -13,7 +13,7 @@
         start: start
     };
 
-    let utilities = UTILITIES.newCloudUtilities(logger);
+    let utilities = UTILITIES.newCloudUtilities();
 
     let statusDependencies;
     let dataDependenciesModule;
@@ -21,7 +21,7 @@
     let multiPeriodDataFiles = new Map();
 
     const FILE_STORAGE = require('../FileStorage.js');
-    let fileStorage = FILE_STORAGE.newFileStorage(logger);
+    let fileStorage = FILE_STORAGE.newFileStorage();
 
     const TRADING_ENGINE_MODULE = require('./TradingEngine.js')
     let tradingEngineModule = TRADING_ENGINE_MODULE.newTradingEngine(processIndex)

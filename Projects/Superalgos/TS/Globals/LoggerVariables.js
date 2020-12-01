@@ -11,7 +11,8 @@ exports.newSuperalgosGlobalsLoggerVariables = function () {
 
     PROCESS_INSTANCE_LOGGER_MODULE          This is the logger module used by the process instance.
     BOT_MAIN_LOOP_LOGGER_MODULE             This is the logger module instantiated at every main loop and used at downstream modules.
-
+    LOGS_TO_DELETE_QUEUE                    This stores the logs that need to be deleted, for auto mantainance.
+    
     */
     return thisObject
 }

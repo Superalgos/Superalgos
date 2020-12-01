@@ -115,11 +115,11 @@ exports.newDebugLog = function (processIndex) {
 
             /* This is the implementation of the mechanism to auto-mantain logs. */
             if (contentToPersist.indexOf('[ERROR]') < 0 && contentToPersist.indexOf('[PERSIST]') < 0 && contentToPersist.indexOf('[IMPORTANT]') < 0) {
-                TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).LOGS_TO_DELETE_QUEUE.push(filePath + '/' + fileName)
+                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).LOGS_TO_DELETE_QUEUE.push(filePath + '/' + fileName)
             }
-            if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).LOGS_TO_DELETE_QUEUE.length > TS.projects.superalgos.globals.loggerVariables.DELETE_QUEUE_SIZE) {
-                let fileToDelete = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).LOGS_TO_DELETE_QUEUE[0]
-                TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).LOGS_TO_DELETE_QUEUE.splice(0, 1)
+            if (TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).LOGS_TO_DELETE_QUEUE.length > TS.projects.superalgos.globals.loggerVariables.DELETE_QUEUE_SIZE) {
+                let fileToDelete = TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).LOGS_TO_DELETE_QUEUE[0]
+                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).LOGS_TO_DELETE_QUEUE.splice(0, 1)
                 /* Will delete this file only if it does not contains ERROR inside. */
                 let fileContent = fileStorage.getTextFile(fileToDelete, onGetFile, true)
                 function onGetFile(err, fileContent) {

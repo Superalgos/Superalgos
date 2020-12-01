@@ -20,7 +20,6 @@ exports.newSuperalgosGlobalsProcessVariables = function () {
     SESSION_KEY                             This is the key used in events related to the Session
     SESSION_FOLDER_NAME                     This is the folder name for Session related data and logs.
     MAIN_LOOP_COUNTER                       This is the counter of main loops for a bot process.
-    LOGS_TO_DELETE_QUEUE                    This stores the logs that need to be deleted, for auto mantainance.
     SOCIAL_BOTS_MODULE                      This is the module that controls social bots.
     SESSION_STATUS                          This tell us the status of the session at any given time.
     IS_SESSION_STOPPING                     This tell us if a session is in the process of being stopped.

@@ -29,6 +29,7 @@
             We will use a logger for what happens before and after the bot main loop.
             */
             VARIABLES_BY_PROCESS_INDEX = {
+                LOGS_TO_DELETE_QUEUE: [],
                 PROCESS_INSTANCE_LOGGER_MODULE: DEBUG_MODULE.newDebugLog(processIndex)
             }
             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.set(processIndex, VARIABLES_BY_PROCESS_INDEX)
@@ -39,7 +40,6 @@
             accesed from where it is needed.
             */
             VARIABLES_BY_PROCESS_INDEX = {
-                LOGS_TO_DELETE_QUEUE: [],
                 MAIN_LOOP_COUNTER: 0,
                 PROCESS_KEY:
                     TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].name + '-' +

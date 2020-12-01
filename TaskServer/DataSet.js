@@ -91,7 +91,7 @@ exports.newDataSet = function (processIndex) {
             /* We found where the data is located on the network. */
             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] initialize -> Retrieving data from " + networkNode.name + "  -> host = " + networkNode.config.host + ' -> port = ' + networkNode.config.webPort + '.')
 
-            fileStorage = FILE_STORAGE.newFileStorage(logger, networkNode.config.host, networkNode.config.webPort);
+            fileStorage = FILE_STORAGE.newFileStorage(networkNode.config.host, networkNode.config.webPort);
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE, true);
 
         } catch (err) {

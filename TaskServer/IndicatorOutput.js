@@ -11,7 +11,7 @@
     let fileStorage = FILE_STORAGE.newFileStorage(logger);
 
     const COMMONS = require('./Commons.js');
-    let commons = COMMONS.newCommons(logger, UTILITIES, FILE_STORAGE);
+    let commons = COMMONS.newCommons(UTILITIES, FILE_STORAGE);
 
     return thisObject;
 

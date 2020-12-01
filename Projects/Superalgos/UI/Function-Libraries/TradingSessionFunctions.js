@@ -60,6 +60,7 @@ function newSuperalgosFunctionLibraryTradingSessionFunctions() {
             'Manage Stage->' +
             'Managed Stop Loss->Managed Take Profit->' +
             'Phase->Formula->Next Phase Event->Move To Phase Event->Phase->' +
+            'Close Stage Event->' +
             'Situation->Condition->Javascript Code->' +
             'Close Stage->' +
             'Initial Targets->Target Size In Base Asset->Target Size In Quoted Asset->Target Rate->Formula->' +

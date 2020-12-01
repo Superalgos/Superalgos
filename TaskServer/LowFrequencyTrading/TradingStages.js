@@ -951,10 +951,10 @@ exports.newTradingStages = function (processIndex, tradingEngineModule) {
 
     function checkStopStageEvent(stage) {
         /* Check the Close Stage Event. */
-        let stopStageEvent = stage.stopStageEvent
-        if (stopStageEvent !== undefined) {
-            for (let k = 0; k < stopStageEvent.situations.length; k++) {
-                let situation = stopStageEvent.situations[k]
+        let closeStageEvent = stage.closeStageEvent
+        if (closeStageEvent !== undefined) {
+            for (let k = 0; k < closeStageEvent.situations.length; k++) {
+                let situation = closeStageEvent.situations[k]
                 let passed
                 if (situation.conditions.length > 0) {
                     passed = true
@@ -965,10 +965,10 @@ exports.newTradingStages = function (processIndex, tradingEngineModule) {
                 tradingSystem.values.push([situation.id, passed])
                 if (passed) {
                     tradingSystem.highlights.push(situation.id)
-                    tradingSystem.highlights.push(stopStageEvent.id)
+                    tradingSystem.highlights.push(closeStageEvent.id)
                     tradingSystem.highlights.push(stage.id)
 
-                    announcementsModule.makeAnnoucements(stopStageEvent)
+                    announcementsModule.makeAnnoucements(closeStageEvent)
                     return true
                 }
             }

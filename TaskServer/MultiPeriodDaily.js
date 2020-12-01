@@ -1,4 +1,4 @@
-﻿exports.newMultiPeriodDaily = function (processIndex, UTILITIES, FILE_STORAGE) {
+﻿exports.newMultiPeriodDaily = function (processIndex, FILE_STORAGE) {
     const MODULE_NAME = "Multi Period Daily";
     const GMT_SECONDS = ':00.000 GMT+0000';
 
@@ -8,7 +8,7 @@
         start: start
     };
 
-    let utilities = UTILITIES.newCloudUtilities()
+    
     let fileStorage = FILE_STORAGE.newFileStorage(processIndex, )
 
     let statusDependencies;
@@ -33,7 +33,7 @@
 
         let INDICATOR_OUTPUT_MODULE = require("./IndicatorOutput")
 
-        indicatorOutputModule = INDICATOR_OUTPUT_MODULE.newIndicatorOutput(processIndex, UTILITIES, FILE_STORAGE)
+        indicatorOutputModule = INDICATOR_OUTPUT_MODULE.newIndicatorOutput(processIndex, FILE_STORAGE)
         indicatorOutputModule.initialize(callBackFunction)
     }
 
@@ -238,7 +238,7 @@
                     }
 
                     /*  Telling the world we are alive and doing well */
-                    let currentDateString = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).DAILY_FILES_PROCESS_DATETIME.getUTCFullYear() + '-' + utilities.pad(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).DAILY_FILES_PROCESS_DATETIME.getUTCMonth() + 1, 2) + '-' + utilities.pad(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).DAILY_FILES_PROCESS_DATETIME.getUTCDate(), 2)
+                    let currentDateString = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).DAILY_FILES_PROCESS_DATETIME.getUTCFullYear() + '-' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).DAILY_FILES_PROCESS_DATETIME.getUTCMonth() + 1, 2) + '-' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).DAILY_FILES_PROCESS_DATETIME.getUTCDate(), 2)
                     let currentDate = new Date(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).DAILY_FILES_PROCESS_DATETIME)
                     let percentage = TS.projects.superalgos.utilities.dateTimeFunctions.getPercentage(fromDate, currentDate, lastDate)
                     TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, currentDateString, percentage)
@@ -319,7 +319,7 @@
                         }
 
                         function getPreviousFile() {
-                            let dateForPath = previousDay.getUTCFullYear() + '/' + utilities.pad(previousDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(previousDay.getUTCDate(), 2)
+                            let dateForPath = previousDay.getUTCFullYear() + '/' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(previousDay.getUTCMonth() + 1, 2) + '/' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(previousDay.getUTCDate(), 2)
                             let filePath
                             if (dependency.referenceParent.config.codeName === "Multi-Period-Daily") {
                                 filePath = dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName + "/" + timeFrameLabel + "/" + dateForPath;
@@ -366,7 +366,7 @@
                         }
 
                         function getCurrentFile() {
-                            let dateForPath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).DAILY_FILES_PROCESS_DATETIME.getUTCFullYear() + '/' + utilities.pad(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).DAILY_FILES_PROCESS_DATETIME.getUTCMonth() + 1, 2) + '/' + utilities.pad(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).DAILY_FILES_PROCESS_DATETIME.getUTCDate(), 2)
+                            let dateForPath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).DAILY_FILES_PROCESS_DATETIME.getUTCFullYear() + '/' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).DAILY_FILES_PROCESS_DATETIME.getUTCMonth() + 1, 2) + '/' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).DAILY_FILES_PROCESS_DATETIME.getUTCDate(), 2)
                             let filePath
                             if (dependency.referenceParent.config.codeName === "Multi-Period-Daily") {
                                 filePath = dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName + "/" + timeFrameLabel + "/" + dateForPath;

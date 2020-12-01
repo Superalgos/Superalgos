@@ -1,4 +1,4 @@
-exports.newTradingSimulation = function (processIndex, tradingEngineModule, UTILITIES) {
+exports.newTradingSimulation = function (processIndex, tradingEngineModule) {
     /*
     This Module represents the trading simulacion. Escentially a loop through a set of candles and 
     the execution at each loop cycle of the Trading System Protocol.
@@ -11,7 +11,7 @@ exports.newTradingSimulation = function (processIndex, tradingEngineModule, UTIL
         runSimulation: runSimulation
     }
 
-    let utilities = UTILITIES.newCloudUtilities()
+    
 
     return thisObject
 
@@ -263,7 +263,7 @@ exports.newTradingSimulation = function (processIndex, tradingEngineModule, UTIL
                         let fromDate = new Date(sessionParameters.timeRange.config.initialDatetime)
                         let lastDate = new Date(sessionParameters.timeRange.config.finalDatetime)
 
-                        let currentDateString = heartBeatDate.getUTCFullYear() + '-' + utilities.pad(heartBeatDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(heartBeatDate.getUTCDate(), 2)
+                        let currentDateString = heartBeatDate.getUTCFullYear() + '-' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(heartBeatDate.getUTCMonth() + 1, 2) + '-' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(heartBeatDate.getUTCDate(), 2)
                         let currentDate = new Date(heartBeatDate)
                         let percentage = TS.projects.superalgos.utilities.dateTimeFunctions.getPercentage(fromDate, currentDate, lastDate)
 
@@ -274,7 +274,7 @@ exports.newTradingSimulation = function (processIndex, tradingEngineModule, UTIL
                         if (heartBeatDate.valueOf() !== previousHeartBeatDate) {
                             previousHeartBeatDate = heartBeatDate.valueOf()
 
-                            let processingDate = heartBeatDate.getUTCFullYear() + '-' + utilities.pad(heartBeatDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(heartBeatDate.getUTCDate(), 2)
+                            let processingDate = heartBeatDate.getUTCFullYear() + '-' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(heartBeatDate.getUTCMonth() + 1, 2) + '-' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(heartBeatDate.getUTCDate(), 2)
 
                             if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Simulation ' + TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY + ' Loop # ' + tradingEngine.current.episode.candle.index.value + ' @ ' + processingDate) }
 

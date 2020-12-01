@@ -1,4 +1,4 @@
-﻿exports.newUserBot = function (processIndex, COMMONS, UTILITIES, FILE_STORAGE) {
+﻿exports.newUserBot = function (processIndex, COMMONS, FILE_STORAGE) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
@@ -17,7 +17,7 @@
     };
 
     let statusDependencies;
-    let utilities = UTILITIES.newCloudUtilities();
+    
     let fileStorage = FILE_STORAGE.newFileStorage(processIndex, );
 
     return thisObject;
@@ -474,7 +474,7 @@
                     }
 
                     /*  Telling the world we are alive and doing well */
-                    let currentDateString = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_DATETIME.getUTCFullYear() + '-' + utilities.pad(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_DATETIME.getUTCMonth() + 1, 2) + '-' + utilities.pad(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_DATETIME.getUTCDate(), 2);
+                    let currentDateString = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_DATETIME.getUTCFullYear() + '-' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_DATETIME.getUTCMonth() + 1, 2) + '-' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_DATETIME.getUTCDate(), 2);
                     let currentDate = new Date(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_DATETIME)
                     let lastDate = new Date()
                     TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, currentDateString, TS.projects.superalgos.utilities.dateTimeFunctions.getPercentage(currentDate, currentDate, lastDate)) 

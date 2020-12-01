@@ -1,5 +1,5 @@
 ﻿
-exports.newUserBot = function (processIndex, COMMONS, UTILITIES, FILE_STORAGE, STATUS_REPORT, EXCHANGE_API) {
+exports.newUserBot = function (processIndex, COMMONS, FILE_STORAGE, STATUS_REPORT, EXCHANGE_API) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
@@ -13,7 +13,7 @@ exports.newUserBot = function (processIndex, COMMONS, UTILITIES, FILE_STORAGE, S
         start: start
     };
 
-    let utilities = UTILITIES.newCloudUtilities()
+    
     let fileStorage = FILE_STORAGE.newFileStorage(processIndex, );
     let statusDependencies
 
@@ -219,7 +219,7 @@ exports.newUserBot = function (processIndex, COMMONS, UTILITIES, FILE_STORAGE, S
 
                         /* Reporting we are doing well */
                         let processingDate = new Date(since)
-                        processingDate = processingDate.getUTCFullYear() + '-' + utilities.pad(processingDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(processingDate.getUTCDate(), 2);
+                        processingDate = processingDate.getUTCFullYear() + '-' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(processingDate.getUTCMonth() + 1, 2) + '-' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(processingDate.getUTCDate(), 2);
                         if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> getTrades -> Fetching Trades  @ " + processingDate + "-> exchange = " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " -> symbol = " + symbol + " -> since = " + since + " -> limit = " + limit ) }
                         TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, "Fetching " + allTrades.length.toFixed(0) + " trades from " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well
 
@@ -313,7 +313,7 @@ exports.newUserBot = function (processIndex, COMMONS, UTILITIES, FILE_STORAGE, S
                         }
 
                         let processingDate = new Date(trade.timestamp)
-                        processingDate = processingDate.getUTCFullYear() + '-' + utilities.pad(processingDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(processingDate.getUTCDate(), 2);
+                        processingDate = processingDate.getUTCFullYear() + '-' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(processingDate.getUTCMonth() + 1, 2) + '-' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(processingDate.getUTCDate(), 2);
 
                         /* Reporting we are doing well */
                         heartBeatCounter--
@@ -416,10 +416,10 @@ exports.newUserBot = function (processIndex, COMMONS, UTILITIES, FILE_STORAGE, S
                         function getFilePath(timestamp) {
                             let datetime = new Date(timestamp)
                             let dateForPath = datetime.getUTCFullYear() + '/' +
-                                utilities.pad(datetime.getUTCMonth() + 1, 2) + '/' +
-                                utilities.pad(datetime.getUTCDate(), 2) + '/' +
-                                utilities.pad(datetime.getUTCHours(), 2) + '/' +
-                                utilities.pad(datetime.getUTCMinutes(), 2)
+                                TS.projects.superalgos.utilities.miscellaneousFunctions.pad(datetime.getUTCMonth() + 1, 2) + '/' +
+                                TS.projects.superalgos.utilities.miscellaneousFunctions.pad(datetime.getUTCDate(), 2) + '/' +
+                                TS.projects.superalgos.utilities.miscellaneousFunctions.pad(datetime.getUTCHours(), 2) + '/' +
+                                TS.projects.superalgos.utilities.miscellaneousFunctions.pad(datetime.getUTCMinutes(), 2)
                             let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
                             return filePath
                         }

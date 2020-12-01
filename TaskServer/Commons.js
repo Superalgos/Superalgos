@@ -1,4 +1,4 @@
-﻿exports.newCommons = function (processIndex, UTILITIES, FILE_STORAGE) {
+﻿exports.newCommons = function (processIndex, FILE_STORAGE) {
 
     const MODULE_NAME = "Commons";
 
@@ -12,7 +12,7 @@
         writeFile: writeFile
     };
 
-    let utilities = UTILITIES.newCloudUtilities();
+    
     let fileStorage = FILE_STORAGE.newFileStorage(processIndex, );
 
     return thisObject;
@@ -517,7 +517,7 @@
             let dateForPath = ''
 
             if (processingDailyFiles === true) {
-                dateForPath = "/" + currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
+                dateForPath = "/" + currentDay.getUTCFullYear() + '/' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(currentDay.getUTCMonth() + 1, 2) + '/' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(currentDay.getUTCDate(), 2);
             }
 
             let filePathRoot = 'Project/' + contextSummary.project + "/" + contextSummary.mineType + "/" + contextSummary.dataMine + "/" + contextSummary.bot + '/' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "-" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName

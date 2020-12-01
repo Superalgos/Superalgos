@@ -1,5 +1,5 @@
 ﻿
-exports.newUserBot = function (processIndex, COMMONS, UTILITIES, FILE_STORAGE, STATUS_REPORT, EXCHANGE_API) {
+exports.newUserBot = function (processIndex, COMMONS, FILE_STORAGE, STATUS_REPORT, EXCHANGE_API) {
 
     const FULL_LOG = true;
     const GMT_SECONDS = ':00.000 GMT+0000';
@@ -12,7 +12,7 @@ exports.newUserBot = function (processIndex, COMMONS, UTILITIES, FILE_STORAGE, S
         start: start
     };
 
-    let utilities = UTILITIES.newCloudUtilities()
+    
     let fileStorage = FILE_STORAGE.newFileStorage(processIndex, );
     let statusDependencies
 
@@ -254,7 +254,7 @@ exports.newUserBot = function (processIndex, COMMONS, UTILITIES, FILE_STORAGE, S
                         /* Reporting we are doing well */
                         function heartBeat(noNewInternalLoop) {
                             let processingDate = new Date(since)
-                            processingDate = processingDate.getUTCFullYear() + '-' + utilities.pad(processingDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(processingDate.getUTCDate(), 2);
+                            processingDate = processingDate.getUTCFullYear() + '-' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(processingDate.getUTCMonth() + 1, 2) + '-' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(processingDate.getUTCDate(), 2);
                             if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> getOHLCVs -> Fetching OHLCVs  @ " + processingDate + "-> exchange = " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " -> symbol = " + symbol + " -> since = " + since + " -> limit = " + limit) }
                             let heartBeatText = "Fetching " + allOHLCVs.length.toFixed(0) + " OHLCVs from " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " " + symbol + " @ " + processingDate
                             let currentDate = new Date(since)
@@ -435,7 +435,7 @@ exports.newUserBot = function (processIndex, COMMONS, UTILITIES, FILE_STORAGE, S
                             }
 
                             let processingDate = new Date(candle.begin)
-                            processingDate = processingDate.getUTCFullYear() + '-' + utilities.pad(processingDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(processingDate.getUTCDate(), 2);
+                            processingDate = processingDate.getUTCFullYear() + '-' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(processingDate.getUTCMonth() + 1, 2) + '-' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(processingDate.getUTCDate(), 2);
 
                             if (candle.begin > (new Date()).valueOf()) {
                                 /* We stop when the current candle is pointing to a time in the future.*/
@@ -591,8 +591,8 @@ exports.newUserBot = function (processIndex, COMMONS, UTILITIES, FILE_STORAGE, S
                         function getFilePath(timestamp, folderName) {
                             let datetime = new Date(timestamp)
                             let dateForPath = datetime.getUTCFullYear() + '/' +
-                                utilities.pad(datetime.getUTCMonth() + 1, 2) + '/' +
-                                utilities.pad(datetime.getUTCDate(), 2)
+                                TS.projects.superalgos.utilities.miscellaneousFunctions.pad(datetime.getUTCMonth() + 1, 2) + '/' +
+                                TS.projects.superalgos.utilities.miscellaneousFunctions.pad(datetime.getUTCDate(), 2)
                             let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + folderName + '/' + dateForPath;
                             return filePath
                         }

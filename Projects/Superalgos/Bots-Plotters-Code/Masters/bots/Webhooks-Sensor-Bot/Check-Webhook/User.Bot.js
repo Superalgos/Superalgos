@@ -1,5 +1,5 @@
 ﻿
-exports.newUserBot = function (processIndex, COMMONS, UTILITIES, FILE_STORAGE, STATUS_REPORT, EXCHANGE_API) {
+exports.newUserBot = function (processIndex, COMMONS, FILE_STORAGE, STATUS_REPORT, EXCHANGE_API) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
@@ -11,7 +11,7 @@ exports.newUserBot = function (processIndex, COMMONS, UTILITIES, FILE_STORAGE, S
         start: start
     };
 
-    let utilities = UTILITIES.newCloudUtilities()
+    
     let fileStorage = FILE_STORAGE.newFileStorage(processIndex, );
     let statusDependencies
 

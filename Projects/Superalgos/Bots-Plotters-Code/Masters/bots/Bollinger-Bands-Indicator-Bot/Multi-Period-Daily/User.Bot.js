@@ -1,4 +1,4 @@
-﻿exports.newUserBot = function (processIndex, COMMONS, UTILITIES, FILE_STORAGE) {
+﻿exports.newUserBot = function (processIndex, COMMONS, FILE_STORAGE) {
 
     const FULL_LOG = true;
     const INTENSIVE_LOG = false;
@@ -20,7 +20,7 @@
         start: start
     };
 
-    let utilities = UTILITIES.newCloudUtilities();
+    
     let fileStorage = FILE_STORAGE.newFileStorage(processIndex, );
 
     let statusDependencies;
@@ -277,7 +277,7 @@
                             }
 
                             /*  Telling the world we are alive and doing well */
-                            let currentDateString = processDate.getUTCFullYear() + '-' + utilities.pad(processDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(processDate.getUTCDate(), 2);
+                            let currentDateString = processDate.getUTCFullYear() + '-' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(processDate.getUTCMonth() + 1, 2) + '-' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(processDate.getUTCDate(), 2);
                             let currentDate = new Date(processDate)
                             let percentage = TS.projects.superalgos.utilities.dateTimeFunctions.getPercentage(fromDate, currentDate, lastDate)
                             TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, currentDateString, percentage) 
@@ -336,7 +336,7 @@
 
                                     if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> getPreviousDayFile -> Entering function."); }
 
-                                    let dateForPath = previousDay.getUTCFullYear() + '/' + utilities.pad(previousDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(previousDay.getUTCDate(), 2);
+                                    let dateForPath = previousDay.getUTCFullYear() + '/' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(previousDay.getUTCMonth() + 1, 2) + '/' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(previousDay.getUTCDate(), 2);
                                     let fileName = "Data.json"
                                     let filePathRoot = 'Project/' + TS.projects.superalgos.globals.taskConstants.PROJECT_DEFINITION_NODE.config.codeName + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.type.replace(' ', '-') + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "/" + "Candles-Volumes" + '/' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "-" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
                                     let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timeFrame + "/" + dateForPath;
@@ -375,7 +375,7 @@
 
                                     if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> getProcessDayFile -> Entering function."); }
 
-                                    let dateForPath = processDate.getUTCFullYear() + '/' + utilities.pad(processDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDate.getUTCDate(), 2);
+                                    let dateForPath = processDate.getUTCFullYear() + '/' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(processDate.getUTCMonth() + 1, 2) + '/' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(processDate.getUTCDate(), 2);
                                     let fileName = "Data.json"
                                     let filePathRoot = 'Project/' + TS.projects.superalgos.globals.taskConstants.PROJECT_DEFINITION_NODE.config.codeName + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.type.replace(' ', '-') + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "/" + "Candles-Volumes" + '/' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "-" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
                                     let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timeFrame + "/" + dateForPath;
@@ -604,7 +604,7 @@
 
                                     fileContent = "[" + fileContent + "]";
 
-                                    let dateForPath = processDate.getUTCFullYear() + '/' + utilities.pad(processDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDate.getUTCDate(), 2);
+                                    let dateForPath = processDate.getUTCFullYear() + '/' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(processDate.getUTCMonth() + 1, 2) + '/' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(processDate.getUTCDate(), 2);
                                     let fileName = 'Data.json';
                                     let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + BOLLINGER_BANDS_FOLDER_NAME + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + "/" + timeFrame + "/" + dateForPath;
                                     filePath += '/' + fileName
@@ -674,7 +674,7 @@
 
                                     fileContent = "[" + fileContent + "]";
 
-                                    let dateForPath = processDate.getUTCFullYear() + '/' + utilities.pad(processDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDate.getUTCDate(), 2);
+                                    let dateForPath = processDate.getUTCFullYear() + '/' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(processDate.getUTCMonth() + 1, 2) + '/' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(processDate.getUTCDate(), 2);
                                     let fileName = 'Data.json';
                                     let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + PERCENTAGE_BANDWIDTH_FOLDER_NAME + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + "/" + timeFrame + "/" + dateForPath;
                                     filePath += '/' + fileName

@@ -1,4 +1,4 @@
-﻿exports.newTradingProcess = function (processIndex, UTILITIES) {
+﻿exports.newTradingProcess = function (processIndex) {
     /*
     This Module will load all the process data dependencies from files and send them downstream.
     After execution, will save the time range and status report of the process.
@@ -13,7 +13,7 @@
         start: start
     };
 
-    let utilities = UTILITIES.newCloudUtilities();
+    
 
     let statusDependencies;
     let dataDependenciesModule;
@@ -27,7 +27,7 @@
     let tradingEngineModule = TRADING_ENGINE_MODULE.newTradingEngine(processIndex)
 
     let TRADING_OUTPUT_MODULE = require("./TradingOutput")
-    let tradingOutputModule = TRADING_OUTPUT_MODULE.newTradingOutput(processIndex, tradingEngineModule, UTILITIES, FILE_STORAGE)
+    let tradingOutputModule = TRADING_OUTPUT_MODULE.newTradingOutput(processIndex, tradingEngineModule, FILE_STORAGE)
 
     let processConfig;
 
@@ -447,7 +447,7 @@
 
             async function processDailyFiles() {
                 /*  Telling the world we are alive and doing well and which date we are processing right now. */
-                let processingDateString = tradingProcessDate.getUTCFullYear() + '-' + utilities.pad(tradingProcessDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(tradingProcessDate.getUTCDate(), 2);
+                let processingDateString = tradingProcessDate.getUTCFullYear() + '-' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(tradingProcessDate.getUTCMonth() + 1, 2) + '-' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(tradingProcessDate.getUTCDate(), 2);
                 TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, processingDateString, undefined, "Running...")
 
                 /*
@@ -493,7 +493,7 @@
                             }
                         }
 
-                        let dateForPath = tradingProcessDate.getUTCFullYear() + '/' + utilities.pad(tradingProcessDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(tradingProcessDate.getUTCDate(), 2);
+                        let dateForPath = tradingProcessDate.getUTCFullYear() + '/' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(tradingProcessDate.getUTCMonth() + 1, 2) + '/' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(tradingProcessDate.getUTCDate(), 2);
                         let filePath
                         if (dependency.referenceParent.config.codeName === "Multi-Period-Daily") {
                             filePath = dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName + "/" + timeFrameLabel + "/" + dateForPath;
@@ -550,7 +550,7 @@
 
             function buildCharts(chart) {
                 const COMMONS = require('../Commons.js')
-                let commons = COMMONS.newCommons(processIndex, UTILITIES, FILE_STORAGE)
+                let commons = COMMONS.newCommons(processIndex, FILE_STORAGE)
 
                 let mainDependency = {}
 

@@ -1,4 +1,4 @@
-﻿exports.newIndicatorOutput = function (processIndex, UTILITIES, FILE_STORAGE) {
+﻿exports.newIndicatorOutput = function (processIndex, FILE_STORAGE) {
     const MODULE_NAME = "Indicator Bot";
 
     let thisObject = {
@@ -7,11 +7,11 @@
         start: start
     };
 
-    let utilities = UTILITIES.newCloudUtilities();
+    
     let fileStorage = FILE_STORAGE.newFileStorage(processIndex, );
 
     const COMMONS = require('./Commons.js');
-    let commons = COMMONS.newCommons(processIndex, UTILITIES, FILE_STORAGE);
+    let commons = COMMONS.newCommons(processIndex, FILE_STORAGE);
 
     return thisObject;
 

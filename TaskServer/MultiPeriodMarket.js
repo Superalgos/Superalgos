@@ -1,4 +1,4 @@
-﻿exports.newMultiPeriodMarket = function (processIndex, UTILITIES, FILE_STORAGE) {
+﻿exports.newMultiPeriodMarket = function (processIndex, FILE_STORAGE) {
     const MODULE_NAME = "Multi Period Market";
     thisObject = {
         initialize: initialize,
@@ -6,7 +6,7 @@
         start: start
     };
 
-    let utilities = UTILITIES.newCloudUtilities()
+    
     let fileStorage = FILE_STORAGE.newFileStorage(processIndex, )
 
     let statusDependencies;
@@ -27,7 +27,7 @@
 
         let INDICATOR_OUTPUT_MODULE = require("./IndicatorOutput")
 
-        indicatorOutputModule = INDICATOR_OUTPUT_MODULE.newIndicatorOutput(processIndex, UTILITIES, FILE_STORAGE)
+        indicatorOutputModule = INDICATOR_OUTPUT_MODULE.newIndicatorOutput(processIndex, FILE_STORAGE)
         indicatorOutputModule.initialize(callBackFunction)
     }
 
@@ -215,7 +215,7 @@
                 }
 
                 /*  Telling the world we are alive and doing well */
-                let currentDateString = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_DATETIME.getUTCFullYear() + '-' + utilities.pad(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_DATETIME.getUTCMonth() + 1, 2) + '-' + utilities.pad(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_DATETIME.getUTCDate(), 2)
+                let currentDateString = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_DATETIME.getUTCFullYear() + '-' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_DATETIME.getUTCMonth() + 1, 2) + '-' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_DATETIME.getUTCDate(), 2)
                 let currentDate = new Date(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_DATETIME)
                 let lastDate = new Date()
                 TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, currentDateString, TS.projects.superalgos.utilities.dateTimeFunctions.getPercentage(currentDate, currentDate, lastDate))

@@ -1,4 +1,4 @@
-exports.newTradingOutput = function (processIndex, tradingEngineModule, UTILITIES, FILE_STORAGE) {
+exports.newTradingOutput = function (processIndex, tradingEngineModule, FILE_STORAGE) {
     /*
     This module will load if necesary all the data outputs so that they can be appended with new
     records if needed. After running the simulation, it will save all the data outputs.
@@ -11,7 +11,7 @@ exports.newTradingOutput = function (processIndex, tradingEngineModule, UTILITIE
         start: start
     }
 
-    let utilities = UTILITIES.newCloudUtilities()
+    
     let fileStorage = FILE_STORAGE.newFileStorage(processIndex, )
 
     return thisObject
@@ -38,7 +38,7 @@ exports.newTradingOutput = function (processIndex, tradingEngineModule, UTILITIE
 
             /* Preparing everything for the Simulation */
             const TRADING_SIMULATION = require('./TradingSimulation.js')
-            let tradingSimulation = TRADING_SIMULATION.newTradingSimulation(processIndex, tradingEngineModule, UTILITIES)
+            let tradingSimulation = TRADING_SIMULATION.newTradingSimulation(processIndex, tradingEngineModule)
 
             let outputDatasets = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
             let outputDatasetsMap = new Map()
@@ -147,7 +147,7 @@ exports.newTradingOutput = function (processIndex, tradingEngineModule, UTILITIE
 
                     if (dataset.config.type === 'Daily Files') {
 
-                        let dateForPath = tradingProcessDate.getUTCFullYear() + '/' + utilities.pad(tradingProcessDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(tradingProcessDate.getUTCDate(), 2);
+                        let dateForPath = tradingProcessDate.getUTCFullYear() + '/' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(tradingProcessDate.getUTCMonth() + 1, 2) + '/' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(tradingProcessDate.getUTCDate(), 2);
                         let fileName = 'Data.json'
                         let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + '/Output/' + TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_FOLDER_NAME + '/' + dataset.parentNode.config.codeName + '/' + dataset.config.codeName + '/' + timeFrameLabel + "/" + dateForPath
 
@@ -204,7 +204,7 @@ exports.newTradingOutput = function (processIndex, tradingEngineModule, UTILITIE
 
                     if (dataset.config.type === 'Daily Files') {
 
-                        let dateForPath = tradingProcessDate.getUTCFullYear() + '/' + utilities.pad(tradingProcessDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(tradingProcessDate.getUTCDate(), 2);
+                        let dateForPath = tradingProcessDate.getUTCFullYear() + '/' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(tradingProcessDate.getUTCMonth() + 1, 2) + '/' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(tradingProcessDate.getUTCDate(), 2);
                         let fileName = 'Data.json'
                         let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + '/Output/' + TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_FOLDER_NAME + '/' + dataset.parentNode.config.codeName + '/' + dataset.config.codeName + '/' + timeFrameLabel + "/" + dateForPath
 

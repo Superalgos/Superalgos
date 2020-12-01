@@ -2,7 +2,8 @@ exports.newSuperalgosUtilitiesMiscellaneousFunctions = function () {
 
     let thisObject = {
         genereteUniqueId: genereteUniqueId,
-        truncateToThisPrecision: truncateToThisPrecision
+        truncateToThisPrecision: truncateToThisPrecision,
+        pad: pad
     }
 
     return thisObject
@@ -16,5 +17,10 @@ exports.newSuperalgosUtilitiesMiscellaneousFunctions = function () {
 
     function truncateToThisPrecision(floatNumber, precision) {
         return parseFloat(floatNumber.toFixed(precision))
+    }
+
+    function pad(str, max) {
+        str = str.toString();
+        return str.length < max ? pad("0" + str, max) : str;
     }
 }

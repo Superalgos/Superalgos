@@ -110,7 +110,6 @@
                     TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex)
 
                     /* We define here all the modules that the rest of the infraestructure, including the bots themselves can consume. */
-                    const UTILITIES = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + 'CloudUtilities');
                     const STATUS_REPORT = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + 'StatusReport');
                     const STATUS_DEPENDENCIES = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + 'StatusDependencies');
                     const PROCESS_EXECUTION_EVENTS = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + 'ProcessExecutionEvents');
@@ -236,7 +235,7 @@
 
                     function initializeStatusDependencies() {
                         try {
-                            statusDependencies = STATUS_DEPENDENCIES.newStatusDependencies(processIndex, STATUS_REPORT, UTILITIES, PROCESS_OUTPUT);
+                            statusDependencies = STATUS_DEPENDENCIES.newStatusDependencies(processIndex, STATUS_REPORT, PROCESS_OUTPUT);
                             statusDependencies.initialize(onInizialized);
 
                             function onInizialized(err) {
@@ -284,7 +283,7 @@
 
                     function initializeUserBot() {
                         try {
-                            usertBot = USER_BOT_MODULE.newUserBot(processIndex, COMMONS_MODULE, UTILITIES, FILE_STORAGE, STATUS_REPORT, exchangeAPI);
+                            usertBot = USER_BOT_MODULE.newUserBot(processIndex, COMMONS_MODULE, FILE_STORAGE, STATUS_REPORT, exchangeAPI);
                             usertBot.initialize(statusDependencies, onInizialized);
 
                             function onInizialized(err) {

@@ -69,7 +69,6 @@
                     TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, undefined, undefined, "Running...")
 
                     /* We define here all the modules that the rest of the infraestructure, including the bots themselves can consume. */
-                    const UTILITIES = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + 'CloudUtilities');
                     const STATUS_REPORT = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + 'StatusReport');
                     const STATUS_DEPENDENCIES = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + 'StatusDependencies');
                     const DATA_DEPENDENCIES = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + 'DataDependencies');
@@ -220,7 +219,7 @@
 
                     function initializeStatusDependencies() {
                         try {
-                            statusDependencies = STATUS_DEPENDENCIES.newStatusDependencies(processIndex, STATUS_REPORT, UTILITIES, PROCESS_OUTPUT);
+                            statusDependencies = STATUS_DEPENDENCIES.newStatusDependencies(processIndex, STATUS_REPORT, PROCESS_OUTPUT);
                             statusDependencies.initialize(onInizialized);
 
                             function onInizialized(err) {
@@ -278,7 +277,7 @@
                                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] run -> loop -> initializeDataDependencies -> onInizialized -> Execution finished well.")
                                             switch (processConfig.framework.name) {
                                                 case 'Low-Frequency-Trading-Process': {
-                                                    processFramework = TRADING_PROCESS_MODULE.newTradingProcess(processIndex, UTILITIES);
+                                                    processFramework = TRADING_PROCESS_MODULE.newTradingProcess(processIndex);
                                                     intitializeProcessFramework();
                                                     break;
                                                 }

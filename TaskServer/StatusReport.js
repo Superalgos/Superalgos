@@ -1,4 +1,4 @@
-﻿exports.newStatusReport = function (processIndex, UTILITIES, PROCESS_OUTPUT) {
+﻿exports.newStatusReport = function (processIndex, PROCESS_OUTPUT) {
 
     /*
 
@@ -26,7 +26,7 @@
 
     /* Utilities needed. */
 
-    let utilities = UTILITIES.newCloudUtilities();
+    
 
     /* Storage account to be used here. */
 

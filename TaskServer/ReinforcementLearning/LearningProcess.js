@@ -1,4 +1,4 @@
-exports.newLearningProcess = function (processIndex, UTILITIES) {
+exports.newLearningProcess = function (processIndex) {
 
 
     thisObject = {

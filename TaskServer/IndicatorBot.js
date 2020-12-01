@@ -105,7 +105,6 @@
                     TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex)
 
                     /* We define here all the modules that the rest of the infraestructure, including the bots themselves can consume. */
-                    const UTILITIES = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + 'CloudUtilities');
                     const STATUS_REPORT = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + 'StatusReport');
                     const STATUS_DEPENDENCIES = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + 'StatusDependencies');
                     const DATA_DEPENDENCIES = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + 'DataDependencies');
@@ -233,7 +232,7 @@
 
                     function initializeStatusDependencies() {
                         try {
-                            statusDependencies = STATUS_DEPENDENCIES.newStatusDependencies(processIndex, STATUS_REPORT, UTILITIES, PROCESS_OUTPUT);
+                            statusDependencies = STATUS_DEPENDENCIES.newStatusDependencies(processIndex, STATUS_REPORT, PROCESS_OUTPUT);
                             statusDependencies.initialize(onInizialized);
 
                             function onInizialized(err) {
@@ -296,12 +295,12 @@
 
                                             switch (processConfig.framework.name) {
                                                 case 'Multi-Period-Market': {
-                                                    processFramework = MULTI_PERIOD_MARKET.newMultiPeriodMarket(processIndex, UTILITIES, FILE_STORAGE);
+                                                    processFramework = MULTI_PERIOD_MARKET.newMultiPeriodMarket(processIndex, FILE_STORAGE);
                                                     intitializeProcessFramework();
                                                     break;
                                                 }
                                                 case 'Multi-Period-Daily': {
-                                                    processFramework = MULTI_PERIOD_DAILY.newMultiPeriodDaily(processIndex, UTILITIES, FILE_STORAGE);
+                                                    processFramework = MULTI_PERIOD_DAILY.newMultiPeriodDaily(processIndex, FILE_STORAGE);
                                                     intitializeProcessFramework();
                                                     break;
                                                 }
@@ -353,7 +352,7 @@
 
                     function initializeUserBot() {
                         try {
-                            usertBot = USER_BOT_MODULE.newUserBot(processIndex, COMMONS_MODULE, UTILITIES, FILE_STORAGE);
+                            usertBot = USER_BOT_MODULE.newUserBot(processIndex, COMMONS_MODULE, FILE_STORAGE);
                             usertBot.initialize(statusDependencies, onInizialized);
 
                             function onInizialized(err) {

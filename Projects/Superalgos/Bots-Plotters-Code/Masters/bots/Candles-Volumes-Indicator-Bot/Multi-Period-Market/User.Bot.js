@@ -1,4 +1,4 @@
-﻿exports.newUserBot = function (processIndex, COMMONS, UTILITIES, FILE_STORAGE) {
+﻿exports.newUserBot = function (processIndex, COMMONS, FILE_STORAGE) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
@@ -22,7 +22,7 @@
         start: start
     };
 
-    let utilities = UTILITIES.newCloudUtilities();
+    
     let fileStorage = FILE_STORAGE.newFileStorage(processIndex, );
 
     let statusDependencies;
@@ -421,7 +421,7 @@
                         }
 
                         /*  Telling the world we are alive and doing well */
-                        let currentDateString = contextVariables.lastCandleFile.getUTCFullYear() + '-' + utilities.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '-' + utilities.pad(contextVariables.lastCandleFile.getUTCDate(), 2);
+                        let currentDateString = contextVariables.lastCandleFile.getUTCFullYear() + '-' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '-' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.lastCandleFile.getUTCDate(), 2);
                         let currentDate = new Date(contextVariables.lastCandleFile)
                         let percentage = TS.projects.superalgos.utilities.dateTimeFunctions.getPercentage(fromDate, currentDate, lastDate)
                         TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, currentDateString, percentage) 
@@ -532,7 +532,7 @@
 
                                 if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> Entering function."); }
 
-                                let dateForPath = contextVariables.lastCandleFile.getUTCFullYear() + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCDate(), 2);
+                                let dateForPath = contextVariables.lastCandleFile.getUTCFullYear() + '/' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '/' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.lastCandleFile.getUTCDate(), 2);
                                 let fileName = "Data.json"
 
                                 let filePathRoot = 'Project/' + TS.projects.superalgos.globals.taskConstants.PROJECT_DEFINITION_NODE.config.codeName + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.type.replace(' ', '-') + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "/" + "Exchange-Raw-Data" + '/' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "-" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
@@ -664,7 +664,7 @@
 
                                     if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> Entering function."); }
 
-                                    let dateForPath = contextVariables.lastCandleFile.getUTCFullYear() + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCDate(), 2);
+                                    let dateForPath = contextVariables.lastCandleFile.getUTCFullYear() + '/' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '/' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.lastCandleFile.getUTCDate(), 2);
                                     let fileName = "Data.json"
 
                                     let filePathRoot = 'Project/' + TS.projects.superalgos.globals.taskConstants.PROJECT_DEFINITION_NODE.config.codeName + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.type.replace(' ', '-') + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "/" + "Exchange-Raw-Data" + '/' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "-" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName

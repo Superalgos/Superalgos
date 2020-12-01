@@ -88,7 +88,7 @@
 
                             function onFileReceived(err, text) {
                                 if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> timeFramesLoopBody -> dependencyLoopBody -> getFile -> onFileReceived -> err = " + err.stack)
+                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> timeFramesLoopBody -> dependencyLoopBody -> getFile -> onFileReceived -> err = " + err.stack)
                                     callBackFunction(err)
                                     return;
                                 }
@@ -190,7 +190,7 @@
 
                 function onFileCreated(err) {
                     if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-                        logger.write(MODULE_NAME, "[ERROR] start -> writeTimeFramesFile -> onFileCreated -> err = " + err.stack)
+                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> writeTimeFramesFile -> onFileCreated -> err = " + err.stack)
                         callBack(err)
                         return
                     }
@@ -211,7 +211,7 @@
                 thisReport.save(callBack)
 
                 if (TS.projects.superalgos.utilities.dateTimeFunctions.areTheseDatesEqual(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_DATETIME, new Date()) === false) {
-                    logger.newInternalLoop(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_DATETIME)
+                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.newInternalLoop(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_DATETIME)
                 }
 
                 /*  Telling the world we are alive and doing well */
@@ -222,7 +222,7 @@
             }
         }
         catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] start -> err = " + err.stack)
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> err = " + err.stack)
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
         }
     }

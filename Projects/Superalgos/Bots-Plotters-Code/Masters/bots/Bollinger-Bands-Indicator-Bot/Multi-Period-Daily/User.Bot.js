@@ -35,14 +35,14 @@
             
             
 
-            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
+            if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
             statusDependencies = pStatusDependencies;
 
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
 
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -59,7 +59,7 @@
 
         try {
 
-            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> Entering function."); }
+            if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> Entering function."); }
 
             /* Context Variables */
 
@@ -78,7 +78,7 @@
 
                 try {
 
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> Entering function."); }
+                    if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> getContextVariables -> Entering function."); }
 
                     let thisReport;
                     let reportKey;
@@ -87,18 +87,18 @@
                     /* We look first for Exchange Raw Data in order to get when the market starts. */
 
                     reportKey = "Masters" + "-" + "Exchange-Raw-Data" + "-" + "Historic-OHLCVs" 
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
+                    if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     statusReport = statusDependencies.statusReports.get(reportKey);
 
                     if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
-                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
+                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
                         callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
                         return;
                     }
 
                     if (statusReport.status === "Status Report is corrupt.") {
-                        logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
+                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
                         callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
                         return;
                     }
@@ -106,14 +106,14 @@
                     thisReport = statusDependencies.statusReports.get(reportKey).file;
 
                     if (thisReport.beginingOfMarket === undefined) {
-                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
-                        logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> It is too early too run this process since the trade history of the market is not there yet.");
+                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
+                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[HINT] start -> getContextVariables -> It is too early too run this process since the trade history of the market is not there yet.");
 
                         let customOK = {
                             result: TS.projects.superalgos.globals.standardResponses.CUSTOM_OK_RESPONSE.result,
                             message: "Dependency does not exist."
                         }
-                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> customOK = " + customOK.message);
+                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[WARN] start -> getContextVariables -> customOK = " + customOK.message);
                         callBackFunction(customOK);
                         return;
                     }
@@ -123,18 +123,18 @@
                     /* Second, we get the report from Candles Volumes, to know when the marted ends. */
 
                     reportKey = "Masters" + "-" + "Candles-Volumes" + "-" + "Multi-Period-Daily" 
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
+                    if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     statusReport = statusDependencies.statusReports.get(reportKey);
 
                     if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
-                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
+                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
                         callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
                         return;
                     }
 
                     if (statusReport.status === "Status Report is corrupt.") {
-                        logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
+                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
                         callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
                         return;
                     }
@@ -142,13 +142,13 @@
                     thisReport = statusDependencies.statusReports.get(reportKey).file;
 
                     if (thisReport.lastFile === undefined) {
-                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
+                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
 
                         let customOK = {
                             result: TS.projects.superalgos.globals.standardResponses.CUSTOM_OK_RESPONSE.result,
                             message: "Dependency not ready."
                         }
-                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> customOK = " + customOK.message);
+                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[WARN] start -> getContextVariables -> customOK = " + customOK.message);
                         callBackFunction(customOK);
                         return;
                     }
@@ -158,18 +158,18 @@
                     /* Finally we get our own Status Report. */
 
                     reportKey = "Masters" + "-" + "Bollinger-Bands" + "-" + "Multi-Period-Daily"
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
+                    if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     statusReport = statusDependencies.statusReports.get(reportKey);
 
                     if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
-                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
+                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
                         callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
                         return;
                     }
 
                     if (statusReport.status === "Status Report is corrupt.") {
-                        logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> Can not continue because self dependecy Status Report is corrupt. Aborting Process.");
+                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> Can not continue because self dependecy Status Report is corrupt. Aborting Process.");
                         callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                         return;
                     }
@@ -181,7 +181,7 @@
                         beginingOfMarket = new Date(thisReport.beginingOfMarket);
 
                         if (beginingOfMarket.valueOf() !== contextVariables.firstTradeFile.valueOf()) { // Reset Mechanism for Begining of the Market
-                            logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> Reset Mechanism for Begining of the Market Activated. -> reportKey = " + reportKey);
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> getContextVariables -> Reset Mechanism for Begining of the Market Activated. -> reportKey = " + reportKey);
 
                             beginingOfMarket = new Date(contextVariables.firstTradeFile.getUTCFullYear() + "-" + (contextVariables.firstTradeFile.getUTCMonth() + 1) + "-" + contextVariables.firstTradeFile.getUTCDate() + " " + "00:00" + GMT_SECONDS);
                             contextVariables.lastBandFile = new Date(contextVariables.firstTradeFile.getUTCFullYear() + "-" + (contextVariables.firstTradeFile.getUTCMonth() + 1) + "-" + contextVariables.firstTradeFile.getUTCDate() + " " + "00:00" + GMT_SECONDS);
@@ -203,7 +203,7 @@
                         After reading these two files we will add all candles to a unique array.
                         */
 
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> thisReport.lastFile !== undefined"); }
+                        if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> getContextVariables -> thisReport.lastFile !== undefined"); }
 
                         buildBands();
                         return;
@@ -220,18 +220,18 @@
 
                         beginingOfMarket = new Date(contextVariables.firstTradeFile.getUTCFullYear() + "-" + (contextVariables.firstTradeFile.getUTCMonth() + 1) + "-" + contextVariables.firstTradeFile.getUTCDate() + " " + "00:00" + GMT_SECONDS);
 
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> thisReport.lastFile === undefined"); }
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> contextVariables.lastBandFile = " + contextVariables.lastBandFile); }
+                        if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> getContextVariables -> thisReport.lastFile === undefined"); }
+                        if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> getContextVariables -> contextVariables.lastBandFile = " + contextVariables.lastBandFile); }
 
                         buildBands();
                         return;
                     }
 
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> err = " + err.stack);
+                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> err = " + err.stack);
                     if (err.message === "Cannot read property 'file' of undefined") {
-                        logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> Check the bot configuration to see if all of its statusDependencies declarations are correct. ");
-                        logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> Dependencies loaded -> keys = " + JSON.stringify(statusDependencies.keys));
+                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[HINT] start -> getContextVariables -> Check the bot configuration to see if all of its statusDependencies declarations are correct. ");
+                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[HINT] start -> getContextVariables -> Dependencies loaded -> keys = " + JSON.stringify(statusDependencies.keys));
                     }
                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 }
@@ -241,14 +241,14 @@
 
                 try {
 
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> Entering function."); }
+                    if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> buildBands -> Entering function."); }
 
                     let n;
                     processDate = new Date(contextVariables.lastBandFile.valueOf() - ONE_DAY_IN_MILISECONDS); // Go back one day to start well when we advance time at the begining of the loop.
                     let fromDate = new Date(processDate.valueOf())
                     let lastDate = new Date()
 
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> processDate = " + processDate); }
+                    if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> buildBands -> processDate = " + processDate); }
 
                     advanceTime();
 
@@ -256,20 +256,20 @@
 
                         try {
 
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> advanceTime -> Entering function."); }
+                            if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> buildBands -> advanceTime -> Entering function."); }
 
                             processDate = new Date(processDate.valueOf() + ONE_DAY_IN_MILISECONDS);
                             previousDay = new Date(processDate.valueOf() - ONE_DAY_IN_MILISECONDS);
 
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> advanceTime -> processDate = " + processDate); }
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> advanceTime -> previousDay = " + previousDay); }
+                            if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> buildBands -> advanceTime -> processDate = " + processDate); }
+                            if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> buildBands -> advanceTime -> previousDay = " + previousDay); }
 
                             /* Validation that we are not going past the head of the market. */
 
                             if (processDate.valueOf() > contextVariables.maxBandFile.valueOf()) {
 
                                 const logText = "Head of the market found @ " + previousDay.getUTCFullYear() + "/" + (previousDay.getUTCMonth() + 1) + "/" + previousDay.getUTCDate() + ".";
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> advanceTime -> " + logText); }
+                                if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> buildBands -> advanceTime -> " + logText); }
 
                                 callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
                                 return;
@@ -283,12 +283,12 @@
                             TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, currentDateString, percentage) 
 
                             if (TS.projects.superalgos.utilities.dateTimeFunctions.areTheseDatesEqual(currentDate, new Date()) === false) {
-                                logger.newInternalLoop(currentDate, percentage);
+                                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.newInternalLoop(currentDate, percentage);
                             }
                             periodsLoop();
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> advanceTime -> err = " + err.stack);
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> buildBands -> advanceTime -> err = " + err.stack);
                             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                         }
                     }
@@ -297,7 +297,7 @@
 
                         try {
 
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> periodsLoop -> Entering function."); }
+                            if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> buildBands -> periodsLoop -> Entering function."); }
 
                             /*
 
@@ -310,7 +310,7 @@
                             loopBody();
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> err = " + err.stack);
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> err = " + err.stack);
                             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                         }
                     }
@@ -319,7 +319,7 @@
 
                         try {
 
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> Entering function."); }
+                            if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> Entering function."); }
 
                             const timeFrame = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[n][1];
 
@@ -334,7 +334,7 @@
 
                                 try {
 
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> getPreviousDayFile -> Entering function."); }
+                                    if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> getPreviousDayFile -> Entering function."); }
 
                                     let dateForPath = previousDay.getUTCFullYear() + '/' + utilities.pad(previousDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(previousDay.getUTCDate(), 2);
                                     let fileName = "Data.json"
@@ -348,23 +348,23 @@
 
                                         try {
 
-                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> getPreviousDayFile -> onCurrentDayFileReceived -> Entering function."); }
-                                            if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> getPreviousDayFile -> onCurrentDayFileReceived -> text = " + text); }
+                                            if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> getPreviousDayFile -> onCurrentDayFileReceived -> Entering function."); }
+                                            if (LOG_FILE_CONTENT === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> getPreviousDayFile -> onCurrentDayFileReceived -> text = " + text); }
 
                                             previousDayFile = JSON.parse(text);
                                             getProcessDayFile()
 
                                         } catch (err) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> getPreviousDayFile -> onCurrentDayFileReceived -> err = " + err.stack);
-                                            logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> getPreviousDayFile -> onCurrentDayFileReceived -> filePath = " + filePath);
-                                            logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> getPreviousDayFile -> onCurrentDayFileReceived -> market = " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + '_' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName);
+                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> getPreviousDayFile -> onCurrentDayFileReceived -> err = " + err.stack);
+                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> getPreviousDayFile -> onCurrentDayFileReceived -> filePath = " + filePath);
+                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> getPreviousDayFile -> onCurrentDayFileReceived -> market = " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + '_' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName);
 
                                             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
                                         }
                                     }
 
                                 } catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> getPreviousDayFile -> err = " + err.stack);
+                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> getPreviousDayFile -> err = " + err.stack);
                                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
@@ -373,7 +373,7 @@
 
                                 try {
 
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> getProcessDayFile -> Entering function."); }
+                                    if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> getProcessDayFile -> Entering function."); }
 
                                     let dateForPath = processDate.getUTCFullYear() + '/' + utilities.pad(processDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDate.getUTCDate(), 2);
                                     let fileName = "Data.json"
@@ -387,8 +387,8 @@
 
                                         try {
 
-                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> getProcessDayFile -> onCurrentDayFileReceived -> Entering function."); }
-                                            if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> getProcessDayFile -> onCurrentDayFileReceived -> text = " + text); }
+                                            if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> getProcessDayFile -> onCurrentDayFileReceived -> Entering function."); }
+                                            if (LOG_FILE_CONTENT === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> getProcessDayFile -> onCurrentDayFileReceived -> text = " + text); }
 
                                             processDayFile = JSON.parse(text);
                                             buildBands();
@@ -402,9 +402,9 @@
 
                                             } else {
 
-                                                logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> getProcessDayFile -> onCurrentDayFileReceived -> err = " + err.stack);
-                                                logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> getProcessDayFile -> onCurrentDayFileReceived -> filePath = " + filePath);
-                                                logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> getProcessDayFile -> onCurrentDayFileReceived -> market = " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + '_' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName);
+                                                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> getProcessDayFile -> onCurrentDayFileReceived -> err = " + err.stack);
+                                                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> getProcessDayFile -> onCurrentDayFileReceived -> filePath = " + filePath);
+                                                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> getProcessDayFile -> onCurrentDayFileReceived -> market = " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + '_' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName);
 
                                                 callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
                                                 return;
@@ -413,7 +413,7 @@
                                     }
 
                                 } catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> getProcessDayFile -> err = " + err.stack);
+                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> getProcessDayFile -> err = " + err.stack);
                                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
@@ -422,7 +422,7 @@
 
                                 try {
 
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> buildBands -> Entering function."); }
+                                    if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> buildBands -> Entering function."); }
 
                                     addCandlesToSingleArray(previousDayFile);
                                     addCandlesToSingleArray(processDayFile);
@@ -432,7 +432,7 @@
 
                                         try {
 
-                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> buildBands -> addCandlesToSingleArray -> Entering function."); }
+                                            if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> buildBands -> addCandlesToSingleArray -> Entering function."); }
 
                                             for (let i = 0; i < candlesFile.length; i++) {
 
@@ -463,14 +463,14 @@
                                             }
 
                                         } catch (err) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> buildBands -> addCandlesToSingleArray -> err = " + err.stack);
+                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> buildBands -> addCandlesToSingleArray -> err = " + err.stack);
                                             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                                             return;
                                         }
                                     }
 
                                 } catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> buildBands -> err = " + err.stack);
+                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> buildBands -> err = " + err.stack);
                                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                                     return;
                                 }
@@ -480,7 +480,7 @@
 
                                 try {
 
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> calculateBands -> Entering function."); }
+                                    if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> calculateBands -> Entering function."); }
 
                                     let bandsArray = [];
                                     let pBArray = [];
@@ -568,7 +568,7 @@
                                     writeBandsFile(bandsArray, pBArray);
 
                                 } catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> calculateBands -> err = " + err.stack);
+                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> calculateBands -> err = " + err.stack);
                                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                                     return;
                                 }
@@ -578,7 +578,7 @@
 
                                 try {
 
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> writeBandBandsFile -> writeBandsFile -> Entering function."); }
+                                    if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> writeBandBandsFile -> writeBandsFile -> Entering function."); }
 
                                     let separator = "";
                                     let fileRecordCounter = 0;
@@ -615,31 +615,31 @@
 
                                         try {
 
-                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> writeBandBandsFile -> writeBandsFile -> onFileCreated -> Entering function."); }
+                                            if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> writeBandBandsFile -> writeBandsFile -> onFileCreated -> Entering function."); }
 
                                             if (LOG_FILE_CONTENT === true) {
-                                                logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> writeBandBandsFile -> writeBandsFile -> onFileCreated ->  Content written = " + fileContent);
+                                                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> writeBandBandsFile -> writeBandsFile -> onFileCreated ->  Content written = " + fileContent);
                                             }
 
                                             if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-                                                logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> writeBandBandsFile -> writeBandsFile -> onFileCreated -> err = " + err.stack);
+                                                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> writeBandBandsFile -> writeBandsFile -> onFileCreated -> err = " + err.stack);
                                                 callBackFunction(err);
                                                 return;
                                             }
 
                                             const logText = "[WARN] Finished with File @ " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "_" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "";
-                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> writeBandBandsFile -> writeBandsFile -> onFileCreated -> " + logText); }
+                                            if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> writeBandBandsFile -> writeBandsFile -> onFileCreated -> " + logText); }
 
                                             writePBFile(pPB);
 
                                         } catch (err) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> writeBandBandsFile -> writeBandsFile -> onFileCreated -> err = " + err.stack);
+                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> writeBandBandsFile -> writeBandsFile -> onFileCreated -> err = " + err.stack);
                                             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
                                         }
                                     }
 
                                 } catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> writeBandBandsFile -> writeBandsFile -> err = " + err.stack);
+                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> writeBandBandsFile -> writeBandsFile -> err = " + err.stack);
                                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
@@ -648,7 +648,7 @@
 
                                 try {
 
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> writeBandBandsFile -> writePBFile -> Entering function."); }
+                                    if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> writeBandBandsFile -> writePBFile -> Entering function."); }
 
                                     let separator = "";
                                     let fileRecordCounter = 0;
@@ -685,38 +685,38 @@
 
                                         try {
 
-                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> writeBandBandsFile -> writePBFile -> onFileCreated -> Entering function."); }
+                                            if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> writeBandBandsFile -> writePBFile -> onFileCreated -> Entering function."); }
 
                                             if (LOG_FILE_CONTENT === true) {
-                                                logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> writeBandBandsFile -> writePBFile -> onFileCreated ->  Content written = " + fileContent);
+                                                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> writeBandBandsFile -> writePBFile -> onFileCreated ->  Content written = " + fileContent);
                                             }
 
                                             if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-                                                logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> writeBandBandsFile -> writePBFile -> onFileCreated -> err = " + err.stack);
+                                                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> writeBandBandsFile -> writePBFile -> onFileCreated -> err = " + err.stack);
                                                 callBackFunction(err);
                                                 return;
                                             }
 
                                             const logText = "[WARN] Finished with File @ " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "_" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "";
-                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> writeBandBandsFile -> writePBFile -> onFileCreated -> " + logText); }
+                                            if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> writeBandBandsFile -> writePBFile -> onFileCreated -> " + logText); }
 
                                             controlLoop();
 
                                         } catch (err) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> writeBandBandsFile -> writePBFile -> onFileCreated -> err = " + err.stack);
+                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> writeBandBandsFile -> writePBFile -> onFileCreated -> err = " + err.stack);
                                             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
                                         }
                                     }
 
                                 } catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> writeBandBandsFile -> writePBFile -> err = " + err.stack);
+                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> writeBandBandsFile -> writePBFile -> err = " + err.stack);
                                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
 
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> err = " + err.stack);
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> err = " + err.stack);
                             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                         }
                     }
@@ -725,7 +725,7 @@
 
                         try {
 
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> controlLoop -> Entering function."); }
+                            if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> buildBands -> controlLoop -> Entering function."); }
 
                             n++;
 
@@ -743,10 +743,10 @@
 
                                     try {
 
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> controlLoop -> onWritten -> Entering function."); }
+                                        if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> buildBands -> controlLoop -> onWritten -> Entering function."); }
 
                                         if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> controlLoop -> onWritten -> err = " + err.stack);
+                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> buildBands -> controlLoop -> onWritten -> err = " + err.stack);
                                             callBackFunction(err);
                                             return;
                                         }
@@ -754,21 +754,21 @@
                                         writeStatusReport(processDate, advanceTime);
 
                                     } catch (err) {
-                                        logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> controlLoop -> onWritten -> err = " + err.stack);
+                                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> controlLoop -> onWritten -> err = " + err.stack);
                                         callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                                     }
                                 }
                             }
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> controlLoop -> err = " + err.stack);
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> controlLoop -> err = " + err.stack);
                             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                         }
                     }
                 }
 
                 catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> err.message = " + err.stack);
+                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> buildBands -> err.message = " + err.stack);
                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -777,16 +777,16 @@
 
                 try {
 
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDataRanges -> Entering function."); }
+                    if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> writeDataRanges -> Entering function."); }
 
                     writeDataRange(contextVariables.firstTradeFile, processDate, BOLLINGER_BANDS_FOLDER_NAME, onBandsBandsDataRangeWritten);
 
                     function onBandsBandsDataRangeWritten(err) {
 
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDataRanges -> Entering function."); }
+                        if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> writeDataRanges -> Entering function."); }
 
                         if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-                            logger.write(MODULE_NAME, "[ERROR] writeDataRanges -> writeDataRanges -> onBandsBandsDataRangeWritten -> err = " + err.stack);
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] writeDataRanges -> writeDataRanges -> onBandsBandsDataRangeWritten -> err = " + err.stack);
                             callBack(err);
                             return;
                         }
@@ -795,10 +795,10 @@
 
                         function onPercentageBandwidthDataRangeWritten(err) {
 
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDataRanges -> Entering function."); }
+                            if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> writeDataRanges -> Entering function."); }
 
                             if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-                                logger.write(MODULE_NAME, "[ERROR] writeDataRanges -> writeDataRanges -> onBandsBandsDataRangeWritten -> onPercentageBandwidthDataRangeWritten -> err = " + err.stack);
+                                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] writeDataRanges -> writeDataRanges -> onBandsBandsDataRangeWritten -> onPercentageBandwidthDataRangeWritten -> err = " + err.stack);
                                 callBack(err);
                                 return;
                             }
@@ -810,7 +810,7 @@
                     }
                 }
                 catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> writeDataRanges -> err = " + err.stack);
+                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> writeDataRanges -> err = " + err.stack);
                     callBack(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 }
 
@@ -820,7 +820,7 @@
 
                 try {
 
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDataRange -> Entering function."); }
+                    if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> writeDataRange -> Entering function."); }
 
                     let dataRange = {
                         begin: pBegin.valueOf(),
@@ -838,31 +838,31 @@
 
                     function onFileCreated(err) {
 
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDataRange -> onFileCreated -> Entering function."); }
+                        if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> writeDataRange -> onFileCreated -> Entering function."); }
 
                         if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> writeDataRange -> onFileCreated -> err = " + err.stack);
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> writeDataRange -> onFileCreated -> err = " + err.stack);
                             callBack(err);
                             return;
                         }
 
                         if (LOG_FILE_CONTENT === true) {
-                            logger.write(MODULE_NAME, "[INFO] start -> writeDataRange -> onFileCreated ->  Content written = " + fileContent);
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> writeDataRange -> onFileCreated ->  Content written = " + fileContent);
                         }
 
                         callBack(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
                     }
                 }
                 catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> writeDataRange -> err = " + err.stack);
+                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> writeDataRange -> err = " + err.stack);
                     callBack(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
             function writeStatusReport(lastFileDate, callBack) {
 
-                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeStatusReport -> Entering function."); }
-                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeStatusReport -> lastFileDate = " + lastFileDate); }
+                if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> writeStatusReport -> Entering function."); }
+                if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> writeStatusReport -> lastFileDate = " + lastFileDate); }
 
                 try {
 
@@ -876,13 +876,13 @@
 
                 }
                 catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> err = " + err.stack);
+                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> err = " + err.stack);
                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 }
             }
         }
         catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] start -> err.message = " + err.stack);
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> err.message = " + err.stack);
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
         }
     }

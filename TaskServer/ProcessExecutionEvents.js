@@ -29,7 +29,7 @@
 
             if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent === undefined) {
                 callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
-                logger.write(MODULE_NAME, "[ERROR] initialize -> Initialization Failed because the Process Instance needs to have a Reference Parent.");
+                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] initialize -> Initialization Failed because the Process Instance needs to have a Reference Parent.");
                 return
             }
 
@@ -54,7 +54,7 @@
                         processThisDependsOn = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.executionStartedEvent.referenceParent.parentNode
 
                         name = processThisDependsOn.name
-                        logger.write(MODULE_NAME, "[INFO] initialize -> " + currentProcessKey + " based on the Data Mine depends on " + name)
+                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] initialize -> " + currentProcessKey + " based on the Data Mine depends on " + name)
                     }
                 }
             }
@@ -68,7 +68,7 @@
                         processThisDependsOn = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].executionStartedEvent.referenceParent.parentNode
 
                         name = processThisDependsOn.name
-                        logger.write(MODULE_NAME, "[INFO] initialize -> " + currentProcessKey + " based on the User's Task depends on " + name)
+                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] initialize -> " + currentProcessKey + " based on the User's Task depends on " + name)
                     }
                 }
             }
@@ -121,7 +121,7 @@
                                                                 */
                                                                 thisObject.networkNode = networkNode
 
-                                                                logger.write(MODULE_NAME,
+                                                                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME,
                                                                     "[INFO] initialize -> Connecting to Websockets Server " + networkNode.name +
                                                                     "  -> host = " + networkNode.config.host +
                                                                     ' -> port = ' + networkNode.config.webSocketsPort + '.');
@@ -132,7 +132,7 @@
 
                                                                 function onConnected() {
 
-                                                                    logger.write(MODULE_NAME, "[INFO] initialize -> Connected to Websockets Server " + networkNode.name +
+                                                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] initialize -> Connected to Websockets Server " + networkNode.name +
                                                                         "  -> host = " + networkNode.config.host +
                                                                         ' -> port = ' + networkNode.config.webSocketsPort + '.');
 
@@ -154,13 +154,13 @@
                     }
                 }
                 callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
-                logger.write(MODULE_NAME, "[ERROR] initialize -> Initialization Failed because we could not find where the task that runs the Process Definition we are waiting for is located within the network. Check the logs for more info.");
+                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] initialize -> Initialization Failed because we could not find where the task that runs the Process Definition we are waiting for is located within the network. Check the logs for more info.");
                 return
             }
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
 
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -184,7 +184,7 @@
 
             if (processThisDependsOn !== undefined) {
 
-                logger.write(MODULE_NAME, "[INFO] start -> waitForDependantProcess -> Entering Code Block.")
+                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> waitForDependantProcess -> Entering Code Block.")
 
                 /* This forces this process to wait until the process that this one depends on, emits its event signaling that the process execution has finished. */
 
@@ -196,9 +196,9 @@
 
                 let subscriptionId
 
-                logger.write(MODULE_NAME, "[INFO] start -> waitForDependantProcess -> started listening to Process Execution Finished. ")
-                logger.write(MODULE_NAME, "[INFO] start -> waitForDependantProcess -> key = " + key)
-                logger.write(MODULE_NAME, "[INFO] start -> waitForDependantProcess -> callerId = " + callerId)
+                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> waitForDependantProcess -> started listening to Process Execution Finished. ")
+                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> waitForDependantProcess -> key = " + key)
+                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> waitForDependantProcess -> callerId = " + callerId)
 
                 eventServerClient.listenToEvent(key, 'Process Execution Finished', undefined, callerId, responseCallBack, eventsCallBack)
 
@@ -206,21 +206,21 @@
 
                 function responseCallBack(message) {
                     if (message.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-                        logger.write(MODULE_NAME, "[ERROR] start -> responseCallBack -> message = " + JSON.stringify(message))
+                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> responseCallBack -> message = " + JSON.stringify(message))
                         callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                     } else {
                         subscriptionId = message.eventSubscriptionId
-                        logger.write(MODULE_NAME, "[INFO] start -> waitForDependantProcess -> subscriptionId = " + subscriptionId)
+                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> waitForDependantProcess -> subscriptionId = " + subscriptionId)
                     }
                 }
 
                 function eventsCallBack(message) {
-                    logger.write(MODULE_NAME, "[INFO] start -> eventsCallBack -> Entering function.")
-                    logger.write(MODULE_NAME, "[INFO] start -> eventsCallBack -> message = " + JSON.stringify(message))
+                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> eventsCallBack -> Entering function.")
+                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> eventsCallBack -> message = " + JSON.stringify(message))
 
                     /* We continue the normal flow after we learn the dependent process has finished its execution. */
-                    logger.write(MODULE_NAME, "[INFO] start -> eventsCallBack -> stopListening to Process Execution Finished. ")
-                    logger.write(MODULE_NAME, "[INFO] start -> eventsCallBack -> subscriptionId = " + subscriptionId)
+                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> eventsCallBack -> stopListening to Process Execution Finished. ")
+                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> eventsCallBack -> subscriptionId = " + subscriptionId)
                     eventServerClient.stopListening(key, 'Process Execution Finished', subscriptionId)
 
                     if (message.event.err.result === TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
@@ -233,7 +233,7 @@
 
                         TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, undefined, undefined, "Running...")
 
-                        logger.write(MODULE_NAME, "[INFO] start -> eventsCallBack -> " + currentProcessKey + " Process Execution Started because " + key + " Finished.")
+                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> eventsCallBack -> " + currentProcessKey + " Process Execution Started because " + key + " Finished.")
                     }
 
                     callBackFunction(message.event.err);
@@ -247,13 +247,13 @@
                 global.EVENT_SERVER_CLIENT_MODULE.createEventHandler(currentProcessKey, 'Process Execution Started')
                 global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(currentProcessKey, 'Process Execution Started', event)
 
-                logger.write(MODULE_NAME, "[INFO] start -> " + currentProcessKey + " Process Execution Started ")
+                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> " + currentProcessKey + " Process Execution Started ")
 
                 callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
             }
 
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] start -> err = " + err.stack);
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> err = " + err.stack);
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -262,7 +262,7 @@
 
         try {
 
-            logger.write(MODULE_NAME, "[INFO] finish -> Entering function.")
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] finish -> Entering function.")
 
             let event = {
                 err: TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE
@@ -271,12 +271,12 @@
             global.EVENT_SERVER_CLIENT_MODULE.createEventHandler(currentProcessKey, 'Process Execution Finished')
             global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(currentProcessKey, 'Process Execution Finished', event)
 
-            logger.write(MODULE_NAME, "[INFO] finish -> " + currentProcessKey + " Process Execution Finished ")
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] finish -> " + currentProcessKey + " Process Execution Finished ")
 
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
 
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] finish -> err = " + err.stack);
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] finish -> err = " + err.stack);
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
         }
     }

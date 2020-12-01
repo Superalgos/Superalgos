@@ -30,8 +30,8 @@ exports.newTradingSimulation = function (processIndex, logger, tradingEngineModu
             let tradingEngine = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingEngine
             let sessionParameters = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters
 
-            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> initialDatetime = ' + sessionParameters.timeRange.config.initialDatetime) }
-            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> finalDatetime = ' + sessionParameters.timeRange.config.finalDatetime) }
+            if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, '[INFO] runSimulation -> initialDatetime = ' + sessionParameters.timeRange.config.initialDatetime) }
+            if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, '[INFO] runSimulation -> finalDatetime = ' + sessionParameters.timeRange.config.finalDatetime) }
 
             /* These are the Modules we will need to run the Simulation */
             const TRADING_RECORDS_MODULE = require('./TradingRecords.js')
@@ -72,7 +72,7 @@ exports.newTradingSimulation = function (processIndex, logger, tradingEngineModu
                     meaning that the dataSet needs to be updated with more up-to-date data. 
                     */
                     TS.projects.superalgos.functionLibraries.sessionFunctions.stopSession(processIndex, 'Data is not up-to-date enough. Please start the Masters Data Mining Operation.')
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, '[IMPORTANT] runSimulation -> Data is not up-to-date enough. Stopping the Session now. ') }
+                    if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, '[IMPORTANT] runSimulation -> Data is not up-to-date enough. Stopping the Session now. ') }
                     return
                 }
             } else {
@@ -108,8 +108,8 @@ exports.newTradingSimulation = function (processIndex, logger, tradingEngineModu
                 /* This is the current candle the Simulation is working at. */
                 let candle = candles[tradingEngine.current.episode.candle.index.value]
 
-                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Candle Begin @ ' + (new Date(candle.begin)).toLocaleString()) }
-                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Candle End @ ' + (new Date(candle.end)).toLocaleString()) }
+                if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Candle Begin @ ' + (new Date(candle.begin)).toLocaleString()) }
+                if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Candle End @ ' + (new Date(candle.end)).toLocaleString()) }
 
                 tradingEngineModule.setCurrentCandle(candle) // We move the current candle we are standing at, to the trading engine data structure to make it available to anyone, including conditions and formulas.
 
@@ -120,7 +120,7 @@ exports.newTradingSimulation = function (processIndex, logger, tradingEngineModu
                 tradingEpisodeModule.openEpisode()
 
                 if (checkInitialDatetime() === false) {
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Candle Before the Initia Date Time @ ' + (new Date(candle.begin)).toLocaleString()) }
+                    if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Candle Before the Initia Date Time @ ' + (new Date(candle.begin)).toLocaleString()) }
                     continue
                 }
 
@@ -186,7 +186,7 @@ exports.newTradingSimulation = function (processIndex, logger, tradingEngineModu
                     tradingEngineModule.reset()
 
                     let infoMessage = 'Processing candle # ' + tradingEngine.current.episode.candle.index.value + ' @ the ' + tradingEngine.current.episode.cycle.value + ' cycle.'
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> ' + infoMessage) }
+                    if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, '[INFO] runSimulation -> loop -> ' + infoMessage) }
                     tradingSystem.infos.push([tradingSystem.id, infoMessage])
 
                     await tradingSystemModule.run()
@@ -194,14 +194,14 @@ exports.newTradingSimulation = function (processIndex, logger, tradingEngineModu
 
                 function checkIfWeNeedToStopBetweenCycles() {
                     if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_STOPPING === true) {
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> controlLoop -> We are going to stop here bacause we were requested to stop processing this session.') }
+                        if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, '[INFO] runSimulation -> controlLoop -> We are going to stop here bacause we were requested to stop processing this session.') }
                         updateEpisode('Session Stopped')
                         breakLoop = true
                         return
                     }
 
                     if (TS.projects.superalgos.globals.taskVariables.IS_TASK_STOPPING === true) {
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> controlLoop -> We are going to stop here bacause we were requested to stop processing this task.') }
+                        if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, '[INFO] runSimulation -> controlLoop -> We are going to stop here bacause we were requested to stop processing this task.') }
                         updateEpisode('Task Stopped')
                         breakLoop = true
                         return
@@ -211,7 +211,7 @@ exports.newTradingSimulation = function (processIndex, logger, tradingEngineModu
                         closeEpisode('Final Datetime Reached')
                         breakLoop = true
                         TS.projects.superalgos.functionLibraries.sessionFunctions.stopSession(processIndex, 'Final Datetime Reached')
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[IMPORTANT] runSimulation -> Final Datetime Reached. Stopping the Session now. ') }
+                        if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, '[IMPORTANT] runSimulation -> Final Datetime Reached. Stopping the Session now. ') }
                         return
                     }
 
@@ -219,7 +219,7 @@ exports.newTradingSimulation = function (processIndex, logger, tradingEngineModu
                         closeEpisode('Min or Max Balance Reached')
                         breakLoop = true
                         TS.projects.superalgos.functionLibraries.sessionFunctions.stopSession(processIndex, 'Min or Max Balance Reached')
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[IMPORTANT] runSimulation -> Min or Max Balance Reached. Stopping the Session now. ') }
+                        if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, '[IMPORTANT] runSimulation -> Min or Max Balance Reached. Stopping the Session now. ') }
                         return
                     }
                 }
@@ -276,11 +276,11 @@ exports.newTradingSimulation = function (processIndex, logger, tradingEngineModu
 
                             let processingDate = heartBeatDate.getUTCFullYear() + '-' + utilities.pad(heartBeatDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(heartBeatDate.getUTCDate(), 2)
 
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Simulation ' + TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY + ' Loop # ' + tradingEngine.current.episode.candle.index.value + ' @ ' + processingDate) }
+                            if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Simulation ' + TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY + ' Loop # ' + tradingEngine.current.episode.candle.index.value + ' @ ' + processingDate) }
 
                             /*  Logging to console and disk */
                             if (TS.projects.superalgos.utilities.dateTimeFunctions.areTheseDatesEqual(currentDate, new Date()) === false) {
-                                logger.newInternalLoop(currentDate, percentage)
+                                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.newInternalLoop(currentDate, percentage)
                             }
 
                             /* Date only hearbeat */
@@ -401,8 +401,8 @@ exports.newTradingSimulation = function (processIndex, logger, tradingEngineModu
                     }
                     return
                 } catch (err) {
-                    logger.write(MODULE_NAME, '[ERROR] runSimulation -> getElement -> datasetName = ' + datasetName)
-                    logger.write(MODULE_NAME, '[ERROR] runSimulation -> getElement -> err = ' + err.stack)
+                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, '[ERROR] runSimulation -> getElement -> datasetName = ' + datasetName)
+                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, '[ERROR] runSimulation -> getElement -> err = ' + err.stack)
                     throw (TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
                 }
             }
@@ -463,7 +463,7 @@ exports.newTradingSimulation = function (processIndex, logger, tradingEngineModu
             function checkInitialDatetime() {
                 /* Here we check that the current candle is not before the initial datetime defined at the session parameters.*/
                 if (tradingEngine.current.episode.candle.end.value < sessionParameters.timeRange.config.initialDatetime) {
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> checkInitialAndFinalDatetime -> Skipping Candle before the sessionParameters.timeRange.config.initialDatetime.') }
+                    if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, '[INFO] runSimulation -> checkInitialAndFinalDatetime -> Skipping Candle before the sessionParameters.timeRange.config.initialDatetime.') }
                     return false
                 }
                 return true
@@ -472,7 +472,7 @@ exports.newTradingSimulation = function (processIndex, logger, tradingEngineModu
             function checkFinalDatetime() {
                 /* Here we check that the next candle is not after of the user-defined final datetime at the session parameters.*/
                 if (tradingEngine.current.episode.candle.begin.value + sessionParameters.timeFrame.config.value > sessionParameters.timeRange.config.finalDatetime) {
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> checkInitialAndFinalDatetime -> Skipping Candle after the sessionParameters.timeRange.config.finalDatetime.') }
+                    if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, '[INFO] runSimulation -> checkInitialAndFinalDatetime -> Skipping Candle after the sessionParameters.timeRange.config.finalDatetime.') }
                     return false
                 }
                 return true
@@ -494,7 +494,7 @@ exports.newTradingSimulation = function (processIndex, logger, tradingEngineModu
                         if (tradingEngine.current.episode.episodeBaseAsset.balance.value <= sessionParameters.sessionBaseAsset.config.minimumBalance) {
                             const errorMessage = 'Min Balance reached @ ' + stopRunningDate
                             tradingSystem.errors.push([tradingSystem.id, errorMessage])
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[WARN] runSimulation -> checkMinimunAndMaximunBalance -> ' + errorMessage) }
+                            if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, '[WARN] runSimulation -> checkMinimunAndMaximunBalance -> ' + errorMessage) }
                             return false
                         }
                     }
@@ -503,7 +503,7 @@ exports.newTradingSimulation = function (processIndex, logger, tradingEngineModu
                         if (tradingEngine.current.episode.episodeBaseAsset.balance.value >= sessionParameters.sessionBaseAsset.config.maximumBalance) {
                             const errorMessage = 'Max Balance reached @ ' + stopRunningDate
                             tradingSystem.errors.push([tradingSystem.id, errorMessage])
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[WARN] runSimulation -> checkMinimunAndMaximunBalance -> ' + errorMessage) }
+                            if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, '[WARN] runSimulation -> checkMinimunAndMaximunBalance -> ' + errorMessage) }
                             return false
                         }
                     }
@@ -512,7 +512,7 @@ exports.newTradingSimulation = function (processIndex, logger, tradingEngineModu
                         if (tradingEngine.current.episode.episodeQuotedAsset.balance.value <= sessionParameters.sessionQuotedAsset.config.minimumBalance) {
                             const errorMessage = 'Min Balance reached @ ' + stopRunningDate
                             tradingSystem.errors.push([tradingSystem.id, errorMessage])
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[WARN] runSimulation -> checkMinimunAndMaximunBalance -> ' + errorMessage) }
+                            if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, '[WARN] runSimulation -> checkMinimunAndMaximunBalance -> ' + errorMessage) }
                             return false
                         }
                     }
@@ -521,7 +521,7 @@ exports.newTradingSimulation = function (processIndex, logger, tradingEngineModu
                         if (tradingEngine.current.episode.episodeQuotedAsset.balance.value >= sessionParameters.sessionQuotedAsset.config.maximumBalance) {
                             const errorMessage = 'Max Balance reached @ ' + stopRunningDate
                             tradingSystem.errors.push([tradingSystem.id, errorMessage])
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[WARN] runSimulation -> checkMinimunAndMaximunBalance -> ' + errorMessage) }
+                            if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, '[WARN] runSimulation -> checkMinimunAndMaximunBalance -> ' + errorMessage) }
                             return false
                         }
                     }
@@ -530,7 +530,7 @@ exports.newTradingSimulation = function (processIndex, logger, tradingEngineModu
                 return true
             }
         } catch (err) {
-            logger.write(MODULE_NAME, '[ERROR] runSimulation -> err = ' + err.stack)
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, '[ERROR] runSimulation -> err = ' + err.stack)
             throw (TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
         }
     }

@@ -164,10 +164,10 @@ exports.newTradingSystem = function (processIndex, logger, tradingEngineModule) 
             just prevent the execution to be halted for not handling exceptions.
             */
             if (typeof err === 'string' || err instanceof String) {
-                logger.write(MODULE_NAME, '[ERROR] runExecution -> err = ' + err)
+                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, '[ERROR] runExecution -> err = ' + err)
             }
             if (err.stack !== undefined) {
-                logger.write(MODULE_NAME, '[ERROR] runExecution -> err = ' + err.stack)
+                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, '[ERROR] runExecution -> err = ' + err.stack)
             }
         }
     }
@@ -249,7 +249,7 @@ exports.newTradingSystem = function (processIndex, logger, tradingEngineModule) 
         }
 
         try {
-            logger.write(MODULE_NAME, '[INFO] evalCondition -> ' + node.name + ' -> code = ' + code)
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, '[INFO] evalCondition -> ' + node.name + ' -> code = ' + code)
             value = eval(code)
         } catch (err) {
             /*
@@ -272,8 +272,8 @@ exports.newTradingSystem = function (processIndex, logger, tradingEngineModule) 
             tradingSystem.values.push([node.id, value])
         }
 
-        logger.write(MODULE_NAME, '[INFO] evalCondition -> value = ' + value)
-        logger.write(MODULE_NAME, '[INFO] evalCondition -> error = ' + error)
+        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, '[INFO] evalCondition -> value = ' + value)
+        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, '[INFO] evalCondition -> error = ' + error)
     }
 
     function evalFormula(node) {
@@ -281,7 +281,7 @@ exports.newTradingSystem = function (processIndex, logger, tradingEngineModule) 
         let error
 
         try {
-            logger.write(MODULE_NAME, '[INFO] evalFormula -> ' + node.name + ' -> code = ' + node.code)
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, '[INFO] evalFormula -> ' + node.name + ' -> code = ' + node.code)
             value = eval(node.code)
         } catch (err) {
             /*
@@ -294,7 +294,7 @@ exports.newTradingSystem = function (processIndex, logger, tradingEngineModule) 
 
         if (error !== undefined) {
             tradingSystem.errors.push([node.id, error])
-            logger.write(MODULE_NAME, '[INFO] evalFormula -> error = ' + error)
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, '[INFO] evalFormula -> error = ' + error)
             return
         }
         if (value !== undefined) {
@@ -307,7 +307,7 @@ exports.newTradingSystem = function (processIndex, logger, tradingEngineModule) 
             tradingSystem.formulas.set(node.id, value)
         }
 
-        logger.write(MODULE_NAME, '[INFO] evalFormula -> value = ' + value)
+        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, '[INFO] evalFormula -> value = ' + value)
     }
 }
 

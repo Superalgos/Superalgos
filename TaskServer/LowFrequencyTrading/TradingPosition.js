@@ -420,12 +420,12 @@ exports.newTradingPosition = function (processIndex, logger, tradingEngineModule
     function badDefinitionUnhandledException(err, message, node) {
         tradingSystem.errors.push([node.id, message])
 
-        logger.write(MODULE_NAME, "[ERROR] -> " + message);
-        logger.write(MODULE_NAME, "[ERROR] -> node.name = " + node.name);
-        logger.write(MODULE_NAME, "[ERROR] -> node.type = " + node.type);
-        logger.write(MODULE_NAME, "[ERROR] -> node.config = " + JSON.stringify(node.config));
+        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] -> " + message);
+        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] -> node.name = " + node.name);
+        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] -> node.type = " + node.type);
+        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] -> node.config = " + JSON.stringify(node.config));
         if (err !== undefined) {
-            logger.write(MODULE_NAME, "[ERROR] -> err.stack = " + err.stack);
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] -> err.stack = " + err.stack);
         }
         throw 'Please fix the problem and try again.'
     }

@@ -112,7 +112,7 @@ exports.newUserBot = function (processIndex, logger, COMMONS, UTILITIES, FILE_ST
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
 
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
 
             /* CCXT Supported Exchanges */
             console.log('CCXT Library current supported exchanges:')
@@ -158,10 +158,10 @@ exports.newUserBot = function (processIndex, logger, COMMONS, UTILITIES, FILE_ST
                     let reportKey;
 
                     reportKey = "Masters" + "-" + "Exchange-Raw-Data" + "-" + "Historic-OHLCVs"
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
+                    if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     if (statusDependencies.statusReports.get(reportKey).status === "Status Report is corrupt.") {
-                        logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
+                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
                         callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
                         return;
                     }
@@ -203,10 +203,10 @@ exports.newUserBot = function (processIndex, logger, COMMONS, UTILITIES, FILE_ST
                     }
 
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> err = " + err.stack);
+                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> err = " + err.stack);
                     if (err.message === "Cannot read property 'file' of undefined") {
-                        logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> Check the bot Status Dependencies. ");
-                        logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> Dependencies loaded -> keys = " + JSON.stringify(statusDependencies.keys));
+                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[HINT] start -> getContextVariables -> Check the bot Status Dependencies. ");
+                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[HINT] start -> getContextVariables -> Dependencies loaded -> keys = " + JSON.stringify(statusDependencies.keys));
                     }
                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                     abort = true
@@ -255,14 +255,14 @@ exports.newUserBot = function (processIndex, logger, COMMONS, UTILITIES, FILE_ST
                         function heartBeat(noNewInternalLoop) {
                             let processingDate = new Date(since)
                             processingDate = processingDate.getUTCFullYear() + '-' + utilities.pad(processingDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(processingDate.getUTCDate(), 2);
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getOHLCVs -> Fetching OHLCVs  @ " + processingDate + "-> exchange = " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " -> symbol = " + symbol + " -> since = " + since + " -> limit = " + limit) }
+                            if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> getOHLCVs -> Fetching OHLCVs  @ " + processingDate + "-> exchange = " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " -> symbol = " + symbol + " -> since = " + since + " -> limit = " + limit) }
                             let heartBeatText = "Fetching " + allOHLCVs.length.toFixed(0) + " OHLCVs from " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " " + symbol + " @ " + processingDate
                             let currentDate = new Date(since)
                             let percentage = TS.projects.superalgos.utilities.dateTimeFunctions.getPercentage(fromDate, currentDate, lastDate)
                             TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, heartBeatText, percentage) // tell the world we are alive and doing well
                             if (TS.projects.superalgos.utilities.dateTimeFunctions.areTheseDatesEqual(currentDate, new Date()) === false) {
                                 if (noNewInternalLoop !== true) {
-                                    logger.newInternalLoop(currentDate, percentage);
+                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.newInternalLoop(currentDate, percentage);
                                 }
                             }
                         }
@@ -300,12 +300,12 @@ exports.newUserBot = function (processIndex, logger, COMMONS, UTILITIES, FILE_ST
                         ]
                         */
 
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getOHLCVs -> OHLCVs Fetched = " + OHLCVs.length) }
+                        if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> getOHLCVs -> OHLCVs Fetched = " + OHLCVs.length) }
                         if (OHLCVs.length > 0) {
                             let beginDate = new Date(OHLCVs[0].timestamp)
                             let endDate = new Date(OHLCVs[OHLCVs.length - 1].timestamp)
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getOHLCVs -> OHLCVs Fetched From " + beginDate + " -> timestamp = " + OHLCVs[0].timestamp) }
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getOHLCVs -> OHLCVs Fetched to " + endDate + " -> timestamp = " + OHLCVs[OHLCVs.length - 1].timestamp) }
+                            if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> getOHLCVs -> OHLCVs Fetched From " + beginDate + " -> timestamp = " + OHLCVs[0].timestamp) }
+                            if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> getOHLCVs -> OHLCVs Fetched to " + endDate + " -> timestamp = " + OHLCVs[OHLCVs.length - 1].timestamp) }
 
                             if (fisrtTimeThisProcessRun === true) {
                                 let OHLCV = OHLCVs[0]
@@ -351,21 +351,21 @@ exports.newUserBot = function (processIndex, logger, COMMONS, UTILITIES, FILE_ST
                     }
                 } catch (err) {
                     if (err.stack.toString().indexOf('ERR_RATE_LIMIT') >= 0) {
-                        logger.write(MODULE_NAME, "[ERROR] start -> getOHLCVs -> Retrying Later -> The Exchange " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " is saying you are requesting data too often. I will retry the request later, no action is required. To avoid this happening again please increase the rateLimit at the Exchange node config. You might continue seeing this if you are retrieving data from multiple markets at the same time. In this case I tried to get 1 min OHLCVs from " + symbol);
+                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> getOHLCVs -> Retrying Later -> The Exchange " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " is saying you are requesting data too often. I will retry the request later, no action is required. To avoid this happening again please increase the rateLimit at the Exchange node config. You might continue seeing this if you are retrieving data from multiple markets at the same time. In this case I tried to get 1 min OHLCVs from " + symbol);
                         return
                     }
 
                     if (err.stack.toString().indexOf('RequestTimeout') >= 0) {
-                        logger.write(MODULE_NAME, "[ERROR] start -> getOHLCVs -> Retrying Later -> The Exchange " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " is not responding at the moment. I will save the data already fetched and try to reconnect later to fetch the rest of the missing data.");
+                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> getOHLCVs -> Retrying Later -> The Exchange " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " is not responding at the moment. I will save the data already fetched and try to reconnect later to fetch the rest of the missing data.");
                         return
                     }
 
                     if (err.stack.toString().indexOf('ExchangeNotAvailable') >= 0) {
-                        logger.write(MODULE_NAME, "[ERROR] start -> getOHLCVs -> Retrying Later -> The Exchange " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " is not available at the moment. I will save the data already fetched and try to reconnect later to fetch the rest of the missing data.");
+                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> getOHLCVs -> Retrying Later -> The Exchange " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " is not available at the moment. I will save the data already fetched and try to reconnect later to fetch the rest of the missing data.");
                         return
                     }
 
-                    logger.write(MODULE_NAME, "[ERROR] start -> getOHLCVs -> Retrying Later -> err = " + err.stack);
+                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> getOHLCVs -> Retrying Later -> err = " + err.stack);
                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
                     abort = true
                     return
@@ -442,7 +442,7 @@ exports.newUserBot = function (processIndex, logger, COMMONS, UTILITIES, FILE_ST
                                 headOfTheMarketReached = true
                                 saveFile(currentDay)
 
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> saveOHLCVs -> Before Fetch -> Saving OHLCVs  @ " + processingDate + " -> i = " + i + " -> total = " + allOHLCVs.length) }
+                                if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> saveOHLCVs -> Before Fetch -> Saving OHLCVs  @ " + processingDate + " -> i = " + i + " -> total = " + allOHLCVs.length) }
                                 TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, "Saving " + i.toFixed(0) + " / " + allOHLCVs.length + " OHLCVs from " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well
 
                                 /* We exit the loop and we aint comming back*/
@@ -509,7 +509,7 @@ exports.newUserBot = function (processIndex, logger, COMMONS, UTILITIES, FILE_ST
                             heartBeatCounter--
                             if (heartBeatCounter <= 0) {
                                 heartBeatCounter = 1440
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> saveOHLCVs -> After Fetch -> Saving OHLCVs  @ " + processingDate + " -> i = " + i + " -> total = " + allOHLCVs.length) }
+                                if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> saveOHLCVs -> After Fetch -> Saving OHLCVs  @ " + processingDate + " -> i = " + i + " -> total = " + allOHLCVs.length) }
                                 TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, "Saving " + i.toFixed(0) + " / " + allOHLCVs.length + " OHLCVs from " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well
                             }
                             /* End Reporting */
@@ -577,7 +577,7 @@ exports.newUserBot = function (processIndex, logger, COMMONS, UTILITIES, FILE_ST
 
                         function onFileCreated(err) {
                             if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-                                logger.write(MODULE_NAME, "[ERROR] start -> OHLCVsReadyToBeSaved -> onFileBCreated -> err = " + JSON.stringify(err));
+                                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> OHLCVsReadyToBeSaved -> onFileBCreated -> err = " + JSON.stringify(err));
                                 error = err // This allows the loop to be breaked.
                                 return;
                             }
@@ -618,7 +618,7 @@ exports.newUserBot = function (processIndex, logger, COMMONS, UTILITIES, FILE_ST
 
                         if (i >= allOHLCVs.length - 1) {
                             writeStatusReport()
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> saveOHLCVs -> controlLoop -> Exit because i reached the end of the candles array. ") }
+                            if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> saveOHLCVs -> controlLoop -> Exit because i reached the end of the candles array. ") }
                             return
                         }
 
@@ -627,13 +627,13 @@ exports.newUserBot = function (processIndex, logger, COMMONS, UTILITIES, FILE_ST
                         if (headOfTheMarketReached === false) {
                             setImmediate(loop)
                         } else {
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> saveOHLCVs -> controlLoop -> Exit because we reached the end of the market. ") }
+                            if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> saveOHLCVs -> controlLoop -> Exit because we reached the end of the market. ") }
                             writeStatusReport()
                         }
                     }
 
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> saveOHLCVs -> err = " + err.stack);
+                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> saveOHLCVs -> err = " + err.stack);
                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                     abort = true
                 }
@@ -669,21 +669,21 @@ exports.newUserBot = function (processIndex, logger, COMMONS, UTILITIES, FILE_ST
 
                     function onSaved(err) {
                         if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> onSaved -> err = " + err.stack);
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> onSaved -> err = " + err.stack);
                             callBackFunction(err);
                             return;
                         }
                         callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
                     }
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> err = " + err.stack);
+                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> err = " + err.stack);
                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
 
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] start -> err = " + err.stack);
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> err = " + err.stack);
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
         }
     }

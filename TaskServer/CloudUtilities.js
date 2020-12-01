@@ -14,7 +14,7 @@ exports.newCloudUtilities = function newCloudUtilities(logger) {
     function createFolderIfNeeded(path, azureFileStorage, callBackFunction) {
 
         try {
-            logger.write(MODULE_NAME, "[INFO] createFolderIfNeeded -> path = " + path)
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] createFolderIfNeeded -> path = " + path)
 
             let splittedPath = path.split("/");
 
@@ -25,18 +25,18 @@ exports.newCloudUtilities = function newCloudUtilities(logger) {
             loop();
 
             function loop() {
-                logger.write(MODULE_NAME, "[INFO] createFolderIfNeeded -> path = " + path)
+                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] createFolderIfNeeded -> path = " + path)
 
                 partialPath = partialPath + separator + splittedPath[i];
                 separator = "/";
                 i++;
-                logger.write(MODULE_NAME, "[INFO] createFolderIfNeeded -> partialPath = " + partialPath)
+                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] createFolderIfNeeded -> partialPath = " + partialPath)
 
                 azureFileStorage.createFolder(partialPath, checkLoop);
 
                 function checkLoop(err) {
                     if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-                        logger.write(MODULE_NAME, "[ERROR] createFolderIfNeeded -> loop -> checkLoop -> err = " + err.stack);
+                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] createFolderIfNeeded -> loop -> checkLoop -> err = " + err.stack);
                         callBackFunction(err);
                         return;
                     }
@@ -49,7 +49,7 @@ exports.newCloudUtilities = function newCloudUtilities(logger) {
                 }
             }
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] createFolderIfNeeded -> Error = " + err.message);
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] createFolderIfNeeded -> Error = " + err.message);
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
         }
     }

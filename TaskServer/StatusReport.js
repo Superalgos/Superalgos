@@ -79,7 +79,7 @@
 
             function validationFailed(errorInNode, errorMessage) {
                 let nodeString = JSON.stringify(errorInNode)
-                logger.write(MODULE_NAME, "[ERROR] initialize -> " + errorMessage + ' -> nodeString = ' + nodeString)
+                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] initialize -> " + errorMessage + ' -> nodeString = ' + nodeString)
                 TS.projects.superalgos.functionLibraries.processFunctions.processError(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_KEY, errorInNode, errorMessage)
                 callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
             }
@@ -151,7 +151,7 @@
                                                     and where it is located on the network. 
                                                     */
                                                     thisObject.networkNode = networkNode
-                                                    logger.write(MODULE_NAME, "[INFO] initialize -> Retrieving status report from " + networkNode.name + " -> host = " + networkNode.config.host + ' -> port = ' + networkNode.config.webPort + '.')
+                                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] initialize -> Retrieving status report from " + networkNode.name + " -> host = " + networkNode.config.host + ' -> port = ' + networkNode.config.webPort + '.')
 
                                                     fileStorage = FILE_STORAGE.newFileStorage(logger, networkNode.config.host, networkNode.config.webPort)
                                                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
@@ -202,7 +202,7 @@
                                                     and where it is located on the network. 
                                                     */
                                                     thisObject.networkNode = networkNode
-                                                    logger.write(MODULE_NAME, "[INFO] initialize -> Retrieving status report from " + networkNode.name + " -> host = " + networkNode.config.host + ' -> port = ' + networkNode.config.webPort + '.')
+                                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] initialize -> Retrieving status report from " + networkNode.name + " -> host = " + networkNode.config.host + ' -> port = ' + networkNode.config.webPort + '.')
 
                                                     fileStorage = FILE_STORAGE.newFileStorage(logger, networkNode.config.host, networkNode.config.webPort)
                                                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
@@ -218,16 +218,16 @@
                 }
             }
 
-            logger.write(MODULE_NAME, "[ERROR] initialize -> Initialization Failed because we could not find where the data of this status report is located within the network. Check the logs for more info.");
-            logger.write(MODULE_NAME, "[ERROR] initialize -> bot = " + statusDependencyNode.bot)
-            logger.write(MODULE_NAME, "[ERROR] initialize -> process = " + statusDependencyNode.process)
-            logger.write(MODULE_NAME, "[ERROR] initialize -> bottype = " + statusDependencyNode.bottype)
-            logger.write(MODULE_NAME, "[ERROR] initialize -> dataMine = " + statusDependencyNode.dataMine)
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] initialize -> Initialization Failed because we could not find where the data of this status report is located within the network. Check the logs for more info.");
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] initialize -> bot = " + statusDependencyNode.bot)
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] initialize -> process = " + statusDependencyNode.process)
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] initialize -> bottype = " + statusDependencyNode.bottype)
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] initialize -> dataMine = " + statusDependencyNode.dataMine)
 
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
 
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -280,7 +280,7 @@
                 if (err.result === TS.projects.superalgos.globals.standardResponses.CUSTOM_FAIL_RESPONSE.result && (err.message === 'Folder does not exist.' || err.message === 'File does not exist.')
                     || err.code === "The specified key does not exist.") {
 
-                    logger.write(MODULE_NAME, "[INFO] load -> onFileReceived -> err = " + err.message)
+                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] load -> onFileReceived -> err = " + err.message)
 
                     /* In this case we can assume that this is the first execution ever of this bot.*/
 
@@ -290,13 +290,13 @@
                         result: TS.projects.superalgos.globals.standardResponses.CUSTOM_OK_RESPONSE.result,
                         message: "Status Report was never created."
                     };
-                    logger.write(MODULE_NAME, "[WARN] load -> onFileReceived -> customOK = " + customOK.message)
+                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[WARN] load -> onFileReceived -> customOK = " + customOK.message)
                     callBackFunction(customOK);
                     return;
                 }
 
                 if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-                    logger.write(MODULE_NAME, "[ERROR] load -> onFileReceived -> err = " + err.message)
+                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] load -> onFileReceived -> err = " + err.message)
                     callBackFunction(err);
                     return;
                 }
@@ -311,21 +311,21 @@
                     is being updated at the moment of the read. The bot can not run without a valid Status Report but we can request the platform to retry later.
                     */
 
-                    logger.write(MODULE_NAME, "[ERROR] load -> onFileReceived -> Error Parsing the Status report. -> Err = " + err.message)
-                    logger.write(MODULE_NAME, "[WARN] load -> onFileReceived -> Error Parsing the Status report. -> text = " + text)
+                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] load -> onFileReceived -> Error Parsing the Status report. -> Err = " + err.message)
+                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[WARN] load -> onFileReceived -> Error Parsing the Status report. -> text = " + text)
 
                     let customFail = {
                         result: TS.projects.superalgos.globals.standardResponses.CUSTOM_FAIL_RESPONSE.result,
                         message: "Status Report is corrupt."
                     };
-                    logger.write(MODULE_NAME, "[WARN] load -> onFileReceived -> customFail = " + customFail.message)
+                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[WARN] load -> onFileReceived -> customFail = " + customFail.message)
                     callBackFunction(customFail);
                     return;
                 }
             }
 
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] load -> err = " + err.stack)
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] load -> err = " + err.stack)
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
         }
     }
@@ -343,7 +343,7 @@
                     result: TS.projects.superalgos.globals.standardResponses.CUSTOM_FAIL_RESPONSE.result,
                     message: "Only bots owners of a Status Report can save them."
                 };
-                logger.write(MODULE_NAME, "[ERROR] save -> customErr = " + customErr.message)
+                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] save -> customErr = " + customErr.message)
                 callBackFunction(customErr)
                 return;
             }
@@ -358,7 +358,7 @@
 
             function onFileCreated(err) {
                 if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-                    logger.write(MODULE_NAME, "[ERROR] save -> onFileCreated -> err = " + err.stack)
+                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] save -> onFileCreated -> err = " + err.stack)
                     callBackFunction(err)
                     return
                 }
@@ -372,7 +372,7 @@
 
         }
         catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] save -> err = " + err.stack)
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] save -> err = " + err.stack)
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
         }
     }

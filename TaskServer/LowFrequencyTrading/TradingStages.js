@@ -725,7 +725,7 @@ exports.newTradingStages = function (processIndex, logger, tradingEngineModule) 
                             tradingEngine.current.episode.candle.min.value <= tradingEngine.current.position.stopLoss.value
                         )
                     ) {
-                        logger.write(MODULE_NAME, '[INFO] checkStopLossOrTakeProfitWasHit -> Stop Loss was hit.')
+                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, '[INFO] checkStopLossOrTakeProfitWasHit -> Stop Loss was hit.')
 
                         tradingPositionModule.closingPosition('Stop Loss')
                         changeStageStatus('Close Stage', 'Opening')
@@ -745,7 +745,7 @@ exports.newTradingStages = function (processIndex, logger, tradingEngineModule) 
                             tradingEngine.current.episode.candle.max.value >= tradingEngine.current.position.takeProfit.value
                         )
                     ) {
-                        logger.write(MODULE_NAME, '[INFO] checkStopLossOrTakeProfitWasHit -> Take Profit was hit.')
+                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, '[INFO] checkStopLossOrTakeProfitWasHit -> Take Profit was hit.')
 
                         tradingPositionModule.closingPosition('Take Profit')
                         changeStageStatus('Close Stage', 'Opening')

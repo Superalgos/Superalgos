@@ -79,10 +79,10 @@ exports.newTradingExecution = function (processIndex, logger, tradingEngineModul
             tradingSystem.errors.push([executionNode.id, err.message])
             
             if (typeof err === 'string' || err instanceof String) {
-                logger.write(MODULE_NAME, '[ERROR] runExecution -> err = ' + err)
+                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, '[ERROR] runExecution -> err = ' + err)
             }
             if (err.stack !== undefined) {
-                logger.write(MODULE_NAME, '[ERROR] runExecution -> err = ' + err.stack)
+                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, '[ERROR] runExecution -> err = ' + err.stack)
             }
         }
     }
@@ -90,12 +90,12 @@ exports.newTradingExecution = function (processIndex, logger, tradingEngineModul
     function badDefinitionUnhandledException(err, message, node) {
         tradingSystem.errors.push([node.id, message])
 
-        logger.write(MODULE_NAME, "[ERROR] -> " + message);
-        logger.write(MODULE_NAME, "[ERROR] -> node.name = " + node.name);
-        logger.write(MODULE_NAME, "[ERROR] -> node.type = " + node.type);
-        logger.write(MODULE_NAME, "[ERROR] -> node.config = " + JSON.stringify(node.config));
+        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] -> " + message);
+        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] -> node.name = " + node.name);
+        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] -> node.type = " + node.type);
+        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] -> node.config = " + JSON.stringify(node.config));
         if (err !== undefined) {
-            logger.write(MODULE_NAME, "[ERROR] -> err.stack = " + err.stack);
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] -> err.stack = " + err.stack);
         }
         throw 'Please fix the problem and try again.'
     }

@@ -18,7 +18,7 @@
 
     let statusDependencies;
     let utilities = UTILITIES.newCloudUtilities();
-    let fileStorage = FILE_STORAGE.newFileStorage();
+    let fileStorage = FILE_STORAGE.newFileStorage(processIndex, );
 
     return thisObject;
 

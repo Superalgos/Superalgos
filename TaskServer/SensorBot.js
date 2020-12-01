@@ -6,7 +6,7 @@
     let COMMONS_MODULE;
 
     const FILE_STORAGE = require('./FileStorage.js');
-    let fileStorage = FILE_STORAGE.newFileStorage(TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE);
+    let fileStorage = FILE_STORAGE.newFileStorage(processIndex, TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE);
 
     const DEBUG_MODULE = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + 'DebugLog');
 

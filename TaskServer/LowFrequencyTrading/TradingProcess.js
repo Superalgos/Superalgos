@@ -21,7 +21,7 @@
     let multiPeriodDataFiles = new Map();
 
     const FILE_STORAGE = require('../FileStorage.js');
-    let fileStorage = FILE_STORAGE.newFileStorage();
+    let fileStorage = FILE_STORAGE.newFileStorage(processIndex, );
 
     const TRADING_ENGINE_MODULE = require('./TradingEngine.js')
     let tradingEngineModule = TRADING_ENGINE_MODULE.newTradingEngine(processIndex)

@@ -7,7 +7,7 @@ exports.newLearningBot = function (processIndex, parentLogger) {
     const FILE_STORAGE = require('./FileStorage.js');
     const SESSION = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + 'TradingSession');
 
-    let fileStorage = FILE_STORAGE.newFileStorage(parentLogger);
+    let fileStorage = FILE_STORAGE.newFileStorage(processIndex, parentLogger);
     let session = SESSION.newLearningSession(processIndex, parentLogger)
 
     const DEBUG_MODULE = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + 'DebugLog');

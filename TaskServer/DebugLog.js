@@ -94,7 +94,7 @@ exports.newDebugLog = function (processIndex) {
             accumulatedLog = "[";
 
             const FILE_STORAGE = require('./FileStorage.js');
-            let fileStorage = FILE_STORAGE.newFileStorage();
+            let fileStorage = FILE_STORAGE.newFileStorage(processIndex, );
 
             let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Logs/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + "/"
 

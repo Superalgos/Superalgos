@@ -13,7 +13,7 @@ exports.newUserBot = function (processIndex, COMMONS, UTILITIES, FILE_STORAGE, S
     };
 
     let utilities = UTILITIES.newCloudUtilities()
-    let fileStorage = FILE_STORAGE.newFileStorage();
+    let fileStorage = FILE_STORAGE.newFileStorage(processIndex, );
     let statusDependencies
 
     const ONE_MIN = 60000

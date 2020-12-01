@@ -8,7 +8,7 @@
     };
 
     let utilities = UTILITIES.newCloudUtilities();
-    let fileStorage = FILE_STORAGE.newFileStorage();
+    let fileStorage = FILE_STORAGE.newFileStorage(processIndex, );
 
     const COMMONS = require('./Commons.js');
     let commons = COMMONS.newCommons(UTILITIES, FILE_STORAGE);

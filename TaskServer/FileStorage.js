@@ -1,7 +1,7 @@
 
 const path = require('path')
 
-exports.newFileStorage = function newFileStorage(host, port) {
+exports.newFileStorage = function newFileStorage(processIndex, host, port) {
 
     const MODULE_NAME = 'FileStorage'
     const MAX_RETRY = 10

@@ -1,4 +1,4 @@
-﻿exports.newCommons = function newCommons(UTILITIES, FILE_STORAGE) {
+﻿exports.newCommons = function (processIndex, UTILITIES, FILE_STORAGE) {
 
     const MODULE_NAME = "Commons";
 

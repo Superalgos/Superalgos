@@ -550,7 +550,7 @@
 
             function buildCharts(chart) {
                 const COMMONS = require('../Commons.js')
-                let commons = COMMONS.newCommons(UTILITIES, FILE_STORAGE)
+                let commons = COMMONS.newCommons(processIndex, UTILITIES, FILE_STORAGE)
 
                 let mainDependency = {}
 

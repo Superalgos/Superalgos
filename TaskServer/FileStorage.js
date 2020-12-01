@@ -1,19 +1,22 @@
 
 const path = require('path')
 
-exports.newFileStorage = function newFileStorage(logger, host, port) {
+exports.newFileStorage = function newFileStorage(host, port) {
 
     const MODULE_NAME = 'FileStorage'
     const MAX_RETRY = 10
     const FAST_RETRY_TIME_IN_MILISECONDS = 500
     const SLOW_RETRY_TIME_IN_MILISECONDS = 2000
 
-    if (logger === undefined) { // Dummy logger
+    let logger
+    if (TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE === undefined) { // Dummy logger
         logger = {}
         function write() {
 
         }
         logger.write = write
+    } else {
+        logger = TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE
     }
 
     let thisObject = {

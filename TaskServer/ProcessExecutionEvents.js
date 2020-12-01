@@ -5,7 +5,7 @@
     of another process.
     */
     const MODULE_NAME = "Process Execution Events";
-    logger.fileName = MODULE_NAME
+    
 
     let thisObject = {
         networkNode: undefined,
@@ -26,7 +26,6 @@
     function initialize(processConfig, callBackFunction) {
         try {
             let name = 'Not Depends on any Process'
-            logger.fileName = MODULE_NAME + "." + name;
 
             if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent === undefined) {
                 callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);

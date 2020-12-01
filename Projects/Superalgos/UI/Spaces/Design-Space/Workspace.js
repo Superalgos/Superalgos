@@ -3,7 +3,7 @@ function newWorkspace() {
     const MODULE_NAME = 'Workspace'
     const ERROR_LOG = true
     const logger = newWebDebugLog()
-    logger.fileName = MODULE_NAME
+    
 
     let thisObject = {
         workspaceNode: undefined,

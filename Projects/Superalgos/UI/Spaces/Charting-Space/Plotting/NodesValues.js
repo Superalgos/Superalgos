@@ -1,7 +1,7 @@
 function newNodesValues() {
     const MODULE_NAME = 'Nodes Values'
     const logger = newWebDebugLog()
-    logger.fileName = MODULE_NAME
+    
 
     let thisObject = {
         onRecordChange: onRecordChange,

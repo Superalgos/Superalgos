@@ -35,8 +35,8 @@
 
     function initialize(pProcessConfig, pStatusDependencies, pDataDependencies, callBackFunction) {
         try {
-            logger.fileName = MODULE_NAME
-            logger.initialize()
+            
+            
 
             statusDependencies = pStatusDependencies
             dataDependenciesModule = pDataDependencies

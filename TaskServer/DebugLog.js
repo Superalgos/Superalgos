@@ -16,26 +16,13 @@ exports.newDebugLog = function (processIndex) {
         newMainLoop: newMainLoop,
         newInternalLoop: newInternalLoop,
         persist: persist,           // This method is executed at the end of each Main Loop.
-        initialize: initialize,
         finalize: finalize
     };
 
     let accumulatedLog = "[";
-    let disableLogging;
     let internalLoopCounter = -1;
 
     return thisObject;
-
-    function initialize(pdisableLogging) {
-
-        try {
-
-            disableLogging = pdisableLogging
-
-        } catch (err) {
-            console.log("[ERROR] Debug Log -> initialize -> err = " + err.stack);
-        }
-    }
 
     function finalize() {
         persist()
@@ -168,8 +155,6 @@ exports.newDebugLog = function (processIndex) {
 
     function write(pModule, pMessage) {
         try {
-            if (disableLogging === true) { return; }
-
             if (pModule === "") { // For debugging purposes
                 console.log(pMessage)
             }

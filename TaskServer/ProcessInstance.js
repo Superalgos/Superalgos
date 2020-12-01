@@ -24,18 +24,21 @@
             let botConfig = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config
             let processConfig = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config
 
+            let VARIABLES_BY_PROCESS_INDEX
             /*
-            We will use a logger for what happens before and after the bot main loop. We will add the process
-            id to its key so that it is unique and it can later be finalized.
+            We will use a logger for what happens before and after the bot main loop.
             */
-            let logger = DEBUG_MODULE.newDebugLog(processIndex)
-            TS.projects.superalgos.globals.taskVariables.LOGGER_MAP.set('Pre-Bot-Main-Loop' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].id, logger)
-
+            VARIABLES_BY_PROCESS_INDEX = {
+                PROCESS_INSTANCE_LOGGER_MODULE: DEBUG_MODULE.newDebugLog(processIndex)
+            }
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.set(processIndex, VARIABLES_BY_PROCESS_INDEX)
+            /*  We will add the process id to its key so that it is unique and it can later be finalized. */
+            TS.projects.superalgos.globals.taskVariables.LOGGER_MAP.set('Pre-Bot-Main-Loop' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].id, TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE)
             /*
             There are a few variables with the scope of the process instance. We will store it here so that it can be
             accesed from where it is needed.
             */
-            let VARIABLES_BY_PROCESS_INDEX = {
+            VARIABLES_BY_PROCESS_INDEX = {
                 LOGS_TO_DELETE_QUEUE: [],
                 MAIN_LOOP_COUNTER: 0,
                 PROCESS_KEY:
@@ -93,7 +96,7 @@
                 try {
                     TS.projects.superalgos.globals.processVariables.TOTAL_PROCESS_INSTANCES_CREATED++
 
-                    botInstance = SENSOR_BOT.newSensorBot(processIndex, logger);
+                    botInstance = SENSOR_BOT.newSensorBot(processIndex);
                     botInstance.initialize(processConfig, onInitializeReady);
                 }
                 catch (err) {
@@ -106,7 +109,7 @@
                 try {
                     TS.projects.superalgos.globals.processVariables.TOTAL_PROCESS_INSTANCES_CREATED++
 
-                    botInstance = INDICATOR_BOT_MODULE.newIndicatorBot(processIndex, logger);
+                    botInstance = INDICATOR_BOT_MODULE.newIndicatorBot(processIndex);
                     botInstance.initialize(processConfig, onInitializeReady);
 
                 }
@@ -120,7 +123,7 @@
                 try {
                     TS.projects.superalgos.globals.processVariables.TOTAL_PROCESS_INSTANCES_CREATED++
 
-                    botInstance = TRADING_BOT_MODULE.newTradingBot(processIndex, logger);
+                    botInstance = TRADING_BOT_MODULE.newTradingBot(processIndex);
                     botInstance.initialize(processConfig, onInitializeReady);
                 }
                 catch (err) {
@@ -133,7 +136,7 @@
                 try {
                     TS.projects.superalgos.globals.processVariables.TOTAL_PROCESS_INSTANCES_CREATED++
 
-                    botInstance = TRADING_BOT_MODULE.newLearningBot(processIndex, logger);
+                    botInstance = TRADING_BOT_MODULE.newLearningBot(processIndex);
                     botInstance.initialize(processConfig, onInitializeReady);
                 }
                 catch (err) {
@@ -155,28 +158,28 @@
                         let botId = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "." + botConfig.codeName + "." + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName;
 
                         if (err.result === TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-                            logger.write(MODULE_NAME, "[INFO] start -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
-                            logger.write(MODULE_NAME, "[INFO] start -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
 
-                            logger.persist()
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE.persist()
                         } else {
-                            logger.write(MODULE_NAME, "[ERROR] start -> onInitializeReady -> whenStartFinishes -> err = " + err.message);
-                            logger.write(MODULE_NAME, "[ERROR] start -> onInitializeReady -> whenStartFinishes -> Execution will be stopped. ");
-                            logger.write(MODULE_NAME, "[ERROR] start -> onInitializeReady -> whenStartFinishes -> Bye.");
-                            logger.write(MODULE_NAME, "[ERROR] start -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> onInitializeReady -> whenStartFinishes -> err = " + err.message);
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> onInitializeReady -> whenStartFinishes -> Execution will be stopped. ");
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> onInitializeReady -> whenStartFinishes -> Bye.");
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
 
                             console.log(logDisplace + "Process Instance : [ERROR] start -> onInitializeReady -> whenStartFinishes -> Bot execution was aborted.");
-                            logger.persist()
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE.persist()
                         }
                         setTimeout(exitProcessInstance, WAIT_TIME_FOR_ALL_PROCESS_INSTANCES_TO_START)
                     }
 
                 } else {
-                    logger.write(MODULE_NAME, "[ERROR] start -> onInitializeReady -> err = " + err.message);
-                    logger.write(MODULE_NAME, "[ERROR] start -> onInitializeReady -> Bot will not be started. ");
+                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> onInitializeReady -> err = " + err.message);
+                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> onInitializeReady -> Bot will not be started. ");
                     console.log(logDisplace + "Process Instance : [ERROR] start -> onInitializeReady -> err = " + err.message);
 
-                    logger.persist()
+                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE.persist()
                     setTimeout(exitProcessInstance, WAIT_TIME_FOR_ALL_PROCESS_INSTANCES_TO_START)
                 }
             }

@@ -6,7 +6,7 @@ function newEventsServerClient(networkNode) {
     const ERROR_LOG = true
     const INFO_LOG = true
     const logger = newWebDebugLog()
-    logger.fileName = MODULE_NAME
+    
 
     let WEB_SOCKETS_CONNECTION
 

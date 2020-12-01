@@ -40,7 +40,6 @@
     function initialize(pStatusDependencyNode, callBackFunction) {
         try {
             statusDependencyNode = pStatusDependencyNode;
-            logger.fileName = MODULE_NAME + "." + statusDependencyNode.type + "." + statusDependencyNode.name + "." + statusDependencyNode.id;
 
             /* Some very basic validations that we have all the information needed. */
             if (statusDependencyNode.referenceParent === undefined) {

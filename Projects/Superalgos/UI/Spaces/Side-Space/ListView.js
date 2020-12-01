@@ -2,7 +2,7 @@ function newListView() {
     const MODULE_NAME = 'List View'
     const ERROR_LOG = true
     const logger = newWebDebugLog()
-    logger.fileName = MODULE_NAME
+    
 
     let thisObject = {
         fitFunction: undefined,

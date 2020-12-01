@@ -58,7 +58,7 @@ exports.newSuperalgosFunctionLibrariesSessionFunctions = function () {
         }
     }
 
-    function sessionError(processIndex, node, errorMessage, logger) {
+    function sessionError(processIndex, node, errorMessage) {
         let event
         if (node !== undefined) {
             event = {
@@ -76,13 +76,11 @@ exports.newSuperalgosFunctionLibrariesSessionFunctions = function () {
 
         if (TS.projects.superalgos.globals.taskVariables.IS_TASK_STOPPING === true) {
             TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_STOPPING = true
-            if (logger !== undefined) {
-                logger.write(MODULE_NAME, '[IMPORTANT] sessionError -> Stopping the Session now. ')
-            }
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE.write(MODULE_NAME, '[IMPORTANT] sessionError -> Stopping the Session now. ')
         }
     }
 
-    function sessionWarning(processIndex, node, warningMessage, logger) {
+    function sessionWarning(processIndex, node, warningMessage) {
         let event
         if (node !== undefined) {
             event = {
@@ -100,13 +98,11 @@ exports.newSuperalgosFunctionLibrariesSessionFunctions = function () {
 
         if (TS.projects.superalgos.globals.taskVariables.IS_TASK_STOPPING === true) {
             TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_STOPPING = true
-            if (logger !== undefined) {
-                logger.write(MODULE_NAME, '[IMPORTANT] sessionWarning -> Stopping the Session now. ')
-            }
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE.write(MODULE_NAME, '[IMPORTANT] sessionWarning -> Stopping the Session now. ')
         }
     }
 
-    function sessionInfo(processIndex, node, infoMessage, logger) {
+    function sessionInfo(processIndex, node, infoMessage) {
         let event
         if (node !== undefined) {
             event = {
@@ -124,9 +120,7 @@ exports.newSuperalgosFunctionLibrariesSessionFunctions = function () {
 
         if (TS.projects.superalgos.globals.taskVariables.IS_TASK_STOPPING === true) {
             TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_STOPPING = true
-            if (logger !== undefined) {
-                logger.write(MODULE_NAME, '[IMPORTANT] sessionInfo -> Stopping the Session now. ')
-            }
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE.write(MODULE_NAME, '[IMPORTANT] sessionInfo -> Stopping the Session now. ')
         }
     }
 

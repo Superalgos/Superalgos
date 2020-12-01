@@ -2,7 +2,7 @@ function newFileStorage(host, port) {
   const MODULE_NAME = 'File Storage'
   const INFO_LOG = false
   const logger = newWebDebugLog()
-  logger.fileName = MODULE_NAME
+  
 
   const MAX_RETRY = 2
   let currentRetry = 0

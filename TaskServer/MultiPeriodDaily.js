@@ -24,8 +24,8 @@
     return thisObject;
 
     function initialize(pProcessConfig, pStatusDependencies, pDataDependencies, callBackFunction) {
-        logger.fileName = MODULE_NAME;
-        logger.initialize()
+        
+        
 
         statusDependencies = pStatusDependencies;
         dataDependenciesModule = pDataDependencies;

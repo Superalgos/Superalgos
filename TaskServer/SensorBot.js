@@ -1,4 +1,4 @@
-﻿exports.newSensorBot = function newSensorBot(processIndex, parentLogger) {
+﻿exports.newSensorBot = function newSensorBot(processIndex) {
 
     const MODULE_NAME = "Sensor Bot";
 
@@ -6,7 +6,7 @@
     let COMMONS_MODULE;
 
     const FILE_STORAGE = require('./FileStorage.js');
-    let fileStorage = FILE_STORAGE.newFileStorage(parentLogger);
+    let fileStorage = FILE_STORAGE.newFileStorage(TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE);
 
     const DEBUG_MODULE = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + 'DebugLog');
     let logger; // We need this here in order for the loopHealth function to work and be able to rescue the loop when it gets in trouble.
@@ -47,8 +47,8 @@
             function onBotDownloaded(err, text) {
                 if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
 
-                    parentLogger.write(MODULE_NAME, "[ERROR] initialize -> onInizialized -> onBotDownloaded -> err = " + err.message);
-                    parentLogger.write(MODULE_NAME, "[ERROR] initialize -> onInizialized -> onBotDownloaded -> filePath = " + filePath);
+                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] initialize -> onInizialized -> onBotDownloaded -> err = " + err.message);
+                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] initialize -> onInizialized -> onBotDownloaded -> filePath = " + filePath);
                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                     return;
                 }
@@ -57,7 +57,7 @@
                 try {
                     USER_BOT_MODULE.newUserBot = eval(text); // TODO This needs to be changed function
                 } catch (err) {
-                    parentLogger.write(MODULE_NAME, "[ERROR] initialize -> onBotDownloaded -> err = " + err.stack);
+                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] initialize -> onBotDownloaded -> err = " + err.stack);
                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 }
 
@@ -68,7 +68,7 @@
 
                 function onCommonsDownloaded(err, text) {
                     if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-                        parentLogger.write(MODULE_NAME, "[WARN] initialize -> onBotDownloaded -> onCommonsDownloaded -> Commons not found: " + err.message);
+                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE.write(MODULE_NAME, "[WARN] initialize -> onBotDownloaded -> onCommonsDownloaded -> Commons not found: " + err.message);
                         callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
                         return;
                     }
@@ -81,7 +81,7 @@
             }
 
         } catch (err) {
-            parentLogger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -104,7 +104,6 @@
                     }
                     logger = DEBUG_MODULE.newDebugLog(processIndex);
                     TS.projects.superalgos.globals.taskVariables.LOGGER_MAP.set(MODULE_NAME + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].id, logger)
-                    logger.initialize();
 
                     TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).MAIN_LOOP_COUNTER++;
 
@@ -529,7 +528,7 @@
                     }
 
                 } catch (err) {
-                    parentLogger.write(MODULE_NAME, "[ERROR] run -> loop -> err = " + err.stack);
+                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] run -> loop -> err = " + err.stack);
                     global.unexpectedError = err.message
                     processStopped()
                     return
@@ -553,7 +552,7 @@
         }
 
         catch (err) {
-            parentLogger.write(MODULE_NAME, "[ERROR] run -> err = " + err.stack);
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] run -> err = " + err.stack);
             clearTimeout(nextLoopTimeoutHandle);
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
         }

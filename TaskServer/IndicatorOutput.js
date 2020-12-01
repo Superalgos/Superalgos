@@ -24,8 +24,8 @@
 
     function initialize(callBackFunction) {
         try {
-            logger.fileName = MODULE_NAME;
-            logger.initialize();
+            
+            
 
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
 

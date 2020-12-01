@@ -26,8 +26,8 @@
 
         try {
 
-            logger.fileName = MODULE_NAME;
-            logger.initialize();
+            
+            
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 

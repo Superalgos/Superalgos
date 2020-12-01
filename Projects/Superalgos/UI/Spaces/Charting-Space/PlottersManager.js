@@ -2,7 +2,7 @@ function newPlottersManager() {
     const MODULE_NAME = 'Plotters Manager'
     const ERROR_LOG = true
     const logger = newWebDebugLog()
-    logger.fileName = MODULE_NAME
+    
 
     let timeFrame = INITIAL_TIME_PERIOD
     let datetime = NEW_SESSION_INITIAL_DATE

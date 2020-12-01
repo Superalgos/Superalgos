@@ -1,7 +1,7 @@
 function newNodesStatus() {
     const MODULE_NAME = 'Nodes Status'
     const logger = newWebDebugLog()
-    logger.fileName = MODULE_NAME
+    
 
     let thisObject = {
         onRecordChange: onRecordChange,

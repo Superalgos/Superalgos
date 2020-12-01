@@ -5,7 +5,7 @@ function newCanvas() {
     const MODULE_NAME = 'Canvas'
     const ERROR_LOG = true
     const logger = newWebDebugLog()
-    logger.fileName = MODULE_NAME
+    
 
     /* Mouse event related variables. */
 

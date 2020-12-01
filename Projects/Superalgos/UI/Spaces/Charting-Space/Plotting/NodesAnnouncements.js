@@ -1,7 +1,7 @@
 function newNodesAnnouncements() {
     const MODULE_NAME = 'Nodes Announcements'
     const logger = newWebDebugLog()
-    logger.fileName = MODULE_NAME
+    
 
     let thisObject = {
         onRecordChange: onRecordChange,

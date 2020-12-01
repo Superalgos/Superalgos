@@ -2,7 +2,7 @@ function newTimelineChart() {
     const MODULE_NAME = 'Timeline Chart'
 
     let logger = newWebDebugLog()
-    logger.fileName = MODULE_NAME
+    
 
     let timeFrame = INITIAL_TIME_PERIOD
     let datetime = NEW_SESSION_INITIAL_DATE

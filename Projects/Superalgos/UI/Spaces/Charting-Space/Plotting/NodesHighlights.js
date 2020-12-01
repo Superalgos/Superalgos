@@ -1,7 +1,7 @@
 function newNodesHighlights() {
     const MODULE_NAME = 'Nodes Highlights'
     const logger = newWebDebugLog()
-    logger.fileName = MODULE_NAME
+    
 
     let thisObject = {
         onRecordChange: onRecordChange,

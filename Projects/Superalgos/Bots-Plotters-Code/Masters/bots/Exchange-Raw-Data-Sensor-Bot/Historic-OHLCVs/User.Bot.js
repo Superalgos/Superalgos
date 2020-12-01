@@ -49,8 +49,8 @@ exports.newUserBot = function (processIndex, logger, COMMONS, UTILITIES, FILE_ST
 
         try {
 
-            logger.fileName = MODULE_NAME;
-            logger.initialize();
+            
+            
 
             statusDependencies = pStatusDependencies;
 

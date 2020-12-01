@@ -3,7 +3,7 @@ function newFileCloud () {
   const MODULE_NAME = 'File Cloud'
   const ERROR_LOG = true
   const logger = newWebDebugLog()
-  logger.fileName = MODULE_NAME
+  
 
   /*
   This is the module in the system that actually connects to the cloud storage and grabs from there the needed files.

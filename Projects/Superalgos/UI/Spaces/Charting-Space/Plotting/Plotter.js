@@ -2,7 +2,7 @@ function newPlotter() {
     const MODULE_NAME = 'Plotter'
     const ERROR_LOG = true
     const logger = newWebDebugLog()
-    logger.fileName = MODULE_NAME
+    
 
     let thisObject = {
         currentRecord: undefined,

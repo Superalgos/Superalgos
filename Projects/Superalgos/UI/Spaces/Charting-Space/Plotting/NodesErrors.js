@@ -1,7 +1,7 @@
 function newNodesErrors() {
     const MODULE_NAME = 'Nodes Errors'
     const logger = newWebDebugLog()
-    logger.fileName = MODULE_NAME
+    
 
     let thisObject = {
         onRecordChange: onRecordChange,

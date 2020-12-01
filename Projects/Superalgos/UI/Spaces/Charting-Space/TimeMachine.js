@@ -12,7 +12,7 @@ each one with it own timelineCharts, and each one positioned at an especific poi
 function newTimeMachine() {
     const MODULE_NAME = 'Time Machine'
     const logger = newWebDebugLog()
-    logger.fileName = MODULE_NAME
+    
 
     let timeFrame = INITIAL_TIME_PERIOD
 

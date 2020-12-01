@@ -7,7 +7,7 @@
     const FILE_STORAGE = require('./FileStorage.js');
     const SESSION = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + 'TradingSession');
 
-    let fileStorage = FILE_STORAGE.newFileStorage(processIndex, TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE);
+    let fileStorage = FILE_STORAGE.newFileStorage(processIndex);
     let session = SESSION.newTradingSession(processIndex)
 
     const DEBUG_MODULE = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + 'DebugLog');

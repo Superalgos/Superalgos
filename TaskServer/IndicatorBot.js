@@ -8,7 +8,7 @@
     const MULTI_PERIOD_MARKET = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + 'MultiPeriodMarket');
     const MULTI_PERIOD_DAILY = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + 'MultiPeriodDaily');
     const FILE_STORAGE = require('./FileStorage.js');
-    let fileStorage = FILE_STORAGE.newFileStorage(processIndex, TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE);
+    let fileStorage = FILE_STORAGE.newFileStorage(processIndex);
 
     const DEBUG_MODULE = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + 'DebugLog');
 

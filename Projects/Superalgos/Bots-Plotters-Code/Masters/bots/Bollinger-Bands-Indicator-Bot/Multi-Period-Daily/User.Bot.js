@@ -21,7 +21,7 @@
     };
 
     
-    let fileStorage = FILE_STORAGE.newFileStorage(processIndex, );
+    let fileStorage = FILE_STORAGE.newFileStorage(processIndex);
 
     let statusDependencies;
     let beginingOfMarket

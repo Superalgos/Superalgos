@@ -14,7 +14,7 @@ exports.newUserBot = function (processIndex, COMMONS, FILE_STORAGE, STATUS_REPOR
     };
 
     
-    let fileStorage = FILE_STORAGE.newFileStorage(processIndex, );
+    let fileStorage = FILE_STORAGE.newFileStorage(processIndex);
     let statusDependencies
 
     const ONE_MINUTE = 60000

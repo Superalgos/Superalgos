@@ -8,7 +8,7 @@
     };
 
     
-    let fileStorage = FILE_STORAGE.newFileStorage(processIndex, );
+    let fileStorage = FILE_STORAGE.newFileStorage(processIndex);
 
     const COMMONS = require('./Commons.js');
     let commons = COMMONS.newCommons(processIndex, FILE_STORAGE);

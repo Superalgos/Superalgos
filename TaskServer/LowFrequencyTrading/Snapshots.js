@@ -295,7 +295,7 @@ exports.newSnapshots = function (processIndex) {
     function writeSnapshotFile(snapshotArray, pFileName) {
         try {
             const FILE_STORAGE = require('../FileStorage.js');
-            let fileStorage = FILE_STORAGE.newFileStorage(processIndex, );
+            let fileStorage = FILE_STORAGE.newFileStorage(processIndex);
 
             let fileContent = "";
             let separator = "\r\n";

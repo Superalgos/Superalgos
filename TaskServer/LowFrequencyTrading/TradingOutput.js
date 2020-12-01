@@ -12,7 +12,7 @@ exports.newTradingOutput = function (processIndex, tradingEngineModule, FILE_STO
     }
 
     
-    let fileStorage = FILE_STORAGE.newFileStorage(processIndex, )
+    let fileStorage = FILE_STORAGE.newFileStorage(processIndex)
 
     return thisObject
 

@@ -11,7 +11,6 @@ exports.newLearningBot = function (processIndex, parentLogger) {
     let session = SESSION.newLearningSession(processIndex, parentLogger)
 
     const DEBUG_MODULE = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + 'DebugLog');
-    let logger; // We need this here in order for the loopHealth function to work and be able to rescue the loop when it gets in trouble.
 
     let nextLoopTimeoutHandle;
 

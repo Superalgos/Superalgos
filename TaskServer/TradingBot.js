@@ -68,9 +68,6 @@
                     /* We tell the UI that we are running. */
                     TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, undefined, undefined, "Running...")
 
-                    /* We define here all the modules that the rest of the infraestructure, including the bots themselves can consume. */
-                    const PROCESS_OUTPUT = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + 'ProcessOutput');
-
                     /* We define the datetime for the process that we are running now. This will be the official processing time for both the infraestructure and the bot. */
                     TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_DATETIME = new Date();           // This will be considered the process date and time, so as to have it consistenly all over the execution.
 
@@ -214,7 +211,7 @@
 
                     function initializeStatusDependencies() {
                         try {
-                            statusDependencies = STATUS_DEPENDENCIES.newSuperalgosProcessModulesStatusDependencies(processIndex, PROCESS_OUTPUT);
+                            statusDependencies = STATUS_DEPENDENCIES.newSuperalgosProcessModulesStatusDependencies(processIndex);
                             statusDependencies.initialize(onInizialized);
 
                             function onInizialized(err) {

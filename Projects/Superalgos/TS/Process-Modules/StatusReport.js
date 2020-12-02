@@ -1,4 +1,4 @@
-﻿exports.newSuperalgosProcessModulesStatusReport = function (processIndex, PROCESS_OUTPUT) {
+﻿exports.newSuperalgosProcessModulesStatusReport = function (processIndex) {
 
     /*
 

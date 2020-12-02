@@ -1,4 +1,4 @@
-﻿exports.newSuperalgosProcessModulesStatusDependencies = function (processIndex, PROCESS_OUTPUT) {
+﻿exports.newSuperalgosProcessModulesStatusDependencies = function (processIndex) {
 
     const MODULE_NAME = "Status Dependencies";
 
@@ -46,7 +46,7 @@
 
             for (let i = 0; i < dependenciesToProcess.length; i++) {
 
-                let statusReportModule = STATUS_REPORT.newSuperalgosProcessModulesStatusReport(processIndex, PROCESS_OUTPUT);
+                let statusReportModule = STATUS_REPORT.newSuperalgosProcessModulesStatusReport(processIndex);
 
                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] initialize -> onInitilized -> Initializing Status Report # " + (i + 1));
                 let statusDependency = dependenciesToProcess[i]

@@ -1,4 +1,4 @@
-﻿exports.newSuperalgosFunctionLibrariesSingleMarketFunctions = function (processIndex) {
+﻿exports.newSuperalgosFunctionLibrariesSingleMarketFunctions = function () {
 
     const MODULE_NAME = "Single Market Functions";
 
@@ -12,11 +12,9 @@
         writeFile: writeFile
     };
 
-    let fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex);
-
     return thisObject;
 
-    function validateDataDependencies(dataDependencies, callBackFunction) {
+    function validateDataDependencies(processIndex, dataDependencies, callBackFunction) {
         for (let i = 0; i < dataDependencies.length; i++) {
 
             let dataDependencyNode = dataDependencies[i]
@@ -41,7 +39,7 @@
         return true
     }
 
-    function validateOutputDatasets(outputDatasets, callBackFunction) {
+    function validateOutputDatasets(processIndex, outputDatasets, callBackFunction) {
         for (let i = 0; i < outputDatasets.length; i++) {
             let outputDatasetNode = outputDatasets[i]
 
@@ -144,7 +142,7 @@
         return true
     }
 
-    function inflateDatafiles(dataFiles, dataDependencies, products, mainDependency, timeFrame) {
+    function inflateDatafiles(processIndex, dataFiles, dataDependencies, products, mainDependency, timeFrame) {
         /*
         For each dataDependencyNode in our data dependencies, we should have a dataFile containing the records needed as an imput for this process.
         What we need to do first is transform those records into JSON objects that can be used by user-defined formulas.
@@ -166,10 +164,10 @@
             recordDefinition = dataDependencyNode.referenceParent.parentNode.record
             singularVariableName = dataDependencyNode.referenceParent.parentNode.config.singularVariableName
             /* Transform the raw data into JSON objects */
-            jsonData = jsonifyDataFile(dataFile, recordDefinition)
+            jsonData = jsonifyDataFile(processIndex, dataFile, recordDefinition)
             /* Add the calculated properties */
             if (dataDependencyNode.referenceParent.parentNode.calculations !== undefined) {
-                inputData = calculationsProcedure(jsonData, recordDefinition, dataDependencyNode.referenceParent.parentNode.calculations, singularVariableName, timeFrame)
+                inputData = calculationsProcedure(processIndex, jsonData, recordDefinition, dataDependencyNode.referenceParent.parentNode.calculations, singularVariableName, timeFrame)
             } else {
                 inputData = jsonData
             }
@@ -182,7 +180,7 @@
         }
     }
 
-    function jsonifyDataFile(dataFile, recordDefinition) {
+    function jsonifyDataFile(processIndex, dataFile, recordDefinition) {
 
         /*
             This function has as an input the raw data on files and creates with it an array of JSON objects
@@ -210,7 +208,7 @@
         return jsonifiedArray
     }
 
-    function calculationsProcedure(jsonArray, recordDefinition, calculationsProcedure, variableName, timeFrame) {
+    function calculationsProcedure(processIndex, jsonArray, recordDefinition, calculationsProcedure, variableName, timeFrame) {
 
         /* 
             This function has as an input an array of JSON objects, and it adds calculated properties to
@@ -285,6 +283,7 @@
     }
 
     function dataBuildingProcedure(
+        processIndex, 
         products,
         mainDependency,
         recordDefinition,
@@ -447,7 +446,7 @@
         return results
     }
 
-    function generateFileContent(records, recordDefinition, resultsWithIrregularPeriods, processingDailyFiles, currentDay, callBackFunction) {
+    function generateFileContent(processIndex, records, recordDefinition, resultsWithIrregularPeriods, processingDailyFiles, currentDay, callBackFunction) {
 
         try {
             let fileContent = "";
@@ -509,7 +508,7 @@
         }
     }
 
-    function writeFile(contextSummary, fileContent, anotherFileWritten, processingDailyFiles, timeFrameLabel, currentDay, callBackFunction) {
+    function writeFile(processIndex, contextSummary, fileContent, anotherFileWritten, processingDailyFiles, timeFrameLabel, currentDay, callBackFunction) {
 
         try {
             let fileName = 'Data.json';
@@ -523,6 +522,7 @@
             let filePath = filePathRoot + "/Output/" + contextSummary.product + "/" + contextSummary.dataset + "/" + timeFrameLabel + dateForPath;
             filePath += '/' + fileName
 
+            let fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex);
             fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
 
             function onFileCreated(err) {

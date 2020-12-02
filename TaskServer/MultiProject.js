@@ -22,6 +22,7 @@ exports.newMultiProject = function () {
             projectInstance.utilities = {}
             projectInstance.globals = {}
             projectInstance.functionLibraries = {}
+            projectInstance.taskModules = {}
             projectInstance.processModules = {}
 
             /* Set up Utilities of this Project */
@@ -69,6 +70,17 @@ exports.newMultiProject = function () {
                     let requiredObject = require(path)
                     let requiredFunction = requiredObject[botClassDefinition.functionName]
                     projectInstance.botClasses[botClassDefinition.propertyName] = requiredFunction.call()
+                }
+            }
+
+            /* Set up Process Modules for this Project */
+            if (projectDefinition.TS.taskModules !== undefined) {
+                for (let j = 0; j < projectDefinition.TS.taskModules.length; j++) {
+                    let taskModuleDefinition = projectDefinition.TS.taskModules[j]
+                    let path = global.env.PATH_TO_PROJECTS_REQUIRED + '/' + projectDefinition.name + '/' + 'TS' + '/' + 'Task-Modules' + '/' + taskModuleDefinition.fileName
+
+                    let requiredObject = require(path)
+                    projectInstance.taskModules[taskModuleDefinition.propertyName] = requiredObject
                 }
             }
 

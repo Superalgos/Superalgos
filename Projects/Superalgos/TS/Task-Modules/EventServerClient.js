@@ -1,4 +1,4 @@
-﻿exports.newEventsServerClient = function newEventsServerClient(host, port) {
+﻿exports.newSuperalgosTaskModulesEventServerClient = function (host, port) {
 
     const MODULE = "Task Server "
 

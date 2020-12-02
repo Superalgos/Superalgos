@@ -11,8 +11,8 @@ class Limiter {
   /**
    * Creates a new `Limiter`.
    *
-   * @param {Number} concurrency The maximum number of jobs allowed to run
-   *     concurrently
+   * @param {Number} [concurrency=Infinity] The maximum number of jobs allowed
+   *     to run concurrently
    */
   constructor(concurrency) {
     this[kDone] = () => {
@@ -27,6 +27,7 @@ class Limiter {
   /**
    * Adds a job to the queue.
    *
+   * @param {Function} job The job to run
    * @public
    */
   add(job) {

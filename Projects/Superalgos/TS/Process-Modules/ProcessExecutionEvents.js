@@ -18,7 +18,6 @@
     let processThisDependsOn;                       // This is the process this process needs to wait for it to finishes in order to start.
     let currentProcessKey
 
-    let EVENT_SERVER_CLIENT = require('./EventServerClient.js');
     let eventServerClient
 
     return thisObject;
@@ -127,7 +126,7 @@
                                                                     ' -> port = ' + networkNode.config.webSocketsPort + '.');
 
 
-                                                                eventServerClient = EVENT_SERVER_CLIENT.newEventsServerClient(networkNode.config.host, networkNode.config.webSocketsPort)
+                                                                eventServerClient = TS.projects.superalgos.taskModules.eventServerClient.newSuperalgosTaskModulesEventServerClient(networkNode.config.host, networkNode.config.webSocketsPort)
                                                                 eventServerClient.initialize(onConnected)
 
                                                                 function onConnected() {

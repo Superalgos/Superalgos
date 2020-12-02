@@ -427,6 +427,14 @@
                     "fileName": "MiscellaneousFunctions.js"
                 }
             ],
+            "taskModules": [
+                {
+                    "name": "Event Server Client",
+                    "propertyName": "eventServerClient",
+                    "functionName": "newSuperalgosTaskModulesEventServerClient",
+                    "fileName": "EventServerClient.js"
+                }
+            ],
             "processModules": [
                 {
                     "name": "Status Report",

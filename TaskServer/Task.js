@@ -9,8 +9,8 @@ let NODE_JS_PROCESS_MODULE = NODE_JS_PROCESS.newNodeJsProcess()
 NODE_JS_PROCESS_MODULE.initialize()
 
 /* Setting up the global Event Handler */
-let EVENT_SERVER_CLIENT = require('./EventServerClient.js');
-global.EVENT_SERVER_CLIENT_MODULE = EVENT_SERVER_CLIENT.newEventsServerClient()
+let EVENT_SERVER_CLIENT = require('../Projects/Superalgos/TS/Task-Modules/EventServerClient.js');
+global.EVENT_SERVER_CLIENT_MODULE = EVENT_SERVER_CLIENT.newSuperalgosTaskModulesEventServerClient()
 global.EVENT_SERVER_CLIENT_MODULE.initialize(preLoader)
 
 function preLoader() {

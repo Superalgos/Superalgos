@@ -22,6 +22,7 @@ exports.newMultiProject = function () {
             projectInstance.utilities = {}
             projectInstance.globals = {}
             projectInstance.functionLibraries = {}
+            projectInstance.processModules = {}
 
             /* Set up Utilities of this Project */
             if (projectDefinition.TS.utilities !== undefined) {

@@ -1,4 +1,4 @@
-﻿exports.newDataDependencies = function (processIndex, DATA_SET) {
+﻿exports.newSuperalgosProcessModulesDataDependencies = function (processIndex, DATA_SET) {
 
     const MODULE_NAME = "Data Dependencies";
 
@@ -73,7 +73,7 @@
             let newNodeArray = []
 
             for (let i = 0; i < thisObject.nodeArray.length; i++) {
-                let dataSetModule = DATA_SET.newDataSet(processIndex);
+                let dataSetModule = DATA_SET.newSuperalgosProcessModulesDataset(processIndex);
                 dataSetModule.initialize(thisObject.nodeArray[i], onInitilized);
 
                 function onInitilized(err, wasInitialized) {

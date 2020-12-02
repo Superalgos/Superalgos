@@ -427,6 +427,44 @@
                     "fileName": "MiscellaneousFunctions.js"
                 }
             ],
+            "processModules": [
+                {
+                    "name": "Status Report",
+                    "propertyName": "statusReport",
+                    "functionName": "newSuperalgosProcessModulesStatusReport",
+                    "fileName": "StatusReport.js"
+                },
+                {
+                    "name": "Status Dependencies",
+                    "propertyName": "statusDependencies",
+                    "functionName": "newSuperalgosProcessModulesStatusDependencies",
+                    "fileName": "StatusDependencies.js"
+                },
+                {
+                    "name": "Data Dependencies",
+                    "propertyName": "dataDependencies",
+                    "functionName": "newSuperalgosProcessModulesDataDependencies",
+                    "fileName": "DataDependencies.js"
+                },
+                {
+                    "name": "Dataset",
+                    "propertyName": "dataset",
+                    "functionName": "newSuperalgosProcessModulesDataset",
+                    "fileName": "Dataset.js"
+                },
+                {
+                    "name": "Process Execution Events",
+                    "propertyName": "processExecutionEvents",
+                    "functionName": "newSuperalgosProcessModulesProcessExecutionEvents",
+                    "fileName": "ProcessExecutionEvents.js"
+                },
+                {
+                    "name": "Process Output",
+                    "propertyName": "processOutput",
+                    "functionName": "newSuperalgosProcessModulesProcessOutput",
+                    "fileName": "ProcessOutput.js"
+                }
+            ],
             "botClasses": []
         },
         "CL": {}

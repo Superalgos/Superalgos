@@ -24,9 +24,7 @@
     return thisObject;
 
     function initialize(pProcessConfig, pStatusDependencies, pDataDependencies, callBackFunction) {
-        
-        
-
+    
         statusDependencies = pStatusDependencies;
         dataDependenciesModule = pDataDependencies;
         processConfig = pProcessConfig;

@@ -1,4 +1,4 @@
-﻿exports.newStatusReport = function (processIndex, PROCESS_OUTPUT) {
+﻿exports.newSuperalgosProcessModulesStatusReport = function (processIndex, PROCESS_OUTPUT) {
 
     /*
 
@@ -365,7 +365,7 @@
 
                 /* All good, lets emit the event that means data has been updated. */
 
-                let processOutput = PROCESS_OUTPUT.newProcessOutput(processIndex)
+                let processOutput = PROCESS_OUTPUT.newSuperalgosProcessModulesProcessOutput(processIndex)
                 processOutput.raiseEvents(thisObject.file.lastFile, thisObject.file.timeFrames, callBackFunction);
                 return
             }
@@ -392,7 +392,7 @@
         }
 
         /* All good, lets emit the event that means data has been updated. */
-        let processOutput = PROCESS_OUTPUT.newProcessOutput(processIndex)
+        let processOutput = PROCESS_OUTPUT.newSuperalgosProcessModulesProcessOutput(processIndex)
         processOutput.asyncRaiseEvents(thisObject.file.lastFile, thisObject.file.timeFrames)
     }
 }

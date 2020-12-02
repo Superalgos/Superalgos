@@ -133,7 +133,7 @@
 
                     function initializeProcessExecutionEvents() {
                         try {
-                            processExecutionEvents = PROCESS_EXECUTION_EVENTS.newProcessExecutionEvents(processIndex)
+                            processExecutionEvents = PROCESS_EXECUTION_EVENTS.newSuperalgosProcessModulesProcessExecutionEvents(processIndex)
                             processExecutionEvents.initialize(processConfig, onInizialized);
 
                             function onInizialized(err) {
@@ -235,7 +235,7 @@
 
                     function initializeStatusDependencies() {
                         try {
-                            statusDependencies = STATUS_DEPENDENCIES.newStatusDependencies(processIndex, STATUS_REPORT, PROCESS_OUTPUT);
+                            statusDependencies = STATUS_DEPENDENCIES.newSuperalgosProcessModulesStatusDependencies(processIndex, STATUS_REPORT, PROCESS_OUTPUT);
                             statusDependencies.initialize(onInizialized);
 
                             function onInizialized(err) {

@@ -1,4 +1,4 @@
-exports.newDataSet = function (processIndex) {
+exports.newSuperalgosProcessModulesDataset = function (processIndex) {
 
     const MODULE_NAME = "Dataset";
 

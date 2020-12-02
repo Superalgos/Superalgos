@@ -8,6 +8,14 @@ exports.newFileStorage = function newFileStorage(processIndex, host, port) {
     const FAST_RETRY_TIME_IN_MILISECONDS = 500
     const SLOW_RETRY_TIME_IN_MILISECONDS = 2000
 
+    let thisObject = {
+        asyncGetTextFile: asyncGetTextFile,
+        asyncCreateTextFile: asyncCreateTextFile, 
+        getTextFile: getTextFile,
+        createTextFile: createTextFile,
+        deleteTextFile: deleteTextFile
+    }
+
     let logger
     if (TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE === undefined) { // Dummy logger
         logger = {}
@@ -18,15 +26,6 @@ exports.newFileStorage = function newFileStorage(processIndex, host, port) {
     } else {
         logger = TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE
     }
-
-    let thisObject = {
-        asyncGetTextFile: asyncGetTextFile,
-        asyncCreateTextFile: asyncCreateTextFile, 
-        getTextFile: getTextFile,
-        createTextFile: createTextFile,
-        deleteTextFile: deleteTextFile
-    }
-
     return thisObject
 
     async function asyncGetTextFile(filePath, noRetry, canUsePrevious) {

@@ -1,4 +1,4 @@
-﻿exports.newSuperalgosProcessModulesDataDependencies = function (processIndex, DATA_SET) {
+﻿exports.newSuperalgosProcessModulesDataDependencies = function (processIndex) {
 
     const MODULE_NAME = "Data Dependencies";
 

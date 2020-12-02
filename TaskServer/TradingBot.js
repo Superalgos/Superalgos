@@ -264,7 +264,7 @@
 
                     function initializeDataDependencies() {
                         try {
-                            dataDependencies = DATA_DEPENDENCIES.newSuperalgosProcessModulesDataDependencies(processIndex, DATA_SET);
+                            dataDependencies = DATA_DEPENDENCIES.newSuperalgosProcessModulesDataDependencies(processIndex);
                             dataDependencies.initialize(onInizialized);
 
                             function onInizialized(err) {

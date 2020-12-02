@@ -548,9 +548,6 @@
             }
 
             function buildCharts(chart) {
-                const COMMONS = require('../Commons.js')
-                let commons = COMMONS.newCommons(processIndex)
-
                 let mainDependency = {}
 
                 /* The first phase here is about checking that we have everything we need at the definition level. */
@@ -562,10 +559,10 @@
                 */
                 dataDependencies = TS.projects.superalgos.utilities.nodeFunctions.filterOutNodeWihtoutReferenceParentFromNodeArray(dataDependencies)
 
-                if (commons.validateDataDependencies(dataDependencies, callBackFunction) !== true) { return }
+                if (TS.projects.superalgos.functionLibraries.singleMarketFunctions.validateDataDependencies(dataDependencies, callBackFunction) !== true) { return }
 
                 let outputDatasets = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
-                if (commons.validateOutputDatasets(outputDatasets, callBackFunction) !== true) { return }
+                if (TS.projects.superalgos.functionLibraries.singleMarketFunctions.validateOutputDatasets(outputDatasets, callBackFunction) !== true) { return }
 
                 /* The second phase is about transforming the inputs into a format that can be used to apply the user defined code. */
                 for (let j = 0; j < TS.projects.superalgos.globals.timeFrames.marketFilesPeriods().length; j++) {
@@ -574,7 +571,7 @@
                     let products = {}
 
                     if (dataFiles !== undefined) {
-                        commons.inflateDatafiles(dataFiles, dataDependencies, products, mainDependency, currentTimeFrame)
+                        TS.projects.superalgos.functionLibraries.singleMarketFunctions.inflateDatafiles(dataFiles, dataDependencies, products, mainDependency, currentTimeFrame)
 
                         let propertyName = 'at' + timeFrameLabel.replace('-', '')
                         chart[propertyName] = products
@@ -587,7 +584,7 @@
                     let products = {}
 
                     if (dataFiles !== undefined) {
-                        commons.inflateDatafiles(dataFiles, dataDependencies, products, mainDependency, currentTimeFrame)
+                        TS.projects.superalgos.functionLibraries.singleMarketFunctions.inflateDatafiles(dataFiles, dataDependencies, products, mainDependency, currentTimeFrame)
 
                         let propertyName = 'at' + timeFrameLabel.replace('-', '')
                         chart[propertyName] = products
@@ -599,7 +596,7 @@
                 let products = {}
 
                 if (dataFiles !== undefined) {
-                    commons.inflateDatafiles(dataFiles, dataDependencies, products, mainDependency, currentTimeFrame)
+                    TS.projects.superalgos.functionLibraries.singleMarketFunctions.inflateDatafiles(dataFiles, dataDependencies, products, mainDependency, currentTimeFrame)
 
                     let propertyName = 'atAnyTimeFrame'
                     chart[propertyName] = products

@@ -10,16 +10,12 @@
     
     let fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex);
 
-    const COMMONS = require('./Commons.js');
-    let commons = COMMONS.newCommons(processIndex);
-
     return thisObject;
 
     function finalize() {
         thisObject = undefined
         utilities = undefined
         fileStorage = undefined
-        commons = undefined
     }
 
     function initialize(callBackFunction) {
@@ -52,13 +48,13 @@
             /* The first phase here is about checking that we have everything we need at the definition level. */
             let dataDependencies = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processDependencies, 'Data Dependency')
 
-            if (commons.validateDataDependencies(dataDependencies, callBackFunction) !== true) { return }
+            if (TS.projects.superalgos.functionLibraries.singleMarketFunctions.validateDataDependencies(dataDependencies, callBackFunction) !== true) { return }
 
             let outputDatasets = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
-            if (commons.validateOutputDatasets(outputDatasets, callBackFunction) !== true) { return }
+            if (TS.projects.superalgos.functionLibraries.singleMarketFunctions.validateOutputDatasets(outputDatasets, callBackFunction) !== true) { return }
 
             /* The second phase is about transforming the inputs into a format that can be used to apply the user defined code. */
-            commons.inflateDatafiles(dataFiles, dataDependencies, products, mainDependency, timeFrame)
+            TS.projects.superalgos.functionLibraries.singleMarketFunctions.inflateDatafiles(dataFiles, dataDependencies, products, mainDependency, timeFrame)
 
             /* During the third phase, we need to generate the data of the different products this process produces an output */
             for (let i = 0; i < outputDatasets.length; i++) {
@@ -87,7 +83,7 @@
                 }
 
                 /* Build the data */
-                jsonData = commons.dataBuildingProcedure(
+                jsonData = TS.projects.superalgos.functionLibraries.singleMarketFunctions.dataBuildingProcedure(
                     products,
                     mainDependency,
                     recordDefinition,
@@ -104,7 +100,7 @@
 
                 /* Add the calculated properties */
                 if (outputDatasetNode.referenceParent.parentNode.calculations !== undefined) {
-                    outputData = commons.calculationsProcedure(jsonData, recordDefinition, outputDatasetNode.referenceParent.parentNode.calculations, singularVariableName, timeFrame)
+                    outputData = TS.projects.superalgos.functionLibraries.singleMarketFunctions.calculationsProcedure(jsonData, recordDefinition, outputDatasetNode.referenceParent.parentNode.calculations, singularVariableName, timeFrame)
                 } else {
                     outputData = jsonData
                 }
@@ -136,8 +132,8 @@
                 contextSummary.mineType = dataMineNode.type.replace(' ', '-')
                 contextSummary.project = dataMineNode.project
 
-                let fileContent = commons.generateFileContent(outputData, outputDatasetNode.referenceParent.parentNode.record, resultsWithIrregularPeriods, processingDailyFiles, currentDay, callBackFunction)
-                commons.writeFile(contextSummary, fileContent, anotherFileWritten, processingDailyFiles, timeFrameLabel, currentDay, callBackFunction)
+                let fileContent = TS.projects.superalgos.functionLibraries.singleMarketFunctions.generateFileContent(outputData, outputDatasetNode.referenceParent.parentNode.record, resultsWithIrregularPeriods, processingDailyFiles, currentDay, callBackFunction)
+                TS.projects.superalgos.functionLibraries.singleMarketFunctions.writeFile(contextSummary, fileContent, anotherFileWritten, processingDailyFiles, timeFrameLabel, currentDay, callBackFunction)
             }
 
 

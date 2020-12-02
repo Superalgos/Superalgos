@@ -1,6 +1,6 @@
-﻿exports.newCommons = function (processIndex) {
+﻿exports.newSuperalgosFunctionLibrariesSingleMarketFunctions = function (processIndex) {
 
-    const MODULE_NAME = "Commons";
+    const MODULE_NAME = "Single Market Functions";
 
     let thisObject = {
         validateDataDependencies: validateDataDependencies,

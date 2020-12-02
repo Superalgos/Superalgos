@@ -105,7 +105,6 @@
                     TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex)
 
                     /* We define here all the modules that the rest of the infraestructure, including the bots themselves can consume. */
-                    const DATA_DEPENDENCIES = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + 'DataDependencies');
                     const DATA_SET = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + 'DataSet');
                     const PROCESS_EXECUTION_EVENTS = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + 'ProcessExecutionEvents');
                     const PROCESS_OUTPUT = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + 'ProcessOutput');

@@ -439,6 +439,12 @@
                     "propertyName": "fileStorage",
                     "functionName": "newSuperalgosTaskModulesFileStorage",
                     "fileName": "FileStorage.js"
+                },
+                {
+                    "name": "Debug Log",
+                    "propertyName": "debugLog",
+                    "functionName": "newSuperalgosTaskModulesDebugLog",
+                    "fileName": "DebugLog.js"
                 }
             ],
             "processModules": [

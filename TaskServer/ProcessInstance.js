@@ -16,7 +16,6 @@
 
             const INDICATOR_BOT_MODULE = require('./IndicatorBot');
             const TRADING_BOT_MODULE = require('./TradingBot');
-            const DEBUG_MODULE = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + 'DebugLog');
 
             let botInstance
 
@@ -29,7 +28,7 @@
             */
             VARIABLES_BY_PROCESS_INDEX = {
                 LOGS_TO_DELETE_QUEUE: [],
-                PROCESS_INSTANCE_LOGGER_MODULE: DEBUG_MODULE.newDebugLog(processIndex)
+                PROCESS_INSTANCE_LOGGER_MODULE: TS.projects.superalgos.taskModules.debugLog.newSuperalgosTaskModulesDebugLog(processIndex)
             }
             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.set(processIndex, VARIABLES_BY_PROCESS_INDEX)
             /*  We will add the process id to its key so that it is unique and it can later be finalized. */

@@ -1,4 +1,4 @@
-exports.newDebugLog = function (processIndex) {
+exports.newSuperalgosTaskModulesDebugLog = function (processIndex) {
 
     const MODULE_NAME = "DebugLog";
 

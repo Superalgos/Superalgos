@@ -1,5 +1,5 @@
 ﻿
-exports.newUserBot = function (processIndex, COMMONS, FILE_STORAGE, STATUS_REPORT, EXCHANGE_API) {
+exports.newUserBot = function (processIndex, COMMONS, FILE_STORAGE, EXCHANGE_API) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;

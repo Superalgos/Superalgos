@@ -1,4 +1,4 @@
-﻿exports.newSuperalgosProcessModulesStatusDependencies = function (processIndex, STATUS_REPORT, PROCESS_OUTPUT) {
+﻿exports.newSuperalgosProcessModulesStatusDependencies = function (processIndex, PROCESS_OUTPUT) {
 
     const MODULE_NAME = "Status Dependencies";
 

@@ -69,7 +69,6 @@
                     TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, undefined, undefined, "Running...")
 
                     /* We define here all the modules that the rest of the infraestructure, including the bots themselves can consume. */
-                    const STATUS_REPORT = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + 'StatusReport');
                     const STATUS_DEPENDENCIES = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + 'StatusDependencies');
                     const DATA_DEPENDENCIES = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + 'DataDependencies');
                     const DATA_SET = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + 'DataSet');
@@ -219,7 +218,7 @@
 
                     function initializeStatusDependencies() {
                         try {
-                            statusDependencies = STATUS_DEPENDENCIES.newSuperalgosProcessModulesStatusDependencies(processIndex, STATUS_REPORT, PROCESS_OUTPUT);
+                            statusDependencies = STATUS_DEPENDENCIES.newSuperalgosProcessModulesStatusDependencies(processIndex, PROCESS_OUTPUT);
                             statusDependencies.initialize(onInizialized);
 
                             function onInizialized(err) {

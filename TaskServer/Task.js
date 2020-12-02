@@ -8,6 +8,11 @@ let NODE_JS_PROCESS = require('./NodeJsProcess.js');
 let NODE_JS_PROCESS_MODULE = NODE_JS_PROCESS.newNodeJsProcess()
 NODE_JS_PROCESS_MODULE.initialize()
 
+/* Setting up the modules that will be available for the Task and it's processes */
+let MULTI_PROJECT = require('./MultiProject.js');
+let MULTI_PROJECT_MODULE = MULTI_PROJECT.newMultiProject()
+MULTI_PROJECT_MODULE.initialize()
+
 /* Setting up the global Event Handler */
 let EVENT_SERVER_CLIENT = require('../Projects/Superalgos/TS/Task-Modules/EventServerClient.js');
 global.EVENT_SERVER_CLIENT_MODULE = EVENT_SERVER_CLIENT.newSuperalgosTaskModulesEventServerClient()
@@ -33,7 +38,6 @@ function preLoader() {
                     setUpAppSchema(JSON.parse(message.event.projectSchemas))
                     global.TASK_NODE = JSON.parse(message.event.taskDefinition)
                     global.NETWORK_NODE = JSON.parse(message.event.networkDefinition)
-                    global.PROJECTS_SCHEMA = JSON.parse(message.event.projectsSchema)
                     bootingProcess()
                 } catch (err) {
                     console.log('[ERROR] Task Server -> Task -> preLoader -> eventReceived -> ' + err.stack)
@@ -63,7 +67,6 @@ function preLoader() {
                     setUpAppSchema(JSON.parse(message.event.projectSchemas))
                     global.TASK_NODE = JSON.parse(message.event.taskDefinition)
                     global.NETWORK_NODE = JSON.parse(message.event.networkDefinition)
-                    global.PROJECTS_SCHEMA = JSON.parse(message.event.projectsSchema)
                     bootingProcess()
 
                 } catch (err) {
@@ -94,15 +97,8 @@ function preLoader() {
 function bootingProcess() {
 
     try {
-        setupMultiProjectFramework()
         initializeTaskConstants()
         setupTaskHeartbeats()
-
-        function setupMultiProjectFramework() {
-            let MULTI_PROJECT = require('./MultiProject.js');
-            let MULTI_PROJECT_MODULE = MULTI_PROJECT.newMultiProject()
-            MULTI_PROJECT_MODULE.initialize()
-        }
 
         function initializeTaskConstants() {
             /*
@@ -112,8 +108,6 @@ function bootingProcess() {
             global.TASK_NODE = undefined
             TS.projects.superalgos.globals.taskConstants.NETWORK_NODE = global.NETWORK_NODE
             NETWORK_NODE = undefined
-            TS.projects.superalgos.globals.taskConstants.PROJECTS_SCHEMA = global.PROJECTS_SCHEMA
-            global.PROJECTS_SCHEMA = undefined
             TS.projects.superalgos.globals.taskConstants.APP_SCHEMA_MAP = global.APP_SCHEMA_MAP
             global.APP_SCHEMA_MAP = undefined
 

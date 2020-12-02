@@ -8,14 +8,19 @@ exports.newMultiProject = function () {
 
     function initialize() {
         /*
+        First thing is to load the project schema file.
+        */
+       let PROJECTS_SCHEMA = require(global.env.PATH_TO_PROJECTS_REQUIRED + '/' + 'ProjectsSchema.json')
+
+        /*
         Here we will setup the TS object, with all the
         projects and modules that will have inside.
         */
         global.TS = {
             projects: {}
         }
-        for (let i = 0; i < global.PROJECTS_SCHEMA.length; i++) {
-            let projectDefinition = global.PROJECTS_SCHEMA[i]
+        for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
+            let projectDefinition = PROJECTS_SCHEMA[i]
             global.TS.projects[projectDefinition.propertyName] = {}
             let projectInstance = global.TS.projects[projectDefinition.propertyName]
 
@@ -95,5 +100,8 @@ exports.newMultiProject = function () {
                 }
             }
         }
+
+        TS.projects.superalgos.globals.taskConstants.PROJECTS_SCHEMA = PROJECTS_SCHEMA
+
     }
 }

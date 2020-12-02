@@ -21,6 +21,6 @@ exports.newSuperalgosFunctionLibrariesTaskFunctions = function () {
             }
         }
         let key = TS.projects.superalgos.globals.taskConstants.TASK_NODE.name + '-' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.type + '-' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.id
-        global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(key, 'Error', event)
+        TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_INSTANCE.raiseEvent(key, 'Error', event)
     }
 }

@@ -92,8 +92,8 @@
                         lastFile: lastFile,
                         timeFrames: timeFrames
                     }
-                    global.EVENT_SERVER_CLIENT_MODULE.createEventHandler(key, 'Dataset Updated')
-                    global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(key, 'Dataset Updated', event)
+                    TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_INSTANCE.createEventHandler(key, 'Dataset Updated')
+                    TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_INSTANCE.raiseEvent(key, 'Dataset Updated', event)
                 }
             }
 
@@ -174,8 +174,8 @@
                     lastFile: lastFile,
                     timeFrames: timeFrames
                 }
-                global.EVENT_SERVER_CLIENT_MODULE.createEventHandler(key, 'Dataset Updated')
-                global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(key, 'Dataset Updated', event)
+                TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_INSTANCE.createEventHandler(key, 'Dataset Updated')
+                TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_INSTANCE.raiseEvent(key, 'Dataset Updated', event)
             }
         }
     }

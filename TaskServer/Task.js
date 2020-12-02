@@ -14,9 +14,8 @@ let MULTI_PROJECT_MODULE = MULTI_PROJECT.newMultiProject()
 MULTI_PROJECT_MODULE.initialize()
 
 /* Setting up the global Event Handler */
-let EVENT_SERVER_CLIENT = require('../Projects/Superalgos/TS/Task-Modules/EventServerClient.js');
-global.EVENT_SERVER_CLIENT_MODULE = EVENT_SERVER_CLIENT.newSuperalgosTaskModulesEventServerClient()
-global.EVENT_SERVER_CLIENT_MODULE.initialize(preLoader)
+TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_INSTANCE = TS.projects.superalgos.taskModules.eventServerClient.newSuperalgosTaskModulesEventServerClient()
+TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_INSTANCE.initialize(preLoader)
 
 function preLoader() {
     /*
@@ -31,8 +30,8 @@ function preLoader() {
         an event with the Task Info that should be emitted at the UI 
         */
         try {
-            global.EVENT_SERVER_CLIENT_MODULE.listenToEvent('Task Server - ' + taskId, 'Run Task', undefined, 'Task Server - ' + taskId, undefined, eventReceived)
-            global.EVENT_SERVER_CLIENT_MODULE.raiseEvent('Task Manager - ' + taskId, 'Nodejs Process Ready for Task')
+            TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_INSTANCE.listenToEvent('Task Server - ' + taskId, 'Run Task', undefined, 'Task Server - ' + taskId, undefined, eventReceived)
+            TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_INSTANCE.raiseEvent('Task Manager - ' + taskId, 'Nodejs Process Ready for Task')
             function eventReceived(message) {
                 try {
                     setUpAppSchema(JSON.parse(message.event.projectSchemas))
@@ -61,7 +60,7 @@ function preLoader() {
         global.env.PATH_TO_LOG_FILES = '.' + global.env.PATH_TO_LOG_FILES
 
         try {
-            global.EVENT_SERVER_CLIENT_MODULE.listenToEvent('Task Server', 'Debug Task Started', undefined, 'Task Server', undefined, startDebugging)
+            TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_INSTANCE.listenToEvent('Task Server', 'Debug Task Started', undefined, 'Task Server', undefined, startDebugging)
             function startDebugging(message) {
                 try {
                     setUpAppSchema(JSON.parse(message.event.projectSchemas))
@@ -142,8 +141,8 @@ function bootingProcess() {
             */
             let key = TS.projects.superalgos.globals.taskConstants.TASK_NODE.name + '-' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.type + '-' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.id
 
-            global.EVENT_SERVER_CLIENT_MODULE.createEventHandler(key)
-            global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(key, 'Running') // Meaning Task Running
+            TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_INSTANCE.createEventHandler(key)
+            TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_INSTANCE.raiseEvent(key, 'Running') // Meaning Task Running
             global.HEARTBEAT_INTERVAL_HANDLER = setInterval(taskHearBeat, 1000)
 
             function taskHearBeat() {
@@ -152,7 +151,7 @@ function bootingProcess() {
                 let event = {
                     seconds: (new Date()).getSeconds()
                 }
-                global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(key, 'Heartbeat', event)
+                TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_INSTANCE.raiseEvent(key, 'Heartbeat', event)
             }
         }
 

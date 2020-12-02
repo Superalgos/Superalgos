@@ -227,8 +227,8 @@
                         let event = {
                             err: TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE
                         }
-                        global.EVENT_SERVER_CLIENT_MODULE.createEventHandler(currentProcessKey, 'Process Execution Started')
-                        global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(currentProcessKey, 'Process Execution Started', event)
+                        TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_INSTANCE.createEventHandler(currentProcessKey, 'Process Execution Started')
+                        TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_INSTANCE.raiseEvent(currentProcessKey, 'Process Execution Started', event)
 
                         TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, undefined, undefined, "Running...")
 
@@ -243,8 +243,8 @@
                 let event = {
                     err: TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE
                 }
-                global.EVENT_SERVER_CLIENT_MODULE.createEventHandler(currentProcessKey, 'Process Execution Started')
-                global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(currentProcessKey, 'Process Execution Started', event)
+                TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_INSTANCE.createEventHandler(currentProcessKey, 'Process Execution Started')
+                TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_INSTANCE.raiseEvent(currentProcessKey, 'Process Execution Started', event)
 
                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] start -> " + currentProcessKey + " Process Execution Started ")
 
@@ -267,8 +267,8 @@
                 err: TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE
             }
 
-            global.EVENT_SERVER_CLIENT_MODULE.createEventHandler(currentProcessKey, 'Process Execution Finished')
-            global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(currentProcessKey, 'Process Execution Finished', event)
+            TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_INSTANCE.createEventHandler(currentProcessKey, 'Process Execution Finished')
+            TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_INSTANCE.raiseEvent(currentProcessKey, 'Process Execution Finished', event)
 
             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] finish -> " + currentProcessKey + " Process Execution Finished ")
 

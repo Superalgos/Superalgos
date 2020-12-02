@@ -768,7 +768,7 @@ Read the candles and volumes from Exchange Raw Data and produce a file for each 
                             dateRange: dataRange
                         }
 
-                        global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(key, 'Data Range Updated', event)
+                        TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_INSTANCE.raiseEvent(key, 'Data Range Updated', event)
 
                         callBack(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
                     }

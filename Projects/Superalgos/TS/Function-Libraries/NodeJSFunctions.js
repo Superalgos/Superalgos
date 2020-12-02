@@ -28,7 +28,7 @@ exports.newSuperalgosFunctionLibrariesNodeJSFunctions = function () {
                 let process = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[i]
 
                 let key = process.name + '-' + process.type + '-' + process.id
-                global.EVENT_SERVER_CLIENT_MODULE.raiseEvent(key, 'Stopped') // Meaning Process Stopped
+                TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_INSTANCE.raiseEvent(key, 'Stopped') // Meaning Process Stopped
             }
         }
 

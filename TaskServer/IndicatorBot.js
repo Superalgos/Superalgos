@@ -7,8 +7,8 @@
 
     const MULTI_PERIOD_MARKET = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + 'MultiPeriodMarket');
     const MULTI_PERIOD_DAILY = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + 'MultiPeriodDaily');
-    const FILE_STORAGE = require('./FileStorage.js');
-    let fileStorage = FILE_STORAGE.newFileStorage(processIndex);
+    
+    let fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex);
 
     const DEBUG_MODULE = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + 'DebugLog');
 
@@ -287,12 +287,12 @@
 
                                             switch (processConfig.framework.name) {
                                                 case 'Multi-Period-Market': {
-                                                    processFramework = MULTI_PERIOD_MARKET.newMultiPeriodMarket(processIndex, FILE_STORAGE);
+                                                    processFramework = MULTI_PERIOD_MARKET.newMultiPeriodMarket(processIndex);
                                                     intitializeProcessFramework();
                                                     break;
                                                 }
                                                 case 'Multi-Period-Daily': {
-                                                    processFramework = MULTI_PERIOD_DAILY.newMultiPeriodDaily(processIndex, FILE_STORAGE);
+                                                    processFramework = MULTI_PERIOD_DAILY.newMultiPeriodDaily(processIndex);
                                                     intitializeProcessFramework();
                                                     break;
                                                 }
@@ -344,7 +344,7 @@
 
                     function initializeUserBot() {
                         try {
-                            usertBot = USER_BOT_MODULE.newUserBot(processIndex, COMMONS_MODULE, FILE_STORAGE);
+                            usertBot = USER_BOT_MODULE.newUserBot(processIndex, COMMONS_MODULE);
                             usertBot.initialize(statusDependencies, onInizialized);
 
                             function onInizialized(err) {

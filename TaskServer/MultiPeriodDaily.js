@@ -1,4 +1,4 @@
-﻿exports.newMultiPeriodDaily = function (processIndex, FILE_STORAGE) {
+﻿exports.newMultiPeriodDaily = function (processIndex) {
     const MODULE_NAME = "Multi Period Daily";
     const GMT_SECONDS = ':00.000 GMT+0000';
 
@@ -9,7 +9,7 @@
     };
 
     
-    let fileStorage = FILE_STORAGE.newFileStorage(processIndex)
+    let fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex)
 
     let statusDependencies;
     let dataDependenciesModule;
@@ -31,7 +31,7 @@
 
         let INDICATOR_OUTPUT_MODULE = require("./IndicatorOutput")
 
-        indicatorOutputModule = INDICATOR_OUTPUT_MODULE.newIndicatorOutput(processIndex, FILE_STORAGE)
+        indicatorOutputModule = INDICATOR_OUTPUT_MODULE.newIndicatorOutput(processIndex)
         indicatorOutputModule.initialize(callBackFunction)
     }
 

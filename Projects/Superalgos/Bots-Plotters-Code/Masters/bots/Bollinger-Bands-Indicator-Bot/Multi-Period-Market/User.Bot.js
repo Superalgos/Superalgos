@@ -1,4 +1,4 @@
-﻿exports.newUserBot = function (processIndex, COMMONS, FILE_STORAGE) {
+﻿exports.newUserBot = function (processIndex, COMMONS) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
@@ -18,7 +18,7 @@
 
     let statusDependencies;
     
-    let fileStorage = FILE_STORAGE.newFileStorage(processIndex);
+    let fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex);
 
     return thisObject;
 

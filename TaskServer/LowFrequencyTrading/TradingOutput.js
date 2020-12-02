@@ -1,4 +1,4 @@
-exports.newTradingOutput = function (processIndex, tradingEngineModule, FILE_STORAGE) {
+exports.newTradingOutput = function (processIndex, tradingEngineModule) {
     /*
     This module will load if necesary all the data outputs so that they can be appended with new
     records if needed. After running the simulation, it will save all the data outputs.
@@ -12,7 +12,7 @@ exports.newTradingOutput = function (processIndex, tradingEngineModule, FILE_STO
     }
 
     
-    let fileStorage = FILE_STORAGE.newFileStorage(processIndex)
+    let fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex)
 
     return thisObject
 

@@ -433,6 +433,12 @@
                     "propertyName": "eventServerClient",
                     "functionName": "newSuperalgosTaskModulesEventServerClient",
                     "fileName": "EventServerClient.js"
+                },
+                {
+                    "name": "File Storage",
+                    "propertyName": "fileStorage",
+                    "functionName": "newSuperalgosTaskModulesFileStorage",
+                    "fileName": "FileStorage.js"
                 }
             ],
             "processModules": [

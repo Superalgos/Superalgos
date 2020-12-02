@@ -20,14 +20,13 @@
     let dataFiles = new Map();
     let multiPeriodDataFiles = new Map();
 
-    const FILE_STORAGE = require('../FileStorage.js');
-    let fileStorage = FILE_STORAGE.newFileStorage(processIndex);
+    let fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex);
 
     const TRADING_ENGINE_MODULE = require('./TradingEngine.js')
     let tradingEngineModule = TRADING_ENGINE_MODULE.newTradingEngine(processIndex)
 
     let TRADING_OUTPUT_MODULE = require("./TradingOutput")
-    let tradingOutputModule = TRADING_OUTPUT_MODULE.newTradingOutput(processIndex, tradingEngineModule, FILE_STORAGE)
+    let tradingOutputModule = TRADING_OUTPUT_MODULE.newTradingOutput(processIndex, tradingEngineModule)
 
     let processConfig;
 
@@ -550,7 +549,7 @@
 
             function buildCharts(chart) {
                 const COMMONS = require('../Commons.js')
-                let commons = COMMONS.newCommons(processIndex, FILE_STORAGE)
+                let commons = COMMONS.newCommons(processIndex)
 
                 let mainDependency = {}
 

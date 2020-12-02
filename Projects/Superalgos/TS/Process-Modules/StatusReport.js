@@ -30,7 +30,7 @@
 
     /* Storage account to be used here. */
 
-    const FILE_STORAGE = require('./FileStorage.js');
+    
     let fileStorage
 
     let sessionPath = ''
@@ -153,7 +153,7 @@
                                                     thisObject.networkNode = networkNode
                                                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] initialize -> Retrieving status report from " + networkNode.name + " -> host = " + networkNode.config.host + ' -> port = ' + networkNode.config.webPort + '.')
 
-                                                    fileStorage = FILE_STORAGE.newFileStorage(processIndex, networkNode.config.host, networkNode.config.webPort)
+                                                    fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex, networkNode.config.host, networkNode.config.webPort)
                                                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
                                                     return true
                                                 }
@@ -204,7 +204,7 @@
                                                     thisObject.networkNode = networkNode
                                                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] initialize -> Retrieving status report from " + networkNode.name + " -> host = " + networkNode.config.host + ' -> port = ' + networkNode.config.webPort + '.')
 
-                                                    fileStorage = FILE_STORAGE.newFileStorage(processIndex, networkNode.config.host, networkNode.config.webPort)
+                                                    fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex, networkNode.config.host, networkNode.config.webPort)
                                                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
                                                     return true
                                                 }

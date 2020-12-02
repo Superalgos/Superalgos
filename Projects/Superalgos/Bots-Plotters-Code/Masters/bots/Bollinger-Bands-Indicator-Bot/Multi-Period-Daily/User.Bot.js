@@ -1,4 +1,4 @@
-﻿exports.newUserBot = function (processIndex, COMMONS, FILE_STORAGE) {
+﻿exports.newUserBot = function (processIndex, COMMONS) {
 
     const FULL_LOG = true;
     const INTENSIVE_LOG = false;
@@ -21,7 +21,7 @@
     };
 
     
-    let fileStorage = FILE_STORAGE.newFileStorage(processIndex);
+    let fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex);
 
     let statusDependencies;
     let beginingOfMarket

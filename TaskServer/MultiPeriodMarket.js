@@ -1,4 +1,4 @@
-﻿exports.newMultiPeriodMarket = function (processIndex, FILE_STORAGE) {
+﻿exports.newMultiPeriodMarket = function (processIndex) {
     const MODULE_NAME = "Multi Period Market";
     thisObject = {
         initialize: initialize,
@@ -7,7 +7,7 @@
     };
 
     
-    let fileStorage = FILE_STORAGE.newFileStorage(processIndex)
+    let fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex)
 
     let statusDependencies;
     let dataDependenciesModule;
@@ -27,7 +27,7 @@
 
         let INDICATOR_OUTPUT_MODULE = require("./IndicatorOutput")
 
-        indicatorOutputModule = INDICATOR_OUTPUT_MODULE.newIndicatorOutput(processIndex, FILE_STORAGE)
+        indicatorOutputModule = INDICATOR_OUTPUT_MODULE.newIndicatorOutput(processIndex)
         indicatorOutputModule.initialize(callBackFunction)
     }
 

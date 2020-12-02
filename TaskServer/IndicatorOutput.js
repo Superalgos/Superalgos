@@ -1,4 +1,4 @@
-﻿exports.newIndicatorOutput = function (processIndex, FILE_STORAGE) {
+﻿exports.newIndicatorOutput = function (processIndex) {
     const MODULE_NAME = "Indicator Bot";
 
     let thisObject = {
@@ -8,10 +8,10 @@
     };
 
     
-    let fileStorage = FILE_STORAGE.newFileStorage(processIndex);
+    let fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex);
 
     const COMMONS = require('./Commons.js');
-    let commons = COMMONS.newCommons(processIndex, FILE_STORAGE);
+    let commons = COMMONS.newCommons(processIndex);
 
     return thisObject;
 

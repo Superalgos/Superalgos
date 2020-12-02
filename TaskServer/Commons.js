@@ -1,4 +1,4 @@
-﻿exports.newCommons = function (processIndex, FILE_STORAGE) {
+﻿exports.newCommons = function (processIndex) {
 
     const MODULE_NAME = "Commons";
 
@@ -13,7 +13,7 @@
     };
 
     
-    let fileStorage = FILE_STORAGE.newFileStorage(processIndex);
+    let fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex);
 
     return thisObject;
 

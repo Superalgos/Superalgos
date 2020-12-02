@@ -5,8 +5,8 @@
     let USER_BOT_MODULE;
     let COMMONS_MODULE;
 
-    const FILE_STORAGE = require('./FileStorage.js');
-    let fileStorage = FILE_STORAGE.newFileStorage(processIndex);
+    
+    let fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex);
 
     const DEBUG_MODULE = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + 'DebugLog');
 
@@ -277,7 +277,7 @@
 
                     function initializeUserBot() {
                         try {
-                            usertBot = USER_BOT_MODULE.newUserBot(processIndex, COMMONS_MODULE, FILE_STORAGE, exchangeAPI);
+                            usertBot = USER_BOT_MODULE.newUserBot(processIndex, COMMONS_MODULE, exchangeAPI);
                             usertBot.initialize(statusDependencies, onInizialized);
 
                             function onInizialized(err) {

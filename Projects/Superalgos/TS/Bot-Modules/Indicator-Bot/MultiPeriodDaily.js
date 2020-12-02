@@ -1,4 +1,4 @@
-﻿exports.newMultiPeriodDaily = function (processIndex) {
+﻿exports.newSuperalgosBotModulesMultiPeriodDaily = function (processIndex) {
     const MODULE_NAME = "Multi Period Daily";
     const GMT_SECONDS = ':00.000 GMT+0000';
 

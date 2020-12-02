@@ -14,7 +14,6 @@
         try {
             /* Process Loops Declarations. */
 
-            const INDICATOR_BOT_MODULE = require('./IndicatorBot');
             const TRADING_BOT_MODULE = require('./TradingBot');
 
             let botInstance
@@ -107,7 +106,7 @@
                 try {
                     TS.projects.superalgos.globals.processVariables.TOTAL_PROCESS_INSTANCES_CREATED++
 
-                    botInstance = INDICATOR_BOT_MODULE.newIndicatorBot(processIndex);
+                    botInstance = TS.projects.superalgos.botModules.singleMarketIndicatorBot.newSuperalgosBotModulesSingleMarketIndicatorBot(processIndex);
                     botInstance.initialize(processConfig, onInitializeReady);
 
                 }

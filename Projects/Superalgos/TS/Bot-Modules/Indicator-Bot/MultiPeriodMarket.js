@@ -1,4 +1,4 @@
-﻿exports.newMultiPeriodMarket = function (processIndex) {
+﻿exports.newSuperalgosBotModulesMultiPeriodMarket = function (processIndex) {
     const MODULE_NAME = "Multi Period Market";
     thisObject = {
         initialize: initialize,

@@ -1,13 +1,10 @@
-﻿exports.newIndicatorBot = function newIndicatorBot(processIndex) {
+﻿exports.newSuperalgosBotModulesSingleMarketIndicatorBot = function (processIndex) {
 
     const MODULE_NAME = "Indicator Bot";
 
     let USER_BOT_MODULE;
     let COMMONS_MODULE;
 
-    const MULTI_PERIOD_MARKET = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + 'MultiPeriodMarket');
-    const MULTI_PERIOD_DAILY = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + 'MultiPeriodDaily');
-    
     let fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex);
 
     let nextLoopTimeoutHandle;
@@ -285,12 +282,12 @@
 
                                             switch (processConfig.framework.name) {
                                                 case 'Multi-Period-Market': {
-                                                    processFramework = MULTI_PERIOD_MARKET.newMultiPeriodMarket(processIndex);
+                                                    processFramework = TS.projects.superalgos.botModules.multiPeriodMarket.newSuperalgosBotModulesMultiPeriodMarket(processIndex);
                                                     intitializeProcessFramework();
                                                     break;
                                                 }
                                                 case 'Multi-Period-Daily': {
-                                                    processFramework = MULTI_PERIOD_DAILY.newMultiPeriodDaily(processIndex);
+                                                    processFramework = TS.projects.superalgos.botModules.multiPeriodDaily.newSuperalgosBotModulesMultiPeriodDaily(processIndex);
                                                     intitializeProcessFramework();
                                                     break;
                                                 }

@@ -485,13 +485,13 @@
                     "fileName": "ProcessOutput.js"
                 }
             ],
-            "botsModules": [
+            "botModules": [
                 {
-                    "botType": "Sensor Bot",
                     "name": "Single Market Sensor Bot",
                     "propertyName": "singleMarketSensorBot",
                     "functionName": "newSuperalgosBotModulesSingleMarketSensorBot",
-                    "fileName": "SingleMarketSensorBot.js"
+                    "fileName": "SingleMarketSensorBot.js",
+                    "folderName": "Sensor-Bot"
                 }
             ]
         },

@@ -94,7 +94,7 @@
                 try {
                     TS.projects.superalgos.globals.processVariables.TOTAL_PROCESS_INSTANCES_CREATED++
 
-                    botInstance = TS.projects.superalgos.botsModules.singleMarketSensorBot.newSuperalgosBotModulesSingleMarketSensorBot(processIndex);
+                    botInstance = TS.projects.superalgos.botModules.singleMarketSensorBot.newSuperalgosBotModulesSingleMarketSensorBot(processIndex);
                     botInstance.initialize(processConfig, onInitializeReady);
                 }
                 catch (err) {

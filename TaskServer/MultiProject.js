@@ -29,6 +29,7 @@ exports.newMultiProject = function () {
             projectInstance.functionLibraries = {}
             projectInstance.taskModules = {}
             projectInstance.processModules = {}
+            projectInstance.botModules = {}
 
             /* Set up Utilities of this Project */
             if (projectDefinition.TS.utilities !== undefined) {
@@ -92,7 +93,7 @@ exports.newMultiProject = function () {
             if (projectDefinition.TS.botModules !== undefined) {
                 for (let j = 0; j < projectDefinition.TS.botModules.length; j++) {
                     let botModuleDefinition = projectDefinition.TS.botModules[j]
-                    let path = global.env.PATH_TO_PROJECTS_REQUIRED + '/' + projectDefinition.name + '/' + 'TS' + '/' + 'Bot-Modules' + '/' + botModuleDefinition.fileName
+                    let path = global.env.PATH_TO_PROJECTS_REQUIRED + '/' + projectDefinition.name + '/' + 'TS' + '/' + 'Bot-Modules' + '/' +  botModuleDefinition.folderName + '/' + botModuleDefinition.fileName
 
                     let requiredObject = require(path)
                     projectInstance.botModules[botModuleDefinition.propertyName] = requiredObject

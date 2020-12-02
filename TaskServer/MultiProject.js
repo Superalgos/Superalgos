@@ -70,6 +70,17 @@ exports.newMultiProject = function () {
                     projectInstance.botClasses[botClassDefinition.propertyName] = requiredFunction.call()
                 }
             }
+
+            /* Set up Process Modules for this Project */
+            if (projectDefinition.TS.processModules !== undefined) {
+                for (let j = 0; j < projectDefinition.TS.processModules.length; j++) {
+                    let processModuleDefinition = projectDefinition.TS.processModules[j]
+                    let path = global.env.PATH_TO_PROJECTS_REQUIRED + '/' + projectDefinition.name + '/' + 'TS' + '/' + 'Process-Modules' + '/' + processModuleDefinition.fileName
+
+                    let requiredObject = require(path)
+                    projectInstance.processModules[processModuleDefinition.propertyName] = requiredObject
+                }
+            }
         }
     }
 }

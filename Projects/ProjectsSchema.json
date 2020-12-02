@@ -479,7 +479,15 @@
                     "fileName": "ProcessOutput.js"
                 }
             ],
-            "botClasses": []
+            "botsModules": [
+                {
+                    "botType": "Sensor Bot",
+                    "name": "Single Market Sensor Bot",
+                    "propertyName": "singleMarketSensorBot",
+                    "functionName": "newSuperalgosBotModulesSingleMarketSensorBot",
+                    "fileName": "SingleMarketSensorBot.js"
+                }
+            ]
         },
         "CL": {}
     },

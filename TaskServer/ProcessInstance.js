@@ -15,7 +15,6 @@
             /* Process Loops Declarations. */
 
             const INDICATOR_BOT_MODULE = require('./IndicatorBot');
-            const SENSOR_BOT = require('./SensorBot');
             const TRADING_BOT_MODULE = require('./TradingBot');
             const DEBUG_MODULE = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + 'DebugLog');
 
@@ -96,7 +95,7 @@
                 try {
                     TS.projects.superalgos.globals.processVariables.TOTAL_PROCESS_INSTANCES_CREATED++
 
-                    botInstance = SENSOR_BOT.newSensorBot(processIndex);
+                    botInstance = TS.projects.superalgos.botsModules.singleMarketSensorBot.newSuperalgosBotModulesSingleMarketSensorBot(processIndex);
                     botInstance.initialize(processConfig, onInitializeReady);
                 }
                 catch (err) {

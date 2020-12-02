@@ -1,4 +1,4 @@
-﻿exports.newSensorBot = function newSensorBot(processIndex) {
+﻿exports.newSuperalgosBotModulesSingleMarketSensorBot = function (processIndex) {
 
     const MODULE_NAME = "Sensor Bot";
 

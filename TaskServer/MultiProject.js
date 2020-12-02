@@ -10,7 +10,7 @@ exports.newMultiProject = function () {
         /*
         First thing is to load the project schema file.
         */
-       let PROJECTS_SCHEMA = require(global.env.PATH_TO_PROJECTS_REQUIRED + '/' + 'ProjectsSchema.json')
+        let PROJECTS_SCHEMA = require(global.env.PATH_TO_PROJECTS_REQUIRED + '/' + 'ProjectsSchema.json')
 
         /*
         Here we will setup the TS object, with all the
@@ -66,18 +66,6 @@ exports.newMultiProject = function () {
                 }
             }
 
-            /* Set up Bot Classes of this Project */
-            if (projectDefinition.TS.botClasses !== undefined) {
-                for (let j = 0; j < projectDefinition.TS.botClasses.length; j++) {
-                    let botClassDefinition = projectDefinition.TS.botClasses[j]
-                    let path = global.env.PATH_TO_PROJECTS_REQUIRED + '/' + projectDefinition.name + '/' + 'TS' + '/' + 'Bot-Classes' + '/' + botClassDefinition.fileName
-
-                    let requiredObject = require(path)
-                    let requiredFunction = requiredObject[botClassDefinition.functionName]
-                    projectInstance.botClasses[botClassDefinition.propertyName] = requiredFunction.call()
-                }
-            }
-
             /* Set up Process Modules for this Project */
             if (projectDefinition.TS.taskModules !== undefined) {
                 for (let j = 0; j < projectDefinition.TS.taskModules.length; j++) {
@@ -97,6 +85,17 @@ exports.newMultiProject = function () {
 
                     let requiredObject = require(path)
                     projectInstance.processModules[processModuleDefinition.propertyName] = requiredObject
+                }
+            }
+
+            /* Set up Bot Modules for this Project */
+            if (projectDefinition.TS.botModules !== undefined) {
+                for (let j = 0; j < projectDefinition.TS.botModules.length; j++) {
+                    let botModuleDefinition = projectDefinition.TS.botModules[j]
+                    let path = global.env.PATH_TO_PROJECTS_REQUIRED + '/' + projectDefinition.name + '/' + 'TS' + '/' + 'Bot-Modules' + '/' + botModuleDefinition.fileName
+
+                    let requiredObject = require(path)
+                    projectInstance.botModules[botModuleDefinition.propertyName] = requiredObject
                 }
             }
         }

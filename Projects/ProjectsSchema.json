@@ -405,6 +405,12 @@
                     "propertyName": "sessionFunctions",
                     "functionName": "newSuperalgosFunctionLibrariesSessionFunctions",
                     "fileName": "SessionFunctions.js"
+                },
+                {
+                    "name": "Single Market Functions",
+                    "propertyName": "singleMarketFunctions",
+                    "functionName": "newSuperalgosFunctionLibrariesSingleMarketFunctions",
+                    "fileName": "SingleMarketFunctions.js"
                 }
             ],
             "utilities": [
@@ -512,6 +518,13 @@
                     "propertyName": "multiPeriodDaily",
                     "functionName": "newSuperalgosBotModulesMultiPeriodDaily",
                     "fileName": "MultiPeriodDaily.js",
+                    "folderName": "Indicator-Bot"
+                },
+                {
+                    "name": "Indicator Output",
+                    "propertyName": "indicatorOutput",
+                    "functionName": "newSuperalgosBotModulesIndicatorOutput",
+                    "fileName": "IndicatorOutput.js",
                     "folderName": "Indicator-Bot"
                 }
             ]

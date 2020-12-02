@@ -12,7 +12,6 @@
         writeFile: writeFile
     };
 
-    
     let fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex);
 
     return thisObject;

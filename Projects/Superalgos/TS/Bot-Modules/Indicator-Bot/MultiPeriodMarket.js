@@ -25,9 +25,7 @@
         dataDependenciesModule = pDataDependencies;
         processConfig = pProcessConfig;
 
-        let INDICATOR_OUTPUT_MODULE = require("./IndicatorOutput")
-
-        indicatorOutputModule = INDICATOR_OUTPUT_MODULE.newIndicatorOutput(processIndex)
+        indicatorOutputModule = TS.projects.superalgos.botModules.indicatorOutput.newSuperalgosBotModulesIndicatorOutput(processIndex)
         indicatorOutputModule.initialize(callBackFunction)
     }
 

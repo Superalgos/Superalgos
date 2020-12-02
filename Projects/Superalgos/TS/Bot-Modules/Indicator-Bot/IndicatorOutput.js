@@ -1,4 +1,4 @@
-﻿exports.newIndicatorOutput = function (processIndex) {
+﻿exports.newSuperalgosBotModulesIndicatorOutput = function (processIndex) {
     const MODULE_NAME = "Indicator Bot";
 
     let thisObject = {

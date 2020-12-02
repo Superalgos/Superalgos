@@ -123,7 +123,7 @@
 
                     function initializeProcessExecutionEvents() {
                         try {
-                            processExecutionEvents = PROCESS_EXECUTION_EVENTS.newSuperalgosProcessModulesProcessExecutionEvents(processIndex)
+                            processExecutionEvents = TS.projects.superalgos.processModules.processExecutionEvents.newSuperalgosProcessModulesProcessExecutionEvents(processIndex)
                             processExecutionEvents.initialize(processConfig, onInizialized);
 
                             function onInizialized(err) {
@@ -224,7 +224,7 @@
 
                     function initializeStatusDependencies() {
                         try {
-                            statusDependencies = STATUS_DEPENDENCIES.newSuperalgosProcessModulesStatusDependencies(processIndex);
+                            statusDependencies = TS.projects.superalgos.processModules.statusDependencies.newSuperalgosProcessModulesStatusDependencies(processIndex);
                             statusDependencies.initialize(onInizialized);
 
                             function onInizialized(err) {
@@ -272,7 +272,7 @@
 
                     function initializeDataDependencies() {
                         try {
-                            dataDependencies = DATA_DEPENDENCIES.newSuperalgosProcessModulesDataDependencies(processIndex);
+                            dataDependencies = TS.projects.superalgos.processModules.dataDependencies.newSuperalgosProcessModulesDataDependencies(processIndex);
                             dataDependencies.initialize(onInizialized);
 
                             function onInizialized(err) {

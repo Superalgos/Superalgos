@@ -73,7 +73,7 @@
             let newNodeArray = []
 
             for (let i = 0; i < thisObject.nodeArray.length; i++) {
-                let dataSetModule = DATA_SET.newSuperalgosProcessModulesDataset(processIndex);
+                let dataSetModule = TS.projects.superalgos.processModules.dataset.newSuperalgosProcessModulesDataset(processIndex);
                 dataSetModule.initialize(thisObject.nodeArray[i], onInitilized);
 
                 function onInitilized(err, wasInitialized) {

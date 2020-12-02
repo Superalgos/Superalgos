@@ -365,7 +365,7 @@
 
                 /* All good, lets emit the event that means data has been updated. */
 
-                let processOutput = PROCESS_OUTPUT.newSuperalgosProcessModulesProcessOutput(processIndex)
+                let processOutput = TS.projects.superalgos.processModules.processOutput.newSuperalgosProcessModulesProcessOutput(processIndex)
                 processOutput.raiseEvents(thisObject.file.lastFile, thisObject.file.timeFrames, callBackFunction);
                 return
             }
@@ -392,7 +392,7 @@
         }
 
         /* All good, lets emit the event that means data has been updated. */
-        let processOutput = PROCESS_OUTPUT.newSuperalgosProcessModulesProcessOutput(processIndex)
+        let processOutput = TS.projects.superalgos.processModules.processOutput.newSuperalgosProcessModulesProcessOutput(processIndex)
         processOutput.asyncRaiseEvents(thisObject.file.lastFile, thisObject.file.timeFrames)
     }
 }

@@ -12,10 +12,6 @@
 
     function start(processIndex) {
         try {
-            /* Process Loops Declarations. */
-
-            const TRADING_BOT_MODULE = require('./TradingBot');
-
             let botInstance
 
             let botConfig = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config
@@ -120,7 +116,7 @@
                 try {
                     TS.projects.superalgos.globals.processVariables.TOTAL_PROCESS_INSTANCES_CREATED++
 
-                    botInstance = TRADING_BOT_MODULE.newTradingBot(processIndex);
+                    botInstance = TS.projects.superalgos.botModules.singleMarketTradingBot.newSuperalgosBotModulesSingleMarketTradingBot(processIndex);
                     botInstance.initialize(processConfig, onInitializeReady);
                 }
                 catch (err) {
@@ -133,7 +129,7 @@
                 try {
                     TS.projects.superalgos.globals.processVariables.TOTAL_PROCESS_INSTANCES_CREATED++
 
-                    botInstance = TRADING_BOT_MODULE.newLearningBot(processIndex);
+                    botInstance = LEARNING_BOT_MODULE.newLearningBot(processIndex);
                     botInstance.initialize(processConfig, onInitializeReady);
                 }
                 catch (err) {

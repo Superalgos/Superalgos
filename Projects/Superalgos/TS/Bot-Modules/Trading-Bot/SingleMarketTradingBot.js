@@ -1,4 +1,4 @@
-﻿exports.newTradingBot = function newTradingBot(processIndex) {
+﻿exports.newSuperalgosBotModulesSingleMarketTradingBot = function (processIndex) {
 
     const MODULE_NAME = "Trading Bot";
     const FULL_LOG = true;

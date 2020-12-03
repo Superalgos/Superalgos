@@ -526,6 +526,13 @@
                     "functionName": "newSuperalgosBotModulesIndicatorOutput",
                     "fileName": "IndicatorOutput.js",
                     "folderName": "Indicator-Bot"
+                },
+                {
+                    "name": "Single Market Trading Bot",
+                    "propertyName": "singleMarketTradingBot",
+                    "functionName": "newSuperalgosBotModulesSingleMarketTradingBot",
+                    "fileName": "SingleMarketTradingBot.js",
+                    "folderName": "Trading-Bot"
                 }
             ]
         },

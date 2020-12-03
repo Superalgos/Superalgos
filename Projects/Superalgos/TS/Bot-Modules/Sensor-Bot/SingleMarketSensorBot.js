@@ -2,9 +2,6 @@
 
     const MODULE_NAME = "Sensor Bot";
 
-    let USER_BOT_MODULE;
-    let COMMONS_MODULE;
-
     let fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex);
 
     let nextLoopTimeoutHandle;
@@ -15,6 +12,7 @@
     };
 
     let processConfig;
+    let botModuleObject
 
     return thisObject;
 
@@ -23,57 +21,24 @@
         try {
             processConfig = pProcessConfig;
 
-            if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config.repo === undefined) {
-                /* The code of the bot is defined at the UI. No need to load a file with the code. */
+            if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.botModule === undefined) {
+                /* The code of the bot is defined at the UI. No need to load a module for this. */
                 callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
                 return
-            }
+            } else {
+                /*
+                Here we will need to scan the PROJECTS SCHEMA in order to find the botModule 
+                defined for this Sensor Bot.
+                */
+                let botModuleDefinition = TS.projects.superalgos.functionLibraries.taskFunctions.getBotModuleByName(
+                    TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.botModule
+                )
+                let botModule = TS.projects.superalgos.botModules[botModuleDefinition.propertyName]
+                let moduleFunction = botModule[botModuleDefinition.functionName]
+                botModuleObject = moduleFunction(processIndex)
 
-            let filePath =
-                TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.project +    // project
-                '/Bots-Plotters-Code/' +
-                TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName +
-                "/" + "bots" + "/" +
-                TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config.repo + "/" +
-                pProcessConfig.codeName
-            filePath += "/User.Bot.js"
-
-            fileStorage.getTextFile(filePath, onBotDownloaded);
-
-            function onBotDownloaded(err, text) {
-                if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-
-                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] initialize -> onInizialized -> onBotDownloaded -> err = " + err.message);
-                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] initialize -> onInizialized -> onBotDownloaded -> filePath = " + filePath);
-                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
-                    return;
-                }
-                USER_BOT_MODULE = {}
-
-                try {
-                    USER_BOT_MODULE.newUserBot = eval(text); // TODO This needs to be changed function
-                } catch (err) {
-                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] initialize -> onBotDownloaded -> err = " + err.stack);
-                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
-                }
-
-                filePath = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "/" + "bots" + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config.repo;
-                filePath += "/Commons.js"
-
-                fileStorage.getTextFile(filePath, onCommonsDownloaded);
-
-                function onCommonsDownloaded(err, text) {
-                    if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE.write(MODULE_NAME, "[WARN] initialize -> onBotDownloaded -> onCommonsDownloaded -> Commons not found: " + err.message);
-                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
-                        return;
-                    }
-                    COMMONS_MODULE = {}
-
-                    COMMONS_MODULE.newCommons = eval(text); // TODO This needs to be changed function
-
-                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
-                }
+                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
+                return
             }
 
         } catch (err) {
@@ -114,10 +79,7 @@
 
                     /* We will prepare first the infraestructure needed for the bot to run. There are 4 modules we need to sucessfullly initialize first. */
                     let processExecutionEvents
-                    let userBot;
                     let statusDependencies;
-                    let exchangeAPI;
-
                     let nextWaitTime;
 
                     initializeProcessExecutionEvents();
@@ -274,8 +236,7 @@
 
                     function initializeUserBot() {
                         try {
-                            usertBot = USER_BOT_MODULE.newUserBot(processIndex, COMMONS_MODULE, exchangeAPI);
-                            usertBot.initialize(statusDependencies, onInizialized);
+                            botModuleObject.initialize(statusDependencies, onInizialized);
 
                             function onInizialized(err) {
                                 try {
@@ -333,7 +294,7 @@
 
                     function startUserBot() {
                         try {
-                            usertBot.start(onFinished);
+                            botModuleObject.start(onFinished);
 
                             function onFinished(err) {
                                 try {

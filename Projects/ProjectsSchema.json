@@ -501,6 +501,20 @@
                     "botType": "Sensor Bot"
                 },
                 {
+                    "name": "Single Market Sensor Bot",
+                    "propertyName": "singleMarketSensorBot",
+                    "functionName": "newSuperalgosBotModulesSingleMarketSensorBot",
+                    "fileName": "SingleMarketSensorBot.js",
+                    "folderName": "Sensor-Bot/"
+                },
+                {
+                    "name": "Historic OHLCVs",
+                    "propertyName": "historicOHLCVs",
+                    "functionName": "newSuperalgosBotModulesHistoricOHLCVs",
+                    "fileName": "HistoricOHLCVs.js",
+                    "folderName": "Sensor-Bot/Exchange-Raw-Data"
+                },
+                {
                     "name": "Single Market Indicator Bot",
                     "propertyName": "singleMarketIndicatorBot",
                     "functionName": "newSuperalgosBotModulesSingleMarketIndicatorBot",

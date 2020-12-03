@@ -1,4 +1,4 @@
-exports.newTelegramBot = function (processIndex) {
+exports.newSuperalgosBotModulesTelegramBot = function (processIndex) {
 
     const MODULE_NAME = 'Telegram Bot'
 

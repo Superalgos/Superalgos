@@ -8,8 +8,6 @@ exports.newSuperalgosBotModulesSocialBots = function (processIndex) {
         finalize: finalize
     }
 
-    const TELEGRAM_BOT_MODULE = require('./TelegramBot.js')
-
     return thisObject
 
     function initialize() {
@@ -19,7 +17,7 @@ exports.newSuperalgosBotModulesSocialBots = function (processIndex) {
                     let socialBot = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.socialBots.bots[i]
                     if (socialBot.type === "Telegram Bot") {
                         let config = socialBot.config
-                        socialBot.botInstance = TELEGRAM_BOT_MODULE.newTelegramBot(processIndex)
+                        socialBot.botInstance = TS.projects.superalgos.botModules.telegramBot.newSuperalgosBotModulesTelegramBot(processIndex)
                         socialBot.botInstance.initialize(config.botToken, config.chatId)
                     }
                 }

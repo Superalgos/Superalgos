@@ -654,19 +654,18 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex, tradingEn
         let previousBaseAssetFeesPaid = tradingEngineOrder.orderBaseAsset.feesPaid.value
         let previousQuotedAssetFeesPaid = tradingEngineOrder.orderQuotedAsset.feesPaid.value
 
-        const ORDERS_SIMULATIONS_MODULE = require('./OrdersSimulations.js')
-        let ordersSimulationsModule = ORDERS_SIMULATIONS_MODULE.newOrdersSimulations(processIndex)
-        ordersSimulationsModule.initialize()
+        let ordersSimulationsModuleObject = TS.projects.superalgos.botModules.ordersSimulations.newSuperalgosBotModulesOrdersSimulations(processIndex)
+        ordersSimulationsModuleObject.initialize()
 
-        ordersSimulationsModule.actualSizeSimulation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, applyFeePercentage)
-        ordersSimulationsModule.actualRateSimulation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, applyFeePercentage)
-        ordersSimulationsModule.feesToBePaidSimulation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, applyFeePercentage)
-        ordersSimulationsModule.percentageFilledSimulation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, applyFeePercentage)
-        ordersSimulationsModule.feesPaidSimulation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, applyFeePercentage)
-        ordersSimulationsModule.sizeFilledSimulation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, applyFeePercentage)
-        ordersSimulationsModule.amountReceivedSimulation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, applyFeePercentage)
+        ordersSimulationsModuleObject.actualSizeSimulation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, applyFeePercentage)
+        ordersSimulationsModuleObject.actualRateSimulation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, applyFeePercentage)
+        ordersSimulationsModuleObject.feesToBePaidSimulation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, applyFeePercentage)
+        ordersSimulationsModuleObject.percentageFilledSimulation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, applyFeePercentage)
+        ordersSimulationsModuleObject.feesPaidSimulation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, applyFeePercentage)
+        ordersSimulationsModuleObject.sizeFilledSimulation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, applyFeePercentage)
+        ordersSimulationsModuleObject.amountReceivedSimulation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, applyFeePercentage)
 
-        ordersSimulationsModule.finalize()
+        ordersSimulationsModuleObject.finalize()
 
         doTheAccounting(
             tradingEngineStage,
@@ -686,19 +685,18 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex, tradingEn
         let previousBaseAssetFeesPaid = tradingEngineOrder.orderBaseAsset.feesPaid.value
         let previousQuotedAssetFeesPaid = tradingEngineOrder.orderQuotedAsset.feesPaid.value
 
-        const ORDERS_CALCULATIONS_MODULE = require('./OrdersCalculations.js')
-        let ordersCalculationsModule = ORDERS_CALCULATIONS_MODULE.newOrdersCalculations(processIndex)
-        ordersCalculationsModule.initialize()
+        let ordersCalculationsModuleObject = TS.projects.superalgos.botModules.ordersCalculations.newSuperalgosBotModulesOrdersCalculations(processIndex)
+        ordersCalculationsModuleObject.initialize()
 
-        await ordersCalculationsModule.actualSizeCalculation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order, applyFeePercentage)
-        await ordersCalculationsModule.actualRateCalculation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order, applyFeePercentage)
-        await ordersCalculationsModule.feesToBePaidCalculation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order, applyFeePercentage)
-        await ordersCalculationsModule.percentageFilledCalculation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order, applyFeePercentage)
-        await ordersCalculationsModule.feesPaidCalculation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order, applyFeePercentage)
-        await ordersCalculationsModule.sizeFilledCalculation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order, applyFeePercentage)
-        await ordersCalculationsModule.amountReceivedCalculation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order, applyFeePercentage)
+        await ordersCalculationsModuleObject.actualSizeCalculation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order, applyFeePercentage)
+        await ordersCalculationsModuleObject.actualRateCalculation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order, applyFeePercentage)
+        await ordersCalculationsModuleObject.feesToBePaidCalculation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order, applyFeePercentage)
+        await ordersCalculationsModuleObject.percentageFilledCalculation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order, applyFeePercentage)
+        await ordersCalculationsModuleObject.feesPaidCalculation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order, applyFeePercentage)
+        await ordersCalculationsModuleObject.sizeFilledCalculation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order, applyFeePercentage)
+        await ordersCalculationsModuleObject.amountReceivedCalculation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order, applyFeePercentage)
 
-        ordersCalculationsModule.finalize()
+        ordersCalculationsModuleObject.finalize()
 
         await doTheAccounting(
             tradingEngineStage,

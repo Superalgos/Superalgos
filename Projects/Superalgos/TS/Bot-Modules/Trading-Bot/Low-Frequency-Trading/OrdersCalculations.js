@@ -1,4 +1,4 @@
-exports.newOrdersCalculations = function (processIndex) {
+exports.newSuperalgosBotModulesOrdersCalculations = function (processIndex) {
     /*
     When we are live trading, we need to syncronize with the exchange.
     */

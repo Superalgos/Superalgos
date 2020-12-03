@@ -1,4 +1,4 @@
-exports.newSuperalgosBotModulesTradingEpisode = function (processIndex, tradingEngineModule) {
+exports.newSuperalgosBotModulesTradingEpisode = function (processIndex, tradingEngineModuleObject) {
     /*
     This module packages all functions related to Episodes.
     */
@@ -83,7 +83,7 @@ exports.newSuperalgosBotModulesTradingEpisode = function (processIndex, tradingE
     }
 
     function resetEpisode() {
-        tradingEngineModule.initializeNode(tradingEngine.current.episode)
+        tradingEngineModuleObject.initializeNode(tradingEngine.current.episode)
     }
 
     function updateEnds() {

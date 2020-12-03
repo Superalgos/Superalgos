@@ -1,4 +1,4 @@
-exports.newTradingStages = function (processIndex, tradingEngineModule) {
+exports.newSuperalgosBotModulesTradingStages = function (processIndex, tradingEngineModuleObject) {
     /*
     This module packages all functions related to Stages.
     */
@@ -21,13 +21,13 @@ exports.newTradingStages = function (processIndex, tradingEngineModule) {
     }
 
     const TRADING_STRATEGY_MODULE = require('./TradingStrategy.js')
-    let tradingStrategyModule = TRADING_STRATEGY_MODULE.newTradingStrategy(processIndex, tradingEngineModule)
+    let tradingStrategyModule = TRADING_STRATEGY_MODULE.newTradingStrategy(processIndex, tradingEngineModuleObject)
 
     const TRADING_POSITION_MODULE = require('./TradingPosition.js')
-    let tradingPositionModule = TRADING_POSITION_MODULE.newTradingPosition(processIndex, tradingEngineModule)
+    let tradingPositionModule = TRADING_POSITION_MODULE.newTradingPosition(processIndex, tradingEngineModuleObject)
 
     const TRADING_ENGINE_EXECUTION = require('./TradingExecution.js')
-    let tradingExecutionModule = TRADING_ENGINE_EXECUTION.newTradingExecution(processIndex, tradingEngineModule)
+    let tradingExecutionModule = TRADING_ENGINE_EXECUTION.newTradingExecution(processIndex, tradingEngineModuleObject)
 
     const ANNOUNCEMENTS_MODULE = require('./Announcements.js')
     let announcementsModule = ANNOUNCEMENTS_MODULE.newAnnouncements(processIndex)
@@ -291,7 +291,7 @@ exports.newTradingStages = function (processIndex, tradingEngineModule) {
                 let tradingEngineStage = tradingEngine.current.strategyOpenStage
 
                 /* Reset the Exchange Orders data structure to its initial value */
-                tradingEngineModule.initializeNode(tradingEngine.exchangeOrders)
+                tradingEngineModuleObject.initializeNode(tradingEngine.exchangeOrders)
 
                 /* Entry Position size and rate */
                 tradingSystem.evalFormulas(tradingSystemStage, 'Initial Targets')
@@ -1071,7 +1071,7 @@ exports.newTradingStages = function (processIndex, tradingEngineModule) {
         }
 
         function resetStage(stage) {
-            tradingEngineModule.initializeNode(stage)
+            tradingEngineModuleObject.initializeNode(stage)
         }
     }
 

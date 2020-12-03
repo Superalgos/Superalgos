@@ -1,4 +1,4 @@
-exports.newSuperalgosBotModulesTradingSystem = function (processIndex, tradingEngineModule) {
+exports.newSuperalgosBotModulesTradingSystem = function (processIndex, tradingEngineModuleObject) {
     /*
     The Trading System is the user defined set of rules compliant with the Trading Protocol that
     defines the trading logic to be applied during each cycle of the Simulation.
@@ -19,9 +19,7 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex, tradingEn
     let sessionParameters
     let dynamicIndicators
 
-    const TRADING_STAGES_MODULE = require('./TradingStages.js')
-    let tradingStagesModule = TRADING_STAGES_MODULE.newTradingStages(processIndex, tradingEngineModule)
-
+    let tradingStagesModuleObject = TS.projects.superalgos.botModules.tradingStages.newSuperalgosBotModulesTradingStages(processIndex, tradingEngineModuleObject)
 
     return thisObject
 
@@ -33,7 +31,7 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex, tradingEn
         tradingSystem.conditions = new Map()
         tradingSystem.formulas = new Map()
 
-        tradingStagesModule.initialize()
+        tradingStagesModuleObject.initialize()
 
         /* Adding Functions used elsewhere to Trading System Definition */
         tradingSystem.checkConditions = function (situation, passed) {
@@ -78,8 +76,8 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex, tradingEn
     }
 
     function finalize() {
-        tradingStagesModule.finalize()
-        tradingStagesModule = undefined
+        tradingStagesModuleObject.finalize()
+        tradingStagesModuleObject = undefined
 
         chart = undefined
 
@@ -101,11 +99,11 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex, tradingEn
     }
 
     function mantain() {
-        tradingStagesModule.mantain()
+        tradingStagesModuleObject.mantain()
     }
 
     function reset() {
-        tradingStagesModule.reset()
+        tradingStagesModuleObject.reset()
 
         tradingSystem.highlights = []
         tradingSystem.errors = []
@@ -120,7 +118,7 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex, tradingEn
 
     function updateChart(pChart) {
         chart = pChart // We need chat to be a local object accessible from conditions and formulas.
-        tradingStagesModule.updateChart(pChart)
+        tradingStagesModuleObject.updateChart(pChart)
     }
 
     function buildDynamicIndicators() {
@@ -144,18 +142,18 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex, tradingEn
             buildDynamicIndicators()
 
             /* Run the Trigger Stage */
-            tradingStagesModule.runTriggerStage()
+            tradingStagesModuleObject.runTriggerStage()
 
             /* Run the Open Stage */
-            await tradingStagesModule.runOpenStage()
+            await tradingStagesModuleObject.runOpenStage()
 
             /* Run the Manage Stage */
-            tradingStagesModule.runManageStage()
+            tradingStagesModuleObject.runManageStage()
 
             /* Run the Close Stage */
-            await tradingStagesModule.runCloseStage()
+            await tradingStagesModuleObject.runCloseStage()
 
-            tradingStagesModule.cycleBasedStatistics()
+            tradingStagesModuleObject.cycleBasedStatistics()
 
         } catch (err) {
             /* 

@@ -1,4 +1,4 @@
-exports.newTradingOrders = function (processIndex, tradingEngineModule) {
+exports.newSuperalgosBotModulesTradingOrders = function (processIndex, tradingEngineModule) {
     /*
     The Trading Orders modules manages the execution of orders against the exchanges.
     */
@@ -16,9 +16,7 @@ exports.newTradingOrders = function (processIndex, tradingEngineModule) {
     let tradingSystem
     let sessionParameters
 
-    const EXCHANGE_API_MODULE = require('./ExchangeAPI.js')
-    let exchangeAPIModule = EXCHANGE_API_MODULE.newExchangeAPI(processIndex)
-
+    let exchangeAPIModuleObject = TS.projects.superalgos.botModules.exchangeAPI.newSuperalgosBotModulesExchangeAPI(processIndex)
     let announcementsModuleObject = TS.projects.superalgos.botModules.announcements.newSuperalgosBotModulesAnnouncements(processIndex)
 
     return thisObject
@@ -28,7 +26,7 @@ exports.newTradingOrders = function (processIndex, tradingEngineModule) {
         tradingEngine = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingEngine
         sessionParameters = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters
 
-        exchangeAPIModule.initialize()
+        exchangeAPIModuleObject.initialize()
         announcementsModuleObject.initialize()
     }
 
@@ -37,8 +35,8 @@ exports.newTradingOrders = function (processIndex, tradingEngineModule) {
         tradingEngine = undefined
         sessionParameters = undefined
 
-        exchangeAPIModule.finalize()
-        exchangeAPIModule = undefined
+        exchangeAPIModuleObject.finalize()
+        exchangeAPIModuleObject = undefined
 
         announcementsModuleObject.finalize()
         announcementsModuleObject = undefined
@@ -490,7 +488,7 @@ exports.newTradingOrders = function (processIndex, tradingEngineModule) {
                 }
             }
 
-            let orderId = await exchangeAPIModule.createOrder(tradingSystemOrder, tradingEngineOrder)
+            let orderId = await exchangeAPIModuleObject.createOrder(tradingSystemOrder, tradingEngineOrder)
 
             if (orderId !== undefined) {
                 tradingEngineOrder.exchangeId.value = orderId
@@ -517,7 +515,7 @@ exports.newTradingOrders = function (processIndex, tradingEngineModule) {
             }
         }
 
-        let order = await exchangeAPIModule.getOrder(tradingSystemOrder, tradingEngineOrder)
+        let order = await exchangeAPIModuleObject.getOrder(tradingSystemOrder, tradingEngineOrder)
 
         if (order === undefined) {
             tradingSystem.warnings.push(
@@ -885,7 +883,7 @@ exports.newTradingOrders = function (processIndex, tradingEngineModule) {
         }
 
         /* Check if we can cancel the order at the Exchange. */
-        let result = await exchangeAPIModule.cancelOrder(tradingSystemOrder, tradingEngineOrder)
+        let result = await exchangeAPIModuleObject.cancelOrder(tradingSystemOrder, tradingEngineOrder)
         if (result === true) {
 
             /* At this point we know which is the exit type for this order */
@@ -896,7 +894,7 @@ exports.newTradingOrders = function (processIndex, tradingEngineModule) {
             To sync our accounting, we need to check the order one last time and if it changed, fix it.
             */
 
-            let order = await exchangeAPIModule.getOrder(tradingSystemOrder, tradingEngineOrder)
+            let order = await exchangeAPIModuleObject.getOrder(tradingSystemOrder, tradingEngineOrder)
 
             if (order === undefined) {
                 tradingSystem.warnings.push(

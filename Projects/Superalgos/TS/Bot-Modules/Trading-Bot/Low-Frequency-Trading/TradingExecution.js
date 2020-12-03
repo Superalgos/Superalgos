@@ -16,8 +16,7 @@ exports.newSuperalgosBotModulesTradingExecution = function (processIndex, tradin
     let tradingSystem
     let sessionParameters
 
-    const TRADING_ORDERS_MODULE = require('./TradingOrders.js')
-    let tradingOrdersModule = TRADING_ORDERS_MODULE.newTradingOrders(processIndex, tradingEngineModuleObject)
+    let tradingOrdersModuleObject = TS.projects.superalgos.botModules.tradingOrders.newSuperalgosBotModulesTradingOrders(processIndex, tradingEngineModuleObject)
 
     return thisObject
 
@@ -26,7 +25,7 @@ exports.newSuperalgosBotModulesTradingExecution = function (processIndex, tradin
         tradingEngine = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingEngine
         sessionParameters = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters
 
-        tradingOrdersModule.initialize()
+        tradingOrdersModuleObject.initialize()
     }
 
     function finalize() {
@@ -34,16 +33,16 @@ exports.newSuperalgosBotModulesTradingExecution = function (processIndex, tradin
         tradingEngine = undefined
         sessionParameters = undefined
 
-        tradingOrdersModule.finalize()
-        tradingOrdersModule = undefined
+        tradingOrdersModuleObject.finalize()
+        tradingOrdersModuleObject = undefined
     }
 
     function mantain() {
-        tradingOrdersModule.mantain()
+        tradingOrdersModuleObject.mantain()
     }
 
     function reset() {
-        tradingOrdersModule.reset()
+        tradingOrdersModuleObject.reset()
     }
 
     async function runExecution(
@@ -68,10 +67,10 @@ exports.newSuperalgosBotModulesTradingExecution = function (processIndex, tradin
             async function checkExecutionAlgorithms(executionNode) {
                 for (let i = 0; i < executionNode.executionAlgorithms.length; i++) {
                     let executionAlgorithm = executionNode.executionAlgorithms[i]
-                    await tradingOrdersModule.checkOrders(tradingEngineStage, executionAlgorithm.marketBuyOrders, executionAlgorithm, executionNode)
-                    await tradingOrdersModule.checkOrders(tradingEngineStage, executionAlgorithm.marketSellOrders, executionAlgorithm, executionNode)
-                    await tradingOrdersModule.checkOrders(tradingEngineStage, executionAlgorithm.limitBuyOrders, executionAlgorithm, executionNode)
-                    await tradingOrdersModule.checkOrders(tradingEngineStage, executionAlgorithm.limitSellOrders, executionAlgorithm, executionNode)
+                    await tradingOrdersModuleObject.checkOrders(tradingEngineStage, executionAlgorithm.marketBuyOrders, executionAlgorithm, executionNode)
+                    await tradingOrdersModuleObject.checkOrders(tradingEngineStage, executionAlgorithm.marketSellOrders, executionAlgorithm, executionNode)
+                    await tradingOrdersModuleObject.checkOrders(tradingEngineStage, executionAlgorithm.limitBuyOrders, executionAlgorithm, executionNode)
+                    await tradingOrdersModuleObject.checkOrders(tradingEngineStage, executionAlgorithm.limitSellOrders, executionAlgorithm, executionNode)
                 }
             }
 

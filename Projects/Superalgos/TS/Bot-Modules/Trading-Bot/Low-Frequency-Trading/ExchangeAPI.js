@@ -1,4 +1,4 @@
-﻿exports.newExchangeAPI = function (processIndex) {
+﻿exports.newSuperalgosBotModulesExchangeAPI = function (processIndex) {
 
     let MODULE_NAME = "Exchange API";
 

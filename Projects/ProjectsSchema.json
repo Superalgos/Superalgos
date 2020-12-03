@@ -508,14 +508,14 @@
                     "folderName": "Sensor-Bot/"
                 },
                 {
-                    "name": "Historic OHLCVs",
+                    "name": "Exchange Raw Data Historic OHLCVs",
                     "propertyName": "historicOHLCVs",
                     "functionName": "newSuperalgosBotModulesHistoricOHLCVs",
                     "fileName": "HistoricOHLCVs.js",
                     "folderName": "Sensor-Bot/Exchange-Raw-Data"
                 },
                 {
-                    "name": "Check Webhook",
+                    "name": "Webhooks Check Webhook",
                     "propertyName": "checkWebhook",
                     "functionName": "newSuperalgosBotModulesCheckWebhook",
                     "fileName": "CheckWebhook.js",

@@ -1,4 +1,4 @@
-exports.newTradingExecution = function (processIndex, tradingEngineModule) {
+exports.newSuperalgosBotModulesTradingExecution = function (processIndex, tradingEngineModuleObject) {
     /*
     The Trading Execution modules manages the execution nodes and execution algoritms.
     */
@@ -17,7 +17,7 @@ exports.newTradingExecution = function (processIndex, tradingEngineModule) {
     let sessionParameters
 
     const TRADING_ORDERS_MODULE = require('./TradingOrders.js')
-    let tradingOrdersModule = TRADING_ORDERS_MODULE.newTradingOrders(processIndex, tradingEngineModule)
+    let tradingOrdersModule = TRADING_ORDERS_MODULE.newTradingOrders(processIndex, tradingEngineModuleObject)
 
     return thisObject
 

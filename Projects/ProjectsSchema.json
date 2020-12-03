@@ -610,6 +610,27 @@
                     "functionName": "newSuperalgosBotModulesTradingStages",
                     "fileName": "TradingStages.js",
                     "folderName": "Trading-Bot/Low-Frequency-Trading"
+                },
+                {
+                    "name": "Trading Strategy",
+                    "propertyName": "tradingStrategy",
+                    "functionName": "newSuperalgosBotModulesTradingStrategy",
+                    "fileName": "TradingStrategy.js",
+                    "folderName": "Trading-Bot/Low-Frequency-Trading"
+                },
+                {
+                    "name": "Trading Execution",
+                    "propertyName": "tradingExecution",
+                    "functionName": "newSuperalgosBotModulesTradingExecution",
+                    "fileName": "TradingExecution.js",
+                    "folderName": "Trading-Bot/Low-Frequency-Trading"
+                },
+                {
+                    "name": "Trading Position",
+                    "propertyName": "tradingPosition",
+                    "functionName": "newSuperalgosBotModulesTradingPosition",
+                    "fileName": "TradingPosition.js",
+                    "folderName": "Trading-Bot/Low-Frequency-Trading"
                 }
             ]
         },

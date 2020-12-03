@@ -20,14 +20,9 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex, tradingEn
         finalize: finalize
     }
 
-    const TRADING_STRATEGY_MODULE = require('./TradingStrategy.js')
-    let tradingStrategyModule = TRADING_STRATEGY_MODULE.newTradingStrategy(processIndex, tradingEngineModuleObject)
-
-    const TRADING_POSITION_MODULE = require('./TradingPosition.js')
-    let tradingPositionModule = TRADING_POSITION_MODULE.newTradingPosition(processIndex, tradingEngineModuleObject)
-
-    const TRADING_ENGINE_EXECUTION = require('./TradingExecution.js')
-    let tradingExecutionModule = TRADING_ENGINE_EXECUTION.newTradingExecution(processIndex, tradingEngineModuleObject)
+    let tradingStrategyModule = TS.projects.superalgos.botModules.tradingStrategy.newSuperalgosBotModulesTradingStrategy(processIndex, tradingEngineModuleObject)
+    let tradingPositionModule = TS.projects.superalgos.botModules.tradingPosition.newSuperalgosBotModulesTradingPosition(processIndex, tradingEngineModuleObject)
+    let tradingExecutionModule = TS.projects.superalgos.botModules.tradingExecution.newSuperalgosBotModulesTradingExecution(processIndex, tradingEngineModuleObject)
 
     const ANNOUNCEMENTS_MODULE = require('./Announcements.js')
     let announcementsModule = ANNOUNCEMENTS_MODULE.newAnnouncements(processIndex)

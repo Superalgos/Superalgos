@@ -1,4 +1,4 @@
-﻿exports.newUserBot = function (processIndex, COMMONS) {
+﻿exports.newSuperalgosBotModulesBollingerBandsMultiPeriodDaily = function (processIndex) {
 
     const FULL_LOG = true;
     const INTENSIVE_LOG = false;
@@ -20,7 +20,6 @@
         start: start
     };
 
-    
     let fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex);
 
     let statusDependencies;

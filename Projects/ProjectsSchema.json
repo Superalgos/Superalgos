@@ -544,6 +544,20 @@
                     "folderName": "Indicator-Bot/Candles-Volumes"
                 },
                 {
+                    "name": "Bollinger Bands Multi Period Daily",
+                    "propertyName": "bollingerBandsMultiPeriodDaily",
+                    "functionName": "newSuperalgosBotModulesBollingerBandsMultiPeriodDaily",
+                    "fileName": "BollingerBandsMultiPeriodDaily.js",
+                    "folderName": "Indicator-Bot/Bollinger-Bands"
+                },
+                {
+                    "name": "Bollinger Bands Multi Period Market",
+                    "propertyName": "bollingerBandsMultiPeriodMarket",
+                    "functionName": "newSuperalgosBotModulesBollingerBandsMultiPeriodMarket",
+                    "fileName": "BollingerBandsMultiPeriodMarket.js",
+                    "folderName": "Indicator-Bot/Bollinger-Bands"
+                },
+                {
                     "name": "Multi Period Market",
                     "propertyName": "multiPeriodMarket",
                     "functionName": "newSuperalgosBotModulesMultiPeriodMarket",

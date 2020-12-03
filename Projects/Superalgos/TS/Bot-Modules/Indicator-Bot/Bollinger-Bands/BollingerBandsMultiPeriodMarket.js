@@ -1,11 +1,9 @@
-﻿exports.newUserBot = function (processIndex, COMMONS) {
+﻿exports.newSuperalgosBotModulesBollingerBandsMultiPeriodMarket = function (processIndex) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
 
     const MODULE_NAME = "User Bot";
-
-    const TRADES_FOLDER_NAME = "Trades";
 
     const CANDLES_FOLDER_NAME = "Candles";
     const BOLLINGER_BANDS_FOLDER_NAME = "Bollinger-Bands";

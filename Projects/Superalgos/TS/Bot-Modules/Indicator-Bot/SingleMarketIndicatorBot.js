@@ -2,11 +2,6 @@
 
     const MODULE_NAME = "Indicator Bot";
 
-    let USER_BOT_MODULE;
-    let COMMONS_MODULE;
-
-    let fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex);
-
     let nextLoopTimeoutHandle;
 
     let thisObject = {
@@ -15,6 +10,7 @@
     };
 
     let processConfig;
+    let botModuleObject
 
     return thisObject;
 
@@ -22,54 +18,27 @@
         try {
             processConfig = pProcessConfig;
 
-            if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config.repo === undefined) {
+            if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.botModule === undefined) {
                 /* The code of the bot is defined at the UI. No need to load a file with the code. */
+                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
+                return
+            } else {
+                /*
+                Here we will need to scan the PROJECTS SCHEMA in order to find the botModule 
+                defined for this Sensor Bot.
+                */
+                let botModuleDefinition = TS.projects.superalgos.functionLibraries.taskFunctions.getBotModuleByName(
+                    TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.botModule
+                )
+                let project = TS.projects[TS.projects.superalgos.globals.taskConstants.PROJECT_DEFINITION_NODE.config.codeName.toLowerCase()]
+                let botModule = project.botModules[botModuleDefinition.propertyName]
+                let moduleFunction = botModule[botModuleDefinition.functionName]
+                botModuleObject = moduleFunction(processIndex)
+
                 callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
                 return
             }
 
-            /* This bot is not ready for taking its code from the UI, then we need to load it from its repo. */
-            let filePath =
-                TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.project +    // project
-                '/Bots-Plotters-Code/' +
-                TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName +
-                "/" + "bots" + "/" +
-                TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config.repo + "/" +
-                pProcessConfig.codeName
-            filePath += "/User.Bot.js"
-
-            fileStorage.getTextFile(filePath, onBotDownloaded);
-
-            function onBotDownloaded(err, text) {
-
-                if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-
-                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] initialize -> onInizialized -> onBotDownloaded -> err = " + err.message);
-                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] initialize -> onInizialized -> onBotDownloaded -> filePath = " + filePath);
-                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
-                    return;
-                }
-
-                USER_BOT_MODULE = {}
-                USER_BOT_MODULE.newUserBot = eval(text); // TODO This needs to be changed function
-
-                filePath = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "/" + "bots" + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config.repo
-                filePath += "/Commons.js"
-
-                fileStorage.getTextFile(filePath, onCommonsDownloaded);
-
-                function onCommonsDownloaded(err, text) {
-                    if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE.write(MODULE_NAME, "[WARN] initialize -> onBotDownloaded -> onCommonsDownloaded -> Commons not found: " + err.message);
-                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
-                        return;
-                    }
-                    COMMONS_MODULE = {}
-                    COMMONS_MODULE.newCommons = eval(text); // TODO This needs to be changed function
-
-                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
-                }
-            }
         } catch (err) {
             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
@@ -107,7 +76,6 @@
 
                     /* We will prepare first the infraestructure needed for the bot to run. There are 3 modules we need to sucessfullly initialize first. */
                     let processExecutionEvents
-                    let userBot;
                     let processFramework;
                     let statusDependencies;
                     let dataDependencies;
@@ -276,7 +244,7 @@
                                         case TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result: {
                                             /* If the process is configured to run inside a framework, we continue there, otherwise we run the bot directly. */
                                             if (processConfig.framework === undefined) {
-                                                initializeUserBot();
+                                                initializeBotModuleObject();
                                                 return;
                                             }
 
@@ -337,27 +305,26 @@
                         }
                     }
 
-                    function initializeUserBot() {
+                    function initializeBotModuleObject() {
                         try {
-                            usertBot = USER_BOT_MODULE.newUserBot(processIndex, COMMONS_MODULE);
-                            usertBot.initialize(statusDependencies, onInizialized);
+                            botModuleObject.initialize(statusDependencies, onInizialized);
 
                             function onInizialized(err) {
                                 try {
                                     switch (err.result) {
                                         case TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result: {
-                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] run -> loop -> initializeUserBot -> onInizialized -> Execution finished well.");
-                                            startUserBot();
+                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] run -> loop -> initializeBotModuleObject -> onInizialized -> Execution finished well.");
+                                            startBotModuleObject();
                                             return;
                                         }
                                         case TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[WARN] run -> loop -> initializeUserBot -> onInizialized -> Retry Later. Requesting Execution Retry.");
+                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[WARN] run -> loop -> initializeBotModuleObject -> onInizialized -> Retry Later. Requesting Execution Retry.");
                                             nextWaitTime = 'Retry';
                                             loopControl(nextWaitTime);
                                             return;
                                         }
                                         case TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] run -> loop -> initializeUserBot -> onInizialized -> Operation Failed. Aborting the process.");
+                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] run -> loop -> initializeBotModuleObject -> onInizialized -> Operation Failed. Aborting the process.");
                                             global.unexpectedError = err.message
                                             processStopped()
                                             return
@@ -366,7 +333,7 @@
 
                                             switch (err.message) {
                                                 default: {
-                                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] run -> loop -> initializeUserBot -> onInizialized > Unhandled custom response received. -> err = " + err.message);
+                                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] run -> loop -> initializeBotModuleObject -> onInizialized > Unhandled custom response received. -> err = " + err.message);
                                                     global.unexpectedError = err.message
                                                     processStopped()
                                                     return
@@ -374,48 +341,48 @@
                                             }
                                         }
                                         default: {
-                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] run -> loop -> initializeUserBot -> onInizialized -> Unhandled err.result received. -> err.result = " + err.result);
-                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] run -> loop -> initializeUserBot -> onInizialized -> Unhandled err.result received. -> err = " + err.message);
+                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] run -> loop -> initializeBotModuleObject -> onInizialized -> Unhandled err.result received. -> err.result = " + err.result);
+                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] run -> loop -> initializeBotModuleObject -> onInizialized -> Unhandled err.result received. -> err = " + err.message);
                                             global.unexpectedError = err.message
                                             processStopped()
                                             return
                                         }
                                     }
                                 } catch (err) {
-                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] run -> loop -> initializeUserBot ->  onInizialized -> err = " + err.stack);
+                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] run -> loop -> initializeBotModuleObject ->  onInizialized -> err = " + err.stack);
                                     global.unexpectedError = err.message
                                     processStopped()
                                     return
                                 }
                             }
                         } catch (err) {
-                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] run -> loop -> initializeUserBot -> err = " + err.stack);
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] run -> loop -> initializeBotModuleObject -> err = " + err.stack);
                             global.unexpectedError = err.message
                             processStopped()
                             return
                         }
                     }
 
-                    function startUserBot() {
+                    function startBotModuleObject() {
                         try {
-                            usertBot.start(onFinished);
+                            botModuleObject.start(onFinished);
 
                             function onFinished(err) {
                                 try {
                                     switch (err.result) {
                                         case TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result: {
-                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] run -> loop -> startUserBot -> onFinished -> Execution finished well.");
+                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] run -> loop -> startBotModuleObject -> onFinished -> Execution finished well.");
                                             finishProcessExecutionEvents()
                                             return;
                                         }
                                         case TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[WARN] run -> loop -> startUserBot -> onFinished -> Retry Later. Requesting Execution Retry.");
+                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[WARN] run -> loop -> startBotModuleObject -> onFinished -> Retry Later. Requesting Execution Retry.");
                                             nextWaitTime = 'Retry';
                                             loopControl(nextWaitTime);
                                             return;
                                         }
                                         case TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] run -> loop -> startUserBot -> onFinished -> Operation Failed. Aborting the process.");
+                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] run -> loop -> startBotModuleObject -> onFinished -> Operation Failed. Aborting the process.");
                                             global.unexpectedError = err.message
                                             processStopped()
                                             return
@@ -424,19 +391,19 @@
 
                                             switch (err.message) {
                                                 case "Dependency does not exist.": {
-                                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[WARN] run -> loop -> startUserBot -> onFinished -> Dependency does not exist. This Loop will go to sleep.");
+                                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[WARN] run -> loop -> startBotModuleObject -> onFinished -> Dependency does not exist. This Loop will go to sleep.");
                                                     nextWaitTime = 'Sleep';
                                                     loopControl(nextWaitTime);
                                                     return;
                                                 }
                                                 case "Dependency not ready.": {
-                                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[WARN] run -> loop -> startUserBot -> onFinished -> Dependency not ready. Will Retry Later.");
+                                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[WARN] run -> loop -> startBotModuleObject -> onFinished -> Dependency not ready. Will Retry Later.");
                                                     nextWaitTime = 'Retry';
                                                     loopControl(nextWaitTime);
                                                     return;
                                                 }
                                                 default: {
-                                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] run -> loop -> startUserBot -> onFinished -> Unhandled custom response received. -> err = " + err.message);
+                                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] run -> loop -> startBotModuleObject -> onFinished -> Unhandled custom response received. -> err = " + err.message);
                                                     global.unexpectedError = err.message
                                                     processStopped()
                                                     return
@@ -444,22 +411,22 @@
                                             }
                                         }
                                         default: {
-                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] run -> loop -> startUserBot -> onFinished -> Unhandled err.result received. -> err.result = " + err.result);
-                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] run -> loop -> startUserBot -> onFinished -> Unhandled err.result received. -> err = " + err.message);
+                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] run -> loop -> startBotModuleObject -> onFinished -> Unhandled err.result received. -> err.result = " + err.result);
+                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] run -> loop -> startBotModuleObject -> onFinished -> Unhandled err.result received. -> err = " + err.message);
                                             global.unexpectedError = err.message
                                             processStopped()
                                             return
                                         }
                                     }
                                 } catch (err) {
-                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] run -> loop -> startUserBot -> onFinished -> err = " + err.stack);
+                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] run -> loop -> startBotModuleObject -> onFinished -> err = " + err.stack);
                                     global.unexpectedError = err.message
                                     processStopped()
                                     return
                                 }
                             }
                         } catch (err) {
-                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] run -> loop -> startUserBot -> err = " + err.stack);
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] run -> loop -> startBotModuleObject -> err = " + err.stack);
                             global.unexpectedError = err.message
                             processStopped()
                             return

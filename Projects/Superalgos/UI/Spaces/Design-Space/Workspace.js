@@ -172,7 +172,7 @@ function newWorkspace() {
         }
 
         let url = 'SaveWorkspace/' + workspace.name
-        if (textToSave === '{"type":"Workspace","name":"Getting Started","rootNodes":[null,null,null,null,null,null,null,null,null]}') {
+        if (textToSave.indexOf('null,null,null,null,null,null,null,null,null') >= 0) {
             console.log('[WARN] The system tried to save an empty workspace. Saving cancelled.')
             return
         }

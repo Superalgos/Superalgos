@@ -530,6 +530,20 @@
                     "botType": "Indicator Bot"
                 },
                 {
+                    "name": "Candles Volumes Multi Period Daily",
+                    "propertyName": "candlesVolumesMultiPeriodDaily",
+                    "functionName": "newSuperalgosBotModulesCandlesVolumesMultiPeriodDaily",
+                    "fileName": "CandlesVolumesMultiPeriodDaily.js",
+                    "folderName": "Indicator-Bot/Candles-Volumes"
+                },
+                {
+                    "name": "Candles Volumes Multi Period Market",
+                    "propertyName": "candlesVolumesMultiPeriodMarket",
+                    "functionName": "newSuperalgosBotModulesCandlesVolumesMultiPeriodMarket",
+                    "fileName": "CandlesVolumesMultiPeriodMarket.js",
+                    "folderName": "Indicator-Bot/Candles-Volumes"
+                },
+                {
                     "name": "Multi Period Market",
                     "propertyName": "multiPeriodMarket",
                     "functionName": "newSuperalgosBotModulesMultiPeriodMarket",

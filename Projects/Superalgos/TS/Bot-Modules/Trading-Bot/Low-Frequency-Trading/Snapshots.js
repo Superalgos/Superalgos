@@ -1,4 +1,4 @@
-exports.newSnapshots = function (processIndex) {
+exports.newSuperalgosBotModulesSnapshots = function (processIndex) {
     /*
     This module encapsulates the snapshots functionality.
     */

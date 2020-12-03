@@ -1,4 +1,4 @@
-exports.newAnnouncements = function (processIndex) {
+exports.newSuperalgosBotModulesAnnouncements = function (processIndex) {
 
     const MODULE_NAME = 'Announcements'
 

@@ -631,6 +631,20 @@
                     "functionName": "newSuperalgosBotModulesTradingPosition",
                     "fileName": "TradingPosition.js",
                     "folderName": "Trading-Bot/Low-Frequency-Trading"
+                },
+                {
+                    "name": "Announcements",
+                    "propertyName": "announcements",
+                    "functionName": "newSuperalgosBotModulesAnnouncements",
+                    "fileName": "Announcements.js",
+                    "folderName": "Trading-Bot/Low-Frequency-Trading"
+                },
+                {
+                    "name": "Snapshots",
+                    "propertyName": "snapshots",
+                    "functionName": "newSuperalgosBotModulesSnapshots",
+                    "fileName": "Snapshots.js",
+                    "folderName": "Trading-Bot/Low-Frequency-Trading"
                 }
             ]
         },

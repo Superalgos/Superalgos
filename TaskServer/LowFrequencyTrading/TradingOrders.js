@@ -19,8 +19,7 @@ exports.newTradingOrders = function (processIndex, tradingEngineModule) {
     const EXCHANGE_API_MODULE = require('./ExchangeAPI.js')
     let exchangeAPIModule = EXCHANGE_API_MODULE.newExchangeAPI(processIndex)
 
-    const ANNOUNCEMENTS_MODULE = require('./Announcements.js')
-    let announcementsModule = ANNOUNCEMENTS_MODULE.newAnnouncements(processIndex)
+    let announcementsModuleObject = TS.projects.superalgos.botModules.announcements.newSuperalgosBotModulesAnnouncements(processIndex)
 
     return thisObject
 
@@ -30,7 +29,7 @@ exports.newTradingOrders = function (processIndex, tradingEngineModule) {
         sessionParameters = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters
 
         exchangeAPIModule.initialize()
-        announcementsModule.initialize()
+        announcementsModuleObject.initialize()
     }
 
     function finalize() {
@@ -41,8 +40,8 @@ exports.newTradingOrders = function (processIndex, tradingEngineModule) {
         exchangeAPIModule.finalize()
         exchangeAPIModule = undefined
 
-        announcementsModule.finalize()
-        announcementsModule = undefined
+        announcementsModuleObject.finalize()
+        announcementsModuleObject = undefined
     }
 
     function mantain() {
@@ -1012,7 +1011,7 @@ exports.newTradingOrders = function (processIndex, tradingEngineModule) {
                     tradingSystem.highlights.push(executionAlgorithm.id)
                     tradingSystem.highlights.push(executionNode.id)
 
-                    announcementsModule.makeAnnoucements(event)
+                    announcementsModuleObject.makeAnnoucements(event)
                     return situation.name  // if the event is triggered, we return the name of the situation that passed
                 }
             }

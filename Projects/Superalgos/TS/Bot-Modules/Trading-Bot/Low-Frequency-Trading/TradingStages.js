@@ -23,12 +23,8 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex, tradingEn
     let tradingStrategyModuleObject = TS.projects.superalgos.botModules.tradingStrategy.newSuperalgosBotModulesTradingStrategy(processIndex, tradingEngineModuleObject)
     let tradingPositionModuleObject = TS.projects.superalgos.botModules.tradingPosition.newSuperalgosBotModulesTradingPosition(processIndex, tradingEngineModuleObject)
     let tradingExecutionModuleObject = TS.projects.superalgos.botModules.tradingExecution.newSuperalgosBotModulesTradingExecution(processIndex, tradingEngineModuleObject)
-
-    const ANNOUNCEMENTS_MODULE = require('./Announcements.js')
-    let announcementsModule = ANNOUNCEMENTS_MODULE.newAnnouncements(processIndex)
-
-    const SNAPSHOTS_MODULE = require('./Snapshots.js')
-    let snapshotsModule = SNAPSHOTS_MODULE.newSnapshots(processIndex)
+    let announcementsModuleObject = TS.projects.superalgos.botModules.announcements.newSuperalgosBotModulesAnnouncements(processIndex)
+    let snapshotsModuleObject = TS.projects.superalgos.botModules.snapshots.newSuperalgosBotModulesSnapshots(processIndex)
 
     let tradingEpisodeModuleObject = TS.projects.superalgos.botModules.tradingEpisode.newSuperalgosBotModulesTradingEpisode(processIndex)
 
@@ -45,8 +41,8 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex, tradingEn
 
         tradingStrategyModuleObject.initialize()
         tradingPositionModuleObject.initialize()
-        announcementsModule.initialize()
-        snapshotsModule.initialize()
+        announcementsModuleObject.initialize()
+        snapshotsModuleObject.initialize()
         tradingExecutionModuleObject.initialize()
         tradingEpisodeModuleObject.initialize()
     }
@@ -62,11 +58,11 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex, tradingEn
         tradingPositionModuleObject.finalize()
         tradingPositionModuleObject = undefined
 
-        announcementsModule.finalize()
-        announcementsModule = undefined
+        announcementsModuleObject.finalize()
+        announcementsModuleObject = undefined
 
-        snapshotsModule.finalize()
-        snapshotsModule = undefined
+        snapshotsModuleObject.finalize()
+        snapshotsModuleObject = undefined
 
         tradingExecutionModuleObject.finalize()
         tradingExecutionModuleObject = undefined
@@ -76,7 +72,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex, tradingEn
     }
 
     function updateChart(pChart) {
-        snapshotsModule.updateChart(pChart)
+        snapshotsModuleObject.updateChart(pChart)
     }
 
     function mantain() {
@@ -151,13 +147,13 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex, tradingEn
                                     /* Initialize this */
                                     tradingEngine.current.episode.distanceToEvent.triggerOn.value = 1
 
-                                    announcementsModule.makeAnnoucements(triggerStage.triggerOn)
-                                    announcementsModule.makeAnnoucements(triggerStage)
+                                    announcementsModuleObject.makeAnnoucements(triggerStage.triggerOn)
+                                    announcementsModuleObject.makeAnnoucements(triggerStage)
 
                                     if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type === 'Backtesting Session') {
                                         if (sessionParameters.snapshots !== undefined) {
                                             if (sessionParameters.snapshots.config.strategy === true) {
-                                                snapshotsModule.strategyEntry()
+                                                snapshotsModuleObject.strategyEntry()
                                             }
                                         }
                                     }
@@ -197,7 +193,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex, tradingEn
                                 tradingSystem.highlights.push(triggerStage.id)
 
                                 tradingEngine.current.episode.distanceToEvent.triggerOff.value = 1
-                                announcementsModule.makeAnnoucements(triggerStage.triggerOff)
+                                announcementsModuleObject.makeAnnoucements(triggerStage.triggerOff)
                                 changeStageStatus('Trigger Stage', 'Closed')
                                 tradingStrategyModuleObject.closeStrategy('Trigger Off')
                             }
@@ -236,13 +232,13 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex, tradingEn
 
                                 tradingPositionModuleObject.openPosition(situation.name)
 
-                                announcementsModule.makeAnnoucements(triggerStage.takePosition)
-                                announcementsModule.makeAnnoucements(strategy.openStage)
+                                announcementsModuleObject.makeAnnoucements(triggerStage.takePosition)
+                                announcementsModuleObject.makeAnnoucements(strategy.openStage)
 
                                 if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type === 'Backtesting Session') {
                                     if (sessionParameters.snapshots !== undefined) {
                                         if (sessionParameters.snapshots.config.position === true) {
-                                            snapshotsModule.positionEntry()
+                                            snapshotsModuleObject.positionEntry()
                                         }
                                     }
                                 }
@@ -442,7 +438,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex, tradingEn
                         tradingPositionModuleObject.applyStopLossFormula(tradingSystem.formulas, phase.formula.id)
 
                         if (tradingEngine.current.position.stopLoss.value !== previousValue) {
-                            announcementsModule.makeAnnoucements(phase)
+                            announcementsModuleObject.makeAnnoucements(phase)
                         }
                     }
                 }
@@ -465,7 +461,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex, tradingEn
                         tradingPositionModuleObject.applyTakeProfitFormula(tradingSystem.formulas, phase.formula.id)
 
                         if (tradingEngine.current.position.takeProfit.value !== previousValue) {
-                            announcementsModule.makeAnnoucements(phase)
+                            announcementsModuleObject.makeAnnoucements(phase)
                         }
                     }
                 }
@@ -546,7 +542,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex, tradingEn
 
                                 tradingPositionModuleObject.updateStopLoss(tradingEngine.current.position.stopLoss.stopLossPhase.value + 1)
 
-                                announcementsModule.makeAnnoucements(nextPhaseEvent)
+                                announcementsModuleObject.makeAnnoucements(nextPhaseEvent)
 
                                 /* Reset this counter */
                                 tradingEngine.current.episode.distanceToEvent.nextPhase.value = 1
@@ -589,7 +585,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex, tradingEn
                                         continue
                                     }
 
-                                    announcementsModule.makeAnnoucements(moveToPhaseEvent)
+                                    announcementsModuleObject.makeAnnoucements(moveToPhaseEvent)
 
                                     /* Reset this counter */
                                     tradingEngine.current.episode.distanceToEvent.moveToPhase.value = 1
@@ -645,7 +641,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex, tradingEn
 
                                 tradingPositionModuleObject.updateTakeProfit(tradingEngine.current.position.takeProfit.takeProfitPhase.value + 1)
 
-                                announcementsModule.makeAnnoucements(nextPhaseEvent)
+                                announcementsModuleObject.makeAnnoucements(nextPhaseEvent)
 
                                 /* Reset this counter */
                                 tradingEngine.current.episode.distanceToEvent.nextPhase.value = 1
@@ -688,7 +684,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex, tradingEn
                                         continue
                                     }
 
-                                    announcementsModule.makeAnnoucements(moveToPhaseEvent)
+                                    announcementsModuleObject.makeAnnoucements(moveToPhaseEvent)
 
                                     /* Reset this counter */
                                     tradingEngine.current.episode.distanceToEvent.moveToPhase.value = 1
@@ -724,7 +720,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex, tradingEn
                         tradingPositionModuleObject.closingPosition('Stop Loss')
                         changeStageStatus('Close Stage', 'Opening')
                         changeStageStatus('Manage Stage', 'Closed')
-                        announcementsModule.makeAnnoucements(strategy.closeStage)
+                        announcementsModuleObject.makeAnnoucements(strategy.closeStage)
                         return
                     }
 
@@ -744,7 +740,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex, tradingEn
                         tradingPositionModuleObject.closingPosition('Take Profit')
                         changeStageStatus('Close Stage', 'Opening')
                         changeStageStatus('Manage Stage', 'Closed')
-                        announcementsModule.makeAnnoucements(strategy.closeStage)
+                        announcementsModuleObject.makeAnnoucements(strategy.closeStage)
                         return
                     }
                     return
@@ -853,7 +849,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex, tradingEn
             if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type === 'Backtesting Session') {
                 if (sessionParameters.snapshots !== undefined) {
                     if (sessionParameters.snapshots.config.position === true) {
-                        snapshotsModule.positionExit()
+                        snapshotsModuleObject.positionExit()
                     }
                 }
             }
@@ -862,7 +858,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex, tradingEn
             if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type === 'Backtesting Session') {
                 if (sessionParameters.snapshots !== undefined) {
                     if (sessionParameters.snapshots.config.strategy === true) {
-                        snapshotsModule.strategyExit()
+                        snapshotsModuleObject.strategyExit()
                     }
                 }
             }
@@ -962,7 +958,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex, tradingEn
                     tradingSystem.highlights.push(closeStageEvent.id)
                     tradingSystem.highlights.push(stage.id)
 
-                    announcementsModule.makeAnnoucements(closeStageEvent)
+                    announcementsModuleObject.makeAnnoucements(closeStageEvent)
                     return true
                 }
             }

@@ -1,15 +1,9 @@
 ﻿exports.newSuperalgosBotModulesSingleMarketTradingBot = function (processIndex) {
 
     const MODULE_NAME = "Trading Bot";
-    const FULL_LOG = true;
-
     const TRADING_PROCESS_MODULE = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + '/LowFrequencyTrading/TradingProcess.js');
     
-    const SESSION = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + 'TradingSession');
-
-    let fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex);
-    let session = SESSION.newTradingSession(processIndex)
-
+    let session = TS.projects.superalgos.botModules.tradingSession.newSuperalgosBotModulesTradingSession(processIndex)
     let nextLoopTimeoutHandle;
 
     let thisObject = {

@@ -1,4 +1,4 @@
-﻿exports.newTradingSession = function (processIndex) {
+﻿exports.newSuperalgosBotModulesTradingSession = function (processIndex) {
 
     const MODULE_NAME = "Trading Session"
 

@@ -533,6 +533,27 @@
                     "functionName": "newSuperalgosBotModulesSingleMarketTradingBot",
                     "fileName": "SingleMarketTradingBot.js",
                     "folderName": "Trading-Bot"
+                },
+                {
+                    "name": "Trading Session",
+                    "propertyName": "tradingSession",
+                    "functionName": "newSuperalgosBotModulesTradingSession",
+                    "fileName": "TradingSession.js",
+                    "folderName": "Trading-Bot"
+                },
+                {
+                    "name": "Social Bots",
+                    "propertyName": "socialBots",
+                    "functionName": "newSuperalgosBotModulesSocialBots",
+                    "fileName": "SocialBots.js",
+                    "folderName": "Trading-Bot/Announcements"
+                },
+                {
+                    "name": "Telegram Bot",
+                    "propertyName": "telegramBot",
+                    "functionName": "newSuperalgosBotModulesTelegramBot",
+                    "fileName": "TelegramBot.js",
+                    "folderName": "Trading-Bot/Announcements"
                 }
             ]
         },

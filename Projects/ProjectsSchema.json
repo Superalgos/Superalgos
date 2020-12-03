@@ -554,6 +554,13 @@
                     "functionName": "newSuperalgosBotModulesTelegramBot",
                     "fileName": "TelegramBot.js",
                     "folderName": "Trading-Bot/Announcements"
+                },
+                {
+                    "name": "Trading Process",
+                    "propertyName": "tradingProcess",
+                    "functionName": "newSuperalgosBotModulesTradingProcess",
+                    "fileName": "TradingProcess.js",
+                    "folderName": "Trading-Bot/Low-Frequency-Trading"
                 }
             ]
         },

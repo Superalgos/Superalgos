@@ -1,7 +1,6 @@
 ﻿exports.newSuperalgosBotModulesSingleMarketTradingBot = function (processIndex) {
 
     const MODULE_NAME = "Trading Bot";
-    const TRADING_PROCESS_MODULE = require(TS.projects.superalgos.globals.nodeJSConstants.REQUIRE_ROOT_DIR + '/LowFrequencyTrading/TradingProcess.js');
     
     let session = TS.projects.superalgos.botModules.tradingSession.newSuperalgosBotModulesTradingSession(processIndex)
     let nextLoopTimeoutHandle;
@@ -261,7 +260,7 @@
                                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] run -> loop -> initializeDataDependencies -> onInizialized -> Execution finished well.")
                                             switch (processConfig.framework.name) {
                                                 case 'Low-Frequency-Trading-Process': {
-                                                    processFramework = TRADING_PROCESS_MODULE.newTradingProcess(processIndex);
+                                                    processFramework = TS.projects.superalgos.botModules.tradingProcess.newSuperalgosBotModulesTradingProcess(processIndex);
                                                     intitializeProcessFramework();
                                                     break;
                                                 }

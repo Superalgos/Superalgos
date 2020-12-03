@@ -13,7 +13,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "ccxt": "^1.25.80",
-    "telegraf": "^3.37.0"
+    "ccxt": "^1.25.80"
   }
 }

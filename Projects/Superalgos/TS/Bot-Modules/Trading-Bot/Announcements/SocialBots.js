@@ -1,4 +1,4 @@
-exports.newSocialBots = function (processIndex) {
+exports.newSuperalgosBotModulesSocialBots = function (processIndex) {
 
     const MODULE_NAME = 'Social Bots'
 

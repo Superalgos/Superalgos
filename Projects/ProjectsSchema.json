@@ -647,13 +647,6 @@
                     "folderName": "Trading-Bot/Low-Frequency-Trading"
                 },
                 {
-                    "name": "Exchange API",
-                    "propertyName": "exchangeAPI",
-                    "functionName": "newSuperalgosBotModulesExchangeAPI",
-                    "fileName": "ExchangeAPI.js",
-                    "folderName": "Trading-Bot/Low-Frequency-Trading"
-                },
-                {
                     "name": "Trading Orders",
                     "propertyName": "tradingOrders",
                     "functionName": "newSuperalgosBotModulesTradingOrders",
@@ -673,6 +666,13 @@
                     "functionName": "newSuperalgosBotModulesOrdersCalculations",
                     "fileName": "OrdersCalculations.js",
                     "folderName": "Trading-Bot/Low-Frequency-Trading"
+                },
+                {
+                    "name": "Exchange API",
+                    "propertyName": "exchangeAPI",
+                    "functionName": "newSuperalgosBotModulesExchangeAPI",
+                    "fileName": "ExchangeAPI.js",
+                    "folderName": "Trading-Bot/Low-Frequency-Trading/APIs"
                 }
             ]
         },

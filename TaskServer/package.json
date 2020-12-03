@@ -12,7 +12,5 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {
-    "ccxt": "^1.25.80"
-  }
+  "dependencies": {}
 }

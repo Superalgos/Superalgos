@@ -34,17 +34,14 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex, tradi
             if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, '[INFO] runSimulation -> finalDatetime = ' + sessionParameters.timeRange.config.finalDatetime) }
 
             /* These are the Modules we will need to run the Simulation */
-            const TRADING_RECORDS_MODULE = require('./TradingRecords.js')
-            let tradingRecordsModule = TRADING_RECORDS_MODULE.newTradingRecords(processIndex)
-            tradingRecordsModule.initialize(outputDatasetsMap)
+            let tradingRecordsModuleObject = TS.projects.superalgos.botModules.tradingRecords.newSuperalgosBotModulesTradingRecords(processIndex)
+            tradingRecordsModuleObject.initialize(outputDatasetsMap)
 
-            const TRADING_SYSTEM_MODULE = require('./TradingSystem.js')
-            let tradingSystemModule = TRADING_SYSTEM_MODULE.newTradingSystem(processIndex, tradingEngineModule)
-            tradingSystemModule.initialize()
+            let tradingSystemModuleObject = TS.projects.superalgos.botModules.tradingSystem.newSuperalgosBotModulesTradingSystem(processIndex, tradingEngineModule)
+            tradingSystemModuleObject.initialize()
 
-            const TRADING_EPISODE_MODULE = require('./TradingEpisode.js')
-            let tradingEpisodeModule = TRADING_EPISODE_MODULE.newTradingEpisode(processIndex, tradingEngineModule)
-            tradingEpisodeModule.initialize()
+            let tradingEpisodeModuleObject = TS.projects.superalgos.botModules.tradingEpisode.newSuperalgosBotModulesTradingEpisode(processIndex, tradingEngineModule)
+            tradingEpisodeModuleObject.initialize()
 
             /* Setting up the candles array: The whole simulation is based on the array of candles at the time-frame defined at the session parameters. */
             let propertyName = 'at' + sessionParameters.timeFrame.config.label.replace('-', '')
@@ -117,7 +114,7 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex, tradi
                 heartBeat()
 
                 /* Opening the Episode, if needed. */
-                tradingEpisodeModule.openEpisode()
+                tradingEpisodeModuleObject.openEpisode()
 
                 if (checkInitialDatetime() === false) {
                     if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Candle Before the Initia Date Time @ ' + (new Date(candle.begin)).toLocaleString()) }
@@ -127,15 +124,15 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex, tradi
                 positionChartAtCurrentCandle()
 
                 /* The chart was recalculated based on the current candle. */
-                tradingSystemModule.updateChart(chart)
+                tradingSystemModuleObject.updateChart(chart)
 
                 /* 
                 Do the stuff needed previous to the run like 
                 Episode Counters and Statistics update. Mantaince is done
                 once per simulation candle.
                 */
-                tradingSystemModule.mantain()
-                tradingEpisodeModule.mantain()
+                tradingSystemModuleObject.mantain()
+                tradingEpisodeModuleObject.mantain()
                 tradingEngineModule.mantain()
 
                 /* 
@@ -158,7 +155,7 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex, tradi
                 checkIfWeNeedToStopBetweenCycles()
 
                 /* Add new records to the process output */
-                tradingRecordsModule.appendRecords()
+                tradingRecordsModuleObject.appendRecords()
 
                 if (breakLoop === true) { break }
                 /* 
@@ -175,21 +172,21 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex, tradi
                 checkIfWeNeedToStopAfterBothCycles()
 
                 /* Add new records to the process output */
-                tradingRecordsModule.appendRecords()
+                tradingRecordsModuleObject.appendRecords()
 
                 if (breakLoop === true) { break }
 
                 async function runCycle() {
                     /* Reset Data Structures */
-                    tradingSystemModule.reset()
-                    tradingEpisodeModule.reset()
+                    tradingSystemModuleObject.reset()
+                    tradingEpisodeModuleObject.reset()
                     tradingEngineModule.reset()
 
                     let infoMessage = 'Processing candle # ' + tradingEngine.current.episode.candle.index.value + ' @ the ' + tradingEngine.current.episode.cycle.value + ' cycle.'
                     if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, '[INFO] runSimulation -> loop -> ' + infoMessage) }
                     tradingSystem.infos.push([tradingSystem.id, infoMessage])
 
-                    await tradingSystemModule.run()
+                    await tradingSystemModuleObject.run()
                 }
 
                 function checkIfWeNeedToStopBetweenCycles() {
@@ -233,23 +230,23 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex, tradi
                 }
             }
 
-            tradingSystemModule.finalize()
-            tradingRecordsModule.finalize()
-            tradingEpisodeModule.finalize()
+            tradingSystemModuleObject.finalize()
+            tradingRecordsModuleObject.finalize()
+            tradingEpisodeModuleObject.finalize()
 
-            tradingSystemModule = undefined
-            tradingRecordsModule = undefined
-            tradingEpisodeModule = undefined
+            tradingSystemModuleObject = undefined
+            tradingRecordsModuleObject = undefined
+            tradingEpisodeModuleObject = undefined
 
             await writeFiles()
 
             function closeEpisode(exitType) {
-                tradingEpisodeModule.updateExitType(exitType)
-                tradingEpisodeModule.closeEpisode()
+                tradingEpisodeModuleObject.updateExitType(exitType)
+                tradingEpisodeModuleObject.closeEpisode()
             }
 
             function updateEpisode(exitType) {
-                tradingEpisodeModule.updateExitType(exitType)
+                tradingEpisodeModuleObject.updateExitType(exitType)
             }
 
             function heartBeat() {

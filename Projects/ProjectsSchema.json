@@ -582,6 +582,27 @@
                     "functionName": "newSuperalgosBotModulesTradingSimulation",
                     "fileName": "TradingSimulation.js",
                     "folderName": "Trading-Bot/Low-Frequency-Trading"
+                },
+                {
+                    "name": "Trading Episode",
+                    "propertyName": "tradingEpisode",
+                    "functionName": "newSuperalgosBotModulesTradingEpisode",
+                    "fileName": "TradingEpisode.js",
+                    "folderName": "Trading-Bot/Low-Frequency-Trading"
+                },
+                {
+                    "name": "Trading Records",
+                    "propertyName": "tradingRecords",
+                    "functionName": "newSuperalgosBotModulesTradingRecords",
+                    "fileName": "TradingRecords.js",
+                    "folderName": "Trading-Bot/Low-Frequency-Trading"
+                },
+                {
+                    "name": "Trading System",
+                    "propertyName": "tradingSystem",
+                    "functionName": "newSuperalgosBotModulesTradingSystem",
+                    "fileName": "TradingSystem.js",
+                    "folderName": "Trading-Bot/Low-Frequency-Trading"
                 }
             ]
         },

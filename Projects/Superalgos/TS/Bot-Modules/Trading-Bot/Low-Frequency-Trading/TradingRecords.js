@@ -1,4 +1,4 @@
-exports.newTradingRecords = function (processIndex) {
+exports.newSuperalgosBotModulesTradingRecords = function (processIndex) {
     /*
     This module facilitates the appending of records to the output of the process.
     */

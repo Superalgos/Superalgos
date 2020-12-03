@@ -35,8 +35,7 @@ exports.newTradingStages = function (processIndex, tradingEngineModule) {
     const SNAPSHOTS_MODULE = require('./Snapshots.js')
     let snapshotsModule = SNAPSHOTS_MODULE.newSnapshots(processIndex)
 
-    const TRADING_EPISODE_MODULE = require('./TradingEpisode.js')
-    let tradingEpisodeModule = TRADING_EPISODE_MODULE.newTradingEpisode(processIndex)
+    let tradingEpisodeModuleObject = TS.projects.superalgos.botModules.tradingEpisode.newSuperalgosBotModulesTradingEpisode(processIndex)
 
     let tradingEngine
     let tradingSystem
@@ -54,7 +53,7 @@ exports.newTradingStages = function (processIndex, tradingEngineModule) {
         announcementsModule.initialize()
         snapshotsModule.initialize()
         tradingExecutionModule.initialize()
-        tradingEpisodeModule.initialize()
+        tradingEpisodeModuleObject.initialize()
     }
 
     function finalize() {
@@ -77,8 +76,8 @@ exports.newTradingStages = function (processIndex, tradingEngineModule) {
         tradingExecutionModule.finalize()
         tradingExecutionModule = undefined
 
-        tradingEpisodeModule.finalize()
-        tradingEpisodeModule = undefined
+        tradingEpisodeModuleObject.finalize()
+        tradingEpisodeModuleObject = undefined
     }
 
     function updateChart(pChart) {
@@ -103,7 +102,7 @@ exports.newTradingStages = function (processIndex, tradingEngineModule) {
     }
 
     function cycleBasedStatistics() {
-        tradingEpisodeModule.cycleBasedStatistics()
+        tradingEpisodeModuleObject.cycleBasedStatistics()
         tradingPositionModule.cycleBasedStatistics()
     }
 

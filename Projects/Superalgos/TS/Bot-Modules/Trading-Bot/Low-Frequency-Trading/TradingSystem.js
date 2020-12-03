@@ -1,4 +1,4 @@
-exports.newTradingSystem = function (processIndex, tradingEngineModule) {
+exports.newSuperalgosBotModulesTradingSystem = function (processIndex, tradingEngineModule) {
     /*
     The Trading System is the user defined set of rules compliant with the Trading Protocol that
     defines the trading logic to be applied during each cycle of the Simulation.

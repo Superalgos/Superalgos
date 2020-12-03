@@ -1,4 +1,4 @@
-exports.newTradingEpisode = function (processIndex, tradingEngineModule) {
+exports.newSuperalgosBotModulesTradingEpisode = function (processIndex, tradingEngineModule) {
     /*
     This module packages all functions related to Episodes.
     */

@@ -515,6 +515,13 @@
                     "folderName": "Sensor-Bot/Exchange-Raw-Data"
                 },
                 {
+                    "name": "Check Webhook",
+                    "propertyName": "checkWebhook",
+                    "functionName": "newSuperalgosBotModulesCheckWebhook",
+                    "fileName": "CheckWebhook.js",
+                    "folderName": "Sensor-Bot/Webhooks"
+                },
+                {
                     "name": "Single Market Indicator Bot",
                     "propertyName": "singleMarketIndicatorBot",
                     "functionName": "newSuperalgosBotModulesSingleMarketIndicatorBot",

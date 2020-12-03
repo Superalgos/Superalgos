@@ -1,5 +1,5 @@
 ﻿
-exports.newUserBot = function (processIndex, COMMONS, EXCHANGE_API) {
+exports.newSuperalgosBotModulesCheckWebhook = function (processIndex) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;

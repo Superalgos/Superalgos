@@ -25,7 +25,6 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex, tradingEn
     let tradingExecutionModuleObject = TS.projects.superalgos.botModules.tradingExecution.newSuperalgosBotModulesTradingExecution(processIndex, tradingEngineModuleObject)
     let announcementsModuleObject = TS.projects.superalgos.botModules.announcements.newSuperalgosBotModulesAnnouncements(processIndex)
     let snapshotsModuleObject = TS.projects.superalgos.botModules.snapshots.newSuperalgosBotModulesSnapshots(processIndex)
-
     let tradingEpisodeModuleObject = TS.projects.superalgos.botModules.tradingEpisode.newSuperalgosBotModulesTradingEpisode(processIndex)
 
     let tradingEngine

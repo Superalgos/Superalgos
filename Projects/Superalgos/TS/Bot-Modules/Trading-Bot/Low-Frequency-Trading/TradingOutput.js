@@ -1,4 +1,4 @@
-exports.newTradingOutput = function (processIndex, tradingEngineModule) {
+exports.newSuperalgosBotModulesTradingOutput = function (processIndex, tradingEngineModule) {
     /*
     This module will load if necesary all the data outputs so that they can be appended with new
     records if needed. After running the simulation, it will save all the data outputs.

@@ -13,34 +13,24 @@
         start: start
     };
 
-    
-
     let statusDependencies;
     let dataDependenciesModule;
     let dataFiles = new Map();
     let multiPeriodDataFiles = new Map();
-
     let fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex);
-
     let tradingEngineModuleObject = TS.projects.superalgos.botModules.tradingEngine.newSuperalgosBotModulesTradingEngine(processIndex)
-
-    let TRADING_OUTPUT_MODULE = require("./TradingOutput")
-    let tradingOutputModule = TRADING_OUTPUT_MODULE.newTradingOutput(processIndex, tradingEngineModuleObject)
-
+    let tradingOutputModuleObject = TS.projects.superalgos.botModules.tradingOutput.newSuperalgosBotModulesTradingOutput(processIndex, tradingEngineModuleObject)
     let processConfig;
 
     return thisObject;
 
     function initialize(pProcessConfig, pStatusDependencies, pDataDependencies, callBackFunction) {
         try {
-            
-            
-
             statusDependencies = pStatusDependencies
             dataDependenciesModule = pDataDependencies
             processConfig = pProcessConfig
 
-            tradingOutputModule.initialize()
+            tradingOutputModuleObject.initialize()
 
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
 
@@ -55,8 +45,8 @@
         tradingEngineModuleObject.finalize()
         tradingEngineModuleObject = undefined
 
-        tradingOutputModule.finalize()
-        tradingOutputModule = undefined
+        tradingOutputModuleObject.finalize()
+        tradingOutputModuleObject = undefined
 
         dataFiles = undefined
         multiPeriodDataFiles = undefined
@@ -603,7 +593,7 @@
             }
 
             async function generateOutput(chart) {
-                await tradingOutputModule.start(
+                await tradingOutputModuleObject.start(
                     chart,
                     currentTimeFrame,
                     currentTimeFrameLabel,

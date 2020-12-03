@@ -497,14 +497,16 @@
                     "propertyName": "singleMarketSensorBot",
                     "functionName": "newSuperalgosBotModulesSingleMarketSensorBot",
                     "fileName": "SingleMarketSensorBot.js",
-                    "folderName": "Sensor-Bot"
+                    "folderName": "Sensor-Bot",
+                    "botType": "Sensor Bot"
                 },
                 {
                     "name": "Single Market Indicator Bot",
                     "propertyName": "singleMarketIndicatorBot",
                     "functionName": "newSuperalgosBotModulesSingleMarketIndicatorBot",
                     "fileName": "SingleMarketIndicatorBot.js",
-                    "folderName": "Indicator-Bot"
+                    "folderName": "Indicator-Bot",
+                    "botType": "Indicator Bot"
                 },
                 {
                     "name": "Multi Period Market",
@@ -532,7 +534,8 @@
                     "propertyName": "singleMarketTradingBot",
                     "functionName": "newSuperalgosBotModulesSingleMarketTradingBot",
                     "fileName": "SingleMarketTradingBot.js",
-                    "folderName": "Trading-Bot"
+                    "folderName": "Trading-Bot",
+                    "botType": "Trading Bot"
                 },
                 {
                     "name": "Trading Session",

@@ -12,7 +12,7 @@
 
     function start(processIndex) {
         try {
-            let botInstance
+            let botModuleObject
 
             let botConfig = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config
             let processConfig = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config
@@ -63,78 +63,32 @@
                 "-" +
                 TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
 
-            switch (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.type) {
-                case 'Sensor Bot': {
-                    runSensorBot()
-                    break;
-                }
-                case 'Indicator Bot': {
-                    runIndicatorBot()
-                    break;
-                }
-                case 'Trading Bot': {
-                    runTradingBot()
-                    break;
-                }
-                case 'Learning Bot': {
-                    runLearningBot()
-                    break;
-                }
-                default: {
-                    console.log(logDisplace + "Process Instance : [ERROR] start -> Unexpected bot type. -> TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.type = " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.type);
-                }
-            }
 
-            function runSensorBot() {
-                try {
-                    TS.projects.superalgos.globals.processVariables.TOTAL_PROCESS_INSTANCES_CREATED++
-
-                    botInstance = TS.projects.superalgos.botModules.singleMarketSensorBot.newSuperalgosBotModulesSingleMarketSensorBot(processIndex);
-                    botInstance.initialize(processConfig, onInitializeReady);
-                }
-                catch (err) {
-                    console.log(logDisplace + "Process Instance : [ERROR] start -> err = " + err.stack);
-                    setTimeout(exitProcessInstance, WAIT_TIME_FOR_ALL_PROCESS_INSTANCES_TO_START)
-                }
-            }
-
-            function runIndicatorBot() {
-                try {
-                    TS.projects.superalgos.globals.processVariables.TOTAL_PROCESS_INSTANCES_CREATED++
-
-                    botInstance = TS.projects.superalgos.botModules.singleMarketIndicatorBot.newSuperalgosBotModulesSingleMarketIndicatorBot(processIndex);
-                    botInstance.initialize(processConfig, onInitializeReady);
-
-                }
-                catch (err) {
-                    console.log(logDisplace + "Process Instance : [ERROR] start -> runIndicatorBot -> err = " + err.stack);
-                    setTimeout(exitProcessInstance, WAIT_TIME_FOR_ALL_PROCESS_INSTANCES_TO_START)
-                }
-            }
-
-            function runTradingBot() {
-                try {
-                    TS.projects.superalgos.globals.processVariables.TOTAL_PROCESS_INSTANCES_CREATED++
-
-                    botInstance = TS.projects.superalgos.botModules.singleMarketTradingBot.newSuperalgosBotModulesSingleMarketTradingBot(processIndex);
-                    botInstance.initialize(processConfig, onInitializeReady);
-                }
-                catch (err) {
-                    console.log(logDisplace + "Process Instance : [ERROR] start -> runTradingBot -> err = " + err.stack);
-                    setTimeout(exitProcessInstance, WAIT_TIME_FOR_ALL_PROCESS_INSTANCES_TO_START)
-                }
-            }
-
-            function runLearningBot() {
-                try {
-                    TS.projects.superalgos.globals.processVariables.TOTAL_PROCESS_INSTANCES_CREATED++
-
-                    botInstance = LEARNING_BOT_MODULE.newLearningBot(processIndex);
-                    botInstance.initialize(processConfig, onInitializeReady);
-                }
-                catch (err) {
-                    console.log(logDisplace + "Process Instance : [ERROR] start -> runLearningBot -> err = " + err.stack);
-                    setTimeout(exitProcessInstance, WAIT_TIME_FOR_ALL_PROCESS_INSTANCES_TO_START)
+            /* 
+            We will scan the project schema until we find the module that will run the bot
+            associated to this process. Note that for being able to find the module that represents
+            the bot type received via websockets events, at the PROJECTS SCHEMA a botModule must be 
+            defined with the same type at the property botType.
+            */
+            for (let i = 0; i < TS.projects.superalgos.globals.taskConstants.PROJECTS_SCHEMA.length; i++) {
+                let project = TS.projects.superalgos.globals.taskConstants.PROJECTS_SCHEMA[i]
+                if (project.name !== TS.projects.superalgos.globals.taskConstants.PROJECT_DEFINITION_NODE.config.codeName) { continue }
+                for (let j = 0; j < project.TS.botModules.length; j++) {
+                    botModuleDefinition = project.TS.botModules[j]
+                    if (botModuleDefinition.botType === TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.type) {
+                        try {
+                            TS.projects.superalgos.globals.processVariables.TOTAL_PROCESS_INSTANCES_CREATED++
+        
+                            let botModule = TS.projects.superalgos.botModules[botModuleDefinition.propertyName] 
+                            let moduleFunction = botModule[botModuleDefinition.functionName]
+                            botModuleObject = moduleFunction(processIndex)
+                            botModuleObject.initialize(processConfig, onInitializeReady);
+                        }
+                        catch (err) {
+                            console.log(logDisplace + "[ERROR] start -> err = " + err.stack);
+                            setTimeout(exitProcessInstance, WAIT_TIME_FOR_ALL_PROCESS_INSTANCES_TO_START)
+                        }
+                    }
                 }
             }
 
@@ -142,7 +96,7 @@
 
                 if (err.result === TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
 
-                    botInstance.run(whenRunFinishes);
+                    botModuleObject.run(whenRunFinishes);
 
                     function whenRunFinishes(err) {
 

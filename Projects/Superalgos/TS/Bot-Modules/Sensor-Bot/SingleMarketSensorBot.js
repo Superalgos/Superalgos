@@ -5,7 +5,6 @@
     let USER_BOT_MODULE;
     let COMMONS_MODULE;
 
-    
     let fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex);
 
     let nextLoopTimeoutHandle;

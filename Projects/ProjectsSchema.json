@@ -561,6 +561,13 @@
                     "functionName": "newSuperalgosBotModulesTradingProcess",
                     "fileName": "TradingProcess.js",
                     "folderName": "Trading-Bot/Low-Frequency-Trading"
+                },
+                {
+                    "name": "Trading Engine",
+                    "propertyName": "tradingEngine",
+                    "functionName": "newSuperalgosBotModulesTradingEngine",
+                    "fileName": "TradingEngine.js",
+                    "folderName": "Trading-Bot/Low-Frequency-Trading"
                 }
             ]
         },

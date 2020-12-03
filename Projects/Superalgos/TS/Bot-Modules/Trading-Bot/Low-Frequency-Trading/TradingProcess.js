@@ -22,11 +22,10 @@
 
     let fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex);
 
-    const TRADING_ENGINE_MODULE = require('./TradingEngine.js')
-    let tradingEngineModule = TRADING_ENGINE_MODULE.newTradingEngine(processIndex)
+    let tradingEngineModuleObject = TS.projects.superalgos.botModules.tradingEngine.newSuperalgosBotModulesTradingEngine(processIndex)
 
     let TRADING_OUTPUT_MODULE = require("./TradingOutput")
-    let tradingOutputModule = TRADING_OUTPUT_MODULE.newTradingOutput(processIndex, tradingEngineModule)
+    let tradingOutputModule = TRADING_OUTPUT_MODULE.newTradingOutput(processIndex, tradingEngineModuleObject)
 
     let processConfig;
 
@@ -53,8 +52,8 @@
 
     function finalize() {
 
-        tradingEngineModule.finalize()
-        tradingEngineModule = undefined
+        tradingEngineModuleObject.finalize()
+        tradingEngineModuleObject = undefined
 
         tradingOutputModule.finalize()
         tradingOutputModule = undefined
@@ -91,7 +90,7 @@
             }
 
             /* We set up the Trading Engine Module. */
-            tradingEngineModule.initialize()
+            tradingEngineModuleObject.initialize()
 
             /* Initializing the Trading Process Date */
             if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_FIRST_LOOP === true && TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_RESUMING === false) {

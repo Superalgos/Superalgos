@@ -48,10 +48,6 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
         let exchangeClass
 
         try {
-
-            
-            
-
             statusDependencies = pStatusDependencies;
 
             exchangeId = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name.toLowerCase().replace(' ', '')

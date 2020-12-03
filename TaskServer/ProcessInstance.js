@@ -78,8 +78,8 @@
                     if (botModuleDefinition.botType === TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.type) {
                         try {
                             TS.projects.superalgos.globals.processVariables.TOTAL_PROCESS_INSTANCES_CREATED++
-        
-                            let botModule = TS.projects.superalgos.botModules[botModuleDefinition.propertyName] 
+                            let project = TS.projects[TS.projects.superalgos.globals.taskConstants.PROJECT_DEFINITION_NODE.config.codeName.toLowerCase()] 
+                            let botModule = project.botModules[botModuleDefinition.propertyName] 
                             let moduleFunction = botModule[botModuleDefinition.functionName]
                             botModuleObject = moduleFunction(processIndex)
                             botModuleObject.initialize(processConfig, onInitializeReady);

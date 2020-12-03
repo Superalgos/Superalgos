@@ -33,7 +33,8 @@
                 let botModuleDefinition = TS.projects.superalgos.functionLibraries.taskFunctions.getBotModuleByName(
                     TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.botModule
                 )
-                let botModule = TS.projects.superalgos.botModules[botModuleDefinition.propertyName]
+                let project = TS.projects[TS.projects.superalgos.globals.taskConstants.PROJECT_DEFINITION_NODE.config.codeName.toLowerCase()] 
+                let botModule = project.botModules[botModuleDefinition.propertyName] 
                 let moduleFunction = botModule[botModuleDefinition.functionName]
                 botModuleObject = moduleFunction(processIndex)
 

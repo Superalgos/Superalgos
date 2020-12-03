@@ -13,10 +13,7 @@
     function start(processIndex) {
         try {
             let botModuleObject
-
             let botConfig = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config
-            let processConfig = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config
-
             let VARIABLES_BY_PROCESS_INDEX
             /*
             We will use a logger for what happens before and after the bot main loop.
@@ -82,7 +79,7 @@
                             let botModule = project.botModules[botModuleDefinition.propertyName] 
                             let moduleFunction = botModule[botModuleDefinition.functionName]
                             botModuleObject = moduleFunction(processIndex)
-                            botModuleObject.initialize(processConfig, onInitializeReady);
+                            botModuleObject.initialize(onInitializeReady);
                         }
                         catch (err) {
                             console.log(logDisplace + "[ERROR] start -> err = " + err.stack);

@@ -13,17 +13,13 @@
     let dataDependenciesModule;
     let dataFiles = new Map()
     let indicatorOutputModule;
-    let processConfig;
 
     return thisObject;
 
-    function initialize(pProcessConfig, pStatusDependencies, pDataDependencies, callBackFunction) {
-        
-        
-
+    function initialize(pStatusDependencies, pDataDependencies, callBackFunction) {
+                
         statusDependencies = pStatusDependencies;
         dataDependenciesModule = pDataDependencies;
-        processConfig = pProcessConfig;
 
         indicatorOutputModule = TS.projects.superalgos.botModules.indicatorOutput.newSuperalgosBotModulesIndicatorOutput(processIndex)
         indicatorOutputModule.initialize(callBackFunction)
@@ -35,7 +31,6 @@
         statusDependencies = undefined
         dataDependenciesModule = undefined
         indicatorOutputModule = undefined
-        processConfig = undefined
         thisObject = undefined
     }
 

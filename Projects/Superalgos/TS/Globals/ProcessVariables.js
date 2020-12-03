@@ -30,6 +30,7 @@ exports.newSuperalgosGlobalsProcessVariables = function () {
     DAILY_FILES_PROCESS_DATETIME            When processing daily files, this holds the date of the file being processed.
     TRADING_PROCESSING_DAILY_FILES          When in a trading process, this tell us if we are processing Daily Files or not.
     FILE_PATH_ROOT                          Stores the prefix of the path of any data or log file.
+    WAIT_FOR_EXECUTION_FINISHED_EVENT       This boolean flag tell us if the process waits for an event to continue.
     */
     return thisObject
 }

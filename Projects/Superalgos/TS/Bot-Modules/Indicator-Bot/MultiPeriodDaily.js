@@ -15,19 +15,15 @@
     let dataDependenciesModule;
     let dataFiles = new Map;
     let indicatorOutputModule;
-
     let bootstrappingTheProcess = false
-
-    let processConfig;
     let beginingOfMarket
 
     return thisObject;
 
-    function initialize(pProcessConfig, pStatusDependencies, pDataDependencies, callBackFunction) {
+    function initialize(pStatusDependencies, pDataDependencies, callBackFunction) {
     
         statusDependencies = pStatusDependencies;
         dataDependenciesModule = pDataDependencies;
-        processConfig = pProcessConfig;
 
         indicatorOutputModule = TS.projects.superalgos.botModules.indicatorOutput.newSuperalgosBotModulesIndicatorOutput(processIndex)
         indicatorOutputModule.initialize(callBackFunction)
@@ -39,7 +35,6 @@
         dataDependenciesModule = undefined
         indicatorOutputModule = undefined
         fileStorage = undefined
-        processConfig = undefined
         thisObject = undefined
     }
 
@@ -277,10 +272,10 @@
                         }
                     }
 
-                    if (processConfig.framework.validPeriods !== undefined) {
+                    if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.framework.validPeriods !== undefined) {
                         let validPeriod = false;
-                        for (let i = 0; i < processConfig.framework.validPeriods.length; i++) {
-                            let period = processConfig.framework.validPeriods[i]
+                        for (let i = 0; i < TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.framework.validPeriods.length; i++) {
+                            let period = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.framework.validPeriods[i]
                             if (period === timeFrameLabel) { validPeriod = true }
                         }
                         if (validPeriod === false) {

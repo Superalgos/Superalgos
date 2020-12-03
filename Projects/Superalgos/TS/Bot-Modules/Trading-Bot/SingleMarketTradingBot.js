@@ -10,17 +10,14 @@
         run: run
     };
 
-    let processConfig;
-
     return thisObject;
 
-    function initialize(pProcessConfig, callBackFunction) {
+    function initialize(callBackFunction) {
         /*  This function is exactly the same in the 3 modules representing the 2 different bot types loops. */
         try {
-            processConfig = pProcessConfig;
             if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config.repo === undefined) {
                 /* The code of the bot is defined at the UI. No need to load a file with the code. */
-                session.initialize(processConfig, callBackFunction)
+                session.initialize(callBackFunction)
             }
 
         } catch (err) {
@@ -102,7 +99,7 @@
                     function initializeProcessExecutionEvents() {
                         try {
                             processExecutionEvents = TS.projects.superalgos.processModules.processExecutionEvents.newSuperalgosProcessModulesProcessExecutionEvents(processIndex)
-                            processExecutionEvents.initialize(processConfig, onInizialized);
+                            processExecutionEvents.initialize(onInizialized);
 
                             function onInizialized(err) {
                                 try {
@@ -258,7 +255,7 @@
                                     switch (err.result) {
                                         case TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result: {
                                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] run -> loop -> initializeDataDependencies -> onInizialized -> Execution finished well.")
-                                            switch (processConfig.framework.name) {
+                                            switch (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.framework.name) {
                                                 case 'Low-Frequency-Trading-Process': {
                                                     processFramework = TS.projects.superalgos.botModules.tradingProcess.newSuperalgosBotModulesTradingProcess(processIndex);
                                                     intitializeProcessFramework();
@@ -266,7 +263,7 @@
                                                 }
                                                 default: {
                                                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] run -> loop -> initializeDataDependencies -> onInizialized -> Process Framework not Supported.");
-                                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] run -> loop -> initializeDataDependencies -> onInizialized -> Process Framework Name = " + processConfig.framework.name);
+                                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] run -> loop -> initializeDataDependencies -> onInizialized -> Process Framework Name = " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.framework.name);
                                                     global.unexpectedError = err.message
                                                     processStopped()
                                                     return
@@ -311,7 +308,7 @@
 
                     function intitializeProcessFramework() {
                         try {
-                            processFramework.initialize(processConfig, statusDependencies, dataDependencies, onInizialized);
+                            processFramework.initialize(statusDependencies, dataDependencies, onInizialized);
 
                             function onInizialized(err) {
                                 try {
@@ -513,7 +510,7 @@
                             /* Indicator bots are going to be executed after a configured period of time after the last execution ended. This is to avoid overlapping executions. */
                             switch (nextWaitTime) {
                                 case 'Waiting for Session': {
-                                    let waitTime = processConfig.sessionRunWaitTime
+                                    let waitTime = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.sessionRunWaitTime
                                     nextLoopTimeoutHandle = setTimeout(loop, waitTime);
                                     let waitingTime = waitTime / 1000 / 60
                                     let label = 'minute/s'
@@ -527,7 +524,7 @@
                                     break
                                 case 'Normal': {
                                     let waitTime
-                                    if (processConfig.waitsForExecutionFinishedEvent === true) {
+                                    if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).WAIT_FOR_EXECUTION_FINISHED_EVENT === true) {
                                         waitTime = 0
                                     } else {
                                         switch (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type) {
@@ -563,23 +560,23 @@
                                 }
                                     break;
                                 case 'Retry': {
-                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.retryWaitTime / 1000) + " seconds.")
-                                    nextLoopTimeoutHandle = setTimeout(loop, processConfig.retryWaitTime);
-                                    TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, undefined, undefined, "Trying to recover from some problem. Waiting " + processConfig.retryWaitTime / 1000 + " seconds for next execution.")
+                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.retryWaitTime / 1000) + " seconds.")
+                                    nextLoopTimeoutHandle = setTimeout(loop, TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.retryWaitTime);
+                                    TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, undefined, undefined, "Trying to recover from some problem. Waiting " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.retryWaitTime / 1000 + " seconds for next execution.")
                                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.persist();
                                 }
                                     break;
                                 case 'Sleep': {
-                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.sleepWaitTime / 60000) + " minutes.")
-                                    nextLoopTimeoutHandle = setTimeout(loop, processConfig.sleepWaitTime);
-                                    TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, undefined, undefined, "Waiting " + processConfig.sleepWaitTime / 60000 + " minutes for next execution.")
+                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.sleepWaitTime / 60000) + " minutes.")
+                                    nextLoopTimeoutHandle = setTimeout(loop, TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.sleepWaitTime);
+                                    TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, undefined, undefined, "Waiting " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.sleepWaitTime / 60000 + " minutes for next execution.")
                                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.persist();
                                 }
                                     break;
                                 case 'Coma': {
-                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.comaWaitTime / 3600000) + " hours.")
-                                    nextLoopTimeoutHandle = setTimeout(loop, processConfig.comaWaitTime);
-                                    TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, undefined, undefined, "Waiting " + processConfig.comaWaitTime / 3600000 + " hours for next execution.")
+                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.comaWaitTime / 3600000) + " hours.")
+                                    nextLoopTimeoutHandle = setTimeout(loop, TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.comaWaitTime);
+                                    TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, undefined, undefined, "Waiting " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.comaWaitTime / 3600000 + " hours for next execution.")
                                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.persist();
                                 }
                                     break;

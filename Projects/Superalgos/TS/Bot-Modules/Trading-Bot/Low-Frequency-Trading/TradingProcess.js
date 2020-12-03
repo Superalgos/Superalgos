@@ -20,15 +20,13 @@
     let fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex);
     let tradingEngineModuleObject = TS.projects.superalgos.botModules.tradingEngine.newSuperalgosBotModulesTradingEngine(processIndex)
     let tradingOutputModuleObject = TS.projects.superalgos.botModules.tradingOutput.newSuperalgosBotModulesTradingOutput(processIndex, tradingEngineModuleObject)
-    let processConfig;
 
     return thisObject;
 
-    function initialize(pProcessConfig, pStatusDependencies, pDataDependencies, callBackFunction) {
+    function initialize(pStatusDependencies, pDataDependencies, callBackFunction) {
         try {
             statusDependencies = pStatusDependencies
             dataDependenciesModule = pDataDependencies
-            processConfig = pProcessConfig
 
             tradingOutputModuleObject.initialize()
 
@@ -53,7 +51,6 @@
         statusDependencies = undefined
         dataDependenciesModule = undefined
         fileStorage = undefined
-        processConfig = undefined
         thisObject = undefined
     }
 
@@ -445,10 +442,10 @@
                     const timeFrame = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[n][0];
                     const timeFrameLabel = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[n][1];
 
-                    if (processConfig.framework.validtimeFrames !== undefined) {
+                    if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.framework.validtimeFrames !== undefined) {
                         let validPeriod = false;
-                        for (let i = 0; i < processConfig.framework.validtimeFrames.length; i++) {
-                            let period = processConfig.framework.validtimeFrames[i];
+                        for (let i = 0; i < TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.framework.validtimeFrames.length; i++) {
+                            let period = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.framework.validtimeFrames[i];
                             if (period === timeFrameLabel) { validPeriod = true }
                         }
                         if (validPeriod === false) {

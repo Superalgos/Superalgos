@@ -11,7 +11,7 @@
 
     return thisObject;
 
-    function initialize(pProcessConfig, callBackFunction) {
+    function initialize(callBackFunction) {
         try {
             /* Check if there is a session */
             if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session === undefined) {
@@ -419,7 +419,7 @@
                 TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.sessionBaseAsset.config.maximumBalance = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.sessionBaseAsset.config.maximumBalance * balancePercentage / 100
                 TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.sessionQuotedAsset.config.maximumBalance = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.sessionQuotedAsset.config.maximumBalance * balancePercentage / 100
 
-                pProcessConfig.normalWaitTime = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeFrame.config.value
+                TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.normalWaitTime = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeFrame.config.value
 
                 return true
             }

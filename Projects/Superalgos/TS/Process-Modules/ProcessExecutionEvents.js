@@ -22,7 +22,7 @@
 
     return thisObject;
 
-    function initialize(processConfig, callBackFunction) {
+    function initialize(callBackFunction) {
         try {
             let name = 'Not Depends on any Process'
 
@@ -75,7 +75,7 @@
             if (processThisDependsOn !== undefined) {
 
                 /* We need to remember that this process waits for another process in order to start. */
-                processConfig.waitsForExecutionFinishedEvent = true
+                TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).WAIT_FOR_EXECUTION_FINISHED_EVENT = true
 
                 /* We need to find at which network node is running the process that we need to hear from when it finished. */
                 let network = TS.projects.superalgos.globals.taskConstants.NETWORK_NODE

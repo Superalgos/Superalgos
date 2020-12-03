@@ -575,6 +575,13 @@
                     "functionName": "newSuperalgosBotModulesTradingOutput",
                     "fileName": "TradingOutput.js",
                     "folderName": "Trading-Bot/Low-Frequency-Trading"
+                },
+                {
+                    "name": "Trading Simulation",
+                    "propertyName": "tradingSimulation",
+                    "functionName": "newSuperalgosBotModulesTradingSimulation",
+                    "fileName": "TradingSimulation.js",
+                    "folderName": "Trading-Bot/Low-Frequency-Trading"
                 }
             ]
         },

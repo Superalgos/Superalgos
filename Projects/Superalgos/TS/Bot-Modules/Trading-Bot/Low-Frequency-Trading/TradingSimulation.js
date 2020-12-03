@@ -1,4 +1,4 @@
-exports.newTradingSimulation = function (processIndex, tradingEngineModule) {
+exports.newSuperalgosBotModulesTradingSimulation = function (processIndex, tradingEngineModule) {
     /*
     This Module represents the trading simulacion. Escentially a loop through a set of candles and 
     the execution at each loop cycle of the Trading System Protocol.

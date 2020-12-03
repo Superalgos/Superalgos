@@ -37,8 +37,7 @@ exports.newSuperalgosBotModulesTradingOutput = function (processIndex, tradingEn
             }
 
             /* Preparing everything for the Simulation */
-            const TRADING_SIMULATION = require('./TradingSimulation.js')
-            let tradingSimulation = TRADING_SIMULATION.newTradingSimulation(processIndex, tradingEngineModule)
+            let tradingSimulationModuleObject = TS.projects.superalgos.botModules.tradingSimulation.newSuperalgosBotModulesTradingSimulation(processIndex, tradingEngineModule)
 
             let outputDatasets = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
             let outputDatasetsMap = new Map()
@@ -73,13 +72,13 @@ exports.newSuperalgosBotModulesTradingOutput = function (processIndex, tradingEn
                 }
             }
 
-            await tradingSimulation.runSimulation(
+            await tradingSimulationModuleObject.runSimulation(
                 chart,
                 outputDatasetsMap,
                 writeFiles
             )
 
-            tradingSimulation.finalize()
+            tradingSimulationModuleObject.finalize()
             return
 
             async function initializeOutputs() {

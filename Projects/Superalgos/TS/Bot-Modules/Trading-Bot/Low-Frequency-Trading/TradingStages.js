@@ -832,37 +832,6 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex, tradingEn
             tradingEngine.current.strategyCloseStage.stageBaseAsset.targetSize.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.current.strategyCloseStage.stageBaseAsset.targetSize.value, 10)
             tradingEngine.current.strategyCloseStage.stageQuotedAsset.targetSize.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.current.strategyCloseStage.stageQuotedAsset.targetSize.value, 10)
         }
-
-        function closePositionAndStrategy() {
-            /* Taking Position Snapshot */
-            if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type === 'Backtesting Session') {
-                if (sessionParameters.snapshots !== undefined) {
-                    if (sessionParameters.snapshots.config.position === true) {
-                        snapshotsModuleObject.positionExit()
-                    }
-                }
-            }
-
-            /* Taking Strategy Snapshot */
-            if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type === 'Backtesting Session') {
-                if (sessionParameters.snapshots !== undefined) {
-                    if (sessionParameters.snapshots.config.strategy === true) {
-                        snapshotsModuleObject.strategyExit()
-                    }
-                }
-            }
-
-            /* Close the Position */
-            tradingPositionModuleObject.closePosition()
-
-            /* Close the Strategy */
-            tradingStrategyModuleObject.closeStrategy('Position Closed')
-
-            /* Distance to Events Updates */
-            tradingEngine.current.episode.distanceToEvent.closePosition.value = 1
-            tradingEngine.current.episode.distanceToEvent.triggerOff.value = 1
-
-        }
     }
 
     function exitPositionValidation() {
@@ -871,7 +840,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex, tradingEn
         or at their initial default value. The last is becasue after Closed objects are 
         initialized to their defualts.  
         */
-        if (tradingEngine.current.position.status.value !== 'Open') { return }
+        if (tradingEngine.current.position.status.value !== 'Open' && tradingEngine.current.position.status.value !== 'Closing') { return }
         if (
             (
                 tradingEngine.current.strategyTriggerStage.status.value === 'Closed' ||
@@ -895,6 +864,37 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex, tradingEn
 
             /* Closing Everything now. */
             closePositionAndStrategy()
+
+            function closePositionAndStrategy() {
+                /* Taking Position Snapshot */
+                if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type === 'Backtesting Session') {
+                    if (sessionParameters.snapshots !== undefined) {
+                        if (sessionParameters.snapshots.config.position === true) {
+                            snapshotsModuleObject.positionExit()
+                        }
+                    }
+                }
+    
+                /* Taking Strategy Snapshot */
+                if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type === 'Backtesting Session') {
+                    if (sessionParameters.snapshots !== undefined) {
+                        if (sessionParameters.snapshots.config.strategy === true) {
+                            snapshotsModuleObject.strategyExit()
+                        }
+                    }
+                }
+    
+                /* Close the Position */
+                tradingPositionModuleObject.closePosition()
+    
+                /* Close the Strategy */
+                tradingStrategyModuleObject.closeStrategy('Position Closed')
+    
+                /* Distance to Events Updates */
+                tradingEngine.current.episode.distanceToEvent.closePosition.value = 1
+                tradingEngine.current.episode.distanceToEvent.triggerOff.value = 1
+    
+            }
         }
     }
 
@@ -1077,9 +1077,6 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex, tradingEn
             resetStage(tradingEngine.current.strategyManageStage.status)
         }
         if (tradingEngine.current.strategyCloseStage.status.value === 'Closed') {
-            resetStage(tradingEngine.current.strategyTriggerStage)
-            resetStage(tradingEngine.current.strategyOpenStage)
-            resetStage(tradingEngine.current.strategyManageStage)
             resetStage(tradingEngine.current.strategyCloseStage)
         }
 

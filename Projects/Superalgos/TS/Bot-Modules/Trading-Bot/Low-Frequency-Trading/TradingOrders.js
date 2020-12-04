@@ -62,8 +62,10 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex, tradingEn
         processExecutionNode(executionNode, tradingEngine.current.strategyOpenStage.status.value)
 
         stageNode = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].closeStage
-        executionNode = stageNode.closeExecution
-        processExecutionNode(executionNode, tradingEngine.current.strategyCloseStage.status.value)
+        if (stageNode !== undefined) { // The Close Stage is optional. It might be undefined.
+            executionNode = stageNode.closeExecution
+            processExecutionNode(executionNode, tradingEngine.current.strategyCloseStage.status.value)
+        }
 
         function processExecutionNode(executionNode, stageStatus) {
 

@@ -42,6 +42,11 @@
             */
             let CONSTANTS_BY_PROCESS_INDEX = {}
             TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.set(processIndex, CONSTANTS_BY_PROCESS_INDEX)
+            /*
+            We also need to initialize this here.
+            */
+            let MODULE_OBJECTS_BY_PROCESS_INDEX = {}
+            TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.set(processIndex, MODULE_OBJECTS_BY_PROCESS_INDEX)
 
             /* File Path Root */
             TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT =
@@ -75,8 +80,8 @@
                     if (botModuleDefinition.botType === TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.type) {
                         try {
                             TS.projects.superalgos.globals.processVariables.TOTAL_PROCESS_INSTANCES_CREATED++
-                            let project = TS.projects[TS.projects.superalgos.globals.taskConstants.PROJECT_DEFINITION_NODE.config.codeName.toLowerCase()] 
-                            let botModule = project.botModules[botModuleDefinition.propertyName] 
+                            let project = TS.projects[TS.projects.superalgos.globals.taskConstants.PROJECT_DEFINITION_NODE.config.codeName.toLowerCase()]
+                            let botModule = project.botModules[botModuleDefinition.propertyName]
                             let moduleFunction = botModule[botModuleDefinition.functionName]
                             botModuleObject = moduleFunction(processIndex)
                             botModuleObject.initialize(onInitializeReady);

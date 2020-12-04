@@ -357,6 +357,12 @@
                     "fileName": "ProcessConstants.js"
                 },
                 {
+                    "name": "Process Module Objects",
+                    "propertyName": "processModuleObjects",
+                    "functionName": "newSuperalgosGlobalsModuleObjects",
+                    "fileName": "ProcessModuleObjects.js"
+                },
+                {
                     "name": "Task Variables",
                     "propertyName": "taskVariables",
                     "functionName": "newSuperalgosGlobalsTaskVariables",

@@ -18,7 +18,7 @@
     let dataFiles = new Map();
     let multiPeriodDataFiles = new Map();
     let fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex);
-    let tradingEngineModuleObject = TS.projects.superalgos.botModules.tradingEngine.newSuperalgosBotModulesTradingEngine(processIndex)
+    TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE = TS.projects.superalgos.botModules.tradingEngine.newSuperalgosBotModulesTradingEngine(processIndex)
     let tradingOutputModuleObject = TS.projects.superalgos.botModules.tradingOutput.newSuperalgosBotModulesTradingOutput(processIndex, tradingEngineModuleObject)
 
     return thisObject;

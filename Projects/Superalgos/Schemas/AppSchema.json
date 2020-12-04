@@ -11884,8 +11884,7 @@
                 "childType": "Dynamic Indicators",
                 "autoAdd": true
             }
-        ],
-        "propertyNameAtParent": "tradingSystem"
+        ]
     },
     {
         "type": "Trading Strategy",

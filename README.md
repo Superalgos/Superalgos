@@ -26,6 +26,10 @@ node run
 ```
 2. Follow the in-app Welcome Tutorial to learn the basics.
 
+## Full Instalation Guide
+
+If you need more detailed, step-by-step instructions on how to install Superalgos, find them at the [Documentation Site](https://docs.superalgos.org/suite-download-and-set-up.html)
+
 ## Uninstall
 
 Superalgos does not write anything outside the Superalgos folder. To completelly uninstall the software, just delete the Superalgos folder. 

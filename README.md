@@ -1,6 +1,6 @@
 ![Superalgos video capture (16)](https://user-images.githubusercontent.com/9479367/77251218-76d25980-6c4d-11ea-8e47-be7db2e8abdb.gif)
 
-# Getting Started
+# Quick Getting Started Guide
 
 All procedures are the same for Windows, Linux or Mac OS. Note: only tested with Google Chrome.
 
@@ -33,6 +33,10 @@ Superalgos does not write anything outside the Superalgos folder. To completelly
 ## Welcome Tutorial
 
 Once the app finishes loading, an interactive tutorial takes you by the hand and walks you all around the system while you learn the basic skills required to use the interface, mine data, backtest strategies, and even run a live trading session. It is highly recommended you follow the tutorial until the end, as it is carefully crafted to make your onboarding as easy as possible.
+
+# Full Instalation Guide
+
+If you need more detailed, step-by-step instructions on how to install Superalgos, find them at the [Documentation Site](https://docs.superalgos.org/suite-download-and-set-up.html)
 
 # What is Superalgos?
 

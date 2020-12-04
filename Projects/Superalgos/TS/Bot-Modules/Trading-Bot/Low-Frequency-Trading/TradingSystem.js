@@ -153,6 +153,9 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex, tradingEn
             /* Run the Close Stage */
             await tradingStagesModuleObject.runCloseStage()
 
+            /* Validation if we need to exit the position */
+            tradingStagesModuleObject.exitPositionValidation()
+
             tradingStagesModuleObject.cycleBasedStatistics()
 
         } catch (err) {

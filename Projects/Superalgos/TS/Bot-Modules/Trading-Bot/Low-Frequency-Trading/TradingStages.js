@@ -12,6 +12,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex, tradingEn
         runOpenStage: runOpenStage,
         runManageStage: runManageStage,
         runCloseStage: runCloseStage,
+        exitPositionValidation: exitPositionValidation, 
         updateEnds: updateEnds,
         resetTradingEngineDataStructure: resetTradingEngineDataStructure,
         updateCounters: updateCounters,
@@ -388,6 +389,16 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex, tradingEn
         runWhenStatusIsOpen()
 
         function runWhenStatusIsOpening() {
+            /*
+            The system allows the user not to define a Manage Stage, because the Manage Stage is optional.
+            Here we are goint to see if that is the case and if it is, we will inmidiatelly consider 
+            the Manage Stage as closed.
+            */
+            if (tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].manageStage === undefined) {
+                changeStageStatus('Manage Stage', 'Closed', 'Manage Stage Undefined')
+                changeStageStatus('Close Stage', 'Opening')
+                return
+            }
             /* Opening Status Procedure */
             if (tradingEngine.current.strategyManageStage.status.value === 'Opening') {
 
@@ -754,6 +765,15 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex, tradingEn
         await runWhenStatusIsOpen()
 
         function runWhenStatusIsOpening() {
+            /*
+            The system allows the user not to define a close stage, because the close stage is optional.
+            Here we are goint to see if that is the case and if it is, we will inmidiatelly consider 
+            the close stage as closed.
+            */
+            if (tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].closeStage === undefined) {
+                changeStageStatus('Close Stage', 'Closed', 'Close Stage Undefined')
+                return
+            }
             /* Opening Status Procedure */
             if (tradingEngine.current.strategyCloseStage.status.value === 'Opening') {
                 /* 
@@ -780,7 +800,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex, tradingEn
                 tradingEngine.current.strategyCloseStage.status.value === 'Open' &&
                 (
                     tradingEngine.current.strategyOpenStage.status.value === 'Closed' ||
-                    tradingEngine.current.strategyOpenStage.status.value == tradingEngine.current.strategyOpenStage.status.config.initialValue
+                    tradingEngine.current.strategyOpenStage.status.value === tradingEngine.current.strategyOpenStage.status.config.initialValue
                 )
             ) {
                 /*
@@ -799,36 +819,6 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex, tradingEn
                 )
 
                 checkIfStageNeedsToBeClosed(tradingEngineStage, tradingSystemStage, 'Close Stage')
-            }
-
-            /* 
-            Exit Position Validation: we need al the previous stages to be either closed 
-            or at their initial default value. The last is becasue after Closed objects are 
-            initialized to their defualts.  
-            */
-            if (
-                (
-                    tradingEngine.current.strategyTriggerStage.status.value === 'Closed' ||
-                    tradingEngine.current.strategyTriggerStage.status.value === tradingEngine.current.strategyTriggerStage.status.config.initialValue
-                )
-                &&
-                (
-                    tradingEngine.current.strategyOpenStage.status.value === 'Closed' ||
-                    tradingEngine.current.strategyOpenStage.status.value === tradingEngine.current.strategyOpenStage.status.config.initialValue
-                )
-                &&
-                (
-                    tradingEngine.current.strategyManageStage.status.value === 'Closed' ||
-                    tradingEngine.current.strategyManageStage.status.value === tradingEngine.current.strategyManageStage.status.config.initialValue
-                )
-                &&
-                (
-                    tradingEngine.current.strategyCloseStage.status.value === 'Closed'
-                )
-            ) {
-
-                /* Closing Everything now. */
-                closePositionAndStrategy()
             }
         }
 
@@ -872,6 +862,39 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex, tradingEn
             tradingEngine.current.episode.distanceToEvent.closePosition.value = 1
             tradingEngine.current.episode.distanceToEvent.triggerOff.value = 1
 
+        }
+    }
+
+    function exitPositionValidation() {
+        /* 
+        Exit Position Validation: we need al the previous stages to be either closed 
+        or at their initial default value. The last is becasue after Closed objects are 
+        initialized to their defualts.  
+        */
+        if (tradingEngine.current.position.status.value !== 'Open') { return }
+        if (
+            (
+                tradingEngine.current.strategyTriggerStage.status.value === 'Closed' ||
+                tradingEngine.current.strategyTriggerStage.status.value === tradingEngine.current.strategyTriggerStage.status.config.initialValue
+            )
+            &&
+            (
+                tradingEngine.current.strategyOpenStage.status.value === 'Closed' ||
+                tradingEngine.current.strategyOpenStage.status.value === tradingEngine.current.strategyOpenStage.status.config.initialValue
+            )
+            &&
+            (
+                tradingEngine.current.strategyManageStage.status.value === 'Closed' ||
+                tradingEngine.current.strategyManageStage.status.value === tradingEngine.current.strategyManageStage.status.config.initialValue
+            )
+            &&
+            (
+                tradingEngine.current.strategyCloseStage.status.value === 'Closed'
+            )
+        ) {
+
+            /* Closing Everything now. */
+            closePositionAndStrategy()
         }
     }
 

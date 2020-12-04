@@ -271,7 +271,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
         if (tradingEngineOrder.orderQuotedAsset.size.value <= 0) {
             tradingSystem.warnings.push(
                 [
-                    [tradingEngineOrder.orderQuotedAsset.size.id, tradingSystemOrder.id ],
+                    [tradingEngineOrder.orderQuotedAsset.size.id, tradingSystemOrder.id],
                     'Could not open this order because its size is zero.'
                 ]
             )
@@ -387,6 +387,8 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
                                 tradingEngineStage.stageBaseAsset.targetSize.value -
                                 tradingEngineStage.stageBaseAsset.sizePlaced.value
 
+                            tradingEngineOrder.orderBaseAsset.size.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineOrder.orderBaseAsset.size.value, 10)
+
                             tradingSystem.warnings.push(
                                 [
                                     [tradingEngineStage.stageBaseAsset.targetSize.id, tradingEngineOrder.orderBaseAsset.size.id, tradingEngineStage.stageBaseAsset.sizePlaced.id],
@@ -397,6 +399,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
 
                         /* Size in Quoted Asset */
                         tradingEngineOrder.orderQuotedAsset.size.value = tradingEngineOrder.orderBaseAsset.size.value * tradingEngineOrder.rate.value
+                        tradingEngineOrder.orderQuotedAsset.size.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineOrder.orderQuotedAsset.size.value, 10)
                         break
                     }
                     case 'Quoted Asset': {
@@ -414,6 +417,8 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
                                 tradingEngineStage.stageQuotedAsset.targetSize.value -
                                 tradingEngineStage.stageQuotedAsset.sizePlaced.value
 
+                            tradingEngineOrder.orderQuotedAsset.size.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineOrder.orderQuotedAsset.size.value, 10)
+
                             tradingSystem.warnings.push(
                                 [
                                     [tradingEngineStage.stageQuotedAsset.targetSize.id, tradingEngineOrder.orderQuotedAsset.size.id, tradingEngineStage.stageQuotedAsset.sizePlaced.id],
@@ -424,7 +429,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
 
                         /* Size in Base Asset */
                         tradingEngineOrder.orderBaseAsset.size.value = tradingEngineOrder.orderQuotedAsset.size.value / tradingEngineOrder.rate.value
-
+                        tradingEngineOrder.orderBaseAsset.size.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineOrder.orderBaseAsset.size.value, 10)
                         break
                     }
                 }
@@ -522,7 +527,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
         if (order === undefined) {
             tradingSystem.warnings.push(
                 [
-                    [tradingSystemOrder.id, tradingEngineOrder.id], 
+                    [tradingSystemOrder.id, tradingEngineOrder.id],
                     'Could not verify the status of this order at the exchange.'
                 ]
             )
@@ -899,7 +904,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
             if (order === undefined) {
                 tradingSystem.warnings.push(
                     [
-                        [tradingSystemOrder.id, tradingEngineOrder.id], 
+                        [tradingSystemOrder.id, tradingEngineOrder.id],
                         'Could not verify the status of this order at the exchange, and syncronize the accounting.'
                     ]
                 )

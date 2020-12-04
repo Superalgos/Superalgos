@@ -85,11 +85,11 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
     }
 
     function reset() {
+        resetTradingEngineDataStructure()
+
         tradingPositionModuleObject.reset()
         tradingStrategyModuleObject.reset()
         tradingExecutionModuleObject.reset()
-
-        resetTradingEngineDataStructure()
     }
 
     function cycleBasedStatistics() {
@@ -194,7 +194,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
 
                                 tradingEngine.current.episode.distanceToEvent.triggerOff.value = 1
                                 announcementsModuleObject.makeAnnoucements(triggerStage.triggerOff)
-                                changeStageStatus('Trigger Stage', 'Closed')
+                                changeStageStatus('Trigger Stage', 'Closed', 'Trigger Off Event')
                                 tradingStrategyModuleObject.closeStrategy('Trigger Off')
                             }
                         }
@@ -243,7 +243,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                                     }
                                 }
 
-                                changeStageStatus('Trigger Stage', 'Closed')
+                                changeStageStatus('Trigger Stage', 'Closed', 'Position Taken')
                                 changeStageStatus('Open Stage', 'Opening')
                                 changeStageStatus('Manage Stage', 'Opening')
                             }
@@ -729,7 +729,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
 
                         tradingPositionModuleObject.closingPosition('Stop Loss')
                         changeStageStatus('Close Stage', 'Opening')
-                        changeStageStatus('Manage Stage', 'Closed')
+                        changeStageStatus('Manage Stage', 'Closed', 'Stop Loss Hit')
                         announcementsModuleObject.makeAnnoucements(strategy.closeStage)
                         return
                     }
@@ -749,7 +749,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
 
                         tradingPositionModuleObject.closingPosition('Take Profit')
                         changeStageStatus('Close Stage', 'Opening')
-                        changeStageStatus('Manage Stage', 'Closed')
+                        changeStageStatus('Manage Stage', 'Closed', 'Take Profit Hit')
                         announcementsModuleObject.makeAnnoucements(strategy.closeStage)
                         return
                     }
@@ -1077,9 +1077,16 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
             resetStage(tradingEngine.current.strategyManageStage.status)
         }
         if (tradingEngine.current.strategyCloseStage.status.value === 'Closed') {
-            resetStage(tradingEngine.current.strategyCloseStage)
+            resetStage(tradingEngine.current.strategyCloseStage.status)
         }
 
+        if (tradingEngine.current.position.status.value === 'Closed') 
+        {
+            resetStage(tradingEngine.current.strategyTriggerStage)
+            resetStage(tradingEngine.current.strategyOpenStage)
+            resetStage(tradingEngine.current.strategyManageStage)
+            resetStage(tradingEngine.current.strategyCloseStage)
+        }
         function resetStage(stage) {
             TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.initializeNode(stage)
         }

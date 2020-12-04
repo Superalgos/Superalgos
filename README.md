@@ -34,7 +34,7 @@ Superalgos does not write anything outside the Superalgos folder. To completelly
 
 Once the app finishes loading, an interactive tutorial takes you by the hand and walks you all around the system while you learn the basic skills required to use the interface, mine data, backtest strategies, and even run a live trading session. It is highly recommended you follow the tutorial until the end, as it is carefully crafted to make your onboarding as easy as possible.
 
-## Full Instalation Guide
+# Full Instalation Guide
 
 If you need more detailed, step-by-step instructions on how to install Superalgos, find them at the [Documentation Site](https://docs.superalgos.org/suite-download-and-set-up.html)
 

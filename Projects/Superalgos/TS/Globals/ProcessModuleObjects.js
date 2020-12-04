@@ -11,7 +11,7 @@ exports.newSuperalgosGlobalsModuleObjects = function () {
     
     This is a list of possible Module Objects you might find here.
 
-    TRADING_ENGINE                              This is the module that manages the Trading Engine data structure.
+    TRADING_ENGINE_MODULE_OBJECT                              This is the module that manages the Trading Engine data structure.
     */
     return thisObject
 }

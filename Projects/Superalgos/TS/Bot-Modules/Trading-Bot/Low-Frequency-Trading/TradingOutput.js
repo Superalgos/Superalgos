@@ -1,4 +1,4 @@
-exports.newSuperalgosBotModulesTradingOutput = function (processIndex, tradingEngineModuleObject) {
+exports.newSuperalgosBotModulesTradingOutput = function (processIndex) {
     /*
     This module will load if necesary all the data outputs so that they can be appended with new
     records if needed. After running the simulation, it will save all the data outputs.
@@ -37,7 +37,7 @@ exports.newSuperalgosBotModulesTradingOutput = function (processIndex, tradingEn
             }
 
             /* Preparing everything for the Simulation */
-            let tradingSimulationModuleObject = TS.projects.superalgos.botModules.tradingSimulation.newSuperalgosBotModulesTradingSimulation(processIndex, tradingEngineModuleObject)
+            let tradingSimulationModuleObject = TS.projects.superalgos.botModules.tradingSimulation.newSuperalgosBotModulesTradingSimulation(processIndex)
 
             let outputDatasets = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
             let outputDatasetsMap = new Map()

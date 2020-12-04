@@ -1,4 +1,4 @@
-exports.newSuperalgosBotModulesTradingPosition = function (processIndex, tradingEngineModuleObject) {
+exports.newSuperalgosBotModulesTradingPosition = function (processIndex) {
     /*
     This module packages all functions related to Positions.
     */
@@ -103,7 +103,7 @@ exports.newSuperalgosBotModulesTradingPosition = function (processIndex, trading
         /*
         Now that the position is closed, it is the right time to move this position from current to last at the Trading Engine data structure.
         */
-        tradingEngineModuleObject.cloneValues(tradingEngine.current.position, tradingEngine.last.position)
+        TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.cloneValues(tradingEngine.current.position, tradingEngine.last.position)
 
         cycleBasedStatistics()
 
@@ -314,7 +314,7 @@ exports.newSuperalgosBotModulesTradingPosition = function (processIndex, trading
 
     function resetTradingEngineDataStructure() {
         if (tradingEngine.current.position.status.value === 'Closed') {
-            tradingEngineModuleObject.initializeNode(tradingEngine.current.position)
+            TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.initializeNode(tradingEngine.current.position)
         }
     }
 

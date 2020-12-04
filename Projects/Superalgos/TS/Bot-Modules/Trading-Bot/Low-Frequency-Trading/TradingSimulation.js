@@ -1,4 +1,4 @@
-exports.newSuperalgosBotModulesTradingSimulation = function (processIndex, tradingEngineModuleObject) {
+exports.newSuperalgosBotModulesTradingSimulation = function (processIndex) {
     /*
     This Module represents the trading simulacion. Escentially a loop through a set of candles and 
     the execution at each loop cycle of the Trading System Protocol.
@@ -37,10 +37,10 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex, tradi
             let tradingRecordsModuleObject = TS.projects.superalgos.botModules.tradingRecords.newSuperalgosBotModulesTradingRecords(processIndex)
             tradingRecordsModuleObject.initialize(outputDatasetsMap)
 
-            let tradingSystemModuleObject = TS.projects.superalgos.botModules.tradingSystem.newSuperalgosBotModulesTradingSystem(processIndex, tradingEngineModuleObject)
+            let tradingSystemModuleObject = TS.projects.superalgos.botModules.tradingSystem.newSuperalgosBotModulesTradingSystem(processIndex)
             tradingSystemModuleObject.initialize()
 
-            let tradingEpisodeModuleObject = TS.projects.superalgos.botModules.tradingEpisode.newSuperalgosBotModulesTradingEpisode(processIndex, tradingEngineModuleObject)
+            let tradingEpisodeModuleObject = TS.projects.superalgos.botModules.tradingEpisode.newSuperalgosBotModulesTradingEpisode(processIndex)
             tradingEpisodeModuleObject.initialize()
 
             /* Setting up the candles array: The whole simulation is based on the array of candles at the time-frame defined at the session parameters. */
@@ -108,7 +108,7 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex, tradi
                 if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Candle Begin @ ' + (new Date(candle.begin)).toLocaleString()) }
                 if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Candle End @ ' + (new Date(candle.end)).toLocaleString()) }
 
-                tradingEngineModuleObject.setCurrentCandle(candle) // We move the current candle we are standing at, to the trading engine data structure to make it available to anyone, including conditions and formulas.
+                TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.setCurrentCandle(candle) // We move the current candle we are standing at, to the trading engine data structure to make it available to anyone, including conditions and formulas.
 
                 /* We emit a heart beat so that the UI can now where we are at the overal process.*/
                 heartBeat()
@@ -133,7 +133,7 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex, tradi
                 */
                 tradingSystemModuleObject.mantain()
                 tradingEpisodeModuleObject.mantain()
-                tradingEngineModuleObject.mantain()
+                TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.mantain()
 
                 /* 
                 Run the first cycle of the Trading System. In this first cycle we
@@ -142,7 +142,7 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex, tradi
                 orders can not be created, since otherwise the could be cancelled at
                 the second cycle without spending real time at the order book.
                 */
-                tradingEngineModuleObject.setCurrentCycle('First')
+                TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.setCurrentCycle('First')
                 await runCycle()
 
                 /* 
@@ -166,7 +166,7 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex, tradi
                 without the need to wait until the next candle. Orders can not be cancelled
                 during the second cycle.
                 */
-                tradingEngineModuleObject.setCurrentCycle('Second')
+                TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.setCurrentCycle('Second')
                 await runCycle()
 
                 checkIfWeNeedToStopAfterBothCycles()
@@ -180,7 +180,7 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex, tradi
                     /* Reset Data Structures */
                     tradingSystemModuleObject.reset()
                     tradingEpisodeModuleObject.reset()
-                    tradingEngineModuleObject.reset()
+                    TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.reset()
 
                     let infoMessage = 'Processing candle # ' + tradingEngine.current.episode.candle.index.value + ' @ the ' + tradingEngine.current.episode.cycle.value + ' cycle.'
                     if (FULL_LOG === true) { TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, '[INFO] runSimulation -> loop -> ' + infoMessage) }

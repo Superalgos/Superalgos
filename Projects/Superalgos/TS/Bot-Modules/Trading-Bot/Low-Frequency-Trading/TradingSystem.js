@@ -1,4 +1,4 @@
-exports.newSuperalgosBotModulesTradingSystem = function (processIndex, tradingEngineModuleObject) {
+exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
     /*
     The Trading System is the user defined set of rules compliant with the Trading Protocol that
     defines the trading logic to be applied during each cycle of the Simulation.
@@ -19,7 +19,7 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex, tradingEn
     let sessionParameters
     let dynamicIndicators
 
-    let tradingStagesModuleObject = TS.projects.superalgos.botModules.tradingStages.newSuperalgosBotModulesTradingStages(processIndex, tradingEngineModuleObject)
+    let tradingStagesModuleObject = TS.projects.superalgos.botModules.tradingStages.newSuperalgosBotModulesTradingStages(processIndex)
 
     return thisObject
 

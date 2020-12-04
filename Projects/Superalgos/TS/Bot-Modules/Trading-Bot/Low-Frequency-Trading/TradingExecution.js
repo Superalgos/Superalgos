@@ -1,4 +1,4 @@
-exports.newSuperalgosBotModulesTradingExecution = function (processIndex, tradingEngineModuleObject) {
+exports.newSuperalgosBotModulesTradingExecution = function (processIndex) {
     /*
     The Trading Execution modules manages the execution nodes and execution algoritms.
     */
@@ -16,7 +16,7 @@ exports.newSuperalgosBotModulesTradingExecution = function (processIndex, tradin
     let tradingSystem
     let sessionParameters
 
-    let tradingOrdersModuleObject = TS.projects.superalgos.botModules.tradingOrders.newSuperalgosBotModulesTradingOrders(processIndex, tradingEngineModuleObject)
+    let tradingOrdersModuleObject = TS.projects.superalgos.botModules.tradingOrders.newSuperalgosBotModulesTradingOrders(processIndex)
 
     return thisObject
 

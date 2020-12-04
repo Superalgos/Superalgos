@@ -1,4 +1,4 @@
-exports.newSuperalgosBotModulesTradingStrategy = function (processIndex, tradingEngineModuleObject) {
+exports.newSuperalgosBotModulesTradingStrategy = function (processIndex) {
     /*
     This module packages all functions related to Strategies.
     */
@@ -63,7 +63,7 @@ exports.newSuperalgosBotModulesTradingStrategy = function (processIndex, trading
         /*
         Now that the strategy is closed, it is the right time to move this strategy from current to last at the Trading Engine data structure.
         */
-        tradingEngineModuleObject.cloneValues(tradingEngine.current.strategy, tradingEngine.last.strategy)
+        TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.cloneValues(tradingEngine.current.strategy, tradingEngine.last.strategy)
     }
 
     function updateEnds() {
@@ -75,7 +75,7 @@ exports.newSuperalgosBotModulesTradingStrategy = function (processIndex, trading
 
     function resetTradingEngineDataStructure() {
         if (tradingEngine.current.strategy.status.value === 'Closed') {
-            tradingEngineModuleObject.initializeNode(tradingEngine.current.strategy)
+            TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.initializeNode(tradingEngine.current.strategy)
         }
     }
 

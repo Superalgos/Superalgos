@@ -1,4 +1,4 @@
-exports.newSuperalgosBotModulesTradingOrders = function (processIndex, tradingEngineModule) {
+exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
     /*
     The Trading Orders modules manages the execution of orders against the exchanges.
     */
@@ -87,7 +87,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex, tradingEn
                     if (tradingSystemOrder.referenceParent === undefined) {
                         badDefinitionUnhandledException(undefined, 'tradingSystemOrder.referenceParent === undefined', tradingSystemOrder)
                     }
-                    let tradingEngineOrder = tradingEngineModule.getNodeById(tradingSystemOrder.referenceParent.id)
+                    let tradingEngineOrder = TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.getNodeById(tradingSystemOrder.referenceParent.id)
 
                     if (tradingEngineOrder.status === undefined) {
                         badDefinitionUnhandledException(undefined, 'tradingEngineOrder.status === undefined', tradingEngineOrder)
@@ -111,7 +111,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex, tradingEn
 
             let tradingSystemOrder = orders[i]
             tradingSystemValidations(tradingSystemOrder)
-            let tradingEngineOrder = tradingEngineModule.getNodeById(tradingSystemOrder.referenceParent.id)
+            let tradingEngineOrder = TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.getNodeById(tradingSystemOrder.referenceParent.id)
             tradingEngineValidations(tradingEngineOrder)
 
             switch (tradingEngineOrder.status.value) {
@@ -177,11 +177,11 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex, tradingEn
                     if (tradingEngineOrder.status.value === 'Closed') {
                         switch (tradingEngineOrder.type) {
                             case 'Market Order': {
-                                tradingEngineModule.cloneValues(tradingEngineOrder, tradingEngine.last.marketOrders)
+                                TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.cloneValues(tradingEngineOrder, tradingEngine.last.marketOrders)
                                 break
                             }
                             case 'Limit Order': {
-                                tradingEngineModule.cloneValues(tradingEngineOrder, tradingEngine.last.limitOrders)
+                                TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.cloneValues(tradingEngineOrder, tradingEngine.last.limitOrders)
                                 break
                             }
                         }
@@ -1040,7 +1040,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex, tradingEn
     function resetTradingEngineDataStructure(tradingEngineOrder, tradingSystemOrder, stageStatus) {
         if (tradingEngineOrder.status.value === 'Closed') {
             /* We reset the order data structure inside the Trading Engine to its initial value */
-            tradingEngineModule.initializeNode(tradingEngineOrder)
+            TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.initializeNode(tradingEngineOrder)
             if (tradingSystemOrder.config.spawnMultipleOrders !== true) {
                 /* 
                 We close the lock so as to prevent this data structure to be used again during this same stage execution.

@@ -1,4 +1,4 @@
-exports.newSuperalgosBotModulesTradingStages = function (processIndex, tradingEngineModuleObject) {
+exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
     /*
     This module packages all functions related to Stages.
     */
@@ -21,9 +21,9 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex, tradingEn
         finalize: finalize
     }
 
-    let tradingStrategyModuleObject = TS.projects.superalgos.botModules.tradingStrategy.newSuperalgosBotModulesTradingStrategy(processIndex, tradingEngineModuleObject)
-    let tradingPositionModuleObject = TS.projects.superalgos.botModules.tradingPosition.newSuperalgosBotModulesTradingPosition(processIndex, tradingEngineModuleObject)
-    let tradingExecutionModuleObject = TS.projects.superalgos.botModules.tradingExecution.newSuperalgosBotModulesTradingExecution(processIndex, tradingEngineModuleObject)
+    let tradingStrategyModuleObject = TS.projects.superalgos.botModules.tradingStrategy.newSuperalgosBotModulesTradingStrategy(processIndex)
+    let tradingPositionModuleObject = TS.projects.superalgos.botModules.tradingPosition.newSuperalgosBotModulesTradingPosition(processIndex)
+    let tradingExecutionModuleObject = TS.projects.superalgos.botModules.tradingExecution.newSuperalgosBotModulesTradingExecution(processIndex)
     let announcementsModuleObject = TS.projects.superalgos.botModules.announcements.newSuperalgosBotModulesAnnouncements(processIndex)
     let snapshotsModuleObject = TS.projects.superalgos.botModules.snapshots.newSuperalgosBotModulesSnapshots(processIndex)
     let tradingEpisodeModuleObject = TS.projects.superalgos.botModules.tradingEpisode.newSuperalgosBotModulesTradingEpisode(processIndex)
@@ -282,7 +282,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex, tradingEn
                 let tradingEngineStage = tradingEngine.current.strategyOpenStage
 
                 /* Reset the Exchange Orders data structure to its initial value */
-                tradingEngineModuleObject.initializeNode(tradingEngine.exchangeOrders)
+                TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.initializeNode(tradingEngine.exchangeOrders)
 
                 /* Entry Position size and rate */
                 tradingSystem.evalFormulas(tradingSystemStage, 'Initial Targets')
@@ -1081,7 +1081,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex, tradingEn
         }
 
         function resetStage(stage) {
-            tradingEngineModuleObject.initializeNode(stage)
+            TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.initializeNode(stage)
         }
     }
 

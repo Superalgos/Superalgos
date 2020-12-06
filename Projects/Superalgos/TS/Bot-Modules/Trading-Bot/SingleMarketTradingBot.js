@@ -1,6 +1,6 @@
 ﻿exports.newSuperalgosBotModulesSingleMarketTradingBot = function (processIndex) {
 
-    const MODULE_NAME = "Trading Bot";
+    const MODULE_NAME = "Single Market Trading Bot";
 
     let session = TS.projects.superalgos.botModules.tradingSession.newSuperalgosBotModulesTradingSession(processIndex)
     let nextLoopTimeoutHandle;

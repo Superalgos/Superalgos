@@ -1,6 +1,6 @@
 ﻿exports.newSuperalgosBotModulesSingleMarketIndicatorBot = function (processIndex) {
 
-    const MODULE_NAME = "Indicator Bot";
+    const MODULE_NAME = "Single Market Indicator Bot";
 
     let thisObject = {
         initialize: initialize,

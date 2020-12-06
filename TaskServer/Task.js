@@ -140,67 +140,6 @@ function bootingProcess() {
         }
 
         for (let processIndex = 0; processIndex < TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes.length; processIndex++) {
-
-            /* Validate that the minimun amount of input required are defined. */
-            if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode === undefined) {
-                console.log("[ERROR] Task Server -> Task -> bootingProcess -> Task without a Task Manager. This process will not be executed. -> Process Instance = " + JSON.stringify(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex]));
-                continue
-            }
-
-            if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode === undefined) {
-                console.log("[ERROR] Task Server -> Task -> bootingProcess -> Task Manager without parent Mine Tasks. This process will not be executed. -> Process Instance = " + JSON.stringify(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex]));
-                continue
-            }
-
-            if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode === undefined) {
-                console.log("[ERROR] Task Server -> Task -> bootingProcess -> Mine Tasks without parent Market Tasks. This process will not be executed. -> Process Instance = " + JSON.stringify(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex]));
-                continue
-            }
-
-            if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode === undefined) {
-                console.log("[ERROR] Task Server -> Task -> bootingProcess -> Market Tasks without parent Exchange Tasks. This process will not be executed. -> Process Instance = " + JSON.stringify(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex]));
-                continue
-            }
-            /*
-            Checking the Market that is referenced. 
-            */
-            if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent === undefined) {
-                console.log("[ERROR] Task Server -> Task -> bootingProcess -> Market Tasks without a Market. This process will not be executed. -> Process Instance = " + JSON.stringify(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex]));
-                continue
-            }
-
-            global.MARKET_NODE = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent
-
-            if (global.MARKET_NODE.parentNode === undefined) {
-                console.log("[ERROR] Task Server -> Task -> bootingProcess -> Market without a Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(global.MARKET_NODE));
-                continue
-            }
-
-            if (global.MARKET_NODE.parentNode.parentNode === undefined) {
-                console.log("[ERROR] Task Server -> Task -> bootingProcess -> Exchange Markets without a Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(global.MARKET_NODE.parentNode));
-                continue
-            }
-
-            if (global.MARKET_NODE.baseAsset === undefined) {
-                console.log("[ERROR] Task Server -> Task -> bootingProcess -> Market without a Base Asset. This process will not be executed. -> Process Instance = " + JSON.stringify(global.MARKET_NODE));
-                continue
-            }
-
-            if (global.MARKET_NODE.quotedAsset === undefined) {
-                console.log("[ERROR] Task Server -> Task -> bootingProcess -> Market without a Quoted Asset. This process will not be executed. -> Process Instance = " + JSON.stringify(global.MARKET_NODE));
-                continue
-            }
-
-            if (global.MARKET_NODE.baseAsset.referenceParent === undefined) {
-                console.log("[ERROR] Task Server -> Task -> bootingProcess -> Base Asset without a Reference Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(global.MARKET_NODE.baseAsset));
-                continue
-            }
-
-            if (global.MARKET_NODE.quotedAsset.referenceParent === undefined) {
-                console.log("[ERROR] Task Server -> Task -> bootingProcess -> Quoted Asset without a Reference Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(global.MARKET_NODE.quotedAsset));
-                continue
-            }
-
             /*
             Here we will validate that the process is connected all the way to a Mine
             and that nodes in the middle have whatever config is mandatory.

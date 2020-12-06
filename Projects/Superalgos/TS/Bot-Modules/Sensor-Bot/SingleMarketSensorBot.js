@@ -18,6 +18,20 @@
     function initialize(callBackFunction) {
         /*  This function is exactly the same in the 3 modules representing the 2 different bot types loops. */
         try {
+            /* We will check that we have received all the nodes needed to run this bot. */
+            if (TS.projects.superalgos.functionLibraries.singleMarketFunctions.checkUpstreamOfTaskNode(processIndex) === false) {
+                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
+                return
+            }
+
+            /* Here we setup the path prefix that will be used when writting data or logs to disk. */
+            TS.projects.superalgos.functionLibraries.singleMarketFunctions.initializeFilePathRoot(processIndex)
+
+            /*
+            Bots can be defined at the UI, using one of the available existing frameworks for that,
+            or they might be coded at a bot module. In the later case, the name of the botModule
+            must be specified at the bot process config.
+            */
             if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.botModule === undefined) {
                 /* The code of the bot is defined at the UI. No need to load a module for this. */
                 callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
@@ -41,7 +55,7 @@
 
         } catch (err) {
             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
-            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
+            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
         }
     }
 

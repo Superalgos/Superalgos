@@ -1,7 +1,7 @@
 ﻿exports.newSuperalgosBotModulesSingleMarketTradingBot = function (processIndex) {
 
     const MODULE_NAME = "Trading Bot";
-    
+
     let session = TS.projects.superalgos.botModules.tradingSession.newSuperalgosBotModulesTradingSession(processIndex)
     let nextLoopTimeoutHandle;
 
@@ -13,12 +13,17 @@
     return thisObject;
 
     function initialize(callBackFunction) {
-        /*  This function is exactly the same in the 3 modules representing the 2 different bot types loops. */
         try {
-            if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config.repo === undefined) {
-                /* The code of the bot is defined at the UI. No need to load a file with the code. */
-                session.initialize(callBackFunction)
+            /* We will check that we have received all the nodes needed to run this bot. */
+            if (TS.projects.superalgos.functionLibraries.singleMarketFunctions.checkUpstreamOfTaskNode(processIndex) === false) {
+                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
+                return
             }
+
+            /* Here we setup the path prefix that will be used when writting data or logs to disk. */
+            TS.projects.superalgos.functionLibraries.singleMarketFunctions.initializeFilePathRoot(processIndex)
+            
+            session.initialize(callBackFunction)
 
         } catch (err) {
             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);

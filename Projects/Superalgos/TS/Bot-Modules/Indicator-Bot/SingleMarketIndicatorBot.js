@@ -15,7 +15,20 @@
 
     function initialize(callBackFunction) {
         try {
+            /* We will check that we have received all the nodes needed to run this bot. */
+            if (TS.projects.superalgos.functionLibraries.singleMarketFunctions.checkUpstreamOfTaskNode(processIndex) === false) {
+                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
+                return
+            }
 
+            /* Here we setup the path prefix that will be used when writting data or logs to disk. */
+            TS.projects.superalgos.functionLibraries.singleMarketFunctions.initializeFilePathRoot(processIndex)
+
+            /*
+            Bots can be defined at the UI, using one of the available existing frameworks for that,
+            or they might be coded at a bot module. In the later case, the name of the botModule
+            must be specified at the bot process config.
+            */
             if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.botModule === undefined) {
                 /* The code of the bot is defined at the UI. No need to load a file with the code. */
                 callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);

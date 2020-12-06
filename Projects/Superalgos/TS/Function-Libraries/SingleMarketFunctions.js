@@ -9,7 +9,9 @@
         dataBuildingProcedure: dataBuildingProcedure,
         calculationsProcedure: calculationsProcedure,
         generateFileContent: generateFileContent,
-        writeFile: writeFile
+        writeFile: writeFile,
+        checkUpstreamOfTaskNode: checkUpstreamOfTaskNode,
+        initializeFilePathRoot: initializeFilePathRoot
     };
 
     return thisObject;
@@ -123,21 +125,21 @@
                             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                             return
                         }
-                    }  
+                    }
                 } else {
                     if (tradingMineNode.config.codeName === undefined) {
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> Trading Mine witn no codeName defined.");
                         callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                         return
                     }
-                }  
+                }
             } else {
                 if (dataMineNode.config.codeName === undefined) {
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE.write(MODULE_NAME, "[ERROR] start -> Data Mine witn no codeName defined.");
                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                     return
                 }
-            }            
+            }
         }
         return true
     }
@@ -283,7 +285,7 @@
     }
 
     function dataBuildingProcedure(
-        processIndex, 
+        processIndex,
         products,
         mainDependency,
         recordDefinition,
@@ -553,5 +555,107 @@
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
         }
     }
+
+    function checkUpstreamOfTaskNode(processIndex) {
+        /* 
+        Here we check that the Task Node received, comes with all the upstream nodes that will be 
+        needed to run this task in the context of a Single Market Bot.
+        */
+        /* Validate that the minimun amount of input required are defined. */
+        if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode === undefined) {
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE.write(MODULE_NAME,
+                "[ERROR] checkUpstreamOfTaskNode -> Task without a Task Manager. This bot process will not run. -> Process Instance = " + JSON.stringify(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex]));
+            return false
+        }
+
+        if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode === undefined) {
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE.write(MODULE_NAME,
+                "[ERROR] checkUpstreamOfTaskNode -> Task Manager without parent Mine Tasks. This bot process will not run. -> Process Instance = " + JSON.stringify(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex]));
+            return false
+        }
+
+        if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode === undefined) {
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE.write(MODULE_NAME,
+                "[ERROR] checkUpstreamOfTaskNode -> Mine Tasks without parent Market Tasks. This bot process will not run. -> Process Instance = " + JSON.stringify(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex]));
+            return false
+        }
+
+        if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode === undefined) {
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE.write(MODULE_NAME,
+                "[ERROR] checkUpstreamOfTaskNode -> Market Tasks without parent Exchange Tasks. This bot process will not run. -> Process Instance = " + JSON.stringify(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex]));
+            return false
+        }
+        /*
+        Checking the Market that is referenced. 
+        */
+        if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent === undefined) {
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE.write(MODULE_NAME,
+                "[ERROR] checkUpstreamOfTaskNode -> Market Tasks without a Market. This bot process will not run. -> Process Instance = " + JSON.stringify(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex]));
+            return false
+        }
+
+        let marketNode = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent
+
+        if (marketNode.parentNode === undefined) {
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE.write(MODULE_NAME,
+                "[ERROR] checkUpstreamOfTaskNode -> Market without a Parent. This bot process will not run. -> Received = " + JSON.stringify(marketNode));
+            return false
+        }
+
+        if (marketNode.parentNode.parentNode === undefined) {
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE.write(MODULE_NAME,
+                "[ERROR] checkUpstreamOfTaskNode -> Exchange Markets without a Parent. This bot process will not run. -> Received = " + JSON.stringify(marketNode.parentNode));
+            return false
+        }
+
+        if (marketNode.baseAsset === undefined) {
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE.write(MODULE_NAME,
+                "[ERROR] checkUpstreamOfTaskNode -> Market without a Base Asset. This bot process will not run. -> Received = " + JSON.stringify(marketNode));
+            return false
+        }
+
+        if (marketNode.quotedAsset === undefined) {
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE.write(MODULE_NAME,
+                "[ERROR] checkUpstreamOfTaskNode -> Market without a Quoted Asset. This bot process will not run. -> Received = " + JSON.stringify(marketNode));
+            return false
+        }
+
+        if (marketNode.baseAsset.referenceParent === undefined) {
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE.write(MODULE_NAME,
+                "[ERROR] checkUpstreamOfTaskNode -> Base Asset without a Reference Parent. This bot process will not run. -> Received = " + JSON.stringify(marketNode.baseAsset));
+            return false
+        }
+
+        if (marketNode.quotedAsset.referenceParent === undefined) {
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE.write(MODULE_NAME,
+                "[ERROR] checkUpstreamOfTaskNode -> Quoted Asset without a Reference Parent. This bot process will not run. -> Received = " + JSON.stringify(marketNode.quotedAsset));
+            return false
+        }
+        return true
+    }
+
+    function initializeFilePathRoot(processIndex) {
+        /*
+        For Single Market Files, the Root Path for files takes an specific structure 
+        which includes the exchange and market. Here that structure is defined.
+        */
+        TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT =
+            'Project/' +
+            TS.projects.superalgos.globals.taskConstants.PROJECT_DEFINITION_NODE.config.codeName +
+            "/" +
+            TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.type.replace(' ', '-') +
+            "/" +
+            TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName +
+            "/" +
+            TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config.codeName +
+            '/' +
+            TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name +
+            "/" +
+            TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName +
+            "-" +
+            TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
+
+    }
+
 }
 

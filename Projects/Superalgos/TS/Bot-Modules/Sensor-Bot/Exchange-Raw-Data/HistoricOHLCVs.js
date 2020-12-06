@@ -12,7 +12,6 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
         start: start
     };
 
-    
     let fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex);
     let statusDependencies
 

@@ -2,15 +2,12 @@
 
     const MODULE_NAME = "Sensor Bot";
 
-    let fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex);
-
-    let nextLoopTimeoutHandle;
-
     let thisObject = {
         initialize: initialize,
         run: run
     };
 
+    let nextLoopTimeoutHandle;
     let botModuleObject
 
     return thisObject;

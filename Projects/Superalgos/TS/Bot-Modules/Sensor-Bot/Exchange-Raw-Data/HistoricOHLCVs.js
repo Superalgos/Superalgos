@@ -2,7 +2,6 @@
 exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
 
     const FULL_LOG = true;
-    const GMT_SECONDS = ':00.000 GMT+0000';
     const MODULE_NAME = "Historic OHLCVs";
     const CANDLES_FOLDER_NAME = "Candles/One-Min";
     const VOLUMES_FOLDER_NAME = "Volumes/One-Min";
@@ -14,9 +13,6 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
 
     let fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex);
     let statusDependencies
-
-    const ONE_MIN = 60000
-    const ONE_DAY = ONE_MIN * 60 * 24
 
     const MAX_OHLCVs_PER_EXECUTION = 10000000
     const symbol = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + '/' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
@@ -164,8 +160,8 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                     thisReport = statusDependencies.statusReports.get(reportKey)
 
                     if (thisReport.file.beginingOfMarket !== undefined) { // This means this is not the first time this process run.
-                        beginingOfMarket = new Date(thisReport.file.beginingOfMarket.year + "-" + thisReport.file.beginingOfMarket.month + "-" + thisReport.file.beginingOfMarket.days + " " + thisReport.file.beginingOfMarket.hours + ":" + thisReport.file.beginingOfMarket.minutes + GMT_SECONDS);
-                        lastFile = new Date(thisReport.file.lastFile.year + "-" + thisReport.file.lastFile.month + "-" + thisReport.file.lastFile.days + " " + thisReport.file.lastFile.hours + ":" + thisReport.file.lastFile.minutes + GMT_SECONDS);
+                        beginingOfMarket = new Date(thisReport.file.beginingOfMarket.year + "-" + thisReport.file.beginingOfMarket.month + "-" + thisReport.file.beginingOfMarket.days + " " + thisReport.file.beginingOfMarket.hours + ":" + thisReport.file.beginingOfMarket.minutes + TS.projects.superalgos.globals.timeConstants.GMT_SECONDS);
+                        lastFile = new Date(thisReport.file.lastFile.year + "-" + thisReport.file.lastFile.month + "-" + thisReport.file.lastFile.days + " " + thisReport.file.lastFile.hours + ":" + thisReport.file.lastFile.minutes + TS.projects.superalgos.globals.timeConstants.GMT_SECONDS);
                         lastId = thisReport.file.lastId
                         lastCandleOfTheDay = thisReport.file.lastCandleOfTheDay
                     } else {  // This means this is the first time this process run.
@@ -306,7 +302,7 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                                 let OHLCV = OHLCVs[0]
 
                                 initialProcessTimestamp = OHLCV[0]  // 'timestamp'
-                                beginingOfMarket = new Date(Math.trunc(OHLCV[0] / ONE_DAY) * ONE_DAY)  // 'timestamp'
+                                beginingOfMarket = new Date(Math.trunc(OHLCV[0] / TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS) * TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS)  // 'timestamp'
                                 fromDate = new Date(beginingOfMarket.valueOf())
                                 fisrtTimeThisProcessRun = false
                             }
@@ -373,8 +369,8 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
 
                     let candlesFileContent = '['
                     let volumesFileContent = '['
-                    let previousDay = Math.trunc((initialProcessTimestamp - ONE_DAY) / ONE_DAY)
-                    let currentDay = Math.trunc((initialProcessTimestamp - ONE_DAY) / ONE_DAY)
+                    let previousDay = Math.trunc((initialProcessTimestamp - TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS) / TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
+                    let currentDay = Math.trunc((initialProcessTimestamp - TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS) / TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
                     let needSeparator = false
                     let error
                     let separator
@@ -415,16 +411,16 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                         for (let j = 0; j < 60 * 24; j++) {
 
                             let candle = {
-                                begin: currentDay * ONE_DAY + ONE_MIN * j,
-                                end: currentDay * ONE_DAY + ONE_MIN * j + ONE_MIN - 1,
+                                begin: currentDay * TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS + TS.projects.superalgos.globals.timeConstants.ONE_MIN_IN_MILISECONDS * j,
+                                end: currentDay * TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS + TS.projects.superalgos.globals.timeConstants.ONE_MIN_IN_MILISECONDS * j + TS.projects.superalgos.globals.timeConstants.ONE_MIN_IN_MILISECONDS - 1,
                                 open: lastCandle.close,
                                 close: lastCandle.close,
                                 min: lastCandle.close,
                                 max: lastCandle.close
                             }
                             let volume = {
-                                begin: currentDay * ONE_DAY + ONE_MIN * j,
-                                end: currentDay * ONE_DAY + ONE_MIN * j + ONE_MIN - 1,
+                                begin: currentDay * TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS + TS.projects.superalgos.globals.timeConstants.ONE_MIN_IN_MILISECONDS * j,
+                                end: currentDay * TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS + TS.projects.superalgos.globals.timeConstants.ONE_MIN_IN_MILISECONDS * j + TS.projects.superalgos.globals.timeConstants.ONE_MIN_IN_MILISECONDS - 1,
                                 buy: lastVolume.buy,
                                 sell: lastVolume.sell
                             }
@@ -445,7 +441,7 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                             }
 
                             let OHLCV = { // these values should be overrided unless there are no OHLVCs fetched from the exchange.
-                                timestamp: (new Date()).valueOf() + ONE_MIN,
+                                timestamp: (new Date()).valueOf() + TS.projects.superalgos.globals.timeConstants.ONE_MIN_IN_MILISECONDS,
                                 open: 0,
                                 hight: 0,
                                 low: 0,
@@ -466,7 +462,7 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                                 }
                             }
 
-                            let candleMinute = Math.trunc(candle.begin / ONE_MIN)
+                            let candleMinute = Math.trunc(candle.begin / TS.projects.superalgos.globals.timeConstants.ONE_MIN_IN_MILISECONDS)
                             let OHLCVMinute
 
                             checkOHLCVMinute()
@@ -477,7 +473,7 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                                 UTC minute. It is also not guaranteed that the distance between timestamps will be the same. To fix this, we will do this.
                                 */
 
-                                OHLCVMinute = Math.trunc(OHLCV.timestamp / ONE_MIN)
+                                OHLCVMinute = Math.trunc(OHLCV.timestamp / TS.projects.superalgos.globals.timeConstants.ONE_MIN_IN_MILISECONDS)
 
                                 if (OHLCVMinute < candleMinute) {
                                     if (i >= allOHLCVs.length - 1) {
@@ -559,10 +555,10 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                             let fileName = 'Data.json'
 
                             filesToCreate++
-                            fileStorage.createTextFile(getFilePath(day * ONE_DAY, CANDLES_FOLDER_NAME) + '/' + fileName, candlesFileContent + '\n', onFileCreated);
+                            fileStorage.createTextFile(getFilePath(day * TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS, CANDLES_FOLDER_NAME) + '/' + fileName, candlesFileContent + '\n', onFileCreated);
 
                             filesToCreate++
-                            fileStorage.createTextFile(getFilePath(day * ONE_DAY, VOLUMES_FOLDER_NAME) + '/' + fileName, volumesFileContent + '\n', onFileCreated);
+                            fileStorage.createTextFile(getFilePath(day * TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS, VOLUMES_FOLDER_NAME) + '/' + fileName, volumesFileContent + '\n', onFileCreated);
 
                             candlesFileContent = '['
                             volumesFileContent = '['
@@ -577,7 +573,7 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                                 return;
                             }
                             filesCreated++
-                            lastFile = new Date((currentDay * ONE_DAY))
+                            lastFile = new Date((currentDay * TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS))
                             if (filesCreated === filesToCreate) {
                                 controlLoop()
                             }

@@ -1,6 +1,5 @@
 ﻿exports.newSuperalgosBotModulesMultiPeriodDaily = function (processIndex) {
     const MODULE_NAME = "Multi Period Daily";
-    const GMT_SECONDS = ':00.000 GMT+0000';
 
     thisObject = {
         initialize: initialize,
@@ -89,7 +88,7 @@
                         return
                     }
 
-                    contextVariables.dateBeginOfMarket = new Date(thisReport.beginingOfMarket.year + "-" + thisReport.beginingOfMarket.month + "-" + thisReport.beginingOfMarket.days + " " + thisReport.beginingOfMarket.hours + ":" + thisReport.beginingOfMarket.minutes + GMT_SECONDS)
+                    contextVariables.dateBeginOfMarket = new Date(thisReport.beginingOfMarket.year + "-" + thisReport.beginingOfMarket.month + "-" + thisReport.beginingOfMarket.days + " " + thisReport.beginingOfMarket.hours + ":" + thisReport.beginingOfMarket.minutes + TS.projects.superalgos.globals.timeConstants.GMT_SECONDS)
                     /*
                     Here we get the status report from the bot who knows which is the end of the market.
                     */
@@ -167,7 +166,7 @@
                     }
 
                     function startFromBegining() {
-                        contextVariables.lastFile = new Date(contextVariables.dateBeginOfMarket.getUTCFullYear() + "-" + (contextVariables.dateBeginOfMarket.getUTCMonth() + 1) + "-" + contextVariables.dateBeginOfMarket.getUTCDate() + " " + "00:00" + GMT_SECONDS)
+                        contextVariables.lastFile = new Date(contextVariables.dateBeginOfMarket.getUTCFullYear() + "-" + (contextVariables.dateBeginOfMarket.getUTCMonth() + 1) + "-" + contextVariables.dateBeginOfMarket.getUTCDate() + " " + "00:00" + TS.projects.superalgos.globals.timeConstants.GMT_SECONDS)
 
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[INFO] start -> getContextVariables -> startFromBegining -> contextVariables.lastFile = " + contextVariables.lastFile)
                         /*

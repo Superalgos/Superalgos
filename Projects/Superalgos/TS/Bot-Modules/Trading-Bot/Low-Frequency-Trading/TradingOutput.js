@@ -11,7 +11,6 @@ exports.newSuperalgosBotModulesTradingOutput = function (processIndex) {
         start: start
     }
 
-    
     let fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex)
 
     return thisObject
@@ -165,9 +164,9 @@ exports.newSuperalgosBotModulesTradingOutput = function (processIndex) {
                     return
                 }
                 if (response.err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-                    throw(response.err)
+                    throw (response.err)
                 }
-                outputDatasetsMap.set(productName, JSON.parse(response.text))          
+                outputDatasetsMap.set(productName, JSON.parse(response.text))
             }
 
             async function writeFiles() {
@@ -219,13 +218,14 @@ exports.newSuperalgosBotModulesTradingOutput = function (processIndex) {
                 let response = await fileStorage.asyncCreateTextFile(filePath, fileContent)
 
                 if (response.err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-                    throw(response.err)
+                    throw (response.err)
                 }
             }
 
         } catch (err) {
-            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[ERROR] start -> err = ' + err.stack)
-            throw(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                '[ERROR] start -> err = ' + err.stack)
+            throw (TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
         }
     }
 }

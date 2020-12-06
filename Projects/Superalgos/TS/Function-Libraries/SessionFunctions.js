@@ -19,7 +19,7 @@ exports.newSuperalgosFunctionLibrariesSessionFunctions = function () {
             percentage: percentage,
             status: status
         }
-        TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_INSTANCE.raiseEvent(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY, 'Heartbeat', event)
+        TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY, 'Heartbeat', event)
 
         if (TS.projects.superalgos.globals.taskVariables.IS_TASK_STOPPING === true) {
             TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_STOPPING = true
@@ -40,11 +40,11 @@ exports.newSuperalgosFunctionLibrariesSessionFunctions = function () {
     function emitSessionStatus(status, key) {
         switch (status) {
             case 'Running': {
-                TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_INSTANCE.raiseEvent(key, 'Running')
+                TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent(key, 'Running')
                 break
             }
             case 'Stopped': {
-                TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_INSTANCE.raiseEvent(key, 'Stopped')
+                TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent(key, 'Stopped')
                 break
             }
         }
@@ -54,7 +54,7 @@ exports.newSuperalgosFunctionLibrariesSessionFunctions = function () {
         TS.projects.superalgos.globals.taskVariables.SESSION_MAP.forEach(forEachSession)
 
         function forEachSession(session) {
-            TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_INSTANCE.raiseEvent(session, 'Stopped')
+            TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent(session, 'Stopped')
         }
     }
 
@@ -72,7 +72,7 @@ exports.newSuperalgosFunctionLibrariesSessionFunctions = function () {
                 errorMessage: errorMessage
             }
         }
-        TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_INSTANCE.raiseEvent(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY, 'Error', event)
+        TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY, 'Error', event)
 
         if (TS.projects.superalgos.globals.taskVariables.IS_TASK_STOPPING === true) {
             TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_STOPPING = true
@@ -94,7 +94,7 @@ exports.newSuperalgosFunctionLibrariesSessionFunctions = function () {
                 warningMessage: warningMessage
             }
         }
-        TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_INSTANCE.raiseEvent(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY, 'Warning', event)
+        TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY, 'Warning', event)
 
         if (TS.projects.superalgos.globals.taskVariables.IS_TASK_STOPPING === true) {
             TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_STOPPING = true
@@ -116,7 +116,7 @@ exports.newSuperalgosFunctionLibrariesSessionFunctions = function () {
                 infoMessage: infoMessage
             }
         }
-        TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_INSTANCE.raiseEvent(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY, 'Info', event)
+        TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY, 'Info', event)
 
         if (TS.projects.superalgos.globals.taskVariables.IS_TASK_STOPPING === true) {
             TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_STOPPING = true

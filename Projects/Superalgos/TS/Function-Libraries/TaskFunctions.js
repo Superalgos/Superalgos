@@ -22,7 +22,7 @@ exports.newSuperalgosFunctionLibrariesTaskFunctions = function () {
             }
         }
         let key = TS.projects.superalgos.globals.taskConstants.TASK_NODE.name + '-' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.type + '-' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.id
-        TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_INSTANCE.raiseEvent(key, 'Error', event)
+        TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent(key, 'Error', event)
     }
 
     function getBotModuleByName(botModuleName) {

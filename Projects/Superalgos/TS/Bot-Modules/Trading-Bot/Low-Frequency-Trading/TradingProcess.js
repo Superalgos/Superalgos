@@ -651,7 +651,7 @@
                             dateRange: dataRange
                         }
 
-                        TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_INSTANCE.raiseEvent(key, 'Data Range Updated', event)
+                        TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent(key, 'Data Range Updated', event)
                     }
                 }
 

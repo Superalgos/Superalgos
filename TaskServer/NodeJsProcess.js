@@ -28,9 +28,9 @@ exports.newNodeJsProcess = function () {
                 /* We send an event signaling that the Task is being terminated. */
                 let key = TS.projects.superalgos.globals.taskConstants.TASK_NODE.name + '-' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.type + '-' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.id
 
-                TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_INSTANCE.raiseEvent(key, 'Stopped') // Meaning Task Stopped
-                TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_INSTANCE.finalize()
-                TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_INSTANCE = undefined
+                TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent(key, 'Stopped') // Meaning Task Stopped
+                TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.finalize()
+                TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT = undefined
             }
 
             //console.log('[INFO] Task Server -> Node JS Process -> process.on.exit -> About to exit -> config = ' + config)

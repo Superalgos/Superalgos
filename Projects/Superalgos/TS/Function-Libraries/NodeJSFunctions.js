@@ -20,7 +20,7 @@ exports.newSuperalgosFunctionLibrariesNodeJSFunctions = function () {
         TS.projects.superalgos.functionLibraries.sessionFunctions.finalizeSessions()
 
         /* Cleaning Before Exiting. */
-        clearInterval(global.HEARTBEAT_INTERVAL_HANDLER)
+        clearInterval(TS.projects.superalgos.globals.taskConstants.TASK_HEARTBEAT_INTERVAL_HANDLER)
 
         if (TS.projects.superalgos.globals.taskConstants.TASK_NODE !== undefined) {
             for (let i = 0; i < TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes.length; i++) {
@@ -28,7 +28,7 @@ exports.newSuperalgosFunctionLibrariesNodeJSFunctions = function () {
                 let process = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[i]
 
                 let key = process.name + '-' + process.type + '-' + process.id
-                TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_INSTANCE.raiseEvent(key, 'Stopped') // Meaning Process Stopped
+                TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent(key, 'Stopped') // Meaning Process Stopped
             }
         }
 

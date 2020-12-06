@@ -16,7 +16,7 @@ exports.newSuperalgosFunctionLibrariesProcessFunctions = function () {
             percentage: percentage,
             status: status
         }
-        TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_INSTANCE.raiseEvent(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_KEY, 'Heartbeat', event)
+        TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_KEY, 'Heartbeat', event)
     }
 
     function processError (processKey, node, errorMessage) {
@@ -33,7 +33,7 @@ exports.newSuperalgosFunctionLibrariesProcessFunctions = function () {
                 errorMessage: errorMessage
             }
         }
-        TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_INSTANCE.raiseEvent(processKey, 'Error', event)
+        TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent(processKey, 'Error', event)
     }
 
     function processWarning (processKey, node, warningMessage) {
@@ -50,7 +50,7 @@ exports.newSuperalgosFunctionLibrariesProcessFunctions = function () {
                 warningMessage: warningMessage
             }
         }
-        TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_INSTANCE.raiseEvent(processKey, 'Warning', event)
+        TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent(processKey, 'Warning', event)
     }
 
     function processInfo (processKey, node, infoMessage) {
@@ -67,6 +67,6 @@ exports.newSuperalgosFunctionLibrariesProcessFunctions = function () {
                 infoMessage: infoMessage
             }
         }
-        TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_INSTANCE.raiseEvent(processKey, 'Info', event)
+        TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent(processKey, 'Info', event)
     }
 }

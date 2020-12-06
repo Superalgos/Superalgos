@@ -101,19 +101,19 @@ function bootingProcess() {
             TS.projects.superalgos.globals.taskConstants.PROJECT_DEFINITION_NODE = TS.projects.superalgos.utilities.nodeFunctions.findNodeInNodeMesh(TS.projects.superalgos.globals.taskConstants.TASK_NODE, 'Project Definition')
             if (TS.projects.superalgos.globals.taskConstants.PROJECT_DEFINITION_NODE === undefined) {
                 console.log("[ERROR] Task Server -> Task -> bootingProcess -> Project Definition not found. ")
-                global.unexpectedError = 'Project Definition not found. Fatal Error, can not continue. Fix the problem and try again.'
+                TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE = 'Project Definition not found. Fatal Error, can not continue. Fix the problem and try again.'
                 TS.projects.superalgos.functionLibraries.nodeJSFunctions.exitProcess
                 throw ('Fatal Error')
             }
             if (TS.projects.superalgos.globals.taskConstants.PROJECT_DEFINITION_NODE.config.codeName === undefined) {
                 console.log("[ERROR] Task Server -> Task -> bootingProcess -> Project Definition with codeName undefined. ")
-                global.unexpectedError = 'Project Definition with codeName undefined. Fatal Error, can not continue. Fix the problem and try again.'
+                TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE = 'Project Definition with codeName undefined. Fatal Error, can not continue. Fix the problem and try again.'
                 TS.projects.superalgos.functionLibraries.nodeJSFunctions.exitProcess
                 throw ('Fatal Error')
             }
             if (TS.projects.superalgos.globals.taskConstants.PROJECT_DEFINITION_NODE.config.codeName === '') {
                 console.log("[ERROR] Task Server -> Task -> bootingProcess -> Project Definition without codeName. ")
-                global.unexpectedError = 'Project Definition without codeName. Fatal Error, can not continue. Fix the problem and try again.'
+                TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE = 'Project Definition without codeName. Fatal Error, can not continue. Fix the problem and try again.'
                 TS.projects.superalgos.functionLibraries.nodeJSFunctions.exitProcess
                 throw ('Fatal Error')
             }

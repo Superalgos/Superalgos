@@ -122,28 +122,28 @@
                                         }
                                         case TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] run -> loop -> initializeProcessExecutionEvents -> onInizialized -> Operation Failed. Aborting the process.");
-                                            global.unexpectedError = err.message
+                                            TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE = err.message
                                             processStopped()
                                             return
                                         }
                                         default: {
                                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] run -> loop -> initializeProcessExecutionEvents -> onInizialized -> Unhandled err.result received. -> err.result = " + err.result);
                                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] run -> loop -> initializeProcessExecutionEvents -> onInizialized -> Unhandled err.result received. -> err = " + err.message);
-                                            global.unexpectedError = err.message
+                                            TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE = err.message
                                             processStopped()
                                             return
                                         }
                                     }
                                 } catch (err) {
                                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] run -> loop -> initializeProcessExecutionEvents -> onInizialized -> err = " + err.stack);
-                                    global.unexpectedError = err.message
+                                    TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE = err.message
                                     processStopped()
                                     return
                                 }
                             }
                         } catch (err) {
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] run -> loop -> initializeProcessExecutionEvents -> err = " + err.stack);
-                            global.unexpectedError = err.message
+                            TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE = err.message
                             processStopped()
                             return
                         }
@@ -175,28 +175,28 @@
                                         }
                                         case TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessExecutionEvents -> onStarted -> Operation Failed. Aborting the process.");
-                                            global.unexpectedError = err.message
+                                            TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE = err.message
                                             processStopped()
                                             return
                                         }
                                         default: {
                                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessExecutionEvents -> onStarted -> Unhandled err.result received. -> err.result = " + err.result);
                                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessExecutionEvents -> onStarted -> Unhandled err.result received. -> err = " + err.message);
-                                            global.unexpectedError = err.message
+                                            TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE = err.message
                                             processStopped()
                                             return
                                         }
                                     }
                                 } catch (err) {
                                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessExecutionEvents -> onStarted -> err = " + err.stack);
-                                    global.unexpectedError = err.message
+                                    TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE = err.message
                                     processStopped()
                                     return
                                 }
                             }
                         } catch (err) {
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessExecutionEvents -> err = " + err.stack);
-                            global.unexpectedError = err.message
+                            TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE = err.message
                             processStopped()
                             return
                         }
@@ -223,28 +223,28 @@
                                         }
                                         case TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> Operation Failed. Aborting the process.");
-                                            global.unexpectedError = err.message
+                                            TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE = err.message
                                             processStopped()
                                             return
                                         }
                                         default: {
                                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> Unhandled err.result received. -> err.result = " + err.result);
                                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> Unhandled err.result received. -> err = " + err.message);
-                                            global.unexpectedError = err.message
+                                            TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE = err.message
                                             processStopped()
                                             return
                                         }
                                     }
                                 } catch (err) {
                                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> err = " + err.stack);
-                                    global.unexpectedError = err.message
+                                    TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE = err.message
                                     processStopped()
                                     return
                                 }
                             }
                         } catch (err) {
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] run -> loop -> initializeStatusDependencies -> err = " + err.stack);
-                            global.unexpectedError = err.message
+                            TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE = err.message
                             processStopped()
                             return
                         }
@@ -269,7 +269,7 @@
                                                 default: {
                                                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] run -> loop -> initializeDataDependencies -> onInizialized -> Process Framework not Supported.");
                                                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] run -> loop -> initializeDataDependencies -> onInizialized -> Process Framework Name = " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.framework.name);
-                                                    global.unexpectedError = err.message
+                                                    TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE = err.message
                                                     processStopped()
                                                     return
                                                 }
@@ -284,28 +284,28 @@
                                         }
                                         case TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] run -> loop -> initializeDataDependencies -> onInizialized -> Operation Failed. Aborting the process.");
-                                            global.unexpectedError = err.message
+                                            TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE = err.message
                                             processStopped()
                                             return
                                         }
                                         default: {
                                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] run -> loop -> initializeDataDependencies -> onInizialized -> Unhandled err.result received. -> err.result = " + err.result);
                                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] run -> loop -> initializeDataDependencies -> onInizialized -> Unhandled err.result received. -> err = " + err.message);
-                                            global.unexpectedError = err.message
+                                            TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE = err.message
                                             processStopped()
                                             return
                                         }
                                     }
                                 } catch (err) {
                                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] run -> loop -> initializeDataDependencies ->  onInizialized -> err = " + err.stack);
-                                    global.unexpectedError = err.message
+                                    TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE = err.message
                                     processStopped()
                                     return
                                 }
                             }
                         } catch (err) {
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] run -> loop -> initializeDataDependencies -> err = " + err.stack);
-                            global.unexpectedError = err.message
+                            TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE = err.message
                             processStopped()
                             return
                         }
@@ -331,34 +331,34 @@
                                         }
                                         case TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeProcessFramework -> onInizialized -> Operation Failed. Aborting the process.");
-                                            global.unexpectedError = err.message
+                                            TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE = err.message
                                             processStopped()
                                             return
                                         }
                                         case TS.projects.superalgos.globals.standardResponses.CUSTOM_OK_RESPONSE.result: {
                                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeProcessFramework -> onInizialized > Unhandled custom response received. -> err = " + err.message);
-                                            global.unexpectedError = err.message
+                                            TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE = err.message
                                             processStopped()
                                             return
                                         }
                                         default: {
                                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeProcessFramework -> onInizialized -> Unhandled err.result received. -> err.result = " + err.result);
                                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeProcessFramework -> onInizialized -> Unhandled err.result received. -> err = " + err.message);
-                                            global.unexpectedError = err.message
+                                            TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE = err.message
                                             processStopped()
                                             return
                                         }
                                     }
                                 } catch (err) {
                                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeProcessFramework ->  onInizialized -> err = " + err.stack);
-                                    global.unexpectedError = err.message
+                                    TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE = err.message
                                     processStopped()
                                     return
                                 }
                             }
                         } catch (err) {
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeProcessFramework -> err = " + err.stack);
-                            global.unexpectedError = err.message
+                            TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE = err.message
                             processStopped()
                             return
                         }
@@ -392,7 +392,7 @@
                                         }
                                         case TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessFramework -> onFinished -> Operation Failed. Aborting the process.");
-                                            global.unexpectedError = err.message
+                                            TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE = err.message
                                             processStopped()
                                             return
                                         }
@@ -413,7 +413,7 @@
                                                 }
                                                 default: {
                                                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessFramework -> onFinished -> Unhandled custom response received. -> err = " + err.message);
-                                                    global.unexpectedError = err.message
+                                                    TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE = err.message
                                                     processStopped()
                                                     return
                                                 }
@@ -422,21 +422,21 @@
                                         default: {
                                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessFramework -> onFinished -> Unhandled err.result received. -> err.result = " + err.result);
                                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessFramework -> onFinished -> Unhandled err.result received. -> err = " + err.message);
-                                            global.unexpectedError = err.message
+                                            TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE = err.message
                                             processStopped()
                                             return
                                         }
                                     }
                                 } catch (err) {
                                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessFramework -> onFinished -> err = " + err.stack);
-                                    global.unexpectedError = err.message
+                                    TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE = err.message
                                     processStopped()
                                     return
                                 }
                             }
                         } catch (err) {
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessFramework -> err = " + err.stack);
-                            global.unexpectedError = err.message
+                            TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE = err.message
                             processStopped()
                             return
                         }
@@ -466,28 +466,28 @@
                                         }
                                         case TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] run -> loop -> finishProcessExecutionEvents -> onFinished -> Operation Failed. Aborting the process.");
-                                            global.unexpectedError = err.message
+                                            TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE = err.message
                                             processStopped()
                                             return
                                         }
                                         default: {
                                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] run -> loop -> finishProcessExecutionEvents -> onFinished -> Unhandled err.result received. -> err.result = " + err.result);
                                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] run -> loop -> finishProcessExecutionEvents -> onFinished -> Unhandled err.result received. -> err = " + err.message);
-                                            global.unexpectedError = err.message
+                                            TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE = err.message
                                             processStopped()
                                             return
                                         }
                                     }
                                 } catch (err) {
                                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] run -> loop -> finishProcessExecutionEvents -> onFinished -> err = " + err.stack);
-                                    global.unexpectedError = err.message
+                                    TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE = err.message
                                     processStopped()
                                     return
                                 }
                             }
                         } catch (err) {
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] run -> loop -> finishProcessExecutionEvents -> err = " + err.stack);
-                            global.unexpectedError = err.message
+                            TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE = err.message
                             processStopped()
                             return
                         }
@@ -599,7 +599,7 @@
                             }
                         } catch (err) {
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] run -> loop -> shallWeStop -> err = " + err.stack);
-                            global.unexpectedError = err.message
+                            TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE = err.message
                             processStopped()
                             return
                         }
@@ -607,14 +607,14 @@
 
                 } catch (err) {
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] run -> loop -> err = " + err.stack);
-                    global.unexpectedError = err.message
+                    TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE = err.message
                     processStopped()
                     return
                 }
             }
 
             function processStopped() {
-                if (global.unexpectedError !== undefined) {
+                if (TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE !== undefined) {
                     TS.projects.superalgos.functionLibraries.processFunctions.processError(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_KEY, undefined, "An unexpected error caused the Process to stop.")
                 } else {
                     TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_INSTANCE.raiseEvent(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_KEY, 'Stopped')
@@ -622,7 +622,7 @@
                 sessionStopped()
                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.persist();
                 clearTimeout(nextLoopTimeoutHandle);
-                if (global.unexpectedError !== undefined) {
+                if (TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE !== undefined) {
                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
                 } else {
                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)

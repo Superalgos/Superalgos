@@ -9,8 +9,8 @@ exports.newSuperalgosFunctionLibrariesNodeJSFunctions = function () {
 
     function exitProcess() {
 
-        if (global.unexpectedError !== undefined) {
-            TS.projects.superalgos.functionLibraries.taskFunctions.taskError(undefined, "An unexpected error caused the Task to stop. " + global.unexpectedError)
+        if (TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE !== undefined) {
+            TS.projects.superalgos.functionLibraries.taskFunctions.taskError(undefined, "An unexpected error caused the Task to stop. " + TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE)
         }
 
         if (isNodeJsProcessShuttingDown === true) { return }

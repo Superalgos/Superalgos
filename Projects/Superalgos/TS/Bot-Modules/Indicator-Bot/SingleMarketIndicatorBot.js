@@ -5,12 +5,12 @@
     let thisObject = {
         initialize: initialize,
         run: run
-    };
+    }
 
     let nextLoopTimeoutHandle
     let botModuleObject
 
-    return thisObject;
+    return thisObject
 
     function initialize(callBackFunction) {
         try {
@@ -45,14 +45,14 @@
                 let moduleFunction = botModule[botModuleDefinition.functionName]
                 botModuleObject = moduleFunction(processIndex)
 
-                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
+                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
                 return
             }
 
         } catch (err) {
             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                 "[ERROR] initialize -> err = " + err.stack);
-            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
+            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
         }
     }
 

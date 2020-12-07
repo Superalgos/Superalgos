@@ -48,14 +48,25 @@ function newSuperalgosDocSpace() {
     }
 
     function onOpening() {
- 
+
     }
 
     function onClosing() {
 
     }
 
-    function navigateTo(url) {
+    function navigateTo(node) {
+
+        buildNodeHtmlPage()
+
+        function buildNodeHtmlPage() {
+            let HTML = node.type
+
+            let docsAppDiv = document.getElementById('docsDiv')
+            docsAppDiv.innerHTML = HTML
+        }
+
+
         thisObject.sidePanelTab.open()
     }
 
@@ -85,20 +96,20 @@ function newSuperalgosDocSpace() {
 
     function physics() {
         thisObject.sidePanelTab.physics()
-        docAppDivPhysics()
+        docsAppDivPhysics()
 
-        function docAppDivPhysics() {
-            let docAppDiv = document.getElementById('docApp')
-            docAppDivPosition = {
+        function docsAppDivPhysics() {
+            let docsAppDiv = document.getElementById('docsDiv')
+            docsAppDivPosition = {
                 x: 0,
                 y: 0
             }
-            docAppDivPosition = thisObject.container.frame.frameThisPoint(docAppDivPosition)
-            docAppDiv.style = '   ' + 
-            'position:fixed; top:' + docAppDivPosition.y + 'px; ' + 
-            'left:' + docAppDivPosition.x + 'px; z-index:1; ' + 
-            'width: ' + thisObject.container.frame.width + 'px;' +
-            'height: ' + thisObject.container.frame.height + 'px'
+            docsAppDivPosition = thisObject.container.frame.frameThisPoint(docsAppDivPosition)
+            docsAppDiv.style = '   ' +
+                'position:fixed; top:' + docsAppDivPosition.y + 'px; ' +
+                'left:' + docsAppDivPosition.x + 'px; z-index:1; ' +
+                'width: ' + thisObject.container.frame.width + 'px;' +
+                'height: ' + thisObject.container.frame.height + 'px'
         }
     }
 

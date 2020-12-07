@@ -12432,7 +12432,6 @@
     },
     {
         "type": "Move To Phase Event",
-        "docURL": "",
         "menuItems": [
             {
                 "action": "Add UI Object",

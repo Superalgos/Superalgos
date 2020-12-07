@@ -109,7 +109,6 @@
   }
   
   .tutorial-fa {
-    
     font:normal normal normal 14px/1 FontAwesome;
     font-size:inherit;
     text-rendering:auto;
@@ -136,7 +135,6 @@
   }
   
   .tutorial-font-medium {
-    
     font:normal normal normal 32px/1 "segoeui";
     text-rendering:auto;
     -webkit-font-smoothing:antialiased;
@@ -145,7 +143,6 @@
   }
   
   .tutorial-font-large {
-    
     font:bold normal normal 40px/1 "segoeui";
     text-rendering:auto;
     -webkit-font-smoothing:antialiased;
@@ -154,7 +151,6 @@
   }
   
   .tutorial-font-bold-small {
-    
     font:bold normal normal 14px/1 "segoeui";
     font-size:inherit;
     text-rendering:auto;
@@ -289,15 +285,6 @@
     opacity: 1;
   }
   
-  kbd {
-    padding: 2px 8px;
-    font-size: 125%;
-    font-weight: 500;
-    color: #000;
-    background-color: #bcd643;
-    border-radius: 5px;
-    border-style: outset;
-    border-width: 1px;
-  }
+ 
   
   

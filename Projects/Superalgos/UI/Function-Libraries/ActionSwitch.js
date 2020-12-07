@@ -635,7 +635,7 @@ function newSuperalgosActionSwitch() {
                     let definition = getNodeDefinition(action.node)
                     if (definition !== undefined) {
                         if (definition.docURL !== undefined) {
-                            UI.projects.superalgos.spaces.docSpace.navigateTo(definition.docURL)
+                            UI.projects.superalgos.spaces.docsSpace.navigateTo(definition.docURL)
                         } else {
                             let headName = UI.projects.superalgos.utilities.hierarchy.getHiriarchyHead(action.node).type
                             headName = headName.toLowerCase()
@@ -644,7 +644,7 @@ function newSuperalgosActionSwitch() {
                             nodeName = nodeName.toLowerCase()
                             nodeName = nodeName.split(" ").join("-")
                             url = UI.projects.superalgos.globals.docs.DOCUMENTATION_URL_PREFIX + "suite-hierarchy-" + headName + ".html#" + nodeName
-                            UI.projects.superalgos.spaces.docSpace.navigateTo(url)
+                            UI.projects.superalgos.spaces.docsSpace.navigateTo(url)
                         }
                     }
                 }

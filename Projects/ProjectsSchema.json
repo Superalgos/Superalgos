@@ -291,9 +291,9 @@
                     "onMouseDownIndex": 2
                 },
                 {
-                    "name": "Doc Space",
-                    "folderName": "Doc-Space",
-                    "propertyName": "docSpace",
+                    "name": "Docs Space",
+                    "folderName": "Docs-Space",
+                    "propertyName": "docsSpace",
                     "functionName": "newSuperalgosDocSpace",
                     "initializationIndex": 7,
                     "animationPhysicsIndex": 5,

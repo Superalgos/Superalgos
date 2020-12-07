@@ -51,7 +51,7 @@ function newCanvas() {
     function finalize() {
         try {
             UI.projects.superalgos.spaces.tutorialSpace.finalize()
-            UI.projects.superalgos.spaces.docSpace.finalize()
+            UI.projects.superalgos.spaces.docsSpace.finalize()
             //thisObject.chatSpace.finalize()
             UI.projects.superalgos.spaces.sideSpace.finalize()
             UI.projects.superalgos.spaces.chartingSpace.finalize()

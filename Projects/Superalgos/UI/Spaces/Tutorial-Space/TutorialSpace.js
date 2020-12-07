@@ -268,14 +268,14 @@ function newSuperalgosTutorialSpace() {
                     /*
                     This forces the tutorial to close the documentation panel and to keep it closed.
                     */
-                    UI.projects.superalgos.spaces.docSpace.sidePanelTab.close()
+                    UI.projects.superalgos.spaces.docsSpace.sidePanelTab.close()
                     return
                 }
-                UI.projects.superalgos.spaces.docSpace.sidePanelTab.open()
+                UI.projects.superalgos.spaces.docsSpace.sidePanelTab.open()
                 if (newDocumentationURL === currentDocumentationURL) { return }
 
                 currentDocumentationURL = newDocumentationURL
-                UI.projects.superalgos.spaces.docSpace.navigateTo(currentDocumentationURL)
+                UI.projects.superalgos.spaces.docsSpace.navigateTo(currentDocumentationURL)
             }
         }
 

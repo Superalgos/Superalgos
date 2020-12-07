@@ -22,23 +22,3 @@
   font-style: normal;
 }
 
-.credits {
-  width: 100%;
-  margin: auto;
-  margin-bottom: 50;
-  text-align: center;
-  position:absolute;
-  bottom:0;
-}
-
-.credits p {
-  font-family: 'Saira Condensed';
-  font-size: 140%;
-  color: whitesmoke;
-  padding: 0 100;
-}
-
-.red {
-  color: #e3493c;
-  font-weight: 700;
-}

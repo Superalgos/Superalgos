@@ -768,6 +768,18 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                 }
                 break
 
+            case 'credits.css':
+                {
+                    sendStyleSheet('credits.css')
+                }
+                break
+
+            case 'docs.css':
+                {
+                    sendStyleSheet('docs.css')
+                }
+                break
+
             case 'font-awasome.css':
                 {
                     sendStyleSheet('font-awasome.css')

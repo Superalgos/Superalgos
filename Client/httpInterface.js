@@ -756,6 +756,18 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                 }
                 break
 
+            case 'tutorial.css':
+                {
+                    sendStyleSheet('tutorial.css')
+                }
+                break
+
+            case 'docs.css':
+                {
+                    sendStyleSheet('docs.css')
+                }
+                break
+
             case 'font-awasome.css':
                 {
                     sendStyleSheet('font-awasome.css')
@@ -853,7 +865,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
         function sendStyleSheet(fileName) {
             let fs = require('fs')
             try {
-                let filePath = global.env.PATH_TO_CLIENT + 'WebServer/' + fileName
+                let filePath = global.env.PATH_TO_CLIENT + 'WebServer/css/' + fileName
                 fs.readFile(filePath, onFileRead)
 
                 function onFileRead(err, file) {

@@ -48,10 +48,7 @@ function newSuperalgosDocSpace() {
     }
 
     function onOpening() {
-        let docIFrame = document.getElementById('docIFrame')
-        if (docIFrame.src === "") {
-            docIFrame.src = UI.projects.superalgos.globals.docs.DOCUMENTATION_URL_DEFAULT
-        }
+ 
     }
 
     function onClosing() {
@@ -59,8 +56,6 @@ function newSuperalgosDocSpace() {
     }
 
     function navigateTo(url) {
-        let docIFrame = document.getElementById('docIFrame')
-        docIFrame.src = url
         thisObject.sidePanelTab.open()
     }
 
@@ -91,7 +86,6 @@ function newSuperalgosDocSpace() {
     function physics() {
         thisObject.sidePanelTab.physics()
         docAppDivPhysics()
-        iFramePhysics()
 
         function docAppDivPhysics() {
             let docAppDiv = document.getElementById('docApp')
@@ -103,13 +97,6 @@ function newSuperalgosDocSpace() {
             docAppDiv.style = '   ' + 
             'position:fixed; top:' + docAppDivPosition.y + 'px; ' + 
             'left:' + docAppDivPosition.x + 'px; z-index:1; ' + 
-            'width: ' + thisObject.container.frame.width + 'px;' +
-            'height: ' + thisObject.container.frame.height + 'px'
-        }
-
-        function iFramePhysics() {
-            let docIFrame = document.getElementById('docIFrame')
-            docIFrame.style = '  ' + 
             'width: ' + thisObject.container.frame.width + 'px;' +
             'height: ' + thisObject.container.frame.height + 'px'
         }

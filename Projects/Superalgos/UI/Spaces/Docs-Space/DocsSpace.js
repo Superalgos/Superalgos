@@ -96,28 +96,34 @@ function newSuperalgosDocSpace() {
 
             /* Adding Section */
             if (nodeDocsDefinition.adding !== undefined) {
-                HTML = HTML + '<h2>Adding a ' + node.type + '</h2>'
-                for (let i = 0; i < nodeDocsDefinition.adding.length; i++) {
-                    let paragraph = nodeDocsDefinition.adding[i]
-                    HTML = HTML + '<p>' + paragraph + '</p>'
+                if (nodeDocsDefinition.adding.length > 0) {
+                    HTML = HTML + '<h2>Adding a ' + node.type + '</h2>'
+                    for (let i = 0; i < nodeDocsDefinition.adding.length; i++) {
+                        let paragraph = nodeDocsDefinition.adding[i]
+                        HTML = HTML + '<p>' + paragraph + '</p>'
+                    }
                 }
             }
 
             /* Configuring Section */
             if (nodeDocsDefinition.configuring !== undefined) {
-                HTML = HTML + '<h2>Configuring a ' + node.type + '</h2>'
-                for (let i = 0; i < nodeDocsDefinition.configuring.length; i++) {
-                    let paragraph = nodeDocsDefinition.configuring[i]
-                    HTML = HTML + '<p>' + paragraph + '</p>'
+                if (nodeDocsDefinition.configuring.length > 0) {
+                    HTML = HTML + '<h2>Configuring a ' + node.type + '</h2>'
+                    for (let i = 0; i < nodeDocsDefinition.configuring.length; i++) {
+                        let paragraph = nodeDocsDefinition.configuring[i]
+                        HTML = HTML + '<p>' + paragraph + '</p>'
+                    }
                 }
             }
 
             /* Starting Section */
             if (nodeDocsDefinition.starting !== undefined) {
-                HTML = HTML + '<h2>Configuring a ' + node.type + '</h2>'
-                for (let i = 0; i < nodeDocsDefinition.starting.length; i++) {
-                    let paragraph = nodeDocsDefinition.starting[i]
-                    HTML = HTML + '<p>' + paragraph + '</p>'
+                if (nodeDocsDefinition.starting.length > 0) {
+                    HTML = HTML + '<h2>Starting a ' + node.type + '</h2>'
+                    for (let i = 0; i < nodeDocsDefinition.starting.length; i++) {
+                        let paragraph = nodeDocsDefinition.starting[i]
+                        HTML = HTML + '<p>' + paragraph + '</p>'
+                    }
                 }
             }
 
@@ -312,10 +318,12 @@ function newSuperalgosDocSpace() {
             }
             docsAppDivPosition = thisObject.container.frame.frameThisPoint(docsAppDivPosition)
             docsAppDiv.style = '   ' +
+                'overflow-y: scroll;' +
+                'overflow-x: hidden;' +
                 'position:fixed; top:' + docsAppDivPosition.y + 'px; ' +
                 'left:' + docsAppDivPosition.x + 'px; z-index:1; ' +
                 'width: ' + thisObject.container.frame.width + 'px;' +
-                'height: ' + thisObject.container.frame.height + 'px'
+                'height: ' + thisObject.container.frame.height + 'px'                 
         }
     }
 

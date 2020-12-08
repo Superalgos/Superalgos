@@ -67,13 +67,11 @@ function newSuperalgosDocSpace() {
         buildNodeHtmlPage()
 
         function buildNodeHtmlPage() {
-            let HTML = '' 
-            console.log(HTML)
-            //HTML = HTML + '<div><h2 class="tutorial-font-medium">Thats Me On the Right!</h2><table class="tutorial-definitionTable"><tr><td><div id="tutorialImageDiv" class="tutorial-image-container"/></td><td><strong class="tutorial-font-bold-small">Tutorials are defined within the system, so you may create more of us if you wish! But well discuss that God - like power later on...lets focus on the basics first!</strong></td></tr></table><div class="tutorial-font-small">Superalgos is inherently a visual tool. The system represents information in hierarchical structures of interconnected nodes, represented by icons. What you see on your right is one of these hierarchies&mdash;in particular, a <div class="tutorial-tooltip">Tutorial<span class="tutorial-tooltiptext">The tutorial hierarchy features a free arrangement of tutorial topic and tutorial step nodes that make up a tutorial. Each node in the hierarchy, including the parent tutorial node, represents a HTML page that is overlaid on top of both the design space and the charting space. </span></div> hierarchy with a label reading <i>Welcome to Superalgos!</i></div><div class="tutorial-font-bold-small tutorial-callout" > Hover your mouse pointer over the Tutorial node and see what happens!</div><div class="tutorial-font-small">Wow! Cool right? Thats a lot of buttons!</div ></div > '
+            let HTML = ''
             HTML = HTML + '<table class="docs-definitionTable">'
             HTML = HTML + '<tr>'
             HTML = HTML + '<td>'
-            HTML = HTML + '<div id="docsImageDiv" class="docs-image-container"/>'
+            HTML = HTML + '<div id="definitionImageDiv" class="docs-image-container"/>'
             HTML = HTML + '</td>'
             HTML = HTML + '<td>'
             HTML = HTML + '<strong class="docs-font-bold-small">' + addToolTips(node, nodeDocsDefinition.definition) + '</strong>'
@@ -83,9 +81,25 @@ function newSuperalgosDocSpace() {
 
             let docsAppDiv = document.getElementById('docsDiv')
             docsAppDiv.innerHTML = HTML
+            addDefinitionImage(nodeAppDefinition, node.project)
         }
 
         thisObject.sidePanelTab.open()
+    }
+
+    function addDefinitionImage(nodeAppDefinition, project) {
+        if (nodeAppDefinition.icon === undefined) {
+            imageName = nodeAppDefinition.type.toLowerCase().replace(' ', '-')
+        }
+        let htmlImage = document.createElement("IMG")
+        let webParam = 'Icons/' + project + '/' + imageName + '.png'
+
+        htmlImage.src = webParam
+        htmlImage.width = "100"
+        htmlImage.height = "100"
+
+        let definitionImageDiv = document.getElementById('definitionImageDiv')
+        definitionImageDiv.appendChild(htmlImage)
     }
 
     function addToolTips(node, text) {

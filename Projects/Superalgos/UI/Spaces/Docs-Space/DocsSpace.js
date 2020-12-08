@@ -57,17 +57,119 @@ function newSuperalgosDocSpace() {
 
     function navigateTo(node) {
 
+        let nodeAppDefinition = SCHEMAS_BY_PROJECT.get(node.project).map.appSchema.get(node.type)
+        let nodeDocsDefinition = SCHEMAS_BY_PROJECT.get(node.project).map.docSchema.get(node.type)
+
+        if (nodeDocsDefinition === undefined) {
+            node.payload.uiObject.setErrorMessage('This node in undefined at the DOC_SCHEMA. ')
+            return
+        }
         buildNodeHtmlPage()
 
         function buildNodeHtmlPage() {
-            let HTML = node.type
+            let HTML = '' 
+            console.log(HTML)
+            //HTML = HTML + '<div><h2 class="tutorial-font-medium">Thats Me On the Right!</h2><table class="tutorial-definitionTable"><tr><td><div id="tutorialImageDiv" class="tutorial-image-container"/></td><td><strong class="tutorial-font-bold-small">Tutorials are defined within the system, so you may create more of us if you wish! But well discuss that God - like power later on...lets focus on the basics first!</strong></td></tr></table><div class="tutorial-font-small">Superalgos is inherently a visual tool. The system represents information in hierarchical structures of interconnected nodes, represented by icons. What you see on your right is one of these hierarchies&mdash;in particular, a <div class="tutorial-tooltip">Tutorial<span class="tutorial-tooltiptext">The tutorial hierarchy features a free arrangement of tutorial topic and tutorial step nodes that make up a tutorial. Each node in the hierarchy, including the parent tutorial node, represents a HTML page that is overlaid on top of both the design space and the charting space. </span></div> hierarchy with a label reading <i>Welcome to Superalgos!</i></div><div class="tutorial-font-bold-small tutorial-callout" > Hover your mouse pointer over the Tutorial node and see what happens!</div><div class="tutorial-font-small">Wow! Cool right? Thats a lot of buttons!</div ></div > '
+            HTML = HTML + '<table class="docs-definitionTable">'
+            HTML = HTML + '<tr>'
+            HTML = HTML + '<td>'
+            HTML = HTML + '<div id="docsImageDiv" class="docs-image-container"/>'
+            HTML = HTML + '</td>'
+            HTML = HTML + '<td>'
+            HTML = HTML + '<strong class="docs-font-bold-small">' + addToolTips(node, nodeDocsDefinition.definition) + '</strong>'
+            HTML = HTML + '</td>'
+            HTML = HTML + '</tr>'
+            HTML = HTML + '</table>'
 
             let docsAppDiv = document.getElementById('docsDiv')
             docsAppDiv.innerHTML = HTML
         }
 
-
         thisObject.sidePanelTab.open()
+    }
+
+    function addToolTips(node, text) {
+        const TOOL_TIP_HTML = '<div class="docs-tooltip">NODE_TYPE<span class="docs-tooltiptext">NODE_DEFINITION</span></div>'
+        let resultingText = ''
+        text = tagNodeTypes(text, node.project, node.type)
+        let splittedText = text.split('->')
+
+        for (let i = 0; i < splittedText.length; i = i + 2) {
+            let firstPart = splittedText[i]
+            let nodeType = splittedText[i + 1]
+            if (nodeType === undefined) {
+                return resultingText + firstPart
+            }
+            let splittedNodeType = nodeType.split('/')
+            let project
+            let type
+            if (splittedNodeType.length > 1) {
+                project = splittedNodeType[0]
+                type = splittedNodeType[1]
+            } else {
+                project = 'Superalgos'
+                type = splittedNodeType[0]
+            }
+            let definitionNode = SCHEMAS_BY_PROJECT.get(project).map.docSchema.get(type)
+            if (definitionNode === undefined) {
+                definitionNode = SCHEMAS_BY_PROJECT.get(project).map.conceptSchema.get(type)
+                if (definitionNode === undefined) {
+                    node.payload.uiObject.setErrorMessage(type + ' not found at Doc Schema or Concept Schema.')
+                    return
+                }
+            }
+            let definition = definitionNode.definition
+            if (definition === undefined || definition === "") {
+                resultingText = resultingText + firstPart + type
+            } else {
+                let tooltip = TOOL_TIP_HTML.replace('NODE_TYPE', type).replace('NODE_DEFINITION', definition)
+                resultingText = resultingText + firstPart + tooltip
+            }
+        }
+        return resultingText
+    }
+
+    function tagNodeTypes(text, project, excludeNodeType) {
+        let words = text.split(' ')
+        let taggedText = ''
+        for (let i = 0; i < words.length; i++) {
+            let phrase1 = words[i]
+            let phrase2 = words[i] + ' ' + words[i + 1]
+            let phrase3 = words[i] + ' ' + words[i + 1] + ' ' + words[i + 2]
+            let phrase4 = words[i] + ' ' + words[i + 1] + ' ' + words[i + 2] + ' ' + words[i + 3]
+
+            let cleanPhrase1 = cleanPhrase(phrase1)
+            let cleanPhrase2 = cleanPhrase(phrase2)
+            let cleanPhrase3 = cleanPhrase(phrase3)
+            let cleanPhrase4 = cleanPhrase(phrase4)
+
+            if (SCHEMAS_BY_PROJECT.get(project).map.docSchema.get(cleanPhrase4) !== undefined && cleanPhrase4 !== excludeNodeType) {
+                taggedText = taggedText + phrase4.replace(cleanPhrase4, '->' + cleanPhrase4 + '->') + ' '
+                i = i + 3
+                continue
+            }
+            if (SCHEMAS_BY_PROJECT.get(project).map.docSchema.get(cleanPhrase3) !== undefined && cleanPhrase3 !== excludeNodeType) {
+                taggedText = taggedText + phrase3.replace(cleanPhrase3, '->' + cleanPhrase3 + '->') + ' '
+                i = i + 2
+                continue
+            }
+            if (SCHEMAS_BY_PROJECT.get(project).map.docSchema.get(cleanPhrase2) !== undefined && cleanPhrase2 !== excludeNodeType) {
+                taggedText = taggedText + phrase2.replace(cleanPhrase2, '->' + cleanPhrase2 + '->') + ' '
+                i = i + 1
+                continue
+            }
+            if (SCHEMAS_BY_PROJECT.get(project).map.docSchema.get(cleanPhrase1) !== undefined && cleanPhrase1 !== excludeNodeType) {
+                taggedText = taggedText + phrase1.replace(cleanPhrase1, '->' + cleanPhrase1 + '->') + ' '
+                continue
+            }
+
+            taggedText = taggedText + phrase1 + ' '
+
+            function cleanPhrase(phrase) {
+                return phrase.replace(',', '').replace(';', '').replace('(', '').replace(')', '').replace('-', '').replace('_', '')
+            }
+        }
+        return taggedText
     }
 
     function resize() {

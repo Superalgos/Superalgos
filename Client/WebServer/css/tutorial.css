@@ -242,7 +242,7 @@
   }
   
   /* Tooltip text */
-  .tutorial-tooltip .tooltiptext {
+  .tutorial-tooltip .tutorial-tooltiptext {
     visibility: hidden;
     width: 240px;
     background-color: #0295aa;
@@ -268,7 +268,7 @@
   }
   
   /* Tooltip arrow */
-  .tutorial-tooltip .tooltiptext::after {
+  .tutorial-tooltip .tutorial-tooltiptext::after {
     content: "";
     position: absolute;
     top: 100%;
@@ -280,7 +280,7 @@
   }
   
   /* Show the tooltip text when you mouse over the tooltip container */
-  .tutorial-tooltip:hover .tooltiptext {
+  .tutorial-tooltip:hover .tutorial-tooltiptext {
     visibility: visible;
     opacity: 1;
   }

@@ -7,3 +7,82 @@
     border-radius: 8px;
     background-color: #fdfdfd;
   }
+
+  .docs-definitionTable {
+    background-color: #f3f3f3;
+    border-top-color: #a6e1ec;
+    padding: 15px;
+    margin: 20px 0;
+    border: solid 0px;
+    vertical-align: middle;
+    min-width: 100px;
+    width: 100%;
+  }
+
+  .docs-image-container {
+    padding: 5px 15px 5px 5px;
+    border: solid 0px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+
+  .docs-font-bold-small {
+    font:bold normal normal 14px/1 "segoeui";
+    font-size:inherit;
+    text-rendering:auto;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    line-height: 150%
+  }
+
+  /* Tooltip container */
+  .docs-tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+  }
+  
+  /* Tooltip text */
+  .docs-tooltip .docs-tooltiptext {
+    visibility: hidden;
+    width: 240px;
+    background-color: #0295aa;
+    color: #fff;
+    font-weight: normal;
+    font-size: 92%;
+    line-height: 130%;
+    text-align: center;
+    padding: 15px;
+    border-radius: 6px;
+  
+    /* Position the docs-tooltip text */
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -120px;
+     
+  
+    /* Fade in docs-tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  /* Tooltip arrow */
+  .docs-tooltip .docs-tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #0295aa transparent transparent transparent;
+  }
+  
+  /* Show the tooltip text when you mouse over the tooltip container */
+  .docs-tooltip:hover .docs-tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }

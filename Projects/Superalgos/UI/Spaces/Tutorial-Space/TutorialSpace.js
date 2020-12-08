@@ -1183,7 +1183,7 @@ function newSuperalgosTutorialSpace() {
         tutorialDiv.innerHTML = html
 
         function addToolTips(text) {
-            const TOOL_TIP_HTML = '<div class="tutorial-tooltip">NODE_TYPE<span class="tooltiptext">NODE_DEFINITION</span></div>'
+            const TOOL_TIP_HTML = '<div class="tutorial-tooltip">NODE_TYPE<span class="tutorial-tooltiptext">NODE_DEFINITION</span></div>'
             let resultingText = ''
             let splittedText = text.split('->')
 

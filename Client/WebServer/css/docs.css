@@ -98,3 +98,14 @@
     visibility: visible;
     opacity: 1;
   }
+
+/* Headers */
+
+h2 {font-weight:700; font-size:170%; margin-top: 60px; padding-bottom: 5px;}
+h3 {font-weight:500; font-size:150%; margin-top: 30px;}
+h4 {font-weight:400; font-size:150%; margin-top: 30px;}
+h5 {font-weight:400; font-size:140%; margin-top: 30px; font-style:italic;}
+h6 {font-weight:400; font-size:130%; margin-top: 30px; font-style:italic;}
+h7 {font-weight:400; font-size:120%; margin-top: 30px; font-style:italic;}
+
+/* Line on main headings spanning across the screen */

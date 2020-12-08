@@ -68,6 +68,11 @@ function newSuperalgosDocSpace() {
 
         function buildNodeHtmlPage() {
             let HTML = ''
+
+            /* Title */
+            HTML = HTML + '<div><h1 class="docs-font-large" id="' + node.type.toLowerCase().replace(' ', '-') + '" > ' + node.type + '</h1></div>'
+
+            /* We start with the Definition Table */
             if (nodeDocsDefinition.definition !== undefined) {
                 HTML = HTML + '<table class="docs-definitionTable">'
                 HTML = HTML + '<tr>'
@@ -79,6 +84,14 @@ function newSuperalgosDocSpace() {
                 HTML = HTML + '</td>'
                 HTML = HTML + '</tr>'
                 HTML = HTML + '</table>'
+            }
+
+            /* Here we add the contend defined for this node */
+            if (nodeDocsDefinition.content !== undefined) {
+                for (let i = 0; i < nodeDocsDefinition.content.length; i++) {
+                    let paragraph = nodeDocsDefinition.content[i]
+                    HTML = HTML + '<p>' + paragraph + '</p>'
+                }
             }
 
             let docsAppDiv = document.getElementById('docsDiv')

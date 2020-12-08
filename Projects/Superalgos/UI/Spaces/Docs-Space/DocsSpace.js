@@ -168,6 +168,7 @@ function newSuperalgosDocSpace() {
             for (let j = 0; j < PROJECTS_ARRAY.length; j++) {
                 let project = PROJECTS_ARRAY[j]
 
+                /* Search in docSchema */
                 if (SCHEMAS_BY_PROJECT.get(project).map.docSchema.get(cleanPhrase4) !== undefined && cleanPhrase4 !== excludeNodeType) {
                     taggedText = taggedText + phrase4.replace(cleanPhrase4, '->' + cleanPhrase4 + '->') + ' '
                     i = i + 3
@@ -187,6 +188,31 @@ function newSuperalgosDocSpace() {
                     break
                 }
                 if (SCHEMAS_BY_PROJECT.get(project).map.docSchema.get(cleanPhrase1) !== undefined && cleanPhrase1 !== excludeNodeType) {
+                    taggedText = taggedText + phrase1.replace(cleanPhrase1, '->' + cleanPhrase1 + '->') + ' '
+                    found = true
+                    break
+                }
+
+                /* Search in conceptSchema */
+                if (SCHEMAS_BY_PROJECT.get(project).map.conceptSchema.get(cleanPhrase4) !== undefined && cleanPhrase4 !== excludeNodeType) {
+                    taggedText = taggedText + phrase4.replace(cleanPhrase4, '->' + cleanPhrase4 + '->') + ' '
+                    i = i + 3
+                    found = true
+                    break
+                }
+                if (SCHEMAS_BY_PROJECT.get(project).map.conceptSchema.get(cleanPhrase3) !== undefined && cleanPhrase3 !== excludeNodeType) {
+                    taggedText = taggedText + phrase3.replace(cleanPhrase3, '->' + cleanPhrase3 + '->') + ' '
+                    i = i + 2
+                    found = true
+                    break
+                }
+                if (SCHEMAS_BY_PROJECT.get(project).map.conceptSchema.get(cleanPhrase2) !== undefined && cleanPhrase2 !== excludeNodeType) {
+                    taggedText = taggedText + phrase2.replace(cleanPhrase2, '->' + cleanPhrase2 + '->') + ' '
+                    i = i + 1
+                    found = true
+                    break
+                }
+                if (SCHEMAS_BY_PROJECT.get(project).map.conceptSchema.get(cleanPhrase1) !== undefined && cleanPhrase1 !== excludeNodeType) {
                     taggedText = taggedText + phrase1.replace(cleanPhrase1, '->' + cleanPhrase1 + '->') + ' '
                     found = true
                     break

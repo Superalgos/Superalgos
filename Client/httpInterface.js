@@ -563,7 +563,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
                             function onDirRead(err, fileList) {
                                 if (err) {
-                                    console.log('[WARN] Could not read this directory content. filePath = ' + dirPath)
+                                    // This happens the first time you run the software.
                                     respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                                     return
                                 } else {

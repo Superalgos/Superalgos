@@ -68,20 +68,25 @@ function newSuperalgosDocSpace() {
 
         function buildNodeHtmlPage() {
             let HTML = ''
-            HTML = HTML + '<table class="docs-definitionTable">'
-            HTML = HTML + '<tr>'
-            HTML = HTML + '<td>'
-            HTML = HTML + '<div id="definitionImageDiv" class="docs-image-container"/>'
-            HTML = HTML + '</td>'
-            HTML = HTML + '<td>'
-            HTML = HTML + '<strong class="docs-font-bold-small">' + addToolTips(node, nodeDocsDefinition.definition) + '</strong>'
-            HTML = HTML + '</td>'
-            HTML = HTML + '</tr>'
-            HTML = HTML + '</table>'
+            if (nodeDocsDefinition.definition !== undefined) {
+                HTML = HTML + '<table class="docs-definitionTable">'
+                HTML = HTML + '<tr>'
+                HTML = HTML + '<td>'
+                HTML = HTML + '<div id="definitionImageDiv" class="docs-image-container"/>'
+                HTML = HTML + '</td>'
+                HTML = HTML + '<td>'
+                HTML = HTML + '<strong class="docs-font-bold-small">' + addToolTips(node, nodeDocsDefinition.definition) + '</strong>'
+                HTML = HTML + '</td>'
+                HTML = HTML + '</tr>'
+                HTML = HTML + '</table>'
+            }
 
             let docsAppDiv = document.getElementById('docsDiv')
             docsAppDiv.innerHTML = HTML
-            addDefinitionImage(nodeAppDefinition, node.project)
+
+            if (nodeDocsDefinition.definition !== undefined) {
+                addDefinitionImage(nodeAppDefinition, node.project)
+            }
         }
 
         thisObject.sidePanelTab.open()
@@ -95,14 +100,15 @@ function newSuperalgosDocSpace() {
         let webParam = 'Icons/' + project + '/' + imageName + '.png'
 
         htmlImage.src = webParam
-        htmlImage.width = "100"
-        htmlImage.height = "100"
+        htmlImage.width = "150"
+        htmlImage.height = "150"
 
         let definitionImageDiv = document.getElementById('definitionImageDiv')
         definitionImageDiv.appendChild(htmlImage)
     }
 
     function addToolTips(node, text) {
+
         const TOOL_TIP_HTML = '<div class="docs-tooltip">NODE_TYPE<span class="docs-tooltiptext">NODE_DEFINITION</span></div>'
         let resultingText = ''
         text = tagNodeTypes(text, node.type)
@@ -231,7 +237,7 @@ function newSuperalgosDocSpace() {
     }
 
     function resize() {
-        thisObject.container.frame.width = 1200
+        thisObject.container.frame.width = 800
         thisObject.container.frame.height = browserCanvas.height // - TOP_SPACE_HEIGHT
         thisObject.container.frame.position.x = browserCanvas.width
         thisObject.container.frame.position.y = 0 // TOP_SPACE_HEIGHT

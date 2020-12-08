@@ -86,10 +86,37 @@ function newSuperalgosDocSpace() {
                 HTML = HTML + '</table>'
             }
 
-            /* Here we add the contend defined for this node */
+            /* Content Section */
             if (nodeDocsDefinition.content !== undefined) {
                 for (let i = 0; i < nodeDocsDefinition.content.length; i++) {
                     let paragraph = nodeDocsDefinition.content[i]
+                    HTML = HTML + '<p>' + paragraph + '</p>'
+                }
+            }
+
+            /* Adding Section */
+            if (nodeDocsDefinition.adding !== undefined) {
+                HTML = HTML + '<h2>Adding a ' + node.type + '</h2>'
+                for (let i = 0; i < nodeDocsDefinition.adding.length; i++) {
+                    let paragraph = nodeDocsDefinition.adding[i]
+                    HTML = HTML + '<p>' + paragraph + '</p>'
+                }
+            }
+
+            /* Configuring Section */
+            if (nodeDocsDefinition.configuring !== undefined) {
+                HTML = HTML + '<h2>Configuring a ' + node.type + '</h2>'
+                for (let i = 0; i < nodeDocsDefinition.configuring.length; i++) {
+                    let paragraph = nodeDocsDefinition.configuring[i]
+                    HTML = HTML + '<p>' + paragraph + '</p>'
+                }
+            }
+
+            /* Starting Section */
+            if (nodeDocsDefinition.starting !== undefined) {
+                HTML = HTML + '<h2>Configuring a ' + node.type + '</h2>'
+                for (let i = 0; i < nodeDocsDefinition.starting.length; i++) {
+                    let paragraph = nodeDocsDefinition.starting[i]
                     HTML = HTML + '<p>' + paragraph + '</p>'
                 }
             }

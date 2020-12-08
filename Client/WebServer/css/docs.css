@@ -5,17 +5,20 @@
   }
 
   .docs-node-html-page-container {
-    font:17px/1.5 "segoeui";
+    font: 400 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
     color: #111; 
-    text-rendering:auto;
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
     line-height: 150%;
     margin: 20 20 20 30px;
   }
 
+  .docs-normal-font {
+    font: 400 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
+    color: #111; 
+    line-height: 150%;
+  }
+
   .docs-definitionTable {
-    background-color: #f3f3f3;
+    background-color: #f9f9f9;
     vertical-align: middle;
     width: 100%;
     min-width: 95px;
@@ -25,7 +28,6 @@
     margin-right: 20px;
     border: 1px solid #dedede;
     padding: 10px;
-    line-height: 150%;
   }
 
   .docs-image-container {
@@ -91,13 +93,7 @@
 
   .docs-h1 {font-size:210%; margin-top: 40px; padding-bottom: 5px;}
 
-  .docs-h2 {
-  font-weight: bold; 
-  font-size: 160%; 
-  margin-top: 60px; 
-  padding-bottom: 5px;
-  overflow:hidden;
-  }
+  .docs-h2 {font-weight:700; font-size:170%; margin-top: 60px; padding-bottom: 5px; overflow:hidden;}
 
   .docs-h2::after{
   content:'';
@@ -108,10 +104,10 @@
   margin-left: 20px;
   }
 
-  .docs-h3 {font-weight:500; font-size:150%; margin-top: 30px;}
+  .docs-h3 {font-weight:400; font-size:150%; margin-top: 35px;}
 
-  .docs-h4 {font-weight:400; font-size:150%; margin-top: 30px;}
+  .docs-h4 {font-weight:400; font-size:150%; margin-top: 35px;}
 
-  .docs-h5 {font-weight:400; font-size:140%; margin-top: 30px; font-style:italic;}
+  .docs-h5 {font-weight:400; font-size:140%; margin-top: 35px; font-style:italic;}
 
-  .docs-h6 {font-weight:400; font-size:130%; margin-top: 30px; font-style:italic;}
+  .docs-h6 {font-weight:400; font-size:130%; margin-top: 35px; font-style:italic;}

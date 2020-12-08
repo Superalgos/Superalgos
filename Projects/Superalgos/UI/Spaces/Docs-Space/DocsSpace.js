@@ -72,7 +72,7 @@ function newSuperalgosDocSpace() {
             HTML = HTML + '<div class="docs-node-html-page-container">' // Container Starts
 
             /* Title */
-            HTML = HTML + '<div><h1 class="docs-h1" id="' + node.type.toLowerCase().replace(' ', '-') + '" > ' + node.type + '</h1></div>'
+            HTML = HTML + '<div><h2 class="docs-h2" id="' + node.type.toLowerCase().replace(' ', '-') + '" > ' + node.type + '</h2></div>'
 
             /* We start with the Definition Table */
             if (nodeDocsDefinition.definition !== undefined) {
@@ -82,7 +82,7 @@ function newSuperalgosDocSpace() {
                 HTML = HTML + '<div id="definitionImageDiv" class="docs-image-container"/>'
                 HTML = HTML + '</td>'
                 HTML = HTML + '<td>'
-                HTML = HTML + '<strong>' + addToolTips(node, nodeDocsDefinition.definition) + '</strong>'
+                HTML = HTML + '<div class="docs-normal-font"><strong>' + addToolTips(node, nodeDocsDefinition.definition) + '</strong></div>'
                 HTML = HTML + '</td>'
                 HTML = HTML + '</tr>'
                 HTML = HTML + '</table>'
@@ -99,7 +99,7 @@ function newSuperalgosDocSpace() {
             /* Adding Section */
             if (nodeDocsDefinition.adding !== undefined) {
                 if (nodeDocsDefinition.adding.length > 0) {
-                    HTML = HTML + '<h2 class="docs-h2">Adding a ' + node.type + '</h2>'
+                    HTML = HTML + '<h3 class="docs-h3">Adding a ' + node.type + '</h3>'
                     for (let i = 0; i < nodeDocsDefinition.adding.length; i++) {
                         let paragraph = nodeDocsDefinition.adding[i]
                         HTML = HTML + '<p>' + paragraph + '</p>'
@@ -110,7 +110,7 @@ function newSuperalgosDocSpace() {
             /* Configuring Section */
             if (nodeDocsDefinition.configuring !== undefined) {
                 if (nodeDocsDefinition.configuring.length > 0) {
-                    HTML = HTML + '<h2 class="docs-h2">Configuring a ' + node.type + '</h2>'
+                    HTML = HTML + '<h3 class="docs-h3">Configuring a ' + node.type + '</h3>'
                     for (let i = 0; i < nodeDocsDefinition.configuring.length; i++) {
                         let paragraph = nodeDocsDefinition.configuring[i]
                         HTML = HTML + '<p>' + paragraph + '</p>'
@@ -121,7 +121,7 @@ function newSuperalgosDocSpace() {
             /* Starting Section */
             if (nodeDocsDefinition.starting !== undefined) {
                 if (nodeDocsDefinition.starting.length > 0) {
-                    HTML = HTML + '<h2 class="docs-h2">Starting a ' + node.type + '</h2>'
+                    HTML = HTML + '<h3 class="docs-h3">Starting a ' + node.type + '</h3>'
                     for (let i = 0; i < nodeDocsDefinition.starting.length; i++) {
                         let paragraph = nodeDocsDefinition.starting[i]
                         HTML = HTML + '<p>' + paragraph + '</p>'

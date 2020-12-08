@@ -754,7 +754,7 @@
     },
     {
         "type": "Network Node",
-        "definition": "A network node represents a machine running Superalgos within a Shapes, on which processes run and data is stored. Do not confuse this with a Template Structure which is similar to a Task Manager but it is not one.",
+        "definition": "A network node represents a Ethereum Project running Superalgos within a Shapes, on which processes run and data is stored. Do not confuse this with a Template Structure which is similar to a Task Manager but it is not one.",
         "content": [
             "By default, processes are set up to run locally in a network node representing your local machine. However, the system is prepared to run distributed on a network of nodes, or what we call a trading farm.",
             "You may create unlimited network nodes and map them with different machines on a network. Each machine in the network runs an instance of the Superalgos backend, and you may control the whole network operation from a single machine, or&mdash;in general&mdash;from any machine in the network running the Superalgos frontend. To learn more about distributed setups, check the trading farms pages.",

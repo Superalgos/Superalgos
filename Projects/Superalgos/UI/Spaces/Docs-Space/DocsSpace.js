@@ -105,7 +105,7 @@ function newSuperalgosDocSpace() {
     function addToolTips(node, text) {
         const TOOL_TIP_HTML = '<div class="docs-tooltip">NODE_TYPE<span class="docs-tooltiptext">NODE_DEFINITION</span></div>'
         let resultingText = ''
-        text = tagNodeTypes(text, node.project, node.type)
+        text = tagNodeTypes(text, node.type)
         let splittedText = text.split('->')
 
         for (let i = 0; i < splittedText.length; i = i + 2) {
@@ -114,36 +114,42 @@ function newSuperalgosDocSpace() {
             if (nodeType === undefined) {
                 return resultingText + firstPart
             }
-            let splittedNodeType = nodeType.split('/')
-            let project
-            let type
-            if (splittedNodeType.length > 1) {
-                project = splittedNodeType[0]
-                type = splittedNodeType[1]
-            } else {
-                project = 'Superalgos'
-                type = splittedNodeType[0]
-            }
-            let definitionNode = SCHEMAS_BY_PROJECT.get(project).map.docSchema.get(type)
-            if (definitionNode === undefined) {
-                definitionNode = SCHEMAS_BY_PROJECT.get(project).map.conceptSchema.get(type)
-                if (definitionNode === undefined) {
-                    node.payload.uiObject.setErrorMessage(type + ' not found at Doc Schema or Concept Schema.')
-                    return
+            /*
+            We will search across all DOC and CONCEPT SCHEMAS
+            */
+            let found = false
+            let definitionNode
+
+            for (let j = 0; j < PROJECTS_ARRAY.length; j++) {
+                let project = PROJECTS_ARRAY[j]
+                definitionNode = SCHEMAS_BY_PROJECT.get(project).map.docSchema.get(nodeType)
+                if (definitionNode !== undefined) {
+                    found = true
+                    break
+                }
+                definitionNode = SCHEMAS_BY_PROJECT.get(project).map.conceptSchema.get(nodeType)
+                if (definitionNode !== undefined) {
+                    found = true
+                    break
                 }
             }
+            if (found === false) {
+                node.payload.uiObject.setErrorMessage(nodeType + ' not found at Doc Schema or Concept Schema of any Project.')
+                return
+            }
+
             let definition = definitionNode.definition
             if (definition === undefined || definition === "") {
-                resultingText = resultingText + firstPart + type
+                resultingText = resultingText + firstPart + nodeType
             } else {
-                let tooltip = TOOL_TIP_HTML.replace('NODE_TYPE', type).replace('NODE_DEFINITION', definition)
+                let tooltip = TOOL_TIP_HTML.replace('NODE_TYPE', nodeType).replace('NODE_DEFINITION', definition)
                 resultingText = resultingText + firstPart + tooltip
             }
         }
         return resultingText
     }
 
-    function tagNodeTypes(text, project, excludeNodeType) {
+    function tagNodeTypes(text, excludeNodeType) {
         let words = text.split(' ')
         let taggedText = ''
         for (let i = 0; i < words.length; i++) {
@@ -157,27 +163,39 @@ function newSuperalgosDocSpace() {
             let cleanPhrase3 = cleanPhrase(phrase3)
             let cleanPhrase4 = cleanPhrase(phrase4)
 
-            if (SCHEMAS_BY_PROJECT.get(project).map.docSchema.get(cleanPhrase4) !== undefined && cleanPhrase4 !== excludeNodeType) {
-                taggedText = taggedText + phrase4.replace(cleanPhrase4, '->' + cleanPhrase4 + '->') + ' '
-                i = i + 3
-                continue
-            }
-            if (SCHEMAS_BY_PROJECT.get(project).map.docSchema.get(cleanPhrase3) !== undefined && cleanPhrase3 !== excludeNodeType) {
-                taggedText = taggedText + phrase3.replace(cleanPhrase3, '->' + cleanPhrase3 + '->') + ' '
-                i = i + 2
-                continue
-            }
-            if (SCHEMAS_BY_PROJECT.get(project).map.docSchema.get(cleanPhrase2) !== undefined && cleanPhrase2 !== excludeNodeType) {
-                taggedText = taggedText + phrase2.replace(cleanPhrase2, '->' + cleanPhrase2 + '->') + ' '
-                i = i + 1
-                continue
-            }
-            if (SCHEMAS_BY_PROJECT.get(project).map.docSchema.get(cleanPhrase1) !== undefined && cleanPhrase1 !== excludeNodeType) {
-                taggedText = taggedText + phrase1.replace(cleanPhrase1, '->' + cleanPhrase1 + '->') + ' '
-                continue
+            let found = false
+
+            for (let j = 0; j < PROJECTS_ARRAY.length; j++) {
+                let project = PROJECTS_ARRAY[j]
+
+                if (SCHEMAS_BY_PROJECT.get(project).map.docSchema.get(cleanPhrase4) !== undefined && cleanPhrase4 !== excludeNodeType) {
+                    taggedText = taggedText + phrase4.replace(cleanPhrase4, '->' + cleanPhrase4 + '->') + ' '
+                    i = i + 3
+                    found = true
+                    break
+                }
+                if (SCHEMAS_BY_PROJECT.get(project).map.docSchema.get(cleanPhrase3) !== undefined && cleanPhrase3 !== excludeNodeType) {
+                    taggedText = taggedText + phrase3.replace(cleanPhrase3, '->' + cleanPhrase3 + '->') + ' '
+                    i = i + 2
+                    found = true
+                    break
+                }
+                if (SCHEMAS_BY_PROJECT.get(project).map.docSchema.get(cleanPhrase2) !== undefined && cleanPhrase2 !== excludeNodeType) {
+                    taggedText = taggedText + phrase2.replace(cleanPhrase2, '->' + cleanPhrase2 + '->') + ' '
+                    i = i + 1
+                    found = true
+                    break
+                }
+                if (SCHEMAS_BY_PROJECT.get(project).map.docSchema.get(cleanPhrase1) !== undefined && cleanPhrase1 !== excludeNodeType) {
+                    taggedText = taggedText + phrase1.replace(cleanPhrase1, '->' + cleanPhrase1 + '->') + ' '
+                    found = true
+                    break
+                }
             }
 
-            taggedText = taggedText + phrase1 + ' '
+            if (found === false) {
+                taggedText = taggedText + phrase1 + ' '
+            }
 
             function cleanPhrase(phrase) {
                 return phrase.replace(',', '').replace(';', '').replace('(', '').replace(')', '').replace('-', '').replace('_', '')

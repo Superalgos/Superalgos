@@ -4,15 +4,28 @@
     background-color: #fdfdfd;
   }
 
+  .docs-node-html-page-container {
+    font:17px/1.5 "segoeui";
+    color: #111; 
+    text-rendering:auto;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    line-height: 150%;
+    margin: 20 20 20 30px;
+  }
+
   .docs-definitionTable {
     background-color: #f3f3f3;
     vertical-align: middle;
-    width: 95%;
+    width: 100%;
     min-width: 95px;
     margin: auto;
     margin-bottom: 20px;
     margin-top: 20px;
+    margin-right: 20px;
     border: 1px solid #dedede;
+    padding: 10px;
+    line-height: 150%;
   }
 
   .docs-image-container {
@@ -21,31 +34,6 @@
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-  }
-
-  .docs-font-medium {
-    font:normal normal normal 32px/1 "segoeui";
-    text-rendering:auto;
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-    line-height: 150%
-  }
-  
-  .docs-font-large {
-    font:bold normal normal 40px/1 "segoeui";
-    text-rendering:auto;
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-    line-height: 150%
-  }
-
-  .docs-font-bold-small {
-    font:bold normal normal 24px/1 "segoeui";
-    font-size:inherit;
-    text-rendering:auto;
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-    line-height: 150%
   }
 
   /* Tooltip container */
@@ -99,13 +87,31 @@
     opacity: 1;
   }
 
-/* Headers */
+  /* Headings */
 
-h2 {font-weight:700; font-size:170%; margin-top: 60px; padding-bottom: 5px;}
-h3 {font-weight:500; font-size:150%; margin-top: 30px;}
-h4 {font-weight:400; font-size:150%; margin-top: 30px;}
-h5 {font-weight:400; font-size:140%; margin-top: 30px; font-style:italic;}
-h6 {font-weight:400; font-size:130%; margin-top: 30px; font-style:italic;}
-h7 {font-weight:400; font-size:120%; margin-top: 30px; font-style:italic;}
+  .docs-h1 {font-size:210%; margin-top: 40px; padding-bottom: 5px;}
 
-/* Line on main headings spanning across the screen */
+  .docs-h2 {
+  font-weight: bold; 
+  font-size: 160%; 
+  margin-top: 60px; 
+  padding-bottom: 5px;
+  overflow:hidden;
+  }
+
+  .docs-h2::after{
+  content:'';
+  display:inline-block;
+  width:90%;
+  margin-right:-100%;
+  border-bottom: 1px solid #cdd4d5;
+  margin-left: 20px;
+  }
+
+  .docs-h3 {font-weight:500; font-size:150%; margin-top: 30px;}
+
+  .docs-h4 {font-weight:400; font-size:150%; margin-top: 30px;}
+
+  .docs-h5 {font-weight:400; font-size:140%; margin-top: 30px; font-style:italic;}
+
+  .docs-h6 {font-weight:400; font-size:130%; margin-top: 30px; font-style:italic;}

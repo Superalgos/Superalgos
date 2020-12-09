@@ -134,9 +134,14 @@ function newSuperalgosDocSpace() {
     }
     function exitEditMode() {
         if (EDITOR_ON_FOCUS === true) {
-
-            switch (selectedParagraph.nodeName) {
-                case "P": {
+            let editing
+            if (selectedParagraph.id.indexOf('definition') >= 0) {
+                editing = "Definition"
+            } else {
+                editing = "Paragraph"
+            }
+            switch (editing) {
+                case "Paragraph": {
                     /*
                     In this case we are at a regular paragraph.
                     */
@@ -144,7 +149,7 @@ function newSuperalgosDocSpace() {
                     docSchemaParagraph.text = textArea.value
                     break
                 }
-                case "DIV": {
+                case "Definition": {
                     /*
                     This means that the definition was being edited.
                     */
@@ -164,7 +169,13 @@ function newSuperalgosDocSpace() {
 
         contextMenuClickablDiv.addEventListener('contextmenu', e => {
             e.preventDefault()
-            contextMenuGetSelection()
+            if (contextMenuGetSelection() === false) {
+                /*
+                The click was in a place where we can not recognize an editable piece.
+                We will not open the menu in this circunstances.
+                */
+                return
+            }
 
             menu.style.top = `${e.clientY}px`
             menu.style.left = `${e.clientX}px`
@@ -193,19 +204,32 @@ function newSuperalgosDocSpace() {
         otherwise we could end up in an inner html element.
         */
         let paragraphNode = selection.baseNode.parentNode
-        if (paragraphNode.nodeName !== "P" && paragraphNode.nodeName !== "DIV") {
+
+        if (paragraphNode.id !== undefined && paragraphNode.className === "docs-tooltip") {
+            return false
+        }
+
+        if (paragraphNode.id === undefined || paragraphNode.id.indexOf('paragraph') < 0) {
             paragraphNode = paragraphNode.parentNode
         }
-        if (paragraphNode.nodeName !== "P" && paragraphNode.nodeName !== "DIV") {
+        if (paragraphNode.id === undefined || paragraphNode.id.indexOf('paragraph') < 0) {
             paragraphNode = paragraphNode.parentNode
         }
-        if (paragraphNode.nodeName !== "P" && paragraphNode.nodeName !== "DIV") {
+        if (paragraphNode.id === undefined || paragraphNode.id.indexOf('paragraph') < 0) {
             paragraphNode = paragraphNode.parentNode
+        }
+        if (paragraphNode.id === undefined || paragraphNode.id.indexOf('paragraph') < 0) {
+            paragraphNode = paragraphNode.parentNode
+        }
+
+        if (paragraphNode.id === undefined || paragraphNode.id.indexOf('paragraph') < 0) {
+            return false
         }
 
         selectedParagraphData = paragraphNode.innerText
         selectedParagraph = paragraphNode
         selectedParagraphHeight = paragraphNode.getClientRects()[0].height
+        return true
     }
 
 
@@ -256,7 +280,7 @@ function newSuperalgosDocSpace() {
                 HTML = HTML + '<div id="definitionImageDiv" class="docs-image-container"/>'
                 HTML = HTML + '</td>'
                 HTML = HTML + '<td>'
-                HTML = HTML + '<div class="docs-normal-font"><strong>' + addToolTips(renderingNode, nodeDocsDefinition.definition) + '</strong></div>'
+                HTML = HTML + '<div id="definition-paragraph" class="docs-normal-font"><strong>' + addToolTips(renderingNode, nodeDocsDefinition.definition) + '</strong></div>'
                 HTML = HTML + '</td>'
                 HTML = HTML + '</tr>'
                 HTML = HTML + '</table>'
@@ -269,7 +293,7 @@ function newSuperalgosDocSpace() {
                 for (let i = 0; i < nodeDocsDefinition.content.length; i++) {
                     let paragraph = nodeDocsDefinition.content[i]
                     key = 'content-paragraph-' + i
-                    HTML = HTML + '<p id="' + key + '">' + paragraph.text + '</p>'
+                    HTML = HTML + '<p><div id="' + key + '">' + addToolTips(renderingNode, paragraph.text) + '</div></p>'
                     docSchemaParagraphMap.set(key, paragraph)
                 }
             }
@@ -458,7 +482,7 @@ function newSuperalgosDocSpace() {
             }
 
             function cleanPhrase(phrase) {
-                return phrase.replace(',', '').replace(';', '').replace('(', '').replace(')', '').replace('-', '').replace('_', '')
+                return phrase.replace(',', '').replace(';', '').replace('(', '').replace(')', '').replace('-', '').replace('_', '').replace('.', '')
             }
         }
         return taggedText

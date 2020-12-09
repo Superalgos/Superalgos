@@ -47,15 +47,15 @@ function newSuperalgosDocSpace() {
 
         function setUpContextMenu() {
             window.contextMenu = {
-                editText: editText,
-                editHTML: editHTML,
+                editParagraph: editParagraph,
+                addParagraph: addParagraph,
                 code: code,
                 note: note,
                 warning: warning,
                 important: important
             }
 
-            function editText() {
+            function editParagraph () {
                 contextMenuForceOutClick()
                 showHTMLTextArea()
 
@@ -77,7 +77,7 @@ function newSuperalgosDocSpace() {
                 }
             }
 
-            function editHTML() {
+            function addParagraph() {
                 contextMenuForceOutClick()
             }
 

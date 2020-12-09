@@ -31,6 +31,10 @@ function newSuperalgosDocSpace() {
     let selectedParagraph
     let selectedParagraphData = ''
     let selectedParagraphHeight = 0
+    let renderingNode
+    let docSchemaParagraphMap
+    let nodeAppDefinition
+    let nodeDocsDefinition
 
     return thisObject
 
@@ -55,7 +59,7 @@ function newSuperalgosDocSpace() {
                 important: important
             }
 
-            function editParagraph () {
+            function editParagraph() {
                 contextMenuForceOutClick()
                 showHTMLTextArea()
 
@@ -103,6 +107,11 @@ function newSuperalgosDocSpace() {
         canvas.eventHandler.stopListening(browserResizedEventSubscriptionId)
         thisObject.sidePanelTab.container.eventHandler.stopListening(openingEventSubscriptionId)
         thisObject.sidePanelTab.container.eventHandler.stopListening(closingEventSubscriptionId)
+
+        renderingNode = undefined
+        docSchemaParagraphMap = undefined
+        nodeAppDefinition = undefined
+        nodeDocsDefinition = undefined
     }
 
     function onKeyDown(event) {
@@ -125,8 +134,26 @@ function newSuperalgosDocSpace() {
     }
     function exitEditMode() {
         if (EDITOR_ON_FOCUS === true) {
-            selectedParagraph.innerText = textArea.value
+
+            switch (selectedParagraph.nodeName) {
+                case "P": {
+                    /*
+                    In this case we are at a regular paragraph.
+                    */
+                    let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
+                    docSchemaParagraph.text = textArea.value
+                    break
+                }
+                case "DIV": {
+                    /*
+                    This means that the definition was being edited.
+                    */
+                    nodeDocsDefinition.definition = textArea.value
+                    break
+                }
+            }
             EDITOR_ON_FOCUS = false
+            renderPage()
         }
     }
 
@@ -192,11 +219,22 @@ function newSuperalgosDocSpace() {
 
     function navigateTo(node) {
 
-        let nodeAppDefinition = SCHEMAS_BY_PROJECT.get(node.project).map.appSchema.get(node.type)
-        let nodeDocsDefinition = SCHEMAS_BY_PROJECT.get(node.project).map.docSchema.get(node.type)
+        docSchemaParagraphMap = new Map()
+        renderingNode = {
+            type: node.type,
+            project: node.project
+        }
+
+        renderPage()
+    }
+
+    function renderPage() {
+
+        nodeAppDefinition = SCHEMAS_BY_PROJECT.get(renderingNode.project).map.appSchema.get(renderingNode.type)
+        nodeDocsDefinition = SCHEMAS_BY_PROJECT.get(renderingNode.project).map.docSchema.get(renderingNode.type)
 
         if (nodeDocsDefinition === undefined) {
-            node.payload.uiObject.setErrorMessage('This node in undefined at the DOC_SCHEMA. ')
+            // Use the New Node Template
             return
         }
         buildNodeHtmlPage()
@@ -208,7 +246,7 @@ function newSuperalgosDocSpace() {
             HTML = HTML + '<div id="context-menu-clickable-div" class="docs-node-html-page-container">' // Container Starts
 
             /* Title */
-            HTML = HTML + '<div><h2 class="docs-h2" id="' + node.type.toLowerCase().replace(' ', '-') + '" > ' + node.type + '</h2></div>'
+            HTML = HTML + '<div><h2 class="docs-h2" id="' + renderingNode.type.toLowerCase().replace(' ', '-') + '" > ' + renderingNode.type + '</h2></div>'
 
             /* We start with the Definition Table */
             if (nodeDocsDefinition.definition !== undefined) {
@@ -218,7 +256,7 @@ function newSuperalgosDocSpace() {
                 HTML = HTML + '<div id="definitionImageDiv" class="docs-image-container"/>'
                 HTML = HTML + '</td>'
                 HTML = HTML + '<td>'
-                HTML = HTML + '<div class="docs-normal-font"><strong>' + addToolTips(node, nodeDocsDefinition.definition) + '</strong></div>'
+                HTML = HTML + '<div class="docs-normal-font"><strong>' + addToolTips(renderingNode, nodeDocsDefinition.definition) + '</strong></div>'
                 HTML = HTML + '</td>'
                 HTML = HTML + '</tr>'
                 HTML = HTML + '</table>'
@@ -230,17 +268,19 @@ function newSuperalgosDocSpace() {
             if (nodeDocsDefinition.content !== undefined) {
                 for (let i = 0; i < nodeDocsDefinition.content.length; i++) {
                     let paragraph = nodeDocsDefinition.content[i]
-                    HTML = HTML + '<p>' + paragraph + '</p>'
+                    key = 'content-paragraph-' + i
+                    HTML = HTML + '<p id="' + key + '">' + paragraph.text + '</p>'
+                    docSchemaParagraphMap.set(key, paragraph)
                 }
             }
 
             /* Adding Section */
             if (nodeDocsDefinition.adding !== undefined) {
                 if (nodeDocsDefinition.adding.length > 0) {
-                    HTML = HTML + '<h3 class="docs-h3">Adding a ' + node.type + '</h3>'
+                    HTML = HTML + '<h3 class="docs-h3">Adding a ' + renderingNode.type + '</h3>'
                     for (let i = 0; i < nodeDocsDefinition.adding.length; i++) {
                         let paragraph = nodeDocsDefinition.adding[i]
-                        HTML = HTML + '<p>' + paragraph + '</p>'
+                        HTML = HTML + '<p id="adding-paragraph-' + i + '">' + paragraph.text + '</p>'
                     }
                 }
             }
@@ -248,10 +288,10 @@ function newSuperalgosDocSpace() {
             /* Configuring Section */
             if (nodeDocsDefinition.configuring !== undefined) {
                 if (nodeDocsDefinition.configuring.length > 0) {
-                    HTML = HTML + '<h3 class="docs-h3">Configuring a ' + node.type + '</h3>'
+                    HTML = HTML + '<h3 class="docs-h3">Configuring a ' + renderingNode.type + '</h3>'
                     for (let i = 0; i < nodeDocsDefinition.configuring.length; i++) {
                         let paragraph = nodeDocsDefinition.configuring[i]
-                        HTML = HTML + '<p>' + paragraph + '</p>'
+                        HTML = HTML + '<p id="configuring-paragraph-' + i + '">' + paragraph.text + '</p>'
                     }
                 }
             }
@@ -259,10 +299,10 @@ function newSuperalgosDocSpace() {
             /* Starting Section */
             if (nodeDocsDefinition.starting !== undefined) {
                 if (nodeDocsDefinition.starting.length > 0) {
-                    HTML = HTML + '<h3 class="docs-h3">Starting a ' + node.type + '</h3>'
+                    HTML = HTML + '<h3 class="docs-h3">Starting a ' + renderingNode.type + '</h3>'
                     for (let i = 0; i < nodeDocsDefinition.starting.length; i++) {
                         let paragraph = nodeDocsDefinition.starting[i]
-                        HTML = HTML + '<p>' + paragraph + '</p>'
+                        HTML = HTML + '<p id="starting-paragraph-' + i + '">' + paragraph.text + '</p>'
                     }
                 }
             }
@@ -274,7 +314,7 @@ function newSuperalgosDocSpace() {
             docsAppDiv.innerHTML = HTML
 
             if (nodeDocsDefinition.definition !== undefined) {
-                addDefinitionImage(nodeAppDefinition, node.project)
+                addDefinitionImage(nodeAppDefinition, renderingNode.project)
             }
         }
 
@@ -329,8 +369,7 @@ function newSuperalgosDocSpace() {
                 }
             }
             if (found === false) {
-                node.payload.uiObject.setErrorMessage(nodeType + ' not found at Doc Schema or Concept Schema of any Project.')
-                return
+                return text
             }
 
             let definition = definitionNode.definition

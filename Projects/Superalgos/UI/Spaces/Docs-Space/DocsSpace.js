@@ -28,6 +28,9 @@ function newSuperalgosDocSpace() {
     let closingEventSubscriptionId
     let textSelection = ''
     let htmlSelection = ''
+    let selectedParagraph
+    let selectedParagraphData = ''
+    let selectedParagraphHeight = 0
 
     return thisObject
 
@@ -42,7 +45,7 @@ function newSuperalgosDocSpace() {
         setUpContextMenu()
         isInitialized = true
 
-        function setUpContextMenu() {    
+        function setUpContextMenu() {
             window.contextMenu = {
                 editText: editText,
                 editHTML: editHTML,
@@ -53,8 +56,24 @@ function newSuperalgosDocSpace() {
             }
 
             function editText() {
-                console.log(textSelection)
                 contextMenuForceOutClick()
+                showHTMLTextArea()
+
+                function showHTMLTextArea() {
+                    if (selectedParagraph === undefined) { return }
+
+                    let textArea = document.createElement('textarea');
+                    textArea.id = "textArea";
+                    textArea.spellcheck = false;
+                    textArea.className = "docs-text-area"
+                    textArea.style.height = selectedParagraphHeight
+                    textArea.value = selectedParagraphData
+                    selectedParagraph.innerHTML = ""
+                    selectedParagraph.appendChild(textArea)
+                    textArea.style.display = 'block'
+                    textArea.focus()
+                    EDITOR_ON_FOCUS = true
+                }
             }
 
             function editHTML() {
@@ -204,7 +223,7 @@ function newSuperalgosDocSpace() {
         })
     }
 
-    function contextMenuForceOutClick(){
+    function contextMenuForceOutClick() {
         const outClick = document.getElementById('docsDiv')
         const menu = document.getElementById('menu')
         menu.classList.remove('show')
@@ -219,6 +238,9 @@ function newSuperalgosDocSpace() {
         }
         else if (window.getSelection) {
             var selection = window.getSelection()
+            selectedParagraphData = selection.baseNode.data
+            selectedParagraph = selection.baseNode.parentNode
+            selectedParagraphHeight = selection.baseNode.parentNode.getClientRects()[0].height
             if (selection.rangeCount > 0) {
                 range = selection.getRangeAt(0)
                 var clonedSelection = range.cloneContents()

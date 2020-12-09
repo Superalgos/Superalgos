@@ -111,3 +111,16 @@
   .docs-h5 {font-weight:400; font-size:140%; margin-top: 35px; font-style:italic;}
 
   .docs-h6 {font-weight:400; font-size:130%; margin-top: 35px; font-style:italic;}
+
+  .docs-text-area {
+    font: 400 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
+    resize: none;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    overflow:hidden;
+    background-color: #fdfdfd;
+    color: #111; 
+    width: 100%;
+    height: 25%;
+  }

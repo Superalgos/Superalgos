@@ -1,0 +1,42 @@
+  
+  #menu {
+    display: block;
+    background-color: white;
+    padding: 10px 0px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 30px lightgrey;
+    position: absolute;
+    transform-origin: center;
+    z-index: 2;
+    opacity: 0;
+    transform: scale(0);
+    transition: transform 0.2s, opacity 0.2s;
+  }
+  
+  #menu.show {
+    opacity: 1;
+    transform: scale(1);
+    transform-origin: top left;
+  }
+  
+  .menu-item {
+    display: block;
+    padding: 10px 30px;
+    transition: 0.1s;
+    color: #666;
+  }
+  
+  .menu-item:hover {
+    background-color: #eee;
+    cursor: pointer;
+  }
+  
+  #out-click {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: none;
+  }

@@ -26,6 +26,8 @@ function newSuperalgosDocSpace() {
     let browserResizedEventSubscriptionId
     let openingEventSubscriptionId
     let closingEventSubscriptionId
+    let textSelection = ''
+    let htmlSelection = ''
 
     return thisObject
 
@@ -37,8 +39,43 @@ function newSuperalgosDocSpace() {
         closingEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('closing', onClosing)
 
         browserResizedEventSubscriptionId = canvas.eventHandler.listenToEvent('Browser Resized', resize)
-
+        setUpContextMenu()
         isInitialized = true
+
+        function setUpContextMenu() {    
+            window.contextMenu = {
+                editText: editText,
+                editHTML: editHTML,
+                code: code,
+                note: note,
+                warning: warning,
+                important: important
+            }
+
+            function editText() {
+                console.log(textSelection)
+            }
+
+            function editHTML() {
+                console.log(htmlSelection)
+            }
+
+            function code() {
+
+            }
+
+            function note() {
+
+            }
+
+            function warning() {
+
+            }
+
+            function important() {
+
+            }
+        }
     }
 
     function finalize() {
@@ -65,11 +102,12 @@ function newSuperalgosDocSpace() {
             return
         }
         buildNodeHtmlPage()
+        activateRightClick()
 
         function buildNodeHtmlPage() {
             let HTML = ''
 
-            HTML = HTML + '<div class="docs-node-html-page-container">' // Container Starts
+            HTML = HTML + '<div id="clickable" class="docs-node-html-page-container">' // Container Starts
 
             /* Title */
             HTML = HTML + '<div><h2 class="docs-h2" id="' + node.type.toLowerCase().replace(' ', '-') + '" > ' + node.type + '</h2></div>'
@@ -140,6 +178,53 @@ function newSuperalgosDocSpace() {
         }
 
         thisObject.sidePanelTab.open()
+    }
+
+    function activateRightClick() {
+        const clickable = document.getElementById('clickable')
+        const menu = document.getElementById('menu')
+        const outClick = document.getElementById('docsDiv')
+
+        clickable.addEventListener('contextmenu', e => {
+            e.preventDefault()
+            getHTMLOfSelection()
+
+            menu.style.top = `${e.clientY}px`
+            menu.style.left = `${e.clientX}px`
+            menu.classList.add('show')
+
+            outClick.style.display = "block"
+        })
+
+        outClick.addEventListener('click', () => {
+            menu.classList.remove('show')
+            outClick.style.display = "none"
+        })
+    }
+
+    function getHTMLOfSelection() {
+        let range
+        if (document.selection && document.selection.createRange) {
+            range = document.selection.createRange()
+            htmlSelection = range.htmlText
+        }
+        else if (window.getSelection) {
+            var selection = window.getSelection()
+            if (selection.rangeCount > 0) {
+                range = selection.getRangeAt(0)
+                var clonedSelection = range.cloneContents()
+                var div = document.createElement('div')
+                div.appendChild(clonedSelection)
+                htmlSelection = div.innerHTML
+                textSelection = div.innerText
+            }
+            else {
+                htmlSelection = ''
+            }
+        }
+        else {
+            htmlSelection = ''
+        }
     }
 
     function addDefinitionImage(nodeAppDefinition, project) {
@@ -327,7 +412,7 @@ function newSuperalgosDocSpace() {
                 'position:fixed; top:' + docsAppDivPosition.y + 'px; ' +
                 'left:' + docsAppDivPosition.x + 'px; z-index:1; ' +
                 'width: ' + thisObject.container.frame.width + 'px;' +
-                'height: ' + thisObject.container.frame.height + 'px'                 
+                'height: ' + thisObject.container.frame.height + 'px'
         }
     }
 

@@ -26,8 +26,8 @@ function newSuperalgosDocSpace() {
     let browserResizedEventSubscriptionId
     let openingEventSubscriptionId
     let closingEventSubscriptionId
-    let textSelection = ''
-    let htmlSelection = ''
+
+    let textArea
     let selectedParagraph
     let selectedParagraphData = ''
     let selectedParagraphHeight = 0
@@ -62,7 +62,7 @@ function newSuperalgosDocSpace() {
                 function showHTMLTextArea() {
                     if (selectedParagraph === undefined) { return }
 
-                    let textArea = document.createElement('textarea');
+                    textArea = document.createElement('textarea');
                     textArea.id = "textArea";
                     textArea.spellcheck = false;
                     textArea.className = "docs-text-area"
@@ -72,12 +72,12 @@ function newSuperalgosDocSpace() {
                     selectedParagraph.appendChild(textArea)
                     textArea.style.display = 'block'
                     textArea.focus()
-                    EDITOR_ON_FOCUS = true
+                    contextMenuForceOutClick()
+                    enterEditMode()
                 }
             }
 
             function editHTML() {
-                console.log(htmlSelection)
                 contextMenuForceOutClick()
             }
 
@@ -104,6 +104,83 @@ function newSuperalgosDocSpace() {
         thisObject.sidePanelTab.container.eventHandler.stopListening(openingEventSubscriptionId)
         thisObject.sidePanelTab.container.eventHandler.stopListening(closingEventSubscriptionId)
     }
+
+    function onKeyDown(event) {
+        /* 
+        When an editor is on focus we will only
+        take care of a few combinations of key strokes
+        so as to tell the editor container when the user
+        would like to close the editor.
+        */
+        if (event.key === 'Escape') {
+            exitEditMode()
+        }
+    }
+
+    function enterEditMode() {
+        EDITOR_ON_FOCUS = true
+        window.editorController = {
+            onKeyDown: onKeyDown
+        }
+    }
+    function exitEditMode() {
+        if (EDITOR_ON_FOCUS === true) {
+            selectedParagraph.innerText = textArea.value
+            EDITOR_ON_FOCUS = false
+        }
+    }
+
+    function contextMenuActivateRightClick() {
+        const contextMenuClickablDiv = document.getElementById('context-menu-clickable-div')
+        const menu = document.getElementById('menu')
+        const outClick = document.getElementById('docsDiv')
+
+        contextMenuClickablDiv.addEventListener('contextmenu', e => {
+            e.preventDefault()
+            contextMenuGetSelection()
+
+            menu.style.top = `${e.clientY}px`
+            menu.style.left = `${e.clientX}px`
+            menu.classList.add('show')
+
+            outClick.style.display = "block"
+        })
+
+        outClick.addEventListener('click', () => {
+            contextMenuForceOutClick()
+        })
+    }
+
+    function contextMenuForceOutClick() {
+        const outClick = document.getElementById('docsDiv')
+        const menu = document.getElementById('menu')
+        menu.classList.remove('show')
+        outClick.style.display = "none"
+    }
+
+    function contextMenuGetSelection() {
+        let selection = window.getSelection()
+
+        /* 
+        We need to locate the parent node that it is a Paragraph,
+        otherwise we could end up in an inner html element.
+        */
+        let paragraphNode = selection.baseNode.parentNode
+        if (paragraphNode.nodeName !== "P") {
+            paragraphNode = paragraphNode.parentNode
+        }
+        if (paragraphNode.nodeName !== "P") {
+            paragraphNode = paragraphNode.parentNode
+        }
+        if (paragraphNode.nodeName !== "P") {
+            paragraphNode = paragraphNode.parentNode
+        }
+
+        selectedParagraphData = paragraphNode.innerText
+        selectedParagraph = paragraphNode
+        selectedParagraphHeight = paragraphNode.getClientRects()[0].height
+    }
+
 
     function onOpening() {
 
@@ -147,6 +224,8 @@ function newSuperalgosDocSpace() {
                 HTML = HTML + '</table>'
             }
 
+            HTML = HTML + '<div id="docs-content">'
+
             /* Content Section */
             if (nodeDocsDefinition.content !== undefined) {
                 for (let i = 0; i < nodeDocsDefinition.content.length; i++) {
@@ -187,6 +266,7 @@ function newSuperalgosDocSpace() {
                     }
                 }
             }
+            HTML = HTML + '</div>' // Content Ends
 
             HTML = HTML + '</div>' // Container Ends
 
@@ -199,63 +279,6 @@ function newSuperalgosDocSpace() {
         }
 
         thisObject.sidePanelTab.open()
-    }
-
-    function contextMenuActivateRightClick() {
-        const contextMenuClickablDiv = document.getElementById('context-menu-clickable-div')
-        const menu = document.getElementById('menu')
-        const outClick = document.getElementById('docsDiv')
-
-        contextMenuClickablDiv.addEventListener('contextmenu', e => {
-            e.preventDefault()
-            contextMenuGetSelection()
-
-            menu.style.top = `${e.clientY}px`
-            menu.style.left = `${e.clientX}px`
-            menu.classList.add('show')
-
-            outClick.style.display = "block"
-        })
-
-        outClick.addEventListener('click', () => {
-            menu.classList.remove('show')
-            outClick.style.display = "none"
-        })
-    }
-
-    function contextMenuForceOutClick() {
-        const outClick = document.getElementById('docsDiv')
-        const menu = document.getElementById('menu')
-        menu.classList.remove('show')
-        outClick.style.display = "none"
-    }
-
-    function contextMenuGetSelection() {
-        let range
-        if (document.selection && document.selection.createRange) {
-            range = document.selection.createRange()
-            htmlSelection = range.htmlText
-        }
-        else if (window.getSelection) {
-            var selection = window.getSelection()
-            selectedParagraphData = selection.baseNode.data
-            selectedParagraph = selection.baseNode.parentNode
-            selectedParagraphHeight = selection.baseNode.parentNode.getClientRects()[0].height
-            if (selection.rangeCount > 0) {
-                range = selection.getRangeAt(0)
-                var clonedSelection = range.cloneContents()
-                var div = document.createElement('div')
-                div.appendChild(clonedSelection)
-                htmlSelection = div.innerHTML
-                textSelection = div.innerText
-            }
-            else {
-                htmlSelection = ''
-            }
-        }
-        else {
-            htmlSelection = ''
-        }
     }
 
     function addDefinitionImage(nodeAppDefinition, project) {

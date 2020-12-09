@@ -5,7 +5,7 @@ function newCanvas() {
     const MODULE_NAME = 'Canvas'
     const ERROR_LOG = true
     const logger = newWebDebugLog()
-    
+
 
     /* Mouse event related variables. */
 
@@ -367,7 +367,14 @@ function newCanvas() {
     }
 
     async function onKeyDown(event) {
-        if (EDITOR_ON_FOCUS === true) { return }
+        if (EDITOR_ON_FOCUS === true) {
+            /*
+             We will fordward the event to whoever is 
+             controlling the editor.
+            */
+            window.editorController.onKeyDown(event)
+            return
+        }
         thisObject.mouse.event = event
         thisObject.mouse.action = 'key down'
 

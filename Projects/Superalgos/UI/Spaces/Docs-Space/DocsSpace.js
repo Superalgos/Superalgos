@@ -54,10 +54,12 @@ function newSuperalgosDocSpace() {
 
             function editText() {
                 console.log(textSelection)
+                contextMenuForceOutClick()
             }
 
             function editHTML() {
                 console.log(htmlSelection)
+                contextMenuForceOutClick()
             }
 
             function code() {
@@ -102,12 +104,12 @@ function newSuperalgosDocSpace() {
             return
         }
         buildNodeHtmlPage()
-        activateRightClick()
+        contextMenuActivateRightClick()
 
         function buildNodeHtmlPage() {
             let HTML = ''
 
-            HTML = HTML + '<div id="clickable" class="docs-node-html-page-container">' // Container Starts
+            HTML = HTML + '<div id="context-menu-clickable-div" class="docs-node-html-page-container">' // Container Starts
 
             /* Title */
             HTML = HTML + '<div><h2 class="docs-h2" id="' + node.type.toLowerCase().replace(' ', '-') + '" > ' + node.type + '</h2></div>'
@@ -180,14 +182,14 @@ function newSuperalgosDocSpace() {
         thisObject.sidePanelTab.open()
     }
 
-    function activateRightClick() {
-        const clickable = document.getElementById('clickable')
+    function contextMenuActivateRightClick() {
+        const contextMenuClickablDiv = document.getElementById('context-menu-clickable-div')
         const menu = document.getElementById('menu')
         const outClick = document.getElementById('docsDiv')
 
-        clickable.addEventListener('contextmenu', e => {
+        contextMenuClickablDiv.addEventListener('contextmenu', e => {
             e.preventDefault()
-            getHTMLOfSelection()
+            contextMenuGetSelection()
 
             menu.style.top = `${e.clientY}px`
             menu.style.left = `${e.clientX}px`
@@ -202,7 +204,14 @@ function newSuperalgosDocSpace() {
         })
     }
 
-    function getHTMLOfSelection() {
+    function contextMenuForceOutClick(){
+        const outClick = document.getElementById('docsDiv')
+        const menu = document.getElementById('menu')
+        menu.classList.remove('show')
+        outClick.style.display = "none"
+    }
+
+    function contextMenuGetSelection() {
         let range
         if (document.selection && document.selection.createRange) {
             range = document.selection.createRange()

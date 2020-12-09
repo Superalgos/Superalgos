@@ -119,7 +119,7 @@
     outline: none;
     box-shadow: none;
     overflow:hidden;
-    background-color: #fdfdfd;
+    background-color: transparent;
     color: #111; 
     width: 100%;
     height: 25%;

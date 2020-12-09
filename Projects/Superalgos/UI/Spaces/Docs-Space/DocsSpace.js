@@ -166,13 +166,13 @@ function newSuperalgosDocSpace() {
         otherwise we could end up in an inner html element.
         */
         let paragraphNode = selection.baseNode.parentNode
-        if (paragraphNode.nodeName !== "P") {
+        if (paragraphNode.nodeName !== "P" && paragraphNode.nodeName !== "DIV") {
             paragraphNode = paragraphNode.parentNode
         }
-        if (paragraphNode.nodeName !== "P") {
+        if (paragraphNode.nodeName !== "P" && paragraphNode.nodeName !== "DIV") {
             paragraphNode = paragraphNode.parentNode
         }
-        if (paragraphNode.nodeName !== "P") {
+        if (paragraphNode.nodeName !== "P" && paragraphNode.nodeName !== "DIV") {
             paragraphNode = paragraphNode.parentNode
         }
 
@@ -214,7 +214,7 @@ function newSuperalgosDocSpace() {
             if (nodeDocsDefinition.definition !== undefined) {
                 HTML = HTML + '<table class="docs-definitionTable">'
                 HTML = HTML + '<tr>'
-                HTML = HTML + '<td>'
+                HTML = HTML + '<td width=150px>'
                 HTML = HTML + '<div id="definitionImageDiv" class="docs-image-container"/>'
                 HTML = HTML + '</td>'
                 HTML = HTML + '<td>'

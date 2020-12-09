@@ -270,7 +270,7 @@ function newSuperalgosDocSpace() {
             HTML = HTML + '<div id="context-menu-clickable-div" class="docs-node-html-page-container">' // Container Starts
 
             /* Title */
-            HTML = HTML + '<div><h2 class="docs-h2" id="' + renderingNode.type.toLowerCase().replace(' ', '-') + '" > ' + renderingNode.type + '</h2></div>'
+            HTML = HTML + '<div><h2 class="docs-h2" id="' + renderingNode.type.toLowerCase().replace(' ', '-') + '" > ' + renderingNode.project + ' / ' + renderingNode.type + '</h2></div>'
 
             /* We start with the Definition Table */
             if (nodeDocsDefinition.definition !== undefined) {
@@ -482,7 +482,20 @@ function newSuperalgosDocSpace() {
             }
 
             function cleanPhrase(phrase) {
-                return phrase.replace(',', '').replace(';', '').replace('(', '').replace(')', '').replace('-', '').replace('_', '').replace('.', '')
+                return phrase.replace(',', '')
+                .replace(';', '')
+                .replace('(', '')
+                .replace(')', '')
+                .replace('-', '')
+                .replace('_', '')
+                .replace('.', '')
+                .replace('[', '')
+                .replace(']', '')
+                .replace('{', '')
+                .replace('}', '')
+                .replace('/', '')
+                .replace('>', '')
+                .replace('<', '')
             }
         }
         return taggedText

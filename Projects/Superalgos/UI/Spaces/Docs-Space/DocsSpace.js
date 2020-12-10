@@ -74,7 +74,7 @@ function newSuperalgosDocSpace() {
 
                     let extraClassName = ''
                     if (selectedParagraph.id.indexOf('definition') >= 0) {
-                        extraClassName = ' ' + 'docs-definitionTable'
+                        extraClassName = ' ' + ''
                     }
                     if (selectedParagraph.id.indexOf('title') >= 0) {
                         extraClassName = ' ' + 'docs-h3'

@@ -419,8 +419,8 @@ function newSuperalgosDocSpace() {
                             break
                         }
                         case 'Subtitle': {
-                            styleClass = ''
-                            prefix = 'class="docs-h4"'
+                            styleClass = 'class="docs-h4"'
+                            prefix = ''
                             role = ''
                             key = key + '-subtitle'
                             innerHTML = paragraph.text

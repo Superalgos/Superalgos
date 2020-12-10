@@ -52,7 +52,6 @@ function newSuperalgosDocSpace() {
         function setUpContextMenu() {
             window.contextMenu = {
                 editParagraph: editParagraph,
-                addParagraph: addParagraph,
                 toJsCode: toJsCode,
                 toJsonCode: toJsonCode,
                 toText: toText,
@@ -108,10 +107,6 @@ function newSuperalgosDocSpace() {
                     contextMenuForceOutClick()
                     enterEditMode()
                 }
-            }
-
-            function addParagraph() {
-                contextMenuForceOutClick()
             }
 
             function toJsCode() {
@@ -215,7 +210,46 @@ function newSuperalgosDocSpace() {
                     In this case we are at a regular paragraph.
                     */
                     let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
-                    docSchemaParagraph.text = textArea.value
+                    /*
+                    We will detect if the user has created new paragraphs while editing.
+                    For that we will inspect the value of the text area looking for a char
+                    code representing carriedge return.
+                    */
+                    let paragraphs = []
+                    let paragraph = ''
+
+                    for (let i = 0; i < textArea.value.length; i++) {
+                        if (textArea.value.charCodeAt(i) === 10) {
+                            paragraphs.push(paragraph)
+                            paragraph = ''
+                        } else {
+                            paragraph = paragraph + textArea.value[i]
+                        }
+                    }
+                    paragraphs.push(paragraph)
+
+                    if (paragraphs.length === 1) {
+                        /* There is no need to add new paragraphs, we just update the one we have. */
+                        docSchemaParagraph.text = paragraphs[0]
+                    } else {
+                        /*
+                        We will update the one paragraph we have and we will add the rest. 
+                        */
+                        docSchemaParagraph.text = paragraphs[0]
+                        let splittedSelectedParagraph = selectedParagraph.id.split('-')
+                        let selectedParagraphIndex = Number(splittedSelectedParagraph[1])
+                        let selectedParagraphStyle = splittedSelectedParagraph[2]
+                        let style = selectedParagraphStyle.charAt(0).toUpperCase() + selectedParagraphStyle.slice(1);
+
+                        for (let i = 1; i < paragraphs.length; i++) {
+                            let newParagraph = {
+                                style: style,
+                                text: paragraphs[i]
+                            }
+                            nodeDocsDefinition.paragraphs.splice(selectedParagraphIndex + i , 0, newParagraph)
+                        }
+                    }
+
                     break
                 }
                 case "Definition": {

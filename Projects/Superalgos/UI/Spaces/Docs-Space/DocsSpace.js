@@ -56,6 +56,8 @@ function newSuperalgosDocSpace() {
                 toJsCode: toJsCode,
                 toJsonCode: toJsonCode,
                 toText: toText,
+                toTitle: toTitle,
+                toSubtitle: toSubtitle,
                 toNote: toNote,
                 toWarning: toWarning,
                 toImportant: toImportant,
@@ -71,6 +73,15 @@ function newSuperalgosDocSpace() {
                     if (selectedParagraph === undefined) { return }
 
                     let extraClassName = ''
+                    if (selectedParagraph.id.indexOf('definition') >= 0) {
+                        extraClassName = ' ' + 'docs-definitionTable'
+                    }
+                    if (selectedParagraph.id.indexOf('title') >= 0) {
+                        extraClassName = ' ' + 'docs-h3'
+                    }
+                    if (selectedParagraph.id.indexOf('subtitle') >= 0) {
+                        extraClassName = ' ' + 'docs-h4'
+                    }
                     if (selectedParagraph.id.indexOf('note') >= 0) {
                         extraClassName = ' ' + 'docs-alert-note'
                     }
@@ -87,7 +98,7 @@ function newSuperalgosDocSpace() {
                     textArea = document.createElement('textarea');
                     textArea.id = "textArea";
                     textArea.spellcheck = false;
-                    textArea.className = "docs-text-area"+ extraClassName
+                    textArea.className = "docs-text-area" + extraClassName
                     textArea.style.height = selectedParagraphHeight
                     textArea.value = selectedParagraphData
                     selectedParagraph.innerHTML = ""
@@ -114,6 +125,18 @@ function newSuperalgosDocSpace() {
             function toText() {
                 let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Text'
+                renderPage()
+            }
+
+            function toTitle() {
+                let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
+                docSchemaParagraph.style = 'Title'
+                renderPage()
+            }
+
+            function toSubtitle() {
+                let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
+                docSchemaParagraph.style = 'Subtitle'
                 renderPage()
             }
 
@@ -215,6 +238,10 @@ function newSuperalgosDocSpace() {
 
         contextMenuClickablDiv.addEventListener('contextmenu', e => {
             e.preventDefault()
+            if (EDITOR_ON_FOCUS === true) {
+                exitEditMode()
+                return
+            }
             if (contextMenuGetSelection() === false) {
                 /*
                 The click was in a place where we can not recognize an editable piece.
@@ -279,6 +306,12 @@ function newSuperalgosDocSpace() {
             selectedParagraphData = paragraphNode.innerText
         }
         if (paragraphNode.id.indexOf('text') >= 0) {
+            selectedParagraphData = paragraphNode.innerText
+        }
+        if (paragraphNode.id.indexOf('title') >= 0) {
+            selectedParagraphData = paragraphNode.innerText
+        }
+        if (paragraphNode.id.indexOf('subtitle') >= 0) {
             selectedParagraphData = paragraphNode.innerText
         }
         if (paragraphNode.id.indexOf('note') >= 0) {
@@ -358,16 +391,15 @@ function newSuperalgosDocSpace() {
 
             HTML = HTML + '<div id="docs-content">'
 
-            /* Content Section */
-            if (nodeDocsDefinition.content !== undefined) {
-                for (let i = 0; i < nodeDocsDefinition.content.length; i++) {
-                    let paragraph = nodeDocsDefinition.content[i]
+            if (nodeDocsDefinition.paragraphs !== undefined) {
+                for (let i = 0; i < nodeDocsDefinition.paragraphs.length; i++) {
+                    let paragraph = nodeDocsDefinition.paragraphs[i]
                     let innerHTML = addToolTips(renderingNode, paragraph.text)
                     let styleClass = ''
                     let prefix = ''
                     let sufix = ''
                     let role = ''
-                    let key = 'content-paragraph-' + i
+                    let key = 'paragraph-' + i
 
                     switch (paragraph.style) {
                         case 'Text': {
@@ -375,6 +407,23 @@ function newSuperalgosDocSpace() {
                             prefix = ''
                             role = ''
                             key = key + '-text'
+                            innerHTML = addToolTips(renderingNode, paragraph.text)
+                            break
+                        }
+                        case 'Title': {
+                            styleClass = 'class="docs-h3"'
+                            prefix = ''
+                            role = ''
+                            key = key + '-title'
+                            innerHTML = paragraph.text
+                            break
+                        }
+                        case 'Subtitle': {
+                            styleClass = ''
+                            prefix = 'class="docs-h4"'
+                            role = ''
+                            key = key + '-subtitle'
+                            innerHTML = paragraph.text
                             break
                         }
                         case 'Note': {
@@ -382,6 +431,7 @@ function newSuperalgosDocSpace() {
                             prefix = '<i class="docs-fa docs-note-circle"></i> <b>Note:</b>'
                             role = 'role="alert"'
                             key = key + '-note'
+                            innerHTML = addToolTips(renderingNode, paragraph.text)
                             break
                         }
                         case 'Success': {
@@ -389,6 +439,7 @@ function newSuperalgosDocSpace() {
                             prefix = '<i class="docs-fa docs-check-square-o"></i> <b>Tip:</b>'
                             role = 'role="alert"'
                             key = key + '-success'
+                            innerHTML = addToolTips(renderingNode, paragraph.text)
                             break
                         }
                         case 'Important': {
@@ -396,6 +447,7 @@ function newSuperalgosDocSpace() {
                             prefix = '<i class="docs-fa docs-warning-sign"></i> <b>Important:</b>'
                             role = 'role="alert"'
                             key = key + '-important'
+                            innerHTML = addToolTips(renderingNode, paragraph.text)
                             break
                         }
                         case 'Warning': {
@@ -403,6 +455,7 @@ function newSuperalgosDocSpace() {
                             prefix = '<i class="docs-fa docs-warning-sign"></i> <b>Warning:</b>'
                             role = 'role="alert"'
                             key = key + '-warning'
+                            innerHTML = addToolTips(renderingNode, paragraph.text)
                             break
                         }
                         case 'List': {
@@ -411,47 +464,16 @@ function newSuperalgosDocSpace() {
                             sufix = '</li>'
                             role = ''
                             key = key + '-list'
+                            innerHTML = addToolTips(renderingNode, paragraph.text)
                             break
                         }
                     }
 
-                    HTML = HTML + '<p><div id="' + key + '" ' + styleClass + ' ' + role + '">' + prefix + ' ' + innerHTML +  sufix +'</div></p>'
+                    HTML = HTML + '<p><div id="' + key + '" ' + styleClass + ' ' + role + '">' + prefix + ' ' + innerHTML + sufix + '</div></p>'
                     docSchemaParagraphMap.set(key, paragraph)
                 }
             }
 
-            /* Adding Section */
-            if (nodeDocsDefinition.adding !== undefined) {
-                if (nodeDocsDefinition.adding.length > 0) {
-                    HTML = HTML + '<h3 class="docs-h3">Adding a ' + renderingNode.type + '</h3>'
-                    for (let i = 0; i < nodeDocsDefinition.adding.length; i++) {
-                        let paragraph = nodeDocsDefinition.adding[i]
-                        HTML = HTML + '<p id="adding-paragraph-' + i + '">' + paragraph.text + '</p>'
-                    }
-                }
-            }
-
-            /* Configuring Section */
-            if (nodeDocsDefinition.configuring !== undefined) {
-                if (nodeDocsDefinition.configuring.length > 0) {
-                    HTML = HTML + '<h3 class="docs-h3">Configuring a ' + renderingNode.type + '</h3>'
-                    for (let i = 0; i < nodeDocsDefinition.configuring.length; i++) {
-                        let paragraph = nodeDocsDefinition.configuring[i]
-                        HTML = HTML + '<p id="configuring-paragraph-' + i + '">' + paragraph.text + '</p>'
-                    }
-                }
-            }
-
-            /* Starting Section */
-            if (nodeDocsDefinition.starting !== undefined) {
-                if (nodeDocsDefinition.starting.length > 0) {
-                    HTML = HTML + '<h3 class="docs-h3">Starting a ' + renderingNode.type + '</h3>'
-                    for (let i = 0; i < nodeDocsDefinition.starting.length; i++) {
-                        let paragraph = nodeDocsDefinition.starting[i]
-                        HTML = HTML + '<p id="starting-paragraph-' + i + '">' + paragraph.text + '</p>'
-                    }
-                }
-            }
             HTML = HTML + '</div>' // Content Ends
 
             HTML = HTML + '</div>' // Container Ends

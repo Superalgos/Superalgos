@@ -59,7 +59,8 @@ function newSuperalgosDocSpace() {
                 toNote: toNote,
                 toWarning: toWarning,
                 toImportant: toImportant,
-                toSuccess: toSuccess
+                toSuccess: toSuccess,
+                toList: toList
             }
 
             function editParagraph() {
@@ -137,6 +138,12 @@ function newSuperalgosDocSpace() {
             function toSuccess() {
                 let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Success'
+                renderPage()
+            }
+
+            function toList() {
+                let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
+                docSchemaParagraph.style = 'List'
                 renderPage()
             }
         }
@@ -286,6 +293,9 @@ function newSuperalgosDocSpace() {
         if (paragraphNode.id.indexOf('warning') >= 0) {
             selectedParagraphData = paragraphNode.innerText.substring(10, paragraphNode.innerText.length)
         }
+        if (paragraphNode.id.indexOf('list') >= 0) {
+            selectedParagraphData = paragraphNode.innerText
+        }
 
         selectedParagraph = paragraphNode
         selectedParagraphHeight = paragraphNode.getClientRects()[0].height
@@ -355,6 +365,7 @@ function newSuperalgosDocSpace() {
                     let innerHTML = addToolTips(renderingNode, paragraph.text)
                     let styleClass = ''
                     let prefix = ''
+                    let sufix = ''
                     let role = ''
                     let key = 'content-paragraph-' + i
 
@@ -394,9 +405,17 @@ function newSuperalgosDocSpace() {
                             key = key + '-warning'
                             break
                         }
+                        case 'List': {
+                            styleClass = ''
+                            prefix = '<li>'
+                            sufix = '</li>'
+                            role = ''
+                            key = key + '-list'
+                            break
+                        }
                     }
 
-                    HTML = HTML + '<p><div id="' + key + '" ' + styleClass + ' ' + role + '">' + prefix + ' ' + innerHTML + '</div></p>'
+                    HTML = HTML + '<p><div id="' + key + '" ' + styleClass + ' ' + role + '">' + prefix + ' ' + innerHTML +  sufix +'</div></p>'
                     docSchemaParagraphMap.set(key, paragraph)
                 }
             }

@@ -220,7 +220,9 @@ function newSuperalgosDocSpace() {
 
                     for (let i = 0; i < textArea.value.length; i++) {
                         if (textArea.value.charCodeAt(i) === 10) {
-                            paragraphs.push(paragraph)
+                            if (paragraph !== '') {
+                                paragraphs.push(paragraph)
+                            }
                             paragraph = ''
                         } else {
                             paragraph = paragraph + textArea.value[i]
@@ -228,25 +230,37 @@ function newSuperalgosDocSpace() {
                     }
                     paragraphs.push(paragraph)
 
+                    let splittedSelectedParagraph = selectedParagraph.id.split('-')
+                    let selectedParagraphIndex = Number(splittedSelectedParagraph[1])
+                    let selectedParagraphStyle = splittedSelectedParagraph[2]
+                    let style = selectedParagraphStyle.charAt(0).toUpperCase() + selectedParagraphStyle.slice(1);
+
                     if (paragraphs.length === 1) {
                         /* There is no need to add new paragraphs, we just update the one we have. */
-                        docSchemaParagraph.text = paragraphs[0]
+                        if (paragraphs[0] !== '') {
+                            docSchemaParagraph.text = paragraphs[0]
+                        } else {
+                            nodeDocsDefinition.paragraphs.splice(selectedParagraphIndex, 1)
+                            if (nodeDocsDefinition.paragraphs.length === 0) {
+                                let newParagraph = {
+                                    style: 'Text',
+                                    text: 'Please contribute to the docs by editing this content.'
+                                }
+                                nodeDocsDefinition.paragraphs.push(newParagraph)
+                            }
+                        }
                     } else {
                         /*
                         We will update the one paragraph we have and we will add the rest. 
                         */
                         docSchemaParagraph.text = paragraphs[0]
-                        let splittedSelectedParagraph = selectedParagraph.id.split('-')
-                        let selectedParagraphIndex = Number(splittedSelectedParagraph[1])
-                        let selectedParagraphStyle = splittedSelectedParagraph[2]
-                        let style = selectedParagraphStyle.charAt(0).toUpperCase() + selectedParagraphStyle.slice(1);
 
                         for (let i = 1; i < paragraphs.length; i++) {
                             let newParagraph = {
                                 style: style,
                                 text: paragraphs[i]
                             }
-                            nodeDocsDefinition.paragraphs.splice(selectedParagraphIndex + i , 0, newParagraph)
+                            nodeDocsDefinition.paragraphs.splice(selectedParagraphIndex + i, 0, newParagraph)
                         }
                     }
 
@@ -256,7 +270,9 @@ function newSuperalgosDocSpace() {
                     /*
                     This means that the definition was being edited.
                     */
-                    nodeDocsDefinition.definition = textArea.value
+                    if (textArea.value !== '') {
+                        nodeDocsDefinition.definition = textArea.value
+                    }
                     break
                 }
             }

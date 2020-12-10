@@ -66,10 +66,24 @@ function newSuperalgosDocSpace() {
                 function showHTMLTextArea() {
                     if (selectedParagraph === undefined) { return }
 
+                    let extraClassName = ''
+                    if (selectedParagraph.id.indexOf('note') >= 0) {
+                        extraClassName = ' ' + 'docs-alert-note'
+                    }
+                    if (selectedParagraph.id.indexOf('success') >= 0) {
+                        extraClassName = ' ' + 'docs-alert-success'
+                    }
+                    if (selectedParagraph.id.indexOf('important') >= 0) {
+                        extraClassName = ' ' + 'docs-alert-important'
+                    }
+                    if (selectedParagraph.id.indexOf('warning') >= 0) {
+                        extraClassName = ' ' + 'docs-alert-warning'
+                    }
+
                     textArea = document.createElement('textarea');
                     textArea.id = "textArea";
                     textArea.spellcheck = false;
-                    textArea.className = "docs-text-area"
+                    textArea.className = "docs-text-area"+ extraClassName
                     textArea.style.height = selectedParagraphHeight
                     textArea.value = selectedParagraphData
                     selectedParagraph.innerHTML = ""
@@ -221,12 +235,33 @@ function newSuperalgosDocSpace() {
         if (paragraphNode.id === undefined || paragraphNode.id.indexOf('paragraph') < 0) {
             paragraphNode = paragraphNode.parentNode
         }
-
         if (paragraphNode.id === undefined || paragraphNode.id.indexOf('paragraph') < 0) {
             return false
         }
 
-        selectedParagraphData = paragraphNode.innerText
+        /*
+        Depending on the Style of Paragraph we will need to remove
+        some info from the innerText. 
+        */
+        if (paragraphNode.id.indexOf('definition') >= 0) {
+            selectedParagraphData = paragraphNode.innerText
+        }
+        if (paragraphNode.id.indexOf('text') >= 0) {
+            selectedParagraphData = paragraphNode.innerText
+        }
+        if (paragraphNode.id.indexOf('note') >= 0) {
+            selectedParagraphData = paragraphNode.innerText.substring(6, paragraphNode.innerText.length)
+        }
+        if (paragraphNode.id.indexOf('success') >= 0) {
+            selectedParagraphData = paragraphNode.innerText.substring(5, paragraphNode.innerText.length)
+        }
+        if (paragraphNode.id.indexOf('important') >= 0) {
+            selectedParagraphData = paragraphNode.innerText.substring(11, paragraphNode.innerText.length)
+        }
+        if (paragraphNode.id.indexOf('warning') >= 0) {
+            selectedParagraphData = paragraphNode.innerText.substring(10, paragraphNode.innerText.length)
+        }
+
         selectedParagraph = paragraphNode
         selectedParagraphHeight = paragraphNode.getClientRects()[0].height
         return true
@@ -292,8 +327,51 @@ function newSuperalgosDocSpace() {
             if (nodeDocsDefinition.content !== undefined) {
                 for (let i = 0; i < nodeDocsDefinition.content.length; i++) {
                     let paragraph = nodeDocsDefinition.content[i]
-                    key = 'content-paragraph-' + i
-                    HTML = HTML + '<p><div id="' + key + '">' + addToolTips(renderingNode, paragraph.text) + '</div></p>'
+                    let innerHTML = addToolTips(renderingNode, paragraph.text)
+                    let styleClass = ''
+                    let prefix = ''
+                    let role = ''
+                    let key = 'content-paragraph-' + i
+
+                    switch (paragraph.style) {
+                        case 'Text': {
+                            styleClass = ''
+                            prefix = ''
+                            role = ''
+                            key = key + '-text'
+                            break
+                        }
+                        case 'Note': {
+                            styleClass = 'class="docs-font-small docs-alert-note"'
+                            prefix = '<i class="docs-fa docs-note-circle"></i> <b>Note:</b>'
+                            role = 'role="alert"'
+                            key = key + '-note'
+                            break
+                        }
+                        case 'Success': {
+                            styleClass = 'class="docs-font-small docs-alert-success"'
+                            prefix = '<i class="docs-fa docs-check-square-o"></i> <b>Tip:</b>'
+                            role = 'role="alert"'
+                            key = key + '-sucess'
+                            break
+                        }
+                        case 'Important': {
+                            styleClass = 'class="docs-font-small docs-alert-important"'
+                            prefix = '<i class="docs-fa docs-warning-sign"></i> <b>Important:</b>'
+                            role = 'role="alert"'
+                            key = key + '-important'
+                            break
+                        }
+                        case 'Warning': {
+                            styleClass = 'class="docs-font-small docs-alert-warning"'
+                            prefix = '<i class="docs-fa docs-warning-sign"></i> <b>Warning:</b>'
+                            role = 'role="alert"'
+                            key = key + '-warning'
+                            break
+                        }
+                    }
+
+                    HTML = HTML + '<p><div id="' + key + '" ' + styleClass + ' ' + role + '">' + prefix + ' ' + innerHTML + '</div></p>'
                     docSchemaParagraphMap.set(key, paragraph)
                 }
             }
@@ -483,19 +561,19 @@ function newSuperalgosDocSpace() {
 
             function cleanPhrase(phrase) {
                 return phrase.replace(',', '')
-                .replace(';', '')
-                .replace('(', '')
-                .replace(')', '')
-                .replace('-', '')
-                .replace('_', '')
-                .replace('.', '')
-                .replace('[', '')
-                .replace(']', '')
-                .replace('{', '')
-                .replace('}', '')
-                .replace('/', '')
-                .replace('>', '')
-                .replace('<', '')
+                    .replace(';', '')
+                    .replace('(', '')
+                    .replace(')', '')
+                    .replace('-', '')
+                    .replace('_', '')
+                    .replace('.', '')
+                    .replace('[', '')
+                    .replace(']', '')
+                    .replace('{', '')
+                    .replace('}', '')
+                    .replace('/', '')
+                    .replace('>', '')
+                    .replace('<', '')
             }
         }
         return taggedText

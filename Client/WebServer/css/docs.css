@@ -125,3 +125,101 @@
     height: 25%;
     z-index:100;
   }
+
+  
+  .docs-alert-note {
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+    padding: 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    margin: 20px 0;
+    width: 95%;
+  }
+  
+  .docs-alert-success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    padding: 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    margin: 20px 0;
+    width: 95%;
+  }
+  
+  .docs-alert-important {
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+    padding: 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    margin: 20px 0;
+    width: 95%;
+  }
+  
+  .docs-alert-warning {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    padding: 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    margin: 20px 0;
+    width: 95%;
+  }
+  
+  .docs-callout {
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-radius: 3px;
+    border-left-color: #bcd643;
+    font-weight: 500;
+    width: 100%;
+  }
+   
+  .docs-note-circle:before {
+    content:"\f05a"
+  }
+  
+  .docs-check-square-o:before {
+    content:"\f046"
+  }
+  
+  .docs-exclamation-circle:before { 
+    content:"\f06a"
+  }
+  
+  .docs-warning-sign:before,.fa-exclamation-triangle:before {
+    content:"\f06a"
+  }
+
+  .docs-fa {
+    font:normal normal normal 14px/1 FontAwesome;
+    font-size:inherit;
+    text-rendering:auto;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale
+  }
+
+  .docs-font-small {
+    
+    font:normal normal normal 14px/1 "segoeui";
+    font-size:inherit;
+    text-rendering:auto;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    line-height: 150%
+  }
+  
+  li > .docs-font-small {
+    margin-bottom:7px;
+  }
+  
+  div.docs-font-small {
+    margin-bottom:7px;
+  }

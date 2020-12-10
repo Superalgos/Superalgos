@@ -53,10 +53,13 @@ function newSuperalgosDocSpace() {
             window.contextMenu = {
                 editParagraph: editParagraph,
                 addParagraph: addParagraph,
-                code: code,
-                note: note,
-                warning: warning,
-                important: important
+                toJsCode: toJsCode,
+                toJsonCode: toJsonCode,
+                toText: toText,
+                toNote: toNote,
+                toWarning: toWarning,
+                toImportant: toImportant,
+                toSuccess: toSuccess
             }
 
             function editParagraph() {
@@ -99,20 +102,42 @@ function newSuperalgosDocSpace() {
                 contextMenuForceOutClick()
             }
 
-            function code() {
+            function toJsCode() {
 
             }
 
-            function note() {
+            function toJsonCode() {
 
             }
 
-            function warning() {
-
+            function toText() {
+                let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
+                docSchemaParagraph.style = 'Text'
+                renderPage()
             }
 
-            function important() {
+            function toNote() {
+                let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
+                docSchemaParagraph.style = 'Note'
+                renderPage()
+            }
 
+            function toWarning() {
+                let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
+                docSchemaParagraph.style = 'Warning'
+                renderPage()
+            }
+
+            function toImportant() {
+                let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
+                docSchemaParagraph.style = 'Important'
+                renderPage()
+            }
+
+            function toSuccess() {
+                let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
+                docSchemaParagraph.style = 'Success'
+                renderPage()
             }
         }
     }
@@ -217,9 +242,9 @@ function newSuperalgosDocSpace() {
         We need to locate the parent node that it is a Paragraph,
         otherwise we could end up in an inner html element.
         */
-        let paragraphNode = selection.baseNode.parentNode
+        let paragraphNode = selection.baseNode
 
-        if (paragraphNode.id !== undefined && paragraphNode.className === "docs-tooltip") {
+        if (paragraphNode.id !== undefined && paragraphNode.parentNode.className === "docs-tooltip") {
             return false
         }
 
@@ -352,7 +377,7 @@ function newSuperalgosDocSpace() {
                             styleClass = 'class="docs-font-small docs-alert-success"'
                             prefix = '<i class="docs-fa docs-check-square-o"></i> <b>Tip:</b>'
                             role = 'role="alert"'
-                            key = key + '-sucess'
+                            key = key + '-success'
                             break
                         }
                         case 'Important': {
@@ -413,10 +438,35 @@ function newSuperalgosDocSpace() {
             HTML = HTML + '</div>' // Container Ends
 
             let docsAppDiv = document.getElementById('docsDiv')
-            docsAppDiv.innerHTML = HTML
+            docsAppDiv.innerHTML = HTML + addFooter()
 
             if (nodeDocsDefinition.definition !== undefined) {
                 addDefinitionImage(nodeAppDefinition, renderingNode.project)
+            }
+
+            function addFooter() {
+                let HTML = ''
+                HTML = HTML + '<hr class="docs-shaded"></hr>'
+                HTML = HTML + '<footer>'
+                HTML = HTML + '<div class="docs-footer-row">'
+                HTML = HTML + '<div class="docs-footer-body" style="text-align: left;">'
+                HTML = HTML + '<p><a href="#"><kbd>BACK TO TOP ↑</kbd></a></p>'
+
+                HTML = HTML + '<ul>'
+                HTML = HTML + '<li><a href="https://superalgos.org/" target="_blank">Superalgos Project</a> — Learn more about the project.</li>'
+                HTML = HTML + '<li><a href="https://t.me/superalgoscommunity" rel="nofollow" target="_blank">Community Group</a> — Lets talk Superalgos!</li>'
+                HTML = HTML + '<li><a href="https://t.me/superalgossupport" rel="nofollow" target="_blank">Support Group</a> — Need help using the <code>master</code> branch?</li>'
+                HTML = HTML + '<li><a href="https://t.me/superalgosdevelop" rel="nofollow" target="_blank">Develop Group</a> — Come test the <code>develop</code> branch!</li>'
+                HTML = HTML + '<li><a href="https://t.me/superalgosuxui" rel="nofollow" target="_blank">UX/UI Design Group</a> — Help us improve the GIU!</li>'
+                HTML = HTML + '<li><a href="https://t.me/superalgos_es" rel="nofollow" target="_blank">Grupo en Español</a> — Hablemos en español!</li>'
+                HTML = HTML + '<li><a href="https://t.me/superalgos" rel="nofollow" target="_blank">Superalgos Announcements</a> — Be the first to know about new releases, hotfixes, and important issues.</li>'
+                HTML = HTML + '</ul>'
+                HTML = HTML + '<img src="Images/superalgos-logo.png" width="200 px">'
+
+                HTML = HTML + '</div>'
+                HTML = HTML + '</div>'
+                HTML = HTML + '</footer>'
+                return HTML
             }
         }
 

@@ -60,7 +60,7 @@
   
     /* Position the docs-tooltip text */
     position: absolute;
-    z-index: 1;
+    z-index: 101;
     bottom: 125%;
     left: 50%;
     margin-left: -120px;
@@ -222,4 +222,20 @@
   
   div.docs-font-small {
     margin-bottom:7px;
+  }
+
+  hr.docs-shaded {
+    box-shadow: inset 0 6px 6px -6px rgba(0,0,0,0.5);
+  }
+
+  .docs-footer-row {
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+
+  .docs-footer-body {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
   }

@@ -11,6 +11,13 @@
     margin: 20 20 20 30px;
   }
 
+  .docs-node-html-footer-container {
+    font: 400 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
+    color: #111; 
+    line-height: 150%;
+    margin: 20 20 20 30px;
+  }
+
   .docs-normal-font {
     font: 400 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
     color: #111; 
@@ -138,7 +145,8 @@
     z-index:100;
   }
 
-  
+    /* Alerts */
+
   .docs-alert-note {
     color: #31708f;
     background-color: #d9edf7;
@@ -237,7 +245,12 @@
 
   hr.docs-shaded {
     box-shadow: inset 0 6px 6px -6px rgba(0,0,0,0.5);
-  }
+    margin: 90 0 70 0;
+    height: 12px;
+    border: 0;
+    background: white;
+    width: 100%;
+}
 
   .docs-footer-row {
     margin-right: -15px;
@@ -249,4 +262,66 @@
     min-height: 1px;
     padding-right: 15px;
     padding-left: 15px;
+  }
+
+  /* Links */
+
+  a:link.docs-plain-link {
+    text-decoration: none;
+  }
+
+  a:visited.docs-plain-link {
+    text-decoration: none;
+  }
+  
+  a:hover.docs-plain-link {
+    text-decoration: none;
+  }
+  
+  a:active.docs-plain-link {
+    text-decoration: none;
+  }
+
+  /* Icon after external links, using FontAwesome*/
+
+a[href^="http://"]:after, a[href^="https://"]:after {
+  content: "\f08e";
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  text-decoration: none;
+  padding-left: 3px;
+}
+
+a:link.docs-footer-link {
+  text-decoration: none;
+  color: #31708f;
+}
+
+a:visited.docs-footer-link {
+  text-decoration: none;
+  color: #31708f;
+}
+
+a:hover.docs-footer-link {
+  text-decoration: underline;
+  color: #31708f;
+}
+
+a:active.docs-footer-link {
+  text-decoration: none;
+  color: #31708f;
+}
+
+  /* Tags */
+
+  kbd.docs-kbd {
+    margin: 0 0 0 15px;
+  }
+
+  code.docs-code {
+    color: #d9534f;
+    background-color: #eee;
+    padding: 1 5 1 5;
   }

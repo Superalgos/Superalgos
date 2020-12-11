@@ -390,10 +390,10 @@ function newSuperalgosDocSpace() {
             selectedParagraphData = paragraphNode.innerText
         }
         if (paragraphNode.id.indexOf('javascript') >= 0) {
-            selectedParagraphData = paragraphNode.innerText
+            selectedParagraphData = paragraphNode.innerText.substring(1, paragraphNode.innerText.length - 1)
         }
         if (paragraphNode.id.indexOf('json') >= 0) {
-            selectedParagraphData = paragraphNode.innerText
+            selectedParagraphData = paragraphNode.innerText.substring(1, paragraphNode.innerText.length - 1)
         }
 
         selectedParagraph = paragraphNode

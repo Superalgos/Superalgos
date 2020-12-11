@@ -423,7 +423,7 @@ function newSuperalgosDocSpace() {
             HTML = HTML + '<div id="context-menu-clickable-div" class="docs-node-html-page-container">' // Container Starts
 
             /* Title */
-            HTML = HTML + '<div><h2 class="docs-h2" id="' + renderingNode.type.toLowerCase().replace(' ', '-') + '" > ' + renderingNode.project + ' / ' + renderingNode.type + '</h2></div>'
+            HTML = HTML + '<div><table class="docs-titleTable"><tr><td width="50px"><div id="projectImageDiv" class="docs-image-container"/></td><td><h2 class="docs-h2" id="' + renderingNode.type.toLowerCase().replace(' ', '-') + '" > ' + renderingNode.project + ' / ' + renderingNode.type + '</h2></td></tr></table></div>'
 
             /* We start with the Definition Table */
             if (nodeDocsDefinition.definition !== undefined) {
@@ -531,6 +531,8 @@ function newSuperalgosDocSpace() {
             let docsAppDiv = document.getElementById('docsDiv')
             docsAppDiv.innerHTML = HTML + addFooter()
 
+            addProjectImage(project)
+
             if (nodeDocsDefinition.definition !== undefined) {
                 addDefinitionImage(nodeAppDefinition, renderingNode.project)
             }
@@ -566,7 +568,7 @@ function newSuperalgosDocSpace() {
 
     function addDefinitionImage(nodeAppDefinition, project) {
         if (nodeAppDefinition.icon === undefined) {
-            imageName = nodeAppDefinition.type.toLowerCase().replace(' ', '-')
+            imageName = nodeAppDefinition.type.toLowerCase().replace(' ', '-').replace(' ', '-').replace(' ', '-').replace(' ', '-').replace(' ', '-')
         }
         let htmlImage = document.createElement("IMG")
         let webParam = 'Icons/' + project + '/' + imageName + '.png'
@@ -577,6 +579,20 @@ function newSuperalgosDocSpace() {
 
         let definitionImageDiv = document.getElementById('definitionImageDiv')
         definitionImageDiv.appendChild(htmlImage)
+    }
+
+    function addProjectImage(project) {
+        imageName = project.toLowerCase().replace(' ', '-').replace(' ', '-').replace(' ', '-').replace(' ', '-').replace(' ', '-')
+
+        let htmlImage = document.createElement("IMG")
+        let webParam = 'Icons/' + project + '/' + imageName + '.png'
+
+        htmlImage.src = webParam
+        htmlImage.width = "50"
+        htmlImage.height = "50"
+
+        let projectImageDiv = document.getElementById('projectImageDiv')
+        projectImageDiv.appendChild(htmlImage)
     }
 
     function addToolTips(node, text) {

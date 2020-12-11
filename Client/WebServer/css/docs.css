@@ -17,6 +17,18 @@
     line-height: 150%;
   }
 
+  .docs-titleTable {
+    vertical-align: middle;
+    width: 100%;
+    min-width: 95px;
+    margin: auto;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-right: 20px;
+    border: 0px solid #dedede;
+    padding: 5px;
+  }
+  
   .docs-definitionTable {
     background-color: #f9f9f9;
     vertical-align: middle;
@@ -93,7 +105,7 @@
 
   .docs-h1 {font-size:210%; margin-top: 40px; padding-bottom: 5px;}
 
-  .docs-h2 {font-weight:700; font-size:170%; margin-top: 60px; padding-bottom: 5px; overflow:hidden;}
+  .docs-h2 {font-weight:700; font-size:170%; margin-top: 30px; padding-bottom: 5px; overflow:hidden;}
 
   .docs-h2::after{
   content:'';

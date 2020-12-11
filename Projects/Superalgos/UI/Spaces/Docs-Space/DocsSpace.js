@@ -228,9 +228,13 @@ function newSuperalgosDocSpace() {
                     */
                     let paragraphs = []
                     let paragraph = ''
+                    let splittedSelectedParagraph = selectedParagraph.id.split('-')
+                    let selectedParagraphIndex = Number(splittedSelectedParagraph[1])
+                    let selectedParagraphStyle = splittedSelectedParagraph[2]
+                    let style = selectedParagraphStyle.charAt(0).toUpperCase() + selectedParagraphStyle.slice(1);
 
                     for (let i = 0; i < textArea.value.length; i++) {
-                        if (textArea.value.charCodeAt(i) === 10) {
+                        if (textArea.value.charCodeAt(i) === 10 && style !== 'Javascript' && style !== 'Json') {
                             if (paragraph !== '') {
                                 paragraphs.push(paragraph)
                             }
@@ -240,11 +244,6 @@ function newSuperalgosDocSpace() {
                         }
                     }
                     paragraphs.push(paragraph)
-
-                    let splittedSelectedParagraph = selectedParagraph.id.split('-')
-                    let selectedParagraphIndex = Number(splittedSelectedParagraph[1])
-                    let selectedParagraphStyle = splittedSelectedParagraph[2]
-                    let style = selectedParagraphStyle.charAt(0).toUpperCase() + selectedParagraphStyle.slice(1);
 
                     if (paragraphs.length === 1) {
                         /* There is no need to add new paragraphs, we just update the one we have. */
@@ -564,6 +563,11 @@ function newSuperalgosDocSpace() {
 
             let docsAppDiv = document.getElementById('docsDiv')
             docsAppDiv.innerHTML = HTML + addFooter()
+            _self.Prism.highlightAllUnder(docsAppDiv, true, onHighlighted)
+
+            function onHighlighted() {
+                // nothing to do here
+            }
 
             addProjectImage(project)
 

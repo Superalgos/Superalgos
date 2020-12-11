@@ -1,0 +1,22 @@
+{
+    "type": "Procedure Loop",
+    "definition": "The procedure loop holds the JavaScript code that reads an input, processes the information, and generates an output recursively.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the Procedure Loop node works"
+        },
+        {
+            "style": "Note",
+            "text": "Please refer to the coding references page to learn how to code the indicator's logic."
+        },
+        {
+            "style": "Title",
+            "text": "Adding a Procedure Loop node"
+        },
+        {
+            "style": "Text",
+            "text": "To add a procedure loop, select Add Procedure loop on the corresponding procedure node menu. A procedure loop node is created along with the corresponding JavaScript node."
+        }
+    ]
+}

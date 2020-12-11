@@ -1,0 +1,50 @@
+{
+    "type": "Sensor Bot",
+    "definition": "A sensor bot is an algorithm that extracts raw data from external sources (i.e.: exchanges, Twitter, etc.) and stores it in a dataset that other bots may consume.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the Sensor Bot node works"
+        },
+        {
+            "style": "Text",
+            "text": "The sensor bot node holds all definitions required for a sensor bot to function. Definitions are split between the definition of processes and products. A sensor's processes is an algorithm that obtains data from a third pary and produces an output for other bots to consume. Part of that output is the data products the bot creates."
+        },
+        {
+            "style": "Title",
+            "text": "Adding a Sensor Bot node"
+        },
+        {
+            "style": "Text",
+            "text": "To add a sensor bot, select Add Sensor Bot on the data mine node menu. A sensor bot is created along with the basic structure of nodes required to define it."
+        },
+        {
+            "style": "Title",
+            "text": "Configuring a Sensor Bot node"
+        },
+        {
+            "style": "Text",
+            "text": "Select Configure Bot on the menu to access the configuration."
+        },
+        {
+            "style": "Text",
+            "text": "{"
+        },
+        {
+            "style": "Text",
+            "text": "\"codeName\": \"Super\","
+        },
+        {
+            "style": "Text",
+            "text": "\"repo\": \"Super-Sensor-Bot\""
+        },
+        {
+            "style": "Text",
+            "text": "}"
+        },
+        {
+            "style": "List",
+            "text": "codeName is the name of the bot as used within the code of the system."
+        }
+    ]
+}

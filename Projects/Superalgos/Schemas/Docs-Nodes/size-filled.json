@@ -1,0 +1,34 @@
+{
+    "type": "Size Filled",
+    "definition": "Size filled is the amount of the order that has been filled at the exchange.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the Size Filled node works"
+        },
+        {
+            "style": "Text",
+            "text": "In the context of a strategy stage, the size filled refers to the sum of the size filled for all orders placed on the corresponding stage."
+        },
+        {
+            "style": "Text",
+            "text": "In the context of an order, it refers to the size filled for the particular order."
+        },
+        {
+            "style": "Text",
+            "text": "Upon each execution of the trading bot, the system asks the exchange about the status of the orders placed, and the exchange reports back with the size filled and the actual rate at which orders are filled."
+        },
+        {
+            "style": "Text",
+            "text": "In liquid markets, market orders should usually fill immediately. However, limit orders may fill incrementally. Size filled keeps track of how much of the size placed has been filled on every execution."
+        },
+        {
+            "style": "Title",
+            "text": "Adding a Size Filled node"
+        },
+        {
+            "style": "Text",
+            "text": "To add the size filled node, select Add Missing Items on the parent node menu."
+        }
+    ]
+}

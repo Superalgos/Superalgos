@@ -1,0 +1,38 @@
+{
+    "type": "Data Mine Data Dependencies",
+    "definition": "Data mine data dependencies are references established with entire data mines to facilitate establishing data dependencies with multiple datasets in the given data mine.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the Data Mine Data Dependencies node works"
+        },
+        {
+            "style": "Text",
+            "text": "The node may be used as an organizational device, simply to arrange bot data dependencies. However, the smart use of the node involves automating the deployment of multiple data dependencies and their references."
+        },
+        {
+            "style": "Title",
+            "text": "Adding a Data Mine Data Dependencies node"
+        },
+        {
+            "style": "Text",
+            "text": "To add a data mine data dependencies node, select Add Data Mine Data Dependencies on the parent node menu. This action adds the node but does not establish a reference with any data mine."
+        },
+        {
+            "style": "Text",
+            "text": "The smarter use of the node involves using the Add All Data Mine Dependencies option on the parent node menu. This action creates a data mine data dependencies node for each data mine in the workspace, establishing a reference with the corresponding data mines. This is the first step in the direction of quickly setting up multiple data dependencies when needed."
+        },
+        {
+            "style": "Note",
+            "text": "See the data dependency node definition and the Adding a Data Dependecy Node section for all the details."
+        },
+        {
+            "style": "Title",
+            "text": "Configuring a Data Mine Data Dependencies node"
+        },
+        {
+            "style": "Text",
+            "text": "Select Configure on the menu to access the configuration."
+        }
+    ]
+}

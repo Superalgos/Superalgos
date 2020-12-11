@@ -1,0 +1,42 @@
+{
+    "type": "Exchange Trading Tasks",
+    "definition": "The exchange trading tasks node organizes trading tasks by exchange. That is, each exchange installed in the system has an exchange trading tasks node grouping all market trading tasks corresponding to the said exchange.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the Exchange Trading Tasks node works"
+        },
+        {
+            "style": "Text",
+            "text": "The exchange trading tasks node must reference the exchange of choice. This reference constraints the rest of the definitions to the context of the said exchange."
+        },
+        {
+            "style": "Text",
+            "text": "When representing an exchange featured in the system's icons library, the standard exchange trading tasks icon is replaced by the exchange's logo."
+        },
+        {
+            "style": "Title",
+            "text": "Adding a Exchange Trading Tasks node"
+        },
+        {
+            "style": "Text",
+            "text": "To add a specific exchange trading tasks node, select Add Exchange Trading Tasks on the parent node menu."
+        },
+        {
+            "style": "Note",
+            "text": "Remember to establish a reference to the desired exchange in the Crypto Ecosystem hierarchy."
+        },
+        {
+            "style": "Text",
+            "text": "You may also add exchange trading tasks node in bulk for all exchanges that may have been previously defined in the Crypto Ecosystem hierarchy. To do that, select Add Missing Exchanges on the parent node menu. An exchange trading tasks node is created for each defined exchange, each with the corresponding reference."
+        },
+        {
+            "style": "Title",
+            "text": "Running a Exchange Trading Tasks node"
+        },
+        {
+            "style": "Text",
+            "text": "Select Run All Market Trading Tasks or Stop All Market Trading Tasks on the menu to start and stop all tasks under this node."
+        }
+    ]
+}

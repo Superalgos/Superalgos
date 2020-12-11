@@ -1,0 +1,30 @@
+{
+    "type": "End Rate",
+    "definition": "End rate is the close rate of the candle corresponding to the datetime of the end property.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the End Rate node works"
+        },
+        {
+            "style": "Text",
+            "text": "In the context of a strategy, it is the close rate of the last closed candle at the moment the strategy is triggered-off."
+        },
+        {
+            "style": "Text",
+            "text": "In the context of a position, it is the close rate of the last closed candle at the moment the close stage is closed."
+        },
+        {
+            "style": "Text",
+            "text": "In the context of an episode, it is the close rate of the last closed candle at the moment the episode ends."
+        },
+        {
+            "style": "Title",
+            "text": "Adding a End Rate node"
+        },
+        {
+            "style": "Text",
+            "text": "To add the end rate node, select Add Missing Items on the parent node menu."
+        }
+    ]
+}

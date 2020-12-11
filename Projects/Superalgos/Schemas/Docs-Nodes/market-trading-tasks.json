@@ -1,0 +1,42 @@
+{
+    "type": "Market Trading Tasks",
+    "definition": "A market trading tasks node groups trading tasks operating in a specific market.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the Market Trading Tasks node works"
+        },
+        {
+            "style": "Text",
+            "text": "The market trading tasks node must reference a market defined in the Crypto Ecosystem hierarchy."
+        },
+        {
+            "style": "Text",
+            "text": "This node may spawn individual data products or may deploy data products in bulk organized by data mine and by bots. See the data products node for the details."
+        },
+        {
+            "style": "Title",
+            "text": "Adding a Market Trading Tasks node"
+        },
+        {
+            "style": "Text",
+            "text": "To add a market trading tasks node, select Add Market Data on the parent node menu."
+        },
+        {
+            "style": "Note",
+            "text": "Remember to establish a reference with a market defined in the Crypto Ecosystem hierarchy after adding the node."
+        },
+        {
+            "style": "Text",
+            "text": "You may also add market trading tasks nodes in bulk for all markets that may have been previously defined in the Crypto Ecosystem hierarchy. To do that, select Add Missing Markets on the parent node menu. A market trading tasks node is created for each defined market, each with the corresponding reference."
+        },
+        {
+            "style": "Title",
+            "text": "Running a Market Trading Tasks node"
+        },
+        {
+            "style": "Text",
+            "text": "Select Run All Trading Mine Tasks or Stop All Trading Mine Tasks on the menu to start and stop all tasks under this node."
+        }
+    ]
+}

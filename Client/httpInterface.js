@@ -871,18 +871,41 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
         function sendSchema(filePath, fileName) {
             let fs = require('fs')
 
-            try {
-                filePath = filePath + fileName
-                fs.readFile(filePath, onFileRead)
-            } catch (e) {
-                console.log('[ERROR] Error reading the ' + fileName, e)
-            }
+            if (fileName === 'AppSchema.json') {
+                try {
+                    console.log('Requested Schema AppSchema ' + filePath + fileName)
 
-            function onFileRead(err, schema) {
-                if (err) {
-                    respondWithContent(undefined, httpResponse)
-                } else {
+
+                    filePath = filePath + fileName
+                    fs.readFile(filePath, onFileRead)
+                } catch (e) {
+                    console.log('[ERROR] Error reading the ' + fileName, e)
+                }
+
+                function onFileRead(err, schema) {
+                    if (err) {
+                        respondWithContent(undefined, httpResponse)
+                    } else {
+                        respondWithContent(schema, httpResponse)
+                    }
+                }
+            } else {
+                try {
+                    console.log('Requested Schema BBY FILE ' + filePath + fileName)
+                    let schemaArray = []
+                    let fileList = fs.readdirSync(filePath + '/Docs-Nodes')
+                    for (let k = 0; k < fileList.length; k++) {
+                        let name = fileList[k]
+                        let fileContent = fs.readFileSync(filePath + '/Docs-Nodes/' + name ) 
+                        let nodeDefinition = JSON.parse(fileContent)
+                        schemaArray.push(nodeDefinition)
+                    }
+                    let schema = JSON.stringify(schemaArray)
+                    console.log('sending schema')
                     respondWithContent(schema, httpResponse)
+                } catch (err) {
+                    console.log(err.stack)
+                    respondWithContent("[]", httpResponse)
                 }
             }
         }

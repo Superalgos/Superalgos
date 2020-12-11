@@ -1,0 +1,202 @@
+{
+    "type": "Space Style",
+    "definition": "The space style node features controls over the look and feel of the space, in particular, of background colors and font sizes.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Adding a Space Style node"
+        },
+        {
+            "style": "Text",
+            "text": "To add the space style node, select Add Space Style on the parent node menu."
+        },
+        {
+            "style": "Title",
+            "text": "Configuring a Space Style node"
+        },
+        {
+            "style": "Text",
+            "text": "Select Configure on the menu to access the configuration."
+        },
+        {
+            "style": "Text",
+            "text": "    {"
+        },
+        {
+            "style": "Text",
+            "text": "        \"backgroundColor\": \"UI_COLOR.BLACK\","
+        },
+        {
+            "style": "Text",
+            "text": "        \"node\": {"
+        },
+        {
+            "style": "Text",
+            "text": "            \"fontSize\": 16,"
+        },
+        {
+            "style": "Text",
+            "text": "            \"imageSize\":  60,"
+        },
+        {
+            "style": "Text",
+            "text": "            \"type\": {"
+        },
+        {
+            "style": "Text",
+            "text": "                \"fontColor\": \"UI_COLOR.WHITE\""
+        },
+        {
+            "style": "Text",
+            "text": "            },"
+        },
+        {
+            "style": "Text",
+            "text": "            \"name\": {"
+        },
+        {
+            "style": "Text",
+            "text": "                \"fontColor\": \"UI_COLOR.WHITE\""
+        },
+        {
+            "style": "Text",
+            "text": "            },"
+        },
+        {
+            "style": "Text",
+            "text": "            \"menuItem\": {"
+        },
+        {
+            "style": "Text",
+            "text": "                \"backgroundColor\": \"UI_COLOR.BLACK\","
+        },
+        {
+            "style": "Text",
+            "text": "                \"fontColor\": \"UI_COLOR.WHITE\","
+        },
+        {
+            "style": "Text",
+            "text": "                \"fontSize\": 14,"
+        },
+        {
+            "style": "Text",
+            "text": "                \"imageSize\": 14"
+        },
+        {
+            "style": "Text",
+            "text": "            }"
+        },
+        {
+            "style": "Text",
+            "text": "        }"
+        },
+        {
+            "style": "Text",
+            "text": "    }"
+        },
+        {
+            "style": "List",
+            "text": "backgroundColor refers to the background of the design space (see table below)."
+        },
+        {
+            "style": "List",
+            "text": "node refers to all nodes in the design space."
+        },
+        {
+            "style": "Text",
+            "text": "  * imageSize refers to the size of icons representing nodes."
+        },
+        {
+            "style": "List",
+            "text": "type refers to the type of node, as indicated by the string of text below each node."
+        },
+        {
+            "style": "List",
+            "text": "name refers to the name or label of the node, as indicated above the node."
+        },
+        {
+            "style": "List",
+            "text": "menuItem refers to items on the right-hand side of the menu."
+        },
+        {
+            "style": "Text",
+            "text": "  * fontSize refers to the size of the font of the string of text."
+        },
+        {
+            "style": "Text",
+            "text": "  * imageSize refers to the size of the icon illustrating the menu item."
+        },
+        {
+            "style": "Text",
+            "text": "<table class=\"docs-table\"><tr><td> Variable Value </td><td> RGB Value </td><td> Color Sample </td></tr>"
+        },
+        {
+            "style": "Text",
+            "text": "<tr><td> :--- </td><td> :---: </td><td> :------------------- </td></tr>"
+        },
+        {
+            "style": "Text",
+            "text": "<tr><td> DARK </td><td> 48, 48, 54 </td><td> <span style=\"display: block; background: RGB(48, 48, 54); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+        },
+        {
+            "style": "Text",
+            "text": "<tr><td> LIGHT </td><td> 234, 226, 222 </td><td> <span style=\"display: block; background: RGB(234, 226, 222); border: 1px black; border: 1px solid black;\">&nbsp;</span> </td></tr>"
+        },
+        {
+            "style": "Text",
+            "text": "<tr><td> GREY </td><td> 150, 150, 150 </td><td> <span style=\"display: block; background: RGB(150, 150, 150); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+        },
+        {
+            "style": "Text",
+            "text": "<tr><td> LIGHT_GREY </td><td> 247, 247, 247 </td><td> <span style=\"display: block; background: RGB(247, 247, 247); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+        },
+        {
+            "style": "Text",
+            "text": "<tr><td> WHITE </td><td> 255, 255, 255 </td><td> <span style=\"display: block; background: RGB(255, 255, 255); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+        },
+        {
+            "style": "Text",
+            "text": "<tr><td> BLACK </td><td> 0, 0, 0 </td><td> <span style=\"display: block; background: RGB(0, 0, 0); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+        },
+        {
+            "style": "Text",
+            "text": "<tr><td> GOLDEN_ORANGE </td><td> 240, 162, 2 </td><td> <span style=\"display: block; background: RGB(240, 162, 2); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+        },
+        {
+            "style": "Text",
+            "text": "<tr><td> RUSTED_RED </td><td> 204, 88, 53 </td><td> <span style=\"display: block; background: RGB(204, 88, 53); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+        },
+        {
+            "style": "Text",
+            "text": "<tr><td> GREEN </td><td> 188, 214, 67 </td><td> <span style=\"display: block; background: RGB(188, 214, 67); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+        },
+        {
+            "style": "Text",
+            "text": "<tr><td> RED </td><td> 223, 70, 60 </td><td> <span style=\"display: block; background: RGB(223, 70, 60); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+        },
+        {
+            "style": "Text",
+            "text": "<tr><td> PATINATED_TURQUOISE </td><td> 27, 153, 139 </td><td> <span style=\"display: block; background: RGB(27, 153, 139); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+        },
+        {
+            "style": "Text",
+            "text": "<tr><td> TITANIUM_YELLOW </td><td> 244, 228, 9 </td><td> <span style=\"display: block; background: RGB(244, 228, 9); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+        },
+        {
+            "style": "Text",
+            "text": "<tr><td> MANGANESE_PURPLE </td><td> 91,80, 122 </td><td> <span style=\"display: block; background: RGB(91,80, 122); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+        },
+        {
+            "style": "Text",
+            "text": "<tr><td> TURQUOISE </td><td> 74, 207, 217 </td><td> <span style=\"display: block; background: RGB(74, 207, 217); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+        },
+        {
+            "style": "Text",
+            "text": "<tr><td> DARK_TURQUOISE </td><td> 2, 149, 170 </td><td> <span style=\"display: block; background: RGB(2, 149, 170); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+        },
+        {
+            "style": "Text",
+            "text": "</table>."
+        }
+    ]
+}

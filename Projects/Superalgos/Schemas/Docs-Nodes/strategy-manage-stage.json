@@ -1,0 +1,26 @@
+{
+    "type": "Strategy Manage Stage",
+    "definition": "Strategy manage stage is the section of the data structure that keeps track of information specific to the scope of the manage stage during the period the stage is open.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the Strategy Manage Stage node works"
+        },
+        {
+            "style": "Text",
+            "text": "The manage stage is active from the instant the take position event is triggered until the instant either the stop or take profit targets are hit."
+        },
+        {
+            "style": "Text",
+            "text": "Therefore, this section of the data structure features information spaning those periods only."
+        },
+        {
+            "style": "Title",
+            "text": "Adding a Strategy Manage Stage node"
+        },
+        {
+            "style": "Text",
+            "text": "To add the strategy manage stage node, select Add Missing Items on the parent node menu."
+        }
+    ]
+}

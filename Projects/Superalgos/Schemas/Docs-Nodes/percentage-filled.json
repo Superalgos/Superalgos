@@ -1,0 +1,26 @@
+{
+    "type": "Percentage Filled",
+    "definition": "Percentage filled represents the portion of the order that has been filled, expressed as a percentage.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the Percentage Filled node works"
+        },
+        {
+            "style": "Text",
+            "text": "The formula:"
+        },
+        {
+            "style": "Text",
+            "text": "percentage filled = size filled * 100 / size"
+        },
+        {
+            "style": "Title",
+            "text": "Adding a Percentage Filled node"
+        },
+        {
+            "style": "Text",
+            "text": "To add the percentage filled node, select Add Missing Items on the parent node menu."
+        }
+    ]
+}

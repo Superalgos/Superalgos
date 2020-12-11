@@ -1,0 +1,14 @@
+{
+    "type": "Open",
+    "definition": "Open is the rate at the datetime of the begin property, as provided by the exchange. That is, the rate at the open of the candle.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Adding a Open node"
+        },
+        {
+            "style": "Text",
+            "text": "To add the open node, select Add Missing Items on the parent node menu."
+        }
+    ]
+}

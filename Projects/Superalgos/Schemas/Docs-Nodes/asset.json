@@ -1,0 +1,50 @@
+{
+    "type": "Asset",
+    "definition": "An asset node is the definition of an asset listed at the corresponding exchange.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Adding a Asset node"
+        },
+        {
+            "style": "Text",
+            "text": "To add an asset, select Add Asset on the exchange assets node menu."
+        },
+        {
+            "style": "Text",
+            "text": "To add assets in bulk, select Add Missing Assets on the exchange assets node menu. Beware that the exchange may handle hundreds of assets. Before using this option you may want to implement a filter using the exchange assets configuration."
+        },
+        {
+            "style": "Text",
+            "text": "{% include /crypto_ecosystem/exchange-assets.md heading=\"\" icon=\"no\" adding=\"\" configuring=\"#####\" starting=\"\" content=\"no\" definition=\"no\" table=\"\" more=\"yes\"%}"
+        },
+        {
+            "style": "Title",
+            "text": "Configuring a Asset node"
+        },
+        {
+            "style": "Text",
+            "text": "Select Configure Asset on the menu to access the configuration."
+        },
+        {
+            "style": "Text",
+            "text": "{"
+        },
+        {
+            "style": "Text",
+            "text": "\"codeName\": \"BTC\""
+        },
+        {
+            "style": "Text",
+            "text": "}"
+        },
+        {
+            "style": "Text",
+            "text": " codeName is the ticker of the asset as listed by the exchange (i.e.:* BTC, BTH, ETH, LTC, BNB, USDT, USD, etc.)"
+        },
+        {
+            "style": "Note",
+            "text": "When a configured asset is within the system's icon catalog, the standard asset icon is replaced with the logotype of the corresponding asset."
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "type": "Order Name",
+    "definition": "Order name is the name of the order as specified in the trading system.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the Order Name node works"
+        },
+        {
+            "style": "Text",
+            "text": "Assigning names to orders in the definition of the trading system makes tracking the execution of orders easier."
+        },
+        {
+            "style": "Title",
+            "text": "Adding a Order Name node"
+        },
+        {
+            "style": "Text",
+            "text": "To add the order name node, select Add Missing Items on the parent node menu."
+        }
+    ]
+}

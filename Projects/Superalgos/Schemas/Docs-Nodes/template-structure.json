@@ -1,0 +1,26 @@
+{
+    "type": "Template Structure",
+    "definition": "The template structure holds the structure of nodes with all its configurations and properties, exactly as it should be implemented.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the Template Structure node works"
+        },
+        {
+            "style": "Text",
+            "text": "Properties include the physical arrangement of nodes, references and so on."
+        },
+        {
+            "style": "Note",
+            "text": "The actual structure of nodes contained in the template usually originates as a clone of an existing structure of nodes."
+        },
+        {
+            "style": "Title",
+            "text": "Adding a Template Structure node"
+        },
+        {
+            "style": "Text",
+            "text": "To add a tempalte strucutre, select Add Teemplate Structure on the template script node menu."
+        }
+    ]
+}

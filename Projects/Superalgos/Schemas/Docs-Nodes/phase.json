@@ -1,0 +1,46 @@
+{
+    "type": "Phase",
+    "definition": "The management of take profit and stop loss targets is done in phases. Phase 1 sets the initial targets, either for the managed stop loss or the managed take profit, and becomes active as soon as the first order is placed. Subsequent phases allows switching to different formulas given certain market situations.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the Phase node works"
+        },
+        {
+            "style": "Text",
+            "text": "The default management of phases is sequential, meaning that phase 2 comes after phase 1, phase 3 comes after phase 2, and so on."
+        },
+        {
+            "style": "Text",
+            "text": "To switch from one phase to the next phase in the sequence, the next phase event is used. When the situation described in the next phase event validates true, the switch occurs and the next phase becomes the active phase."
+        },
+        {
+            "style": "Text",
+            "text": "However, management does not need to happen sequentially. By using the move to phase event instead of the next phase event, the system may activate any other phase and not just the one next in the sequence."
+        },
+        {
+            "style": "Text",
+            "text": "Both events may be used at the same time, and whichever event is triggered first takes precedence."
+        },
+        {
+            "style": "Note",
+            "text": "Notice that stop loss and take profit phases are independent and defined separately from each other, each below the corresponding managed stop loss and managed take profit nodes."
+        },
+        {
+            "style": "Note",
+            "text": "The value of the target set for a phase is expressed by a formula. Learn more about formulas and how to write them."
+        },
+        {
+            "style": "Text",
+            "text": "{% include tip.html content=\"This explanation about phase 1 may be extended to any other phase, as they all work similarly, and it applies both for managed stop loss phases and managed take profit phases.\" %}"
+        },
+        {
+            "style": "Title",
+            "text": "Adding a Phase node"
+        },
+        {
+            "style": "Text",
+            "text": "To add a new phase, select Add Phase on the stop or take-profit node menu. A new phase is added along with the basic structure of nodes required to define each of them and their events."
+        }
+    ]
+}

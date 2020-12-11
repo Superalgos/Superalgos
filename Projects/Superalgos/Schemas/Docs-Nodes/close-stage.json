@@ -1,0 +1,34 @@
+{
+    "type": "Close Stage",
+    "definition": "The close stage deals with the definitions that make up the logic to close a position, including the target rate and size, and order execution.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the Close Stage node works"
+        },
+        {
+            "style": "Text",
+            "text": "The close stage is opened when either the stop loss or take profit targets are hit."
+        },
+        {
+            "style": "Text",
+            "text": "In a way, the close stage is virtually a mirror of the open stage, as the same definitions are required to close a position. There are a few logical differences, though."
+        },
+        {
+            "style": "Text",
+            "text": "For example, in the open stage, you probably defined the target size as a function of the capital allocated to the trading system. In the close stage, you will likely want to define the target size as a function of the size filled, that is, the amount of the orders placed that was filled during the open stage."
+        },
+        {
+            "style": "Title",
+            "text": "Adding a Close Stage node"
+        },
+        {
+            "style": "Text",
+            "text": "To add a close stage node, select Add Missing Stages on the strategy node menu. All stages that may be missing are created along with the rest of the basic structure of nodes required to define each of them and their events."
+        },
+        {
+            "style": "Note",
+            "text": "Only one close stage may exist in each strategy."
+        }
+    ]
+}

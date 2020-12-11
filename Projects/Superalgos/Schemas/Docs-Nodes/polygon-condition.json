@@ -1,0 +1,34 @@
+{
+    "type": "Polygon Condition",
+    "definition": "A polygon condition is a rule that allows establishing when a polygon shall be rendered and when not.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the Polygon Condition node works"
+        },
+        {
+            "style": "Text",
+            "text": "The node is optional. When the node is not present in the definition of the polygon or when the condition validates true, the polygon is rendered on screen. When the condition validates false the polygon is not rendered. As such, the node allows dynamically switching the rendering of the corresponding polygon on and off."
+        },
+        {
+            "style": "Title",
+            "text": "Adding a Polygon Condition node"
+        },
+        {
+            "style": "Text",
+            "text": "To add a polygon condition, select Add Polygon Condition on a polygon node menu."
+        },
+        {
+            "style": "Title",
+            "text": "Configuring a Polygon Condition node"
+        },
+        {
+            "style": "Text",
+            "text": "Select Edit Condition on the menu to access the configuration."
+        },
+        {
+            "style": "Text",
+            "text": "Polygon conditions work pretty much like conditions used on trading systems. The main difference is that the variables available are solely those provided by the bot product definition that reference the corresponding plotter module."
+        }
+    ]
+}

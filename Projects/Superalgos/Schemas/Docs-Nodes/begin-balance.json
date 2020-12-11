@@ -1,0 +1,26 @@
+{
+    "type": "Begin Balance",
+    "definition": "Begin balance is the balance at the datetime of the begin property of the parent node or concept.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the Begin Balance node works"
+        },
+        {
+            "style": "Text",
+            "text": "In the context of an episode, it is the balance at the datetime the episode started."
+        },
+        {
+            "style": "Text",
+            "text": "In the context of a position, it is the balance at the datetime the position started."
+        },
+        {
+            "style": "Title",
+            "text": "Adding a Begin Balance node"
+        },
+        {
+            "style": "Text",
+            "text": "To add the begin balance node, select Add Missing Items on the parent node menu."
+        }
+    ]
+}

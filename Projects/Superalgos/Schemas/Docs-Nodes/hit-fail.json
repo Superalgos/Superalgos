@@ -1,0 +1,26 @@
+{
+    "type": "Hit Fail",
+    "definition": "Hit fail states whether a transaction is successful or not, hit meaning it is successful and fail meaning it is not.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the Hit Fail node works"
+        },
+        {
+            "style": "Text",
+            "text": "Superalgos marks positions and even entire episodes as hits or fails, by evaluating profit loss for the corresponding context. If profit loss is positive, then the position or episode is a hit. If profit loss is negative, it is a fail."
+        },
+        {
+            "style": "Note",
+            "text": "Please refer to the definition of hits for the details."
+        },
+        {
+            "style": "Title",
+            "text": "Adding a Hit Fail node"
+        },
+        {
+            "style": "Text",
+            "text": "To add the hit fail node, select Add Missing Items on the parent node menu."
+        }
+    ]
+}

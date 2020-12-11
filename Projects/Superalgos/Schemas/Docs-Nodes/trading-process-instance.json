@@ -1,0 +1,34 @@
+{
+    "type": "Trading Process Instance",
+    "definition": "A trading process instance is a reference to the process definition of the trading bot, as defined in the Masters data mine.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the Trading Process Instance node works"
+        },
+        {
+            "style": "Text",
+            "text": "The trading process instance must reference the Multi-Period process definition of the Jason trading bot in the Masters data mine."
+        },
+        {
+            "style": "Title",
+            "text": "Adding a Trading Process Instance node"
+        },
+        {
+            "style": "Text",
+            "text": "To add a trading process instance, select Add Trading Process Instance on the trading bot instance node menu. When a trading process instance is added, it is created with a market reference."
+        },
+        {
+            "style": "Note",
+            "text": "After adding a trading process instance node, make sure you establish the reference to the Multi-Period process definition of the Jason trading bot in the Masters data mine."
+        },
+        {
+            "style": "Title",
+            "text": "Running a Trading Process Instance node"
+        },
+        {
+            "style": "Text",
+            "text": "You do not start or stop a trading process instance directly. Instead, you start or stop the corresponding task."
+        }
+    ]
+}

@@ -1,0 +1,46 @@
+{
+    "type": "Condition",
+    "definition": "Conditions are rules within a situation. When all conditions under a situation validate true, then the situation gets validated as well, and the associated event is triggered.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the Condition node works"
+        },
+        {
+            "style": "Text",
+            "text": "Therefore, conditions are used to mathematically describe what needs to happen with the market for a certain action to be taken."
+        },
+        {
+            "style": "Text",
+            "text": "<b>For example:</b>"
+        },
+        {
+            "style": "Text",
+            "text": "<b>Situation 1</b>"
+        },
+        {
+            "style": "List",
+            "text": "Condition A: chart.at01hs.candle.close > chart.at01hs.bollingerBand.MovingAverage &#8594; This means that the latest candle at the 1 hour chart closed above the Bollinger Bands moving average."
+        },
+        {
+            "style": "List",
+            "text": "Condition B: chart.at01hs.candle.previous.max > chart.at01hs.bollingerBand.previous.MovingAverage &#8594; This means that the maximum value of the candle before the last one, was higher than the Bollinger Bands moving average."
+        },
+        {
+            "style": "Text",
+            "text": "In the example above, conditions A and B are comparison statements that may evaluate either _true_ or _false_. In the case both would evaluate _true_ then Situation 1 would be true as well."
+        },
+        {
+            "style": "Note",
+            "text": "To learn how to write conditions, start with the Syntax Overview."
+        },
+        {
+            "style": "Title",
+            "text": "Adding a Condition node"
+        },
+        {
+            "style": "Text",
+            "text": "To add a condition, select Add Condition on the corresponding situation node menu. A condition with its JavaScript code node is added."
+        }
+    ]
+}

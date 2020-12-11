@@ -1,0 +1,54 @@
+{
+    "type": "User Defined Parameters",
+    "definition": "Users may define parameters to be used within the trading system during the trading session.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the User Defined Parameters node works"
+        },
+        {
+            "style": "Text",
+            "text": "Parameters defined in the configuration file of these node become available to trading systems using the following path: sessionParameters.userDefinedParameters.config.parameterName."
+        },
+        {
+            "style": "Text",
+            "text": "These parameters may be useful, for example, when you wish to use a constant multiple times across several nodes in the definition of a strategy. Instead of feeding a constant value to all formulas involved, you may feed the parameter instead. This gives you the added benefit of being able to change the value of such a constant in a single point."
+        },
+        {
+            "style": "Title",
+            "text": "Adding a User Defined Parameters node"
+        },
+        {
+            "style": "Text",
+            "text": "To add a parameter that may be missing, select Add Missing Params on the parameters node menu."
+        },
+        {
+            "style": "Title",
+            "text": "Configuring a User Defined Parameters node"
+        },
+        {
+            "style": "Text",
+            "text": "Select Configure Slippage on the menu to access the configuration."
+        },
+        {
+            "style": "Text",
+            "text": "{"
+        },
+        {
+            "style": "Text",
+            "text": "   \"param1Name\": \"A text string value example\","
+        },
+        {
+            "style": "Text",
+            "text": "   \"param2Name\": 0"
+        },
+        {
+            "style": "Text",
+            "text": "}"
+        },
+        {
+            "style": "List",
+            "text": "param1Name is an example of a name. You may change the names of the parameters as required. Values including text strings go between quotation marks, while numeric values, without. You may define as many parameters as you wish; simply separate them with a comma to keep a valid JSON format for the configuration file."
+        }
+    ]
+}

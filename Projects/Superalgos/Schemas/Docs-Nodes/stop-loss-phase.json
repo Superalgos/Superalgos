@@ -1,0 +1,14 @@
+{
+    "type": "Stop Loss Phase",
+    "definition": "Stop loss phase is the numeric value of the phase that is currently open, and thus, defining the value of the stop loss.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Adding a Stop Loss Phase node"
+        },
+        {
+            "style": "Text",
+            "text": "To add the stop loss phase node, select Add Missing Items on the parent node menu."
+        }
+    ]
+}

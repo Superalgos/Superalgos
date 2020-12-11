@@ -116,11 +116,15 @@ function newSuperalgosDocSpace() {
             }
 
             function toJavascript() {
-
+                let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
+                docSchemaParagraph.style = 'Javascript'
+                renderPage()
             }
 
             function toJson() {
-
+                let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
+                docSchemaParagraph.style = 'Json'
+                renderPage()
             }
 
             function toText() {
@@ -202,6 +206,7 @@ function newSuperalgosDocSpace() {
             onKeyDown: onKeyDown
         }
     }
+
     function exitEditMode() {
         if (EDITOR_ON_FOCUS === true) {
             let editing
@@ -385,12 +390,17 @@ function newSuperalgosDocSpace() {
         if (paragraphNode.id.indexOf('list') >= 0) {
             selectedParagraphData = paragraphNode.innerText
         }
+        if (paragraphNode.id.indexOf('javascript') >= 0) {
+            selectedParagraphData = paragraphNode.innerText
+        }
+        if (paragraphNode.id.indexOf('json') >= 0) {
+            selectedParagraphData = paragraphNode.innerText
+        }
 
         selectedParagraph = paragraphNode
         selectedParagraphHeight = paragraphNode.getClientRects()[0].height
         return true
     }
-
 
     function onOpening() {
 
@@ -523,9 +533,27 @@ function newSuperalgosDocSpace() {
                             innerHTML = addToolTips(renderingNode, paragraph.text)
                             break
                         }
+                        case 'Javascript': {
+                            styleClass = ''
+                            prefix = '<pre><code class="language-javascript">'
+                            sufix = '</code></pre>'
+                            role = ''
+                            key = key + '-javascript'
+                            innerHTML = addToolTips(renderingNode, paragraph.text)
+                            break
+                        }
+                        case 'Json': {
+                            styleClass = ''
+                            prefix = '<pre><code class="language-json">'
+                            sufix = '</code></pre>'
+                            role = ''
+                            key = key + '-json'
+                            innerHTML = addToolTips(renderingNode, paragraph.text)
+                            break
+                        }
                     }
 
-                    HTML = HTML + '<p><div id="' + key + '" ' + styleClass + ' ' + role + '">' + prefix + ' ' + innerHTML + sufix + '</div></p>'
+                    HTML = HTML + '<p><div id="' + key + '" ' + styleClass + ' ' + role + '>' + prefix + ' ' + innerHTML + sufix + '</div></p>'
                     docSchemaParagraphMap.set(key, paragraph)
                 }
             }

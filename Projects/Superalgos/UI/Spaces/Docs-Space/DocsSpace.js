@@ -497,7 +497,9 @@ function newSuperalgosDocSpace() {
                             prefix = ''
                             role = ''
                             key = key + '-text'
-                            innerHTML = addToolTips(renderingNode, addItalics(paragraph.text))
+                            innerHTML = addBold(paragraph.text)
+                            innerHTML = addItalics(innerHTML)
+                            innerHTML = addToolTips(renderingNode, innerHTML)
                             break
                         }
                         case 'Title': {
@@ -521,7 +523,8 @@ function newSuperalgosDocSpace() {
                             prefix = '<i class="docs-fa docs-note-circle"></i> <b>Note:</b>'
                             role = 'role="alert"'
                             key = key + '-note'
-                            innerHTML = addToolTips(renderingNode, addItalics(paragraph.text))
+                            innerHTML = addItalics(innerHTML)
+                            innerHTML = addToolTips(renderingNode, innerHTML)
                             break
                         }
                         case 'Success': {
@@ -529,7 +532,8 @@ function newSuperalgosDocSpace() {
                             prefix = '<i class="docs-fa docs-check-square-o"></i> <b>Tip:</b>'
                             role = 'role="alert"'
                             key = key + '-success'
-                            innerHTML = addToolTips(renderingNode, addItalics(paragraph.text))
+                            innerHTML = addItalics(innerHTML)
+                            innerHTML = addToolTips(renderingNode, innerHTML)
                             break
                         }
                         case 'Important': {
@@ -537,7 +541,8 @@ function newSuperalgosDocSpace() {
                             prefix = '<i class="docs-fa docs-warning-sign"></i> <b>Important:</b>'
                             role = 'role="alert"'
                             key = key + '-important'
-                            innerHTML = addToolTips(renderingNode, addItalics(paragraph.text))
+                            innerHTML = addItalics(innerHTML)
+                            innerHTML = addToolTips(renderingNode, innerHTML)
                             break
                         }
                         case 'Warning': {
@@ -545,7 +550,8 @@ function newSuperalgosDocSpace() {
                             prefix = '<i class="docs-fa docs-warning-sign"></i> <b>Warning:</b>'
                             role = 'role="alert"'
                             key = key + '-warning'
-                            innerHTML = addToolTips(renderingNode, addItalics(paragraph.text))
+                            innerHTML = addItalics(innerHTML)
+                            innerHTML = addToolTips(renderingNode, innerHTML)
                             break
                         }
                         case 'List': {
@@ -554,7 +560,9 @@ function newSuperalgosDocSpace() {
                             sufix = '</li>'
                             role = ''
                             key = key + '-list'
-                            innerHTML = addToolTips(renderingNode, addItalics(paragraph.text))
+                            innerHTML = addBold(paragraph.text)
+                            innerHTML = addItalics(innerHTML)
+                            innerHTML = addToolTips(renderingNode, innerHTML)
                             break
                         }
                         case 'Javascript': {
@@ -563,7 +571,7 @@ function newSuperalgosDocSpace() {
                             sufix = '</code></pre>'
                             role = ''
                             key = key + '-javascript'
-                            innerHTML = addToolTips(renderingNode, paragraph.text)
+                            innerHTML = paragraph.text
                             break
                         }
                         case 'Json': {
@@ -572,7 +580,7 @@ function newSuperalgosDocSpace() {
                             sufix = '</code></pre>'
                             role = ''
                             key = key + '-json'
-                            innerHTML = addToolTips(renderingNode, paragraph.text)
+                            innerHTML =  paragraph.text
                             break
                         }
                     }
@@ -662,6 +670,15 @@ function newSuperalgosDocSpace() {
 
         let projectImageDiv = document.getElementById('projectImageDiv')
         projectImageDiv.appendChild(htmlImage)
+    }
+
+    function addBold(text) {
+        let splittedText = text.split(':')
+        if (splittedText.length > 1 && splittedText[1].length > 0) {            
+            return '<b>' + splittedText[0] + ':' + '</b>' + splittedText[1]
+        } else {
+            return text
+        }
     }
 
     function addItalics(text) {

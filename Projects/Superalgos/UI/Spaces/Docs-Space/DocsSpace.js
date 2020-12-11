@@ -602,26 +602,32 @@ function newSuperalgosDocSpace() {
 
             function addFooter() {
                 let HTML = ''
+
+                HTML = HTML + '<div class="docs-node-html-footer-container">' // Container Starts
+
                 HTML = HTML + '<hr class="docs-shaded"></hr>'
                 HTML = HTML + '<footer>'
                 HTML = HTML + '<div class="docs-footer-row">'
                 HTML = HTML + '<div class="docs-footer-body" style="text-align: left;">'
-                HTML = HTML + '<p><a href="#"><kbd>BACK TO TOP ↑</kbd></a></p>'
+                HTML = HTML + '<p><a href="#" class="docs-plain-link"><kbd class=docs-kbd>BACK TO TOP ↑</kbd></a></p>'
 
                 HTML = HTML + '<ul>'
-                HTML = HTML + '<li><a href="https://superalgos.org/" target="_blank">Superalgos Project</a> — Learn more about the project.</li>'
-                HTML = HTML + '<li><a href="https://t.me/superalgoscommunity" rel="nofollow" target="_blank">Community Group</a> — Lets talk Superalgos!</li>'
-                HTML = HTML + '<li><a href="https://t.me/superalgossupport" rel="nofollow" target="_blank">Support Group</a> — Need help using the <code>master</code> branch?</li>'
-                HTML = HTML + '<li><a href="https://t.me/superalgosdevelop" rel="nofollow" target="_blank">Develop Group</a> — Come test the <code>develop</code> branch!</li>'
-                HTML = HTML + '<li><a href="https://t.me/superalgosuxui" rel="nofollow" target="_blank">UX/UI Design Group</a> — Help us improve the GIU!</li>'
-                HTML = HTML + '<li><a href="https://t.me/superalgos_es" rel="nofollow" target="_blank">Grupo en Español</a> — Hablemos en español!</li>'
-                HTML = HTML + '<li><a href="https://t.me/superalgos" rel="nofollow" target="_blank">Superalgos Announcements</a> — Be the first to know about new releases, hotfixes, and important issues.</li>'
+                HTML = HTML + '<li><a href="https://superalgos.org/" target="_blank" class="docs-footer-link">Superalgos Project</a> — Learn more about the project.</li>'
+                HTML = HTML + '<li><a href="https://t.me/superalgoscommunity" rel="nofollow" target="_blank" class="docs-footer-link">Community Group</a> — Lets talk Superalgos!</li>'
+                HTML = HTML + '<li><a href="https://t.me/superalgossupport" rel="nofollow" target="_blank" class="docs-footer-link">Support Group</a> — Need help using the <code class="docs-code">master</code> branch?</li>'
+                HTML = HTML + '<li><a href="https://t.me/superalgosdevelop" rel="nofollow" target="_blank" class="docs-footer-link">Develop Group</a> — Come test the <code class="docs-code">develop</code> branch!</li>'
+                HTML = HTML + '<li><a href="https://t.me/superalgosuxui" rel="nofollow" target="_blank" class="docs-footer-link">UX/UI Design Group</a> — Help us improve the GIU!</li>'
+                HTML = HTML + '<li><a href="https://t.me/superalgos_es" rel="nofollow" target="_blank" class="docs-footer-link">Grupo en Español</a> — Hablemos en español!</li>'
+                HTML = HTML + '<li><a href="https://t.me/superalgos" rel="nofollow" target="_blank" class="docs-footer-link">Superalgos Announcements</a> — Be the first to know about new releases, hotfixes, and important issues.</li>'
                 HTML = HTML + '</ul>'
                 HTML = HTML + '<img src="Images/superalgos-logo.png" width="200 px">'
 
                 HTML = HTML + '</div>'
                 HTML = HTML + '</div>'
                 HTML = HTML + '</footer>'
+
+                HTML = HTML + '</div>' // Container Ends
+
                 return HTML
             }
         }

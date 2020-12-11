@@ -35,6 +35,7 @@ function newSuperalgosDocSpace() {
     let docSchemaParagraphMap
     let nodeAppDefinition
     let nodeDocsDefinition
+    let menuLabelsMap = new Map()
 
     return thisObject
 
@@ -47,6 +48,7 @@ function newSuperalgosDocSpace() {
 
         browserResizedEventSubscriptionId = canvas.eventHandler.listenToEvent('Browser Resized', resize)
         setUpContextMenu()
+        setUpMenuItemsMap()
         isInitialized = true
 
         function setUpContextMenu() {
@@ -175,6 +177,28 @@ function newSuperalgosDocSpace() {
                 renderPage()
             }
         }
+
+        function setUpMenuItemsMap() {
+            /*
+            Here we will put put all the menu item labels of all nodes at all
+            app schemas into a single map, that will allow us to know when a phrase
+            is a label of a menu and then change its style.
+            */
+            for (let i = 0; i < PROJECTS_ARRAY.length; i++) {
+                let project = PROJECTS_ARRAY[i]
+                let appSchemaArray = SCHEMAS_BY_PROJECT.get(project).array.appSchema
+
+                for (let j = 0; j < appSchemaArray.length; j++) {
+                    let nodeDefinition = appSchemaArray[j]
+
+                    if (nodeDefinition.menuItems === undefined) { continue }
+                    for (let k = 0; k < nodeDefinition.menuItems.length; k++) {
+                        let menuItem = nodeDefinition.menuItems[k]
+                        menuLabelsMap.set(menuItem.label, true)
+                    }
+                }
+            }
+        }
     }
 
     function finalize() {
@@ -186,6 +210,7 @@ function newSuperalgosDocSpace() {
         docSchemaParagraphMap = undefined
         nodeAppDefinition = undefined
         nodeDocsDefinition = undefined
+        menuLabelsMap = undefined
     }
 
     function onKeyDown(event) {
@@ -472,7 +497,7 @@ function newSuperalgosDocSpace() {
                             prefix = ''
                             role = ''
                             key = key + '-text'
-                            innerHTML = addToolTips(renderingNode, paragraph.text)
+                            innerHTML = addToolTips(renderingNode, addItalics(paragraph.text))
                             break
                         }
                         case 'Title': {
@@ -496,7 +521,7 @@ function newSuperalgosDocSpace() {
                             prefix = '<i class="docs-fa docs-note-circle"></i> <b>Note:</b>'
                             role = 'role="alert"'
                             key = key + '-note'
-                            innerHTML = addToolTips(renderingNode, paragraph.text)
+                            innerHTML = addToolTips(renderingNode, addItalics(paragraph.text))
                             break
                         }
                         case 'Success': {
@@ -504,7 +529,7 @@ function newSuperalgosDocSpace() {
                             prefix = '<i class="docs-fa docs-check-square-o"></i> <b>Tip:</b>'
                             role = 'role="alert"'
                             key = key + '-success'
-                            innerHTML = addToolTips(renderingNode, paragraph.text)
+                            innerHTML = addToolTips(renderingNode, addItalics(paragraph.text))
                             break
                         }
                         case 'Important': {
@@ -512,7 +537,7 @@ function newSuperalgosDocSpace() {
                             prefix = '<i class="docs-fa docs-warning-sign"></i> <b>Important:</b>'
                             role = 'role="alert"'
                             key = key + '-important'
-                            innerHTML = addToolTips(renderingNode, paragraph.text)
+                            innerHTML = addToolTips(renderingNode, addItalics(paragraph.text))
                             break
                         }
                         case 'Warning': {
@@ -520,7 +545,7 @@ function newSuperalgosDocSpace() {
                             prefix = '<i class="docs-fa docs-warning-sign"></i> <b>Warning:</b>'
                             role = 'role="alert"'
                             key = key + '-warning'
-                            innerHTML = addToolTips(renderingNode, paragraph.text)
+                            innerHTML = addToolTips(renderingNode, addItalics(paragraph.text))
                             break
                         }
                         case 'List': {
@@ -529,7 +554,7 @@ function newSuperalgosDocSpace() {
                             sufix = '</li>'
                             role = ''
                             key = key + '-list'
-                            innerHTML = addToolTips(renderingNode, paragraph.text)
+                            innerHTML = addToolTips(renderingNode, addItalics(paragraph.text))
                             break
                         }
                         case 'Javascript': {
@@ -631,6 +656,54 @@ function newSuperalgosDocSpace() {
 
         let projectImageDiv = document.getElementById('projectImageDiv')
         projectImageDiv.appendChild(htmlImage)
+    }
+
+    function addItalics(text) {
+
+        let words = text.split(' ')
+        let changedText = ''
+        for (let i = 0; i < words.length; i++) {
+            let phrase1 = words[i]
+            let phrase2 = words[i] + ' ' + words[i + 1]
+            let phrase3 = words[i] + ' ' + words[i + 1] + ' ' + words[i + 2]
+            let phrase4 = words[i] + ' ' + words[i + 1] + ' ' + words[i + 2] + ' ' + words[i + 3]
+
+            let cleanPhrase1 = cleanPhrase(phrase1)
+            let cleanPhrase2 = cleanPhrase(phrase2)
+            let cleanPhrase3 = cleanPhrase(phrase3)
+            let cleanPhrase4 = cleanPhrase(phrase4)
+
+            let found = false
+
+            if (found === false && menuLabelsMap.get(cleanPhrase4) === true) {
+                changedText = changedText + phrase4.replace(cleanPhrase4, '<i>' + cleanPhrase4 + '</i>') + ' '
+                i = i + 3
+                found = true
+            }
+
+            if (found === false && menuLabelsMap.get(cleanPhrase3) === true) {
+                changedText = changedText + phrase4.replace(cleanPhrase3, '<i>' + cleanPhrase3 + '</i>') + ' '
+                i = i + 2
+                found = true
+            }
+
+            if (found === false && menuLabelsMap.get(cleanPhrase2) === true) {
+                changedText = changedText + phrase4.replace(cleanPhrase2, '<i>' + cleanPhrase2 + '</i>') + ' '
+                i = i + 1
+                found = true
+            }
+
+            if (found === false && menuLabelsMap.get(cleanPhrase1) === true) {
+                changedText = changedText + phrase4.replace(cleanPhrase1, '<i>' + cleanPhrase1 + '</i>') + ' '
+                i = i + 0
+                found = true
+            }
+
+            if (found === false) {
+                changedText = changedText + phrase1 + ' '
+            }
+        }
+        return changedText
     }
 
     function addToolTips(node, text) {
@@ -753,25 +826,25 @@ function newSuperalgosDocSpace() {
             if (found === false) {
                 taggedText = taggedText + phrase1 + ' '
             }
-
-            function cleanPhrase(phrase) {
-                return phrase.replace(',', '')
-                    .replace(';', '')
-                    .replace('(', '')
-                    .replace(')', '')
-                    .replace('-', '')
-                    .replace('_', '')
-                    .replace('.', '')
-                    .replace('[', '')
-                    .replace(']', '')
-                    .replace('{', '')
-                    .replace('}', '')
-                    .replace('/', '')
-                    .replace('>', '')
-                    .replace('<', '')
-            }
         }
         return taggedText
+    }
+
+    function cleanPhrase(phrase) {
+        return phrase.replace(',', '')
+            .replace(';', '')
+            .replace('(', '')
+            .replace(')', '')
+            .replace('-', '')
+            .replace('_', '')
+            .replace('.', '')
+            .replace('[', '')
+            .replace(']', '')
+            .replace('{', '')
+            .replace('}', '')
+            .replace('/', '')
+            .replace('>', '')
+            .replace('<', '')
     }
 
     function resize() {

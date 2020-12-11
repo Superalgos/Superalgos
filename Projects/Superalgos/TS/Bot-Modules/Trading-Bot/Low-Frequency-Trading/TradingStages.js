@@ -12,7 +12,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
         runOpenStage: runOpenStage,
         runManageStage: runManageStage,
         runCloseStage: runCloseStage,
-        exitPositionValidation: exitPositionValidation, 
+        exitPositionValidation: exitPositionValidation,
         updateEnds: updateEnds,
         resetTradingEngineDataStructure: resetTradingEngineDataStructure,
         updateCounters: updateCounters,
@@ -274,6 +274,16 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
         }
 
         function runWhenStatusIsOpening() {
+            /*
+            The system allows the user not to define a Open Stage, because the Open Stage is optional.
+            Here we are goint to see if that is the case and if it is, we will inmidiatelly consider 
+            the Open Stage as closed.
+            */
+            if (tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].openStage === undefined) {
+                changeStageStatus('Open Stage', 'Closed', 'Open Stage Undefined')
+                changeStageStatus('Close Stage', 'Opening')
+                return
+            }
             /* Opening Status Procedure */
             if (tradingEngine.current.strategyOpenStage.status.value === 'Opening') {
 
@@ -874,7 +884,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                         }
                     }
                 }
-    
+
                 /* Taking Strategy Snapshot */
                 if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type === 'Backtesting Session') {
                     if (sessionParameters.snapshots !== undefined) {
@@ -883,17 +893,17 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                         }
                     }
                 }
-    
+
                 /* Close the Position */
                 tradingPositionModuleObject.closePosition()
-    
+
                 /* Close the Strategy */
                 tradingStrategyModuleObject.closeStrategy('Position Closed')
-    
+
                 /* Distance to Events Updates */
                 tradingEngine.current.episode.distanceToEvent.closePosition.value = 1
                 tradingEngine.current.episode.distanceToEvent.triggerOff.value = 1
-    
+
             }
         }
     }
@@ -1080,8 +1090,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
             resetStage(tradingEngine.current.strategyCloseStage.status)
         }
 
-        if (tradingEngine.current.position.status.value === 'Closed') 
-        {
+        if (tradingEngine.current.position.status.value === 'Closed') {
             resetStage(tradingEngine.current.strategyTriggerStage)
             resetStage(tradingEngine.current.strategyOpenStage)
             resetStage(tradingEngine.current.strategyManageStage)

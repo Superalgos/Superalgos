@@ -791,6 +791,13 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                     sendStyleSheet('font-awasome.css')
                 }
                 break
+
+            case 'prism.css':
+                {
+                    sendStyleSheet('prism.css')
+                }
+                break
+
             case 'ExecuteTerminalCommand':
                 {
                     let command = unescape(requestParameters[2])

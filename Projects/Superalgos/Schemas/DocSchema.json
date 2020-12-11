@@ -30,14 +30,6 @@
             {
                 "style": "Text",
                 "text": "Select <i>Configure</i> on the menu to access the configuration."
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
-                "text": "</code\">"
             }
         ]
     },
@@ -63,14 +55,6 @@
             {
                 "style": "Text",
                 "text": "Select <i>Configure</i> on the menu to access the configuration."
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
-                "text": "</code\">"
             }
         ]
     },
@@ -93,14 +77,6 @@
             {
                 "style": "Text",
                 "text": "Select <i>Configure</i> on the menu to access the configuration."
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
-                "text": "</code\">"
             }
         ]
     },
@@ -123,14 +99,6 @@
             {
                 "style": "Text",
                 "text": "Select <i>Configure</i> on the menu to access the configuration."
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
-                "text": "</code\">"
             }
         ]
     },
@@ -179,10 +147,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
                 "text": "{"
             },
             {
@@ -202,16 +166,12 @@
                 "text": "}"
             },
             {
-                "style": "Text",
-                "text": "</code\">"
+                "style": "List",
+                "text": "codeName is the name used in the code to refer to the module."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">codeName</code> is the name used in the code to refer to the module."
-            },
-            {
-                "style": "List",
-                "text": "<code class=\"language-none\">isLegacy</code> is <code class=\"language-none\">true<code class=\"language-none\"> for plotters modules developed entirely in JavaScript, and is </code>false</code> or doesn't show in the configuration for plotters built with the tools featured in the data mine hierarchy."
+                "text": "isLegacy is true for plotters modules developed entirely in JavaScript, and is false or doesn't show in the configuration for plotters built with the tools featured in the data mine hierarchy."
             },
             {
                 "style": "Text",
@@ -223,27 +183,27 @@
             },
             {
                 "style": "Text",
-                "text": "<tr><td> <code class=\"language-none\">default</code> </td><td> <img src=\"Projects/Superalgos/Icons/default-banner.png\"></img> </td></tr>"
+                "text": "<tr><td> default </td><td> <img src=\"Projects/Superalgos/Icons/default-banner.png\"></img> </td></tr>"
             },
             {
                 "style": "Text",
-                "text": "<tr><td> <code class=\"language-none\">histogram</code> </td><td> <img src=\"Projects/Superalgos/Icons/histogram-banner.png\"></img> </td></tr>"
+                "text": "<tr><td> histogram </td><td> <img src=\"Projects/Superalgos/Icons/histogram-banner.png\"></img> </td></tr>"
             },
             {
                 "style": "Text",
-                "text": "<tr><td> <code class=\"language-none\">band</code> </td><td> <img src=\"Projects/Superalgos/Icons/bands-banner.png\"></img> </td></tr>"
+                "text": "<tr><td> band </td><td> <img src=\"Projects/Superalgos/Icons/bands-banner.png\"></img> </td></tr>"
             },
             {
                 "style": "Text",
-                "text": "<tr><td> <code class=\"language-none\">moving-average</code> </td><td> <img src=\"Projects/Superalgos/Icons/moving-average-banner.png\"></img> </td></tr>"
+                "text": "<tr><td> moving-average </td><td> <img src=\"Projects/Superalgos/Icons/moving-average-banner.png\"></img> </td></tr>"
             },
             {
                 "style": "Text",
-                "text": "<tr><td> <code class=\"language-none\">oscillator</code> </td><td> <img src=\"Projects/Superalgos/Icons/oscillator-banner.png\"></img> </td></tr>"
+                "text": "<tr><td> oscillator </td><td> <img src=\"Projects/Superalgos/Icons/oscillator-banner.png\"></img> </td></tr>"
             },
             {
                 "style": "Text",
-                "text": "<tr><td> <code class=\"language-none\">trend</code> </td><td> <img src=\"Projects/Superalgos/Icons/trends-banner.png\"></img> </td></tr>"
+                "text": "<tr><td> trend </td><td> <img src=\"Projects/Superalgos/Icons/trends-banner.png\"></img> </td></tr>"
             },
             {
                 "style": "Text",
@@ -251,15 +211,15 @@
             },
             {
                 "style": "Text",
-                "text": "1. name the image in the following format: <code class=\"language-none\">image-name.png</code>;"
+                "text": "1. name the image in the following format: image-name.png;"
             },
             {
                 "style": "Text",
-                "text": "1. place images in the <code class=\"language-none\">WebServer\\Images\\Icons</code> folder;"
+                "text": "1. place images in the WebServer\\Images\\Icons folder;"
             },
             {
                 "style": "Text",
-                "text": "1. in the configuration of the module, use the name as is (e.g.: <code class=\"language-none\">\"icon\": \"image-name\"</code>)"
+                "text": "1. in the configuration of the module, use the name as is (e.g.: \"icon\": \"image-name\")"
             }
         ]
     },
@@ -315,7 +275,7 @@
             },
             {
                 "style": "Text",
-                "text": " 1. Identifying points defined by <code class=\"language-none\">[x,y]</code> coordinates"
+                "text": " 1. Identifying points defined by [x,y] coordinates"
             },
             {
                 "style": "Text",
@@ -391,10 +351,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
                 "text": "{"
             },
             {
@@ -406,16 +362,8 @@
                 "text": "}"
             },
             {
-                "style": "Text",
-                "text": "</code\">"
-            },
-            {
                 "style": "List",
-                "text": "<code class=\"language-none\">valueDecimals</code> sets the number of decimals to be shown on the corresponding data field."
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-json\">"
+                "text": "valueDecimals sets the number of decimals to be shown on the corresponding data field."
             },
             {
                 "style": "Text",
@@ -442,12 +390,8 @@
                 "text": "}"
             },
             {
-                "style": "Text",
-                "text": "</code\">"
-            },
-            {
                 "style": "List",
-                "text": "<code class=\"language-none\">labelPosition</code> and <code class=\"language-none\">valuePosition</code> represent the vertical distance of the corresponding fields to the top margin of the panel."
+                "text": "labelPosition and valuePosition represent the vertical distance of the corresponding fields to the top margin of the panel."
             }
         ]
     },
@@ -501,7 +445,7 @@
             },
             {
                 "style": "Text",
-                "text": "The definition of a point consists of the name of the point and the corresponding values for the <code class=\"language-none\">x</code> and <code class=\"language-none\">y</code> coordinates. To create such definitions, point and point formulas are used."
+                "text": "The definition of a point consists of the name of the point and the corresponding values for the x and y coordinates. To create such definitions, point and point formulas are used."
             },
             {
                 "style": "Title",
@@ -523,7 +467,7 @@
             },
             {
                 "style": "Text",
-                "text": "These coordinate points are used to define polygons. Values for <code class=\"language-none\">[x,y]</code>coordinates are entered with a point formula."
+                "text": "These coordinate points are used to define polygons. Values for [x,y]coordinates are entered with a point formula."
             },
             {
                 "style": "Text",
@@ -549,7 +493,7 @@
             },
             {
                 "style": "Text",
-                "text": "To represent some form of variation of the price or a price derivative over time, a typical point formula consists of the following two coordinates: <code class=\"language-none\">x = datetime</code> and <code class=\"language-none\">y = rate</code>."
+                "text": "To represent some form of variation of the price or a price derivative over time, a typical point formula consists of the following two coordinates: x = datetime and y = rate."
             },
             {
                 "style": "Text",
@@ -561,10 +505,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-js\">"
-            },
-            {
-                "style": "Text",
                 "text": "x = record.begin"
             },
             {
@@ -573,11 +513,7 @@
             },
             {
                 "style": "Text",
-                "text": "</code\">"
-            },
-            {
-                "style": "Text",
-                "text": "The example above shows the definition of the first of two points necessary to draw the segment of the 20-periods SMA curve for any particular period or candle. In this case, <code class=\"language-none\">x = record.begin</code> is the starting datetime of the period and <code class=\"language-none\">y = record.previous.sma20</code> is the rate of the 20-periods SMA of the previous period."
+                "text": "The example above shows the definition of the first of two points necessary to draw the segment of the 20-periods SMA curve for any particular period or candle. In this case, x = record.begin is the starting datetime of the period and y = record.previous.sma20 is the rate of the 20-periods SMA of the previous period."
             },
             {
                 "style": "Note",
@@ -593,19 +529,11 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-js\">"
-            },
-            {
-                "style": "Text",
                 "text": "x = record.end"
             },
             {
                 "style": "Text",
                 "text": "y = record.sma20"
-            },
-            {
-                "style": "Text",
-                "text": "</code\">"
             },
             {
                 "style": "Text",
@@ -625,10 +553,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-js\">"
-            },
-            {
-                "style": "Text",
                 "text": "x = record.begin"
             },
             {
@@ -637,15 +561,7 @@
             },
             {
                 "style": "Text",
-                "text": "</code\">"
-            },
-            {
-                "style": "Text",
                 "text": "<b>Point <i>RSI End</i></b>"
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-js\">"
             },
             {
                 "style": "Text",
@@ -657,10 +573,6 @@
             },
             {
                 "style": "Text",
-                "text": "</code\">"
-            },
-            {
-                "style": "Text",
                 "text": "Points do not necessarily need to refer to values on the dataset produced by the corresponding data product. For example, absolute values for the <i>y-axis</i> may be used to describe fixed graphical elements, for instance, a horizontal line, or a box."
             },
             {
@@ -669,19 +581,11 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-js\">"
-            },
-            {
-                "style": "Text",
                 "text": "x = record.begin"
             },
             {
                 "style": "Text",
                 "text": "y = 20"
-            },
-            {
-                "style": "Text",
-                "text": "</code\">"
             },
             {
                 "style": "Text",
@@ -689,10 +593,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-js\">"
-            },
-            {
-                "style": "Text",
                 "text": "x = record.end"
             },
             {
@@ -701,15 +601,7 @@
             },
             {
                 "style": "Text",
-                "text": "</code\">"
-            },
-            {
-                "style": "Text",
                 "text": "<b>Point <i>Begin 30</i></b>"
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-js\">"
             },
             {
                 "style": "Text",
@@ -721,15 +613,7 @@
             },
             {
                 "style": "Text",
-                "text": "</code\">"
-            },
-            {
-                "style": "Text",
                 "text": "<b>Point <i>End 30</i></b>"
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-js\">"
             },
             {
                 "style": "Text",
@@ -738,10 +622,6 @@
             {
                 "style": "Text",
                 "text": "y = 30"
-            },
-            {
-                "style": "Text",
-                "text": "</code\">"
             },
             {
                 "style": "Text",
@@ -771,7 +651,7 @@
             },
             {
                 "style": "Text",
-                "text": "The foremost requirement for images is that they are in the <code class=\"language-none\">png</code> format, 24 bits, with transparency, a low case extension, and are square."
+                "text": "The foremost requirement for images is that they are in the png format, 24 bits, with transparency, a low case extension, and are square."
             },
             {
                 "style": "Text",
@@ -779,7 +659,7 @@
             },
             {
                 "style": "Text",
-                "text": "Images must the stored in the following path: <code class=\"language-none\">\\BackendServers\\WebServer\\Images\\Icons\\style-01</code>"
+                "text": "Images must the stored in the following path: \\BackendServers\\WebServer\\Images\\Icons\\style-01"
             },
             {
                 "style": "Note",
@@ -803,10 +683,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
                 "text": "{"
             },
             {
@@ -822,16 +698,12 @@
                 "text": "}"
             },
             {
-                "style": "Text",
-                "text": "</code\">"
+                "style": "List",
+                "text": "codeName is the name of the image, without the .png extension."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">codeName</code> is the name of the image, without the <code class=\"language-none\">.png</code> extension."
-            },
-            {
-                "style": "List",
-                "text": "<code class=\"language-none\">size</code> is the size at which the image shall be rendered, in pixels."
+                "text": "size is the size at which the image shall be rendered, in pixels."
             }
         ]
     },
@@ -845,7 +717,7 @@
             },
             {
                 "style": "Text",
-                "text": "The node is optional. When the node is not present in the definition of the image or when the condition validates <code class=\"language-none\">true</code>, the image is rendered on screen. When the condition validates <code class=\"language-none\">false</code> the image is not rendered. As such, the node allows dynamically switching the rendering of the corresponding image on and off ."
+                "text": "The node is optional. When the node is not present in the definition of the image or when the condition validates true, the image is rendered on screen. When the condition validates false the image is not rendered. As such, the node allows dynamically switching the rendering of the corresponding image on and off ."
             },
             {
                 "style": "Title",
@@ -891,10 +763,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
                 "text": "{"
             },
             {
@@ -910,16 +778,12 @@
                 "text": "}"
             },
             {
-                "style": "Text",
-                "text": "</code\">"
+                "style": "List",
+                "text": "offsetX is an offset in the X axis, in pixels, applied to displace the image in relation to the coordinate point defined by the reference of the node. Negative values displace the image to the left and positive values to the right."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">offsetX</code> is an offset in the X axis, in pixels, applied to displace the image in relation to the coordinate point defined by the reference of the node. Negative values displace the image to the left and positive values to the right."
-            },
-            {
-                "style": "List",
-                "text": "<code class=\"language-none\">offsetY</code> is an offset in the Y axis. Negative values displace the image downwards and positive values displace the image upwards."
+                "text": "offsetY is an offset in the Y axis. Negative values displace the image downwards and positive values displace the image upwards."
             }
         ]
     },
@@ -975,10 +839,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
                 "text": "{"
             },
             {
@@ -999,19 +859,15 @@
             },
             {
                 "style": "Text",
-                "text": "</code\">"
-            },
-            {
-                "style": "Text",
-                "text": "<i> <code class=\"language-none\">paletteColor</code> is one of the predefined colors available, as described in the configuration of the </i>Style* node."
+                "text": "<i> paletteColor is one of the predefined colors available, as described in the configuration of the </i>Style* node."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">opacity</code> is probably self-explanatory, and may range from 0 for a fully transparent object to 1 for a solid object."
+                "text": "opacity is probably self-explanatory, and may range from 0 for a fully transparent object to 1 for a solid object."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">fontSize</code> is self explanatory too; values above zero produce the expected results."
+                "text": "fontSize is self explanatory too; values above zero produce the expected results."
             }
         ]
     },
@@ -1025,7 +881,7 @@
             },
             {
                 "style": "Text",
-                "text": "The node is optional. When the node is not present in the definition of the text node or when the condition validates <code class=\"language-none\">true</code>, the text is rendered on screen. When the condition validates <code class=\"language-none\">false</code>, text is not rendered. As such, the node allows dynamically switching the rendering of the corresponding text on and off ."
+                "text": "The node is optional. When the node is not present in the definition of the text node or when the condition validates true, the text is rendered on screen. When the condition validates false, text is not rendered. As such, the node allows dynamically switching the rendering of the corresponding text on and off ."
             },
             {
                 "style": "Title",
@@ -1071,10 +927,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
                 "text": "{"
             },
             {
@@ -1090,16 +942,12 @@
                 "text": "}"
             },
             {
-                "style": "Text",
-                "text": "</code\">"
+                "style": "List",
+                "text": "offsetX is an offset in the X axis, in pixels, applied to displace the text in relation to the coordinate point defined by the reference of the node. Negative values displace the text to the left and positive values to the right."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">offsetX</code> is an offset in the X axis, in pixels, applied to displace the text in relation to the coordinate point defined by the reference of the node. Negative values displace the text to the left and positive values to the right."
-            },
-            {
-                "style": "List",
-                "text": "<code class=\"language-none\">offsetY</code> is an offset in the Y axis. Negative values displace the text downwards and positive values displace the image upwards."
+                "text": "offsetY is an offset in the Y axis. Negative values displace the text downwards and positive values displace the image upwards."
             }
         ]
     },
@@ -1161,7 +1009,7 @@
             },
             {
                 "style": "Text",
-                "text": "The node is optional. When the node is not present in the definition of the polygon or when the condition validates <code class=\"language-none\">true</code>, the polygon is rendered on screen. When the condition validates <code class=\"language-none\">false</code> the polygon is not rendered. As such, the node allows dynamically switching the rendering of the corresponding polygon on and off."
+                "text": "The node is optional. When the node is not present in the definition of the polygon or when the condition validates true, the polygon is rendered on screen. When the condition validates false the polygon is not rendered. As such, the node allows dynamically switching the rendering of the corresponding polygon on and off."
             },
             {
                 "style": "Title",
@@ -1279,15 +1127,7 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-js\">"
-            },
-            {
-                "style": "Text",
                 "text": "record.previous.movingAverage > record.movingAverage"
-            },
-            {
-                "style": "Text",
-                "text": "</code\">"
             },
             {
                 "style": "Text",
@@ -1295,11 +1135,7 @@
             },
             {
                 "style": "Text",
-                "text": "The definition of secondary styles is slightly different from that of the default style, as&mdash;in such cases&mdash;the <code class=\"language-none\">atMousePosition</code> property may no longer be defined:"
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-js\">"
+                "text": "The definition of secondary styles is slightly different from that of the default style, as&mdash;in such cases&mdash;the atMousePosition property may no longer be defined:"
             },
             {
                 "style": "Text",
@@ -1324,10 +1160,6 @@
             {
                 "style": "Text",
                 "text": "}"
-            },
-            {
-                "style": "Text",
-                "text": "</code\">"
             }
         ]
     },
@@ -1366,10 +1198,6 @@
             {
                 "style": "Text",
                 "text": "A typical definition for a polygon <i>body style</i> looks like this:"
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-json\">"
             },
             {
                 "style": "Text",
@@ -1413,15 +1241,7 @@
             },
             {
                 "style": "Text",
-                "text": "</code\">"
-            },
-            {
-                "style": "Text",
                 "text": "A typical definition for a polygon <i>border style</i> has a couple more properties:"
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-json\">"
             },
             {
                 "style": "Text",
@@ -1481,10 +1301,6 @@
             },
             {
                 "style": "Text",
-                "text": "</code\">"
-            },
-            {
-                "style": "Text",
                 "text": "The first section of the definition refers, as explicitly stated, to the default state of the style."
             },
             {
@@ -1493,7 +1309,7 @@
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">opacity</code> is probably self-explanatory: it may range from <code class=\"language-none\">0<code class=\"language-none\"> for a fully transparent object to </code>1</code> for a solid object."
+                "text": "opacity is probably self-explanatory: it may range from 0 for a fully transparent object to 1 for a solid object."
             },
             {
                 "style": "Text",
@@ -1505,71 +1321,71 @@
             },
             {
                 "style": "Text",
-                "text": "<tr><td> <code class=\"language-none\">DARK</code> </td><td> 48, 48, 54 </td><td> <span style=\"display: block; background: RGB(48, 48, 54); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+                "text": "<tr><td> DARK </td><td> 48, 48, 54 </td><td> <span style=\"display: block; background: RGB(48, 48, 54); border: 1px solid black;\">&nbsp;</span> </td></tr>"
             },
             {
                 "style": "Text",
-                "text": "<tr><td> <code class=\"language-none\">LIGHT</code> </td><td> 234, 226, 222 </td><td> <span style=\"display: block; background: RGB(234, 226, 222); border: 1px black; border: 1px solid black;\">&nbsp;</span> </td></tr>"
+                "text": "<tr><td> LIGHT </td><td> 234, 226, 222 </td><td> <span style=\"display: block; background: RGB(234, 226, 222); border: 1px black; border: 1px solid black;\">&nbsp;</span> </td></tr>"
             },
             {
                 "style": "Text",
-                "text": "<tr><td> <code class=\"language-none\">GREY</code> </td><td> 150, 150, 150 </td><td> <span style=\"display: block; background: RGB(150, 150, 150); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+                "text": "<tr><td> GREY </td><td> 150, 150, 150 </td><td> <span style=\"display: block; background: RGB(150, 150, 150); border: 1px solid black;\">&nbsp;</span> </td></tr>"
             },
             {
                 "style": "Text",
-                "text": "<tr><td> <code class=\"language-none\">LIGHT_GREY</code> </td><td> 247, 247, 247 </td><td> <span style=\"display: block; background: RGB(247, 247, 247); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+                "text": "<tr><td> LIGHT_GREY </td><td> 247, 247, 247 </td><td> <span style=\"display: block; background: RGB(247, 247, 247); border: 1px solid black;\">&nbsp;</span> </td></tr>"
             },
             {
                 "style": "Text",
-                "text": "<tr><td> <code class=\"language-none\">WHITE</code> </td><td> 255, 255, 255 </td><td> <span style=\"display: block; background: RGB(255, 255, 255); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+                "text": "<tr><td> WHITE </td><td> 255, 255, 255 </td><td> <span style=\"display: block; background: RGB(255, 255, 255); border: 1px solid black;\">&nbsp;</span> </td></tr>"
             },
             {
                 "style": "Text",
-                "text": "<tr><td> <code class=\"language-none\">BLACK</code> </td><td> 0, 0, 0 </td><td> <span style=\"display: block; background: RGB(0, 0, 0); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+                "text": "<tr><td> BLACK </td><td> 0, 0, 0 </td><td> <span style=\"display: block; background: RGB(0, 0, 0); border: 1px solid black;\">&nbsp;</span> </td></tr>"
             },
             {
                 "style": "Text",
-                "text": "<tr><td> <code class=\"language-none\">GOLDEN_ORANGE</code> </td><td> 240, 162, 2 </td><td> <span style=\"display: block; background: RGB(240, 162, 2); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+                "text": "<tr><td> GOLDEN_ORANGE </td><td> 240, 162, 2 </td><td> <span style=\"display: block; background: RGB(240, 162, 2); border: 1px solid black;\">&nbsp;</span> </td></tr>"
             },
             {
                 "style": "Text",
-                "text": "<tr><td> <code class=\"language-none\">RUSTED_RED</code> </td><td> 204, 88, 53 </td><td> <span style=\"display: block; background: RGB(204, 88, 53); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+                "text": "<tr><td> RUSTED_RED </td><td> 204, 88, 53 </td><td> <span style=\"display: block; background: RGB(204, 88, 53); border: 1px solid black;\">&nbsp;</span> </td></tr>"
             },
             {
                 "style": "Text",
-                "text": "<tr><td> <code class=\"language-none\">GREEN</code> </td><td> 188, 214, 67 </td><td> <span style=\"display: block; background: RGB(188, 214, 67); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+                "text": "<tr><td> GREEN </td><td> 188, 214, 67 </td><td> <span style=\"display: block; background: RGB(188, 214, 67); border: 1px solid black;\">&nbsp;</span> </td></tr>"
             },
             {
                 "style": "Text",
-                "text": "<tr><td> <code class=\"language-none\">RED</code> </td><td> 223, 70, 60 </td><td> <span style=\"display: block; background: RGB(223, 70, 60); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+                "text": "<tr><td> RED </td><td> 223, 70, 60 </td><td> <span style=\"display: block; background: RGB(223, 70, 60); border: 1px solid black;\">&nbsp;</span> </td></tr>"
             },
             {
                 "style": "Text",
-                "text": "<tr><td> <code class=\"language-none\">PATINATED_TURQUOISE</code> </td><td> 27, 153, 139 </td><td> <span style=\"display: block; background: RGB(27, 153, 139); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+                "text": "<tr><td> PATINATED_TURQUOISE </td><td> 27, 153, 139 </td><td> <span style=\"display: block; background: RGB(27, 153, 139); border: 1px solid black;\">&nbsp;</span> </td></tr>"
             },
             {
                 "style": "Text",
-                "text": "<tr><td> <code class=\"language-none\">TITANIUM_YELLOW</code> </td><td> 244, 228, 9 </td><td> <span style=\"display: block; background: RGB(244, 228, 9); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+                "text": "<tr><td> TITANIUM_YELLOW </td><td> 244, 228, 9 </td><td> <span style=\"display: block; background: RGB(244, 228, 9); border: 1px solid black;\">&nbsp;</span> </td></tr>"
             },
             {
                 "style": "Text",
-                "text": "<tr><td> <code class=\"language-none\">MANGANESE_PURPLE</code> </td><td> 91,80, 122 </td><td> <span style=\"display: block; background: RGB(91,80, 122); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+                "text": "<tr><td> MANGANESE_PURPLE </td><td> 91,80, 122 </td><td> <span style=\"display: block; background: RGB(91,80, 122); border: 1px solid black;\">&nbsp;</span> </td></tr>"
             },
             {
                 "style": "Text",
-                "text": "<tr><td> <code class=\"language-none\">TURQUOISE</code> </td><td> 74, 207, 217 </td><td> <span style=\"display: block; background: RGB(74, 207, 217); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+                "text": "<tr><td> TURQUOISE </td><td> 74, 207, 217 </td><td> <span style=\"display: block; background: RGB(74, 207, 217); border: 1px solid black;\">&nbsp;</span> </td></tr>"
             },
             {
                 "style": "Text",
-                "text": "<tr><td> <code class=\"language-none\">DARK_TURQUOISE</code> </td><td> 2, 149, 170 </td><td> <span style=\"display: block; background: RGB(2, 149, 170); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+                "text": "<tr><td> DARK_TURQUOISE </td><td> 2, 149, 170 </td><td> <span style=\"display: block; background: RGB(2, 149, 170); border: 1px solid black;\">&nbsp;</span> </td></tr>"
             },
             {
                 "style": "Text",
-                "text": "</table>* <code class=\"language-none\">lineWidth</code> is the width of the border line, which should be greater than 0."
+                "text": "</table>* lineWidth is the width of the border line, which should be greater than 0."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">lineDash</code> is used to turn the border into a dashed-line; the first value corresponds to the length of the dash while the second value defines the length of the space."
+                "text": "lineDash is used to turn the border into a dashed-line; the first value corresponds to the length of the dash while the second value defines the length of the space."
             }
         ]
     },
@@ -1663,11 +1479,11 @@
             },
             {
                 "style": "List",
-                "text": "Condition A: <code class=\"language-none\">chart.at01hs.candle.close > chart.at01hs.bollingerBand.MovingAverage</code> &#8594; This means that the latest candle at the 1 hour chart closed above the Bollinger Bands moving average."
+                "text": "Condition A: chart.at01hs.candle.close > chart.at01hs.bollingerBand.MovingAverage &#8594; This means that the latest candle at the 1 hour chart closed above the Bollinger Bands moving average."
             },
             {
                 "style": "List",
-                "text": "Condition B: <code class=\"language-none\">chart.at01hs.candle.previous.max > chart.at01hs.bollingerBand.previous.MovingAverage</code> &#8594; This means that the maximum value of the candle before the last one, was higher than the Bollinger Bands moving average."
+                "text": "Condition B: chart.at01hs.candle.previous.max > chart.at01hs.bollingerBand.previous.MovingAverage &#8594; This means that the maximum value of the candle before the last one, was higher than the Bollinger Bands moving average."
             },
             {
                 "style": "Text",
@@ -1721,10 +1537,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-none\">"
-            },
-            {
-                "style": "Text",
                 "text": "{"
             },
             {
@@ -1736,12 +1548,8 @@
                 "text": "}"
             },
             {
-                "style": "Text",
-                "text": "</code>"
-            },
-            {
                 "style": "List",
-                "text": "<code class=\"language-none\">codeName</code> is the name of the hierarchy as is used in the system's code."
+                "text": "codeName is the name of the hierarchy as is used in the system's code."
             }
         ]
     },
@@ -1949,10 +1757,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
                 "text": "{"
             },
             {
@@ -1972,20 +1776,16 @@
                 "text": "}"
             },
             {
-                "style": "Text",
-                "text": "</code\">"
+                "style": "List",
+                "text": "host is the machine or hardware represented by the network node. The default parameter is localhost, but if you intend to access the backend services of this node from a remote computer, then you must change localhost for the IP Address of the machine on which the node is running, for example, to 147.0.0.1."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">host</code> is the machine or hardware represented by the network node. The default parameter is <code class=\"language-none\">localhost<code class=\"language-none\">, but if you intend to access the backend services of this node from a remote computer, then you must change </code>localhost</code> for the IP Address of the machine on which the node is running, for example, to <code class=\"language-none\">147.0.0.1</code>."
+                "text": "webPort is the port used by the Web Server, at this stage 34248."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">webPort</code> is the port used by the Web Server, at this stage <code class=\"language-none\">34248</code>."
-            },
-            {
-                "style": "List",
-                "text": "<code class=\"language-none\">webSocketsPort</code> is the port used by the system to communicate over the local area network, by default set at <code class=\"language-none\">18041</code>."
+                "text": "webSocketsPort is the port used by the system to communicate over the local area network, by default set at 18041."
             }
         ]
     },
@@ -2237,10 +2037,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
                 "text": "{"
             },
             {
@@ -2252,12 +2048,8 @@
                 "text": "}"
             },
             {
-                "style": "Text",
-                "text": "</code\">"
-            },
-            {
                 "style": "List",
-                "text": "<code class=\"language-none\">folderName</code> allows you to set a significant name to the folder in which the data products&mdash;and logs&mdash;generated by the session are stored. If left blank, the system names the folders with the session id. This may be handy when you intend to consult the raw data generated by the session, as, otherwise, the folder would be hard to identify."
+                "text": "folderName allows you to set a significant name to the folder in which the data products&mdash;and logs&mdash;generated by the session are stored. If left blank, the system names the folders with the session id. This may be handy when you intend to consult the raw data generated by the session, as, otherwise, the folder would be hard to identify."
             },
             {
                 "style": "Title",
@@ -2649,7 +2441,7 @@
             },
             {
                 "style": "Text",
-                "text": "Possible values are <code class=\"language-none\">Above</code> and <code class=\"language-none\">Below</code>."
+                "text": "Possible values are Above and Below."
             },
             {
                 "style": "Text",
@@ -2675,7 +2467,7 @@
             },
             {
                 "style": "Text",
-                "text": "Possible values are <code class=\"language-none\">Above</code> and <code class=\"language-none\">Below</code>."
+                "text": "Possible values are Above and Below."
             },
             {
                 "style": "Text",
@@ -2935,15 +2727,11 @@
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">base asset profit loss = base asset end balance - base asset begin balance</code>"
+                "text": "base asset profit loss = base asset end balance - base asset begin balance"
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">quoted asset profit loss = quoted asset end balance - quoted asset begin balance</code>"
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-none\">"
+                "text": "quoted asset profit loss = quoted asset end balance - quoted asset begin balance"
             },
             {
                 "style": "Text",
@@ -2975,15 +2763,7 @@
             },
             {
                 "style": "Text",
-                "text": "</code>"
-            },
-            {
-                "style": "Text",
                 "text": "<i>In the case of the position base asset and position quoted asset:</i>"
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-none\">"
             },
             {
                 "style": "Text",
@@ -3015,10 +2795,6 @@
             },
             {
                 "style": "Text",
-                "text": "</code>"
-            },
-            {
-                "style": "Text",
                 "text": "In the context of the episode statistics or the position statistics, the calculation is done consolidating the profits of both assets."
             },
             {
@@ -3028,10 +2804,6 @@
             {
                 "style": "Text",
                 "text": "<i>In the context of the episode statistics:</i>"
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-none\">"
             },
             {
                 "style": "Text",
@@ -3051,15 +2823,7 @@
             },
             {
                 "style": "Text",
-                "text": "</code>"
-            },
-            {
-                "style": "Text",
                 "text": "<i>In the context of the position statistics:</i>"
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-none\">"
             },
             {
                 "style": "Text",
@@ -3076,10 +2840,6 @@
             {
                 "style": "Text",
                 "text": "    tradingEngine.current.episode.episodeQuotedAsset.profitLoss.value"
-            },
-            {
-                "style": "Text",
-                "text": "</code>"
             },
             {
                 "style": "Title",
@@ -3101,7 +2861,7 @@
             },
             {
                 "style": "Text",
-                "text": "Hit ratio results from multiplying the number of hits by 100 and dividing it by the number of positions: <code class=\"language-none\">hit ratio = hits * 100 / positions</code>."
+                "text": "Hit ratio results from multiplying the number of hits by 100 and dividing it by the number of positions: hit ratio = hits * 100 / positions."
             },
             {
                 "style": "Title",
@@ -3187,7 +2947,7 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-none\">percentage filled = size filled * 100 / size</code>"
+                "text": "percentage filled = size filled * 100 / size"
             },
             {
                 "style": "Title",
@@ -3277,7 +3037,7 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-none\">annualized rate of return = (((investment + profits) / investments) ^ (365 / days)) - 1</code>"
+                "text": "annualized rate of return = (((investment + profits) / investments) ^ (365 / days)) - 1"
             },
             {
                 "style": "Text",
@@ -3286,10 +3046,6 @@
             {
                 "style": "Text",
                 "text": "<i>The formulas:</i>"
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-none\">"
             },
             {
                 "style": "Text",
@@ -3333,15 +3089,7 @@
             },
             {
                 "style": "Text",
-                "text": "</code>"
-            },
-            {
-                "style": "Text",
                 "text": "<i>The JavaScript code:</i>"
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-js\">"
             },
             {
                 "style": "Text",
@@ -3409,10 +3157,6 @@
             },
             {
                 "style": "Text",
-                "text": "</code\">"
-            },
-            {
-                "style": "Text",
                 "text": "In the context of the episode statistics, the calculation is done using the consolidated balance, as explained in the profit loss definition."
             },
             {
@@ -3422,10 +3166,6 @@
             {
                 "style": "Text",
                 "text": "<i>The JavaScript code:</i>"
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-js\">"
             },
             {
                 "style": "Text",
@@ -3502,10 +3242,6 @@
             {
                 "style": "Text",
                 "text": "        ) - 1"
-            },
-            {
-                "style": "Text",
-                "text": "</code\">"
             },
             {
                 "style": "Title",
@@ -3991,15 +3727,15 @@
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">Not Open</code>: the object is not open at the current candle."
+                "text": "Not Open: the object is not open at the current candle."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">Open</code>: the object is open at the current candle."
+                "text": "Open: the object is open at the current candle."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">Closed</code>: the object closes at the current candle."
+                "text": "Closed: the object closes at the current candle."
             },
             {
                 "style": "Title",
@@ -4165,15 +3901,15 @@
             },
             {
                 "style": "Text",
-                "text": "Possible values for lock are <code class=\"language-none\">open</code> and <code class=\"language-none\">closed</code>."
+                "text": "Possible values for lock are open and closed."
             },
             {
                 "style": "Text",
-                "text": "The moment an order is closed, the system checks the <code class=\"language-none\">spawnMultipleOrders</code> parameter at the order's configuration in the trading system. If the value is <code class=\"language-none\">false<code class=\"language-none\">, the system sets the lock to </code>closed</code> so that the data structure may not be used again during the same position."
+                "text": "The moment an order is closed, the system checks the spawnMultipleOrders parameter at the order's configuration in the trading system. If the value is false, the system sets the lock to closed so that the data structure may not be used again during the same position."
             },
             {
                 "style": "Text",
-                "text": "At the moment of opening an order, the system checks the <code class=\"language-none\">spawnMultipleOrders</code> parameter at the order's configuration in the trading system. If the value is <code class=\"language-none\">false<code class=\"language-none\">, the system checks the value of the lock. If the value is </code>open</code>, then it may create the order; if it is <code class=\"language-none\">closed</code> then the order may not be created."
+                "text": "At the moment of opening an order, the system checks the spawnMultipleOrders parameter at the order's configuration in the trading system. If the value is false, the system checks the value of the lock. If the value is open, then it may create the order; if it is closed then the order may not be created."
             },
             {
                 "style": "Title",
@@ -4500,11 +4236,11 @@
             },
             {
                 "style": "List",
-                "text": "<b>The configuration of the execution algorithm</b>: The parameter <code class=\"language-none\">percentageOfStageTargetSize</code> determines what fraction of the target size the algorithm will attempt to execute."
+                "text": "<b>The configuration of the execution algorithm</b>: The parameter percentageOfStageTargetSize determines what fraction of the target size the algorithm will attempt to execute."
             },
             {
                 "style": "List",
-                "text": "<b>The configuration of the order</b>: The parameter <code class=\"language-none\">percentageOfAlgorithmSize</code> determines what fraction of the size handled by the algorithm the order shall be constrained to."
+                "text": "<b>The configuration of the order</b>: The parameter percentageOfAlgorithmSize determines what fraction of the size handled by the algorithm the order shall be constrained to."
             },
             {
                 "style": "Title",
@@ -4639,7 +4375,7 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-none\">No Exit</code> is the default value until a new value is assigned before the object is closed. Other possible values vary with the context."
+                "text": "No Exit is the default value until a new value is assigned before the object is closed. Other possible values vary with the context."
             },
             {
                 "style": "Text",
@@ -4647,23 +4383,23 @@
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">Last Candle Reached</code>: the object was closed because the last candle was reached."
+                "text": "Last Candle Reached: the object was closed because the last candle was reached."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">Position Closed</code>: the position was closed."
+                "text": "Position Closed: the position was closed."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">Take Profit</code>: the take profit target was hit."
+                "text": "Take Profit: the take profit target was hit."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">Stop Loss</code>: the stop loss target was hit."
+                "text": "Stop Loss: the stop loss target was hit."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">Closing Stage</code>: the current stage started closing because the Close Stage is opening."
+                "text": "Closing Stage: the current stage started closing because the Close Stage is opening."
             },
             {
                 "style": "Title",
@@ -4751,7 +4487,7 @@
             },
             {
                 "style": "Text",
-                "text": "The two possible values for the cycle node are <code class=\"language-none\">First</code> and <code class=\"language-none\">Second</code>."
+                "text": "The two possible values for the cycle node are First and Second."
             },
             {
                 "style": "Title",
@@ -4768,14 +4504,6 @@
             {
                 "style": "Text",
                 "text": "Select <i>Configure</i> on the menu to access the configuration."
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
-                "text": "</code\">"
             }
         ]
     },
@@ -5028,10 +4756,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
                 "text": "{"
             },
             {
@@ -5051,20 +4775,16 @@
                 "text": "}"
             },
             {
-                "style": "Text",
-                "text": "</code\">"
+                "style": "List",
+                "text": "initialBalance is the amount of capital you wish to allocate to the trading system."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">initialBalance</code> is the amount of capital you wish to allocate to the trading system."
+                "text": "minimumBalance is the threshold of accummulated losses that switches off the session; when your overall balance (balanceAssetA + balanceAssetB) drops to this value, all trading stops; think of the minimumBalance as a general safety switch."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">minimumBalance</code> is the threshold of accummulated losses that switches off the session; when your overall balance (balanceAssetA + balanceAssetB) drops to this value, all trading stops; think of the <code class=\"language-none\">minimumBalance</code> as a general safety switch."
-            },
-            {
-                "style": "List",
-                "text": "<code class=\"language-none\">maximumBalance</code> is a similar concept as with the <code class=\"language-none\">minimumBalance<code class=\"language-none\"> but on the high side of the </code>initialBalance</code>."
+                "text": "maximumBalance is a similar concept as with the minimumBalance but on the high side of the initialBalance."
             }
         ]
     },
@@ -5184,10 +4904,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
                 "text": "{"
             },
             {
@@ -5203,20 +4919,12 @@
                 "text": "}"
             },
             {
-                "style": "Text",
-                "text": "</code\">"
-            },
-            {
                 "style": "List",
-                "text": "<code class=\"language-none\">initialDatetime</code> is the datetime the session starts at."
+                "text": "initialDatetime is the datetime the session starts at."
             },
             {
                 "style": "Text",
                 "text": "<H4>On Paper Trading, Forward Testing and Live Trading Sessions</H4>"
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-json\">"
             },
             {
                 "style": "Text",
@@ -5240,11 +4948,7 @@
             },
             {
                 "style": "Text",
-                "text": "</code\">"
-            },
-            {
-                "style": "Text",
-                "text": "<i> <code class=\"language-none\">finalDatetime</code> is the datetime the session finishes at. If you don't set a </i>finalDatetime* at the level of the testing session or the trading system, then the session runs for one year."
+                "text": "<i> finalDatetime is the datetime the session finishes at. If you don't set a </i>finalDatetime* at the level of the testing session or the trading system, then the session runs for one year."
             },
             {
                 "style": "Text",
@@ -5256,11 +4960,11 @@
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">initialDatetime</code>, in combination with the <code class=\"language-none\">allowStartingFromThePast<code class=\"language-none\"> parameter, is a hack to allow a live session to start from a date in the past. If there is a valid </code>initialDatetime</code> and <code class=\"language-none\">allowStartingFromThePast</code> is <code class=\"language-none\">true<code class=\"language-none\">, then the live session effectively starts from the specified date in the past. If </code>allowStartingFromThePast</code> is <code class=\"language-none\">false</code> the <code class=\"language-none\">initialDatetime</code> is ignored and the session starts from the present time."
+                "text": "initialDatetime, in combination with the allowStartingFromThePast parameter, is a hack to allow a live session to start from a date in the past. If there is a valid initialDatetime and allowStartingFromThePast is true, then the live session effectively starts from the specified date in the past. If allowStartingFromThePast is false the initialDatetime is ignored and the session starts from the present time."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">allowStartingFromThePast</code> may be <code class=\"language-none\">true<code class=\"language-none\"> or </code>false</code>."
+                "text": "allowStartingFromThePast may be true or false."
             }
         ]
     },
@@ -5274,7 +4978,7 @@
             },
             {
                 "style": "Text",
-                "text": "In the context of backtesting sessions, what time frame you decide to run the session depends on the trading system being tested. If the trading system makes decisions based on the 1-hour candle and above, then <code class=\"language-none\">01-hs</code> may be the best choice. However, if decisions are influenced by sub-hour candles then you should match the time frame accordingly."
+                "text": "In the context of backtesting sessions, what time frame you decide to run the session depends on the trading system being tested. If the trading system makes decisions based on the 1-hour candle and above, then 01-hs may be the best choice. However, if decisions are influenced by sub-hour candles then you should match the time frame accordingly."
             },
             {
                 "style": "Text",
@@ -5282,7 +4986,7 @@
             },
             {
                 "style": "Text",
-                "text": "In the context of live sessions, that is, paper trading, forward testing, and live trading, you should run the session on the <code class=\"language-none\">01-min</code> time frame so that the trading bot reacts fast when the price tags the take profit or stop loss targets. Remember that stop and take profit orders are not placed at the exchange after the take position event, that is, once you enter the position. Instead, the trading bot checks the current price upon each execution cycle and determines whether targets have been hit or not. If targets are hit, only then orders are placed. That is why running live trading sessions at the <code class=\"language-none\">01-min</code> time frame is recommended. Learn more about the management of take profit and stop loss targets."
+                "text": "In the context of live sessions, that is, paper trading, forward testing, and live trading, you should run the session on the 01-min time frame so that the trading bot reacts fast when the price tags the take profit or stop loss targets. Remember that stop and take profit orders are not placed at the exchange after the take position event, that is, once you enter the position. Instead, the trading bot checks the current price upon each execution cycle and determines whether targets have been hit or not. If targets are hit, only then orders are placed. That is why running live trading sessions at the 01-min time frame is recommended. Learn more about the management of take profit and stop loss targets."
             },
             {
                 "style": "Text",
@@ -5310,7 +5014,7 @@
             },
             {
                 "style": "Text",
-                "text": "Let's say it's <code class=\"language-none\">2020-06-11T11:39:30:00.000Z</code>, that is, 11 hours, 39 minutes and 30 seconds of June 11th, 2020."
+                "text": "Let's say it's 2020-06-11T11:39:30:00.000Z, that is, 11 hours, 39 minutes and 30 seconds of June 11th, 2020."
             },
             {
                 "style": "List",
@@ -5358,7 +5062,7 @@
             },
             {
                 "style": "Text",
-                "text": "This means that running the session (for this particular trading system) at the 30-minute time frame has higher probabilities of conditions evaluating 30-minute candles to be <code class=\"language-none\">true</code> during the session."
+                "text": "This means that running the session (for this particular trading system) at the 30-minute time frame has higher probabilities of conditions evaluating 30-minute candles to be true during the session."
             },
             {
                 "style": "Success",
@@ -5394,10 +5098,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-js\">"
-            },
-            {
-                "style": "Text",
                 "text": "{"
             },
             {
@@ -5409,16 +5109,8 @@
                 "text": "}"
             },
             {
-                "style": "Text",
-                "text": "</code\">"
-            },
-            {
                 "style": "List",
-                "text": "<code class=\"language-none\">value</code> is the setting for the time frame. You may use any of the values below."
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-json\">"
+                "text": "value is the setting for the time frame. You may use any of the values below."
             },
             {
                 "style": "Text",
@@ -5462,15 +5154,7 @@
             },
             {
                 "style": "Text",
-                "text": "</code\">"
-            },
-            {
-                "style": "Text",
                 "text": "Available options at larger time frames are:"
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-json\">"
             },
             {
                 "style": "Text",
@@ -5503,10 +5187,6 @@
             {
                 "style": "Text",
                 "text": "24-hs"
-            },
-            {
-                "style": "Text",
-                "text": "</code\">"
             }
         ]
     },
@@ -5544,10 +5224,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
                 "text": "{"
             },
             {
@@ -5568,19 +5244,15 @@
             },
             {
                 "style": "Text",
-                "text": "</code\">"
+                "text": "<i> positionRate is the slippage value applied to the rate of all market orders throughout the position, expressed as a percentage (</i>i.e.:* 0.1 means 0.1%)."
             },
             {
                 "style": "Text",
-                "text": "<i> <code class=\"language-none\">positionRate</code> is the slippage value applied to the rate of all market orders throughout the position, expressed as a percentage (</i>i.e.:* 0.1 means 0.1%)."
-            },
-            {
-                "style": "Text",
-                "text": "<i> <code class=\"language-none\">stopLoss</code> is the slippage value applied to the stop loss target defined by the formulas of each stop loss phase in the manage stage of the trading system, expressed as a percentage (</i>i.e.:<i> 0.2 means 0.2%). The slippage value is applied to the value resulting from the corresponding stop loss formula, and the actual stop loss target is the resulting number. For example, if the stop loss formula results in <code class=\"language-none\">1000<code class=\"language-none\"> and the </code>stopLoss</code> slippage value is <code class=\"language-none\">0.2</code>, then the resulting stop loss target is  <code class=\"language-none\">1000<code class=\"language-none\"> <b>&plusmn;</b> </code>1000 </i> 0.2 / 100</code>. Read below for an explanation on when the slippage is added or subtracted."
+                "text": "<i> stopLoss is the slippage value applied to the stop loss target defined by the formulas of each stop loss phase in the manage stage of the trading system, expressed as a percentage (</i>i.e.:<i> 0.2 means 0.2%). The slippage value is applied to the value resulting from the corresponding stop loss formula, and the actual stop loss target is the resulting number. For example, if the stop loss formula results in 1000 and the stopLoss slippage value is 0.2, then the resulting stop loss target is  1000 <b>&plusmn;</b> 1000 </i> 0.2 / 100. Read below for an explanation on when the slippage is added or subtracted."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">takeProfit</code> works similarly as the <code class=\"language-none\">stopLoss</code> setting, but affecting the take profit target instead of the stop loss target."
+                "text": "takeProfit works similarly as the stopLoss setting, but affecting the take profit target instead of the stop loss target."
             },
             {
                 "style": "Text",
@@ -5638,10 +5310,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
                 "text": "{"
             },
             {
@@ -5657,16 +5325,12 @@
                 "text": "}"
             },
             {
-                "style": "Text",
-                "text": "</code\">"
+                "style": "List",
+                "text": "maker is the setting for the fee the exchange charges when an order adds liquidity to the market, such as with limit orders."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">maker</code> is the setting for the fee the exchange charges when an order adds liquidity to the market, such as with limit orders."
-            },
-            {
-                "style": "List",
-                "text": "<code class=\"language-none\">taker</code> is the setting for the fee the exchange charges when an order takes liquidity from the market, such as with market or instant orders."
+                "text": "taker is the setting for the fee the exchange charges when an order takes liquidity from the market, such as with market or instant orders."
             },
             {
                 "style": "Note",
@@ -5708,10 +5372,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
                 "text": "{"
             },
             {
@@ -5727,16 +5387,12 @@
                 "text": "}"
             },
             {
-                "style": "Text",
-                "text": "</code\">"
+                "style": "List",
+                "text": "strategy determines whether to take a snapshot at the trigger on event or not; possible values are true or false."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">strategy</code> determines whether to take a snapshot at the trigger on event or not; possible values are <code class=\"language-none\">true<code class=\"language-none\"> or </code>false</code>."
-            },
-            {
-                "style": "List",
-                "text": "<code class=\"language-none\">position</code> determines whether to take a snapshot at the take position event or not; possible values are <code class=\"language-none\">true<code class=\"language-none\"> or </code>false</code>."
+                "text": "position determines whether to take a snapshot at the take position event or not; possible values are true or false."
             }
         ]
     },
@@ -5770,10 +5426,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
                 "text": "{"
             },
             {
@@ -5789,16 +5441,12 @@
                 "text": "}"
             },
             {
-                "style": "Text",
-                "text": "</code\">"
+                "style": "List",
+                "text": "date determines whether the date is shown in the progress notice below the trading process instance node; possible values are true or false."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">date</code> determines whether the date is shown in the progress notice below the trading process instance node; possible values are <code class=\"language-none\">true<code class=\"language-none\"> or </code>false</code>."
-            },
-            {
-                "style": "List",
-                "text": "<code class=\"language-none\">candleIndex</code> determines whether the index of the candle is shown in the progress notice below the trading process instance node; possible values are <code class=\"language-none\">true<code class=\"language-none\"> or </code>false</code>."
+                "text": "candleIndex determines whether the index of the candle is shown in the progress notice below the trading process instance node; possible values are true or false."
             }
         ]
     },
@@ -5815,7 +5463,7 @@
             },
             {
                 "style": "Text",
-                "text": "Parameters defined in the configuration file of these node become available to trading systems using the following path: <code class=\"language-none\">sessionParameters.userDefinedParameters.config.parameterName</code>."
+                "text": "Parameters defined in the configuration file of these node become available to trading systems using the following path: sessionParameters.userDefinedParameters.config.parameterName."
             },
             {
                 "style": "Text",
@@ -5839,10 +5487,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
                 "text": "{"
             },
             {
@@ -5858,12 +5502,8 @@
                 "text": "}"
             },
             {
-                "style": "Text",
-                "text": "</code\">"
-            },
-            {
                 "style": "List",
-                "text": "<code class=\"language-none\">param1Name</code> is an example of a name. You may change the names of the parameters as required. Values including text strings go between quotation marks, while numeric values, without. You may define as many parameters as you wish; simply separate them with a comma to keep a valid JSON format for the configuration file."
+                "text": "param1Name is an example of a name. You may change the names of the parameters as required. Values including text strings go between quotation marks, while numeric values, without. You may define as many parameters as you wish; simply separate them with a comma to keep a valid JSON format for the configuration file."
             }
         ]
     },
@@ -5881,7 +5521,7 @@
             },
             {
                 "style": "Text",
-                "text": "When a time frames filter is set up, a <code class=\"language-none\">Time.Frames.json</code> file is created by the indicator process in the corresponding output folder. This file is read by others&mdash;such as the charting system&mdash;to get the information regarding which time frames are available and which are not, to avoid reporting errors."
+                "text": "When a time frames filter is set up, a Time.Frames.json file is created by the indicator process in the corresponding output folder. This file is read by others&mdash;such as the charting system&mdash;to get the information regarding which time frames are available and which are not, to avoid reporting errors."
             },
             {
                 "style": "Important",
@@ -5909,10 +5549,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
                 "text": "{"
             },
             {
@@ -5929,15 +5565,11 @@
             },
             {
                 "style": "Text",
-                "text": "</code\">"
+                "text": "<i> dailyTimeFrames features the time frames corresponding to the </i>daily files* type of data structure; in practical terms, the time frames below one hour."
             },
             {
                 "style": "Text",
-                "text": "<i> <code class=\"language-none\">dailyTimeFrames</code> features the time frames corresponding to the </i>daily files* type of data structure; in practical terms, the time frames below one hour."
-            },
-            {
-                "style": "Text",
-                "text": "<i> <code class=\"language-none\">marketTimeFrames</code> features the time frames corresponding to the </i>market files* type of data structure; in practical terms, the time frames of one hour and above."
+                "text": "<i> marketTimeFrames features the time frames corresponding to the </i>market files* type of data structure; in practical terms, the time frames of one hour and above."
             },
             {
                 "style": "Text",
@@ -5979,10 +5611,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
                 "text": "{"
             },
             {
@@ -5994,12 +5622,8 @@
                 "text": "}"
             },
             {
-                "style": "Text",
-                "text": "</code\">"
-            },
-            {
                 "style": "List",
-                "text": "<code class=\"language-none\">folderName</code> allows you to set a significant name to the folder in which the data products&mdash;and logs&mdash;generated by the session are stored. If left blank, the system names the folders with the session id. This may be handy when you intend to consult the raw data generated by the session, as, otherwise, the folder would be hard to identify."
+                "text": "folderName allows you to set a significant name to the folder in which the data products&mdash;and logs&mdash;generated by the session are stored. If left blank, the system names the folders with the session id. This may be handy when you intend to consult the raw data generated by the session, as, otherwise, the folder would be hard to identify."
             },
             {
                 "style": "Title",
@@ -6053,10 +5677,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
                 "text": "{"
             },
             {
@@ -6072,16 +5692,12 @@
                 "text": "}"
             },
             {
-                "style": "Text",
-                "text": "</code\">"
+                "style": "List",
+                "text": "folderName allows you to set a significant name to the folder in which the data products&mdash;and logs&mdash;generated by the session are stored. If left blank, the system names the folders with the session id. This may be handy when you intend to consult the raw data generated by the session, as, otherwise, the folder would be hard to identify."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">folderName</code> allows you to set a significant name to the folder in which the data products&mdash;and logs&mdash;generated by the session are stored. If left blank, the system names the folders with the session id. This may be handy when you intend to consult the raw data generated by the session, as, otherwise, the folder would be hard to identify."
-            },
-            {
-                "style": "List",
-                "text": "<code class=\"language-none\">balancePercentage</code> is a number defining the percentage of the initialBalance specified in the base aset configuration that will be used for trading. For instance, <code class=\"language-none\">\"balancePercentage\": 1<code class=\"language-none\"> means that 1% of your balance will be made available. Just like the </code>initialBalance</code> is scaled down, the <code class=\"language-none\">minimumBalance</code> and <code class=\"language-none\">maximumBalance</code> are also scaled down accordingly (see base asset)."
+                "text": "balancePercentage is a number defining the percentage of the initialBalance specified in the base aset configuration that will be used for trading. For instance, \"balancePercentage\": 1 means that 1% of your balance will be made available. Just like the initialBalance is scaled down, the minimumBalance and maximumBalance are also scaled down accordingly (see base asset)."
             },
             {
                 "style": "Text",
@@ -6189,10 +5805,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
                 "text": "{"
             },
             {
@@ -6204,12 +5816,8 @@
                 "text": "}"
             },
             {
-                "style": "Text",
-                "text": "</code\">"
-            },
-            {
                 "style": "List",
-                "text": "<code class=\"language-none\">folderName</code> allows you to set a significant name to the folder in which the data products&mdash;and logs&mdash;generated by the session are stored. If left blank, the system names the folders with the session id. This may be handy when you intend to consult the raw data generated by the session, as, otherwise, the folder would be hard to identify."
+                "text": "folderName allows you to set a significant name to the folder in which the data products&mdash;and logs&mdash;generated by the session are stored. If left blank, the system names the folders with the session id. This may be handy when you intend to consult the raw data generated by the session, as, otherwise, the folder would be hard to identify."
             },
             {
                 "style": "Title",
@@ -6262,10 +5870,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
                 "text": "  {"
             },
             {
@@ -6278,11 +5882,7 @@
             },
             {
                 "style": "Text",
-                "text": "</code\">"
-            },
-            {
-                "style": "Text",
-                "text": "<i> <code class=\"language-none\">startDate</code> is the </i>desired starting date* of the data product the sensor bot instance builds, in the <code class=\"language-none\">YYYY-MM-DD<code class=\"language-none\"> format. The sensor bot instance queries its data source for data starting on the configured </code>startDate</code>."
+                "text": "<i> startDate is the </i>desired starting date* of the data product the sensor bot instance builds, in the YYYY-MM-DD format. The sensor bot instance queries its data source for data starting on the configured startDate."
             },
             {
                 "style": "Text",
@@ -6290,7 +5890,7 @@
             },
             {
                 "style": "Text",
-                "text": "  * In the case the <code class=\"language-none\">startDate</code> is changed after the sensor bot has started building a data product, either for an earlier or later date, the sensor re-evaluates the feasibility of starting at the new date. The actual date may or may not change; regardless, the sensor bot discards the existing data product and starts over from the newly discovered date. In other words, if the <code class=\"language-none\">startDate</code> is changed, the sensor bot starts over."
+                "text": "  * In the case the startDate is changed after the sensor bot has started building a data product, either for an earlier or later date, the sensor re-evaluates the feasibility of starting at the new date. The actual date may or may not change; regardless, the sensor bot discards the existing data product and starts over from the newly discovered date. In other words, if the startDate is changed, the sensor bot starts over."
             },
             {
                 "style": "Text",
@@ -6374,10 +5974,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
                 "text": "{"
             },
             {
@@ -6389,12 +5985,8 @@
                 "text": "}"
             },
             {
-                "style": "Text",
-                "text": "</code\">"
-            },
-            {
                 "style": "List",
-                "text": "<code class=\"language-none\">codeName</code> is the name of the data mine as used within the code of the system."
+                "text": "codeName is the name of the data mine as used within the code of the system."
             }
         ]
     },
@@ -6433,14 +6025,6 @@
             {
                 "style": "Text",
                 "text": "Select <i>Configure</i> on the menu to access the configuration."
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
-                "text": "</code\">"
             }
         ]
     },
@@ -6477,10 +6061,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
                 "text": "{"
             },
             {
@@ -6496,12 +6076,8 @@
                 "text": "}"
             },
             {
-                "style": "Text",
-                "text": "</code\">"
-            },
-            {
                 "style": "List",
-                "text": "<code class=\"language-none\">codeName</code> is the name of the bot as used within the code of the system."
+                "text": "codeName is the name of the bot as used within the code of the system."
             }
         ]
     },
@@ -6551,10 +6127,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
                 "text": "  {"
             },
             {
@@ -6587,15 +6159,7 @@
             },
             {
                 "style": "Text",
-                "text": "</code\">"
-            },
-            {
-                "style": "Text",
                 "text": "<b>Multi-Period-Daily:</b>"
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-json\">"
             },
             {
                 "style": "Text",
@@ -6630,12 +6194,8 @@
                 "text": "  }"
             },
             {
-                "style": "Text",
-                "text": "</code\">"
-            },
-            {
                 "style": "List",
-                "text": "<code class=\"language-none\">codeName</code> is the name of the process as used within the code of the system."
+                "text": "codeName is the name of the process as used within the code of the system."
             }
         ]
     },
@@ -6729,10 +6289,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
                 "text": "{"
             },
             {
@@ -6744,12 +6300,8 @@
                 "text": "}"
             },
             {
-                "style": "Text",
-                "text": "</code\">"
-            },
-            {
                 "style": "List",
-                "text": "<code class=\"language-none\">mainUtility</code> determines the type of status dependency, with possible values being <code class=\"language-none\">Self Reference<code class=\"language-none\">, </code>Market Starting Point</code>, or <code class=\"language-none\">Market Ending Point</code>."
+                "text": "mainUtility determines the type of status dependency, with possible values being Self Reference, Market Starting Point, or Market Ending Point."
             }
         ]
     },
@@ -6878,14 +6430,6 @@
             {
                 "style": "Text",
                 "text": "Select <i>Configure</i> on the menu to access the configuration."
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
-                "text": "</code\">"
             }
         ]
     },
@@ -6949,10 +6493,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
                 "text": "{"
             },
             {
@@ -6972,16 +6512,12 @@
                 "text": "}"
             },
             {
-                "style": "Text",
-                "text": "</code\">"
+                "style": "List",
+                "text": "codeName is the name of the product as it is used within the bot's code."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">codeName</code> is the name of the product as it is used within the bot's code."
-            },
-            {
-                "style": "List",
-                "text": "<code class=\"language-none\">pluralVariableName</code> is the plural form of the variable."
+                "text": "pluralVariableName is the plural form of the variable."
             }
         ]
     },
@@ -7016,10 +6552,6 @@
             {
                 "style": "Text",
                 "text": "<b>Multi-Period-Market:</b>"
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-json\">"
             },
             {
                 "style": "Text",
@@ -7067,15 +6599,7 @@
             },
             {
                 "style": "Text",
-                "text": "</code\">"
-            },
-            {
-                "style": "Text",
                 "text": "<b>Multi-Period-Daily:</b>"
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-json\">"
             },
             {
                 "style": "Text",
@@ -7138,32 +6662,28 @@
                 "text": "}"
             },
             {
-                "style": "Text",
-                "text": "</code\">"
+                "style": "List",
+                "text": "codeName is the name of the dataset as used within the code."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">codeName</code> is the name of the dataset as used within the code."
+                "text": "type refers to the type of dataset; possible values are Market Files and Daily Files."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">type</code> refers to the type of dataset; possible values are <code class=\"language-none\">Market Files<code class=\"language-none\"> and </code>Daily Files</code>."
+                "text": "validTimeFrames refers to the time frames handled by the dataset."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">validTimeFrames</code> refers to the time frames handled by the dataset."
+                "text": "filePath sets the path on which files are stored; the proper name of the data mine, the bot and the product need to be entered."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">filePath</code> sets the path on which files are stored; the proper name of the data mine, the bot and the product need to be entered."
+                "text": "fileName sets the name of the files that constitute the dataset."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">fileName</code> sets the name of the files that constitute the dataset."
-            },
-            {
-                "style": "List",
-                "text": "<code class=\"language-none\">timeFrames</code> sets the name and path of the file indicating which time frames shall be filtered when the users sets a time frames filter."
+                "text": "timeFrames sets the name and path of the file indicating which time frames shall be filtered when the users sets a time frames filter."
             }
         ]
     },
@@ -7201,10 +6721,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
                 "text": "{"
             },
             {
@@ -7216,12 +6732,8 @@
                 "text": "}"
             },
             {
-                "style": "Text",
-                "text": "</code\">"
-            },
-            {
                 "style": "List",
-                "text": "<code class=\"language-none\">codeName</code> is the name of the bot as used within the code of the system."
+                "text": "codeName is the name of the bot as used within the code of the system."
             }
         ]
     },
@@ -7401,10 +6913,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-js\">"
-            },
-            {
-                "style": "Text",
                 "text": "{"
             },
             {
@@ -7424,16 +6932,12 @@
                 "text": "}"
             },
             {
-                "style": "Text",
-                "text": "</code\">"
-            },
-            {
                 "style": "List",
-                "text": "<code class=\"language-none\">codeName</code> is the name of the record as it is used in the bot's code."
+                "text": "codeName is the name of the record as it is used in the bot's code."
             },
             {
                 "style": "Text",
-                "text": "<i> <code class=\"language-none\">isCalculated</code> determines if the field is stored in the dataset or if, instead, is calculated at a later stage. A value </i>true* means that the record is not stored. In the case <code class=\"language-none\">isCaculated</code> is not defined in the configuration, it is assumed to be false."
+                "text": "<i> isCalculated determines if the field is stored in the dataset or if, instead, is calculated at a later stage. A value </i>true* means that the record is not stored. In the case isCaculated is not defined in the configuration, it is assumed to be false."
             },
             {
                 "style": "Text",
@@ -7455,15 +6959,151 @@
             },
             {
                 "style": "Text",
-                "text": "In the context of the trading engine, formulas are used to create user defined statistics."
+                "text": "In the context of a trading system, formulas are used to determine the values for several properties, such as the target rate, target size, managed stop loss, managed take profit, and so on."
             },
             {
                 "style": "Text",
-                "text": "Formulas may use indicators and object properties made available by the trading engine. They must evaluate to a number."
+                "text": "Formulas may use indicators and trading engine properties. The main difference between writing a formula and writing a condition is that while conditions must evaluate to true or false, formulas must evaluate to a number."
+            },
+            {
+                "style": "Text",
+                "text": "<b>A simple math example:</b>"
+            },
+            {
+                "style": "Text",
+                "text": "This simple formula may be used to define an initial take profit target 3% above the rate at which the position was taken."
+            },
+            {
+                "style": "Text",
+                "text": "tradingEngine.current.position.entryTargetRate.value * 1.03"
             },
             {
                 "style": "Note",
-                "text": "To learn how to write formulas, see syntax overview."
+                "text": "You may use any variable made available by the trading engine, as explained on the accessing runtime data page."
+            },
+            {
+                "style": "Text",
+                "text": "<b>A simple JavaScript example:</b>"
+            },
+            {
+                "style": "Text",
+                "text": "A bit of very basic JavaScript, introducing conditional statements, allows more intelligence. For example, in this case, we ask if the proposed formula results in a number greater than the current stop loss value; if it does, then the proposed formula is used; if not, then the current stop loss value is left as is."
+            },
+            {
+                "style": "Text",
+                "text": "This is&mdash;basically&mdash;a trailing stop loss 2% below the moving average that may go higher if the moving average goes up, but it may never come down&mdash;thanks to the use of the IF ELSE clause."
+            },
+            {
+                "style": "Text",
+                "text": "if (chart.at01hs.bollingerBand.movingAverage * 0.98 > tradingEngine.current.position.stopLoss.value)"
+            },
+            {
+                "style": "Text",
+                "text": "   {chart.at01hs.bollingerBand.movingAverage * 0.98}"
+            },
+            {
+                "style": "Text",
+                "text": "   else"
+            },
+            {
+                "style": "Text",
+                "text": "   {tradingEngine.current.position.stopLoss.value}"
+            },
+            {
+                "style": "Text",
+                "text": "<b>For developers:</b>"
+            },
+            {
+                "style": "Text",
+                "text": "To build more complex logic within a formula, create a function that implements the logic and returns a numerical value, and then call the function:"
+            },
+            {
+                "style": "Text",
+                "text": "function orderRate() {"
+            },
+            {
+                "style": "Text",
+                "text": "    const ORDER_STEP_NUMBER = 1    // Secuential step number, starting with 1 from the closest to the price."
+            },
+            {
+                "style": "Text",
+                "text": "    const BUY_SELL_SIGN = -1       // 1 for buy orders, -1 for sell orders."
+            },
+            {
+                "style": "Text",
+                "text": "    const STEP_SEPARATION = 0.15   // % of separation of stair steps between them."
+            },
+            {
+                "style": "Text",
+                "text": "    const BASE_FACTOR = 0.2        // % above or below bollinger band without bias."
+            },
+            {
+                "style": "Text",
+                "text": "    const BIAS_FACTOR = 0.3        // % to move the whole stair of orders up or down depending on the bias."
+            },
+            {
+                "style": "Text",
+                "text": "    const BAND_RATE = chart.at01min.bollingerBand.lowerBand    //  Upper Bollinger Band for sell orders, and Lower for buy orders."
+            },
+            {
+                "style": "Text",
+                "text": "    let inbalance = tradingEngine.current.episode.episodeBaseAsset.beginBalance.value - tradingEngine.current.episode.episodeBaseAsset.balance.value"
+            },
+            {
+                "style": "Text",
+                "text": "    let BIAS_SIGN"
+            },
+            {
+                "style": "Text",
+                "text": "    if (inbalance === 0) {"
+            },
+            {
+                "style": "Text",
+                "text": "        BIAS_SIGN = 0"
+            },
+            {
+                "style": "Text",
+                "text": "    }"
+            },
+            {
+                "style": "Text",
+                "text": "    if (inbalance < 0) {"
+            },
+            {
+                "style": "Text",
+                "text": "        BIAS_SIGN = + 1"
+            },
+            {
+                "style": "Text",
+                "text": "    }"
+            },
+            {
+                "style": "Text",
+                "text": "    if (inbalance > 0) {"
+            },
+            {
+                "style": "Text",
+                "text": "        BIAS_SIGN = - 1"
+            },
+            {
+                "style": "Text",
+                "text": "    }"
+            },
+            {
+                "style": "Text",
+                "text": "    let rate = BAND_RATE + BUY_SELL_SIGN <i> BAND_RATE </i> (BASE_FACTOR + ORDER_STEP_NUMBER <i> STEP_SEPARATION + BIAS_SIGN </i> BIAS_FACTOR) / 100"
+            },
+            {
+                "style": "Text",
+                "text": "    return rate"
+            },
+            {
+                "style": "Text",
+                "text": "}"
+            },
+            {
+                "style": "Text",
+                "text": "orderRate()"
             },
             {
                 "style": "Title",
@@ -7471,7 +7111,7 @@
             },
             {
                 "style": "Text",
-                "text": "To add the formula node, select <i>Add Missing Items</i> on the parent node menu."
+                "text": "To add a formula, select <i>Add Formula</i> on the corresponding parent node menu."
             }
         ]
     },
@@ -7526,19 +7166,11 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-js\">"
-            },
-            {
-                "style": "Text",
                 "text": "/<i> Initialization Code. </i>/"
             },
             {
                 "style": "Text",
                 "text": "variable.last200 = []"
-            },
-            {
-                "style": "Text",
-                "text": "</code\">"
             },
             {
                 "style": "Title",
@@ -7633,14 +7265,6 @@
             {
                 "style": "Text",
                 "text": "Select <i>Configure</i> on the menu to access the configuration."
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
-                "text": "</code\">"
             }
         ]
     },
@@ -7693,10 +7317,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
                 "text": "{"
             },
             {
@@ -7708,12 +7328,8 @@
                 "text": "}"
             },
             {
-                "style": "Text",
-                "text": "</code\">"
-            },
-            {
                 "style": "List",
-                "text": "<code class=\"language-none\">codeName</code> is the name of the plotter as it is used within the bot's code."
+                "text": "codeName is the name of the plotter as it is used within the bot's code."
             }
         ]
     },
@@ -8127,7 +7743,7 @@
             },
             {
                 "style": "Text",
-                "text": "To switch from one phase to the next phase in the sequence, the next phase event is used. When the situation described in the next phase event validates <code class=\"language-none\">true</code>, the switch occurs and the next phase becomes the active phase."
+                "text": "To switch from one phase to the next phase in the sequence, the next phase event is used. When the situation described in the next phase event validates true, the switch occurs and the next phase becomes the active phase."
             },
             {
                 "style": "Text",
@@ -8219,7 +7835,7 @@
             },
             {
                 "style": "Note",
-                "text": "A move-to-phase event must reference a phase node. When the situation in the move-to-phase event evaluates <code class=\"language-none\">true</code> the management shifts to the referenced phase."
+                "text": "A move-to-phase event must reference a phase node. When the situation in the move-to-phase event evaluates true the management shifts to the referenced phase."
             },
             {
                 "style": "Title",
@@ -8315,15 +7931,7 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-none\">"
-            },
-            {
-                "style": "Text",
                 "text": "tradingEngine.current.episode.episodeBaseAsset.balance.value"
-            },
-            {
-                "style": "Text",
-                "text": "</code>"
             },
             {
                 "style": "Text",
@@ -8331,15 +7939,7 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-none\">"
-            },
-            {
-                "style": "Text",
                 "text": "tradingEngine.current.episode.episodeQuotedAsset.balance.value"
-            },
-            {
-                "style": "Text",
-                "text": "</code>"
             },
             {
                 "style": "Text",
@@ -8347,19 +7947,11 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-none\">"
-            },
-            {
-                "style": "Text",
                 "text": "tradingEngine.current.strategyOpenStage.stageBaseAsset.sizeFilled.value - tradingEngine.current.strategyOpenStage.stageBaseAsset.feesPaid.value"
             },
             {
                 "style": "Text",
-                "text": "</code>"
-            },
-            {
-                "style": "Text",
-                "text": "Of course, you may need to adjust the above to use <code class=\"language-none\">stageBaseAsset</code> or <code class=\"language-none\">stageQuotedAsset</code>, as required. In short, the formula returns the amount of the asset obtained by the transactions triggered during the open stage, minus the fees (and slippage, which is already subtracted from the size filled)."
+                "text": "Of course, you may need to adjust the above to use stageBaseAsset or stageQuotedAsset, as required. In short, the formula returns the amount of the asset obtained by the transactions triggered during the open stage, minus the fees (and slippage, which is already subtracted from the size filled)."
             },
             {
                 "style": "Title",
@@ -8443,7 +8035,7 @@
             },
             {
                 "style": "Text",
-                "text": "For example, <code class=\"language-none\">tradingEngine.current.position.entryTargetRate.value</code> or <code class=\"language-none\">tradingEngine.current.position.exitTargetRate.value</code>."
+                "text": "For example, tradingEngine.current.position.entryTargetRate.value or tradingEngine.current.position.exitTargetRate.value."
             },
             {
                 "style": "Text",
@@ -8459,11 +8051,11 @@
             },
             {
                 "style": "Text",
-                "text": "The horizontal segment marks the target rate defined at the open stage. If you are using market orders to take the position, then using <code class=\"language-none\">tradingEngine.current.episode.candle.close.value</code> may offer a good representation of the rate of market orders. If you are using limit orders, then you may decide at which rate you wish to take the position, and the horizontal segment of the triangle will match the chosen rate."
+                "text": "The horizontal segment marks the target rate defined at the open stage. If you are using market orders to take the position, then using tradingEngine.current.episode.candle.close.value may offer a good representation of the rate of market orders. If you are using limit orders, then you may decide at which rate you wish to take the position, and the horizontal segment of the triangle will match the chosen rate."
             },
             {
                 "style": "Text",
-                "text": "The third vertex of the triangle points to a <code class=\"language-none\">[datetime, rate]</code> coordinate. The <code class=\"language-none\">datetime<code class=\"language-none\"> is given by the candle on which the manage stage closes, that is, the candle at which the stop loss or take profit targets are hit. The </code>rate</code> portion of the coordinate is given by the target rate defined in the close stage."
+                "text": "The third vertex of the triangle points to a [datetime, rate] coordinate. The datetime is given by the candle on which the manage stage closes, that is, the candle at which the stop loss or take profit targets are hit. The rate portion of the coordinate is given by the target rate defined in the close stage."
             },
             {
                 "style": "Text",
@@ -8491,15 +8083,11 @@
             },
             {
                 "style": "Text",
-                "text": "The difference in rate between the moment in time the target is hit and the time the 1-hour candle closes may be significant. As a result, if the close stage target rate is defined as <code class=\"language-none\">tradingEngine.current.episode.candle.close.value</code>, the resulting simulation may show significant slippage, and diverge from what the trade would look like if running on the 1-minute time frame, like you would when trading live."
+                "text": "The difference in rate between the moment in time the target is hit and the time the 1-hour candle closes may be significant. As a result, if the close stage target rate is defined as tradingEngine.current.episode.candle.close.value, the resulting simulation may show significant slippage, and diverge from what the trade would look like if running on the 1-minute time frame, like you would when trading live."
             },
             {
                 "style": "Text",
                 "text": "To solve the above issue, you may use a more ellaborate formula for the target rate in the close stage:"
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-js\">"
             },
             {
                 "style": "Text",
@@ -8568,10 +8156,6 @@
             {
                 "style": "Text",
                 "text": "}"
-            },
-            {
-                "style": "Text",
-                "text": "</code\">"
             },
             {
                 "style": "Text",
@@ -8713,10 +8297,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
                 "text": "{"
             },
             {
@@ -8728,12 +8308,8 @@
                 "text": "}"
             },
             {
-                "style": "Text",
-                "text": "</code\">"
-            },
-            {
                 "style": "List",
-                "text": "<code class=\"language-none\">percentageOfStageTargetSize</code> is the definition of how much of the target size of the whole stage will be handled by the one specific execution algorithm, expressed as a percentage of the total target size. Posible values are real numbers between <code class=\"language-none\">0<code class=\"language-none\"> and </code>100</code>, including the extremes. If you set the value to <code class=\"language-none\">0</code>, the algorithm will not be executed."
+                "text": "percentageOfStageTargetSize is the definition of how much of the target size of the whole stage will be handled by the one specific execution algorithm, expressed as a percentage of the total target size. Posible values are real numbers between 0 and 100, including the extremes. If you set the value to 0, the algorithm will not be executed."
             }
         ]
     },
@@ -8775,15 +8351,11 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-none\">algorithmSize = targetSize * percentageOfStageTargetSize / 100</code>"
+                "text": "algorithmSize = targetSize * percentageOfStageTargetSize / 100"
             },
             {
                 "style": "Text",
                 "text": "<i>The actual code:</i>"
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-js\">"
             },
             {
                 "style": "Text",
@@ -8795,10 +8367,6 @@
             },
             {
                 "style": "Text",
-                "text": "</code\">"
-            },
-            {
-                "style": "Text",
                 "text": "Similarly, the size of an order is defined as a percentage of the size that the particular algorithm is allowed to execute <i>(see the configuration)</i>."
             },
             {
@@ -8807,7 +8375,7 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-none\">orderSize = algorithmSize * percentageOfAlgorithmSize / 100</code>"
+                "text": "orderSize = algorithmSize * percentageOfAlgorithmSize / 100"
             },
             {
                 "style": "Text",
@@ -8815,15 +8383,7 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-js\">"
-            },
-            {
-                "style": "Text",
                 "text": "tradingEngineOrder.orderBaseAsset.size.value = algorithmSizeInBaseAsset * tradingSystemOrder.config.percentageOfAlgorithmSize / 100"
-            },
-            {
-                "style": "Text",
-                "text": "</code\">"
             },
             {
                 "style": "Text",
@@ -8859,10 +8419,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-js\">"
-            },
-            {
-                "style": "Text",
                 "text": "if   ( targetSize + sizePlaced > targetSize )"
             },
             {
@@ -8871,15 +8427,7 @@
             },
             {
                 "style": "Text",
-                "text": "</code\">"
-            },
-            {
-                "style": "Text",
                 "text": "<i>The actual code:</i>"
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-js\">"
             },
             {
                 "style": "Text",
@@ -8904,10 +8452,6 @@
             {
                 "style": "Text",
                 "text": "   }"
-            },
-            {
-                "style": "Text",
-                "text": "</code\">"
             },
             {
                 "style": "Note",
@@ -8979,10 +8523,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
                 "text": "{"
             },
             {
@@ -8998,16 +8538,12 @@
                 "text": "}"
             },
             {
-                "style": "Text",
-                "text": "</code\">"
+                "style": "List",
+                "text": "percentageOfAlgorithmSize is the definition of how much of the size handled by the algorithm shall be allocated to this particular order. Posible values are real numbers between 0 and 100, including the extremes. If you set the value to 0, the order will not be executed."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">percentageOfAlgorithmSize</code> is the definition of how much of the size handled by the algorithm shall be allocated to this particular order. Posible values are real numbers between <code class=\"language-none\">0<code class=\"language-none\"> and </code>100</code>, including the extremes. If you set the value to <code class=\"language-none\">0</code>, the order will not be executed."
-            },
-            {
-                "style": "List",
-                "text": "<code class=\"language-none\">spawnMultipleOrders</code> is the parameter that indicates whether additional spawned orders are allowed (<code class=\"language-none\">true<code class=\"language-none\">) or not (</code>false</code>)."
+                "text": "spawnMultipleOrders is the parameter that indicates whether additional spawned orders are allowed (true) or not (false)."
             }
         ]
     },
@@ -9041,10 +8577,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
                 "text": "{"
             },
             {
@@ -9060,16 +8592,12 @@
                 "text": "}"
             },
             {
-                "style": "Text",
-                "text": "</code\">"
+                "style": "List",
+                "text": "percentageOfAlgorithmSize is the definition of how much of the size handled by the algorithm shall be allocated to this particular order. Posible values are real numbers between 0 and 100, including the extremes. If you set the value to 0, the order will not be executed."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">percentageOfAlgorithmSize</code> is the definition of how much of the size handled by the algorithm shall be allocated to this particular order. Posible values are real numbers between <code class=\"language-none\">0<code class=\"language-none\"> and </code>100</code>, including the extremes. If you set the value to <code class=\"language-none\">0</code>, the order will not be executed."
-            },
-            {
-                "style": "List",
-                "text": "<code class=\"language-none\">spawnMultipleOrders</code> is the parameter that indicates whether additional spawned orders are allowed (<code class=\"language-none\">true<code class=\"language-none\">) or not (</code>false</code>)."
+                "text": "spawnMultipleOrders is the parameter that indicates whether additional spawned orders are allowed (true) or not (false)."
             }
         ]
     },
@@ -9127,10 +8655,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
                 "text": "{"
             },
             {
@@ -9146,16 +8670,12 @@
                 "text": "}"
             },
             {
-                "style": "Text",
-                "text": "</code\">"
+                "style": "List",
+                "text": "percentageOfAlgorithmSize is the definition of how much of the size handled by the algorithm shall be allocated to this particular order. Posible values are real numbers between 0 and 100, including the extremes. If you set the value to 0, the order will not be executed."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">percentageOfAlgorithmSize</code> is the definition of how much of the size handled by the algorithm shall be allocated to this particular order. Posible values are real numbers between <code class=\"language-none\">0<code class=\"language-none\"> and </code>100</code>, including the extremes. If you set the value to <code class=\"language-none\">0</code>, the order will not be executed."
-            },
-            {
-                "style": "List",
-                "text": "<code class=\"language-none\">spawnMultipleOrders</code> is the parameter that indicates whether additional spawned orders are allowed (<code class=\"language-none\">true<code class=\"language-none\">) or not (</code>false</code>)."
+                "text": "spawnMultipleOrders is the parameter that indicates whether additional spawned orders are allowed (true) or not (false)."
             }
         ]
     },
@@ -9189,10 +8709,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
                 "text": "{"
             },
             {
@@ -9208,16 +8724,12 @@
                 "text": "}"
             },
             {
-                "style": "Text",
-                "text": "</code\">"
+                "style": "List",
+                "text": "percentageOfAlgorithmSize is the definition of how much of the size handled by the algorithm shall be allocated to this particular order. Posible values are real numbers between 0 and 100, including the extremes. If you set the value to 0, the order will not be executed."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">percentageOfAlgorithmSize</code> is the definition of how much of the size handled by the algorithm shall be allocated to this particular order. Posible values are real numbers between <code class=\"language-none\">0<code class=\"language-none\"> and </code>100</code>, including the extremes. If you set the value to <code class=\"language-none\">0</code>, the order will not be executed."
-            },
-            {
-                "style": "List",
-                "text": "<code class=\"language-none\">spawnMultipleOrders</code> is the parameter that indicates whether additional spawned orders are allowed (<code class=\"language-none\">true<code class=\"language-none\">) or not (</code>false</code>)."
+                "text": "spawnMultipleOrders is the parameter that indicates whether additional spawned orders are allowed (true) or not (false)."
             }
         ]
     },
@@ -9235,11 +8747,11 @@
             },
             {
                 "style": "Text",
-                "text": "An order defined in an execution algorithm will be executed only if the event evaluates <code class=\"language-none\">true</code>."
+                "text": "An order defined in an execution algorithm will be executed only if the event evaluates true."
             },
             {
                 "style": "Text",
-                "text": "If you wish orders to be placed as defined immediately after the take position event has been triggered, the use the statement <code class=\"language-none\">true</code> your only create order event condition."
+                "text": "If you wish orders to be placed as defined immediately after the take position event has been triggered, the use the statement true your only create order event condition."
             },
             {
                 "style": "Title",
@@ -9337,10 +8849,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
                 "text": "{"
             },
             {
@@ -9352,12 +8860,8 @@
                 "text": "}"
             },
             {
-                "style": "Text",
-                "text": "</code\">"
-            },
-            {
                 "style": "List",
-                "text": "<code class=\"language-none\">fillProbability</code> indicates the probability of an order getting filled upon each tag of the price. Values may range from <code class=\"language-none\">0<code class=\"language-none\"> to </code>1</code>. The value <code class=\"language-none\">0</code> indicates that there are 0% chances of the order getting filled. With such a setting, the order will never get filled in the simulation.  The value <code class=\"language-none\">1<code class=\"language-none\"> indicates that there is a 100% probability of the order getting filled. With such a setting, the order is filled upon the first tag of the price. A value of </code>0.5</code> indicates a 50% probability, thus, it takes two tags of the price for the order to fill completely with such a setting."
+                "text": "fillProbability indicates the probability of an order getting filled upon each tag of the price. Values may range from 0 to 1. The value 0 indicates that there are 0% chances of the order getting filled. With such a setting, the order will never get filled in the simulation.  The value 1 indicates that there is a 100% probability of the order getting filled. With such a setting, the order is filled upon the first tag of the price. A value of 0.5 indicates a 50% probability, thus, it takes two tags of the price for the order to fill completely with such a setting."
             }
         ]
     },
@@ -9421,10 +8925,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
                 "text": "{"
             },
             {
@@ -9436,12 +8936,8 @@
                 "text": "}"
             },
             {
-                "style": "Text",
-                "text": "</code\">"
-            },
-            {
                 "style": "List",
-                "text": "<code class=\"language-none\">percentage</code> is the percentage to be applied to calculate the fees for the specific order."
+                "text": "percentage is the percentage to be applied to calculate the fees for the specific order."
             }
         ]
     },
@@ -9658,10 +9154,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
                 "text": "{"
             },
             {
@@ -9705,16 +9197,12 @@
                 "text": "}"
             },
             {
-                "style": "Text",
-                "text": "</code\">"
+                "style": "List",
+                "text": "codeName is the name of the exchange as handled in the code of the system."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">codeName</code> is the name of the exchange as handled in the code of the system."
-            },
-            {
-                "style": "List",
-                "text": "<code class=\"language-none\">API</code> holds a series of definitions used only in the case in which the sensor bot fetches trades (using the Historic-Trades process) instead of the OHLCV process that fetches one-minute candles and is the current default. In such a case, finding the right set of parameters to work with a specific exchange may be challenging, nd involves understanding how the exchanges API and the CCXT Library API work. In other words, there is no hard rule as of what each of the values should be. Determining each of this values requires exploring the exchange's API documentation, as well as the documentation of the CCXT Library."
+                "text": "API holds a series of definitions used only in the case in which the sensor bot fetches trades (using the Historic-Trades process) instead of the OHLCV process that fetches one-minute candles and is the current default. In such a case, finding the right set of parameters to work with a specific exchange may be challenging, nd involves understanding how the exchanges API and the CCXT Library API work. In other words, there is no hard rule as of what each of the values should be. Determining each of this values requires exploring the exchange's API documentation, as well as the documentation of the CCXT Library."
             }
         ]
     },
@@ -9744,10 +9232,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
                 "text": "{"
             },
             {
@@ -9760,11 +9244,7 @@
             },
             {
                 "style": "Text",
-                "text": "</code\">"
-            },
-            {
-                "style": "Text",
-                "text": "<i> <code class=\"language-none\">addMissingAssets</code> acts as a filter to determine which assets of a (potentially long) list of assets listed at the exchange will be added when the </i>Add Missing Assets* option in the menu is used. Because many exchanges do not offer a list of assets, the system fetches assets from actual markets (pairs) listed at the exchange. You may add missing assets filtered by the <code class=\"language-none\">quotedAsset<code class=\"language-none\"> or by the </code>baseAsset</code>. For example, the above configuration would add all assets listed in markets in which BTC is the quoted asset."
+                "text": "<i> addMissingAssets acts as a filter to determine which assets of a (potentially long) list of assets listed at the exchange will be added when the </i>Add Missing Assets* option in the menu is used. Because many exchanges do not offer a list of assets, the system fetches assets from actual markets (pairs) listed at the exchange. You may add missing assets filtered by the quotedAsset or by the baseAsset. For example, the above configuration would add all assets listed in markets in which BTC is the quoted asset."
             }
         ]
     },
@@ -9798,10 +9278,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
                 "text": "{"
             },
             {
@@ -9814,11 +9290,7 @@
             },
             {
                 "style": "Text",
-                "text": "</code\">"
-            },
-            {
-                "style": "Text",
-                "text": "<i> <code class=\"language-none\">codeName</code> is the ticker of the asset as listed by the exchange (</i>i.e.:* BTC, BTH, ETH, LTC, BNB, USDT, USD, etc.)"
+                "text": "<i> codeName is the ticker of the asset as listed by the exchange (</i>i.e.:* BTC, BTH, ETH, LTC, BNB, USDT, USD, etc.)"
             },
             {
                 "style": "Note",
@@ -9990,10 +9462,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
                 "text": "{"
             },
             {
@@ -10009,12 +9477,8 @@
                 "text": "}"
             },
             {
-                "style": "Text",
-                "text": "</code\">"
-            },
-            {
                 "style": "List",
-                "text": "<code class=\"language-none\">codeName</code> is the name or label of your key, as supplied by the exchange."
+                "text": "codeName is the name or label of your key, as supplied by the exchange."
             },
             {
                 "style": "Warning",
@@ -10049,14 +9513,6 @@
             {
                 "style": "Text",
                 "text": "Select <i>Configure</i> on the menu to access the configuration."
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
-                "text": "</code\">"
             }
         ]
     },
@@ -10079,10 +9535,6 @@
             {
                 "style": "Text",
                 "text": "Select <i>Configure</i> on the menu to access the configuration."
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-json\">"
             },
             {
                 "style": "Text",
@@ -10161,40 +9613,36 @@
                 "text": "    }"
             },
             {
-                "style": "Text",
-                "text": "</code\">"
+                "style": "List",
+                "text": "backgroundColor refers to the background of the design space (see table below)."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">backgroundColor</code> refers to the background of the design space (see table below)."
-            },
-            {
-                "style": "List",
-                "text": "<code class=\"language-none\">node</code> refers to all nodes in the design space."
+                "text": "node refers to all nodes in the design space."
             },
             {
                 "style": "Text",
-                "text": "  * <code class=\"language-none\">imageSize</code> refers to the size of icons representing nodes."
+                "text": "  * imageSize refers to the size of icons representing nodes."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">type</code> refers to the type of node, as indicated by the string of text below each node."
+                "text": "type refers to the type of node, as indicated by the string of text below each node."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">name</code> refers to the name or label of the node, as indicated above the node."
+                "text": "name refers to the name or label of the node, as indicated above the node."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">menuItem</code> refers to items on the right-hand side of the menu."
+                "text": "menuItem refers to items on the right-hand side of the menu."
             },
             {
                 "style": "Text",
-                "text": "  * <code class=\"language-none\">fontSize</code> refers to the size of the font of the string of text."
+                "text": "  * fontSize refers to the size of the font of the string of text."
             },
             {
                 "style": "Text",
-                "text": "  * <code class=\"language-none\">imageSize</code> refers to the size of the icon illustrating the menu item."
+                "text": "  * imageSize refers to the size of the icon illustrating the menu item."
             },
             {
                 "style": "Text",
@@ -10206,63 +9654,63 @@
             },
             {
                 "style": "Text",
-                "text": "<tr><td> <code class=\"language-none\">DARK</code> </td><td> 48, 48, 54 </td><td> <span style=\"display: block; background: RGB(48, 48, 54); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+                "text": "<tr><td> DARK </td><td> 48, 48, 54 </td><td> <span style=\"display: block; background: RGB(48, 48, 54); border: 1px solid black;\">&nbsp;</span> </td></tr>"
             },
             {
                 "style": "Text",
-                "text": "<tr><td> <code class=\"language-none\">LIGHT</code> </td><td> 234, 226, 222 </td><td> <span style=\"display: block; background: RGB(234, 226, 222); border: 1px black; border: 1px solid black;\">&nbsp;</span> </td></tr>"
+                "text": "<tr><td> LIGHT </td><td> 234, 226, 222 </td><td> <span style=\"display: block; background: RGB(234, 226, 222); border: 1px black; border: 1px solid black;\">&nbsp;</span> </td></tr>"
             },
             {
                 "style": "Text",
-                "text": "<tr><td> <code class=\"language-none\">GREY</code> </td><td> 150, 150, 150 </td><td> <span style=\"display: block; background: RGB(150, 150, 150); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+                "text": "<tr><td> GREY </td><td> 150, 150, 150 </td><td> <span style=\"display: block; background: RGB(150, 150, 150); border: 1px solid black;\">&nbsp;</span> </td></tr>"
             },
             {
                 "style": "Text",
-                "text": "<tr><td> <code class=\"language-none\">LIGHT_GREY</code> </td><td> 247, 247, 247 </td><td> <span style=\"display: block; background: RGB(247, 247, 247); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+                "text": "<tr><td> LIGHT_GREY </td><td> 247, 247, 247 </td><td> <span style=\"display: block; background: RGB(247, 247, 247); border: 1px solid black;\">&nbsp;</span> </td></tr>"
             },
             {
                 "style": "Text",
-                "text": "<tr><td> <code class=\"language-none\">WHITE</code> </td><td> 255, 255, 255 </td><td> <span style=\"display: block; background: RGB(255, 255, 255); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+                "text": "<tr><td> WHITE </td><td> 255, 255, 255 </td><td> <span style=\"display: block; background: RGB(255, 255, 255); border: 1px solid black;\">&nbsp;</span> </td></tr>"
             },
             {
                 "style": "Text",
-                "text": "<tr><td> <code class=\"language-none\">BLACK</code> </td><td> 0, 0, 0 </td><td> <span style=\"display: block; background: RGB(0, 0, 0); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+                "text": "<tr><td> BLACK </td><td> 0, 0, 0 </td><td> <span style=\"display: block; background: RGB(0, 0, 0); border: 1px solid black;\">&nbsp;</span> </td></tr>"
             },
             {
                 "style": "Text",
-                "text": "<tr><td> <code class=\"language-none\">GOLDEN_ORANGE</code> </td><td> 240, 162, 2 </td><td> <span style=\"display: block; background: RGB(240, 162, 2); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+                "text": "<tr><td> GOLDEN_ORANGE </td><td> 240, 162, 2 </td><td> <span style=\"display: block; background: RGB(240, 162, 2); border: 1px solid black;\">&nbsp;</span> </td></tr>"
             },
             {
                 "style": "Text",
-                "text": "<tr><td> <code class=\"language-none\">RUSTED_RED</code> </td><td> 204, 88, 53 </td><td> <span style=\"display: block; background: RGB(204, 88, 53); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+                "text": "<tr><td> RUSTED_RED </td><td> 204, 88, 53 </td><td> <span style=\"display: block; background: RGB(204, 88, 53); border: 1px solid black;\">&nbsp;</span> </td></tr>"
             },
             {
                 "style": "Text",
-                "text": "<tr><td> <code class=\"language-none\">GREEN</code> </td><td> 188, 214, 67 </td><td> <span style=\"display: block; background: RGB(188, 214, 67); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+                "text": "<tr><td> GREEN </td><td> 188, 214, 67 </td><td> <span style=\"display: block; background: RGB(188, 214, 67); border: 1px solid black;\">&nbsp;</span> </td></tr>"
             },
             {
                 "style": "Text",
-                "text": "<tr><td> <code class=\"language-none\">RED</code> </td><td> 223, 70, 60 </td><td> <span style=\"display: block; background: RGB(223, 70, 60); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+                "text": "<tr><td> RED </td><td> 223, 70, 60 </td><td> <span style=\"display: block; background: RGB(223, 70, 60); border: 1px solid black;\">&nbsp;</span> </td></tr>"
             },
             {
                 "style": "Text",
-                "text": "<tr><td> <code class=\"language-none\">PATINATED_TURQUOISE</code> </td><td> 27, 153, 139 </td><td> <span style=\"display: block; background: RGB(27, 153, 139); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+                "text": "<tr><td> PATINATED_TURQUOISE </td><td> 27, 153, 139 </td><td> <span style=\"display: block; background: RGB(27, 153, 139); border: 1px solid black;\">&nbsp;</span> </td></tr>"
             },
             {
                 "style": "Text",
-                "text": "<tr><td> <code class=\"language-none\">TITANIUM_YELLOW</code> </td><td> 244, 228, 9 </td><td> <span style=\"display: block; background: RGB(244, 228, 9); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+                "text": "<tr><td> TITANIUM_YELLOW </td><td> 244, 228, 9 </td><td> <span style=\"display: block; background: RGB(244, 228, 9); border: 1px solid black;\">&nbsp;</span> </td></tr>"
             },
             {
                 "style": "Text",
-                "text": "<tr><td> <code class=\"language-none\">MANGANESE_PURPLE</code> </td><td> 91,80, 122 </td><td> <span style=\"display: block; background: RGB(91,80, 122); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+                "text": "<tr><td> MANGANESE_PURPLE </td><td> 91,80, 122 </td><td> <span style=\"display: block; background: RGB(91,80, 122); border: 1px solid black;\">&nbsp;</span> </td></tr>"
             },
             {
                 "style": "Text",
-                "text": "<tr><td> <code class=\"language-none\">TURQUOISE</code> </td><td> 74, 207, 217 </td><td> <span style=\"display: block; background: RGB(74, 207, 217); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+                "text": "<tr><td> TURQUOISE </td><td> 74, 207, 217 </td><td> <span style=\"display: block; background: RGB(74, 207, 217); border: 1px solid black;\">&nbsp;</span> </td></tr>"
             },
             {
                 "style": "Text",
-                "text": "<tr><td> <code class=\"language-none\">DARK_TURQUOISE</code> </td><td> 2, 149, 170 </td><td> <span style=\"display: block; background: RGB(2, 149, 170); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+                "text": "<tr><td> DARK_TURQUOISE </td><td> 2, 149, 170 </td><td> <span style=\"display: block; background: RGB(2, 149, 170); border: 1px solid black;\">&nbsp;</span> </td></tr>"
             },
             {
                 "style": "Text",
@@ -10289,10 +9737,6 @@
             {
                 "style": "Text",
                 "text": "Select <i>Configure</i> on the menu to access the configuration."
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-json\">"
             },
             {
                 "style": "Text",
@@ -10347,40 +9791,36 @@
                 "text": "}"
             },
             {
+                "style": "List",
+                "text": "node refers to every node in the design space."
+            },
+            {
                 "style": "Text",
-                "text": "</code\">"
+                "text": "  * radiusPercentage is the radius of the circular nodes' menu applied as a percentage of an arbitrary default radius."
+            },
+            {
+                "style": "Text",
+                "text": "  * massPercentage is the refernce mass of nodes that affect the attraction and repulsion of the environment's pysics whe the physics setting is set to true."
+            },
+            {
+                "style": "Text",
+                "text": "  * menuItem refers to the items on the right-hand side of nodes' menus."
+            },
+            {
+                "style": "Text",
+                "text": "    * widthPercentage is the reference width of an item applied as a percentage of an arbitrary default width."
+            },
+            {
+                "style": "Text",
+                "text": "    * heightPercentage is the reference height of an item applied as a percentage of an arbitrary default height."
+            },
+            {
+                "style": "Text",
+                "text": "    * radiusPercentage is the reference radious of the circular matrix that governs the distribution of items in the circular menu. Larger numbers cause items to spread appart while smaller numbers makes items lie closer to each other."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">node</code> refers to every node in the design space."
-            },
-            {
-                "style": "Text",
-                "text": "  * <code class=\"language-none\">radiusPercentage</code> is the radius of the circular nodes' menu applied as a percentage of an arbitrary default radius."
-            },
-            {
-                "style": "Text",
-                "text": "  * <code class=\"language-none\">massPercentage</code> is the refernce mass of nodes that affect the attraction and repulsion of the environment's pysics whe the physics setting is set to <code class=\"language-none\">true</code>."
-            },
-            {
-                "style": "Text",
-                "text": "  * <code class=\"language-none\">menuItem</code> refers to the items on the right-hand side of nodes' menus."
-            },
-            {
-                "style": "Text",
-                "text": "    * <code class=\"language-none\">widthPercentage</code> is the reference width of an item applied as a percentage of an arbitrary default width."
-            },
-            {
-                "style": "Text",
-                "text": "    * <code class=\"language-none\">heightPercentage</code> is the reference height of an item applied as a percentage of an arbitrary default height."
-            },
-            {
-                "style": "Text",
-                "text": "    * <code class=\"language-none\">radiusPercentage</code> is the reference radious of the circular matrix that governs the distribution of items in the circular menu. Larger numbers cause items to spread appart while smaller numbers makes items lie closer to each other."
-            },
-            {
-                "style": "List",
-                "text": "<code class=\"language-none\">physics</code> determines wether the environment is static (<code class=\"language-none\">false<code class=\"language-none\">) or dynamic (</code>true</code>). When physics is set to <code class=\"language-none\">true</code>, nodes in the design space are affected by th gravitational pull and repulsion of other nodes."
+                "text": "physics determines wether the environment is static (false) or dynamic (true). When physics is set to true, nodes in the design space are affected by th gravitational pull and repulsion of other nodes."
             }
         ]
     },
@@ -10557,10 +9997,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
                 "text": "{"
             },
             {
@@ -10584,24 +10020,20 @@
                 "text": "}"
             },
             {
-                "style": "Text",
-                "text": "</code\">"
+                "style": "List",
+                "text": "minValue is a date in the Epoch time format that represents the value of the scale at the left border of the chart."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">minValue</code> is a date in the Epoch time format that represents the value of the scale at the left border of the chart."
+                "text": "maxValue is a date in the Epoch time format that represents the value of the scale at the right border of the chart."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">maxValue</code> is a date in the Epoch time format that represents the value of the scale at the right border of the chart."
+                "text": "autoMinScale sets the mode of the scale for the minimum value; true sets the value to automatic, false sets the value to manual."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">autoMinScale</code> sets the mode of the scale for the minimum value; <code class=\"language-none\">true<code class=\"language-none\"> sets the value to automatic, </code>false</code> sets the value to manual."
-            },
-            {
-                "style": "List",
-                "text": "<code class=\"language-none\">autoMaxScale</code> sets the mode of the scale for the maximum value; <code class=\"language-none\">true<code class=\"language-none\"> sets the value to automatic, </code>false</code> sets the value to manual."
+                "text": "autoMaxScale sets the mode of the scale for the maximum value; true sets the value to automatic, false sets the value to manual."
             },
             {
                 "style": "Title",
@@ -10735,10 +10167,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
                 "text": "{"
             },
             {
@@ -10762,24 +10190,20 @@
                 "text": "}"
             },
             {
-                "style": "Text",
-                "text": "</code\">"
+                "style": "List",
+                "text": "minValue is a numerical value that represents the value of the scale at the bottom of the chart."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">minValue</code> is a numerical value that represents the value of the scale at the bottom of the chart."
+                "text": "maxValue is a numerical value that represents the value of the scale at the top of the chart."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">maxValue</code> is a numerical value that represents the value of the scale at the top of the chart."
+                "text": "autoMinScale sets the mode of the scale for the minimum value; true sets the value to automatic, false sets the value to manual."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">autoMinScale</code> sets the mode of the scale for the minimum value; <code class=\"language-none\">true<code class=\"language-none\"> sets the value to automatic, </code>false</code> sets the value to manual."
-            },
-            {
-                "style": "List",
-                "text": "<code class=\"language-none\">autoMaxScale</code> sets the mode of the scale for the maximum value; <code class=\"language-none\">true<code class=\"language-none\"> sets the value to automatic, </code>false</code> sets the value to manual."
+                "text": "autoMaxScale sets the mode of the scale for the maximum value; true sets the value to automatic, false sets the value to manual."
             },
             {
                 "style": "Title",
@@ -10877,10 +10301,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
                 "text": "{"
             },
             {
@@ -10892,16 +10312,12 @@
                 "text": "}"
             },
             {
-                "style": "Text",
-                "text": "</code\">"
-            },
-            {
                 "style": "List",
-                "text": "<code class=\"language-none\">value</code> can be any of the time frames supported by the system:"
+                "text": "value can be any of the time frames supported by the system:"
             },
             {
                 "style": "Text",
-                "text": "  * <code class=\"language-none\">01-hs</code>, <code class=\"language-none\">02-hs<code class=\"language-none\">, </code>03-hs</code>, <code class=\"language-none\">04-hs</code>, <code class=\"language-none\">06-hs<code class=\"language-none\">, </code>08-hs</code>, <code class=\"language-none\">12-hs</code>, and <code class=\"language-none\">24-hs</code>."
+                "text": "  * 01-hs, 02-hs, 03-hs, 04-hs, 06-hs, 08-hs, 12-hs, and 24-hs."
             },
             {
                 "style": "Note",
@@ -10981,10 +10397,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
                 "text": "{"
             },
             {
@@ -11016,20 +10428,16 @@
                 "text": "}"
             },
             {
-                "style": "Text",
-                "text": "</code\">"
+                "style": "List",
+                "text": "visibleLayers keeps track of how many layers the managers is rolled to, that is, how many layers it is displaying."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">visibleLayers</code> keeps track of how many layers the managers is rolled to, that is, how many layers it is displaying."
+                "text": "panelLocation keeps track of the position of the panel relative to the four screen corners."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">panelLocation</code> keeps track of the position of the panel relative to the four screen corners."
-            },
-            {
-                "style": "List",
-                "text": "<code class=\"language-none\">label2FontSize</code> allows adjusting the font size of the second-order label of each layer, displaying the name of the exchange and market."
+                "text": "label2FontSize allows adjusting the font size of the second-order label of each layer, displaying the name of the exchange and market."
             }
         ]
     },
@@ -11067,10 +10475,6 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
                 "text": "{"
             },
             {
@@ -11087,15 +10491,11 @@
             },
             {
                 "style": "Text",
-                "text": "</code\">"
+                "text": "<i> status may be </i>on<i> or </i>off* and refers to the layer being visible or not on the charts."
             },
             {
                 "style": "Text",
-                "text": "<i> <code class=\"language-none\">status</code> may be </i>on<i> or </i>off* and refers to the layer being visible or not on the charts."
-            },
-            {
-                "style": "Text",
-                "text": "<i> <code class=\"language-none\">showPanels</code> may be </i>true<i> or </i>false<i>; </i>true<i> shows the plotter panel that may be associated with the data product as per the plotter module definitions; </i>false* makes panels invisible."
+                "text": "<i> showPanels may be </i>true<i> or </i>false<i>; </i>true<i> shows the plotter panel that may be associated with the data product as per the plotter module definitions; </i>false* makes panels invisible."
             },
             {
                 "style": "Title",
@@ -11212,14 +10612,6 @@
                 "text": "Select <i>Configure</i> on the menu to access the configuration."
             },
             {
-                "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
-                "text": "</code\">"
-            },
-            {
                 "style": "Title",
                 "text": "Running a Data Mine Tasks node"
             },
@@ -11264,14 +10656,6 @@
             {
                 "style": "Text",
                 "text": "Select <i>Configure</i> on the menu to access the configuration."
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
-                "text": "</code\">"
             },
             {
                 "style": "Title",
@@ -11520,14 +10904,6 @@
             {
                 "style": "Text",
                 "text": "Select <i>Configure</i> on the menu to access the configuration."
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
-                "text": "</code\">"
             }
         ]
     },
@@ -11613,14 +10989,6 @@
             {
                 "style": "Text",
                 "text": "Select <i>Configure</i> on the menu to access the configuration."
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
-                "text": "</code\">"
             }
         ]
     },
@@ -11853,14 +11221,6 @@
             {
                 "style": "Text",
                 "text": "Select <i>Configure</i> on the menu to access the configuration."
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
-                "text": "</code\">"
             }
         ]
     },
@@ -11907,14 +11267,6 @@
             {
                 "style": "Text",
                 "text": "Select <i>Configure</i> on the menu to access the configuration."
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
-                "text": "</code\">"
             }
         ]
     },
@@ -11960,14 +11312,6 @@
             {
                 "style": "Text",
                 "text": "Select <i>Configure</i> on the menu to access the configuration."
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
-                "text": "</code\">"
             }
         ]
     },
@@ -11998,14 +11342,6 @@
             {
                 "style": "Text",
                 "text": "Select <i>Configure</i> on the menu to access the configuration."
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
-                "text": "</code\">"
             }
         ]
     },
@@ -12040,14 +11376,6 @@
             {
                 "style": "Text",
                 "text": "Select <i>Configure</i> on the menu to access the configuration."
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
-                "text": "</code\">"
             }
         ]
     },
@@ -12070,14 +11398,6 @@
             {
                 "style": "Text",
                 "text": "Select <i>Configure</i> on the menu to access the configuration."
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
-                "text": "</code\">"
             }
         ]
     },
@@ -12100,14 +11420,6 @@
             {
                 "style": "Text",
                 "text": "Select <i>Configure</i> on the menu to access the configuration."
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
-                "text": "</code\">"
             }
         ]
     },
@@ -12130,14 +11442,6 @@
             {
                 "style": "Text",
                 "text": "Select <i>Configure</i> on the menu to access the configuration."
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
-                "text": "</code\">"
             }
         ]
     },
@@ -12160,14 +11464,6 @@
             {
                 "style": "Text",
                 "text": "Select <i>Configure</i> on the menu to access the configuration."
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
-                "text": "</code\">"
             }
         ]
     },
@@ -12190,14 +11486,6 @@
             {
                 "style": "Text",
                 "text": "Select <i>Configure</i> on the menu to access the configuration."
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
-                "text": "</code\">"
             }
         ]
     },
@@ -12220,14 +11508,6 @@
             {
                 "style": "Text",
                 "text": "Select <i>Configure</i> on the menu to access the configuration."
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
-                "text": "</code\">"
             }
         ]
     },
@@ -12258,14 +11538,6 @@
             {
                 "style": "Text",
                 "text": "Select <i>Configure</i> on the menu to access the configuration."
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
-                "text": "</code\">"
             }
         ]
     },
@@ -12279,7 +11551,7 @@
             },
             {
                 "style": "Text",
-                "text": "Plugin files distributed with the system are stored in the corresponding folders on the following path: <code class=\"language-none\">\\Projects\\[ProjectName]\\Plugins\\</code>."
+                "text": "Plugin files distributed with the system are stored in the corresponding folders on the following path: \\Projects\\[ProjectName]\\Plugins\\."
             },
             {
                 "style": "Text",
@@ -12312,14 +11584,6 @@
             {
                 "style": "Text",
                 "text": "Select <i>Configure</i> on the menu to access the configuration."
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
-                "text": "</code\">"
             }
         ]
     },
@@ -12350,14 +11614,6 @@
             {
                 "style": "Text",
                 "text": "Select <i>Configure</i> on the menu to access the configuration."
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
-                "text": "</code\">"
             }
         ]
     },
@@ -12408,10 +11664,6 @@
             {
                 "style": "Text",
                 "text": "Select <i>Configure</i> on the menu to access the configuration."
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-json\">"
             },
             {
                 "style": "Text",
@@ -12567,91 +11819,87 @@
             },
             {
                 "style": "Text",
-                "text": "</code\">"
-            },
-            {
-                "style": "Text",
                 "text": "{% include tip.html content=\"Configuration items are listed in the order of appearance in the HTML layout, that is, the sequence of HTML elements mentioned earlier.\" %}"
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">title</code> is the <code class=\"language-none\"><H1></code> tag, the main title of the page."
+                "text": "title is the <H1> tag, the main title of the page."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">summary</code> is a block of text preceded with the word <i>Summary</i>."
+                "text": "summary is a block of text preceded with the word <i>Summary</i>."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">subTitle</code> is the <code class=\"language-none\"><H2></code> tag, the secondary title of the page."
+                "text": "subTitle is the <H2> tag, the secondary title of the page."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">gif</code> is the name of an image in the <i>GIF</i> format. Do not include the <code class=\"language-none\">.gif<code class=\"language-none\"> extension in the configuration, and make sure that the name of the file features the extension in lowercase. The file must be stored in the </code>\\Projects\\[Project-Name]\\Gifs</code>folder. The optimum size of the image is 400 px in width. For a step showing only a gif image, use 580 px for the height."
+                "text": "gif is the name of an image in the <i>GIF</i> format. Do not include the .gif extension in the configuration, and make sure that the name of the file features the extension in lowercase. The file must be stored in the \\Projects\\[Project-Name]\\Gifsfolder. The optimum size of the image is 400 px in width. For a step showing only a gif image, use 580 px for the height."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">image</code> is the name of one of the icons stored in the <code class=\"language-none\">\\Projects\\[Project-Name]\\Icons<code class=\"language-none\">folder, without the extension. When the configuration exists, the icon is placed within a table, on the left-hand side of the text block featured in the </code>definition</code> field. When there is no icon, the <code class=\"language-none\">definition</code> occupies the full width."
+                "text": "image is the name of one of the icons stored in the \\Projects\\[Project-Name]\\Iconsfolder, without the extension. When the configuration exists, the icon is placed within a table, on the left-hand side of the text block featured in the definition field. When there is no icon, the definition occupies the full width."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">definition</code> is a block of text in bold style (<code class=\"language-none\"><strong></code> HTML tag)."
+                "text": "definition is a block of text in bold style (<strong> HTML tag)."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">bulletListIntro</code> is a block of text that serves as an introduction to the array of bullet points below."
+                "text": "bulletListIntro is a block of text that serves as an introduction to the array of bullet points below."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">bulletArray</code> is the definition of any number of bullet points. The first field on each bullet is rendered in bold style and the second, in plain style. If the fields are left empty, the bullet list will still be included in the HTML, therefore, if you don't want bullets you must delete the whole definition of the bullet array from the configuration."
+                "text": "bulletArray is the definition of any number of bullet points. The first field on each bullet is rendered in bold style and the second, in plain style. If the fields are left empty, the bullet list will still be included in the HTML, therefore, if you don't want bullets you must delete the whole definition of the bullet array from the configuration."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">paragraph1</code> is a regular block of text."
+                "text": "paragraph1 is a regular block of text."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">callOut</code> is a block of text in bold style with a green border and the left-hand side of the block."
+                "text": "callOut is a block of text in bold style with a green border and the left-hand side of the block."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">externalLink</code> allows you to set up a link that opens in a new tab at the end of the <code class=\"language-none\">callOut</code> block. Enter the URL in the first field and the anchor text in the second."
+                "text": "externalLink allows you to set up a link that opens in a new tab at the end of the callOut block. Enter the URL in the first field and the anchor text in the second."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">paragraph2</code> is a regular block of text."
+                "text": "paragraph2 is a regular block of text."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">note</code> is a block of text within a blue box preceded with the string <code class=\"language-none\">Note:</code>."
+                "text": "note is a block of text within a blue box preceded with the string Note:."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">tip</code> is a block of text within a green box preceded with the string <code class=\"language-none\">Tip:</code>."
+                "text": "tip is a block of text within a green box preceded with the string Tip:."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">important</code> is a block of text within a yellow box preceded with the string <code class=\"language-none\">Important:</code>."
+                "text": "important is a block of text within a yellow box preceded with the string Important:."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">warning</code> is a block of text within a red box preceded with the string <code class=\"language-none\">Warning:</code>."
+                "text": "warning is a block of text within a red box preceded with the string Warning:."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">position</code> determines the position of the floating HTML. There are three alternatives: <code class=\"language-none\">Left<code class=\"language-none\">, </code>Right</code>, or leave the field empty to position the page in the center of the screen."
+                "text": "position determines the position of the floating HTML. There are three alternatives: Left, Right, or leave the field empty to position the page in the center of the screen."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">slider</code> determines the position of the horizontal slider. There are four alternatives: <code class=\"language-none\">toTop<code class=\"language-none\">, </code>Right</code>, or leave the field empty to position the page in the center of the screen."
+                "text": "slider determines the position of the horizontal slider. There are four alternatives: toTop, Right, or leave the field empty to position the page in the center of the screen."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">pressButton</code> allows you to forcefully <code class=\"language-none\">Stop<code class=\"language-none\"> the tutorial, go to the </code>Next</code> step, go to the <code class=\"language-none\">Previous</code> step, or <code class=\"language-none\">Skip</code> a step. When a step is loaded and one of these options is configured in this field, the action is applied immediately."
+                "text": "pressButton allows you to forcefully Stop the tutorial, go to the Next step, go to the Previous step, or Skip a step. When a step is loaded and one of these options is configured in this field, the action is applied immediately."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">documentationURL</code> opens the Superalgos Documentation in the URL you configure. Use the complete URL, including the <code class=\"language-none\">https://</code> protocol header."
+                "text": "documentationURL opens the Superalgos Documentation in the URL you configure. Use the complete URL, including the https:// protocol header."
             }
         ]
     },
@@ -12719,15 +11967,7 @@
             },
             {
                 "style": "Text",
-                "text": "<code class=\"language-none\">"
-            },
-            {
-                "style": "Text",
                 "text": "    \"positionAtReferenceParent\": true,"
-            },
-            {
-                "style": "Text",
-                "text": "</code>"
             },
             {
                 "style": "Text",
@@ -12736,10 +11976,6 @@
             {
                 "style": "Text",
                 "text": "Setting up a reference to any node in the workspace and using the below parameters allows placing different types of messages on the referenced node."
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-none\">"
             },
             {
                 "style": "Text",
@@ -12760,10 +11996,6 @@
             {
                 "style": "Text",
                 "text": "    \"setStatusReferenceParent\": \"This is a simulated status message!\""
-            },
-            {
-                "style": "Text",
-                "text": "</code>"
             },
             {
                 "style": "Text",
@@ -12791,19 +12023,11 @@
             },
             {
                 "style": "Text",
-                "text": "</code>"
-            },
-            {
-                "style": "Text",
                 "text": "<H4>Pressing Keys When on a Time Machine</H4>"
             },
             {
                 "style": "Text",
                 "text": "Setting up a reference to a time machine node in the charting space hierarchy and using the below parameters allows simulating the pressing of relevant key combinations when on a time machine."
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-none\">"
             },
             {
                 "style": "Text",
@@ -12830,16 +12054,12 @@
                 "text": "    }"
             },
             {
-                "style": "Text",
-                "text": "</code>"
+                "style": "List",
+                "text": "shiftKey, ctrlKey, and metaKey (Mac OS equivalent to Control) may be true or false."
             },
             {
                 "style": "List",
-                "text": "<code class=\"language-none\">shiftKey</code>, <code class=\"language-none\">ctrlKey<code class=\"language-none\">, and </code>metaKey</code> (Mac OS equivalent to Control) may be <code class=\"language-none\">true</code> or <code class=\"language-none\">false</code>."
-            },
-            {
-                "style": "List",
-                "text": "<code class=\"language-none\">key</code> may be any letter or number."
+                "text": "key may be any letter or number."
             },
             {
                 "style": "Text",
@@ -12847,11 +12067,7 @@
             },
             {
                 "style": "Text",
-                "text": "The example below changes the configuration of the three different scale nodes under a time machine. In this case, the time machine is the node referenced, the <code class=\"language-none\">nodePath</code> is the path of the node whose configuration must be changed relative to the <code class=\"language-none\">referenceParent<code class=\"language-none\">, and the </code>properties</code> parameter is the actual configuration to be set."
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-none\">"
+                "text": "The example below changes the configuration of the three different scale nodes under a time machine. In this case, the time machine is the node referenced, the nodePath is the path of the node whose configuration must be changed relative to the referenceParent, and the properties parameter is the actual configuration to be set."
             },
             {
                 "style": "Text",
@@ -12956,10 +12172,6 @@
             {
                 "style": "Text",
                 "text": "    ]"
-            },
-            {
-                "style": "Text",
-                "text": "</code>"
             }
         ]
     },
@@ -12998,14 +12210,6 @@
             {
                 "style": "Text",
                 "text": "Select <i>Configure</i> on the menu to access the configuration."
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
-                "text": "</code\">"
             }
         ]
     },
@@ -13044,14 +12248,6 @@
             {
                 "style": "Text",
                 "text": "Select <i>Configure</i> on the menu to access the configuration."
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
-                "text": "</code\">"
             }
         ]
     },
@@ -13086,14 +12282,6 @@
             {
                 "style": "Text",
                 "text": "Select <i>Configure</i> on the menu to access the configuration."
-            },
-            {
-                "style": "Text",
-                "text": "<code class=\"language-json\">"
-            },
-            {
-                "style": "Text",
-                "text": "</code\">"
             }
         ]
     }

@@ -52,8 +52,8 @@ function newSuperalgosDocSpace() {
         function setUpContextMenu() {
             window.contextMenu = {
                 editParagraph: editParagraph,
-                toJsCode: toJsCode,
-                toJsonCode: toJsonCode,
+                toJavascript: toJavascript,
+                toJson: toJson,
                 toText: toText,
                 toTitle: toTitle,
                 toSubtitle: toSubtitle,
@@ -93,6 +93,12 @@ function newSuperalgosDocSpace() {
                     if (selectedParagraph.id.indexOf('warning') >= 0) {
                         extraClassName = ' ' + 'docs-alert-warning'
                     }
+                    if (selectedParagraph.id.indexOf('javascript') >= 0) {
+                        extraClassName = ' ' + 'language-javascript'
+                    }
+                    if (selectedParagraph.id.indexOf('json') >= 0) {
+                        extraClassName = ' ' + 'language-json'
+                    }
 
                     textArea = document.createElement('textarea');
                     textArea.id = "textArea";
@@ -109,11 +115,11 @@ function newSuperalgosDocSpace() {
                 }
             }
 
-            function toJsCode() {
+            function toJavascript() {
 
             }
 
-            function toJsonCode() {
+            function toJson() {
 
             }
 

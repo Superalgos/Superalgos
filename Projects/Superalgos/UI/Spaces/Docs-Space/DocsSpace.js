@@ -542,7 +542,7 @@ function newSuperalgosDocSpace() {
 
             hightlightEmbeddedCode()
 
-            addProjectImage(project)
+            addProjectImage()
 
             if (nodeDocsDefinition.definition !== undefined) {
                 addDefinitionImage(objectBeingRendered.project)
@@ -743,13 +743,14 @@ function newSuperalgosDocSpace() {
     }
 
     function addDefinitionImage(project) {
+        let imageElement
         if (nodeAppDefinition.icon === undefined) {
-            imageName = nodeAppDefinition.type.toLowerCase().replace(' ', '-').replace(' ', '-').replace(' ', '-').replace(' ', '-').replace(' ', '-')
+            let imageName = nodeAppDefinition.type.toLowerCase().replace(' ', '-').replace(' ', '-').replace(' ', '-').replace(' ', '-').replace(' ', '-')
+            imageElement = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName(objectBeingRendered.project, imageName)
+        } else {
+            imageElement = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(objectBeingRendered.project, objectBeingRendered.type)
         }
-        let imageElement = document.createElement("IMG")
-        let webParam = 'Icons/' + project + '/' + imageName + '.png'
-
-        imageElement.src = webParam
+        
         imageElement.width = "150"
         imageElement.height = "150"
 
@@ -757,16 +758,12 @@ function newSuperalgosDocSpace() {
         definitionImageDiv.appendChild(imageElement)
     }
 
-    function addProjectImage(project) {
-        imageName = project.toLowerCase().replace(' ', '-').replace(' ', '-').replace(' ', '-').replace(' ', '-').replace(' ', '-')
-
-        let imageElement = document.createElement("IMG")
-        let webParam = 'Icons/' + project + '/' + imageName + '.png'
-
-        imageElement.src = webParam
+    function addProjectImage() {
+        let imageName = project.toLowerCase().replace(' ', '-').replace(' ', '-').replace(' ', '-').replace(' ', '-').replace(' ', '-')
+        let imageElement = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName(objectBeingRendered.project, imageName)
         imageElement.width = "50"
         imageElement.height = "50"
-
+        
         let projectImageDiv = document.getElementById('projectImageDiv')
         projectImageDiv.appendChild(imageElement)
     }

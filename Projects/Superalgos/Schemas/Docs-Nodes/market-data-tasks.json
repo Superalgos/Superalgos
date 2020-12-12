@@ -1,0 +1,42 @@
+{
+    "type": "Market Data Tasks",
+    "definition": "A market data tasks node groups data mining tasks operating in a specific market.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the Market Data Tasks node works"
+        },
+        {
+            "style": "Text",
+            "text": "The market data tasks node must reference a market defined in the Crypto Ecosystem hierarchy."
+        },
+        {
+            "style": "Text",
+            "text": "This node may spawn individual data products or may deploy data products in bulk organized by data mine and by bots. See the data products node for the details."
+        },
+        {
+            "style": "Title",
+            "text": "Adding a Market Data Tasks node"
+        },
+        {
+            "style": "Text",
+            "text": "To add a market data tasks node, select Add Market Data on the parent node menu."
+        },
+        {
+            "style": "Note",
+            "text": "Remember to establish a reference with a market defined in the Crypto Ecosystem hierarchy after adding the node."
+        },
+        {
+            "style": "Text",
+            "text": "You may also add market data tasks nodes in bulk for all markets that may have been previously defined in the Crypto Ecosystem hierarchy. To do that, select Add Missing Markets on the parent node menu. A market data tasks node is created for each defined market, each with the corresponding reference."
+        },
+        {
+            "style": "Title",
+            "text": "Running a Market Data Tasks node"
+        },
+        {
+            "style": "Text",
+            "text": "Select Run All Data Mine Tasks or Stop All Data Mine Tasks on the menu to start and stop all tasks under this node."
+        }
+    ]
+}

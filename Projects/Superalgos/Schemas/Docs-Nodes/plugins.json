@@ -1,0 +1,34 @@
+{
+    "type": "Plugins",
+    "definition": "The plugins hierarchy defines which plugins are to be included in the current workspace. In the context of this hierarchy, plugins are JSON files featuring the description of a hierarchy such as a data mine, trading mine, trading engine, or trading system.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the Plugins node works"
+        },
+        {
+            "style": "Text",
+            "text": "In the context of a community-driven project, a plugin is a device that serves to distribute community-generated intelligence. The project distributes several plugins contributed by the community."
+        },
+        {
+            "style": "Text",
+            "text": "{% include important.html content=\"Hierarchies included in the workspace as plugins are not saved at the workspace level. As such, changes made in those hierarchies do not persist. If you wish to modify a plugin and keep working with the modified version in the future, you must either clone or backup the plugin and work on the resulting copy instead. Learn more about the differences between backups and "
+        },
+        {
+            "style": "Title",
+            "text": "Adding a Plugins node"
+        },
+        {
+            "style": "Text",
+            "text": "To add the plugins node, select Add Missing Items on the parent node menu."
+        },
+        {
+            "style": "Title",
+            "text": "Configuring a Plugins node"
+        },
+        {
+            "style": "Text",
+            "text": "Select Configure on the menu to access the configuration."
+        }
+    ]
+}

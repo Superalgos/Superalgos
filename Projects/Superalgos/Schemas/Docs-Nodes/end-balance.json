@@ -1,0 +1,26 @@
+{
+    "type": "End Balance",
+    "definition": "End balance is the balance at the datetime of the end property of the parent node or concept.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the End Balance node works"
+        },
+        {
+            "style": "Text",
+            "text": "In the context of an episode, it is the balance at the datetime the episode ended."
+        },
+        {
+            "style": "Text",
+            "text": "In the context of a position, it is the balance at the datetime the position was closed."
+        },
+        {
+            "style": "Title",
+            "text": "Adding a End Balance node"
+        },
+        {
+            "style": "Text",
+            "text": "To add the end balance node, select Add Missing Items on the parent node menu."
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "type": "Status Report",
+    "definition": "Status reports serve as temporal annotations that bots read every time they run to know what was done in the previous cycle and what the state of affairs is at present. Status reports are dynamic, and they change constantly, with updates after every cycle of the associated process.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the Status Report node works"
+        },
+        {
+            "style": "Text",
+            "text": "Bots do not run continuously. Instead, they run in cycles. A cycle usually lasts until there is no more data to process, and once they finish, they shut down until the next cycle is due. A status report is a file every bot writes at the end of each cycle with information about the last run, including the datetime of the run and the last record processed."
+        },
+        {
+            "style": "Text",
+            "text": "A status report may be consumed by the same bot producing it, or by other bots."
+        },
+        {
+            "style": "Title",
+            "text": "Adding a Status Report node"
+        },
+        {
+            "style": "Text",
+            "text": "To add a status report, select Add Missing Items on the process definition node menu. Items that may be missing are created along with the basic structure of nodes required to define them."
+        }
+    ]
+}

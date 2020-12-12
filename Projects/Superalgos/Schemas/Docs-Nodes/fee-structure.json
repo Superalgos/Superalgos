@@ -1,0 +1,82 @@
+{
+    "type": "Fee Structure",
+    "definition": "The fee structure is a parameter fundamental to the calculation of fees, both in testing and live trading sessions.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the Fee Structure node works"
+        },
+        {
+            "style": "Text",
+            "text": "Exchange fees are a crucial part of trading. A strategy may work like a charm when you leave fees out of the equation but would lead you to bankruptcy in a live trading situation."
+        },
+        {
+            "style": "Text",
+            "text": "Exchanges don't usually report the amount charged in fees on each transaction, thus, the system calculates fees and subtract them from balances. Learn more about the handling of fees."
+        },
+        {
+            "style": "Important",
+            "text": "The accuracy of the internal account-keeping depends on this parameter. Make sure you obtain the correct fee structure from the exchange corresponding to the tier of your account."
+        },
+        {
+            "style": "Text",
+            "text": "To illustrate how fees affect your bottom line, take a look at the image below."
+        },
+        {
+            "style": "Text",
+            "text": "<img src=\"Projects/Superalgos/Docs-Gifs/trading-simulation-fees-fails.gif\"></img>"
+        },
+        {
+            "style": "Text",
+            "text": "The trade hits the take profit target above the Position Rate level, however, due to fees, the trade has a negative 0.32% ROI."
+        },
+        {
+            "style": "Title",
+            "text": "Adding a Fee Structure node"
+        },
+        {
+            "style": "Text",
+            "text": "To add a parameter that may be missing, select Add Missing Params on the parameters node menu."
+        },
+        {
+            "style": "Title",
+            "text": "Configuring a Fee Structure node"
+        },
+        {
+            "style": "Text",
+            "text": "Select Configure Fee Structure on the menu to access the configuration."
+        },
+        {
+            "style": "Text",
+            "text": "{"
+        },
+        {
+            "style": "Text",
+            "text": "\"maker\": 0.15,"
+        },
+        {
+            "style": "Text",
+            "text": "\"taker\": 0.25"
+        },
+        {
+            "style": "Text",
+            "text": "}"
+        },
+        {
+            "style": "List",
+            "text": "maker is the setting for the fee the exchange charges when an order adds liquidity to the market, such as with limit orders."
+        },
+        {
+            "style": "List",
+            "text": "taker is the setting for the fee the exchange charges when an order takes liquidity from the market, such as with market or instant orders."
+        },
+        {
+            "style": "Note",
+            "text": "If the fee structure parameter is left empty or detached both from your session and your trading system, fees are not computed during simulations."
+        },
+        {
+            "style": "Important",
+            "text": "Remember that, for the time being, and until the new execution engine is released, all orders placed by the trading bot are market orders, thus, the taker fee applies in all cases."
+        }
+    ]
+}

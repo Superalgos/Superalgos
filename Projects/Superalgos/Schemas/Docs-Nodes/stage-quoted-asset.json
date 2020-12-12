@@ -1,0 +1,22 @@
+{
+    "type": "Stage Quoted Asset",
+    "definition": "The stage quoted asset node keeps track of the evolution of variables related to the quoted asset throughout the stage.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the Stage Quoted Asset node works"
+        },
+        {
+            "style": "Note",
+            "text": "Learn more about how accounts for the base asset and the quoted asset are kept in the base asset and quoted asset page on the trading engine section of the documentation."
+        },
+        {
+            "style": "Title",
+            "text": "Adding a Stage Quoted Asset node"
+        },
+        {
+            "style": "Text",
+            "text": "To add the stage quoted asset node, select Add Missing Items on the parent node menu."
+        }
+    ]
+}

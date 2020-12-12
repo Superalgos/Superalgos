@@ -1,0 +1,26 @@
+{
+    "type": "Product Definition Folder",
+    "definition": "A product definition folder is an organizational device used to create arrangements of product definitions, particularly useful when the bot has many products.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the Product Definition Folder node works"
+        },
+        {
+            "style": "Text",
+            "text": "In cases in which a single bot has many different products, product definitions folders may help organize those products, making their management easier. Folders may be nested like folders in the file system."
+        },
+        {
+            "style": "Text",
+            "text": "The use of product definition folders is optional, as product definitions may also exist outside of folders."
+        },
+        {
+            "style": "Title",
+            "text": "Adding a Product Definition Folder node"
+        },
+        {
+            "style": "Text",
+            "text": "To add the product definition folder node, select Add Product Definition Folder on the parent node menu."
+        }
+    ]
+}

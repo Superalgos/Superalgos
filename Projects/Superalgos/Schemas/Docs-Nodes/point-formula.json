@@ -1,0 +1,158 @@
+{
+    "type": "Point Formula",
+    "definition": "A point formula is a node used to input the [x,y] coordinates of a point.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the Point Formula node works"
+        },
+        {
+            "style": "Text",
+            "text": "To represent some form of variation of the price or a price derivative over time, a typical point formula consists of the following two coordinates: x = datetime and y = rate."
+        },
+        {
+            "style": "Text",
+            "text": "For example:"
+        },
+        {
+            "style": "Text",
+            "text": "Point SMA 20 Begin "
+        },
+        {
+            "style": "Text",
+            "text": "x = record.begin"
+        },
+        {
+            "style": "Text",
+            "text": "y = record.previous.sma20"
+        },
+        {
+            "style": "Text",
+            "text": "The example above shows the definition of the first of two points necessary to draw the segment of the 20-periods SMA curve for any particular period or candle. In this case, x = record.begin is the starting datetime of the period and y = record.previous.sma20 is the rate of the 20-periods SMA of the previous period."
+        },
+        {
+            "style": "Note",
+            "text": "The above variables are constructed with information originating at the product definition that references the corresponding plotter module."
+        },
+        {
+            "style": "Text",
+            "text": "To complete the line segment corresponding to a single period, the closing datetime of the period and the closing rate for the 20-periods SMA are required:"
+        },
+        {
+            "style": "Text",
+            "text": "Point SMA 20 End "
+        },
+        {
+            "style": "Text",
+            "text": "x = record.end"
+        },
+        {
+            "style": "Text",
+            "text": "y = record.sma20"
+        },
+        {
+            "style": "Text",
+            "text": "The above system works very well for plotting all sorts of information over the candles, on the charts."
+        },
+        {
+            "style": "Text",
+            "text": "An oscillator like RSI too needs the definition of the starting and ending datetime of the period as the value for the x-axis. However, the value for axis y fits a different scale."
+        },
+        {
+            "style": "Text",
+            "text": "Anyway, the points definition is just as straight forward, for example:"
+        },
+        {
+            "style": "Text",
+            "text": "Point RSI Begin "
+        },
+        {
+            "style": "Text",
+            "text": "x = record.begin"
+        },
+        {
+            "style": "Text",
+            "text": "y = record.previous.value"
+        },
+        {
+            "style": "Text",
+            "text": "Point RSI End "
+        },
+        {
+            "style": "Text",
+            "text": "x = record.end"
+        },
+        {
+            "style": "Text",
+            "text": "y = record.value"
+        },
+        {
+            "style": "Text",
+            "text": "Points do not necessarily need to refer to values on the dataset produced by the corresponding data product. For example, absolute values for the y-axis may be used to describe fixed graphical elements, for instance, a horizontal line, or a box."
+        },
+        {
+            "style": "Text",
+            "text": "Point Begin 20 "
+        },
+        {
+            "style": "Text",
+            "text": "x = record.begin"
+        },
+        {
+            "style": "Text",
+            "text": "y = 20"
+        },
+        {
+            "style": "Text",
+            "text": "Point End 20 "
+        },
+        {
+            "style": "Text",
+            "text": "x = record.end"
+        },
+        {
+            "style": "Text",
+            "text": "y = 20"
+        },
+        {
+            "style": "Text",
+            "text": "Point Begin 30 "
+        },
+        {
+            "style": "Text",
+            "text": "x = record.begin"
+        },
+        {
+            "style": "Text",
+            "text": "y = 30"
+        },
+        {
+            "style": "Text",
+            "text": "Point End 30 "
+        },
+        {
+            "style": "Text",
+            "text": "x = record.end"
+        },
+        {
+            "style": "Text",
+            "text": "y = 30"
+        },
+        {
+            "style": "Text",
+            "text": "The above four points are used to paint the background of the 20 to 30 value range of the RSI chart. The first two points are also used to draw the dotted line signaling the 20-value mark, and the last two are used for the dotted line indicating the 30-value mark."
+        },
+        {
+            "style": "Note",
+            "text": "The reason from separating the definition of points from the definition of polygons is that any point may be used by one or more polygons."
+        },
+        {
+            "style": "Title",
+            "text": "Adding a Point Formula node"
+        },
+        {
+            "style": "Text",
+            "text": "To add a point formula, select Add Point Formula on the point node menu."
+        }
+    ]
+}

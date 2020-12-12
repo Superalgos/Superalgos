@@ -1,0 +1,26 @@
+{
+    "type": "Trading System Reference",
+    "definition": "A trading engine reference determines which trading system shall be evaluated by the trading bot to run the trading session.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the Trading System Reference node works"
+        },
+        {
+            "style": "Text",
+            "text": "In other words, the trading system reference lets the process instance know which trading rules to process for the given session."
+        },
+        {
+            "style": "Title",
+            "text": "Adding a Trading System Reference node"
+        },
+        {
+            "style": "Text",
+            "text": "To add a trading ensystemgine reference, select Add Missing Children on the trading session node menu."
+        },
+        {
+            "style": "Note",
+            "text": "After adding a trading system reference node, make sure you establish the reference to the corresponding trading system hierarchy."
+        }
+    ]
+}

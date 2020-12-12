@@ -1,0 +1,74 @@
+{
+    "type": "Record Property",
+    "definition": "A record property is a piece of information that may be stored as part of the dataset or made available as a calculated property.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the Record Property node works"
+        },
+        {
+            "style": "Text",
+            "text": "Records may have as many properties as required."
+        },
+        {
+            "style": "Important",
+            "text": "The order in which record properties are defined around the parent record definition node is the order in which they are stored in the actual record."
+        },
+        {
+            "style": "Text",
+            "text": "{% include tip.html content=\"The first two records are usually the begin and end records, featuring the corresponding datetimes that indicate when the record starts and ends.\" %}"
+        },
+        {
+            "style": "Title",
+            "text": "Adding a Record Property node"
+        },
+        {
+            "style": "Text",
+            "text": "To add a record property, select Add Record Property on the bot's node menu."
+        },
+        {
+            "style": "Title",
+            "text": "Configuring a Record Property node"
+        },
+        {
+            "style": "Text",
+            "text": "Select Configure Property on the menu to access the configuration."
+        },
+        {
+            "style": "Text",
+            "text": "{"
+        },
+        {
+            "style": "Text",
+            "text": "  \"codeName\": \"record-name\","
+        },
+        {
+            "style": "Text",
+            "text": "  \"isString\": false,"
+        },
+        {
+            "style": "Text",
+            "text": "  \"isCalculated\": true"
+        },
+        {
+            "style": "Text",
+            "text": "}"
+        },
+        {
+            "style": "List",
+            "text": "codeName is the name of the record as it is used in the bot's code."
+        },
+        {
+            "style": "Text",
+            "text": " isCalculated determines if the field is stored in the dataset or if, instead, is calculated at a later stage. A value true* means that the record is not stored. In the case isCaculated is not defined in the configuration, it is assumed to be false."
+        },
+        {
+            "style": "Text",
+            "text": "<img src=\"Projects/Superalgos/Docs-Gifs/indicators-record-definitions-01.gif\"></img>"
+        },
+        {
+            "style": "Text",
+            "text": "The image above shows a record definition with four record properties."
+        }
+    ]
+}

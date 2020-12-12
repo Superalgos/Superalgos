@@ -1,0 +1,30 @@
+{
+    "type": "Situation Name",
+    "definition": "Situation name features the name of the situation that triggered a certain event, which is dependent on the context.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the Situation Name node works"
+        },
+        {
+            "style": "Text",
+            "text": "In the context of a strategy, it is the name of the situation that triggered-on the strategy."
+        },
+        {
+            "style": "Text",
+            "text": "In the context of a position, it's the name of the situation that triggered the take position event."
+        },
+        {
+            "style": "Text",
+            "text": "In the context of an order, it's the situation that triggered the create order event."
+        },
+        {
+            "style": "Title",
+            "text": "Adding a Situation Name node"
+        },
+        {
+            "style": "Text",
+            "text": "To add the situation name node, select Add Missing Items on the parent node menu."
+        }
+    ]
+}

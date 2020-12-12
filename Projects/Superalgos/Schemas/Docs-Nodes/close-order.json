@@ -1,0 +1,14 @@
+{
+    "type": "Close Order",
+    "definition": "Counts the periods since the last time an order was closed.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Adding a Close Order node"
+        },
+        {
+            "style": "Text",
+            "text": "To add the close order node, select Add Missing Items on the parent node menu."
+        }
+    ]
+}

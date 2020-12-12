@@ -1,0 +1,26 @@
+{
+    "type": "Stop Loss Position",
+    "definition": "Stop Loss position indicates if the stop loss target is above or below the position rate.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the Stop Loss Position node works"
+        },
+        {
+            "style": "Text",
+            "text": "Possible values are Above and Below."
+        },
+        {
+            "style": "Text",
+            "text": "The implications of setting the stop loss target above or below the position rate are explained on the trading system section of the documentation, in particular while describing the initial target rate definition."
+        },
+        {
+            "style": "Title",
+            "text": "Adding a Stop Loss Position node"
+        },
+        {
+            "style": "Text",
+            "text": "To add the stop loss position node, select Add Missing Items on the parent node menu."
+        }
+    ]
+}

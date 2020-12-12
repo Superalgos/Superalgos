@@ -1,0 +1,22 @@
+{
+    "type": "Exit Target Rate",
+    "definition": "Exit target rate is the target rate set on the initial targets definition, in the close stage of the strategy.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the Exit Target Rate node works"
+        },
+        {
+            "style": "Text",
+            "text": "Refresh this concepts by reading about the initial target definitions at the trading system."
+        },
+        {
+            "style": "Title",
+            "text": "Adding a Exit Target Rate node"
+        },
+        {
+            "style": "Text",
+            "text": "To add the exit target rate node, select Add Missing Items on the parent node menu."
+        }
+    ]
+}

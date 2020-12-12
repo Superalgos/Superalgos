@@ -1,0 +1,13 @@
+{
+    "type": "Template Target",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Adding a Template Target node"
+        },
+        {
+            "style": "Text",
+            "text": "To add a template target, select Add Template Target on the template script node menu."
+        }
+    ]
+}

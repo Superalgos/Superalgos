@@ -1,0 +1,38 @@
+{
+    "type": "Task Manager",
+    "definition": "A task manager is a device used to organize and control any number of tasks, which, in turn, control bot instances. You use a task manager to start or stop several tasks at the same time.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the Task Manager node works"
+        },
+        {
+            "style": "Text",
+            "text": "Task managers are used both in the context of data mining and trading operations, to facilitate the organization of tasks."
+        },
+        {
+            "style": "Text",
+            "text": "For example, you may set up a task manager to handle tasks related to a particular set of indicators used with a certain strategy. Or, for example, to organize multiple backtesting sessions."
+        },
+        {
+            "style": "Text",
+            "text": "{% include tip.html content=\"The key aspect of a task manager is that it allows starting and stopping all tasks at once.\" %}"
+        },
+        {
+            "style": "Title",
+            "text": "Adding a Task Manager node"
+        },
+        {
+            "style": "Text",
+            "text": "To add a task manager, select Add Task Manager on the parent node menu."
+        },
+        {
+            "style": "Title",
+            "text": "Running a Task Manager node"
+        },
+        {
+            "style": "Text",
+            "text": "Select Run All Tasks or Stop All Tasks on the menu to start and stop all tasks respectively."
+        }
+    ]
+}

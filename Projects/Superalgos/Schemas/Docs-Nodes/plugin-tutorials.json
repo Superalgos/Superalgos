@@ -1,0 +1,30 @@
+{
+    "type": "Plugin Tutorials",
+    "definition": "The plugin tutorials node features the definitions of tutorials to be included as plugins in the current workspace.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the Plugin Tutorials node works"
+        },
+        {
+            "style": "Important",
+            "text": "Tutorials included in the workspace as plugins do not keep track of users' progress, thus, may not return to the last step using the <i>Resume</i> button on the menu."
+        },
+        {
+            "style": "Title",
+            "text": "Adding a Plugin Tutorials node"
+        },
+        {
+            "style": "Text",
+            "text": "To add the plugin tutorials node, select Add Missing Items on the parent node menu."
+        },
+        {
+            "style": "Title",
+            "text": "Configuring a Plugin Tutorials node"
+        },
+        {
+            "style": "Text",
+            "text": "Select Configure on the menu to access the configuration."
+        }
+    ]
+}

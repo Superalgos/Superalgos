@@ -1,0 +1,46 @@
+{
+    "type": "Exchange Account Key",
+    "definition": "The exchange account key holds the definition of the key name and secret provided by the corresponding exchange to access the user account via the exchange API.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Adding a Exchange Account Key node"
+        },
+        {
+            "style": "Text",
+            "text": "To add an exchange account key, select Add Key on the user keys node menu."
+        },
+        {
+            "style": "Title",
+            "text": "Configuring a Exchange Account Key node"
+        },
+        {
+            "style": "Text",
+            "text": "Select Configure Key on the menu to access the configuration."
+        },
+        {
+            "style": "Text",
+            "text": "{"
+        },
+        {
+            "style": "Text",
+            "text": "\"codeName\": \"Paste your exchange API name or label here\","
+        },
+        {
+            "style": "Text",
+            "text": "\"secret\": \"Paste your exchange API secret key here.\""
+        },
+        {
+            "style": "Text",
+            "text": "}"
+        },
+        {
+            "style": "List",
+            "text": "codeName is the name or label of your key, as supplied by the exchange."
+        },
+        {
+            "style": "Warning",
+            "text": "To keep your exchange keys safe, never share data structures you may download from the system, as downloads contain all information in the data structure, including personal information such as exchange keys. Use the share option on the menu instead. The share option strips sensitive information and outputs a file that is safe for sharing."
+        }
+    ]
+}

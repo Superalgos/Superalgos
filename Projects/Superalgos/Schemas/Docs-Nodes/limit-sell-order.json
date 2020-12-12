@@ -1,0 +1,54 @@
+{
+    "type": "Limit Sell Order",
+    "definition": "A limit sell order is an instruction sent to the exchange to sell the base asset, for execution at a specific rate or better.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the Limit Sell Order node works"
+        },
+        {
+            "style": "Text",
+            "text": "{% include tip.html content=\"Please read the definition of limit buy order for relevant information about how limit orders work. Also, please read the definition of "
+        },
+        {
+            "style": "Title",
+            "text": "Adding a Limit Sell Order node"
+        },
+        {
+            "style": "Text",
+            "text": "To add the limit sell order node, select Add Missing Items on the parent node menu."
+        },
+        {
+            "style": "Title",
+            "text": "Configuring a Limit Sell Order node"
+        },
+        {
+            "style": "Text",
+            "text": "To configure the limit sell order node, select Configure on the menu."
+        },
+        {
+            "style": "Text",
+            "text": "{"
+        },
+        {
+            "style": "Text",
+            "text": "     \"percentageOfAlgorithmSize\": 100,"
+        },
+        {
+            "style": "Text",
+            "text": "     \"spawnMultipleOrders\": false"
+        },
+        {
+            "style": "Text",
+            "text": "}"
+        },
+        {
+            "style": "List",
+            "text": "percentageOfAlgorithmSize is the definition of how much of the size handled by the algorithm shall be allocated to this particular order. Posible values are real numbers between 0 and 100, including the extremes. If you set the value to 0, the order will not be executed."
+        },
+        {
+            "style": "List",
+            "text": "spawnMultipleOrders is the parameter that indicates whether additional spawned orders are allowed (true) or not (false)."
+        }
+    ]
+}

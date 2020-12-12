@@ -1,0 +1,14 @@
+{
+    "type": "Strategy Name",
+    "definition": "Strategy name features the name of the strategy that is currently open.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Adding a Strategy Name node"
+        },
+        {
+            "style": "Text",
+            "text": "To add the strategy name node, select Add Missing Items on the parent node menu."
+        }
+    ]
+}

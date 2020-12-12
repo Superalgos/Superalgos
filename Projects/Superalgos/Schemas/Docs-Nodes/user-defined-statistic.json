@@ -1,0 +1,22 @@
+{
+    "type": "User Defined Statistic",
+    "definition": "A user defined statistic allows users to create custom metrics by defining the corresponding calculation in a formula, in the context of the parent node.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the User Defined Statistic node works"
+        },
+        {
+            "style": "Text",
+            "text": "The current contexts in which custom statistics may be defined are episodes, positions, and orders."
+        },
+        {
+            "style": "Title",
+            "text": "Adding a User Defined Statistic node"
+        },
+        {
+            "style": "Text",
+            "text": "To add the user defined statistic node, select Add Missing Items on the parent node menu."
+        }
+    ]
+}

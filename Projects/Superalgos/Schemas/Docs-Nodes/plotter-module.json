@@ -1,0 +1,118 @@
+{
+    "type": "Plotter Module",
+    "definition": "A plotter module is a device within a plotter that contains the definitions to create the visualization for a product definition.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the Plotter Module node works"
+        },
+        {
+            "style": "Text",
+            "text": "A single plotter may have several modules. Different modules may be used to plot each product of the bot, or as best suits the expected use-pattern."
+        },
+        {
+            "style": "Text",
+            "text": "<img src=\"Projects/Superalgos/Docs-Gifs/plotter-module-01.gif\"></img>"
+        },
+        {
+            "style": "Important",
+            "text": "For a bot to use a plotter, the corresponding product definition must establish a reference with the plotter module built to interpret the dataset."
+        },
+        {
+            "style": "Text",
+            "text": "<img src=\"Projects/Superalgos/Docs-Gifs/plotter-module-02-product-link.gif\"></img>"
+        },
+        {
+            "style": "Title",
+            "text": "Adding a Plotter Module node"
+        },
+        {
+            "style": "Text",
+            "text": "To add a plotter module, select Add Plotter Module on the plotter node menu."
+        },
+        {
+            "style": "Title",
+            "text": "Configuring a Plotter Module node"
+        },
+        {
+            "style": "Text",
+            "text": "Select Configure Plotter Module on the menu to access the configuration."
+        },
+        {
+            "style": "Text",
+            "text": "{"
+        },
+        {
+            "style": "Text",
+            "text": "    \"codeName\": \"Module Name\","
+        },
+        {
+            "style": "Text",
+            "text": "    \"isLegacy\": true,"
+        },
+        {
+            "style": "Text",
+            "text": "        \"icon\": \"histogram\""
+        },
+        {
+            "style": "Text",
+            "text": "}"
+        },
+        {
+            "style": "List",
+            "text": "codeName is the name used in the code to refer to the module."
+        },
+        {
+            "style": "List",
+            "text": "isLegacy is true for plotters modules developed entirely in JavaScript, and is false or doesn't show in the configuration for plotters built with the tools featured in the data mine hierarchy."
+        },
+        {
+            "style": "Text",
+            "text": "<table class=\"docs-table\"><tr><td> Value </td><td> Image</td></tr>"
+        },
+        {
+            "style": "Text",
+            "text": "<tr><td> :---: </td><td> :---: </td></tr>"
+        },
+        {
+            "style": "Text",
+            "text": "<tr><td> default </td><td> <img src=\"Projects/Superalgos/Icons/default-banner.png\"></img> </td></tr>"
+        },
+        {
+            "style": "Text",
+            "text": "<tr><td> histogram </td><td> <img src=\"Projects/Superalgos/Icons/histogram-banner.png\"></img> </td></tr>"
+        },
+        {
+            "style": "Text",
+            "text": "<tr><td> band </td><td> <img src=\"Projects/Superalgos/Icons/bands-banner.png\"></img> </td></tr>"
+        },
+        {
+            "style": "Text",
+            "text": "<tr><td> moving-average </td><td> <img src=\"Projects/Superalgos/Icons/moving-average-banner.png\"></img> </td></tr>"
+        },
+        {
+            "style": "Text",
+            "text": "<tr><td> oscillator </td><td> <img src=\"Projects/Superalgos/Icons/oscillator-banner.png\"></img> </td></tr>"
+        },
+        {
+            "style": "Text",
+            "text": "<tr><td> trend </td><td> <img src=\"Projects/Superalgos/Icons/trends-banner.png\"></img> </td></tr>"
+        },
+        {
+            "style": "Text",
+            "text": "</table>Custom images may be added too. To do that:"
+        },
+        {
+            "style": "Text",
+            "text": "1. name the image in the following format: image-name.png;"
+        },
+        {
+            "style": "Text",
+            "text": "1. place images in the WebServer\\Images\\Icons folder;"
+        },
+        {
+            "style": "Text",
+            "text": "1. in the configuration of the module, use the name as is (e.g.: \"icon\": \"image-name\")"
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "type": "Exchange Account Asset",
+    "definition": "The exchange account asset represents a single asset the user has at the exchange.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the Exchange Account Asset node works"
+        },
+        {
+            "style": "Text",
+            "text": "The exchange account asset is a reference to an asset defined under the exchange assets node."
+        },
+        {
+            "style": "Title",
+            "text": "Adding a Exchange Account Asset node"
+        },
+        {
+            "style": "Text",
+            "text": "To add an exchange account asset node, select Add Asset on the user assets node menu."
+        },
+        {
+            "style": "Note",
+            "text": "Remember to establish a reference with an asset defined under the exchange assets node."
+        }
+    ]
+}

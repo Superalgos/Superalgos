@@ -1,0 +1,74 @@
+{
+    "type": "Panel Data",
+    "definition": "A panel data node represents a data field to be plotted on the plotter panel.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the Panel Data node works"
+        },
+        {
+            "style": "Text",
+            "text": "The system renders a panel featuring a centered, single-column vertical arrangement of data, with a label and a data field right below it. The label of each data field on the panel is given&mdash;by default&mdash;by the label set for each panel data node."
+        },
+        {
+            "style": "Title",
+            "text": "Adding a Panel Data node"
+        },
+        {
+            "style": "Text",
+            "text": "To add a panel data node, select Add Panel Data on the plotter panel menu."
+        },
+        {
+            "style": "Title",
+            "text": "Configuring a Panel Data node"
+        },
+        {
+            "style": "Text",
+            "text": "Select Configure Panel Data on the menu to access the configuration."
+        },
+        {
+            "style": "Text",
+            "text": "{"
+        },
+        {
+            "style": "Text",
+            "text": "    \"valueDecimals\": 2"
+        },
+        {
+            "style": "Text",
+            "text": "}"
+        },
+        {
+            "style": "List",
+            "text": "valueDecimals sets the number of decimals to be shown on the corresponding data field."
+        },
+        {
+            "style": "Text",
+            "text": "{"
+        },
+        {
+            "style": "Text",
+            "text": "    \"labelText\": \"The Label\","
+        },
+        {
+            "style": "Text",
+            "text": "    \"labelPosition\": 15,"
+        },
+        {
+            "style": "Text",
+            "text": "    \"valuePosition\": 20,"
+        },
+        {
+            "style": "Text",
+            "text": "    \"valueDecimals\": 2"
+        },
+        {
+            "style": "Text",
+            "text": "}"
+        },
+        {
+            "style": "List",
+            "text": "labelPosition and valuePosition represent the vertical distance of the corresponding fields to the top margin of the panel."
+        }
+    ]
+}

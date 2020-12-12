@@ -1,0 +1,50 @@
+{
+    "type": "Data Mine",
+    "definition": "A data mine is a hierarchy that contains definitions of sensor and indicators bots, and their plotters. These definitions make up the actual programs of such bots&mdash;the source code.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the Data Mine node works"
+        },
+        {
+            "style": "Text",
+            "text": "In a way, data mines are catalogs of bots that anyone may create. This hierarchy provides all the tools required to create sensors, indicators, and plotters, with minimal coding required."
+        },
+        {
+            "style": "Text",
+            "text": "Because the hierarchy provides definitions, it does not intervene in the execution of bots. Instead, the definitions in data mines are instantiated from the network hierarchy by bot instances. Bot instances and process instances are the ones running the code according to the definitions in the corresponding data mine."
+        },
+        {
+            "style": "Title",
+            "text": "Adding a Data Mine node"
+        },
+        {
+            "style": "Text",
+            "text": "To add a data mine, select Add Data Mine on the mines node menu in the Superalgos Project hierarchy."
+        },
+        {
+            "style": "Title",
+            "text": "Configuring a Data Mine node"
+        },
+        {
+            "style": "Text",
+            "text": "Select Configure Data Mine on the menu to access the configuration."
+        },
+        {
+            "style": "Text",
+            "text": "{"
+        },
+        {
+            "style": "Text",
+            "text": "\"codeName\": \"Supermine\""
+        },
+        {
+            "style": "Text",
+            "text": "}"
+        },
+        {
+            "style": "List",
+            "text": "codeName is the name of the data mine as used within the code of the system."
+        }
+    ]
+}

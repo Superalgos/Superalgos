@@ -1,0 +1,234 @@
+{
+    "type": "Annualized Rate Of Return",
+    "definition": "Annualized rate of return is the equivalent ROI scaled to one year.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the Annualized Rate Of Return node works"
+        },
+        {
+            "style": "Text",
+            "text": "In other words, it is the equivalent annual return received over a given period."
+        },
+        {
+            "style": "Text",
+            "text": "The formula:"
+        },
+        {
+            "style": "Text",
+            "text": "annualized rate of return = (((investment + profits) / investments) ^ (365 / days)) - 1"
+        },
+        {
+            "style": "Text",
+            "text": "In the context of the episode base asset and episode quoted asset, the calculation is done relative to the corresponding assets, and the overall context."
+        },
+        {
+            "style": "Text",
+            "text": "The formulas:"
+        },
+        {
+            "style": "Text",
+            "text": "tradingEngine.current.episode.episodeBaseAsset.annualizedRateOfReturn.value ="
+        },
+        {
+            "style": "Text",
+            "text": "((( tradingEngine.current.episode.episodeBaseAsset.beginBalance.value +"
+        },
+        {
+            "style": "Text",
+            "text": "tradingEngine.current.episode.episodeBaseAsset.profitLoss.value ) /"
+        },
+        {
+            "style": "Text",
+            "text": "tradingEngine.current.episode.episodeBaseAsset.beginBalance.value) ^"
+        },
+        {
+            "style": "Text",
+            "text": "(365 / tradingEngine.current.episode.episodeStatistics.days.value)) - 1"
+        },
+        {
+            "style": "Text",
+            "text": "tradingEngine.current.episode.episodeQuotedAsset.annualizedRateOfReturn.value ="
+        },
+        {
+            "style": "Text",
+            "text": "((( tradingEngine.current.episode.episodeQuotedAsset.beginBalance.value +"
+        },
+        {
+            "style": "Text",
+            "text": "tradingEngine.current.episode.episodeQuotedAsset.profitLoss.value ) /"
+        },
+        {
+            "style": "Text",
+            "text": "tradingEngine.current.episode.episodeQuotedAsset.beginBalance.value) ^"
+        },
+        {
+            "style": "Text",
+            "text": "(365 / tradingEngine.current.episode.episodeStatistics.days.value)) - 1"
+        },
+        {
+            "style": "Text",
+            "text": "The JavaScript code:"
+        },
+        {
+            "style": "Text",
+            "text": "tradingEngine.current.episode.episodeBaseAsset.annualizedRateOfReturn.value ="
+        },
+        {
+            "style": "Text",
+            "text": "Math.pow("
+        },
+        {
+            "style": "Text",
+            "text": "             ( tradingEngine.current.episode.episodeBaseAsset.beginBalance.value +"
+        },
+        {
+            "style": "Text",
+            "text": "             tradingEngine.current.episode.episodeBaseAsset.profitLoss.value ) /"
+        },
+        {
+            "style": "Text",
+            "text": "             tradingEngine.current.episode.episodeBaseAsset.beginBalance.value"
+        },
+        {
+            "style": "Text",
+            "text": "             ,"
+        },
+        {
+            "style": "Text",
+            "text": "             (365 / tradingEngine.current.episode.episodeStatistics.days.value)"
+        },
+        {
+            "style": "Text",
+            "text": "        ) - 1"
+        },
+        {
+            "style": "Text",
+            "text": "tradingEngine.current.episode.episodeQuotedAsset.annualizedRateOfReturn.value ="
+        },
+        {
+            "style": "Text",
+            "text": "Math.pow("
+        },
+        {
+            "style": "Text",
+            "text": "             ( tradingEngine.current.episode.episodeQuotedAsset.beginBalance.value +"
+        },
+        {
+            "style": "Text",
+            "text": "             tradingEngine.current.episode.episodeQuotedAsset.profitLoss.value ) /"
+        },
+        {
+            "style": "Text",
+            "text": "             tradingEngine.current.episode.episodeQuotedAsset.beginBalance.value"
+        },
+        {
+            "style": "Text",
+            "text": "             ,"
+        },
+        {
+            "style": "Text",
+            "text": "             (365 / tradingEngine.current.episode.episodeStatistics.days.value)"
+        },
+        {
+            "style": "Text",
+            "text": "        ) - 1"
+        },
+        {
+            "style": "Text",
+            "text": "In the context of the episode statistics, the calculation is done using the consolidated balance, as explained in the profit loss definition."
+        },
+        {
+            "style": "Note",
+            "text": "When the context does not refer to either of the assets in particular, then both asset balances are consolidated, and denominated in the quoted asset."
+        },
+        {
+            "style": "Text",
+            "text": "The JavaScript code:"
+        },
+        {
+            "style": "Text",
+            "text": "tradingEngine.current.episode.episodeStatistics.annualizedRateOfReturn.value ="
+        },
+        {
+            "style": "Text",
+            "text": "Math.pow("
+        },
+        {
+            "style": "Text",
+            "text": "            ("
+        },
+        {
+            "style": "Text",
+            "text": "                tradingEngine.current.episode.episodeBaseAsset.beginBalance.value *"
+        },
+        {
+            "style": "Text",
+            "text": "                tradingEngine.current.episode.beginRate.value +"
+        },
+        {
+            "style": "Text",
+            "text": "                tradingEngine.current.episode.episodeQuotedAsset.beginBalance.value +"
+        },
+        {
+            "style": "Text",
+            "text": "                tradingEngine.current.episode.episodeBaseAsset.profitLoss.value +"
+        },
+        {
+            "style": "Text",
+            "text": "                tradingEngine.current.episode.episodeQuotedAsset.profitLoss.value"
+        },
+        {
+            "style": "Text",
+            "text": "            ) /"
+        },
+        {
+            "style": "Text",
+            "text": "            ("
+        },
+        {
+            "style": "Text",
+            "text": "                tradingEngine.current.episode.episodeBaseAsset.beginBalance.value *"
+        },
+        {
+            "style": "Text",
+            "text": "                tradingEngine.current.episode.beginRate.value +"
+        },
+        {
+            "style": "Text",
+            "text": "                tradingEngine.current.episode.episodeQuotedAsset.beginBalance.value"
+        },
+        {
+            "style": "Text",
+            "text": "            )"
+        },
+        {
+            "style": "Text",
+            "text": "        ,"
+        },
+        {
+            "style": "Text",
+            "text": "            ("
+        },
+        {
+            "style": "Text",
+            "text": "                365 / tradingEngine.current.episode.episodeStatistics.days.value"
+        },
+        {
+            "style": "Text",
+            "text": "            )"
+        },
+        {
+            "style": "Text",
+            "text": "        ) - 1"
+        },
+        {
+            "style": "Title",
+            "text": "Adding a Annualized Rate Of Return node"
+        },
+        {
+            "style": "Text",
+            "text": "To add the annualized rate of return node, select Add Missing Items on the parent node menu."
+        }
+    ]
+}

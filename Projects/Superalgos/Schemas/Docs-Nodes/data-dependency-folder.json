@@ -1,0 +1,34 @@
+{
+    "type": "Data Dependency Folder",
+    "definition": "A data dependency folder node is an organizational device used to map the arrangement of product definition folders of a given bot.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the Data Dependency Folder node works"
+        },
+        {
+            "style": "Text",
+            "text": "The use of product data dependency folders is optional, as data dependencies may also exist outside of folders."
+        },
+        {
+            "style": "Title",
+            "text": "Adding a Data Dependency Folder node"
+        },
+        {
+            "style": "Text",
+            "text": "To add the data dependency folder node, select Add Data Dependency Folder on the parent node menu."
+        },
+        {
+            "style": "Text",
+            "text": "The data dependency folder node may be added automatically when using the Add All Data Dependencies option on the data mine data dependencies node menu."
+        },
+        {
+            "style": "Title",
+            "text": "Configuring a Data Dependency Folder node"
+        },
+        {
+            "style": "Text",
+            "text": "Select Configure on the menu to access the configuration."
+        }
+    ]
+}

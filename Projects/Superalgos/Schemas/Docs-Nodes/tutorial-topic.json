@@ -1,0 +1,30 @@
+{
+    "type": "Tutorial Topic",
+    "definition": "A tutorial topic is an organizational device that helps to keep tutorial step nodes arranged in a logical hierarchy by topics and subtopics.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the Tutorial Topic node works"
+        },
+        {
+            "style": "Text",
+            "text": "Tutorial topics may be nested within other tutorial topics in unlimited levels, and each level may feature multiple tutorial steps."
+        },
+        {
+            "style": "Title",
+            "text": "Adding a Tutorial Topic node"
+        },
+        {
+            "style": "Text",
+            "text": "To add the tutorial topic node, select Add Tutorial Topic on the parent node menu."
+        },
+        {
+            "style": "Title",
+            "text": "Configuring a Tutorial Topic node"
+        },
+        {
+            "style": "Note",
+            "text": "The configuration of the tutorial topic node is the same as the tutorial node. Refer to the latter, please."
+        }
+    ]
+}

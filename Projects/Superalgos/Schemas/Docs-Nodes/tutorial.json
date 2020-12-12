@@ -1,0 +1,286 @@
+{
+    "type": "Tutorial",
+    "definition": "The tutorial hierarchy features a free arrangement of tutorial topic and tutorial step nodes that make up a tutorial. Each node in the hierarchy, including the parent tutorial node, represents a HTML page that is overlaid on top of both the design space and the charting space. ",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the Tutorial node works"
+        },
+        {
+            "style": "Text",
+            "text": "Nodes in the hierarchy may be arranged freely, meaning that there may be as many tutorial topics and tutorial steps as desired. In general terms, all types of nodes behave similarly in the sense that each node, independently of the precise type, represents a tutorial step in and of itself. There are subtle differences to be covered where appropriate."
+        },
+        {
+            "style": "Title",
+            "text": "Adding a Tutorial node"
+        },
+        {
+            "style": "Text",
+            "text": "To add the tutorial node, select Add Tutorial on the parent node menu."
+        },
+        {
+            "style": "Title",
+            "text": "Configuring a Tutorial node"
+        },
+        {
+            "style": "Text",
+            "text": "The configuration of each node in the tutorial hierarchy determines the content of each step. All types of nodes share the same basic configuration. However, tutorial step nodes have extra properties, described elsewhere."
+        },
+        {
+            "style": "Text",
+            "text": "The layout of the HTML page is fixed (CSS styles are fixed too) and is made out of a sequence of HTML elements, each of which may or may not be used, depending on whether the corresponding configuration parameter exists or not in the configuration."
+        },
+        {
+            "style": "Success",
+            "text": "In other words, you may choose which elements of a potentially long list are used by filling the corresponding parameters with content or not."
+        },
+        {
+            "style": "Note",
+            "text": "The HTML page features a limited space and does not support scrolling. If too much information is defined in the configuration, the resulting content overflows the available space. There is no system-side control to deal with such overflows, so it's up to you to spread information across multiple steps and keep each page within its limits."
+        },
+        {
+            "style": "Text",
+            "text": "{% include tip.html content=\"You may use HTML element tags and inline CSS as part of the content of parameters. Just consider that they shall be embedded in the fixed layout and their effectiveness may vary.\" %}"
+        },
+        {
+            "style": "Text",
+            "text": "Select Configure on the menu to access the configuration."
+        },
+        {
+            "style": "Text",
+            "text": "{"
+        },
+        {
+            "style": "Text",
+            "text": "    \"title\": \"\","
+        },
+        {
+            "style": "Text",
+            "text": "    \"summary\": \"\","
+        },
+        {
+            "style": "Text",
+            "text": "    \"subTitle\": \"\","
+        },
+        {
+            "style": "Text",
+            "text": "    \"gif\": \"\","
+        },
+        {
+            "style": "Text",
+            "text": "    \"image\": \"\","
+        },
+        {
+            "style": "Text",
+            "text": "    \"definition\": \"\","
+        },
+        {
+            "style": "Text",
+            "text": "    \"bulletListIntro\": \"\","
+        },
+        {
+            "style": "Text",
+            "text": "    \"bulletArray\": ["
+        },
+        {
+            "style": "Text",
+            "text": "        ["
+        },
+        {
+            "style": "Text",
+            "text": "            \"\","
+        },
+        {
+            "style": "Text",
+            "text": "            \"\""
+        },
+        {
+            "style": "Text",
+            "text": "        ],"
+        },
+        {
+            "style": "Text",
+            "text": "        ["
+        },
+        {
+            "style": "Text",
+            "text": "            \"\","
+        },
+        {
+            "style": "Text",
+            "text": "            \"\""
+        },
+        {
+            "style": "Text",
+            "text": "        ],"
+        },
+        {
+            "style": "Text",
+            "text": "        ["
+        },
+        {
+            "style": "Text",
+            "text": "            \"\","
+        },
+        {
+            "style": "Text",
+            "text": "            \"\""
+        },
+        {
+            "style": "Text",
+            "text": "        ]"
+        },
+        {
+            "style": "Text",
+            "text": "    ],"
+        },
+        {
+            "style": "Text",
+            "text": "    \"paragraph1\": \"\","
+        },
+        {
+            "style": "Text",
+            "text": "    \"callOut\": \"\","
+        },
+        {
+            "style": "Text",
+            "text": "    \"externalLink\": ["
+        },
+        {
+            "style": "Text",
+            "text": "        \"\","
+        },
+        {
+            "style": "Text",
+            "text": "        \"\""
+        },
+        {
+            "style": "Text",
+            "text": "    ],"
+        },
+        {
+            "style": "Text",
+            "text": "    \"paragraph2\": \"\","
+        },
+        {
+            "style": "Text",
+            "text": "    \"note\": \"\","
+        },
+        {
+            "style": "Text",
+            "text": "    \"tip\": \"\","
+        },
+        {
+            "style": "Text",
+            "text": "    \"important\": \"\","
+        },
+        {
+            "style": "Text",
+            "text": "    \"warning\": \"\","
+        },
+        {
+            "style": "Text",
+            "text": "    \"position\": \"\","
+        },
+        {
+            "style": "Text",
+            "text": "    \"slider\": \"toTop\","
+        },
+        {
+            "style": "Text",
+            "text": "    \"pressButton\": \"\","
+        },
+        {
+            "style": "Text",
+            "text": "    \"documentationURL\": \"\""
+        },
+        {
+            "style": "Text",
+            "text": "}"
+        },
+        {
+            "style": "Text",
+            "text": "{% include tip.html content=\"Configuration items are listed in the order of appearance in the HTML layout, that is, the sequence of HTML elements mentioned earlier.\" %}"
+        },
+        {
+            "style": "List",
+            "text": "title is the <H1> tag, the main title of the page."
+        },
+        {
+            "style": "List",
+            "text": "summary is a block of text preceded with the word <i>Summary</i>."
+        },
+        {
+            "style": "List",
+            "text": "subTitle is the <H2> tag, the secondary title of the page."
+        },
+        {
+            "style": "List",
+            "text": "gif is the name of an image in the <i>GIF</i> format. Do not include the .gif extension in the configuration, and make sure that the name of the file features the extension in lowercase. The file must be stored in the \\Projects\\[Project-Name]\\Gifsfolder. The optimum size of the image is 400 px in width. For a step showing only a gif image, use 580 px for the height."
+        },
+        {
+            "style": "List",
+            "text": "image is the name of one of the icons stored in the \\Projects\\[Project-Name]\\Iconsfolder, without the extension. When the configuration exists, the icon is placed within a table, on the left-hand side of the text block featured in the definition field. When there is no icon, the definition occupies the full width."
+        },
+        {
+            "style": "List",
+            "text": "definition is a block of text in bold style (<strong> HTML tag)."
+        },
+        {
+            "style": "List",
+            "text": "bulletListIntro is a block of text that serves as an introduction to the array of bullet points below."
+        },
+        {
+            "style": "List",
+            "text": "bulletArray is the definition of any number of bullet points. The first field on each bullet is rendered in bold style and the second, in plain style. If the fields are left empty, the bullet list will still be included in the HTML, therefore, if you don't want bullets you must delete the whole definition of the bullet array from the configuration."
+        },
+        {
+            "style": "List",
+            "text": "paragraph1 is a regular block of text."
+        },
+        {
+            "style": "List",
+            "text": "callOut is a block of text in bold style with a green border and the left-hand side of the block."
+        },
+        {
+            "style": "List",
+            "text": "externalLink allows you to set up a link that opens in a new tab at the end of the callOut block. Enter the URL in the first field and the anchor text in the second."
+        },
+        {
+            "style": "List",
+            "text": "paragraph2 is a regular block of text."
+        },
+        {
+            "style": "List",
+            "text": "note is a block of text within a blue box preceded with the string Note:."
+        },
+        {
+            "style": "List",
+            "text": "tip is a block of text within a green box preceded with the string Tip:."
+        },
+        {
+            "style": "List",
+            "text": "important is a block of text within a yellow box preceded with the string Important:."
+        },
+        {
+            "style": "List",
+            "text": "warning is a block of text within a red box preceded with the string Warning:."
+        },
+        {
+            "style": "List",
+            "text": "position determines the position of the floating HTML. There are three alternatives: Left, Right, or leave the field empty to position the page in the center of the screen."
+        },
+        {
+            "style": "List",
+            "text": "slider determines the position of the horizontal slider. There are four alternatives: toTop, Right, or leave the field empty to position the page in the center of the screen."
+        },
+        {
+            "style": "List",
+            "text": "pressButton allows you to forcefully Stop the tutorial, go to the Next step, go to the Previous step, or Skip a step. When a step is loaded and one of these options is configured in this field, the action is applied immediately."
+        },
+        {
+            "style": "List",
+            "text": "documentationURL opens the Superalgos Documentation in the URL you configure. Use the complete URL, including the https:// protocol header."
+        }
+    ]
+}

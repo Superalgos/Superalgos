@@ -1,0 +1,54 @@
+{
+    "type": "Heartbeats",
+    "definition": "During a trading session, the backend communicates with the frontend via heartbeats to inform the frontend about the status of the session. The parameter controls what information is made available to the user through the frontend.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the Heartbeats node works"
+        },
+        {
+            "style": "Text",
+            "text": "This parameter affects how you see the progress of the trading session below the trading bot instance node on the design space."
+        },
+        {
+            "style": "Title",
+            "text": "Adding a Heartbeats node"
+        },
+        {
+            "style": "Text",
+            "text": "To add a parameter that may be missing, select Add Missing Params on the parameters node menu."
+        },
+        {
+            "style": "Title",
+            "text": "Configuring a Heartbeats node"
+        },
+        {
+            "style": "Text",
+            "text": "Select Configure Slippage on the menu to access the configuration."
+        },
+        {
+            "style": "Text",
+            "text": "{"
+        },
+        {
+            "style": "Text",
+            "text": "   \"date\": true,"
+        },
+        {
+            "style": "Text",
+            "text": "   \"candleIndex\": false"
+        },
+        {
+            "style": "Text",
+            "text": "}"
+        },
+        {
+            "style": "List",
+            "text": "date determines whether the date is shown in the progress notice below the trading process instance node; possible values are true or false."
+        },
+        {
+            "style": "List",
+            "text": "candleIndex determines whether the index of the candle is shown in the progress notice below the trading process instance node; possible values are true or false."
+        }
+    ]
+}

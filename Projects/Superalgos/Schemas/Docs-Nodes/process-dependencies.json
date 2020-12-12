@@ -1,0 +1,22 @@
+{
+    "type": "Process Dependencies",
+    "definition": "Process dependencies are references to various data structures on which the process depends to function.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the Process Dependencies node works"
+        },
+        {
+            "style": "Text",
+            "text": "While processes run autonomously, most processes participate in a value-adding chain by which a process produces a data product that other processes may consume as an input to be processed further. This means that bots&mdash;while autonomous in their particular jobs&mdash;do depend both on other bots and on the data other bots produce."
+        },
+        {
+            "style": "Title",
+            "text": "Adding a Process Dependencies node"
+        },
+        {
+            "style": "Text",
+            "text": "To add a process dependencies node, select Add Missing Items on the process definition node menu. Items that may be missing are created along with the basic structure of nodes required to define them."
+        }
+    ]
+}

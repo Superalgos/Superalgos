@@ -1,0 +1,22 @@
+{
+    "type": "Algorithm Name",
+    "definition": "Algorithm name is the name of the execution algorithm that opened the order, as specified in the trading system.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the Algorithm Name node works"
+        },
+        {
+            "style": "Text",
+            "text": "Assigning names to execution algorithms in the definition of the trading system makes tracking the execution of orders easier."
+        },
+        {
+            "style": "Title",
+            "text": "Adding a Algorithm Name node"
+        },
+        {
+            "style": "Text",
+            "text": "To add the algorithm name node, select Add Missing Items on the parent node menu."
+        }
+    ]
+}

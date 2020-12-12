@@ -1,0 +1,26 @@
+{
+    "type": "Entry Target Size",
+    "definition": "Entry target size is the target size set on the initial targets definition, in the open stage of the strategy.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the Entry Target Size node works"
+        },
+        {
+            "style": "Text",
+            "text": "Refer to the explanations on the entry target size for some relevant context."
+        },
+        {
+            "style": "Text",
+            "text": "Refresh this concepts by reading about the initial target definitions at the trading system."
+        },
+        {
+            "style": "Title",
+            "text": "Adding a Entry Target Size node"
+        },
+        {
+            "style": "Text",
+            "text": "To add the entry target size node, select Add Missing Items on the parent node menu."
+        }
+    ]
+}

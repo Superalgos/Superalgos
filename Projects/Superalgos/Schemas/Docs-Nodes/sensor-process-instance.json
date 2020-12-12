@@ -1,0 +1,30 @@
+{
+    "type": "Sensor Process Instance",
+    "definition": "A sensor process instance is a reference to the process definition of a sensor bot, as defined in a data mine.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the Sensor Process Instance node works"
+        },
+        {
+            "style": "Text",
+            "text": "For example, in the case of an instance of the Masters data mine Exchange Raw Data sensor bot, the bot process instance references the Historic OHLCVs process definition. Once the reference is established, the sensor process instance adopts the name of the process definition it references."
+        },
+        {
+            "style": "Title",
+            "text": "Adding a Sensor Process Instance node"
+        },
+        {
+            "style": "Text",
+            "text": "To add a sensor process instance, select Add Sensor Process Instance on the sensor bot instance node menu."
+        },
+        {
+            "style": "Title",
+            "text": "Running a Sensor Process Instance node"
+        },
+        {
+            "style": "Text",
+            "text": "You do not start or stop a sensor process instance directly. Instead, you start or stop the corresponding task."
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "type": "Crypto Exchanges",
+    "definition": "The crypto exchanges node groups definitions of the different exchanges the user may interact with.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Adding a Crypto Exchanges node"
+        },
+        {
+            "style": "Text",
+            "text": "To add a crypto exchanges node, select Add Crypto Exchanges on the crypto ecosystem node menu."
+        },
+        {
+            "style": "Note",
+            "text": "Only one crypto exchanges node may exist on the hierarchy."
+        }
+    ]
+}

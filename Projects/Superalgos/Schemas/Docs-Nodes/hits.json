@@ -1,0 +1,30 @@
+{
+    "type": "Hits",
+    "definition": "Hits counts the number of positions that closed with a positive profit loss, in the context of the parent node.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the Hits node works"
+        },
+        {
+            "style": "Text",
+            "text": "In the context of the quoted asset or the base asset, hits are calculated relative to the asset in question. That is, if the base asset profit loss is positive, then a hit is counted for the base asset."
+        },
+        {
+            "style": "Text",
+            "text": "However, when the context of the asset is not specified&mdash;such as under the statistics node&mdash;then hits are calculated in a consolidated manner, converting the respective balances to perform the calculations."
+        },
+        {
+            "style": "Note",
+            "text": "The consolidated calculations are explained thoroughly in the profit loss node."
+        },
+        {
+            "style": "Title",
+            "text": "Adding a Hits node"
+        },
+        {
+            "style": "Text",
+            "text": "To add the hits node, select Add Missing Items on the parent node menu."
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "type": "Dynamic Indicators",
+    "definition": "",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Adding a Dynamic Indicators node"
+        },
+        {
+            "style": "Text",
+            "text": "To add the dynamic indicators node, select Add Missing Items on the parent node menu."
+        }
+    ]
+}

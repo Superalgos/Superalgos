@@ -1,0 +1,14 @@
+{
+    "type": "Strategy Counters",
+    "definition": "The strategy counters node features counters of instances of objects that come to exist while the strategy is open.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Adding a Strategy Counters node"
+        },
+        {
+            "style": "Text",
+            "text": "To add the strategy counters node, select Add Missing Items on the parent node menu."
+        }
+    ]
+}

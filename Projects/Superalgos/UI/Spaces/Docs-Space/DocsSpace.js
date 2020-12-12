@@ -4,6 +4,8 @@ function newSuperalgosDocSpace() {
         sidePanelTab: undefined,
         container: undefined,
         navigateTo: navigateTo,
+        scrollToTop: scrollToTop,
+        scrollToElement: scrollToElement, 
         physics: physics,
         draw: draw,
         getContainer: getContainer,
@@ -317,9 +319,9 @@ function newSuperalgosDocSpace() {
     }
 
     function contextMenuActivateRightClick() {
-        const contextMenuClickablDiv = document.getElementById('context-menu-clickable-div')
+        const contextMenuClickablDiv = document.getElementById('docs-context-menu-clickeable-div')
         const menu = document.getElementById('menu')
-        const outClick = document.getElementById('docsDiv')
+        const outClick = document.getElementById('docs-space-div')
 
         contextMenuClickablDiv.addEventListener('contextmenu', e => {
             e.preventDefault()
@@ -348,7 +350,7 @@ function newSuperalgosDocSpace() {
     }
 
     function contextMenuForceOutClick() {
-        const outClick = document.getElementById('docsDiv')
+        const outClick = document.getElementById('docs-space-div')
         const menu = document.getElementById('menu')
         menu.classList.remove('show')
         outClick.style.display = "none"
@@ -434,6 +436,20 @@ function newSuperalgosDocSpace() {
 
     }
 
+    function scrollToTop() {
+        let myElement = document.getElementById('docs-context-menu-clickeable-div')
+        let topPos = myElement.offsetTop
+        let scrollingDiv = document.getElementById('docs-space-div')
+        scrollingDiv.scrollTop = topPos
+    }
+
+    function scrollToElement(htmlElementId) {
+        let myElement = document.getElementById(htmlElementId)
+        let topPos = myElement.offsetTop
+        let scrollingDiv = document.getElementById('docs-space-div')
+        scrollingDiv.scrollTop = topPos
+    }
+
     function navigateTo(node) {
 
         docSchemaParagraphMap = new Map()
@@ -460,14 +476,14 @@ function newSuperalgosDocSpace() {
         function buildNodeHtmlPage() {
             let HTML = ''
 
-            HTML = HTML + '<div id="context-menu-clickable-div" class="docs-node-html-page-container">' // Container Starts
+            HTML = HTML + '<div id="docs-context-menu-clickeable-div" class="docs-node-html-page-container">' // Container Starts
 
             /* Title */
-            HTML = HTML + '<div><table class="docs-titleTable"><tr><td width="50px"><div id="projectImageDiv" class="docs-image-container"/></td><td><h2 class="docs-h2" id="' + renderingNode.type.toLowerCase().replace(' ', '-') + '" > ' + renderingNode.project + ' / ' + renderingNode.type + '</h2></td></tr></table></div>'
+            HTML = HTML + '<div id="docs-main-title-div"><table class="docs-title-table"><tr><td width="50px"><div id="projectImageDiv" class="docs-image-container"/></td><td><h2 class="docs-h2" id="' + renderingNode.type.toLowerCase().replace(' ', '-') + '" > ' + renderingNode.project + ' / ' + renderingNode.type + '</h2></td></tr></table></div>'
 
             /* We start with the Definition Table */
             if (nodeDocsDefinition.definition !== undefined) {
-                HTML = HTML + '<table class="docs-definitionTable">'
+                HTML = HTML + '<table class="docs-definition-table">'
                 HTML = HTML + '<tr>'
                 HTML = HTML + '<td width=150px>'
                 HTML = HTML + '<div id="definitionImageDiv" class="docs-image-container"/>'
@@ -580,7 +596,7 @@ function newSuperalgosDocSpace() {
                             sufix = '</code></pre>'
                             role = ''
                             key = key + '-json'
-                            innerHTML =  paragraph.text
+                            innerHTML = paragraph.text
                             break
                         }
                     }
@@ -594,7 +610,7 @@ function newSuperalgosDocSpace() {
 
             HTML = HTML + '</div>' // Container Ends
 
-            let docsAppDiv = document.getElementById('docsDiv')
+            let docsAppDiv = document.getElementById('docs-space-div')
             docsAppDiv.innerHTML = HTML + addFooter()
             _self.Prism.highlightAllUnder(docsAppDiv, true, onHighlighted)
 
@@ -617,7 +633,10 @@ function newSuperalgosDocSpace() {
                 HTML = HTML + '<footer>'
                 HTML = HTML + '<div class="docs-footer-row">'
                 HTML = HTML + '<div class="docs-footer-body" style="text-align: left;">'
-                HTML = HTML + '<p><a href="#" class="docs-plain-link"><kbd class=docs-kbd>BACK TO TOP ↑</kbd></a></p>'
+                //HTML = HTML + '<p><a onClick="UI.projects.superalgos.spaces.docsSpace.scrollToTop()" class="docs-plain-link"><kbd class=docs-kbd>BACK TO TOP ↑</kbd></a></p>'
+
+                HTML = HTML + '<div onClick="UI.projects.superalgos.spaces.docsSpace.scrollToElement(\'docs-main-title-div\')" class="docs-plain-link"><kbd class=docs-kbd>BACK TO TOP ↑</kbd></div>'
+
 
                 HTML = HTML + '<ul>'
                 HTML = HTML + '<li><a href="https://superalgos.org/" target="_blank" class="docs-footer-link">Superalgos Project</a> — Learn more about the project.</li>'
@@ -674,7 +693,7 @@ function newSuperalgosDocSpace() {
 
     function addBold(text) {
         let splittedText = text.split(':')
-        if (splittedText.length > 1 && splittedText[1].length > 0) {            
+        if (splittedText.length > 1 && splittedText[1].length > 0) {
             return '<b>' + splittedText[0] + ':' + '</b>' + splittedText[1]
         } else {
             return text
@@ -899,7 +918,7 @@ function newSuperalgosDocSpace() {
         docsAppDivPhysics()
 
         function docsAppDivPhysics() {
-            let docsAppDiv = document.getElementById('docsDiv')
+            let docsAppDiv = document.getElementById('docs-space-div')
             docsAppDivPosition = {
                 x: 0,
                 y: 0

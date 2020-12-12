@@ -1,0 +1,30 @@
+{
+    "type": "Design Space",
+    "definition": "The design space is the visual environment that hosts all system and user definitions. In practical terms, it is the black space below the slider that splits the screen horizontally, separating the design space in the bottom from the charting space on top. As a hierarchy, it features nodes that enable user-control over certain aspects of the look, feel, and behavior of the space.",
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How the Design Space node works"
+        },
+        {
+            "style": "Text",
+            "text": "Think of the design space as your desktop, or the control room of the system."
+        },
+        {
+            "style": "Title",
+            "text": "Adding a Design Space node"
+        },
+        {
+            "style": "Text",
+            "text": "To add the design space node, select Add Design Space on the spaces node of the Superalgos Project hierarchy."
+        },
+        {
+            "style": "Title",
+            "text": "Configuring a Design Space node"
+        },
+        {
+            "style": "Text",
+            "text": "Select Configure on the menu to access the configuration."
+        }
+    ]
+}

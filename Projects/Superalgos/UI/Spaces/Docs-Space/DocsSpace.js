@@ -746,29 +746,29 @@ function newSuperalgosDocSpace() {
         if (nodeAppDefinition.icon === undefined) {
             imageName = nodeAppDefinition.type.toLowerCase().replace(' ', '-').replace(' ', '-').replace(' ', '-').replace(' ', '-').replace(' ', '-')
         }
-        let htmlImage = document.createElement("IMG")
+        let imageElement = document.createElement("IMG")
         let webParam = 'Icons/' + project + '/' + imageName + '.png'
 
-        htmlImage.src = webParam
-        htmlImage.width = "150"
-        htmlImage.height = "150"
+        imageElement.src = webParam
+        imageElement.width = "150"
+        imageElement.height = "150"
 
         let definitionImageDiv = document.getElementById('definitionImageDiv')
-        definitionImageDiv.appendChild(htmlImage)
+        definitionImageDiv.appendChild(imageElement)
     }
 
     function addProjectImage(project) {
         imageName = project.toLowerCase().replace(' ', '-').replace(' ', '-').replace(' ', '-').replace(' ', '-').replace(' ', '-')
 
-        let htmlImage = document.createElement("IMG")
+        let imageElement = document.createElement("IMG")
         let webParam = 'Icons/' + project + '/' + imageName + '.png'
 
-        htmlImage.src = webParam
-        htmlImage.width = "50"
-        htmlImage.height = "50"
+        imageElement.src = webParam
+        imageElement.width = "50"
+        imageElement.height = "50"
 
         let projectImageDiv = document.getElementById('projectImageDiv')
-        projectImageDiv.appendChild(htmlImage)
+        projectImageDiv.appendChild(imageElement)
     }
 
     function addBold(text) {

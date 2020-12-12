@@ -337,6 +337,8 @@ a:active.docs-footer-link {
     text-align: left;
     outline: none;
     font-size: 125%;
+    vertical-align: auto;
+    margin-bottom: 10px;
   }
 
   /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
@@ -349,11 +351,12 @@ a:active.docs-footer-link {
     padding: 0 18px;
     display: none;
     overflow: hidden;
+    margin-left: 85px;
   }
 
   .docs-collapsible-element:after {
     content: '\02795'; /* Unicode character for "plus" sign (+) */
-    font-size: 8px;
+    font-size: 5px;
     color: white;
     float: right;
     margin-left: 5px;
@@ -361,4 +364,12 @@ a:active.docs-footer-link {
   
   .docs-collapsible-active:after {
     content: "\2796"; /* Unicode character for "minus" sign (-) */
+  }
+
+  .docs-menu-item-image {
+    margin-left: 25px;
+    margin-right: 25px;
+    width: 30px;
+    height: 30px;
+    vertical-align: auto;
   }

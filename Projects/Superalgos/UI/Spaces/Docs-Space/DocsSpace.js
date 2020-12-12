@@ -4,7 +4,6 @@ function newSuperalgosDocSpace() {
         sidePanelTab: undefined,
         container: undefined,
         navigateTo: navigateTo,
-        scrollToTop: scrollToTop,
         scrollToElement: scrollToElement, 
         physics: physics,
         draw: draw,
@@ -33,7 +32,7 @@ function newSuperalgosDocSpace() {
     let selectedParagraph
     let selectedParagraphData = ''
     let selectedParagraphHeight = 0
-    let renderingNode
+    let objectBeingRendered
     let docSchemaParagraphMap
     let nodeAppDefinition
     let nodeDocsDefinition
@@ -208,7 +207,7 @@ function newSuperalgosDocSpace() {
         thisObject.sidePanelTab.container.eventHandler.stopListening(openingEventSubscriptionId)
         thisObject.sidePanelTab.container.eventHandler.stopListening(closingEventSubscriptionId)
 
-        renderingNode = undefined
+        objectBeingRendered = undefined
         docSchemaParagraphMap = undefined
         nodeAppDefinition = undefined
         nodeDocsDefinition = undefined
@@ -436,13 +435,6 @@ function newSuperalgosDocSpace() {
 
     }
 
-    function scrollToTop() {
-        let myElement = document.getElementById('docs-context-menu-clickeable-div')
-        let topPos = myElement.offsetTop
-        let scrollingDiv = document.getElementById('docs-space-div')
-        scrollingDiv.scrollTop = topPos
-    }
-
     function scrollToElement(htmlElementId) {
         let myElement = document.getElementById(htmlElementId)
         let topPos = myElement.offsetTop
@@ -450,21 +442,23 @@ function newSuperalgosDocSpace() {
         scrollingDiv.scrollTop = topPos
     }
 
-    function navigateTo(node) {
+    function navigateTo(category, type, project) {
 
         docSchemaParagraphMap = new Map()
-        renderingNode = {
-            type: node.type,
-            project: node.project
+        objectBeingRendered = {
+            category: category,
+            type: type,
+            project: project
         }
 
         renderPage()
+        scrollToElement('docs-context-menu-clickeable-div')
     }
 
     function renderPage() {
 
-        nodeAppDefinition = SCHEMAS_BY_PROJECT.get(renderingNode.project).map.appSchema.get(renderingNode.type)
-        nodeDocsDefinition = SCHEMAS_BY_PROJECT.get(renderingNode.project).map.docSchema.get(renderingNode.type)
+        nodeAppDefinition = SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.appSchema.get(objectBeingRendered.type)
+        nodeDocsDefinition = SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.docSchema.get(objectBeingRendered.type)
 
         if (nodeDocsDefinition === undefined) {
             // Use the New Node Template
@@ -479,7 +473,7 @@ function newSuperalgosDocSpace() {
             HTML = HTML + '<div id="docs-context-menu-clickeable-div" class="docs-node-html-page-container">' // Container Starts
 
             /* Title */
-            HTML = HTML + '<div id="docs-main-title-div"><table class="docs-title-table"><tr><td width="50px"><div id="projectImageDiv" class="docs-image-container"/></td><td><h2 class="docs-h2" id="' + renderingNode.type.toLowerCase().replace(' ', '-') + '" > ' + renderingNode.project + ' / ' + renderingNode.type + '</h2></td></tr></table></div>'
+            HTML = HTML + '<div id="docs-main-title-div"><table class="docs-title-table"><tr><td width="50px"><div id="projectImageDiv" class="docs-image-container"/></td><td><h2 class="docs-h2" id="' + objectBeingRendered.type.toLowerCase().replace(' ', '-') + '" > ' + objectBeingRendered.project + ' / ' + objectBeingRendered.type + '</h2></td></tr></table></div>'
 
             /* We start with the Definition Table */
             if (nodeDocsDefinition.definition !== undefined) {
@@ -489,7 +483,7 @@ function newSuperalgosDocSpace() {
                 HTML = HTML + '<div id="definitionImageDiv" class="docs-image-container"/>'
                 HTML = HTML + '</td>'
                 HTML = HTML + '<td>'
-                HTML = HTML + '<div id="definition-paragraph" class="docs-normal-font"><strong>' + addToolTips(renderingNode, nodeDocsDefinition.definition) + '</strong></div>'
+                HTML = HTML + '<div id="definition-paragraph" class="docs-normal-font"><strong>' + addToolTips(nodeDocsDefinition.definition) + '</strong></div>'
                 HTML = HTML + '</td>'
                 HTML = HTML + '</tr>'
                 HTML = HTML + '</table>'
@@ -500,7 +494,7 @@ function newSuperalgosDocSpace() {
             if (nodeDocsDefinition.paragraphs !== undefined) {
                 for (let i = 0; i < nodeDocsDefinition.paragraphs.length; i++) {
                     let paragraph = nodeDocsDefinition.paragraphs[i]
-                    let innerHTML = addToolTips(renderingNode, paragraph.text)
+                    let innerHTML = addToolTips(paragraph.text)
                     let styleClass = ''
                     let prefix = ''
                     let sufix = ''
@@ -515,7 +509,7 @@ function newSuperalgosDocSpace() {
                             key = key + '-text'
                             innerHTML = addBold(paragraph.text)
                             innerHTML = addItalics(innerHTML)
-                            innerHTML = addToolTips(renderingNode, innerHTML)
+                            innerHTML = addToolTips(innerHTML)
                             break
                         }
                         case 'Title': {
@@ -540,7 +534,7 @@ function newSuperalgosDocSpace() {
                             role = 'role="alert"'
                             key = key + '-note'
                             innerHTML = addItalics(innerHTML)
-                            innerHTML = addToolTips(renderingNode, innerHTML)
+                            innerHTML = addToolTips(innerHTML)
                             break
                         }
                         case 'Success': {
@@ -549,7 +543,7 @@ function newSuperalgosDocSpace() {
                             role = 'role="alert"'
                             key = key + '-success'
                             innerHTML = addItalics(innerHTML)
-                            innerHTML = addToolTips(renderingNode, innerHTML)
+                            innerHTML = addToolTips(innerHTML)
                             break
                         }
                         case 'Important': {
@@ -558,7 +552,7 @@ function newSuperalgosDocSpace() {
                             role = 'role="alert"'
                             key = key + '-important'
                             innerHTML = addItalics(innerHTML)
-                            innerHTML = addToolTips(renderingNode, innerHTML)
+                            innerHTML = addToolTips(innerHTML)
                             break
                         }
                         case 'Warning': {
@@ -567,7 +561,7 @@ function newSuperalgosDocSpace() {
                             role = 'role="alert"'
                             key = key + '-warning'
                             innerHTML = addItalics(innerHTML)
-                            innerHTML = addToolTips(renderingNode, innerHTML)
+                            innerHTML = addToolTips(innerHTML)
                             break
                         }
                         case 'List': {
@@ -578,7 +572,7 @@ function newSuperalgosDocSpace() {
                             key = key + '-list'
                             innerHTML = addBold(paragraph.text)
                             innerHTML = addItalics(innerHTML)
-                            innerHTML = addToolTips(renderingNode, innerHTML)
+                            innerHTML = addToolTips(innerHTML)
                             break
                         }
                         case 'Javascript': {
@@ -621,7 +615,7 @@ function newSuperalgosDocSpace() {
             addProjectImage(project)
 
             if (nodeDocsDefinition.definition !== undefined) {
-                addDefinitionImage(nodeAppDefinition, renderingNode.project)
+                addDefinitionImage(nodeAppDefinition, objectBeingRendered.project)
             }
 
             function addFooter() {
@@ -633,10 +627,8 @@ function newSuperalgosDocSpace() {
                 HTML = HTML + '<footer>'
                 HTML = HTML + '<div class="docs-footer-row">'
                 HTML = HTML + '<div class="docs-footer-body" style="text-align: left;">'
-                //HTML = HTML + '<p><a onClick="UI.projects.superalgos.spaces.docsSpace.scrollToTop()" class="docs-plain-link"><kbd class=docs-kbd>BACK TO TOP ↑</kbd></a></p>'
 
                 HTML = HTML + '<div onClick="UI.projects.superalgos.spaces.docsSpace.scrollToElement(\'docs-main-title-div\')" class="docs-plain-link"><kbd class=docs-kbd>BACK TO TOP ↑</kbd></div>'
-
 
                 HTML = HTML + '<ul>'
                 HTML = HTML + '<li><a href="https://superalgos.org/" target="_blank" class="docs-footer-link">Superalgos Project</a> — Learn more about the project.</li>'
@@ -748,19 +740,26 @@ function newSuperalgosDocSpace() {
         return changedText
     }
 
-    function addToolTips(node, text) {
+    function addToolTips(text) {
 
-        const TOOL_TIP_HTML = '<div class="docs-tooltip">NODE_TYPE<span class="docs-tooltiptext">NODE_DEFINITION</span></div>'
+        const TOOL_TIP_HTML = '<div onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'CATEGORY\', \'TYPE\', \'PROJECT\')" class="docs-tooltip">TYPE_LABEL<span class="docs-tooltiptext">DEFINITION</span></div>'
         let resultingText = ''
-        text = tagNodeTypes(text, node.type)
+        text = tagNodesAndConceptTypes(text, objectBeingRendered.type)
         let splittedText = text.split('->')
 
         for (let i = 0; i < splittedText.length; i = i + 2) {
             let firstPart = splittedText[i]
-            let nodeType = splittedText[i + 1]
-            if (nodeType === undefined) {
+            let taggedText = splittedText[i + 1]
+
+            if (taggedText === undefined) {
                 return resultingText + firstPart
             }
+
+            let splittedTaggedText = taggedText.split('|')
+            let category = splittedTaggedText[0]
+            let type = splittedTaggedText[1]
+            let project = splittedTaggedText[2]
+
             /*
             We will search across all DOC and CONCEPT SCHEMAS
             */
@@ -769,12 +768,12 @@ function newSuperalgosDocSpace() {
 
             for (let j = 0; j < PROJECTS_ARRAY.length; j++) {
                 let project = PROJECTS_ARRAY[j]
-                definitionNode = SCHEMAS_BY_PROJECT.get(project).map.docSchema.get(nodeType)
+                definitionNode = SCHEMAS_BY_PROJECT.get(project).map.docSchema.get(type)
                 if (definitionNode !== undefined) {
                     found = true
                     break
                 }
-                definitionNode = SCHEMAS_BY_PROJECT.get(project).map.conceptSchema.get(nodeType)
+                definitionNode = SCHEMAS_BY_PROJECT.get(project).map.conceptSchema.get(type)
                 if (definitionNode !== undefined) {
                     found = true
                     break
@@ -786,16 +785,22 @@ function newSuperalgosDocSpace() {
 
             let definition = definitionNode.definition
             if (definition === undefined || definition === "") {
-                resultingText = resultingText + firstPart + nodeType
+                resultingText = resultingText + firstPart + type
             } else {
-                let tooltip = TOOL_TIP_HTML.replace('NODE_TYPE', nodeType).replace('NODE_DEFINITION', definition)
+                let tooltip = TOOL_TIP_HTML
+                .replace('CATEGORY', category)
+                .replace('TYPE', type)
+                .replace('PROJECT', project)
+                .replace('TYPE_LABEL', type)
+                .replace('DEFINITION', definition)
+                                
                 resultingText = resultingText + firstPart + tooltip
             }
         }
         return resultingText
     }
 
-    function tagNodeTypes(text, excludeNodeType) {
+    function tagNodesAndConceptTypes(text, excludeNodesAndConceptTypes) {
         let words = text.split(' ')
         let taggedText = ''
         for (let i = 0; i < words.length; i++) {
@@ -815,51 +820,51 @@ function newSuperalgosDocSpace() {
                 let project = PROJECTS_ARRAY[j]
 
                 /* Search in docSchema */
-                if (SCHEMAS_BY_PROJECT.get(project).map.docSchema.get(cleanPhrase4) !== undefined && cleanPhrase4 !== excludeNodeType) {
-                    taggedText = taggedText + phrase4.replace(cleanPhrase4, '->' + cleanPhrase4 + '->') + ' '
+                if (SCHEMAS_BY_PROJECT.get(project).map.docSchema.get(cleanPhrase4) !== undefined && cleanPhrase4 !== excludeNodesAndConceptTypes) {
+                    taggedText = taggedText + phrase4.replace(cleanPhrase4, '->' + 'Node' + '|' +  cleanPhrase4 + '|' + project + '->') + ' '
                     i = i + 3
                     found = true
                     break
                 }
-                if (SCHEMAS_BY_PROJECT.get(project).map.docSchema.get(cleanPhrase3) !== undefined && cleanPhrase3 !== excludeNodeType) {
-                    taggedText = taggedText + phrase3.replace(cleanPhrase3, '->' + cleanPhrase3 + '->') + ' '
+                if (SCHEMAS_BY_PROJECT.get(project).map.docSchema.get(cleanPhrase3) !== undefined && cleanPhrase3 !== excludeNodesAndConceptTypes) {
+                    taggedText = taggedText + phrase3.replace(cleanPhrase3, '->' + 'Node' + '|' +  cleanPhrase3 + '|' + project + '->') + ' '
                     i = i + 2
                     found = true
                     break
                 }
-                if (SCHEMAS_BY_PROJECT.get(project).map.docSchema.get(cleanPhrase2) !== undefined && cleanPhrase2 !== excludeNodeType) {
-                    taggedText = taggedText + phrase2.replace(cleanPhrase2, '->' + cleanPhrase2 + '->') + ' '
+                if (SCHEMAS_BY_PROJECT.get(project).map.docSchema.get(cleanPhrase2) !== undefined && cleanPhrase2 !== excludeNodesAndConceptTypes) {
+                    taggedText = taggedText + phrase2.replace(cleanPhrase2, '->' + 'Node' + '|' +  cleanPhrase2 + '|' + project + '->') + ' '
                     i = i + 1
                     found = true
                     break
                 }
-                if (SCHEMAS_BY_PROJECT.get(project).map.docSchema.get(cleanPhrase1) !== undefined && cleanPhrase1 !== excludeNodeType) {
-                    taggedText = taggedText + phrase1.replace(cleanPhrase1, '->' + cleanPhrase1 + '->') + ' '
+                if (SCHEMAS_BY_PROJECT.get(project).map.docSchema.get(cleanPhrase1) !== undefined && cleanPhrase1 !== excludeNodesAndConceptTypes) {
+                    taggedText = taggedText + phrase1.replace(cleanPhrase1, '->' + 'Node' + '|' +  cleanPhrase1 + '|' + project + '->') + ' '
                     found = true
                     break
                 }
 
                 /* Search in conceptSchema */
-                if (SCHEMAS_BY_PROJECT.get(project).map.conceptSchema.get(cleanPhrase4) !== undefined && cleanPhrase4 !== excludeNodeType) {
-                    taggedText = taggedText + phrase4.replace(cleanPhrase4, '->' + cleanPhrase4 + '->') + ' '
+                if (SCHEMAS_BY_PROJECT.get(project).map.conceptSchema.get(cleanPhrase4) !== undefined && cleanPhrase4 !== excludeNodesAndConceptTypes) {
+                    taggedText = taggedText + phrase4.replace(cleanPhrase4, '->' + 'Concept' + '|' +  cleanPhrase4 + '|' + project + '->') + ' '
                     i = i + 3
                     found = true
                     break
                 }
-                if (SCHEMAS_BY_PROJECT.get(project).map.conceptSchema.get(cleanPhrase3) !== undefined && cleanPhrase3 !== excludeNodeType) {
-                    taggedText = taggedText + phrase3.replace(cleanPhrase3, '->' + cleanPhrase3 + '->') + ' '
+                if (SCHEMAS_BY_PROJECT.get(project).map.conceptSchema.get(cleanPhrase3) !== undefined && cleanPhrase3 !== excludeNodesAndConceptTypes) {
+                    taggedText = taggedText + phrase3.replace(cleanPhrase3, '->' + 'Concept' + '|' +  cleanPhrase3 + '|' + project + '->') + ' '
                     i = i + 2
                     found = true
                     break
                 }
-                if (SCHEMAS_BY_PROJECT.get(project).map.conceptSchema.get(cleanPhrase2) !== undefined && cleanPhrase2 !== excludeNodeType) {
-                    taggedText = taggedText + phrase2.replace(cleanPhrase2, '->' + cleanPhrase2 + '->') + ' '
+                if (SCHEMAS_BY_PROJECT.get(project).map.conceptSchema.get(cleanPhrase2) !== undefined && cleanPhrase2 !== excludeNodesAndConceptTypes) {
+                    taggedText = taggedText + phrase2.replace(cleanPhrase2, '->' + 'Concept' + '|' +  cleanPhrase2 + '|' + project + '->') + ' '
                     i = i + 1
                     found = true
                     break
                 }
-                if (SCHEMAS_BY_PROJECT.get(project).map.conceptSchema.get(cleanPhrase1) !== undefined && cleanPhrase1 !== excludeNodeType) {
-                    taggedText = taggedText + phrase1.replace(cleanPhrase1, '->' + cleanPhrase1 + '->') + ' '
+                if (SCHEMAS_BY_PROJECT.get(project).map.conceptSchema.get(cleanPhrase1) !== undefined && cleanPhrase1 !== excludeNodesAndConceptTypes) {
+                    taggedText = taggedText + phrase1.replace(cleanPhrase1, '->' + 'Concept' + '|' +  cleanPhrase1 + '|' + project + '->') + ' '
                     found = true
                     break
                 }

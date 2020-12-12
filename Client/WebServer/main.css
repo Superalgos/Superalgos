@@ -344,3 +344,9 @@ kbd {
   border-width: 1px;
 }
 
+code {
+  color: #d9534f;
+  background-color:rgb(200,200,200,0.1);
+  padding: 2 0;
+  font-size:110%;
+}

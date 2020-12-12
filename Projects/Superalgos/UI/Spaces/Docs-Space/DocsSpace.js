@@ -443,12 +443,38 @@ function newSuperalgosDocSpace() {
         scrollingDiv.scrollTop = topPos
     }
 
+    function enableCollapsibleContent() {
+        let collapsibleElementsArray = document.getElementsByClassName("docs-collapsible-element")
+        
+        for (let i = 0; i < collapsibleElementsArray.length; i++) {
+            collapsibleElementsArray[i].addEventListener("click", function () {
+                this.classList.toggle("docs-collapsible-active")
+                let content = this.nextElementSibling
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                } else {
+                    content.style.display = "block";
+                }
+            })
+        }
+    }
+
+    function disableCollapsibleContent() {
+        let collapsibleElementsArray = document.getElementsByClassName("docs-collapsible-element")
+
+        for (let i = 0; i < collapsibleElementsArray.length; i++) {
+            collapsibleElementsArray[i].removeEventListener("click", function () { })
+        }
+    }
+
     function openSpaceAreaAndNavigateTo(category, type, project) {
         navigateTo(category, type, project)
         thisObject.sidePanelTab.open()
     }
 
     function navigateTo(category, type, project) {
+
+        disableCollapsibleContent()
 
         docSchemaParagraphMap = new Map()
         objectBeingRendered = {
@@ -458,6 +484,7 @@ function newSuperalgosDocSpace() {
         }
 
         renderPage()
+        enableCollapsibleContent()
         scrollToElement('docs-context-menu-clickeable-div')
 
     }
@@ -542,16 +569,13 @@ function newSuperalgosDocSpace() {
                     paragraphIndex++
                     for (let i = 0; i < nodeAppDefinition.menuItems.length; i++) {
                         let menuItem = nodeAppDefinition.menuItems[i]
-                        paragraph = {
-                            style: "Subtitle",
-                            text: menuItem.label
-                        }
-                        renderParagraph(paragraph, key)
-                        paragraphIndex++
 
+                        HTML = HTML + '<button type="button" class="docs-collapsible-element">' + menuItem.label + '</button>'
+                        HTML = HTML + '<div class="docs-collapsible-content">'
+                        
                         paragraph = {
                             style: "Text",
-                            text: menuItem.label + ' has the following properties:'
+                            text: 'The ' + menuItem.label + ' menu item has the following properties:'
                         }
                         renderParagraph(paragraph, key)
                         paragraphIndex++
@@ -564,6 +588,8 @@ function newSuperalgosDocSpace() {
                             renderParagraph(paragraph, key)
                             paragraphIndex++
                         }
+
+                        HTML = HTML + '</div>'
                     }
                 }
             }

@@ -525,43 +525,45 @@ function newSuperalgosDocSpace() {
                 /* 
                 Menu Items
                 */
-               let paragraph 
-               let key = 'auto-generated-paragraph-' + paragraphIndex
+                let paragraph
+                let key = 'auto-generated-paragraph-' + paragraphIndex
                 if (nodeAppDefinition !== undefined && nodeAppDefinition.menuItems !== undefined) {
                     paragraph = {
-                        style:"Title",
-                        text: "" + nodeAppDefinition.type +  " node menu"
+                        style: "Title",
+                        text: "" + nodeAppDefinition.type + " node menu"
                     }
                     renderParagraph(paragraph, key)
                     paragraphIndex++
                     paragraph = {
-                        style:"Text",
-                        text: "The " + nodeAppDefinition.type +  " node has the following menu Items:"
+                        style: "Text",
+                        text: "The " + nodeAppDefinition.type + " node has the following menu items:"
                     }
                     renderParagraph(paragraph, key)
                     paragraphIndex++
                     for (let i = 0; i < nodeAppDefinition.menuItems.length; i++) {
                         let menuItem = nodeAppDefinition.menuItems[i]
                         paragraph = {
-                            style:"Subtitle",
+                            style: "Subtitle",
                             text: menuItem.label
                         }
                         renderParagraph(paragraph, key)
                         paragraphIndex++
 
                         paragraph = {
-                            style:"Text",
+                            style: "Text",
                             text: menuItem.label + ' has the following properties:'
                         }
                         renderParagraph(paragraph, key)
                         paragraphIndex++
 
-                        paragraph = {
-                            style:"List",
-                            text: "Action: " + menuItem.action
+                        for (const property in menuItem) {
+                            paragraph = {
+                                style: "List",
+                                text: property + ": " + menuItem[property]
+                            }
+                            renderParagraph(paragraph, key)
+                            paragraphIndex++
                         }
-                        renderParagraph(paragraph, key)
-                        paragraphIndex++
                     }
                 }
             }

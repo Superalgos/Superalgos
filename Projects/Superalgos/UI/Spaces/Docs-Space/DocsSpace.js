@@ -3,8 +3,9 @@ function newSuperalgosDocSpace() {
     let thisObject = {
         sidePanelTab: undefined,
         container: undefined,
+        openSpaceAreaAndNavigateTo: openSpaceAreaAndNavigateTo,
         navigateTo: navigateTo,
-        scrollToElement: scrollToElement, 
+        scrollToElement: scrollToElement,
         physics: physics,
         draw: draw,
         getContainer: getContainer,
@@ -442,6 +443,11 @@ function newSuperalgosDocSpace() {
         scrollingDiv.scrollTop = topPos
     }
 
+    function openSpaceAreaAndNavigateTo(category, type, project) {
+        navigateTo(category, type, project)
+        thisObject.sidePanelTab.open()
+    }
+
     function navigateTo(category, type, project) {
 
         docSchemaParagraphMap = new Map()
@@ -453,6 +459,7 @@ function newSuperalgosDocSpace() {
 
         renderPage()
         scrollToElement('docs-context-menu-clickeable-div')
+
     }
 
     function renderPage() {
@@ -464,10 +471,10 @@ function newSuperalgosDocSpace() {
             // Use the New Node Template
             return
         }
-        buildNodeHtmlPage()
+        buildHtmlPage()
         contextMenuActivateRightClick()
 
-        function buildNodeHtmlPage() {
+        function buildHtmlPage() {
             let HTML = ''
 
             HTML = HTML + '<div id="docs-context-menu-clickeable-div" class="docs-node-html-page-container">' // Container Starts
@@ -491,131 +498,140 @@ function newSuperalgosDocSpace() {
 
             HTML = HTML + '<div id="docs-content">'
 
+            let paragraphIndex = 0
             if (nodeDocsDefinition.paragraphs !== undefined) {
                 for (let i = 0; i < nodeDocsDefinition.paragraphs.length; i++) {
+                    let key = 'editable-paragraph-' + paragraphIndex
                     let paragraph = nodeDocsDefinition.paragraphs[i]
-                    let innerHTML = addToolTips(paragraph.text)
-                    let styleClass = ''
-                    let prefix = ''
-                    let sufix = ''
-                    let role = ''
-                    let key = 'paragraph-' + i
-
-                    switch (paragraph.style) {
-                        case 'Text': {
-                            styleClass = ''
-                            prefix = ''
-                            role = ''
-                            key = key + '-text'
-                            innerHTML = addBold(paragraph.text)
-                            innerHTML = addItalics(innerHTML)
-                            innerHTML = addToolTips(innerHTML)
-                            break
-                        }
-                        case 'Title': {
-                            styleClass = 'class="docs-h3"'
-                            prefix = ''
-                            role = ''
-                            key = key + '-title'
-                            innerHTML = paragraph.text
-                            break
-                        }
-                        case 'Subtitle': {
-                            styleClass = 'class="docs-h4"'
-                            prefix = ''
-                            role = ''
-                            key = key + '-subtitle'
-                            innerHTML = paragraph.text
-                            break
-                        }
-                        case 'Note': {
-                            styleClass = 'class="docs-font-small docs-alert-note"'
-                            prefix = '<i class="docs-fa docs-note-circle"></i> <b>Note:</b>'
-                            role = 'role="alert"'
-                            key = key + '-note'
-                            innerHTML = addItalics(innerHTML)
-                            innerHTML = addToolTips(innerHTML)
-                            break
-                        }
-                        case 'Success': {
-                            styleClass = 'class="docs-font-small docs-alert-success"'
-                            prefix = '<i class="docs-fa docs-check-square-o"></i> <b>Tip:</b>'
-                            role = 'role="alert"'
-                            key = key + '-success'
-                            innerHTML = addItalics(innerHTML)
-                            innerHTML = addToolTips(innerHTML)
-                            break
-                        }
-                        case 'Important': {
-                            styleClass = 'class="docs-font-small docs-alert-important"'
-                            prefix = '<i class="docs-fa docs-warning-sign"></i> <b>Important:</b>'
-                            role = 'role="alert"'
-                            key = key + '-important'
-                            innerHTML = addItalics(innerHTML)
-                            innerHTML = addToolTips(innerHTML)
-                            break
-                        }
-                        case 'Warning': {
-                            styleClass = 'class="docs-font-small docs-alert-warning"'
-                            prefix = '<i class="docs-fa docs-warning-sign"></i> <b>Warning:</b>'
-                            role = 'role="alert"'
-                            key = key + '-warning'
-                            innerHTML = addItalics(innerHTML)
-                            innerHTML = addToolTips(innerHTML)
-                            break
-                        }
-                        case 'List': {
-                            styleClass = ''
-                            prefix = '<li>'
-                            sufix = '</li>'
-                            role = ''
-                            key = key + '-list'
-                            innerHTML = addBold(paragraph.text)
-                            innerHTML = addItalics(innerHTML)
-                            innerHTML = addToolTips(innerHTML)
-                            break
-                        }
-                        case 'Javascript': {
-                            styleClass = ''
-                            prefix = '<pre><code class="language-javascript">'
-                            sufix = '</code></pre>'
-                            role = ''
-                            key = key + '-javascript'
-                            innerHTML = paragraph.text
-                            break
-                        }
-                        case 'Json': {
-                            styleClass = ''
-                            prefix = '<pre><code class="language-json">'
-                            sufix = '</code></pre>'
-                            role = ''
-                            key = key + '-json'
-                            innerHTML = paragraph.text
-                            break
-                        }
-                    }
-
-                    HTML = HTML + '<p><div id="' + key + '" ' + styleClass + ' ' + role + '>' + prefix + ' ' + innerHTML + sufix + '</div></p>'
+                    renderParagraph(paragraph, key)
                     docSchemaParagraphMap.set(key, paragraph)
+                    paragraphIndex++
                 }
             }
 
             HTML = HTML + '</div>' // Content Ends
-
             HTML = HTML + '</div>' // Container Ends
 
-            let docsAppDiv = document.getElementById('docs-space-div')
-            docsAppDiv.innerHTML = HTML + addFooter()
-            _self.Prism.highlightAllUnder(docsAppDiv, true, onHighlighted)
-
-            function onHighlighted() {
-                // nothing to do here
-            }
+            hightlightEmbeddedCode()
 
             addProjectImage(project)
 
             if (nodeDocsDefinition.definition !== undefined) {
                 addDefinitionImage(nodeAppDefinition, objectBeingRendered.project)
+            }
+
+            function renderParagraph(paragraph, key) {
+                let innerHTML = addToolTips(paragraph.text)
+                let styleClass = ''
+                let prefix = ''
+                let sufix = ''
+                let role = ''
+
+                switch (paragraph.style) {
+                    case 'Text': {
+                        styleClass = ''
+                        prefix = ''
+                        role = ''
+                        key = key + '-text'
+                        innerHTML = addBold(paragraph.text)
+                        innerHTML = addItalics(innerHTML)
+                        innerHTML = addToolTips(innerHTML)
+                        break
+                    }
+                    case 'Title': {
+                        styleClass = 'class="docs-h3"'
+                        prefix = ''
+                        role = ''
+                        key = key + '-title'
+                        innerHTML = paragraph.text
+                        break
+                    }
+                    case 'Subtitle': {
+                        styleClass = 'class="docs-h4"'
+                        prefix = ''
+                        role = ''
+                        key = key + '-subtitle'
+                        innerHTML = paragraph.text
+                        break
+                    }
+                    case 'Note': {
+                        styleClass = 'class="docs-font-small docs-alert-note"'
+                        prefix = '<i class="docs-fa docs-note-circle"></i> <b>Note:</b>'
+                        role = 'role="alert"'
+                        key = key + '-note'
+                        innerHTML = addItalics(innerHTML)
+                        innerHTML = addToolTips(innerHTML)
+                        break
+                    }
+                    case 'Success': {
+                        styleClass = 'class="docs-font-small docs-alert-success"'
+                        prefix = '<i class="docs-fa docs-check-square-o"></i> <b>Tip:</b>'
+                        role = 'role="alert"'
+                        key = key + '-success'
+                        innerHTML = addItalics(innerHTML)
+                        innerHTML = addToolTips(innerHTML)
+                        break
+                    }
+                    case 'Important': {
+                        styleClass = 'class="docs-font-small docs-alert-important"'
+                        prefix = '<i class="docs-fa docs-warning-sign"></i> <b>Important:</b>'
+                        role = 'role="alert"'
+                        key = key + '-important'
+                        innerHTML = addItalics(innerHTML)
+                        innerHTML = addToolTips(innerHTML)
+                        break
+                    }
+                    case 'Warning': {
+                        styleClass = 'class="docs-font-small docs-alert-warning"'
+                        prefix = '<i class="docs-fa docs-warning-sign"></i> <b>Warning:</b>'
+                        role = 'role="alert"'
+                        key = key + '-warning'
+                        innerHTML = addItalics(innerHTML)
+                        innerHTML = addToolTips(innerHTML)
+                        break
+                    }
+                    case 'List': {
+                        styleClass = ''
+                        prefix = '<li>'
+                        sufix = '</li>'
+                        role = ''
+                        key = key + '-list'
+                        innerHTML = addBold(paragraph.text)
+                        innerHTML = addItalics(innerHTML)
+                        innerHTML = addToolTips(innerHTML)
+                        break
+                    }
+                    case 'Javascript': {
+                        styleClass = ''
+                        prefix = '<pre><code class="language-javascript">'
+                        sufix = '</code></pre>'
+                        role = ''
+                        key = key + '-javascript'
+                        innerHTML = paragraph.text
+                        break
+                    }
+                    case 'Json': {
+                        styleClass = ''
+                        prefix = '<pre><code class="language-json">'
+                        sufix = '</code></pre>'
+                        role = ''
+                        key = key + '-json'
+                        innerHTML = paragraph.text
+                        break
+                    }
+                }
+
+                HTML = HTML + '<p><div id="' + key + '" ' + styleClass + ' ' + role + '>' + prefix + ' ' + innerHTML + sufix + '</div></p>'
+            }
+
+            function hightlightEmbeddedCode() {
+                let docsSpaceDiv = document.getElementById('docs-space-div')
+                docsSpaceDiv.innerHTML = HTML + addFooter()
+                _self.Prism.highlightAllUnder(docsSpaceDiv, true, onHighlighted)
+
+                function onHighlighted() {
+                    // nothing to do here
+                }
             }
 
             function addFooter() {
@@ -650,8 +666,6 @@ function newSuperalgosDocSpace() {
                 return HTML
             }
         }
-
-        thisObject.sidePanelTab.open()
     }
 
     function addDefinitionImage(nodeAppDefinition, project) {
@@ -788,12 +802,12 @@ function newSuperalgosDocSpace() {
                 resultingText = resultingText + firstPart + type
             } else {
                 let tooltip = TOOL_TIP_HTML
-                .replace('CATEGORY', category)
-                .replace('TYPE', type)
-                .replace('PROJECT', project)
-                .replace('TYPE_LABEL', type)
-                .replace('DEFINITION', definition)
-                                
+                    .replace('CATEGORY', category)
+                    .replace('TYPE', type)
+                    .replace('PROJECT', project)
+                    .replace('TYPE_LABEL', type)
+                    .replace('DEFINITION', definition)
+
                 resultingText = resultingText + firstPart + tooltip
             }
         }
@@ -821,50 +835,50 @@ function newSuperalgosDocSpace() {
 
                 /* Search in docSchema */
                 if (SCHEMAS_BY_PROJECT.get(project).map.docSchema.get(cleanPhrase4) !== undefined && cleanPhrase4 !== excludeNodesAndConceptTypes) {
-                    taggedText = taggedText + phrase4.replace(cleanPhrase4, '->' + 'Node' + '|' +  cleanPhrase4 + '|' + project + '->') + ' '
+                    taggedText = taggedText + phrase4.replace(cleanPhrase4, '->' + 'Node' + '|' + cleanPhrase4 + '|' + project + '->') + ' '
                     i = i + 3
                     found = true
                     break
                 }
                 if (SCHEMAS_BY_PROJECT.get(project).map.docSchema.get(cleanPhrase3) !== undefined && cleanPhrase3 !== excludeNodesAndConceptTypes) {
-                    taggedText = taggedText + phrase3.replace(cleanPhrase3, '->' + 'Node' + '|' +  cleanPhrase3 + '|' + project + '->') + ' '
+                    taggedText = taggedText + phrase3.replace(cleanPhrase3, '->' + 'Node' + '|' + cleanPhrase3 + '|' + project + '->') + ' '
                     i = i + 2
                     found = true
                     break
                 }
                 if (SCHEMAS_BY_PROJECT.get(project).map.docSchema.get(cleanPhrase2) !== undefined && cleanPhrase2 !== excludeNodesAndConceptTypes) {
-                    taggedText = taggedText + phrase2.replace(cleanPhrase2, '->' + 'Node' + '|' +  cleanPhrase2 + '|' + project + '->') + ' '
+                    taggedText = taggedText + phrase2.replace(cleanPhrase2, '->' + 'Node' + '|' + cleanPhrase2 + '|' + project + '->') + ' '
                     i = i + 1
                     found = true
                     break
                 }
                 if (SCHEMAS_BY_PROJECT.get(project).map.docSchema.get(cleanPhrase1) !== undefined && cleanPhrase1 !== excludeNodesAndConceptTypes) {
-                    taggedText = taggedText + phrase1.replace(cleanPhrase1, '->' + 'Node' + '|' +  cleanPhrase1 + '|' + project + '->') + ' '
+                    taggedText = taggedText + phrase1.replace(cleanPhrase1, '->' + 'Node' + '|' + cleanPhrase1 + '|' + project + '->') + ' '
                     found = true
                     break
                 }
 
                 /* Search in conceptSchema */
                 if (SCHEMAS_BY_PROJECT.get(project).map.conceptSchema.get(cleanPhrase4) !== undefined && cleanPhrase4 !== excludeNodesAndConceptTypes) {
-                    taggedText = taggedText + phrase4.replace(cleanPhrase4, '->' + 'Concept' + '|' +  cleanPhrase4 + '|' + project + '->') + ' '
+                    taggedText = taggedText + phrase4.replace(cleanPhrase4, '->' + 'Concept' + '|' + cleanPhrase4 + '|' + project + '->') + ' '
                     i = i + 3
                     found = true
                     break
                 }
                 if (SCHEMAS_BY_PROJECT.get(project).map.conceptSchema.get(cleanPhrase3) !== undefined && cleanPhrase3 !== excludeNodesAndConceptTypes) {
-                    taggedText = taggedText + phrase3.replace(cleanPhrase3, '->' + 'Concept' + '|' +  cleanPhrase3 + '|' + project + '->') + ' '
+                    taggedText = taggedText + phrase3.replace(cleanPhrase3, '->' + 'Concept' + '|' + cleanPhrase3 + '|' + project + '->') + ' '
                     i = i + 2
                     found = true
                     break
                 }
                 if (SCHEMAS_BY_PROJECT.get(project).map.conceptSchema.get(cleanPhrase2) !== undefined && cleanPhrase2 !== excludeNodesAndConceptTypes) {
-                    taggedText = taggedText + phrase2.replace(cleanPhrase2, '->' + 'Concept' + '|' +  cleanPhrase2 + '|' + project + '->') + ' '
+                    taggedText = taggedText + phrase2.replace(cleanPhrase2, '->' + 'Concept' + '|' + cleanPhrase2 + '|' + project + '->') + ' '
                     i = i + 1
                     found = true
                     break
                 }
                 if (SCHEMAS_BY_PROJECT.get(project).map.conceptSchema.get(cleanPhrase1) !== undefined && cleanPhrase1 !== excludeNodesAndConceptTypes) {
-                    taggedText = taggedText + phrase1.replace(cleanPhrase1, '->' + 'Concept' + '|' +  cleanPhrase1 + '|' + project + '->') + ' '
+                    taggedText = taggedText + phrase1.replace(cleanPhrase1, '->' + 'Concept' + '|' + cleanPhrase1 + '|' + project + '->') + ' '
                     found = true
                     break
                 }
@@ -923,13 +937,13 @@ function newSuperalgosDocSpace() {
         docsAppDivPhysics()
 
         function docsAppDivPhysics() {
-            let docsAppDiv = document.getElementById('docs-space-div')
+            let docsSpaceDiv = document.getElementById('docs-space-div')
             docsAppDivPosition = {
                 x: 0,
                 y: 0
             }
             docsAppDivPosition = thisObject.container.frame.frameThisPoint(docsAppDivPosition)
-            docsAppDiv.style = '   ' +
+            docsSpaceDiv.style = '   ' +
                 'overflow-y: scroll;' +
                 'overflow-x: hidden;' +
                 'position:fixed; top:' + docsAppDivPosition.y + 'px; ' +

@@ -1035,7 +1035,7 @@ function newSuperalgosDocSpace() {
 
                         let name = UI.projects.superalgos.utilities.strings.fromCamelCaseToUpperWithSpaces(key)
 
-                        HTML = HTML + '<button id="docs-config-property-' + key.toLowerCase() + '" type="button" class="docs-collapsible-element">' + name + ': ' + key + '</button>'
+                        HTML = HTML + '<button id="docs-config-property-' + key.toLowerCase() + '" type="button" class="docs-collapsible-element">' + name + '</button>'
                         HTML = HTML + '<div class="docs-collapsible-content">'
 
                         for (let i = 0; i < valueArray.length; i++) {

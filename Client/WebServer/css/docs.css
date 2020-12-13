@@ -78,7 +78,8 @@ width: 240px;
 background-color: #0295aa;
 color: #fff;
 font-weight: normal;
-font-size: 92%;
+font-style: normal;
+font-size: 15px;
 line-height: 130%;
 text-align: center;
 padding: 15px;
@@ -357,7 +358,6 @@ background-color: #eee;
 .docs-collapsible-content {
 padding: 0 18px;
 display: none;
-overflow: hidden;
 margin-left: 85px;
 z-index: 1;
 }

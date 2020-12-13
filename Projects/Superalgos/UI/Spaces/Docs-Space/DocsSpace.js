@@ -644,8 +644,12 @@ function newSuperalgosDocSpace() {
 
                     if (nodeAppDefinition.attachingRules !== undefined) {
                         if (nodeAppDefinition.attachingRules.compatibleTypes !== undefined) {
-                            let splittedCompatibleTypes = nodeAppDefinition.attachingRules.compatibleTypes.split('->')
-                            imageForTheseNodes(splittedCompatibleTypes, 'attaching-rules-compatible-types')
+                            let splittedTypes = nodeAppDefinition.attachingRules.compatibleTypes.split('->')
+                            imageForTheseNodes(splittedTypes, 'attaching-rules-compatible-types')
+                        }
+                        if (nodeAppDefinition.attachingRules.incompatibleTypes !== undefined) {
+                            let splittedTypes = nodeAppDefinition.attachingRules.incompatibleTypes.split('->')
+                            imageForTheseNodes(splittedTypes, 'attaching-rules-incompatible-types')
                         }
                     }
 
@@ -655,6 +659,7 @@ function newSuperalgosDocSpace() {
                             if (listItem === "") { continue }
 
                             let collectionImage = getIcon()
+                            if (collectionImage === undefined) { continue }
                             let imageElement = collectionImage.cloneNode()
 
                             imageElement.className = "docs-collapsible-image"
@@ -814,8 +819,19 @@ function newSuperalgosDocSpace() {
                             renderParagraph(paragraph, key)
                             paragraphIndex++
 
-                            let splittedCompatibleTypes = nodeAppDefinition.attachingRules.compatibleTypes.split('->')
-                            listAllTheseNodes(splittedCompatibleTypes, 'attaching-rules-compatible-types')
+                            let splittedTypes = nodeAppDefinition.attachingRules.compatibleTypes.split('->')
+                            listAllTheseNodes(splittedTypes, 'attaching-rules-compatible-types')
+                        }
+                        if (nodeAppDefinition.attachingRules.incompatibleTypes !== undefined) {
+                            paragraph = {
+                                style: "Subtitle",
+                                text: "Incompatible Types:"
+                            }
+                            renderParagraph(paragraph, key)
+                            paragraphIndex++
+
+                            let splittedTypes = nodeAppDefinition.attachingRules.incompatibleTypes.split('->')
+                            listAllTheseNodes(splittedTypes, 'attaching-rules-incompatible-types')
                         }
                     }
 

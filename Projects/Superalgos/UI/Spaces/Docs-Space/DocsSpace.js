@@ -731,6 +731,7 @@ function newSuperalgosDocSpace() {
                 generateChildrenNodesProperties()
                 generateAttachingRules()
                 generateReferencingRules()
+                generateConfiguration()
 
                 function generateMenuItems() {
                     /* 
@@ -940,6 +941,113 @@ function newSuperalgosDocSpace() {
                             if (listItem === "") { continue }
                             HTML = HTML + '<button id="docs-' + additionToKey + '-' + i + '" type="button" class="docs-non-collapsible-element"><img>' + addToolTips(listItem) + '</button>'
                         }
+                    }
+                }
+
+                function generateConfiguration() {
+                    /* 
+                    Configuration
+                    */
+                    let paragraph
+                    let key = 'auto-generated-paragraph-' + paragraphIndex
+                    if (nodeAppDefinition === undefined || nodeAppDefinition.editors === undefined) { return }
+                    paragraph = {
+                        style: "Title",
+                        text: "" + nodeAppDefinition.type + " Configuration"
+                    }
+                    renderParagraph(paragraph, key)
+                    paragraphIndex++
+                    paragraph = {
+                        style: "Text",
+                        text: "Each type of node, might have a configuration. The configuration can be accesed by users and changed at anytime. Whatever is at the configuration of a node is used by the processes in which the node is involved."
+                    }
+
+                    if (nodeAppDefinition.initialValues === undefined || nodeAppDefinition.initialValues.config === undefined) { return }
+                    renderParagraph(paragraph, key)
+                    paragraphIndex++
+                    paragraph = {
+                        style: "Subtitle",
+                        text: "Initial Values:"
+                    }
+                    renderParagraph(paragraph, key)
+                    paragraphIndex++
+                    paragraph = {
+                        style: "Text",
+                        text: "Each type of node, might have a definition with the initial values for it's configuration. The Initial Values are set one the node is first created. The Initial Values for " + nodeAppDefinition.type + " are:"
+                    }
+                    renderParagraph(paragraph, key)
+                    paragraphIndex++
+                    let initialValues = JSON.parse(nodeAppDefinition.initialValues.config)
+                    paragraph = {
+                        style: "Json",
+                        text: JSON.stringify(initialValues, undefined, 4)
+                    }
+                    renderParagraph(paragraph, key)
+                    paragraphIndex++
+
+                    paragraph = {
+                        style: "Subtitle",
+                        text: "Examples:"
+                    }
+                    renderParagraph(paragraph, key)
+                    paragraphIndex++
+                    paragraph = {
+                        style: "Text",
+                        text: "This is a list of properties used at the " + nodeAppDefinition.type + " configuration. Expanding a property shows you sample values for that property."
+                    }
+                    renderParagraph(paragraph, key)
+                    paragraphIndex++
+                    /*
+                    Here we will scan the whole workspace, first looking for nodes of the same type,
+                    and after that, analysing their configuration in order to extract all the properties
+                    they are using and sample values for each one.
+                    */
+                    /* First Step: get an array of all the nodes in the workspace of this type */
+                    let rootNodes = UI.projects.superalgos.spaces.designSpace.workspace.workspaceNode.rootNodes
+                    let allNodesFound = []
+                    for (let i = 0; i < rootNodes.length; i++) {
+                        let rootNode = rootNodes[i]
+                        if (rootNode !== null) {
+                            let nodeArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(rootNode, nodeAppDefinition.type)
+                            allNodesFound = allNodesFound.concat(nodeArray)
+                        }
+                    }
+                    /* Second Step: create a map with all the properties used in configurations of this node type */
+                    let propertyMap = new Map()
+                    for (let i = 0; i < allNodesFound.length; i++) {
+                        let node = allNodesFound[i]
+                        let config = JSON.parse(node.config)
+                        for (const property in config) {
+                            let value = JSON.stringify(config[property])
+                            let valueArray = propertyMap.get(property)
+                            if (valueArray === undefined) {
+                                propertyMap.set(property, [value])
+                            } else {
+                                valueArray.push(value)
+                            }
+                        }
+                    }
+                    /* Third Step: we will display the list of properties and the sample values */
+                    propertyMap.forEach(displayProperty)
+                    function displayProperty(valueArray, key, map) {
+
+                        let name = UI.projects.superalgos.utilities.strings.fromCamelCaseToUpperWithSpaces(key)
+
+                        HTML = HTML + '<button id="docs-config-property-' + key.toLowerCase() + '" type="button" class="docs-collapsible-element">' + name + ': ' + key + '</button>'
+                        HTML = HTML + '<div class="docs-collapsible-content">'
+
+                        for (let i = 0; i < valueArray.length; i++) {
+                            let value = valueArray[i]
+
+                            paragraph = {
+                                style: "Json",
+                                text: value
+                            }
+                            renderParagraph(paragraph, key)
+                            paragraphIndex++
+                        }
+
+                        HTML = HTML + '</div>'
                     }
                 }
             }

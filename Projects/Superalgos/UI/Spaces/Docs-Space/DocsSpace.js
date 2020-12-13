@@ -1018,7 +1018,7 @@ function newSuperalgosDocSpace() {
                         let node = allNodesFound[i]
                         let config = JSON.parse(node.config)
                         for (const property in config) {
-                            let value = JSON.stringify(config[property])
+                            let value = JSON.stringify(config[property], undefined, 4)
                             let valueArray = propertyMap.get(property)
                             if (valueArray === undefined) {
                                 propertyMap.set(property, [value])

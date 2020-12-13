@@ -331,14 +331,14 @@ a:active.docs-footer-link {
     background-color: #fdfdfd;
     color: #444;
     cursor: pointer;
-    padding: 18px;
+    padding: 15px;
     width: 100%;
     border: none;
     text-align: left;
     outline: none;
     font-size: 125%;
-    vertical-align: auto;
-    margin-bottom: 10px;
+    vertical-align: middle;
+    min-height: 80px;
   }
 
   /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
@@ -371,7 +371,7 @@ a:active.docs-footer-link {
     margin-right: 25px;
     width: 30px;
     height: 30px;
-    vertical-align: auto;
+    vertical-align: middle;
   }
 
   .docs-children-nodes-property-image {
@@ -379,5 +379,5 @@ a:active.docs-footer-link {
     margin-right: 25px;
     width: 30px;
     height: 30px;
-    vertical-align: auto;
+    vertical-align: middle;
   }

@@ -37,9 +37,9 @@ function newSuperalgosFunctionLibraryChainAttachDetach() {
                     if (node.payload.parentNode !== undefined) {
                         let parentNodeDefinition = getNodeDefinition(node.payload.parentNode)
                         if (parentNodeDefinition !== undefined) {
-                            if (parentNodeDefinition.properties !== undefined) {
-                                for (let i = 0; i < parentNodeDefinition.properties.length; i++) {
-                                    let property = parentNodeDefinition.properties[i]
+                            if (parentNodeDefinition.childrenNodesProperties !== undefined) {
+                                for (let i = 0; i < parentNodeDefinition.childrenNodesProperties.length; i++) {
+                                    let property = parentNodeDefinition.childrenNodesProperties[i]
                                     if (nodeDefinition.propertyNameAtParent === property.name) {
                                         switch (property.type) {
                                             case 'node': {
@@ -174,9 +174,9 @@ function newSuperalgosFunctionLibraryChainAttachDetach() {
                     if (node.payload.parentNode !== undefined) {
                         let parentNodeDefinition = getNodeDefinition(node.payload.parentNode)
                         if (parentNodeDefinition !== undefined) {
-                            if (parentNodeDefinition.properties !== undefined) {
-                                for (let i = 0; i < parentNodeDefinition.properties.length; i++) {
-                                    let property = parentNodeDefinition.properties[i]
+                            if (parentNodeDefinition.childrenNodesProperties !== undefined) {
+                                for (let i = 0; i < parentNodeDefinition.childrenNodesProperties.length; i++) {
+                                    let property = parentNodeDefinition.childrenNodesProperties[i]
                                     if (nodeDefinition.propertyNameAtParent === property.name) {
                                         switch (property.type) {
                                             case 'node': {

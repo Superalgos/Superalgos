@@ -19,8 +19,8 @@ function newSuperalgosFunctionLibrarySuperScriptsFunctions() {
                     UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.createUiObjectFromNode(templateClone, target, target)
                 } else {
                     let definition = getNodeDefinition(target)
-                    for (let i = 0; i < definition.properties.length; i++) {
-                        let property = definition.properties[i]
+                    for (let i = 0; i < definition.childrenNodesProperties.length; i++) {
+                        let property = definition.childrenNodesProperties[i]
                         if (property.childType === exchangeNodeType) {
                             let exchanges = target[property.name]
                             if (exchanges === undefined) {

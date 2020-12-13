@@ -75,9 +75,9 @@ function newUiObjectConstructor() {
 
         if (userAddingNew === true) {
             let definition = getNodeDefinition(payload.parentNode)
-            if (definition.properties !== undefined) {
-                for (let i = 0; i < definition.properties.length; i++) {
-                    let property = definition.properties[i]
+            if (definition.childrenNodesProperties !== undefined) {
+                for (let i = 0; i < definition.childrenNodesProperties.length; i++) {
+                    let property = definition.childrenNodesProperties[i]
                     if (property.childType === payload.node.type) {
                         if (property.type === 'array') {
                             let parentNode = payload.parentNode
@@ -94,7 +94,7 @@ function newUiObjectConstructor() {
                         }
                         if (floatingObject.angleToParent === undefined) {
                             for (let j = i - 1; j >= 0; j--) {
-                                let siblingProperty = definition.properties[j]
+                                let siblingProperty = definition.childrenNodesProperties[j]
                                 let parentNode = payload.parentNode
                                 let parentNodeProperty = parentNode[siblingProperty.name]
                                 if (parentNodeProperty !== undefined) {
@@ -119,8 +119,8 @@ function newUiObjectConstructor() {
                                     }
                                 }
                             }
-                            for (let j = i + 1; j < definition.properties.length; j++) {
-                                let siblingProperty = definition.properties[j]
+                            for (let j = i + 1; j < definition.childrenNodesProperties.length; j++) {
+                                let siblingProperty = definition.childrenNodesProperties[j]
                                 let parentNode = payload.parentNode
                                 let parentNodeProperty = parentNode[siblingProperty.name]
                                 if (parentNodeProperty !== undefined) {

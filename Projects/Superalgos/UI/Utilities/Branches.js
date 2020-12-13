@@ -28,10 +28,10 @@ function newSuperalgosUtilitiesBranches() {
                 return
             }
 
-            if (nodeDefinition.properties === undefined) { return }
+            if (nodeDefinition.childrenNodesProperties === undefined) { return }
             let lastNodePropertyName
-            for (let i = 0; i < nodeDefinition.properties.length; i++) {
-                let property = nodeDefinition.properties[i]
+            for (let i = 0; i < nodeDefinition.childrenNodesProperties.length; i++) {
+                let property = nodeDefinition.childrenNodesProperties[i]
                 if (lastNodePropertyName === property.name) { continue } // Some nodes have a single property por multiple child node types. We need to check repeated properties only once so as no to duplicate results.
                 switch (property.type) {
                     case 'node': {

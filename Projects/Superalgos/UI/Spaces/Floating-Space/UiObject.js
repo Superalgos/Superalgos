@@ -448,9 +448,9 @@ function newUiObject() {
                         let mustContinue = false
                         let parentNodeDefinition = getNodeDefinition(nearbyNode)
                         if (parentNodeDefinition !== undefined) {
-                            if (parentNodeDefinition.properties !== undefined) {
-                                for (let j = 0; j < parentNodeDefinition.properties.length; j++) {
-                                    let property = parentNodeDefinition.properties[j]
+                            if (parentNodeDefinition.childrenNodesProperties !== undefined) {
+                                for (let j = 0; j < parentNodeDefinition.childrenNodesProperties.length; j++) {
+                                    let property = parentNodeDefinition.childrenNodesProperties[j]
                                     if (nodeDefinition.propertyNameAtParent === property.name) {
                                         switch (property.type) {
                                             case 'node': {
@@ -736,10 +736,10 @@ function newUiObject() {
 
     function childrenRunningPhysics() {
         let nodeDefinition = getNodeDefinition(thisObject.payload.node)
-        if (nodeDefinition.properties === undefined) { return }
+        if (nodeDefinition.childrenNodesProperties === undefined) { return }
         let monitorChildrenRunning = false
-        for (let i = 0; i < nodeDefinition.properties.length; i++) {
-            let property = nodeDefinition.properties[i]
+        for (let i = 0; i < nodeDefinition.childrenNodesProperties.length; i++) {
+            let property = nodeDefinition.childrenNodesProperties[i]
             if (property.monitorChildrenRunning === true) {
                 let children = thisObject.payload.node[property.name]
                 if (children === undefined) { continue }

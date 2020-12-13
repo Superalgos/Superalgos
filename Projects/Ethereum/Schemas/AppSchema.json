@@ -48,7 +48,7 @@
         "isPinned": true,
         "positionLocked": true,
         "icon": "ethereum",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "projectDefinition",
                 "type": "node",
@@ -89,7 +89,7 @@
         "isHierarchyHead": true,
         "addLeftIcons": true,
         "level": 0,
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "networkClientReference",
                 "type": "node",
@@ -179,7 +179,7 @@
             "compatibleTypes": "->Ethereum Wallet->"
         },
         "propertyNameAtParent": "walletAccounts",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "ethBalance",
                 "type": "node",
@@ -264,7 +264,7 @@
         "isHierarchyHead": true,
         "addLeftIcons": true,
         "level": 0,
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "erc-20TokenType",
                 "type": "node",
@@ -313,7 +313,7 @@
             "compatibleTypes": "->Ethereum Token Definitions->"
         },
         "propertyNameAtParent": "erc-20TokenType",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "ethereumTokens",
                 "type": "array",
@@ -347,7 +347,7 @@
             "compatibleTypes": "->Ethereum Token Definitions->"
         },
         "propertyNameAtParent": "erc-223TokenType",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "ethereumTokens",
                 "type": "array",
@@ -381,7 +381,7 @@
             "compatibleTypes": "->Ethereum Token Definitions->"
         },
         "propertyNameAtParent": "erc-721TokenType",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "ethereumTokens",
                 "type": "array",
@@ -415,7 +415,7 @@
             "compatibleTypes": "->Ethereum Token Definitions->"
         },
         "propertyNameAtParent": "erc-777TokenType",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "ethereumTokens",
                 "type": "array",
@@ -465,7 +465,7 @@
             "compatibleTypes": "->ERC-20 Token Type->ERC-223 Token Type->ERC-721 Token Type->ERC-777 Token Type->"
         },
         "propertyNameAtParent": "ethereumTokens",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "smartContracts",
                 "type": "node",
@@ -506,7 +506,7 @@
         "isHierarchyHead": true,
         "addLeftIcons": true,
         "level": 0,
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "blockchainNetworks",
                 "type": "array",
@@ -540,7 +540,7 @@
             "compatibleTypes": "->Ethereum Blockchain->"
         },
         "propertyNameAtParent": "blockchainNetworks",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "networkClients",
                 "type": "array",
@@ -609,7 +609,7 @@
         "isHierarchyHead": true,
         "addLeftIcons": true,
         "level": 0,
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "smartContracts",
                 "type": "array",
@@ -659,7 +659,7 @@
         "propertyNameAtParent": "smartContracts",
         "addLeftIcons": true,
         "level": 1,
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "solidityCode",
                 "type": "node",
@@ -728,7 +728,7 @@
             "compatibleTypes": "->Data Tasks->"
         },
         "propertyNameAtParent": "projectDataTasks",
-        "properties": [],
+        "childrenNodesProperties": [],
         "icon": "bitcoin"
     },
     {
@@ -757,7 +757,7 @@
             "compatibleTypes": "->Learning Tasks->"
         },
         "propertyNameAtParent": "projectLearningTasks",
-        "properties": [],
+        "childrenNodesProperties": [],
         "icon": "bitcoin"
     },
     {
@@ -786,7 +786,7 @@
             "compatibleTypes": "->Trading Tasks->"
         },
         "propertyNameAtParent": "projectTradingTasks",
-        "properties": [],
+        "childrenNodesProperties": [],
         "icon": "bitcoin"
     },
     {
@@ -815,7 +815,7 @@
             "compatibleTypes": "->Data Mines Data->"
         },
         "propertyNameAtParent": "projectDataProducts",
-        "properties": [],
+        "childrenNodesProperties": [],
         "icon": "bitcoin"
     },
     {
@@ -844,7 +844,7 @@
             "compatibleTypes": "->Learning Mine Data->"
         },
         "propertyNameAtParent": "projectLearningProducts",
-        "properties": [],
+        "childrenNodesProperties": [],
         "icon": "bitcoin"
     },
     {
@@ -873,7 +873,7 @@
             "compatibleTypes": "->Trading Mine Data->"
         },
         "propertyNameAtParent": "projectTradingProducts",
-        "properties": [],
+        "childrenNodesProperties": [],
         "icon": "bitcoin"
     },
     {
@@ -902,7 +902,7 @@
             "compatibleTypes": "->Charting Space->"
         },
         "propertyNameAtParent": "projectDashboards",
-        "properties": [],
+        "childrenNodesProperties": [],
         "icon": "bitcoin"
     },
     {
@@ -942,7 +942,7 @@
         "initialValues": {
             "config": "{ \n\"codeName\": \"Type a name with no spaces or dashes\"\n}"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "blockchainScannerBots",
                 "type": "array",
@@ -996,7 +996,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Data Mine->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "processes",
                 "type": "array",

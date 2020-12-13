@@ -15,10 +15,10 @@ function newSuperalgosFunctionLibraryShortcutKeys() {
 
             /* Check all of its own children nodes. */
             if (node.payload.floatingObject.isCollapsed !== true) {
-                if (nodeDefinition.properties !== undefined) {
+                if (nodeDefinition.childrenNodesProperties !== undefined) {
                     let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
-                    for (let i = 0; i < nodeDefinition.properties.length; i++) {
-                        let property = nodeDefinition.properties[i]
+                    for (let i = 0; i < nodeDefinition.childrenNodesProperties.length; i++) {
+                        let property = nodeDefinition.childrenNodesProperties[i]
 
                         switch (property.type) {
                             case 'node': {

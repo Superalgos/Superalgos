@@ -43,9 +43,9 @@ function newSuperalgosUtilitiesMeshes() {
 
             /* We scan through this node children */
             if (findInChildren === true) {
-                if (nodeDefinition.properties !== undefined) {
-                    for (let i = 0; i < nodeDefinition.properties.length; i++) {
-                        let property = nodeDefinition.properties[i]
+                if (nodeDefinition.childrenNodesProperties !== undefined) {
+                    for (let i = 0; i < nodeDefinition.childrenNodesProperties.length; i++) {
+                        let property = nodeDefinition.childrenNodesProperties[i]
 
                         switch (property.type) {
                             case 'node': {

@@ -20,10 +20,10 @@ function newSuperalgosFunctionLibraryNodePath() {
 
             let nodeDefinition = getNodeDefinition(node.payload.parentNode)
             if (nodeDefinition === undefined) { return }
-            if (nodeDefinition.properties === undefined) { return }
+            if (nodeDefinition.childrenNodesProperties === undefined) { return }
 
-            for (let i = 0; i < nodeDefinition.properties.length; i++) {
-                let property = nodeDefinition.properties[i]
+            for (let i = 0; i < nodeDefinition.childrenNodesProperties.length; i++) {
+                let property = nodeDefinition.childrenNodesProperties[i]
 
                 let parentProperty = node.payload.parentNode[property.name]
                 if (parentProperty === undefined) { continue }

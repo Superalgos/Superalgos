@@ -24,7 +24,7 @@
         "isPinned": true,
         "positionLocked": true,
         "icon": "superalgos",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "projectDefinition",
                 "type": "node",
@@ -249,7 +249,7 @@
     },
     {
         "type": "Plotter Module",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "javascriptCode",
                 "type": "node",
@@ -605,7 +605,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Plotter Module->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "chartPoints",
                 "type": "array",
@@ -681,7 +681,7 @@
         "editors": {
             "config": true
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "javascriptCode",
                 "type": "node",
@@ -741,7 +741,7 @@
         "initialValues": {
             "config": "{\n  \"valueDecimals\": 2\n}"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "dataFormula",
                 "type": "node",
@@ -864,7 +864,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Shapes->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "points",
                 "type": "array",
@@ -898,7 +898,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Chart Points->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "pointFormula",
                 "type": "node",
@@ -1007,7 +1007,7 @@
                 "iconPathOff": "delete"
             }
         ],
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "imageCondition",
                 "type": "node",
@@ -1036,7 +1036,7 @@
         "initialValues": {
             "code": ""
         },
-        "properties": [],
+        "childrenNodesProperties": [],
         "menuItems": [
             {
                 "action": "Edit",
@@ -1064,7 +1064,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Image->"
         },
-        "properties": [],
+        "childrenNodesProperties": [],
         "referenceAttachesTo": {
             "compatibleTypes": "->Point->"
         },
@@ -1147,7 +1147,7 @@
                 "iconPathOff": "delete"
             }
         ],
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "textCondition",
                 "type": "node",
@@ -1221,7 +1221,7 @@
         "initialValues": {
             "code": ""
         },
-        "properties": [],
+        "childrenNodesProperties": [],
         "menuItems": [
             {
                 "action": "Edit",
@@ -1249,7 +1249,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Text->"
         },
-        "properties": [],
+        "childrenNodesProperties": [],
         "referenceAttachesTo": {
             "compatibleTypes": "->Point->"
         },
@@ -1322,7 +1322,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Shapes->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "polygonCondition",
                 "type": "node",
@@ -1404,7 +1404,7 @@
         "initialValues": {
             "code": ""
         },
-        "properties": [],
+        "childrenNodesProperties": [],
         "menuItems": [
             {
                 "action": "Edit",
@@ -1432,7 +1432,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Polygon->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "style",
                 "type": "node",
@@ -1479,7 +1479,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Polygon->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "style",
                 "type": "node",
@@ -1532,7 +1532,7 @@
         "initialValues": {
             "code": ""
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "style",
                 "type": "node",
@@ -1660,7 +1660,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Take Position Event->Trigger On Event->Trigger Off Event->Next Phase Event->Move To Phase Event->Create Order Event->Cancel Order Event->Close Stage Event->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "conditions",
                 "type": "array",
@@ -1722,7 +1722,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Situation->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "javascriptCode",
                 "type": "node",
@@ -1770,7 +1770,7 @@
         "initialValues": {
             "config": "{ \n  \"codeName\": \"\"\n}"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "scriptsLibrary",
                 "type": "node",
@@ -1805,7 +1805,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Super Scripts->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "masterScripts",
                 "type": "array",
@@ -1848,7 +1848,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Scripts Library->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "templateScripts",
                 "type": "array",
@@ -1906,7 +1906,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Master Script->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "templateStructure",
                 "type": "node",
@@ -1947,7 +1947,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Template Script->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "taskManagers",
                 "type": "node",
@@ -1993,7 +1993,7 @@
         "referenceAttachesTo": {
             "compatibleTypes": "->Dashboard->Data Mines Data->Trading Mines Data->Data Tasks->Testing Trading Tasks->Production Trading Tasks->"
         },
-        "properties": []
+        "childrenNodesProperties": []
     },
     {
         "type": "Super Action",
@@ -2028,7 +2028,7 @@
         "referenceAttachesTo": {
             "compatibleTypes": "->Master Script->"
         },
-        "properties": []
+        "childrenNodesProperties": []
     },
     {
         "type": "Network",
@@ -2052,7 +2052,7 @@
         "isHierarchyHead": true,
         "addLeftIcons": true,
         "level": 0,
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "networkNodes",
                 "type": "array",
@@ -2133,7 +2133,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Network->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "dataTasks",
                 "type": "node",
@@ -2211,7 +2211,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Data Mine Tasks->Trading Mine Tasks->Learning Mine Tasks->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "tasks",
                 "type": "array",
@@ -2307,7 +2307,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Task Manager->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "bot",
                 "type": "node",
@@ -2374,7 +2374,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Task->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "processes",
                 "type": "array",
@@ -2422,7 +2422,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Task->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "processes",
                 "type": "array",
@@ -2458,7 +2458,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Sensor Bot Instance->"
         },
-        "properties": [],
+        "childrenNodesProperties": [],
         "propertyNameAtParent": "processes"
     },
     {
@@ -2487,7 +2487,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Indicator Bot Instance->"
         },
-        "properties": [],
+        "childrenNodesProperties": [],
         "propertyNameAtParent": "processes"
     },
     {
@@ -2556,7 +2556,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Trading Bot Instance->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "session",
                 "type": "node",
@@ -2628,7 +2628,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Trading Bot Instance->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "session",
                 "type": "node",
@@ -2714,7 +2714,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Trading Process Instance->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "tradingParameters",
                 "type": "node",
@@ -2763,7 +2763,7 @@
         "isHierarchyHead": true,
         "addLeftIcons": true,
         "level": 0,
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "current",
                 "type": "node",
@@ -2809,7 +2809,7 @@
             "compatibleTypes": "->Trading System->"
         },
         "propertyNameAtParent": "dynamicIndicators",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "indicatorFunctions",
                 "type": "array",
@@ -2858,7 +2858,7 @@
             "compatibleTypes": "->Dynamic Indicators->"
         },
         "propertyNameAtParent": "indicatorFunctions",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "formula",
                 "type": "node",
@@ -2892,7 +2892,7 @@
             "compatibleTypes": "->Current->"
         },
         "propertyNameAtParent": "episode",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "serialNumber",
                 "type": "node",
@@ -3028,7 +3028,7 @@
             "compatibleTypes": "->Episode->"
         },
         "propertyNameAtParent": "episodeCounters",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "periods",
                 "type": "node",
@@ -3106,7 +3106,7 @@
             "compatibleTypes": "->Position->"
         },
         "propertyNameAtParent": "positionCounters",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "periods",
                 "type": "node",
@@ -3154,7 +3154,7 @@
             "compatibleTypes": "->Strategy->"
         },
         "propertyNameAtParent": "strategyCounters",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "periods",
                 "type": "node",
@@ -3202,7 +3202,7 @@
             "compatibleTypes": "->Market Order->Limit Order->"
         },
         "propertyNameAtParent": "orderCounters",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "periods",
                 "type": "node",
@@ -3626,7 +3626,7 @@
             "compatibleTypes": "->Episode->"
         },
         "propertyNameAtParent": "episodeStatistics",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "profitLoss",
                 "type": "node",
@@ -3724,7 +3724,7 @@
             "compatibleTypes": "->Position->"
         },
         "propertyNameAtParent": "stopLoss",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "begin",
                 "type": "node",
@@ -3822,7 +3822,7 @@
             "compatibleTypes": "->Position->"
         },
         "propertyNameAtParent": "stopLoss",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "begin",
                 "type": "node",
@@ -4216,7 +4216,7 @@
             "compatibleTypes": "->Position->"
         },
         "propertyNameAtParent": "positionStatistics",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "profitLoss",
                 "type": "node",
@@ -4274,7 +4274,7 @@
             "compatibleTypes": "->Strategy Open Stage->Strategy Close Stage->"
         },
         "propertyNameAtParent": "stageBaseAsset",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "targetSize",
                 "type": "node",
@@ -4326,7 +4326,7 @@
             "compatibleTypes": "->Strategy Open Stage->Strategy Close Stage->"
         },
         "propertyNameAtParent": "stageQuotedAsset",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "targetSize",
                 "type": "node",
@@ -4378,7 +4378,7 @@
             "compatibleTypes": "->Episode->"
         },
         "propertyNameAtParent": "episodeBaseAsset",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "balance",
                 "type": "node",
@@ -4466,7 +4466,7 @@
             "compatibleTypes": "->Episode->"
         },
         "propertyNameAtParent": "episodeQuotedAsset",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "balance",
                 "type": "node",
@@ -4554,7 +4554,7 @@
             "compatibleTypes": "->Position->"
         },
         "propertyNameAtParent": "positionBaseAsset",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "beginBalance",
                 "type": "node",
@@ -4624,7 +4624,7 @@
             "compatibleTypes": "->Position->"
         },
         "propertyNameAtParent": "positionQuotedAsset",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "beginBalance",
                 "type": "node",
@@ -4700,7 +4700,7 @@
             "compatibleTypes": "->Market Order->Limit Order->"
         },
         "propertyNameAtParent": "orderStatistics",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "percentageFilled",
                 "type": "node",
@@ -4752,7 +4752,7 @@
             "compatibleTypes": "->Market Order->Limit Order->"
         },
         "propertyNameAtParent": "orderBaseAsset",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "actualSize",
                 "type": "node",
@@ -4816,7 +4816,7 @@
             "compatibleTypes": "->Market Order->Limit Order->"
         },
         "propertyNameAtParent": "orderQuotedAsset",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "actualSize",
                 "type": "node",
@@ -4916,7 +4916,7 @@
             "compatibleTypes": "->Episode Statistics->Position Statistics->"
         },
         "propertyNameAtParent": "userDefinedStatistics",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "formula",
                 "type": "node",
@@ -5490,7 +5490,7 @@
             "compatibleTypes": "->Trading Engine->"
         },
         "propertyNameAtParent": "current",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "episode",
                 "type": "node",
@@ -5722,7 +5722,7 @@
             "compatibleTypes": "->Episode->"
         },
         "propertyNameAtParent": "distanceToEvent",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "triggerOn",
                 "type": "node",
@@ -6290,7 +6290,7 @@
             "compatibleTypes": "->Current->"
         },
         "propertyNameAtParent": "strategyTriggerStage",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "begin",
                 "type": "node",
@@ -6354,7 +6354,7 @@
             "compatibleTypes": "->Current->"
         },
         "propertyNameAtParent": "strategyManageStage",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "begin",
                 "type": "node",
@@ -6418,7 +6418,7 @@
             "compatibleTypes": "->Current->"
         },
         "propertyNameAtParent": "strategyOpenStage",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "begin",
                 "type": "node",
@@ -6500,7 +6500,7 @@
             "compatibleTypes": "->Current->"
         },
         "propertyNameAtParent": "strategyCloseStage",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "begin",
                 "type": "node",
@@ -6582,7 +6582,7 @@
             "compatibleTypes": "->Current->Last->"
         },
         "propertyNameAtParent": "strategy",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "serialNumber",
                 "type": "node",
@@ -7710,7 +7710,7 @@
             "compatibleTypes": "->Current->Last->"
         },
         "propertyNameAtParent": "position",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "serialNumber",
                 "type": "node",
@@ -8650,7 +8650,7 @@
             "compatibleTypes": "->Trading Engine->"
         },
         "propertyNameAtParent": "last",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "position",
                 "type": "node",
@@ -8702,7 +8702,7 @@
             "compatibleTypes": "->Episode->"
         },
         "propertyNameAtParent": "candle",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "begin",
                 "type": "node",
@@ -8793,7 +8793,7 @@
             "compatibleTypes": "->Episode->"
         },
         "propertyNameAtParent": "cycle",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "begin",
                 "type": "node",
@@ -8871,7 +8871,7 @@
             "compatibleTypes": "->Trading Engine->"
         },
         "propertyNameAtParent": "exchangeOrders",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "marketBuyOrders",
                 "type": "node",
@@ -8923,7 +8923,7 @@
             "compatibleTypes": "->Exchange Orders->"
         },
         "propertyNameAtParent": "marketBuyOrders",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "marketOrders",
                 "type": "array",
@@ -8957,7 +8957,7 @@
             "compatibleTypes": "->Market Buy Orders->Market Sell Orders->Last->"
         },
         "propertyNameAtParent": "marketOrders",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "serialNumber",
                 "type": "node",
@@ -9081,7 +9081,7 @@
             "compatibleTypes": "->Exchange Orders->"
         },
         "propertyNameAtParent": "marketSellOrders",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "marketOrders",
                 "type": "array",
@@ -9115,7 +9115,7 @@
             "compatibleTypes": "->Exchange Orders->"
         },
         "propertyNameAtParent": "limitBuyOrders",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "limitOrders",
                 "type": "array",
@@ -9149,7 +9149,7 @@
             "compatibleTypes": "->Exchange Orders->"
         },
         "propertyNameAtParent": "limitSellOrders",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "limitOrders",
                 "type": "array",
@@ -9183,7 +9183,7 @@
             "compatibleTypes": "->Limit Buy Orders->Limit Sell Orders->Last->"
         },
         "propertyNameAtParent": "limitOrders",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "serialNumber",
                 "type": "node",
@@ -9306,7 +9306,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Backtesting Session->Live Trading Session->Paper Trading Session->Forward Testing Session->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "sessionBaseAsset",
                 "type": "node",
@@ -9388,7 +9388,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Learning Session->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "learningAlgorithm",
                 "type": "node",
@@ -9971,7 +9971,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Trading Process Instance->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "tradingParameters",
                 "type": "node",
@@ -10072,7 +10072,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Trading Process Instance->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "tradingParameters",
                 "type": "node",
@@ -10199,7 +10199,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Trading Process Instance->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "tradingParameters",
                 "type": "node",
@@ -10300,7 +10300,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Learning Process Instance->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "learningParameters",
                 "type": "node",
@@ -10366,7 +10366,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Task->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "processes",
                 "type": "array",
@@ -10423,7 +10423,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Task->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "processes",
                 "type": "array",
@@ -10487,7 +10487,7 @@
         "initialValues": {
             "config": "{ \n\"codeName\": \"Type a name with no spaces or dashes\"\n}"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "sensorBots",
                 "type": "array",
@@ -10548,7 +10548,7 @@
         "initialValues": {
             "config": "{ \n\"codeName\": \"Type a name with no spaces or dashes\"\n}"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "tradingBots",
                 "type": "array",
@@ -10604,7 +10604,7 @@
         "initialValues": {
             "config": "{ \n\"codeName\": \"Type a name with no spaces or dashes\"\n}"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "learningBots",
                 "type": "array",
@@ -10662,7 +10662,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Data Mine->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "processes",
                 "type": "array",
@@ -10717,7 +10717,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Sensor Bot->Indicator Bot->Trading Bot->Learning Bot->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "processOutput",
                 "type": "node",
@@ -10790,7 +10790,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Process Definition->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "outputDatasets",
                 "type": "array",
@@ -10851,7 +10851,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Process Definition->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "statusDependencies",
                 "type": "array",
@@ -11013,7 +11013,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Process Output->Output Dataset Folder->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "outputDatasets",
                 "type": "array",
@@ -11059,7 +11059,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Trading Bot->Learning Bot->Product Definition Folder->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "products",
                 "type": "array",
@@ -11131,7 +11131,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Sensor Bot->Indicator Bot->Trading Bot->Learning Bot->Product Definition Folder->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "datasets",
                 "type": "array",
@@ -11237,7 +11237,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Data Mine->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "processes",
                 "type": "array",
@@ -11333,7 +11333,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Product Definition->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "properties",
                 "type": "array",
@@ -11384,7 +11384,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Record Definition->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "formula",
                 "type": "node",
@@ -11495,7 +11495,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Product Definition->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "initialization",
                 "type": "node",
@@ -11537,7 +11537,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Calculations Procedure->Data Building Procedure->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "javascriptCode",
                 "type": "node",
@@ -11573,7 +11573,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Calculations Procedure->Data Building Procedure->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "javascriptCode",
                 "type": "node",
@@ -11617,7 +11617,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Product Definition->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "loop",
                 "type": "node",
@@ -11684,7 +11684,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Trading Mine->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "processes",
                 "type": "array",
@@ -11757,7 +11757,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Learning Mine->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "processes",
                 "type": "array",
@@ -11818,7 +11818,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Data Mine->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "modules",
                 "type": "array",
@@ -11871,7 +11871,7 @@
         "initialValues": {
             "config": "{ \n  \"codeName\": \"\"\n}"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "tradingStrategies",
                 "type": "array",
@@ -11911,7 +11911,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Trading System->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "triggerStage",
                 "type": "node",
@@ -11969,7 +11969,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Trading Strategy->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "triggerOn",
                 "type": "node",
@@ -12026,7 +12026,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Trigger Stage->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "situations",
                 "type": "array",
@@ -12071,7 +12071,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Trigger Stage->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "situations",
                 "type": "array",
@@ -12116,7 +12116,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Trigger Stage->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "situations",
                 "type": "array",
@@ -12161,7 +12161,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Trading Strategy->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "initialTargets",
                 "type": "node",
@@ -12218,7 +12218,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Open Stage->Close Stage->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "situations",
                 "type": "array",
@@ -12257,7 +12257,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Open Stage->Close Stage->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "targetRate",
                 "type": "node",
@@ -12303,7 +12303,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Manage Stage->Initial Definition->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "phases",
                 "type": "array",
@@ -12360,7 +12360,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Managed Stop->Managed Take Profit->Phase->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "formula",
                 "type": "node",
@@ -12415,7 +12415,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Phase->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "situations",
                 "type": "array",
@@ -12463,7 +12463,7 @@
         "referenceAttachesTo": {
             "compatibleTypes": "->Phase->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "situations",
                 "type": "array",
@@ -12502,7 +12502,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Manage Stage->Initial Definition->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "phases",
                 "type": "array",
@@ -12538,7 +12538,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Initial Targets->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "formula",
                 "type": "node",
@@ -12574,7 +12574,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Initial Targets->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "formula",
                 "type": "node",
@@ -12610,7 +12610,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Initial Targets->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "formula",
                 "type": "node",
@@ -12646,7 +12646,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Limit Buy Order->Limit Sell Order->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "formula",
                 "type": "node",
@@ -12681,7 +12681,7 @@
             "compatibleTypes": "->Open Stage->"
         },
         "propertyNameAtParent": "openExecution",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "executionAlgorithms",
                 "type": "array",
@@ -12745,7 +12745,7 @@
             "compatibleTypes": "->Open Execution->Close Execution->"
         },
         "propertyNameAtParent": "executionAlgorithms",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "marketBuyOrders",
                 "type": "array",
@@ -12819,7 +12819,7 @@
             "compatibleTypes": "->Market Order->"
         },
         "propertyNameAtParent": "marketBuyOrders",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "createOrderEvent",
                 "type": "node",
@@ -12885,7 +12885,7 @@
             "compatibleTypes": "->Market Order->"
         },
         "propertyNameAtParent": "marketSellOrders",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "createOrderEvent",
                 "type": "node",
@@ -12967,7 +12967,7 @@
             "compatibleTypes": "->Limit Order->"
         },
         "propertyNameAtParent": "limitBuyOrders",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "orderRate",
                 "type": "node",
@@ -13060,7 +13060,7 @@
             "compatibleTypes": "->Limit Order->"
         },
         "propertyNameAtParent": "limitSellOrders",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "orderRate",
                 "type": "node",
@@ -13116,7 +13116,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Market Buy Order->Market Sell Order->Limit Buy Order->Limit Sell Order->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "situations",
                 "type": "array",
@@ -13161,7 +13161,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Market Buy Order->Market Sell Order->Limit Buy Order->Limit Sell Order->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "situations",
                 "type": "array",
@@ -13218,7 +13218,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Market Buy Order->Market Sell Order->Limit Buy Order->Limit Sell Order->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "simulatedPartialFill",
                 "type": "node",
@@ -13299,7 +13299,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Simulated Exchange Events->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "formula",
                 "type": "node",
@@ -13372,7 +13372,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Trading Strategy->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "managedStopLoss",
                 "type": "node",
@@ -13423,7 +13423,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Trading Strategy->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "initialTargets",
                 "type": "node",
@@ -13475,7 +13475,7 @@
             "compatibleTypes": "->Close Stage->"
         },
         "propertyNameAtParent": "closeExecution",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "executionAlgorithms",
                 "type": "array",
@@ -13507,7 +13507,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Backtesting Session->Live Trading Session->Paper Trading Session->Forward Testing Session->Learning Session->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "bots",
                 "type": "array",
@@ -13548,7 +13548,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Social Bots->"
         },
-        "properties": [],
+        "childrenNodesProperties": [],
         "propertyNameAtParent": "bots"
     },
     {
@@ -13598,7 +13598,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Trigger On Event->Trigger Off Event->Take Position Event->Next Phase Event->Move To Phase Event->Phase->Trigger Stage->Open Stage->Manage Stage->Close Stage->Create Order Event->Cancel Order Event->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "announcementFormula",
                 "type": "node",
@@ -13666,7 +13666,7 @@
         "isHierarchyHead": true,
         "addLeftIcons": true,
         "level": 0,
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "cryptoExchanges",
                 "type": "array",
@@ -13705,7 +13705,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Crypto Ecosystem->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "superActions",
                 "type": "array",
@@ -13738,7 +13738,7 @@
             "compatibleTypes": "->Crypto Ecosystem->"
         },
         "propertyNameAtParent": "signalsProviders",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "signalsProviders",
                 "type": "array",
@@ -13789,7 +13789,7 @@
             "config": "{ \n\"webhookURL\": \"Webhook/New-Message/Trading-View/Binance/BTC-USDT\",\n\"testMessage\": \"\" \n}"
         },
         "propertyNameAtParent": "signalsProviders",
-        "properties": []
+        "childrenNodesProperties": []
     },
     {
         "type": "Crypto Exchanges",
@@ -13826,7 +13826,7 @@
             "compatibleTypes": "->Crypto Ecosystem->"
         },
         "propertyNameAtParent": "cryptoExchanges",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "exchanges",
                 "type": "array",
@@ -13892,7 +13892,7 @@
             "compatibleTypes": "->Crypto Exchanges->"
         },
         "propertyNameAtParent": "exchanges",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "exchangeAssets",
                 "type": "node",
@@ -14002,7 +14002,7 @@
             "compatibleTypes": "->Crypto Exchange->"
         },
         "propertyNameAtParent": "exchangeAssets",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "assets",
                 "type": "array",
@@ -14144,7 +14144,7 @@
             "compatibleTypes": "->Crypto Exchange->"
         },
         "propertyNameAtParent": "exchangeMarkets",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "markets",
                 "type": "array",
@@ -14206,7 +14206,7 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "baseAsset",
                 "type": "node",
@@ -14259,7 +14259,7 @@
             "compatibleTypes": "->Crypto Exchange->"
         },
         "propertyNameAtParent": "exchangeAccounts",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "userAccounts",
                 "type": "array",
@@ -14304,7 +14304,7 @@
             "compatibleTypes": "->Exchange Accounts->"
         },
         "propertyNameAtParent": "userAccounts",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "userAssets",
                 "type": "node",
@@ -14345,7 +14345,7 @@
             "compatibleTypes": "->User Account->"
         },
         "propertyNameAtParent": "userAssets",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "assets",
                 "type": "array",
@@ -14379,7 +14379,7 @@
             "compatibleTypes": "->User Account->"
         },
         "propertyNameAtParent": "userKeys",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "keys",
                 "type": "array",
@@ -14485,7 +14485,7 @@
         "isHierarchyHead": true,
         "addLeftIcons": true,
         "level": 0,
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "spaceStyle",
                 "type": "node",
@@ -14621,7 +14621,7 @@
         "isHierarchyHead": true,
         "addLeftIcons": true,
         "level": 0,
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "viewport",
                 "type": "node",
@@ -14685,7 +14685,7 @@
             "compatibleTypes": "->Project Definition->"
         },
         "propertyNameAtParent": "projectDashboards",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "dashboards",
                 "type": "array",
@@ -14731,7 +14731,7 @@
             "compatibleTypes": "->Project Dashboards->"
         },
         "propertyNameAtParent": "dashboards",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "timeMachines",
                 "type": "array",
@@ -14806,7 +14806,7 @@
             "compatibleTypes": "->Dashboard->Template Structure->"
         },
         "propertyNameAtParent": "timeMachines",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "timeScale",
                 "type": "node",
@@ -15007,7 +15007,7 @@
             "compatibleTypes": "->Time Machine->"
         },
         "propertyNameAtParent": "timelineCharts",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "rateScale",
                 "type": "node",
@@ -15086,7 +15086,7 @@
             "compatibleTypes": "->Data Mine Products->Trading Mine Products->Learning Mine Products->"
         },
         "propertyNameAtParent": "layerManager",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "layers",
                 "type": "array",
@@ -15147,7 +15147,7 @@
             "compatibleTypes": "->Layer Manager->Bot Layers->Layer Folder->"
         },
         "propertyNameAtParent": "layers",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "layerPanels",
                 "type": "node",
@@ -15191,7 +15191,7 @@
             "compatibleTypes": "->Layer->"
         },
         "propertyNameAtParent": "layerPanels",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "layerPanels",
                 "type": "array",
@@ -15239,7 +15239,7 @@
             "compatibleTypes": "->Layer Panels->"
         },
         "propertyNameAtParent": "layerPanels",
-        "properties": [],
+        "childrenNodesProperties": [],
         "icon": "under-construction"
     },
     {
@@ -15273,7 +15273,7 @@
             "compatibleTypes": "->Layer->"
         },
         "propertyNameAtParent": "layerPolygons",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "layerPolygons",
                 "type": "array",
@@ -15321,7 +15321,7 @@
             "compatibleTypes": "->Layer Polygons->"
         },
         "propertyNameAtParent": "layerPolygons",
-        "properties": [],
+        "childrenNodesProperties": [],
         "icon": "under-construction"
     },
     {
@@ -15355,7 +15355,7 @@
             "compatibleTypes": "->Layer Manager->"
         },
         "propertyNameAtParent": "botLayers",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "layers",
                 "type": "array",
@@ -15401,7 +15401,7 @@
             "compatibleTypes": "->Layer Folder->Bot Layers->"
         },
         "propertyNameAtParent": "layerFolders",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "layers",
                 "type": "array",
@@ -15459,7 +15459,7 @@
             "compatibleTypes": "->Network Node->"
         },
         "propertyNameAtParent": "dataStorage",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "dataMinesData",
                 "type": "node",
@@ -15542,7 +15542,7 @@
         ],
         "isTitleAllwaysVisible": true,
         "propertyNameAtParent": "dataMineTasks",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "taskManagers",
                 "type": "array",
@@ -15613,7 +15613,7 @@
         ],
         "isTitleAllwaysVisible": true,
         "propertyNameAtParent": "tradingMineTasks",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "taskManagers",
                 "type": "array",
@@ -15684,7 +15684,7 @@
         ],
         "isTitleAllwaysVisible": true,
         "propertyNameAtParent": "learningMineTasks",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "taskManagers",
                 "type": "array",
@@ -15756,7 +15756,7 @@
         ],
         "isTitleAllwaysVisible": true,
         "propertyNameAtParent": "marketDataTasks",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "dataMineTasks",
                 "type": "array",
@@ -15828,7 +15828,7 @@
         ],
         "isTitleAllwaysVisible": true,
         "propertyNameAtParent": "marketTradingTasks",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "tradingMineTasks",
                 "type": "array",
@@ -15900,7 +15900,7 @@
         ],
         "isTitleAllwaysVisible": true,
         "propertyNameAtParent": "marketLearningTasks",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "learningMineTasks",
                 "type": "array",
@@ -15971,7 +15971,7 @@
         ],
         "isTitleAllwaysVisible": true,
         "propertyNameAtParent": "exchangeDataTasks",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "marketDataTasks",
                 "type": "array",
@@ -16042,7 +16042,7 @@
         ],
         "isTitleAllwaysVisible": true,
         "propertyNameAtParent": "exchangeTradingTasks",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "marketTradingTasks",
                 "type": "array",
@@ -16113,7 +16113,7 @@
         ],
         "isTitleAllwaysVisible": true,
         "propertyNameAtParent": "exchangeLearningTasks",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "marketLearningTasks",
                 "type": "array",
@@ -16183,7 +16183,7 @@
             "compatibleTypes": "->Data Tasks->"
         },
         "propertyNameAtParent": "projectDataTasks",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "exchangeDataTasks",
                 "type": "array",
@@ -16247,7 +16247,7 @@
             "compatibleTypes": "->Network Node->"
         },
         "propertyNameAtParent": "dataTasks",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "projectDataTasks",
                 "type": "array",
@@ -16317,7 +16317,7 @@
             "compatibleTypes": "->Learning Tasks->"
         },
         "propertyNameAtParent": "projectLearningTasks",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "exchangeLearningTasks",
                 "type": "array",
@@ -16381,7 +16381,7 @@
             "compatibleTypes": "->Network Node->"
         },
         "propertyNameAtParent": "learningTasks",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "projectLearningTasks",
                 "type": "array",
@@ -16451,7 +16451,7 @@
             "compatibleTypes": "->Testing Trading Tasks->Production Trading Tasks->"
         },
         "propertyNameAtParent": "projectTradingTasks",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "exchangeTradingTasks",
                 "type": "array",
@@ -16515,7 +16515,7 @@
             "compatibleTypes": "->Network Node->"
         },
         "propertyNameAtParent": "testingTradingTasks",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "projectTradingTasks",
                 "type": "array",
@@ -16578,7 +16578,7 @@
             "compatibleTypes": "->Network Node->"
         },
         "propertyNameAtParent": "productionTradingTasks",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "projectTradingTasks",
                 "type": "array",
@@ -16629,7 +16629,7 @@
             "compatibleTypes": "->Project Data Products->"
         },
         "propertyNameAtParent": "exchangeDataProducts",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "marketDataProducts",
                 "type": "array",
@@ -16671,7 +16671,7 @@
             "compatibleTypes": "->Data Storage->"
         },
         "propertyNameAtParent": "dataMinesData",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "projectDataProducts",
                 "type": "array",
@@ -16720,7 +16720,7 @@
             "compatibleTypes": "->Data Mines Data->"
         },
         "propertyNameAtParent": "projectDataProducts",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "exchangeDataProducts",
                 "type": "array",
@@ -16770,7 +16770,7 @@
             "compatibleTypes": "->Trading Mines Data->"
         },
         "propertyNameAtParent": "projectTradingProducts",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "exchangeTradingProducts",
                 "type": "array",
@@ -16820,7 +16820,7 @@
             "compatibleTypes": "->Learning Mines Data->"
         },
         "propertyNameAtParent": "projectLearningProducts",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "exchangeLearningProducts",
                 "type": "array",
@@ -16871,7 +16871,7 @@
             "compatibleTypes": "->Project Trading Products->"
         },
         "propertyNameAtParent": "exchangeTradingProducts",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "marketTradingProducts",
                 "type": "array",
@@ -16922,7 +16922,7 @@
             "compatibleTypes": "->Project Learning Products->"
         },
         "propertyNameAtParent": "exchangeLearningProducts",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "marketLearningProducts",
                 "type": "array",
@@ -16965,7 +16965,7 @@
             "compatibleTypes": "->Data Storage->"
         },
         "propertyNameAtParent": "tradingMinesData",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "projectTradingProducts",
                 "type": "array",
@@ -17007,7 +17007,7 @@
             "compatibleTypes": "->Data Storage->"
         },
         "propertyNameAtParent": "learningMinesData",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "projectLearningProducts",
                 "type": "array",
@@ -17065,7 +17065,7 @@
             "compatibleTypes": "->Market Trading Products->"
         },
         "propertyNameAtParent": "tradingSessionReferences",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "dataProducts",
                 "type": "array",
@@ -17130,7 +17130,7 @@
             "compatibleTypes": "->Market Learning Products->"
         },
         "propertyNameAtParent": "learningSessionReferences",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "dataProducts",
                 "type": "array",
@@ -17193,7 +17193,7 @@
             "compatibleTypes": "->Exchange Data Products->"
         },
         "propertyNameAtParent": "marketDataProducts",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "dataProducts",
                 "type": "array",
@@ -17250,7 +17250,7 @@
             "compatibleTypes": "->Exchange Trading Products->"
         },
         "propertyNameAtParent": "marketTradingProducts",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "tradingSessionReferences",
                 "type": "array",
@@ -17300,7 +17300,7 @@
             "compatibleTypes": "->Exchange Learning Products->"
         },
         "propertyNameAtParent": "marketLearningProducts",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "learningSessionReferences",
                 "type": "array",
@@ -17334,7 +17334,7 @@
             "compatibleTypes": "->Market Data Products->Data Product Folder->Bot Products->Trading Session Reference->"
         },
         "propertyNameAtParent": "dataProducts",
-        "properties": []
+        "childrenNodesProperties": []
     },
     {
         "type": "Data Mine Products",
@@ -17377,7 +17377,7 @@
             "compatibleTypes": "->Market Data Products->"
         },
         "propertyNameAtParent": "dataMineProducts",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "botProducts",
                 "type": "array",
@@ -17427,7 +17427,7 @@
             "compatibleTypes": "->Trading Session Reference->"
         },
         "propertyNameAtParent": "tradingMineProducts",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "botProducts",
                 "type": "array",
@@ -17477,7 +17477,7 @@
             "compatibleTypes": "->Learning Session Reference->"
         },
         "propertyNameAtParent": "learningMineProducts",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "botProducts",
                 "type": "array",
@@ -17517,7 +17517,7 @@
             "compatibleTypes": "->Data Mine Products->Trading Mine Products->Learning Mine Products->"
         },
         "propertyNameAtParent": "botProducts",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "dataProducts",
                 "type": "array",
@@ -17563,7 +17563,7 @@
             "compatibleTypes": "->Data Product Folder->Bot Products->"
         },
         "propertyNameAtParent": "dataProductFolders",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "dataProducts",
                 "type": "array",
@@ -17604,7 +17604,7 @@
         "addLeftIcons": true,
         "level": 0,
         "propertyNameAtParent": "plugins",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "pluginProjects",
                 "type": "array",
@@ -17651,7 +17651,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Plugins->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "pluginDataMines",
                 "type": "node",
@@ -17728,7 +17728,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Plugin Project->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "pluginFiles",
                 "type": "array",
@@ -17765,7 +17765,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Plugin Project->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "pluginFiles",
                 "type": "array",
@@ -17802,7 +17802,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Plugin Project->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "pluginFiles",
                 "type": "array",
@@ -17839,7 +17839,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Plugin Project->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "pluginFiles",
                 "type": "array",
@@ -17876,7 +17876,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Plugin Project->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "pluginFiles",
                 "type": "array",
@@ -17913,7 +17913,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Plugin Project->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "pluginFiles",
                 "type": "array",
@@ -17949,7 +17949,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Plugin Tutorials->Plugin Super Scripts->Plugin Trading Engines->Plugin Trading Systems->Plugin Trading Mines->Plugin Data Mines->"
         },
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "pluginFilePosition",
                 "type": "node",
@@ -17977,7 +17977,7 @@
         "addLeftIcons": true,
         "level": 3,
         "propertyNameAtParent": "pluginFilePosition",
-        "properties": []
+        "childrenNodesProperties": []
     },
     {
         "type": "Tutorial",
@@ -18045,7 +18045,7 @@
         "addLeftIcons": true,
         "level": 0,
         "propertyNameAtParent": "tutorials",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "tutorialSteps",
                 "type": "array",
@@ -18122,7 +18122,7 @@
         "addLeftIcons": true,
         "level": 1,
         "propertyNameAtParent": "tutorialTopics",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "tutorialSteps",
                 "type": "array",
@@ -18187,7 +18187,7 @@
         "addLeftIcons": true,
         "level": 2,
         "propertyNameAtParent": "tutorialSteps",
-        "properties": []
+        "childrenNodesProperties": []
     },
     {
         "type": "Data Mine Data Dependencies",
@@ -18230,7 +18230,7 @@
             "compatibleTypes": "->Process Dependencies->"
         },
         "propertyNameAtParent": "dataMineDataDependencies",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "botDataDependencies",
                 "type": "array",
@@ -18270,7 +18270,7 @@
             "compatibleTypes": "->Data Mine Data Dependencies->"
         },
         "propertyNameAtParent": "botDataDependencies",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "dataDependencies",
                 "type": "array",
@@ -18316,7 +18316,7 @@
             "compatibleTypes": "->Data Dependency Folder->Bot Data Dependencies->"
         },
         "propertyNameAtParent": "dataDependencyFolders",
-        "properties": [
+        "childrenNodesProperties": [
             {
                 "name": "dataDependencies",
                 "type": "array",

@@ -272,9 +272,9 @@ function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
                 if (parentNode !== undefined) {
                     let parentNodeDefinition = getNodeDefinition(parentNode)
                     if (parentNodeDefinition !== undefined) {
-                        if (parentNodeDefinition.properties !== undefined) {
-                            for (let i = 0; i < parentNodeDefinition.properties.length; i++) {
-                                let property = parentNodeDefinition.properties[i]
+                        if (parentNodeDefinition.childrenNodesProperties !== undefined) {
+                            for (let i = 0; i < parentNodeDefinition.childrenNodesProperties.length; i++) {
+                                let property = parentNodeDefinition.childrenNodesProperties[i]
                                 if (property.childType === node.type) {
                                     if (property.type === 'array') {
                                         if (parentNode[property.name] !== undefined) {
@@ -300,10 +300,10 @@ function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
             createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
 
             /* Create Children */
-            if (nodeDefinition.properties !== undefined) {
+            if (nodeDefinition.childrenNodesProperties !== undefined) {
                 let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
-                for (let i = 0; i < nodeDefinition.properties.length; i++) {
-                    let property = nodeDefinition.properties[i]
+                for (let i = 0; i < nodeDefinition.childrenNodesProperties.length; i++) {
+                    let property = nodeDefinition.childrenNodesProperties[i]
                     if (node[property.name] !== undefined) {
                         switch (property.type) {
                             case 'node': {
@@ -390,9 +390,9 @@ function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
             /* For the cases where a node is not chained to its parent but to the one at the parent before it at its own collection */
 
             if (nodeDefinition.chainedToSameType === true) {
-                if (parentNodeDefinition.properties !== undefined) {
-                    for (let i = 0; i < parentNodeDefinition.properties.length; i++) {
-                        let property = parentNodeDefinition.properties[i]
+                if (parentNodeDefinition.childrenNodesProperties !== undefined) {
+                    for (let i = 0; i < parentNodeDefinition.childrenNodesProperties.length; i++) {
+                        let property = parentNodeDefinition.childrenNodesProperties[i]
                         if (property.childType === type) {
                             if (property.type === 'array') {
                                 if (parentNode[property.name] !== undefined) {
@@ -410,9 +410,9 @@ function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
 
         function initializeArrayProperties() {
             /* Create Empty Arrays for properties of type Array */
-            if (nodeDefinition.properties !== undefined) {
-                for (let i = 0; i < nodeDefinition.properties.length; i++) {
-                    let property = nodeDefinition.properties[i]
+            if (nodeDefinition.childrenNodesProperties !== undefined) {
+                for (let i = 0; i < nodeDefinition.childrenNodesProperties.length; i++) {
+                    let property = nodeDefinition.childrenNodesProperties[i]
                     if (property.type === 'array') {
                         object[property.name] = []
                     }
@@ -433,10 +433,10 @@ function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
 
         function connectToParent() {
             /* Connect to Parent */
-            if (parentNodeDefinition.properties !== undefined) {
+            if (parentNodeDefinition.childrenNodesProperties !== undefined) {
                 let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
-                for (let i = 0; i < parentNodeDefinition.properties.length; i++) {
-                    let property = parentNodeDefinition.properties[i]
+                for (let i = 0; i < parentNodeDefinition.childrenNodesProperties.length; i++) {
+                    let property = parentNodeDefinition.childrenNodesProperties[i]
                     if (property.childType === type) {
                         switch (property.type) {
                             case 'node': {
@@ -469,10 +469,10 @@ function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
 
         function autoAddChildren() {
             /* Auto Add more Children */
-            if (nodeDefinition.properties !== undefined) {
+            if (nodeDefinition.childrenNodesProperties !== undefined) {
                 let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
-                for (let i = 0; i < nodeDefinition.properties.length; i++) {
-                    let property = nodeDefinition.properties[i]
+                for (let i = 0; i < nodeDefinition.childrenNodesProperties.length; i++) {
+                    let property = nodeDefinition.childrenNodesProperties[i]
 
                     switch (property.type) {
                         case 'node': {
@@ -505,10 +505,10 @@ function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
         let nodeDefinition = getNodeDefinition(node)
 
         /* Connect to Parent */
-        if (nodeDefinition.properties !== undefined) {
+        if (nodeDefinition.childrenNodesProperties !== undefined) {
             let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
-            for (let i = 0; i < nodeDefinition.properties.length; i++) {
-                let property = nodeDefinition.properties[i]
+            for (let i = 0; i < nodeDefinition.childrenNodesProperties.length; i++) {
+                let property = nodeDefinition.childrenNodesProperties[i]
                 if (property.type === 'node') {
                     if (property.name !== previousPropertyName) {
                         if (node[property.name] === undefined) {

@@ -554,13 +554,13 @@ function newSuperalgosDocSpace() {
             */
             addImages()
 
-
             function addImages() {
                 addProjectImage()
                 if (nodeDocsDefinition.definition !== undefined) {
                     addDefinitionImage(objectBeingRendered.project)
                 }
                 addMenuItemsImages()
+                addChildrenNodesPropertiesImages()
 
                 function addDefinitionImage(project) {
                     let imageElement
@@ -589,28 +589,50 @@ function newSuperalgosDocSpace() {
                 }
 
                 function addMenuItemsImages() {
-                    if (nodeAppDefinition !== undefined && nodeAppDefinition.menuItems !== undefined) {
-                        for (let i = 0; i < nodeAppDefinition.menuItems.length; i++) {
-                            let menuItem = nodeAppDefinition.menuItems[i]
-                            let collectionImage = getMenuItemIcon()
-                            let imageElement = collectionImage.cloneNode()
+                    if (nodeAppDefinition === undefined || nodeAppDefinition.menuItems === undefined) { return }
+                    for (let i = 0; i < nodeAppDefinition.menuItems.length; i++) {
+                        let menuItem = nodeAppDefinition.menuItems[i]
+                        let collectionImage = getIcon()
+                        let imageElement = collectionImage.cloneNode()
 
-                            imageElement.className = "docs-menu-item-image"
+                        imageElement.className = "docs-menu-item-image"
 
-                            let menuItemElement = document.getElementById('docs-menu-item-' + i + '')
-                            let dummyImage = menuItemElement.childNodes[0]
-                            menuItemElement.replaceChild(imageElement, dummyImage)
+                        let parentElement = document.getElementById('docs-menu-item-' + i + '')
+                        let dummyImage = parentElement.childNodes[0]
+                        parentElement.replaceChild(imageElement, dummyImage)
 
-                            function getMenuItemIcon() {
-                                if (menuItem.relatedUiObject !== undefined) {
-                                    return UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(objectBeingRendered.project, menuItem.relatedUiObject)
+                        function getIcon() {
+                            if (menuItem.relatedUiObject !== undefined) {
+                                return UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(objectBeingRendered.project, menuItem.relatedUiObject)
+                            } else {
+                                if (menuItem.iconPathOn !== undefined) {
+                                    return UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName(objectBeingRendered.project, menuItem.iconPathOn)
                                 } else {
-                                    if (menuItem.iconPathOn !== undefined) {
-                                        return UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName(objectBeingRendered.project, menuItem.iconPathOn)
-                                    } else {
-                                        return UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName('Superalgos', 'bitcoin')
-                                    }
+                                    return UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName('Superalgos', 'bitcoin')
                                 }
+                            }
+                        }
+                    }
+                }
+
+                function addChildrenNodesPropertiesImages() {
+                    if (nodeAppDefinition === undefined || nodeAppDefinition.childrenNodesProperties === undefined) { return }
+                    for (let i = 0; i < nodeAppDefinition.childrenNodesProperties.length; i++) {
+                        let childrenNodesProperty = nodeAppDefinition.childrenNodesProperties[i]
+                        let collectionImage = getIcon()
+                        let imageElement = collectionImage.cloneNode()
+
+                        imageElement.className = "docs-children-nodes-property-image"
+
+                        let parentElement = document.getElementById('docs-children-nodes-property-' + i + '')
+                        let dummyImage = parentElement.childNodes[0]
+                        parentElement.replaceChild(imageElement, dummyImage)
+
+                        function getIcon() {
+                            if (childrenNodesProperty.project !== undefined) {
+                                return UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(childrenNodesProperty.project, childrenNodesProperty.childType)
+                            } else {
+                                return UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(objectBeingRendered.project, childrenNodesProperty.childType)
                             }
                         }
                     }

@@ -373,3 +373,11 @@ a:active.docs-footer-link {
     height: 30px;
     vertical-align: auto;
   }
+
+  .docs-children-nodes-property-image {
+    margin-left: 25px;
+    margin-right: 25px;
+    width: 30px;
+    height: 30px;
+    vertical-align: auto;
+  }

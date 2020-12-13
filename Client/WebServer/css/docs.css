@@ -383,14 +383,6 @@ height: 30px;
 vertical-align: middle;
 }
 
-.docs-children-nodes-property-image {
-margin-left: 25px;
-margin-right: 25px;
-width: 30px;
-height: 30px;
-vertical-align: middle;
-}
-
 /* This is the same Style as the collapsible counter part but will not hold any collapsed content inside. */
 .docs-non-collapsible-element {
 background-color: #fdfdfd;

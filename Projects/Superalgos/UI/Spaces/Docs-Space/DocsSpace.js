@@ -561,6 +561,7 @@ function newSuperalgosDocSpace() {
                 }
                 addMenuItemsImages()
                 addChildrenNodesPropertiesImages()
+                addAttachingRulesImages()
 
                 function addDefinitionImage(project) {
                     let imageElement
@@ -633,6 +634,37 @@ function newSuperalgosDocSpace() {
                                 return UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(childrenNodesProperty.project, childrenNodesProperty.childType)
                             } else {
                                 return UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(objectBeingRendered.project, childrenNodesProperty.childType)
+                            }
+                        }
+                    }
+                }
+
+                function addAttachingRulesImages() {
+                    if (nodeAppDefinition === undefined || (nodeAppDefinition.attachingRules === undefined && nodeAppDefinition.referencingRules === undefined)) { return }
+                    
+                    if (nodeAppDefinition.attachingRules !== undefined) {
+                        if (nodeAppDefinition.attachingRules.compatibleTypes !== undefined) {
+                            let splittedCompatibleTypes = nodeAppDefinition.attachingRules.compatibleTypes.split('->')
+                            imageForTheseNodes(splittedCompatibleTypes, 'attaching-rules-compatible-types')
+                        }
+                    }
+
+                    function imageForTheseNodes(nodeList, additionToKey) {
+                        for (let i = 0; i < nodeList.length; i++) {
+                            let listItem = nodeList[i]
+                            if (listItem === "") { continue }
+
+                            let collectionImage = getIcon()
+                            let imageElement = collectionImage.cloneNode()
+    
+                            imageElement.className = "docs-collapsible-image"
+    
+                            let parentElement = document.getElementById('docs-' + additionToKey + '-' + i + '')
+                            let dummyImage = parentElement.childNodes[0]
+                            parentElement.replaceChild(imageElement, dummyImage)
+    
+                            function getIcon() {
+                                return UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(objectBeingRendered.project, listItem)
                             }
                         }
                     }

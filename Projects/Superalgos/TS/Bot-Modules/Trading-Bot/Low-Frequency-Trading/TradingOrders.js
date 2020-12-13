@@ -58,8 +58,11 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
         let executionNode
 
         stageNode = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].openStage
-        executionNode = stageNode.openExecution
-        processExecutionNode(executionNode, tradingEngine.current.strategyOpenStage.status.value)
+
+        if (stageNode !== undefined) { // The Open Stage is optional. It might be undefined.
+            executionNode = stageNode.openExecution
+            processExecutionNode(executionNode, tradingEngine.current.strategyOpenStage.status.value)
+        }
 
         stageNode = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].closeStage
         if (stageNode !== undefined) { // The Close Stage is optional. It might be undefined.

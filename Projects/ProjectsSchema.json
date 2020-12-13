@@ -197,6 +197,11 @@
                     "name": "Folders",
                     "propertyName": "folders",
                     "functionName": "newSuperalgosUtilitiesFolders"
+                },
+                {
+                    "name": "Strings",
+                    "propertyName": "strings",
+                    "functionName": "newSuperalgosUtilitiesStrings"
                 }
             ],
             "spaces": [

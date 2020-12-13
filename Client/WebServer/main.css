@@ -350,3 +350,26 @@ code {
   padding: 2 0;
   font-size:110%;
 }
+
+/* Tutorial Links */
+
+a:link.tutorial-link {
+  text-decoration: none;
+  color: #31708f;
+  }
+  
+  a:visited.tutorial-link {
+  text-decoration: none;
+  color: #31708f;
+  }
+  
+  a:hover.tutorial-link {
+  text-decoration: underline;
+  color: #31708f;
+  }
+  
+  a:active.tutorial-link {
+  text-decoration: none;
+  color: #31708f;
+  }
+

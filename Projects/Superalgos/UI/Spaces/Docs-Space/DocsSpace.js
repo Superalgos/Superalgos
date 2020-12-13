@@ -1023,7 +1023,9 @@ function newSuperalgosDocSpace() {
                             if (valueArray === undefined) {
                                 propertyMap.set(property, [value])
                             } else {
-                                valueArray.push(value)
+                                if (valueArray.includes(value) === false) {
+                                    valueArray.push(value)
+                                }
                             }
                         }
                     }

@@ -1,392 +1,406 @@
 
-  .docs-page {
-    border: 0px solid;
-    background-color: #fdfdfd;
-  }
-
-  .docs-node-html-page-container {
-    font: 400 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
-    color: #111; 
-    line-height: 150%;
-    margin: 20 20 20 30px;
-  }
-
-  .docs-node-html-footer-container {
-    font: 400 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
-    color: #111; 
-    line-height: 150%;
-    margin: 20 20 20 30px;
-  }
-
-  .docs-normal-font {
-    font: 400 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
-    color: #111; 
-    line-height: 150%;
-  }
-
-  .docs-title-table {
-    vertical-align: middle;
-    width: 100%;
-    min-width: 95px;
-    margin: auto;
-    margin-bottom: 0px;
-    margin-top: 0px;
-    margin-right: 20px;
-    border: 0px solid #dedede;
-    padding: 5px;
-  }
-  
-  .docs-definition-table {
-    background-color: #f9f9f9;
-    vertical-align: middle;
-    width: 100%;
-    min-width: 95px;
-    margin: auto;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    margin-right: 20px;
-    border: 1px solid #dedede;
-    padding: 10px;
-  }
-
-  .docs-image-container {
-    padding: 5px 15px 5px 5px;
-    border: solid 0px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-  }
-
-    /* Link without tooltip */
-    .docs-link {
-      position: relative;
-      display: inline-block;
-      border-bottom: 1px dotted black; 
-    }
-
-  /* Tooltip container */
-  .docs-tooltip {
-    position: relative;
-    display: inline-block;
-    border-bottom: 1px dotted black; 
-  }
-  
-  /* Tooltip text */
-  .docs-tooltip .docs-tooltiptext {
-    visibility: hidden;
-    width: 240px;
-    background-color: #0295aa;
-    color: #fff;
-    font-weight: normal;
-    font-size: 92%;
-    line-height: 130%;
-    text-align: center;
-    padding: 15px;
-    border-radius: 6px;
-  
-    /* Position the docs-tooltip text */
-    position: absolute;
-    z-index: 0;
-    bottom: 125%;
-    left: 50%;
-    margin-left: -120px;
-     
-  
-    /* Fade in docs-tooltip */
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-  
-  /* Tooltip arrow */
-  .docs-tooltip .docs-tooltiptext::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #0295aa transparent transparent transparent;
-  }
-  
-  /* Show the tooltip text when you mouse over the tooltip container */
-  .docs-tooltip:hover .docs-tooltiptext {
-    visibility: visible;
-    opacity: 1;
-  }
-
-  /* Headings */
-
-  .docs-h1 {font-size:210%; margin-top: 40px; padding-bottom: 5px;}
-
-  .docs-h2 {font-weight:700; font-size:170%; margin-top: 30px; padding-bottom: 5px; overflow:hidden;}
-
-  .docs-h2::after{
-  content:'';
-  display:inline-block;
-  width:90%;
-  margin-right:-100%;
-  border-bottom: 1px solid #cdd4d5;
-  margin-left: 20px;
-  }
-
-  .docs-h3 {font-weight:400; font-size:150%; margin-top: 35px;}
-
-  .docs-h4 {font-weight:400; font-size:125%; margin-top: 35px;}
-
-  .docs-h5 {font-weight:400; font-size:140%; margin-top: 35px; font-style:italic;}
-
-  .docs-h6 {font-weight:400; font-size:130%; margin-top: 35px; font-style:italic;}
-
-  .docs-text-area {
-    font: 400 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
-    resize: none;
-    border: none;
-    outline: none;
-    box-shadow: none;
-    overflow:hidden;
-    background-color: transparent;
-    color: #111; 
-    width: 100%;
-    height: 25%;
-    z-index:100;
-  }
-
-    /* Alerts */
-
-  .docs-alert-note {
-    color: #31708f;
-    background-color: #d9edf7;
-    border-color: #bce8f1;
-    padding: 15px;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    margin: 20px 0;
-    width: 95%;
-  }
-  
-  .docs-alert-success {
-    color: #3c763d;
-    background-color: #dff0d8;
-    border-color: #d6e9c6;
-    padding: 15px;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    margin: 20px 0;
-    width: 95%;
-  }
-  
-  .docs-alert-important {
-    color: #8a6d3b;
-    background-color: #fcf8e3;
-    border-color: #faebcc;
-    padding: 15px;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    margin: 20px 0;
-    width: 95%;
-  }
-  
-  .docs-alert-warning {
-    color: #a94442;
-    background-color: #f2dede;
-    border-color: #ebccd1;
-    padding: 15px;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    margin: 20px 0;
-    width: 95%;
-  }
-  
-  .docs-callout {
-    padding: 20px;
-    margin: 20px 0;
-    border: 1px solid #eee;
-    border-left-width: 5px;
-    border-radius: 3px;
-    border-left-color: #bcd643;
-    font-weight: 500;
-    width: 100%;
-  }
-   
-  .docs-note-circle:before {
-    content:"\f05a"
-  }
-  
-  .docs-check-square-o:before {
-    content:"\f046"
-  }
-  
-  .docs-exclamation-circle:before { 
-    content:"\f06a"
-  }
-  
-  .docs-warning-sign:before,.fa-exclamation-triangle:before {
-    content:"\f06a"
-  }
-
-  .docs-fa {
-    font:normal normal normal 14px/1 FontAwesome;
-    font-size:inherit;
-    text-rendering:auto;
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale
-  }
-
-  .docs-font-small {
-    font:normal normal normal 14px/1 "segoeui";
-    font-size:inherit;
-    text-rendering:auto;
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-    line-height: 150%
-  }
-  
-  li > .docs-font-small {
-    margin-bottom:7px;
-  }
-  
-  div.docs-font-small {
-    margin-bottom:7px;
-  }
-
-  hr.docs-shaded {
-    box-shadow: inset 0 6px 6px -6px rgba(0,0,0,0.5);
-    margin: 90 0 70 0;
-    height: 12px;
-    border: 0;
-    background: white;
-    width: 100%;
+.docs-page {
+border: 0px solid;
+background-color: #fdfdfd;
 }
 
-  .docs-footer-row {
-    margin-right: -15px;
-    margin-left: -15px;
-  }
+.docs-node-html-page-container {
+font: 400 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
+color: #111; 
+line-height: 150%;
+margin: 20 20 20 30px;
+}
 
-  .docs-footer-body {
-    position: relative;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
-  }
+.docs-node-html-footer-container {
+font: 400 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
+color: #111; 
+line-height: 150%;
+margin: 20 20 20 30px;
+}
 
-  /* Links */
+.docs-normal-font {
+font: 400 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
+color: #111; 
+line-height: 150%;
+}
 
-  a:link.docs-plain-link {
-    text-decoration: none;
-  }
+.docs-title-table {
+vertical-align: middle;
+width: 100%;
+min-width: 95px;
+margin: auto;
+margin-bottom: 0px;
+margin-top: 0px;
+margin-right: 20px;
+border: 0px solid #dedede;
+padding: 5px;
+}
 
-  a:visited.docs-plain-link {
-    text-decoration: none;
-  }
-  
-  a:hover.docs-plain-link {
-    text-decoration: none;
-  }
-  
-  a:active.docs-plain-link {
-    text-decoration: none;
-  }
+.docs-definition-table {
+background-color: #f9f9f9;
+vertical-align: middle;
+width: 100%;
+min-width: 95px;
+margin: auto;
+margin-bottom: 20px;
+margin-top: 20px;
+margin-right: 20px;
+border: 1px solid #dedede;
+padding: 10px;
+}
 
-  /* Icon after external links, using FontAwesome*/
+.docs-image-container {
+padding: 5px 15px 5px 5px;
+border: solid 0px;
+margin-left: auto;
+margin-right: auto;
+width: 100%;
+}
+
+/* Link without tooltip */
+.docs-link {
+position: relative;
+display: inline-block;
+border-bottom: 1px dotted black; 
+}
+
+/* Tooltip container */
+.docs-tooltip {
+position: relative;
+display: inline-block;
+border-bottom: 1px dotted black; 
+}
+
+/* Tooltip text */
+.docs-tooltip .docs-tooltiptext {
+visibility: hidden;
+width: 240px;
+background-color: #0295aa;
+color: #fff;
+font-weight: normal;
+font-size: 92%;
+line-height: 130%;
+text-align: center;
+padding: 15px;
+border-radius: 6px;
+
+/* Position the docs-tooltip text */
+position: absolute;
+z-index: 0;
+bottom: 125%;
+left: 50%;
+margin-left: -120px;
+
+
+/* Fade in docs-tooltip */
+opacity: 0;
+transition: opacity 0.3s;
+}
+
+/* Tooltip arrow */
+.docs-tooltip .docs-tooltiptext::after {
+content: "";
+position: absolute;
+top: 100%;
+left: 50%;
+margin-left: -5px;
+border-width: 5px;
+border-style: solid;
+border-color: #0295aa transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.docs-tooltip:hover .docs-tooltiptext {
+visibility: visible;
+opacity: 1;
+}
+
+/* Headings */
+
+.docs-h1 {font-size:210%; margin-top: 40px; padding-bottom: 5px;}
+
+.docs-h2 {font-weight:700; font-size:170%; margin-top: 30px; padding-bottom: 5px; overflow:hidden;}
+
+.docs-h2::after{
+content:'';
+display:inline-block;
+width:90%;
+margin-right:-100%;
+border-bottom: 1px solid #cdd4d5;
+margin-left: 20px;
+}
+
+.docs-h3 {font-weight:400; font-size:150%; margin-top: 35px;}
+
+.docs-h4 {font-weight:400; font-size:125%; margin-top: 35px;}
+
+.docs-h5 {font-weight:400; font-size:140%; margin-top: 35px; font-style:italic;}
+
+.docs-h6 {font-weight:400; font-size:130%; margin-top: 35px; font-style:italic;}
+
+.docs-text-area {
+font: 400 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
+resize: none;
+border: none;
+outline: none;
+box-shadow: none;
+overflow:hidden;
+background-color: transparent;
+color: #111; 
+width: 100%;
+height: 25%;
+z-index:100;
+}
+
+/* Alerts */
+
+.docs-alert-note {
+color: #31708f;
+background-color: #d9edf7;
+border-color: #bce8f1;
+padding: 15px;
+border: 1px solid transparent;
+border-radius: 4px;
+margin: 20px 0;
+width: 95%;
+}
+
+.docs-alert-success {
+color: #3c763d;
+background-color: #dff0d8;
+border-color: #d6e9c6;
+padding: 15px;
+border: 1px solid transparent;
+border-radius: 4px;
+margin: 20px 0;
+width: 95%;
+}
+
+.docs-alert-important {
+color: #8a6d3b;
+background-color: #fcf8e3;
+border-color: #faebcc;
+padding: 15px;
+border: 1px solid transparent;
+border-radius: 4px;
+margin: 20px 0;
+width: 95%;
+}
+
+.docs-alert-warning {
+color: #a94442;
+background-color: #f2dede;
+border-color: #ebccd1;
+padding: 15px;
+border: 1px solid transparent;
+border-radius: 4px;
+margin: 20px 0;
+width: 95%;
+}
+
+.docs-callout {
+padding: 20px;
+margin: 20px 0;
+border: 1px solid #eee;
+border-left-width: 5px;
+border-radius: 3px;
+border-left-color: #bcd643;
+font-weight: 500;
+width: 100%;
+}
+
+.docs-note-circle:before {
+content:"\f05a"
+}
+
+.docs-check-square-o:before {
+content:"\f046"
+}
+
+.docs-exclamation-circle:before { 
+content:"\f06a"
+}
+
+.docs-warning-sign:before,.fa-exclamation-triangle:before {
+content:"\f06a"
+}
+
+.docs-fa {
+font:normal normal normal 14px/1 FontAwesome;
+font-size:inherit;
+text-rendering:auto;
+-webkit-font-smoothing:antialiased;
+-moz-osx-font-smoothing:grayscale
+}
+
+.docs-font-small {
+font:normal normal normal 14px/1 "segoeui";
+font-size:inherit;
+text-rendering:auto;
+-webkit-font-smoothing:antialiased;
+-moz-osx-font-smoothing:grayscale;
+line-height: 150%
+}
+
+li > .docs-font-small {
+margin-bottom:7px;
+}
+
+div.docs-font-small {
+margin-bottom:7px;
+}
+
+hr.docs-shaded {
+box-shadow: inset 0 6px 6px -6px rgba(0,0,0,0.5);
+margin: 90 0 70 0;
+height: 12px;
+border: 0;
+background: white;
+width: 100%;
+}
+
+.docs-footer-row {
+margin-right: -15px;
+margin-left: -15px;
+}
+
+.docs-footer-body {
+position: relative;
+min-height: 1px;
+padding-right: 15px;
+padding-left: 15px;
+}
+
+/* Links */
+
+a:link.docs-plain-link {
+text-decoration: none;
+}
+
+a:visited.docs-plain-link {
+text-decoration: none;
+}
+
+a:hover.docs-plain-link {
+text-decoration: none;
+}
+
+a:active.docs-plain-link {
+text-decoration: none;
+}
+
+/* Icon after external links, using FontAwesome*/
 
 a[href^="http://"]:after, a[href^="https://"]:after {
-  content: "\f08e";
-  font-family: FontAwesome;
-  font-weight: normal;
-  font-style: normal;
-  display: inline-block;
-  text-decoration: none;
-  padding-left: 3px;
+content: "\f08e";
+font-family: FontAwesome;
+font-weight: normal;
+font-style: normal;
+display: inline-block;
+text-decoration: none;
+padding-left: 3px;
 }
 
 a:link.docs-footer-link {
-  text-decoration: none;
-  color: #31708f;
+text-decoration: none;
+color: #31708f;
 }
 
 a:visited.docs-footer-link {
-  text-decoration: none;
-  color: #31708f;
+text-decoration: none;
+color: #31708f;
 }
 
 a:hover.docs-footer-link {
-  text-decoration: underline;
-  color: #31708f;
+text-decoration: underline;
+color: #31708f;
 }
 
 a:active.docs-footer-link {
-  text-decoration: none;
-  color: #31708f;
+text-decoration: none;
+color: #31708f;
 }
 
-  /* Tags */
+/* Tags */
 
-  kbd.docs-kbd {
-    margin: 0 0 0 15px;
-  }
+kbd.docs-kbd {
+margin: 0 0 0 15px;
+}
 
-  code.docs-code {
-    color: #d9534f;
-    background-color: #eee;
-    padding: 1 5 1 5;
-  }
+code.docs-code {
+color: #d9534f;
+background-color: #eee;
+padding: 1 5 1 5;
+}
 
-  /* Style the button that is used to open and close the docs-collapsible-element content */
-  .docs-collapsible-element {
-    background-color: #fdfdfd;
-    color: #444;
-    cursor: pointer;
-    padding: 15px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 125%;
-    vertical-align: middle;
-    min-height: 80px;
-  }
+/* Style the button that is used to open and close the docs-collapsible-element content */
+.docs-collapsible-element {
+background-color: #fdfdfd;
+color: #444;
+cursor: pointer;
+padding: 15px;
+width: 100%;
+border: none;
+text-align: left;
+outline: none;
+font-size: 125%;
+vertical-align: middle;
+min-height: 80px;
+}
 
-  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-  .active, .docs-collapsible-element:hover {
-    background-color: #eee;
-  }
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .docs-collapsible-element:hover {
+background-color: #eee;
+}
 
-  /* Style the docs-collapsible-element content. Note: hidden by default */
-  .docs-collapsible-content {
-    padding: 0 18px;
-    display: none;
-    overflow: hidden;
-    margin-left: 85px;
-    z-index: 1-0;
-  }
+/* Style the docs-collapsible-element content. Note: hidden by default */
+.docs-collapsible-content {
+padding: 0 18px;
+display: none;
+overflow: hidden;
+margin-left: 85px;
+z-index: 1;
+}
 
-  .docs-collapsible-element:after {
-    content: '\02795'; /* Unicode character for "plus" sign (+) */
-    font-size: 80%;
-    color: #31708f;
-    float: right;
-    margin-left: 5px;
-    vertical-align: middle;
-  }
-  
-  .docs-collapsible-active:after {
-    content: "\2796"; /* Unicode character for "minus" sign (-) */
-  }
+.docs-collapsible-element:after {
+content: '\02795'; /* Unicode character for "plus" sign (+) */
+font-size: 80%;
+color: #31708f;
+float: right;
+margin-left: 5px;
+vertical-align: middle;
+}
 
-  .docs-menu-item-image {
-    margin-left: 25px;
-    margin-right: 25px;
-    width: 30px;
-    height: 30px;
-    vertical-align: middle;
-  }
+.docs-collapsible-active:after {
+content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
 
-  .docs-children-nodes-property-image {
-    margin-left: 25px;
-    margin-right: 25px;
-    width: 30px;
-    height: 30px;
-    vertical-align: middle;
-  }
+.docs-collapsible-image {
+margin-left: 25px;
+margin-right: 25px;
+width: 30px;
+height: 30px;
+vertical-align: middle;
+}
+
+.docs-children-nodes-property-image {
+margin-left: 25px;
+margin-right: 25px;
+width: 30px;
+height: 30px;
+vertical-align: middle;
+}
+
+/* This is the same Style as the collapsible counter part but will not hold any collapsed content inside. */
+.docs-non-collapsible-element {
+background-color: #fdfdfd;
+color: #444;
+padding: 15px;
+width: 100%;
+border: none;
+text-align: left;
+outline: none;
+font-size: 125%;
+vertical-align: middle;
+min-height: 80px;
+}

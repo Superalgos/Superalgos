@@ -423,8 +423,8 @@ function newUiObject() {
 
             let nodeDefinition = getNodeDefinition(thisObject.payload.node)
             if (nodeDefinition !== undefined) {
-                if (nodeDefinition.chainAttachesTo !== undefined) {
-                    compatibleTypes = nodeDefinition.chainAttachesTo.compatibleTypes
+                if (nodeDefinition.attachingRules !== undefined) {
+                    compatibleTypes = nodeDefinition.attachingRules.compatibleTypes
                 } else {
                     return
                 }
@@ -565,8 +565,8 @@ function newUiObject() {
 
             let nodeDefinition = getNodeDefinition(thisObject.payload.node)
             if (nodeDefinition !== undefined) {
-                if (nodeDefinition.referenceAttachesTo !== undefined) {
-                    compatibleTypes = nodeDefinition.referenceAttachesTo.compatibleTypes
+                if (nodeDefinition.referencingRules !== undefined) {
+                    compatibleTypes = nodeDefinition.referencingRules.compatibleTypes
                 } else {
                     return
                 }
@@ -584,8 +584,8 @@ function newUiObject() {
                 let floatingObject = nearby[1]
                 let nearbyNode = floatingObject.payload.node
                 if (compatibleTypes.indexOf('->' + nearbyNode.type + '->') >= 0 || compatibleTypes === "->*Any Node*->") {
-                    if (nodeDefinition.referenceAttachesTo.incompatibleTypes !== undefined) {
-                        if (nodeDefinition.referenceAttachesTo.incompatibleTypes.indexOf('->' + nearbyNode.type + '->') >= 0) {
+                    if (nodeDefinition.referencingRules.incompatibleTypes !== undefined) {
+                        if (nodeDefinition.referencingRules.incompatibleTypes.indexOf('->' + nearbyNode.type + '->') >= 0) {
                             continue
                         }
                     }

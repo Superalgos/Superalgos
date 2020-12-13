@@ -121,12 +121,12 @@
             "Use Reference Parent Parent",
             "Use Reference Parent"
         ],
-        "referenceAttachesTo": {
+        "referencingRules": {
             "compatibleTypes": "->Network Client->"
         },
         "addLeftIcons": true,
         "level": 3,
-        "chainAttachesTo": {
+        "attachingRules": {
             "compatibleTypes": "->Ethereum Wallet->"
         },
         "propertyNameAtParent": "networkClientReference",
@@ -175,7 +175,7 @@
         },
         "addLeftIcons": true,
         "level": 0,
-        "chainAttachesTo": {
+        "attachingRules": {
             "compatibleTypes": "->Ethereum Wallet->"
         },
         "propertyNameAtParent": "walletAccounts",
@@ -209,7 +209,7 @@
         ],
         "addLeftIcons": true,
         "level": 4,
-        "chainAttachesTo": {
+        "attachingRules": {
             "compatibleTypes": "->Wallet Account->"
         },
         "propertyNameAtParent": "ethBalance",
@@ -233,10 +233,10 @@
         ],
         "addLeftIcons": true,
         "level": 4,
-        "referenceAttachesTo": {
+        "referencingRules": {
             "compatibleTypes": "->Ethereum Token->"
         },
-        "chainAttachesTo": {
+        "attachingRules": {
             "compatibleTypes": "->Wallet Account->"
         },
         "propertyNameAtParent": "tokenBalances",
@@ -309,7 +309,7 @@
         ],
         "addLeftIcons": true,
         "level": 1,
-        "chainAttachesTo": {
+        "attachingRules": {
             "compatibleTypes": "->Ethereum Token Definitions->"
         },
         "propertyNameAtParent": "erc-20TokenType",
@@ -343,7 +343,7 @@
         ],
         "addLeftIcons": true,
         "level": 1,
-        "chainAttachesTo": {
+        "attachingRules": {
             "compatibleTypes": "->Ethereum Token Definitions->"
         },
         "propertyNameAtParent": "erc-223TokenType",
@@ -377,7 +377,7 @@
         ],
         "addLeftIcons": true,
         "level": 1,
-        "chainAttachesTo": {
+        "attachingRules": {
             "compatibleTypes": "->Ethereum Token Definitions->"
         },
         "propertyNameAtParent": "erc-721TokenType",
@@ -411,7 +411,7 @@
         ],
         "addLeftIcons": true,
         "level": 1,
-        "chainAttachesTo": {
+        "attachingRules": {
             "compatibleTypes": "->Ethereum Token Definitions->"
         },
         "propertyNameAtParent": "erc-777TokenType",
@@ -461,7 +461,7 @@
         },
         "addLeftIcons": true,
         "level": 2,
-        "chainAttachesTo": {
+        "attachingRules": {
             "compatibleTypes": "->ERC-20 Token Type->ERC-223 Token Type->ERC-721 Token Type->ERC-777 Token Type->"
         },
         "propertyNameAtParent": "ethereumTokens",
@@ -536,7 +536,7 @@
         ],
         "addLeftIcons": true,
         "level": 1,
-        "chainAttachesTo": {
+        "attachingRules": {
             "compatibleTypes": "->Ethereum Blockchain->"
         },
         "propertyNameAtParent": "blockchainNetworks",
@@ -570,7 +570,7 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
-        "referenceAttachesTo": {
+        "referencingRules": {
             "compatibleTypes": "->Network Node->"
         },
         "editors": {
@@ -581,7 +581,7 @@
         },
         "addLeftIcons": true,
         "level": 1,
-        "chainAttachesTo": {
+        "attachingRules": {
             "compatibleTypes": "->Blockchain Network->"
         },
         "propertyNameAtParent": "networkClients",
@@ -653,7 +653,7 @@
         "initialValues": {
             "config": "{ \n\"address\": \"\"\n}"
         },
-        "chainAttachesTo": {
+        "attachingRules": {
             "compatibleTypes": "->Token Definition->Ethereum Decentralized Application->"
         },
         "propertyNameAtParent": "smartContracts",
@@ -694,7 +694,7 @@
         "initialValues": {
             "code": "// Type your smart contract code here."
         },
-        "chainAttachesTo": {
+        "attachingRules": {
             "compatibleTypes": "->Smart Contract->"
         },
         "propertyNameAtParent": "solidityCode",
@@ -721,10 +721,10 @@
         "alternativeIcons": "Use Reference Parent Parent",
         "addLeftIcons": true,
         "level": 2,
-        "referenceAttachesTo": {
+        "referencingRules": {
             "compatibleTypes": "->Project Definition->"
         },
-        "chainAttachesTo": {
+        "attachingRules": {
             "compatibleTypes": "->Data Tasks->"
         },
         "propertyNameAtParent": "projectDataTasks",
@@ -750,10 +750,10 @@
         "alternativeIcons": "Use Reference Parent Parent",
         "addLeftIcons": true,
         "level": 2,
-        "referenceAttachesTo": {
+        "referencingRules": {
             "compatibleTypes": "->Project Definition->"
         },
-        "chainAttachesTo": {
+        "attachingRules": {
             "compatibleTypes": "->Learning Tasks->"
         },
         "propertyNameAtParent": "projectLearningTasks",
@@ -779,10 +779,10 @@
         "alternativeIcons": "Use Reference Parent Parent",
         "addLeftIcons": true,
         "level": 2,
-        "referenceAttachesTo": {
+        "referencingRules": {
             "compatibleTypes": "->Project Definition->"
         },
-        "chainAttachesTo": {
+        "attachingRules": {
             "compatibleTypes": "->Trading Tasks->"
         },
         "propertyNameAtParent": "projectTradingTasks",
@@ -808,10 +808,10 @@
         "alternativeIcons": "Use Reference Parent Parent",
         "addLeftIcons": true,
         "level": 2,
-        "referenceAttachesTo": {
+        "referencingRules": {
             "compatibleTypes": "->Project Definition->"
         },
-        "chainAttachesTo": {
+        "attachingRules": {
             "compatibleTypes": "->Data Mines Data->"
         },
         "propertyNameAtParent": "projectDataProducts",
@@ -837,10 +837,10 @@
         "alternativeIcons": "Use Reference Parent Parent",
         "addLeftIcons": true,
         "level": 2,
-        "referenceAttachesTo": {
+        "referencingRules": {
             "compatibleTypes": "->Project Definition->"
         },
-        "chainAttachesTo": {
+        "attachingRules": {
             "compatibleTypes": "->Learning Mine Data->"
         },
         "propertyNameAtParent": "projectLearningProducts",
@@ -866,10 +866,10 @@
         "alternativeIcons": "Use Reference Parent Parent",
         "addLeftIcons": true,
         "level": 2,
-        "referenceAttachesTo": {
+        "referencingRules": {
             "compatibleTypes": "->Project Definition->"
         },
-        "chainAttachesTo": {
+        "attachingRules": {
             "compatibleTypes": "->Trading Mine Data->"
         },
         "propertyNameAtParent": "projectTradingProducts",
@@ -895,10 +895,10 @@
         "alternativeIcons": "Use Reference Parent Parent",
         "addLeftIcons": true,
         "level": 2,
-        "referenceAttachesTo": {
+        "referencingRules": {
             "compatibleTypes": "->Project Definition->"
         },
-        "chainAttachesTo": {
+        "attachingRules": {
             "compatibleTypes": "->Charting Space->"
         },
         "propertyNameAtParent": "projectDashboards",
@@ -993,7 +993,7 @@
             "config": "{ \n  \"codeName\": \"\"\n}"
         },
         "level": 1,
-        "chainAttachesTo": {
+        "attachingRules": {
             "compatibleTypes": "->Data Mine->"
         },
         "childrenNodesProperties": [

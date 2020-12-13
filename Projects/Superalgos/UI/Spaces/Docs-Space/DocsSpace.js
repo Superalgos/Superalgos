@@ -743,6 +743,58 @@ function newSuperalgosDocSpace() {
                         HTML = HTML + '</div>'
                     }
                 }
+
+                function generateAttachRules() {
+                    /* 
+                    Menu Items
+                    */
+                    let paragraph
+                    let key = 'auto-generated-paragraph-' + paragraphIndex
+                    if (nodeAppDefinition === undefined || nodeAppDefinition.menuItems === undefined) { return }
+
+                    paragraph = {
+                        style: "Title",
+                        text: "" + nodeAppDefinition.type + " Menu"
+                    }
+                    renderParagraph(paragraph, key)
+                    paragraphIndex++
+                    paragraph = {
+                        style: "Text",
+                        text: "Each type of node, might have a menu defined so that users can interact with the node. There is no fixed set of menu items. Instead each menu item is defined at each node's definition. Each menu item defined carries a set of properties that allow the system to execute some action when the menu item is clicked by users. The " + nodeAppDefinition.type + " node has the following menu items:"
+                    }
+                    renderParagraph(paragraph, key)
+                    paragraphIndex++
+                    for (let i = 0; i < nodeAppDefinition.menuItems.length; i++) {
+                        let menuItem = nodeAppDefinition.menuItems[i]
+
+                        HTML = HTML + '<button id="docs-menu-item-' + i + '" type="button" class="docs-collapsible-element"><img>' + menuItem.label + '</button>'
+                        HTML = HTML + '<div class="docs-collapsible-content">'
+
+                        paragraph = {
+                            style: "Text",
+                            text: 'The ' + menuItem.label + ' menu item has the following properties:'
+                        }
+                        renderParagraph(paragraph, key)
+                        paragraphIndex++
+
+                        for (const property in menuItem) {
+                            paragraph = {
+                                style: "List",
+                                text: property + ": " + menuItem[property]
+                            }
+                            renderParagraph(paragraph, key)
+                            paragraphIndex++
+                        }
+
+                        HTML = HTML + '</div>'
+                    }
+                    paragraph = {
+                        style: "Success",
+                        text: "When any of the menu items is grayed out, it means that " + nodeAppDefinition.type + " already has the type of children that that menu item can add, and that only one children is possible in that case. "
+                    }
+                    renderParagraph(paragraph, key)
+                    paragraphIndex++
+                }
             }
 
             function renderParagraph(paragraph, key) {

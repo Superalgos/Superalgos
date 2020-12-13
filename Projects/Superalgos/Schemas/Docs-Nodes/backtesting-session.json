@@ -4,7 +4,7 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "How the Backtesting Session node works"
+            "text": "How the Backtesting Session Works"
         },
         {
             "style": "Text",
@@ -12,7 +12,7 @@
         },
         {
             "style": "Title",
-            "text": "Adding a Backtesting Session node"
+            "text": "Adding a Backtesting Session"
         },
         {
             "style": "Text",
@@ -24,7 +24,7 @@
         },
         {
             "style": "Title",
-            "text": "Configuring a Backtesting Session node"
+            "text": "Configuring Backtesting Session"
         },
         {
             "style": "Text",
@@ -48,7 +48,7 @@
         },
         {
             "style": "Title",
-            "text": "Running a Backtesting Session node"
+            "text": "Running Backtesting Session"
         },
         {
             "style": "Text",

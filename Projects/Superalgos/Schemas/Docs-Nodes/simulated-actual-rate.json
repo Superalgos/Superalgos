@@ -4,7 +4,7 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "How the Simulated Actual Rate node works"
+            "text": "How the Simulated Actual Rate Works"
         },
         {
             "style": "Text",
@@ -16,7 +16,7 @@
         },
         {
             "style": "Title",
-            "text": "Adding a Simulated Actual Rate node"
+            "text": "Adding a Simulated Actual Rate"
         },
         {
             "style": "Text",

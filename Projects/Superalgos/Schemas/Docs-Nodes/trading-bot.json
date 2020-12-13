@@ -4,7 +4,7 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "How the Trading Bot node works"
+            "text": "How the Trading Bot Works"
         },
         {
             "style": "Text",
@@ -24,7 +24,7 @@
         },
         {
             "style": "Title",
-            "text": "Adding a Trading Bot node"
+            "text": "Adding a Trading Bot"
         },
         {
             "style": "Text",
@@ -32,7 +32,7 @@
         },
         {
             "style": "Title",
-            "text": "Configuring a Trading Bot node"
+            "text": "Configuring Trading Bot"
         },
         {
             "style": "Text",

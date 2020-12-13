@@ -4,7 +4,7 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "How the Order Quoted Asset node works"
+            "text": "How the Order Quoted Asset Works"
         },
         {
             "style": "Note",
@@ -12,7 +12,7 @@
         },
         {
             "style": "Title",
-            "text": "Adding a Order Quoted Asset node"
+            "text": "Adding a Order Quoted Asset"
         },
         {
             "style": "Text",

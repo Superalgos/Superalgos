@@ -4,7 +4,7 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "How the Polygon Vertex node works"
+            "text": "How the Polygon Vertex Works"
         },
         {
             "style": "Text",
@@ -24,7 +24,7 @@
         },
         {
             "style": "Title",
-            "text": "Adding a Polygon Vertex node"
+            "text": "Adding a Polygon Vertex"
         },
         {
             "style": "Text",

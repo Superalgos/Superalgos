@@ -4,7 +4,7 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "How the Plugin File node works"
+            "text": "How the Plugin File Works"
         },
         {
             "style": "Text",
@@ -28,7 +28,7 @@
         },
         {
             "style": "Title",
-            "text": "Adding a Plugin File node"
+            "text": "Adding a Plugin File"
         },
         {
             "style": "Text",
@@ -36,7 +36,7 @@
         },
         {
             "style": "Title",
-            "text": "Configuring a Plugin File node"
+            "text": "Configuring Plugin File"
         },
         {
             "style": "Text",

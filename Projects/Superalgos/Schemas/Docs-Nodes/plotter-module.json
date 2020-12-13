@@ -4,7 +4,7 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "How the Plotter Module node works"
+            "text": "How the Plotter Module Works"
         },
         {
             "style": "Text",
@@ -24,7 +24,7 @@
         },
         {
             "style": "Title",
-            "text": "Adding a Plotter Module node"
+            "text": "Adding a Plotter Module"
         },
         {
             "style": "Text",
@@ -32,7 +32,7 @@
         },
         {
             "style": "Title",
-            "text": "Configuring a Plotter Module node"
+            "text": "Configuring Plotter Module"
         },
         {
             "style": "Text",

@@ -4,7 +4,7 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "How the Simulated Fees Paid node works"
+            "text": "How the Simulated Fees Paid Works"
         },
         {
             "style": "Text",
@@ -16,7 +16,7 @@
         },
         {
             "style": "Title",
-            "text": "Adding a Simulated Fees Paid node"
+            "text": "Adding a Simulated Fees Paid"
         },
         {
             "style": "Text",
@@ -24,7 +24,7 @@
         },
         {
             "style": "Title",
-            "text": "Configuring a Simulated Fees Paid node"
+            "text": "Configuring Simulated Fees Paid"
         },
         {
             "style": "Text",

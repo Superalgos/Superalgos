@@ -4,7 +4,7 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "How the Limit Buy Order node works"
+            "text": "How the Limit Buy Order Works"
         },
         {
             "style": "Text",
@@ -36,7 +36,7 @@
         },
         {
             "style": "Title",
-            "text": "Adding a Limit Buy Order node"
+            "text": "Adding a Limit Buy Order"
         },
         {
             "style": "Text",
@@ -44,7 +44,7 @@
         },
         {
             "style": "Title",
-            "text": "Configuring a Limit Buy Order node"
+            "text": "Configuring Limit Buy Order"
         },
         {
             "style": "Text",

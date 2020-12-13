@@ -4,7 +4,7 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "How the Plugin File Position node works"
+            "text": "How the Plugin File Position Works"
         },
         {
             "style": "Text",
@@ -12,7 +12,7 @@
         },
         {
             "style": "Title",
-            "text": "Adding a Plugin File Position node"
+            "text": "Adding a Plugin File Position"
         },
         {
             "style": "Text",
@@ -20,7 +20,7 @@
         },
         {
             "style": "Title",
-            "text": "Configuring a Plugin File Position node"
+            "text": "Configuring Plugin File Position"
         },
         {
             "style": "Text",

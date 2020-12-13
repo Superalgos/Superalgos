@@ -4,7 +4,7 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "How the Process Definition node works"
+            "text": "How the Process Definition Works"
         },
         {
             "style": "Text",
@@ -24,7 +24,7 @@
         },
         {
             "style": "Title",
-            "text": "Adding a Process Definition node"
+            "text": "Adding a Process Definition"
         },
         {
             "style": "Text",
@@ -32,7 +32,7 @@
         },
         {
             "style": "Title",
-            "text": "Configuring a Process Definition node"
+            "text": "Configuring Process Definition"
         },
         {
             "style": "Text",

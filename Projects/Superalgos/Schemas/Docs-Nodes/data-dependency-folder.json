@@ -4,7 +4,7 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "How the Data Dependency Folder node works"
+            "text": "How the Data Dependency Folder Works"
         },
         {
             "style": "Text",
@@ -12,7 +12,7 @@
         },
         {
             "style": "Title",
-            "text": "Adding a Data Dependency Folder node"
+            "text": "Adding a Data Dependency Folder"
         },
         {
             "style": "Text",
@@ -24,7 +24,7 @@
         },
         {
             "style": "Title",
-            "text": "Configuring a Data Dependency Folder node"
+            "text": "Configuring Data Dependency Folder"
         },
         {
             "style": "Text",

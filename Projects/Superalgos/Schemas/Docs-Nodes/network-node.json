@@ -4,7 +4,7 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "How the Network Node node works"
+            "text": "How the Network Node Works"
         },
         {
             "style": "Text",
@@ -24,7 +24,7 @@
         },
         {
             "style": "Title",
-            "text": "Adding a Network Node node"
+            "text": "Adding a Network Node"
         },
         {
             "style": "Text",
@@ -32,7 +32,7 @@
         },
         {
             "style": "Title",
-            "text": "Configuring a Network Node node"
+            "text": "Configuring Network Node"
         },
         {
             "style": "Text",

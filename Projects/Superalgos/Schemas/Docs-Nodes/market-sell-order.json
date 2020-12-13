@@ -4,7 +4,7 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "How the Market Sell Order node works"
+            "text": "How the Market Sell Order Works"
         },
         {
             "style": "Text",
@@ -12,7 +12,7 @@
         },
         {
             "style": "Title",
-            "text": "Adding a Market Sell Order node"
+            "text": "Adding a Market Sell Order"
         },
         {
             "style": "Text",
@@ -20,7 +20,7 @@
         },
         {
             "style": "Title",
-            "text": "Configuring a Market Sell Order node"
+            "text": "Configuring Market Sell Order"
         },
         {
             "style": "Text",

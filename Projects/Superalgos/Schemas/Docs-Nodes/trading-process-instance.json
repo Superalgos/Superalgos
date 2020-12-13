@@ -4,7 +4,7 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "How the Trading Process Instance node works"
+            "text": "How the Trading Process Instance Works"
         },
         {
             "style": "Text",
@@ -12,7 +12,7 @@
         },
         {
             "style": "Title",
-            "text": "Adding a Trading Process Instance node"
+            "text": "Adding a Trading Process Instance"
         },
         {
             "style": "Text",
@@ -24,7 +24,7 @@
         },
         {
             "style": "Title",
-            "text": "Running a Trading Process Instance node"
+            "text": "Running Trading Process Instance"
         },
         {
             "style": "Text",

@@ -4,7 +4,7 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "How the Trading Bot Instance node works"
+            "text": "How the Trading Bot Instance Works"
         },
         {
             "style": "Text",
@@ -16,7 +16,7 @@
         },
         {
             "style": "Title",
-            "text": "Adding a Trading Bot Instance node"
+            "text": "Adding a Trading Bot Instance"
         },
         {
             "style": "Text",
@@ -24,7 +24,7 @@
         },
         {
             "style": "Title",
-            "text": "Running a Trading Bot Instance node"
+            "text": "Running Trading Bot Instance"
         },
         {
             "style": "Text",

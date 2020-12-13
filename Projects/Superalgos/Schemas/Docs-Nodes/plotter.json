@@ -4,7 +4,7 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "How the Plotter node works"
+            "text": "How the Plotter Works"
         },
         {
             "style": "Text",
@@ -28,7 +28,7 @@
         },
         {
             "style": "Title",
-            "text": "Adding a Plotter node"
+            "text": "Adding a Plotter"
         },
         {
             "style": "Text",
@@ -36,7 +36,7 @@
         },
         {
             "style": "Title",
-            "text": "Configuring a Plotter node"
+            "text": "Configuring Plotter"
         },
         {
             "style": "Text",

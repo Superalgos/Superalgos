@@ -4,7 +4,7 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "How the Sensor Bot Instance node works"
+            "text": "How the Sensor Bot Instance Works"
         },
         {
             "style": "Text",
@@ -16,7 +16,7 @@
         },
         {
             "style": "Title",
-            "text": "Adding a Sensor Bot Instance node"
+            "text": "Adding a Sensor Bot Instance"
         },
         {
             "style": "Text",
@@ -24,7 +24,7 @@
         },
         {
             "style": "Title",
-            "text": "Configuring a Sensor Bot Instance node"
+            "text": "Configuring Sensor Bot Instance"
         },
         {
             "style": "Text",
@@ -60,7 +60,7 @@
         },
         {
             "style": "Title",
-            "text": "Running a Sensor Bot Instance node"
+            "text": "Running Sensor Bot Instance"
         },
         {
             "style": "Text",

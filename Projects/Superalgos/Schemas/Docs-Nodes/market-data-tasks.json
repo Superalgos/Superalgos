@@ -4,7 +4,7 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "How the Market Data Tasks node works"
+            "text": "How the Market Data Tasks Works"
         },
         {
             "style": "Text",
@@ -16,7 +16,7 @@
         },
         {
             "style": "Title",
-            "text": "Adding a Market Data Tasks node"
+            "text": "Adding a Market Data Tasks"
         },
         {
             "style": "Text",
@@ -32,7 +32,7 @@
         },
         {
             "style": "Title",
-            "text": "Running a Market Data Tasks node"
+            "text": "Running Market Data Tasks"
         },
         {
             "style": "Text",

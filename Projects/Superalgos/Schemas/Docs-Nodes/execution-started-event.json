@@ -4,7 +4,7 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "How the Execution Started Event node works"
+            "text": "How the Execution Started Event Works"
         },
         {
             "style": "Text",
@@ -24,7 +24,7 @@
         },
         {
             "style": "Title",
-            "text": "Adding a Execution Started Event node"
+            "text": "Adding a Execution Started Event"
         },
         {
             "style": "Text",

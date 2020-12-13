@@ -4,7 +4,7 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "How the Paper Trading Session node works"
+            "text": "How the Paper Trading Session Works"
         },
         {
             "style": "Text",
@@ -12,7 +12,7 @@
         },
         {
             "style": "Title",
-            "text": "Adding a Paper Trading Session node"
+            "text": "Adding a Paper Trading Session"
         },
         {
             "style": "Text",
@@ -24,7 +24,7 @@
         },
         {
             "style": "Title",
-            "text": "Configuring a Paper Trading Session node"
+            "text": "Configuring Paper Trading Session"
         },
         {
             "style": "Text",
@@ -48,7 +48,7 @@
         },
         {
             "style": "Title",
-            "text": "Running a Paper Trading Session node"
+            "text": "Running Paper Trading Session"
         },
         {
             "style": "Text",

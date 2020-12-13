@@ -4,7 +4,7 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "How the Time Scale node works"
+            "text": "How the Time Scale Works"
         },
         {
             "style": "Subtitle",
@@ -52,7 +52,7 @@
         },
         {
             "style": "Title",
-            "text": "Adding a Time Scale node"
+            "text": "Adding a Time Scale"
         },
         {
             "style": "Text",
@@ -60,7 +60,7 @@
         },
         {
             "style": "Title",
-            "text": "Configuring a Time Scale node"
+            "text": "Configuring Time Scale"
         },
         {
             "style": "Text",

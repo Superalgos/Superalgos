@@ -4,7 +4,7 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "How the Live Trading Session node works"
+            "text": "How the Live Trading Session Works"
         },
         {
             "style": "Text",
@@ -16,7 +16,7 @@
         },
         {
             "style": "Title",
-            "text": "Adding a Live Trading Session node"
+            "text": "Adding a Live Trading Session"
         },
         {
             "style": "Text",
@@ -28,7 +28,7 @@
         },
         {
             "style": "Title",
-            "text": "Configuring a Live Trading Session node"
+            "text": "Configuring Live Trading Session"
         },
         {
             "style": "Text",
@@ -52,7 +52,7 @@
         },
         {
             "style": "Title",
-            "text": "Running a Live Trading Session node"
+            "text": "Running Live Trading Session"
         },
         {
             "style": "Text",

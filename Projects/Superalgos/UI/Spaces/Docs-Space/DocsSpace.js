@@ -653,7 +653,7 @@ function newSuperalgosDocSpace() {
 
                     paragraph = {
                         style: "Title",
-                        text: "" + nodeAppDefinition.type + " node menu"
+                        text: "" + nodeAppDefinition.type + " Menu"
                     }
                     renderParagraph(paragraph, key)
                     paragraphIndex++
@@ -687,6 +687,12 @@ function newSuperalgosDocSpace() {
 
                         HTML = HTML + '</div>'
                     }
+                    paragraph = {
+                        style: "Success",
+                        text: "When any of the menu items is grayed out, it means that " + nodeAppDefinition.type + " already has the type of children that that menu item can add, and that only one children is possible in that case. "
+                    }
+                    renderParagraph(paragraph, key)
+                    paragraphIndex++
                 }
 
                 function generateChildrenNodesProperties() {
@@ -700,7 +706,7 @@ function newSuperalgosDocSpace() {
 
                     paragraph = {
                         style: "Title",
-                        text: "" + nodeAppDefinition.type + " children nodes"
+                        text: "" + nodeAppDefinition.type + " Children"
                     }
                     renderParagraph(paragraph, key)
                     paragraphIndex++
@@ -944,6 +950,8 @@ function newSuperalgosDocSpace() {
     function addToolTips(text) {
 
         const TOOL_TIP_HTML = '<div onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'CATEGORY\', \'TYPE\', \'PROJECT\')" class="docs-tooltip">TYPE_LABEL<span class="docs-tooltiptext">DEFINITION</span></div>'
+        const LINK_ONLY_HTML = '<div onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'CATEGORY\', \'TYPE\', \'PROJECT\')" class="docs-link">TYPE_LABEL<span class="docs-tooltiptext"></span></div>'
+        
         let resultingText = ''
         text = tagNodesAndConceptTypes(text, objectBeingRendered.type)
         let splittedText = text.split('->')
@@ -986,7 +994,13 @@ function newSuperalgosDocSpace() {
 
             let definition = definitionNode.definition
             if (definition === undefined || definition === "") {
-                resultingText = resultingText + firstPart + type
+                let tooltip = LINK_ONLY_HTML
+                .replace('CATEGORY', category)
+                .replace('TYPE', type)
+                .replace('PROJECT', project)
+                .replace('TYPE_LABEL', type)
+
+            resultingText = resultingText + firstPart + tooltip
             } else {
                 let tooltip = TOOL_TIP_HTML
                     .replace('CATEGORY', category)

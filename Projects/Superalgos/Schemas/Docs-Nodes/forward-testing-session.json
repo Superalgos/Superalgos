@@ -4,7 +4,7 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "How the Forward Testing Session node works"
+            "text": "How the Forward Testing Session Works"
         },
         {
             "style": "Text",
@@ -16,7 +16,7 @@
         },
         {
             "style": "Title",
-            "text": "Adding a Forward Testing Session node"
+            "text": "Adding a Forward Testing Session"
         },
         {
             "style": "Text",
@@ -28,7 +28,7 @@
         },
         {
             "style": "Title",
-            "text": "Configuring a Forward Testing Session node"
+            "text": "Configuring Forward Testing Session"
         },
         {
             "style": "Text",
@@ -72,7 +72,7 @@
         },
         {
             "style": "Title",
-            "text": "Running a Forward Testing Session node"
+            "text": "Running Forward Testing Session"
         },
         {
             "style": "Text",

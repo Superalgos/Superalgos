@@ -4,7 +4,7 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "How the Execution Algorithm node works"
+            "text": "How the Execution Algorithm Works"
         },
         {
             "style": "Text",
@@ -24,7 +24,7 @@
         },
         {
             "style": "Title",
-            "text": "Adding a Execution Algorithm node"
+            "text": "Adding a Execution Algorithm"
         },
         {
             "style": "Text",
@@ -32,7 +32,7 @@
         },
         {
             "style": "Title",
-            "text": "Configuring a Execution Algorithm node"
+            "text": "Configuring Execution Algorithm"
         },
         {
             "style": "Text",

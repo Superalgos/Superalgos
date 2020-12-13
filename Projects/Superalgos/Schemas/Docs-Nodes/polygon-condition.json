@@ -4,7 +4,7 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "How the Polygon Condition node works"
+            "text": "How the Polygon Condition Works"
         },
         {
             "style": "Text",
@@ -12,7 +12,7 @@
         },
         {
             "style": "Title",
-            "text": "Adding a Polygon Condition node"
+            "text": "Adding a Polygon Condition"
         },
         {
             "style": "Text",
@@ -20,7 +20,7 @@
         },
         {
             "style": "Title",
-            "text": "Configuring a Polygon Condition node"
+            "text": "Configuring Polygon Condition"
         },
         {
             "style": "Text",

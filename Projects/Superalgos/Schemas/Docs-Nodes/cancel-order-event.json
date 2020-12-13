@@ -4,7 +4,7 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "How the Cancel Order Event node works"
+            "text": "How the Cancel Order Event Works"
         },
         {
             "style": "Text",
@@ -12,7 +12,7 @@
         },
         {
             "style": "Title",
-            "text": "Adding a Cancel Order Event node"
+            "text": "Adding a Cancel Order Event"
         },
         {
             "style": "Text",

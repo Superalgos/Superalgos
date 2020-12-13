@@ -4,7 +4,7 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "How the Fee Structure node works"
+            "text": "How the Fee Structure Works"
         },
         {
             "style": "Text",
@@ -32,7 +32,7 @@
         },
         {
             "style": "Title",
-            "text": "Adding a Fee Structure node"
+            "text": "Adding a Fee Structure"
         },
         {
             "style": "Text",
@@ -40,7 +40,7 @@
         },
         {
             "style": "Title",
-            "text": "Configuring a Fee Structure node"
+            "text": "Configuring Fee Structure"
         },
         {
             "style": "Text",

@@ -4,7 +4,7 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "How the Data Storage node works"
+            "text": "How the Data Storage Works"
         },
         {
             "style": "Text",
@@ -32,7 +32,7 @@
         },
         {
             "style": "Title",
-            "text": "Adding a Data Storage node"
+            "text": "Adding a Data Storage"
         },
         {
             "style": "Text",

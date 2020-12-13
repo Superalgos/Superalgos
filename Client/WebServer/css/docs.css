@@ -57,11 +57,18 @@
     width: 100%;
   }
 
+    /* Link without tooltip */
+    .docs-link {
+      position: relative;
+      display: inline-block;
+      border-bottom: 1px dotted black; 
+    }
+
   /* Tooltip container */
   .docs-tooltip {
     position: relative;
     display: inline-block;
-    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+    border-bottom: 1px dotted black; 
   }
   
   /* Tooltip text */
@@ -79,7 +86,7 @@
   
     /* Position the docs-tooltip text */
     position: absolute;
-    z-index: 101;
+    z-index: 0;
     bottom: 125%;
     left: 50%;
     margin-left: -120px;
@@ -352,6 +359,7 @@ a:active.docs-footer-link {
     display: none;
     overflow: hidden;
     margin-left: 85px;
+    z-index: 1-0;
   }
 
   .docs-collapsible-element:after {

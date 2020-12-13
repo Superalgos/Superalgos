@@ -4,7 +4,7 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "How the Record Property node works"
+            "text": "How the Record Property Works"
         },
         {
             "style": "Text",
@@ -20,7 +20,7 @@
         },
         {
             "style": "Title",
-            "text": "Adding a Record Property node"
+            "text": "Adding a Record Property"
         },
         {
             "style": "Text",
@@ -28,7 +28,7 @@
         },
         {
             "style": "Title",
-            "text": "Configuring a Record Property node"
+            "text": "Configuring Record Property"
         },
         {
             "style": "Text",

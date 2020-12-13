@@ -4,7 +4,7 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "How the Limit Sell Order node works"
+            "text": "How the Limit Sell Order Works"
         },
         {
             "style": "Text",
@@ -12,7 +12,7 @@
         },
         {
             "style": "Title",
-            "text": "Adding a Limit Sell Order node"
+            "text": "Adding a Limit Sell Order"
         },
         {
             "style": "Text",
@@ -20,7 +20,7 @@
         },
         {
             "style": "Title",
-            "text": "Configuring a Limit Sell Order node"
+            "text": "Configuring Limit Sell Order"
         },
         {
             "style": "Text",

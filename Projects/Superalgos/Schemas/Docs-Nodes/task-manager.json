@@ -4,7 +4,7 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "How the Task Manager node works"
+            "text": "How the Task Manager Works"
         },
         {
             "style": "Text",
@@ -20,7 +20,7 @@
         },
         {
             "style": "Title",
-            "text": "Adding a Task Manager node"
+            "text": "Adding a Task Manager"
         },
         {
             "style": "Text",
@@ -28,7 +28,7 @@
         },
         {
             "style": "Title",
-            "text": "Running a Task Manager node"
+            "text": "Running Task Manager"
         },
         {
             "style": "Text",

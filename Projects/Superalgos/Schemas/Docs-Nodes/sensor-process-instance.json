@@ -4,7 +4,7 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "How the Sensor Process Instance node works"
+            "text": "How the Sensor Process Instance Works"
         },
         {
             "style": "Text",
@@ -12,7 +12,7 @@
         },
         {
             "style": "Title",
-            "text": "Adding a Sensor Process Instance node"
+            "text": "Adding a Sensor Process Instance"
         },
         {
             "style": "Text",
@@ -20,7 +20,7 @@
         },
         {
             "style": "Title",
-            "text": "Running a Sensor Process Instance node"
+            "text": "Running Sensor Process Instance"
         },
         {
             "style": "Text",

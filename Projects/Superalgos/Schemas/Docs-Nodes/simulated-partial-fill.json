@@ -4,7 +4,7 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "How the Simulated Partial Fill node works"
+            "text": "How the Simulated Partial Fill Works"
         },
         {
             "style": "Text",
@@ -20,7 +20,7 @@
         },
         {
             "style": "Title",
-            "text": "Adding a Simulated Partial Fill node"
+            "text": "Adding a Simulated Partial Fill"
         },
         {
             "style": "Text",
@@ -28,7 +28,7 @@
         },
         {
             "style": "Title",
-            "text": "Configuring a Simulated Partial Fill node"
+            "text": "Configuring Simulated Partial Fill"
         },
         {
             "style": "Text",

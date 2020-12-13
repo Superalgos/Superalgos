@@ -4,7 +4,7 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "How the Data Dependency node works"
+            "text": "How the Data Dependency Works"
         },
         {
             "style": "Text",
@@ -20,7 +20,7 @@
         },
         {
             "style": "Title",
-            "text": "Adding a Data Dependency node"
+            "text": "Adding a Data Dependency"
         },
         {
             "style": "Text",

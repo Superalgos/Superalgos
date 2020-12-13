@@ -4,7 +4,7 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "How the Layer Manager node works"
+            "text": "How the Layer Manager Works"
         },
         {
             "style": "Text",
@@ -12,7 +12,7 @@
         },
         {
             "style": "Title",
-            "text": "Adding a Layer Manager node"
+            "text": "Adding a Layer Manager"
         },
         {
             "style": "Text",
@@ -20,7 +20,7 @@
         },
         {
             "style": "Title",
-            "text": "Configuring a Layer Manager node"
+            "text": "Configuring Layer Manager"
         },
         {
             "style": "Text",

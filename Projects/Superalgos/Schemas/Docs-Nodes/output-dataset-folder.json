@@ -4,7 +4,7 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "How the Output Dataset Folder node works"
+            "text": "How the Output Dataset Folder Works"
         },
         {
             "style": "Text",
@@ -16,7 +16,7 @@
         },
         {
             "style": "Title",
-            "text": "Adding a Output Dataset Folder node"
+            "text": "Adding a Output Dataset Folder"
         },
         {
             "style": "Text",
@@ -24,7 +24,7 @@
         },
         {
             "style": "Title",
-            "text": "Configuring a Output Dataset Folder node"
+            "text": "Configuring Output Dataset Folder"
         },
         {
             "style": "Text",

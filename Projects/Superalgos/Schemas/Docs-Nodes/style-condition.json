@@ -4,7 +4,7 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "How the Style Condition node works"
+            "text": "How the Style Condition Works"
         },
         {
             "style": "Text",
@@ -24,7 +24,7 @@
         },
         {
             "style": "Title",
-            "text": "Adding a Style Condition node"
+            "text": "Adding a Style Condition"
         },
         {
             "style": "Text",
@@ -32,7 +32,7 @@
         },
         {
             "style": "Title",
-            "text": "Configuring a Style Condition node"
+            "text": "Configuring Style Condition"
         },
         {
             "style": "Text",

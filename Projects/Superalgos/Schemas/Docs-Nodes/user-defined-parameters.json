@@ -4,7 +4,7 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "How the User Defined Parameters node works"
+            "text": "How the User Defined Parameters Works"
         },
         {
             "style": "Text",
@@ -16,7 +16,7 @@
         },
         {
             "style": "Title",
-            "text": "Adding a User Defined Parameters node"
+            "text": "Adding a User Defined Parameters"
         },
         {
             "style": "Text",
@@ -24,7 +24,7 @@
         },
         {
             "style": "Title",
-            "text": "Configuring a User Defined Parameters node"
+            "text": "Configuring User Defined Parameters"
         },
         {
             "style": "Text",

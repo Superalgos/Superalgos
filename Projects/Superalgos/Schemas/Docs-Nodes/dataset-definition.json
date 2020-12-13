@@ -4,7 +4,7 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "How the Dataset Definition node works"
+            "text": "How the Dataset Definition Works"
         },
         {
             "style": "Text",
@@ -12,7 +12,7 @@
         },
         {
             "style": "Title",
-            "text": "Adding a Dataset Definition node"
+            "text": "Adding a Dataset Definition"
         },
         {
             "style": "Text",
@@ -20,7 +20,7 @@
         },
         {
             "style": "Title",
-            "text": "Configuring a Dataset Definition node"
+            "text": "Configuring Dataset Definition"
         },
         {
             "style": "Text",

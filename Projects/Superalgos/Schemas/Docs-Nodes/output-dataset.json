@@ -4,7 +4,7 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "How the Output Dataset node works"
+            "text": "How the Output Dataset Works"
         },
         {
             "style": "Text",
@@ -28,7 +28,7 @@
         },
         {
             "style": "Title",
-            "text": "Adding a Output Dataset node"
+            "text": "Adding a Output Dataset"
         },
         {
             "style": "Text",

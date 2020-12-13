@@ -4,7 +4,7 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "How the Execution Finished Event node works"
+            "text": "How the Execution Finished Event Works"
         },
         {
             "style": "Text",
@@ -20,7 +20,7 @@
         },
         {
             "style": "Title",
-            "text": "Adding a Execution Finished Event node"
+            "text": "Adding a Execution Finished Event"
         },
         {
             "style": "Text",

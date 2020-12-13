@@ -4,7 +4,7 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "How the Slippage node works"
+            "text": "How the Slippage Works"
         },
         {
             "style": "Text",
@@ -16,7 +16,7 @@
         },
         {
             "style": "Title",
-            "text": "Adding a Slippage node"
+            "text": "Adding a Slippage"
         },
         {
             "style": "Text",
@@ -24,7 +24,7 @@
         },
         {
             "style": "Title",
-            "text": "Configuring a Slippage node"
+            "text": "Configuring Slippage"
         },
         {
             "style": "Text",

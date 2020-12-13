@@ -4,7 +4,7 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "How the Position Quoted Asset node works"
+            "text": "How the Position Quoted Asset Works"
         },
         {
             "style": "Note",
@@ -12,7 +12,7 @@
         },
         {
             "style": "Title",
-            "text": "Adding a Position Quoted Asset node"
+            "text": "Adding a Position Quoted Asset"
         },
         {
             "style": "Text",

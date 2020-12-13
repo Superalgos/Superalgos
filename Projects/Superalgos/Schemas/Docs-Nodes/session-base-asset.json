@@ -4,7 +4,7 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "How the Session Base Asset node works"
+            "text": "How the Session Base Asset Works"
         },
         {
             "style": "Text",
@@ -12,7 +12,7 @@
         },
         {
             "style": "Title",
-            "text": "Adding a Session Base Asset node"
+            "text": "Adding a Session Base Asset"
         },
         {
             "style": "Text",
@@ -24,7 +24,7 @@
         },
         {
             "style": "Title",
-            "text": "Configuring a Session Base Asset node"
+            "text": "Configuring Session Base Asset"
         },
         {
             "style": "Text",

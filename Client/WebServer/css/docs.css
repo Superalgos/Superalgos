@@ -396,3 +396,40 @@ font-size: 125%;
 vertical-align: middle;
 min-height: 80px;
 }
+
+/* Info Tables */
+.docs-info-table {
+background-color: transparent;
+max-width: 100%;
+margin-bottom: 20px;
+margin-top: 20px;
+border: 1px solid #dedede;
+border-spacing: 0px;
+}
+
+.docs-info-table > thead > tr > th,
+.docs-info-table > tbody > tr > th,
+.docs-info-table > tfoot > tr > th,
+.docs-info-table > thead > tr > td,
+.docs-info-table > tbody > tr > td,
+.docs-info-table > tfoot > tr > td {
+padding: 8px;
+line-height: 150%;
+vertical-align: top;
+}
+
+.docs-info-table > thead > tr > th {
+vertical-align: middle;
+text-transform: none;
+background-color: #333;
+color: white;
+text-align: left;
+}
+
+.docs-info-table > tbody > tr > td {
+border-top: 1px solid #dedede;
+}
+
+.docs-info-table-alt-bg td {
+background-color: #f9f9f9;
+}

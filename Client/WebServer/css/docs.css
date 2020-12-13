@@ -356,10 +356,11 @@ a:active.docs-footer-link {
 
   .docs-collapsible-element:after {
     content: '\02795'; /* Unicode character for "plus" sign (+) */
-    font-size: 5px;
-    color: white;
+    font-size: 80%;
+    color: #31708f;
     float: right;
     margin-left: 5px;
+    vertical-align: middle;
   }
   
   .docs-collapsible-active:after {

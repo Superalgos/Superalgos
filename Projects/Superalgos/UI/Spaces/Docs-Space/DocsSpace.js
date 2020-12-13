@@ -641,7 +641,7 @@ function newSuperalgosDocSpace() {
 
                 function addAttachingRulesImages() {
                     if (nodeAppDefinition === undefined || (nodeAppDefinition.attachingRules === undefined && nodeAppDefinition.referencingRules === undefined)) { return }
-                    
+
                     if (nodeAppDefinition.attachingRules !== undefined) {
                         if (nodeAppDefinition.attachingRules.compatibleTypes !== undefined) {
                             let splittedCompatibleTypes = nodeAppDefinition.attachingRules.compatibleTypes.split('->')
@@ -656,15 +656,22 @@ function newSuperalgosDocSpace() {
 
                             let collectionImage = getIcon()
                             let imageElement = collectionImage.cloneNode()
-    
+
                             imageElement.className = "docs-collapsible-image"
-    
+
                             let parentElement = document.getElementById('docs-' + additionToKey + '-' + i + '')
                             let dummyImage = parentElement.childNodes[0]
                             parentElement.replaceChild(imageElement, dummyImage)
-    
+
                             function getIcon() {
-                                return UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(objectBeingRendered.project, listItem)
+                                let splittedListItem = listItem.split('|')
+                                if (splittedListItem.length === 1) {
+                                    return UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(objectBeingRendered.project, listItem)
+                                } else {
+                                    let project = splittedListItem[0]
+                                    let nodeType = splittedListItem[1]
+                                    return UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(project, nodeType)
+                                }
                             }
                         }
                     }
@@ -754,7 +761,7 @@ function newSuperalgosDocSpace() {
 
                         let name = UI.projects.superalgos.utilities.strings.fromCamelCaseToUpperWithSpaces(childrenNodesProperty.name)
 
-                        HTML = HTML + '<button id="docs-children-nodes-property-' + i + '" type="button" class="docs-collapsible-element"><img>' + name + '</button>'
+                        HTML = HTML + '<button id="docs-children-nodes-property-' + i + '" type="button" class="docs-collapsible-element"><img>' + addToolTips(name) + '</button>'
                         HTML = HTML + '<div class="docs-collapsible-content">'
 
                         paragraph = {
@@ -816,7 +823,7 @@ function newSuperalgosDocSpace() {
                         for (let i = 0; i < nodeList.length; i++) {
                             let listItem = nodeList[i]
                             if (listItem === "") { continue }
-                            HTML = HTML + '<button id="docs-' + additionToKey + '-' + i + '" type="button" class="docs-non-collapsible-element"><img>' + listItem + '</button>'
+                            HTML = HTML + '<button id="docs-' + additionToKey + '-' + i + '" type="button" class="docs-non-collapsible-element"><img>' + addToolTips(listItem) + '</button>'
                         }
                     }
                 }

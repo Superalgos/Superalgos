@@ -11386,9 +11386,9 @@
         },
         "childrenNodesProperties": [
             {
-                "name": "formula",
+                "name": "recordFormula",
                 "type": "node",
-                "childType": "Formula"
+                "childType": "Record Formula"
             }
         ],
         "propertyNameAtParent": "properties"
@@ -11423,9 +11423,43 @@
         },
         "level": 4,
         "attachingRules": {
-            "compatibleTypes": "->Target Size In Base Asset->Target Size In Quoted Asset->Target Rate->Phase->Record Property->Simulated Actual Rate->Situation->Indicator Function->"
+            "compatibleTypes": "->Target Size In Base Asset->Target Size In Quoted Asset->Target Rate->Phase->Simulated Actual Rate->Situation->Indicator Function->"
         },
         "propertyNameAtParent": "formula"
+    },
+    {
+        "type": "Record Formula",
+        "menuItems": [
+            {
+                "action": "Edit",
+                "label": "Edit",
+                "iconPathOn": "javascript-code",
+                "iconPathOff": "javascript-code",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.formulaEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "editors": {
+            "formula": true
+        },
+        "initialValues": {
+            "code": "// Type your formula"
+        },
+        "level": 4,
+        "attachingRules": {
+            "compatibleTypes": "->Record Property->"
+        },
+        "propertyNameAtParent": "recordFormula"
     },
     {
         "type": "Announcement Formula",

@@ -732,6 +732,8 @@ function newSuperalgosDocSpace() {
                 generateAttachingRules()
                 generateReferencingRules()
                 generateConfiguration()
+                generateCode()
+                generateFormula() 
 
                 function generateMenuItems() {
                     /* 
@@ -950,7 +952,7 @@ function newSuperalgosDocSpace() {
                     */
                     let paragraph
                     let key = 'auto-generated-paragraph-' + paragraphIndex
-                    if (nodeAppDefinition === undefined || nodeAppDefinition.editors === undefined) { return }
+                    if (nodeAppDefinition === undefined || nodeAppDefinition.editors === undefined || nodeAppDefinition.editors.config !== true) { return }
                     paragraph = {
                         style: "Title",
                         text: "" + nodeAppDefinition.type + " Configuration"
@@ -961,8 +963,6 @@ function newSuperalgosDocSpace() {
                         style: "Text",
                         text: "Each type of node, might have a configuration. The configuration can be accesed by users and changed at anytime. Whatever is at the configuration of a node is used by the processes in which the node is involved."
                     }
-
-                    if (nodeAppDefinition.initialValues === undefined || nodeAppDefinition.initialValues.config === undefined) { return }
                     renderParagraph(paragraph, key)
                     paragraphIndex++
                     paragraph = {
@@ -971,6 +971,9 @@ function newSuperalgosDocSpace() {
                     }
                     renderParagraph(paragraph, key)
                     paragraphIndex++
+
+                    if (nodeAppDefinition.initialValues === undefined || nodeAppDefinition.initialValues.config === undefined) { return }
+
                     paragraph = {
                         style: "Text",
                         text: "Each type of node, might have a definition with the initial values for it's configuration. The Initial Values are set one the node is first created. The Initial Values for " + nodeAppDefinition.type + " are:"
@@ -1026,18 +1029,18 @@ function newSuperalgosDocSpace() {
                                 if (valueArray.includes(value) === false) {
                                     if (valueArray.length <= 10) {
                                         valueArray.push(value)
-                                    }                                    
+                                    }
                                 }
                             }
                         }
                     }
                     /* Third Step: we will display the list of properties and the sample values */
                     propertyMap.forEach(displayProperty)
-                    function displayProperty(valueArray, key, map) {
+                    function displayProperty(valueArray, mapKey, map) {
 
-                        let name = UI.projects.superalgos.utilities.strings.fromCamelCaseToUpperWithSpaces(key)
+                        let name = UI.projects.superalgos.utilities.strings.fromCamelCaseToUpperWithSpaces(mapKey)
 
-                        HTML = HTML + '<button id="docs-config-property-' + key.toLowerCase() + '" type="button" class="docs-collapsible-element">' + name + '</button>'
+                        HTML = HTML + '<button id="docs-config-property-' + mapKey.toLowerCase() + '" type="button" class="docs-collapsible-element">' + name + '</button>'
                         HTML = HTML + '<div class="docs-collapsible-content">'
 
                         for (let i = 0; i < valueArray.length; i++) {
@@ -1050,6 +1053,198 @@ function newSuperalgosDocSpace() {
                             renderParagraph(paragraph, key)
                             paragraphIndex++
                         }
+
+                        HTML = HTML + '</div>'
+                    }
+                }
+
+                function generateCode() {
+                    /* 
+                    Code
+                    */
+                    let paragraph
+                    let key = 'auto-generated-paragraph-' + paragraphIndex
+                    if (nodeAppDefinition === undefined || nodeAppDefinition.editors === undefined || nodeAppDefinition.editors.code !== true) { return }
+                    paragraph = {
+                        style: "Title",
+                        text: "" + nodeAppDefinition.type + " Code"
+                    }
+                    renderParagraph(paragraph, key)
+                    paragraphIndex++
+                    paragraph = {
+                        style: "Text",
+                        text: "Some types of node, might have code that defines it's behaviour. The code is can usually be accesed by users via the Edit menu item. "
+                    }
+                    renderParagraph(paragraph, key)
+                    paragraphIndex++
+
+                    if (nodeAppDefinition.initialValues === undefined || nodeAppDefinition.initialValues.code === undefined) { return }
+
+                    paragraph = {
+                        style: "Subtitle",
+                        text: "Initial Value:"
+                    }
+                    renderParagraph(paragraph, key)
+                    paragraphIndex++
+                    paragraph = {
+                        style: "Text",
+                        text: "When first created, the code of a node is initialized with the initial value present at the node's definition. The Initial Value for " + nodeAppDefinition.type + " is:"
+                    }
+                    renderParagraph(paragraph, key)
+                    paragraphIndex++
+
+                    paragraph = {
+                        style: "Javascript",
+                        text: JSON.stringify(nodeAppDefinition.initialValues.code, undefined, 4)
+                    }
+                    renderParagraph(paragraph, key)
+                    paragraphIndex++
+
+                    paragraph = {
+                        style: "Subtitle",
+                        text: "Examples:"
+                    }
+                    renderParagraph(paragraph, key)
+                    paragraphIndex++
+                    paragraph = {
+                        style: "Text",
+                        text: "This is a list of examples used at the " + nodeAppDefinition.type + " code collected from this workspace."
+                    }
+                    renderParagraph(paragraph, key)
+                    paragraphIndex++
+                    /*
+                    Here we will scan the whole workspace, first looking for nodes of the same type,
+                    and after that, analysing their code in order to extract examples to show.
+                    */
+                    /* First Step: get an array of all the nodes in the workspace of this type */
+                    let rootNodes = UI.projects.superalgos.spaces.designSpace.workspace.workspaceNode.rootNodes
+                    let allNodesFound = []
+                    for (let i = 0; i < rootNodes.length; i++) {
+                        let rootNode = rootNodes[i]
+                        if (rootNode !== null) {
+                            let nodeArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(rootNode, nodeAppDefinition.type)
+                            allNodesFound = allNodesFound.concat(nodeArray)
+                        }
+                    }
+                    /* 
+                    Second Step: create a map with all the code examples used at this node type,
+                    without repeating them.
+                    */
+                    let codeMap = new Map()
+                    for (let i = 0; i < allNodesFound.length; i++) {
+                        let node = allNodesFound[i]
+                        codeMap.set(node.code, node.code)
+                    }
+                    /* Third Step: we will display the list of properties and the sample values */
+                    let exampleCounter = 1
+                    codeMap.forEach(displayProperty)
+                    function displayProperty(code, mapKey, map) {
+                        if (exampleCounter > 10) { return }
+                        HTML = HTML + '<button id="docs-code-example-' + exampleCounter + '" type="button" class="docs-collapsible-element">' + 'Example #' + exampleCounter + '</button>'
+                        HTML = HTML + '<div class="docs-collapsible-code-content">'
+                        exampleCounter++
+                        paragraph = {
+                            style: "Javascript",
+                            text: code
+                        }
+                        renderParagraph(paragraph, key)
+                        paragraphIndex++
+
+                        HTML = HTML + '</div>'
+                    }
+                }
+
+                function generateFormula() {
+                    /* 
+                    Formula
+                    */
+                    let paragraph
+                    let key = 'auto-generated-paragraph-' + paragraphIndex
+                    if (nodeAppDefinition === undefined || nodeAppDefinition.editors === undefined || nodeAppDefinition.editors.formula !== true) { return }
+                    paragraph = {
+                        style: "Title",
+                        text: "" + nodeAppDefinition.type + " Formula"
+                    }
+                    renderParagraph(paragraph, key)
+                    paragraphIndex++
+                    paragraph = {
+                        style: "Text",
+                        text: "Some types of node represents Formulas and they hold code that defines that formula. The code is can usually be accesed by users via the Edit menu item. "
+                    }
+                    renderParagraph(paragraph, key)
+                    paragraphIndex++
+
+                    if (nodeAppDefinition.initialValues === undefined || nodeAppDefinition.initialValues.code === undefined) { return }
+
+                    paragraph = {
+                        style: "Subtitle",
+                        text: "Initial Value:"
+                    }
+                    renderParagraph(paragraph, key)
+                    paragraphIndex++
+                    paragraph = {
+                        style: "Text",
+                        text: "When first created, the code of a node is initialized with the initial value present at the node's definition. The Initial Value for " + nodeAppDefinition.type + " is:"
+                    }
+                    renderParagraph(paragraph, key)
+                    paragraphIndex++
+
+                    paragraph = {
+                        style: "Javascript",
+                        text: JSON.stringify(nodeAppDefinition.initialValues.code, undefined, 4)
+                    }
+                    renderParagraph(paragraph, key)
+                    paragraphIndex++
+
+                    paragraph = {
+                        style: "Subtitle",
+                        text: "Examples:"
+                    }
+                    renderParagraph(paragraph, key)
+                    paragraphIndex++
+                    paragraph = {
+                        style: "Text",
+                        text: "This is a list of examples used at the " + nodeAppDefinition.type + " code collected from this workspace."
+                    }
+                    renderParagraph(paragraph, key)
+                    paragraphIndex++
+                    /*
+                    Here we will scan the whole workspace, first looking for nodes of the same type,
+                    and after that, analysing their code in order to extract examples to show.
+                    */
+                    /* First Step: get an array of all the nodes in the workspace of this type */
+                    let rootNodes = UI.projects.superalgos.spaces.designSpace.workspace.workspaceNode.rootNodes
+                    let allNodesFound = []
+                    for (let i = 0; i < rootNodes.length; i++) {
+                        let rootNode = rootNodes[i]
+                        if (rootNode !== null) {
+                            let nodeArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(rootNode, nodeAppDefinition.type)
+                            allNodesFound = allNodesFound.concat(nodeArray)
+                        }
+                    }
+                    /* 
+                    Second Step: create a map with all the code examples used at this node type,
+                    without repeating them.
+                    */
+                    let codeMap = new Map()
+                    for (let i = 0; i < allNodesFound.length; i++) {
+                        let node = allNodesFound[i]
+                        codeMap.set(node.code, node.code)
+                    }
+                    /* Third Step: we will display the list of properties and the sample values */
+                    let exampleCounter = 1
+                    codeMap.forEach(displayProperty)
+                    function displayProperty(code, mapKey, map) {
+                        if (exampleCounter > 10) { return }
+                        HTML = HTML + '<button id="docs-code-example-' + exampleCounter + '" type="button" class="docs-collapsible-element">' + 'Example #' + exampleCounter + '</button>'
+                        HTML = HTML + '<div class="docs-collapsible-code-content">'
+                        exampleCounter++
+                        paragraph = {
+                            style: "Javascript",
+                            text: code
+                        }
+                        renderParagraph(paragraph, key)
+                        paragraphIndex++
 
                         HTML = HTML + '</div>'
                     }

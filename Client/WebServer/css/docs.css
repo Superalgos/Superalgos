@@ -362,6 +362,13 @@ margin-left: 85px;
 z-index: 1;
 }
 
+.docs-collapsible-code-content {
+  padding: 0 18px;
+  display: none;
+  margin-left: 0px;
+  z-index: 1;
+  }
+
 .docs-collapsible-element:after {
 content: '\02795'; /* Unicode character for "plus" sign (+) */
 font-size: 80%;

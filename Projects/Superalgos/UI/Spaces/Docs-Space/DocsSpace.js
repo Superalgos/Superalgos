@@ -1073,7 +1073,7 @@ function newSuperalgosDocSpace() {
                     paragraphIndex++
                     paragraph = {
                         style: "Text",
-                        text: "Some types of node, might have code that defines it's behaviour. The code is can usually be accesed by users via the Edit menu item. "
+                        text: "Some types of node, might have code that defines it's behaviour. The code can usually be accesed by users via the Edit menu item. "
                     }
                     renderParagraph(paragraph, key)
                     paragraphIndex++
@@ -1169,7 +1169,7 @@ function newSuperalgosDocSpace() {
                     paragraphIndex++
                     paragraph = {
                         style: "Text",
-                        text: "Some types of node represents Formulas and they hold code that defines that formula. The code is can usually be accesed by users via the Edit menu item. "
+                        text: "Some types of node represents Formulas and they hold code that defines that formula. The code can usually be accesed by users via the Edit menu item. "
                     }
                     renderParagraph(paragraph, key)
                     paragraphIndex++

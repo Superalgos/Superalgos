@@ -376,32 +376,16 @@ function newSuperalgosDocSpace() {
             return false
         }
 
-        if (paragraphNode.id === undefined || paragraphNode.id.indexOf('paragraph') < 0) {
-            paragraphNode = paragraphNode.parentNode
-        }
-        if (paragraphNode.id === undefined || paragraphNode.id.indexOf('paragraph') < 0) {
-            paragraphNode = paragraphNode.parentNode
-        }
-        if (paragraphNode.id === undefined || paragraphNode.id.indexOf('paragraph') < 0) {
-            paragraphNode = paragraphNode.parentNode
-        }
-        if (paragraphNode.id === undefined || paragraphNode.id.indexOf('paragraph') < 0) {
-            paragraphNode = paragraphNode.parentNode
-        }
-        if (paragraphNode.id === undefined || paragraphNode.id.indexOf('paragraph') < 0) {
-            paragraphNode = paragraphNode.parentNode
-        }
-        if (paragraphNode.id === undefined || paragraphNode.id.indexOf('paragraph') < 0) {
-            paragraphNode = paragraphNode.parentNode
-        }
-        if (paragraphNode.id === undefined || paragraphNode.id.indexOf('paragraph') < 0) {
-            paragraphNode = paragraphNode.parentNode
+
+        for (let i = 1; i < 10; i++) {
+            if (paragraphNode.id === undefined || paragraphNode.id.indexOf('paragraph') < 0) {
+                paragraphNode = paragraphNode.parentNode
+                if (paragraphNode === undefined) { return false}
+            }
         }
         if (paragraphNode.id === undefined || paragraphNode.id.indexOf('paragraph') < 0) {
             return false
         }
-
-
         /*
         Depending on the Style of Paragraph we will need to remove
         some info from the innerText. 

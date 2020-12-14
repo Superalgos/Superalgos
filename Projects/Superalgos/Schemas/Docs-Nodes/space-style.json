@@ -136,63 +136,63 @@
         },
         {
             "style": "Text",
-            "text": "| DARK | 48, 48, 54 | <span style=\"display: block; background: RGB(48, 48, 54); border: 1px solid black;\">&nbsp;</span> |"
+            "text": "| DARK | 48, 48, 54 | RGB(48, 48, 54) |"
         },
         {
             "style": "Text",
-            "text": "| LIGHT | 234, 226, 222 | <span style=\"display: block; background: RGB(234, 226, 222); border: 1px black; border: 1px solid black;\">&nbsp;</span> |"
+            "text": "| LIGHT | 234, 226, 222 | RGB(234, 226, 222); border: 1px black |"
         },
         {
             "style": "Text",
-            "text": "| GREY | 150, 150, 150 | <span style=\"display: block; background: RGB(150, 150, 150); border: 1px solid black;\">&nbsp;</span> |"
+            "text": "| GREY | 150, 150, 150 | RGB(150, 150, 150) |"
         },
         {
             "style": "Text",
-            "text": "| LIGHT_GREY | 247, 247, 247 | <span style=\"display: block; background: RGB(247, 247, 247); border: 1px solid black;\">&nbsp;</span> |"
+            "text": "| LIGHT_GREY | 247, 247, 247 | RGB(247, 247, 247) |"
         },
         {
             "style": "Text",
-            "text": "| WHITE | 255, 255, 255 | <span style=\"display: block; background: RGB(255, 255, 255); border: 1px solid black;\">&nbsp;</span> |"
+            "text": "| WHITE | 255, 255, 255 | RGB(255, 255, 255) |"
         },
         {
             "style": "Text",
-            "text": "| BLACK | 0, 0, 0 | <span style=\"display: block; background: RGB(0, 0, 0); border: 1px solid black;\">&nbsp;</span> |"
+            "text": "| BLACK | 0, 0, 0 | RGB(0, 0, 0) |"
         },
         {
             "style": "Text",
-            "text": "| GOLDEN_ORANGE | 240, 162, 2 | <span style=\"display: block; background: RGB(240, 162, 2); border: 1px solid black;\">&nbsp;</span> |"
+            "text": "| GOLDEN_ORANGE | 240, 162, 2 | RGB(240, 162, 2) |"
         },
         {
             "style": "Text",
-            "text": "| RUSTED_RED | 204, 88, 53 | <span style=\"display: block; background: RGB(204, 88, 53); border: 1px solid black;\">&nbsp;</span> |"
+            "text": "| RUSTED_RED | 204, 88, 53 | RGB(204, 88, 53) |"
         },
         {
             "style": "Text",
-            "text": "| GREEN | 188, 214, 67 | <span style=\"display: block; background: RGB(188, 214, 67); border: 1px solid black;\">&nbsp;</span> |"
+            "text": "| GREEN | 188, 214, 67 | RGB(188, 214, 67) |"
         },
         {
             "style": "Text",
-            "text": "| RED | 223, 70, 60 | <span style=\"display: block; background: RGB(223, 70, 60); border: 1px solid black;\">&nbsp;</span> |"
+            "text": "| RED | 223, 70, 60 | RGB(223, 70, 60) |"
         },
         {
             "style": "Text",
-            "text": "| PATINATED_TURQUOISE | 27, 153, 139 | <span style=\"display: block; background: RGB(27, 153, 139); border: 1px solid black;\">&nbsp;</span> |"
+            "text": "| PATINATED_TURQUOISE | 27, 153, 139 | RGB(27, 153, 139) |"
         },
         {
             "style": "Text",
-            "text": "| TITANIUM_YELLOW | 244, 228, 9 | <span style=\"display: block; background: RGB(244, 228, 9); border: 1px solid black;\">&nbsp;</span> |"
+            "text": "| TITANIUM_YELLOW | 244, 228, 9 | RGB(244, 228, 9) |"
         },
         {
             "style": "Text",
-            "text": "| MANGANESE_PURPLE | 91,80, 122 | <span style=\"display: block; background: RGB(91,80, 122); border: 1px solid black;\">&nbsp;</span> |"
+            "text": "| MANGANESE_PURPLE | 91,80, 122 | RGB(91,80, 122) |"
         },
         {
             "style": "Text",
-            "text": "| TURQUOISE | 74, 207, 217 | <span style=\"display: block; background: RGB(74, 207, 217); border: 1px solid black;\">&nbsp;</span> |"
+            "text": "| TURQUOISE | 74, 207, 217 | RGB(74, 207, 217) |"
         },
         {
             "style": "Text",
-            "text": "| DARK_TURQUOISE | 2, 149, 170 | <span style=\"display: block; background: RGB(2, 149, 170); border: 1px solid black;\">&nbsp;</span> |"
+            "text": "| DARK_TURQUOISE | 2, 149, 170 | RGB(2, 149, 170) |"
         },
         {
             "style": "Text",

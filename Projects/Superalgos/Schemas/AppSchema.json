@@ -251,9 +251,9 @@
         "type": "Plotter Module",
         "childrenNodesProperties": [
             {
-                "name": "javascriptCode",
+                "name": "plotterModuleJavascriptCode",
                 "type": "node",
-                "childType": "Javascript Code"
+                "childType": "Plotter Module Javascript Code"
             },
             {
                 "name": "shapes",
@@ -347,10 +347,10 @@
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "javascriptCode",
+                "propertyToCheckFor": "plotterModuleJavascriptCode",
                 "actionFunction": "payload.executeAction",
                 "label": "Add Javascript Code",
-                "relatedUiObject": "Javascript Code"
+                "relatedUiObject": "Plotter Module Javascript Code"
             },
             {
                 "action": "Add UI Object",
@@ -683,9 +683,9 @@
         },
         "childrenNodesProperties": [
             {
-                "name": "javascriptCode",
+                "name": "plotterPanelJavascriptCode",
                 "type": "node",
-                "childType": "Javascript Code"
+                "childType": "Plotter Panel Javascript Code"
             },
             {
                 "name": "panelData",
@@ -705,10 +705,10 @@
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "javascriptCode",
+                "propertyToCheckFor": "plotterPanelJavascriptCode",
                 "actionFunction": "payload.executeAction",
-                "label": "Add Code",
-                "relatedUiObject": "Javascript Code"
+                "label": "Add Javascript Code",
+                "relatedUiObject": "Plotter Panel Javascript Code"
             },
             {
                 "action": "Add UI Object",
@@ -835,7 +835,7 @@
             "code": "// Type you code"
         },
         "attachingRules": {
-            "compatibleTypes": "->Condition->Procedure Initialization->Procedure Loop->Plotter Module->Plotter Panel->Master Script->"
+            "compatibleTypes": "->Condition->"
         },
         "menuItems": [
             {
@@ -856,6 +856,108 @@
             }
         ],
         "addLeftIcons": true
+    },
+    {
+        "type": "Procedure Javascript Code",
+        "level": 4,
+        "propertyNameAtParent": "procedureJavascriptCode",
+        "editors": {
+            "code": true
+        },
+        "initialValues": {
+            "code": "// Type you code"
+        },
+        "attachingRules": {
+            "compatibleTypes": "->Procedure Initialization->Procedure Loop->"
+        },
+        "menuItems": [
+            {
+                "action": "Edit",
+                "actionFunction": "uiObject.codeEditor.activate",
+                "label": "Edit",
+                "iconPathOn": "bitcoin",
+                "iconPathOff": "bitcoin"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "actionFunction": "payload.executeAction",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete"
+            }
+        ],
+        "addLeftIcons": true,
+        "icon": "bitcoin"
+    },
+    {
+        "type": "Plotter Module Javascript Code",
+        "level": 4,
+        "propertyNameAtParent": "plotterModuleJavascriptCode",
+        "editors": {
+            "code": true
+        },
+        "initialValues": {
+            "code": "// Type you code"
+        },
+        "attachingRules": {
+            "compatibleTypes": "->Plotter Module->"
+        },
+        "menuItems": [
+            {
+                "action": "Edit",
+                "actionFunction": "uiObject.codeEditor.activate",
+                "label": "Edit",
+                "iconPathOn": "bitcoin",
+                "iconPathOff": "bitcoin"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "actionFunction": "payload.executeAction",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete"
+            }
+        ],
+        "addLeftIcons": true,
+        "icon": "bitcoin"
+    },
+    {
+        "type": "Plotter Panel Javascript Code",
+        "level": 4,
+        "propertyNameAtParent": "plotterPanelJavascriptCode",
+        "editors": {
+            "code": true
+        },
+        "initialValues": {
+            "code": "// Type you code"
+        },
+        "attachingRules": {
+            "compatibleTypes": "->Plotter Panel->"
+        },
+        "menuItems": [
+            {
+                "action": "Edit",
+                "actionFunction": "uiObject.codeEditor.activate",
+                "label": "Edit",
+                "iconPathOn": "bitcoin",
+                "iconPathOff": "bitcoin"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "actionFunction": "payload.executeAction",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete"
+            }
+        ],
+        "addLeftIcons": true,
+        "icon": "bitcoin"
     },
     {
         "type": "Chart Points",
@@ -11552,9 +11654,9 @@
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "javascriptCode",
+                "propertyToCheckFor": "procedureJavascriptCode",
                 "label": "Add Code",
-                "relatedUiObject": "Javascript Code",
+                "relatedUiObject": "Procedure Javascript Code",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -11574,9 +11676,9 @@
         },
         "childrenNodesProperties": [
             {
-                "name": "javascriptCode",
+                "name": "procedureJavascriptCode",
                 "type": "node",
-                "childType": "Javascript Code",
+                "childType": "Procedure Javascript Code",
                 "autoAdd": true
             }
         ],
@@ -11588,9 +11690,9 @@
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "javascriptCode",
+                "propertyToCheckFor": "procedureJavascriptCode",
                 "label": "Add Code",
-                "relatedUiObject": "Javascript Code",
+                "relatedUiObject": "Procedure Javascript Code",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -11610,9 +11712,9 @@
         },
         "childrenNodesProperties": [
             {
-                "name": "javascriptCode",
+                "name": "procedureJavascriptCode",
                 "type": "node",
-                "childType": "Javascript Code",
+                "childType": "Procedure Javascript Code",
                 "autoAdd": true
             }
         ],
@@ -14678,7 +14780,7 @@
             {
                 "name": "projectDashboards",
                 "type": "array",
-                "childType": "Project Dashboards" 
+                "childType": "Project Dashboards"
             }
         ]
     },
@@ -16762,7 +16864,7 @@
                 "childType": "Exchange Data Products"
             }
         ],
-        "icon":"bitcoin"
+        "icon": "bitcoin"
     },
     {
         "type": "Project Trading Products",
@@ -16812,7 +16914,7 @@
                 "childType": "Exchange Trading Products"
             }
         ],
-        "icon":"bitcoin"
+        "icon": "bitcoin"
     },
     {
         "type": "Project Learning Products",
@@ -16862,7 +16964,7 @@
                 "childType": "Exchange Learning Products"
             }
         ],
-        "icon":"bitcoin"
+        "icon": "bitcoin"
     },
     {
         "type": "Exchange Trading Products",

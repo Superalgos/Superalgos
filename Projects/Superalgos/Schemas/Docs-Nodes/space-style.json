@@ -128,75 +128,75 @@
         },
         {
             "style": "Text",
-            "text": "<table class=\"docs-table\"><tr><td> Variable Value </td><td> RGB Value </td><td> Color Sample </td></tr>"
+            "text": "| Variable Value | RGB Value | Color Sample |"
         },
         {
             "style": "Text",
-            "text": "<tr><td> :--- </td><td> :---: </td><td> :------------------- </td></tr>"
+            "text": "| :--- | :---: | :------------------- |"
         },
         {
             "style": "Text",
-            "text": "<tr><td> DARK </td><td> 48, 48, 54 </td><td> <span style=\"display: block; background: RGB(48, 48, 54); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+            "text": "| DARK | 48, 48, 54 | <span style=\"display: block; background: RGB(48, 48, 54); border: 1px solid black;\">&nbsp;</span> |"
         },
         {
             "style": "Text",
-            "text": "<tr><td> LIGHT </td><td> 234, 226, 222 </td><td> <span style=\"display: block; background: RGB(234, 226, 222); border: 1px black; border: 1px solid black;\">&nbsp;</span> </td></tr>"
+            "text": "| LIGHT | 234, 226, 222 | <span style=\"display: block; background: RGB(234, 226, 222); border: 1px black; border: 1px solid black;\">&nbsp;</span> |"
         },
         {
             "style": "Text",
-            "text": "<tr><td> GREY </td><td> 150, 150, 150 </td><td> <span style=\"display: block; background: RGB(150, 150, 150); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+            "text": "| GREY | 150, 150, 150 | <span style=\"display: block; background: RGB(150, 150, 150); border: 1px solid black;\">&nbsp;</span> |"
         },
         {
             "style": "Text",
-            "text": "<tr><td> LIGHT_GREY </td><td> 247, 247, 247 </td><td> <span style=\"display: block; background: RGB(247, 247, 247); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+            "text": "| LIGHT_GREY | 247, 247, 247 | <span style=\"display: block; background: RGB(247, 247, 247); border: 1px solid black;\">&nbsp;</span> |"
         },
         {
             "style": "Text",
-            "text": "<tr><td> WHITE </td><td> 255, 255, 255 </td><td> <span style=\"display: block; background: RGB(255, 255, 255); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+            "text": "| WHITE | 255, 255, 255 | <span style=\"display: block; background: RGB(255, 255, 255); border: 1px solid black;\">&nbsp;</span> |"
         },
         {
             "style": "Text",
-            "text": "<tr><td> BLACK </td><td> 0, 0, 0 </td><td> <span style=\"display: block; background: RGB(0, 0, 0); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+            "text": "| BLACK | 0, 0, 0 | <span style=\"display: block; background: RGB(0, 0, 0); border: 1px solid black;\">&nbsp;</span> |"
         },
         {
             "style": "Text",
-            "text": "<tr><td> GOLDEN_ORANGE </td><td> 240, 162, 2 </td><td> <span style=\"display: block; background: RGB(240, 162, 2); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+            "text": "| GOLDEN_ORANGE | 240, 162, 2 | <span style=\"display: block; background: RGB(240, 162, 2); border: 1px solid black;\">&nbsp;</span> |"
         },
         {
             "style": "Text",
-            "text": "<tr><td> RUSTED_RED </td><td> 204, 88, 53 </td><td> <span style=\"display: block; background: RGB(204, 88, 53); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+            "text": "| RUSTED_RED | 204, 88, 53 | <span style=\"display: block; background: RGB(204, 88, 53); border: 1px solid black;\">&nbsp;</span> |"
         },
         {
             "style": "Text",
-            "text": "<tr><td> GREEN </td><td> 188, 214, 67 </td><td> <span style=\"display: block; background: RGB(188, 214, 67); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+            "text": "| GREEN | 188, 214, 67 | <span style=\"display: block; background: RGB(188, 214, 67); border: 1px solid black;\">&nbsp;</span> |"
         },
         {
             "style": "Text",
-            "text": "<tr><td> RED </td><td> 223, 70, 60 </td><td> <span style=\"display: block; background: RGB(223, 70, 60); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+            "text": "| RED | 223, 70, 60 | <span style=\"display: block; background: RGB(223, 70, 60); border: 1px solid black;\">&nbsp;</span> |"
         },
         {
             "style": "Text",
-            "text": "<tr><td> PATINATED_TURQUOISE </td><td> 27, 153, 139 </td><td> <span style=\"display: block; background: RGB(27, 153, 139); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+            "text": "| PATINATED_TURQUOISE | 27, 153, 139 | <span style=\"display: block; background: RGB(27, 153, 139); border: 1px solid black;\">&nbsp;</span> |"
         },
         {
             "style": "Text",
-            "text": "<tr><td> TITANIUM_YELLOW </td><td> 244, 228, 9 </td><td> <span style=\"display: block; background: RGB(244, 228, 9); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+            "text": "| TITANIUM_YELLOW | 244, 228, 9 | <span style=\"display: block; background: RGB(244, 228, 9); border: 1px solid black;\">&nbsp;</span> |"
         },
         {
             "style": "Text",
-            "text": "<tr><td> MANGANESE_PURPLE </td><td> 91,80, 122 </td><td> <span style=\"display: block; background: RGB(91,80, 122); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+            "text": "| MANGANESE_PURPLE | 91,80, 122 | <span style=\"display: block; background: RGB(91,80, 122); border: 1px solid black;\">&nbsp;</span> |"
         },
         {
             "style": "Text",
-            "text": "<tr><td> TURQUOISE </td><td> 74, 207, 217 </td><td> <span style=\"display: block; background: RGB(74, 207, 217); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+            "text": "| TURQUOISE | 74, 207, 217 | <span style=\"display: block; background: RGB(74, 207, 217); border: 1px solid black;\">&nbsp;</span> |"
         },
         {
             "style": "Text",
-            "text": "<tr><td> DARK_TURQUOISE </td><td> 2, 149, 170 </td><td> <span style=\"display: block; background: RGB(2, 149, 170); border: 1px solid black;\">&nbsp;</span> </td></tr>"
+            "text": "| DARK_TURQUOISE | 2, 149, 170 | <span style=\"display: block; background: RGB(2, 149, 170); border: 1px solid black;\">&nbsp;</span> |"
         },
         {
             "style": "Text",
-            "text": "</table>."
+            "text": "."
         }
     ]
 }

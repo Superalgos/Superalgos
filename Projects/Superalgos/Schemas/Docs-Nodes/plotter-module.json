@@ -68,39 +68,39 @@
         },
         {
             "style": "Text",
-            "text": "<table class=\"docs-table\"><tr><td> Value </td><td> Image</td></tr>"
+            "text": "| Value | Image|"
         },
         {
             "style": "Text",
-            "text": "<tr><td> :---: </td><td> :---: </td></tr>"
+            "text": "| :---: | :---: |"
         },
         {
             "style": "Text",
-            "text": "<tr><td> default </td><td> <img src=\"Projects/Superalgos/Icons/default-banner.png\"></img> </td></tr>"
+            "text": "| default | <img src=\"Projects/Superalgos/Icons/default-banner.png\"></img> |"
         },
         {
             "style": "Text",
-            "text": "<tr><td> histogram </td><td> <img src=\"Projects/Superalgos/Icons/histogram-banner.png\"></img> </td></tr>"
+            "text": "| histogram | <img src=\"Projects/Superalgos/Icons/histogram-banner.png\"></img> |"
         },
         {
             "style": "Text",
-            "text": "<tr><td> band </td><td> <img src=\"Projects/Superalgos/Icons/bands-banner.png\"></img> </td></tr>"
+            "text": "| band | <img src=\"Projects/Superalgos/Icons/bands-banner.png\"></img> |"
         },
         {
             "style": "Text",
-            "text": "<tr><td> moving-average </td><td> <img src=\"Projects/Superalgos/Icons/moving-average-banner.png\"></img> </td></tr>"
+            "text": "| moving-average | <img src=\"Projects/Superalgos/Icons/moving-average-banner.png\"></img> |"
         },
         {
             "style": "Text",
-            "text": "<tr><td> oscillator </td><td> <img src=\"Projects/Superalgos/Icons/oscillator-banner.png\"></img> </td></tr>"
+            "text": "| oscillator | <img src=\"Projects/Superalgos/Icons/oscillator-banner.png\"></img> |"
         },
         {
             "style": "Text",
-            "text": "<tr><td> trend </td><td> <img src=\"Projects/Superalgos/Icons/trends-banner.png\"></img> </td></tr>"
+            "text": "| trend | <img src=\"Projects/Superalgos/Icons/trends-banner.png\"></img> |"
         },
         {
             "style": "Text",
-            "text": "</table>Custom images may be added too. To do that:"
+            "text": "Custom images may be added too. To do that:"
         },
         {
             "style": "Text",

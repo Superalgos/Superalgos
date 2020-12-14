@@ -65,7 +65,8 @@ function newSuperalgosDocSpace() {
                 toWarning: toWarning,
                 toImportant: toImportant,
                 toSuccess: toSuccess,
-                toList: toList
+                toList: toList,
+                toTable: toTable
             }
 
             function editParagraph() {
@@ -178,6 +179,12 @@ function newSuperalgosDocSpace() {
                 docSchemaParagraph.style = 'List'
                 renderPage()
             }
+
+            function toTable() {
+                let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
+                docSchemaParagraph.style = 'Table'
+                renderPage()
+            }
         }
 
         function setUpMenuItemsMap() {
@@ -256,12 +263,12 @@ function newSuperalgosDocSpace() {
                     let paragraphs = []
                     let paragraph = ''
                     let splittedSelectedParagraph = selectedParagraph.id.split('-')
-                    let selectedParagraphIndex = Number(splittedSelectedParagraph[1])
-                    let selectedParagraphStyle = splittedSelectedParagraph[2]
+                    let selectedParagraphIndex = Number(splittedSelectedParagraph[2])
+                    let selectedParagraphStyle = splittedSelectedParagraph[3]
                     let style = selectedParagraphStyle.charAt(0).toUpperCase() + selectedParagraphStyle.slice(1);
 
                     for (let i = 0; i < textArea.value.length; i++) {
-                        if (textArea.value.charCodeAt(i) === 10 && style !== 'Javascript' && style !== 'Json') {
+                        if (textArea.value.charCodeAt(i) === 10 && style !== 'Javascript' && style !== 'Json' && style !== 'Table') {
                             if (paragraph !== '') {
                                 paragraphs.push(paragraph)
                             }
@@ -382,44 +389,57 @@ function newSuperalgosDocSpace() {
             paragraphNode = paragraphNode.parentNode
         }
         if (paragraphNode.id === undefined || paragraphNode.id.indexOf('paragraph') < 0) {
+            paragraphNode = paragraphNode.parentNode
+        }
+        if (paragraphNode.id === undefined || paragraphNode.id.indexOf('paragraph') < 0) {
+            paragraphNode = paragraphNode.parentNode
+        }
+        if (paragraphNode.id === undefined || paragraphNode.id.indexOf('paragraph') < 0) {
+            paragraphNode = paragraphNode.parentNode
+        }
+        if (paragraphNode.id === undefined || paragraphNode.id.indexOf('paragraph') < 0) {
             return false
         }
+
 
         /*
         Depending on the Style of Paragraph we will need to remove
         some info from the innerText. 
         */
-        if (paragraphNode.id.indexOf('definition') >= 0) {
+        if (paragraphNode.id.indexOf('-definition') >= 0) {
             selectedParagraphData = paragraphNode.innerText
         }
-        if (paragraphNode.id.indexOf('text') >= 0) {
+        if (paragraphNode.id.indexOf('-text') >= 0) {
             selectedParagraphData = paragraphNode.innerText
         }
-        if (paragraphNode.id.indexOf('title') >= 0) {
+        if (paragraphNode.id.indexOf('-title') >= 0) {
             selectedParagraphData = paragraphNode.innerText
         }
-        if (paragraphNode.id.indexOf('subtitle') >= 0) {
+        if (paragraphNode.id.indexOf('-subtitle') >= 0) {
             selectedParagraphData = paragraphNode.innerText
         }
-        if (paragraphNode.id.indexOf('note') >= 0) {
+        if (paragraphNode.id.indexOf('-note') >= 0) {
             selectedParagraphData = paragraphNode.innerText.substring(6, paragraphNode.innerText.length)
         }
-        if (paragraphNode.id.indexOf('success') >= 0) {
+        if (paragraphNode.id.indexOf('-success') >= 0) {
             selectedParagraphData = paragraphNode.innerText.substring(5, paragraphNode.innerText.length)
         }
-        if (paragraphNode.id.indexOf('important') >= 0) {
+        if (paragraphNode.id.indexOf('-important') >= 0) {
             selectedParagraphData = paragraphNode.innerText.substring(11, paragraphNode.innerText.length)
         }
-        if (paragraphNode.id.indexOf('warning') >= 0) {
+        if (paragraphNode.id.indexOf('-warning') >= 0) {
             selectedParagraphData = paragraphNode.innerText.substring(10, paragraphNode.innerText.length)
         }
-        if (paragraphNode.id.indexOf('list') >= 0) {
+        if (paragraphNode.id.indexOf('-list') >= 0) {
             selectedParagraphData = paragraphNode.innerText
         }
-        if (paragraphNode.id.indexOf('javascript') >= 0) {
+        if (paragraphNode.id.indexOf('-table') >= 0) {
+            selectedParagraphData = reverseParseTable(paragraphNode.innerHTML)
+        }
+        if (paragraphNode.id.indexOf('-javascript') >= 0) {
             selectedParagraphData = paragraphNode.innerText.substring(1, paragraphNode.innerText.length - 1)
         }
-        if (paragraphNode.id.indexOf('json') >= 0) {
+        if (paragraphNode.id.indexOf('-json') >= 0) {
             selectedParagraphData = paragraphNode.innerText.substring(1, paragraphNode.innerText.length - 1)
         }
 
@@ -576,7 +596,6 @@ function newSuperalgosDocSpace() {
                     let key = 'editable-paragraph-' + paragraphIndex
                     let paragraph = nodeDocsDefinition.paragraphs[i]
                     renderParagraph(paragraph, key)
-                    docSchemaParagraphMap.set(key, paragraph)
                     paragraphIndex++
                 }
             }
@@ -745,7 +764,7 @@ function newSuperalgosDocSpace() {
                 generateReferencingRules()
                 generateConfiguration()
                 generateCode()
-                generateFormula() 
+                generateFormula()
 
                 function generateMenuItems() {
                     /* 
@@ -1339,7 +1358,19 @@ function newSuperalgosDocSpace() {
                         sufix = '</li>'
                         role = ''
                         key = key + '-list'
-                        innerHTML = addBold(paragraph.text)
+                        innerHTML = addBold(innerHTML)
+                        innerHTML = addItalics(innerHTML)
+                        innerHTML = addToolTips(innerHTML)
+                        break
+                    }
+                    case 'Table': {
+                        styleClass = ''
+                        prefix = '<table class="docs-info-table">'
+                        sufix = '</table>'
+                        role = ''
+                        key = key + '-table'
+                        innerHTML = parseTable(paragraph.text)
+                        innerHTML = addBold(innerHTML)
                         innerHTML = addItalics(innerHTML)
                         innerHTML = addToolTips(innerHTML)
                         break
@@ -1365,6 +1396,8 @@ function newSuperalgosDocSpace() {
                 }
 
                 HTML = HTML + '<p><div id="' + key + '" ' + styleClass + ' ' + role + '>' + prefix + ' ' + innerHTML + sufix + '</div></p>'
+                docSchemaParagraphMap.set(key, paragraph)
+
             }
 
             function hightlightEmbeddedCode() {
@@ -1406,6 +1439,72 @@ function newSuperalgosDocSpace() {
                 return HTML
             }
         }
+    }
+
+    function parseTable(text) {
+        let HTML = ''
+        let odd = false
+        let rows = text.split(String.fromCharCode(10))
+        for (let i = 0; i < rows.length; i++) {
+            let row = rows[i]
+            let colums = row.split('|')
+            if (i === 0) {
+                HTML = HTML + '<thead>'
+            }
+            if (i === 1) {
+                HTML = HTML + '<tbody>'
+            }
+            if (odd === true) {
+                HTML = HTML + '<tr class="docs-info-table-alt-bg">'
+                odd = false
+            } else {
+                HTML = HTML + '<tr>'
+                odd = true
+            }
+            if (colums.length < 2) {
+                return text
+            } else {
+                /* We discard anything before the first | and after the last | */
+                for (let j = 1; j < colums.length - 1; j++) {
+                    let column = colums[j]
+                    if (i === 0) {
+                        HTML = HTML + '<th>' + column + '</th>'
+                    } else {
+                        HTML = HTML + '<td>' + column + '</td>'
+                    }
+                }
+            }
+
+            HTML = HTML + '</tr>'
+            if (i === 0) {
+                HTML = HTML + '</thead>'
+            }
+            if (i === rows.length - 1) {
+                HTML = HTML + '</tbody>'
+            }
+        }
+        return HTML
+    }
+
+    function reverseParseTable(HTML) {
+        text = HTML
+        text = text.replace('<table class="docs-info-table"> ', '')
+        text = text.replace('  </table>', '')
+        text = text.replace('<thead>', '')
+        text = text.replace('</thead>', '')
+        text = text.replace('<tbody>', '')
+        text = text.replace('</tr></tbody>', '')
+
+        text = text.replaceAll('<tr>', '')
+        text = text.replaceAll('<tr class="docs-info-table-alt-bg">', '')
+        text = text.replaceAll('</td><td>', '|')
+        text = text.replaceAll('</th><th>', '|')
+        text = text.replaceAll('</tr>', String.fromCharCode(10))
+        text = text.replaceAll('<th>', '|')
+        text = text.replaceAll('</th>', '|')
+        text = text.replaceAll('<td>', '|')
+        text = text.replaceAll('</td>', '|')
+        return text
     }
 
     function addBold(text) {

@@ -182,7 +182,7 @@ function newLayer() {
                 'Record Definition->Record Property->Record Formula->' +
                 'Data Building Procedure->Procedure Loop->Procedure Javascript Code->Procedure Initialization->Procedure Javascript Code->' +
                 'Calculations Procedure->Procedure Loop->Procedure Javascript Code->Procedure Initialization->Procedure Javascript Code->' +
-                'Plotter Module->Plotter->' +
+                'Plotter Module->Plotter->Plotter Module Javascript Code->' +
                 'Shapes->' +
                 'Chart Points->Point->Point Formula->' +
                 'Polygon->Polygon Condition->Polygon Body->Style->Style Condition->Style->' +

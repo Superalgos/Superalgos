@@ -259,16 +259,16 @@
                     for (let j = 0; j < recordDefinition.properties.length; j++) {
                         let property = recordDefinition.properties[j]
                         if (property.config.isCalculated === true) {
-                            if (property.formula !== undefined) {
-                                if (property.formula.code !== undefined) {
+                            if (property.recordFormula !== undefined) {
+                                if (property.recordFormula.code !== undefined) {
                                     try {
-                                        let newValue = eval(property.formula.code)
+                                        let newValue = eval(property.recordFormula.code)
                                         let currentRecord = product[variableName]
                                         currentRecord[property.config.codeName] = newValue
                                     } catch (err) {
                                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] calculationsProcedure -> loop -> formula -> Error executing User Code. Error = " + err.stack)
                                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] calculationsProcedure -> loop -> formula -> Error executing User Code. product = " + JSON.stringify(product))
-                                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] calculationsProcedure -> loop -> formula -> Error executing User Code. Code = " + property.formula.code);
+                                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] calculationsProcedure -> loop -> formula -> Error executing User Code. Code = " + property.recordFormula.code);
                                         throw ("Error Executing User Code.")
                                     }
                                 }
@@ -403,16 +403,16 @@
                     for (let j = 0; j < recordDefinition.properties.length; j++) {
                         let property = recordDefinition.properties[j]
                         if (property.config.isCalculated !== true) {
-                            if (property.formula !== undefined) {
-                                if (property.formula.code !== undefined) {
+                            if (property.recordFormula !== undefined) {
+                                if (property.recordFormula.code !== undefined) {
                                     try {
-                                        let newValue = eval(property.formula.code)
+                                        let newValue = eval(property.recordFormula.code)
                                         let currentRecord = product[variableName]
                                         currentRecord[property.config.codeName] = newValue
                                     } catch (err) {
                                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] dataBuildingProcedure -> loop -> formula -> Error executing User Code. Error = " + err.stack)
                                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] dataBuildingProcedure -> loop -> formula -> Error executing User Code. product = " + JSON.stringify(product))
-                                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] dataBuildingProcedure -> loop -> formula -> Error executing User Code. Code = " + property.formula.code);
+                                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] dataBuildingProcedure -> loop -> formula -> Error executing User Code. Code = " + property.recordFormula.code);
                                         throw ("Error Executing User Code.")
                                     }
                                 }

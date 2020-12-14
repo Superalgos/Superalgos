@@ -133,7 +133,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
             'Data Mine Data Dependencies->Bot Data Dependencies->' +
             'Data Dependency Folder->Data Dependency Folder->Data Dependency Folder->Data Dependency Folder->Data Dependency Folder->' +
             'Data Dependency->Dataset Definition->Product Definition->' +
-            'Record Definition->Record Property->Formula->' +
+            'Record Definition->Record Property->Record Formula->' +
             'Data Building Procedure->' +
             'Procedure Initialization->Javascript Code->' +
             'Procedure Loop->Javascript Code->' +

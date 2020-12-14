@@ -11357,9 +11357,9 @@
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "formula",
+                "propertyToCheckFor": "recordFormula",
                 "label": "Add Formula",
-                "relatedUiObject": "Formula",
+                "relatedUiObject": "Record Formula",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -11459,7 +11459,8 @@
         "attachingRules": {
             "compatibleTypes": "->Record Property->"
         },
-        "propertyNameAtParent": "recordFormula"
+        "propertyNameAtParent": "recordFormula",
+        "icon": "bitcoin"
     },
     {
         "type": "Announcement Formula",

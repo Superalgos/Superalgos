@@ -496,7 +496,19 @@ function newSuperalgosDocSpace() {
 
         if (nodeDocsDefinition === undefined) {
             // Use the New Node Template
-            return
+            let template = {
+                type: objectBeingRendered.type,
+                definition: "Please contribute the definition of this node.",
+                paragraphs: [
+                    {
+                        style: "Text",
+                        text: "Be the first one to explain how this node works by editing this paragraph. Left click and Edit to enter edit mode and change this text."
+                    }
+                ]
+            }
+            SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).array.docSchema.push(template)
+            SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.docSchema.set(objectBeingRendered.type, template)
+            nodeDocsDefinition = template
         }
         buildHtmlPage()
         contextMenuActivateRightClick()

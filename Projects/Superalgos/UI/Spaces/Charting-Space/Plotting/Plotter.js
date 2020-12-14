@@ -370,16 +370,16 @@ function newPlotter() {
                     for (let j = 0; j < recordDefinition.properties.length; j++) {
                         let property = recordDefinition.properties[j]
                         if (property.config.isCalculated === true) {
-                            if (property.formula !== undefined) {
-                                if (property.formula.code !== undefined) {
+                            if (property.recordFormula !== undefined) {
+                                if (property.recordFormula.code !== undefined) {
                                     try {
-                                        let newValue = eval(property.formula.code)
+                                        let newValue = eval(property.recordFormula.code)
                                         let currentRecord = product
                                         currentRecord[property.config.codeName] = newValue
                                     } catch (err) {
                                         logger.write('[ERROR] calculationsProcedure -> loop -> formula -> Error executing User Code. Error = ' + err.stack.stack)
                                         logger.write('[ERROR] calculationsProcedure -> loop -> formula -> Error executing User Code. product = ' + JSON.stringify(product))
-                                        logger.write('[ERROR] calculationsProcedure -> loop -> formula -> Error executing User Code. Code = ' + property.formula.code)
+                                        logger.write('[ERROR] calculationsProcedure -> loop -> formula -> Error executing User Code. Code = ' + property.recordFormula.code)
                                         throw ('Error Executing User Code.')
                                     }
                                 }

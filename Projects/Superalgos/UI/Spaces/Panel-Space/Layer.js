@@ -179,7 +179,7 @@ function newLayer() {
                 'Sensor Bot->Indicator Bot->Trading Bot->Learning Bot->' +
                 'Data Mine->Trading Mine->Learning Mine->' +
                 'Dataset Definition->' +
-                'Record Definition->Record Property->Formula->' +
+                'Record Definition->Record Property->Record Formula->' +
                 'Data Building Procedure->Procedure Loop->Javascript Code->Procedure Initialization->Javascript Code->' +
                 'Calculations Procedure->Procedure Loop->Javascript Code->Procedure Initialization->Javascript Code->' +
                 'Plotter Module->Plotter->' +

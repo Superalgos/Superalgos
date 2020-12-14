@@ -135,11 +135,11 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
             'Data Dependency->Dataset Definition->Product Definition->' +
             'Record Definition->Record Property->Record Formula->' +
             'Data Building Procedure->' +
-            'Procedure Initialization->Javascript Code->' +
-            'Procedure Loop->Javascript Code->' +
+            'Procedure Initialization->Procedure Javascript Code->' +
+            'Procedure Loop->Procedure Javascript Code->' +
             'Calculations Procedure->' +
-            'Procedure Initialization->Javascript Code->' +
-            'Procedure Loop->Javascript Code->' +
+            'Procedure Initialization->Procedure Javascript Code->' +
+            'Procedure Loop->Procedure Javascript Code->' +
             'Status Report->' +
             'Execution Finished Event->' +
             'Execution Started Event->Execution Finished Event->Process Definition->' +

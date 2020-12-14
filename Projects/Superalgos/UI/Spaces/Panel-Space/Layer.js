@@ -180,8 +180,8 @@ function newLayer() {
                 'Data Mine->Trading Mine->Learning Mine->' +
                 'Dataset Definition->' +
                 'Record Definition->Record Property->Record Formula->' +
-                'Data Building Procedure->Procedure Loop->Javascript Code->Procedure Initialization->Javascript Code->' +
-                'Calculations Procedure->Procedure Loop->Javascript Code->Procedure Initialization->Javascript Code->' +
+                'Data Building Procedure->Procedure Loop->Procedure Javascript Code->Procedure Initialization->Procedure Javascript Code->' +
+                'Calculations Procedure->Procedure Loop->Procedure Javascript Code->Procedure Initialization->Procedure Javascript Code->' +
                 'Plotter Module->Plotter->' +
                 'Shapes->' +
                 'Chart Points->Point->Point Formula->' +
@@ -190,7 +190,7 @@ function newLayer() {
                 'Polygon Vertex->Point->' +
                 'Image->Image Condition->Image Position->Point->' +
                 'Text->Text Condition->Text Position->Point->Text Formula->Text Style->' +
-                'Plotter Panel->Javascript Code->Panel Data->Data Formula->Text Style->' +
+                'Plotter Panel->Plotter Panel Javascript Code->Panel Data->Data Formula->Text Style->' +
                 'Nodes Highlights->Nodes Values->Nodes Errors->Nodes Warnings->Nodes Infos->Nodes Status->Nodes Progress->Nodes Running->Nodes Announcements->Record Values->'
             thisObject.definition = UI.projects.superalgos.functionLibraries.protocolNode.getProtocolNode(thisObject.payload.node, false, true, true, false, false, lightingPath)
 

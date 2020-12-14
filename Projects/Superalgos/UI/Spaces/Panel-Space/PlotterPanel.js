@@ -103,12 +103,12 @@ function newPlotterPanel() {
         let record = currentRecord
 
         /* First we execute code if provided. */
-        if (panelNode.javascriptCode !== undefined) {
+        if (panelNode.plotterPanelJavascriptCode !== undefined) {
             try {
-                eval(panelNode.javascriptCode.code)
+                eval(panelNode.plotterPanelJavascriptCode.code)
             } catch (err) {
                 if (ERROR_LOG === true) { logger.write('[ERROR] plotCurrentRecordData -> err = ' + err.stack) }
-                if (ERROR_LOG === true) { logger.write('[ERROR] plotCurrentRecordData -> javascriptCode.code = ' + panelNode.javascriptCode.code) }
+                if (ERROR_LOG === true) { logger.write('[ERROR] plotCurrentRecordData -> plotterPanelJavascriptCode.code = ' + panelNode.plotterPanelJavascriptCode.code) }
             }
         }
 

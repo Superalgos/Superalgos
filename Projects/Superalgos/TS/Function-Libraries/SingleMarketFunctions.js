@@ -226,12 +226,12 @@
 
         /* This is Initialization Code */
         if (calculationsProcedure.initialization !== undefined) {
-            if (calculationsProcedure.initialization.javascriptCode !== undefined) {
+            if (calculationsProcedure.initialization.procedureJavascriptCode !== undefined) {
                 try {
-                    eval(calculationsProcedure.initialization.javascriptCode.code)
+                    eval(calculationsProcedure.initialization.procedureJavascriptCode.code)
                 } catch (err) {
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] calculationsProcedure -> initialization -> Error executing User Code. Error = " + err.stack)
-                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] calculationsProcedure -> initialization -> Error executing User Code. Code = " + calculationsProcedure.initialization.javascriptCode.code);
+                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] calculationsProcedure -> initialization -> Error executing User Code. Code = " + calculationsProcedure.initialization.procedureJavascriptCode.code);
                     throw ("Error Executing User Code.")
                 }
             }
@@ -239,7 +239,7 @@
 
         /* This is Initialization Code */
         if (calculationsProcedure.loop !== undefined) {
-            if (calculationsProcedure.loop.javascriptCode !== undefined) {
+            if (calculationsProcedure.loop.procedureJavascriptCode !== undefined) {
                 for (let index = 0; index < jsonArray.length; index++) {
 
                     let product = {}
@@ -247,11 +247,11 @@
 
                     /* This is Loop Code */
                     try {
-                        eval(calculationsProcedure.loop.javascriptCode.code)
+                        eval(calculationsProcedure.loop.procedureJavascriptCode.code)
                     } catch (err) {
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] calculationsProcedure -> loop -> Error executing User Code. Error = " + err.stack)
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] calculationsProcedure -> loop -> Error executing User Code. product = " + JSON.stringify(product))
-                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] calculationsProcedure -> loop -> Error executing User Code. Code = " + calculationsProcedure.loop.javascriptCode.code);
+                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] calculationsProcedure -> loop -> Error executing User Code. Code = " + calculationsProcedure.loop.procedureJavascriptCode.code);
                         throw ("Error Executing User Code.")
                     }
 
@@ -348,12 +348,12 @@
 
         /* This is Initialization Code */
         if (dataBuildingProcedure.initialization !== undefined) {
-            if (dataBuildingProcedure.initialization.javascriptCode !== undefined) {
+            if (dataBuildingProcedure.initialization.procedureJavascriptCode !== undefined) {
                 try {
-                    eval(dataBuildingProcedure.initialization.javascriptCode.code)
+                    eval(dataBuildingProcedure.initialization.procedureJavascriptCode.code)
                 } catch (err) {
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] dataBuildingProcedure -> initialization -> Error executing User Code. Error = " + err.stack)
-                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] dataBuildingProcedure -> initialization -> Error executing User Code. Code = " + dataBuildingProcedure.initialization.javascriptCode.code);
+                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] dataBuildingProcedure -> initialization -> Error executing User Code. Code = " + dataBuildingProcedure.initialization.procedureJavascriptCode.code);
                     throw ("Error Executing User Code.")
                 }
             }
@@ -376,7 +376,7 @@
 
         /* This is Initialization Code */
         if (dataBuildingProcedure.loop !== undefined) {
-            if (dataBuildingProcedure.loop.javascriptCode !== undefined) {
+            if (dataBuildingProcedure.loop.procedureJavascriptCode !== undefined) {
                 let lastRecord
                 for (let index = 0; index < mainDependency.records.length; index++) {
 
@@ -391,11 +391,11 @@
 
                     /* This is Loop Code */
                     try {
-                        eval(dataBuildingProcedure.loop.javascriptCode.code)
+                        eval(dataBuildingProcedure.loop.procedureJavascriptCode.code)
                     } catch (err) {
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] dataBuildingProcedure -> loop -> Error executing User Code. Error = " + err.stack)
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] dataBuildingProcedure -> loop -> Error executing User Code. product = " + JSON.stringify(product))
-                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] dataBuildingProcedure -> loop -> Error executing User Code. Code = " + dataBuildingProcedure.loop.javascriptCode.code);
+                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] dataBuildingProcedure -> loop -> Error executing User Code. Code = " + dataBuildingProcedure.loop.procedureJavascriptCode.code);
                         throw ("Error Executing User Code.")
                     }
 

@@ -1,4 +1,9 @@
 
+/* Load Environment Variables */
+let ENVIRONMENT = require('../Environment.js');
+let ENVIRONMENT_MODULE = ENVIRONMENT.newEnvironment()
+global.env = ENVIRONMENT_MODULE
+
 process.on('uncaughtException', function (err) {
     if (err.message.indexOf("EADDRINUSE") > 0) {
         console.log("A Superalgos Client cannot be started. Reason: the port " + port + " is already in use by another application.")
@@ -113,15 +118,15 @@ try {
     WEB_SOCKETS_INTERFACE = WEB_SOCKETS_INTERFACE.newWebSocketsInterface(EVENT_SERVER)
     WEB_SOCKETS_INTERFACE.initialize()
     WEB_SOCKETS_INTERFACE.run()
-    console.log('Web Sockets Interface .............. Listening at port ' + process.env.WEB_SOCKETS_INTERFACE_PORT)
+    console.log('Web Sockets Interface .............. Listening at port ' + global.env.WEB_SOCKETS_INTERFACE_PORT)
 
     HTTP_INTERFACE = HTTP_INTERFACE.newHttpInterface(WEB_SERVER, DATA_FILE_SERVER, PROJECT_FILE_SERVER, UI_FILE_SERVER, PLUGIN_SERVER, CCXT_SERVER, WEB3_SERVER)
     HTTP_INTERFACE.initialize()
     HTTP_INTERFACE.run()
-    console.log('Http Interface ..................... Listening at port ' + process.env.HTTP_INTERFACE_PORT)
+    console.log('Http Interface ..................... Listening at port ' + global.env.HTTP_INTERFACE_PORT)
 
     console.log('')
-    console.log("You are running Superalgos Beta 7")
+    console.log("You are running Superalgos Beta 7 SP 1")
     console.log('')
     console.log("What's new? The following was implemented here:")
     console.log('')

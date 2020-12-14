@@ -6,7 +6,7 @@ function newEventsServerClient(networkNode) {
     const ERROR_LOG = true
     const INFO_LOG = true
     const logger = newWebDebugLog()
-    logger.fileName = MODULE_NAME
+    
 
     let WEB_SOCKETS_CONNECTION
 
@@ -195,7 +195,7 @@ function newEventsServerClient(networkNode) {
                 if (networkNode !== undefined) {
                     if (networkNode.payload !== undefined) {
                         if (networkNode.payload.uiObject !== undefined) {
-                            networkNode.payload.uiObject.setErrorMessage('Failed to Connect to Superalgos Client via WebSockets. Retrying in 1 minute.')
+                            networkNode.payload.uiObject.setErrorMessage('Failed to Connect to Superalgos Client via WebSockets. Retrying in 1 minute. Check at this node config if the host property has the IP address of the computer running Superalgos Client.')
                         }
                     }
                 }

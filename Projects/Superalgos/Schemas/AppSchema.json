@@ -26,6 +26,12 @@
         "icon": "superalgos",
         "properties": [
             {
+                "name": "projectDefinition",
+                "type": "node",
+                "childType": "Project Definition",
+                "autoAdd": true
+            },
+            {
                 "name": "spaces",
                 "type": "node",
                 "childType": "Spaces",
@@ -44,6 +50,40 @@
                 "autoAdd": true
             }
         ]
+    },
+    {
+        "type": "Project Definition",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "actionFunction": "payload.executeAction",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete"
+            }
+        ],
+        "initialValues": {
+            "config": "{ \n  \"codeName\": \"\"\n}"
+        },
+        "editors": {
+            "config": true
+        },
+        "alternativeIcons": "Use Parent",
+        "isTitleAllwaysVisible": false,
+        "addLeftIcons": true,
+        "isPinned": false,
+        "level": 2,
+        "propertyNameAtParent": "projectDefinition",
+        "icon": "bitcoin"
     },
     {
         "type": "Spaces",
@@ -144,6 +184,12 @@
                 "action": "Add UI Object",
                 "label": "Add Tutorial",
                 "relatedUiObject": "Tutorial",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Plugins",
+                "relatedUiObject": "Plugins",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -1945,7 +1991,7 @@
             "compatibleTypes": "->Template Script->"
         },
         "referenceAttachesTo": {
-            "compatibleTypes": "->Dashboard->Data Mines Data->Trading Mines Data->Data Mining->Testing Environment->Production Environment->"
+            "compatibleTypes": "->Dashboard->Data Mines Data->Trading Mines Data->Data Tasks->Testing Trading Tasks->Production Trading Tasks->"
         },
         "properties": []
     },
@@ -2028,33 +2074,33 @@
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "dataMining",
-                "label": "Add Data Mining",
-                "relatedUiObject": "Data Mining",
+                "propertyToCheckFor": "dataTasks",
+                "label": "Add Data Tasks",
+                "relatedUiObject": "Data Tasks",
                 "actionFunction": "payload.executeAction"
             },
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "learningMining",
-                "label": "Add Learning Mining",
-                "relatedUiObject": "Learning Mining",
+                "propertyToCheckFor": "learningTasks",
+                "label": "Add Learning Tasks",
+                "relatedUiObject": "Learning Tasks",
                 "actionFunction": "payload.executeAction"
             },
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "testingEnvironment",
-                "label": "Add Testing Environment",
-                "relatedUiObject": "Testing Environment",
+                "propertyToCheckFor": "testingTradingTasks",
+                "label": "Add Testing Trading Tasks",
+                "relatedUiObject": "Testing Trading Tasks",
                 "actionFunction": "payload.executeAction"
             },
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "productionEnvironment",
-                "label": "Add Production Environment",
-                "relatedUiObject": "Production Environment",
+                "propertyToCheckFor": "productionTradingTasks",
+                "label": "Add Production Trading Tasks",
+                "relatedUiObject": "Production Trading Tasks",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -2089,27 +2135,27 @@
         },
         "properties": [
             {
-                "name": "dataMining",
+                "name": "dataTasks",
                 "type": "node",
-                "childType": "Data Mining",
+                "childType": "Data Tasks",
                 "autoAdd": true
             },
             {
-                "name": "learningMining",
+                "name": "learningTasks",
                 "type": "node",
-                "childType": "Learning Mining",
+                "childType": "Learning Tasks",
                 "autoAdd": true
             },
             {
-                "name": "testingEnvironment",
+                "name": "testingTradingTasks",
                 "type": "node",
-                "childType": "Testing Environment",
+                "childType": "Testing Trading Tasks",
                 "autoAdd": true
             },
             {
-                "name": "productionEnvironment",
+                "name": "productionTradingTasks",
                 "type": "node",
-                "childType": "Production Environment",
+                "childType": "Production Trading Tasks",
                 "autoAdd": true
             },
             {
@@ -11838,8 +11884,7 @@
                 "childType": "Dynamic Indicators",
                 "autoAdd": true
             }
-        ],
-        "propertyNameAtParent": "tradingSystem"
+        ]
     },
     {
         "type": "Trading Strategy",
@@ -14551,17 +14596,17 @@
             },
             {
                 "action": "Add UI Object",
-                "label": "Add Dashboard",
-                "relatedUiObject": "Dashboard",
+                "label": "Add Project Dashboards",
+                "relatedUiObject": "Project Dashboards",
                 "actionFunction": "payload.executeAction"
             },
             {
-                "action": "Add Missing Dashboards",
-                "label": "Add Missing Dashboards",
+                "action": "Add Missing Project Dashboards",
+                "label": "Add Missing Projects",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Proceed",
                 "workDoneLabel": "Done",
-                "relatedUiObject": "Dashboard",
+                "relatedUiObject": "Project Dashboards",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -14597,11 +14642,58 @@
                 "autoAdd": true
             },
             {
+                "name": "projectDashboards",
+                "type": "array",
+                "childType": "Project Dashboards" 
+            }
+        ]
+    },
+    {
+        "type": "Project Dashboards",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Dashboard",
+                "relatedUiObject": "Dashboard",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add Missing Dashboards",
+                "label": "Add Missing Dashboards",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Dashboard",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "title": [
+            "Use Reference Parent"
+        ],
+        "alternativeIcons": "Use Reference Parent Parent",
+        "addLeftIcons": true,
+        "level": 2,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Project Definition->"
+        },
+        "propertyNameAtParent": "projectDashboards",
+        "properties": [
+            {
                 "name": "dashboards",
                 "type": "array",
                 "childType": "Dashboard"
             }
-        ]
+        ],
+        "icon": "bitcoin"
     },
     {
         "type": "Dashboard",
@@ -14634,10 +14726,10 @@
         "addLeftIcons": true,
         "level": 1,
         "referenceAttachesTo": {
-            "compatibleTypes": "->Testing Environment->Production Environment->"
+            "compatibleTypes": "->Testing Trading Tasks->Production Trading Tasks->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Charting Space->"
+            "compatibleTypes": "->Project Dashboards->"
         },
         "propertyNameAtParent": "dashboards",
         "properties": [
@@ -15872,7 +15964,7 @@
             "compatibleTypes": "->Crypto Exchange->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Data Mining->"
+            "compatibleTypes": "->Project Data Tasks->"
         },
         "alternativeIcons": "Use Reference Parent",
         "title": [
@@ -15943,7 +16035,7 @@
             "compatibleTypes": "->Crypto Exchange->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Testing Environment->Production Environment->"
+            "compatibleTypes": "->Project Trading Tasks->"
         },
         "alternativeIcons": "Use Reference Parent",
         "title": [
@@ -16014,7 +16106,7 @@
             "compatibleTypes": "->Crypto Exchange->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Learning Mining->"
+            "compatibleTypes": "->Project Learning Tasks->"
         },
         "alternativeIcons": "Use Reference Parent",
         "title": [
@@ -16032,7 +16124,7 @@
         ]
     },
     {
-        "type": "Data Mining",
+        "type": "Project Data Tasks",
         "menuItems": [
             {
                 "action": "Run All Exchange Data Tasks",
@@ -16079,12 +16171,19 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
+        "title": [
+            "Use Reference Parent"
+        ],
+        "alternativeIcons": "Use Reference Parent Parent",
         "addLeftIcons": true,
         "level": 2,
-        "chainAttachesTo": {
-            "compatibleTypes": "->Network Node->"
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Project Definition->"
         },
-        "propertyNameAtParent": "dataMining",
+        "chainAttachesTo": {
+            "compatibleTypes": "->Data Tasks->"
+        },
+        "propertyNameAtParent": "projectDataTasks",
         "properties": [
             {
                 "name": "exchangeDataTasks",
@@ -16092,10 +16191,74 @@
                 "childType": "Exchange Data Tasks",
                 "monitorChildrenRunning": true
             }
+        ],
+        "icon": "bitcoin"
+    },
+    {
+        "type": "Data Tasks",
+        "menuItems": [
+            {
+                "action": "Run All Project Data Tasks",
+                "label": "Run All Project Data Tasks",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Run",
+                "workDoneLabel": "Run Request Sent",
+                "iconPathOn": "run",
+                "iconPathOff": "run",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Stop All Project Data Tasks",
+                "label": "Stop All Project Data Tasks",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Stop",
+                "workDoneLabel": "Stop Request Sent",
+                "iconPathOn": "stop",
+                "iconPathOff": "stop",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Project Data Tasks",
+                "relatedUiObject": "Project Data Tasks",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add Missing Project Data Tasks",
+                "label": "Add Missing Projects",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Project Data Tasks",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 2,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Network Node->"
+        },
+        "propertyNameAtParent": "dataTasks",
+        "properties": [
+            {
+                "name": "projectDataTasks",
+                "type": "array",
+                "childType": "Project Data Tasks",
+                "monitorChildrenRunning": true
+            }
         ]
     },
     {
-        "type": "Learning Mining",
+        "type": "Project Learning Tasks",
         "menuItems": [
             {
                 "action": "Run All Exchange Learning Tasks",
@@ -16142,12 +16305,19 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
+        "title": [
+            "Use Reference Parent"
+        ],
+        "alternativeIcons": "Use Reference Parent Parent",
         "addLeftIcons": true,
         "level": 2,
-        "chainAttachesTo": {
-            "compatibleTypes": "->Network Node->"
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Project Definition->"
         },
-        "propertyNameAtParent": "learningMining",
+        "chainAttachesTo": {
+            "compatibleTypes": "->Learning Tasks->"
+        },
+        "propertyNameAtParent": "projectLearningTasks",
         "properties": [
             {
                 "name": "exchangeLearningTasks",
@@ -16155,10 +16325,74 @@
                 "childType": "Exchange Learning Tasks",
                 "monitorChildrenRunning": true
             }
+        ],
+        "icon": "bitcoin"
+    },
+    {
+        "type": "Learning Tasks",
+        "menuItems": [
+            {
+                "action": "Run All Project Learning Tasks",
+                "label": "Run All Project Learning Tasks",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Run",
+                "workDoneLabel": "Run Request Sent",
+                "iconPathOn": "run",
+                "iconPathOff": "run",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Stop All Project Learning Tasks",
+                "label": "Stop All Project Learning Tasks",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Stop",
+                "workDoneLabel": "Stop Request Sent",
+                "iconPathOn": "stop",
+                "iconPathOff": "stop",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Project Learning Tasks",
+                "relatedUiObject": "Project Learning Tasks",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add Missing Project Learning Tasks",
+                "label": "Add Missing Projects",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Project Learning Tasks",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 2,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Network Node->"
+        },
+        "propertyNameAtParent": "learningTasks",
+        "properties": [
+            {
+                "name": "projectLearningTasks",
+                "type": "array",
+                "childType": "Project Learning Tasks",
+                "monitorChildrenRunning": true
+            }
         ]
     },
     {
-        "type": "Testing Environment",
+        "type": "Project Trading Tasks",
         "menuItems": [
             {
                 "action": "Run All Exchange Trading Tasks",
@@ -16205,12 +16439,19 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
+        "title": [
+            "Use Reference Parent"
+        ],
+        "alternativeIcons": "Use Reference Parent Parent",
         "addLeftIcons": true,
-        "level": 0,
-        "chainAttachesTo": {
-            "compatibleTypes": "->Network Node->"
+        "level": 2,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Project Definition->"
         },
-        "propertyNameAtParent": "testingEnvironment",
+        "chainAttachesTo": {
+            "compatibleTypes": "->Testing Trading Tasks->Production Trading Tasks->"
+        },
+        "propertyNameAtParent": "projectTradingTasks",
         "properties": [
             {
                 "name": "exchangeTradingTasks",
@@ -16218,14 +16459,15 @@
                 "childType": "Exchange Trading Tasks",
                 "monitorChildrenRunning": true
             }
-        ]
+        ],
+        "icon": "bitcoin"
     },
     {
-        "type": "Production Environment",
+        "type": "Testing Trading Tasks",
         "menuItems": [
             {
-                "action": "Run All Exchange Trading Tasks",
-                "label": "Run All Exchange Trading Tasks",
+                "action": "Run All Project Trading Tasks",
+                "label": "Run All Project Trading Tasks",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Run",
                 "workDoneLabel": "Run Request Sent",
@@ -16234,8 +16476,8 @@
                 "actionFunction": "payload.executeAction"
             },
             {
-                "action": "Stop All Exchange Trading Tasks",
-                "label": "Stop All Exchange Trading Tasks",
+                "action": "Stop All Project Trading Tasks",
+                "label": "Stop All Project Trading Tasks",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Stop",
                 "workDoneLabel": "Stop Request Sent",
@@ -16245,17 +16487,17 @@
             },
             {
                 "action": "Add UI Object",
-                "label": "Add Exchange Trading Tasks",
-                "relatedUiObject": "Exchange Trading Tasks",
+                "label": "Add Project Trading Tasks",
+                "relatedUiObject": "Project Trading Tasks",
                 "actionFunction": "payload.executeAction"
             },
             {
-                "action": "Add Missing Exchange Trading Tasks",
-                "label": "Add Missing Exchanges",
+                "action": "Add Missing Project Trading Tasks",
+                "label": "Add Missing Projects",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Proceed",
                 "workDoneLabel": "Done",
-                "relatedUiObject": "Exchange Trading Tasks",
+                "relatedUiObject": "Project Trading Tasks",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -16273,12 +16515,75 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Network Node->"
         },
-        "propertyNameAtParent": "productionEnvironment",
+        "propertyNameAtParent": "testingTradingTasks",
         "properties": [
             {
-                "name": "exchangeTradingTasks",
+                "name": "projectTradingTasks",
                 "type": "array",
-                "childType": "Exchange Trading Tasks",
+                "childType": "Project Trading Tasks",
+                "monitorChildrenRunning": true
+            }
+        ]
+    },
+    {
+        "type": "Production Trading Tasks",
+        "menuItems": [
+            {
+                "action": "Run All Project Trading Tasks",
+                "label": "Run All Project Trading Tasks",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Run",
+                "workDoneLabel": "Run Request Sent",
+                "iconPathOn": "run",
+                "iconPathOff": "run",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Stop All Project Trading Tasks",
+                "label": "Stop All Project Trading Tasks",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Stop",
+                "workDoneLabel": "Stop Request Sent",
+                "iconPathOn": "stop",
+                "iconPathOff": "stop",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Project Trading Tasks",
+                "relatedUiObject": "Project Trading Tasks",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add Missing Project Trading Tasks",
+                "label": "Add Missing Projects",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Project Trading Tasks",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 0,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Network Node->"
+        },
+        "propertyNameAtParent": "productionTradingTasks",
+        "properties": [
+            {
+                "name": "projectTradingTasks",
+                "type": "array",
+                "childType": "Project Trading Tasks",
                 "monitorChildrenRunning": true
             }
         ]
@@ -16322,7 +16627,7 @@
             "compatibleTypes": "->Crypto Exchange->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Data Mines Data->"
+            "compatibleTypes": "->Project Data Products->"
         },
         "propertyNameAtParent": "exchangeDataProducts",
         "properties": [
@@ -16335,6 +16640,48 @@
     },
     {
         "type": "Data Mines Data",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Project Data Products",
+                "relatedUiObject": "Project Data Products",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add Missing Project Data Products",
+                "label": "Add Missing Projects",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Project Data Products",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Data Storage->"
+        },
+        "propertyNameAtParent": "dataMinesData",
+        "properties": [
+            {
+                "name": "projectDataProducts",
+                "type": "array",
+                "childType": "Project Data Products"
+            }
+        ]
+    },
+    {
+        "type": "Project Data Products",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -16361,19 +16708,127 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
+        "title": [
+            "Use Reference Parent"
+        ],
+        "alternativeIcons": "Use Reference Parent Parent",
         "addLeftIcons": true,
-        "level": 3,
-        "chainAttachesTo": {
-            "compatibleTypes": "->Data Storage->"
+        "level": 2,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Project Definition->"
         },
-        "propertyNameAtParent": "dataMinesData",
+        "chainAttachesTo": {
+            "compatibleTypes": "->Data Mines Data->"
+        },
+        "propertyNameAtParent": "projectDataProducts",
         "properties": [
             {
                 "name": "exchangeDataProducts",
                 "type": "array",
                 "childType": "Exchange Data Products"
             }
-        ]
+        ],
+        "icon":"bitcoin"
+    },
+    {
+        "type": "Project Trading Products",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Exchange Trading Products",
+                "relatedUiObject": "Exchange Trading Products",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add Missing Exchange Trading Products",
+                "label": "Add Missing Exchanges",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Exchange Trading Products",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "title": [
+            "Use Reference Parent"
+        ],
+        "alternativeIcons": "Use Reference Parent Parent",
+        "addLeftIcons": true,
+        "level": 2,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Project Definition->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Trading Mines Data->"
+        },
+        "propertyNameAtParent": "projectTradingProducts",
+        "properties": [
+            {
+                "name": "exchangeTradingProducts",
+                "type": "array",
+                "childType": "Exchange Trading Products"
+            }
+        ],
+        "icon":"bitcoin"
+    },
+    {
+        "type": "Project Learning Products",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Exchange Learning Products",
+                "relatedUiObject": "Exchange Learning Products",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add Missing Exchange Learning Products",
+                "label": "Add Missing Exchanges",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Exchange Learning Products",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "title": [
+            "Use Reference Parent"
+        ],
+        "alternativeIcons": "Use Reference Parent Parent",
+        "addLeftIcons": true,
+        "level": 2,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Project Definition->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Learning Mines Data->"
+        },
+        "propertyNameAtParent": "projectLearningProducts",
+        "properties": [
+            {
+                "name": "exchangeLearningProducts",
+                "type": "array",
+                "childType": "Exchange Learning Products"
+            }
+        ],
+        "icon":"bitcoin"
     },
     {
         "type": "Exchange Trading Products",
@@ -16414,7 +16869,7 @@
             "compatibleTypes": "->Crypto Exchange->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Trading Mines Data->"
+            "compatibleTypes": "->Project Trading Products->"
         },
         "propertyNameAtParent": "exchangeTradingProducts",
         "properties": [
@@ -16465,7 +16920,7 @@
             "compatibleTypes": "->Crypto Exchange->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Learning Mines Data->"
+            "compatibleTypes": "->Project Learning Products->"
         },
         "propertyNameAtParent": "exchangeLearningProducts",
         "properties": [
@@ -16482,17 +16937,17 @@
         "menuItems": [
             {
                 "action": "Add UI Object",
-                "label": "Add Exchange Trading Products",
-                "relatedUiObject": "Exchange Trading Products",
+                "label": "Add Project Trading Products",
+                "relatedUiObject": "Project Trading Products",
                 "actionFunction": "payload.executeAction"
             },
             {
-                "action": "Add Missing Exchange Trading Products",
-                "label": "Add Missing Exchanges",
+                "action": "Add Missing Project Trading Products",
+                "label": "Add Missing Projects",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Proceed",
                 "workDoneLabel": "Done",
-                "relatedUiObject": "Exchange Trading Products",
+                "relatedUiObject": "Project Trading Products",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -16513,9 +16968,9 @@
         "propertyNameAtParent": "tradingMinesData",
         "properties": [
             {
-                "name": "exchangeTradingProducts",
+                "name": "projectTradingProducts",
                 "type": "array",
-                "childType": "Exchange Trading Products"
+                "childType": "Project Trading Products"
             }
         ]
     },
@@ -16524,17 +16979,17 @@
         "menuItems": [
             {
                 "action": "Add UI Object",
-                "label": "Add Exchange Learning Products",
-                "relatedUiObject": "Exchange Learning Products",
+                "label": "Add Project Learning Products",
+                "relatedUiObject": "Project Learning Products",
                 "actionFunction": "payload.executeAction"
             },
             {
-                "action": "Add Missing Exchange Learning Products",
-                "label": "Add Missing Exchanges",
+                "action": "Add Missing Project Learning Products",
+                "label": "Add Missing Projects",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Proceed",
                 "workDoneLabel": "Done",
-                "relatedUiObject": "Exchange Learning Products",
+                "relatedUiObject": "Project Learning Products",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -16555,9 +17010,9 @@
         "propertyNameAtParent": "learningMinesData",
         "properties": [
             {
-                "name": "exchangeLearningProducts",
+                "name": "projectLearningProducts",
                 "type": "array",
-                "childType": "Exchange Learning Products"
+                "childType": "Project Learning Products"
             }
         ]
     },
@@ -17135,6 +17590,15 @@
                 "workDoneLabel": "Done",
                 "relatedUiObject": "Plugin Project",
                 "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "actionFunction": "payload.executeAction",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete"
             }
         ],
         "isHierarchyHead": true,

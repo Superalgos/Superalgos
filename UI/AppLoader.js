@@ -5,7 +5,7 @@ function newAppLoader() {
     const INFO_LOG = false
     const ERROR_LOG = true
     const logger = newWebDebugLog()
-    logger.fileName = MODULE_NAME
+    
 
     let thisObject = {
         loadModules: loadModules
@@ -67,7 +67,7 @@ function newAppLoader() {
                         
                         project = item[0]
                         fileName = item[1]
-                        urlArray.push('Projects' + '/' + project + '/' + 'Function-Libraries' + '/' +  fileName)
+                        urlArray.push('Projects' + '/' + project + '/'  + 'UI'  + '/' + 'Function-Libraries' + '/' +  fileName)
                     }
 
                     modulesArray = modulesArray.concat(urlArray)
@@ -87,7 +87,7 @@ function newAppLoader() {
                         
                         project = item[0]
                         fileName = item[1]
-                        urlArray.push('Projects' + '/' + project + '/' + 'Utilities' + '/' +  fileName)
+                        urlArray.push('Projects' + '/' + project + '/'  + 'UI' + '/' + 'Utilities' + '/' +  fileName)
                     }
 
                     modulesArray = modulesArray.concat(urlArray)
@@ -107,7 +107,7 @@ function newAppLoader() {
                         
                         project = item[0]
                         fileName = item[1]
-                        urlArray.push('Projects' + '/' + project + '/' + 'Globals' + '/' +  fileName)
+                        urlArray.push('Projects' + '/' + project + '/'  + 'UI' + '/' + 'Globals' + '/' +  fileName)
                     }
 
                     modulesArray = modulesArray.concat(urlArray)

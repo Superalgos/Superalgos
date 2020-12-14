@@ -4,7 +4,7 @@ function newAppPostLoader() {
     const MODULE_NAME = 'Post Loader'
     const ERROR_LOG = true
     const logger = newWebDebugLog()
-    logger.fileName = MODULE_NAME
+    
 
     let thisObject = {
         start: start

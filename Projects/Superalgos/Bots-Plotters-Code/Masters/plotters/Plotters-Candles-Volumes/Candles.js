@@ -4,7 +4,7 @@
     const ERROR_LOG = true;
     const INTENSIVE_LOG = false;
     const logger = newWebDebugLog();
-    logger.fileName = MODULE_NAME;
+    
 
     let thisObject = {
         initialize: initialize,

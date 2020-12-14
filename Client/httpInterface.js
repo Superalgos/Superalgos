@@ -6,14 +6,9 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
         run: run
     }
 
-    require('dotenv').config()
     const open = require('open')
 
-    CONSOLE_LOG = process.env.CONSOLE_LOG === 'true'
-    CONSOLE_ERROR_LOG = process.env.CONSOLE_ERROR_LOG === 'true'
-    LOG_FILE_CONTENT = process.env.LOG_FILE_CONTENT === 'true'
-
-    let port = process.env.HTTP_INTERFACE_PORT
+    let port = global.env.HTTP_INTERFACE_PORT
 
     let http = require('http')
     let isHttpServerStarted = false
@@ -35,7 +30,6 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
     }
 
     function startHtttpServer() {
-        if (CONSOLE_LOG === true) { console.log('[INFO] httpInterface -> startHtttpServer -> Entering function.') }
 
         try {
             if (isHttpServerStarted === false) {
@@ -55,7 +49,6 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
     }
 
     function onBrowserRequest(httpRequest, httpResponse) {
-        if (CONSOLE_LOG === true && httpRequest.url.indexOf('NO-LOG') === -1) { console.log('[INFO] httpInterface -> onBrowserRequest -> httpRequest.url = ' + httpRequest.url) }
 
         function getBody(callback) { // Gets the de body from a POST httpRequest to the web server
             try {
@@ -75,11 +68,11 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                 })
 
                 httpRequest.on('error', function (err) {
-                    if (CONSOLE_LOG === true) { console.log('[INFO] httpInterface -> onBrowserRequest -> getBody -> err = ' + err.stack) }
+                    console.log('[INFO] httpInterface -> onBrowserRequest -> getBody -> err = ' + err.stack)
                     respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                 })
             } catch (err) {
-                if (CONSOLE_LOG === true) { console.log('[INFO] httpInterface -> onBrowserRequest -> getBody -> err = ' + err.stack) }
+                console.log('[INFO] httpInterface -> onBrowserRequest -> getBody -> err = ' + err.stack)
                 respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
             }
         }
@@ -137,9 +130,9 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 }
                             }
                         } catch (err) {
-                            if (CONSOLE_ERROR_LOG === true) { console.log('[ERROR] httpInterface -> WEB3s -> Method call produced an error.') }
-                            if (CONSOLE_ERROR_LOG === true) { console.log('[ERROR] httpInterface -> WEB3s -> err.stack = ' + err.stack) }
-                            if (CONSOLE_ERROR_LOG === true) { console.log('[ERROR] httpInterface -> WEB3s -> Params Received = ' + body) }
+                            console.log('[ERROR] httpInterface -> WEB3s -> Method call produced an error.')
+                            console.log('[ERROR] httpInterface -> WEB3s -> err.stack = ' + err.stack)
+                            console.log('[ERROR] httpInterface -> WEB3s -> Params Received = ' + body)
 
                             let error = {
                                 result: 'Fail Because',
@@ -219,7 +212,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 err: global.DEFAULT_FAIL_RESPONSE // method not supported
                             }
                         } catch (err) {
-                            if (CONSOLE_LOG === true) { console.log('[INFO] httpInterface -> CCXT FetchMarkets -> Could not fetch markets.') }
+                            console.log('[INFO] httpInterface -> CCXT FetchMarkets -> Could not fetch markets.')
                             let error = {
                                 result: 'Fail Because',
                                 message: err.message
@@ -310,19 +303,19 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
             case 'LegacyPlotter.js':
                 {
-                    respondWithFile(process.env.PATH_TO_CLIENT + 'WebServer/LegacyPlotter.js', httpResponse)
+                    respondWithFile(global.env.PATH_TO_CLIENT + 'WebServer/LegacyPlotter.js', httpResponse)
                 }
                 break
 
             case 'PlotterPanel.js':
                 {
-                    respondWithFile(process.env.PATH_TO_CLIENT + 'WebServer/PlotterPanel.js', httpResponse)
+                    respondWithFile(global.env.PATH_TO_CLIENT + 'WebServer/PlotterPanel.js', httpResponse)
                 }
                 break
 
             case 'Images': // This means the Images folder.
                 {
-                    let path = process.env.PATH_TO_CLIENT + 'WebServer/Images/' + requestParameters[2]
+                    let path = global.env.PATH_TO_CLIENT + 'WebServer/Images/' + requestParameters[2]
 
                     if (requestParameters[3] !== undefined) {
                         path = path + '/' + requestParameters[3]
@@ -344,7 +337,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
             case 'Icons': // This means the Icons folder under Projects.
                 {
-                    let path = process.env.PROJECTS_PATH + '/' + requestParameters[2] + '/Icons'
+                    let path = global.env.PATH_TO_PROJECTS + '/' + requestParameters[2] + '/Icons'
 
                     if (requestParameters[3] !== undefined) {
                         path = path + '/' + requestParameters[3]
@@ -365,7 +358,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
             case 'Gifs': // This means the Gifs folder under Projects.
                 {
-                    let path = process.env.PROJECTS_PATH + '/' + requestParameters[2] + '/Gifs'
+                    let path = global.env.PATH_TO_PROJECTS + '/' + requestParameters[2] + '/Gifs'
 
                     if (requestParameters[3] !== undefined) {
                         path = path + '/' + requestParameters[3]
@@ -386,19 +379,19 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
             case 'favicon.ico': // This means the Scripts folder.
                 {
-                    respondWithImage(process.env.PATH_TO_CLIENT + 'WebServer/Images/' + 'favicon.ico', httpResponse)
+                    respondWithImage(global.env.PATH_TO_CLIENT + 'WebServer/Images/' + 'favicon.ico', httpResponse)
                 }
                 break
 
             case 'WebServer': // This means the WebServer folder.
                 {
-                    respondWithFile(process.env.PATH_TO_CLIENT + 'WebServer/' + requestParameters[2], httpResponse)
+                    respondWithFile(global.env.PATH_TO_CLIENT + 'WebServer/' + requestParameters[2], httpResponse)
                 }
                 break
 
             case 'externalScripts': // This means the WebServer folder.
                 {
-                    respondWithFile(process.env.PATH_TO_CLIENT + 'WebServer/externalScripts/' + requestParameters[2], httpResponse)
+                    respondWithFile(global.env.PATH_TO_CLIENT + 'WebServer/externalScripts/' + requestParameters[2], httpResponse)
                 }
                 break
 
@@ -408,45 +401,45 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                     let dataMine = requestParameters[3]
                     let codeName = requestParameters[4]
                     let moduleName = requestParameters[5]
-                    let filePath = process.env.PROJECTS_PATH + '/' + project  + '/' + 'Bots-Plotters-Code' +  '/' + dataMine + '/plotters/' + codeName + '/' + moduleName
+                    let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/' + 'Bots-Plotters-Code' + '/' + dataMine + '/plotters/' + codeName + '/' + moduleName
                     respondWithFile(filePath, httpResponse)
                 }
                 break
 
             case 'ChartLayers':
                 {
-                    respondWithFile(process.env.PATH_TO_UI + '/' + requestParameters[1] + '/' + requestParameters[2], httpResponse)
+                    respondWithFile(global.env.PATH_TO_UI + '/' + requestParameters[1] + '/' + requestParameters[2], httpResponse)
                 }
                 break
 
             case 'Files':
                 {
-                    respondWithFile(process.env.PATH_TO_DATA_FILES + '/' + requestParameters[2], httpResponse)
+                    respondWithFile(global.env.PATH_TO_DATA_FILES + '/' + requestParameters[2], httpResponse)
                 }
                 break
 
             case 'Fonts':
                 {
-                    respondWithFont(process.env.PATH_TO_FONTS + '/' + requestParameters[2], httpResponse)
+                    respondWithFont(global.env.PATH_TO_FONTS + '/' + requestParameters[2], httpResponse)
                 }
                 break
 
             case 'ProjectNames':
                 {
-                    let projects = getDirectories(process.env.PROJECTS_PATH)
+                    let projects = getDirectories(global.env.PATH_TO_PROJECTS)
                     respondWithContent(JSON.stringify(projects), httpResponse)
                 }
                 break
 
             case 'Schema':
                 {
-                    sendSchema(process.env.PROJECTS_PATH + '/' + requestParameters[2] + '/Schemas/', requestParameters[3] + '.json')
+                    sendSchema(global.env.PATH_TO_PROJECTS + '/' + requestParameters[2] + '/Schemas/', requestParameters[3] + '.json')
                 }
                 break
 
             case 'IconNames':
                 {
-                    let projects = getDirectories(process.env.PROJECTS_PATH)
+                    let projects = getDirectories(global.env.PATH_TO_PROJECTS)
                     const fs = require('fs')
 
                     let icons = []
@@ -456,7 +449,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                     for (let i = 0; i < projects.length; i++) {
                         let project = projects[i]
 
-                        const folder = process.env.PROJECTS_PATH + '/' + project + '/Icons/'
+                        const folder = global.env.PATH_TO_PROJECTS + '/' + project + '/Icons/'
 
                         fs.readdir(folder, (err, files) => {
                             for (let j = 0; j < files.length; j++) {
@@ -479,7 +472,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                     let pluginType = unescape(requestParameters[3])
 
                     const fs = require('fs')
-                    let folder = process.env.PROJECTS_PATH + '/' + project + '/Plugins/' + pluginType
+                    let folder = global.env.PATH_TO_PROJECTS + '/' + project + '/Plugins/' + pluginType
 
                     fs.readdir(folder, (err, files) => {
                         respondWithContent(JSON.stringify(files), httpResponse)
@@ -492,7 +485,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                     let project = unescape(requestParameters[2])
                     let pluginType = unescape(requestParameters[3])
                     let fileName = unescape(requestParameters[4])
-                    let filePath = process.env.PROJECTS_PATH + '/' + project + '/Plugins/' + pluginType + '/' + fileName
+                    let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Plugins/' + pluginType + '/' + fileName
                     respondWithFile(filePath, httpResponse)
                 }
                 break
@@ -502,7 +495,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                     let fs = require('fs')
 
                     try {
-                        let filePath = process.env.DEFAULT_WORKSPACE_PATH + '/Getting-Started.json'
+                        let filePath = global.env.PATH_TO_DEFAULT_WORKSPACE + '/Getting-Started.json'
                         fs.readFile(filePath, onFileRead)
                     } catch (e) {
                         console.log('[ERROR] Error reading the Workspace.', e)
@@ -522,21 +515,21 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
             case 'ListWorkspaces':
                 {
                     let allWorkspaces = []
-                    let projects = getDirectories(process.env.PROJECTS_PATH)
+                    let projects = getDirectories(global.env.PATH_TO_PROJECTS)
                     let projectsCount = 0
 
                     for (let i = 0; i < projects.length; i++) {
                         let project = projects[i]
                         readPluginWorkspaces()
                         function readPluginWorkspaces() {
-                            let dirPath = process.env.PROJECTS_PATH + '/' + project + '/Plugins/Workspaces'
+                            let dirPath = global.env.PATH_TO_PROJECTS + '/' + project + '/Plugins/Workspaces'
                             try {
                                 let fs = require('fs')
                                 fs.readdir(dirPath, onDirRead)
 
                                 function onDirRead(err, fileList) {
                                     if (err) {
-                                        if (CONSOLE_ERROR_LOG === true) { console.log('[WARN] Error reading a directory content. filePath = ' + dirPath) }
+                                        console.log('[WARN] Error reading a directory content. filePath = ' + dirPath)
                                         respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                                         return
                                     } else {
@@ -554,8 +547,8 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     }
                                 }
                             } catch (err) {
-                                if (CONSOLE_ERROR_LOG === true) { console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath) }
-                                if (CONSOLE_ERROR_LOG === true) { console.log('[ERROR] err.stack = ' + err.stack) }
+                                console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath)
+                                console.log('[ERROR] err.stack = ' + err.stack)
                                 respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                                 return
                             }
@@ -563,14 +556,14 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                     }
 
                     function readMyWorkspaces() {
-                        let dirPath = process.env.MY_WORKSPACES_PATH
+                        let dirPath = global.env.PATH_TO_MY_WORKSPACES
                         try {
                             let fs = require('fs')
                             fs.readdir(dirPath, onDirRead)
 
                             function onDirRead(err, fileList) {
                                 if (err) {
-                                    if (CONSOLE_ERROR_LOG === true) { console.log('[WARN] Error reading a directory content. filePath = ' + dirPath) }
+                                    console.log('[WARN] Could not read this directory content. filePath = ' + dirPath)
                                     respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                                     return
                                 } else {
@@ -585,8 +578,8 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 }
                             }
                         } catch (err) {
-                            if (CONSOLE_ERROR_LOG === true) { console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath) }
-                            if (CONSOLE_ERROR_LOG === true) { console.log('[ERROR] err.stack = ' + err.stack) }
+                            console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath)
+                            console.log('[ERROR] err.stack = ' + err.stack)
                             respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                             return
                         }
@@ -597,7 +590,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
             case 'LoadMyWorkspace':
                 {
                     let fileName = unescape(requestParameters[2])
-                    let filePath = process.env.MY_WORKSPACES_PATH + '/' + fileName + '.json'
+                    let filePath = global.env.PATH_TO_MY_WORKSPACES + '/' + fileName + '.json'
                     respondWithFile(filePath, httpResponse)
                 }
                 break
@@ -610,11 +603,11 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
                         let fileContent = body
                         let fileName = unescape(requestParameters[2])
-                        let filePath = process.env.MY_WORKSPACES_PATH + '/' + fileName + '.json'
+                        let filePath = global.env.PATH_TO_MY_WORKSPACES + '/' + fileName + '.json'
 
                         try {
                             let fs = require('fs')
-                            let dir = process.env.MY_WORKSPACES_PATH;
+                            let dir = global.env.PATH_TO_MY_WORKSPACES;
 
                             /* Create Dir if it does not exist */
                             if (!fs.existsSync(dir)) {
@@ -660,7 +653,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
             case 'ProjectsSchema':
                 {
-                    let path = process.env.PROJECTS_PATH + '/' + 'ProjectsSchema.json'
+                    let path = global.env.PATH_TO_PROJECTS + '/' + 'ProjectsSchema.json'
                     respondWithFile(path, httpResponse)
                 }
                 break
@@ -669,15 +662,15 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                 {
                     let fs = require('fs')
                     let allFiles = []
-                    let projects = getDirectories(process.env.PROJECTS_PATH)
+                    let projects = getDirectories(global.env.PATH_TO_PROJECTS)
                     let dirCount = 0
                     let totalDirs = 0
 
                     for (let i = 0; i < projects.length; i++) {
                         let project = projects[i]
 
-                        let dirPath = project + '/Spaces'
-                        let spaces = getDirectories(process.env.PROJECTS_PATH + '/' + dirPath)
+                        let dirPath = project + '/UI/Spaces'
+                        let spaces = getDirectories(global.env.PATH_TO_PROJECTS + '/' + dirPath)
 
                         for (let j = 0; j < spaces.length; j++) {
                             let space = spaces[j]
@@ -688,9 +681,9 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             try {
 
                                 totalDirs++
-                                fs.readdir(process.env.PROJECTS_PATH + '/' + path, onDirRead)
+                                fs.readdir(global.env.PATH_TO_PROJECTS + '/' + path, onDirRead)
 
-                                let otherDirs = getDirectories(process.env.PROJECTS_PATH + '/' + path)
+                                let otherDirs = getDirectories(global.env.PATH_TO_PROJECTS + '/' + path)
                                 for (let m = 0; m < otherDirs.length; m++) {
                                     let otherDir = otherDirs[m]
                                     readDirectory(path + '/' + otherDir)
@@ -715,9 +708,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 }
                             } catch (err) {
                                 console.log('[ERROR] Error reading a directory content. filePath = ' + path)
-                                if (CONSOLE_ERROR_LOG === true) { console.log('[ERROR] err.stack = ' + err.stack) }
-
-                                console.log(err.stack)
+                                console.log('[ERROR] err.stack = ' + err.stack)
                                 respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                                 return
                             }
@@ -748,14 +739,14 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                         }
 
                     }
-                    let filePath = process.env.PROJECTS_PATH + path
+                    let filePath = global.env.PATH_TO_PROJECTS + path
                     respondWithFile(filePath, httpResponse)
                 }
                 break
 
             case 'Storage':
                 {
-                    respondWithFile(process.env.STORAGE_PATH + '/' + httpRequest.url.substring(9), httpResponse)
+                    respondWithFile(global.env.PATH_TO_DATA_STORAGE + '/' + httpRequest.url.substring(9), httpResponse)
                 }
                 break
 
@@ -785,21 +776,20 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
         function returnProjectFolderFileList(projectFolderName) {
             {
                 let allLibraries = []
-                let projects = getDirectories(process.env.PROJECTS_PATH)
+                let projects = getDirectories(global.env.PATH_TO_PROJECTS)
                 let projectsCount = 0
 
                 for (let i = 0; i < projects.length; i++) {
                     let project = projects[i]
 
-                    let dirPath = process.env.PROJECTS_PATH + '/' + project + '/' + projectFolderName
+                    let dirPath = global.env.PATH_TO_PROJECTS + '/' + project + '/' + 'UI' + '/' + projectFolderName
                     try {
                         let fs = require('fs')
                         fs.readdir(dirPath, onDirRead)
 
                         function onDirRead(err, fileList) {
                             if (err) {
-                                if (CONSOLE_ERROR_LOG === true) { console.log('[WARN] Error reading a directory content. filePath = ' + dirPath) }
-                                if (CONSOLE_ERROR_LOG === true) { console.log(err.stack) }
+                                console.log('[WARN] Error reading a directory content. filePath = ' + dirPath)
                                 return
                             } else {
                                 let updatedFileList = []
@@ -816,8 +806,8 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             }
                         }
                     } catch (err) {
-                        if (CONSOLE_ERROR_LOG === true) { console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath) }
-                        if (CONSOLE_ERROR_LOG === true) { console.log('[ERROR] err.stack = ' + err.stack) }
+                        console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath)
+                        console.log('[ERROR] err.stack = ' + err.stack)
 
                         respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                         return
@@ -863,16 +853,16 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
         function sendStyleSheet(fileName) {
             let fs = require('fs')
             try {
-                let filePath = process.env.PATH_TO_CLIENT + 'WebServer/' + fileName
+                let filePath = global.env.PATH_TO_CLIENT + 'WebServer/' + fileName
                 fs.readFile(filePath, onFileRead)
 
                 function onFileRead(err, file) {
                     try {
                         let fileContent = file.toString()
 
-                        fileContent = fileContent.replace('HTTP_INTERFACE_PORT', process.env.HTTP_INTERFACE_PORT)
-                        fileContent = fileContent.replace('HTTP_INTERFACE_PORT', process.env.HTTP_INTERFACE_PORT)
-                        fileContent = fileContent.replace('HTTP_INTERFACE_PORT', process.env.HTTP_INTERFACE_PORT)
+                        fileContent = fileContent.replace('HTTP_INTERFACE_PORT', global.env.HTTP_INTERFACE_PORT)
+                        fileContent = fileContent.replace('HTTP_INTERFACE_PORT', global.env.HTTP_INTERFACE_PORT)
+                        fileContent = fileContent.replace('HTTP_INTERFACE_PORT', global.env.HTTP_INTERFACE_PORT)
                         respondWithContent(fileContent, httpResponse, 'text/css')
                     } catch (err) {
                         console.log('[ERROR] httpInterface -> mainCSS -> File Not Found: ' + fileName + ' or Error = ' + err.stack)
@@ -887,14 +877,14 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
             if (requestParameters[1] === '') {
                 let fs = require('fs')
                 try {
-                    let fileName = process.env.PATH_TO_CLIENT + 'WebServer/index.html'
+                    let fileName = global.env.PATH_TO_CLIENT + 'WebServer/index.html'
                     fs.readFile(fileName, onFileRead)
 
                     function onFileRead(err, file) {
                         try {
                             let fileContent = file.toString()
 
-                            fileContent = fileContent.replace('HTTP_INTERFACE_PORT', process.env.HTTP_INTERFACE_PORT)
+                            fileContent = fileContent.replace('HTTP_INTERFACE_PORT', global.env.HTTP_INTERFACE_PORT)
                             respondWithContent(fileContent, httpResponse)
                         } catch (err) {
                             console.log('[ERROR] httpInterface -> homePage -> File Not Found: ' + fileName + ' or Error = ' + err.stack)
@@ -904,7 +894,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                     console.log(err)
                 }
             } else {
-                respondWithFile(process.env.PATH_TO_UI + '/' + requestParameters[1], httpResponse)
+                respondWithFile(global.env.PATH_TO_UI + '/' + requestParameters[1], httpResponse)
             }
         }
     }
@@ -919,7 +909,6 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                 fs.readFile(fileName, onFileRead)
 
                 function onFileRead(err, file) {
-                    if (CONSOLE_LOG === true) { console.log('[INFO] httpInterface -> respondWithFile -> onFileRead -> Entering function.') }
                     if (!err) {
                         respondWithContent(file.toString(), httpResponse)
                     } else {
@@ -934,8 +923,6 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
     }
 
     function respondWithContent(content, httpResponse, contentType) {
-        if (CONSOLE_LOG === true) { console.log('[INFO] httpInterface -> respondWithContent -> Entering function.') }
-
         try {
             httpResponse.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate') // HTTP 1.1.
             httpResponse.setHeader('Pragma', 'no-cache') // HTTP 1.0.
@@ -960,8 +947,6 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
     }
 
     function respondWithImage(fileName, httpResponse) {
-        if (CONSOLE_LOG === true) { console.log('[INFO] httpInterface -> respondWithImage -> Entering function.') }
-
         let fs = require('fs')
         try {
             fs.readFile(fileName, onFileRead)
@@ -989,15 +974,11 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
     }
 
     function respondWithFont(fileName, httpResponse) {
-        if (CONSOLE_LOG === true) { console.log('[INFO] httpInterface -> respondWithBinary -> Entering function.') }
-
         let fs = require('fs')
         try {
             fs.readFile(fileName, onFileRead)
 
             function onFileRead(err, file) {
-                if (CONSOLE_LOG === true) { console.log('[INFO] httpInterface -> respondWithBinary -> onFileRead -> Entering function.') }
-
                 try {
                     if (err) {
                         console.log('[ERROR] httpInterface -> respondWithBinary -> onFileRead -> File Not Found: ' + fileName + ' or Error = ' + err.stack)
@@ -1025,7 +1006,6 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
     function returnEmptyArray(httpResponse) {
         try {
-            if (CONSOLE_LOG === true) { console.log('[INFO] httpInterface -> returnEmptyArray -> Entering function.') }
             httpResponse.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate') // HTTP 1.1.
             httpResponse.setHeader('Pragma', 'no-cache') // HTTP 1.0.
             httpResponse.setHeader('Expires', '0') // Proxies.

@@ -380,7 +380,7 @@ function newSuperalgosDocSpace() {
         for (let i = 1; i < 10; i++) {
             if (paragraphNode.id === undefined || paragraphNode.id.indexOf('paragraph') < 0) {
                 paragraphNode = paragraphNode.parentNode
-                if (paragraphNode === undefined) { return false}
+                if (paragraphNode === undefined) { return false }
             }
         }
         if (paragraphNode.id === undefined || paragraphNode.id.indexOf('paragraph') < 0) {
@@ -1428,9 +1428,21 @@ function newSuperalgosDocSpace() {
     function parseTable(text) {
         let HTML = ''
         let odd = false
+        /* When the text is not formatted as a table, we auto format it as a single cell table */
+        if (text.indexOf('|') < 0) {
+            text = "|" + text + "|"
+        }
+
+        /* We process the text based table*/
         let rows = text.split(String.fromCharCode(10))
         for (let i = 0; i < rows.length; i++) {
             let row = rows[i]
+            if (row === '') { 
+                if (i === rows.length - 1) {
+                    HTML = HTML + '</tbody>'
+                }
+                continue 
+            }
             let colums = row.split('|')
             if (i === 0) {
                 HTML = HTML + '<thead>'
@@ -1446,7 +1458,7 @@ function newSuperalgosDocSpace() {
                 odd = true
             }
             if (colums.length < 2) {
-                return text
+                continue
             } else {
                 /* We discard anything before the first | and after the last | */
                 for (let j = 1; j < colums.length - 1; j++) {
@@ -1467,28 +1479,54 @@ function newSuperalgosDocSpace() {
                 HTML = HTML + '</tbody>'
             }
         }
+        HTML = addRGB(HTML)
         return HTML
-    }
 
+        function addRGB(text) {
+            const RGB_HTML = '<div>HOLA&nbsp;</div>'
+            let splittedText = text.split('RGB(')
+            if (splittedText.length === 1) { return text }
+            let remainderSplit = splittedText[1].split(')')
+            if (remainderSplit.length === 1) { return text }
+            let RGBFound = 'RGB(' + remainderSplit[0] + ')'
+            let span = RGB_HTML.replace('RGB', RGBFound)
+            let result = text.replace(RGBFound, span)
+            return result
+        }
+    }
+    // style=\"display: block; background: RGB; border: 1px solid black;\"
     function reverseParseTable(HTML) {
-        text = HTML
+        text = removeRGB(HTML)
+
+        /* Single occurrance replacements */
         text = text.replace('<table class="docs-info-table"> ', '')
         text = text.replace('  </table>', '')
         text = text.replace('<thead>', '')
         text = text.replace('</thead>', '')
         text = text.replace('<tbody>', '')
-        text = text.replace('</tr></tbody>', '')
+        text = text.replace('</tbody>', '')
 
+        /* All instances replacements */
         text = text.replaceAll('<tr>', '')
         text = text.replaceAll('<tr class="docs-info-table-alt-bg">', '')
         text = text.replaceAll('</td><td>', '|')
         text = text.replaceAll('</th><th>', '|')
-        text = text.replaceAll('</tr>', String.fromCharCode(10))
         text = text.replaceAll('<th>', '|')
         text = text.replaceAll('</th>', '|')
         text = text.replaceAll('<td>', '|')
         text = text.replaceAll('</td>', '|')
+        text = text.replaceAll('</tr>', '')
+
+        /* We break lines where needed */
+        text = text.replaceAll('||', '|' + String.fromCharCode(10) + '|')
         return text
+
+        function removeRGB(HTML) {
+            let text = HTML
+            text.replace('<span style="display: block; background: ', '')
+            text.replace('; border: 1px black; border: 1px solid black;">&nbsp;</span>', '')
+            return text
+        }
     }
 
     function addBold(text) {

@@ -11,8 +11,8 @@
             "text": "A plotter recursively renders graphics for each period or candle. This means that a definition of what shapes need to be drawn for a single period is required. The plotter does the same thing for every period or candle that is visible on the screen at any point in time, for any time frame, as long as the corresponding data is available."
         },
         {
-            "style": "Text",
-            "text": "<img src=\"Projects/Superalgos/Docs-Gifs/shapes-01-show-off.gif\"></img>"
+            "style": "Gif",
+            "text": "Projects/Superalgos/Docs-Gifs/shapes-01-show-off.gif"
         },
         {
             "style": "Text",

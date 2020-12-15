@@ -23,8 +23,8 @@
             "text": "To illustrate how fees affect your bottom line, take a look at the image below."
         },
         {
-            "style": "Text",
-            "text": "<img src=\"Projects/Superalgos/Docs-Gifs/trading-simulation-fees-fails.gif\"></img>"
+            "style": "Gif",
+            "text": "Projects/Superalgos/Docs-Gifs/trading-simulation-fees-fails.gif"
         },
         {
             "style": "Text",

@@ -11,16 +11,16 @@
             "text": "A single plotter may have several modules. Different modules may be used to plot each product of the bot, or as best suits the expected use-pattern."
         },
         {
-            "style": "Text",
-            "text": "<img src=\"Projects/Superalgos/Docs-Gifs/plotter-module-01.gif\"></img>"
+            "style": "Gif",
+            "text": "Projects/Superalgos/Docs-Gifs/plotter-module-01.gif"
         },
         {
             "style": "Important",
             "text": "For a bot to use a plotter, the corresponding product definition must establish a reference with the plotter module built to interpret the dataset."
         },
         {
-            "style": "Text",
-            "text": "<img src=\"Projects/Superalgos/Docs-Gifs/plotter-module-02-product-link.gif\"></img>"
+            "style": "Gif",
+            "text": "Projects/Superalgos/Docs-Gifs/plotter-module-02-product-link.gif"
         },
         {
             "style": "Title",

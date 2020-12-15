@@ -11,8 +11,8 @@
             "text": "Vertices are the main element defining polygons. Once created, each vertex must establish a reference to the corresponding point in the charts point."
         },
         {
-            "style": "Text",
-            "text": "<img src=\"Projects/Superalgos/Docs-Gifs/vertex-01-add-and-link.gif\"></img>"
+            "style": "Gif",
+            "text": "Projects/Superalgos/Docs-Gifs/vertex-01-add-and-link.gif"
         },
         {
             "style": "Text",

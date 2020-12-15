@@ -12,7 +12,7 @@
         },
         {
             "style": "Gif",
-            "text": "Projects/Superalgos/Docs-Gifs/plotter-module-01.gif"
+            "text": "GIFs/Superalgos/Docs/inner-foder/plotter-module-01.gif"
         },
         {
             "style": "Important",
@@ -20,7 +20,7 @@
         },
         {
             "style": "Gif",
-            "text": "Projects/Superalgos/Docs-Gifs/plotter-module-02-product-link.gif"
+            "text": "GIFs/Superalgos/Docs/inner-foder/plotter-module-02-product-link.gif"
         },
         {
             "style": "Title",
@@ -75,28 +75,28 @@
             "text": "| :---: | :---: |"
         },
         {
-            "style": "Text",
-            "text": "| default | <img src=\"Projects/Superalgos/Icons/default-banner.png\"></img> |"
+            "style": "Png",
+            "text": "| default | PNGs/Superalgos/Docs/inner-foder/default-banner.png |"
         },
         {
-            "style": "Text",
-            "text": "| histogram | <img src=\"Projects/Superalgos/Icons/histogram-banner.png\"></img> |"
+            "style": "Png",
+            "text": "| histogram | PNGs/Superalgos/Docs/inner-foder/histogram-banner.png |"
         },
         {
-            "style": "Text",
-            "text": "| band | <img src=\"Projects/Superalgos/Icons/bands-banner.png\"></img> |"
+            "style": "Png",
+            "text": "| band | PNGs/Superalgos/Docs/inner-foder/bands-banner.png |"
         },
         {
-            "style": "Text",
-            "text": "| moving-average | <img src=\"Projects/Superalgos/Icons/moving-average-banner.png\"></img> |"
+            "style": "Png",
+            "text": "| moving-average | PNGs/Superalgos/Docs/inner-foder/moving-average-banner.png |"
         },
         {
-            "style": "Text",
-            "text": "| oscillator | <img src=\"Projects/Superalgos/Icons/oscillator-banner.png\"></img> |"
+            "style": "Png",
+            "text": "| oscillator | PNGs/Superalgos/Docs/inner-foder/oscillator-banner.png |"
         },
         {
-            "style": "Text",
-            "text": "| trend | <img src=\"Projects/Superalgos/Icons/trends-banner.png\"></img> |"
+            "style": "Png",
+            "text": "| trend | PNGs/Superalgos/Docs/inner-foder/trends-banner.png |"
         },
         {
             "style": "Text",

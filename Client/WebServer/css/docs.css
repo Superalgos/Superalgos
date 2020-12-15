@@ -440,3 +440,19 @@ border-top: 1px solid #dedede;
 .docs-info-table-alt-bg td {
 background-color: #f9f9f9;
 }
+
+/* Gif Image */
+.docs-gif {
+max-width: 100%;
+width: 100%;
+border: 1px solid #dedede;
+border-spacing: 1px;
+}
+
+/* PNG Image */
+.docs-png {
+max-width: 100%;
+width: 100%;
+border: 1px solid #dedede;
+border-spacing: 1px;
+}

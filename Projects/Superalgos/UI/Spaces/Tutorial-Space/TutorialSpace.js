@@ -228,7 +228,7 @@ function newSuperalgosTutorialSpace() {
 
             if (currentGifName === newGifName) { return }
             currentGifName = newGifName
-            htmlGif.src = 'Gifs/' + currentNode.project + '/' + currentGifName + '.gif'
+            htmlGif.src = 'GIFs/' + currentNode.project + '/Tutorials/' + currentGifName + '.gif'
             htmlGif.width = "400"
             htmlGif.height = "580"
         }

@@ -356,9 +356,30 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                 }
                 break
 
-            case 'Gifs': // This means the Gifs folder under Projects.
+            case 'GIFs': // This means the GIFs folder under Projects.
                 {
-                    let path = global.env.PATH_TO_PROJECTS + '/' + requestParameters[2] + '/Gifs'
+                    let path = global.env.PATH_TO_PROJECTS + '/' + requestParameters[2] + '/GIFs'
+
+                    if (requestParameters[3] !== undefined) {
+                        path = path + '/' + requestParameters[3]
+                    }
+
+                    if (requestParameters[4] !== undefined) {
+                        path = path + '/' + requestParameters[4]
+                    }
+
+                    if (requestParameters[5] !== undefined) {
+                        path = path + '/' + requestParameters[5]
+                    }
+
+                    path = unescape(path)
+                    respondWithImage(path, httpResponse)
+                }
+                break
+
+            case 'PNGs': // This means the PNGs folder under Projects.
+                {
+                    let path = global.env.PATH_TO_PROJECTS + '/' + requestParameters[2] + '/PNGs'
 
                     if (requestParameters[3] !== undefined) {
                         path = path + '/' + requestParameters[3]
@@ -896,7 +917,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                     let fileList = fs.readdirSync(filePath + '/Docs-Nodes')
                     for (let k = 0; k < fileList.length; k++) {
                         let name = fileList[k]
-                        let fileContent = fs.readFileSync(filePath + '/Docs-Nodes/' + name ) 
+                        let fileContent = fs.readFileSync(filePath + '/Docs-Nodes/' + name)
                         let nodeDefinition = JSON.parse(fileContent)
                         schemaArray.push(nodeDefinition)
                     }

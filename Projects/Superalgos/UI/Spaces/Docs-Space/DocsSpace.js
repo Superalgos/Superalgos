@@ -67,7 +67,8 @@ function newSuperalgosDocSpace() {
                 toSuccess: toSuccess,
                 toList: toList,
                 toTable: toTable,
-                toGif: toGif
+                toGif: toGif,
+                toPng: toPng
             }
 
             function editParagraph() {
@@ -201,6 +202,13 @@ function newSuperalgosDocSpace() {
             function toGif() {
                 let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Gif'
+                contextMenuForceOutClick()
+                renderPage()
+            }
+
+            function toPng() {
+                let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
+                docSchemaParagraph.style = 'Png'
                 contextMenuForceOutClick()
                 renderPage()
             }
@@ -440,7 +448,10 @@ function newSuperalgosDocSpace() {
             selectedParagraphData = reverseParseTable(paragraphNode.innerHTML)
         }
         if (paragraphNode.id.indexOf('-gif') >= 0) {
-            selectedParagraphData = reverseParseGif(paragraphNode.innerHTML)
+            selectedParagraphData = reverseParseGIF(paragraphNode.innerHTML)
+        }
+        if (paragraphNode.id.indexOf('-png') >= 0) {
+            selectedParagraphData = reverseParsePNG(paragraphNode.innerHTML)
         }
         if (paragraphNode.id.indexOf('-javascript') >= 0) {
             selectedParagraphData = paragraphNode.innerText.substring(1, paragraphNode.innerText.length - 1)
@@ -451,6 +462,7 @@ function newSuperalgosDocSpace() {
 
         selectedParagraph = paragraphNode
         selectedParagraphHeight = paragraphNode.getClientRects()[0].height
+        if (selectedParagraphHeight < 30) {selectedParagraphHeight = 30}
         return true
     }
 
@@ -1353,7 +1365,18 @@ function newSuperalgosDocSpace() {
                         sufix = ''
                         role = ''
                         key = key + '-gif'
-                        innerHTML = parseGif(paragraph.text)
+                        innerHTML = parseGIF(paragraph.text)
+                        innerHTML = addItalics(innerHTML)
+                        innerHTML = addToolTips(innerHTML)
+                        break
+                    }
+                    case 'Png': {
+                        styleClass = ''
+                        prefix = ''
+                        sufix = ''
+                        role = ''
+                        key = key + '-png'
+                        innerHTML = parsePNG(paragraph.text)
                         innerHTML = addItalics(innerHTML)
                         innerHTML = addToolTips(innerHTML)
                         break
@@ -1424,14 +1447,25 @@ function newSuperalgosDocSpace() {
         }
     }
 
-    function parseGif(text) {
-        return '<img src="' + text + '"></img>'
+    function parseGIF(text) {
+        return '<img class="docs-gif" src="' + text + '">'
     }
 
-    function reverseParseGif(HTML) {
+    function reverseParseGIF(HTML) {
         let result = HTML
-        result = result.replace('<img src="', '')
-        result = result.replace('"></img>', '')
+        result = result.replace(' <img class="docs-gif" src="', '')
+        result = result.replace('">  ', '')
+        return result
+    }
+
+    function parsePNG(text) {
+        return '<img class="docs-png" src="' + text + '">'
+    }
+
+    function reverseParsePNG(HTML) {
+        let result = HTML
+        result = result.replace(' <img class="docs-png" src="', '')
+        result = result.replace('">  ', '')
         return result
     }
 

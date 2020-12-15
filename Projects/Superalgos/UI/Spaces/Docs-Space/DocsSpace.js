@@ -66,7 +66,8 @@ function newSuperalgosDocSpace() {
                 toImportant: toImportant,
                 toSuccess: toSuccess,
                 toList: toList,
-                toTable: toTable
+                toTable: toTable,
+                toGif: toGif
             }
 
             function editParagraph() {
@@ -193,6 +194,13 @@ function newSuperalgosDocSpace() {
             function toTable() {
                 let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Table'
+                contextMenuForceOutClick()
+                renderPage()
+            }
+
+            function toGif() {
+                let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
+                docSchemaParagraph.style = 'Gif'
                 contextMenuForceOutClick()
                 renderPage()
             }
@@ -430,6 +438,9 @@ function newSuperalgosDocSpace() {
         }
         if (paragraphNode.id.indexOf('-table') >= 0) {
             selectedParagraphData = reverseParseTable(paragraphNode.innerHTML)
+        }
+        if (paragraphNode.id.indexOf('-gif') >= 0) {
+            selectedParagraphData = reverseParseGif(paragraphNode.innerHTML)
         }
         if (paragraphNode.id.indexOf('-javascript') >= 0) {
             selectedParagraphData = paragraphNode.innerText.substring(1, paragraphNode.innerText.length - 1)
@@ -1336,6 +1347,17 @@ function newSuperalgosDocSpace() {
                         innerHTML = addToolTips(innerHTML)
                         break
                     }
+                    case 'Gif': {
+                        styleClass = ''
+                        prefix = ''
+                        sufix = ''
+                        role = ''
+                        key = key + '-gif'
+                        innerHTML = parseGif(paragraph.text)
+                        innerHTML = addItalics(innerHTML)
+                        innerHTML = addToolTips(innerHTML)
+                        break
+                    }
                     case 'Javascript': {
                         styleClass = ''
                         prefix = '<pre><code class="language-javascript">'
@@ -1400,6 +1422,17 @@ function newSuperalgosDocSpace() {
                 return HTML
             }
         }
+    }
+
+    function parseGif(text) {
+        return '<img src="' + text + '"></img>'
+    }
+
+    function reverseParseGif(HTML) {
+        let result = HTML
+        result = result.replace('<img src="', '')
+        result = result.replace('"></img>', '')
+        return result
     }
 
     function parseTable(text) {

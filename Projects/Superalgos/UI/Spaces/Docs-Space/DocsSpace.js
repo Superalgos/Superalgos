@@ -123,66 +123,77 @@ function newSuperalgosDocSpace() {
             function toJavascript() {
                 let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Javascript'
+                contextMenuForceOutClick()
                 renderPage()
             }
 
             function toJson() {
                 let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Json'
+                contextMenuForceOutClick()
                 renderPage()
             }
 
             function toText() {
                 let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Text'
+                contextMenuForceOutClick()
                 renderPage()
             }
 
             function toTitle() {
                 let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Title'
+                contextMenuForceOutClick()
                 renderPage()
             }
 
             function toSubtitle() {
                 let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Subtitle'
+                contextMenuForceOutClick()
                 renderPage()
             }
 
             function toNote() {
                 let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Note'
+                contextMenuForceOutClick()
                 renderPage()
             }
 
             function toWarning() {
                 let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Warning'
+                contextMenuForceOutClick()
                 renderPage()
             }
 
             function toImportant() {
                 let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Important'
+                contextMenuForceOutClick()
                 renderPage()
             }
 
             function toSuccess() {
                 let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Success'
+                contextMenuForceOutClick()
                 renderPage()
             }
 
             function toList() {
                 let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'List'
+                contextMenuForceOutClick()
                 renderPage()
             }
 
             function toTable() {
                 let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Table'
+                contextMenuForceOutClick()
                 renderPage()
             }
         }
@@ -538,39 +549,6 @@ function newSuperalgosDocSpace() {
                 HTML = HTML + '</tr>'
                 HTML = HTML + '</table>'
             }
-
-
-            HTML = HTML + '<table class="docs-info-table">'
-            HTML = HTML + '<thead>'
-            HTML = HTML + '<tr>'
-            HTML = HTML + '<th>Support Properties</th>'
-            HTML = HTML + '<th>Possible Values of (i)</th>'
-            HTML = HTML + '<th>Comments</th>'
-            HTML = HTML + '</tr>'
-            HTML = HTML + '</thead>'
-            HTML = HTML + '<tbody>'
-            HTML = HTML + '<tr>'
-            HTML = HTML + '<td>support(i)Rate</td>'
-            HTML = HTML + '<td>1 to 5</td>'
-            HTML = HTML + '<td>The reference rate of the level.</td>'
-            HTML = HTML + '</tr>'
-            HTML = HTML + '<tr class="docs-info-table-alt-bg">'
-            HTML = HTML + '<td>support(i)Period</td>'
-            HTML = HTML + '<td>1 to 5</td>'
-            HTML = HTML + '<td>The number of periods the level has been in existence.</td>'
-            HTML = HTML + '</tr>'
-            HTML = HTML + '<tr>'
-            HTML = HTML + '<td>support(i)Bounce1</td>'
-            HTML = HTML + '<td>1 to 5</td>'
-            HTML = HTML + '<td>The number of bounces for zone 1, the one rendered on-screen.</td>'
-            HTML = HTML + '</tr>'
-            HTML = HTML + '<tr class="docs-info-table-alt-bg">'
-            HTML = HTML + '<td>support(i)Bounce2</td>'
-            HTML = HTML + '<td>1 to 3</td>'
-            HTML = HTML + '<td>The number of bounces for zone 2, only available for the first three levels. Zone 2 is two times bigger than zone 1.</td>'
-            HTML = HTML + '</tr>'
-            HTML = HTML + '</tbody>'
-            HTML = HTML + '</table>'
 
             HTML = HTML + '<div id="docs-content">'
 
@@ -1354,7 +1332,6 @@ function newSuperalgosDocSpace() {
                         role = ''
                         key = key + '-table'
                         innerHTML = parseTable(paragraph.text)
-                        innerHTML = addBold(innerHTML)
                         innerHTML = addItalics(innerHTML)
                         innerHTML = addToolTips(innerHTML)
                         break
@@ -1437,11 +1414,11 @@ function newSuperalgosDocSpace() {
         let rows = text.split(String.fromCharCode(10))
         for (let i = 0; i < rows.length; i++) {
             let row = rows[i]
-            if (row === '') { 
+            if (row === '') {
                 if (i === rows.length - 1) {
                     HTML = HTML + '</tbody>'
                 }
-                continue 
+                continue
             }
             let colums = row.split('|')
             if (i === 0) {
@@ -1463,6 +1440,8 @@ function newSuperalgosDocSpace() {
                 /* We discard anything before the first | and after the last | */
                 for (let j = 1; j < colums.length - 1; j++) {
                     let column = colums[j]
+                    column = addRGB(column)
+
                     if (i === 0) {
                         HTML = HTML + '<th>' + column + '</th>'
                     } else {
@@ -1479,11 +1458,10 @@ function newSuperalgosDocSpace() {
                 HTML = HTML + '</tbody>'
             }
         }
-        HTML = addRGB(HTML)
         return HTML
 
         function addRGB(text) {
-            const RGB_HTML = '<div>HOLA&nbsp;</div>'
+            const RGB_HTML = '<div style=\"display: block; background: RGB; border: 1px solid black;\">&nbsp;&nbsp;&nbsp;</div>'
             let splittedText = text.split('RGB(')
             if (splittedText.length === 1) { return text }
             let remainderSplit = splittedText[1].split(')')
@@ -1494,7 +1472,7 @@ function newSuperalgosDocSpace() {
             return result
         }
     }
-    // style=\"display: block; background: RGB; border: 1px solid black;\"
+
     function reverseParseTable(HTML) {
         text = removeRGB(HTML)
 
@@ -1523,8 +1501,8 @@ function newSuperalgosDocSpace() {
 
         function removeRGB(HTML) {
             let text = HTML
-            text.replace('<span style="display: block; background: ', '')
-            text.replace('; border: 1px black; border: 1px solid black;">&nbsp;</span>', '')
+            text = text.replaceAll('<div style="display: block; background: ', '')
+            text = text.replaceAll('; border: 1px solid black;">&nbsp;&nbsp;&nbsp;</div>', '')
             return text
         }
     }

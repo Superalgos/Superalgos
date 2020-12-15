@@ -24,7 +24,7 @@ git clone https://github.com/Superalgos/Superalgos
 ```
 node run
 ```
-2. Follow the in-app Welcome Tutorial to learn the basics.
+2. Follow the in-app Welcome Tutorial to learn the basics. It's the ultimate onboarding experience, superior to all other resources available.
 
 ## Uninstall
 

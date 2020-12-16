@@ -505,7 +505,7 @@ function newSuperalgosDocSpace() {
 
     function onOpening() {
         if (objectBeingRendered === undefined) {
-            renderSearchPage()
+            renderSearchResultsPage()
         }
     }
 
@@ -527,11 +527,9 @@ function newSuperalgosDocSpace() {
     function renderSearchResultsPage() {
         let HTML = ''
         HTML = HTML + '<div id="docs-search-results-div">'
-        HTML = HTML + '<p>'
         HTML = HTML + '<img src="Images/superalgos-logo.png" class="docs-image-logo-search-results" width=200>'
         HTML = HTML + '<div class="docs-font-normal docs-search-results-box">'
         HTML = HTML + '<input class="docs-search-input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></input>'
-        HTML = HTML + '</p>'
         HTML = HTML + '</div>'
         HTML = HTML + '</div>'
         let docsSpaceDiv = document.getElementById('docs-space-div')

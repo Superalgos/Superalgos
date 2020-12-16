@@ -920,7 +920,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             folder = 'Docs-Concepts'
                             break
                         }
-                        case 'DocsTopictSchema': {
+                        case 'DocsTopicSchema': {
                             folder = 'Docs-Topics'
                             break
                         }

@@ -41,12 +41,14 @@ function newAppPostLoader() {
                         array: {
                             appSchema: [],
                             docsNodeSchema: [],
-                            docsConceptSchema: []
+                            docsConceptSchema: [],
+                            docsTopicSchema: []
                         },
                         map: {
                             appSchema: new Map(),
                             docsNodeSchema: new Map(),
-                            docsConceptSchema: new Map()
+                            docsConceptSchema: new Map(),
+                            docsTopicSchema: new Map()
                         }
                     }
                     SCHEMAS_BY_PROJECT.set(project, schemas)
@@ -102,6 +104,26 @@ function newAppPostLoader() {
                                 let nodeDefinition = schemas.array.docsConceptSchema[j]
                                 let key = nodeDefinition.type
                                 schemas.map.docsConceptSchema.set(key, nodeDefinition)
+                            }
+                        } catch (err) {
+                            console.log(err.stack)
+                        }
+
+                        webServerResponses++
+                        if (webServerResponses === totalWebServerCalls) { startCanvas() }
+                    }
+
+                    totalWebServerCalls++
+                    httpRequest(undefined, 'Schema/' + project + '/DocsTopicSchema', onResponseTopicSchema)
+
+                    function onResponseTopicSchema(err, schema) {
+                        try {
+                            schemas.array.docsTopicSchema = JSON.parse(schema)
+
+                            for (let j = 0; j < schemas.array.docsTopicSchema.length; j++) {
+                                let nodeDefinition = schemas.array.docsTopicSchema[j]
+                                let key = nodeDefinition.type
+                                schemas.map.docsTopicSchema.set(key, nodeDefinition)
                             }
                         } catch (err) {
                             console.log(err.stack)

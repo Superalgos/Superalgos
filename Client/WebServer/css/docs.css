@@ -516,12 +516,7 @@ width: 100%;
   display: table;
   padding-left: 240px;
   margin-top: 20px;
-  border-bottom: 1px solid #dedede;
 }
-
-
-
-
 
 
 .docs-search-results-header-tabs-container > input {
@@ -548,44 +543,28 @@ width: 100%;
   border-bottom:  3px solid #e44d40;
 }
 
-#docs-search-result-tab-all:checked ~ .docs-search-result-content #docs-search-result-content-all,
-#docs-search-result-tab-nodes:checked ~ .docs-search-result-content #docs-search-result-content-nodes,
-#docs-search-result-tab-concepts:checked ~ .docs-search-result-content #docs-search-result-content-concepts,
-#docs-search-result-tab-topics:checked ~ .docs-search-result-content #docs-search-result-content-topics,
-#docs-search-result-tab-projects:checked ~ .docs-search-result-content #docs-search-result-content-projects,
-#docs-search-result-tab-code:checked ~ .docs-search-result-content #docs-search-result-content-code,
-#docs-search-result-tab-configs:checked ~ .docs-search-result-content #docs-search-result-content-configs {
-  display: block;
-}
-
-
-
-
-
-
-.docs-search-results-header-tab {
-  display: table-cell;
-  vertical-align: bottom;
-  padding: 0 15px 5px 15px;
-  color: #333;
-  font-size: 90%;
-}
-
-.docs-search-results-header-tab-selected {
-  color: #e44d40;
-  padding-bottom: 2px;
-  border-bottom:  3px solid #e44d40;
-}
-
 /* Search Results Page Content */
 
-
-
-/* Search Results Page Record */
+.docs-search-result-content {
+border-top: 1px solid #dedede;
+margin-left: -240px;
+}
 
 .docs-search-result-content > div {
   display: none;
 }
+
+#tab1:checked ~ .docs-search-result-content #content1,
+#tab2:checked ~ .docs-search-result-content #content2,
+#tab3:checked ~ .docs-search-result-content #content3,
+#tab4:checked ~ .docs-search-result-content #content4,
+#tab5:checked ~ .docs-search-result-content #content5,
+#tab6:checked ~ .docs-search-result-content #content6,
+#tab7:checked ~ .docs-search-result-content #content7 {
+  display: block;
+}
+
+/* Search Results Page Record */
 
 .docs-search-result-content-record-container {
   margin: 20px 0;

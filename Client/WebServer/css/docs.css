@@ -154,7 +154,6 @@ z-index:100;
 }
 
 /* Alerts */
-
 .docs-alert-note {
 color: #31708f;
 background-color: #d9edf7;
@@ -207,7 +206,16 @@ border-left-width: 5px;
 border-radius: 3px;
 border-left-color: #bcd643;
 font-weight: 500;
-width: 100%;
+width: 95%;
+}
+
+.docs-summary {
+font-size:120%;
+color: #808080;
+margin:20px 0px 20px 0px;
+border-left: 5px solid #fd6a33;
+padding-left: 10px;
+
 }
 
 .docs-note-circle:before {
@@ -273,7 +281,6 @@ padding-left: 15px;
 }
 
 /* Links */
-
 a:link.docs-plain-link {
 text-decoration: none;
 }
@@ -291,7 +298,6 @@ text-decoration: none;
 }
 
 /* Icon after external links, using FontAwesome*/
-
 a[href^="http://"]:after, a[href^="https://"]:after {
 content: "\f08e";
 font-family: FontAwesome;

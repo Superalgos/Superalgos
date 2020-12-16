@@ -65,6 +65,8 @@ function newSuperalgosDocSpace() {
                 toWarning: toWarning,
                 toImportant: toImportant,
                 toSuccess: toSuccess,
+                toCallout: toCallout,
+                toSummary: toSummary, 
                 toList: toList,
                 toTable: toTable,
                 toGif: toGif,
@@ -78,6 +80,12 @@ function newSuperalgosDocSpace() {
                 function showHTMLTextArea() {
                     if (selectedParagraph === undefined) { return }
 
+                    /* 
+                    When in editing mode, some type of paragraphs need to extend
+                    the text area style so that while editing, it looks and feel
+                    like the non editing style of the paragraph. For those we
+                    add an extra style class.
+                    */
                     let extraClassName = ''
                     if (selectedParagraph.id.indexOf('definition') >= 0) {
                         extraClassName = ' ' + ''
@@ -181,6 +189,20 @@ function newSuperalgosDocSpace() {
             function toSuccess() {
                 let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Success'
+                contextMenuForceOutClick()
+                renderPage()
+            }
+
+            function toCallout() {
+                let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
+                docSchemaParagraph.style = 'Callout'
+                contextMenuForceOutClick()
+                renderPage()
+            }
+
+            function toSummary() {
+                let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
+                docSchemaParagraph.style = 'Summary'
                 contextMenuForceOutClick()
                 renderPage()
             }
@@ -458,6 +480,12 @@ function newSuperalgosDocSpace() {
         }
         if (paragraphNode.id.indexOf('-json') >= 0) {
             selectedParagraphData = paragraphNode.innerText.substring(1, paragraphNode.innerText.length - 1)
+        }
+        if (paragraphNode.id.indexOf('-callout') >= 0) {
+            selectedParagraphData = paragraphNode.innerText
+        }
+        if (paragraphNode.id.indexOf('-summary') >= 0) {
+            selectedParagraphData = paragraphNode.innerText.substring(9, paragraphNode.innerText.length)
         }
 
         selectedParagraph = paragraphNode
@@ -1333,6 +1361,24 @@ function newSuperalgosDocSpace() {
                         prefix = '<i class="docs-fa docs-warning-sign"></i> <b>Warning:</b>'
                         role = 'role="alert"'
                         key = key + '-warning'
+                        innerHTML = addItalics(innerHTML)
+                        innerHTML = addToolTips(innerHTML)
+                        break
+                    }
+                    case 'Callout': {
+                        styleClass = 'class="docs-font-small docs-callout"'
+                        prefix = ''
+                        role = ''
+                        key = key + '-callout'
+                        innerHTML = addItalics(innerHTML)
+                        innerHTML = addToolTips(innerHTML)
+                        break
+                    }
+                    case 'Summary': {
+                        styleClass = 'class="docs-font-small docs-summary"'
+                        prefix = '<b>Summary:</b>'
+                        role = ''
+                        key = key + '-summary'
                         innerHTML = addItalics(innerHTML)
                         innerHTML = addToolTips(innerHTML)
                         break

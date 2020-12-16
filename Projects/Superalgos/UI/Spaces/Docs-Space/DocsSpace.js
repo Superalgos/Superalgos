@@ -565,7 +565,7 @@ function newSuperalgosDocSpace() {
         disableCollapsibleContent()
 
         nodeAppDefinition = SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.appSchema.get(objectBeingRendered.type)
-        nodeDocsDefinition = SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.docSchema.get(objectBeingRendered.type)
+        nodeDocsDefinition = SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.docsNodeSchema.get(objectBeingRendered.type)
 
         if (nodeDocsDefinition === undefined) {
             // Use the New Node Template
@@ -579,8 +579,8 @@ function newSuperalgosDocSpace() {
                     }
                 ]
             }
-            SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).array.docSchema.push(template)
-            SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.docSchema.set(objectBeingRendered.type, template)
+            SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).array.docsNodeSchema.push(template)
+            SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.docsNodeSchema.set(objectBeingRendered.type, template)
             nodeDocsDefinition = template
         }
         buildHtmlPage()
@@ -1716,12 +1716,12 @@ function newSuperalgosDocSpace() {
 
             for (let j = 0; j < PROJECTS_ARRAY.length; j++) {
                 let project = PROJECTS_ARRAY[j]
-                definitionNode = SCHEMAS_BY_PROJECT.get(project).map.docSchema.get(type)
+                definitionNode = SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(type)
                 if (definitionNode !== undefined) {
                     found = true
                     break
                 }
-                definitionNode = SCHEMAS_BY_PROJECT.get(project).map.conceptSchema.get(type)
+                definitionNode = SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.get(type)
                 if (definitionNode !== undefined) {
                     found = true
                     break
@@ -1773,8 +1773,8 @@ function newSuperalgosDocSpace() {
             for (let j = 0; j < PROJECTS_ARRAY.length; j++) {
                 let project = PROJECTS_ARRAY[j]
 
-                /* Search in docSchema */
-                if (SCHEMAS_BY_PROJECT.get(project).map.docSchema.get(cleanPhrase4) !== undefined) {
+                /* Search in docsNodeSchema */
+                if (SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(cleanPhrase4) !== undefined) {
                     if (cleanPhrase4 !== excludeNodesAndConceptTypes) {
                         taggedText = taggedText + phrase4.replace(cleanPhrase4, '->' + 'Node' + '|' + cleanPhrase4 + '|' + project + '->') + ' '
                     } else {
@@ -1784,7 +1784,7 @@ function newSuperalgosDocSpace() {
                     found = true
                     break
                 }
-                if (SCHEMAS_BY_PROJECT.get(project).map.docSchema.get(cleanPhrase3) !== undefined) {
+                if (SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(cleanPhrase3) !== undefined) {
                     if (cleanPhrase3 !== excludeNodesAndConceptTypes) {
                         taggedText = taggedText + phrase3.replace(cleanPhrase3, '->' + 'Node' + '|' + cleanPhrase3 + '|' + project + '->') + ' '
                     } else {
@@ -1794,7 +1794,7 @@ function newSuperalgosDocSpace() {
                     found = true
                     break
                 }
-                if (SCHEMAS_BY_PROJECT.get(project).map.docSchema.get(cleanPhrase2) !== undefined) {
+                if (SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(cleanPhrase2) !== undefined) {
                     if (cleanPhrase2 !== excludeNodesAndConceptTypes) {
                         taggedText = taggedText + phrase2.replace(cleanPhrase2, '->' + 'Node' + '|' + cleanPhrase2 + '|' + project + '->') + ' '
                     } else {
@@ -1804,7 +1804,7 @@ function newSuperalgosDocSpace() {
                     found = true
                     break
                 }
-                if (SCHEMAS_BY_PROJECT.get(project).map.docSchema.get(cleanPhrase1) !== undefined) {
+                if (SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(cleanPhrase1) !== undefined) {
                     if (cleanPhrase1 !== excludeNodesAndConceptTypes) {
                         taggedText = taggedText + phrase1.replace(cleanPhrase1, '->' + 'Node' + '|' + cleanPhrase1 + '|' + project + '->') + ' '
                     } else {
@@ -1814,8 +1814,8 @@ function newSuperalgosDocSpace() {
                     break
                 }
 
-                /* Search in conceptSchema */
-                if (SCHEMAS_BY_PROJECT.get(project).map.conceptSchema.get(cleanPhrase4) !== undefined) {
+                /* Search in docsConceptSchema */
+                if (SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.get(cleanPhrase4) !== undefined) {
                     if (cleanPhrase4 !== excludeNodesAndConceptTypes) {
                         taggedText = taggedText + phrase4.replace(cleanPhrase4, '->' + 'Concept' + '|' + cleanPhrase4 + '|' + project + '->') + ' '
                     } else {
@@ -1825,7 +1825,7 @@ function newSuperalgosDocSpace() {
                     found = true
                     break
                 }
-                if (SCHEMAS_BY_PROJECT.get(project).map.conceptSchema.get(cleanPhrase3) !== undefined) {
+                if (SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.get(cleanPhrase3) !== undefined) {
                     if (cleanPhrase3 !== excludeNodesAndConceptTypes) {
                         taggedText = taggedText + phrase3.replace(cleanPhrase3, '->' + 'Concept' + '|' + cleanPhrase3 + '|' + project + '->') + ' '
                     } else {
@@ -1835,7 +1835,7 @@ function newSuperalgosDocSpace() {
                     found = true
                     break
                 }
-                if (SCHEMAS_BY_PROJECT.get(project).map.conceptSchema.get(cleanPhrase2) !== undefined) {
+                if (SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.get(cleanPhrase2) !== undefined) {
                     if (cleanPhrase2 !== excludeNodesAndConceptTypes) {
                         taggedText = taggedText + phrase2.replace(cleanPhrase2, '->' + 'Concept' + '|' + cleanPhrase2 + '|' + project + '->') + ' '
                     } else {
@@ -1845,7 +1845,7 @@ function newSuperalgosDocSpace() {
                     found = true
                     break
                 }
-                if (SCHEMAS_BY_PROJECT.get(project).map.conceptSchema.get(cleanPhrase1) !== undefined) {
+                if (SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.get(cleanPhrase1) !== undefined) {
                     if (cleanPhrase1 !== excludeNodesAndConceptTypes) {
                         taggedText = taggedText + phrase1.replace(cleanPhrase1, '->' + 'Concept' + '|' + cleanPhrase1 + '|' + project + '->') + ' '
                     } else {

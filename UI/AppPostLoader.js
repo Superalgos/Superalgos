@@ -40,13 +40,13 @@ function newAppPostLoader() {
                     let schemas = {
                         array: {
                             appSchema: [],
-                            docSchema: [],
-                            conceptSchema: []
+                            docsNodeSchema: [],
+                            docsConceptSchema: []
                         },
                         map: {
                             appSchema: new Map(),
-                            docSchema: new Map(),
-                            conceptSchema: new Map()
+                            docsNodeSchema: new Map(),
+                            docsConceptSchema: new Map()
                         }
                     }
                     SCHEMAS_BY_PROJECT.set(project, schemas)
@@ -76,12 +76,12 @@ function newAppPostLoader() {
 
                     function onResponseDocSchema(err, schema) {
                         try {
-                            schemas.array.docSchema = JSON.parse(schema)
+                            schemas.array.docsNodeSchema = JSON.parse(schema)
 
-                            for (let j = 0; j < schemas.array.docSchema.length; j++) {
-                                let nodeDefinition = schemas.array.docSchema[j]
+                            for (let j = 0; j < schemas.array.docsNodeSchema.length; j++) {
+                                let nodeDefinition = schemas.array.docsNodeSchema[j]
                                 let key = nodeDefinition.type
-                                schemas.map.docSchema.set(key, nodeDefinition)
+                                schemas.map.docsNodeSchema.set(key, nodeDefinition)
                             }
                         } catch (err) {
                             console.log(err.stack)
@@ -96,12 +96,12 @@ function newAppPostLoader() {
 
                     function onResponseConceptSchema(err, schema) {
                         try {
-                            schemas.array.conceptSchema = JSON.parse(schema)
+                            schemas.array.docsConceptSchema = JSON.parse(schema)
 
-                            for (let j = 0; j < schemas.array.conceptSchema.length; j++) {
-                                let nodeDefinition = schemas.array.conceptSchema[j]
+                            for (let j = 0; j < schemas.array.docsConceptSchema.length; j++) {
+                                let nodeDefinition = schemas.array.docsConceptSchema[j]
                                 let key = nodeDefinition.type
-                                schemas.map.conceptSchema.set(key, nodeDefinition)
+                                schemas.map.docsConceptSchema.set(key, nodeDefinition)
                             }
                         } catch (err) {
                             console.log(err.stack)

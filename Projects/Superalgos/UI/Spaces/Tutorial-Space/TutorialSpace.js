@@ -1203,9 +1203,9 @@ function newSuperalgosTutorialSpace() {
                     project = 'Superalgos'
                     type =  splittedNodeType[0]
                 }
-                let definitionNode = SCHEMAS_BY_PROJECT.get(project).map.docSchema.get(type)
+                let definitionNode = SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(type)
                 if (definitionNode === undefined) {
-                    definitionNode = SCHEMAS_BY_PROJECT.get(project).map.conceptSchema.get(type)
+                    definitionNode = SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.get(type)
                     if (definitionNode === undefined) {
                         currentNode.payload.uiObject.setErrorMessage(type + ' not found at Doc Schema or Concept Schema.')
                         return

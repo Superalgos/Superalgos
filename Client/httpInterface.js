@@ -894,9 +894,6 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
             if (fileName === 'AppSchema.json') {
                 try {
-                    console.log('Requested Schema AppSchema ' + filePath + fileName)
-
-
                     filePath = filePath + fileName
                     fs.readFile(filePath, onFileRead)
                 } catch (e) {
@@ -912,7 +909,6 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                 }
             } else {
                 try {
-                    console.log('Requested Schema BBY FILE ' + filePath + fileName)
                     let schemaArray = []
                     let fileList = fs.readdirSync(filePath + '/Docs-Nodes')
                     for (let k = 0; k < fileList.length; k++) {
@@ -922,7 +918,6 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                         schemaArray.push(nodeDefinition)
                     }
                     let schema = JSON.stringify(schemaArray)
-                    console.log('sending schema')
                     respondWithContent(schema, httpResponse)
                 } catch (err) {
                     console.log(err.stack)

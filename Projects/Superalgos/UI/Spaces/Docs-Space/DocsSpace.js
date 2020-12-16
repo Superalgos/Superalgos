@@ -1296,7 +1296,7 @@ function newSuperalgosDocSpace() {
             }
 
             function renderParagraph(paragraph, key) {
-                let innerHTML = addToolTips(paragraph.text)
+                let innerHTML  
                 let styleClass = ''
                 let prefix = ''
                 let sufix = ''
@@ -1334,7 +1334,7 @@ function newSuperalgosDocSpace() {
                         prefix = '<i class="docs-fa docs-note-circle"></i> <b>Note:</b>'
                         role = 'role="alert"'
                         key = key + '-note'
-                        innerHTML = addItalics(innerHTML)
+                        innerHTML = addItalics(paragraph.text)
                         innerHTML = addToolTips(innerHTML)
                         break
                     }
@@ -1343,7 +1343,7 @@ function newSuperalgosDocSpace() {
                         prefix = '<i class="docs-fa docs-check-square-o"></i> <b>Tip:</b>'
                         role = 'role="alert"'
                         key = key + '-success'
-                        innerHTML = addItalics(innerHTML)
+                        innerHTML = addItalics(paragraph.text)
                         innerHTML = addToolTips(innerHTML)
                         break
                     }
@@ -1352,7 +1352,7 @@ function newSuperalgosDocSpace() {
                         prefix = '<i class="docs-fa docs-warning-sign"></i> <b>Important:</b>'
                         role = 'role="alert"'
                         key = key + '-important'
-                        innerHTML = addItalics(innerHTML)
+                        innerHTML = addItalics(paragraph.text)
                         innerHTML = addToolTips(innerHTML)
                         break
                     }
@@ -1361,7 +1361,7 @@ function newSuperalgosDocSpace() {
                         prefix = '<i class="docs-fa docs-warning-sign"></i> <b>Warning:</b>'
                         role = 'role="alert"'
                         key = key + '-warning'
-                        innerHTML = addItalics(innerHTML)
+                        innerHTML = addItalics(paragraph.text)
                         innerHTML = addToolTips(innerHTML)
                         break
                     }
@@ -1370,7 +1370,7 @@ function newSuperalgosDocSpace() {
                         prefix = ''
                         role = ''
                         key = key + '-callout'
-                        innerHTML = addItalics(innerHTML)
+                        innerHTML = addItalics(paragraph.text)
                         innerHTML = addToolTips(innerHTML)
                         break
                     }
@@ -1379,7 +1379,7 @@ function newSuperalgosDocSpace() {
                         prefix = '<b>Summary:</b>'
                         role = ''
                         key = key + '-summary'
-                        innerHTML = addItalics(innerHTML)
+                        innerHTML = addItalics(paragraph.text)
                         innerHTML = addToolTips(innerHTML)
                         break
                     }
@@ -1389,7 +1389,7 @@ function newSuperalgosDocSpace() {
                         sufix = '</li>'
                         role = ''
                         key = key + '-list'
-                        innerHTML = addBold(innerHTML)
+                        innerHTML = addBold(paragraph.text)
                         innerHTML = addItalics(innerHTML)
                         innerHTML = addToolTips(innerHTML)
                         break

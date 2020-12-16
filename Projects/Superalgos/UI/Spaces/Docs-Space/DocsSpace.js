@@ -435,6 +435,14 @@ function newSuperalgosDocSpace() {
         if (paragraphNode.id === undefined || paragraphNode.id.indexOf('paragraph') < 0) {
             return false
         }
+
+        /*
+        We woont continue unless the paragraph the mouse is pointnig at was
+        tagged as an editable paragraph.
+        */
+        if (paragraphNode.id.indexOf('editable-paragraph') < 0) {
+            return false
+        }        
         /*
         Depending on the Style of Paragraph we will need to remove
         some info from the innerText. 

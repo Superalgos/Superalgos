@@ -540,8 +540,6 @@ function newSuperalgosDocSpace() {
 
     function navigateTo(category, type, project) {
 
-        disableCollapsibleContent()
-
         docSchemaParagraphMap = new Map()
         objectBeingRendered = {
             category: category,
@@ -550,12 +548,13 @@ function newSuperalgosDocSpace() {
         }
 
         renderPage()
-        enableCollapsibleContent()
         scrollToElement('docs-context-menu-clickeable-div')
 
     }
 
     function renderPage() {
+
+        disableCollapsibleContent()
 
         nodeAppDefinition = SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.appSchema.get(objectBeingRendered.type)
         nodeDocsDefinition = SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.docSchema.get(objectBeingRendered.type)
@@ -578,6 +577,8 @@ function newSuperalgosDocSpace() {
         }
         buildHtmlPage()
         contextMenuActivateRightClick()
+        enableCollapsibleContent()
+
 
         function buildHtmlPage() {
             let HTML = ''

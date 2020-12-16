@@ -38,6 +38,7 @@ function newSuperalgosDocSpace() {
     let nodeAppDefinition
     let nodeDocsDefinition
     let menuLabelsMap = new Map()
+    let searchPhrase
 
     return thisObject
 
@@ -514,11 +515,38 @@ function newSuperalgosDocSpace() {
 
     function renderSearchPage() {
         let HTML = ''
-        HTML = HTML + '<div id="docs-main-title-div"><center><img src="Images/superalgos-logo.png" class="docs-image-logo-search" width=400></center>'
-        HTML = HTML + '<center><div class="docs-font-normal docs-search-box"><input class="docs-search-input"></input></div></center>' 
-        HTML = HTML + '</div>' 
+        HTML = HTML + '<div id="docs-search-page-div">'
+        HTML = HTML + '<center><img src="Images/superalgos-logo.png" class="docs-image-logo-search" width=400></center>'
+        HTML = HTML + '<center><div class="docs-font-normal docs-search-box"><input class="docs-search-input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></input></div></center>'
+        HTML = HTML + '</div>'
         let docsSpaceDiv = document.getElementById('docs-space-div')
         docsSpaceDiv.innerHTML = HTML + addFooter()
+        detectEnterOnSearchBox() 
+    }
+
+    function renderSearchResultsPage() {
+        let HTML = ''
+        HTML = HTML + '<div id="docs-search-results-div">'
+        HTML = HTML + '<p>'
+        HTML = HTML + '<img src="Images/superalgos-logo.png" class="docs-image-logo-search-results" width=200>'
+        HTML = HTML + '<div class="docs-font-normal docs-search-results-box">'
+        HTML = HTML + '<input class="docs-search-input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></input>'
+        HTML = HTML + '</p>'
+        HTML = HTML + '</div>'
+        HTML = HTML + '</div>'
+        let docsSpaceDiv = document.getElementById('docs-space-div')
+        docsSpaceDiv.innerHTML = HTML + addFooter()
+        detectEnterOnSearchBox() 
+    }
+
+    function detectEnterOnSearchBox() {
+        const element = document.getElementsByClassName("docs-search-input")[0]
+        element.addEventListener("keyup", function (event) {
+            if (event.key === "Enter" || event.keyCode === 13) {
+                let searchPhrase = element.value
+                renderSearchResultsPage()
+            }
+        });
     }
 
     function scrollToElement(htmlElementId) {

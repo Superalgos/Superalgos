@@ -369,11 +369,11 @@ z-index: 1;
 }
 
 .docs-collapsible-code-content {
-  padding: 0 18px;
-  display: none;
-  margin-left: 0px;
-  z-index: 1;
-  }
+padding: 0 18px;
+display: none;
+margin-left: 0px;
+z-index: 1;
+}
 
 .docs-collapsible-element:after {
 content: '\02795'; /* Unicode character for "plus" sign (+) */
@@ -471,20 +471,37 @@ margin-bottom: 25px;
 }
 
 .docs-search-box {
-  width: 700px;
-  height: 60px;
-  margin-top: 50px;
-  margin-bottom: 600px;
-  border-radius: 30px;
-  border: 1px solid #dedede;
+width: 700px;
+height: 60px;
+margin-top: 50px;
+margin-bottom: 600px;
+border-radius: 30px;
+border: 1px solid #dedede;
 }
 
 .docs-search-input {
-  width: 600px;
+width: 600px;
+height: 60px;
+font: 400 25px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
+color: #6b6b6b; 
+line-height: 200%;
+border: none;
+outline: none;
+}
+
+/* Search Results Page */
+.docs-image-logo-search-results {
+margin: auto;
+margin-top: 25px;
+margin-bottom: 25px;
+margin-left: 25px;
+}
+
+.docs-search-results-box {
+  width: 700px;
   height: 60px;
-  font: 400 25px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
-  color: #6b6b6b; 
-  line-height: 200%;
-  border: none;
-  outline: none;
+  margin-top: 50px;
+  margin-bottom: 100px;
+  border-radius: 30px;
+  border: 1px solid #dedede;
   }

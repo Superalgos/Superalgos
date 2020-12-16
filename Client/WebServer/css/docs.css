@@ -462,3 +462,12 @@ width: 100%;
 border: 1px solid #dedede;
 border-spacing: 1px;
 }
+
+/* Search Page */
+.docs-image-logo-search {
+width: 300 px;
+}
+
+.docs-search-box {
+  width: 500 px;
+}

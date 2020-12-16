@@ -513,8 +513,9 @@ function newSuperalgosDocSpace() {
     }
 
     function renderSearchPage() {
-        HTML = HTML + '<div id="docs-main-title-div"><img src="Images/superalgos-logo.png" class="docs-image-logo-search">'
-        HTML = HTML + '<input class="docs-search-box"></input>' 
+        let HTML = ''
+        HTML = HTML + '<div id="docs-main-title-div"><center><img src="Images/superalgos-logo.png" class="docs-image-logo-search" width=400></center>'
+        HTML = HTML + '<center><div class="docs-font-normal docs-search-box"><input class="docs-search-input"></input></div></center>' 
         HTML = HTML + '</div>' 
         let docsSpaceDiv = document.getElementById('docs-space-div')
         docsSpaceDiv.innerHTML = HTML + addFooter()
@@ -614,7 +615,7 @@ function newSuperalgosDocSpace() {
                 HTML = HTML + '<div id="definitionImageDiv" class="docs-image-container"/>'
                 HTML = HTML + '</td>'
                 HTML = HTML + '<td>'
-                HTML = HTML + '<div id="definition-paragraph" class="docs-normal-font"><strong>' + addToolTips(nodeDocsDefinition.definition) + '</strong></div>'
+                HTML = HTML + '<div id="definition-paragraph" class="docs-font-normal"><strong>' + addToolTips(nodeDocsDefinition.definition) + '</strong></div>'
                 HTML = HTML + '</td>'
                 HTML = HTML + '</tr>'
                 HTML = HTML + '</table>'
@@ -1477,39 +1478,39 @@ function newSuperalgosDocSpace() {
                     // nothing to do here
                 }
             }
-
-            function addFooter() {
-                let HTML = ''
-
-                HTML = HTML + '<div class="docs-node-html-footer-container">' // Container Starts
-
-                HTML = HTML + '<hr class="docs-shaded"></hr>'
-                HTML = HTML + '<footer>'
-                HTML = HTML + '<div class="docs-footer-row">'
-                HTML = HTML + '<div class="docs-footer-body" style="text-align: left;">'
-
-                HTML = HTML + '<div onClick="UI.projects.superalgos.spaces.docsSpace.scrollToElement(\'docs-main-title-div\')" class="docs-plain-link"><kbd class=docs-kbd>BACK TO TOP ↑</kbd></div>'
-
-                HTML = HTML + '<ul>'
-                HTML = HTML + '<li><a href="https://superalgos.org/" target="_blank" class="docs-footer-link">Superalgos Project</a> — Learn more about the project.</li>'
-                HTML = HTML + '<li><a href="https://t.me/superalgoscommunity" rel="nofollow" target="_blank" class="docs-footer-link">Community Group</a> — Lets talk Superalgos!</li>'
-                HTML = HTML + '<li><a href="https://t.me/superalgossupport" rel="nofollow" target="_blank" class="docs-footer-link">Support Group</a> — Need help using the <code class="docs-code">master</code> branch?</li>'
-                HTML = HTML + '<li><a href="https://t.me/superalgosdevelop" rel="nofollow" target="_blank" class="docs-footer-link">Develop Group</a> — Come test the <code class="docs-code">develop</code> branch!</li>'
-                HTML = HTML + '<li><a href="https://t.me/superalgosuxui" rel="nofollow" target="_blank" class="docs-footer-link">UX/UI Design Group</a> — Help us improve the GIU!</li>'
-                HTML = HTML + '<li><a href="https://t.me/superalgos_es" rel="nofollow" target="_blank" class="docs-footer-link">Grupo en Español</a> — Hablemos en español!</li>'
-                HTML = HTML + '<li><a href="https://t.me/superalgos" rel="nofollow" target="_blank" class="docs-footer-link">Superalgos Announcements</a> — Be the first to know about new releases, hotfixes, and important issues.</li>'
-                HTML = HTML + '</ul>'
-                HTML = HTML + '<img src="Images/superalgos-logo.png" width="200 px">'
-
-                HTML = HTML + '</div>'
-                HTML = HTML + '</div>'
-                HTML = HTML + '</footer>'
-
-                HTML = HTML + '</div>' // Container Ends
-
-                return HTML
-            }
         }
+    }
+
+    function addFooter() {
+        let HTML = ''
+
+        HTML = HTML + '<div class="docs-node-html-footer-container">' // Container Starts
+
+        HTML = HTML + '<hr class="docs-shaded"></hr>'
+        HTML = HTML + '<footer>'
+        HTML = HTML + '<div class="docs-footer-row">'
+        HTML = HTML + '<div class="docs-footer-body" style="text-align: left;">'
+
+        HTML = HTML + '<div onClick="UI.projects.superalgos.spaces.docsSpace.scrollToElement(\'docs-main-title-div\')" class="docs-plain-link"><kbd class=docs-kbd>BACK TO TOP ↑</kbd></div>'
+
+        HTML = HTML + '<ul>'
+        HTML = HTML + '<li><a href="https://superalgos.org/" target="_blank" class="docs-footer-link">Superalgos Project</a> — Learn more about the project.</li>'
+        HTML = HTML + '<li><a href="https://t.me/superalgoscommunity" rel="nofollow" target="_blank" class="docs-footer-link">Community Group</a> — Lets talk Superalgos!</li>'
+        HTML = HTML + '<li><a href="https://t.me/superalgossupport" rel="nofollow" target="_blank" class="docs-footer-link">Support Group</a> — Need help using the <code class="docs-code">master</code> branch?</li>'
+        HTML = HTML + '<li><a href="https://t.me/superalgosdevelop" rel="nofollow" target="_blank" class="docs-footer-link">Develop Group</a> — Come test the <code class="docs-code">develop</code> branch!</li>'
+        HTML = HTML + '<li><a href="https://t.me/superalgosuxui" rel="nofollow" target="_blank" class="docs-footer-link">UX/UI Design Group</a> — Help us improve the GIU!</li>'
+        HTML = HTML + '<li><a href="https://t.me/superalgos_es" rel="nofollow" target="_blank" class="docs-footer-link">Grupo en Español</a> — Hablemos en español!</li>'
+        HTML = HTML + '<li><a href="https://t.me/superalgos" rel="nofollow" target="_blank" class="docs-footer-link">Superalgos Announcements</a> — Be the first to know about new releases, hotfixes, and important issues.</li>'
+        HTML = HTML + '</ul>'
+        HTML = HTML + '<img src="Images/superalgos-logo.png" width="200 px">'
+
+        HTML = HTML + '</div>'
+        HTML = HTML + '</div>'
+        HTML = HTML + '</footer>'
+
+        HTML = HTML + '</div>' // Container Ends
+
+        return HTML
     }
 
     function parseGIF(text) {

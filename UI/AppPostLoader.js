@@ -72,7 +72,7 @@ function newAppPostLoader() {
                     }
 
                     totalWebServerCalls++
-                    httpRequest(undefined, 'Schema/' + project + '/DocSchema', onResponseDocSchema)
+                    httpRequest(undefined, 'Schema/' + project + '/DocsNodeSchema', onResponseDocSchema)
 
                     function onResponseDocSchema(err, schema) {
                         try {
@@ -92,7 +92,7 @@ function newAppPostLoader() {
                     }
 
                     totalWebServerCalls++
-                    httpRequest(undefined, 'Schema/' + project + '/ConceptSchema', onResponseConceptSchema)
+                    httpRequest(undefined, 'Schema/' + project + '/DocsConceptSchema', onResponseConceptSchema)
 
                     function onResponseConceptSchema(err, schema) {
                         try {

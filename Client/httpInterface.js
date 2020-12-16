@@ -454,7 +454,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
             case 'Schema':
                 {
-                    sendSchema(global.env.PATH_TO_PROJECTS + '/' + requestParameters[2] + '/Schemas/', requestParameters[3] + '.json')
+                    sendSchema(global.env.PATH_TO_PROJECTS + '/' + requestParameters[2] + '/Schemas/', requestParameters[3])
                 }
                 break
 
@@ -889,10 +889,11 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
             lsWithGrep();
         }
 
-        function sendSchema(filePath, fileName) {
+        function sendSchema(filePath, schemaType) {
             let fs = require('fs')
 
-            if (fileName === 'AppSchema.json') {
+            if (schemaType === 'AppSchema') {
+                let fileName = 'AppSchema.json'
                 try {
                     filePath = filePath + fileName
                     fs.readFile(filePath, onFileRead)
@@ -909,11 +910,27 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                 }
             } else {
                 try {
+                    let folder = ''
+                    switch (schemaType) {
+                        case 'DocsNodeSchema': {
+                            folder = 'Docs-Nodes'
+                            break
+                        }
+                        case 'DocsConceptSchema': {
+                            folder = 'Docs-Concepts'
+                            break
+                        }
+                        case 'DocsTopictSchema': {
+                            folder = 'Docs-Topics'
+                            break
+                        }
+                    }
+
                     let schemaArray = []
-                    let fileList = fs.readdirSync(filePath + '/Docs-Nodes')
+                    let fileList = fs.readdirSync(filePath + '/' + folder)
                     for (let k = 0; k < fileList.length; k++) {
                         let name = fileList[k]
-                        let fileContent = fs.readFileSync(filePath + '/Docs-Nodes/' + name)
+                        let fileContent = fs.readFileSync(filePath + '/' + folder + '/' + name)
                         let nodeDefinition = JSON.parse(fileContent)
                         schemaArray.push(nodeDefinition)
                     }

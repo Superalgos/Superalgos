@@ -34,7 +34,7 @@ function newSuperalgosDocSpace() {
     let selectedParagraphData = ''
     let selectedParagraphHeight = 0
     let objectBeingRendered
-    let docSchemaParagraphMap
+    let paragraphMap                    // Here we will store a map of paragraphs from the Docs Node, Concept or Topics Schema in order to find it when we need to update them.
     let nodeAppDefinition
     let nodeDocsDefinition
     let menuLabelsMap = new Map()
@@ -131,105 +131,105 @@ function newSuperalgosDocSpace() {
             }
 
             function toJavascript() {
-                let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
+                let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Javascript'
                 contextMenuForceOutClick()
                 renderPage()
             }
 
             function toJson() {
-                let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
+                let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Json'
                 contextMenuForceOutClick()
                 renderPage()
             }
 
             function toText() {
-                let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
+                let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Text'
                 contextMenuForceOutClick()
                 renderPage()
             }
 
             function toTitle() {
-                let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
+                let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Title'
                 contextMenuForceOutClick()
                 renderPage()
             }
 
             function toSubtitle() {
-                let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
+                let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Subtitle'
                 contextMenuForceOutClick()
                 renderPage()
             }
 
             function toNote() {
-                let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
+                let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Note'
                 contextMenuForceOutClick()
                 renderPage()
             }
 
             function toWarning() {
-                let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
+                let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Warning'
                 contextMenuForceOutClick()
                 renderPage()
             }
 
             function toImportant() {
-                let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
+                let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Important'
                 contextMenuForceOutClick()
                 renderPage()
             }
 
             function toSuccess() {
-                let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
+                let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Success'
                 contextMenuForceOutClick()
                 renderPage()
             }
 
             function toCallout() {
-                let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
+                let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Callout'
                 contextMenuForceOutClick()
                 renderPage()
             }
 
             function toSummary() {
-                let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
+                let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Summary'
                 contextMenuForceOutClick()
                 renderPage()
             }
 
             function toList() {
-                let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
+                let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'List'
                 contextMenuForceOutClick()
                 renderPage()
             }
 
             function toTable() {
-                let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
+                let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Table'
                 contextMenuForceOutClick()
                 renderPage()
             }
 
             function toGif() {
-                let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
+                let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Gif'
                 contextMenuForceOutClick()
                 renderPage()
             }
 
             function toPng() {
-                let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
+                let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Png'
                 contextMenuForceOutClick()
                 renderPage()
@@ -265,7 +265,7 @@ function newSuperalgosDocSpace() {
         thisObject.sidePanelTab.container.eventHandler.stopListening(closingEventSubscriptionId)
 
         objectBeingRendered = undefined
-        docSchemaParagraphMap = undefined
+        paragraphMap = undefined
         nodeAppDefinition = undefined
         nodeDocsDefinition = undefined
         menuLabelsMap = undefined
@@ -303,7 +303,7 @@ function newSuperalgosDocSpace() {
                     /*
                     In this case we are at a regular paragraph.
                     */
-                    let docSchemaParagraph = docSchemaParagraphMap.get(selectedParagraph.id)
+                    let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
                     /*
                     We will detect if the user has created new paragraphs while editing.
                     For that we will inspect the value of the text area looking for a char
@@ -548,7 +548,7 @@ function newSuperalgosDocSpace() {
 
     function navigateTo(category, type, project) {
 
-        docSchemaParagraphMap = new Map()
+        paragraphMap = new Map()
         objectBeingRendered = {
             category: category,
             type: type,
@@ -1457,7 +1457,7 @@ function newSuperalgosDocSpace() {
                 }
 
                 HTML = HTML + '<p><div id="' + key + '" ' + styleClass + ' ' + role + '>' + prefix + ' ' + innerHTML + sufix + '</div></p>'
-                docSchemaParagraphMap.set(key, paragraph)
+                paragraphMap.set(key, paragraph)
 
             }
 

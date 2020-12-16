@@ -480,28 +480,153 @@ border: 1px solid #dedede;
 }
 
 .docs-search-input {
-width: 600px;
-height: 60px;
-font: 400 25px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
+width: 95%;
+height: 45px;
+margin: 0 20px;
+font-size: 100%;
 color: #6b6b6b; 
-line-height: 200%;
 border: none;
 outline: none;
 }
 
 /* Search Results Page */
-.docs-image-logo-search-results {
-margin: auto;
-margin-top: 25px;
-margin-bottom: 25px;
-margin-left: 25px;
+
+/* Search Results Page Header*/
+
+.docs-search-results-header {
+  display: table;
 }
 
+.docs-image-logo-search-results {
+vertical-align: middle;
+display: table-cell;
+padding-right: 25px;
+}
+   
 .docs-search-results-box {
-  width: 700px;
-  height: 60px;
-  margin-top: 50px;
-  margin-bottom: 100px;
-  border-radius: 30px;
-  border: 1px solid #dedede;
-  }
+height: 45px;
+border-radius: 30px;
+border: 1px solid #dedede;
+vertical-align: middle;
+display: table-cell;
+width: 100%;
+}
+
+.docs-search-results-header-tabs-container {
+  display: table;
+  padding-left: 240px;
+  margin-top: 20px;
+  border-bottom: 1px solid #dedede;
+}
+
+
+
+
+
+
+.docs-search-results-header-tabs-container > input {
+  display: none;
+}
+
+.docs-search-results-header-tabs-container > label {
+  display: inline-block; 
+  vertical-align: bottom;
+  padding: 0 15px 5px 15px;
+  color: #333;
+  font-size: 90%;
+}
+
+.docs-search-results-header-tabs-container > label:hover {
+  color: #e44d40;
+  padding-bottom: 5px;
+  cursor: pointer;
+}
+
+.docs-search-results-header-tabs-container > input:checked + label {
+  color: #e44d40;
+  padding-bottom: 2px;
+  border-bottom:  3px solid #e44d40;
+}
+
+#docs-search-result-tab-all:checked ~ .docs-search-result-content #docs-search-result-content-all,
+#docs-search-result-tab-nodes:checked ~ .docs-search-result-content #docs-search-result-content-nodes,
+#docs-search-result-tab-concepts:checked ~ .docs-search-result-content #docs-search-result-content-concepts,
+#docs-search-result-tab-topics:checked ~ .docs-search-result-content #docs-search-result-content-topics,
+#docs-search-result-tab-projects:checked ~ .docs-search-result-content #docs-search-result-content-projects,
+#docs-search-result-tab-code:checked ~ .docs-search-result-content #docs-search-result-content-code,
+#docs-search-result-tab-configs:checked ~ .docs-search-result-content #docs-search-result-content-configs {
+  display: block;
+}
+
+
+
+
+
+
+.docs-search-results-header-tab {
+  display: table-cell;
+  vertical-align: bottom;
+  padding: 0 15px 5px 15px;
+  color: #333;
+  font-size: 90%;
+}
+
+.docs-search-results-header-tab-selected {
+  color: #e44d40;
+  padding-bottom: 2px;
+  border-bottom:  3px solid #e44d40;
+}
+
+/* Search Results Page Content */
+
+
+
+/* Search Results Page Record */
+
+.docs-search-result-content > div {
+  display: none;
+}
+
+.docs-search-result-content-record-container {
+  margin: 20px 0;
+}
+
+.docs-search-result-content-record-container > p {
+  margin: 1px;
+}
+
+.docs-search-result-content-record-project-category {
+  font-size: 90%;
+  color: #31708f;
+}
+
+.docs-search-result-content-record-title {
+  font-size: 120%;
+  font-weight: 500;
+}
+
+a:link.docs-search-result-content-record-title {
+  text-decoration: none;
+  color: #e44d40;
+}
+  
+a:visited.docs-search-result-content-record-title {
+  text-decoration: none;
+  color: #fd6a33;
+}
+
+a:hover.docs-search-result-content-record-title {
+  text-decoration: underline;
+}
+
+a:active.docs-search-result-content-record-title {
+  text-decoration: none;
+  color: #fd6a33;
+}
+
+.docs-search-result-content-record-extract {
+  font-size: 100%;
+  color: #333;
+  margin-top: 5px!important;
+}
+

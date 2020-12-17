@@ -137,105 +137,105 @@ function newSuperalgosDocSpace() {
                 let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Javascript'
                 contextMenuForceOutClick()
-                renderPage()
+                renderDocumentPage()
             }
 
             function toJson() {
                 let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Json'
                 contextMenuForceOutClick()
-                renderPage()
+                renderDocumentPage()
             }
 
             function toText() {
                 let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Text'
                 contextMenuForceOutClick()
-                renderPage()
+                renderDocumentPage()
             }
 
             function toTitle() {
                 let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Title'
                 contextMenuForceOutClick()
-                renderPage()
+                renderDocumentPage()
             }
 
             function toSubtitle() {
                 let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Subtitle'
                 contextMenuForceOutClick()
-                renderPage()
+                renderDocumentPage()
             }
 
             function toNote() {
                 let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Note'
                 contextMenuForceOutClick()
-                renderPage()
+                renderDocumentPage()
             }
 
             function toWarning() {
                 let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Warning'
                 contextMenuForceOutClick()
-                renderPage()
+                renderDocumentPage()
             }
 
             function toImportant() {
                 let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Important'
                 contextMenuForceOutClick()
-                renderPage()
+                renderDocumentPage()
             }
 
             function toSuccess() {
                 let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Success'
                 contextMenuForceOutClick()
-                renderPage()
+                renderDocumentPage()
             }
 
             function toCallout() {
                 let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Callout'
                 contextMenuForceOutClick()
-                renderPage()
+                renderDocumentPage()
             }
 
             function toSummary() {
                 let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Summary'
                 contextMenuForceOutClick()
-                renderPage()
+                renderDocumentPage()
             }
 
             function toList() {
                 let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'List'
                 contextMenuForceOutClick()
-                renderPage()
+                renderDocumentPage()
             }
 
             function toTable() {
                 let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Table'
                 contextMenuForceOutClick()
-                renderPage()
+                renderDocumentPage()
             }
 
             function toGif() {
                 let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Gif'
                 contextMenuForceOutClick()
-                renderPage()
+                renderDocumentPage()
             }
 
             function toPng() {
                 let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Png'
                 contextMenuForceOutClick()
-                renderPage()
+                renderDocumentPage()
             }
         }
 
@@ -493,7 +493,7 @@ function newSuperalgosDocSpace() {
                 }
             }
             EDITOR_ON_FOCUS = false
-            renderPage()
+            renderDocumentPage()
         }
     }
 
@@ -754,26 +754,17 @@ function newSuperalgosDocSpace() {
         }
 
         function buildHTML() {
-            let HTML = ''
-
-            // Logo & Search Box
-            HTML = HTML + '<section id="docs-search-results-div" class="docs-node-html-page-container">'
-            HTML = HTML + '<div class="docs-search-results-header">'
-            HTML = HTML + '<div class="docs-image-logo-search-results"><img src="Images/superalgos-logo.png" width=200></div>'
-            HTML = HTML + '<div class="docs-search-results-box">'
-            HTML = HTML + '<input class="docs-search-input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></input>'
-            HTML = HTML + '</div>'
-            HTML = HTML + '</div>'
+            const tabs = ['All', 'Nodes', 'Concepts', 'Topics']
+            let HTML = addSearchHeader()
 
             // Tabs
             HTML = HTML + '<div class="docs-search-results-header-tabs-container">'
-            HTML = HTML + '<input id="tab1" type="radio" name="tabs" checked=""><label for="tab1">All</label>'
-            HTML = HTML + '<input id="tab2" type="radio" name="tabs"><label for="tab2">Nodes</label>'
-            HTML = HTML + '<input id="tab3" type="radio" name="tabs"><label for="tab3">Concepts</label>'
-            HTML = HTML + '<input id="tab4" type="radio" name="tabs"><label for="tab4">Topics</label>'
-            HTML = HTML + '<input id="tab5" type="radio" name="tabs"><label for="tab5">Projects</label>'
-            HTML = HTML + '<input id="tab6" type="radio" name="tabs"><label for="tab6">Code</label>'
-            HTML = HTML + '<input id="tab7" type="radio" name="tabs"><label for="tab7">Configs</label>'
+            let checked = ' checked=""'
+            for (let i = 0; i < tabs.length; i++) {
+                let tab = tabs[i]
+                HTML = HTML + '<input id="tab' + (i + 1) + '" type="radio" name="tabs"' + checked + '><label for="tab' + (i + 1) + '">' + tab + '</label>'
+                checked = ''
+            }
 
             // Results
             HTML = HTML + '<div class="docs-search-result-content">'
@@ -786,7 +777,7 @@ function newSuperalgosDocSpace() {
 
                 HTML = HTML + '<div class="docs-search-result-content-record-container">'
                 HTML = HTML + '<p class="docs-search-result-content-record-project-category">' + result.documentIndex.project + ' > ' + result.documentIndex.documentCategory + '</p>'
-                HTML = HTML + '<p><a onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + result.documentIndex.documentCategory + '\', \'' + result.documentIndex.document.type + '\', \''+ result.documentIndex.project + '\')" class="docs-search-result-content-record-title">' + result.documentIndex.document.type + '</a></p>'
+                HTML = HTML + '<p><a onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + result.documentIndex.documentCategory + '\', \'' + result.documentIndex.document.type + '\', \'' + result.documentIndex.project + '\')" class="docs-search-result-content-record-title">' + result.documentIndex.document.type + '</a></p>'
                 HTML = HTML + '<p class="docs-search-result-content-record-extract">' + result.documentIndex.document.definition + '</p>'
                 HTML = HTML + '</div>'
             }
@@ -889,12 +880,12 @@ function newSuperalgosDocSpace() {
             project: project
         }
 
-        renderPage()
-        scrollToElement('docs-context-menu-clickeable-div')
+        renderDocumentPage()
+        scrollToElement('docs-space-div')
 
     }
 
-    function renderPage() {
+    function renderDocumentPage() {
 
         disableCollapsibleContent()
 
@@ -923,7 +914,7 @@ function newSuperalgosDocSpace() {
 
 
         function buildHtmlPage() {
-            let HTML = ''
+            let HTML = addSearchHeader()
 
             HTML = HTML + '<div id="docs-context-menu-clickeable-div" class="docs-node-html-page-container">' // Clickeable Container Starts
 
@@ -967,6 +958,7 @@ function newSuperalgosDocSpace() {
             docsSpaceDiv.innerHTML = HTML + addFooter()
 
             hightlightEmbeddedCode()
+            detectEnterOnSearchBox()
 
             /*
             After generating the html, we will add the images at all the points we know
@@ -1804,17 +1796,30 @@ function newSuperalgosDocSpace() {
         }
     }
 
+    function addSearchHeader() {
+        let HTML = ''
+        // Logo & Search Box
+        HTML = HTML + '<section id="docs-search-results-div" class="docs-node-html-page-container">'
+        HTML = HTML + '<div class="docs-search-results-header">'
+        HTML = HTML + '<div class="docs-image-logo-search-results"><img src="Images/superalgos-logo.png" width=200></div>'
+        HTML = HTML + '<div class="docs-search-results-box">'
+        HTML = HTML + '<input class="docs-search-input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></input>'
+        HTML = HTML + '</div>'
+        HTML = HTML + '</div>'
+
+        return HTML
+    }
+
     function addFooter() {
         let HTML = ''
 
         HTML = HTML + '<div class="docs-node-html-footer-container">' // Container Starts
 
-        HTML = HTML + '<hr class="docs-shaded"></hr>'
         HTML = HTML + '<footer>'
         HTML = HTML + '<div class="docs-footer-row">'
         HTML = HTML + '<div class="docs-footer-body" style="text-align: left;">'
 
-        HTML = HTML + '<div onClick="UI.projects.superalgos.spaces.docsSpace.scrollToElement(\'docs-main-title-div\')" class="docs-plain-link"><kbd class=docs-kbd>BACK TO TOP ↑</kbd></div>'
+        HTML = HTML + '<div onClick="UI.projects.superalgos.spaces.docsSpace.scrollToElement(\'docs-space-div\')" class="docs-plain-link"><kbd class=docs-kbd>BACK TO TOP ↑</kbd></div>'
 
         HTML = HTML + '<ul>'
         HTML = HTML + '<li><a href="https://superalgos.org/" target="_blank" class="docs-footer-link">Superalgos Project</a> — Learn more about the project.</li>'

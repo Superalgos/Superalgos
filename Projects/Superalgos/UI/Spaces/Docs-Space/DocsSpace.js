@@ -559,7 +559,9 @@ function newSuperalgosDocSpace() {
         })
 
         outClick.addEventListener('click', () => {
-            contextMenuForceOutClick()
+            if (EDITOR_ON_FOCUS !== true) {
+                contextMenuForceOutClick()
+            }
         })
     }
 

@@ -265,14 +265,15 @@ function newSuperalgosDocSpace() {
             for (let j = 0; j < PROJECTS_ARRAY.length; j++) {
                 let project = PROJECTS_ARRAY[j]
 
-                let documentIndex 
+                let documentIndex
 
                 /* Search in Nodes */
                 for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema.length; i++) {
                     documentIndex = {
                         phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
                         document: SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema[i],
-                        documentType: 'Node'
+                        documentType: 'Node',
+                        project: project
                     }
                     indexDocument(documentIndex)
                     docsIndex.push(documentIndex)
@@ -282,7 +283,8 @@ function newSuperalgosDocSpace() {
                     documentIndex = {
                         phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
                         document: SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema[i],
-                        documentType: 'Concept'
+                        documentType: 'Concept',
+                        project: project
                     }
                     indexDocument(documentIndex)
                     docsIndex.push(documentIndex)
@@ -292,7 +294,8 @@ function newSuperalgosDocSpace() {
                     documentIndex = {
                         phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
                         document: SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema[i],
-                        documentType: 'Topics'
+                        documentType: 'Topics',
+                        project: project
                     }
                     indexDocument(documentIndex)
                     docsIndex.push(documentIndex)
@@ -644,106 +647,197 @@ function newSuperalgosDocSpace() {
     }
 
     function renderSearchResultsPage() {
-        let HTML = ''
 
-        // Logo & Search Box
+        let resultsArary = []
+        buildResultsArray()
+        buildHTML()
 
-        HTML = HTML + '<section id="docs-search-results-div" class="docs-node-html-page-container">'
-        HTML = HTML + '<div class="docs-search-results-header">'
-        HTML = HTML + '<div class="docs-image-logo-search-results"><img src="Images/superalgos-logo.png" width=200></div>'
-        HTML = HTML + '<div class="docs-search-results-box">'
-        HTML = HTML + '<input class="docs-search-input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></input>'
-        HTML = HTML + '</div>'
-        HTML = HTML + '</div>'
+        function buildResultsArray() {
+            for (let i = 0; i < docsIndex.length; i++) {
+                let documentIndex = docsIndex[i]
+                let documentPoints = 0
 
-        // Tabs
+                for (const style in documentIndex.phraseCount) {
+                    let thisPhraseCount = documentIndex.phraseCount[style].get(searchPhrase.toLowerCase())
+                    if (thisPhraseCount === undefined) {
+                        thisPhraseCount = 0
+                    }
+                    switch (style) {
+                        case 'definition': {
+                            documentPoints = documentPoints + thisPhraseCount * 9
+                            break
+                        }
+                        case 'title': {
+                            documentPoints = documentPoints + thisPhraseCount * 10
+                            break
+                        }
+                        case 'subtitle': {
+                            documentPoints = documentPoints + thisPhraseCount * 8
+                            break
+                        }
+                        case 'text': {
+                            documentPoints = documentPoints + thisPhraseCount * 2
+                            break
+                        }
+                        case 'list': {
+                            documentPoints = documentPoints + thisPhraseCount * 2
+                            break
+                        }
+                        case 'note': {
+                            documentPoints = documentPoints + thisPhraseCount * 4
+                            break
+                        }
+                        case 'warning': {
+                            documentPoints = documentPoints + thisPhraseCount * 6
+                            break
+                        }
+                        case 'important': {
+                            documentPoints = documentPoints + thisPhraseCount * 7
+                            break
+                        }
+                        case 'success': {
+                            documentPoints = documentPoints + thisPhraseCount * 5
+                            break
+                        }
+                        case 'callout': {
+                            documentPoints = documentPoints + thisPhraseCount * 5
+                            break
+                        }
+                        case 'summary': {
+                            documentPoints = documentPoints + thisPhraseCount * 6
+                            break
+                        }
+                        case 'json': {
+                            documentPoints = documentPoints + thisPhraseCount * 2
+                            break
+                        }
+                        case 'javascript': {
+                            documentPoints = documentPoints + thisPhraseCount * 2
+                            break
+                        }
+                        case 'gif': {
+                            documentPoints = documentPoints + thisPhraseCount * 1
+                            break
+                        }
+                        case 'png': {
+                            documentPoints = documentPoints + thisPhraseCount * 1
+                            break
+                        }
+                    }
+                }
 
-        HTML = HTML + '<div class="docs-search-results-header-tabs-container">'
-        HTML = HTML + '<input id="tab1" type="radio" name="tabs" checked=""><label for="tab1">All</label>'
-        HTML = HTML + '<input id="tab2" type="radio" name="tabs"><label for="tab2">Nodes</label>'
-        HTML = HTML + '<input id="tab3" type="radio" name="tabs"><label for="tab3">Concepts</label>'
-        HTML = HTML + '<input id="tab4" type="radio" name="tabs"><label for="tab4">Topics</label>'
-        HTML = HTML + '<input id="tab5" type="radio" name="tabs"><label for="tab5">Projects</label>'
-        HTML = HTML + '<input id="tab6" type="radio" name="tabs"><label for="tab6">Code</label>'
-        HTML = HTML + '<input id="tab7" type="radio" name="tabs"><label for="tab7">Configs</label>'
+                if (documentPoints === 0) { continue } // No matches anywhere
 
-        // Results
+                let result = {
+                    documentIndex: documentIndex,
+                    documentPoints: documentPoints
+                }
+                let added = false
 
-        HTML = HTML + '<div class="docs-search-result-content">'
+                if (resultsArary.length === 0) {
+                    resultsArary.push(result)
+                    added = true
+                } else {
+                    for (let j = 0; j < resultsArary.length; j++) {
+                        let thisResult = resultsArary[j]
+                        if (result.documentPoints > thisResult.documentPoints) {
+                            resultsArary.splice(j, 0, result)
+                            added = true
+                            break
+                        }
+                    }
+                }
+                if (added === false) {
+                    resultsArary.push(result)
+                }
+            }
+        }
 
-        // All Tab
+        function buildHTML() {
+            let HTML = ''
 
-        HTML = HTML + '<div id="content1">'
+            // Logo & Search Box
+            HTML = HTML + '<section id="docs-search-results-div" class="docs-node-html-page-container">'
+            HTML = HTML + '<div class="docs-search-results-header">'
+            HTML = HTML + '<div class="docs-image-logo-search-results"><img src="Images/superalgos-logo.png" width=200></div>'
+            HTML = HTML + '<div class="docs-search-results-box">'
+            HTML = HTML + '<input class="docs-search-input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></input>'
+            HTML = HTML + '</div>'
+            HTML = HTML + '</div>'
 
-        HTML = HTML + '<div class="docs-search-result-content-record-container">'
-        HTML = HTML + '<p class="docs-search-result-content-record-project-category">Superalgos > Node</p>'
-        HTML = HTML + '<p><a class="docs-search-result-content-record-title" href="data-storage.html">Data Storage</a></p>'
-        HTML = HTML + '<p class="docs-search-result-content-record-extract">The data storage node holds the definitions as to what data is stored in the corresponding network node.</p>'
-        HTML = HTML + '</div>'
+            // Tabs
+            HTML = HTML + '<div class="docs-search-results-header-tabs-container">'
+            HTML = HTML + '<input id="tab1" type="radio" name="tabs" checked=""><label for="tab1">All</label>'
+            HTML = HTML + '<input id="tab2" type="radio" name="tabs"><label for="tab2">Nodes</label>'
+            HTML = HTML + '<input id="tab3" type="radio" name="tabs"><label for="tab3">Concepts</label>'
+            HTML = HTML + '<input id="tab4" type="radio" name="tabs"><label for="tab4">Topics</label>'
+            HTML = HTML + '<input id="tab5" type="radio" name="tabs"><label for="tab5">Projects</label>'
+            HTML = HTML + '<input id="tab6" type="radio" name="tabs"><label for="tab6">Code</label>'
+            HTML = HTML + '<input id="tab7" type="radio" name="tabs"><label for="tab7">Configs</label>'
 
-        HTML = HTML + '<div class="docs-search-result-content-record-container">'
-        HTML = HTML + '<p class="docs-search-result-content-record-project-category">Superalgos > Node</p>'
-        HTML = HTML + '<p><a class="docs-search-result-content-record-title" href="data-mines-data.html">Data Mines Data</a></p>'
-        HTML = HTML + '<p class="docs-search-result-content-record-extract">Session independent data refers to data generated by sensors and indicators, not related to trading sessions.</p>'
-        HTML = HTML + '</div>'
+            // Results
+            HTML = HTML + '<div class="docs-search-result-content">'
 
-        HTML = HTML + '<div class="docs-search-result-content-record-container">'
-        HTML = HTML + '<p class="docs-search-result-content-record-project-category">Superalgos > Node</p>'
-        HTML = HTML + '<p><a class="docs-search-result-content-record-title" href="trading-mines-data.html">Trading Mines Data</a></p>'
-        HTML = HTML + '<p class="docs-search-result-content-record-extract">Session-based data refers to data that is generated as a consequence of running a trading session, that is, data the trading bot instance generates while running backtesting, paper trading, forward testing, or live trading sessions.</p>'
-        HTML = HTML + '</div>'
+            // All Tab
+            HTML = HTML + '<div id="content1">'
 
-        HTML = HTML + '<div class="docs-search-result-content-record-container">'
-        HTML = HTML + '<p class="docs-search-result-content-record-project-category">Ethereum > Topic</p>'
-        HTML = HTML + '<p><a class="docs-search-result-content-record-title" href="blockchain-data-mining.html">Blockchain Data Mining</a></p>'
-        HTML = HTML + '<p class="docs-search-result-content-record-extract">Mining data from the Ethereum blockchain requires running an Ethereum node. Superalgos interfaces with the Ethereum blockchaing via...</p>'
-        HTML = HTML + '</div>'
+            for (let i = 0; i < resultsArary.length; i++) {
+                let result = resultsArary[i]
 
-        HTML = HTML + '</div>'
+                HTML = HTML + '<div class="docs-search-result-content-record-container">'
+                HTML = HTML + '<p class="docs-search-result-content-record-project-category">' + result.documentIndex.project + ' > ' + result.documentIndex.documentType + '</p>'
+                HTML = HTML + '<p><a class="docs-search-result-content-record-title" href="data-storage.html">' + result.documentIndex.document.type + '</a></p>'
+                HTML = HTML + '<p class="docs-search-result-content-record-extract">' + result.documentIndex.document.definition + '</p>'
+                HTML = HTML + '</div>'
+            }
 
-        // Nodes Tab
+            HTML = HTML + '</div>'
 
-        HTML = HTML + '<div id="content2">'
+            // Nodes Tab
+            HTML = HTML + '<div id="content2">'
 
-        HTML = HTML + '<div class="docs-search-result-content-record-container">'
-        HTML = HTML + '<p class="docs-search-result-content-record-project-category">Superalgos > Node</p>'
-        HTML = HTML + '<p><a class="docs-search-result-content-record-title" href="data-storage.html">Data Storage</a></p>'
-        HTML = HTML + '<p class="docs-search-result-content-record-extract">The data storage node holds the definitions as to what data is stored in the corresponding network node.</p>'
-        HTML = HTML + '</div>'
+            HTML = HTML + '<div class="docs-search-result-content-record-container">'
+            HTML = HTML + '<p class="docs-search-result-content-record-project-category">Superalgos > Node</p>'
+            HTML = HTML + '<p><a class="docs-search-result-content-record-title" href="data-storage.html">Data Storage</a></p>'
+            HTML = HTML + '<p class="docs-search-result-content-record-extract">The data storage node holds the definitions as to what data is stored in the corresponding network node.</p>'
+            HTML = HTML + '</div>'
 
-        HTML = HTML + '<div class="docs-search-result-content-record-container">'
-        HTML = HTML + '<p class="docs-search-result-content-record-project-category">Superalgos > Node</p>'
-        HTML = HTML + '<p><a class="docs-search-result-content-record-title" href="data-mines-data.html">Data Mines Data</a></p>'
-        HTML = HTML + '<p class="docs-search-result-content-record-extract">Session independent data refers to data generated by sensors and indicators, not related to trading sessions.</p>'
-        HTML = HTML + '</div>'
+            HTML = HTML + '<div class="docs-search-result-content-record-container">'
+            HTML = HTML + '<p class="docs-search-result-content-record-project-category">Superalgos > Node</p>'
+            HTML = HTML + '<p><a class="docs-search-result-content-record-title" href="data-mines-data.html">Data Mines Data</a></p>'
+            HTML = HTML + '<p class="docs-search-result-content-record-extract">Session independent data refers to data generated by sensors and indicators, not related to trading sessions.</p>'
+            HTML = HTML + '</div>'
 
-        HTML = HTML + '<div class="docs-search-result-content-record-container">'
-        HTML = HTML + '<p class="docs-search-result-content-record-project-category">Superalgos > Node</p>'
-        HTML = HTML + '<p><a class="docs-search-result-content-record-title" href="trading-mines-data.html">Trading Mines Data</a></p>'
-        HTML = HTML + '<p class="docs-search-result-content-record-extract">Session-based data refers to data that is generated as a consequence of running a trading session, that is, data the trading bot instance generates while running backtesting, paper trading, forward testing, or live trading sessions.</p>'
-        HTML = HTML + '</div>'
+            HTML = HTML + '<div class="docs-search-result-content-record-container">'
+            HTML = HTML + '<p class="docs-search-result-content-record-project-category">Superalgos > Node</p>'
+            HTML = HTML + '<p><a class="docs-search-result-content-record-title" href="trading-mines-data.html">Trading Mines Data</a></p>'
+            HTML = HTML + '<p class="docs-search-result-content-record-extract">Session-based data refers to data that is generated as a consequence of running a trading session, that is, data the trading bot instance generates while running backtesting, paper trading, forward testing, or live trading sessions.</p>'
+            HTML = HTML + '</div>'
 
-        HTML = HTML + '</div>'
+            HTML = HTML + '</div>'
 
-        // End Content
+            // End Content
+            HTML = HTML + '</div>'
+            HTML = HTML + '</div>'
 
-        HTML = HTML + '</div>'
-        HTML = HTML + '</div>'
+            // End Section
+            HTML = HTML + '</section>'
 
-        // End Section
-
-        HTML = HTML + '</section>'
-
-        let docsSpaceDiv = document.getElementById('docs-space-div')
-        docsSpaceDiv.innerHTML = HTML + addFooter()
-        detectEnterOnSearchBox()
+            let docsSpaceDiv = document.getElementById('docs-space-div')
+            docsSpaceDiv.innerHTML = HTML + addFooter()
+            detectEnterOnSearchBox()
+        }
     }
 
     function detectEnterOnSearchBox() {
         const element = document.getElementsByClassName("docs-search-input")[0]
+        if (searchPhrase !== undefined) {
+            element.value = searchPhrase
+        }
+        element.focus()
         element.addEventListener("keyup", function (event) {
             if (event.key === "Enter" || event.keyCode === 13) {
-                let searchPhrase = element.value
+                searchPhrase = element.value
                 renderSearchResultsPage()
             }
         });

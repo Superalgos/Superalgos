@@ -649,6 +649,7 @@ function newSuperalgosDocSpace() {
     function renderSearchResultsPage() {
 
         let resultsArary = []
+        let initialTime = new Date()
         buildResultsArray()
         buildHTML()
 
@@ -769,10 +770,13 @@ function newSuperalgosDocSpace() {
             // Results
             HTML = HTML + '<div class="docs-search-result-content">'
 
+            let totalResults = new Map()
             for (let i = 0; i < tabs.length; i++) {
                 let tab = tabs[i]
                 HTML = HTML + '<div id="content' + (i + 1) + '">'
+                HTML = HTML + '<p> ' + tab.toUpperCase() + '_TOTAL_RESULTS results (' + tab.toUpperCase() + '_TOTAL_SECONDS seconds)</p>'
 
+                let resultCounter = 0
                 for (let j = 0; j < resultsArary.length; j++) {
                     let result = resultsArary[j]
 
@@ -781,7 +785,7 @@ function newSuperalgosDocSpace() {
                             continue
                         }
                     }
-
+                    resultCounter++
                     HTML = HTML + '<div class="docs-search-result-content-record-container">'
                     HTML = HTML + '<p class="docs-search-result-content-record-project-category">' + result.documentIndex.project + ' > ' + result.documentIndex.documentCategory + '</p>'
                     HTML = HTML + '<p><a onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + result.documentIndex.documentCategory + '\', \'' + result.documentIndex.document.type + '\', \'' + result.documentIndex.project + '\')" class="docs-search-result-content-record-title">' + result.documentIndex.document.type + '</a></p>'
@@ -789,6 +793,7 @@ function newSuperalgosDocSpace() {
                     HTML = HTML + '</div>'
                 }
                 HTML = HTML + '</div>'
+                totalResults.set(tab, resultCounter)
             }
 
             // End Content
@@ -797,6 +802,16 @@ function newSuperalgosDocSpace() {
 
             // End Section
             HTML = HTML + '</section>'
+
+            // Total Seconds Calculation
+            let finalTime = new Date()
+            let totalSeconds = ((finalTime.valueOf() - initialTime.valueOf()) / 1000).toFixed(4)
+            for (let i = 0; i < tabs.length; i++) {
+                let tab = tabs[i]
+                HTML = HTML.replace(tab.toUpperCase() + '_TOTAL_SECONDS', totalSeconds)
+                resultCounter = totalResults.get(tab)
+                HTML = HTML.replace(tab.toUpperCase() + '_TOTAL_RESULTS', resultCounter)
+            }
 
             let docsSpaceDiv = document.getElementById('docs-space-div')
             docsSpaceDiv.innerHTML = HTML + addFooter()

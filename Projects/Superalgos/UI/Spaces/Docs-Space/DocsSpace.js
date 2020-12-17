@@ -39,6 +39,7 @@ function newSuperalgosDocSpace() {
     let nodeDocsDefinition
     let menuLabelsMap = new Map()
     let searchPhrase
+    let docsIndex = []
 
     return thisObject
 
@@ -52,6 +53,7 @@ function newSuperalgosDocSpace() {
         browserResizedEventSubscriptionId = canvas.eventHandler.listenToEvent('Browser Resized', resize)
         setUpContextMenu()
         setUpMenuItemsMap()
+        setUpSearchEngine()
         isInitialized = true
 
         function setUpContextMenu() {
@@ -258,6 +260,122 @@ function newSuperalgosDocSpace() {
                 }
             }
         }
+
+        function setUpSearchEngine() {
+            for (let j = 0; j < PROJECTS_ARRAY.length; j++) {
+                let project = PROJECTS_ARRAY[j]
+
+                let documentIndex 
+
+                /* Search in Nodes */
+                for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema.length; i++) {
+                    documentIndex = {
+                        phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
+                        document: SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema[i],
+                        documentType: 'Node'
+                    }
+                    indexDocument(documentIndex)
+                    docsIndex.push(documentIndex)
+                }
+                /* Search in Concepts */
+                for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema.length; i++) {
+                    documentIndex = {
+                        phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
+                        document: SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema[i],
+                        documentType: 'Concept'
+                    }
+                    indexDocument(documentIndex)
+                    docsIndex.push(documentIndex)
+                }
+                /* Search in Topics */
+                for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema.length; i++) {
+                    documentIndex = {
+                        phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
+                        document: SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema[i],
+                        documentType: 'Topics'
+                    }
+                    indexDocument(documentIndex)
+                    docsIndex.push(documentIndex)
+                }
+            }
+
+            function indexDocument(documentIndex) {
+
+                if (documentIndex.document === undefined) {
+                    return
+                }
+
+                if (documentIndex.document.definition !== undefined) {
+                    let paragraph = {
+                        style: 'Definition',
+                        text: documentIndex.document.definition
+                    }
+                    indexParagraph(paragraph)
+                }
+                if (documentIndex.document.paragraphs !== undefined) {
+                    for (let k = 0; k < documentIndex.document.paragraphs.length; k++) {
+                        let paragraph = documentIndex.document.paragraphs[k]
+                        indexParagraph(paragraph)
+                    }
+                }
+
+                function indexParagraph(paragraph) {
+                    if (paragraph.text === undefined) {
+                        return
+                    }
+                    if (paragraph.style === undefined) {
+                        return
+                    }
+
+                    let text = paragraph.text.toLowerCase()
+                    let style = paragraph.style.toLowerCase()
+                    let stylePhraseCount = documentIndex.phraseCount[style]
+
+                    if (stylePhraseCount === undefined) {
+                        stylePhraseCount = new Map()
+                        documentIndex.phraseCount[style] = stylePhraseCount
+                    }
+
+                    text = text.replaceAll('.', ' ')
+                    text = text.replaceAll(',', ' ')
+                    text = text.replaceAll('-', ' ')
+                    text = text.replaceAll('/', ' ')
+                    text = text.replaceAll('_', ' ')
+                    text = text.replaceAll(':', ' ')
+                    text = text.replaceAll(';', ' ')
+                    text = text.replaceAll('(', ' ')
+                    text = text.replaceAll(')', ' ')
+                    text = text.replaceAll('{', ' ')
+                    text = text.replaceAll('}', ' ')
+                    text = text.replaceAll('[', ' ')
+                    text = text.replaceAll(']', ' ')
+                    text = text.replaceAll('@', ' ')
+                    text = text.replaceAll('    ', ' ')
+                    text = text.replaceAll('   ', ' ')
+                    text = text.replaceAll('  ', ' ')
+
+                    let splittedText = text.split(' ')
+
+                    for (n = 0; n < splittedText.length; n++) {
+                        let phrase = ''
+                        for (let m = 0; m < 10; m++) {
+                            let word = splittedText[n + m]
+                            if (word !== undefined) {
+                                if (m === 0) {
+                                    phrase = phrase + word
+                                } else {
+                                    phrase = phrase + ' ' + word
+                                }
+                                let thisPhraseCount = stylePhraseCount.get(phrase)
+                                if (thisPhraseCount === undefined) { thisPhraseCount = 0 }
+                                thisPhraseCount++
+                                stylePhraseCount.set(phrase, thisPhraseCount)
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
     function finalize() {
@@ -270,6 +388,7 @@ function newSuperalgosDocSpace() {
         nodeAppDefinition = undefined
         nodeDocsDefinition = undefined
         menuLabelsMap = undefined
+        docsIndex = undefined
     }
 
     function onKeyDown(event) {
@@ -505,7 +624,7 @@ function newSuperalgosDocSpace() {
 
     function onOpening() {
         if (objectBeingRendered === undefined) {
-            renderSearchResultsPage()
+            renderSearchPage()
         }
     }
 
@@ -521,7 +640,7 @@ function newSuperalgosDocSpace() {
         HTML = HTML + '</div>'
         let docsSpaceDiv = document.getElementById('docs-space-div')
         docsSpaceDiv.innerHTML = HTML + addFooter()
-        detectEnterOnSearchBox() 
+        detectEnterOnSearchBox()
     }
 
     function renderSearchResultsPage() {
@@ -617,7 +736,7 @@ function newSuperalgosDocSpace() {
 
         let docsSpaceDiv = document.getElementById('docs-space-div')
         docsSpaceDiv.innerHTML = HTML + addFooter()
-        detectEnterOnSearchBox() 
+        detectEnterOnSearchBox()
     }
 
     function detectEnterOnSearchBox() {

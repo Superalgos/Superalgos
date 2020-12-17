@@ -754,16 +754,7 @@ function newSuperalgosDocSpace() {
         }
 
         function buildHTML() {
-            let HTML = ''
-
-            // Logo & Search Box
-            HTML = HTML + '<section id="docs-search-results-div" class="docs-node-html-page-container">'
-            HTML = HTML + '<div class="docs-search-results-header">'
-            HTML = HTML + '<div class="docs-image-logo-search-results"><img src="Images/superalgos-logo.png" width=200></div>'
-            HTML = HTML + '<div class="docs-search-results-box">'
-            HTML = HTML + '<input class="docs-search-input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></input>'
-            HTML = HTML + '</div>'
-            HTML = HTML + '</div>'
+            let HTML = addSearchHeader()
 
             // Tabs
             HTML = HTML + '<div class="docs-search-results-header-tabs-container">'
@@ -786,7 +777,7 @@ function newSuperalgosDocSpace() {
 
                 HTML = HTML + '<div class="docs-search-result-content-record-container">'
                 HTML = HTML + '<p class="docs-search-result-content-record-project-category">' + result.documentIndex.project + ' > ' + result.documentIndex.documentCategory + '</p>'
-                HTML = HTML + '<p><a onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + result.documentIndex.documentCategory + '\', \'' + result.documentIndex.document.type + '\', \''+ result.documentIndex.project + '\')" class="docs-search-result-content-record-title">' + result.documentIndex.document.type + '</a></p>'
+                HTML = HTML + '<p><a onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + result.documentIndex.documentCategory + '\', \'' + result.documentIndex.document.type + '\', \'' + result.documentIndex.project + '\')" class="docs-search-result-content-record-title">' + result.documentIndex.document.type + '</a></p>'
                 HTML = HTML + '<p class="docs-search-result-content-record-extract">' + result.documentIndex.document.definition + '</p>'
                 HTML = HTML + '</div>'
             }
@@ -890,7 +881,7 @@ function newSuperalgosDocSpace() {
         }
 
         renderPage()
-        scrollToElement('docs-context-menu-clickeable-div')
+        scrollToElement('docs-space-div')
 
     }
 
@@ -923,7 +914,7 @@ function newSuperalgosDocSpace() {
 
 
         function buildHtmlPage() {
-            let HTML = ''
+            let HTML = addSearchHeader()
 
             HTML = HTML + '<div id="docs-context-menu-clickeable-div" class="docs-node-html-page-container">' // Clickeable Container Starts
 
@@ -967,6 +958,7 @@ function newSuperalgosDocSpace() {
             docsSpaceDiv.innerHTML = HTML + addFooter()
 
             hightlightEmbeddedCode()
+            detectEnterOnSearchBox()
 
             /*
             After generating the html, we will add the images at all the points we know
@@ -1804,6 +1796,20 @@ function newSuperalgosDocSpace() {
         }
     }
 
+    function addSearchHeader() {
+        let HTML = ''
+        // Logo & Search Box
+        HTML = HTML + '<section id="docs-search-results-div" class="docs-node-html-page-container">'
+        HTML = HTML + '<div class="docs-search-results-header">'
+        HTML = HTML + '<div class="docs-image-logo-search-results"><img src="Images/superalgos-logo.png" width=200></div>'
+        HTML = HTML + '<div class="docs-search-results-box">'
+        HTML = HTML + '<input class="docs-search-input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></input>'
+        HTML = HTML + '</div>'
+        HTML = HTML + '</div>'
+
+        return HTML
+    }
+
     function addFooter() {
         let HTML = ''
 
@@ -1814,7 +1820,7 @@ function newSuperalgosDocSpace() {
         HTML = HTML + '<div class="docs-footer-row">'
         HTML = HTML + '<div class="docs-footer-body" style="text-align: left;">'
 
-        HTML = HTML + '<div onClick="UI.projects.superalgos.spaces.docsSpace.scrollToElement(\'docs-main-title-div\')" class="docs-plain-link"><kbd class=docs-kbd>BACK TO TOP ↑</kbd></div>'
+        HTML = HTML + '<div onClick="UI.projects.superalgos.spaces.docsSpace.scrollToElement(\'docs-space-div\')" class="docs-plain-link"><kbd class=docs-kbd>BACK TO TOP ↑</kbd></div>'
 
         HTML = HTML + '<ul>'
         HTML = HTML + '<li><a href="https://superalgos.org/" target="_blank" class="docs-footer-link">Superalgos Project</a> — Learn more about the project.</li>'

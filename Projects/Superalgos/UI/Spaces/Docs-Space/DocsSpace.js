@@ -972,7 +972,7 @@ function newSuperalgosDocSpace() {
             HTML = HTML + '<div id="docs-context-menu-clickeable-div" class="docs-context-menu-clickeable-container">' // Clickeable Container Starts
 
             /* Title */
-            HTML = HTML + '<div id="docs-main-title-div"><table class="docs-title-table"><tr><td width="50px"><div id="projectImageDiv" class="docs-image-container"/></td><td><h2 class="docs-h2" id="' + objectBeingRendered.type.toLowerCase().replace(' ', '-') + '" > ' + objectBeingRendered.project + ' / ' + objectBeingRendered.type + '</h2></td></tr></table></div>'
+            HTML = HTML + '<div id="docs-main-title-div"><table class="docs-title-table"><tr><td width="50px"><div id="projectImageDiv" class="docs-image-container"/></td><td><h2 class="docs-h2" id="' + objectBeingRendered.type.toLowerCase().replace(' ', '-') + '" > ' + objectBeingRendered.type + '</h2></td></tr></table></div>'
 
             /* We start with the Definition Table */
             if (nodeDocsDefinition.definition !== undefined) {
@@ -1045,7 +1045,7 @@ function newSuperalgosDocSpace() {
                 }
 
                 function addProjectImage() {
-                    let imageName = project.toLowerCase().replace(' ', '-').replace(' ', '-').replace(' ', '-').replace(' ', '-').replace(' ', '-')
+                    let imageName = objectBeingRendered.project.toLowerCase().replace(' ', '-').replace(' ', '-').replace(' ', '-').replace(' ', '-').replace(' ', '-')
                     let imageElement = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName(objectBeingRendered.project, imageName)
                     imageElement.width = "50"
                     imageElement.height = "50"

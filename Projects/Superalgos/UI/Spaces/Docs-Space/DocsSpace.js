@@ -272,7 +272,7 @@ function newSuperalgosDocSpace() {
                     documentIndex = {
                         phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
                         document: SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema[i],
-                        documentType: 'Node',
+                        documentCategory: 'Node',
                         project: project
                     }
                     indexDocument(documentIndex)
@@ -283,7 +283,7 @@ function newSuperalgosDocSpace() {
                     documentIndex = {
                         phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
                         document: SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema[i],
-                        documentType: 'Concept',
+                        documentCategory: 'Concept',
                         project: project
                     }
                     indexDocument(documentIndex)
@@ -294,7 +294,7 @@ function newSuperalgosDocSpace() {
                     documentIndex = {
                         phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
                         document: SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema[i],
-                        documentType: 'Topics',
+                        documentCategory: 'Topics',
                         project: project
                     }
                     indexDocument(documentIndex)
@@ -785,11 +785,12 @@ function newSuperalgosDocSpace() {
                 let result = resultsArary[i]
 
                 HTML = HTML + '<div class="docs-search-result-content-record-container">'
-                HTML = HTML + '<p class="docs-search-result-content-record-project-category">' + result.documentIndex.project + ' > ' + result.documentIndex.documentType + '</p>'
-                HTML = HTML + '<p><a class="docs-search-result-content-record-title" href="data-storage.html">' + result.documentIndex.document.type + '</a></p>'
+                HTML = HTML + '<p class="docs-search-result-content-record-project-category">' + result.documentIndex.project + ' > ' + result.documentIndex.documentCategory + '</p>'
+                HTML = HTML + '<p><a onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + result.documentIndex.documentCategory + '\', \'' + result.documentIndex.document.type + '\', \''+ result.documentIndex.project + '\')" class="docs-search-result-content-record-title">' + result.documentIndex.document.type + '</a></p>'
                 HTML = HTML + '<p class="docs-search-result-content-record-extract">' + result.documentIndex.document.definition + '</p>'
                 HTML = HTML + '</div>'
             }
+            // const TOOL_TIP_HTML = '<div onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'CATEGORY\', \'TYPE\', \'PROJECT\')" class="docs-tooltip">TYPE_LABEL<span class="docs-tooltiptext">DEFINITION</span></div>'
 
             HTML = HTML + '</div>'
 

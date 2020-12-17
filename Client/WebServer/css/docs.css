@@ -16,6 +16,8 @@ font: 400 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvet
 color: #111; 
 line-height: 150%;
 margin: 20 20 20 30px;
+border-top: 1px solid #dedede;
+padding-top: 50px;
 }
 
 .docs-font-normal {
@@ -472,11 +474,12 @@ margin-bottom: 25px;
 
 .docs-search-box {
 width: 700px;
-height: 60px;
+height: 45px;
 margin-top: 50px;
 margin-bottom: 600px;
 border-radius: 30px;
 border: 1px solid #dedede;
+vertical-align: middle;
 }
 
 .docs-search-input {
@@ -487,6 +490,7 @@ font-size: 100%;
 color: #6b6b6b; 
 border: none;
 outline: none;
+background-color: transparent;
 }
 
 /* Search Results Page */
@@ -582,6 +586,8 @@ margin-left: -240px;
 .docs-search-result-content-record-title {
   font-size: 120%;
   font-weight: 500;
+  text-decoration: none;
+  color: #e44d40;
 }
 
 a:link.docs-search-result-content-record-title {
@@ -596,6 +602,7 @@ a:visited.docs-search-result-content-record-title {
 
 a:hover.docs-search-result-content-record-title {
   text-decoration: underline;
+  cursor: pointer;
 }
 
 a:active.docs-search-result-content-record-title {

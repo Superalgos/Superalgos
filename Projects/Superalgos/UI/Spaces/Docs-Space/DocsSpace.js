@@ -535,7 +535,7 @@ function newSuperalgosDocSpace() {
     function contextMenuActivateRightClick() {
         const contextMenuClickablDiv = document.getElementById('docs-context-menu-clickeable-div')
         const menu = document.getElementById('menu')
-        const outClick = document.getElementById('docs-space-div')
+        const outClick = document.getElementById('docs-context-menu-clickeable-div')
 
         contextMenuClickablDiv.addEventListener('contextmenu', e => {
             e.preventDefault()
@@ -800,7 +800,9 @@ function newSuperalgosDocSpace() {
 
         function buildHTML() {
             const tabs = ['All', 'Nodes', 'Concepts', 'Topics']
-            let HTML = addSearchHeader()
+            let HTML = ''
+            HTML = HTML + '<section id="docs-search-results-div" class="docs-search-page-container">'
+            HTML = HTML + addSearchHeader()
 
             // Tabs
             HTML = HTML + '<div class="docs-search-results-header-tabs-container">'
@@ -833,7 +835,7 @@ function newSuperalgosDocSpace() {
                     HTML = HTML + '<div class="docs-search-result-content-record-container">'
                     HTML = HTML + '<p class="docs-search-result-content-record-project-category">' + result.documentIndex.project + ' > ' + result.documentIndex.documentCategory + '</p>'
                     HTML = HTML + '<p><a onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + result.documentIndex.documentCategory + '\', \'' + result.documentIndex.document.type + '\', \'' + result.documentIndex.project + '\')" class="docs-search-result-content-record-title">' + result.documentIndex.document.type + '</a></p>'
-                    
+
                     if (result.documentIndex.document.definition !== undefined) {
                         HTML = HTML + '<p class="docs-search-result-content-record-extract">' + result.documentIndex.document.definition + '</p>'
                     } else {
@@ -854,7 +856,7 @@ function newSuperalgosDocSpace() {
 
             // Total Seconds Calculation
             let finalTime = new Date()
-            let totalSeconds = ((finalTime.valueOf() - initialTime.valueOf()) / 1000).toFixed(4)
+            let totalSeconds = ((finalTime.valueOf() - initialTime.valueOf()) / 1000).toFixed(3)
             for (let i = 0; i < tabs.length; i++) {
                 let tab = tabs[i]
                 HTML = HTML.replace(tab.toUpperCase() + '_TOTAL_SECONDS', totalSeconds)
@@ -864,6 +866,7 @@ function newSuperalgosDocSpace() {
 
             let docsSpaceDiv = document.getElementById('docs-space-div')
             docsSpaceDiv.innerHTML = HTML + addFooter()
+
             detectEnterOnSearchBox()
         }
     }
@@ -961,9 +964,12 @@ function newSuperalgosDocSpace() {
 
 
         function buildHtmlPage() {
-            let HTML = addSearchHeader()
+            let HTML = ''
+            HTML = HTML + '<section id="docs-search-results-div" class="docs-search-page-container">'
+            HTML = HTML + addSearchHeader()
+            HTML = HTML + '</section>'
 
-            HTML = HTML + '<div id="docs-context-menu-clickeable-div" class="docs-node-html-page-container">' // Clickeable Container Starts
+            HTML = HTML + '<div id="docs-context-menu-clickeable-div" class="docs-context-menu-clickeable-container">' // Clickeable Container Starts
 
             /* Title */
             HTML = HTML + '<div id="docs-main-title-div"><table class="docs-title-table"><tr><td width="50px"><div id="projectImageDiv" class="docs-image-container"/></td><td><h2 class="docs-h2" id="' + objectBeingRendered.type.toLowerCase().replace(' ', '-') + '" > ' + objectBeingRendered.project + ' / ' + objectBeingRendered.type + '</h2></td></tr></table></div>'
@@ -1846,7 +1852,6 @@ function newSuperalgosDocSpace() {
     function addSearchHeader() {
         let HTML = ''
         // Logo & Search Box
-        HTML = HTML + '<section id="docs-search-results-div" class="docs-node-html-page-container">'
         HTML = HTML + '<div class="docs-search-results-header">'
         HTML = HTML + '<div class="docs-image-logo-search-results"><img src="Images/superalgos-logo.png" width=200></div>'
         HTML = HTML + '<div class="docs-search-results-box">'

@@ -4,7 +4,7 @@ border: 0px solid;
 background-color: #fdfdfd;
 }
 
-.docs-node-html-page-container {
+.docs-search-page-container {
 font: 400 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
 color: #111; 
 line-height: 150%;
@@ -18,6 +18,13 @@ line-height: 150%;
 margin: 20 20 20 30px;
 border-top: 1px solid #dedede;
 padding-top: 50px;
+}
+
+.docs-context-menu-clickeable-container {
+font: 400 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
+color: #111; 
+line-height: 150%;
+margin: 20 20 20 30px;
 }
 
 .docs-font-normal {

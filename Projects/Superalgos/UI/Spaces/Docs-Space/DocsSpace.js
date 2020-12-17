@@ -346,6 +346,20 @@ function newSuperalgosDocSpace() {
                         documentIndex.phraseCount[style] = stylePhraseCount
                     }
 
+                    text = text.replaceAll('. ', ' ')
+                    text = text.replaceAll(', ', ' ')
+                    text = text.replaceAll('- ', ' ')
+                    text = text.replaceAll('/ ', ' ')
+                    text = text.replaceAll('_ ', ' ')
+                    text = text.replaceAll(': ', ' ')
+                    text = text.replaceAll('; ', ' ')
+                    text = text.replaceAll('( ', ' ')
+                    text = text.replaceAll(') ', ' ')
+                    text = text.replaceAll('{ ', ' ')
+                    text = text.replaceAll('} ', ' ')
+                    text = text.replaceAll('[ ', ' ')
+                    text = text.replaceAll('] ', ' ')
+
                     text = text.replaceAll('.', ' ')
                     text = text.replaceAll(',', ' ')
                     text = text.replaceAll('-', ' ')
@@ -376,16 +390,30 @@ function newSuperalgosDocSpace() {
                                 } else {
                                     phrase = phrase + ' ' + word
                                 }
-                                let thisPhraseCount = stylePhraseCount.get(phrase)
+                                let key = cleanTextForSearch(phrase)
+
+                                let thisPhraseCount = stylePhraseCount.get(key)
                                 if (thisPhraseCount === undefined) { thisPhraseCount = 0 }
                                 thisPhraseCount++
-                                stylePhraseCount.set(phrase, thisPhraseCount)
+
+                                stylePhraseCount.set(key, thisPhraseCount)
                             }
                         }
                     }
                 }
             }
         }
+    }
+
+    function cleanTextForSearch(text) {
+        let result = text
+        result = result.replaceAll(' ', '')
+        result = result.replaceAll('s', '')
+        result = result.replaceAll('ing', '')
+        result = result.replaceAll('ed', '')
+        result = result.replaceAll('y', '')
+        result = result.replaceAll('ies', '')
+        return result
     }
 
     function finalize() {
@@ -666,11 +694,12 @@ function newSuperalgosDocSpace() {
                 let documentPoints = 0
 
                 for (const style in documentIndex.phraseCount) {
-                    let thisPhraseCount = documentIndex.phraseCount[style].get(searchPhrase.toLowerCase())
+                    let key = cleanTextForSearch(searchPhrase.toLowerCase())
+                    let thisPhraseCount = documentIndex.phraseCount[style].get(key)
                     if (thisPhraseCount === undefined) {
                         thisPhraseCount = 0
                     }
-                    if (searchPhrase.toLowerCase() === documentIndex.document.type.toLowerCase()) {
+                    if (key === cleanTextForSearch(documentIndex.document.type.toLowerCase())) {
                         documentPoints = documentPoints + thisPhraseCount * 100
                     }
 
@@ -804,7 +833,12 @@ function newSuperalgosDocSpace() {
                     HTML = HTML + '<div class="docs-search-result-content-record-container">'
                     HTML = HTML + '<p class="docs-search-result-content-record-project-category">' + result.documentIndex.project + ' > ' + result.documentIndex.documentCategory + '</p>'
                     HTML = HTML + '<p><a onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + result.documentIndex.documentCategory + '\', \'' + result.documentIndex.document.type + '\', \'' + result.documentIndex.project + '\')" class="docs-search-result-content-record-title">' + result.documentIndex.document.type + '</a></p>'
-                    HTML = HTML + '<p class="docs-search-result-content-record-extract">' + result.documentIndex.document.definition + '</p>'
+                    
+                    if (result.documentIndex.document.definition !== undefined) {
+                        HTML = HTML + '<p class="docs-search-result-content-record-extract">' + result.documentIndex.document.definition + '</p>'
+                    } else {
+                        HTML = HTML + '<p class="docs-search-result-content-record-extract">' + 'No definition available.' + '</p>'
+                    }
                     HTML = HTML + '</div>'
                 }
                 HTML = HTML + '</div>'

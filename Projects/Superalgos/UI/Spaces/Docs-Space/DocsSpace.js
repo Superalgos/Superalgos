@@ -308,6 +308,13 @@ function newSuperalgosDocSpace() {
                     return
                 }
 
+                if (documentIndex.document.type !== undefined) {
+                    let paragraph = {
+                        style: 'Type',
+                        text: documentIndex.document.type
+                    }
+                    indexParagraph(paragraph)
+                }
                 if (documentIndex.document.definition !== undefined) {
                     let paragraph = {
                         style: 'Definition',
@@ -663,7 +670,15 @@ function newSuperalgosDocSpace() {
                     if (thisPhraseCount === undefined) {
                         thisPhraseCount = 0
                     }
+                    if (searchPhrase.toLowerCase() === documentIndex.document.type.toLowerCase()) {
+                        documentPoints = documentPoints + thisPhraseCount * 100
+                    }
+
                     switch (style) {
+                        case 'type': {
+                            documentPoints = documentPoints + thisPhraseCount * 50
+                            break
+                        }
                         case 'definition': {
                             documentPoints = documentPoints + thisPhraseCount * 9
                             break

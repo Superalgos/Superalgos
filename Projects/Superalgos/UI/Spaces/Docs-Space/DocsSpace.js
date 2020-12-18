@@ -39,7 +39,7 @@ function newSuperalgosDocSpace() {
     let nodeDocsDefinition
     let menuLabelsMap = new Map()
     let searchPhrase
-    let docsIndex = []
+    let docsIndex
 
     return thisObject
 
@@ -53,8 +53,7 @@ function newSuperalgosDocSpace() {
         browserResizedEventSubscriptionId = canvas.eventHandler.listenToEvent('Browser Resized', resize)
         setUpContextMenu()
         setUpMenuItemsMap()
-        //setUpWorkspaceSchemas()
-        setUpSearchEngine()
+
         isInitialized = true
 
         function setUpContextMenu() {
@@ -257,209 +256,6 @@ function newSuperalgosDocSpace() {
                     for (let k = 0; k < schemaDocument.menuItems.length; k++) {
                         let menuItem = schemaDocument.menuItems[k]
                         menuLabelsMap.set(menuItem.label, true)
-                    }
-                }
-            }
-        }
-
-        function setUpWorkspaceSchemas() {
-            /*
-            We will scan the whole workspace and create an array with all of its nodes.
-            */
-            let rootNodes = UI.projects.superalgos.spaces.designSpace.workspace.workspaceNode.rootNodes
-            let allNodesFound = []
-            for (let i = 0; i < rootNodes.length; i++) {
-                let rootNode = rootNodes[i]
-                if (rootNode !== null) {
-                    let nodeArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(rootNode)
-                    allNodesFound = allNodesFound.concat(nodeArray)
-                }
-            }
-            /*
-            We will create a document for each node, so that can later be indexed into the search engine.
-            */
-            for (let j = 0; j < PROJECTS_ARRAY.length; j++) {
-                let project = PROJECTS_ARRAY[j]
-                SCHEMAS_BY_PROJECT.get(project).array.workspaceNodeSchema = []
-
-                for (let i = 0; i < allNodesFound.length; i++) {
-                    let node = allNodesFound[i]
-                    if (node.project === project) {
-                        let schemaDocument = {
-                            type: node.type,
-                            definition: node.name,
-                            paragraphs: []
-                        }
-                        if (node.config !== undefined) {
-                            let paragraph
-                            paragraph = {
-                                style: "Subtitle",
-                                text: "Config"
-                            }
-                            schemaDocument.paragraphs.push(paragraph)
-                            paragraph = {
-                                syle: "Json",
-                                text: node.config
-                            }
-                            schemaDocument.paragraphs.push(paragraph)
-                        }
-                        if (node.code !== undefined) {
-                            let paragraph
-                            paragraph = {
-                                style: "Subtitle",
-                                text: "Code"
-                            }
-                            schemaDocument.paragraphs.push(paragraph)
-                            paragraph = {
-                                syle: "Javascript",
-                                text: node.code
-                            }
-                            schemaDocument.paragraphs.push(paragraph)
-                        }
-                    }
-                    SCHEMAS_BY_PROJECT.get(project).array.workspaceNodeSchema.push(schemaDocument)
-                }
-            }
-        }
-
-        function setUpSearchEngine() {
-            for (let j = 0; j < PROJECTS_ARRAY.length; j++) {
-                let project = PROJECTS_ARRAY[j]
-
-                let documentIndex
-
-                /* Search in Nodes */
-                for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema.length; i++) {
-                    documentIndex = {
-                        phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
-                        schemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema[i],
-                        documentCategory: 'Node',
-                        project: project
-                    }
-                    indexDocument(documentIndex)
-                    docsIndex.push(documentIndex)
-                }
-                /* Search in Concepts */
-                for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema.length; i++) {
-                    documentIndex = {
-                        phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
-                        schemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema[i],
-                        documentCategory: 'Concept',
-                        project: project
-                    }
-                    indexDocument(documentIndex)
-                    docsIndex.push(documentIndex)
-                }
-                /* Search in Topics */
-                for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema.length; i++) {
-                    documentIndex = {
-                        phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
-                        schemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema[i],
-                        documentCategory: 'Topics',
-                        project: project
-                    }
-                    indexDocument(documentIndex)
-                    docsIndex.push(documentIndex)
-                }
-            }
-
-            function indexDocument(documentIndex) {
-
-                if (documentIndex.schemaDocument === undefined) {
-                    return
-                }
-
-                if (documentIndex.schemaDocument.type !== undefined) {
-                    let paragraph = {
-                        style: 'Type',
-                        text: documentIndex.schemaDocument.type
-                    }
-                    indexParagraph(paragraph)
-                }
-                if (documentIndex.schemaDocument.definition !== undefined) {
-                    let paragraph = {
-                        style: 'Definition',
-                        text: documentIndex.schemaDocument.definition
-                    }
-                    indexParagraph(paragraph)
-                }
-                if (documentIndex.schemaDocument.paragraphs !== undefined) {
-                    for (let k = 0; k < documentIndex.schemaDocument.paragraphs.length; k++) {
-                        let paragraph = documentIndex.schemaDocument.paragraphs[k]
-                        indexParagraph(paragraph)
-                    }
-                }
-
-                function indexParagraph(paragraph) {
-                    if (paragraph.text === undefined) {
-                        return
-                    }
-                    if (paragraph.style === undefined) {
-                        return
-                    }
-
-                    let text = paragraph.text.toLowerCase()
-                    let style = paragraph.style.toLowerCase()
-                    let stylePhraseCount = documentIndex.phraseCount[style]
-
-                    if (stylePhraseCount === undefined) {
-                        stylePhraseCount = new Map()
-                        documentIndex.phraseCount[style] = stylePhraseCount
-                    }
-
-                    text = text.replaceAll('. ', ' ')
-                    text = text.replaceAll(', ', ' ')
-                    text = text.replaceAll('- ', ' ')
-                    text = text.replaceAll('/ ', ' ')
-                    text = text.replaceAll('_ ', ' ')
-                    text = text.replaceAll(': ', ' ')
-                    text = text.replaceAll('; ', ' ')
-                    text = text.replaceAll('( ', ' ')
-                    text = text.replaceAll(') ', ' ')
-                    text = text.replaceAll('{ ', ' ')
-                    text = text.replaceAll('} ', ' ')
-                    text = text.replaceAll('[ ', ' ')
-                    text = text.replaceAll('] ', ' ')
-
-                    text = text.replaceAll('.', ' ')
-                    text = text.replaceAll(',', ' ')
-                    text = text.replaceAll('-', ' ')
-                    text = text.replaceAll('/', ' ')
-                    text = text.replaceAll('_', ' ')
-                    text = text.replaceAll(':', ' ')
-                    text = text.replaceAll(';', ' ')
-                    text = text.replaceAll('(', ' ')
-                    text = text.replaceAll(')', ' ')
-                    text = text.replaceAll('{', ' ')
-                    text = text.replaceAll('}', ' ')
-                    text = text.replaceAll('[', ' ')
-                    text = text.replaceAll(']', ' ')
-                    text = text.replaceAll('@', ' ')
-                    text = text.replaceAll('    ', ' ')
-                    text = text.replaceAll('   ', ' ')
-                    text = text.replaceAll('  ', ' ')
-
-                    let splittedText = text.split(' ')
-
-                    for (n = 0; n < splittedText.length; n++) {
-                        let phrase = ''
-                        for (let m = 0; m < 10; m++) {
-                            let word = splittedText[n + m]
-                            if (word !== undefined) {
-                                if (m === 0) {
-                                    phrase = phrase + word
-                                } else {
-                                    phrase = phrase + ' ' + word
-                                }
-                                let key = cleanTextForSearch(phrase)
-
-                                let thisPhraseCount = stylePhraseCount.get(key)
-                                if (thisPhraseCount === undefined) { thisPhraseCount = 0 }
-                                thisPhraseCount++
-
-                                stylePhraseCount.set(key, thisPhraseCount)
-                            }
-                        }
                     }
                 }
             }
@@ -724,8 +520,234 @@ function newSuperalgosDocSpace() {
     }
 
     function onOpening() {
+
+        docsIndex = []
+
+        setUpWorkspaceSchemas()
+        setUpSearchEngine()
+
         if (objectBeingRendered === undefined) {
             renderSearchPage()
+        } else {
+            navigateTo(objectBeingRendered.category, objectBeingRendered.type, objectBeingRendered.project)
+        }
+    }
+
+    function setUpWorkspaceSchemas() {
+        /*
+        We will scan the whole workspace and create an array with all of its nodes.
+        */
+        let rootNodes = UI.projects.superalgos.spaces.designSpace.workspace.workspaceNode.rootNodes
+        let allNodesFound = []
+        for (let i = 0; i < rootNodes.length; i++) {
+            let rootNode = rootNodes[i]
+            if (rootNode !== null) {
+                let nodeArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(rootNode)
+                allNodesFound = allNodesFound.concat(nodeArray)
+            }
+        }
+        /*
+        We will create a document for each node, so that can later be indexed into the search engine.
+        */
+        for (let j = 0; j < PROJECTS_ARRAY.length; j++) {
+            let project = PROJECTS_ARRAY[j]
+            SCHEMAS_BY_PROJECT.get(project).array.workspaceSchema = []
+            SCHEMAS_BY_PROJECT.get(project).map.workspaceSchema = new Map()
+
+            for (let i = 0; i < allNodesFound.length; i++) {
+                let node = allNodesFound[i]
+                let key = node.id
+                if (node.project === project) {
+                    let schemaDocument = {
+                        key: key,
+                        type: node.type,
+                        definition: node.name,
+                        paragraphs: []
+                    }
+                    if (node.config !== undefined) {
+                        let paragraph
+                        paragraph = {
+                            style: "Title",
+                            text: "Config"
+                        }
+                        schemaDocument.paragraphs.push(paragraph)
+                        paragraph = {
+                            style: "Json",
+                            text: node.config
+                        }
+                        schemaDocument.paragraphs.push(paragraph)
+                    }
+                    if (node.code !== undefined) {
+                        let paragraph
+                        paragraph = {
+                            style: "Title",
+                            text: "Code"
+                        }
+                        schemaDocument.paragraphs.push(paragraph)
+                        paragraph = {
+                            style: "Javascript",
+                            text: node.code
+                        }
+                        schemaDocument.paragraphs.push(paragraph)
+                    }
+                    SCHEMAS_BY_PROJECT.get(project).array.workspaceSchema.push(schemaDocument)
+                    SCHEMAS_BY_PROJECT.get(project).map.workspaceSchema.set(key, schemaDocument)
+                }
+            }
+        }
+    }
+
+    function setUpSearchEngine() {
+        for (let j = 0; j < PROJECTS_ARRAY.length; j++) {
+            let project = PROJECTS_ARRAY[j]
+
+            let documentIndex
+
+            /* Search in Nodes */
+            for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema.length; i++) {
+                documentIndex = {
+                    phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
+                    schemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema[i],
+                    documentCategory: 'Node',
+                    project: project
+                }
+                indexDocument(documentIndex)
+                docsIndex.push(documentIndex)
+            }
+            /* Search in Concepts */
+            for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema.length; i++) {
+                documentIndex = {
+                    phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
+                    schemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema[i],
+                    documentCategory: 'Concept',
+                    project: project
+                }
+                indexDocument(documentIndex)
+                docsIndex.push(documentIndex)
+            }
+            /* Search in Topics */
+            for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema.length; i++) {
+                documentIndex = {
+                    phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
+                    schemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema[i],
+                    documentCategory: 'Topics',
+                    project: project
+                }
+                indexDocument(documentIndex)
+                docsIndex.push(documentIndex)
+            }
+            /* Search in Workspace */
+            for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.workspaceSchema.length; i++) {
+                documentIndex = {
+                    phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
+                    schemaDocument: SCHEMAS_BY_PROJECT.get(project).array.workspaceSchema[i],
+                    documentCategory: 'Workspace',
+                    project: project
+                }
+                indexDocument(documentIndex)
+                docsIndex.push(documentIndex)
+            }
+        }
+
+        function indexDocument(documentIndex) {
+
+            if (documentIndex.schemaDocument === undefined) {
+                return
+            }
+
+            if (documentIndex.schemaDocument.type !== undefined) {
+                let paragraph = {
+                    style: 'Type',
+                    text: documentIndex.schemaDocument.type
+                }
+                indexParagraph(paragraph)
+            }
+            if (documentIndex.schemaDocument.definition !== undefined) {
+                let paragraph = {
+                    style: 'Definition',
+                    text: documentIndex.schemaDocument.definition
+                }
+                indexParagraph(paragraph)
+            }
+            if (documentIndex.schemaDocument.paragraphs !== undefined) {
+                for (let k = 0; k < documentIndex.schemaDocument.paragraphs.length; k++) {
+                    let paragraph = documentIndex.schemaDocument.paragraphs[k]
+                    indexParagraph(paragraph)
+                }
+            }
+
+            function indexParagraph(paragraph) {
+                if (paragraph.text === undefined) {
+                    return
+                }
+                if (paragraph.style === undefined) {
+                    return
+                }
+
+                let text = paragraph.text.toLowerCase()
+                let style = paragraph.style.toLowerCase()
+                let stylePhraseCount = documentIndex.phraseCount[style]
+
+                if (stylePhraseCount === undefined) {
+                    stylePhraseCount = new Map()
+                    documentIndex.phraseCount[style] = stylePhraseCount
+                }
+
+                text = text.replaceAll('. ', ' ')
+                text = text.replaceAll(', ', ' ')
+                text = text.replaceAll('- ', ' ')
+                text = text.replaceAll('/ ', ' ')
+                text = text.replaceAll('_ ', ' ')
+                text = text.replaceAll(': ', ' ')
+                text = text.replaceAll('; ', ' ')
+                text = text.replaceAll('( ', ' ')
+                text = text.replaceAll(') ', ' ')
+                text = text.replaceAll('{ ', ' ')
+                text = text.replaceAll('} ', ' ')
+                text = text.replaceAll('[ ', ' ')
+                text = text.replaceAll('] ', ' ')
+
+                text = text.replaceAll('.', ' ')
+                text = text.replaceAll(',', ' ')
+                text = text.replaceAll('-', ' ')
+                text = text.replaceAll('/', ' ')
+                text = text.replaceAll('_', ' ')
+                text = text.replaceAll(':', ' ')
+                text = text.replaceAll(';', ' ')
+                text = text.replaceAll('(', ' ')
+                text = text.replaceAll(')', ' ')
+                text = text.replaceAll('{', ' ')
+                text = text.replaceAll('}', ' ')
+                text = text.replaceAll('[', ' ')
+                text = text.replaceAll(']', ' ')
+                text = text.replaceAll('@', ' ')
+                text = text.replaceAll('    ', ' ')
+                text = text.replaceAll('   ', ' ')
+                text = text.replaceAll('  ', ' ')
+
+                let splittedText = text.split(' ')
+
+                for (n = 0; n < splittedText.length; n++) {
+                    let phrase = ''
+                    for (let m = 0; m < 10; m++) {
+                        let word = splittedText[n + m]
+                        if (word !== undefined) {
+                            if (m === 0) {
+                                phrase = phrase + word
+                            } else {
+                                phrase = phrase + ' ' + word
+                            }
+                            let key = cleanTextForSearch(phrase)
+
+                            let thisPhraseCount = stylePhraseCount.get(key)
+                            if (thisPhraseCount === undefined) { thisPhraseCount = 0 }
+                            thisPhraseCount++
+
+                            stylePhraseCount.set(key, thisPhraseCount)
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -862,7 +884,7 @@ function newSuperalgosDocSpace() {
         }
 
         function buildHTML() {
-            const tabs = ['All', 'Nodes', 'Concepts', 'Topics']
+            const tabs = ['All', 'Nodes', 'Concepts', 'Topics', 'Workspace']
             let HTML = ''
             HTML = HTML + '<section id="docs-search-results-div" class="docs-search-page-container">'
             HTML = HTML + addSearchHeader()
@@ -897,7 +919,7 @@ function newSuperalgosDocSpace() {
                     resultCounter++
                     HTML = HTML + '<div class="docs-search-result-content-record-container">'
                     HTML = HTML + '<p class="docs-search-result-content-record-project-category">' + result.documentIndex.project + ' > ' + result.documentIndex.documentCategory + '</p>'
-                    HTML = HTML + '<p><a onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + result.documentIndex.documentCategory + '\', \'' + result.documentIndex.schemaDocument.type + '\', \'' + result.documentIndex.project + '\')" class="docs-search-result-content-record-title">' + result.documentIndex.schemaDocument.type + '</a></p>'
+                    HTML = HTML + '<p><a onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + result.documentIndex.documentCategory + '\', \'' + result.documentIndex.schemaDocument.type + '\', \'' + result.documentIndex.project + '\', \'' + result.documentIndex.schemaDocument.key + '\')" class="docs-search-result-content-record-title">' + result.documentIndex.schemaDocument.type + '</a></p>'
 
                     if (result.documentIndex.schemaDocument.definition !== undefined) {
                         HTML = HTML + '<p class="docs-search-result-content-record-extract">' + result.documentIndex.schemaDocument.definition + '</p>'
@@ -980,17 +1002,26 @@ function newSuperalgosDocSpace() {
     }
 
     function openSpaceAreaAndNavigateTo(category, type, project) {
-        navigateTo(category, type, project)
-        thisObject.sidePanelTab.open()
-    }
 
-    function navigateTo(category, type, project) {
-
-        paragraphMap = new Map()
         objectBeingRendered = {
             category: category,
             type: type,
             project: project
+        }
+
+        thisObject.sidePanelTab.open()
+    }
+
+    function navigateTo(category, type, project, key) {
+
+        paragraphMap = new Map()
+
+        /* Replace the current object with this */
+        objectBeingRendered = {
+            category: category,
+            type: type,
+            project: project,
+            key: key
         }
 
         renderDocumentPage()
@@ -1003,7 +1034,25 @@ function newSuperalgosDocSpace() {
         disableCollapsibleContent()
 
         nodeAppDefinition = SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.appSchema.get(objectBeingRendered.type)
-        nodeDocsDefinition = SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.docsNodeSchema.get(objectBeingRendered.type)
+
+        switch(objectBeingRendered.category) {
+            case 'Node': {
+                nodeDocsDefinition = SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.docsNodeSchema.get(objectBeingRendered.type)
+                break
+            }
+            case 'Concept': {
+                nodeDocsDefinition = SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.docsConceptSchema.get(objectBeingRendered.type)
+                break
+            }
+            case 'Topic': {
+                nodeDocsDefinition = SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.docsTopicSchema.get(objectBeingRendered.type)
+                break
+            }
+            case 'Workspace': {
+                nodeDocsDefinition = SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.workspaceSchema.get(objectBeingRendered.key)
+                break
+            }
+        }
 
         if (nodeDocsDefinition === undefined) {
             // Use the New Node Template
@@ -1017,8 +1066,25 @@ function newSuperalgosDocSpace() {
                     }
                 ]
             }
-            SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).array.docsNodeSchema.push(template)
-            SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.docsNodeSchema.set(objectBeingRendered.type, template)
+
+            switch(objectBeingRendered.category) {
+                case 'Node': {
+                    SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).array.docsNodeSchema.push(template)
+                    SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.docsNodeSchema.set(objectBeingRendered.type, template)
+                    break
+                }
+                case 'Concept': {
+                    SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).array.docsConceptSchema.push(template)
+                    SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.docsConceptSchema.set(objectBeingRendered.type, template)
+                    break
+                }
+                case 'Topic': {
+                    SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).array.docsTopicSchema.push(template)
+                    SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.docsTopicSchema.set(objectBeingRendered.type, template)
+                    break
+                }
+            }
+
             nodeDocsDefinition = template
         }
         buildHtmlPage()
@@ -2166,22 +2232,22 @@ function newSuperalgosDocSpace() {
             We will search across all DOC and CONCEPT SCHEMAS
             */
             let found = false
-            let definitionNode
+            let schemaDocument
 
             for (let j = 0; j < PROJECTS_ARRAY.length; j++) {
                 let project = PROJECTS_ARRAY[j]
-                definitionNode = SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(type)
-                if (definitionNode !== undefined) {
+                schemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(type)
+                if (schemaDocument !== undefined) {
                     found = true
                     break
                 }
-                definitionNode = SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.get(type)
-                if (definitionNode !== undefined) {
+                schemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.get(type)
+                if (schemaDocument !== undefined) {
                     found = true
                     break
                 }
-                definitionNode = SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.get(type)
-                if (definitionNode !== undefined) {
+                schemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.get(type)
+                if (schemaDocument !== undefined) {
                     found = true
                     break
                 }
@@ -2190,7 +2256,7 @@ function newSuperalgosDocSpace() {
                 return text
             }
 
-            let definition = definitionNode.definition
+            let definition = schemaDocument.definition
             if (definition === undefined || definition === "") {
                 let tooltip = LINK_ONLY_HTML
                     .replace('CATEGORY', category)

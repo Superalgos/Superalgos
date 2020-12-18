@@ -92,7 +92,7 @@ function newSuperalgosFloatingSpace() {
             distancePercentage: 100,
             radiusPercentage: 100,
             massPercentage: 100,
-            animationSteps: 2, 
+            animationSteps: 2,
             menuItem: {
                 widthPercentage: 100,
                 heightPercentage: 100,
@@ -360,12 +360,15 @@ function newSuperalgosFloatingSpace() {
         return displaceVector
     }
 
-    function positionAtNode(node) {
+    function positionAtNode(node, xOffset, yOffset) {
+        if (xOffset === undefined) { xOffset = 0 }
+        if (yOffset === undefined) { yOffset = 0 }
+
         let position = thisObject.container.frame.frameThisPoint(node.payload.position)
 
         let displaceVector = {
-            x: browserCanvas.width / 2 - position.x,
-            y: (COCKPIT_SPACE_POSITION + COCKPIT_SPACE_HEIGHT) + (browserCanvas.height - (COCKPIT_SPACE_POSITION + COCKPIT_SPACE_HEIGHT)) / 2 - position.y
+            x: browserCanvas.width / 2 - position.x + xOffset,
+            y: (COCKPIT_SPACE_POSITION + COCKPIT_SPACE_HEIGHT) + (browserCanvas.height - (COCKPIT_SPACE_POSITION + COCKPIT_SPACE_HEIGHT)) / 2 - position.y + yOffset
         }
 
         thisObject.container.displace(displaceVector)
@@ -519,7 +522,7 @@ function newSuperalgosFloatingSpace() {
                 }
                 if (configSettings.node.menuItem.heightPercentage !== undefined) {
                     thisObject.settings.node.menuItem.heightPercentage = configSettings.node.menuItem.heightPercentage
-                } 
+                }
                 if (configSettings.node.menuItem.radiusPercentage !== undefined) {
                     thisObject.settings.node.menuItem.radiusPercentage = configSettings.node.menuItem.radiusPercentage
                 }

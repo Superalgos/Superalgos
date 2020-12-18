@@ -15,6 +15,7 @@ function newSuperalgosDocSpace() {
     }
 
     let isInitialized = false
+    const DOCS_SPACE_WIDTH = 900
 
     thisObject.container = newContainer()
     thisObject.container.name = MODULE_NAME
@@ -1135,8 +1136,10 @@ function newSuperalgosDocSpace() {
             let node = await UI.projects.superalgos.spaces.designSpace.workspace.getNodeById(schemaDocument.key)
             node.payload.floatingObject.unCollapseParent()
             setTimeout(positionAtNode, 3000, node)
+            setTimeout(positionAtNode, 5000, node)
             function positionAtNode(node) {
-                UI.projects.superalgos.spaces.floatingSpace.positionAtNode(node)
+                let xOffset = -DOCS_SPACE_WIDTH / 2
+                UI.projects.superalgos.spaces.floatingSpace.positionAtNode(node, xOffset)
             }
         }
 
@@ -2499,7 +2502,7 @@ function newSuperalgosDocSpace() {
     }
 
     function resize() {
-        thisObject.container.frame.width = 900
+        thisObject.container.frame.width = DOCS_SPACE_WIDTH
         thisObject.container.frame.height = browserCanvas.height // - TOP_SPACE_HEIGHT
         thisObject.container.frame.position.x = browserCanvas.width
         thisObject.container.frame.position.y = 0 // TOP_SPACE_HEIGHT

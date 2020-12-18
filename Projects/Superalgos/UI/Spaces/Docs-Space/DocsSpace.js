@@ -1104,7 +1104,7 @@ function newSuperalgosDocSpace() {
 
         async function repositionWorkspace() {
             if (objectBeingRendered.category !== 'Workspace') { return }
-            
+
             let node = await UI.projects.superalgos.spaces.designSpace.workspace.getNodeById(schemaDocument.key)
             UI.projects.superalgos.spaces.floatingSpace.positionAtNode(node)
         }
@@ -1171,9 +1171,12 @@ function newSuperalgosDocSpace() {
                 if (schemaDocument.definition !== undefined) {
                     addDefinitionImage(objectBeingRendered.project)
                 }
-                addMenuItemsImages()
-                addChildrenNodesPropertiesImages()
-                addAttachingAndReferencingRulesImages()
+
+                if (objectBeingRendered.category === 'Node') {
+                    addMenuItemsImages()
+                    addChildrenNodesPropertiesImages()
+                    addAttachingAndReferencingRulesImages()
+                }
 
                 function addDefinitionImage(project) {
                     let imageElement

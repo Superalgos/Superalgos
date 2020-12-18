@@ -54,6 +54,7 @@ function newSuperalgosDocSpace() {
         setUpContextMenu()
         setUpMenuItemsMap()
         setUpSearchEngine()
+        setUpWorkspaceSchemas()
         isInitialized = true
 
         function setUpContextMenu() {
@@ -257,6 +258,66 @@ function newSuperalgosDocSpace() {
                         let menuItem = nodeDefinition.menuItems[k]
                         menuLabelsMap.set(menuItem.label, true)
                     }
+                }
+            }
+        }
+
+        function setUpWorkspaceSchemas() {
+            /*
+            We will scan the whole workspace and create an array with all of its nodes.
+            */
+            let rootNodes = UI.projects.superalgos.spaces.designSpace.workspace.workspaceNode.rootNodes
+            let allNodesFound = []
+            for (let i = 0; i < rootNodes.length; i++) {
+                let rootNode = rootNodes[i]
+                if (rootNode !== null) {
+                    let nodeArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(rootNode)
+                    allNodesFound = allNodesFound.concat(nodeArray)
+                }
+            }
+            /*
+            We will create a document for each node, so that can later be indexed into the search engine.
+            */
+            for (let j = 0; j < PROJECTS_ARRAY.length; j++) {
+                let project = PROJECTS_ARRAY[j]
+                SCHEMAS_BY_PROJECT.get(project).array.workspaceNodeSchema = []
+
+                for (let i = 0; i < allNodesFound.length; i++) {
+                    let node = allNodesFound[i]
+                    if (node.project === project) {
+                        let document = {
+                            type: node.type,
+                            definition: node.name,
+                            paragraphs: []
+                        }
+                        if (node.config !== undefined) {
+                            let paragraph 
+                            paragraph = {
+                                style: "Subtitle",
+                                text: "Config"
+                            }
+                            document.paragraphs.push(paragraph)
+                            paragraph = {
+                                syle: "Json",
+                                text: node.config
+                            }
+                            document.paragraphs.push(paragraph)
+                        }
+                        if (node.code !== undefined) {
+                            let paragraph 
+                            paragraph = {
+                                style: "Subtitle",
+                                text: "Code"
+                            }
+                            document.paragraphs.push(paragraph)
+                            paragraph = {
+                                syle: "Javascript",
+                                text: node.code
+                            }
+                            document.paragraphs.push(paragraph)
+                        }
+                    }
+                    SCHEMAS_BY_PROJECT.get(project).array.workspaceNodeSchema.push(document)
                 }
             }
         }
@@ -2320,7 +2381,7 @@ function newSuperalgosDocSpace() {
     }
 
     function resize() {
-        thisObject.container.frame.width = 1000
+        thisObject.container.frame.width = 900
         thisObject.container.frame.height = browserCanvas.height // - TOP_SPACE_HEIGHT
         thisObject.container.frame.position.x = browserCanvas.width
         thisObject.container.frame.position.y = 0 // TOP_SPACE_HEIGHT

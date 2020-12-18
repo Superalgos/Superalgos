@@ -931,8 +931,8 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                     for (let k = 0; k < fileList.length; k++) {
                         let name = fileList[k]
                         let fileContent = fs.readFileSync(filePath + '/' + folder + '/' + name)
-                        let nodeDefinition = JSON.parse(fileContent)
-                        schemaArray.push(nodeDefinition)
+                        let schemaDocument = JSON.parse(fileContent)
+                        schemaArray.push(schemaDocument)
                     }
                     let schema = JSON.stringify(schemaArray)
                     respondWithContent(schema, httpResponse)

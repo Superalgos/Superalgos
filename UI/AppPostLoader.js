@@ -61,9 +61,9 @@ function newAppPostLoader() {
                             schemas.array.appSchema = JSON.parse(schema)
 
                             for (let j = 0; j < schemas.array.appSchema.length; j++) {
-                                let nodeDefinition = schemas.array.appSchema[j]
-                                let key = nodeDefinition.type
-                                schemas.map.appSchema.set(key, nodeDefinition)
+                                let schemaDocument = schemas.array.appSchema[j]
+                                let key = schemaDocument.type
+                                schemas.map.appSchema.set(key, schemaDocument)
                             }
                         } catch (err) {
                             console.log(err.stack)
@@ -81,9 +81,9 @@ function newAppPostLoader() {
                             schemas.array.docsNodeSchema = JSON.parse(schema)
 
                             for (let j = 0; j < schemas.array.docsNodeSchema.length; j++) {
-                                let nodeDefinition = schemas.array.docsNodeSchema[j]
-                                let key = nodeDefinition.type
-                                schemas.map.docsNodeSchema.set(key, nodeDefinition)
+                                let schemaDocument = schemas.array.docsNodeSchema[j]
+                                let key = schemaDocument.type
+                                schemas.map.docsNodeSchema.set(key, schemaDocument)
                             }
                         } catch (err) {
                             console.log(err.stack)
@@ -101,9 +101,9 @@ function newAppPostLoader() {
                             schemas.array.docsConceptSchema = JSON.parse(schema)
 
                             for (let j = 0; j < schemas.array.docsConceptSchema.length; j++) {
-                                let nodeDefinition = schemas.array.docsConceptSchema[j]
-                                let key = nodeDefinition.type
-                                schemas.map.docsConceptSchema.set(key, nodeDefinition)
+                                let schemaDocument = schemas.array.docsConceptSchema[j]
+                                let key = schemaDocument.type
+                                schemas.map.docsConceptSchema.set(key, schemaDocument)
                             }
                         } catch (err) {
                             console.log(err.stack)
@@ -121,9 +121,9 @@ function newAppPostLoader() {
                             schemas.array.docsTopicSchema = JSON.parse(schema)
 
                             for (let j = 0; j < schemas.array.docsTopicSchema.length; j++) {
-                                let nodeDefinition = schemas.array.docsTopicSchema[j]
-                                let key = nodeDefinition.type
-                                schemas.map.docsTopicSchema.set(key, nodeDefinition)
+                                let schemaDocument = schemas.array.docsTopicSchema[j]
+                                let key = schemaDocument.type
+                                schemas.map.docsTopicSchema.set(key, schemaDocument)
                             }
                         } catch (err) {
                             console.log(err.stack)

@@ -18,12 +18,12 @@ function newSuperalgosFunctionLibraryNodePath() {
             if (node.payload === undefined) { return }
             if (node.payload.parentNode === undefined) { return }
 
-            let nodeDefinition = getNodeDefinition(node.payload.parentNode)
-            if (nodeDefinition === undefined) { return }
-            if (nodeDefinition.childrenNodesProperties === undefined) { return }
+            let schemaDocument = getSchemaDocument(node.payload.parentNode)
+            if (schemaDocument === undefined) { return }
+            if (schemaDocument.childrenNodesProperties === undefined) { return }
 
-            for (let i = 0; i < nodeDefinition.childrenNodesProperties.length; i++) {
-                let property = nodeDefinition.childrenNodesProperties[i]
+            for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+                let property = schemaDocument.childrenNodesProperties[i]
 
                 let parentProperty = node.payload.parentNode[property.name]
                 if (parentProperty === undefined) { continue }

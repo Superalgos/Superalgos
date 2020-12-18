@@ -51,9 +51,9 @@ function newUiObjectTitle() {
         thisObject.payload = payload
 
         thisObject.allwaysVisible = false // Default value
-        let nodeDefinition = getNodeDefinition(thisObject.payload.node)
-        if (nodeDefinition !== undefined) {
-            if (nodeDefinition.isTitleAllwaysVisible === true) {
+        let schemaDocument = getSchemaDocument(thisObject.payload.node)
+        if (schemaDocument !== undefined) {
+            if (schemaDocument.isTitleAllwaysVisible === true) {
                 thisObject.allwaysVisible = true
             }
         }
@@ -100,13 +100,13 @@ function newUiObjectTitle() {
         if (thisObject.payload.title === undefined) { return }
 
         /* It is possible to override the default title by setting the APP SCHEMA property 'title' */
-        let nodeDefinition = getNodeDefinition(thisObject.payload.node)
-        if (nodeDefinition.title !== undefined) {
+        let schemaDocument = getSchemaDocument(thisObject.payload.node)
+        if (schemaDocument.title !== undefined) {
             thisObject.payload.title = ''
             thisObject.payload.node.name = ''
             let separator = ''
-            for (let i = 0; i < nodeDefinition.title.length; i++) {
-                let titleReference = nodeDefinition.title[i]
+            for (let i = 0; i < schemaDocument.title.length; i++) {
+                let titleReference = schemaDocument.title[i]
                 switch (titleReference) {
                     case 'Use Parent': {
                         let nodeToUse = thisObject.payload.parentNode
@@ -230,8 +230,8 @@ function newUiObjectTitle() {
     }
 
     function onMouseClick(event) {
-        let nodeDefinition = getNodeDefinition(thisObject.payload.node)
-        if (nodeDefinition.title !== undefined) { return }
+        let schemaDocument = getSchemaDocument(thisObject.payload.node)
+        if (schemaDocument.title !== undefined) { return }
 
         let checkPoint = {
             x: 0,
@@ -340,9 +340,9 @@ function newUiObjectTitle() {
                         labelPoint.x = labelPoint.x -  getTextWidth(label) / 2,
                         labelPoint.y = labelPoint.y - 35
 
-                        let nodeDefinition = getNodeDefinition(thisObject.payload.node)
-                        if (nodeDefinition !== undefined) {
-                            if (nodeDefinition.isHierarchyHead !== true && nodeDefinition.isProjectHead !== true) {
+                        let schemaDocument = getSchemaDocument(thisObject.payload.node)
+                        if (schemaDocument !== undefined) {
+                            if (schemaDocument.isHierarchyHead !== true && schemaDocument.isProjectHead !== true) {
                                 return
                             }
                         }

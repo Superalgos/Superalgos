@@ -1,6 +1,6 @@
-function getNodeDefinition(node, project) {
+function getSchemaDocument(node, project) {
     if (node === null || node === undefined) {
-        console.log('[Error] Can not get the node definition of a null or undefined node ')
+        console.log('[Error] Can not get the schema document of a null or undefined node ')
         return
     }
     if (project === undefined) { project = node.project }

@@ -31,13 +31,13 @@ function newSuperalgosFunctionLibraryNodeDeleter() {
             node.payload.referenceParent.payload.uiObject.isShowing = false
         }
 
-        let nodeDefinition = getNodeDefinition(node)
-        if (nodeDefinition !== undefined) {
+        let schemaDocument = getSchemaDocument(node)
+        if (schemaDocument !== undefined) {
             /* Remove all of its own children nodes. */
-            if (nodeDefinition.childrenNodesProperties !== undefined) {
+            if (schemaDocument.childrenNodesProperties !== undefined) {
                 let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
-                for (let i = 0; i < nodeDefinition.childrenNodesProperties.length; i++) {
-                    let property = nodeDefinition.childrenNodesProperties[i]
+                for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+                    let property = schemaDocument.childrenNodesProperties[i]
 
                     switch (property.type) {
                         case 'node': {
@@ -65,16 +65,16 @@ function newSuperalgosFunctionLibraryNodeDeleter() {
             }
 
             /* Remove node from parent */
-            if (nodeDefinition.propertyNameAtParent !== undefined) {
+            if (schemaDocument.propertyNameAtParent !== undefined) {
                 let removedFromParent = false
                 if (node.payload !== undefined) {
                     if (node.payload.parentNode !== undefined) {
-                        let parentNodeDefinition = getNodeDefinition(node.payload.parentNode)
-                        if (parentNodeDefinition !== undefined) {
-                            if (parentNodeDefinition.childrenNodesProperties !== undefined) {
-                                for (let i = 0; i < parentNodeDefinition.childrenNodesProperties.length; i++) {
-                                    let property = parentNodeDefinition.childrenNodesProperties[i]
-                                    if (nodeDefinition.propertyNameAtParent === property.name) {
+                        let parentSchemaDocument = getSchemaDocument(node.payload.parentNode)
+                        if (parentSchemaDocument !== undefined) {
+                            if (parentSchemaDocument.childrenNodesProperties !== undefined) {
+                                for (let i = 0; i < parentSchemaDocument.childrenNodesProperties.length; i++) {
+                                    let property = parentSchemaDocument.childrenNodesProperties[i]
+                                    if (schemaDocument.propertyNameAtParent === property.name) {
                                         switch (property.type) {
                                             case 'node': {
                                                 node.payload.parentNode[property.name] = undefined
@@ -88,7 +88,7 @@ function newSuperalgosFunctionLibraryNodeDeleter() {
                                                         let arrayItem = nodePropertyArray[j]
                                                         if (arrayItem.id === node.id) {
                                                             /* If this object is chained to the ones of the same type we need to give the next in the chain the reference to the current chain parent */
-                                                            if (nodeDefinition.chainedToSameType === true) {
+                                                            if (schemaDocument.chainedToSameType === true) {
                                                                 if (j < nodePropertyArray.length - 1) {
                                                                     let nextArrayItem = nodePropertyArray[j + 1]
                                                                     nextArrayItem.payload.chainParent = node.payload.chainParent
@@ -108,7 +108,7 @@ function newSuperalgosFunctionLibraryNodeDeleter() {
                             }
                         }
                         if (removedFromParent === false) {
-                            console.log('[ERROR] Deleting Node: ' + node.type + ' ' + node.name + '. This node could not be deleted from its parent node (' + node.payload.parentNode.type + ') because its configured propertyNameAtParent (' + nodeDefinition.propertyNameAtParent + ') does not match any of the properties of its parent.')
+                            console.log('[ERROR] Deleting Node: ' + node.type + ' ' + node.name + '. This node could not be deleted from its parent node (' + node.payload.parentNode.type + ') because its configured propertyNameAtParent (' + schemaDocument.propertyNameAtParent + ') does not match any of the properties of its parent.')
                             return false
                         }
                     }

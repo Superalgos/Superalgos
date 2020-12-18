@@ -14,13 +14,13 @@ function newNodeChildren() {
             childrenCount: 0,
             childIndex: undefined
         }
-        let parentNodeDefinition = getNodeDefinition(parentNode)
-        if (parentNodeDefinition !== undefined) {
-            if (parentNodeDefinition.childrenNodesProperties !== undefined) {
+        let parentSchemaDocument = getSchemaDocument(parentNode)
+        if (parentSchemaDocument !== undefined) {
+            if (parentSchemaDocument.childrenNodesProperties !== undefined) {
                 let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
 
-                for (let i = 0; i < parentNodeDefinition.childrenNodesProperties.length; i++) {
-                    let property = parentNodeDefinition.childrenNodesProperties[i]
+                for (let i = 0; i < parentSchemaDocument.childrenNodesProperties.length; i++) {
+                    let property = parentSchemaDocument.childrenNodesProperties[i]
                     if (parentNode[property.name] !== undefined) {
                         switch (property.type) {
                             case 'node': {
@@ -34,12 +34,12 @@ function newNodeChildren() {
                             }
                                 break
                             case 'array': {
-                                let nodeDefinition = getNodeDefinition(childNode)
-                                if (nodeDefinition !== undefined) {
+                                let schemaDocument = getSchemaDocument(childNode)
+                                if (schemaDocument !== undefined) {
                                     let nodePropertyArray = parentNode[property.name]
                                     for (let j = 0; j < nodePropertyArray.length; j++) {
                                         let child = nodePropertyArray[j]
-                                        if (nodeDefinition.chainedToSameType === true) {
+                                        if (schemaDocument.chainedToSameType === true) {
                                             if (j < 1) {
                                                 response.childrenCount++
                                                 if (child.id === childNode.id) {

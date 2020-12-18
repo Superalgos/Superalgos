@@ -421,10 +421,10 @@ function newUiObject() {
             let nearbyFloatingObjects = thisObject.payload.floatingObject.nearbyFloatingObjects
             let compatibleTypes
 
-            let nodeDefinition = getNodeDefinition(thisObject.payload.node)
-            if (nodeDefinition !== undefined) {
-                if (nodeDefinition.attachingRules !== undefined) {
-                    compatibleTypes = nodeDefinition.attachingRules.compatibleTypes
+            let schemaDocument = getSchemaDocument(thisObject.payload.node)
+            if (schemaDocument !== undefined) {
+                if (schemaDocument.attachingRules !== undefined) {
+                    compatibleTypes = schemaDocument.attachingRules.compatibleTypes
                 } else {
                     return
                 }
@@ -443,15 +443,15 @@ function newUiObject() {
                 let nearbyNode = floatingObject.payload.node
                 if (compatibleTypes.indexOf('->' + nearbyNode.type + '->') >= 0) {
                     /* Discard App Schema defined objects with busy coonection ports */
-                    nodeDefinition = getNodeDefinition(thisObject.payload.node)
-                    if (nodeDefinition !== undefined) {
+                    schemaDocument = getSchemaDocument(thisObject.payload.node)
+                    if (schemaDocument !== undefined) {
                         let mustContinue = false
-                        let parentNodeDefinition = getNodeDefinition(nearbyNode)
-                        if (parentNodeDefinition !== undefined) {
-                            if (parentNodeDefinition.childrenNodesProperties !== undefined) {
-                                for (let j = 0; j < parentNodeDefinition.childrenNodesProperties.length; j++) {
-                                    let property = parentNodeDefinition.childrenNodesProperties[j]
-                                    if (nodeDefinition.propertyNameAtParent === property.name) {
+                        let parentSchemaDocument = getSchemaDocument(nearbyNode)
+                        if (parentSchemaDocument !== undefined) {
+                            if (parentSchemaDocument.childrenNodesProperties !== undefined) {
+                                for (let j = 0; j < parentSchemaDocument.childrenNodesProperties.length; j++) {
+                                    let property = parentSchemaDocument.childrenNodesProperties[j]
+                                    if (schemaDocument.propertyNameAtParent === property.name) {
                                         switch (property.type) {
                                             case 'node': {
                                                 if (nearbyNode[property.name] !== undefined) {
@@ -563,10 +563,10 @@ function newUiObject() {
             let nearbyFloatingObjects = thisObject.payload.floatingObject.nearbyFloatingObjects
             let compatibleTypes
 
-            let nodeDefinition = getNodeDefinition(thisObject.payload.node)
-            if (nodeDefinition !== undefined) {
-                if (nodeDefinition.referencingRules !== undefined) {
-                    compatibleTypes = nodeDefinition.referencingRules.compatibleTypes
+            let schemaDocument = getSchemaDocument(thisObject.payload.node)
+            if (schemaDocument !== undefined) {
+                if (schemaDocument.referencingRules !== undefined) {
+                    compatibleTypes = schemaDocument.referencingRules.compatibleTypes
                 } else {
                     return
                 }
@@ -584,8 +584,8 @@ function newUiObject() {
                 let floatingObject = nearby[1]
                 let nearbyNode = floatingObject.payload.node
                 if (compatibleTypes.indexOf('->' + nearbyNode.type + '->') >= 0 || compatibleTypes === "->*Any Node*->") {
-                    if (nodeDefinition.referencingRules.incompatibleTypes !== undefined) {
-                        if (nodeDefinition.referencingRules.incompatibleTypes.indexOf('->' + nearbyNode.type + '->') >= 0) {
+                    if (schemaDocument.referencingRules.incompatibleTypes !== undefined) {
+                        if (schemaDocument.referencingRules.incompatibleTypes.indexOf('->' + nearbyNode.type + '->') >= 0) {
                             continue
                         }
                     }
@@ -735,11 +735,11 @@ function newUiObject() {
     }
 
     function childrenRunningPhysics() {
-        let nodeDefinition = getNodeDefinition(thisObject.payload.node)
-        if (nodeDefinition.childrenNodesProperties === undefined) { return }
+        let schemaDocument = getSchemaDocument(thisObject.payload.node)
+        if (schemaDocument.childrenNodesProperties === undefined) { return }
         let monitorChildrenRunning = false
-        for (let i = 0; i < nodeDefinition.childrenNodesProperties.length; i++) {
-            let property = nodeDefinition.childrenNodesProperties[i]
+        for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+            let property = schemaDocument.childrenNodesProperties[i]
             if (property.monitorChildrenRunning === true) {
                 let children = thisObject.payload.node[property.name]
                 if (children === undefined) { continue }
@@ -1165,7 +1165,7 @@ function newUiObject() {
 
     function iconPhysics() {
         icon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.payload.node.type)
-        let nodeDefinition = getNodeDefinition(thisObject.payload.node)
+        let schemaDocument = getSchemaDocument(thisObject.payload.node)
 
         /*
         If we want this object to have an alternative icon (defined on a list of possible icons) but
@@ -1180,19 +1180,19 @@ function newUiObject() {
         Finally, if the node we are pointing to does not have a config or does not have a list of 
         alternativeIcons, we will just use that node's icon for the current node.
         */
-        if (nodeDefinition.alternativeIcons !== undefined) {
+        if (schemaDocument.alternativeIcons !== undefined) {
             let nodeToUse = thisObject.payload.node
-            if (nodeDefinition.alternativeIcons === 'Use Parent') {
+            if (schemaDocument.alternativeIcons === 'Use Parent') {
                 if (thisObject.payload.node.payload.parentNode !== undefined) {
                     nodeToUse = thisObject.payload.node.payload.parentNode
                 }
             }
-            if (nodeDefinition.alternativeIcons === 'Use Reference Parent') {
+            if (schemaDocument.alternativeIcons === 'Use Reference Parent') {
                 if (thisObject.payload.node.payload.referenceParent !== undefined) {
                     nodeToUse = thisObject.payload.node.payload.referenceParent
                 }
             }
-            if (nodeDefinition.alternativeIcons === 'Use Reference Grandparent') {
+            if (schemaDocument.alternativeIcons === 'Use Reference Grandparent') {
                 if (thisObject.payload.node.payload.referenceParent !== undefined) {
                     if (thisObject.payload.node.payload.referenceParent.payload !== undefined) {
                         if (thisObject.payload.node.payload.referenceParent.payload.referenceParent !== undefined) {
@@ -1201,7 +1201,7 @@ function newUiObject() {
                     }
                 }
             }
-            if (nodeDefinition.alternativeIcons === 'Use Reference Parent Parent') {
+            if (schemaDocument.alternativeIcons === 'Use Reference Parent Parent') {
                 if (thisObject.payload.node.payload.referenceParent !== undefined) {
                     if (thisObject.payload.node.payload.referenceParent.payload !== undefined) {
                         if (thisObject.payload.node.payload.referenceParent.payload.parentNode !== undefined) {
@@ -1210,15 +1210,15 @@ function newUiObject() {
                     }
                 }
             }
-            nodeDefinition = getNodeDefinition(nodeToUse)
+            schemaDocument = getSchemaDocument(nodeToUse)
             let config = nodeToUse.config
-            if (config !== undefined && (Array.isArray(nodeDefinition.alternativeIcons) === true)) {
+            if (config !== undefined && (Array.isArray(schemaDocument.alternativeIcons) === true)) {
                 try {
                     config = JSON.parse(config)
                     let alternativeIcon
                     let iconName
-                    for (let i = 0; i < nodeDefinition.alternativeIcons.length; i++) {
-                        alternativeIcon = nodeDefinition.alternativeIcons[i]
+                    for (let i = 0; i < schemaDocument.alternativeIcons.length; i++) {
+                        alternativeIcon = schemaDocument.alternativeIcons[i]
                         if (alternativeIcon.codeName === config.codeName) {
                             iconName = alternativeIcon.iconName
                         }
@@ -1231,8 +1231,8 @@ function newUiObject() {
                     nodeToUse.payload.uiObject.setErrorMessage('The config is not well formatted as a JSON object.')
                 }
             } else {
-                if (nodeDefinition.icon !== undefined) {
-                    let newIcon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName(nodeToUse.project, nodeDefinition.icon)
+                if (schemaDocument.icon !== undefined) {
+                    let newIcon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName(nodeToUse.project, schemaDocument.icon)
                     if (newIcon !== undefined) {
                         icon = newIcon
                     }
@@ -1621,9 +1621,9 @@ function newUiObject() {
             if (label !== undefined) {
 
                 if (UI.projects.superalgos.spaces.floatingSpace.inMapMode === true) {
-                    let nodeDefinition = getNodeDefinition(thisObject.payload.node)
-                    if (nodeDefinition !== undefined) {
-                        if (nodeDefinition.isHierarchyHead !== true && nodeDefinition.isProjectHead !== true) {
+                    let schemaDocument = getSchemaDocument(thisObject.payload.node)
+                    if (schemaDocument !== undefined) {
+                        if (schemaDocument.isHierarchyHead !== true && schemaDocument.isProjectHead !== true) {
                             return
                         }
                     }
@@ -2062,9 +2062,9 @@ function newUiObject() {
 
             browserCanvasContext.fill()
 
-            let nodeDefinition = getNodeDefinition(thisObject.payload.node)
-            if (nodeDefinition === undefined) {
-                console.log('Node ' + thisObject.payload.node + ' without Node Definition at APP SCHEMA.')
+            let schemaDocument = getSchemaDocument(thisObject.payload.node)
+            if (schemaDocument === undefined) {
+                console.log('Node ' + thisObject.payload.node + ' without Schema Document at APP SCHEMA.')
                 return
             }
 
@@ -2081,7 +2081,7 @@ function newUiObject() {
                     thisObject.hasError !== true &&
                     thisObject.WarningError !== true &&
                     thisObject.hasInfo !== true &&
-                    nodeDefinition.isHierarchyHead !== true &&
+                    schemaDocument.isHierarchyHead !== true &&
                     thisObject.circularProgressBar === undefined
                 ) {
                     browserCanvasContext.beginPath()
@@ -2104,7 +2104,7 @@ function newUiObject() {
             }
 
             /* Hierarchy Head Ring */
-            if (nodeDefinition.isHierarchyHead === true) {
+            if (schemaDocument.isHierarchyHead === true) {
                 VISIBLE_RADIUS = thisObject.payload.floatingObject.container.frame.radius
                 if (UI.projects.superalgos.spaces.floatingSpace.inMapMode === true) {
                     VISIBLE_RADIUS = UI.projects.superalgos.spaces.floatingSpace.transformRadiusToMap(VISIBLE_RADIUS)
@@ -2133,7 +2133,7 @@ function newUiObject() {
             }
 
             /* Project Head Ring */
-            if (nodeDefinition.isProjectHead === true) {
+            if (schemaDocument.isProjectHead === true) {
                 VISIBLE_RADIUS = thisObject.payload.floatingObject.container.frame.radius
                 if (UI.projects.superalgos.spaces.floatingSpace.inMapMode === true) {
                     VISIBLE_RADIUS = UI.projects.superalgos.spaces.floatingSpace.transformRadiusToMap(VISIBLE_RADIUS)
@@ -2328,11 +2328,11 @@ function newUiObject() {
                 if (isRunningAtBackend === true || isReadyToReferenceAttach === true || isReadyToChainAttach === true) { additionalImageSize = 20 }
                 let totalImageSize = additionalImageSize + thisObject.payload.floatingObject.currentImageSize
 
-                let nodeDefinition = getNodeDefinition(thisObject.payload.node)
-                if (nodeDefinition === undefined) { return }
+                let schemaDocument = getSchemaDocument(thisObject.payload.node)
+                if (schemaDocument === undefined) { return }
 
                 if (UI.projects.superalgos.spaces.floatingSpace.inMapMode === true) {
-                    if (nodeDefinition.isHierarchyHead === true || nodeDefinition.isProjectHead === true) {
+                    if (schemaDocument.isHierarchyHead === true || schemaDocument.isProjectHead === true) {
                         totalImageSize = 50
                     } else {
                         totalImageSize = 25

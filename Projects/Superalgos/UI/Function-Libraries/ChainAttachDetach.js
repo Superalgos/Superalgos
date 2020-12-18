@@ -31,16 +31,16 @@ function newSuperalgosFunctionLibraryChainAttachDetach() {
                 return
             }
             default: {
-                let nodeDefinition = getNodeDefinition(node)
-                if (nodeDefinition !== undefined) {
+                let schemaDocument = getSchemaDocument(node)
+                if (schemaDocument !== undefined) {
                     /* Detach from parent */
                     if (node.payload.parentNode !== undefined) {
-                        let parentNodeDefinition = getNodeDefinition(node.payload.parentNode)
-                        if (parentNodeDefinition !== undefined) {
-                            if (parentNodeDefinition.childrenNodesProperties !== undefined) {
-                                for (let i = 0; i < parentNodeDefinition.childrenNodesProperties.length; i++) {
-                                    let property = parentNodeDefinition.childrenNodesProperties[i]
-                                    if (nodeDefinition.propertyNameAtParent === property.name) {
+                        let parentSchemaDocument = getSchemaDocument(node.payload.parentNode)
+                        if (parentSchemaDocument !== undefined) {
+                            if (parentSchemaDocument.childrenNodesProperties !== undefined) {
+                                for (let i = 0; i < parentSchemaDocument.childrenNodesProperties.length; i++) {
+                                    let property = parentSchemaDocument.childrenNodesProperties[i]
+                                    if (schemaDocument.propertyNameAtParent === property.name) {
                                         switch (property.type) {
                                             case 'node': {
                                                 node.payload.parentNode[property.name] = undefined
@@ -166,18 +166,18 @@ function newSuperalgosFunctionLibraryChainAttachDetach() {
             }
                 break
             default: {
-                let nodeDefinition = getNodeDefinition(node)
-                if (nodeDefinition !== undefined) {
+                let schemaDocument = getSchemaDocument(node)
+                if (schemaDocument !== undefined) {
                     node.payload.parentNode = attachToNode
                     node.payload.chainParent = attachToNode
                     /* Attach to new parent */
                     if (node.payload.parentNode !== undefined) {
-                        let parentNodeDefinition = getNodeDefinition(node.payload.parentNode)
-                        if (parentNodeDefinition !== undefined) {
-                            if (parentNodeDefinition.childrenNodesProperties !== undefined) {
-                                for (let i = 0; i < parentNodeDefinition.childrenNodesProperties.length; i++) {
-                                    let property = parentNodeDefinition.childrenNodesProperties[i]
-                                    if (nodeDefinition.propertyNameAtParent === property.name) {
+                        let parentSchemaDocument = getSchemaDocument(node.payload.parentNode)
+                        if (parentSchemaDocument !== undefined) {
+                            if (parentSchemaDocument.childrenNodesProperties !== undefined) {
+                                for (let i = 0; i < parentSchemaDocument.childrenNodesProperties.length; i++) {
+                                    let property = parentSchemaDocument.childrenNodesProperties[i]
+                                    if (schemaDocument.propertyNameAtParent === property.name) {
                                         switch (property.type) {
                                             case 'node': {
                                                 node.payload.parentNode[property.name] = node

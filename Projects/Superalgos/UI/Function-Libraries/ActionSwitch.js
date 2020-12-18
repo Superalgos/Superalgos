@@ -632,7 +632,7 @@ function newSuperalgosActionSwitch() {
                 break
             case 'Open Documentation':
                 {
-                    let definition = getNodeDefinition(action.node)
+                    let definition = getSchemaDocument(action.node)
                     if (definition !== undefined) {
                         UI.projects.superalgos.spaces.docsSpace.openSpaceAreaAndNavigateTo('Node', action.node.type, action.node.project)
                     }

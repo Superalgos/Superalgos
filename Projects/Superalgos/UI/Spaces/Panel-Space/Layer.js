@@ -303,12 +303,12 @@ function newLayer() {
             thisObject.quotedAssetIcon = getIcon(thisObject.quotedAsset)
 
             function getIcon(node) {
-                let nodeDefinition = getNodeDefinition(node)
+                let schemaDocument = getSchemaDocument(node)
                 let iconName
                 let icon
-                if (nodeDefinition.alternativeIcons !== undefined) {
-                    for (let i = 0; i < nodeDefinition.alternativeIcons.length; i++) {
-                        let alternativeIcon = nodeDefinition.alternativeIcons[i]
+                if (schemaDocument.alternativeIcons !== undefined) {
+                    for (let i = 0; i < schemaDocument.alternativeIcons.length; i++) {
+                        let alternativeIcon = schemaDocument.alternativeIcons[i]
                         if (alternativeIcon.codeName === node.config.codeName) {
                             iconName = alternativeIcon.iconName
                         }
@@ -317,7 +317,7 @@ function newLayer() {
                 if (iconName !== undefined) {
                     icon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName('Superalgos', iconName)
                 } else {
-                    icon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName('Superalgos', nodeDefinition.icon)
+                    icon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName('Superalgos', schemaDocument.icon)
                 }
                 return icon
             }

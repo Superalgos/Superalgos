@@ -53,8 +53,8 @@ function newSuperalgosDocSpace() {
         browserResizedEventSubscriptionId = canvas.eventHandler.listenToEvent('Browser Resized', resize)
         setUpContextMenu()
         setUpMenuItemsMap()
+        //setUpWorkspaceSchemas()
         setUpSearchEngine()
-        setUpWorkspaceSchemas()
         isInitialized = true
 
         function setUpContextMenu() {
@@ -251,11 +251,11 @@ function newSuperalgosDocSpace() {
                 let appSchemaArray = SCHEMAS_BY_PROJECT.get(project).array.appSchema
 
                 for (let j = 0; j < appSchemaArray.length; j++) {
-                    let nodeDefinition = appSchemaArray[j]
+                    let schemaDocument = appSchemaArray[j]
 
-                    if (nodeDefinition.menuItems === undefined) { continue }
-                    for (let k = 0; k < nodeDefinition.menuItems.length; k++) {
-                        let menuItem = nodeDefinition.menuItems[k]
+                    if (schemaDocument.menuItems === undefined) { continue }
+                    for (let k = 0; k < schemaDocument.menuItems.length; k++) {
+                        let menuItem = schemaDocument.menuItems[k]
                         menuLabelsMap.set(menuItem.label, true)
                     }
                 }
@@ -285,39 +285,39 @@ function newSuperalgosDocSpace() {
                 for (let i = 0; i < allNodesFound.length; i++) {
                     let node = allNodesFound[i]
                     if (node.project === project) {
-                        let document = {
+                        let schemaDocument = {
                             type: node.type,
                             definition: node.name,
                             paragraphs: []
                         }
                         if (node.config !== undefined) {
-                            let paragraph 
+                            let paragraph
                             paragraph = {
                                 style: "Subtitle",
                                 text: "Config"
                             }
-                            document.paragraphs.push(paragraph)
+                            schemaDocument.paragraphs.push(paragraph)
                             paragraph = {
                                 syle: "Json",
                                 text: node.config
                             }
-                            document.paragraphs.push(paragraph)
+                            schemaDocument.paragraphs.push(paragraph)
                         }
                         if (node.code !== undefined) {
-                            let paragraph 
+                            let paragraph
                             paragraph = {
                                 style: "Subtitle",
                                 text: "Code"
                             }
-                            document.paragraphs.push(paragraph)
+                            schemaDocument.paragraphs.push(paragraph)
                             paragraph = {
                                 syle: "Javascript",
                                 text: node.code
                             }
-                            document.paragraphs.push(paragraph)
+                            schemaDocument.paragraphs.push(paragraph)
                         }
                     }
-                    SCHEMAS_BY_PROJECT.get(project).array.workspaceNodeSchema.push(document)
+                    SCHEMAS_BY_PROJECT.get(project).array.workspaceNodeSchema.push(schemaDocument)
                 }
             }
         }
@@ -332,7 +332,7 @@ function newSuperalgosDocSpace() {
                 for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema.length; i++) {
                     documentIndex = {
                         phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
-                        document: SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema[i],
+                        schemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema[i],
                         documentCategory: 'Node',
                         project: project
                     }
@@ -343,7 +343,7 @@ function newSuperalgosDocSpace() {
                 for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema.length; i++) {
                     documentIndex = {
                         phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
-                        document: SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema[i],
+                        schemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema[i],
                         documentCategory: 'Concept',
                         project: project
                     }
@@ -354,7 +354,7 @@ function newSuperalgosDocSpace() {
                 for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema.length; i++) {
                     documentIndex = {
                         phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
-                        document: SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema[i],
+                        schemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema[i],
                         documentCategory: 'Topics',
                         project: project
                     }
@@ -365,27 +365,27 @@ function newSuperalgosDocSpace() {
 
             function indexDocument(documentIndex) {
 
-                if (documentIndex.document === undefined) {
+                if (documentIndex.schemaDocument === undefined) {
                     return
                 }
 
-                if (documentIndex.document.type !== undefined) {
+                if (documentIndex.schemaDocument.type !== undefined) {
                     let paragraph = {
                         style: 'Type',
-                        text: documentIndex.document.type
+                        text: documentIndex.schemaDocument.type
                     }
                     indexParagraph(paragraph)
                 }
-                if (documentIndex.document.definition !== undefined) {
+                if (documentIndex.schemaDocument.definition !== undefined) {
                     let paragraph = {
                         style: 'Definition',
-                        text: documentIndex.document.definition
+                        text: documentIndex.schemaDocument.definition
                     }
                     indexParagraph(paragraph)
                 }
-                if (documentIndex.document.paragraphs !== undefined) {
-                    for (let k = 0; k < documentIndex.document.paragraphs.length; k++) {
-                        let paragraph = documentIndex.document.paragraphs[k]
+                if (documentIndex.schemaDocument.paragraphs !== undefined) {
+                    for (let k = 0; k < documentIndex.schemaDocument.paragraphs.length; k++) {
+                        let paragraph = documentIndex.schemaDocument.paragraphs[k]
                         indexParagraph(paragraph)
                     }
                 }
@@ -762,7 +762,7 @@ function newSuperalgosDocSpace() {
                     if (thisPhraseCount === undefined) {
                         thisPhraseCount = 0
                     }
-                    if (key === cleanTextForSearch(documentIndex.document.type.toLowerCase())) {
+                    if (key === cleanTextForSearch(documentIndex.schemaDocument.type.toLowerCase())) {
                         documentPoints = documentPoints + thisPhraseCount * 100
                     }
 
@@ -897,10 +897,10 @@ function newSuperalgosDocSpace() {
                     resultCounter++
                     HTML = HTML + '<div class="docs-search-result-content-record-container">'
                     HTML = HTML + '<p class="docs-search-result-content-record-project-category">' + result.documentIndex.project + ' > ' + result.documentIndex.documentCategory + '</p>'
-                    HTML = HTML + '<p><a onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + result.documentIndex.documentCategory + '\', \'' + result.documentIndex.document.type + '\', \'' + result.documentIndex.project + '\')" class="docs-search-result-content-record-title">' + result.documentIndex.document.type + '</a></p>'
+                    HTML = HTML + '<p><a onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + result.documentIndex.documentCategory + '\', \'' + result.documentIndex.schemaDocument.type + '\', \'' + result.documentIndex.project + '\')" class="docs-search-result-content-record-title">' + result.documentIndex.schemaDocument.type + '</a></p>'
 
-                    if (result.documentIndex.document.definition !== undefined) {
-                        HTML = HTML + '<p class="docs-search-result-content-record-extract">' + result.documentIndex.document.definition + '</p>'
+                    if (result.documentIndex.schemaDocument.definition !== undefined) {
+                        HTML = HTML + '<p class="docs-search-result-content-record-extract">' + result.documentIndex.schemaDocument.definition + '</p>'
                     } else {
                         HTML = HTML + '<p class="docs-search-result-content-record-extract">' + 'No definition available.' + '</p>'
                     }
@@ -1299,7 +1299,7 @@ function newSuperalgosDocSpace() {
                     paragraphIndex++
                     paragraph = {
                         style: "Text",
-                        text: "Each type of node might have children. If they do, a reference to the children will be present at runtime at one or more properties of the node object. There is no generic childrenNodes property with an array of children nodes. Instead what we can find is that each node definition defines which properties will hold those children references. The property names that will be used for that are the ones listed here. The " + nodeAppDefinition.type + " node has the following children nodes properties:"
+                        text: "Each type of node might have children. If they do, a reference to the children will be present at runtime at one or more properties of the node object. There is no generic childrenNodes property with an array of children nodes. Instead what we can find is that each schema document defines which properties will hold those children references. The property names that will be used for that are the ones listed here. The " + nodeAppDefinition.type + " node has the following children nodes properties:"
                     }
                     renderParagraph(paragraph, key)
                     paragraphIndex++

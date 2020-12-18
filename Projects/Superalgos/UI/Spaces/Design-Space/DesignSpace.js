@@ -42,15 +42,15 @@ function newSuperalgosDesignSpace() {
                 let project = PROJECTS_ARRAY[i]
                 let appSchema = SCHEMAS_BY_PROJECT.get(project).array.appSchema
                 for (let j = 0; j < appSchema.length; j++) {
-                    let nodeDefinition = appSchema[j]
-                    let iconName = nodeDefinition.icon
+                    let schemaDocument = appSchema[j]
+                    let iconName = schemaDocument.icon
                     if (iconName === undefined) {
-                        iconName = nodeDefinition.type.toLowerCase()
+                        iconName = schemaDocument.type.toLowerCase()
                         iconName = iconName.split(" ").join("-")
                     }
                     let icon = thisObject.getIconByProjectAndName(project, iconName)
                     if (icon !== undefined) {
-                        let key = project + '-' + nodeDefinition.type
+                        let key = project + '-' + schemaDocument.type
                         thisObject.iconsByProjectAndType.set(key, icon)
                     }
                 }

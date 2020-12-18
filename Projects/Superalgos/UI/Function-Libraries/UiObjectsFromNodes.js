@@ -219,10 +219,10 @@ function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
         }
     }
 
-    function migrateCodeToConfig(node, nodeDefinition) {
+    function migrateCodeToConfig(node, schemaDocument) {
         /* Code needed to Migrante from Beta 5 to Beta a Workspace */
-        if (nodeDefinition.editors !== undefined) {
-            if (nodeDefinition.editors.config === true) {
+        if (schemaDocument.editors !== undefined) {
+            if (schemaDocument.editors.config === true) {
                 if (node.code !== undefined) {
                     node.config = node.code
                     node.code = undefined
@@ -248,33 +248,33 @@ function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
         }
 
 
-        /* Get node definition */
-        let nodeDefinition = getNodeDefinition(node)
-        if (nodeDefinition !== undefined) {
-            migrateCodeToConfig(node, nodeDefinition)
+        /* Get schema document */
+        let schemaDocument = getSchemaDocument(node)
+        if (schemaDocument !== undefined) {
+            migrateCodeToConfig(node, schemaDocument)
 
             /* Resolve Initial Values */
-            if (nodeDefinition.initialValues !== undefined) {
-                if (nodeDefinition.initialValues.code !== undefined) {
+            if (schemaDocument.initialValues !== undefined) {
+                if (schemaDocument.initialValues.code !== undefined) {
                     if (node.code === undefined) {
-                        node.code = nodeDefinition.initialValues.code
+                        node.code = schemaDocument.initialValues.code
                     }
                 }
-                if (nodeDefinition.initialValues.config !== undefined) {
+                if (schemaDocument.initialValues.config !== undefined) {
                     if (node.config === undefined) {
-                        node.config = nodeDefinition.initialValues.config
+                        node.config = schemaDocument.initialValues.config
                     }
                 }
             }
 
             /* For the cases where an node is not chained to its parent but to the one at the parent before it at its collection */
-            if (nodeDefinition.chainedToSameType === true) {
+            if (schemaDocument.chainedToSameType === true) {
                 if (parentNode !== undefined) {
-                    let parentNodeDefinition = getNodeDefinition(parentNode)
-                    if (parentNodeDefinition !== undefined) {
-                        if (parentNodeDefinition.childrenNodesProperties !== undefined) {
-                            for (let i = 0; i < parentNodeDefinition.childrenNodesProperties.length; i++) {
-                                let property = parentNodeDefinition.childrenNodesProperties[i]
+                    let parentSchemaDocument = getSchemaDocument(parentNode)
+                    if (parentSchemaDocument !== undefined) {
+                        if (parentSchemaDocument.childrenNodesProperties !== undefined) {
+                            for (let i = 0; i < parentSchemaDocument.childrenNodesProperties.length; i++) {
+                                let property = parentSchemaDocument.childrenNodesProperties[i]
                                 if (property.childType === node.type) {
                                     if (property.type === 'array') {
                                         if (parentNode[property.name] !== undefined) {
@@ -300,10 +300,10 @@ function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
             createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
 
             /* Create Children */
-            if (nodeDefinition.childrenNodesProperties !== undefined) {
+            if (schemaDocument.childrenNodesProperties !== undefined) {
                 let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
-                for (let i = 0; i < nodeDefinition.childrenNodesProperties.length; i++) {
-                    let property = nodeDefinition.childrenNodesProperties[i]
+                for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+                    let property = schemaDocument.childrenNodesProperties[i]
                     if (node[property.name] !== undefined) {
                         switch (property.type) {
                             case 'node': {
@@ -341,28 +341,28 @@ function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
             project: project
         }
 
-        let parentNodeDefinition 
+        let parentSchemaDocument 
         /* Resolve Initial Values */
-        let nodeDefinition = getNodeDefinition(object, project)
+        let schemaDocument = getSchemaDocument(object, project)
 
-        if (nodeDefinition === undefined) {
+        if (schemaDocument === undefined) {
             console.log('Cannot addUIOBject of ' + type + ' because that type it is not defined at the APP_SCHEMA.')
             return
         }
 
-        if (nodeDefinition.initialValues !== undefined) {
-            if (nodeDefinition.initialValues.code !== undefined) {
-                object.code = nodeDefinition.initialValues.code
+        if (schemaDocument.initialValues !== undefined) {
+            if (schemaDocument.initialValues.code !== undefined) {
+                object.code = schemaDocument.initialValues.code
             }
         }
-        if (nodeDefinition.initialValues !== undefined) {
-            if (nodeDefinition.initialValues.config !== undefined) {
-                object.config = nodeDefinition.initialValues.config
+        if (schemaDocument.initialValues !== undefined) {
+            if (schemaDocument.initialValues.config !== undefined) {
+                object.config = schemaDocument.initialValues.config
             }
         }
 
         let chainParent = parentNode
-        if (nodeDefinition.isHierarchyHead === true || nodeDefinition.isProjectHead) {
+        if (schemaDocument.isHierarchyHead === true || schemaDocument.isProjectHead) {
             rootNodes.push(object)
             initializeArrayProperties()
             applyInitialValues()
@@ -372,8 +372,8 @@ function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
 
         } else {
 
-            parentNodeDefinition = getNodeDefinition(parentNode, parentNode.project)
-            if (parentNodeDefinition === undefined) {
+            parentSchemaDocument = getSchemaDocument(parentNode, parentNode.project)
+            if (parentSchemaDocument === undefined) {
                 console.log('Cannot addUIOBject from parent of ' + type + ' because that type it is not defined at the APP_SCHEMA.')
                 return
             }
@@ -389,10 +389,10 @@ function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
         function checkChainToSelfTypeCollection() {
             /* For the cases where a node is not chained to its parent but to the one at the parent before it at its own collection */
 
-            if (nodeDefinition.chainedToSameType === true) {
-                if (parentNodeDefinition.childrenNodesProperties !== undefined) {
-                    for (let i = 0; i < parentNodeDefinition.childrenNodesProperties.length; i++) {
-                        let property = parentNodeDefinition.childrenNodesProperties[i]
+            if (schemaDocument.chainedToSameType === true) {
+                if (parentSchemaDocument.childrenNodesProperties !== undefined) {
+                    for (let i = 0; i < parentSchemaDocument.childrenNodesProperties.length; i++) {
+                        let property = parentSchemaDocument.childrenNodesProperties[i]
                         if (property.childType === type) {
                             if (property.type === 'array') {
                                 if (parentNode[property.name] !== undefined) {
@@ -410,9 +410,9 @@ function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
 
         function initializeArrayProperties() {
             /* Create Empty Arrays for properties of type Array */
-            if (nodeDefinition.childrenNodesProperties !== undefined) {
-                for (let i = 0; i < nodeDefinition.childrenNodesProperties.length; i++) {
-                    let property = nodeDefinition.childrenNodesProperties[i]
+            if (schemaDocument.childrenNodesProperties !== undefined) {
+                for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+                    let property = schemaDocument.childrenNodesProperties[i]
                     if (property.type === 'array') {
                         object[property.name] = []
                     }
@@ -421,22 +421,22 @@ function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
         }
 
         function applyInitialValues() {
-            if (nodeDefinition.initialValues !== undefined) {
-                if (nodeDefinition.initialValues.code !== undefined) {
-                    object.code = nodeDefinition.initialValues.code
+            if (schemaDocument.initialValues !== undefined) {
+                if (schemaDocument.initialValues.code !== undefined) {
+                    object.code = schemaDocument.initialValues.code
                 }
-                if (nodeDefinition.initialValues.config !== undefined) {
-                    object.config = nodeDefinition.initialValues.config
+                if (schemaDocument.initialValues.config !== undefined) {
+                    object.config = schemaDocument.initialValues.config
                 }
             }
         }
 
         function connectToParent() {
             /* Connect to Parent */
-            if (parentNodeDefinition.childrenNodesProperties !== undefined) {
+            if (parentSchemaDocument.childrenNodesProperties !== undefined) {
                 let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
-                for (let i = 0; i < parentNodeDefinition.childrenNodesProperties.length; i++) {
-                    let property = parentNodeDefinition.childrenNodesProperties[i]
+                for (let i = 0; i < parentSchemaDocument.childrenNodesProperties.length; i++) {
+                    let property = parentSchemaDocument.childrenNodesProperties[i]
                     if (property.childType === type) {
                         switch (property.type) {
                             case 'node': {
@@ -469,10 +469,10 @@ function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
 
         function autoAddChildren() {
             /* Auto Add more Children */
-            if (nodeDefinition.childrenNodesProperties !== undefined) {
+            if (schemaDocument.childrenNodesProperties !== undefined) {
                 let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
-                for (let i = 0; i < nodeDefinition.childrenNodesProperties.length; i++) {
-                    let property = nodeDefinition.childrenNodesProperties[i]
+                for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+                    let property = schemaDocument.childrenNodesProperties[i]
 
                     switch (property.type) {
                         case 'node': {
@@ -502,13 +502,13 @@ function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
     }
 
     function addMissingChildren(node, rootNodes) {
-        let nodeDefinition = getNodeDefinition(node)
+        let schemaDocument = getSchemaDocument(node)
 
         /* Connect to Parent */
-        if (nodeDefinition.childrenNodesProperties !== undefined) {
+        if (schemaDocument.childrenNodesProperties !== undefined) {
             let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
-            for (let i = 0; i < nodeDefinition.childrenNodesProperties.length; i++) {
-                let property = nodeDefinition.childrenNodesProperties[i]
+            for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+                let property = schemaDocument.childrenNodesProperties[i]
                 if (property.type === 'node') {
                     if (property.name !== previousPropertyName) {
                         if (node[property.name] === undefined) {

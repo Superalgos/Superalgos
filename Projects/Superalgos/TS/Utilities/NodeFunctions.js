@@ -16,17 +16,17 @@ exports.newSuperalgosUtilitiesNodeFunctions = function () {
         return resultArray
 
         function scanNodeBranch(startingNode) {
-            let nodeDefinition = TS.projects.superalgos.globals.taskConstants.APP_SCHEMA_MAP.get(startingNode.project + '-' + startingNode.type)
-            if (nodeDefinition === undefined) { return }
+            let schemaDocument = TS.projects.superalgos.globals.taskConstants.APP_SCHEMA_MAP.get(startingNode.project + '-' + startingNode.type)
+            if (schemaDocument === undefined) { return }
 
             if (startingNode.type === nodeType) {
                 resultArray.push(startingNode)
                 return
             }
 
-            if (nodeDefinition.childrenNodesProperties === undefined) { return }
-            for (let i = 0; i < nodeDefinition.childrenNodesProperties.length; i++) {
-                let property = nodeDefinition.childrenNodesProperties[i]
+            if (schemaDocument.childrenNodesProperties === undefined) { return }
+            for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+                let property = schemaDocument.childrenNodesProperties[i]
 
                 switch (property.type) {
                     case 'node': {
@@ -60,8 +60,8 @@ exports.newSuperalgosUtilitiesNodeFunctions = function () {
             if (startingNode === undefined) { return }
             if (nodeFound !== undefined) { return }
 
-            let nodeDefinition = TS.projects.superalgos.globals.taskConstants.APP_SCHEMA_MAP.get(startingNode.project + '-' + startingNode.type)
-            if (nodeDefinition === undefined) { return }
+            let schemaDocument = TS.projects.superalgos.globals.taskConstants.APP_SCHEMA_MAP.get(startingNode.project + '-' + startingNode.type)
+            if (schemaDocument === undefined) { return }
 
             if (startingNode.type === nodeType) {
                 nodeFound = startingNode
@@ -69,9 +69,9 @@ exports.newSuperalgosUtilitiesNodeFunctions = function () {
             }
 
             /* We scan through this node children */
-            if (nodeDefinition.childrenNodesProperties !== undefined) {
-                for (let i = 0; i < nodeDefinition.childrenNodesProperties.length; i++) {
-                    let property = nodeDefinition.childrenNodesProperties[i]
+            if (schemaDocument.childrenNodesProperties !== undefined) {
+                for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+                    let property = schemaDocument.childrenNodesProperties[i]
 
                     switch (property.type) {
                         case 'node': {
@@ -114,8 +114,8 @@ exports.newSuperalgosUtilitiesNodeFunctions = function () {
         function scanNodeMesh(startingNode) {
             if (startingNode === undefined) { return }
 
-            let nodeDefinition = TS.projects.superalgos.globals.taskConstants.APP_SCHEMA_MAP.get(startingNode.project + '-' + startingNode.type)
-            if (nodeDefinition === undefined) { return }
+            let schemaDocument = TS.projects.superalgos.globals.taskConstants.APP_SCHEMA_MAP.get(startingNode.project + '-' + startingNode.type)
+            if (schemaDocument === undefined) { return }
 
             if (startingNode.id === nodeId) {
                 nodeArray.push(startingNode)
@@ -123,9 +123,9 @@ exports.newSuperalgosUtilitiesNodeFunctions = function () {
             }
 
             /* We scan through this node children */
-            if (nodeDefinition.childrenNodesProperties !== undefined) {
-                for (let i = 0; i < nodeDefinition.childrenNodesProperties.length; i++) {
-                    let property = nodeDefinition.childrenNodesProperties[i]
+            if (schemaDocument.childrenNodesProperties !== undefined) {
+                for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+                    let property = schemaDocument.childrenNodesProperties[i]
 
                     switch (property.type) {
                         case 'node': {

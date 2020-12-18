@@ -13,9 +13,9 @@ function newSuperalgosFunctionLibraryProtocolNode() {
         if (node === undefined) { return }
         if (node.payload === undefined) { return }
 
-        let nodeDefinition = getNodeDefinition(node)
-        if (nodeDefinition !== undefined) {
-            if (removePersonalData === true && nodeDefinition.isPersonalData === true) { return }
+        let schemaDocument = getSchemaDocument(node)
+        if (schemaDocument !== undefined) {
+            if (removePersonalData === true && schemaDocument.isPersonalData === true) { return }
             let object = {
                 type: node.type,
                 name: node.name,
@@ -25,9 +25,9 @@ function newSuperalgosFunctionLibraryProtocolNode() {
             }
 
             /* Children Nodes */
-            if (nodeDefinition.childrenNodesProperties !== undefined) {
-                for (let i = 0; i < nodeDefinition.childrenNodesProperties.length; i++) {
-                    let property = nodeDefinition.childrenNodesProperties[i]
+            if (schemaDocument.childrenNodesProperties !== undefined) {
+                for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+                    let property = schemaDocument.childrenNodesProperties[i]
 
                     switch (property.type) {
                         case 'node': {
@@ -90,8 +90,8 @@ function newSuperalgosFunctionLibraryProtocolNode() {
                 }
             }
 
-            if (parseConfig && object.config !== undefined && nodeDefinition.editors !== undefined) {
-                if (nodeDefinition.editors.config === true) {
+            if (parseConfig && object.config !== undefined && schemaDocument.editors !== undefined) {
+                if (schemaDocument.editors.config === true) {
                     try {
                         object.config = JSON.parse(node.config)
                     } catch (err) {

@@ -24,8 +24,8 @@ function newSuperalgosUtilitiesMeshes() {
             if (nodeFound !== undefined) { return }
             if (depth >= MAX_DEPTH) { return }
 
-            let nodeDefinition = getNodeDefinition(startingNode)
-            if (nodeDefinition === undefined) { return }
+            let schemaDocument = getSchemaDocument(startingNode)
+            if (schemaDocument === undefined) { return }
 
             if (nodeType !== undefined) {
                 if (startingNode.type === nodeType) {
@@ -43,9 +43,9 @@ function newSuperalgosUtilitiesMeshes() {
 
             /* We scan through this node children */
             if (findInChildren === true) {
-                if (nodeDefinition.childrenNodesProperties !== undefined) {
-                    for (let i = 0; i < nodeDefinition.childrenNodesProperties.length; i++) {
-                        let property = nodeDefinition.childrenNodesProperties[i]
+                if (schemaDocument.childrenNodesProperties !== undefined) {
+                    for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+                        let property = schemaDocument.childrenNodesProperties[i]
 
                         switch (property.type) {
                             case 'node': {

@@ -74,7 +74,7 @@ function newUiObjectConstructor() {
         */
 
         if (userAddingNew === true) {
-            let definition = getNodeDefinition(payload.parentNode)
+            let definition = getSchemaDocument(payload.parentNode)
             if (definition.childrenNodesProperties !== undefined) {
                 for (let i = 0; i < definition.childrenNodesProperties.length; i++) {
                     let property = definition.childrenNodesProperties[i]
@@ -174,7 +174,7 @@ function newUiObjectConstructor() {
         uiObject.isVisibleFunction = UI.projects.superalgos.spaces.floatingSpace.isThisPointVisible
         let menuItemsInitialValues = getMenuItemsInitialValues(uiObject, floatingObject, payload)
 
-        let schemaNode = getNodeDefinition(payload.node)
+        let schemaNode = getSchemaDocument(payload.node)
         if (schemaNode === undefined) {
             console.log(payload.node.type + ' node found at App Schema. This node will not be created. ')
             return
@@ -401,46 +401,46 @@ function newUiObjectConstructor() {
     function getMenuItemsInitialValues(uiObject, floatingObject, payload) {
         let menuItemsInitialValues = []
 
-        let nodeDefinition = getNodeDefinition(payload.node)
-        if (nodeDefinition !== undefined) {
-            if (nodeDefinition.editors !== undefined) {
-                if (nodeDefinition.editors.config === true) {
+        let schemaDocument = getSchemaDocument(payload.node)
+        if (schemaDocument !== undefined) {
+            if (schemaDocument.editors !== undefined) {
+                if (schemaDocument.editors.config === true) {
                     uiObject.configEditor = newConfigEditor()
                     uiObject.configEditor.isVisibleFunction = uiObject.isVisibleFunction
                     uiObject.configEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
                     uiObject.configEditor.initialize()
                 }
-                if (nodeDefinition.editors.code === true) {
+                if (schemaDocument.editors.code === true) {
                     uiObject.codeEditor = newCodeEditor()
                     uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
                     uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
                     uiObject.codeEditor.initialize()
                 }
-                if (nodeDefinition.editors.formula === true) {
+                if (schemaDocument.editors.formula === true) {
                     uiObject.formulaEditor = newFormulaEditor()
                     uiObject.formulaEditor.isVisibleFunction = uiObject.isVisibleFunction
                     uiObject.formulaEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
                     uiObject.formulaEditor.initialize()
                 }
-                if (nodeDefinition.editors.condition === true) {
+                if (schemaDocument.editors.condition === true) {
                     uiObject.conditionEditor = newConditionEditor()
                     uiObject.conditionEditor.isVisibleFunction = uiObject.isVisibleFunction
                     uiObject.conditionEditor.container.connectToParent(uiObject.container, false, false, false, true, false, false, false, false)
                     uiObject.conditionEditor.initialize()
                 }
             }
-            if (nodeDefinition.addLeftIcons === true) {
-                addLeftIcons(menuItemsInitialValues, floatingObject, nodeDefinition.isPersonalData)
+            if (schemaDocument.addLeftIcons === true) {
+                addLeftIcons(menuItemsInitialValues, floatingObject, schemaDocument.isPersonalData)
             }
-            if (nodeDefinition.isPinned === true) {
+            if (schemaDocument.isPinned === true) {
                 floatingObject.isPinned = true
             }
-            if (nodeDefinition.positionLocked === true) {
+            if (schemaDocument.positionLocked === true) {
                 floatingObject.positionLocked = true
             }
 
-            for (let i = 0; i < nodeDefinition.menuItems.length; i++) {
-                let menutItemDefinition = nodeDefinition.menuItems[i]
+            for (let i = 0; i < schemaDocument.menuItems.length; i++) {
+                let menutItemDefinition = schemaDocument.menuItems[i]
                 let newMenuItem = JSON.parse(JSON.stringify(menutItemDefinition))
 
                 /* We need to reference the real function based on its name */
@@ -490,19 +490,19 @@ function newUiObjectConstructor() {
         const INITIAL_RADIOUS = 70
         const INITIAL_IMAGE_SIZE = 80 * 1.2
 
-        let nodeDefinition = getNodeDefinition(payload.node)
-        if (nodeDefinition === undefined) {
+        let schemaDocument = getSchemaDocument(payload.node)
+        if (schemaDocument === undefined) {
             console.log('[WARN] Set up of the object ' + payload.node.name + ' of type ' + payload.node.type + ' can not be completed becasue its definition can not be found at the APP SCHEMA.')
             return
         }
 
-        if (nodeDefinition.isProjectHead === true) {
+        if (schemaDocument.isProjectHead === true) {
             level_0()
             floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_360
             return
         }
 
-        switch (nodeDefinition.level) {
+        switch (schemaDocument.level) {
             case 0: {
                 level_0()
                 break

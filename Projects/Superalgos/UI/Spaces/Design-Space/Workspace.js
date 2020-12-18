@@ -382,9 +382,9 @@ function newWorkspace() {
         let nodes = []
         for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
             let rootNode = thisObject.workspaceNode.rootNodes[i]
-            let nodeDefinition = getNodeDefinition(rootNode)
-            if (nodeDefinition !== undefined) {
-                if (nodeDefinition.isHierarchyHead === true) {
+            let schemaDocument = getSchemaDocument(rootNode)
+            if (schemaDocument !== undefined) {
+                if (schemaDocument.isHierarchyHead === true) {
                     nodes.push(rootNode)
                 }
             }
@@ -396,9 +396,9 @@ function newWorkspace() {
         let nodes = []
         for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
             let rootNode = thisObject.workspaceNode.rootNodes[i]
-            let nodeDefinition = getNodeDefinition(rootNode)
-            if (nodeDefinition !== undefined) {
-                if (nodeDefinition.isProjectHead === true) {
+            let schemaDocument = getSchemaDocument(rootNode)
+            if (schemaDocument !== undefined) {
+                if (schemaDocument.isProjectHead === true) {
                     nodes.push(rootNode)
                 }
             }

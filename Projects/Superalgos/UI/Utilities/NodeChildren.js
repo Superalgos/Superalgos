@@ -18,13 +18,13 @@ function newSuperalgosUtilitiesNodeChildren() {
         if (startingNode === undefined) { return }
         if (checkNode === undefined) { return }
 
-        let nodeDefinition = getNodeDefinition(startingNode)
-        if (nodeDefinition === undefined) { return }
+        let schemaDocument = getSchemaDocument(startingNode)
+        if (schemaDocument === undefined) { return }
 
         /* We scan through this node children */
-        if (nodeDefinition.childrenNodesProperties !== undefined) {
-            for (let i = 0; i < nodeDefinition.childrenNodesProperties.length; i++) {
-                let property = nodeDefinition.childrenNodesProperties[i]
+        if (schemaDocument.childrenNodesProperties !== undefined) {
+            for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+                let property = schemaDocument.childrenNodesProperties[i]
 
                 switch (property.type) {
                     case 'node': {
@@ -81,13 +81,13 @@ function newSuperalgosUtilitiesNodeChildren() {
         if (startingNode === undefined) { return }
         if (checkNode === undefined) { return }
 
-        let nodeDefinition = getNodeDefinition(startingNode)
-        if (nodeDefinition === undefined) { return }
+        let schemaDocument = getSchemaDocument(startingNode)
+        if (schemaDocument === undefined) { return }
 
         /* We scan through this node children */
-        if (nodeDefinition.childrenNodesProperties !== undefined) {
-            for (let i = 0; i < nodeDefinition.childrenNodesProperties.length; i++) {
-                let property = nodeDefinition.childrenNodesProperties[i]
+        if (schemaDocument.childrenNodesProperties !== undefined) {
+            for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+                let property = schemaDocument.childrenNodesProperties[i]
 
                 switch (property.type) {
                     case 'node': {
@@ -167,13 +167,13 @@ function newSuperalgosUtilitiesNodeChildren() {
 
         let parentNode = startingNode.payload.parentNode
 
-        let nodeDefinition = getNodeDefinition(parentNode)
-        if (nodeDefinition === undefined) { return }
+        let schemaDocument = getSchemaDocument(parentNode)
+        if (schemaDocument === undefined) { return }
 
         /* We scan through this parent node children */
-        if (nodeDefinition.childrenNodesProperties !== undefined) {
-            for (let i = 0; i < nodeDefinition.childrenNodesProperties.length; i++) {
-                let property = nodeDefinition.childrenNodesProperties[i]
+        if (schemaDocument.childrenNodesProperties !== undefined) {
+            for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+                let property = schemaDocument.childrenNodesProperties[i]
 
                 switch (property.type) {
                     case 'node': {
@@ -205,13 +205,13 @@ function newSuperalgosUtilitiesNodeChildren() {
         */
         if (startingNode === undefined) { return }
 
-        let nodeDefinition = getNodeDefinition(startingNode)
-        if (nodeDefinition === undefined) { return }
+        let schemaDocument = getSchemaDocument(startingNode)
+        if (schemaDocument === undefined) { return }
 
         /* We scan through this node children */
-        if (nodeDefinition.childrenNodesProperties !== undefined) {
-            for (let i = 0; i < nodeDefinition.childrenNodesProperties.length; i++) {
-                let property = nodeDefinition.childrenNodesProperties[i]
+        if (schemaDocument.childrenNodesProperties !== undefined) {
+            for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+                let property = schemaDocument.childrenNodesProperties[i]
 
                 switch (property.type) {
                     case 'node': {

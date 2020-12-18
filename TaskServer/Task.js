@@ -84,9 +84,9 @@ function preLoader() {
             let project = projectSchemas[i]
 
             for (let j = 0; j < project.schema.length; j++) {
-                let nodeDefinition = project.schema[j]
-                let key = project.name + '-' + nodeDefinition.type
-                TS.projects.superalgos.globals.taskConstants.APP_SCHEMA_MAP.set(key, nodeDefinition)
+                let schemaDocument = project.schema[j]
+                let key = project.name + '-' + schemaDocument.type
+                TS.projects.superalgos.globals.taskConstants.APP_SCHEMA_MAP.set(key, schemaDocument)
             }
         }
     }

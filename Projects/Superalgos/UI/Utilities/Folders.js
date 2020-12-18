@@ -25,12 +25,12 @@ function newSuperalgosUtilitiesFolders() {
         if (destinationNode === undefined) { return }
 
         /* Now we go down through all the children  of the origin node, recreating at the destination node the same children structure*/
-        let nodeDefinition = getNodeDefinition(originNode)
-        if (nodeDefinition === undefined) { return }
+        let schemaDocument = getSchemaDocument(originNode)
+        if (schemaDocument === undefined) { return }
 
-        if (nodeDefinition.childrenNodesProperties !== undefined) {
-            for (let i = 0; i < nodeDefinition.childrenNodesProperties.length; i++) {
-                let property = nodeDefinition.childrenNodesProperties[i]
+        if (schemaDocument.childrenNodesProperties !== undefined) {
+            for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+                let property = schemaDocument.childrenNodesProperties[i]
 
                 switch (property.name) {
                     case originObjectsArrayPropertyName: {

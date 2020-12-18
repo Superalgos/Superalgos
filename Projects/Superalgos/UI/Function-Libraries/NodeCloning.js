@@ -19,8 +19,8 @@ function newSuperalgosFunctionLibraryNodeCloning() {
 
         function cloneNode(node) {
             if (node === undefined) { return }
-            let nodeDefinition = getNodeDefinition(node)
-            if (nodeDefinition !== undefined) {
+            let schemaDocument = getSchemaDocument(node)
+            if (schemaDocument !== undefined) {
                 let object = {
                     type: node.type,
                     name: node.name,
@@ -30,10 +30,10 @@ function newSuperalgosFunctionLibraryNodeCloning() {
                 }
 
                 /* Children Nodes */
-                if (nodeDefinition.childrenNodesProperties !== undefined) {
+                if (schemaDocument.childrenNodesProperties !== undefined) {
                     let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
-                    for (let i = 0; i < nodeDefinition.childrenNodesProperties.length; i++) {
-                        let property = nodeDefinition.childrenNodesProperties[i]
+                    for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+                        let property = schemaDocument.childrenNodesProperties[i]
 
                         switch (property.type) {
                             case 'node': {
@@ -73,8 +73,8 @@ function newSuperalgosFunctionLibraryNodeCloning() {
 
         function redirectReferenceParents(node) {
             if (node === undefined) { return }
-            let nodeDefinition = getNodeDefinition(node)
-            if (nodeDefinition !== undefined) {
+            let schemaDocument = getSchemaDocument(node)
+            if (schemaDocument !== undefined) {
                 let object = {
                     type: node.type,
                     name: node.name,
@@ -84,10 +84,10 @@ function newSuperalgosFunctionLibraryNodeCloning() {
                 }
 
                 /* Children Nodes */
-                if (nodeDefinition.childrenNodesProperties !== undefined) {
+                if (schemaDocument.childrenNodesProperties !== undefined) {
                     let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
-                    for (let i = 0; i < nodeDefinition.childrenNodesProperties.length; i++) {
-                        let property = nodeDefinition.childrenNodesProperties[i]
+                    for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+                        let property = schemaDocument.childrenNodesProperties[i]
 
                         switch (property.type) {
                             case 'node': {

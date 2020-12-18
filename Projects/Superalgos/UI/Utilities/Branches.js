@@ -23,8 +23,8 @@ function newSuperalgosUtilitiesBranches() {
         function scanNodeBranch(startingNode) {
             if (startingNode === undefined) { return }
 
-            let nodeDefinition = getNodeDefinition(startingNode)
-            if (nodeDefinition === undefined) { return }
+            let schemaDocument = getSchemaDocument(startingNode)
+            if (schemaDocument === undefined) { return }
 
             if (nodeType === undefined) {
                 resultArray.push(startingNode)
@@ -35,10 +35,10 @@ function newSuperalgosUtilitiesBranches() {
                 }
             }
 
-            if (nodeDefinition.childrenNodesProperties === undefined) { return }
+            if (schemaDocument.childrenNodesProperties === undefined) { return }
             let lastNodePropertyName
-            for (let i = 0; i < nodeDefinition.childrenNodesProperties.length; i++) {
-                let property = nodeDefinition.childrenNodesProperties[i]
+            for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+                let property = schemaDocument.childrenNodesProperties[i]
                 if (lastNodePropertyName === property.name) { continue } // Some nodes have a single property por multiple child node types. We need to check repeated properties only once so as no to duplicate results.
                 switch (property.type) {
                     case 'node': {

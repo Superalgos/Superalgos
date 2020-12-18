@@ -39,7 +39,7 @@ function newSuperalgosDocSpace() {
     let schemaDocument
     let menuLabelsMap = new Map()
     let searchPhrase
-    let docsIndex
+    let docsIndex = []
 
     return thisObject
 
@@ -263,13 +263,56 @@ function newSuperalgosDocSpace() {
     }
 
     function cleanTextForSearch(text) {
-        let result = text
+        let result = replaceSpecialCharactersForSpaces(text)
         result = result.replaceAll(' ', '')
         result = result.replaceAll('s', '')
         result = result.replaceAll('ing', '')
         result = result.replaceAll('ed', '')
         result = result.replaceAll('y', '')
         result = result.replaceAll('ies', '')
+        return result
+    }
+
+    function replaceSpecialCharactersForSpaces(text) {
+        let result = text
+        result= result.replaceAll('. ', ' ')
+        result= result.replaceAll(', ', ' ')
+        result= result.replaceAll('- ', ' ')
+        result= result.replaceAll('/ ', ' ')
+        result= result.replaceAll('_ ', ' ')
+        result= result.replaceAll(': ', ' ')
+        result= result.replaceAll('; ', ' ')
+        result= result.replaceAll('( ', ' ')
+        result= result.replaceAll(') ', ' ')
+        result= result.replaceAll('{ ', ' ')
+        result= result.replaceAll('} ', ' ')
+        result= result.replaceAll('[ ', ' ')
+        result= result.replaceAll('] ', ' ')
+        result= result.replaceAll('" ', ' ')
+        result= result.replaceAll('\\n ', ' ')
+        result= result.replaceAll('\\ ', ' ')
+
+        result= result.replaceAll('.', ' ')
+        result= result.replaceAll(',', ' ')
+        result= result.replaceAll('-', ' ')
+        result= result.replaceAll('/', ' ')
+        result= result.replaceAll('_', ' ')
+        result= result.replaceAll(':', ' ')
+        result= result.replaceAll(';', ' ')
+        result= result.replaceAll('(', ' ')
+        result= result.replaceAll(')', ' ')
+        result= result.replaceAll('{', ' ')
+        result= result.replaceAll('}', ' ')
+        result= result.replaceAll('[', ' ')
+        result= result.replaceAll(']', ' ')
+        result= result.replaceAll('"', ' ')
+        result= result.replaceAll('\\n', ' ')
+        result= result.replaceAll("\\", ' ')
+
+        result= result.replaceAll('@', ' ')
+        result= result.replaceAll('    ', ' ')
+        result= result.replaceAll('   ', ' ')
+        result= result.replaceAll('  ', ' ')
         return result
     }
 
@@ -521,11 +564,6 @@ function newSuperalgosDocSpace() {
 
     function onOpening() {
 
-        docsIndex = []
-
-        setUpWorkspaceSchemas()
-        setUpSearchEngine()
-
         if (objectBeingRendered === undefined) {
             renderSearchPage()
         } else {
@@ -693,44 +731,7 @@ function newSuperalgosDocSpace() {
                     documentIndex.phraseCount[style] = stylePhraseCount
                 }
 
-                text = text.replaceAll('. ', ' ')
-                text = text.replaceAll(', ', ' ')
-                text = text.replaceAll('- ', ' ')
-                text = text.replaceAll('/ ', ' ')
-                text = text.replaceAll('_ ', ' ')
-                text = text.replaceAll(': ', ' ')
-                text = text.replaceAll('; ', ' ')
-                text = text.replaceAll('( ', ' ')
-                text = text.replaceAll(') ', ' ')
-                text = text.replaceAll('{ ', ' ')
-                text = text.replaceAll('} ', ' ')
-                text = text.replaceAll('[ ', ' ')
-                text = text.replaceAll('] ', ' ')
-                text = text.replaceAll('" ', ' ')
-                text = text.replaceAll('\\n ', ' ')
-                text = text.replaceAll('\\ ', ' ')
-
-                text = text.replaceAll('.', ' ')
-                text = text.replaceAll(',', ' ')
-                text = text.replaceAll('-', ' ')
-                text = text.replaceAll('/', ' ')
-                text = text.replaceAll('_', ' ')
-                text = text.replaceAll(':', ' ')
-                text = text.replaceAll(';', ' ')
-                text = text.replaceAll('(', ' ')
-                text = text.replaceAll(')', ' ')
-                text = text.replaceAll('{', ' ')
-                text = text.replaceAll('}', ' ')
-                text = text.replaceAll('[', ' ')
-                text = text.replaceAll(']', ' ')
-                text = text.replaceAll('"', ' ')
-                text = text.replaceAll('\\n', ' ')
-                text = text.replaceAll("\\", ' ')
-
-                text = text.replaceAll('@', ' ')
-                text = text.replaceAll('    ', ' ')
-                text = text.replaceAll('   ', ' ')
-                text = text.replaceAll('  ', ' ')
+                text = replaceSpecialCharactersForSpaces(text)
 
                 let splittedText = text.split(' ')
 
@@ -1106,7 +1107,11 @@ function newSuperalgosDocSpace() {
             if (objectBeingRendered.category !== 'Workspace') { return }
 
             let node = await UI.projects.superalgos.spaces.designSpace.workspace.getNodeById(schemaDocument.key)
-            UI.projects.superalgos.spaces.floatingSpace.positionAtNode(node)
+            node.payload.floatingObject.unCollapseParent()
+            setTimeout(positionAtNode, 1000, node)
+            function positionAtNode(node) {
+                UI.projects.superalgos.spaces.floatingSpace.positionAtNode(node)
+            }
         }
 
         function buildHtmlPage() {
@@ -2494,6 +2499,7 @@ function newSuperalgosDocSpace() {
     function physics() {
         thisObject.sidePanelTab.physics()
         docsAppDivPhysics()
+        finishInitializePhysics()
 
         function docsAppDivPhysics() {
             let docsSpaceDiv = document.getElementById('docs-space-div')
@@ -2509,6 +2515,16 @@ function newSuperalgosDocSpace() {
                 'left:' + docsAppDivPosition.x + 'px; z-index:1; ' +
                 'width: ' + thisObject.container.frame.width + 'px;' +
                 'height: ' + thisObject.container.frame.height + 'px'
+        }
+
+        function finishInitializePhysics() {
+            if (UI.projects.superalgos.spaces.designSpace.workspace === undefined) {return}
+            if (UI.projects.superalgos.spaces.designSpace.workspace.isInitialized === false) {return}
+            
+            if (docsIndex.length === 0) {
+                setUpWorkspaceSchemas()
+                setUpSearchEngine()
+            }
         }
     }
 

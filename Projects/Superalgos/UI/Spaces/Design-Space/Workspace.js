@@ -6,6 +6,7 @@ function newWorkspace() {
     
 
     let thisObject = {
+        isInitialized: false,
         workspaceNode: undefined,
         container: undefined,
         enabled: false,
@@ -42,7 +43,6 @@ function newWorkspace() {
     thisObject.nodeChildren = newNodeChildren()
 
     let savingWorkspaceIntervalId
-    let isInitialized = false
     let workingAtTask = 0
     let circularProgressBar = newBusyProgressBar()
     circularProgressBar.fitFunction = UI.projects.superalgos.spaces.floatingSpace.fitIntoVisibleArea
@@ -105,7 +105,7 @@ function newWorkspace() {
                 UI.projects.superalgos.spaces.cockpitSpace.initializePosition()
                 CAN_SPACES_DRAW = true
                 savingWorkspaceIntervalId = setInterval(saveWorkspace, 60000)
-                isInitialized = true
+                thisObject.isInitialized = true
             }
         } catch (err) {
             if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
@@ -141,7 +141,7 @@ function newWorkspace() {
         let workspace = UI.projects.superalgos.spaces.designSpace.workspace.workspaceNode
 
         /* Validation if it is too early to save. */
-        if (isInitialized === false) { return }
+        if (thisObject.isInitialized === false) { return }
 
         /* Validation of 2 sessions opened at the same time. */
         let savedSessionTimestamp = window.localStorage.getItem('Session Timestamp')
@@ -241,7 +241,7 @@ function newWorkspace() {
 
             switch (workingAtTask) {
                 case 1:
-                    isInitialized = false
+                    thisObject.isInitialized = false
                     console.log('[INFO] Replacing Workspace Procedure Started')
                     console.log('[INFO] Deleting Workspace ' + thisObject.workspaceNode.name + '. This might take a few minutes depending on the size of the workspace.')
                     UI.projects.superalgos.spaces.tutorialSpace.stop()
@@ -292,7 +292,7 @@ function newWorkspace() {
                     console.log('[INFO] Replacing Workspace Procedure Finished')
                     workingAtTask = 0
                     circularProgressBar.visible = false
-                    isInitialized = true
+                    thisObject.isInitialized = true
                     saveWorkspace()
                     break
             }

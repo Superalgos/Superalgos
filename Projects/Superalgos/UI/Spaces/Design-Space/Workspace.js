@@ -294,6 +294,7 @@ function newWorkspace() {
                     circularProgressBar.visible = false
                     thisObject.isInitialized = true
                     saveWorkspace()
+                    UI.projects.superalgos.spaces.docsSpace.reset() // The docs needs to index the loaded workspace.  
                     break
             }
         }

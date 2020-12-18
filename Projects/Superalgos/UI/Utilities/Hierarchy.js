@@ -1,7 +1,8 @@
 function newSuperalgosUtilitiesHierarchy() {
     thisObject = {
         getHiriarchyMap: getHiriarchyMap,
-        getHiriarchyHead: getHiriarchyHead
+        getHiriarchyHead: getHiriarchyHead,
+        getNodeNameTypePath: getNodeNameTypePath
     }
 
     return thisObject
@@ -63,6 +64,23 @@ function newSuperalgosUtilitiesHierarchy() {
             if (node.payload === undefined) { return }
             if (node.payload.parentNode === undefined) {
                 headNode = node
+            } else {
+                stepBackwards(node.payload.parentNode)
+            }
+        }
+    }
+
+    function getNodeNameTypePath(initialNode) {
+        let pathArray = []
+        stepBackwards(initialNode)
+        return pathArray
+
+        function stepBackwards(node) {
+            if (node === undefined) { return }
+            if (node.payload === undefined) { return }
+            pathArray.unshift([node.name, node.type])
+            if (node.payload.parentNode === undefined) {
+                return
             } else {
                 stepBackwards(node.payload.parentNode)
             }

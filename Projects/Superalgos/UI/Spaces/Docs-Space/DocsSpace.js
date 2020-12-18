@@ -10,7 +10,8 @@ function newSuperalgosDocSpace() {
         draw: draw,
         getContainer: getContainer,
         initialize: initialize,
-        finalize: finalize
+        finalize: finalize,
+        reset: reset
     }
 
     let isInitialized = false
@@ -44,6 +45,7 @@ function newSuperalgosDocSpace() {
     return thisObject
 
     function initialize() {
+        docsIndex = []
         thisObject.sidePanelTab = newSidePanelTab()
         thisObject.sidePanelTab.container.connectToParent(thisObject.container, false, false)
         thisObject.sidePanelTab.initialize('right')
@@ -262,6 +264,24 @@ function newSuperalgosDocSpace() {
         }
     }
 
+    function finalize() {
+        canvas.eventHandler.stopListening(browserResizedEventSubscriptionId)
+        thisObject.sidePanelTab.container.eventHandler.stopListening(openingEventSubscriptionId)
+        thisObject.sidePanelTab.container.eventHandler.stopListening(closingEventSubscriptionId)
+
+        objectBeingRendered = undefined
+        paragraphMap = undefined
+        nodeAppDefinition = undefined
+        schemaDocument = undefined
+        menuLabelsMap = undefined
+        docsIndex = undefined
+    }
+
+    function reset() {
+        finalize()
+        intialize()
+    }
+
     function cleanTextForSearch(text) {
         let result = replaceSpecialCharactersForSpaces(text)
         result = result.replaceAll(' ', '')
@@ -275,58 +295,45 @@ function newSuperalgosDocSpace() {
 
     function replaceSpecialCharactersForSpaces(text) {
         let result = text
-        result= result.replaceAll('. ', ' ')
-        result= result.replaceAll(', ', ' ')
-        result= result.replaceAll('- ', ' ')
-        result= result.replaceAll('/ ', ' ')
-        result= result.replaceAll('_ ', ' ')
-        result= result.replaceAll(': ', ' ')
-        result= result.replaceAll('; ', ' ')
-        result= result.replaceAll('( ', ' ')
-        result= result.replaceAll(') ', ' ')
-        result= result.replaceAll('{ ', ' ')
-        result= result.replaceAll('} ', ' ')
-        result= result.replaceAll('[ ', ' ')
-        result= result.replaceAll('] ', ' ')
-        result= result.replaceAll('" ', ' ')
-        result= result.replaceAll('\\n ', ' ')
-        result= result.replaceAll('\\ ', ' ')
+        result = result.replaceAll('. ', ' ')
+        result = result.replaceAll(', ', ' ')
+        result = result.replaceAll('- ', ' ')
+        result = result.replaceAll('/ ', ' ')
+        result = result.replaceAll('_ ', ' ')
+        result = result.replaceAll(': ', ' ')
+        result = result.replaceAll('; ', ' ')
+        result = result.replaceAll('( ', ' ')
+        result = result.replaceAll(') ', ' ')
+        result = result.replaceAll('{ ', ' ')
+        result = result.replaceAll('} ', ' ')
+        result = result.replaceAll('[ ', ' ')
+        result = result.replaceAll('] ', ' ')
+        result = result.replaceAll('" ', ' ')
+        result = result.replaceAll('\\n ', ' ')
+        result = result.replaceAll('\\ ', ' ')
 
-        result= result.replaceAll('.', ' ')
-        result= result.replaceAll(',', ' ')
-        result= result.replaceAll('-', ' ')
-        result= result.replaceAll('/', ' ')
-        result= result.replaceAll('_', ' ')
-        result= result.replaceAll(':', ' ')
-        result= result.replaceAll(';', ' ')
-        result= result.replaceAll('(', ' ')
-        result= result.replaceAll(')', ' ')
-        result= result.replaceAll('{', ' ')
-        result= result.replaceAll('}', ' ')
-        result= result.replaceAll('[', ' ')
-        result= result.replaceAll(']', ' ')
-        result= result.replaceAll('"', ' ')
-        result= result.replaceAll('\\n', ' ')
-        result= result.replaceAll("\\", ' ')
+        result = result.replaceAll('.', ' ')
+        result = result.replaceAll(',', ' ')
+        result = result.replaceAll('-', ' ')
+        result = result.replaceAll('/', ' ')
+        result = result.replaceAll('_', ' ')
+        result = result.replaceAll(':', ' ')
+        result = result.replaceAll(';', ' ')
+        result = result.replaceAll('(', ' ')
+        result = result.replaceAll(')', ' ')
+        result = result.replaceAll('{', ' ')
+        result = result.replaceAll('}', ' ')
+        result = result.replaceAll('[', ' ')
+        result = result.replaceAll(']', ' ')
+        result = result.replaceAll('"', ' ')
+        result = result.replaceAll('\\n', ' ')
+        result = result.replaceAll("\\", ' ')
 
-        result= result.replaceAll('@', ' ')
-        result= result.replaceAll('    ', ' ')
-        result= result.replaceAll('   ', ' ')
-        result= result.replaceAll('  ', ' ')
+        result = result.replaceAll('@', ' ')
+        result = result.replaceAll('    ', ' ')
+        result = result.replaceAll('   ', ' ')
+        result = result.replaceAll('  ', ' ')
         return result
-    }
-
-    function finalize() {
-        canvas.eventHandler.stopListening(browserResizedEventSubscriptionId)
-        thisObject.sidePanelTab.container.eventHandler.stopListening(openingEventSubscriptionId)
-        thisObject.sidePanelTab.container.eventHandler.stopListening(closingEventSubscriptionId)
-
-        objectBeingRendered = undefined
-        paragraphMap = undefined
-        nodeAppDefinition = undefined
-        schemaDocument = undefined
-        menuLabelsMap = undefined
-        docsIndex = undefined
     }
 
     function onKeyDown(event) {
@@ -595,9 +602,13 @@ function newSuperalgosDocSpace() {
             for (let i = 0; i < allNodesFound.length; i++) {
                 let node = allNodesFound[i]
                 let key = node.id
+
                 if (node.project === project) {
+                    let nodeNameTypePath = UI.projects.superalgos.utilities.hierarchy.getNodeNameTypePath(node)
+
                     let schemaDocument = {
                         key: key,
+                        nodeNameTypePath: nodeNameTypePath,
                         type: node.type,
                         definition: node.name,
                         paragraphs: []
@@ -925,8 +936,23 @@ function newSuperalgosDocSpace() {
                         }
                     }
                     resultCounter++
+
+                    /* Lets see if we can show a path */
+                    let path = ''
+                    if (result.documentIndex.schemaDocument.nodeNameTypePath !== undefined) {
+                        for (let i = 0; i < result.documentIndex.schemaDocument.nodeNameTypePath.length; i++) {
+                            let pathStep = result.documentIndex.schemaDocument.nodeNameTypePath[i]
+                            let nodeName = pathStep[0]
+                            let nodeType = pathStep[1]
+                            if (nodeName === 'New ' + nodeType || nodeName === 'My ' + nodeType || nodeName === undefined) {
+                                nodeName = ''
+                            }
+                            path = path + ' > ' + nodeName + ' ' + '<i>' + nodeType + '</i>'
+                        }
+                    }
+
                     HTML = HTML + '<div class="docs-search-result-content-record-container">'
-                    HTML = HTML + '<p class="docs-search-result-content-record-project-category">' + result.documentIndex.project + ' > ' + result.documentIndex.documentCategory + '</p>'
+                    HTML = HTML + '<p class="docs-search-result-content-record-project-category">' + result.documentIndex.project + ' > ' + result.documentIndex.documentCategory + path + '</p>'
                     HTML = HTML + '<p><a onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + result.documentIndex.documentCategory + '\', \'' + result.documentIndex.schemaDocument.type + '\', \'' + result.documentIndex.project + '\', \'' + result.documentIndex.schemaDocument.key + '\')" class="docs-search-result-content-record-title">' + result.documentIndex.schemaDocument.type + '</a></p>'
 
                     if (result.documentIndex.schemaDocument.definition !== undefined) {
@@ -1108,7 +1134,7 @@ function newSuperalgosDocSpace() {
 
             let node = await UI.projects.superalgos.spaces.designSpace.workspace.getNodeById(schemaDocument.key)
             node.payload.floatingObject.unCollapseParent()
-            setTimeout(positionAtNode, 1000, node)
+            setTimeout(positionAtNode, 3000, node)
             function positionAtNode(node) {
                 UI.projects.superalgos.spaces.floatingSpace.positionAtNode(node)
             }
@@ -2518,9 +2544,9 @@ function newSuperalgosDocSpace() {
         }
 
         function finishInitializePhysics() {
-            if (UI.projects.superalgos.spaces.designSpace.workspace === undefined) {return}
-            if (UI.projects.superalgos.spaces.designSpace.workspace.isInitialized === false) {return}
-            
+            if (UI.projects.superalgos.spaces.designSpace.workspace === undefined) { return }
+            if (UI.projects.superalgos.spaces.designSpace.workspace.isInitialized === false) { return }
+
             if (docsIndex.length === 0) {
                 setUpWorkspaceSchemas()
                 setUpSearchEngine()

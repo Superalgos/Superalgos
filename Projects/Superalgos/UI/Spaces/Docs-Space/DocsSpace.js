@@ -941,14 +941,19 @@ function newSuperalgosDocSpace() {
                     /* Lets see if we can show a path */
                     let path = ''
                     if (result.documentIndex.schemaDocument.nodeNameTypePath !== undefined) {
+                        let linkLabel
                         for (let i = 0; i < result.documentIndex.schemaDocument.nodeNameTypePath.length; i++) {
                             let pathStep = result.documentIndex.schemaDocument.nodeNameTypePath[i]
                             let nodeName = pathStep[0]
                             let nodeType = pathStep[1]
+                            let nodeProject = pathStep[2]
+                            let nodeId = pathStep[3]
+                            let link = ' > <a onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + result.documentIndex.documentCategory + '\', \'' + nodeType + '\', \'' + nodeProject + '\', \'' + nodeId + '\')"  class="docs-search-result-content-record-project-category-link">'
                             if (nodeName === 'New ' + nodeType || nodeName === 'My ' + nodeType || nodeName === undefined) {
                                 nodeName = ''
                             }
-                            path = path + ' > ' + nodeName + ' ' + '<i>' + nodeType + '</i>'
+                            linkLabel = nodeName + ' ' + '<i>' + nodeType + '</i>'
+                            path = path + link +  linkLabel + '</a>'
                         }
                     }
 

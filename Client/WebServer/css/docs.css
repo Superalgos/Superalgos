@@ -590,6 +590,16 @@ margin-left: -240px;
   color: #31708f;
 }
 
+.docs-search-result-content-record-project-category-link {
+  font-size: 90%;
+  color: #31708f;
+}
+
+a:hover.docs-search-result-content-record-project-category-link {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .docs-search-result-content-record-title {
   font-size: 120%;
   font-weight: 500;

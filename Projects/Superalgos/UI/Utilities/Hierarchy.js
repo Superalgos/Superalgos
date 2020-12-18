@@ -78,7 +78,7 @@ function newSuperalgosUtilitiesHierarchy() {
         function stepBackwards(node) {
             if (node === undefined) { return }
             if (node.payload === undefined) { return }
-            pathArray.unshift([node.name, node.type])
+            pathArray.unshift([node.name, node.type, node.project, node.id])
             if (node.payload.parentNode === undefined) {
                 return
             } else {

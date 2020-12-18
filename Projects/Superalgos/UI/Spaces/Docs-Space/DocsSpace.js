@@ -707,8 +707,8 @@ function newSuperalgosDocSpace() {
                 text = text.replaceAll('[ ', ' ')
                 text = text.replaceAll('] ', ' ')
                 text = text.replaceAll('" ', ' ')
-                text = text.replaceAll('\\n ', ' ') 
-                text = text.replaceAll('\\ ', ' ') 
+                text = text.replaceAll('\\n ', ' ')
+                text = text.replaceAll('\\ ', ' ')
 
                 text = text.replaceAll('.', ' ')
                 text = text.replaceAll(',', ' ')
@@ -724,8 +724,8 @@ function newSuperalgosDocSpace() {
                 text = text.replaceAll('[', ' ')
                 text = text.replaceAll(']', ' ')
                 text = text.replaceAll('"', ' ')
-                text = text.replaceAll('\\n', ' ') 
-                text = text.replaceAll("\\", ' ') 
+                text = text.replaceAll('\\n', ' ')
+                text = text.replaceAll("\\", ' ')
 
                 text = text.replaceAll('@', ' ')
                 text = text.replaceAll('    ', ' ')
@@ -1038,66 +1038,76 @@ function newSuperalgosDocSpace() {
 
     function renderDocumentPage() {
 
-        disableCollapsibleContent()
-
         nodeAppDefinition = SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.appSchema.get(objectBeingRendered.type)
 
-        switch(objectBeingRendered.category) {
-            case 'Node': {
-                schemaDocument = SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.docsNodeSchema.get(objectBeingRendered.type)
-                break
-            }
-            case 'Concept': {
-                schemaDocument = SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.docsConceptSchema.get(objectBeingRendered.type)
-                break
-            }
-            case 'Topic': {
-                schemaDocument = SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.docsTopicSchema.get(objectBeingRendered.type)
-                break
-            }
-            case 'Workspace': {
-                schemaDocument = SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.workspaceSchema.get(objectBeingRendered.key)
-                break
-            }
-        }
-
-        if (schemaDocument === undefined) {
-            // Use the New Node Template
-            let template = {
-                type: objectBeingRendered.type,
-                definition: "Please contribute the definition of this node.",
-                paragraphs: [
-                    {
-                        style: "Text",
-                        text: "Be the first one to explain how this node works by editing this paragraph. Left click and Edit to enter edit mode and change this text."
-                    }
-                ]
-            }
-
-            switch(objectBeingRendered.category) {
-                case 'Node': {
-                    SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).array.docsNodeSchema.push(template)
-                    SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.docsNodeSchema.set(objectBeingRendered.type, template)
-                    break
-                }
-                case 'Concept': {
-                    SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).array.docsConceptSchema.push(template)
-                    SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.docsConceptSchema.set(objectBeingRendered.type, template)
-                    break
-                }
-                case 'Topic': {
-                    SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).array.docsTopicSchema.push(template)
-                    SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.docsTopicSchema.set(objectBeingRendered.type, template)
-                    break
-                }
-            }
-
-            schemaDocument = template
-        }
+        disableCollapsibleContent()
+        getSchemaDocument()
+        repositionWorkspace()
         buildHtmlPage()
         contextMenuActivateRightClick()
         enableCollapsibleContent()
 
+        function getSchemaDocument() {
+            switch (objectBeingRendered.category) {
+                case 'Node': {
+                    schemaDocument = SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.docsNodeSchema.get(objectBeingRendered.type)
+                    break
+                }
+                case 'Concept': {
+                    schemaDocument = SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.docsConceptSchema.get(objectBeingRendered.type)
+                    break
+                }
+                case 'Topic': {
+                    schemaDocument = SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.docsTopicSchema.get(objectBeingRendered.type)
+                    break
+                }
+                case 'Workspace': {
+                    schemaDocument = SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.workspaceSchema.get(objectBeingRendered.key)
+                    break
+                }
+            }
+
+            if (schemaDocument === undefined) {
+                // Use the New Node Template
+                let template = {
+                    type: objectBeingRendered.type,
+                    definition: "Please contribute the definition of this node.",
+                    paragraphs: [
+                        {
+                            style: "Text",
+                            text: "Be the first one to explain how this node works by editing this paragraph. Left click and Edit to enter edit mode and change this text."
+                        }
+                    ]
+                }
+
+                switch (objectBeingRendered.category) {
+                    case 'Node': {
+                        SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).array.docsNodeSchema.push(template)
+                        SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.docsNodeSchema.set(objectBeingRendered.type, template)
+                        break
+                    }
+                    case 'Concept': {
+                        SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).array.docsConceptSchema.push(template)
+                        SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.docsConceptSchema.set(objectBeingRendered.type, template)
+                        break
+                    }
+                    case 'Topic': {
+                        SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).array.docsTopicSchema.push(template)
+                        SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.docsTopicSchema.set(objectBeingRendered.type, template)
+                        break
+                    }
+                }
+
+                schemaDocument = template
+            }
+        }
+
+        async function repositionWorkspace() {
+            if (objectBeingRendered.category !== 'Workspace') { return }
+            
+            let node = await UI.projects.superalgos.spaces.designSpace.workspace.getNodeById(schemaDocument.key)
+            UI.projects.superalgos.spaces.floatingSpace.positionAtNode(node)
+        }
 
         function buildHtmlPage() {
             let HTML = ''

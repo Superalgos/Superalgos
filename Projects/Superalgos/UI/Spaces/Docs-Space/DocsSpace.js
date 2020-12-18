@@ -36,7 +36,7 @@ function newSuperalgosDocSpace() {
     let objectBeingRendered
     let paragraphMap                    // Here we will store a map of paragraphs from the Docs Node, Concept or Topics Schema in order to find it when we need to update them.
     let nodeAppDefinition
-    let nodeDocsDefinition
+    let schemaDocument
     let menuLabelsMap = new Map()
     let searchPhrase
     let docsIndex
@@ -281,7 +281,7 @@ function newSuperalgosDocSpace() {
         objectBeingRendered = undefined
         paragraphMap = undefined
         nodeAppDefinition = undefined
-        nodeDocsDefinition = undefined
+        schemaDocument = undefined
         menuLabelsMap = undefined
         docsIndex = undefined
     }
@@ -348,13 +348,13 @@ function newSuperalgosDocSpace() {
                         if (paragraphs[0] !== '') {
                             docSchemaParagraph.text = paragraphs[0]
                         } else {
-                            nodeDocsDefinition.paragraphs.splice(selectedParagraphIndex, 1)
-                            if (nodeDocsDefinition.paragraphs.length === 0) {
+                            schemaDocument.paragraphs.splice(selectedParagraphIndex, 1)
+                            if (schemaDocument.paragraphs.length === 0) {
                                 let newParagraph = {
                                     style: 'Text',
                                     text: 'Please contribute to the docs by editing this content.'
                                 }
-                                nodeDocsDefinition.paragraphs.push(newParagraph)
+                                schemaDocument.paragraphs.push(newParagraph)
                             }
                         }
                     } else {
@@ -368,7 +368,7 @@ function newSuperalgosDocSpace() {
                                 style: style,
                                 text: paragraphs[i]
                             }
-                            nodeDocsDefinition.paragraphs.splice(selectedParagraphIndex + i, 0, newParagraph)
+                            schemaDocument.paragraphs.splice(selectedParagraphIndex + i, 0, newParagraph)
                         }
                     }
 
@@ -379,7 +379,7 @@ function newSuperalgosDocSpace() {
                     This means that the definition was being edited.
                     */
                     if (textArea.value !== '') {
-                        nodeDocsDefinition.definition = textArea.value
+                        schemaDocument.definition = textArea.value
                     }
                     break
                 }
@@ -706,6 +706,9 @@ function newSuperalgosDocSpace() {
                 text = text.replaceAll('} ', ' ')
                 text = text.replaceAll('[ ', ' ')
                 text = text.replaceAll('] ', ' ')
+                text = text.replaceAll('" ', ' ')
+                text = text.replaceAll('\\n ', ' ') 
+                text = text.replaceAll('\\ ', ' ') 
 
                 text = text.replaceAll('.', ' ')
                 text = text.replaceAll(',', ' ')
@@ -720,6 +723,10 @@ function newSuperalgosDocSpace() {
                 text = text.replaceAll('}', ' ')
                 text = text.replaceAll('[', ' ')
                 text = text.replaceAll(']', ' ')
+                text = text.replaceAll('"', ' ')
+                text = text.replaceAll('\\n', ' ') 
+                text = text.replaceAll("\\", ' ') 
+
                 text = text.replaceAll('@', ' ')
                 text = text.replaceAll('    ', ' ')
                 text = text.replaceAll('   ', ' ')
@@ -1037,24 +1044,24 @@ function newSuperalgosDocSpace() {
 
         switch(objectBeingRendered.category) {
             case 'Node': {
-                nodeDocsDefinition = SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.docsNodeSchema.get(objectBeingRendered.type)
+                schemaDocument = SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.docsNodeSchema.get(objectBeingRendered.type)
                 break
             }
             case 'Concept': {
-                nodeDocsDefinition = SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.docsConceptSchema.get(objectBeingRendered.type)
+                schemaDocument = SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.docsConceptSchema.get(objectBeingRendered.type)
                 break
             }
             case 'Topic': {
-                nodeDocsDefinition = SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.docsTopicSchema.get(objectBeingRendered.type)
+                schemaDocument = SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.docsTopicSchema.get(objectBeingRendered.type)
                 break
             }
             case 'Workspace': {
-                nodeDocsDefinition = SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.workspaceSchema.get(objectBeingRendered.key)
+                schemaDocument = SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.workspaceSchema.get(objectBeingRendered.key)
                 break
             }
         }
 
-        if (nodeDocsDefinition === undefined) {
+        if (schemaDocument === undefined) {
             // Use the New Node Template
             let template = {
                 type: objectBeingRendered.type,
@@ -1085,7 +1092,7 @@ function newSuperalgosDocSpace() {
                 }
             }
 
-            nodeDocsDefinition = template
+            schemaDocument = template
         }
         buildHtmlPage()
         contextMenuActivateRightClick()
@@ -1104,14 +1111,14 @@ function newSuperalgosDocSpace() {
             HTML = HTML + '<div id="docs-main-title-div"><table class="docs-title-table"><tr><td width="50px"><div id="projectImageDiv" class="docs-image-container"/></td><td><h2 class="docs-h2" id="' + objectBeingRendered.type.toLowerCase().replace(' ', '-') + '" > ' + objectBeingRendered.type + '</h2></td></tr></table></div>'
 
             /* We start with the Definition Table */
-            if (nodeDocsDefinition.definition !== undefined) {
+            if (schemaDocument.definition !== undefined) {
                 HTML = HTML + '<table class="docs-definition-table">'
                 HTML = HTML + '<tr>'
                 HTML = HTML + '<td width=150px>'
                 HTML = HTML + '<div id="definitionImageDiv" class="docs-image-container"/>'
                 HTML = HTML + '</td>'
                 HTML = HTML + '<td>'
-                HTML = HTML + '<div id="definition-paragraph" class="docs-font-normal"><strong>' + addToolTips(nodeDocsDefinition.definition) + '</strong></div>'
+                HTML = HTML + '<div id="definition-paragraph" class="docs-font-normal"><strong>' + addToolTips(schemaDocument.definition) + '</strong></div>'
                 HTML = HTML + '</td>'
                 HTML = HTML + '</tr>'
                 HTML = HTML + '</table>'
@@ -1120,16 +1127,17 @@ function newSuperalgosDocSpace() {
             HTML = HTML + '<div id="docs-content">'
 
             let paragraphIndex = 0
-            if (nodeDocsDefinition.paragraphs !== undefined) {
-                for (let i = 0; i < nodeDocsDefinition.paragraphs.length; i++) {
+            if (schemaDocument.paragraphs !== undefined) {
+                for (let i = 0; i < schemaDocument.paragraphs.length; i++) {
                     let key = 'editable-paragraph-' + paragraphIndex
-                    let paragraph = nodeDocsDefinition.paragraphs[i]
+                    let paragraph = schemaDocument.paragraphs[i]
                     renderParagraph(paragraph, key)
                     paragraphIndex++
                 }
             }
-
-            autoGeneratedHtml()
+            if (objectBeingRendered.category === 'Node') {
+                autoGeneratedHtml()
+            }
             HTML = HTML + '</div>' // Content Ends
             HTML = HTML + '</div>' // Clickeable Container Ends
 
@@ -1150,7 +1158,7 @@ function newSuperalgosDocSpace() {
 
             function addImages() {
                 addProjectImage()
-                if (nodeDocsDefinition.definition !== undefined) {
+                if (schemaDocument.definition !== undefined) {
                     addDefinitionImage(objectBeingRendered.project)
                 }
                 addMenuItemsImages()

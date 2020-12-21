@@ -952,7 +952,11 @@ function newSuperalgosDocSpace() {
                             if (nodeName === 'New ' + nodeType || nodeName === 'My ' + nodeType || nodeName === undefined) {
                                 nodeName = ''
                             }
-                            linkLabel = nodeName + ' ' + '<i>' + nodeType + '</i>'
+                            if (nodeName === '') {
+                                linkLabel = nodeType     
+                            }else {
+                                linkLabel =  nodeType + ' ('+ nodeName + ')'
+                            }                            
                             path = path + link +  linkLabel + '</a>'
                         }
                     }

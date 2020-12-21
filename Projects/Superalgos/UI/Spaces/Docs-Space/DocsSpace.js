@@ -606,13 +606,12 @@ function newSuperalgosDocSpace() {
 
             for (let i = 0; i < allNodesFound.length; i++) {
                 let node = allNodesFound[i]
-                let key = node.id
 
                 if (node.project === project) {
                     let nodeNameTypePath = UI.projects.superalgos.utilities.hierarchy.getNodeNameTypePath(node)
 
                     let schemaDocument = {
-                        key: key,
+                        nodeId: node.id,
                         nodeNameTypePath: nodeNameTypePath,
                         type: node.type,
                         definition: node.name,
@@ -645,7 +644,7 @@ function newSuperalgosDocSpace() {
                         schemaDocument.paragraphs.push(paragraph)
                     }
                     SCHEMAS_BY_PROJECT.get(project).array.workspaceSchema.push(schemaDocument)
-                    SCHEMAS_BY_PROJECT.get(project).map.workspaceSchema.set(key, schemaDocument)
+                    SCHEMAS_BY_PROJECT.get(project).map.workspaceSchema.set(node.id, schemaDocument)
                 }
             }
         }
@@ -993,7 +992,7 @@ function newSuperalgosDocSpace() {
                     } else {
                         mainLink =  result.documentIndex.schemaDocument.topic + ' - Part ' + result.documentIndex.schemaDocument.pageNumber + ' - ' +  result.documentIndex.schemaDocument.type
                     }
-                    HTML = HTML + '<p><a onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + result.documentIndex.documentCategory + '\', \'' + result.documentIndex.schemaDocument.type + '\', \'' + result.documentIndex.project + '\', \'' + result.documentIndex.schemaDocument.key + '\')" class="docs-search-result-content-record-title">' + mainLink + '</a></p>'
+                    HTML = HTML + '<p><a onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + result.documentIndex.documentCategory + '\', \'' + result.documentIndex.schemaDocument.type + '\', \'' + result.documentIndex.project + '\', \'' + result.documentIndex.schemaDocument.nodeId + '\')" class="docs-search-result-content-record-title">' + mainLink + '</a></p>'
 
                     if (result.documentIndex.schemaDocument.definition !== undefined) {
                         HTML = HTML + '<p class="docs-search-result-content-record-extract">' + result.documentIndex.schemaDocument.definition + '</p>'
@@ -1086,7 +1085,7 @@ function newSuperalgosDocSpace() {
         thisObject.sidePanelTab.open()
     }
 
-    function navigateTo(category, type, project, key) {
+    function navigateTo(category, type, project, nodeId) {
 
         paragraphMap = new Map()
 
@@ -1095,7 +1094,7 @@ function newSuperalgosDocSpace() {
             category: category,
             type: type,
             project: project,
-            key: key
+            nodeId: nodeId
         }
 
         renderDocumentPage()
@@ -1129,7 +1128,7 @@ function newSuperalgosDocSpace() {
                     break
                 }
                 case 'Workspace': {
-                    schemaDocument = SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.workspaceSchema.get(objectBeingRendered.key)
+                    schemaDocument = SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.workspaceSchema.get(objectBeingRendered.nodeId)
                     break
                 }
             }
@@ -1271,7 +1270,7 @@ function newSuperalgosDocSpace() {
                             text: "" + arrayItem.pageNumber + '. ' + arrayItem.type + ""
                         }
                         paragraphIndex++
-                        HTML = HTML + '<p><div id="' + key + '" ' + 'class="docs-topic-index-link"' + '>' + ' ' + paragraph.text + '</div></p>'
+                        HTML = HTML + '<p><a onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + 'Topic' + '\', \'' + arrayItem.type + '\', \'' + objectBeingRendered.project + '\')" class="docs-topic-index-link">' + paragraph.text + '</a></p>'
                     }
                 }
             }

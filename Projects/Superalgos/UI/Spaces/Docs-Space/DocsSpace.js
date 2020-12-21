@@ -680,7 +680,7 @@ function newSuperalgosDocSpace() {
                 documentIndex = {
                     phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
                     schemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema[i],
-                    documentCategory: 'Topics',
+                    documentCategory: 'Topic',
                     project: project
                 }
                 indexDocument(documentIndex)
@@ -953,11 +953,11 @@ function newSuperalgosDocSpace() {
                                 nodeName = ''
                             }
                             if (nodeName === '') {
-                                linkLabel = nodeType     
-                            }else {
-                                linkLabel =  nodeType + ' ('+ nodeName + ')'
-                            }                            
-                            path = path + link +  linkLabel + '</a>'
+                                linkLabel = nodeType
+                            } else {
+                                linkLabel = nodeType + ' (' + nodeName + ')'
+                            }
+                            path = path + link + linkLabel + '</a>'
                         }
                     }
 
@@ -1163,18 +1163,24 @@ function newSuperalgosDocSpace() {
             /* Title */
             HTML = HTML + '<div id="docs-main-title-div"><table class="docs-title-table"><tr><td width="50px"><div id="projectImageDiv" class="docs-image-container"/></td><td><h2 class="docs-h2" id="' + objectBeingRendered.type.toLowerCase().replace(' ', '-') + '" > ' + objectBeingRendered.type + '</h2></td></tr></table></div>'
 
-            /* We start with the Definition Table */
+            /* We start with the Definition Table / Summary */
             if (schemaDocument.definition !== undefined) {
-                HTML = HTML + '<table class="docs-definition-table">'
-                HTML = HTML + '<tr>'
-                HTML = HTML + '<td width=150px>'
-                HTML = HTML + '<div id="definitionImageDiv" class="docs-image-container"/>'
-                HTML = HTML + '</td>'
-                HTML = HTML + '<td>'
-                HTML = HTML + '<div id="definition-paragraph" class="docs-font-normal"><strong>' + addToolTips(schemaDocument.definition) + '</strong></div>'
-                HTML = HTML + '</td>'
-                HTML = HTML + '</tr>'
-                HTML = HTML + '</table>'
+                if (objectBeingRendered.category === 'Topic') {
+                    HTML = HTML + '<div id="definition-paragraph" class="docs-summary"><b>Summary:</b> ' + addToolTips(schemaDocument.definition) + '</div>'
+                } else {
+                    HTML = HTML + '<table class="docs-definition-table">'
+                    HTML = HTML + '<tr>'
+                    if (objectBeingRendered.category === 'Node') {
+                        HTML = HTML + '<td width=150px>'
+                        HTML = HTML + '<div id="definitionImageDiv" class="docs-image-container"/>'
+                        HTML = HTML + '</td>'
+                    }
+                    HTML = HTML + '<td>'
+                    HTML = HTML + '<div id="definition-paragraph" class="docs-font-normal"><strong>' + addToolTips(schemaDocument.definition) + '</strong></div>'
+                    HTML = HTML + '</td>'
+                    HTML = HTML + '</tr>'
+                    HTML = HTML + '</table>'
+                }
             }
 
             HTML = HTML + '<div id="docs-content">'
@@ -1212,7 +1218,9 @@ function newSuperalgosDocSpace() {
             function addImages() {
                 addProjectImage()
                 if (schemaDocument.definition !== undefined) {
-                    addDefinitionImage(objectBeingRendered.project)
+                    if (objectBeingRendered.category === 'Node') {
+                        addDefinitionImage(objectBeingRendered.project)
+                    }
                 }
 
                 if (objectBeingRendered.category === 'Node') {

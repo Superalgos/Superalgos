@@ -1,6 +1,7 @@
 
     {
-        "type": "Contributing - Page 1 Title",
+	"topic": "Contributing",
+        "type": "To the Docs",
         "definition": "There are many ways to contribute",
 	"pageNumber": 1,
 	"paragraphs": [

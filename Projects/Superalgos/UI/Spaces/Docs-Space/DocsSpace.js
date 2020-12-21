@@ -709,6 +709,13 @@ function newSuperalgosDocSpace() {
                 return
             }
 
+            if (documentIndex.schemaDocument.topic !== undefined) {
+                let paragraph = {
+                    style: 'Topic',
+                    text: documentIndex.schemaDocument.topic
+                }
+                indexParagraph(paragraph)
+            }
             if (documentIndex.schemaDocument.type !== undefined) {
                 let paragraph = {
                     style: 'Type',
@@ -808,11 +815,23 @@ function newSuperalgosDocSpace() {
                     if (thisPhraseCount === undefined) {
                         thisPhraseCount = 0
                     }
-                    if (key === cleanTextForSearch(documentIndex.schemaDocument.type.toLowerCase())) {
-                        documentPoints = documentPoints + thisPhraseCount * 100
+
+                    if (documentIndex.schemaDocument.type !== undefined) {
+                        if (key === cleanTextForSearch(documentIndex.schemaDocument.type.toLowerCase())) {
+                            documentPoints = documentPoints + thisPhraseCount * 100
+                        }
+                    }
+                    if (documentIndex.schemaDocument.topic !== undefined) {
+                        if (key === cleanTextForSearch(documentIndex.schemaDocument.topic.toLowerCase())) {
+                            documentPoints = documentPoints + thisPhraseCount * 200
+                        }
                     }
 
                     switch (style) {
+                        case 'topic': {
+                            documentPoints = documentPoints + thisPhraseCount * 100
+                            break
+                        }
                         case 'type': {
                             documentPoints = documentPoints + thisPhraseCount * 50
                             break
@@ -967,7 +986,14 @@ function newSuperalgosDocSpace() {
 
                     HTML = HTML + '<div class="docs-search-result-content-record-container">'
                     HTML = HTML + '<p class="docs-search-result-content-record-project-category">' + result.documentIndex.project + ' > ' + result.documentIndex.documentCategory + path + '</p>'
-                    HTML = HTML + '<p><a onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + result.documentIndex.documentCategory + '\', \'' + result.documentIndex.schemaDocument.type + '\', \'' + result.documentIndex.project + '\', \'' + result.documentIndex.schemaDocument.key + '\')" class="docs-search-result-content-record-title">' + result.documentIndex.schemaDocument.type + '</a></p>'
+                    
+                    let mainLink = ''
+                    if (result.documentIndex.schemaDocument.topic === undefined) {
+                        mainLink = result.documentIndex.schemaDocument.type
+                    } else {
+                        mainLink =  result.documentIndex.schemaDocument.topic + ' - Part ' + result.documentIndex.schemaDocument.pageNumber + ' - ' +  result.documentIndex.schemaDocument.type
+                    }
+                    HTML = HTML + '<p><a onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + result.documentIndex.documentCategory + '\', \'' + result.documentIndex.schemaDocument.type + '\', \'' + result.documentIndex.project + '\', \'' + result.documentIndex.schemaDocument.key + '\')" class="docs-search-result-content-record-title">' + mainLink + '</a></p>'
 
                     if (result.documentIndex.schemaDocument.definition !== undefined) {
                         HTML = HTML + '<p class="docs-search-result-content-record-extract">' + result.documentIndex.schemaDocument.definition + '</p>'
@@ -1165,7 +1191,14 @@ function newSuperalgosDocSpace() {
             HTML = HTML + '<div id="docs-context-menu-clickeable-div" class="docs-context-menu-clickeable-container">' // Clickeable Container Starts
 
             /* Title */
-            HTML = HTML + '<div id="docs-main-title-div"><table class="docs-title-table"><tr><td width="50px"><div id="projectImageDiv" class="docs-image-container"/></td><td><h2 class="docs-h2" id="' + objectBeingRendered.type.toLowerCase().replace(' ', '-') + '" > ' + objectBeingRendered.type + '</h2></td></tr></table></div>'
+            let titleLabel = ''
+            if (schemaDocument.topic !== undefined) {
+                titleLabel = schemaDocument.topic + ' #' + schemaDocument.pageNumber + ' - ' + schemaDocument.type
+            } else {
+                titleLabel = schemaDocument.type
+            }
+
+            HTML = HTML + '<div id="docs-main-title-div"><table class="docs-title-table"><tr><td width="50px"><div id="projectImageDiv" class="docs-image-container"/></td><td><h2 class="docs-h2" id="' + objectBeingRendered.type.toLowerCase().replace(' ', '-') + '" > ' + titleLabel + '</h2></td></tr></table></div>'
 
             /* We start with the Definition Table / Summary */
             if (schemaDocument.definition !== undefined) {
@@ -1188,6 +1221,11 @@ function newSuperalgosDocSpace() {
             }
 
             let paragraphIndex = 0
+
+            if (objectBeingRendered.category === 'Topic') {
+                generateMultiPageIndex()
+            }
+
             addContent()
 
             HTML = HTML + '</div>' // Clickeable Container Ends
@@ -1205,6 +1243,38 @@ function newSuperalgosDocSpace() {
             there are images to be added.
             */
             addImages()
+
+            function generateMultiPageIndex() {
+                /* 
+                We will go through all the schema docuents array for the current project and pick 
+                the documents that share the same key thatn the document we are rendering now. 
+                With the info on those picked document we will build the index.
+                */
+                let key = 'auto-generated-index-paragraph-' + paragraphIndex
+                let paragraph = {
+                    style: "Title",
+                    text: "" + schemaDocument.topic + " Topic Index"
+                }
+                renderParagraph(paragraph, key)
+                paragraphIndex++
+
+                let schemaArray = SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).array.docsTopicSchema
+                for (let i = 0; i < schemaArray.length; i++) {
+                    let arrayItem = schemaArray[i]
+
+                    if (arrayItem.topic === schemaDocument.topic) {
+
+                        paragraph
+                        key = 'auto-generated-index-paragraph-' + paragraphIndex
+                        paragraph = {
+                            style: "Title",
+                            text: "" + arrayItem.pageNumber + '. ' + arrayItem.type + ""
+                        }
+                        paragraphIndex++
+                        HTML = HTML + '<p><div id="' + key + '" ' + 'class="docs-topic-index-link"' + '>' + ' ' + paragraph.text + '</div></p>'
+                    }
+                }
+            }
 
             function addContent() {
                 HTML = HTML + '<div id="docs-content">'

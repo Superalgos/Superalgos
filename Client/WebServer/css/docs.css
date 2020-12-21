@@ -634,3 +634,12 @@ a:active.docs-search-result-content-record-title {
   margin-top: 5px!important;
 }
 
+.docs-topic-index-link {
+  font-size: 125%;
+  color: #31708f;
+}
+
+a:hover.docs-topic-index-link {
+  text-decoration: underline;
+  cursor: pointer;
+}

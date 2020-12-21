@@ -515,8 +515,13 @@ function newSuperalgosDocSpace() {
         Depending on the Style of Paragraph we will need to remove
         some info from the innerText. 
         */
-        if (paragraphNode.id.indexOf('-definition') >= 0) {
-            selectedParagraphData = paragraphNode.innerText
+        if (paragraphNode.id.indexOf('definition-') >= 0) {
+            if (paragraphNode.id.indexOf('-summary') >= 0) {
+                /* For Topics we render the definition as a summary */
+                selectedParagraphData = paragraphNode.innerText.substring(9, paragraphNode.innerText.length)
+            } else {
+                selectedParagraphData = paragraphNode.innerText
+            }
         }
         if (paragraphNode.id.indexOf('-text') >= 0) {
             selectedParagraphData = paragraphNode.innerText
@@ -1166,7 +1171,7 @@ function newSuperalgosDocSpace() {
             /* We start with the Definition Table / Summary */
             if (schemaDocument.definition !== undefined) {
                 if (objectBeingRendered.category === 'Topic') {
-                    HTML = HTML + '<div id="definition-paragraph" class="docs-summary"><b>Summary:</b> ' + addToolTips(schemaDocument.definition) + '</div>'
+                    HTML = HTML + '<div id="definition-summary-editable-paragraph" class="docs-summary"><b>Summary:</b> ' + addToolTips(schemaDocument.definition) + '</div>'
                 } else {
                     HTML = HTML + '<table class="docs-definition-table">'
                     HTML = HTML + '<tr>'
@@ -1176,7 +1181,7 @@ function newSuperalgosDocSpace() {
                         HTML = HTML + '</td>'
                     }
                     HTML = HTML + '<td>'
-                    HTML = HTML + '<div id="definition-paragraph" class="docs-font-normal"><strong>' + addToolTips(schemaDocument.definition) + '</strong></div>'
+                    HTML = HTML + '<div id="definition-editable-paragraph" class="docs-font-normal"><strong>' + addToolTips(schemaDocument.definition) + '</strong></div>'
                     HTML = HTML + '</td>'
                     HTML = HTML + '</tr>'
                     HTML = HTML + '</table>'

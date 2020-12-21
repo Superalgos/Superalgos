@@ -556,7 +556,6 @@ width: 100%;
 }
 
 /* Search Results Page Content */
-
 .docs-search-result-content {
 border-top: 1px solid #dedede;
 margin-left: -240px;
@@ -642,4 +641,15 @@ a:active.docs-search-result-content-record-title {
 a:hover.docs-topic-index-link {
   text-decoration: underline;
   cursor: pointer;
+}
+
+/* Command Results Page Content */
+.docs-command-result-content {
+border-top: 1px solid #dedede;
+margin-left: -240px;
+}
+
+.docs-command-result-message {
+font-size: 90%;
+color: #31708f;
 }

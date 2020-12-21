@@ -40,7 +40,7 @@ function newSuperalgosDocSpace() {
     let nodeAppDefinition
     let schemaDocument
     let menuLabelsMap = new Map()
-    let searchPhrase
+    let command
     let docsIndex = []
 
     return thisObject
@@ -796,6 +796,157 @@ function newSuperalgosDocSpace() {
         detectEnterOnSearchBox()
     }
 
+    function detectCommands() {
+
+        if (command.toLowerCase() === 'help add') {
+            renderCommandResultsPage(
+                [
+                    "Command <b>Add</b> syntax: ",
+                    "Option 1: <i>Add</i> Node <i>to</i> Project Node Type",
+                    "Example: Add Node to Superalgos Task Manager",
+                    "Option 2: <i>Add</i> Concpet <i>to</i> Project Concept Name",
+                    "Example: Add Concept to Superalgos Attaching Nodes",
+                    "Option 3: <i>Add</i> Topic <i>to</i> Project Topic->Part Name",
+                    "Example: Add Topic to Superalgos Contributing->Code"
+                ]
+            )
+            return
+        }
+
+        const newParagraphText = "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+        let splittedCommand = command.split(' ')
+
+        if (splittedCommand[0].toLowerCase() === 'add') {
+            if (splittedCommand[2] !== 'to') {
+                renderCommandResultsPage(["Syntax Error. Keyword <b>to</b> missing: Example: Add Concept to Superalgos New Concept Name. Type <i>Hekp Add</i> to learn the command's syntax."])
+                return
+            }
+
+            if (splittedCommand.length < 5) {
+                renderCommandResultsPage(["Syntax Error. Too few parameters. Found <b>" + splittedCommand.length + "</b>. Expected at least <b>5</b>. Type <i>Hekp Add</i> to learn the command's syntax."])
+                return
+            }
+
+            let remainderParams = command.replace(splittedCommand[0] + ' ' + splittedCommand[1] + ' ' + splittedCommand[2] + ' ' + splittedCommand[3] + ' ', '')
+            if (remainderParams === '') {
+                renderCommandResultsPage(["Syntax Error. Node, Concept or Topic name can not be undefined."])
+                return
+            }
+
+            switch (splittedCommand[1].toLowerCase()) {
+                case 'node': {
+                    addNode(splittedCommand[3], remainderParams)
+                    return
+                }
+                case 'concept': {
+                    addConcept(splittedCommand[3], remainderParams)
+                    return
+                }
+                case 'topic': {
+                    let topicPlusPartType = remainderParams
+                    let splittedTopic = topicPlusPartType.split('->')
+                    addTopic(splittedCommand[3], splittedTopic[0], splittedTopic[1])
+                    return
+                }
+                default: {
+                    renderCommandResultsPage(["Syntax Error. Expected <b>Node</b>, <b>Concept</b> or <b>Topic</b>. Found <b>" + splittedCommand[1] + "</b>"])
+                    return
+                }
+            }
+        }
+
+        renderSearchResultsPage()
+
+        function addNode(project, type) {
+            let template = {
+                type: type,
+                definition: "Write here the definition of this Node.",
+                paragraphs: [
+                    {
+                        style: "Text",
+                        text: newParagraphText
+                    }
+                ]
+            }
+            if (SCHEMAS_BY_PROJECT.get(project) === undefined) {
+                renderCommandResultsPage(["Project <b>" + project + "</b> does not exist."])
+                return
+            }
+            SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema.push(template)
+            SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.set(type, template)
+            navigateTo('Node', type, project)
+        }
+
+        function addConcept(project, type) {
+            let template = {
+                type: type,
+                definition: "Write here the definition of this Concept.",
+                paragraphs: [
+                    {
+                        style: "Text",
+                        text: newParagraphText
+                    }
+                ]
+            }
+
+            if (SCHEMAS_BY_PROJECT.get(project) === undefined) {
+                renderCommandResultsPage(["Project <b>" + project + "</b> does not exist."])
+                return
+            }
+            SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema.push(template)
+            SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.set(type, template)
+            navigateTo('Concept', type, project)
+        }
+
+        function addTopic(project, topic, type) {
+            let template = {
+                topic: topic,
+                type: type,
+                definition: "Write here the definition of this Concept.",
+                paragraphs: [
+                    {
+                        style: "Text",
+                        text: newParagraphText
+                    }
+                ]
+            }
+            if (SCHEMAS_BY_PROJECT.get(project) === undefined) {
+                renderCommandResultsPage(["Project <b>" + project + "</b> does not exist."])
+                return
+            }
+            SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema.push(template)
+            SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.set(topic + ' ' + type, template)
+            navigateTo('Topic', type, project)
+        }
+    }
+
+    function renderCommandResultsPage(resultArray) {
+
+        buildHTML()
+
+        function buildHTML() {
+            let HTML = ''
+            HTML = HTML + '<section id="docs-search-results-div" class="docs-search-page-container">'
+            HTML = HTML + addSearchHeader()
+            // Results
+            for (let i = 0; i < resultArray.length; i++) {
+                let result = resultArray[i]
+                HTML = HTML + '<p class="docs-command-result-message">' + result + '</p>'
+            }
+
+            // End Content
+            HTML = HTML + '</div>'
+
+            // End Section
+            HTML = HTML + '</section>'
+
+            let docsSpaceDiv = document.getElementById('docs-space-div')
+            docsSpaceDiv.innerHTML = HTML + addFooter()
+
+            detectEnterOnSearchBox()
+        }
+    }
+
     function renderSearchResultsPage() {
 
         let resultsArary = []
@@ -809,7 +960,7 @@ function newSuperalgosDocSpace() {
                 let documentPoints = 0
 
                 for (const style in documentIndex.phraseCount) {
-                    let key = cleanTextForSearch(searchPhrase.toLowerCase())
+                    let key = cleanTextForSearch(command.toLowerCase())
                     let thisPhraseCount = documentIndex.phraseCount[style].get(key)
                     if (thisPhraseCount === undefined) {
                         thisPhraseCount = 0
@@ -985,12 +1136,12 @@ function newSuperalgosDocSpace() {
 
                     HTML = HTML + '<div class="docs-search-result-content-record-container">'
                     HTML = HTML + '<p class="docs-search-result-content-record-project-category">' + result.documentIndex.project + ' > ' + result.documentIndex.documentCategory + path + '</p>'
-                    
+
                     let mainLink = ''
                     if (result.documentIndex.schemaDocument.topic === undefined) {
                         mainLink = result.documentIndex.schemaDocument.type
                     } else {
-                        mainLink =  result.documentIndex.schemaDocument.topic + ' - Part ' + result.documentIndex.schemaDocument.pageNumber + ' - ' +  result.documentIndex.schemaDocument.type
+                        mainLink = result.documentIndex.schemaDocument.topic + ' - Part ' + result.documentIndex.schemaDocument.pageNumber + ' - ' + result.documentIndex.schemaDocument.type
                     }
                     HTML = HTML + '<p><a onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + result.documentIndex.documentCategory + '\', \'' + result.documentIndex.schemaDocument.type + '\', \'' + result.documentIndex.project + '\', \'' + result.documentIndex.schemaDocument.nodeId + '\')" class="docs-search-result-content-record-title">' + mainLink + '</a></p>'
 
@@ -1031,14 +1182,14 @@ function newSuperalgosDocSpace() {
 
     function detectEnterOnSearchBox() {
         const element = document.getElementsByClassName("docs-search-input")[0]
-        if (searchPhrase !== undefined) {
-            element.value = searchPhrase
+        if (command !== undefined) {
+            element.value = command
         }
         element.focus()
         element.addEventListener("keyup", function (event) {
             if (event.key === "Enter" || event.keyCode === 13) {
-                searchPhrase = element.value
-                renderSearchResultsPage()
+                command = element.value
+                detectCommands()
             }
         });
     }
@@ -1137,11 +1288,11 @@ function newSuperalgosDocSpace() {
                 // Use the New Node Template
                 let template = {
                     type: objectBeingRendered.type,
-                    definition: "Please contribute the definition of this node.",
+                    definition: "Write here the definition of this " + objectBeingRendered.category + ".",
                     paragraphs: [
                         {
                             style: "Text",
-                            text: "Be the first one to explain how this node works by editing this paragraph. Left click and Edit to enter edit mode and change this text."
+                            text: "Left click and Edit to enter edit mode and change this text."
                         }
                     ]
                 }
@@ -1155,11 +1306,6 @@ function newSuperalgosDocSpace() {
                     case 'Concept': {
                         SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).array.docsConceptSchema.push(template)
                         SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.docsConceptSchema.set(objectBeingRendered.type, template)
-                        break
-                    }
-                    case 'Topic': {
-                        SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).array.docsTopicSchema.push(template)
-                        SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.docsTopicSchema.set(objectBeingRendered.type, template)
                         break
                     }
                 }

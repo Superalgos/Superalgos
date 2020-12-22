@@ -797,75 +797,152 @@ function newSuperalgosDocSpace() {
     }
 
     function detectCommands() {
-
-        if (command.toLowerCase() === 'help add') {
-            renderCommandResultsPage(
-                [
-                    "Command <b>Add</b> syntax: ",
-                    "Option 1: <i>Add</i> Node <i>to</i> Project: Node Type",
-                    "Example: Add Node to Superalgos: Task Manager",
-                    "Option 2: <i>Add</i> Concpet <i>to</i> Project: Concept Name",
-                    "Example: Add Concept to Superalgos: Attaching Nodes",
-                    "Option 3: <i>Add</i> Topic <i>to</i> Project: Topic->Part Name->Page Number",
-                    "Example: Add Topic to Superalgos: Contributing->Code->2"
-                ]
-            )
-            return
-        }
-
         const newParagraphText = "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
-        let splittedCommand = command.split(': ')
-        if (splittedCommand[1] === undefined) {
-            renderCommandResultsPage(["Syntax Error. Keyword <b>: </b> missing: Example: Add Concept to Superalgos: New Concept Name. The keyword is a : character plus a blank space. Type <i>Hekp Add</i> to learn the command's syntax."])
-            return
-        }
-        let primaryCommand = splittedCommand[0]
-        let secondaryCommand = splittedCommand[1]
 
-        let splittedPrimaryCommand = primaryCommand.split(' ')
-
-        if (splittedPrimaryCommand[0].toLowerCase() === 'add') {
-            if (splittedPrimaryCommand[2] !== 'to') {
-                renderCommandResultsPage(["Syntax Error. Keyword <b>to</b> missing: Example: Add Concept to Superalgos: New Concept Name. Type <i>Hekp Add</i> to learn the command's syntax."])
-                return
-            }
-
-            if (splittedPrimaryCommand.length < 4) {
-                renderCommandResultsPage(["Syntax Error. Too few Add Command parameters. Found <b>" + splittedPrimaryCommand.length + "</b>. Expected at least <b>4</b>. Type <i>Hekp Add</i> to learn the command's syntax."])
-                return
-            }
-
-            if (secondaryCommand === '') {
-                renderCommandResultsPage(["Syntax Error. Node, Concept or Topic name can not be undefined."])
-                return
-            }
-
-            switch (splittedPrimaryCommand[1].toLowerCase()) {
-                case 'node': {
-                    addNode(splittedPrimaryCommand[3], secondaryCommand)
-                    return
-                }
-                case 'concept': {
-                    addConcept(splittedPrimaryCommand[3], secondaryCommand)
-                    return
-                }
-                case 'topic': {
-                    let splittedSecondaryCommand = secondaryCommand.split('->')
-                    if (splittedSecondaryCommand.length < 3) {
-                        renderCommandResultsPage(["Syntax Error. Too few Topic parameters. Found <b>" + splittedSecondaryCommand.length + "</b>. Expected <b>3</b>. Type <i>Hekp Add</i> to learn the command's syntax."])
-                        return
-                    }
-                    addTopic(splittedPrimaryCommand[3], splittedSecondaryCommand[0], splittedSecondaryCommand[1], splittedSecondaryCommand[2])
-                    return
-                }
-                default: {
-                    renderCommandResultsPage(["Syntax Error. Expected <b>Node</b>, <b>Concept</b> or <b>Topic</b>. Found <b>" + splittedCommand[1] + "</b>"])
-                    return
-                }
-            }
-        }
+        if (checkAddCommand() === undefined) { return }
+        if (checkDeleteCommand() === undefined) { return }
 
         renderSearchResultsPage()
+
+        function checkAddCommand() {
+            if (command.toLowerCase() === 'help add') {
+                renderCommandResultsPage(
+                    [
+                        "<b>Add</b> command syntax: ",
+                        "Option 1: <i>Add</i> Node <i>to</i> Project: Node Type",
+                        "Example: Add Node to Superalgos: Task Manager",
+                        "Option 2: <i>Add</i> Concpet <i>to</i> Project: Concept Name",
+                        "Example: Add Concept to Superalgos: Attaching Nodes",
+                        "Option 3: <i>Add</i> Topic <i>to</i> Project: Topic->Part Name->Page Number",
+                        "Example: Add Topic to Superalgos: Contributing->Code->2"
+                    ]
+                )
+                return
+            }
+            if (command.indexOf('Add') !== 0 && command.indexOf('add') !== 0) { return 'Not Add Command' }
+
+            let splittedCommand = command.split(': ')
+            if (splittedCommand[1] === undefined) {
+                renderCommandResultsPage(["Syntax Error. Keyword <b>: </b> missing: Example: Add Concept to Superalgos: New Concept Name. The keyword is a : character plus a blank space. Type <i>Hekp Add</i> to learn the command's syntax."])
+                return
+            }
+            let primaryCommand = splittedCommand[0]
+            let secondaryCommand = splittedCommand[1]
+
+            let splittedPrimaryCommand = primaryCommand.split(' ')
+
+            if (splittedPrimaryCommand[0].toLowerCase() === 'add') {
+                if (splittedPrimaryCommand[2] !== 'to') {
+                    renderCommandResultsPage(["Syntax Error. Keyword <b>to</b> missing: Example: Add Concept to Superalgos: New Concept Name. Type <i>Hekp Add</i> to learn the command's syntax."])
+                    return
+                }
+
+                if (splittedPrimaryCommand.length < 4) {
+                    renderCommandResultsPage(["Syntax Error. Too few Add Command parameters. Found <b>" + splittedPrimaryCommand.length + "</b>. Expected at least <b>4</b>. Type <i>Hekp Add</i> to learn the command's syntax."])
+                    return
+                }
+
+                if (secondaryCommand === '') {
+                    renderCommandResultsPage(["Syntax Error. Node, Concept or Topic name can not be undefined."])
+                    return
+                }
+
+                switch (splittedPrimaryCommand[1].toLowerCase()) {
+                    case 'node': {
+                        addNode(splittedPrimaryCommand[3], secondaryCommand)
+                        return
+                    }
+                    case 'concept': {
+                        addConcept(splittedPrimaryCommand[3], secondaryCommand)
+                        return
+                    }
+                    case 'topic': {
+                        let splittedSecondaryCommand = secondaryCommand.split('->')
+                        if (splittedSecondaryCommand.length < 3) {
+                            renderCommandResultsPage(["Syntax Error. Too few Topic parameters. Found <b>" + splittedSecondaryCommand.length + "</b>. Expected <b>3</b>. Type <i>Hekp Add</i> to learn the command's syntax."])
+                            return
+                        }
+                        addTopic(splittedPrimaryCommand[3], splittedSecondaryCommand[0], splittedSecondaryCommand[1], splittedSecondaryCommand[2])
+                        return
+                    }
+                    default: {
+                        renderCommandResultsPage(["Syntax Error. Expected <b>Node</b>, <b>Concept</b> or <b>Topic</b>. Found <b>" + splittedCommand[1] + "</b>"])
+                        return
+                    }
+                }
+                return 'Not Add Command'
+            }
+        }
+
+        function checkDeleteCommand() {
+            if (command.toLowerCase() === 'help delete') {
+                renderCommandResultsPage(
+                    [
+                        "<b>Delete</b> command syntax: ",
+                        "Option 1: <i>Delete</i> Node <i>from</i> Project: Node Type",
+                        "Example: Delete Node from Superalgos: Task Manager",
+                        "Option 2: <i>Delete</i> Concpet <i>from</i> Project: Concept Name",
+                        "Example: Delete Concept from Superalgos: Attaching Nodes",
+                        "Option 3: <i>Delete</i> Topic <i>from</i> Project: Topic->Part Name->Page Number",
+                        "Example: Delete Topic from Superalgos: Contributing->Code->2"
+                    ]
+                )
+                return
+            }
+            if (command.indexOf('Delete') !== 0 && command.indexOf('delete') !== 0) { return 'Not Delete Command' }
+
+            let splittedCommand = command.split(': ')
+            if (splittedCommand[1] === undefined) {
+                renderCommandResultsPage(["Syntax Error. Keyword <b>: </b> missing: Example: Delete Concept from Superalgos: Concept Name. The keyword is a : character plus a blank space. Type <i>Hekp Delete</i> to learn the command's syntax."])
+                return
+            }
+            let primaryCommand = splittedCommand[0]
+            let secondaryCommand = splittedCommand[1]
+
+            let splittedPrimaryCommand = primaryCommand.split(' ')
+
+            if (splittedPrimaryCommand[0].toLowerCase() === 'delete') {
+                if (splittedPrimaryCommand[2] !== 'from') {
+                    renderCommandResultsPage(["Syntax Error. Keyword <b>from</b> missing: Example: Delete Concept from Superalgos: Concept Name. Type <i>Hekp Delete</i> to learn the command's syntax."])
+                    return
+                }
+
+                if (splittedPrimaryCommand.length < 4) {
+                    renderCommandResultsPage(["Syntax Error. Too few Delete Command parameters. Found <b>" + splittedPrimaryCommand.length + "</b>. Expected at least <b>4</b>. Type <i>Hekp Delete</i> to learn the command's syntax."])
+                    return
+                }
+
+                if (secondaryCommand === '') {
+                    renderCommandResultsPage(["Syntax Error. Node, Concept or Topic name can not be undefined."])
+                    return
+                }
+
+                switch (splittedPrimaryCommand[1].toLowerCase()) {
+                    case 'node': {
+                        deleteNode(splittedPrimaryCommand[3], secondaryCommand)
+                        return
+                    }
+                    case 'concept': {
+                        deleteConcept(splittedPrimaryCommand[3], secondaryCommand)
+                        return
+                    }
+                    case 'topic': {
+                        let splittedSecondaryCommand = secondaryCommand.split('->')
+                        if (splittedSecondaryCommand.length < 3) {
+                            renderCommandResultsPage(["Syntax Error. Too few Topic parameters. Found <b>" + splittedSecondaryCommand.length + "</b>. Expected <b>3</b>. Type <i>Hekp Delete</i> to learn the command's syntax."])
+                            return
+                        }
+                        deleteTopic(splittedPrimaryCommand[3], splittedSecondaryCommand[0], splittedSecondaryCommand[1], splittedSecondaryCommand[2])
+                        return
+                    }
+                    default: {
+                        renderCommandResultsPage(["Syntax Error. Expected <b>Node</b>, <b>Concept</b> or <b>Topic</b>. Found <b>" + splittedCommand[1] + "</b>"])
+                        return
+                    }
+                }
+                return 'Not Delete Command'
+            }
+        }
 
         function addNode(project, type) {
             let template = {
@@ -887,7 +964,7 @@ function newSuperalgosDocSpace() {
                 renderCommandResultsPage(["Node <b>" + type + "</b> already exist."])
                 return
             }
- 
+
             SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema.push(template)
             SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.set(type, template)
             navigateTo('Node', type, project)
@@ -946,6 +1023,84 @@ function newSuperalgosDocSpace() {
             SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema.push(template)
             SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.set(type, template)
             navigateTo('Topic', type, project)
+        }
+
+        function deleteNode(project, type) {
+            if (SCHEMAS_BY_PROJECT.get(project) === undefined) {
+                renderCommandResultsPage(["Project <b>" + project + "</b> does not exist."])
+                return
+            }
+            let exist = SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(type)
+            if (exist === undefined) {
+                renderCommandResultsPage(["Node <b>" + type + "</b> does not exist."])
+                return
+            }
+
+            SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.delete(type)
+            renderCommandResultsPage(["Node <b>" + type + "</b> deleted."])
+
+            for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema.length; i++) {
+                schemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema[i]
+                if (schemaDocument.type === type) {
+                    schemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema.splice(i, 1)
+                    break
+                }
+            }
+        }
+
+        function deleteConcept(project, type) {
+            if (SCHEMAS_BY_PROJECT.get(project) === undefined) {
+                renderCommandResultsPage(["Project <b>" + project + "</b> does not exist."])
+                return
+            }
+            let exist = SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.get(type)
+            if (exist === undefined) {
+                renderCommandResultsPage(["Concept <b>" + type + "</b> does not exist."])
+                return
+            }
+
+            SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.delete(type)
+            renderCommandResultsPage(["Concept <b>" + type + "</b> deleted."])
+
+            for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema.length; i++) {
+                schemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema[i]
+                if (schemaDocument.type === type) {
+                    schemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema.splice(i, 1)
+                    break
+                }
+            }
+        }
+
+        function deleteTopic(project, topic, type, pageNumber) {
+            if (SCHEMAS_BY_PROJECT.get(project) === undefined) {
+                renderCommandResultsPage(["Project <b>" + project + "</b> does not exist."])
+                return
+            }
+            let exist = SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.get(type)
+            if (exist === undefined) {
+                renderCommandResultsPage(["Topic <b>" + type + "</b> does not exist."])
+                return
+            } else {
+                if (exist.pageNumber !== pageNumber) {
+                    renderCommandResultsPage(["Page Number <b>" + pageNumber + "</b> does not match with page number found: <b>" + exist.pageNumber + "</b>."])
+                    return
+                }
+                if (exist.topic !== topic) {
+                    renderCommandResultsPage(["Topic <b>" + topic + "</b> does not match with topic found: <b>" + exist.topic + "</b>."])
+                    return
+                }
+            }
+
+            SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.delete(type)
+            renderCommandResultsPage(["Topic <b>" + type + "</b> deleted."])
+
+            for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema.length; i++) {
+                schemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema[i]
+                if (schemaDocument.type === type) {
+                    schemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema.splice(i, 1)
+                    break
+                }
+            }
         }
     }
 

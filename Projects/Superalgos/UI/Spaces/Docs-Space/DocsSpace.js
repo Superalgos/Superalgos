@@ -803,6 +803,7 @@ function newSuperalgosDocSpace() {
         if (checkAddCommand() === undefined) { return }
         if (checkDeleteCommand() === undefined) { return }
         if (checkUReIndexCommand() === undefined) { return }
+        if (checkUSaveCommand() === undefined) { return }
 
         renderSearchResultsPage()
 
@@ -984,6 +985,23 @@ function newSuperalgosDocSpace() {
             setUpSearchEngine()
 
             renderCommandResultsPage(["Succesfully rebuild the search engine indexes."])
+        }
+
+        function checkUReIndexCommand() {
+            if (command.toLowerCase() === 'help save') {
+                renderCommandResultsPage(
+                    [
+                        "<b>Save</b> command syntax: ",
+                        "Option 1: <i>Save</i>",
+                        "Use this command after you modified the Docs content and would like save your changes at your Superalgos Client's disk. If you would like to contribute those changes to the project they belong to, you can later commit those changes and they will end up at your Superalgos repository fork. The final step then is to submit a pull request so that those changes are reviewed and merged into the next release of Superalgos."
+                    ]
+                )
+                return
+            }
+            if (command.indexOf('Save') !== 0 && command.indexOf('save') !== 0) { return 'Not Save Command' }
+
+ 
+            renderCommandResultsPage(["Succesfully saved all the latest changes."])
         }
 
         function addNode(project, type) {

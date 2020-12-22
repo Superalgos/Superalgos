@@ -16,6 +16,7 @@ function newSuperalgosDocSpace() {
 
     let isInitialized = false
     const DOCS_SPACE_WIDTH = 900
+    const newParagraphText = "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
 
     thisObject.container = newContainer()
     thisObject.container.name = MODULE_NAME
@@ -797,7 +798,6 @@ function newSuperalgosDocSpace() {
     }
 
     function detectCommands() {
-        const newParagraphText = "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
 
         if (checkHelpCommand() === undefined) { return }
         if (checkAddCommand() === undefined) { return }
@@ -1006,11 +1006,11 @@ function newSuperalgosDocSpace() {
             for (let j = 0; j < PROJECTS_ARRAY.length; j++) {
                 let docsSchema
                 let project = PROJECTS_ARRAY[j]
-/*
-                docsSchema = SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema
-                httpRequest(JSON.stringify(docsSchema), 'Docs/Save-Node-Schema/' + project, onResponse)
-                requestsSent++
-*/
+                /*
+                                docsSchema = SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema
+                                httpRequest(JSON.stringify(docsSchema), 'Docs/Save-Node-Schema/' + project, onResponse)
+                                requestsSent++
+                */
                 docsSchema = SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema
                 httpRequest(JSON.stringify(docsSchema), 'Docs/Save-Concept-Schema/' + project, onResponse)
                 requestsSent++
@@ -1025,7 +1025,7 @@ function newSuperalgosDocSpace() {
                 data = JSON.parse(data)
                 if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
                     okResponses++
-                } 
+                }
                 responseCount++
 
                 if (responseCount === requestsSent) {
@@ -1589,6 +1589,18 @@ function newSuperalgosDocSpace() {
                 }
 
                 schemaDocument = template
+            }
+            /* When for any reason the schema document does not have a paragraphs array */
+            if (schemaDocument.paragraphs === undefined) {
+                schemaDocument.paragraphs = []
+            }
+            /* When the paragraph array is empty. */
+            if (schemaDocument.paragraphs.length === 0) {
+                let paragraph = {
+                    style: 'Text',
+                    text: newParagraphText
+                }
+                schemaDocument.paragraphs.push(paragraph)
             }
         }
 

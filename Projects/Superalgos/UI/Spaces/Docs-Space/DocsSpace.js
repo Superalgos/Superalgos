@@ -1014,11 +1014,11 @@ function newSuperalgosDocSpace() {
                 docsSchema = SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema
                 httpRequest(JSON.stringify(docsSchema), 'Docs/Save-Concept-Schema/' + project, onResponse)
                 requestsSent++
-/*
+
                 docsSchema = SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema
                 httpRequest(JSON.stringify(docsSchema), 'Docs/Save-Topic-Schema/' + project, onResponse)
                 requestsSent++
-            */            }
+            }
 
             function onResponse(err, data) {
                 /* Lets check the result of the call through the http interface */

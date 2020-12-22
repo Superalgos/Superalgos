@@ -853,7 +853,7 @@ function newSuperalgosDocSpace() {
 
             let splittedPrimaryCommand = primaryCommand.split(' ')
 
-            if (splittedPrimaryCommand[0].toLowerCase() === 'add') {
+            if (splittedPrimaryCommand[0].toLowerCase() === 'docs.add') {
                 if (splittedPrimaryCommand[2] !== 'to') {
                     renderCommandResultsPage(["Syntax Error. Keyword <b>to</b> missing: Example: docs.add Concept to Superalgos: New Concept Name. Type <i>help docs.add</i> to learn the command's syntax."])
                     return

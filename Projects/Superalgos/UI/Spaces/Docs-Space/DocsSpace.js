@@ -818,7 +818,7 @@ function newSuperalgosDocSpace() {
                         "<b>Delete</b>: Use this command to delete existing Nodes, Concepts or Topics from the Docs.",
                         "<b>Save</b>: Use this command whenever you would like to save the changes you made to the Docs.",
                         "<b>Reindex</b>: Use this command to re-index all the info again so that your changes are visible at search results.",
-                        "Note that anything you type not identified as a command will be treated as a search query."                        
+                        "Note that anything you type not identified as a command will be treated as a search query."
                     ]
                 )
                 return
@@ -1000,8 +1000,41 @@ function newSuperalgosDocSpace() {
             }
             if (command.indexOf('Save') !== 0 && command.indexOf('save') !== 0) { return 'Not Save Command' }
 
- 
-            renderCommandResultsPage(["Succesfully saved all the latest changes."])
+            let requestsSent = 0
+            let responseCount = 0
+            let okResponses = 0
+            for (let j = 0; j < PROJECTS_ARRAY.length; j++) {
+                let docsSchema
+                let project = PROJECTS_ARRAY[j]
+
+                docsSchema = SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema
+                httpRequest(JSON.stringify(docsSchema), 'Docs/Save-Node-Schema/' + project, onResponse)
+                requestsSent++
+
+                docsSchema = SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema
+                httpRequest(JSON.stringify(docsSchema), 'Docs/Save-Concept-Schema/' + project, onResponse)
+                requestsSent++
+
+                docsSchema = SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema
+                httpRequest(JSON.stringify(docsSchema), 'Docs/Save-Topic-Schema/' + project, onResponse)
+                requestsSent++
+            }
+
+            function onResponse(err, data) {
+                /* Lets check the result of the call through the http interface */
+                if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                    okResponses++
+                } 
+                responseCount++
+
+                if (responseCount === requestsSent) {
+                    if (responseCount === okResponses) {
+                        renderCommandResultsPage(["Succesfully saved all the latest changes."])
+                    } else {
+                        renderCommandResultsPage(["Some of the changes could not be saved."])
+                    }
+                }
+            }
         }
 
         function addNode(project, type) {

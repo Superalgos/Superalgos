@@ -301,6 +301,116 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                 }
                 break
 
+            case 'Docs':
+                {
+                    switch (requestParameters[2]) { // switch by command
+                        case 'Save-Node-Schema': {
+                            getBody(processRequest)
+
+                            async function processRequest(body) {
+                                try {
+                                    let docsSchema = JSON.parse(body)
+                                    let project = requestParameters[3]
+                                    const fs = require('fs')
+
+                                    for (let i = 0; i < docsSchema.length; i++) {
+                                        let schemaDocument = docsSchema[i]
+                                        let fileContent = JSON.stringify(schemaDocument)
+                                        let fileName = schemaDocument.type.toLowerCase().replaceAll(' ', '-') + '.json'
+                                        let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Nodes'
+                                        fs.writeFileSync(filePath + '/' + fileName, fileContent)
+                                    }
+
+                                    respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+
+                                } catch (err) {
+                                    console.log('[ERROR] httpInterface -> Docs -> Save-Node-Schema -> Method call produced an error.')
+                                    console.log('[ERROR] httpInterface -> WEB3s -> Save-Node-Schema -> err.stack = ' + err.stack)
+                                    console.log('[ERROR] httpInterface -> WEB3s -> Save-Node-Schema -> Params Received = ' + body)
+
+                                    let error = {
+                                        result: 'Fail Because',
+                                        message: err.message,
+                                        stack: err.stack
+                                    }
+                                    respondWithContent(JSON.stringify(error), httpResponse)
+                                }
+                            }
+                            break
+                        }
+                        case 'Save-Concept-Schema': {
+                            getBody(processRequest)
+
+                            async function processRequest(body) {
+                                try {
+                                    let docsSchema = JSON.parse(body)
+                                    let project = requestParameters[3]
+                                    const fs = require('fs')
+
+                                    for (let i = 0; i < docsSchema.length; i++) {
+                                        let schemaDocument = docsSchema[i]
+                                        let fileContent = JSON.stringify(schemaDocument)
+                                        let fileName = schemaDocument.type.toLowerCase().replaceAll(' ', '-') + '.json'
+                                        let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Concepts'
+                                        fs.writeFileSync(filePath + '/' + fileName, fileContent)
+                                    }
+
+                                    respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+
+                                } catch (err) {
+                                    console.log('[ERROR] httpInterface -> Docs -> Save-Concept-Schema -> Method call produced an error.')
+                                    console.log('[ERROR] httpInterface -> WEB3s -> Save-Concept-Schema -> err.stack = ' + err.stack)
+                                    console.log('[ERROR] httpInterface -> WEB3s -> Save-Concept-Schema -> Params Received = ' + body)
+
+                                    let error = {
+                                        result: 'Fail Because',
+                                        message: err.message,
+                                        stack: err.stack
+                                    }
+                                    respondWithContent(JSON.stringify(error), httpResponse)
+                                }
+                            }
+                            break
+                        }
+                        case 'Save-Topic-Schema': {
+                            getBody(processRequest)
+
+                            async function processRequest(body) {
+                                try {
+                                    let docsSchema = JSON.parse(body)
+                                    let project = requestParameters[3]
+                                    const fs = require('fs')
+
+                                    for (let i = 0; i < docsSchema.length; i++) {
+                                        let schemaDocument = docsSchema[i]
+                                        let fileContent = JSON.stringify(schemaDocument)
+                                        let fileName = schemaDocument.type.toLowerCase().replaceAll(' ', '-') + '.json'
+                                        let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Topics'
+                                        fs.writeFileSync(filePath + '/' + fileName, fileContent)
+                                    }
+
+                                    respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                                    
+                                } catch (err) {
+                                    console.log('[ERROR] httpInterface -> Docs -> Save-Topic-Schema -> Method call produced an error.')
+                                    console.log('[ERROR] httpInterface -> WEB3s -> Save-Topic-Schema -> err.stack = ' + err.stack)
+                                    console.log('[ERROR] httpInterface -> WEB3s -> Save-Topic-Schema -> Params Received = ' + body)
+
+                                    let error = {
+                                        result: 'Fail Because',
+                                        message: err.message,
+                                        stack: err.stack
+                                    }
+                                    respondWithContent(JSON.stringify(error), httpResponse)
+                                }
+                            }
+                            break
+                        }
+                    }
+                    break
+                }
+                break
+
             case 'LegacyPlotter.js':
                 {
                     respondWithFile(global.env.PATH_TO_CLIENT + 'WebServer/LegacyPlotter.js', httpResponse)

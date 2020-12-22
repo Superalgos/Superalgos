@@ -802,54 +802,60 @@ function newSuperalgosDocSpace() {
             renderCommandResultsPage(
                 [
                     "Command <b>Add</b> syntax: ",
-                    "Option 1: <i>Add</i> Node <i>to</i> Project Node Type",
-                    "Example: Add Node to Superalgos Task Manager",
-                    "Option 2: <i>Add</i> Concpet <i>to</i> Project Concept Name",
-                    "Example: Add Concept to Superalgos Attaching Nodes",
-                    "Option 3: <i>Add</i> Topic <i>to</i> Project Topic->Part Name->Page Number",
-                    "Example: Add Topic to Superalgos Contributing->Code->2"
+                    "Option 1: <i>Add</i> Node <i>to</i> Project: Node Type",
+                    "Example: Add Node to Superalgos: Task Manager",
+                    "Option 2: <i>Add</i> Concpet <i>to</i> Project: Concept Name",
+                    "Example: Add Concept to Superalgos: Attaching Nodes",
+                    "Option 3: <i>Add</i> Topic <i>to</i> Project: Topic->Part Name->Page Number",
+                    "Example: Add Topic to Superalgos: Contributing->Code->2"
                 ]
             )
             return
         }
 
         const newParagraphText = "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
-        let splittedCommand = command.split(' ')
+        let splittedCommand = command.split(': ')
+        if (splittedCommand[1] === undefined) {
+            renderCommandResultsPage(["Syntax Error. Keyword <b>: </b> missing: Example: Add Concept to Superalgos: New Concept Name. The keyword is a : character plus a blank space. Type <i>Hekp Add</i> to learn the command's syntax."])
+            return
+        }
+        let primaryCommand = splittedCommand[0]
+        let secondaryCommand = splittedCommand[1]
 
-        if (splittedCommand[0].toLowerCase() === 'add') {
-            if (splittedCommand[2] !== 'to') {
-                renderCommandResultsPage(["Syntax Error. Keyword <b>to</b> missing: Example: Add Concept to Superalgos New Concept Name. Type <i>Hekp Add</i> to learn the command's syntax."])
+        let splittedPrimaryCommand = primaryCommand.split(' ')
+
+        if (splittedPrimaryCommand[0].toLowerCase() === 'add') {
+            if (splittedPrimaryCommand[2] !== 'to') {
+                renderCommandResultsPage(["Syntax Error. Keyword <b>to</b> missing: Example: Add Concept to Superalgos: New Concept Name. Type <i>Hekp Add</i> to learn the command's syntax."])
                 return
             }
 
-            if (splittedCommand.length < 5) {
-                renderCommandResultsPage(["Syntax Error. Too few Add Command parameters. Found <b>" + splittedCommand.length + "</b>. Expected at least <b>5</b>. Type <i>Hekp Add</i> to learn the command's syntax."])
+            if (splittedPrimaryCommand.length < 4) {
+                renderCommandResultsPage(["Syntax Error. Too few Add Command parameters. Found <b>" + splittedPrimaryCommand.length + "</b>. Expected at least <b>4</b>. Type <i>Hekp Add</i> to learn the command's syntax."])
                 return
             }
 
-            let remainderParams = command.replace(splittedCommand[0] + ' ' + splittedCommand[1] + ' ' + splittedCommand[2] + ' ' + splittedCommand[3] + ' ', '')
-            if (remainderParams === '') {
+            if (secondaryCommand === '') {
                 renderCommandResultsPage(["Syntax Error. Node, Concept or Topic name can not be undefined."])
                 return
             }
 
-            switch (splittedCommand[1].toLowerCase()) {
+            switch (splittedPrimaryCommand[1].toLowerCase()) {
                 case 'node': {
-                    addNode(splittedCommand[3], remainderParams)
+                    addNode(splittedPrimaryCommand[3], secondaryCommand)
                     return
                 }
                 case 'concept': {
-                    addConcept(splittedCommand[3], remainderParams)
+                    addConcept(splittedPrimaryCommand[3], secondaryCommand)
                     return
                 }
                 case 'topic': {
-                    let topicPlusPartType = remainderParams
-                    let splittedTopic = topicPlusPartType.split('->')
-                    if (splittedTopic.length < 3) {
-                        renderCommandResultsPage(["Syntax Error. Too few Topic parameters. Found <b>" + splittedTopic.length + "</b>. Expected at least <b>3</b>. Type <i>Hekp Add</i> to learn the command's syntax."])
+                    let splittedSecondaryCommand = secondaryCommand.split('->')
+                    if (splittedSecondaryCommand.length < 3) {
+                        renderCommandResultsPage(["Syntax Error. Too few Topic parameters. Found <b>" + splittedSecondaryCommand.length + "</b>. Expected <b>3</b>. Type <i>Hekp Add</i> to learn the command's syntax."])
                         return
                     }
-                    addTopic(splittedCommand[3], splittedTopic[0], splittedTopic[1], splittedTopic[2])
+                    addTopic(splittedPrimaryCommand[3], splittedSecondaryCommand[0], splittedSecondaryCommand[1], splittedSecondaryCommand[2])
                     return
                 }
                 default: {
@@ -876,6 +882,12 @@ function newSuperalgosDocSpace() {
                 renderCommandResultsPage(["Project <b>" + project + "</b> does not exist."])
                 return
             }
+            let exist = SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(type)
+            if (exist !== undefined) {
+                renderCommandResultsPage(["Node <b>" + type + "</b> already exist."])
+                return
+            }
+ 
             SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema.push(template)
             SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.set(type, template)
             navigateTo('Node', type, project)
@@ -897,6 +909,12 @@ function newSuperalgosDocSpace() {
                 renderCommandResultsPage(["Project <b>" + project + "</b> does not exist."])
                 return
             }
+            let exist = SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.get(type)
+            if (exist !== undefined) {
+                renderCommandResultsPage(["Concept <b>" + type + "</b> already exist."])
+                return
+            }
+
             SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema.push(template)
             SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.set(type, template)
             navigateTo('Concept', type, project)
@@ -919,6 +937,12 @@ function newSuperalgosDocSpace() {
                 renderCommandResultsPage(["Project <b>" + project + "</b> does not exist."])
                 return
             }
+            let exist = SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.get(type)
+            if (exist !== undefined) {
+                renderCommandResultsPage(["Topic Part <b>" + type + "</b> already exist."])
+                return
+            }
+
             SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema.push(template)
             SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.set(type, template)
             navigateTo('Topic', type, project)

@@ -799,11 +799,31 @@ function newSuperalgosDocSpace() {
     function detectCommands() {
         const newParagraphText = "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
 
+        if (checkHelpCommand() === undefined) { return }
         if (checkAddCommand() === undefined) { return }
         if (checkDeleteCommand() === undefined) { return }
         if (checkUReIndexCommand() === undefined) { return }
 
         renderSearchResultsPage()
+
+        function checkHelpCommand() {
+            if (command.toLowerCase() === 'help') {
+                renderCommandResultsPage(
+                    [
+                        "Command line interface general help info: ",
+                        "The Docs is equiped with a command line interface from where you can type commands that will help you contribute to the Docs. Each command listed below has it's own help. You just need to type <i>help</i> and the command to get details about it's sintax and examples on how to use it. The following is the list of available commands:",
+                        "<b>Help</b>: This general purpose help info.",
+                        "<b>Add</b>: Use this command to add new Nodes, Concepts or Topics to the Docs.",
+                        "<b>Delete</b>: Use this command to delete existing Nodes, Concepts or Topics from the Docs.",
+                        "<b>Save</b>: Use this command whenever you would like to save the changes you made to the Docs.",
+                        "<b>Reindex</b>: Use this command to re-index all the info again so that your changes are visible at search results.",
+                        "Note that anything you type not identified as a command will be treated as a search query."                        
+                    ]
+                )
+                return
+            }
+            return 'Not Help Command'
+        }
 
         function checkAddCommand() {
             if (command.toLowerCase() === 'help add') {

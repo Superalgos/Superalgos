@@ -1,6 +1,7 @@
 function newSuperalgosDocSpace() {
     const MODULE_NAME = 'Doc Space'
     let thisObject = {
+        isVisible: undefined,
         sidePanelTab: undefined,
         container: undefined,
         openSpaceAreaAndNavigateTo: openSpaceAreaAndNavigateTo,
@@ -576,7 +577,7 @@ function newSuperalgosDocSpace() {
     }
 
     function onOpening() {
-
+        thisObject.isVisible = true
         if (objectBeingRendered === undefined) {
             renderSearchPage()
         } else {
@@ -784,6 +785,7 @@ function newSuperalgosDocSpace() {
 
     function onClosing() {
         objectBeingRendered = undefined
+        thisObject.isVisible = false
     }
 
     function renderSearchPage() {

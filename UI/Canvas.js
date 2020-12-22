@@ -375,6 +375,10 @@ function newCanvas() {
             window.editorController.onKeyDown(event)
             return
         }
+        /* When the Docs is Visible, we do not process key down events of the Designer Space. */
+        if (UI.projects.superalgos.spaces.docsSpace.isVisible === true) {
+            return
+        }
         thisObject.mouse.event = event
         thisObject.mouse.action = 'key down'
 

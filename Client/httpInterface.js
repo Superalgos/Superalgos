@@ -325,8 +325,8 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
                                 } catch (err) {
                                     console.log('[ERROR] httpInterface -> Docs -> Save-Node-Schema -> Method call produced an error.')
-                                    console.log('[ERROR] httpInterface -> WEB3s -> Save-Node-Schema -> err.stack = ' + err.stack)
-                                    console.log('[ERROR] httpInterface -> WEB3s -> Save-Node-Schema -> Params Received = ' + body)
+                                    console.log('[ERROR] httpInterface -> Docs -> Save-Node-Schema -> err.stack = ' + err.stack)
+                                    console.log('[ERROR] httpInterface -> Docs -> Save-Node-Schema -> Params Received = ' + body)
 
                                     let error = {
                                         result: 'Fail Because',
@@ -347,11 +347,28 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     let project = requestParameters[3]
                                     const fs = require('fs')
 
+                                    console.log('docsSchema', docsSchema)
+                                    console.log('project', project)
+
                                     for (let i = 0; i < docsSchema.length; i++) {
                                         let schemaDocument = docsSchema[i]
                                         let fileContent = JSON.stringify(schemaDocument)
-                                        let fileName = schemaDocument.type.toLowerCase().replaceAll(' ', '-') + '.json'
+
+                                        console.log('schemaDocument', schemaDocument)
+                                        console.log('fileContent', fileContent)
+                                        console.log('schemaDocument.type', schemaDocument.type)
+                                        console.log('schemaDocument.type.toLowerCase()', schemaDocument.type.toLowerCase())
+
+                                        let fileName = schemaDocument.type.toLowerCase()
+                                        for (let j = 0; j < 10; j++) {
+                                            fileName = fileName.replaceAll(' ', '-')
+                                        }
+                                        fileName = fileName + '.json'
                                         let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Concepts'
+
+
+                                        console.log('fileName', filename)
+                                        console.log('filePath', filePath)
                                         fs.writeFileSync(filePath + '/' + fileName, fileContent)
                                     }
 
@@ -359,8 +376,8 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
                                 } catch (err) {
                                     console.log('[ERROR] httpInterface -> Docs -> Save-Concept-Schema -> Method call produced an error.')
-                                    console.log('[ERROR] httpInterface -> WEB3s -> Save-Concept-Schema -> err.stack = ' + err.stack)
-                                    console.log('[ERROR] httpInterface -> WEB3s -> Save-Concept-Schema -> Params Received = ' + body)
+                                    console.log('[ERROR] httpInterface -> Docs -> Save-Concept-Schema -> err.stack = ' + err.stack)
+                                    console.log('[ERROR] httpInterface -> Docs -> Save-Concept-Schema -> Params Received = ' + body)
 
                                     let error = {
                                         result: 'Fail Because',
@@ -390,11 +407,11 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     }
 
                                     respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
-                                    
+
                                 } catch (err) {
                                     console.log('[ERROR] httpInterface -> Docs -> Save-Topic-Schema -> Method call produced an error.')
-                                    console.log('[ERROR] httpInterface -> WEB3s -> Save-Topic-Schema -> err.stack = ' + err.stack)
-                                    console.log('[ERROR] httpInterface -> WEB3s -> Save-Topic-Schema -> Params Received = ' + body)
+                                    console.log('[ERROR] httpInterface -> Docs -> Save-Topic-Schema -> err.stack = ' + err.stack)
+                                    console.log('[ERROR] httpInterface -> Docs -> Save-Topic-Schema -> Params Received = ' + body)
 
                                     let error = {
                                         result: 'Fail Because',

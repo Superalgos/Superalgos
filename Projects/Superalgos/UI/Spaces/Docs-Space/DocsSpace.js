@@ -1006,23 +1006,23 @@ function newSuperalgosDocSpace() {
             for (let j = 0; j < PROJECTS_ARRAY.length; j++) {
                 let docsSchema
                 let project = PROJECTS_ARRAY[j]
-
+/*
                 docsSchema = SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema
                 httpRequest(JSON.stringify(docsSchema), 'Docs/Save-Node-Schema/' + project, onResponse)
                 requestsSent++
-
+*/
                 docsSchema = SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema
                 httpRequest(JSON.stringify(docsSchema), 'Docs/Save-Concept-Schema/' + project, onResponse)
                 requestsSent++
-
+/*
                 docsSchema = SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema
                 httpRequest(JSON.stringify(docsSchema), 'Docs/Save-Topic-Schema/' + project, onResponse)
                 requestsSent++
-            }
+            */            }
 
             function onResponse(err, data) {
                 /* Lets check the result of the call through the http interface */
-                if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
                     okResponses++
                 } 
                 responseCount++

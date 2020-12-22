@@ -314,23 +314,33 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Nodes'
 
                                     const fs = require('fs')
+                                    fs.rmdir(filePath, { recursive: true }, onDirDeleted)
 
-                                    fs.rmdirSync(filePath, { recursive: true })
-                                    fs.mkdirSync(filePath)
-
-                                    for (let i = 0; i < docsSchema.length; i++) {
-                                        let schemaDocument = docsSchema[i]
-                                        let fileContent = JSON.stringify(schemaDocument, undefined, 4)
-
-                                        let fileName = schemaDocument.type.toLowerCase()
-                                        for (let j = 0; j < 10; j++) {
-                                            fileName = fileName.replace(' ', '-')
+                                    function onDirDeleted(err) {
+                                        if (err && err.code === 'EBUSY') {
+                                            throw ('Can not delete the folder ' + filePath + ' because a file in it is open by some other program.')
                                         }
-                                        fileName = fileName + '.json'
+                                        try {
+                                            fs.mkdirSync(filePath)
+                                        } catch (err) {
+                                            if (err.code !== 'EEXIST') {
+                                                throw (err)
+                                            }
+                                        }
 
-                                        fs.writeFileSync(filePath + '/' + fileName, fileContent)
+                                        for (let i = 0; i < docsSchema.length; i++) {
+                                            let schemaDocument = docsSchema[i]
+                                            let fileContent = JSON.stringify(schemaDocument, undefined, 4)
+                                            let fileName = schemaDocument.type.toLowerCase()
+                                            for (let j = 0; j < 10; j++) {
+                                                fileName = fileName.replace(' ', '-')
+                                            }
+                                            fileName = fileName + '.json'
+
+                                            fs.writeFileSync(filePath + '/' + fileName, fileContent)
+                                        }
+                                        respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                                     }
-                                    respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
 
                                 } catch (err) {
                                     console.log('[ERROR] httpInterface -> Docs -> Save-Node-Schema -> Method call produced an error.')
@@ -357,23 +367,33 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Concepts'
 
                                     const fs = require('fs')
+                                    fs.rmdir(filePath, { recursive: true }, onDirDeleted)
 
-                                    fs.rmdirSync(filePath, { recursive: true })
-                                    fs.mkdirSync(filePath)
-
-                                    for (let i = 0; i < docsSchema.length; i++) {
-                                        let schemaDocument = docsSchema[i]
-                                        let fileContent = JSON.stringify(schemaDocument, undefined, 4)
-
-                                        let fileName = schemaDocument.type.toLowerCase()
-                                        for (let j = 0; j < 10; j++) {
-                                            fileName = fileName.replace(' ', '-')
+                                    function onDirDeleted(err) {
+                                        if (err && err.code === 'EBUSY') {
+                                            throw ('Can not delete the folder ' + filePath + ' because a file in it is open by some other program.')
                                         }
-                                        fileName = fileName + '.json'
+                                        try {
+                                            fs.mkdirSync(filePath)
+                                        } catch (err) {
+                                            if (err.code !== 'EEXIST') {
+                                                throw (err)
+                                            }
+                                        }
 
-                                        fs.writeFileSync(filePath + '/' + fileName, fileContent)
+                                        for (let i = 0; i < docsSchema.length; i++) {
+                                            let schemaDocument = docsSchema[i]
+                                            let fileContent = JSON.stringify(schemaDocument, undefined, 4)
+                                            let fileName = schemaDocument.type.toLowerCase()
+                                            for (let j = 0; j < 10; j++) {
+                                                fileName = fileName.replace(' ', '-')
+                                            }
+                                            fileName = fileName + '.json'
+
+                                            fs.writeFileSync(filePath + '/' + fileName, fileContent)
+                                        }
+                                        respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                                     }
-                                    respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
 
                                 } catch (err) {
                                     console.log('[ERROR] httpInterface -> Docs -> Save-Concept-Schema -> Method call produced an error.')
@@ -400,23 +420,34 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Topics'
 
                                     const fs = require('fs')
+                                    fs.rmdir(filePath, { recursive: true }, onDirDeleted)
 
-                                    fs.rmdirSync(filePath, { recursive: true })
-                                    fs.mkdirSync(filePath)
-
-                                    for (let i = 0; i < docsSchema.length; i++) {
-                                        let schemaDocument = docsSchema[i]
-                                        let fileContent = JSON.stringify(schemaDocument, undefined, 4)
-
-                                        let fileName = schemaDocument.type.toLowerCase()
-                                        for (let j = 0; j < 10; j++) {
-                                            fileName = fileName.replace(' ', '-')
+                                    function onDirDeleted(err) {
+                                        if (err && err.code === 'EBUSY') {
+                                            throw ('Can not delete the folder ' + filePath + ' because a file in it is open by some other program.')
                                         }
-                                        fileName = fileName + '.json'
+                                        try {
+                                            fs.mkdirSync(filePath)
+                                        } catch (err) {
+                                            if (err.code !== 'EEXIST') {
+                                                throw (err)
+                                            }
+                                        }
 
-                                        fs.writeFileSync(filePath + '/' + fileName, fileContent)
+                                        for (let i = 0; i < docsSchema.length; i++) {
+                                            let schemaDocument = docsSchema[i]
+                                            let fileContent = JSON.stringify(schemaDocument, undefined, 4)
+                                            let pageNumber = '00' + schemaDocument.pageNumber
+                                            let fileName = schemaDocument.topic.toLowerCase() + '-' + pageNumber.substring(pageNumber.length - 3, pageNumber.length) + '-' + schemaDocument.type.toLowerCase()
+                                            for (let j = 0; j < 10; j++) {
+                                                fileName = fileName.replace(' ', '-')
+                                            }
+                                            fileName = fileName + '.json'
+
+                                            fs.writeFileSync(filePath + '/' + fileName, fileContent)
+                                        }
+                                        respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                                     }
-                                    respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
 
                                 } catch (err) {
                                     console.log('[ERROR] httpInterface -> Docs -> Save-Topic-Schema -> Method call produced an error.')

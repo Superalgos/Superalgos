@@ -835,7 +835,7 @@ function newSuperalgosDocSpace() {
                         "Example: Add Node to Superalgos: Task Manager",
                         "Option 2: <i>Add</i> Concpet <i>to</i> Project: Concept Name",
                         "Example: Add Concept to Superalgos: Attaching Nodes",
-                        "Option 3: <i>Add</i> Topic <i>to</i> Project: Topic->Part Name->Page Number",
+                        "Option 3: <i>Add</i> Topic <i>to</i> Project: Topic->Section Name->Page Number",
                         "Example: Add Topic to Superalgos: Contributing->Code->2"
                     ]
                 )
@@ -905,7 +905,7 @@ function newSuperalgosDocSpace() {
                         "Example: Delete Node from Superalgos: Task Manager",
                         "Option 2: <i>Delete</i> Concpet <i>from</i> Project: Concept Name",
                         "Example: Delete Concept from Superalgos: Attaching Nodes",
-                        "Option 3: <i>Delete</i> Topic <i>from</i> Project: Topic->Part Name->Page Number",
+                        "Option 3: <i>Delete</i> Topic <i>from</i> Project: Topic->Section Name->Page Number",
                         "Example: Delete Topic from Superalgos: Contributing->Code->2"
                     ]
                 )
@@ -1110,7 +1110,7 @@ function newSuperalgosDocSpace() {
             }
             let exist = SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.get(type)
             if (exist !== undefined) {
-                renderCommandResultsPage(["Topic Part <b>" + type + "</b> already exist."])
+                renderCommandResultsPage(["Topic Page <b>" + type + "</b> already exist."])
                 return
             }
 
@@ -1419,7 +1419,7 @@ function newSuperalgosDocSpace() {
                     if (result.documentIndex.schemaDocument.topic === undefined) {
                         mainLink = result.documentIndex.schemaDocument.type
                     } else {
-                        mainLink = result.documentIndex.schemaDocument.topic + ' - Part ' + result.documentIndex.schemaDocument.pageNumber + ' - ' + result.documentIndex.schemaDocument.type
+                        mainLink = result.documentIndex.schemaDocument.topic + ' - Page ' + result.documentIndex.schemaDocument.pageNumber + ' - ' + result.documentIndex.schemaDocument.type
                     }
                     HTML = HTML + '<p><a onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + result.documentIndex.documentCategory + '\', \'' + result.documentIndex.schemaDocument.type + '\', \'' + result.documentIndex.project + '\', \'' + result.documentIndex.schemaDocument.nodeId + '\')" class="docs-search-result-content-record-title">' + mainLink + '</a></p>'
 

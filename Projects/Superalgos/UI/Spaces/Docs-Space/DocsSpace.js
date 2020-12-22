@@ -905,7 +905,7 @@ function newSuperalgosDocSpace() {
         function addTopic(project, topic, type, pageNumber) {
             let template = {
                 topic: topic,
-                pageNumber: pageNumber,  
+                pageNumber: pageNumber,
                 type: type,
                 definition: "Write here the definition of this Concept.",
                 paragraphs: [
@@ -920,7 +920,7 @@ function newSuperalgosDocSpace() {
                 return
             }
             SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema.push(template)
-            SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.set(topic + ' ' + type, template)
+            SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.set(type, template)
             navigateTo('Topic', type, project)
         }
     }
@@ -1408,23 +1408,46 @@ function newSuperalgosDocSpace() {
                 renderParagraph(paragraph, key)
                 paragraphIndex++
 
+                let orderedIndexArray = []
                 let schemaArray = SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).array.docsTopicSchema
                 for (let i = 0; i < schemaArray.length; i++) {
                     let arrayItem = schemaArray[i]
 
                     if (arrayItem.topic === schemaDocument.topic) {
-
-                        paragraph
-                        key = 'auto-generated-index-paragraph-' + paragraphIndex
-                        paragraph = {
-                            style: "Title",
-                            text: "" + arrayItem.pageNumber + '. ' + arrayItem.type + ""
+                        let itemAdded = false
+                        if (orderedIndexArray.length === 0) {
+                            orderedIndexArray.push(arrayItem)
+                            itemAdded = true
+                        } else {
+                            for (let j = 0; j < orderedIndexArray.length; j++) {
+                                let orderedArrayItem = orderedIndexArray[j]
+                                if (arrayItem.pageNumber < orderedArrayItem.pageNumber) {
+                                    orderedIndexArray.splice(j, 0, arrayItem)
+                                    itemAdded = true
+                                    break
+                                }
+                            }
                         }
-                        paragraphIndex++
-                        HTML = HTML + '<p><a onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + 'Topic' + '\', \'' + arrayItem.type + '\', \'' + objectBeingRendered.project + '\')" class="docs-topic-index-link">' + paragraph.text + '</a></p>'
+                        if (itemAdded === false) {
+                            orderedIndexArray.push(arrayItem)
+                        }
+
                     }
                 }
+
+                for (let i = 0; i < orderedIndexArray.length; i++) {
+                    let arrayItem = orderedIndexArray[i]
+                    paragraph
+                    key = 'auto-generated-index-paragraph-' + paragraphIndex
+                    paragraph = {
+                        style: "Title",
+                        text: "" + arrayItem.pageNumber + '. ' + arrayItem.type + ""
+                    }
+                    paragraphIndex++
+                    HTML = HTML + '<p><a onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + 'Topic' + '\', \'' + arrayItem.type + '\', \'' + objectBeingRendered.project + '\')" class="docs-topic-index-link">' + paragraph.text + '</a></p>'
+                }
             }
+
 
             function addContent() {
                 HTML = HTML + '<div id="docs-content">'

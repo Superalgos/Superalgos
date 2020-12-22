@@ -122,7 +122,7 @@ function newAppPostLoader() {
 
                             for (let j = 0; j < schemas.array.docsTopicSchema.length; j++) {
                                 let schemaDocument = schemas.array.docsTopicSchema[j]
-                                let key = schemaDocument.topic + ' ' + schemaDocument.type
+                                let key = schemaDocument.type
                                 schemas.map.docsTopicSchema.set(key, schemaDocument)
                             }
                         } catch (err) {

@@ -801,6 +801,7 @@ function newSuperalgosDocSpace() {
 
         if (checkAddCommand() === undefined) { return }
         if (checkDeleteCommand() === undefined) { return }
+        if (checkUReIndexCommand() === undefined) { return }
 
         renderSearchResultsPage()
 
@@ -942,6 +943,27 @@ function newSuperalgosDocSpace() {
                 }
                 return 'Not Delete Command'
             }
+        }
+
+        function checkUReIndexCommand() {
+            if (command.toLowerCase() === 'help reindex') {
+                renderCommandResultsPage(
+                    [
+                        "<b>Reindex</b> command syntax: ",
+                        "Option 1: <i>Reindex</i>",
+                        "Use this command after you modified the Docs content and would like re-index the information so that changes are reflected during search. You can also use this command after you have modified the current workspace and you would like it's nodes to be re-indexed to reflect the changes at the search results. Naturally, the system will re-index all the available information every time you switch workspaces or you refresh the UI page.",
+                        "Expect this command execution to last for a minute or so, depending on the size of the workspace."
+                    ]
+                )
+                return
+            }
+            if (command.indexOf('Reindex') !== 0 && command.indexOf('reindex') !== 0) { return 'Not Reindex Command' }
+
+            docsIndex = []
+            setUpWorkspaceSchemas()
+            setUpSearchEngine()
+
+            renderCommandResultsPage(["Succesfully rebuild the search engine indexes."])
         }
 
         function addNode(project, type) {

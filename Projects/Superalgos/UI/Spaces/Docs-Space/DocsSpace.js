@@ -806,8 +806,8 @@ function newSuperalgosDocSpace() {
                     "Example: Add Node to Superalgos Task Manager",
                     "Option 2: <i>Add</i> Concpet <i>to</i> Project Concept Name",
                     "Example: Add Concept to Superalgos Attaching Nodes",
-                    "Option 3: <i>Add</i> Topic <i>to</i> Project Topic->Part Name",
-                    "Example: Add Topic to Superalgos Contributing->Code"
+                    "Option 3: <i>Add</i> Topic <i>to</i> Project Topic->Part Name->Page Number",
+                    "Example: Add Topic to Superalgos Contributing->Code->2"
                 ]
             )
             return
@@ -823,7 +823,7 @@ function newSuperalgosDocSpace() {
             }
 
             if (splittedCommand.length < 5) {
-                renderCommandResultsPage(["Syntax Error. Too few parameters. Found <b>" + splittedCommand.length + "</b>. Expected at least <b>5</b>. Type <i>Hekp Add</i> to learn the command's syntax."])
+                renderCommandResultsPage(["Syntax Error. Too few Add Command parameters. Found <b>" + splittedCommand.length + "</b>. Expected at least <b>5</b>. Type <i>Hekp Add</i> to learn the command's syntax."])
                 return
             }
 
@@ -845,7 +845,11 @@ function newSuperalgosDocSpace() {
                 case 'topic': {
                     let topicPlusPartType = remainderParams
                     let splittedTopic = topicPlusPartType.split('->')
-                    addTopic(splittedCommand[3], splittedTopic[0], splittedTopic[1])
+                    if (splittedTopic.length < 3) {
+                        renderCommandResultsPage(["Syntax Error. Too few Topic parameters. Found <b>" + splittedTopic.length + "</b>. Expected at least <b>3</b>. Type <i>Hekp Add</i> to learn the command's syntax."])
+                        return
+                    }
+                    addTopic(splittedCommand[3], splittedTopic[0], splittedTopic[1], splittedTopic[2])
                     return
                 }
                 default: {
@@ -898,9 +902,10 @@ function newSuperalgosDocSpace() {
             navigateTo('Concept', type, project)
         }
 
-        function addTopic(project, topic, type) {
+        function addTopic(project, topic, type, pageNumber) {
             let template = {
                 topic: topic,
+                pageNumber: pageNumber,  
                 type: type,
                 definition: "Write here the definition of this Concept.",
                 paragraphs: [

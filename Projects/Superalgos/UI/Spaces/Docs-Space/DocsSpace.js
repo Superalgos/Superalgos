@@ -813,11 +813,11 @@ function newSuperalgosDocSpace() {
                     [
                         "Command line interface general help info: ",
                         "The Docs is equiped with a command line interface from where you can type commands that will help you contribute to the Docs. Each command listed below has it's own help. You just need to type <i>help</i> and the command to get details about it's sintax and examples on how to use it. The following is the list of available commands:",
-                        "<b>Help</b>: This general purpose help info.",
-                        "<b>Add</b>: Use this command to add new Nodes, Concepts or Topics to the Docs.",
-                        "<b>Delete</b>: Use this command to delete existing Nodes, Concepts or Topics from the Docs.",
-                        "<b>Save</b>: Use this command whenever you would like to save the changes you made to the Docs.",
-                        "<b>Reindex</b>: Use this command to re-index all the info again so that your changes are visible at search results.",
+                        "<b>help</b>: This general purpose help info.",
+                        "<b>docs.add</b>: Use this command to add new Nodes, Concepts or Topics to the Docs.",
+                        "<b>docs.delete</b>: Use this command to delete existing Nodes, Concepts or Topics from the Docs.",
+                        "<b>docs.save</b>: Use this command whenever you would like to save the changes you made to the Docs.",
+                        "<b>docs.reindex</b>: Use this command to re-index all the info again so that your changes are visible at search results.",
                         "Note that anything you type not identified as a command will be treated as a search query."
                     ]
                 )
@@ -827,25 +827,25 @@ function newSuperalgosDocSpace() {
         }
 
         function checkAddCommand() {
-            if (command.toLowerCase() === 'help add') {
+            if (command.toLowerCase() === 'help docs.add') {
                 renderCommandResultsPage(
                     [
-                        "<b>Add</b> command syntax: ",
-                        "Option 1: <i>Add</i> Node <i>to</i> Project: Node Type",
-                        "Example: Add Node to Superalgos: Task Manager",
-                        "Option 2: <i>Add</i> Concpet <i>to</i> Project: Concept Name",
-                        "Example: Add Concept to Superalgos: Attaching Nodes",
-                        "Option 3: <i>Add</i> Topic <i>to</i> Project: Topic->Section Name->Page Number",
-                        "Example: Add Topic to Superalgos: Contributing->Code->2"
+                        "<b>docs.add</b> command syntax: ",
+                        "Option 1: <i>docs.add</i> Node <i>to</i> Project: Node Type",
+                        "Example: docs.add Node to Superalgos: Task Manager",
+                        "Option 2: <i>docs.add</i> Concpet <i>to</i> Project: Concept Name",
+                        "Example: docs.add Concept to Superalgos: Attaching Nodes",
+                        "Option 3: <i>docs.add</i> Topic <i>to</i> Project: Topic->Section Name->Page Number",
+                        "Example: docs.add Topic to Superalgos: Contributing->Code->2"
                     ]
                 )
                 return
             }
-            if (command.indexOf('Add') !== 0 && command.indexOf('add') !== 0) { return 'Not Add Command' }
+            if (command.indexOf('Docs.Add') !== 0 && command.indexOf('docs.add') !== 0) { return 'Not Add Command' }
 
             let splittedCommand = command.split(': ')
             if (splittedCommand[1] === undefined) {
-                renderCommandResultsPage(["Syntax Error. Keyword <b>: </b> missing: Example: Add Concept to Superalgos: New Concept Name. The keyword is a : character plus a blank space. Type <i>Hekp Add</i> to learn the command's syntax."])
+                renderCommandResultsPage(["Syntax Error. Keyword <b>: </b> missing: Example: docs.add Concept to Superalgos: New Concept Name. The keyword is a : character plus a blank space. Type <i>help docs.add</i> to learn the command's syntax."])
                 return
             }
             let primaryCommand = splittedCommand[0]
@@ -855,12 +855,12 @@ function newSuperalgosDocSpace() {
 
             if (splittedPrimaryCommand[0].toLowerCase() === 'add') {
                 if (splittedPrimaryCommand[2] !== 'to') {
-                    renderCommandResultsPage(["Syntax Error. Keyword <b>to</b> missing: Example: Add Concept to Superalgos: New Concept Name. Type <i>Hekp Add</i> to learn the command's syntax."])
+                    renderCommandResultsPage(["Syntax Error. Keyword <b>to</b> missing: Example: docs.add Concept to Superalgos: New Concept Name. Type <i>help docs.add</i> to learn the command's syntax."])
                     return
                 }
 
                 if (splittedPrimaryCommand.length < 4) {
-                    renderCommandResultsPage(["Syntax Error. Too few Add Command parameters. Found <b>" + splittedPrimaryCommand.length + "</b>. Expected at least <b>4</b>. Type <i>Hekp Add</i> to learn the command's syntax."])
+                    renderCommandResultsPage(["Syntax Error. Too few Add Command parameters. Found <b>" + splittedPrimaryCommand.length + "</b>. Expected at least <b>4</b>. Type <i>help docs.add</i> to learn the command's syntax."])
                     return
                 }
 
@@ -881,7 +881,7 @@ function newSuperalgosDocSpace() {
                     case 'topic': {
                         let splittedSecondaryCommand = secondaryCommand.split('->')
                         if (splittedSecondaryCommand.length < 3) {
-                            renderCommandResultsPage(["Syntax Error. Too few Topic parameters. Found <b>" + splittedSecondaryCommand.length + "</b>. Expected <b>3</b>. Type <i>Hekp Add</i> to learn the command's syntax."])
+                            renderCommandResultsPage(["Syntax Error. Too few Topic parameters. Found <b>" + splittedSecondaryCommand.length + "</b>. Expected <b>3</b>. Type <i>help docs.add</i> to learn the command's syntax."])
                             return
                         }
                         addTopic(splittedPrimaryCommand[3], splittedSecondaryCommand[0], splittedSecondaryCommand[1], splittedSecondaryCommand[2])
@@ -897,25 +897,25 @@ function newSuperalgosDocSpace() {
         }
 
         function checkDeleteCommand() {
-            if (command.toLowerCase() === 'help delete') {
+            if (command.toLowerCase() === 'help docs.delete') {
                 renderCommandResultsPage(
                     [
-                        "<b>Delete</b> command syntax: ",
-                        "Option 1: <i>Delete</i> Node <i>from</i> Project: Node Type",
-                        "Example: Delete Node from Superalgos: Task Manager",
-                        "Option 2: <i>Delete</i> Concpet <i>from</i> Project: Concept Name",
-                        "Example: Delete Concept from Superalgos: Attaching Nodes",
-                        "Option 3: <i>Delete</i> Topic <i>from</i> Project: Topic->Section Name->Page Number",
-                        "Example: Delete Topic from Superalgos: Contributing->Code->2"
+                        "<b>docs.delete</b> command syntax: ",
+                        "Option 1: <i>docs.delete</i> Node <i>from</i> Project: Node Type",
+                        "Example: docs.delete Node from Superalgos: Task Manager",
+                        "Option 2: <i>docs.delete</i> Concpet <i>from</i> Project: Concept Name",
+                        "Example: docs.delete Concept from Superalgos: Attaching Nodes",
+                        "Option 3: <i>docs.delete</i> Topic <i>from</i> Project: Topic->Section Name->Page Number",
+                        "Example: docs.delete Topic from Superalgos: Contributing->Code->2"
                     ]
                 )
                 return
             }
-            if (command.indexOf('Delete') !== 0 && command.indexOf('delete') !== 0) { return 'Not Delete Command' }
+            if (command.indexOf('Docs.Delete') !== 0 && command.indexOf('docs.delete') !== 0) { return 'Not Delete Command' }
 
             let splittedCommand = command.split(': ')
             if (splittedCommand[1] === undefined) {
-                renderCommandResultsPage(["Syntax Error. Keyword <b>: </b> missing: Example: Delete Concept from Superalgos: Concept Name. The keyword is a : character plus a blank space. Type <i>Hekp Delete</i> to learn the command's syntax."])
+                renderCommandResultsPage(["Syntax Error. Keyword <b>: </b> missing: Example: docs.delete Concept from Superalgos: Concept Name. The keyword is a : character plus a blank space. Type <i>Hekp docs.delete</i> to learn the command's syntax."])
                 return
             }
             let primaryCommand = splittedCommand[0]
@@ -923,14 +923,14 @@ function newSuperalgosDocSpace() {
 
             let splittedPrimaryCommand = primaryCommand.split(' ')
 
-            if (splittedPrimaryCommand[0].toLowerCase() === 'delete') {
+            if (splittedPrimaryCommand[0].toLowerCase() === 'docs.delete') {
                 if (splittedPrimaryCommand[2] !== 'from') {
-                    renderCommandResultsPage(["Syntax Error. Keyword <b>from</b> missing: Example: Delete Concept from Superalgos: Concept Name. Type <i>Hekp Delete</i> to learn the command's syntax."])
+                    renderCommandResultsPage(["Syntax Error. Keyword <b>from</b> missing: Example: Delete Concept from Superalgos: Concept Name. Type <i>Help docs.delete</i> to learn the command's syntax."])
                     return
                 }
 
                 if (splittedPrimaryCommand.length < 4) {
-                    renderCommandResultsPage(["Syntax Error. Too few Delete Command parameters. Found <b>" + splittedPrimaryCommand.length + "</b>. Expected at least <b>4</b>. Type <i>Hekp Delete</i> to learn the command's syntax."])
+                    renderCommandResultsPage(["Syntax Error. Too few Delete Command parameters. Found <b>" + splittedPrimaryCommand.length + "</b>. Expected at least <b>4</b>. Type <i>Help docs.delete</i> to learn the command's syntax."])
                     return
                 }
 
@@ -951,7 +951,7 @@ function newSuperalgosDocSpace() {
                     case 'topic': {
                         let splittedSecondaryCommand = secondaryCommand.split('->')
                         if (splittedSecondaryCommand.length < 3) {
-                            renderCommandResultsPage(["Syntax Error. Too few Topic parameters. Found <b>" + splittedSecondaryCommand.length + "</b>. Expected <b>3</b>. Type <i>Hekp Delete</i> to learn the command's syntax."])
+                            renderCommandResultsPage(["Syntax Error. Too few Topic parameters. Found <b>" + splittedSecondaryCommand.length + "</b>. Expected <b>3</b>. Type <i>help docs.delete</i> to learn the command's syntax."])
                             return
                         }
                         deleteTopic(splittedPrimaryCommand[3], splittedSecondaryCommand[0], splittedSecondaryCommand[1], splittedSecondaryCommand[2])
@@ -967,18 +967,18 @@ function newSuperalgosDocSpace() {
         }
 
         function checkUReIndexCommand() {
-            if (command.toLowerCase() === 'help reindex') {
+            if (command.toLowerCase() === 'help docs.reindex') {
                 renderCommandResultsPage(
                     [
-                        "<b>Reindex</b> command syntax: ",
-                        "Option 1: <i>Reindex</i>",
+                        "<b>docs.reindex</b> command syntax: ",
+                        "Option 1: <i>docs.reindex</i>",
                         "Use this command after you modified the Docs content and would like re-index the information so that changes are reflected during search. You can also use this command after you have modified the current workspace and you would like it's nodes to be re-indexed to reflect the changes at the search results. Naturally, the system will re-index all the available information every time you switch workspaces or you refresh the UI page.",
                         "Expect this command execution to last for a minute or so, depending on the size of the workspace."
                     ]
                 )
                 return
             }
-            if (command.indexOf('Reindex') !== 0 && command.indexOf('reindex') !== 0) { return 'Not Reindex Command' }
+            if (command.indexOf('Docs.Reindex') !== 0 && command.indexOf('docs.reindex') !== 0) { return 'Not Reindex Command' }
 
             docsIndex = []
             setUpWorkspaceSchemas()
@@ -988,17 +988,17 @@ function newSuperalgosDocSpace() {
         }
 
         function checkUSaveCommand() {
-            if (command.toLowerCase() === 'help save') {
+            if (command.toLowerCase() === 'help docs.save') {
                 renderCommandResultsPage(
                     [
-                        "<b>Save</b> command syntax: ",
-                        "Option 1: <i>Save</i>",
+                        "<b>docs.save</b> command syntax: ",
+                        "Option 1: <i>docs.save</i>",
                         "Use this command after you modified the Docs content and would like save your changes at your Superalgos Client's disk. If you would like to contribute those changes to the project they belong to, you can later commit those changes and they will end up at your Superalgos repository fork. The final step then is to submit a pull request so that those changes are reviewed and merged into the next release of Superalgos."
                     ]
                 )
                 return
             }
-            if (command.indexOf('Save') !== 0 && command.indexOf('save') !== 0) { return 'Not Save Command' }
+            if (command.indexOf('Docs.Save') !== 0 && command.indexOf('docs.save') !== 0) { return 'Not Save Command' }
 
             let requestsSent = 0
             let responseCount = 0
@@ -1006,11 +1006,11 @@ function newSuperalgosDocSpace() {
             for (let j = 0; j < PROJECTS_ARRAY.length; j++) {
                 let docsSchema
                 let project = PROJECTS_ARRAY[j]
-                /*
-                                docsSchema = SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema
-                                httpRequest(JSON.stringify(docsSchema), 'Docs/Save-Node-Schema/' + project, onResponse)
-                                requestsSent++
-                */
+
+                docsSchema = SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema
+                httpRequest(JSON.stringify(docsSchema), 'Docs/Save-Node-Schema/' + project, onResponse)
+                requestsSent++
+
                 docsSchema = SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema
                 httpRequest(JSON.stringify(docsSchema), 'Docs/Save-Concept-Schema/' + project, onResponse)
                 requestsSent++

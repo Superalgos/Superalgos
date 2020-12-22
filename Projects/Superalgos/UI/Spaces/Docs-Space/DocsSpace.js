@@ -987,7 +987,7 @@ function newSuperalgosDocSpace() {
             renderCommandResultsPage(["Succesfully rebuild the search engine indexes."])
         }
 
-        function checkUReIndexCommand() {
+        function checkUSaveCommand() {
             if (command.toLowerCase() === 'help save') {
                 renderCommandResultsPage(
                     [
@@ -1022,6 +1022,7 @@ function newSuperalgosDocSpace() {
 
             function onResponse(err, data) {
                 /* Lets check the result of the call through the http interface */
+                data = JSON.parse(data)
                 if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
                     okResponses++
                 } 

@@ -1,8 +1,4 @@
-
-    {
-        "type": "Referencing",
-        "definition": "Nodes can reference other nodes"
-    }
-
-
-
+{
+    "type": "Referencing",
+    "definition": "Nodes can reference other nodes"
+}

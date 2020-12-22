@@ -1,8 +1,4 @@
-
-    {
-        "type": "Attaching",
-        "definition": "Nodes can be attached"
-    }
-
-
-
+{
+    "type": "Attaching",
+    "definition": "Nodes can be attached"
+}

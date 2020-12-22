@@ -352,7 +352,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
                                     for (let i = 0; i < docsSchema.length; i++) {
                                         let schemaDocument = docsSchema[i]
-                                        let fileContent = JSON.stringify(schemaDocument)
+                                        let fileContent = JSON.stringify(schemaDocument, undefined, 4)
 
                                         console.log('schemaDocument', schemaDocument)
                                         console.log('fileContent', fileContent)
@@ -361,13 +361,13 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
                                         let fileName = schemaDocument.type.toLowerCase()
                                         for (let j = 0; j < 10; j++) {
-                                            fileName = fileName.replaceAll(' ', '-')
+                                            fileName = fileName.replace(' ', '-')
                                         }
                                         fileName = fileName + '.json'
                                         let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Concepts'
 
 
-                                        console.log('fileName', filename)
+                                        console.log('fileName', fileName)
                                         console.log('filePath', filePath)
                                         fs.writeFileSync(filePath + '/' + fileName, fileContent)
                                     }

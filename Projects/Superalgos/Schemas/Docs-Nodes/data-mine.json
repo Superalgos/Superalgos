@@ -3,8 +3,8 @@
     "definition": "A data mine is a hierarchy that contains definitions of sensor and indicators bots, and their plotters. These definitions make up the actual programs of such bots&mdash;the source code.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Data Mine Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

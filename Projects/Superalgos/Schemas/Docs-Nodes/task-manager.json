@@ -3,8 +3,8 @@
     "definition": "A task manager is a device used to organize and control any number of tasks, which, in turn, control bot instances. You use a task manager to start or stop several tasks at the same time.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Task Manager Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

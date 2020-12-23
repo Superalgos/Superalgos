@@ -3,8 +3,8 @@
     "definition": "Process dependencies are references to various data structures on which the process depends to function.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Process Dependencies Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

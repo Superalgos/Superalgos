@@ -3,8 +3,8 @@
     "definition": "The order quoted asset node keeps track of the evolution of certain properties of orders, denominated in the quoted asset.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Order Quoted Asset Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Note",

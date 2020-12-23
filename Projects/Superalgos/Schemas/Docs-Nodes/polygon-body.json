@@ -3,8 +3,8 @@
     "definition": "A polygon body is the fill of a shape made out of at least three vertices.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Polygon Body Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

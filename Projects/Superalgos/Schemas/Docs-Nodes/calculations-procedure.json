@@ -3,8 +3,8 @@
     "definition": "The calculations procedure processes information to be fed to calculated properties. Calculated properties are not stored in the data set; instead, they are calculated in real-time as the data is consumed by others.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Calculations Procedure Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

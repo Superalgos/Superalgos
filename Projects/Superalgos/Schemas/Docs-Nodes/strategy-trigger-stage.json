@@ -3,8 +3,8 @@
     "definition": "Strategy trigger stage is the section of the data structure that keeps track of information specific to the scope of the trigger stage during the period the stage is open.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Strategy Trigger Stage Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

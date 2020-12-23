@@ -3,8 +3,8 @@
     "definition": "A bot products node is an organizational device used to arrange data products corresponding to a specific bot.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Bot Products Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",
@@ -28,7 +28,7 @@
         },
         {
             "style": "Note",
-            "text": "See the data product schema document and the Adding a Data Product Node section for all the details."
+            "text": "See the data product node definition and the Adding a Data Product Node section for all the details."
         },
         {
             "style": "Title",

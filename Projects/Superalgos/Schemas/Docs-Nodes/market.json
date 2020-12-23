@@ -3,8 +3,8 @@
     "definition": "A market is the definition of a pair of assets (i.e.: BTC-USDT) listed as a market in the corresponding exchange.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Market Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Important",

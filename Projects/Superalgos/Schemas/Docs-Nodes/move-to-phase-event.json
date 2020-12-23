@@ -3,8 +3,8 @@
     "definition": "The move to phase event determines when there should be a switch of phases from the current phase to an arbitrary phase determined by a reference.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Move To Phase Event Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

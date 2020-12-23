@@ -3,8 +3,8 @@
     "definition": "A trading bot instance is a reference to the trading bot as defined in the Masters data mine. The instance of the bot runs the defined processes and generates the defined data products.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Trading Bot Instance Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

@@ -3,8 +3,8 @@
     "definition": "A trading engine reference determines which trading system shall be evaluated by the trading bot to run the trading session.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Trading System Reference Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

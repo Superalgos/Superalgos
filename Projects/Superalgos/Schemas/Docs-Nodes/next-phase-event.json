@@ -3,8 +3,8 @@
     "definition": "The next phase event determines when there should be a switch of phases to the next phase in a predefined sequence.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Next Phase Event Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

@@ -3,8 +3,8 @@
     "definition": "The time frame filters node allows control over which time frames are to be calculated by each indicator bot instance running on the data mining operation.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Time Frames Filter Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

@@ -3,8 +3,8 @@
     "definition": "Balance is the running balance, that is, the amount of the asset that exists at any point in time.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Balance Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

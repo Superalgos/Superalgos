@@ -3,8 +3,8 @@
     "definition": "Market order is the section of the data structure that keeps track of the properties of a specific market order, as defined in the trading system.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Market Order Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

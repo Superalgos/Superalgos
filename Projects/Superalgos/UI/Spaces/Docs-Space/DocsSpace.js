@@ -1684,7 +1684,9 @@ function newSuperalgosDocSpace() {
         }
 
         function buildHtmlPage() {
+            let definitionImagesArray = []
             let HTML = ''
+
             HTML = HTML + '<section id="docs-search-results-div" class="docs-search-page-container">'
             HTML = HTML + addSearchHeader()
             HTML = HTML + '</section>'
@@ -1701,25 +1703,7 @@ function newSuperalgosDocSpace() {
 
             HTML = HTML + '<div id="docs-main-title-div"><table class="docs-title-table"><tr><td width="50px"><div id="projectImageDiv" class="docs-image-container"/></td><td><h2 class="docs-h2" id="' + objectBeingRendered.type.toLowerCase().replace(' ', '-') + '" > ' + titleLabel + '</h2></td></tr></table></div>'
 
-            /* We start with the Definition Table / Summary */
-            if (schemaDocument.definition !== undefined) {
-                if (objectBeingRendered.category === 'Topic' || objectBeingRendered.category === 'Concept') {
-                    HTML = HTML + '<div id="definition-summary-editable-paragraph" class="docs-summary"><b>Summary:</b> ' + addToolTips(schemaDocument.definition) + '</div>'
-                } else {
-                    HTML = HTML + '<table class="docs-definition-table">'
-                    HTML = HTML + '<tr>'
-                    if (objectBeingRendered.category === 'Node') {
-                        HTML = HTML + '<td width=150px>'
-                        HTML = HTML + '<div id="definitionImageDiv" class="docs-image-container"/>'
-                        HTML = HTML + '</td>'
-                    }
-                    HTML = HTML + '<td>'
-                    HTML = HTML + '<div id="definition-editable-paragraph" class="docs-font-normal"><strong>' + addToolTips(schemaDocument.definition) + '</strong></div>'
-                    HTML = HTML + '</td>'
-                    HTML = HTML + '</tr>'
-                    HTML = HTML + '</table>'
-                }
-            }
+            addDefinitionTable(schemaDocument, 'definition-editable-')
 
             let paragraphIndex = 0
 
@@ -1744,6 +1728,36 @@ function newSuperalgosDocSpace() {
             there are images to be added.
             */
             addImages()
+
+            function addDefinitionTable(schemaDocument, idPrefix) {
+                if (schemaDocument.definition !== undefined) {
+                    if (objectBeingRendered.category === 'Topic' || objectBeingRendered.category === 'Concept') {
+                        HTML = HTML + '<div id="definition-summary-editable-paragraph" class="docs-summary"><b>Summary:</b> ' + addToolTips(schemaDocument.definition) + '</div>'
+                    } else {
+                        HTML = HTML + '<table class="docs-definition-table">'
+                        HTML = HTML + '<tr>'
+                        if (objectBeingRendered.category === 'Node') {
+
+                            let imageItem = {
+                                div: 'definitionImageDiv-' + definitionImagesArray.length,
+                                project: objectBeingRendered.project,
+                                category: objectBeingRendered.category,
+                                type: objectBeingRendered.type
+                            }
+                            definitionImagesArray.push(imageItem)
+
+                            HTML = HTML + '<td width=150px>'
+                            HTML = HTML + '<div id="' + imageItem.div + '" class="docs-image-container"/>'
+                            HTML = HTML + '</td>'
+                        }
+                        HTML = HTML + '<td>'
+                        HTML = HTML + '<div id="' + idPrefix + 'paragraph" class="docs-font-normal"><strong>' + addToolTips(schemaDocument.definition) + '</strong></div>'
+                        HTML = HTML + '</td>'
+                        HTML = HTML + '</tr>'
+                        HTML = HTML + '</table>'
+                    }
+                }
+            }
 
             function generateMultiPageIndex() {
                 /* 
@@ -1799,7 +1813,6 @@ function newSuperalgosDocSpace() {
                 }
             }
 
-
             function addContent() {
                 HTML = HTML + '<div id="docs-content">'
                 if (schemaDocument.paragraphs !== undefined) {
@@ -1823,7 +1836,7 @@ function newSuperalgosDocSpace() {
                         } else {
                             renderParagraph(paragraph, key)
                             paragraphIndex++
-                        }                        
+                        }
                     }
                 }
                 if (objectBeingRendered.category === 'Node') {
@@ -1866,8 +1879,8 @@ function newSuperalgosDocSpace() {
                     if (includedSchemaDocument === undefined) {
                         return category + ' document ' + type + ' not found at project ' + project
                     }
-                    if (includedSchemaDocument.paragraphs === undefined) { 
-                        return 'Schema Document found, but without paragraphs.' 
+                    if (includedSchemaDocument.paragraphs === undefined) {
+                        return 'Schema Document found, but without paragraphs.'
                     }
 
                     if (definition === true) {
@@ -1903,10 +1916,10 @@ function newSuperalgosDocSpace() {
                                 } else {
                                     renderParagraph(paragraph, key)
                                     paragraphIndex++
-                                }                                
+                                }
                             }
                         }
-                        if (blockFound ===  false) {
+                        if (blockFound === false) {
                             return 'Block ' + block + ' not found.'
                         }
                     }
@@ -1915,11 +1928,7 @@ function newSuperalgosDocSpace() {
 
             function addImages() {
                 addProjectImage()
-                if (schemaDocument.definition !== undefined) {
-                    if (objectBeingRendered.category === 'Node') {
-                        addDefinitionImage(objectBeingRendered.project)
-                    }
-                }
+                addDefinitionImage()
 
                 if (objectBeingRendered.category === 'Node') {
                     addMenuItemsImages()
@@ -1927,24 +1936,31 @@ function newSuperalgosDocSpace() {
                     addAttachingAndReferencingRulesImages()
                 }
 
-                function addDefinitionImage(project) {
-                    let imageElement
-                    if (nodeAppDefinition.icon === undefined) {
-                        let imageName = nodeAppDefinition.type.toLowerCase().replace(' ', '-').replace(' ', '-').replace(' ', '-').replace(' ', '-').replace(' ', '-')
-                        imageElement = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName(objectBeingRendered.project, imageName)
-                    } else {
-                        imageElement = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(objectBeingRendered.project, objectBeingRendered.type)
+                function addDefinitionImage() {
+
+                    for (let i = 0; i < definitionImagesArray.length; i++) {
+                        let imageItem = definitionImagesArray[i]
+
+                        let nodeAppDefinition = SCHEMAS_BY_PROJECT.get(imageItem.project).map.appSchema.get(imageItem.type)
+
+                        let imageElement
+                        if (nodeAppDefinition.icon === undefined) {
+                            let imageName = nodeAppDefinition.type.toLowerCase().replaceAll(' ', '-')
+                            imageElement = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName(imageItem.project, imageName)
+                        } else {
+                            imageElement = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(imageItem.project, imageItem.type)
+                        }
+
+                        imageElement.width = "150"
+                        imageElement.height = "150"
+
+                        let definitionImageDiv = document.getElementById(imageItem.div)
+                        definitionImageDiv.appendChild(imageElement)
                     }
-
-                    imageElement.width = "150"
-                    imageElement.height = "150"
-
-                    let definitionImageDiv = document.getElementById('definitionImageDiv')
-                    definitionImageDiv.appendChild(imageElement)
                 }
 
                 function addProjectImage() {
-                    let imageName = objectBeingRendered.project.toLowerCase().replace(' ', '-').replace(' ', '-').replace(' ', '-').replace(' ', '-').replace(' ', '-')
+                    let imageName = objectBeingRendered.project.toLowerCase().replaceAll(' ', '-')
                     let imageElement = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName(objectBeingRendered.project, imageName)
                     imageElement.width = "50"
                     imageElement.height = "50"

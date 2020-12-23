@@ -3,8 +3,8 @@
     "definition": "The text formula determines the content that shall be rendered over the charts.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Text Formula Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

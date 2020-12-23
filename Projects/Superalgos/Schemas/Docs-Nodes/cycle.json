@@ -3,8 +3,8 @@
     "definition": "The trading bot performs its duties in regards to exchange orders and accounts in two consecutive cycles for each candle.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Cycle Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

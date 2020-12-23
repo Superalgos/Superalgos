@@ -3,8 +3,8 @@
     "definition": "A chart points groups definitions of coordinate points used to define polygons.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Chart Points Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

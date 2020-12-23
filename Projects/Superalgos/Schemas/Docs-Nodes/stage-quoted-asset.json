@@ -3,8 +3,8 @@
     "definition": "The stage quoted asset node keeps track of the evolution of variables related to the quoted asset throughout the stage.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Stage Quoted Asset Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Note",

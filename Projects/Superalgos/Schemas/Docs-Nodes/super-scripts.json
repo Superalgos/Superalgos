@@ -3,8 +3,8 @@
     "definition": "The super scripts hierarchy holds definitions of scripts used to automate certain aspects of the administration and maintenance of the workspace, such as installing and deleting markets.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Super Scripts Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

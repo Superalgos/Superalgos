@@ -3,8 +3,8 @@
     "definition": "The trigger-on event defines the set of rules that need to be met for the corresponding strategy to be triggered on. A strategy that is triggered may use all the capital available to the trading system, and prevents other strategies in the system from triggering.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Trigger On Event Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

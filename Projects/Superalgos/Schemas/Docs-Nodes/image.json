@@ -3,8 +3,8 @@
     "definition": "The image node allows overlaying an image over the charts, controlling its position, size, and when it shall be rendered.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Image Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

@@ -3,8 +3,8 @@
     "definition": "The shapes node contains definitions of polygons and styles to be rendered on a per-period basis over the charts.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Shapes Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

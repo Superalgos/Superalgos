@@ -3,8 +3,8 @@
     "definition": "Position is the section of the data structure that keeps track of information within the scope of each position, and during the time a position is open.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Position Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

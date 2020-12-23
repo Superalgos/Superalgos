@@ -3,8 +3,8 @@
     "definition": "The base asset is the asset whose price is determined by the market. It is usually the first asset in the pair, as listed by the exchange.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Session Base Asset Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

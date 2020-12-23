@@ -3,8 +3,8 @@
     "definition": "A formula is a mathematical expression intended to determine a numerical value to be applied dynamically to a certain property.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Formula Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

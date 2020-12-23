@@ -3,8 +3,8 @@
     "definition": "The process definition node groups all definitions required for a process to function. The Multi-Period-Market Process deals with time frames of one hour and above. The Multi-Period-Daily Process deals with time frames of 45 minutes and below.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Process Definition Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

@@ -3,8 +3,8 @@
     "definition": "Snapshots are CSV files output by the trading bot listing every trade in a backtesting session. The snapshots parameter determines whether snapshots shall be produced, and how.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Snapshots Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

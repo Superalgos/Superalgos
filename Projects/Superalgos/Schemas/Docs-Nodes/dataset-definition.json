@@ -1,10 +1,10 @@
 {
     "type": "Dataset Definition",
-    "definition": "A data set is a collection of files stored in the designated location, as per the definitions on the referenced data product in the corresponding data mine.",
+    "definition": "A dataset definition contains a configuration file that defines many aspects of the dataset. There are two types of dataset definitions: Multi-Period-Market and Multi-Period-Daily.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Dataset Definition Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

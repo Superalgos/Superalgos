@@ -3,8 +3,8 @@
     "definition": "A market trading tasks node groups trading tasks operating in a specific market.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Market Trading Tasks Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

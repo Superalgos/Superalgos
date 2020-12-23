@@ -3,8 +3,8 @@
     "definition": "Strategy close stage is the section of the data structure that keeps track of information specific to the scope of the close stage during the period the stage is open.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Strategy Close Stage Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

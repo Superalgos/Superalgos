@@ -3,8 +3,8 @@
     "definition": "End balance is the balance at the datetime of the end property of the parent node or concept.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the End Balance Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

@@ -3,8 +3,8 @@
     "definition": "Size placed is the size of the order placed at the exchange.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Size Placed Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

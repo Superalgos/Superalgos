@@ -3,8 +3,8 @@
     "definition": "A text condition is a rule that allows establishing when text shall be rendered and when not.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Text Condition Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

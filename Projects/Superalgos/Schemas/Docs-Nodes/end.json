@@ -3,8 +3,8 @@
     "definition": "End is the datetime on which the object represented by the parent node ceased to exist. In case the object has not been closed yet, it is the datetime at the moment of evaluation.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the End Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

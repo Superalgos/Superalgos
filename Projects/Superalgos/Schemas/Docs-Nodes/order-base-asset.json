@@ -3,8 +3,8 @@
     "definition": "The order base asset node keeps track of the evolution of certain properties of orders, denominated in the base asset.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Order Base Asset Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Note",

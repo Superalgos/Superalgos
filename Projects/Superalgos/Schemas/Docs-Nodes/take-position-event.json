@@ -3,8 +3,8 @@
     "definition": "The take position event defines the situation that needs to be met to take a position.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Take Position Event Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

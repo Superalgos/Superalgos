@@ -3,8 +3,8 @@
     "definition": "The episode quoted asset node keeps track of the evolution of variables and metrics denominated in the quoted asset, throughout the episode.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Episode Quoted Asset Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Note",

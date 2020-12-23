@@ -3,8 +3,8 @@
     "definition": "The text style is a definition of color, opacity, and font size that determines the appearance of the text to be rendered over the charts.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Text Style Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Note",

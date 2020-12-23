@@ -3,8 +3,8 @@
     "definition": "Stop Loss position indicates if the stop loss target is above or below the position rate.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Stop Loss Position Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

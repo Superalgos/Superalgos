@@ -3,8 +3,8 @@
     "definition": "The plugins hierarchy defines which plugins are to be included in the current workspace. In the context of this hierarchy, plugins are JSON files featuring the description of a hierarchy such as a data mine, trading mine, trading engine, or trading system.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Plugins Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

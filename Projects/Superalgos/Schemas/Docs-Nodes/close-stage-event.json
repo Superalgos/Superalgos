@@ -3,8 +3,8 @@
     "definition": "The close stage event defines the set of rules that need to be met for the corresponding stage to be closed.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Close Stage Event Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

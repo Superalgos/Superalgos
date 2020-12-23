@@ -3,8 +3,8 @@
     "definition": "The cancel order event makes cancelling limit orders possible.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Cancel Order Event Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

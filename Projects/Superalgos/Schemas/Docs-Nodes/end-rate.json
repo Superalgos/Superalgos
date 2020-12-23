@@ -3,8 +3,8 @@
     "definition": "End rate is the close rate of the candle corresponding to the datetime of the end property.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the End Rate Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

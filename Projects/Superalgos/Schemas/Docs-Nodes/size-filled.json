@@ -3,8 +3,8 @@
     "definition": "Size filled is the amount of the order that has been filled at the exchange.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Size Filled Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

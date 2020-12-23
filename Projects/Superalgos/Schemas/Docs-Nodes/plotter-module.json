@@ -3,8 +3,8 @@
     "definition": "A plotter module is a device within a plotter that contains the definitions to create the visualization for a product definition.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Plotter Module Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

@@ -3,8 +3,8 @@
     "definition": "The fee structure is a parameter fundamental to the calculation of fees, both in testing and live trading sessions.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Fee Structure Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

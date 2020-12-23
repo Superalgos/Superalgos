@@ -3,8 +3,8 @@
     "definition": "Begin is the datetime at the moment the object represented by the parent node began to exist.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Begin Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

@@ -3,8 +3,8 @@
     "definition": "Identifier is a unique alphanumeric string by which the object represented by the parent node may be unequivocally identified.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Identifier Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

@@ -3,8 +3,8 @@
     "definition": "The exchange account asset represents a single asset the user has at the exchange.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Exchange Account Asset Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

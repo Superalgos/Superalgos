@@ -3,8 +3,8 @@
     "definition": "A style condition is a rule that allows applying an alternative style in cases where the rule validates true.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Style Condition Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

@@ -3,8 +3,8 @@
     "definition": "A master script contains the definitions of any number of template scripts along with the master JavaScript code providing the logic to implement them.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Master Script Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

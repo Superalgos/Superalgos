@@ -3,8 +3,8 @@
     "definition": "Status dependencies are references to a status report that define which process the process establishing the reference depends on.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Status Dependency Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

@@ -3,8 +3,8 @@
     "definition": "Exit target rate is the target rate set on the initial targets definition, in the close stage of the strategy.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Exit Target Rate Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

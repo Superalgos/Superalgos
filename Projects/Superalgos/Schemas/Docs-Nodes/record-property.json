@@ -3,8 +3,8 @@
     "definition": "A record property is a piece of information that may be stored as part of the dataset or made available as a calculated property.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Record Property Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

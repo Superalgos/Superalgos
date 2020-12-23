@@ -3,8 +3,8 @@
     "definition": "A session reference establishes which session is the one which shall store data in the current location.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Trading Session Reference Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

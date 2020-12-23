@@ -3,8 +3,8 @@
     "definition": "The quoted asset is the asset on which the price of the base asset is denominated in the market. It is usually the second asset in the pair, as listed by the exchange.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Session Quoted Asset Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

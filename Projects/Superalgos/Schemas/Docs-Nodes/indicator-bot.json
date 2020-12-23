@@ -3,8 +3,8 @@
     "definition": "An indicator bot is an algorithm that processes information that other bots have generated, and produces elaborate datasets for others to consume.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Indicator Bot Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

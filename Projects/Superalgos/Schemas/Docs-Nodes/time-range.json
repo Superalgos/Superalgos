@@ -3,8 +3,8 @@
     "definition": "The time range parameter determines the period of time on which the trading session is run.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Time Range Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

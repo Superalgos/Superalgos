@@ -3,8 +3,8 @@
     "definition": "Index is the position of the parent object in the corresponding data collection, as determined by the context.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Index Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

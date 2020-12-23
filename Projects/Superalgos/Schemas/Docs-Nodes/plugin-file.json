@@ -3,8 +3,8 @@
     "definition": "A plugin file is the JSON file that constitutes the plugin. In the context of the plugins hierarchy, a plugin is the definition of a hierarchy.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Plugin File Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

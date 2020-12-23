@@ -3,8 +3,8 @@
     "definition": "The rate scale controls the scale of the vertical axis, that is, the scale of the quoted asset, either of the time machine or of the timeline chart, depending on where the node is located.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Rate Scale Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

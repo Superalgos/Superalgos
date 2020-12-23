@@ -3,8 +3,8 @@
     "definition": "A market sell order is an instruction sent to the exchange to sell the base asset, for immediate execution at current market prices.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Market Sell Order Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

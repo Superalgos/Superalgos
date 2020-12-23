@@ -3,8 +3,8 @@
     "definition": "The trading mine tasks node is an organizational device that groups tasks corresponding to the referenced trading mine.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Trading Mine Tasks Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",
@@ -24,7 +24,7 @@
         },
         {
             "style": "Note",
-            "text": "See the task schema document and the Adding a Task Node section for all the details."
+            "text": "See the task node definition and the Adding a Task Node section for all the details."
         },
         {
             "style": "Title",

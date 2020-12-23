@@ -3,8 +3,8 @@
     "definition": "Rate is the rate at which the order is placed.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Rate Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

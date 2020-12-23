@@ -3,12 +3,12 @@
     "definition": "A backtesting session is a trading mode by which the trading bot instance reads historic market data in a user-defined datetime range, applies the rules defined in the associated trading system, and generates a trading simulation.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Backtesting Session Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",
-            "text": "A backtesting session node must reference a trading system to gain access to the trading logic to be applied during the session. Other considerations framing the session come from the set of parameters attached to it. Fordward Testing bla bla bla"
+            "text": "A backtesting session node must reference a trading system to gain access to the trading logic to be applied during the session. Other considerations framing the session come from the set of parameters attached to it."
         },
         {
             "style": "Title",

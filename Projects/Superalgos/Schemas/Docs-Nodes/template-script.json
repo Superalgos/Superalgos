@@ -3,8 +3,8 @@
     "definition": "The template script node holds the definitions concerned with the scope of a particular structure of nodes.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Template Script Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

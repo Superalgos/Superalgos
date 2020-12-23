@@ -3,8 +3,8 @@
     "definition": "A task is the device used to control bot instances, that is, to start and stop bots, including sensors, indicators and the trading bot.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Task Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

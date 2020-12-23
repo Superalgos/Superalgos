@@ -3,8 +3,8 @@
     "definition": "Data mine products are references established with data mines to facilitate establishing data product references with multiple products in the given data mine.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Data Mine Products Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",
@@ -28,7 +28,7 @@
         },
         {
             "style": "Note",
-            "text": "See the data product schema document and the Adding a Data Product Node section for all the details."
+            "text": "See the data product node definition and the Adding a Data Product Node section for all the details."
         },
         {
             "style": "Title",

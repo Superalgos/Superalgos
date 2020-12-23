@@ -3,8 +3,8 @@
     "definition": "The simulated exchange event node allows to override the parameters set at the level of the trading session on a per order basis to determine how each order shall be simulated.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Simulated Exchange Events Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

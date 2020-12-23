@@ -3,8 +3,8 @@
     "definition": "The data storage node holds the definitions as to what data is stored in the corresponding network node.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Data Storage Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

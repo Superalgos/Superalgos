@@ -3,8 +3,8 @@
     "definition": "Distance to event features counters indicating how many periods (candles) have passed since the last occurrence of certain events, in the context of the episode.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Distance To Event Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

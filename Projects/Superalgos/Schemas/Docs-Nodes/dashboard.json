@@ -3,8 +3,8 @@
     "definition": "A dashboard is a collection of time machines, each containing any number of charts.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Dashboard Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

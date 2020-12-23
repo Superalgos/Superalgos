@@ -3,8 +3,8 @@
     "definition": "A style is a definition of color and opacity in case of a polygon body, and color, opacity and line thickness in case of polygon borders.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Style Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

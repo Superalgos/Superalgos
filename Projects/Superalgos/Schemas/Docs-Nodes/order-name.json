@@ -3,8 +3,8 @@
     "definition": "Order name is the name of the order as specified in the trading system.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Order Name Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

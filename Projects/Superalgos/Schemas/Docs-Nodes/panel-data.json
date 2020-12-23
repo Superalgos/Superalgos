@@ -3,8 +3,8 @@
     "definition": "A panel data node represents a data field to be plotted on the plotter panel.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Panel Data Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

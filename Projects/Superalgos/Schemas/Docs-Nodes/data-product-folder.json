@@ -3,8 +3,8 @@
     "definition": "A data product folder node is an organizational device used to map the arrangement of product definition folders as may exist in the bot definition of the corresponding data or trading mine.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Data Product Folder Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

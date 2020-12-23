@@ -3,8 +3,8 @@
     "definition": "A limit sell order is an instruction sent to the exchange to sell the base asset, for execution at a specific rate or better.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Limit Sell Order Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

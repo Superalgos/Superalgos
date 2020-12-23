@@ -3,8 +3,8 @@
     "definition": "Situation name features the name of the situation that triggered a certain event, which is dependent on the context.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Situation Name Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

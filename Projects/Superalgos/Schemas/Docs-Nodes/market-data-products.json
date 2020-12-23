@@ -3,8 +3,8 @@
     "definition": "A market data products node represents the group of data products generated in a specific market.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Market Data Products Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

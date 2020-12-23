@@ -3,8 +3,8 @@
     "definition": "The image position node is a reference to a point defined in the chart points, and serves to determine the position in which the image shall be placed.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Image Position Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

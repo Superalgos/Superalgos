@@ -3,8 +3,8 @@
     "definition": "Size is the size set for the order through a combination of formulas and configurations defined in the trading system, and is the value passed on to the exchange as the size of the order.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Size Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

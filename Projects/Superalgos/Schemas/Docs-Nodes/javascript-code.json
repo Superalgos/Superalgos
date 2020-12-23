@@ -3,8 +3,8 @@
     "definition": "The JavaScript code node may hold any snippet of valid JavaScript.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Javascript Code Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

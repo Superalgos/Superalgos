@@ -3,8 +3,8 @@
     "definition": "Days counts the number of days through which the trading bot has cycled since the object represented by the parent node was open.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Days Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

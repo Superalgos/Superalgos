@@ -3,8 +3,8 @@
     "definition": "The time frame scale controls the time frame setting, that is, the period represented by each candle, either of the time machine or of the timeline chart, depending on where the node is located.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Time Frame Scale Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

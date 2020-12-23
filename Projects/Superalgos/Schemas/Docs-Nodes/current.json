@@ -3,8 +3,8 @@
     "definition": "The current object refers to the context in which instances of several other objects exist&mdash;like episode, strategy, position, strategy stages, and so on&mdash;in particular, the instances that are open at the time of evaluation, hence the adjective current.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Current Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

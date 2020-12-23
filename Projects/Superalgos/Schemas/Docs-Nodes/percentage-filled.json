@@ -3,8 +3,8 @@
     "definition": "Percentage filled represents the portion of the order that has been filled, expressed as a percentage.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Percentage Filled Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

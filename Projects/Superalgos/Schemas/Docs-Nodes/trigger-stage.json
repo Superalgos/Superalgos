@@ -3,8 +3,8 @@
     "definition": "The trigger stage deals with monitoring the market in search of trading opportunities with the corresponding strategy.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Trigger Stage Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

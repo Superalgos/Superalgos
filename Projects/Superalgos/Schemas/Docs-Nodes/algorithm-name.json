@@ -3,8 +3,8 @@
     "definition": "Algorithm name is the name of the execution algorithm that opened the order, as specified in the trading system.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Algorithm Name Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

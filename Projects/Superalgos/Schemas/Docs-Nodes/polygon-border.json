@@ -3,8 +3,8 @@
     "definition": "A polygon border is a shape defined by at least two vertices used to draw lines or to apply a style to the stroke of a closed shape.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Polygon Border Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

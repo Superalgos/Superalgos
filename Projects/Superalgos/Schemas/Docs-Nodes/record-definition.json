@@ -3,8 +3,8 @@
     "definition": "The record definition is where indicators define how many properties, what properties and in which order those properties will be made available in each record.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Record Definition Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

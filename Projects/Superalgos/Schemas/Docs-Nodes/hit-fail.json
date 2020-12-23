@@ -3,8 +3,8 @@
     "definition": "Hit fail states whether a transaction is successful or not, hit meaning it is successful and fail meaning it is not.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Hit Fail Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

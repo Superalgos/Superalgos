@@ -3,8 +3,8 @@
     "definition": "A point formula is a node used to input the [x,y] coordinates of a point.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Point Formula Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

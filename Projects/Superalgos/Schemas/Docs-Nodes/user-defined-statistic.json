@@ -3,8 +3,8 @@
     "definition": "A user defined statistic allows users to create custom metrics by defining the corresponding calculation in a formula, in the context of the parent node.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the User Defined Statistic Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

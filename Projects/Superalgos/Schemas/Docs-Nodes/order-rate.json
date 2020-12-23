@@ -3,8 +3,8 @@
     "definition": "The order rate node defines the rate of limit orders.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Order Rate Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

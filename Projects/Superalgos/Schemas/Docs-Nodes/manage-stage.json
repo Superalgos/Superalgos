@@ -3,8 +3,8 @@
     "definition": "The manage stage deals with the setting and management of stop loss and take profit targets, both to protect your capital and to increase the efficiency of your trading system.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Manage Stage Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

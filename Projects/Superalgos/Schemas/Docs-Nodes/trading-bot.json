@@ -3,8 +3,8 @@
     "definition": "A trading bot is a computer program that&mdash;based on datasets exposed as products by other bots (counting sensors, indicators and even other trading bots)&mdash;applies the trading logic defined on a trading system to, on one side, generate a complete trading simulation (outputting datasets that include trades, the action of strategies, validation of conditions, etc.), and on the other side, manage the execution of orders when on a forward testing or live trading session.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Trading Bot Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

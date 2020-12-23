@@ -3,8 +3,8 @@
     "definition": "The procedure loop holds the JavaScript code that reads an input, processes the information, and generates an output recursively.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Procedure Loop Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Note",

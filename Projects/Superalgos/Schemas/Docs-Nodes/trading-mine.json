@@ -3,8 +3,8 @@
     "definition": "A trading mine is a hierarchy that contains definitions of trading bots and their plotters. These definitions make up the actual programs of such bots&mdash;the source code.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Trading Mine Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

@@ -3,8 +3,8 @@
     "definition": "The Superalgos Project hierarchy governs the assets that relate to Superalgos. In its current state, it serves the purpose of spawning hierarchies.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Superalgos Project Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

@@ -3,8 +3,8 @@
     "definition": "An execution algorithm is a set of instructions used to place and manage orders at the exchange.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Execution Algorithm Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

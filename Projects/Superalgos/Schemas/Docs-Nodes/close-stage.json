@@ -3,8 +3,8 @@
     "definition": "The close stage deals with the definitions that make up the logic to close a position, including the target rate and size, and order execution.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Close Stage Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

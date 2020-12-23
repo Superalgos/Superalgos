@@ -3,8 +3,8 @@
     "definition": "Actual rate is the number reported by the exchange as the rate at which an order was filled.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Actual Rate Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

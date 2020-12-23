@@ -3,8 +3,8 @@
     "definition": "A polygon features definitions that makeup shapes and their styles.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Polygon Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

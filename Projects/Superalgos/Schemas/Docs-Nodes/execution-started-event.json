@@ -3,8 +3,8 @@
     "definition": "The execution started event is the event that triggers the execution of a process. It usually references the execution finished event of another process on which the process depends on.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Execution Started Event Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

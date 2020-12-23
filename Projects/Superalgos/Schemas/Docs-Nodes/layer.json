@@ -3,8 +3,8 @@
     "definition": "A layer represents a reference to a data product in the data storage node of the network hierarchy. Conceptually, it means that a certain data product, which exists in a certain location on the network, holds the data to be rendered on the charts.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Layer Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

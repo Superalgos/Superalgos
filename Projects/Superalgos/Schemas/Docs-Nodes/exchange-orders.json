@@ -3,8 +3,8 @@
     "definition": "Exchange orders is the section of the data structure that keeps track of orders of all types.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Exchange Orders Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

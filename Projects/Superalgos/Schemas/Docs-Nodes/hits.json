@@ -3,8 +3,8 @@
     "definition": "Hits counts the number of positions that closed with a positive profit loss, in the context of the parent node.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Hits Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

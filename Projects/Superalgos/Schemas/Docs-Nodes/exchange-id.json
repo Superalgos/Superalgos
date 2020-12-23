@@ -3,8 +3,8 @@
     "definition": "Exchange ID is a unique identifier the exchange assigns to the order, so that it may be unequivocally identified.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Exchange Id Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

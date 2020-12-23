@@ -3,8 +3,8 @@
     "definition": "The strategy section of the trading engine keeps track of information relating to the trading strategies that are triggered-on, during the time they remain open.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Strategy Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

@@ -3,8 +3,8 @@
     "definition": "The template structure holds the structure of nodes with all its configurations and properties, exactly as it should be implemented.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Template Structure Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

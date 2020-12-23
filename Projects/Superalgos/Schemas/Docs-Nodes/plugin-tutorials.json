@@ -3,8 +3,8 @@
     "definition": "The plugin tutorials node features the definitions of tutorials to be included as plugins in the current workspace.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Plugin Tutorials Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Important",

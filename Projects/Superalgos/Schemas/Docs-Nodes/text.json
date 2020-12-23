@@ -3,8 +3,8 @@
     "definition": "The text node allows overlaying text on the charts, controlling its position, size, appearance, and when it shall be rendered.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Text Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

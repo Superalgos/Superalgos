@@ -3,8 +3,8 @@
     "definition": "The last object stores instances of position and strategy objects, in particular the instances that were last open at the time of evaluation, hence the adjective last.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Last Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

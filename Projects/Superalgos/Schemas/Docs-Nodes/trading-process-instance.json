@@ -3,8 +3,8 @@
     "definition": "A trading process instance is a reference to the process definition of the trading bot, as defined in the Masters data mine.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Trading Process Instance Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

@@ -3,8 +3,8 @@
     "definition": "A tutorial topic is an organizational device that helps to keep tutorial step nodes arranged in a logical hierarchy by topics and subtopics.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Tutorial Topic Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

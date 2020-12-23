@@ -3,8 +3,8 @@
     "definition": "An indicator bot instance is a reference to an indicator bot as defined in a data mine. The instance of the bot runs the defined processes and generates the defined data products.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Indicator Bot Instance Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

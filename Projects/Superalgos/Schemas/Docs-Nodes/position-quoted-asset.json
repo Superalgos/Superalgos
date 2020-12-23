@@ -3,8 +3,8 @@
     "definition": "The position quoted asset node keeps track of the evolution of variables related to the quoted asset throughout the position.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Position Quoted Asset Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Note",

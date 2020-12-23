@@ -3,8 +3,8 @@
     "definition": "The exchange data tasks node organizes data mining tasks by exchange. That is, each exchange installed in the system has an exchange data tasks node grouping all market data tasks corresponding to the said exchange.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Exchange Data Tasks Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

@@ -3,8 +3,8 @@
     "definition": "Begin balance is the balance at the datetime of the begin property of the parent node or concept.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Begin Balance Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

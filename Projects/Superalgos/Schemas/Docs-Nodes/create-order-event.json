@@ -3,8 +3,8 @@
     "definition": "The create order event controls the placement of orders.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Create Order Event Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

@@ -3,8 +3,8 @@
     "definition": "A polygon condition is a rule that allows establishing when a polygon shall be rendered and when not.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Polygon Condition Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

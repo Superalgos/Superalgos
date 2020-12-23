@@ -3,8 +3,8 @@
     "definition": "The viewport is a window through which you may look into the charting space.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Viewport Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

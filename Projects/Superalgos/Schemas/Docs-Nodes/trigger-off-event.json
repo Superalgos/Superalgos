@@ -3,8 +3,8 @@
     "definition": "The trigger-off event defines the situation in which the corresponding strategy shall be triggered-off. A strategy that is triggered-off releases the capital in reserve and makes it available to other strategies in the trading system.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Trigger Off Event Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

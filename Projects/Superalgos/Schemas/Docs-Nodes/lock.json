@@ -3,8 +3,8 @@
     "definition": "Lock is an internal mechanism that blocks the data structure of the order at the trading engine when the definition of the order at the trading system disallows spawning multiple orders.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Lock Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

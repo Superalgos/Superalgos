@@ -3,8 +3,8 @@
     "definition": "The layer manager determines which layers will be visible on the corresponding timeline chart.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Layer Manager Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

@@ -3,8 +3,8 @@
     "definition": "Begin rate is the close rate of the candle corresponding to the datetime of the begin property.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "How the Begin Rate Works"
+            "style": "Block",
+            "text": "Content"
         },
         {
             "style": "Text",

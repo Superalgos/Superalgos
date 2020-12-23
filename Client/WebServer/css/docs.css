@@ -208,6 +208,17 @@ margin: 20px 0;
 width: 95%;
 }
 
+.docs-alert-error {
+color: #f1e426;
+background-color: #ff3131;
+border-color: #c23d53;
+padding: 15px;
+border: 1px solid transparent;
+border-radius: 4px;
+margin: 20px 0;
+width: 95%;
+}
+
 .docs-callout {
 padding: 20px;
 margin: 20px 0;

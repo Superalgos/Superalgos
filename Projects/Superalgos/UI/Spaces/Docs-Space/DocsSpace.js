@@ -278,6 +278,7 @@ function newSuperalgosDocSpace() {
         schemaDocument = undefined
         menuLabelsMap = undefined
         docsIndex = undefined
+        isInitialized = false
     }
 
     function reset() {

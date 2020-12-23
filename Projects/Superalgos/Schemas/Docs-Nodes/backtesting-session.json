@@ -8,7 +8,7 @@
         },
         {
             "style": "Text",
-            "text": "A backtesting session node must reference a trading system to gain access to the trading logic to be applied during the session. Other considerations framing the session come from the set of parameters attached to it."
+            "text": "A backtesting session node must reference a trading system to gain access to the trading logic to be applied during the session. Other considerations framing the session come from the set of parameters attached to it. Fordward Testing bla bla bla"
         },
         {
             "style": "Title",

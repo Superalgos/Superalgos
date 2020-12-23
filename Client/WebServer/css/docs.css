@@ -666,23 +666,34 @@ color: #31708f;
 }
 
 .docs-hidden-anchor {
-  color: #b90d6c;
-  background-color: #ee6db4;
-  border-color: #830452;
-  padding: 15px;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  margin: 20px 0;
-  width: 95%;
+color: #b90d6c;
+background-color: #ee6db4;
+border-color: #830452;
+padding: 15px;
+border: 1px solid transparent;
+border-radius: 4px;
+margin: 20px 0;
+width: 95%;
+}
+
+.docs-hidden-block {
+color: #320db9;
+background-color: #6d9aee;
+border-color: #043783;
+padding: 15px;
+border: 1px solid transparent;
+border-radius: 4px;
+margin: 20px 0;
+width: 95%;
 }
 
 .docs-hidden-include {
-  color: #880db9;
-  background-color: #ea6dee;
-  border-color: #550483;
-  padding: 15px;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  margin: 20px 0;
-  width: 95%;
+color: #880db9;
+background-color: #ea6dee;
+border-color: #550483;
+padding: 15px;
+border: 1px solid transparent;
+border-radius: 4px;
+margin: 20px 0;
+width: 95%;
 }

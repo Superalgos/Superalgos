@@ -1,5 +1,5 @@
 {
-    "type": "Casa",
+    "type": "Arbol",
     "definition": "Write here the definition of this Concept.",
     "paragraphs": [
         {
@@ -8,59 +8,59 @@
         },
         {
             "style": "Text",
-            "text": "Casa 1"
+            "text": "Arbol 1"
         },
         {
-            "style": "Block",
-            "text": "Block #1"
+            "style": "Text",
+            "text": "Arbol 2"
+        },
+        {
+            "style": "Text",
+            "text": "Arbol 3"
         },
         {
             "style": "Include",
-            "text": "Superalgos->Concept->Vaina->Block #1"
+            "text": "Superalgos->Concept->Casa->Block #1"
         },
         {
             "style": "Text",
-            "text": "Casa 2"
+            "text": "Arbol 4"
         },
         {
             "style": "Text",
-            "text": "Casa 3"
-        },
-        {
-            "style": "Include",
-            "text": "Superalgos->Concept->Vaina->Block #2"
+            "text": "Arbol 5"
         },
         {
             "style": "Text",
-            "text": "Casa 5"
+            "text": "Arbol 6"
         },
         {
             "style": "Text",
-            "text": "Block #1"
+            "text": "Arbol 7"
         },
         {
             "style": "Text",
-            "text": "Casa 6"
+            "text": "Arbol 8"
         },
         {
             "style": "Text",
-            "text": "Casa 7"
+            "text": "Arbol 9"
         },
         {
             "style": "Text",
-            "text": "Casa 8"
+            "text": "Arbol 10"
         },
         {
             "style": "Text",
-            "text": "Casa 9"
+            "text": "Arbol 11"
         },
         {
             "style": "Text",
-            "text": "Casa 10"
+            "text": "Arbol 12"
         },
         {
             "style": "Text",
-            "text": "Casa 11"
+            "text": ""
         }
     ]
 }

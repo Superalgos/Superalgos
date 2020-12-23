@@ -81,6 +81,7 @@ function newSuperalgosDocSpace() {
                 toGif: toGif,
                 toPng: toPng,
                 toAnchor: toAnchor,
+                toBlock: toBlock,
                 toInclude: toInclude
             }
 
@@ -259,6 +260,13 @@ function newSuperalgosDocSpace() {
             function toAnchor() {
                 let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Anchor'
+                contextMenuForceOutClick()
+                renderDocumentPage()
+            }
+
+            function toBlock() {
+                let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
+                docSchemaParagraph.style = 'Block'
                 contextMenuForceOutClick()
                 renderDocumentPage()
             }
@@ -601,6 +609,9 @@ function newSuperalgosDocSpace() {
             selectedParagraphData = paragraphNode.innerText.substring(9, paragraphNode.innerText.length)
         }
         if (paragraphNode.id.indexOf('-anchor') >= 0) {
+            selectedParagraphData = paragraphNode.innerText
+        }
+        if (paragraphNode.id.indexOf('-block') >= 0) {
             selectedParagraphData = paragraphNode.innerText
         }
         if (paragraphNode.id.indexOf('-include') >= 0) {
@@ -1371,6 +1382,10 @@ function newSuperalgosDocSpace() {
                             documentPoints = documentPoints + thisPhraseCount * 0
                             break
                         }
+                        case 'block': {
+                            documentPoints = documentPoints + thisPhraseCount * 0
+                            break
+                        }
                         case 'include': {
                             documentPoints = documentPoints + thisPhraseCount * 0
                             break
@@ -1801,6 +1816,7 @@ function newSuperalgosDocSpace() {
                                     style: "Error",
                                     text: error
                                 }
+                                key = 'error-paragraph-' + paragraphIndex
                                 renderParagraph(paragraph, key)
                                 paragraphIndex++
                             }
@@ -1820,12 +1836,12 @@ function newSuperalgosDocSpace() {
                     let project = splittedIncludeText[0]
                     let category = splittedIncludeText[1]
                     let type = splittedIncludeText[2]
-                    let anchor
+                    let block
                     let definition = false
                     if (splittedIncludeText[3] === 'Definition') {
                         definition = true
                     } else {
-                        anchor = splittedIncludeText[3]
+                        block = splittedIncludeText[3]
                     }
                     let includedSchemaDocument
 
@@ -1857,19 +1873,19 @@ function newSuperalgosDocSpace() {
                     if (definition === true) {
 
                     } else {
-                        let anchorFound = false
+                        let blockFound = false
                         for (let i = 0; i < includedSchemaDocument.paragraphs.length; i++) {
 
                             let key = 'included-paragraph-' + paragraphIndex
                             let paragraph = includedSchemaDocument.paragraphs[i]
 
-                            if (anchorFound === false) {
-                                if (paragraph.style === "Anchor" && paragraph.text === anchor) {
-                                    anchorFound = true
+                            if (blockFound === false) {
+                                if (paragraph.style === "Block" && paragraph.text === block) {
+                                    blockFound = true
                                 }
                             } else {
-                                if (paragraph.style === "Anchor") {
-                                    return
+                                if (paragraph.style === "Block") {
+                                    return // Expected return without errors
                                 }
                                 if (paragraph.style === "Include") {
                                     renderParagraph(paragraph, key)
@@ -1880,6 +1896,7 @@ function newSuperalgosDocSpace() {
                                             style: "Error",
                                             text: error
                                         }
+                                        key = 'error-paragraph-' + paragraphIndex
                                         renderParagraph(paragraph, key)
                                         paragraphIndex++
                                     }
@@ -1888,6 +1905,9 @@ function newSuperalgosDocSpace() {
                                     paragraphIndex++
                                 }                                
                             }
+                        }
+                        if (blockFound ===  false) {
+                            return 'Block ' + block + ' not found.'
                         }
                     }
                 }
@@ -2725,6 +2745,14 @@ function newSuperalgosDocSpace() {
                         prefix = ''
                         role = ''
                         key = key + '-anchor'
+                        innerHTML = paragraph.text
+                        break
+                    }
+                    case 'Block': {
+                        styleClass = 'class="docs-hidden-block"'
+                        prefix = ''
+                        role = ''
+                        key = key + '-block'
                         innerHTML = paragraph.text
                         break
                     }

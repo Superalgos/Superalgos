@@ -1,0 +1,58 @@
+{
+    "type": "Include Test",
+    "definition": "Write here the definition of this Concept.",
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Task->Definition"
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Task->Content"
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Data Mine->Definition"
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Data Mine->Content"
+        },
+        {
+            "style": "Text",
+            "text": "Test 2"
+        },
+        {
+            "style": "Text",
+            "text": "Test 3"
+        },
+        {
+            "style": "Text",
+            "text": "Test 4"
+        },
+        {
+            "style": "Text",
+            "text": "Test 5"
+        },
+        {
+            "style": "Text",
+            "text": "Test 6"
+        },
+        {
+            "style": "Text",
+            "text": "Test 7"
+        },
+        {
+            "style": "Text",
+            "text": "Test 8"
+        },
+        {
+            "style": "Text",
+            "text": "Test 9"
+        },
+        {
+            "style": "Text",
+            "text": "Test 10"
+        }
+    ]
+}

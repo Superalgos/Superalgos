@@ -1703,7 +1703,7 @@ function newSuperalgosDocSpace() {
 
             HTML = HTML + '<div id="docs-main-title-div"><table class="docs-title-table"><tr><td width="50px"><div id="projectImageDiv" class="docs-image-container"/></td><td><h2 class="docs-h2" id="' + objectBeingRendered.type.toLowerCase().replace(' ', '-') + '" > ' + titleLabel + '</h2></td></tr></table></div>'
 
-            addDefinitionTable(schemaDocument, 'definition-editable-')
+            addDefinitionTable(schemaDocument, 'definition-editable-', objectBeingRendered.category, objectBeingRendered.project, objectBeingRendered.type)
 
             let paragraphIndex = 0
 
@@ -1729,20 +1729,20 @@ function newSuperalgosDocSpace() {
             */
             addImages()
 
-            function addDefinitionTable(schemaDocument, idPrefix) {
+            function addDefinitionTable(schemaDocument, idPrefix, category, project, type) {
                 if (schemaDocument.definition !== undefined) {
-                    if (objectBeingRendered.category === 'Topic' || objectBeingRendered.category === 'Concept') {
+                    if (category === 'Topic' || category === 'Concept') {
                         HTML = HTML + '<div id="definition-summary-editable-paragraph" class="docs-summary"><b>Summary:</b> ' + addToolTips(schemaDocument.definition) + '</div>'
                     } else {
                         HTML = HTML + '<table class="docs-definition-table">'
                         HTML = HTML + '<tr>'
-                        if (objectBeingRendered.category === 'Node') {
+                        if (category === 'Node') {
 
                             let imageItem = {
                                 div: 'definitionImageDiv-' + definitionImagesArray.length,
-                                project: objectBeingRendered.project,
-                                category: objectBeingRendered.category,
-                                type: objectBeingRendered.type
+                                project: project,
+                                category: category,
+                                type: type
                             }
                             definitionImagesArray.push(imageItem)
 
@@ -1884,7 +1884,7 @@ function newSuperalgosDocSpace() {
                     }
 
                     if (definition === true) {
-
+                        addDefinitionTable(includedSchemaDocument, 'definition-included-', category, project, type)
                     } else {
                         let blockFound = false
                         for (let i = 0; i < includedSchemaDocument.paragraphs.length; i++) {
@@ -1920,7 +1920,7 @@ function newSuperalgosDocSpace() {
                             }
                         }
                         if (blockFound === false) {
-                            return 'Block ' + block + ' not found.'
+                            return 'Block <i>' + block + '</i> not found.'
                         }
                     }
                 }

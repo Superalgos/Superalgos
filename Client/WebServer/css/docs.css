@@ -653,3 +653,14 @@ margin-left: -240px;
 font-size: 90%;
 color: #31708f;
 }
+
+.docs-hidden-anchor {
+  color: #b90d6c;
+  background-color: #ee6db4;
+  border-color: #830452;
+  padding: 15px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  margin: 20px 0;
+  width: 95%;
+}

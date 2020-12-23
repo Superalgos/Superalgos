@@ -78,7 +78,8 @@ function newSuperalgosDocSpace() {
                 toList: toList,
                 toTable: toTable,
                 toGif: toGif,
-                toPng: toPng
+                toPng: toPng,
+                toAnchor: toAnchor
             }
 
             function editParagraph() {
@@ -239,6 +240,13 @@ function newSuperalgosDocSpace() {
             function toPng() {
                 let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Png'
+                contextMenuForceOutClick()
+                renderDocumentPage()
+            }
+
+            function toAnchor() {
+                let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
+                docSchemaParagraph.style = 'Anchor'
                 contextMenuForceOutClick()
                 renderDocumentPage()
             }
@@ -569,6 +577,9 @@ function newSuperalgosDocSpace() {
         }
         if (paragraphNode.id.indexOf('-summary') >= 0) {
             selectedParagraphData = paragraphNode.innerText.substring(9, paragraphNode.innerText.length)
+        }
+        if (paragraphNode.id.indexOf('-anchor') >= 0) {
+            selectedParagraphData = paragraphNode.innerText
         }
 
         selectedParagraph = paragraphNode
@@ -1324,6 +1335,10 @@ function newSuperalgosDocSpace() {
                             break
                         }
                         case 'png': {
+                            documentPoints = documentPoints + thisPhraseCount * 1
+                            break
+                        }
+                        case 'anchor': {
                             documentPoints = documentPoints + thisPhraseCount * 1
                             break
                         }
@@ -2572,6 +2587,14 @@ function newSuperalgosDocSpace() {
                         innerHTML = paragraph.text
                         break
                     }
+                    case 'Anchor': {
+                        styleClass = 'class="docs-hidden-anchor"'
+                        prefix = ''
+                        role = ''
+                        key = key + '-anchor'
+                        innerHTML = paragraph.text
+                        break
+                    }
                 }
 
                 HTML = HTML + '<p><div id="' + key + '" ' + styleClass + ' ' + role + '>' + prefix + ' ' + innerHTML + sufix + '</div></p>'
@@ -3105,7 +3128,7 @@ function newSuperalgosDocSpace() {
             if (UI.projects.superalgos.spaces.designSpace.workspace === undefined) { return }
             if (UI.projects.superalgos.spaces.designSpace.workspace.isInitialized === false) { return }
 
-            if (docsIndex.length === 0) {
+            if (docsIndex && docsIndex.length === 0) {
                 setUpWorkspaceSchemas()
                 setUpSearchEngine()
             }

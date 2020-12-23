@@ -79,7 +79,8 @@ function newSuperalgosDocSpace() {
                 toTable: toTable,
                 toGif: toGif,
                 toPng: toPng,
-                toAnchor: toAnchor
+                toAnchor: toAnchor,
+                toInclude: toInclude
             }
 
             function editParagraph() {
@@ -247,6 +248,13 @@ function newSuperalgosDocSpace() {
             function toAnchor() {
                 let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Anchor'
+                contextMenuForceOutClick()
+                renderDocumentPage()
+            }
+
+            function toInclude() {
+                let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
+                docSchemaParagraph.style = 'Include'
                 contextMenuForceOutClick()
                 renderDocumentPage()
             }
@@ -579,6 +587,9 @@ function newSuperalgosDocSpace() {
             selectedParagraphData = paragraphNode.innerText.substring(9, paragraphNode.innerText.length)
         }
         if (paragraphNode.id.indexOf('-anchor') >= 0) {
+            selectedParagraphData = paragraphNode.innerText
+        }
+        if (paragraphNode.id.indexOf('-include') >= 0) {
             selectedParagraphData = paragraphNode.innerText
         }
 
@@ -1339,7 +1350,11 @@ function newSuperalgosDocSpace() {
                             break
                         }
                         case 'anchor': {
-                            documentPoints = documentPoints + thisPhraseCount * 1
+                            documentPoints = documentPoints + thisPhraseCount * 0
+                            break
+                        }
+                        case 'include': {
+                            documentPoints = documentPoints + thisPhraseCount * 0
                             break
                         }
                     }
@@ -2592,6 +2607,14 @@ function newSuperalgosDocSpace() {
                         prefix = ''
                         role = ''
                         key = key + '-anchor'
+                        innerHTML = paragraph.text
+                        break
+                    }
+                    case 'Include': {
+                        styleClass = 'class="docs-hidden-include"'
+                        prefix = ''
+                        role = ''
+                        key = key + '-include'
                         innerHTML = paragraph.text
                         break
                     }

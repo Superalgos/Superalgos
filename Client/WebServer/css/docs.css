@@ -664,3 +664,14 @@ color: #31708f;
   margin: 20px 0;
   width: 95%;
 }
+
+.docs-hidden-include {
+  color: #880db9;
+  background-color: #ea6dee;
+  border-color: #550483;
+  padding: 15px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  margin: 20px 0;
+  width: 95%;
+}

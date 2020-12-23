@@ -842,9 +842,10 @@ function newSuperalgosDocSpace() {
         HTML = HTML + '<center><img src="Images/superalgos-logo.png" class="docs-image-logo-search" width=400></center>'
         HTML = HTML + '<center><div class="docs-font-normal docs-search-box"><input class="docs-search-input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></input></div></center>'
         HTML = HTML + '</div>'
-        let docsSpaceDiv = document.getElementById('docs-space-div')
-        docsSpaceDiv.innerHTML = HTML + addFooter()
+        let docsContentDiv = document.getElementById('docs-content-div')
+        docsContentDiv.innerHTML = HTML + addFooter()
         detectEnterOnSearchBox()
+        setFocusOnSearchBox()
     }
 
     function detectCommands() {
@@ -1268,10 +1269,11 @@ function newSuperalgosDocSpace() {
             // End Section
             HTML = HTML + '</section>'
 
-            let docsSpaceDiv = document.getElementById('docs-space-div')
-            docsSpaceDiv.innerHTML = HTML + addFooter()
+            let docsContentDiv = document.getElementById('docs-content-div')
+            docsContentDiv.innerHTML = HTML + addFooter()
 
             detectEnterOnSearchBox()
+            setFocusOnSearchBox()
         }
     }
 
@@ -1517,10 +1519,11 @@ function newSuperalgosDocSpace() {
                 HTML = HTML.replace(tab.toUpperCase() + '_TOTAL_RESULTS', resultCounter)
             }
 
-            let docsSpaceDiv = document.getElementById('docs-space-div')
-            docsSpaceDiv.innerHTML = HTML + addFooter()
+            let docsContentDiv = document.getElementById('docs-content-div')
+            docsContentDiv.innerHTML = HTML + addFooter()
 
             detectEnterOnSearchBox()
+            setFocusOnSearchBox()
         }
     }
 
@@ -1529,13 +1532,17 @@ function newSuperalgosDocSpace() {
         if (command !== undefined) {
             element.value = command
         }
-        element.focus()
         element.addEventListener("keyup", function (event) {
             if (event.key === "Enter" || event.keyCode === 13) {
                 command = element.value
                 detectCommands()
             }
         });
+    }
+
+    function setFocusOnSearchBox() {
+        const element = document.getElementsByClassName("docs-search-input")[0]
+        element.focus()
     }
 
     function scrollToElement(htmlElementId) {
@@ -1717,8 +1724,8 @@ function newSuperalgosDocSpace() {
             /*
             Here we inject the HTML we built into the DOM at the Docs Space Div.
             */
-            let docsSpaceDiv = document.getElementById('docs-space-div')
-            docsSpaceDiv.innerHTML = HTML + addFooter()
+            let docsContentDiv = document.getElementById('docs-content-div')
+            docsContentDiv.innerHTML = HTML + addFooter()
 
             hightlightEmbeddedCode()
             detectEnterOnSearchBox()
@@ -2788,7 +2795,7 @@ function newSuperalgosDocSpace() {
             }
 
             function hightlightEmbeddedCode() {
-                _self.Prism.highlightAllUnder(docsSpaceDiv, true, onHighlighted)
+                _self.Prism.highlightAllUnder(docsContentDiv, true, onHighlighted)
                 function onHighlighted() {
                     // nothing to do here
                 }

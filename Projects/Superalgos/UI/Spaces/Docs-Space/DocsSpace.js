@@ -3018,26 +3018,8 @@ function newSuperalgosDocSpace() {
                     }
                 }
                 /*
-                Now we will scan the Matrix to put the lines of the hirierchy.
+                Fill the empty spaces
                 */
-
-                /*
-                                for (let i = 0; i < contentMatrix.length; i++) {
-                                    let matrixRow = contentMatrix[i]
-                                    let previousRow = contentMatrix[i - 1]
-                                    for (let j = 0; j < matrixRow.length; j++) {
-                                        let matrixValue = matrixRow[j]
-                                        let valueUp = previousRow[j]
-                                        let valueLeft = matrixRow[j - 1]
-                                        let valueRight = matrixRow[j + 1]
-                                        if (contentMatrix !== '') {
-                                            break
-                                        }
-                
-                                    }
-                                }
-                */
-
                 for (let i = 0; i < contentMatrix.length; i++) {
                     let matrixRow = contentMatrix[i]
                     for (let j = 0; j < matrixRow.length; j++) {
@@ -3046,9 +3028,24 @@ function newSuperalgosDocSpace() {
                         }
                     }
                 }
-
+                /*
+                Now we will scan the Matrix to put the lines of the hirierchy.
+                */
+                for (let i = 0; i < contentMatrix.length; i++) {
+                    let matrixRow = contentMatrix[i]
+                    let previousRow = contentMatrix[i - 1]
+                    for (let j = 0; j < matrixRow.length; j++) {
+                        if (previousRow && matrixRow[j] === SPACE) {
+                            if (previousRow[j] === FORK || previousRow[j]=== LINE) {
+                                matrixRow[j] = LINE
+                            } 
+                        }                    
+                    }
+                }
+                /*
+                Add HTML
+                */
                 let HTML = ''
-
                 HTML = HTML + '<table class="hierarchyTable">'
                 for (let i = 0; i < contentMatrix.length; i++) {
                     let matrixRow = contentMatrix[i]

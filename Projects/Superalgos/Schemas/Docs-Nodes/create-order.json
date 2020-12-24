@@ -1,14 +1,5 @@
 {
     "type": "Create Order",
     "definition": "Counts the periods since the last time an order was created.",
-    "paragraphs": [
-        {
-            "style": "Title",
-            "text": "Adding a Create Order"
-        },
-        {
-            "style": "Text",
-            "text": "To add the create order node, select Add Missing Items on the parent node menu."
-        }
-    ]
+    "paragraphs": []
 }

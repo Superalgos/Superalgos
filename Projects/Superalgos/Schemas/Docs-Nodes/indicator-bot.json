@@ -15,12 +15,8 @@
             "text": "Most of the behavior expected from an indicator bot is defined by the structure of nodes in the hierarchy and the references among the nodes within these definitions. As such, you do not need to code any of the functions that make up the infrastructure functionality. Dependencies, outputs, data structures, execution sequences, and several other problems are handled by the definitions embodied in the structure of nodes that make up an indicator, and are configured in the visual environment of the design space. Coding is limited to the actual calculation and data building procedures."
         },
         {
-            "style": "Title",
-            "text": "Adding a Indicator Bot"
-        },
-        {
-            "style": "Text",
-            "text": "To add an indicator bot, select Add Indicator Bot on the data mine node menu. An indicator bot is created along with the basic structure of nodes required to define it."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

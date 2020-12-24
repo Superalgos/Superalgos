@@ -9,14 +9,6 @@
         {
             "style": "Text",
             "text": "In the context of a candle, it is the datetime of the open of the candle as provided by the exchange."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Begin"
-        },
-        {
-            "style": "Text",
-            "text": "To add the begin node, select Add Missing Items on the parent node menu."
         }
     ]
 }

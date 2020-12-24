@@ -221,14 +221,6 @@
         {
             "style": "Text",
             "text": "        ) - 1"
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Annualized Rate Of Return"
-        },
-        {
-            "style": "Text",
-            "text": "To add the annualized rate of return node, select Add Missing Items on the parent node menu."
         }
     ]
 }

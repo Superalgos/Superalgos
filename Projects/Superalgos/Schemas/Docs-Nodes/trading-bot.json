@@ -23,12 +23,8 @@
             "text": "Trading mines make building trading bots a more accessible feat, providing a framework to produce compartmentalized definitions for the bots' processes and products, just like data mines do for sensors and indicators."
         },
         {
-            "style": "Title",
-            "text": "Adding a Trading Bot"
-        },
-        {
-            "style": "Text",
-            "text": "To add the trading bot node, select Add Trading Bot on the parent node menu."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

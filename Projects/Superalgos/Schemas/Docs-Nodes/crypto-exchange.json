@@ -3,12 +3,8 @@
     "definition": "A crypto exchange node holds the definitions of assets and markets in a specific exchange.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "Adding a Crypto Exchange"
-        },
-        {
-            "style": "Text",
-            "text": "To add a crypto exchange, select Add Crypto Exchange on the crypto exchanges node menu. The crypto exchange node is created along with the rest of the basic structure of nodes required to define assets, markets and user accounts."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

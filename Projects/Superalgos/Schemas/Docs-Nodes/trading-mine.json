@@ -19,12 +19,8 @@
             "text": "Trading mines work similarly to data mines in the sense that they provide the same kind of tools to structure the definitions of bots, including process definitions, product definitions, and plotters."
         },
         {
-            "style": "Title",
-            "text": "Adding a Trading Mine"
-        },
-        {
-            "style": "Text",
-            "text": "To add the trading mine node, select Add Trading Mine on the other hierarchies node menu in the Superalgos Project hierarchy."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

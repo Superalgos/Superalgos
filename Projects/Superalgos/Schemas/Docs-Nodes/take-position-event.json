@@ -17,14 +17,6 @@
         {
             "style": "Text",
             "text": "Once the take position event is triggered, the decision to take a position has been made and there is nothing else to consider in that regard. Therefore, the runtime evaluation of the trading system shifts from the trigger stage to the open stage."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Take Position Event"
-        },
-        {
-            "style": "Text",
-            "text": "To add a take position event node, select Add Missing Events on the trigger stage node menu. All events that may be missing are created along with the rest of the basic structure of nodes required to define each of them."
         }
     ]
 }

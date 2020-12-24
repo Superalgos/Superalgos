@@ -17,14 +17,6 @@
         {
             "style": "Text",
             "text": "Exchanges deduct fees from the asset you are receiving. For instance, if you are selling BTC in the BTC-USDT market, then you are receiving USDT, and the exchange will deduct the fees directly from the amount of USDT you are receiving."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Fees Paid"
-        },
-        {
-            "style": "Text",
-            "text": "To add the fees paid node, select Add Missing Items on the parent node menu."
         }
     ]
 }

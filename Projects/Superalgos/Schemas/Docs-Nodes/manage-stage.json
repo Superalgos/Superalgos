@@ -65,18 +65,6 @@
         {
             "style": "Text",
             "text": "That said, the default behavior of the system may be hacked to avoid the eventual risk of excessive slippage: set your stop loss and take profit targets tighter than intended."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Manage Stage"
-        },
-        {
-            "style": "Text",
-            "text": "To add a manage stage node, select Add Missing Stages on the strategy node menu. All stages that may be missing are created along with the rest of the basic structure of nodes required to define each of them and their events."
-        },
-        {
-            "style": "Note",
-            "text": "Only one manage stage may exist in each strategy."
         }
     ]
 }

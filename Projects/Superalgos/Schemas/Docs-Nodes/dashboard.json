@@ -13,14 +13,6 @@
         {
             "style": "Text",
             "text": "At the moment, the functionality of a dashboard is trivial: grouping time machines. However, in the future, it will offer various features to enhance the user experience."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Dashboard"
-        },
-        {
-            "style": "Text",
-            "text": "To add a dashboard, select Add Dashboard on the Charting Space node menu."
         }
     ]
 }

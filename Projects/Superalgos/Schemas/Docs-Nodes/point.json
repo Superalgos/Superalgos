@@ -13,14 +13,6 @@
         {
             "style": "Text",
             "text": "{% include tip.html content=\"Each point should be given a significant name so that it is easier to identify them at the time of establishing references with polygon vertices.\" %}"
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Point"
-        },
-        {
-            "style": "Text",
-            "text": "To add a point, select Add Point on the chart points node menu."
         }
     ]
 }

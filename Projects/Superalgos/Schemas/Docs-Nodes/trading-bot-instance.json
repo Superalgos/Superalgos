@@ -15,12 +15,8 @@
             "text": "The trading bot instance holds no definitions as to what the bot does. Instead, its process instance references the process definition in the Masters data mine. That is how the indicator bot instance obtains the information of what it needs to do once it is run."
         },
         {
-            "style": "Title",
-            "text": "Adding a Trading Bot Instance"
-        },
-        {
-            "style": "Text",
-            "text": "To add a trading bot instance, select Add Trading Bot Instance on the task node menu. When a trading bot instance is added, it is created with one trading process instance, and a market reference."
+            "style": "Block",
+            "text": "Running"
         },
         {
             "style": "Title",

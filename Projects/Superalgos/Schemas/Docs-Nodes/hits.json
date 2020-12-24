@@ -17,14 +17,6 @@
         {
             "style": "Note",
             "text": "The consolidated calculations are explained thoroughly in the profit loss node."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Hits"
-        },
-        {
-            "style": "Text",
-            "text": "To add the hits node, select Add Missing Items on the parent node menu."
         }
     ]
 }

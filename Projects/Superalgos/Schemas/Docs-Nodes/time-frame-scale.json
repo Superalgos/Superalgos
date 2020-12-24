@@ -11,12 +11,8 @@
             "text": "When the time frame scale is set at the level of the time machine, the scale setting affects all charts within the time machine. When set at the level of the timeline chart, the setting overrides the time frame scale at the time machine level. This allows comparing charts in different time frames, but still synchronized at the datetime level."
         },
         {
-            "style": "Title",
-            "text": "Adding a Time Frame Scale"
-        },
-        {
-            "style": "Text",
-            "text": "To add a time frame scale, select Add Time Frame Scale on the time machine or the timeline chart node menu."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",
@@ -49,6 +45,10 @@
         {
             "style": "Note",
             "text": "  The values entered via the design space and the charts are synchronized and stored in the node."
+        },
+        {
+            "style": "Block",
+            "text": "Charts"
         },
         {
             "style": "Title",

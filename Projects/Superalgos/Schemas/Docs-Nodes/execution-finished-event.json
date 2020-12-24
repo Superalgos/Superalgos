@@ -17,14 +17,6 @@
         {
             "style": "Text",
             "text": "The image above shows a reference established from the execution started event of a process to the execution finished event of another process."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Execution Finished Event"
-        },
-        {
-            "style": "Text",
-            "text": "To add an execution finished event, select Add Missing Items on the process definition node menu. Items that may be missing are created along with the basic structure of nodes required to define them."
         }
     ]
 }

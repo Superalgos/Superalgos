@@ -15,12 +15,8 @@
             "text": "A crypto-project integration means that Superalgos users will able to connect to blockchain nodes from within Superalgos, exposing the blockchain data to the rest of the Superalgos infrastructure. Users will be able to mine the node's data, build indicators, use them from within trading systems, and visualize blockchain information on the charts&mdash;among other things."
         },
         {
-            "style": "Title",
-            "text": "Adding a Superalgos Project"
-        },
-        {
-            "style": "Text",
-            "text": "To add the superalgos project node, select Add Missing Projects on the workspace node menu."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

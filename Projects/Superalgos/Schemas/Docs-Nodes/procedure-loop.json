@@ -9,14 +9,6 @@
         {
             "style": "Note",
             "text": "Please refer to the coding references page to learn how to code the indicator's logic."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Procedure Loop"
-        },
-        {
-            "style": "Text",
-            "text": "To add a procedure loop, select Add Procedure loop on the corresponding procedure node menu. A procedure loop node is created along with the corresponding JavaScript node."
         }
     ]
 }

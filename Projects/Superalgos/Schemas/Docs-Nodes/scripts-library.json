@@ -9,14 +9,6 @@
         {
             "style": "Text",
             "text": "The script library node plays an organizational role, grouping masters scripts according to the criteria of the developer."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Scripts Library"
-        },
-        {
-            "style": "Text",
-            "text": "To add a scripts library, select Add Scripts Library on the super scripts node menu."
         }
     ]
 }

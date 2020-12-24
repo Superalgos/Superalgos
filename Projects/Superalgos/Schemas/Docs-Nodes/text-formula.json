@@ -9,14 +9,6 @@
         {
             "style": "Text",
             "text": "The text formula may use any of the variables available to the plotter, and may produce either a numeric or a text string result."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Text Formula"
-        },
-        {
-            "style": "Text",
-            "text": "To add the text formula node, select Add Text Formula on the parent node menu."
         }
     ]
 }

@@ -1,14 +1,5 @@
 {
     "type": "Close",
     "definition": "Close is the rate at the datetime of the end property, as provided by the exchange. That is, the rate at the close of the candle.",
-    "paragraphs": [
-        {
-            "style": "Title",
-            "text": "Adding a Close"
-        },
-        {
-            "style": "Text",
-            "text": "To add the close node, select Add Missing Items on the parent node menu."
-        }
-    ]
+    "paragraphs": []
 }

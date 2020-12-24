@@ -25,14 +25,6 @@
         {
             "style": "List",
             "text": "From within a trading system, your strategies may make decisions factoring in what happened with the last position or strategy. For example, you may want to affect the size of the next position depending on the result of the last one."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Last"
-        },
-        {
-            "style": "Text",
-            "text": "To add the last node, select Add Missing Items on the parent node menu."
         }
     ]
 }

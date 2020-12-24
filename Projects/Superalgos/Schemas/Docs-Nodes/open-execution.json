@@ -25,14 +25,6 @@
         {
             "style": "Text",
             "text": "This model allows the granular control of orders with which you may build algorithms that may interact with other algorithms, and so on."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Open Execution"
-        },
-        {
-            "style": "Text",
-            "text": "To add the open execution node, select Add Missing Items on the parent node menu."
         }
     ]
 }

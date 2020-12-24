@@ -15,12 +15,8 @@
             "text": "See the configuration for further details."
         },
         {
-            "style": "Title",
-            "text": "Adding a Text Position"
-        },
-        {
-            "style": "Text",
-            "text": "To add the text position node, select Add Text Position on the parent node menu."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

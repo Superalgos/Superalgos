@@ -191,12 +191,8 @@
             "text": "The size filled at the level of the stage must be within the target size defined under the initial targets node."
         },
         {
-            "style": "Title",
-            "text": "Adding a Market Buy Order"
-        },
-        {
-            "style": "Text",
-            "text": "To add the market buy order node, select Add Missing Items on the parent node menu."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

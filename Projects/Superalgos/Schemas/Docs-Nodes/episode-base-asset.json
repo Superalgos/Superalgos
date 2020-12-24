@@ -9,14 +9,6 @@
         {
             "style": "Note",
             "text": "Learn more about how accounts for the base asset and the quoted asset are kept in the base asset and quoted asset page on the trading engine section of the documentation."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Episode Base Asset"
-        },
-        {
-            "style": "Text",
-            "text": "To add the episode base asset node, select Add Missing Items on the parent node menu."
         }
     ]
 }

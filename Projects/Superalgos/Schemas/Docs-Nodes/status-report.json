@@ -13,14 +13,6 @@
         {
             "style": "Text",
             "text": "A status report may be consumed by the same bot producing it, or by other bots."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Status Report"
-        },
-        {
-            "style": "Text",
-            "text": "To add a status report, select Add Missing Items on the process definition node menu. Items that may be missing are created along with the basic structure of nodes required to define them."
         }
     ]
 }

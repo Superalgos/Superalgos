@@ -21,14 +21,6 @@
         {
             "style": "Text",
             "text": "In liquid markets, market orders should usually fill immediately. However, limit orders may fill incrementally. Size filled keeps track of how much of the size placed has been filled on every execution."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Size Filled"
-        },
-        {
-            "style": "Text",
-            "text": "To add the size filled node, select Add Missing Items on the parent node menu."
         }
     ]
 }

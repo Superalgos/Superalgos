@@ -11,16 +11,8 @@
             "text": "The use of product data dependency folders is optional, as data dependencies may also exist outside of folders."
         },
         {
-            "style": "Title",
-            "text": "Adding a Data Dependency Folder"
-        },
-        {
-            "style": "Text",
-            "text": "To add the data dependency folder node, select Add Data Dependency Folder on the parent node menu."
-        },
-        {
-            "style": "Text",
-            "text": "The data dependency folder node may be added automatically when using the Add All Data Dependencies option on the data mine data dependencies node menu."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

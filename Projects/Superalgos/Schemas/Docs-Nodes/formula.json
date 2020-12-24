@@ -153,14 +153,6 @@
         {
             "style": "Text",
             "text": "orderRate()"
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Formula"
-        },
-        {
-            "style": "Text",
-            "text": "To add a formula, select Add Formula on the corresponding parent node menu."
         }
     ]
 }

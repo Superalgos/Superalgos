@@ -17,14 +17,6 @@
         {
             "style": "Note",
             "text": "The system provides the same functionality for managing the take profit target as explained for the managed stop loss target, so please make sure you go through that section too. "
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Managed Take Profit"
-        },
-        {
-            "style": "Text",
-            "text": "To add a take profit node, select Add Missing Items on the manage stage node menu. All items that may be missing are created along with the rest of the basic structure of nodes required to define each of them."
         }
     ]
 }

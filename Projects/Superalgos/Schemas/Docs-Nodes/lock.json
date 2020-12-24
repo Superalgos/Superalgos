@@ -17,14 +17,6 @@
         {
             "style": "Text",
             "text": "At the moment of opening an order, the system checks the spawnMultipleOrders parameter at the order's configuration in the trading system. If the value is false, the system checks the value of the lock. If the value is open, then it may create the order; if it is closed then the order may not be created."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Lock"
-        },
-        {
-            "style": "Text",
-            "text": "To add the lock node, select Add Missing Items on the parent node menu."
         }
     ]
 }

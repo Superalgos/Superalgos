@@ -13,14 +13,6 @@
         {
             "style": "Note",
             "text": "Please refer to the definition of hits for the details."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Hit Fail"
-        },
-        {
-            "style": "Text",
-            "text": "To add the hit fail node, select Add Missing Items on the parent node menu."
         }
     ]
 }

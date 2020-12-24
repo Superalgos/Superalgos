@@ -11,12 +11,8 @@
             "text": "{% include tip.html content=\"Please read the definition of market buy order for relevant information about how orders in general&mdash;and market orders in particular&mdash;work. \" %}"
         },
         {
-            "style": "Title",
-            "text": "Adding a Market Sell Order"
-        },
-        {
-            "style": "Text",
-            "text": "To add the market sell order node, select Add Missing Items on the parent node menu."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

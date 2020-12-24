@@ -25,18 +25,6 @@
         {
             "style": "Text",
             "text": "As a corollary to the above, if you wish strategies to operate in different markets, or you wish strategies to be able to take positions simultaneously, then you must set up those strategies in different trading systems."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Trading System"
-        },
-        {
-            "style": "Text",
-            "text": "To add a trading system, select Add Trading System on the other hierarchies node menu in the Superalgos Project hierarchy."
-        },
-        {
-            "style": "Text",
-            "text": "{% include tip.html content=\"You may work with as many trading systems as you wish\" %}"
         }
     ]
 }

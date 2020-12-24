@@ -15,12 +15,8 @@
             "text": "See the configuration for further details."
         },
         {
-            "style": "Title",
-            "text": "Adding a Style"
-        },
-        {
-            "style": "Text",
-            "text": "To add a style, select Add Style on a polygon border or polygon body node menu."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

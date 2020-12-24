@@ -11,12 +11,8 @@
             "text": "In other words, you use the layers manager node to configure which data products you wish to be made available for visualization purposes on the charts, in particular, on a specific timeline chart to which the layers manager node is attached to."
         },
         {
-            "style": "Title",
-            "text": "Adding a Layer Manager"
-        },
-        {
-            "style": "Text",
-            "text": "To add a layers manager, select Add Layers Manager on the preferred timeline chart node menu."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

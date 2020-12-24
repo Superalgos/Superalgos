@@ -1,6 +1,6 @@
 {
     "type": "Dataset Definition",
-    "definition": "A dataset definition contains a configuration file that defines many aspects of the dataset. There are two types of dataset definitions: Multi-Period-Market and Multi-Period-Daily.",
+    "definition": "A data set is a collection of files stored in the designated location, as per the definitions on the referenced data product in the corresponding data mine.",
     "paragraphs": [
         {
             "style": "Block",
@@ -11,12 +11,8 @@
             "text": "A good part of what makes datasets easy to consume by other bots is the fact that they are standardized in terms of their structure. It is that structure that is specified in the dataset definitions."
         },
         {
-            "style": "Title",
-            "text": "Adding a Dataset Definition"
-        },
-        {
-            "style": "Text",
-            "text": "To add a dataset definition, select Add Dataset Definition on the bot's node menu."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

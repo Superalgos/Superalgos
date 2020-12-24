@@ -11,12 +11,8 @@
             "text": "The system renders a panel featuring a centered, single-column vertical arrangement of data, with a label and a data field right below it. The label of each data field on the panel is given&mdash;by default&mdash;by the label set for each panel data node."
         },
         {
-            "style": "Title",
-            "text": "Adding a Panel Data"
-        },
-        {
-            "style": "Text",
-            "text": "To add a panel data node, select Add Panel Data on the plotter panel menu."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

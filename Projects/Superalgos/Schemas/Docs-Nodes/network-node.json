@@ -23,12 +23,8 @@
             "text": "If you need finer control over the operation you wish to deploy on the network, then you may use the individual functions available under each section of the hierarchy under the network node."
         },
         {
-            "style": "Title",
-            "text": "Adding a Network Node"
-        },
-        {
-            "style": "Text",
-            "text": "To add a network node, select Add Network Node on the Superalgos Network node menu. A network node is added along with the basic structure of nodes to set up a node."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

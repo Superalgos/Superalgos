@@ -17,14 +17,6 @@
         {
             "style": "Text",
             "text": "variable.last200 = []"
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Procedure Initialization"
-        },
-        {
-            "style": "Text",
-            "text": "To add a procedure initialization, select Add Procedure Initialization on the corresponding procedure node menu. A procedure initialization node is created along with the corresponding JavaScript node."
         }
     ]
 }

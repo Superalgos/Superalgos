@@ -23,12 +23,8 @@
             "text": "When no time frames filter is defined, the bot processes all time frames by default."
         },
         {
-            "style": "Title",
-            "text": "Adding a Time Frames Filter"
-        },
-        {
-            "style": "Text",
-            "text": "To add the time frames filter node, select Add Time Frames Filter on the parent node menu."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

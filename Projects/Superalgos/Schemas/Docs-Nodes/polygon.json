@@ -13,14 +13,6 @@
         {
             "style": "Note",
             "text": "The order in which polygons are ordered around the parent shapes node determines the order in which they are drawn on the screen. In cases on which polygons intersect, those drawn last are drawn on top of those drawn first."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Polygon"
-        },
-        {
-            "style": "Text",
-            "text": "To add a polygon, select Add Polygon on the shapes node menu."
         }
     ]
 }

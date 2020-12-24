@@ -13,14 +13,6 @@
         {
             "style": "Text",
             "text": "Before placing an order, the system makes sure that the size limit embodied in the target size would not be breached by opening a new order."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Target Size"
-        },
-        {
-            "style": "Text",
-            "text": "To add the target size node, select Add Missing Items on the parent node menu."
         }
     ]
 }

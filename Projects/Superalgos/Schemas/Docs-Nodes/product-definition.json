@@ -15,12 +15,8 @@
             "text": "A product definition usually references a plotter module, which provides a graphic representation of the underlying dataset"
         },
         {
-            "style": "Title",
-            "text": "Adding a Product Definition"
-        },
-        {
-            "style": "Text",
-            "text": "To add a product definition, select Add Product Definition on the bot's node menu. A product definition is created along with the basic structure of nodes required to make up a product."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

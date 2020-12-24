@@ -3,20 +3,8 @@
     "definition": "An asset node is the definition of an asset listed at the corresponding exchange.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "Adding a Asset"
-        },
-        {
-            "style": "Text",
-            "text": "To add an asset, select Add Asset on the exchange assets node menu."
-        },
-        {
-            "style": "Text",
-            "text": "To add assets in bulk, select Add Missing Assets on the exchange assets node menu. Beware that the exchange may handle hundreds of assets. Before using this option you may want to implement a filter using the exchange assets configuration."
-        },
-        {
-            "style": "Text",
-            "text": "{% include /crypto_ecosystem/exchange-assets.md heading=\"\" icon=\"no\" adding=\"\" configuring=\"#####\" starting=\"\" content=\"no\" definition=\"no\" table=\"\" more=\"yes\"%}"
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

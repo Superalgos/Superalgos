@@ -3,12 +3,8 @@
     "definition": "The space settings node features controls over the phisics, proportions, and positioning of icons representing node, and their menus.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "Adding a Space Settings"
-        },
-        {
-            "style": "Text",
-            "text": "To add the space settings node, select Add Space Settings on the parent node menu."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

@@ -13,14 +13,6 @@
         {
             "style": "Text",
             "text": "In the context of an order, it refers to the size placed for the particular order."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Size Placed"
-        },
-        {
-            "style": "Text",
-            "text": "To add the size placed node, select Add Missing Items on the parent node menu."
         }
     ]
 }

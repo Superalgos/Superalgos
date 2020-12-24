@@ -11,16 +11,8 @@
             "text": "To set up a layer, you need to establish a reference with the data product of your choice."
         },
         {
-            "style": "Title",
-            "text": "Adding a Layer"
-        },
-        {
-            "style": "Text",
-            "text": "To add a layer, select Add Layer on the layer manager node menu."
-        },
-        {
-            "style": "Note",
-            "text": "After adding a layer node, make sure you establish a reference to the corresponding data product in the data storage node of the network hierarchy."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",
@@ -53,6 +45,10 @@
         {
             "style": "Text",
             "text": " showPanels may be true or false; true shows the plotter panel that may be associated with the data product as per the plotter module definitions; false* makes panels invisible."
+        },
+        {
+            "style": "Block",
+            "text": "Charts"
         },
         {
             "style": "Title",

@@ -25,30 +25,6 @@
         {
             "style": "Note",
             "text": "An output dataset must reference a dataset definition."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Output Dataset"
-        },
-        {
-            "style": "Text",
-            "text": "Output datasets may be added in bulk, for all defined products, or one by one."
-        },
-        {
-            "style": "Text",
-            "text": "To add a single output dataset node, select Add Output Dataset on the process output menu."
-        },
-        {
-            "style": "Text",
-            "text": "{% include tip.html content=\"Remember that an output dataset must reference a valid dataset definition. Make sure you establish the reference after creating the output dataset.\" %}"
-        },
-        {
-            "style": "Text",
-            "text": "If you have defined multiple products, each with their dataset definitions, and wish to create all corresponding output datasets in bulk, select *Add All Output Datasets\" on the process output menu. The system maps the product definition folder structure with output dataset folders, creates all required output datasets, and establishes the references with the corresponding dataset definitions, with a single click of the button."
-        },
-        {
-            "style": "Note",
-            "text": "Make sure each product has properly defined dataset definitions before creating output datasets in bulk. You may always delete the output datasets and re-create them at will."
         }
     ]
 }

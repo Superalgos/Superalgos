@@ -3,12 +3,8 @@
     "definition": "In the context of a multi-project platform, the plugin project node represents the project to which the defined plugins correspond to.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "Adding a Plugin Project"
-        },
-        {
-            "style": "Text",
-            "text": "To add the plugin project node, select Add Missing Projects on the parent node menu. The system adds a plugin project node for each project defined in the workspace."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

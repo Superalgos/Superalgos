@@ -9,14 +9,6 @@
         {
             "style": "Text",
             "text": "The close execution section of the close stage works similarly to the open execution in the open stage. Please refer to the explanations of the open stage for the details."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Close Execution"
-        },
-        {
-            "style": "Text",
-            "text": "To add a close execution node, select Add Close Execution on the open stage node menu."
         }
     ]
 }

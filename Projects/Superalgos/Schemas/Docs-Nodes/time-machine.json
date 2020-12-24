@@ -13,14 +13,6 @@
         {
             "style": "Text",
             "text": "On the other hand, when you arrange charts on different time machines, they are completely independent of one another."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Time Machine"
-        },
-        {
-            "style": "Text",
-            "text": "To add a time machine, select Add Time Machine on the Dashboard node menu."
         }
     ]
 }

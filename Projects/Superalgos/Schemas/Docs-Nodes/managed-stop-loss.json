@@ -21,14 +21,6 @@
         {
             "style": "Note",
             "text": "The above example of a constant stop loss followed by a trailing stop is merely an example of a typical setup. The formulas you use to determine the rate of the target on each phase may be anything you choose, thus, you may achieve whatever behavior you imagine and can describe mathematically."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Managed Stop Loss"
-        },
-        {
-            "style": "Text",
-            "text": "To add a stop node, select Add Missing Items on the manage stage node menu. All items that may be missing are created along with the rest of the basic structure of nodes required to define each of them."
         }
     ]
 }

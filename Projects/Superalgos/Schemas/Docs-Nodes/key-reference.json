@@ -25,18 +25,6 @@
         {
             "style": "Important",
             "text": "Most exchanges do not allow the same exchange account key to be used with multiple processes querying the exchange API. This means that if you are trading with multiple trading systems or multiple sessions on the same exchange, each session requires different exchange account keys."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Key Reference"
-        },
-        {
-            "style": "Text",
-            "text": "To add a key reference, select Add Key Reference on the task node menu."
-        },
-        {
-            "style": "Note",
-            "text": "Remember to establish a reference with a valid exchange account key after creating the key reference."
         }
     ]
 }

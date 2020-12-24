@@ -13,14 +13,6 @@
         {
             "style": "Text",
             "text": "The system uses the actual rate to update the calculation of balances, which are otherwise calculated with the original rate, by default."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Actual Rate"
-        },
-        {
-            "style": "Text",
-            "text": "To add the actual rate node, select Add Missing Items on the parent node menu."
         }
     ]
 }

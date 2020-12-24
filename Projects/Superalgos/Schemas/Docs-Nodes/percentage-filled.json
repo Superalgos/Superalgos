@@ -13,14 +13,6 @@
         {
             "style": "Text",
             "text": "percentage filled = size filled * 100 / size"
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Percentage Filled"
-        },
-        {
-            "style": "Text",
-            "text": "To add the percentage filled node, select Add Missing Items on the parent node menu."
         }
     ]
 }

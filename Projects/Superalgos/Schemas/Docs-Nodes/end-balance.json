@@ -13,14 +13,6 @@
         {
             "style": "Text",
             "text": "In the context of a position, it is the balance at the datetime the position was closed."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a End Balance"
-        },
-        {
-            "style": "Text",
-            "text": "To add the end balance node, select Add Missing Items on the parent node menu."
         }
     ]
 }

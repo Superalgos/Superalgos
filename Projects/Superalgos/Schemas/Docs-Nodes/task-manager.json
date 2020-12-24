@@ -19,12 +19,8 @@
             "text": "{% include tip.html content=\"The key aspect of a task manager is that it allows starting and stopping all tasks at once.\" %}"
         },
         {
-            "style": "Title",
-            "text": "Adding a Task Manager"
-        },
-        {
-            "style": "Text",
-            "text": "To add a task manager, select Add Task Manager on the parent node menu."
+            "style": "Block",
+            "text": "Running"
         },
         {
             "style": "Title",

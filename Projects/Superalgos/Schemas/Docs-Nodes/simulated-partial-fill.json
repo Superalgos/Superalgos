@@ -19,12 +19,8 @@
             "text": "When the parameter is not present or undefined, the simulation assumes the order is filled as soon as the rate is hit."
         },
         {
-            "style": "Title",
-            "text": "Adding a Simulated Partial Fill"
-        },
-        {
-            "style": "Text",
-            "text": "To add the simulated partial fill node, select Add Missing Items on the parent node menu."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

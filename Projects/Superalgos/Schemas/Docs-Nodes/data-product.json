@@ -17,34 +17,6 @@
         {
             "style": "Important",
             "text": "Data products may only be stored on the same network node on which the task&mdash;data mining or trading&mdash;runs."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Data Product"
-        },
-        {
-            "style": "Text",
-            "text": "To add a single data product, select Add Data Product on the market trading products, market data products, bot products, or data products folder node menus."
-        },
-        {
-            "style": "Note",
-            "text": "Remember to establish a reference with a product definition of the corresponding bot in the corresponding data or trading mine."
-        },
-        {
-            "style": "Text",
-            "text": "In cases in which multiple data products must be added, you may use the option to create data products in bulk."
-        },
-        {
-            "style": "Text",
-            "text": "Select the Add All Data Products option on the data or trading mine products node menu. This adds a bot products node for each bot in the data or trading mine, and a data product for each product definition of each bot."
-        },
-        {
-            "style": "Text",
-            "text": "You may use this option after manually adding a data or trading mine products node and manually establishing the reference with the desired data mine, or after adding all data or trading mine data products, by which the references with data or trading mines are established automatically."
-        },
-        {
-            "style": "Text",
-            "text": "{% include tip.html content=\"If adding data products in bulk results in adding data products that are not required, you may easily delete those.\" %}"
         }
     ]
 }

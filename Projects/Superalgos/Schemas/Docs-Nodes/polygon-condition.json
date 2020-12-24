@@ -11,12 +11,8 @@
             "text": "The node is optional. When the node is not present in the definition of the polygon or when the condition validates true, the polygon is rendered on screen. When the condition validates false the polygon is not rendered. As such, the node allows dynamically switching the rendering of the corresponding polygon on and off."
         },
         {
-            "style": "Title",
-            "text": "Adding a Polygon Condition"
-        },
-        {
-            "style": "Text",
-            "text": "To add a polygon condition, select Add Polygon Condition on a polygon node menu."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

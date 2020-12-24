@@ -19,12 +19,8 @@
             "text": "The two possible values for the cycle node are First and Second."
         },
         {
-            "style": "Title",
-            "text": "Adding a Cycle"
-        },
-        {
-            "style": "Text",
-            "text": "To add the cycle node, select Add Missing Items on the parent node menu."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

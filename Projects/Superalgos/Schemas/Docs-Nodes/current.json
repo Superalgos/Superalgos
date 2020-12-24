@@ -17,14 +17,6 @@
         {
             "style": "Text",
             "text": "In other words, the episode, strategy and position nodes within the current section of the hierarchy feature information relative to the instances of the episode, strategy, and position that are currently passing, at any point in time."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Current"
-        },
-        {
-            "style": "Text",
-            "text": "To add the current node, select Add Missing Items on the trading engine node menu."
         }
     ]
 }

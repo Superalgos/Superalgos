@@ -13,14 +13,6 @@
         {
             "style": "Important",
             "text": "Until a robust JavaScript editor is implemented on the UI, it is recommended to write code on an external editor and paste it in the UI code bubble to ensure consistency."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Javascript Code"
-        },
-        {
-            "style": "Text",
-            "text": "To add a JavaScript code node, select Add Code on the corresponding parent node menu."
         }
     ]
 }

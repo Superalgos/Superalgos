@@ -17,14 +17,6 @@
         {
             "style": "Text",
             "text": "An event may have more than one situation attached to it. In such a case, when any of the situations gets validated, the event gets triggered. That is, events may be triggered in different circumstances, meaning that you are free to define different situations upon which the same event would be triggered. In such a case, when any of the situations evaluate true, then the event is triggered."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Situation"
-        },
-        {
-            "style": "Text",
-            "text": "To add a situation, select Add Situation on the corresponding event node menu. A situation is added along with a condition and JavaScript code node."
         }
     ]
 }

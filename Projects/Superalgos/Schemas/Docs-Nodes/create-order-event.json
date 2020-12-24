@@ -17,14 +17,6 @@
         {
             "style": "Text",
             "text": "If you wish orders to be placed as defined immediately after the take position event has been triggered, the use the statement true your only create order event condition."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Create Order Event"
-        },
-        {
-            "style": "Text",
-            "text": "To add the create order event node, select Add Missing Items on the parent node menu."
         }
     ]
 }

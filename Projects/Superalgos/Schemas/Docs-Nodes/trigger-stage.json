@@ -33,18 +33,6 @@
         {
             "style": "Text",
             "text": "However, the strategy may also be triggered off without taking a position. When a strategy is triggered off, the trading system goes back to monitoring the trigger-on definitions for all strategies, and capital is released to be used by whatever strategy is triggered-on next."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Trigger Stage"
-        },
-        {
-            "style": "Text",
-            "text": "To add a trigger stage node, select Add Missing Stages on the strategy node menu. All stages that may be missing are created along with the rest of the basic structure of nodes required to define each of them and their events."
-        },
-        {
-            "style": "Note",
-            "text": "Only one trigger stage may exist in each strategy."
         }
     ]
 }

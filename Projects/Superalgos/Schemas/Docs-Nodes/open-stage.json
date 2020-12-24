@@ -33,18 +33,6 @@
         {
             "style": "List",
             "text": "the take profit or stop loss targets are hit."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Open Stage"
-        },
-        {
-            "style": "Text",
-            "text": "To add an open stage node, select Add Missing Stages on the strategy node menu. All stages that may be missing are created along with the rest of the basic structure of nodes required to define each of them and their events."
-        },
-        {
-            "style": "Note",
-            "text": "Only one open stage may exist in each strategy."
         }
     ]
 }

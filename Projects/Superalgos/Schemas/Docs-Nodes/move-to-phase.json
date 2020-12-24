@@ -1,14 +1,5 @@
 {
     "type": "Move To Phase",
     "definition": "Counts the periods since the last time a move to phase event was triggered.",
-    "paragraphs": [
-        {
-            "style": "Title",
-            "text": "Adding a Move To Phase"
-        },
-        {
-            "style": "Text",
-            "text": "To add the move to phase node, select Add Missing Items on the parent node menu."
-        }
-    ]
+    "paragraphs": []
 }

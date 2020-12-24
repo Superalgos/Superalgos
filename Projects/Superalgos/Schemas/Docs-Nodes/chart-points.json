@@ -9,14 +9,6 @@
         {
             "style": "Text",
             "text": "The definition of a point consists of the name of the point and the corresponding values for the x and y coordinates. To create such definitions, point and point formulas are used."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Chart Points"
-        },
-        {
-            "style": "Text",
-            "text": "To add a chart points node, select Add Chart Points on the shapes menu."
         }
     ]
 }

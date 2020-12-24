@@ -11,12 +11,8 @@
             "text": "Tutorial topics may be nested within other tutorial topics in unlimited levels, and each level may feature multiple tutorial steps."
         },
         {
-            "style": "Title",
-            "text": "Adding a Tutorial Topic"
-        },
-        {
-            "style": "Text",
-            "text": "To add the tutorial topic node, select Add Tutorial Topic on the parent node menu."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

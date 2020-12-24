@@ -111,12 +111,8 @@
             "text": "In a backtesting session, the collection of candles evaluated is determined by the time frame selected to better simulate what would happen if the live trading session was run in the same time frame."
         },
         {
-            "style": "Title",
-            "text": "Adding a Time Frame"
-        },
-        {
-            "style": "Text",
-            "text": "To add a parameter that may be missing, select Add Missing Params on the parameters node menu."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

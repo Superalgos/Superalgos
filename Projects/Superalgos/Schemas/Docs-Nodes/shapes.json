@@ -33,14 +33,6 @@
         {
             "style": "Text",
             "text": " 4. Defining conditional styles"
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Shapes"
-        },
-        {
-            "style": "Text",
-            "text": "To add a shapes node, select Add Shapes on the plotter module menu."
         }
     ]
 }

@@ -3,12 +3,8 @@
     "definition": "A tutorial step is a type of node within a tutorial that may not have offspring. As such, it is the smallest unit of information in the hierarchy.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "Adding a Tutorial Step"
-        },
-        {
-            "style": "Text",
-            "text": "To add the tutorial step node, select Add Tutorial Step on the parent node menu."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

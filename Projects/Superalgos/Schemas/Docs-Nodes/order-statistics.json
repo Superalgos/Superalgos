@@ -1,14 +1,5 @@
 {
     "type": "Order Statistics",
     "definition": "Order statistics keeps track of several metrics in the context of the order.",
-    "paragraphs": [
-        {
-            "style": "Title",
-            "text": "Adding a Order Statistics"
-        },
-        {
-            "style": "Text",
-            "text": "To add the order statistics node, select Add Missing Items on the parent node menu."
-        }
-    ]
+    "paragraphs": []
 }

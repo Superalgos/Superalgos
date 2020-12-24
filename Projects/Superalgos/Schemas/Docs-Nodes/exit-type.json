@@ -33,14 +33,6 @@
         {
             "style": "List",
             "text": "Closing Stage: the current stage started closing because the Close Stage is opening."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Exit Type"
-        },
-        {
-            "style": "Text",
-            "text": "To add the exit type node, select Add Missing Items on the parent node menu."
         }
     ]
 }

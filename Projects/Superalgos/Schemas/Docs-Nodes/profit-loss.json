@@ -129,14 +129,6 @@
         {
             "style": "Text",
             "text": "    tradingEngine.current.episode.episodeQuotedAsset.profitLoss.value"
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Profit Loss"
-        },
-        {
-            "style": "Text",
-            "text": "To add the profit loss node, select Add Missing Items on the parent node menu."
         }
     ]
 }

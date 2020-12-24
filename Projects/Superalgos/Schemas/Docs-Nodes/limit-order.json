@@ -9,14 +9,6 @@
         {
             "style": "Text",
             "text": "Each limit order defined in the trading system must reference the data structure of a limit order in the trading engine."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Limit Order"
-        },
-        {
-            "style": "Text",
-            "text": "To add the limit order node, select Add Missing Items on the parent node menu."
         }
     ]
 }

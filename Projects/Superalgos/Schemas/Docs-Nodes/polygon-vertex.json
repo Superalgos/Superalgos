@@ -21,18 +21,6 @@
         {
             "style": "Important",
             "text": "Bear in mind that the order in which vertices in a polygon are arranged around the parent polygon node when their rotational symmetry property is selected, is the order in which the plotter computes the points. This means that points need to be in the correct order, for example, when drawing a box. Imagine drawing a box on a piece of paper without lifting the pencil... that is how the plotter does it."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Polygon Vertex"
-        },
-        {
-            "style": "Text",
-            "text": "To add a polygon vertex, select Add Polygon Vertex on the polygon node menu."
-        },
-        {
-            "style": "Text",
-            "text": "{% include tip.html content=\"Remember that a vertex must establish a reference to a point in the charts point to be properly defined\" %}"
         }
     ]
 }

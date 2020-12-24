@@ -9,14 +9,6 @@
         {
             "style": "Text",
             "text": "The node is optional. When the node is not present in the definition of the text node or when the condition validates true, the text is rendered on screen. When the condition validates false, text is not rendered. As such, the node allows dynamically switching the rendering of the corresponding text on and off ."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Text Condition"
-        },
-        {
-            "style": "Text",
-            "text": "To add the text condition node, select Add Text Condition on the parent node menu."
         }
     ]
 }

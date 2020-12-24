@@ -35,12 +35,8 @@
             "text": "{% include tip.html content=\"Please read the definition of market buy order for relevant information about how orders in general work, in particular, the section about Order Size, Filling of Orders, Closing of Orders, and Spawning Multiple Orders. \" %}"
         },
         {
-            "style": "Title",
-            "text": "Adding a Limit Buy Order"
-        },
-        {
-            "style": "Text",
-            "text": "To add the limit buy order node, select Add Missing Items on the parent node menu."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

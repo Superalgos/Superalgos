@@ -17,18 +17,6 @@
         {
             "style": "Text",
             "text": "Whenever you create data mining tasks manually from within the Network hierarchy (as opposed to using the install market function under the exchange markets node of the Crypto Ecosystem hierarchy"
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Data Mines Data"
-        },
-        {
-            "style": "Text",
-            "text": "To add a session-independent data node, select Add Session-independent Data on the network node menu."
-        },
-        {
-            "style": "Note",
-            "text": "Only one session-independent data node may exist on each data storage node."
         }
     ]
 }

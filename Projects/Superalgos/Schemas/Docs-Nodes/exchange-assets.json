@@ -3,16 +3,8 @@
     "definition": "The exchange assets node groups the definitions of assets.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "Adding a Exchange Assets"
-        },
-        {
-            "style": "Text",
-            "text": "To add an exchange assets node, select Add Exchange Assets on the crypto exchanges node menu. The exchange assets node is created along with a first asset."
-        },
-        {
-            "style": "Note",
-            "text": "Only one exchange assets node may exist on each exchange."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

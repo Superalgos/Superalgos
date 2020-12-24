@@ -15,12 +15,8 @@
             "text": "The sensor bot instance holds no definitions as to what the bot does. Instead, its process instance references a process definition in the corresponding data mine. That is how the sensor bot instance obtains the information regarding what it needs to do once it is run."
         },
         {
-            "style": "Title",
-            "text": "Adding a Sensor Bot Instance"
-        },
-        {
-            "style": "Text",
-            "text": "To add a sensor bot instance, select Add Sensor Bot Instance on the task node menu."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",
@@ -57,6 +53,10 @@
         {
             "style": "Text",
             "text": "  * Notice that the above starts a chain reaction among all indicator bots that have a data dependency with the sensor bot's output dataset. Also, if the actual date ends up changing, all indicators that determine the starting date of the market by looking at the date discovered by the sensor bot have to discard their existing data products and start over from the new date."
+        },
+        {
+            "style": "Block",
+            "text": "Running"
         },
         {
             "style": "Title",

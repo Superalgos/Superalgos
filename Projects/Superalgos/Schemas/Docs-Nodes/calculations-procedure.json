@@ -21,14 +21,6 @@
         {
             "style": "Note",
             "text": "To fully understand the role of the calculations procedure, please refer to the data mining workflow page."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Calculations Procedure"
-        },
-        {
-            "style": "Text",
-            "text": "To add a calculations procedure, select Add Missing Items on the product definition node menu. Items that may be missing are created along with the basic structure of nodes required to define them."
         }
     ]
 }

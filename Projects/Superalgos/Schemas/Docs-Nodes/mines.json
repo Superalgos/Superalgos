@@ -3,12 +3,8 @@
     "definition": "Mines refers to the different types of mines for which definitions exist in the form of hierarchies. At this stage, the node may spawn Data Mine, Trading Mine, and Learning Mine hierarchies.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "Adding a Mines"
-        },
-        {
-            "style": "Text",
-            "text": "To add the mines node, select Add Mines on the parent node menu."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

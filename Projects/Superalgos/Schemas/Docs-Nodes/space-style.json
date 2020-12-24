@@ -3,12 +3,8 @@
     "definition": "The space style node features controls over the look and feel of the space, in particular, of background colors and font sizes.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "Adding a Space Style"
-        },
-        {
-            "style": "Text",
-            "text": "To add the space style node, select Add Space Style on the parent node menu."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

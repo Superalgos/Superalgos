@@ -31,16 +31,8 @@
             "text": "The image above shows a case of a self-reference status dependency as well as a market ending point status dependency."
         },
         {
-            "style": "Title",
-            "text": "Adding a Status Dependency"
-        },
-        {
-            "style": "Text",
-            "text": "To add a status dependency, select Add Status Dependency on the process dependencies node menu."
-        },
-        {
-            "style": "Text",
-            "text": "{% include tip.html content=\"Remember that a status dependency must be configured, and must establish a reference to the appropriate status report.\" %}"
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

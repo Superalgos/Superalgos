@@ -9,18 +9,6 @@
         {
             "style": "Text",
             "text": "A market quoted asset must reference an asset defined under the exchange assets node."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Market Quoted Asset"
-        },
-        {
-            "style": "Text",
-            "text": "To add a market quoted asset, select Add Market Quoted Asset on the market node menu."
-        },
-        {
-            "style": "Note",
-            "text": "Remember to establish a reference with an asset defined under the exchange assets node."
         }
     ]
 }

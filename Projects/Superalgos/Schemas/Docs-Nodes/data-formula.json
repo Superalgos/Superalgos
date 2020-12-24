@@ -1,14 +1,5 @@
 {
     "type": "Data Formula",
     "definition": "A data formula is a device used to assign a value to the panel data, usually in the form of the name of the corresponding record property.",
-    "paragraphs": [
-        {
-            "style": "Title",
-            "text": "Adding a Data Formula"
-        },
-        {
-            "style": "Text",
-            "text": "To add a data formula, select Add Data Formula on the plotter panel menu."
-        }
-    ]
+    "paragraphs": []
 }

@@ -23,12 +23,8 @@
             "text": "See the configuration for further details."
         },
         {
-            "style": "Title",
-            "text": "Adding a Image"
-        },
-        {
-            "style": "Text",
-            "text": "To add the image node, select Add Image on the parent node menu. "
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

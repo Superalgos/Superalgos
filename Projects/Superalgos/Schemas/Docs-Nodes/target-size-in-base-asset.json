@@ -69,14 +69,6 @@
         {
             "style": "Text",
             "text": "Of course, you may need to adjust the above to use stageBaseAsset or stageQuotedAsset, as required. In short, the formula returns the amount of the asset obtained by the transactions triggered during the open stage, minus the fees (and slippage, which is already subtracted from the size filled)."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Target Size In Base Asset"
-        },
-        {
-            "style": "Text",
-            "text": "To add the target size in base asset node, select Add Missing Items on the parent node menu."
         }
     ]
 }

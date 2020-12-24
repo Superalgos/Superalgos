@@ -13,18 +13,6 @@
         {
             "style": "Text",
             "text": "This node may spawn individual data products or may deploy data products in bulk organized by trading mine and by trading bots. See the data products node for the details."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Market Trading Products"
-        },
-        {
-            "style": "Text",
-            "text": "To add a market trading products node, select Add Market Trading Data on the parent node menu."
-        },
-        {
-            "style": "Note",
-            "text": "Remember to establish a reference with a market defined in the Crypto Ecosystem hierarchy after adding the node."
         }
     ]
 }

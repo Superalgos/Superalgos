@@ -15,12 +15,8 @@
             "text": "{% include important.html content=\"Hierarchies included in the workspace as plugins are not saved at the workspace level. As such, changes made in those hierarchies do not persist. If you wish to modify a plugin and keep working with the modified version in the future, you must either clone or backup the plugin and work on the resulting copy instead. Learn more about the differences between backups and "
         },
         {
-            "style": "Title",
-            "text": "Adding a Plugins"
-        },
-        {
-            "style": "Text",
-            "text": "To add the plugins node, select Add Missing Items on the parent node menu."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

@@ -21,14 +21,6 @@
         {
             "style": "List",
             "text": "the take profit or stop loss targets are hit."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Strategy Open Stage"
-        },
-        {
-            "style": "Text",
-            "text": "To add the strategy open stage node, select Add Missing Items on the parent node menu."
         }
     ]
 }

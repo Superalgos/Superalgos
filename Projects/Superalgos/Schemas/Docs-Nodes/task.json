@@ -11,16 +11,8 @@
             "text": "Each task controls a single bot. A bot instance running on its own task is independent from other bots at the operating system level, thus, may not be affected by errors ocurring on those other bots."
         },
         {
-            "style": "Title",
-            "text": "Adding a Task"
-        },
-        {
-            "style": "Text",
-            "text": "To add a task, select Add Task on the task manager node menu."
-        },
-        {
-            "style": "Text",
-            "text": "{% include tip.html content=\"Instead of adding nodes, configuring them, and setting references one by one, you may want to clone an existing, fully functional task with all its offspring.\" %}"
+            "style": "Block",
+            "text": "Running"
         },
         {
             "style": "Title",

@@ -11,12 +11,8 @@
             "text": "The use of the data product folder node is optional, as data products may also exist outside of data product folders."
         },
         {
-            "style": "Title",
-            "text": "Adding a Data Product Folder"
-        },
-        {
-            "style": "Text",
-            "text": "To add the data product folder node, select Add Data Product Folder on the parent node menu."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

@@ -1,14 +1,5 @@
 {
     "type": "Market Sell Orders",
     "definition": "Market sell orders is the section of the data structure that keeps track of this specific type of order.",
-    "paragraphs": [
-        {
-            "style": "Title",
-            "text": "Adding a Market Sell Orders"
-        },
-        {
-            "style": "Text",
-            "text": "To add the market sell orders node, select Add Missing Items on the parent node menu."
-        }
-    ]
+    "paragraphs": []
 }

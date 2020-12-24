@@ -3,12 +3,8 @@
     "definition": "The plugin super scripts node features the definitions of super scripts to be included as plugins in the current workspace.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "Adding a Plugin Super Scripts"
-        },
-        {
-            "style": "Text",
-            "text": "To add the plugin super scripts node, select Add Missing Items on the parent node menu."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

@@ -17,14 +17,6 @@
         {
             "style": "Text",
             "text": "In the first scenario, the strategy remains on until the position is closed. As the position is closed, the strategy is triggered-off. In the second scenario, the strategy is triggered-off immediately."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Trigger Off Event"
-        },
-        {
-            "style": "Text",
-            "text": "To add a trigger-off event node, select Add Missing Events on the trigger stage node menu. All events that may be missing are created along with the rest of the basic structure of nodes required to define each of them."
         }
     ]
 }

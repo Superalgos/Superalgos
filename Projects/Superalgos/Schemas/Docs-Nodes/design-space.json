@@ -11,12 +11,8 @@
             "text": "Think of the design space as your desktop, or the control room of the system."
         },
         {
-            "style": "Title",
-            "text": "Adding a Design Space"
-        },
-        {
-            "style": "Text",
-            "text": "To add the design space node, select Add Design Space on the spaces node of the Superalgos Project hierarchy."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

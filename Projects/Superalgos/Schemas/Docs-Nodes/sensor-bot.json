@@ -11,12 +11,8 @@
             "text": "The sensor bot node holds all definitions required for a sensor bot to function. Definitions are split between the definition of processes and products. A sensor's processes is an algorithm that obtains data from a third pary and produces an output for other bots to consume. Part of that output is the data products the bot creates."
         },
         {
-            "style": "Title",
-            "text": "Adding a Sensor Bot"
-        },
-        {
-            "style": "Text",
-            "text": "To add a sensor bot, select Add Sensor Bot on the data mine node menu. A sensor bot is created along with the basic structure of nodes required to define it."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

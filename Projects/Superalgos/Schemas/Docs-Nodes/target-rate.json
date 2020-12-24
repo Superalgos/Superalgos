@@ -189,14 +189,6 @@
         {
             "style": "Note",
             "text": "As you see, flexibility is a key design feature in Superalgos."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Target Rate"
-        },
-        {
-            "style": "Text",
-            "text": "To add the target rate node, select Add Missing Items on the parent node menu."
         }
     ]
 }

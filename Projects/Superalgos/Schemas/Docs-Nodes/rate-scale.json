@@ -63,12 +63,8 @@
             "text": "The offset is a feature of the rate scale by which the scale may be shifted upwards or downwards. As a result, charts aligned on the vertical axis&mdash;synchronized in datetime by a shared time machine&mdash;may be put one above the other. In technical terms, what happens is that the scale is shifted upwards or downwards."
         },
         {
-            "style": "Title",
-            "text": "Adding a Rate Scale"
-        },
-        {
-            "style": "Text",
-            "text": "To add a rate scale, select Add Rate Scale on the time machine or the timeline chart node menu."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",
@@ -117,6 +113,10 @@
         {
             "style": "List",
             "text": "autoMaxScale sets the mode of the scale for the maximum value; true sets the value to automatic, false sets the value to manual."
+        },
+        {
+            "style": "Block",
+            "text": "Charts"
         },
         {
             "style": "Title",

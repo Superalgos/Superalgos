@@ -9,14 +9,6 @@
         {
             "style": "Text",
             "text": "The node's offspring control the different aspects of how, where, and when text shall be rendered over the charts."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Text"
-        },
-        {
-            "style": "Text",
-            "text": "To add the text node, select Add Text on the parent node menu."
         }
     ]
 }

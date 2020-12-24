@@ -23,12 +23,8 @@
             "text": "An execution algorithm is a set of instructions in the sense that the orders defined in each algorithm are themselves the instructions. That is, an execution algorithm is a set of predefined orders which may be created or canceled given specific market situations."
         },
         {
-            "style": "Title",
-            "text": "Adding a Execution Algorithm"
-        },
-        {
-            "style": "Text",
-            "text": "To add the execution algorithm node, select Add Missing Items on the parent node menu."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

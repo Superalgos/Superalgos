@@ -23,12 +23,8 @@
             "text": "Style conditions me be created in a sequence so that the style may continue changing upon the validation of a series of style conditions. The system evaluates all style conditions in a sequential order determined by their position in the rotational symmetry around the parent node. Each condition that is met may modify or add up to the resulting style that is rendered on screen. That is, the final style is the result of the sequential application of the styles defined for each condition that is met, on top of the default style."
         },
         {
-            "style": "Title",
-            "text": "Adding a Style Condition"
-        },
-        {
-            "style": "Text",
-            "text": "To add a style condition, select Add Style Condition on a polygon border or polygon body node menu."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

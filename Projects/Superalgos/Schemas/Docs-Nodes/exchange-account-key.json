@@ -3,12 +3,8 @@
     "definition": "The exchange account key holds the definition of the key name and secret provided by the corresponding exchange to access the user account via the exchange API.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "Adding a Exchange Account Key"
-        },
-        {
-            "style": "Text",
-            "text": "To add an exchange account key, select Add Key on the user keys node menu."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

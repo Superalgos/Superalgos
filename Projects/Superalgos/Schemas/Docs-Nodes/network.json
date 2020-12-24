@@ -33,14 +33,6 @@
         {
             "style": "Warning",
             "text": "At this stage, the system does not implement any form of security measures, therefore, Superalgos is to be run in the context of a restricted Local Area Network only, unless you implement your own network security."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Network"
-        },
-        {
-            "style": "Text",
-            "text": "To add a network, select Add Network on the other hierarchies node menu in the Superalgos Project hierarchy."
         }
     ]
 }

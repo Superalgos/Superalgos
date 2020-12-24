@@ -15,12 +15,8 @@
             "text": "Because the hierarchy provides definitions, it does not intervene in the execution of bots. Instead, the definitions in data mines are instantiated from the network hierarchy by bot instances. Bot instances and process instances are the ones running the code according to the definitions in the corresponding data mine."
         },
         {
-            "style": "Title",
-            "text": "Adding a Data Mine"
-        },
-        {
-            "style": "Text",
-            "text": "To add a data mine, select Add Data Mine on the mines node menu in the Superalgos Project hierarchy."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

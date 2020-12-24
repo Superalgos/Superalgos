@@ -17,18 +17,6 @@
         {
             "style": "List",
             "text": "To keep track of the actions of the trading bot via the design space visual environment and panels over the charts. By analyzing runtime information, you may gain a detailed understanding of what happens, when, and why, throughout a trading session."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Trading Engine"
-        },
-        {
-            "style": "Text",
-            "text": "{% include tip.html content=\"There may be more than one trading engine in a workspace. Cloning the default trading engine is the best way to start a new one.\" %}"
-        },
-        {
-            "style": "Text",
-            "text": "To add the trading engine node from scratch, select Add Trading Engine on the other hierarchies node menu in the Superalgos Project hierarchy."
         }
     ]
 }

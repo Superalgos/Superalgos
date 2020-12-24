@@ -25,14 +25,6 @@
         {
             "style": "Text",
             "text": "{% include tip.html content=\"To set up a next phase event, add the node and define the situation that should trigger the event.\" %}"
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Next Phase Event"
-        },
-        {
-            "style": "Text",
-            "text": "To add a next phase event, select Add Next Phase Event on the corresponding phase node menu. The event is added along with the basic structure of nodes to define it."
         }
     ]
 }

@@ -13,14 +13,6 @@
         {
             "style": "Important",
             "text": "Make sure you read the definition of the target size in base asset node to get the proper context for this definition."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Target Size In Quoted Asset"
-        },
-        {
-            "style": "Text",
-            "text": "To add the target size in quoted asset node, select Add Missing Items on the parent node menu."
         }
     ]
 }

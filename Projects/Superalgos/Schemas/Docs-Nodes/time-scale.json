@@ -51,12 +51,8 @@
             "text": "The scale features a manual mode. When in manual mode the scale does not change, even if the minimum and maximum values change while panning through a chart. This is the natural state of the time scale."
         },
         {
-            "style": "Title",
-            "text": "Adding a Time Scale"
-        },
-        {
-            "style": "Text",
-            "text": "To add a time scale, select Add Time Scale on the time machine node menu."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",
@@ -105,6 +101,10 @@
         {
             "style": "List",
             "text": "autoMaxScale sets the mode of the scale for the maximum value; true sets the value to automatic, false sets the value to manual."
+        },
+        {
+            "style": "Block",
+            "text": "Charts"
         },
         {
             "style": "Title",

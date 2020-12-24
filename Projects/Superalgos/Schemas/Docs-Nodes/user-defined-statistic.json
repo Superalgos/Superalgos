@@ -9,14 +9,6 @@
         {
             "style": "Text",
             "text": "The current contexts in which custom statistics may be defined are episodes, positions, and orders."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a User Defined Statistic"
-        },
-        {
-            "style": "Text",
-            "text": "To add the user defined statistic node, select Add Missing Items on the parent node menu."
         }
     ]
 }

@@ -13,14 +13,6 @@
         {
             "style": "Text",
             "text": "The use of product definition folders is optional, as product definitions may also exist outside of folders."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Product Definition Folder"
-        },
-        {
-            "style": "Text",
-            "text": "To add the product definition folder node, select Add Product Definition Folder on the parent node menu."
         }
     ]
 }

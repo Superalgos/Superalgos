@@ -9,14 +9,6 @@
         {
             "style": "Text",
             "text": "Serial numbers start at 1 and increment by 1 with each intance of the object that is opened."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Serial Number"
-        },
-        {
-            "style": "Text",
-            "text": "To add the serial number node, select Add Missing Items on the parent node menu."
         }
     ]
 }

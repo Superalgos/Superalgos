@@ -33,14 +33,6 @@
         {
             "style": "List",
             "text": "rates describing each candle in the episode, such as the open, close, min and max rates;"
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Episode"
-        },
-        {
-            "style": "Text",
-            "text": "To add the episode node, select Add Missing Items on the parent node menu."
         }
     ]
 }

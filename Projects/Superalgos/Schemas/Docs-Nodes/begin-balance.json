@@ -13,14 +13,6 @@
         {
             "style": "Text",
             "text": "In the context of a position, it is the balance at the datetime the position started."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Begin Balance"
-        },
-        {
-            "style": "Text",
-            "text": "To add the begin balance node, select Add Missing Items on the parent node menu."
         }
     ]
 }

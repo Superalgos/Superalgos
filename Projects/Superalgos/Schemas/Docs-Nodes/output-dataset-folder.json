@@ -15,12 +15,8 @@
             "text": "The use of output dataset folders is optional, as product definitions may also exist outside of folders."
         },
         {
-            "style": "Title",
-            "text": "Adding a Output Dataset Folder"
-        },
-        {
-            "style": "Text",
-            "text": "To add the output dataset folder node, select Add Output Dataset Folder on the parent node menu."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

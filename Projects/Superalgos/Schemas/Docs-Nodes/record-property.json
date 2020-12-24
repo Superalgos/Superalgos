@@ -19,12 +19,8 @@
             "text": "{% include tip.html content=\"The first two records are usually the begin and end records, featuring the corresponding datetimes that indicate when the record starts and ends.\" %}"
         },
         {
-            "style": "Title",
-            "text": "Adding a Record Property"
-        },
-        {
-            "style": "Text",
-            "text": "To add a record property, select Add Record Property on the bot's node menu."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

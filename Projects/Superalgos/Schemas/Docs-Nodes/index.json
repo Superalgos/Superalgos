@@ -13,14 +13,6 @@
         {
             "style": "Text",
             "text": "Trading systems may feature more than one strategy. In the context of a strategy, index is the position of the strategy within the trading system."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Index"
-        },
-        {
-            "style": "Text",
-            "text": "To add the index node, select Add Missing Items on the parent node menu."
         }
     ]
 }

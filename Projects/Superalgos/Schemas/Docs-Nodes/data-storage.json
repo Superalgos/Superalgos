@@ -29,18 +29,6 @@
         {
             "style": "Text",
             "text": "{% include node-deletion-warning.html %}"
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Data Storage"
-        },
-        {
-            "style": "Text",
-            "text": "To add a data storage, select Add Data Storage on the network node menu."
-        },
-        {
-            "style": "Note",
-            "text": "Only one data storage node may exist on each network node."
         }
     ]
 }

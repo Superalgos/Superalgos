@@ -13,14 +13,6 @@
         {
             "style": "Text",
             "text": "If either of the offspring nodes is not present or is undefined, then the parameters configured at the level of the trading session are factored in by default."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Simulated Exchange Events"
-        },
-        {
-            "style": "Text",
-            "text": "To add the simulated exchange events node, select Add Missing Items on the parent node menu."
         }
     ]
 }

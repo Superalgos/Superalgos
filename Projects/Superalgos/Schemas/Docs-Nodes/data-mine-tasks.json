@@ -11,20 +11,8 @@
             "text": "The data mine tasks node must reference the definition of a data mine. The node may spawn tasks for each bot in the data mine."
         },
         {
-            "style": "Title",
-            "text": "Adding a Data Mine Tasks"
-        },
-        {
-            "style": "Text",
-            "text": "To add a data mine tasks node, select Add Data Mine Tasks on the parent node menu. This action adds the node but does not establish a reference with any data mine."
-        },
-        {
-            "style": "Text",
-            "text": "The smarter use of the node involves using the Add Missing Data Mine Tasks option on the parent node menu. This action creates a data mine tasks node for each data mine in the workspace, establishing a reference with the corresponding data mines. This is the first step in the direction of quickly setting up tasks for each bot in a given data mine."
-        },
-        {
-            "style": "Note",
-            "text": "See the task node definition and the Adding a Task Node section for all the details."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",
@@ -33,6 +21,10 @@
         {
             "style": "Text",
             "text": "Select Configure on the menu to access the configuration."
+        },
+        {
+            "style": "Block",
+            "text": "Running"
         },
         {
             "style": "Title",

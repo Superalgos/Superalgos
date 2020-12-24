@@ -9,18 +9,6 @@
         {
             "style": "Text",
             "text": "In other words, the trading engine reference lets the process instance know which data structure to use to store information related to the trading session. This means that a workspace may have more than one trading engine."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Trading Engine Reference"
-        },
-        {
-            "style": "Text",
-            "text": "To add a trading engine reference, select Add Missing Children on the trading session node menu."
-        },
-        {
-            "style": "Note",
-            "text": "After adding a trading engine reference node, make sure you establish the reference to the corresponding trading engine hierarchy."
         }
     ]
 }

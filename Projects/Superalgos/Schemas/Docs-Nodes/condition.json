@@ -33,14 +33,6 @@
         {
             "style": "Note",
             "text": "To learn how to write conditions, start with the Syntax Overview."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Condition"
-        },
-        {
-            "style": "Text",
-            "text": "To add a condition, select Add Condition on the corresponding situation node menu. A condition with its JavaScript code node is added."
         }
     ]
 }

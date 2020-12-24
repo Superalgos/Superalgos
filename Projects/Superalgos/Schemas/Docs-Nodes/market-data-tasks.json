@@ -15,20 +15,8 @@
             "text": "This node may spawn individual data products or may deploy data products in bulk organized by data mine and by bots. See the data products node for the details."
         },
         {
-            "style": "Title",
-            "text": "Adding a Market Data Tasks"
-        },
-        {
-            "style": "Text",
-            "text": "To add a market data tasks node, select Add Market Data on the parent node menu."
-        },
-        {
-            "style": "Note",
-            "text": "Remember to establish a reference with a market defined in the Crypto Ecosystem hierarchy after adding the node."
-        },
-        {
-            "style": "Text",
-            "text": "You may also add market data tasks nodes in bulk for all markets that may have been previously defined in the Crypto Ecosystem hierarchy. To do that, select Add Missing Markets on the parent node menu. A market data tasks node is created for each defined market, each with the corresponding reference."
+            "style": "Block",
+            "text": "Running"
         },
         {
             "style": "Title",

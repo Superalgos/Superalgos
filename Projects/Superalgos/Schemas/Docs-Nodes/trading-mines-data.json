@@ -17,18 +17,6 @@
         {
             "style": "Text",
             "text": "Whenever you create trading tasks manually from within the Network hierarchy (as opposed to using the install market function under the exchange markets node of the Crypto Ecosystem hierarchy"
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Trading Mines Data"
-        },
-        {
-            "style": "Text",
-            "text": "To add a session-based data node, select Add Session-based Data on the network node menu."
-        },
-        {
-            "style": "Note",
-            "text": "Only one session-based data node may exist on each data storage node."
         }
     ]
 }

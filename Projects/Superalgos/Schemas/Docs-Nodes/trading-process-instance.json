@@ -11,16 +11,8 @@
             "text": "The trading process instance must reference the Multi-Period process definition of the Jason trading bot in the Masters data mine."
         },
         {
-            "style": "Title",
-            "text": "Adding a Trading Process Instance"
-        },
-        {
-            "style": "Text",
-            "text": "To add a trading process instance, select Add Trading Process Instance on the trading bot instance node menu. When a trading process instance is added, it is created with a market reference."
-        },
-        {
-            "style": "Note",
-            "text": "After adding a trading process instance node, make sure you establish the reference to the Multi-Period process definition of the Jason trading bot in the Masters data mine."
+            "style": "Block",
+            "text": "Running"
         },
         {
             "style": "Title",

@@ -13,18 +13,6 @@
         {
             "style": "Text",
             "text": "Each testing session has its own set of parameters. This allows you to configure different trading sessions with different parameters, and go back and forth between them as required. For instance, you may have different backtesting sessions with different date ranges, different exchange fees or different slippage settings to account for different possible scenarios."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Trading Parameters"
-        },
-        {
-            "style": "Text",
-            "text": "To add a parameters node, select Add Parameters on the session or the trading system menu, depending on the context. When a parameters node is added, the full set of parameters are created with it."
-        },
-        {
-            "style": "Text",
-            "text": "If you already have a parameters node but are missing some of the parameters, then select Add Missing Params on the menu."
         }
     ]
 }

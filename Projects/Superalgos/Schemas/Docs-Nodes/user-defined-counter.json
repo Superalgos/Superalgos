@@ -1,14 +1,5 @@
 {
     "type": "User Defined Counter",
     "definition": "",
-    "paragraphs": [
-        {
-            "style": "Title",
-            "text": "Adding a User Defined Counter"
-        },
-        {
-            "style": "Text",
-            "text": "To add the user defined counter node, select Add Missing Items on the parent node menu."
-        }
-    ]
+    "paragraphs": []
 }

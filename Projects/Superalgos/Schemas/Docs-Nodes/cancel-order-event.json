@@ -9,14 +9,6 @@
         {
             "style": "Text",
             "text": "The cancel order event defines the market situations in which a limit order shall be canceled. When the event is triggered, the order is closed, even when the order may have been partially filled. In such a case, the size filled remains as is, and all accounts are computed accordingly, with the partial fill."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Cancel Order Event"
-        },
-        {
-            "style": "Text",
-            "text": "To add the cancel order event node, select Add Missing Items on the parent node menu."
         }
     ]
 }

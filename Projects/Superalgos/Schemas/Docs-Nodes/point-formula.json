@@ -145,14 +145,6 @@
         {
             "style": "Note",
             "text": "The reason from separating the definition of points from the definition of polygons is that any point may be used by one or more polygons."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Point Formula"
-        },
-        {
-            "style": "Text",
-            "text": "To add a point formula, select Add Point Formula on the point node menu."
         }
     ]
 }

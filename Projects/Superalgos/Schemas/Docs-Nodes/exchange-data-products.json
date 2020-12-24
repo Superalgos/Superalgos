@@ -15,20 +15,8 @@
             "text": "When representing an exchange featured in the system's icons library, the standard exchange data tasks icon is replaced by the exchange's logo."
         },
         {
-            "style": "Title",
-            "text": "Adding a Exchange Data Products"
-        },
-        {
-            "style": "Text",
-            "text": "To add a specific exchange data products node, select Add Exchange Data Products on the parent node menu."
-        },
-        {
-            "style": "Note",
-            "text": "Remember to establish a reference to the desired exchange in the Crypto Ecosystem hierarchy."
-        },
-        {
-            "style": "Text",
-            "text": "You may also add exchange data products nodes in bulk for all exchanges that may have been previously defined in the Crypto Ecosystem hierarchy. To do that, select Add Missing Exchanges on the parent node menu. An exchange data products node is created for each defined exchange, each with the corresponding reference."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

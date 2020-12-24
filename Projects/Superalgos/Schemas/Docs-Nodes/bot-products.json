@@ -15,20 +15,8 @@
             "text": "The use of the bot products node is optional, as data products may also exist outside of bot products."
         },
         {
-            "style": "Title",
-            "text": "Adding a Bot Products"
-        },
-        {
-            "style": "Text",
-            "text": "To add a bot products node, select Add Bot Products on the parent node menu."
-        },
-        {
-            "style": "Text",
-            "text": "The bot products node may also be created automatically. When created using the Add All Data Products option on the data mine products node, the node inherits the label of the corresponding bot in the corresponding data mine."
-        },
-        {
-            "style": "Note",
-            "text": "See the data product node definition and the Adding a Data Product Node section for all the details."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

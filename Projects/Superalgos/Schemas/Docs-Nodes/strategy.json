@@ -21,14 +21,6 @@
         {
             "style": "Text",
             "text": "Most interestingly, the strategy section provides information such as which situation was responsible for triggering the strategy. This may be particularly useful in complex strategies in which the trigger on event may be defined by multiple situations."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Strategy"
-        },
-        {
-            "style": "Text",
-            "text": "To add the strategy node, select Add Missing Items on the parent node menu."
         }
     ]
 }

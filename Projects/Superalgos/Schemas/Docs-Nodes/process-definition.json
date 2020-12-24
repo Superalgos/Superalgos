@@ -23,12 +23,8 @@
             "text": "The way in which datasets are structured by each of the processes is determined by the corresponding dataset definitions."
         },
         {
-            "style": "Title",
-            "text": "Adding a Process Definition"
-        },
-        {
-            "style": "Text",
-            "text": "To add a process definition, select Add Process Definition on the bot's menu. A process definition node is created along with the basic structure of nodes comprising the definition."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

@@ -9,14 +9,6 @@
         {
             "style": "Text",
             "text": "This procedure holds the core logic of the bot, as it features the code that performs the calculations required to produce the new data set. The code is split between a procedure initialization and a procedure loop."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Data Building Procedure"
-        },
-        {
-            "style": "Text",
-            "text": "To add a data buildings procedure, select Add Missing Items on the product definition node menu. Items that may be missing are created along with the basic structure of nodes required to define them."
         }
     ]
 }

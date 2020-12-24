@@ -13,14 +13,6 @@
         {
             "style": "Text",
             "text": "The current implementation of the Masters super scripts hierarchy features two master scripts you may use as examples. The Setup Market master script deals with all the steps required to install a new market, while the Delete Market Dependencies master script deals with uninstalling markets."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Master Script"
-        },
-        {
-            "style": "Text",
-            "text": "To add a master script, select Add Master Script on the scripts library node menu."
         }
     ]
 }

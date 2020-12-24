@@ -21,18 +21,6 @@
         {
             "style": "Note",
             "text": "A move-to-phase event must reference a phase node. When the situation in the move-to-phase event evaluates true the management shifts to the referenced phase."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Move To Phase Event"
-        },
-        {
-            "style": "Text",
-            "text": "To add a move-to-phase event, select Add Move to Phase Event on the corresponding phase node menu. The event is added along with the basic structure of nodes to define it."
-        },
-        {
-            "style": "Note",
-            "text": "Remember to establish a reference with the phase you wish to activate once the situation associated with the event validates true."
         }
     ]
 }

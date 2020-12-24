@@ -31,12 +31,8 @@
             "text": "The trade hits the take profit target above the Position Rate level, however, due to fees, the trade has a negative 0.32% ROI."
         },
         {
-            "style": "Title",
-            "text": "Adding a Fee Structure"
-        },
-        {
-            "style": "Text",
-            "text": "To add a parameter that may be missing, select Add Missing Params on the parameters node menu."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

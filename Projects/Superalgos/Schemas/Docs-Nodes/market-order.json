@@ -9,14 +9,6 @@
         {
             "style": "Text",
             "text": "Each market order defined in the trading system must reference the data structure of a market order in the trading engine."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Market Order"
-        },
-        {
-            "style": "Text",
-            "text": "To add the market order node, select Add Missing Items on the parent node menu."
         }
     ]
 }

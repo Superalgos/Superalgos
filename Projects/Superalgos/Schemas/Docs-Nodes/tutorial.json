@@ -11,12 +11,8 @@
             "text": "Nodes in the hierarchy may be arranged freely, meaning that there may be as many tutorial topics and tutorial steps as desired. In general terms, all types of nodes behave similarly in the sense that each node, independently of the precise type, represents a tutorial step in and of itself. There are subtle differences to be covered where appropriate."
         },
         {
-            "style": "Title",
-            "text": "Adding a Tutorial"
-        },
-        {
-            "style": "Text",
-            "text": "To add the tutorial node, select Add Tutorial on the parent node menu."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

@@ -11,12 +11,8 @@
             "text": "Tutorials included in the workspace as plugins do not keep track of users' progress, thus, may not return to the last step using the <i>Resume</i> button on the menu."
         },
         {
-            "style": "Title",
-            "text": "Adding a Plugin Tutorials"
-        },
-        {
-            "style": "Text",
-            "text": "To add the plugin tutorials node, select Add Missing Items on the parent node menu."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

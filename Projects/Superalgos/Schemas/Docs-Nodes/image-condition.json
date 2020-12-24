@@ -9,14 +9,6 @@
         {
             "style": "Text",
             "text": "The node is optional. When the node is not present in the definition of the image or when the condition validates true, the image is rendered on screen. When the condition validates false the image is not rendered. As such, the node allows dynamically switching the rendering of the corresponding image on and off ."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Image Condition"
-        },
-        {
-            "style": "Text",
-            "text": "To add the image condition node, select Add Image Condition on the parent node menu."
         }
     ]
 }

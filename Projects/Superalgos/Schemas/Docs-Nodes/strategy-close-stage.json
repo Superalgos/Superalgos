@@ -13,14 +13,6 @@
         {
             "style": "Text",
             "text": "Therefore, this section of the data structure features information spaning those periods only."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Strategy Close Stage"
-        },
-        {
-            "style": "Text",
-            "text": "To add the strategy close stage node, select Add Missing Items on the parent node menu."
         }
     ]
 }

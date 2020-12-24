@@ -15,12 +15,8 @@
             "text": "The indicator bot instance holds no definitions as to what the bot does. Instead, its processes instances reference the process definitions in the corresponding data mine. That is how the indicator bot instance obtains the information of what it needs to do once it is run."
         },
         {
-            "style": "Title",
-            "text": "Adding a Indicator Bot Instance"
-        },
-        {
-            "style": "Text",
-            "text": "To add an indicator bot instance, select Add Indicator Bot Instance on the task node menu."
+            "style": "Block",
+            "text": "Running"
         },
         {
             "style": "Title",

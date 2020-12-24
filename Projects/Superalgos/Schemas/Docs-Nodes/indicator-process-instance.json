@@ -15,12 +15,8 @@
             "text": "Once the reference is established, the indicator process instance adopts the name of the process definition it references."
         },
         {
-            "style": "Title",
-            "text": "Adding a Indicator Process Instance"
-        },
-        {
-            "style": "Text",
-            "text": "To add an indicator process instance, select Add Indicator Process Instance on the indicator bot instance node menu."
+            "style": "Block",
+            "text": "Running"
         },
         {
             "style": "Title",

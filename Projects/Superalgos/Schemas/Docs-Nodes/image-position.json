@@ -15,12 +15,8 @@
             "text": "See the configuration for further details."
         },
         {
-            "style": "Title",
-            "text": "Adding a Image Position"
-        },
-        {
-            "style": "Text",
-            "text": "To add the image position node, select Add Image Position on the parent node menu."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

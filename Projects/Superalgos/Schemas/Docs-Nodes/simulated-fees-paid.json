@@ -15,12 +15,8 @@
             "text": "If the node is not present or the parameter is undefined, the fee structure parameter set up for the trading session is used."
         },
         {
-            "style": "Title",
-            "text": "Adding a Simulated Fees Paid"
-        },
-        {
-            "style": "Text",
-            "text": "To add the simulated fees paid node, select Add Missing Items on the parent node menu."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

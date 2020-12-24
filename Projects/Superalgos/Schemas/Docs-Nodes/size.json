@@ -21,14 +21,6 @@
         {
             "style": "List",
             "text": "The configuration of the order: The parameter percentageOfAlgorithmSize determines what fraction of the size handled by the algorithm the order shall be constrained to."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Size"
-        },
-        {
-            "style": "Text",
-            "text": "To add the size node, select Add Missing Items on the parent node menu."
         }
     ]
 }

@@ -13,14 +13,6 @@
         {
             "style": "Text",
             "text": "In every other context, the datetime is given by the datetime of the moment of evaluation. When evaluating a point in time in which the object remains open, end stores the datetime of that moment, because the object existed until that point in time when the value was last being updated. Once the object is closed, the end value is not modified again."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a End"
-        },
-        {
-            "style": "Text",
-            "text": "To add the end node, select Add Missing Items on the parent node menu."
         }
     ]
 }

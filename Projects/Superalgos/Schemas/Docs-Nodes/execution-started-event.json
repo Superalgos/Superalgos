@@ -21,18 +21,6 @@
         {
             "style": "Text",
             "text": "Not setting up this event on a trading session may result in eventual data inconsistencies, as&mdash;in theory&mdash;the trading bot may run with some indicators up to date and some slightly delayed."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Execution Started Event"
-        },
-        {
-            "style": "Text",
-            "text": "To add an execution started event, select Add Missing Items on the process definition node menu. Items that may be missing are created along with the basic structure of nodes required to define them."
-        },
-        {
-            "style": "Text",
-            "text": "{% include tip.html content=\"Remember that an execution started event must establish a reference to the appropriate execution finished event.\" %}"
         }
     ]
 }

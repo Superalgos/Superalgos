@@ -17,14 +17,6 @@
         {
             "style": "Text",
             "text": "The information that each timeline chart makes available on the screen is given by the layers set up in the corresponding layers manager."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Timeline Chart"
-        },
-        {
-            "style": "Text",
-            "text": "To add a timeline chart, select Add Timeline Chart on the preferred time machine node menu."
         }
     ]
 }

@@ -27,12 +27,8 @@
             "text": "Apply graphical styles to those lines and polygons."
         },
         {
-            "style": "Title",
-            "text": "Adding a Plotter"
-        },
-        {
-            "style": "Text",
-            "text": "To add a plotter, select Add Plotter on the data mine node menu. An indicator bot is created along with the basic structure of nodes required to define it."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

@@ -11,12 +11,8 @@
             "text": "See the configuration for further details."
         },
         {
-            "style": "Title",
-            "text": "Adding a Text Style"
-        },
-        {
-            "style": "Text",
-            "text": "To add the text style node, select Add Text Style on the parent node menu. "
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

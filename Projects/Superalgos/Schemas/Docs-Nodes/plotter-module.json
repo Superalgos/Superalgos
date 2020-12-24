@@ -23,12 +23,8 @@
             "text": "GIFs/Superalgos/Docs/inner-foder/plotter-module-02-product-link.gif"
         },
         {
-            "style": "Title",
-            "text": "Adding a Plotter Module"
-        },
-        {
-            "style": "Text",
-            "text": "To add a plotter module, select Add Plotter Module on the plotter node menu."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

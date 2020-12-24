@@ -33,14 +33,6 @@
         {
             "style": "Text",
             "text": "{% include tip.html content=\"This explanation about phase 1 may be extended to any other phase, as they all work similarly, and it applies both for managed stop loss phases and managed take profit phases.\" %}"
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Phase"
-        },
-        {
-            "style": "Text",
-            "text": "To add a new phase, select Add Phase on the stop or take-profit node menu. A new phase is added along with the basic structure of nodes required to define each of them and their events."
         }
     ]
 }

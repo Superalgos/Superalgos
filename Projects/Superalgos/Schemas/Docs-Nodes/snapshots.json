@@ -11,12 +11,8 @@
             "text": "Learn more about snapshots and check the configuration file to control if and how snapshots are produced."
         },
         {
-            "style": "Title",
-            "text": "Adding a Snapshots"
-        },
-        {
-            "style": "Text",
-            "text": "To add a parameter that may be missing, select Add Missing Params on the parameters node menu."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

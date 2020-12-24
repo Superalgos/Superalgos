@@ -9,14 +9,6 @@
         {
             "style": "Note",
             "text": "The workings of the fail counts are analogous to the workings of the hits counts, reversing the sign. That is, when profit loss is negative, it is counted as a fail. Please refer to the definition of hits for the details."
-        },
-        {
-            "style": "Title",
-            "text": "Adding a Fails"
-        },
-        {
-            "style": "Text",
-            "text": "To add the fails node, select Add Missing Items on the parent node menu."
         }
     ]
 }

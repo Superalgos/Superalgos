@@ -15,12 +15,8 @@
             "text": "Regular users will find little to do with this hierarchy, even though they may use it indirectly, for instance, when installing or uninstalling markets."
         },
         {
-            "style": "Title",
-            "text": "Adding a Super Scripts"
-        },
-        {
-            "style": "Text",
-            "text": "To add a super scripts hierarchy, select Add Super Scripts on the other hierarchies node menu in the Superalgos Project hierarchy."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

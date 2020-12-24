@@ -3,12 +3,8 @@
     "definition": "The plugin trading mines node features the definitions of trading mines to be included as plugins in the current workspace.",
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "Adding a Plugin Trading Mines"
-        },
-        {
-            "style": "Text",
-            "text": "To add the plugin trading mines node, select Add Missing Items on the parent node menu."
+            "style": "Block",
+            "text": "Configuring"
         },
         {
             "style": "Title",

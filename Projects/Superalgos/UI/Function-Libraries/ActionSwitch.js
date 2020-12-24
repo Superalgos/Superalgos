@@ -634,7 +634,7 @@ function newSuperalgosActionSwitch() {
                 {
                     let definition = getSchemaDocument(action.node)
                     if (definition !== undefined) {
-                        UI.projects.superalgos.spaces.docsSpace.openSpaceAreaAndNavigateTo('Node', action.node.type, action.node.project)
+                        UI.projects.superalgos.spaces.docsSpace.openSpaceAreaAndNavigateTo(action.node.project,'Node', action.node.type)
                     }
                 }
                 break

@@ -275,7 +275,7 @@ function newSuperalgosTutorialSpace() {
                 if (newDocumentationURL === currentDocumentationURL) { return }
 
                 currentDocumentationURL = newDocumentationURL
-                UI.projects.superalgos.spaces.docsSpace.openSpaceAreaAndNavigateTo('Node', currentDocumentationURL, 'Superalgos')
+                UI.projects.superalgos.spaces.docsSpace.openSpaceAreaAndNavigateTo('Superalgos', 'Node', currentDocumentationURL)
             }
         }
 

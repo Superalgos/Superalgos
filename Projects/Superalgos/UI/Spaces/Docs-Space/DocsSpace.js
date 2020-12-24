@@ -629,7 +629,7 @@ function newSuperalgosDocSpace() {
         if (objectBeingRendered === undefined) {
             renderSearchPage()
         } else {
-            navigateTo(objectBeingRendered.category, objectBeingRendered.type, objectBeingRendered.project)
+            navigateTo(objectBeingRendered.project, objectBeingRendered.category, objectBeingRendered.type)
         }
     }
 
@@ -711,7 +711,7 @@ function newSuperalgosDocSpace() {
                 documentIndex = {
                     phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
                     schemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema[i],
-                    documentCategory: 'Node',
+                    category: 'Node',
                     project: project
                 }
                 indexDocument(documentIndex)
@@ -722,7 +722,7 @@ function newSuperalgosDocSpace() {
                 documentIndex = {
                     phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
                     schemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema[i],
-                    documentCategory: 'Concept',
+                    category: 'Concept',
                     project: project
                 }
                 indexDocument(documentIndex)
@@ -733,7 +733,7 @@ function newSuperalgosDocSpace() {
                 documentIndex = {
                     phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
                     schemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema[i],
-                    documentCategory: 'Topic',
+                    category: 'Topic',
                     project: project
                 }
                 indexDocument(documentIndex)
@@ -744,7 +744,7 @@ function newSuperalgosDocSpace() {
                 documentIndex = {
                     phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
                     schemaDocument: SCHEMAS_BY_PROJECT.get(project).array.workspaceSchema[i],
-                    documentCategory: 'Workspace',
+                    category: 'Workspace',
                     project: project
                 }
                 indexDocument(documentIndex)
@@ -851,6 +851,7 @@ function newSuperalgosDocSpace() {
     function detectCommands() {
 
         if (checkHelpCommand() === undefined) { return }
+        if (checkGotoCommand() === undefined) { return }
         if (checkAddCommand() === undefined) { return }
         if (checkDeleteCommand() === undefined) { return }
         if (checkUReIndexCommand() === undefined) { return }
@@ -865,6 +866,7 @@ function newSuperalgosDocSpace() {
                         "Command line interface general help info: ",
                         "The Docs is equiped with a command line interface from where you can type commands that will help you contribute to the Docs. Each command listed below has it's own help. You just need to type <i>help</i> and the command to get details about it's sintax and examples on how to use it. The following is the list of available commands:",
                         "<b>help</b>: This general purpose help info.",
+                        "<b>docs.got</b>: Use this command to go directly to a Node, Concept or Topic page.",
                         "<b>docs.add</b>: Use this command to add new Nodes, Concepts or Topics to the Docs.",
                         "<b>docs.delete</b>: Use this command to delete existing Nodes, Concepts or Topics from the Docs.",
                         "<b>docs.save</b>: Use this command whenever you would like to save the changes you made to the Docs.",
@@ -875,6 +877,71 @@ function newSuperalgosDocSpace() {
                 return
             }
             return 'Not Help Command'
+        }
+
+        function checkGotoCommand() {
+            if (command.toLowerCase() === 'help docs.goto') {
+                renderCommandResultsPage(
+                    [
+                        "<b>docs.goto</b> command syntax: ",
+                        "Option 1: <i>docs.goto</i>",
+                        "Use this command jump into a Node, Concept or Topic page or an Anchor withing that page."
+                    ]
+                )
+                return
+            }
+            if (command.indexOf('Docs.Goto') !== 0 && command.indexOf('docs.goto') !== 0) { return 'Not Goto Command' }
+
+            let splittedCommand = command.split(' ')
+            let primaryCommand = splittedCommand[0]
+            let secondaryCommand = splittedCommand[1]
+            let splittedSecondaryCommand = secondaryCommand.split('->')
+            let project = splittedSecondaryCommand[0]
+            let category = splittedSecondaryCommand[1]
+            let type = splittedSecondaryCommand[2]
+            let anchor = splittedSecondaryCommand[3]
+
+            if (SCHEMAS_BY_PROJECT.get(project) === undefined) {
+                renderCommandResultsPage(["Project <b>" + project + "</b> does not exist."])
+                return
+            }
+            let schemaDocument
+            switch (category.toLowerCase()) {
+                case 'node': {
+                    schemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema[i]
+                }
+                case 'concept': {
+                    schemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema[i]
+                }
+                case 'topic': {
+                    schemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema[i]
+                }
+                default: {
+                    renderCommandResultsPage(["Syntax Error. Expected <b>Node</b>, <b>Concept</b> or <b>Topic</b>. Found <b>" + category + "</b>"])
+                    return
+                }
+            }
+            if (schemaDocument === undefined) {
+                renderCommandResultsPage([category + " <b>" + type + "</b> does not exist."])
+                return
+            }
+            if (schemaDocument.paragraphs === undefined) {
+                renderCommandResultsPage([category + " <b>" + type + "</b> has no paragraphs."])
+                return
+            }
+            let anchorFound = false
+            for (let i = 0; i < schemaDocument.paragraphs.length; i++) {
+                let paragraph = schemaDocument.paragraphs[i]
+                if (paragraph.style === 'Anchor' && paragraph.text === anchor) {
+                    anchorFound = true
+                }
+            }
+            if (anchorFound === fales) {
+                renderCommandResultsPage(["Anchor <b>" + anchor + "</b> does not exist."])
+                return
+            }
+            navigateTo(project, category, type, anchor, undefined)
+
         }
 
         function checkAddCommand() {
@@ -1112,7 +1179,7 @@ function newSuperalgosDocSpace() {
 
             SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema.push(template)
             SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.set(type, template)
-            navigateTo('Node', type, project)
+            navigateTo(project, 'Node', type)
         }
 
         function addConcept(project, type) {
@@ -1139,7 +1206,7 @@ function newSuperalgosDocSpace() {
 
             SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema.push(template)
             SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.set(type, template)
-            navigateTo('Concept', type, project)
+            navigateTo(project, 'Concept', type)
         }
 
         function addTopic(project, topic, type, pageNumber) {
@@ -1167,7 +1234,7 @@ function newSuperalgosDocSpace() {
 
             SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema.push(template)
             SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.set(type, template)
-            navigateTo('Topic', type, project)
+            navigateTo(project, 'Topic', type)
         }
 
         function deleteNode(project, type) {
@@ -1451,7 +1518,7 @@ function newSuperalgosDocSpace() {
                     let result = resultsArary[j]
 
                     if (tab !== 'All') {
-                        if (tab.indexOf(result.documentIndex.documentCategory) < 0) {
+                        if (tab.indexOf(result.documentIndex.category) < 0) {
                             continue
                         }
                     }
@@ -1467,7 +1534,7 @@ function newSuperalgosDocSpace() {
                             let nodeType = pathStep[1]
                             let nodeProject = pathStep[2]
                             let nodeId = pathStep[3]
-                            let link = ' > <a onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + result.documentIndex.documentCategory + '\', \'' + nodeType + '\', \'' + nodeProject + '\', \'' + nodeId + '\')"  class="docs-search-result-content-record-project-category-link">'
+                            let link = ' > <a onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + nodeProject + '\', \'' + result.documentIndex.category + '\', \'' + nodeType + '\', ' + undefined + '  ,\'' + nodeId + '\')"  class="docs-search-result-content-record-project-category-link">'
                             if (nodeName === 'New ' + nodeType || nodeName === 'My ' + nodeType || nodeName === undefined) {
                                 nodeName = ''
                             }
@@ -1481,7 +1548,7 @@ function newSuperalgosDocSpace() {
                     }
 
                     HTML = HTML + '<div class="docs-search-result-content-record-container">'
-                    HTML = HTML + '<p class="docs-search-result-content-record-project-category">' + result.documentIndex.project + ' > ' + result.documentIndex.documentCategory + path + '</p>'
+                    HTML = HTML + '<p class="docs-search-result-content-record-project-category">' + result.documentIndex.project + ' > ' + result.documentIndex.category + path + '</p>'
 
                     let mainLink = ''
                     if (result.documentIndex.schemaDocument.topic === undefined) {
@@ -1489,7 +1556,7 @@ function newSuperalgosDocSpace() {
                     } else {
                         mainLink = result.documentIndex.schemaDocument.topic + ' - Page ' + result.documentIndex.schemaDocument.pageNumber + ' - ' + result.documentIndex.schemaDocument.type
                     }
-                    HTML = HTML + '<p><a onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + result.documentIndex.documentCategory + '\', \'' + result.documentIndex.schemaDocument.type + '\', \'' + result.documentIndex.project + '\', \'' + result.documentIndex.schemaDocument.nodeId + '\')" class="docs-search-result-content-record-title">' + mainLink + '</a></p>'
+                    HTML = HTML + '<p><a onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + result.documentIndex.project + '\', \'' + result.documentIndex.category + '\', \'' + result.documentIndex.schemaDocument.type + '\', ' + undefined + '  ,\'' + result.documentIndex.schemaDocument.nodeId + '\')" class="docs-search-result-content-record-title">' + mainLink + '</a></p>'
 
                     if (result.documentIndex.schemaDocument.definition !== undefined) {
                         HTML = HTML + '<p class="docs-search-result-content-record-extract">' + result.documentIndex.schemaDocument.definition + '</p>'
@@ -1576,26 +1643,29 @@ function newSuperalgosDocSpace() {
         }
     }
 
-    function openSpaceAreaAndNavigateTo(category, type, project) {
+    function openSpaceAreaAndNavigateTo(project, category, type, anchor, nodeId) {
 
         objectBeingRendered = {
+            project: project,
             category: category,
             type: type,
-            project: project
+            anchor: anchor,
+            nodeId: nodeId
         }
 
         thisObject.sidePanelTab.open()
     }
 
-    function navigateTo(category, type, project, nodeId) {
+    function navigateTo(project, category, type, anchor, nodeId) {
 
         paragraphMap = new Map()
 
         /* Replace the current object with this */
         objectBeingRendered = {
+            project: project,
             category: category,
             type: type,
-            project: project,
+            anchor: anchor,
             nodeId: nodeId
         }
 
@@ -1816,7 +1886,7 @@ function newSuperalgosDocSpace() {
                         text: "" + arrayItem.pageNumber + '. ' + arrayItem.type + ""
                     }
                     paragraphIndex++
-                    HTML = HTML + '<p><a onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + 'Topic' + '\', \'' + arrayItem.type + '\', \'' + objectBeingRendered.project + '\')" class="docs-topic-index-link">' + paragraph.text + '</a></p>'
+                    HTML = HTML + '<p><a onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + objectBeingRendered.project + '\', \'' + 'Topic' + '\', \'' + arrayItem.type + '\')" class="docs-topic-index-link">' + paragraph.text + '</a></p>'
                 }
             }
 
@@ -3033,8 +3103,8 @@ function newSuperalgosDocSpace() {
 
     function addToolTips(text) {
 
-        const TOOL_TIP_HTML = '<div onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'CATEGORY\', \'TYPE\', \'PROJECT\')" class="docs-tooltip">TYPE_LABEL<span class="docs-tooltiptext">DEFINITION</span></div>'
-        const LINK_ONLY_HTML = '<div onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'CATEGORY\', \'TYPE\', \'PROJECT\')" class="docs-link">TYPE_LABEL<span class="docs-tooltiptext"></span></div>'
+        const TOOL_TIP_HTML = '<div onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'PROJECT\', \'CATEGORY\', \'TYPE\')" class="docs-tooltip">TYPE_LABEL<span class="docs-tooltiptext">DEFINITION</span></div>'
+        const LINK_ONLY_HTML = '<div onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'PROJECT\', \'CATEGORY\', \'TYPE\')" class="docs-link">TYPE_LABEL<span class="docs-tooltiptext"></span></div>'
 
         let resultingText = ''
         text = tagDefinedTypes(text, objectBeingRendered.type)

@@ -82,7 +82,8 @@ function newSuperalgosDocSpace() {
                 toPng: toPng,
                 toAnchor: toAnchor,
                 toBlock: toBlock,
-                toInclude: toInclude
+                toInclude: toInclude,
+                copyLink: copyLink
             }
 
             function editParagraph() {
@@ -276,6 +277,28 @@ function newSuperalgosDocSpace() {
                 docSchemaParagraph.style = 'Include'
                 contextMenuForceOutClick()
                 renderDocumentPage()
+            }
+
+            function copyLink() {
+                let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
+                let clipboard
+                switch (docSchemaParagraph.style) {
+                    case 'Anchor': {
+                        clipboard = "docs.goto " + objectBeingRendered.project + '->' + objectBeingRendered.category + '->' + objectBeingRendered.type + '->' + docSchemaParagraph.text
+                        break
+                    }
+                    case 'Block': {
+                        clipboard = objectBeingRendered.project + '->' + objectBeingRendered.category + '->' + objectBeingRendered.type + '->' + docSchemaParagraph.text
+                        break
+                    }
+                    default: {
+                        clipboard = docSchemaParagraph.text
+                        break
+                    }
+                }
+
+                UI.projects.superalgos.utilities.clipboard.copyTextToClipboard(clipboard)
+                contextMenuForceOutClick()
             }
         }
 

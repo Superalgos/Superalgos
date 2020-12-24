@@ -1830,6 +1830,7 @@ function newSuperalgosDocSpace() {
 
         function buildHtmlPage() {
             let definitionImagesArray = []
+            let hierarchyImagesArray = []
             let HTML = ''
 
             HTML = HTML + '<section id="docs-search-results-div" class="docs-search-page-container">'
@@ -1884,7 +1885,7 @@ function newSuperalgosDocSpace() {
                         if (category === 'Node') {
 
                             let imageItem = {
-                                div: 'definitionImageDiv-' + definitionImagesArray.length,
+                                div: 'definition-image-div-' + definitionImagesArray.length,
                                 project: project,
                                 category: category,
                                 type: type
@@ -2074,6 +2075,7 @@ function newSuperalgosDocSpace() {
             function addImages() {
                 addProjectImage()
                 addDefinitionImage()
+                addhHerarchyImages()
 
                 if (objectBeingRendered.category === 'Node') {
                     addMenuItemsImages()
@@ -2101,6 +2103,34 @@ function newSuperalgosDocSpace() {
 
                         let definitionImageDiv = document.getElementById(imageItem.div)
                         definitionImageDiv.appendChild(imageElement)
+                    }
+                }
+
+                function addhHerarchyImages() {
+                    for (let i = 0; i < hierarchyImagesArray.length; i++) {
+                        let imageItem = hierarchyImagesArray[i]
+                        let collectionImage 
+
+                        if (imageItem.name === undefined) {
+                            let appSchemaDocument = SCHEMAS_BY_PROJECT.get(imageItem.project).map.appSchema.get(imageItem.type)
+                            if (appSchemaDocument.icon === undefined) {
+                                let imageName = appSchemaDocument.type.toLowerCase().replaceAll(' ', '-')
+                                collectionImage = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName(imageItem.project, imageName)
+                            } else {
+                                collectionImage = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(imageItem.project, imageItem.type)
+                            }
+                        } else {
+                            collectionImage = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName(imageItem.project, imageItem.name)
+                        }
+                        
+                        
+                        let imageElement = collectionImage.cloneNode()
+
+                        //imageElement.width = "150"
+                        //imageElement.height = "150"
+
+                        let hierarchyImageDiv = document.getElementById(imageItem.div)
+                        hierarchyImageDiv.appendChild(imageElement)
                     }
                 }
 
@@ -2980,6 +3010,13 @@ function newSuperalgosDocSpace() {
                 let currentRow = -1
 
                 scanHierarchy(appSchemaDocument, project, currentColumn)
+                fillEmptySpaces()
+                putTheLines()
+                addImageContainers()
+
+                let HTML = ''
+                addHTML()
+                return HTML
 
                 function scanHierarchy(schemaDocument, project, currentColumn, lastChild) {
 
@@ -3017,49 +3054,100 @@ function newSuperalgosDocSpace() {
                         scanHierarchy(childSchemaDocument, childProject, currentColumn + 1, lastChild)
                     }
                 }
-                /*
-                Fill the empty spaces
-                */
-                for (let i = 0; i < contentMatrix.length; i++) {
-                    let matrixRow = contentMatrix[i]
-                    for (let j = 0; j < matrixRow.length; j++) {
-                        if (matrixRow[j] === '') {
-                            matrixRow[j] = SPACE
+
+                function fillEmptySpaces() {
+                    /*
+                    Fill the empty spaces
+                    */
+                    for (let i = 0; i < contentMatrix.length; i++) {
+                        let matrixRow = contentMatrix[i]
+                        for (let j = 0; j < matrixRow.length; j++) {
+                            if (matrixRow[j] === '') {
+                                matrixRow[j] = SPACE
+                            }
                         }
                     }
                 }
-                /*
-                Now we will scan the Matrix to put the lines of the hirierchy.
-                */
-                for (let i = 0; i < contentMatrix.length; i++) {
-                    let matrixRow = contentMatrix[i]
-                    let previousRow = contentMatrix[i - 1]
-                    for (let j = 0; j < matrixRow.length; j++) {
-                        if (previousRow && matrixRow[j] === SPACE) {
-                            if (previousRow[j] === FORK || previousRow[j]=== LINE) {
-                                matrixRow[j] = LINE
-                            } 
-                        }                    
-                    }
-                }
-                /*
-                Add HTML
-                */
-                let HTML = ''
-                HTML = HTML + '<table class="hierarchyTable">'
-                for (let i = 0; i < contentMatrix.length; i++) {
-                    let matrixRow = contentMatrix[i]
-                    HTML = HTML + '<tr>'
-                    for (let j = 0; j < matrixRow.length; j++) {
-                        HTML = HTML + '<td>'
-                        HTML = HTML + matrixRow[j]
-                        HTML = HTML + '</td>'
 
+                function putTheLines() {
+                    /*
+                    Now we will scan the Matrix to put the lines of the hirierchy.
+                    */
+                    for (let i = 0; i < contentMatrix.length; i++) {
+                        let matrixRow = contentMatrix[i]
+                        let previousRow = contentMatrix[i - 1]
+                        for (let j = 0; j < matrixRow.length; j++) {
+                            if (previousRow && matrixRow[j] === SPACE) {
+                                if (previousRow[j] === FORK || previousRow[j] === LINE) {
+                                    matrixRow[j] = LINE
+                                }
+                            }
+                        }
                     }
-                    HTML = HTML + '</tr>'
                 }
-                HTML = HTML + '</table>'
-                return HTML
+
+                function addImageContainers() {
+                    /*
+                    Add Image Conatiners
+                    */
+                    for (let i = 0; i < contentMatrix.length; i++) {
+                        let matrixRow = contentMatrix[i]
+                        for (let j = 0; j < matrixRow.length; j++) {
+
+                            let imageItem = {
+                                div: 'hierarchy-image-div-' + hierarchyImagesArray.length,
+                                project: 'Superalgos'
+                            }
+
+                            switch (matrixRow[j]) {
+                                case LINE: {
+                                    imageItem.name = 'tree-connector-line'
+                                    matrixRow[j] = '<div id="' + imageItem.div + '" class="docs-hierarchy-image-container"/>'
+                                    hierarchyImagesArray.push(imageItem)
+                                    break
+                                }
+                                case SPACE: {
+                                    imageItem.name = 'tree-spacer'
+                                    matrixRow[j] = '<div id="' + imageItem.div + '" class="docs-hierarchy-image-container"/>'
+                                    hierarchyImagesArray.push(imageItem)
+                                    break
+                                }
+                                case FORK: {
+                                    imageItem.name = 'tree-connector-fork'
+                                    matrixRow[j] = '<div id="' + imageItem.div + '" class="docs-hierarchy-image-container"/>'
+                                    hierarchyImagesArray.push(imageItem)
+                                    break
+                                }
+                                case ELBOW: {
+                                    imageItem.name = 'tree-connector-elbow'
+                                    matrixRow[j] = '<div id="' + imageItem.div + '" class="docs-hierarchy-image-container"/>'
+                                    hierarchyImagesArray.push(imageItem)
+                                    break
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+
+                function addHTML() {
+                    /*
+                    Add HTML
+                    */
+                    HTML = HTML + '<table class="hierarchyTable">'
+                    for (let i = 0; i < contentMatrix.length; i++) {
+                        let matrixRow = contentMatrix[i]
+                        HTML = HTML + '<tr>'
+                        for (let j = 0; j < matrixRow.length; j++) {
+                            HTML = HTML + '<td>'
+                            HTML = HTML + matrixRow[j]
+                            HTML = HTML + '</td>'
+
+                        }
+                        HTML = HTML + '</tr>'
+                    }
+                    HTML = HTML + '</table>'
+                }
             }
         }
     }

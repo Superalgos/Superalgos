@@ -67,6 +67,14 @@ margin-right: auto;
 width: 100%;
 }
 
+.docs-hierarchy-image-container {
+padding: 0px 0px 0px 0px;
+border: solid 0px;
+margin-left: auto;
+margin-right: auto;
+width: 100%;
+}
+
 /* Link without tooltip */
 .docs-link {
 position: relative;

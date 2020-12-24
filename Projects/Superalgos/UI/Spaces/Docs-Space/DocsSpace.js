@@ -866,7 +866,7 @@ function newSuperalgosDocSpace() {
                         "Command line interface general help info: ",
                         "The Docs is equiped with a command line interface from where you can type commands that will help you contribute to the Docs. Each command listed below has it's own help. You just need to type <i>help</i> and the command to get details about it's sintax and examples on how to use it. The following is the list of available commands:",
                         "<b>help</b>: This general purpose help info.",
-                        "<b>docs.got</b>: Use this command to go directly to a Node, Concept or Topic page.",
+                        "<b>docs.goto</b>: Use this command to go directly to a Node, Concept or Topic page.",
                         "<b>docs.add</b>: Use this command to add new Nodes, Concepts or Topics to the Docs.",
                         "<b>docs.delete</b>: Use this command to delete existing Nodes, Concepts or Topics from the Docs.",
                         "<b>docs.save</b>: Use this command whenever you would like to save the changes you made to the Docs.",
@@ -884,8 +884,13 @@ function newSuperalgosDocSpace() {
                 renderCommandResultsPage(
                     [
                         "<b>docs.goto</b> command syntax: ",
-                        "Option 1: <i>docs.goto</i>",
-                        "Use this command jump into a Node, Concept or Topic page or an Anchor withing that page."
+                        "Option 1: <i>docs.goto</i> Project Name->Node->Node Type[->Anchor Name]",
+                        "Example: docs.goto Superalgos->Node->Task Manager",
+                        "Option 2: <i>docs.goto</i> Project Name->Concept->Concept Name[->Anchor Name]",
+                        "Example: docs.goto Superalgos->Concept->Attaching Nodes->Anchor 1",
+                        "Option 3: <i>docs.goto</i> Project Name->Topic->Topic Page Name[->Anchor Name]",
+                        "Example: docs.goto Superalgos->Topic->Contributing Code->Anchor 3",
+                        "Use this command jump into a Node, Concept or Topic page or an Anchor defined withing that page."
                     ]
                 )
                 return
@@ -908,13 +913,16 @@ function newSuperalgosDocSpace() {
             let schemaDocument
             switch (category.toLowerCase()) {
                 case 'node': {
-                    schemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema[i]
+                    schemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(type)
+                    break
                 }
                 case 'concept': {
-                    schemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema[i]
+                    schemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.get(type)
+                    break
                 }
                 case 'topic': {
-                    schemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema[i]
+                    schemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.get(type)
+                    break
                 }
                 default: {
                     renderCommandResultsPage(["Syntax Error. Expected <b>Node</b>, <b>Concept</b> or <b>Topic</b>. Found <b>" + category + "</b>"])
@@ -929,17 +937,20 @@ function newSuperalgosDocSpace() {
                 renderCommandResultsPage([category + " <b>" + type + "</b> has no paragraphs."])
                 return
             }
-            let anchorFound = false
-            for (let i = 0; i < schemaDocument.paragraphs.length; i++) {
-                let paragraph = schemaDocument.paragraphs[i]
-                if (paragraph.style === 'Anchor' && paragraph.text === anchor) {
-                    anchorFound = true
+            if (anchor !== undefined) {
+                let anchorFound = false
+                for (let i = 0; i < schemaDocument.paragraphs.length; i++) {
+                    let paragraph = schemaDocument.paragraphs[i]
+                    if (paragraph.style === 'Anchor' && paragraph.text === anchor) {
+                        anchorFound = true
+                    }
+                }
+                if (anchorFound === false) {
+                    renderCommandResultsPage(["Anchor <b>" + anchor + "</b> does not exist."])
+                    return
                 }
             }
-            if (anchorFound === fales) {
-                renderCommandResultsPage(["Anchor <b>" + anchor + "</b> does not exist."])
-                return
-            }
+
             navigateTo(project, category, type, anchor, undefined)
 
         }

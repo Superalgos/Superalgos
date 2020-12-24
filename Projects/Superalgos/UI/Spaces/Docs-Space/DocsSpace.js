@@ -941,6 +941,7 @@ function newSuperalgosDocSpace() {
                 renderCommandResultsPage([category + " <b>" + type + "</b> has no paragraphs."])
                 return
             }
+            /*
             if (anchor !== undefined) {
                 let anchorFound = false
                 for (let i = 0; i < schemaDocument.paragraphs.length; i++) {
@@ -954,7 +955,7 @@ function newSuperalgosDocSpace() {
                     return
                 }
             }
-
+*/
             navigateTo(project, category, type, anchor, undefined)
 
         }
@@ -1629,9 +1630,11 @@ function newSuperalgosDocSpace() {
 
     function scrollToElement(htmlElementId) {
         let myElement = document.getElementById(htmlElementId)
-        let topPos = myElement.offsetTop
-        let scrollingDiv = document.getElementById('docs-space-div')
-        scrollingDiv.scrollTop = topPos
+        if (myElement) {
+            let topPos = myElement.offsetTop
+            let scrollingDiv = document.getElementById('docs-space-div')
+            scrollingDiv.scrollTop = topPos
+        }
     }
 
     function enableCollapsibleContent() {
@@ -1685,8 +1688,16 @@ function newSuperalgosDocSpace() {
         }
 
         renderDocumentPage()
-        scrollToElement('docs-space-div')
 
+        /*
+        Here we will check if we need to position the page at a particular anchor or at the top.
+        */
+        if (objectBeingRendered.anchor !== undefined) {
+            scrollToElement('docs-anchor-' + objectBeingRendered.anchor.toLowerCase().replaceAll(' ', '-'))
+            objectBeingRendered.anchor = undefined
+        } else {
+            scrollToElement('docs-space-div')
+        }
     }
 
     function renderDocumentPage() {
@@ -2850,7 +2861,8 @@ function newSuperalgosDocSpace() {
                     }
                     case 'Anchor': {
                         styleClass = 'class="docs-hidden-anchor"'
-                        prefix = ''
+                        prefix = '<div id="' + 'docs-anchor-' + paragraph.text.toLowerCase().replaceAll(' ', '-') + '">'
+                        sufix = '</div>'
                         role = ''
                         key = key + '-anchor'
                         innerHTML = paragraph.text

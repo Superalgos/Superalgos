@@ -31,6 +31,10 @@
             "text": "Vaina Paragraph 4"
         },
         {
+            "style": "Anchor",
+            "text": "Anchor 1"
+        },
+        {
             "style": "Callout",
             "text": "Vaina Paragraph 5"
         },

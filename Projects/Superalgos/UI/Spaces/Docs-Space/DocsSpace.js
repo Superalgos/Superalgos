@@ -898,8 +898,12 @@ function newSuperalgosDocSpace() {
             if (command.indexOf('Docs.Goto') !== 0 && command.indexOf('docs.goto') !== 0) { return 'Not Goto Command' }
 
             let splittedCommand = command.split(' ')
-            let primaryCommand = splittedCommand[0]
-            let secondaryCommand = splittedCommand[1]
+
+            if (splittedCommand[1] === undefined) {
+                renderCommandResultsPage(["Syntax error: Too few parameters. Use <i>help docs.goto</i> to learn this command syntax."])
+                return
+            }
+            let secondaryCommand = command.substring(command.indexOf(' ') + 1, command.length)
             let splittedSecondaryCommand = secondaryCommand.split('->')
             let project = splittedSecondaryCommand[0]
             let category = splittedSecondaryCommand[1]

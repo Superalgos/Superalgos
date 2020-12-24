@@ -2965,6 +2965,11 @@ function newSuperalgosDocSpace() {
                 const MAX_COLUMNS = 10
                 const MAX_ROWS = 100
 
+                const ELBOW = 'elbow'
+                const FORK = 'fork'
+                const LINE = 'line'
+                const SPACE = 'space'
+
                 let contentMatrix = []
 
                 for (let i = 0; i < MAX_ROWS; i++) {
@@ -2976,15 +2981,23 @@ function newSuperalgosDocSpace() {
 
                 scanHierarchy(appSchemaDocument, project, currentColumn)
 
-                function scanHierarchy(schemaDocument, project, currentColumn) {
+                function scanHierarchy(schemaDocument, project, currentColumn, lastChild) {
 
                     if (schemaDocument === undefined) { return }
-                    if (schemaDocument.childrenNodesProperties === undefined) { return }
 
                     currentRow++
                     let matrixValue = schemaDocument.type
                     let matrixRow = contentMatrix[currentRow]
                     matrixRow[currentColumn] = matrixValue
+
+                    if (lastChild === true) {
+                        matrixRow[currentColumn - 1] = ELBOW
+                    }
+                    if (lastChild === false) {
+                        matrixRow[currentColumn - 1] = FORK
+                    }
+
+                    if (schemaDocument.childrenNodesProperties === undefined) { return }
 
                     for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
                         let property = schemaDocument.childrenNodesProperties[i]
@@ -2994,24 +3007,61 @@ function newSuperalgosDocSpace() {
                         }
                         let childType = property.childType
                         let childSchemaDocument = SCHEMAS_BY_PROJECT.get(project).map.appSchema.get(childType)
-                        scanHierarchy(childSchemaDocument, childProject, currentColumn + 1)
+
+                        if (i === schemaDocument.childrenNodesProperties.length - 1) {
+                            lastChild = true
+                        } else {
+                            lastChild = false
+                        }
+
+                        scanHierarchy(childSchemaDocument, childProject, currentColumn + 1, lastChild)
                     }
                 }
+                /*
+                Now we will scan the Matrix to put the lines of the hirierchy.
+                */
 
+                /*
+                                for (let i = 0; i < contentMatrix.length; i++) {
+                                    let matrixRow = contentMatrix[i]
+                                    let previousRow = contentMatrix[i - 1]
+                                    for (let j = 0; j < matrixRow.length; j++) {
+                                        let matrixValue = matrixRow[j]
+                                        let valueUp = previousRow[j]
+                                        let valueLeft = matrixRow[j - 1]
+                                        let valueRight = matrixRow[j + 1]
+                                        if (contentMatrix !== '') {
+                                            break
+                                        }
+                
+                                    }
+                                }
+                */
+
+                for (let i = 0; i < contentMatrix.length; i++) {
+                    let matrixRow = contentMatrix[i]
+                    for (let j = 0; j < matrixRow.length; j++) {
+                        if (matrixRow[j] === '') {
+                            matrixRow[j] = SPACE
+                        }
+                    }
+                }
 
                 let HTML = ''
 
                 HTML = HTML + '<table class="hierarchyTable">'
-                HTML = HTML + '<tr>'
-                HTML = HTML + '<td>'
-                HTML = HTML + '</td>'
-                HTML = HTML + '</tr>'
+                for (let i = 0; i < contentMatrix.length; i++) {
+                    let matrixRow = contentMatrix[i]
+                    HTML = HTML + '<tr>'
+                    for (let j = 0; j < matrixRow.length; j++) {
+                        HTML = HTML + '<td>'
+                        HTML = HTML + matrixRow[j]
+                        HTML = HTML + '</td>'
+
+                    }
+                    HTML = HTML + '</tr>'
+                }
                 HTML = HTML + '</table>'
-
-                HTML = HTML + '<thead><tr><th><a href="#design-space"><img src="images/icons/nodes/png50/design-space.png"><br>Design Space</a></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th></tr></thead><tbody>'
-                HTML = HTML + '<tr><td><img src="images/icons/various/png/tree-connector-fork.png"></td><td><a href="#space-style" data-toggle="tooltip" data-original-title="The space style node features controls over the look and feel of the space, in particular, of background colors and font sizes."><img src="images/icons/nodes/png50/space-style.png"><br>Space Style</a></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>'
-                HTML = HTML + '<tr><td><img src="images/icons/various/png/tree-connector-elbow.png"></td><td><a href="#space-settings" data-toggle="tooltip" data-original-title="The space settings node features controls over the phisics, proportions, and positioning of icons representing node, and their menus."><img src="images/icons/nodes/png50/space-settings.png"><br>Space Settings</a></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table>'
-
                 return HTML
             }
         }

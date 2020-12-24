@@ -2960,6 +2960,44 @@ function newSuperalgosDocSpace() {
 
                 appSchemaDocument = SCHEMAS_BY_PROJECT.get(project).map.appSchema.get(type)
                 if (appSchemaDocument === undefined) { return }
+                if (isNaN(levels) === true) { return }
+
+                const MAX_COLUMNS = 10
+                const MAX_ROWS = 100
+
+                let contentMatrix = []
+
+                for (let i = 0; i < MAX_ROWS; i++) {
+                    contentMatrix.push(['', '', '', '', '', '', '', '', '', ''])
+                }
+
+                let currentColumn = 0
+                let currentRow = -1
+
+                scanHierarchy(appSchemaDocument, project, currentColumn)
+
+                function scanHierarchy(schemaDocument, project, currentColumn) {
+
+                    if (schemaDocument === undefined) { return }
+                    if (schemaDocument.childrenNodesProperties === undefined) { return }
+
+                    currentRow++
+                    let matrixValue = schemaDocument.type
+                    let matrixRow = contentMatrix[currentRow]
+                    matrixRow[currentColumn] = matrixValue
+
+                    for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+                        let property = schemaDocument.childrenNodesProperties[i]
+                        let childProject = project
+                        if (property.project !== undefined) {
+                            childProject = property.project
+                        }
+                        let childType = property.childType
+                        let childSchemaDocument = SCHEMAS_BY_PROJECT.get(project).map.appSchema.get(childType)
+                        scanHierarchy(childSchemaDocument, childProject, currentColumn + 1)
+                    }
+                }
+
 
                 let HTML = ''
 

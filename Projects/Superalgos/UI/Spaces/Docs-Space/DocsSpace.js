@@ -39,8 +39,8 @@ function newSuperalgosDocSpace() {
     let selectedParagraphHeight = 0
     let objectBeingRendered
     let paragraphMap                    // Here we will store a map of paragraphs from the Docs Node, Concept or Topics Schema in order to find it when we need to update them.
-    let nodeAppDefinition
-    let schemaDocument
+    let appSchemaDocument
+    let docsSchemaDocument
     let menuLabelsMap = new Map()
     let command
     let docsIndex = []
@@ -78,6 +78,7 @@ function newSuperalgosDocSpace() {
                 toSummary: toSummary,
                 toList: toList,
                 toTable: toTable,
+                toHierarchy: toHierarchy,
                 toGif: toGif,
                 toPng: toPng,
                 toAnchor: toAnchor,
@@ -244,6 +245,13 @@ function newSuperalgosDocSpace() {
                 renderDocumentPage()
             }
 
+            function toHierarchy() {
+                let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
+                docSchemaParagraph.style = 'Hierarchy'
+                contextMenuForceOutClick()
+                renderDocumentPage()
+            }
+
             function toGif() {
                 let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Gif'
@@ -313,11 +321,11 @@ function newSuperalgosDocSpace() {
                 let appSchemaArray = SCHEMAS_BY_PROJECT.get(project).array.appSchema
 
                 for (let j = 0; j < appSchemaArray.length; j++) {
-                    let schemaDocument = appSchemaArray[j]
+                    let docsSchemaDocument = appSchemaArray[j]
 
-                    if (schemaDocument.menuItems === undefined) { continue }
-                    for (let k = 0; k < schemaDocument.menuItems.length; k++) {
-                        let menuItem = schemaDocument.menuItems[k]
+                    if (docsSchemaDocument.menuItems === undefined) { continue }
+                    for (let k = 0; k < docsSchemaDocument.menuItems.length; k++) {
+                        let menuItem = docsSchemaDocument.menuItems[k]
                         menuLabelsMap.set(menuItem.label, true)
                     }
                 }
@@ -332,8 +340,8 @@ function newSuperalgosDocSpace() {
 
         objectBeingRendered = undefined
         paragraphMap = undefined
-        nodeAppDefinition = undefined
-        schemaDocument = undefined
+        appSchemaDocument = undefined
+        docsSchemaDocument = undefined
         menuLabelsMap = undefined
         docsIndex = undefined
         isInitialized = false
@@ -460,13 +468,13 @@ function newSuperalgosDocSpace() {
                         if (paragraphs[0] !== '') {
                             docSchemaParagraph.text = paragraphs[0]
                         } else {
-                            schemaDocument.paragraphs.splice(selectedParagraphIndex, 1)
-                            if (schemaDocument.paragraphs.length === 0) {
+                            docsSchemaDocument.paragraphs.splice(selectedParagraphIndex, 1)
+                            if (docsSchemaDocument.paragraphs.length === 0) {
                                 let newParagraph = {
                                     style: 'Text',
                                     text: 'Please contribute to the docs by editing this content.'
                                 }
-                                schemaDocument.paragraphs.push(newParagraph)
+                                docsSchemaDocument.paragraphs.push(newParagraph)
                             }
                         }
                     } else {
@@ -480,7 +488,7 @@ function newSuperalgosDocSpace() {
                                 style: style,
                                 text: paragraphs[i]
                             }
-                            schemaDocument.paragraphs.splice(selectedParagraphIndex + i, 0, newParagraph)
+                            docsSchemaDocument.paragraphs.splice(selectedParagraphIndex + i, 0, newParagraph)
                         }
                     }
 
@@ -491,7 +499,7 @@ function newSuperalgosDocSpace() {
                     This means that the definition was being edited.
                     */
                     if (textArea.value !== '') {
-                        schemaDocument.definition = textArea.value
+                        docsSchemaDocument.definition = textArea.value
                     }
                     break
                 }
@@ -613,6 +621,9 @@ function newSuperalgosDocSpace() {
         if (paragraphNode.id.indexOf('-table') >= 0) {
             selectedParagraphData = reverseParseTable(paragraphNode.innerHTML)
         }
+        if (paragraphNode.id.indexOf('-hierarchy') >= 0) {
+            selectedParagraphData = paragraphNode.innerText
+        }
         if (paragraphNode.id.indexOf('-gif') >= 0) {
             selectedParagraphData = reverseParseGIF(paragraphNode.innerHTML)
         }
@@ -683,7 +694,7 @@ function newSuperalgosDocSpace() {
                 if (node.project === project) {
                     let nodeNameTypePath = UI.projects.superalgos.utilities.hierarchy.getNodeNameTypePath(node)
 
-                    let schemaDocument = {
+                    let docsSchemaDocument = {
                         nodeId: node.id,
                         nodeNameTypePath: nodeNameTypePath,
                         type: node.type,
@@ -696,12 +707,12 @@ function newSuperalgosDocSpace() {
                             style: "Title",
                             text: "Config"
                         }
-                        schemaDocument.paragraphs.push(paragraph)
+                        docsSchemaDocument.paragraphs.push(paragraph)
                         paragraph = {
                             style: "Json",
                             text: node.config
                         }
-                        schemaDocument.paragraphs.push(paragraph)
+                        docsSchemaDocument.paragraphs.push(paragraph)
                     }
                     if (node.code !== undefined) {
                         let paragraph
@@ -709,15 +720,15 @@ function newSuperalgosDocSpace() {
                             style: "Title",
                             text: "Code"
                         }
-                        schemaDocument.paragraphs.push(paragraph)
+                        docsSchemaDocument.paragraphs.push(paragraph)
                         paragraph = {
                             style: "Javascript",
                             text: node.code
                         }
-                        schemaDocument.paragraphs.push(paragraph)
+                        docsSchemaDocument.paragraphs.push(paragraph)
                     }
-                    SCHEMAS_BY_PROJECT.get(project).array.workspaceSchema.push(schemaDocument)
-                    SCHEMAS_BY_PROJECT.get(project).map.workspaceSchema.set(node.id, schemaDocument)
+                    SCHEMAS_BY_PROJECT.get(project).array.workspaceSchema.push(docsSchemaDocument)
+                    SCHEMAS_BY_PROJECT.get(project).map.workspaceSchema.set(node.id, docsSchemaDocument)
                 }
             }
         }
@@ -733,7 +744,7 @@ function newSuperalgosDocSpace() {
             for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema.length; i++) {
                 documentIndex = {
                     phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
-                    schemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema[i],
+                    docsSchemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema[i],
                     category: 'Node',
                     project: project
                 }
@@ -744,7 +755,7 @@ function newSuperalgosDocSpace() {
             for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema.length; i++) {
                 documentIndex = {
                     phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
-                    schemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema[i],
+                    docsSchemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema[i],
                     category: 'Concept',
                     project: project
                 }
@@ -755,7 +766,7 @@ function newSuperalgosDocSpace() {
             for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema.length; i++) {
                 documentIndex = {
                     phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
-                    schemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema[i],
+                    docsSchemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema[i],
                     category: 'Topic',
                     project: project
                 }
@@ -766,7 +777,7 @@ function newSuperalgosDocSpace() {
             for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.workspaceSchema.length; i++) {
                 documentIndex = {
                     phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
-                    schemaDocument: SCHEMAS_BY_PROJECT.get(project).array.workspaceSchema[i],
+                    docsSchemaDocument: SCHEMAS_BY_PROJECT.get(project).array.workspaceSchema[i],
                     category: 'Workspace',
                     project: project
                 }
@@ -777,34 +788,34 @@ function newSuperalgosDocSpace() {
 
         function indexDocument(documentIndex) {
 
-            if (documentIndex.schemaDocument === undefined) {
+            if (documentIndex.docsSchemaDocument === undefined) {
                 return
             }
 
-            if (documentIndex.schemaDocument.topic !== undefined) {
+            if (documentIndex.docsSchemaDocument.topic !== undefined) {
                 let paragraph = {
                     style: 'Topic',
-                    text: documentIndex.schemaDocument.topic
+                    text: documentIndex.docsSchemaDocument.topic
                 }
                 indexParagraph(paragraph)
             }
-            if (documentIndex.schemaDocument.type !== undefined) {
+            if (documentIndex.docsSchemaDocument.type !== undefined) {
                 let paragraph = {
                     style: 'Type',
-                    text: documentIndex.schemaDocument.type
+                    text: documentIndex.docsSchemaDocument.type
                 }
                 indexParagraph(paragraph)
             }
-            if (documentIndex.schemaDocument.definition !== undefined) {
+            if (documentIndex.docsSchemaDocument.definition !== undefined) {
                 let paragraph = {
                     style: 'Definition',
-                    text: documentIndex.schemaDocument.definition
+                    text: documentIndex.docsSchemaDocument.definition
                 }
                 indexParagraph(paragraph)
             }
-            if (documentIndex.schemaDocument.paragraphs !== undefined) {
-                for (let k = 0; k < documentIndex.schemaDocument.paragraphs.length; k++) {
-                    let paragraph = documentIndex.schemaDocument.paragraphs[k]
+            if (documentIndex.docsSchemaDocument.paragraphs !== undefined) {
+                for (let k = 0; k < documentIndex.docsSchemaDocument.paragraphs.length; k++) {
+                    let paragraph = documentIndex.docsSchemaDocument.paragraphs[k]
                     indexParagraph(paragraph)
                 }
             }
@@ -937,18 +948,18 @@ function newSuperalgosDocSpace() {
                 renderCommandResultsPage(["Project <b>" + project + "</b> does not exist."])
                 return
             }
-            let schemaDocument
+            let docsSchemaDocument
             switch (category.toLowerCase()) {
                 case 'node': {
-                    schemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(type)
+                    docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(type)
                     break
                 }
                 case 'concept': {
-                    schemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.get(type)
+                    docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.get(type)
                     break
                 }
                 case 'topic': {
-                    schemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.get(type)
+                    docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.get(type)
                     break
                 }
                 default: {
@@ -956,19 +967,19 @@ function newSuperalgosDocSpace() {
                     return
                 }
             }
-            if (schemaDocument === undefined) {
+            if (docsSchemaDocument === undefined) {
                 renderCommandResultsPage([category + " <b>" + type + "</b> does not exist."])
                 return
             }
-            if (schemaDocument.paragraphs === undefined) {
+            if (docsSchemaDocument.paragraphs === undefined) {
                 renderCommandResultsPage([category + " <b>" + type + "</b> has no paragraphs."])
                 return
             }
             /*
             if (anchor !== undefined) {
                 let anchorFound = false
-                for (let i = 0; i < schemaDocument.paragraphs.length; i++) {
-                    let paragraph = schemaDocument.paragraphs[i]
+                for (let i = 0; i < docsSchemaDocument.paragraphs.length; i++) {
+                    let paragraph = docsSchemaDocument.paragraphs[i]
                     if (paragraph.style === 'Anchor' && paragraph.text === anchor) {
                         anchorFound = true
                     }
@@ -1291,9 +1302,9 @@ function newSuperalgosDocSpace() {
             renderCommandResultsPage(["Node <b>" + type + "</b> deleted."])
 
             for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema.length; i++) {
-                schemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema[i]
-                if (schemaDocument.type === type) {
-                    schemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema.splice(i, 1)
+                docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema[i]
+                if (docsSchemaDocument.type === type) {
+                    docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema.splice(i, 1)
                     break
                 }
             }
@@ -1314,9 +1325,9 @@ function newSuperalgosDocSpace() {
             renderCommandResultsPage(["Concept <b>" + type + "</b> deleted."])
 
             for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema.length; i++) {
-                schemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema[i]
-                if (schemaDocument.type === type) {
-                    schemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema.splice(i, 1)
+                docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema[i]
+                if (docsSchemaDocument.type === type) {
+                    docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema.splice(i, 1)
                     break
                 }
             }
@@ -1346,9 +1357,9 @@ function newSuperalgosDocSpace() {
             renderCommandResultsPage(["Topic <b>" + type + "</b> deleted."])
 
             for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema.length; i++) {
-                schemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema[i]
-                if (schemaDocument.type === type) {
-                    schemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema.splice(i, 1)
+                docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema[i]
+                if (docsSchemaDocument.type === type) {
+                    docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema.splice(i, 1)
                     break
                 }
             }
@@ -1402,13 +1413,13 @@ function newSuperalgosDocSpace() {
                         thisPhraseCount = 0
                     }
 
-                    if (documentIndex.schemaDocument.type !== undefined) {
-                        if (key === cleanTextForSearch(documentIndex.schemaDocument.type.toLowerCase())) {
+                    if (documentIndex.docsSchemaDocument.type !== undefined) {
+                        if (key === cleanTextForSearch(documentIndex.docsSchemaDocument.type.toLowerCase())) {
                             documentPoints = documentPoints + thisPhraseCount * 100
                         }
                     }
-                    if (documentIndex.schemaDocument.topic !== undefined) {
-                        if (key === cleanTextForSearch(documentIndex.schemaDocument.topic.toLowerCase())) {
+                    if (documentIndex.docsSchemaDocument.topic !== undefined) {
+                        if (key === cleanTextForSearch(documentIndex.docsSchemaDocument.topic.toLowerCase())) {
                             documentPoints = documentPoints + thisPhraseCount * 200
                         }
                     }
@@ -1468,6 +1479,14 @@ function newSuperalgosDocSpace() {
                         }
                         case 'summary': {
                             documentPoints = documentPoints + thisPhraseCount * 6
+                            break
+                        }
+                        case 'table': {
+                            documentPoints = documentPoints + thisPhraseCount * 3
+                            break
+                        }
+                        case 'hierarchy': {
+                            documentPoints = documentPoints + thisPhraseCount * 3
                             break
                         }
                         case 'json': {
@@ -1565,10 +1584,10 @@ function newSuperalgosDocSpace() {
 
                     /* Lets see if we can show a path */
                     let path = ''
-                    if (result.documentIndex.schemaDocument.nodeNameTypePath !== undefined) {
+                    if (result.documentIndex.docsSchemaDocument.nodeNameTypePath !== undefined) {
                         let linkLabel
-                        for (let i = 0; i < result.documentIndex.schemaDocument.nodeNameTypePath.length; i++) {
-                            let pathStep = result.documentIndex.schemaDocument.nodeNameTypePath[i]
+                        for (let i = 0; i < result.documentIndex.docsSchemaDocument.nodeNameTypePath.length; i++) {
+                            let pathStep = result.documentIndex.docsSchemaDocument.nodeNameTypePath[i]
                             let nodeName = pathStep[0]
                             let nodeType = pathStep[1]
                             let nodeProject = pathStep[2]
@@ -1590,15 +1609,15 @@ function newSuperalgosDocSpace() {
                     HTML = HTML + '<p class="docs-search-result-content-record-project-category">' + result.documentIndex.project + ' > ' + result.documentIndex.category + path + '</p>'
 
                     let mainLink = ''
-                    if (result.documentIndex.schemaDocument.topic === undefined) {
-                        mainLink = result.documentIndex.schemaDocument.type
+                    if (result.documentIndex.docsSchemaDocument.topic === undefined) {
+                        mainLink = result.documentIndex.docsSchemaDocument.type
                     } else {
-                        mainLink = result.documentIndex.schemaDocument.topic + ' - Page ' + result.documentIndex.schemaDocument.pageNumber + ' - ' + result.documentIndex.schemaDocument.type
+                        mainLink = result.documentIndex.docsSchemaDocument.topic + ' - Page ' + result.documentIndex.docsSchemaDocument.pageNumber + ' - ' + result.documentIndex.docsSchemaDocument.type
                     }
-                    HTML = HTML + '<p><a onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + result.documentIndex.project + '\', \'' + result.documentIndex.category + '\', \'' + result.documentIndex.schemaDocument.type + '\', ' + undefined + '  ,\'' + result.documentIndex.schemaDocument.nodeId + '\')" class="docs-search-result-content-record-title">' + mainLink + '</a></p>'
+                    HTML = HTML + '<p><a onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + result.documentIndex.project + '\', \'' + result.documentIndex.category + '\', \'' + result.documentIndex.docsSchemaDocument.type + '\', ' + undefined + '  ,\'' + result.documentIndex.docsSchemaDocument.nodeId + '\')" class="docs-search-result-content-record-title">' + mainLink + '</a></p>'
 
-                    if (result.documentIndex.schemaDocument.definition !== undefined) {
-                        HTML = HTML + '<p class="docs-search-result-content-record-extract">' + result.documentIndex.schemaDocument.definition + '</p>'
+                    if (result.documentIndex.docsSchemaDocument.definition !== undefined) {
+                        HTML = HTML + '<p class="docs-search-result-content-record-extract">' + result.documentIndex.docsSchemaDocument.definition + '</p>'
                     } else {
                         HTML = HTML + '<p class="docs-search-result-content-record-extract">' + 'No definition available.' + '</p>'
                     }
@@ -1725,7 +1744,7 @@ function newSuperalgosDocSpace() {
 
     function renderDocumentPage() {
 
-        nodeAppDefinition = SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.appSchema.get(objectBeingRendered.type)
+        appSchemaDocument = SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.appSchema.get(objectBeingRendered.type)
 
         disableCollapsibleContent()
         getSchemaDocument()
@@ -1737,24 +1756,24 @@ function newSuperalgosDocSpace() {
         function getSchemaDocument() {
             switch (objectBeingRendered.category) {
                 case 'Node': {
-                    schemaDocument = SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.docsNodeSchema.get(objectBeingRendered.type)
+                    docsSchemaDocument = SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.docsNodeSchema.get(objectBeingRendered.type)
                     break
                 }
                 case 'Concept': {
-                    schemaDocument = SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.docsConceptSchema.get(objectBeingRendered.type)
+                    docsSchemaDocument = SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.docsConceptSchema.get(objectBeingRendered.type)
                     break
                 }
                 case 'Topic': {
-                    schemaDocument = SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.docsTopicSchema.get(objectBeingRendered.type)
+                    docsSchemaDocument = SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.docsTopicSchema.get(objectBeingRendered.type)
                     break
                 }
                 case 'Workspace': {
-                    schemaDocument = SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.workspaceSchema.get(objectBeingRendered.nodeId)
+                    docsSchemaDocument = SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.workspaceSchema.get(objectBeingRendered.nodeId)
                     break
                 }
             }
 
-            if (schemaDocument === undefined) {
+            if (docsSchemaDocument === undefined) {
                 // Use the New Node Template
                 let template = {
                     type: objectBeingRendered.type,
@@ -1780,26 +1799,26 @@ function newSuperalgosDocSpace() {
                     }
                 }
 
-                schemaDocument = template
+                docsSchemaDocument = template
             }
             /* When for any reason the schema document does not have a paragraphs array */
-            if (schemaDocument.paragraphs === undefined) {
-                schemaDocument.paragraphs = []
+            if (docsSchemaDocument.paragraphs === undefined) {
+                docsSchemaDocument.paragraphs = []
             }
             /* When the paragraph array is empty. */
-            if (schemaDocument.paragraphs.length === 0) {
+            if (docsSchemaDocument.paragraphs.length === 0) {
                 let paragraph = {
                     style: 'Text',
                     text: newParagraphText
                 }
-                schemaDocument.paragraphs.push(paragraph)
+                docsSchemaDocument.paragraphs.push(paragraph)
             }
         }
 
         async function repositionWorkspace() {
             if (objectBeingRendered.category !== 'Workspace') { return }
 
-            let node = await UI.projects.superalgos.spaces.designSpace.workspace.getNodeById(schemaDocument.key)
+            let node = await UI.projects.superalgos.spaces.designSpace.workspace.getNodeById(docsSchemaDocument.key)
             node.payload.floatingObject.unCollapseParent()
             setTimeout(positionAtNode, 3000, node)
             setTimeout(positionAtNode, 5000, node)
@@ -1821,15 +1840,15 @@ function newSuperalgosDocSpace() {
 
             /* Title */
             let titleLabel = ''
-            if (schemaDocument.topic !== undefined) {
-                titleLabel = schemaDocument.topic + ' #' + schemaDocument.pageNumber + ' - ' + schemaDocument.type
+            if (docsSchemaDocument.topic !== undefined) {
+                titleLabel = docsSchemaDocument.topic + ' #' + docsSchemaDocument.pageNumber + ' - ' + docsSchemaDocument.type
             } else {
-                titleLabel = schemaDocument.type
+                titleLabel = docsSchemaDocument.type
             }
 
             HTML = HTML + '<div id="docs-main-title-div"><table class="docs-title-table"><tr><td width="50px"><div id="projectImageDiv" class="docs-image-container"/></td><td><h2 class="docs-h2" id="' + objectBeingRendered.type.toLowerCase().replace(' ', '-') + '" > ' + titleLabel + '</h2></td></tr></table></div>'
 
-            addDefinitionTable(schemaDocument, 'definition-editable-', objectBeingRendered.category, objectBeingRendered.project, objectBeingRendered.type)
+            addDefinitionTable(docsSchemaDocument, 'definition-editable-', objectBeingRendered.category, objectBeingRendered.project, objectBeingRendered.type)
 
             let paragraphIndex = 0
 
@@ -1855,10 +1874,10 @@ function newSuperalgosDocSpace() {
             */
             addImages()
 
-            function addDefinitionTable(schemaDocument, idPrefix, category, project, type) {
-                if (schemaDocument.definition !== undefined) {
+            function addDefinitionTable(docsSchemaDocument, idPrefix, category, project, type) {
+                if (docsSchemaDocument.definition !== undefined) {
                     if (category === 'Topic' || category === 'Concept') {
-                        HTML = HTML + '<div id="definition-summary-editable-paragraph" class="docs-summary"><b>Summary:</b> ' + addToolTips(schemaDocument.definition) + '</div>'
+                        HTML = HTML + '<div id="definition-summary-editable-paragraph" class="docs-summary"><b>Summary:</b> ' + addToolTips(docsSchemaDocument.definition) + '</div>'
                     } else {
                         HTML = HTML + '<table class="docs-definition-table">'
                         HTML = HTML + '<tr>'
@@ -1877,7 +1896,7 @@ function newSuperalgosDocSpace() {
                             HTML = HTML + '</td>'
                         }
                         HTML = HTML + '<td>'
-                        HTML = HTML + '<div id="' + idPrefix + 'paragraph" class="docs-font-normal"><strong>' + addToolTips(schemaDocument.definition) + '</strong></div>'
+                        HTML = HTML + '<div id="' + idPrefix + 'paragraph" class="docs-font-normal"><strong>' + addToolTips(docsSchemaDocument.definition) + '</strong></div>'
                         HTML = HTML + '</td>'
                         HTML = HTML + '</tr>'
                         HTML = HTML + '</table>'
@@ -1894,7 +1913,7 @@ function newSuperalgosDocSpace() {
                 let key = 'auto-generated-index-paragraph-' + paragraphIndex
                 let paragraph = {
                     style: "Title",
-                    text: "" + schemaDocument.topic + " Topic Index"
+                    text: "" + docsSchemaDocument.topic + " Topic Index"
                 }
                 renderParagraph(paragraph, key)
                 paragraphIndex++
@@ -1904,7 +1923,7 @@ function newSuperalgosDocSpace() {
                 for (let i = 0; i < schemaArray.length; i++) {
                     let arrayItem = schemaArray[i]
 
-                    if (arrayItem.topic === schemaDocument.topic) {
+                    if (arrayItem.topic === docsSchemaDocument.topic) {
                         let itemAdded = false
                         if (orderedIndexArray.length === 0) {
                             orderedIndexArray.push(arrayItem)
@@ -1941,10 +1960,10 @@ function newSuperalgosDocSpace() {
 
             function addContent() {
                 HTML = HTML + '<div id="docs-content">'
-                if (schemaDocument.paragraphs !== undefined) {
-                    for (let i = 0; i < schemaDocument.paragraphs.length; i++) {
+                if (docsSchemaDocument.paragraphs !== undefined) {
+                    for (let i = 0; i < docsSchemaDocument.paragraphs.length; i++) {
                         let key = 'editable-paragraph-' + paragraphIndex
-                        let paragraph = schemaDocument.paragraphs[i]
+                        let paragraph = docsSchemaDocument.paragraphs[i]
 
                         if (paragraph.style === "Include") {
                             renderParagraph(paragraph, key)
@@ -2067,11 +2086,11 @@ function newSuperalgosDocSpace() {
                     for (let i = 0; i < definitionImagesArray.length; i++) {
                         let imageItem = definitionImagesArray[i]
 
-                        let nodeAppDefinition = SCHEMAS_BY_PROJECT.get(imageItem.project).map.appSchema.get(imageItem.type)
+                        let appSchemaDocument = SCHEMAS_BY_PROJECT.get(imageItem.project).map.appSchema.get(imageItem.type)
 
                         let imageElement
-                        if (nodeAppDefinition.icon === undefined) {
-                            let imageName = nodeAppDefinition.type.toLowerCase().replaceAll(' ', '-')
+                        if (appSchemaDocument.icon === undefined) {
+                            let imageName = appSchemaDocument.type.toLowerCase().replaceAll(' ', '-')
                             imageElement = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName(imageItem.project, imageName)
                         } else {
                             imageElement = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(imageItem.project, imageItem.type)
@@ -2096,9 +2115,9 @@ function newSuperalgosDocSpace() {
                 }
 
                 function addMenuItemsImages() {
-                    if (nodeAppDefinition === undefined || nodeAppDefinition.menuItems === undefined) { return }
-                    for (let i = 0; i < nodeAppDefinition.menuItems.length; i++) {
-                        let menuItem = nodeAppDefinition.menuItems[i]
+                    if (appSchemaDocument === undefined || appSchemaDocument.menuItems === undefined) { return }
+                    for (let i = 0; i < appSchemaDocument.menuItems.length; i++) {
+                        let menuItem = appSchemaDocument.menuItems[i]
                         let collectionImage = getIcon()
                         let imageElement = collectionImage.cloneNode()
 
@@ -2123,9 +2142,9 @@ function newSuperalgosDocSpace() {
                 }
 
                 function addChildrenNodesPropertiesImages() {
-                    if (nodeAppDefinition === undefined || nodeAppDefinition.childrenNodesProperties === undefined) { return }
-                    for (let i = 0; i < nodeAppDefinition.childrenNodesProperties.length; i++) {
-                        let childrenNodesProperty = nodeAppDefinition.childrenNodesProperties[i]
+                    if (appSchemaDocument === undefined || appSchemaDocument.childrenNodesProperties === undefined) { return }
+                    for (let i = 0; i < appSchemaDocument.childrenNodesProperties.length; i++) {
+                        let childrenNodesProperty = appSchemaDocument.childrenNodesProperties[i]
                         let collectionImage = getIcon()
                         let imageElement = collectionImage.cloneNode()
 
@@ -2146,25 +2165,25 @@ function newSuperalgosDocSpace() {
                 }
 
                 function addAttachingAndReferencingRulesImages() {
-                    if (nodeAppDefinition === undefined) { return }
+                    if (appSchemaDocument === undefined) { return }
 
-                    if (nodeAppDefinition.attachingRules !== undefined) {
-                        if (nodeAppDefinition.attachingRules.compatibleTypes !== undefined) {
-                            let splittedTypes = nodeAppDefinition.attachingRules.compatibleTypes.split('->')
+                    if (appSchemaDocument.attachingRules !== undefined) {
+                        if (appSchemaDocument.attachingRules.compatibleTypes !== undefined) {
+                            let splittedTypes = appSchemaDocument.attachingRules.compatibleTypes.split('->')
                             imageForTheseNodes(splittedTypes, 'attaching-rules-compatible-types')
                         }
-                        if (nodeAppDefinition.attachingRules.incompatibleTypes !== undefined) {
-                            let splittedTypes = nodeAppDefinition.attachingRules.incompatibleTypes.split('->')
+                        if (appSchemaDocument.attachingRules.incompatibleTypes !== undefined) {
+                            let splittedTypes = appSchemaDocument.attachingRules.incompatibleTypes.split('->')
                             imageForTheseNodes(splittedTypes, 'attaching-rules-incompatible-types')
                         }
                     }
-                    if (nodeAppDefinition.referencingRules !== undefined) {
-                        if (nodeAppDefinition.referencingRules.compatibleTypes !== undefined) {
-                            let splittedTypes = nodeAppDefinition.referencingRules.compatibleTypes.split('->')
+                    if (appSchemaDocument.referencingRules !== undefined) {
+                        if (appSchemaDocument.referencingRules.compatibleTypes !== undefined) {
+                            let splittedTypes = appSchemaDocument.referencingRules.compatibleTypes.split('->')
                             imageForTheseNodes(splittedTypes, 'referencing-rules-compatible-types')
                         }
-                        if (nodeAppDefinition.referencingRules.incompatibleTypes !== undefined) {
-                            let splittedTypes = nodeAppDefinition.referencingRules.incompatibleTypes.split('->')
+                        if (appSchemaDocument.referencingRules.incompatibleTypes !== undefined) {
+                            let splittedTypes = appSchemaDocument.referencingRules.incompatibleTypes.split('->')
                             imageForTheseNodes(splittedTypes, 'referencing-rules-incompatible-types')
                         }
                     }
@@ -2214,22 +2233,22 @@ function newSuperalgosDocSpace() {
                     */
                     let paragraph
                     let key = 'auto-generated-paragraph-' + paragraphIndex
-                    if (nodeAppDefinition === undefined || nodeAppDefinition.menuItems === undefined) { return }
+                    if (appSchemaDocument === undefined || appSchemaDocument.menuItems === undefined) { return }
 
                     paragraph = {
                         style: "Title",
-                        text: "" + nodeAppDefinition.type + " Menu"
+                        text: "" + appSchemaDocument.type + " Menu"
                     }
                     renderParagraph(paragraph, key)
                     paragraphIndex++
                     paragraph = {
                         style: "Text",
-                        text: "Each type of node, might have a menu defines so that users can interact with the node. There is no fixed set of menu items. Instead each menu item is defined at each node's definition. Each menu item defined carries a set of properties that allow the system to execute some action when the menu item is clicked by users. The " + nodeAppDefinition.type + " node has the following menu items:"
+                        text: "Each type of node, might have a menu defines so that users can interact with the node. There is no fixed set of menu items. Instead each menu item is defined at each node's definition. Each menu item defined carries a set of properties that allow the system to execute some action when the menu item is clicked by users. The " + appSchemaDocument.type + " node has the following menu items:"
                     }
                     renderParagraph(paragraph, key)
                     paragraphIndex++
-                    for (let i = 0; i < nodeAppDefinition.menuItems.length; i++) {
-                        let menuItem = nodeAppDefinition.menuItems[i]
+                    for (let i = 0; i < appSchemaDocument.menuItems.length; i++) {
+                        let menuItem = appSchemaDocument.menuItems[i]
 
                         HTML = HTML + '<button id="docs-menu-item-' + i + '" type="button" class="docs-collapsible-element"><img>' + menuItem.label + '</button>'
                         HTML = HTML + '<div class="docs-collapsible-content">'
@@ -2254,7 +2273,7 @@ function newSuperalgosDocSpace() {
                     }
                     paragraph = {
                         style: "Success",
-                        text: "When any of the menu items is grayed out, it means that " + nodeAppDefinition.type + " already has the type of children that that menu item can add, and that only one children is possible in that case. "
+                        text: "When any of the menu items is grayed out, it means that " + appSchemaDocument.type + " already has the type of children that that menu item can add, and that only one children is possible in that case. "
                     }
                     renderParagraph(paragraph, key)
                     paragraphIndex++
@@ -2267,22 +2286,22 @@ function newSuperalgosDocSpace() {
                     let paragraph
                     let key = 'auto-generated-paragraph-' + paragraphIndex
 
-                    if (nodeAppDefinition === undefined || nodeAppDefinition.childrenNodesProperties === undefined) { return }
+                    if (appSchemaDocument === undefined || appSchemaDocument.childrenNodesProperties === undefined) { return }
 
                     paragraph = {
                         style: "Title",
-                        text: "" + nodeAppDefinition.type + " Children"
+                        text: "" + appSchemaDocument.type + " Children"
                     }
                     renderParagraph(paragraph, key)
                     paragraphIndex++
                     paragraph = {
                         style: "Text",
-                        text: "Each type of node might have children. If they do, a reference to the children will be present at runtime at one or more properties of the node object. There is no generic childrenNodes property with an array of children nodes. Instead what we can find is that each schema document defines which properties will hold those children references. The property names that will be used for that are the ones listed here. The " + nodeAppDefinition.type + " node has the following children nodes properties:"
+                        text: "Each type of node might have children. If they do, a reference to the children will be present at runtime at one or more properties of the node object. There is no generic childrenNodes property with an array of children nodes. Instead what we can find is that each schema document defines which properties will hold those children references. The property names that will be used for that are the ones listed here. The " + appSchemaDocument.type + " node has the following children nodes properties:"
                     }
                     renderParagraph(paragraph, key)
                     paragraphIndex++
-                    for (let i = 0; i < nodeAppDefinition.childrenNodesProperties.length; i++) {
-                        let childrenNodesProperty = nodeAppDefinition.childrenNodesProperties[i]
+                    for (let i = 0; i < appSchemaDocument.childrenNodesProperties.length; i++) {
+                        let childrenNodesProperty = appSchemaDocument.childrenNodesProperties[i]
 
                         let name = UI.projects.superalgos.utilities.strings.fromCamelCaseToUpperWithSpaces(childrenNodesProperty.name)
 
@@ -2315,23 +2334,23 @@ function newSuperalgosDocSpace() {
                     */
                     let paragraph
                     let key = 'auto-generated-paragraph-' + paragraphIndex
-                    if (nodeAppDefinition === undefined || (nodeAppDefinition.attachingRules === undefined && nodeAppDefinition.referencingRules === undefined)) { return }
+                    if (appSchemaDocument === undefined || (appSchemaDocument.attachingRules === undefined && appSchemaDocument.referencingRules === undefined)) { return }
 
                     paragraph = {
                         style: "Title",
-                        text: "" + nodeAppDefinition.type + " Attaching Rules"
+                        text: "" + appSchemaDocument.type + " Attaching Rules"
                     }
                     renderParagraph(paragraph, key)
                     paragraphIndex++
                     paragraph = {
                         style: "Text",
-                        text: "Each type of node, might have a set of rules that defines to which nodes it can be attached to. Usually the nodes it can attach to have listed at their own definitions " + nodeAppDefinition.type + " as one of its potential children. That does not mean that " + nodeAppDefinition.type + " can be created at those parents; only if there is a menu item for adding it, then it will be possible, otherwise it might be created at some other node and later attached to one of the nodes defined in these rules. At runtime, the node that a node is attached to, we call it Parent Node. The following are the rules that govern the attacment of  " + nodeAppDefinition.type + " with other nodes:"
+                        text: "Each type of node, might have a set of rules that defines to which nodes it can be attached to. Usually the nodes it can attach to have listed at their own definitions " + appSchemaDocument.type + " as one of its potential children. That does not mean that " + appSchemaDocument.type + " can be created at those parents; only if there is a menu item for adding it, then it will be possible, otherwise it might be created at some other node and later attached to one of the nodes defined in these rules. At runtime, the node that a node is attached to, we call it Parent Node. The following are the rules that govern the attacment of  " + appSchemaDocument.type + " with other nodes:"
                     }
                     renderParagraph(paragraph, key)
                     paragraphIndex++
 
-                    if (nodeAppDefinition.attachingRules !== undefined) {
-                        if (nodeAppDefinition.attachingRules.compatibleTypes !== undefined) {
+                    if (appSchemaDocument.attachingRules !== undefined) {
+                        if (appSchemaDocument.attachingRules.compatibleTypes !== undefined) {
                             paragraph = {
                                 style: "Subtitle",
                                 text: "Compatible Types:"
@@ -2339,10 +2358,10 @@ function newSuperalgosDocSpace() {
                             renderParagraph(paragraph, key)
                             paragraphIndex++
 
-                            let splittedTypes = nodeAppDefinition.attachingRules.compatibleTypes.split('->')
+                            let splittedTypes = appSchemaDocument.attachingRules.compatibleTypes.split('->')
                             listAllTheseNodes(splittedTypes, 'attaching-rules-compatible-types')
                         }
-                        if (nodeAppDefinition.attachingRules.incompatibleTypes !== undefined) {
+                        if (appSchemaDocument.attachingRules.incompatibleTypes !== undefined) {
                             paragraph = {
                                 style: "Subtitle",
                                 text: "Incompatible Types:"
@@ -2350,7 +2369,7 @@ function newSuperalgosDocSpace() {
                             renderParagraph(paragraph, key)
                             paragraphIndex++
 
-                            let splittedTypes = nodeAppDefinition.attachingRules.incompatibleTypes.split('->')
+                            let splittedTypes = appSchemaDocument.attachingRules.incompatibleTypes.split('->')
                             listAllTheseNodes(splittedTypes, 'attaching-rules-incompatible-types')
                         }
                     }
@@ -2370,23 +2389,23 @@ function newSuperalgosDocSpace() {
                     */
                     let paragraph
                     let key = 'auto-generated-paragraph-' + paragraphIndex
-                    if (nodeAppDefinition === undefined || (nodeAppDefinition.referencingRules === undefined && nodeAppDefinition.referencingRules === undefined)) { return }
+                    if (appSchemaDocument === undefined || (appSchemaDocument.referencingRules === undefined && appSchemaDocument.referencingRules === undefined)) { return }
 
                     paragraph = {
                         style: "Title",
-                        text: "" + nodeAppDefinition.type + " Referencing Rules"
+                        text: "" + appSchemaDocument.type + " Referencing Rules"
                     }
                     renderParagraph(paragraph, key)
                     paragraphIndex++
                     paragraph = {
                         style: "Text",
-                        text: "Each type of node, might have a set of rules that defines to which node it can stablish a reference to. At runtime once a reference is stablished, we call the referenced node the Reference Parent. The following are the rules that govern the referencing of  " + nodeAppDefinition.type + " with other nodes:"
+                        text: "Each type of node, might have a set of rules that defines to which node it can stablish a reference to. At runtime once a reference is stablished, we call the referenced node the Reference Parent. The following are the rules that govern the referencing of  " + appSchemaDocument.type + " with other nodes:"
                     }
                     renderParagraph(paragraph, key)
                     paragraphIndex++
 
-                    if (nodeAppDefinition.referencingRules !== undefined) {
-                        if (nodeAppDefinition.referencingRules.compatibleTypes !== undefined) {
+                    if (appSchemaDocument.referencingRules !== undefined) {
+                        if (appSchemaDocument.referencingRules.compatibleTypes !== undefined) {
                             paragraph = {
                                 style: "Subtitle",
                                 text: "Compatible Types:"
@@ -2394,10 +2413,10 @@ function newSuperalgosDocSpace() {
                             renderParagraph(paragraph, key)
                             paragraphIndex++
 
-                            let splittedTypes = nodeAppDefinition.referencingRules.compatibleTypes.split('->')
+                            let splittedTypes = appSchemaDocument.referencingRules.compatibleTypes.split('->')
                             listAllTheseNodes(splittedTypes, 'referencing-rules-compatible-types')
                         }
-                        if (nodeAppDefinition.referencingRules.incompatibleTypes !== undefined) {
+                        if (appSchemaDocument.referencingRules.incompatibleTypes !== undefined) {
                             paragraph = {
                                 style: "Subtitle",
                                 text: "Incompatible Types:"
@@ -2405,7 +2424,7 @@ function newSuperalgosDocSpace() {
                             renderParagraph(paragraph, key)
                             paragraphIndex++
 
-                            let splittedTypes = nodeAppDefinition.referencingRules.incompatibleTypes.split('->')
+                            let splittedTypes = appSchemaDocument.referencingRules.incompatibleTypes.split('->')
                             listAllTheseNodes(splittedTypes, 'referencing-rules-incompatible-types')
                         }
                     }
@@ -2425,10 +2444,10 @@ function newSuperalgosDocSpace() {
                     */
                     let paragraph
                     let key = 'auto-generated-paragraph-' + paragraphIndex
-                    if (nodeAppDefinition === undefined || nodeAppDefinition.editors === undefined || nodeAppDefinition.editors.config !== true) { return }
+                    if (appSchemaDocument === undefined || appSchemaDocument.editors === undefined || appSchemaDocument.editors.config !== true) { return }
                     paragraph = {
                         style: "Title",
-                        text: "" + nodeAppDefinition.type + " Configuration"
+                        text: "" + appSchemaDocument.type + " Configuration"
                     }
                     renderParagraph(paragraph, key)
                     paragraphIndex++
@@ -2445,15 +2464,15 @@ function newSuperalgosDocSpace() {
                     renderParagraph(paragraph, key)
                     paragraphIndex++
 
-                    if (nodeAppDefinition.initialValues === undefined || nodeAppDefinition.initialValues.config === undefined) { return }
+                    if (appSchemaDocument.initialValues === undefined || appSchemaDocument.initialValues.config === undefined) { return }
 
                     paragraph = {
                         style: "Text",
-                        text: "Each type of node, might have a definition with the initial values for it's configuration. The Initial Values are set one the node is first created. The Initial Values for " + nodeAppDefinition.type + " are:"
+                        text: "Each type of node, might have a definition with the initial values for it's configuration. The Initial Values are set one the node is first created. The Initial Values for " + appSchemaDocument.type + " are:"
                     }
                     renderParagraph(paragraph, key)
                     paragraphIndex++
-                    let initialValues = JSON.parse(nodeAppDefinition.initialValues.config)
+                    let initialValues = JSON.parse(appSchemaDocument.initialValues.config)
                     paragraph = {
                         style: "Json",
                         text: JSON.stringify(initialValues, undefined, 4)
@@ -2469,7 +2488,7 @@ function newSuperalgosDocSpace() {
                     paragraphIndex++
                     paragraph = {
                         style: "Text",
-                        text: "This is a list of properties used at the " + nodeAppDefinition.type + " configuration. Expanding a property shows you sample values for that property."
+                        text: "This is a list of properties used at the " + appSchemaDocument.type + " configuration. Expanding a property shows you sample values for that property."
                     }
                     renderParagraph(paragraph, key)
                     paragraphIndex++
@@ -2484,7 +2503,7 @@ function newSuperalgosDocSpace() {
                     for (let i = 0; i < rootNodes.length; i++) {
                         let rootNode = rootNodes[i]
                         if (rootNode !== null) {
-                            let nodeArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(rootNode, nodeAppDefinition.type)
+                            let nodeArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(rootNode, appSchemaDocument.type)
                             allNodesFound = allNodesFound.concat(nodeArray)
                         }
                     }
@@ -2537,10 +2556,10 @@ function newSuperalgosDocSpace() {
                     */
                     let paragraph
                     let key = 'auto-generated-paragraph-' + paragraphIndex
-                    if (nodeAppDefinition === undefined || nodeAppDefinition.editors === undefined || nodeAppDefinition.editors.code !== true) { return }
+                    if (appSchemaDocument === undefined || appSchemaDocument.editors === undefined || appSchemaDocument.editors.code !== true) { return }
                     paragraph = {
                         style: "Title",
-                        text: "" + nodeAppDefinition.type + " Code"
+                        text: "" + appSchemaDocument.type + " Code"
                     }
                     renderParagraph(paragraph, key)
                     paragraphIndex++
@@ -2551,7 +2570,7 @@ function newSuperalgosDocSpace() {
                     renderParagraph(paragraph, key)
                     paragraphIndex++
 
-                    if (nodeAppDefinition.initialValues === undefined || nodeAppDefinition.initialValues.code === undefined) { return }
+                    if (appSchemaDocument.initialValues === undefined || appSchemaDocument.initialValues.code === undefined) { return }
 
                     paragraph = {
                         style: "Subtitle",
@@ -2561,14 +2580,14 @@ function newSuperalgosDocSpace() {
                     paragraphIndex++
                     paragraph = {
                         style: "Text",
-                        text: "When first created, the code of a node is initialized with the initial value present at the node's definition. The Initial Value for " + nodeAppDefinition.type + " is:"
+                        text: "When first created, the code of a node is initialized with the initial value present at the node's definition. The Initial Value for " + appSchemaDocument.type + " is:"
                     }
                     renderParagraph(paragraph, key)
                     paragraphIndex++
 
                     paragraph = {
                         style: "Javascript",
-                        text: JSON.stringify(nodeAppDefinition.initialValues.code, undefined, 4)
+                        text: JSON.stringify(appSchemaDocument.initialValues.code, undefined, 4)
                     }
                     renderParagraph(paragraph, key)
                     paragraphIndex++
@@ -2581,7 +2600,7 @@ function newSuperalgosDocSpace() {
                     paragraphIndex++
                     paragraph = {
                         style: "Text",
-                        text: "This is a list of examples used at the " + nodeAppDefinition.type + " code collected from this workspace."
+                        text: "This is a list of examples used at the " + appSchemaDocument.type + " code collected from this workspace."
                     }
                     renderParagraph(paragraph, key)
                     paragraphIndex++
@@ -2595,7 +2614,7 @@ function newSuperalgosDocSpace() {
                     for (let i = 0; i < rootNodes.length; i++) {
                         let rootNode = rootNodes[i]
                         if (rootNode !== null) {
-                            let nodeArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(rootNode, nodeAppDefinition.type)
+                            let nodeArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(rootNode, appSchemaDocument.type)
                             allNodesFound = allNodesFound.concat(nodeArray)
                         }
                     }
@@ -2633,10 +2652,10 @@ function newSuperalgosDocSpace() {
                     */
                     let paragraph
                     let key = 'auto-generated-paragraph-' + paragraphIndex
-                    if (nodeAppDefinition === undefined || nodeAppDefinition.editors === undefined || nodeAppDefinition.editors.formula !== true) { return }
+                    if (appSchemaDocument === undefined || appSchemaDocument.editors === undefined || appSchemaDocument.editors.formula !== true) { return }
                     paragraph = {
                         style: "Title",
-                        text: "" + nodeAppDefinition.type + " Formula"
+                        text: "" + appSchemaDocument.type + " Formula"
                     }
                     renderParagraph(paragraph, key)
                     paragraphIndex++
@@ -2647,7 +2666,7 @@ function newSuperalgosDocSpace() {
                     renderParagraph(paragraph, key)
                     paragraphIndex++
 
-                    if (nodeAppDefinition.initialValues === undefined || nodeAppDefinition.initialValues.code === undefined) { return }
+                    if (appSchemaDocument.initialValues === undefined || appSchemaDocument.initialValues.code === undefined) { return }
 
                     paragraph = {
                         style: "Subtitle",
@@ -2657,14 +2676,14 @@ function newSuperalgosDocSpace() {
                     paragraphIndex++
                     paragraph = {
                         style: "Text",
-                        text: "When first created, the code of a node is initialized with the initial value present at the node's definition. The Initial Value for " + nodeAppDefinition.type + " is:"
+                        text: "When first created, the code of a node is initialized with the initial value present at the node's definition. The Initial Value for " + appSchemaDocument.type + " is:"
                     }
                     renderParagraph(paragraph, key)
                     paragraphIndex++
 
                     paragraph = {
                         style: "Javascript",
-                        text: JSON.stringify(nodeAppDefinition.initialValues.code, undefined, 4)
+                        text: JSON.stringify(appSchemaDocument.initialValues.code, undefined, 4)
                     }
                     renderParagraph(paragraph, key)
                     paragraphIndex++
@@ -2677,7 +2696,7 @@ function newSuperalgosDocSpace() {
                     paragraphIndex++
                     paragraph = {
                         style: "Text",
-                        text: "This is a list of examples used at the " + nodeAppDefinition.type + " code collected from this workspace."
+                        text: "This is a list of examples used at the " + appSchemaDocument.type + " code collected from this workspace."
                     }
                     renderParagraph(paragraph, key)
                     paragraphIndex++
@@ -2691,7 +2710,7 @@ function newSuperalgosDocSpace() {
                     for (let i = 0; i < rootNodes.length; i++) {
                         let rootNode = rootNodes[i]
                         if (rootNode !== null) {
-                            let nodeArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(rootNode, nodeAppDefinition.type)
+                            let nodeArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(rootNode, appSchemaDocument.type)
                             allNodesFound = allNodesFound.concat(nodeArray)
                         }
                     }
@@ -2842,6 +2861,17 @@ function newSuperalgosDocSpace() {
                         innerHTML = addToolTips(innerHTML)
                         break
                     }
+                    case 'Hierarchy': {
+                        styleClass = ''
+                        prefix = '<table class="docs-hierarchy-table" levels="' + paragraph.text + '">'
+                        sufix = '</table>'
+                        role = ''
+                        key = key + '-hierarchy'
+                        innerHTML = parseHierarchy(paragraph.text)
+                        innerHTML = addItalics(innerHTML)
+                        innerHTML = addToolTips(innerHTML)
+                        break
+                    }
                     case 'Gif': {
                         styleClass = ''
                         prefix = ''
@@ -2919,6 +2949,32 @@ function newSuperalgosDocSpace() {
                 function onHighlighted() {
                     // nothing to do here
                 }
+            }
+
+            function parseHierarchy(params) {
+
+                let splittedParams = params.split('->')
+                let project = splittedParams[0]
+                let type = splittedParams[1]
+                let levels = splittedParams[2]
+
+                appSchemaDocument = SCHEMAS_BY_PROJECT.get(project).map.appSchema.get(type)
+                if (appSchemaDocument === undefined) { return }
+
+                let HTML = ''
+
+                HTML = HTML + '<table class="hierarchyTable">'
+                HTML = HTML + '<tr>'
+                HTML = HTML + '<td>'
+                HTML = HTML + '</td>'
+                HTML = HTML + '</tr>'
+                HTML = HTML + '</table>'
+
+                HTML = HTML + '<thead><tr><th><a href="#design-space"><img src="images/icons/nodes/png50/design-space.png"><br>Design Space</a></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th></tr></thead><tbody>'
+                HTML = HTML + '<tr><td><img src="images/icons/various/png/tree-connector-fork.png"></td><td><a href="#space-style" data-toggle="tooltip" data-original-title="The space style node features controls over the look and feel of the space, in particular, of background colors and font sizes."><img src="images/icons/nodes/png50/space-style.png"><br>Space Style</a></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>'
+                HTML = HTML + '<tr><td><img src="images/icons/various/png/tree-connector-elbow.png"></td><td><a href="#space-settings" data-toggle="tooltip" data-original-title="The space settings node features controls over the phisics, proportions, and positioning of icons representing node, and their menus."><img src="images/icons/nodes/png50/space-settings.png"><br>Space Settings</a></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table>'
+
+                return HTML
             }
         }
     }
@@ -3177,22 +3233,22 @@ function newSuperalgosDocSpace() {
             We will search across all DOC and CONCEPT SCHEMAS
             */
             let found = false
-            let schemaDocument
+            let docsSchemaDocument
 
             for (let j = 0; j < PROJECTS_ARRAY.length; j++) {
                 let project = PROJECTS_ARRAY[j]
-                schemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(type)
-                if (schemaDocument !== undefined) {
+                docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(type)
+                if (docsSchemaDocument !== undefined) {
                     found = true
                     break
                 }
-                schemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.get(type)
-                if (schemaDocument !== undefined) {
+                docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.get(type)
+                if (docsSchemaDocument !== undefined) {
                     found = true
                     break
                 }
-                schemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.get(type)
-                if (schemaDocument !== undefined) {
+                docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.get(type)
+                if (docsSchemaDocument !== undefined) {
                     found = true
                     break
                 }
@@ -3201,7 +3257,7 @@ function newSuperalgosDocSpace() {
                 return text
             }
 
-            let definition = schemaDocument.definition
+            let definition = docsSchemaDocument.definition
             if (definition === undefined || definition === "") {
                 let tooltip = LINK_ONLY_HTML
                     .replace('CATEGORY', category)

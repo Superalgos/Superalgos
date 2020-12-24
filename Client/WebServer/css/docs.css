@@ -697,3 +697,16 @@ border-radius: 4px;
 margin: 20px 0;
 width: 95%;
 }
+
+/* Hierarchy Table */
+.docs-hierarchy-table {
+min-width: 100%;
+max-width: 100%;
+margin-bottom: 20px;
+margin-top: 20px;
+border: 1px solid #dedede;
+border-spacing: 0;
+border-collapse: collapse;
+font: 400 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+color: #111;
+}

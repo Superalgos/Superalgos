@@ -884,7 +884,7 @@ function newSuperalgosDocSpace() {
                         "<b>docs.add</b> command syntax: ",
                         "Option 1: <i>docs.add</i> Node <i>to</i> Project: Node Type",
                         "Example: docs.add Node to Superalgos: Task Manager",
-                        "Option 2: <i>docs.add</i> Concpet <i>to</i> Project: Concept Name",
+                        "Option 2: <i>docs.add</i> Concept <i>to</i> Project: Concept Name",
                         "Example: docs.add Concept to Superalgos: Attaching Nodes",
                         "Option 3: <i>docs.add</i> Topic <i>to</i> Project: Topic->Section Name->Page Number",
                         "Example: docs.add Topic to Superalgos: Contributing->Code->2"
@@ -954,7 +954,7 @@ function newSuperalgosDocSpace() {
                         "<b>docs.delete</b> command syntax: ",
                         "Option 1: <i>docs.delete</i> Node <i>from</i> Project: Node Type",
                         "Example: docs.delete Node from Superalgos: Task Manager",
-                        "Option 2: <i>docs.delete</i> Concpet <i>from</i> Project: Concept Name",
+                        "Option 2: <i>docs.delete</i> Concept <i>from</i> Project: Concept Name",
                         "Example: docs.delete Concept from Superalgos: Attaching Nodes",
                         "Option 3: <i>docs.delete</i> Topic <i>from</i> Project: Topic->Section Name->Page Number",
                         "Example: docs.delete Topic from Superalgos: Contributing->Code->2"

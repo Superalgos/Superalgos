@@ -2900,8 +2900,6 @@ function newSuperalgosDocSpace() {
                         role = ''
                         key = key + '-hierarchy'
                         innerHTML = parseHierarchy(paragraph.text)
-                        innerHTML = addItalics(innerHTML)
-                        innerHTML = addToolTips(innerHTML)
                         break
                     }
                     case 'Gif': {
@@ -3149,7 +3147,7 @@ function newSuperalgosDocSpace() {
                     Add HTML
                     */
                     HTML = HTML + '<table class="hierarchyTable">'
-                    for (let i = 0; i < contentMatrix.length; i++) {
+                    for (let i = 0; i < currentRow + 1; i++) {
                         let matrixRow = contentMatrix[i]
                         HTML = HTML + '<tr>'
                         for (let j = 0; j < matrixRow.length; j++) {

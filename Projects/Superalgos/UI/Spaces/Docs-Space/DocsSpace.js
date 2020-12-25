@@ -2126,8 +2126,10 @@ function newSuperalgosDocSpace() {
                         
                         let imageElement = collectionImage.cloneNode()
 
-                        //imageElement.width = "150"
-                        //imageElement.height = "150"
+                        if (imageItem.size !== undefined) {
+                            imageElement.width = imageItem.size
+                            imageElement.height = imageItem.size
+                        }
 
                         let hierarchyImageDiv = document.getElementById(imageItem.div)
                         hierarchyImageDiv.appendChild(imageElement)
@@ -3023,7 +3025,17 @@ function newSuperalgosDocSpace() {
                     if (schemaDocument === undefined) { return }
 
                     currentRow++
-                    let matrixValue = schemaDocument.type
+
+                    let imageItem = {
+                        div: 'hierarchy-image-div-' + hierarchyImagesArray.length,
+                        project: project,
+                        type: schemaDocument.type,
+                        size: 50
+                    }
+                    let imageContainer = '<div id="' + imageItem.div + '" class="docs-hierarchy-image-container"/>'
+                    hierarchyImagesArray.push(imageItem)
+
+                    let matrixValue = imageContainer + '<br>' + addToolTips(schemaDocument.type)  
                     let matrixRow = contentMatrix[currentRow]
                     matrixRow[currentColumn] = matrixValue
 

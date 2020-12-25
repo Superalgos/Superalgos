@@ -622,7 +622,7 @@ function newSuperalgosDocSpace() {
             selectedParagraphData = reverseParseTable(paragraphNode.innerHTML)
         }
         if (paragraphNode.id.indexOf('-hierarchy') >= 0) {
-            selectedParagraphData = paragraphNode.innerText
+            selectedParagraphData = reverseParseHierarchy(paragraphNode.innerHTML)
         }
         if (paragraphNode.id.indexOf('-gif') >= 0) {
             selectedParagraphData = reverseParseGIF(paragraphNode.innerHTML)
@@ -2109,7 +2109,7 @@ function newSuperalgosDocSpace() {
                 function addhHerarchyImages() {
                     for (let i = 0; i < hierarchyImagesArray.length; i++) {
                         let imageItem = hierarchyImagesArray[i]
-                        let collectionImage 
+                        let collectionImage
 
                         if (imageItem.name === undefined) {
                             let appSchemaDocument = SCHEMAS_BY_PROJECT.get(imageItem.project).map.appSchema.get(imageItem.type)
@@ -2122,8 +2122,8 @@ function newSuperalgosDocSpace() {
                         } else {
                             collectionImage = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName(imageItem.project, imageItem.name)
                         }
-                        
-                        
+
+
                         let imageElement = collectionImage.cloneNode()
 
                         if (imageItem.size !== undefined) {
@@ -2895,7 +2895,7 @@ function newSuperalgosDocSpace() {
                     }
                     case 'Hierarchy': {
                         styleClass = ''
-                        prefix = '<table class="docs-hierarchy-table" levels="' + paragraph.text + '">'
+                        prefix = '<table class="docs-hierarchy-table" params="' + paragraph.text + '">'
                         sufix = '</table>'
                         role = ''
                         key = key + '-hierarchy'
@@ -3035,7 +3035,7 @@ function newSuperalgosDocSpace() {
                     let imageContainer = '<div id="' + imageItem.div + '" class="docs-hierarchy-image-container"/>'
                     hierarchyImagesArray.push(imageItem)
 
-                    let matrixValue = imageContainer + '<br>' + addToolTips(schemaDocument.type)  
+                    let matrixValue = '<table><tr><td>' + imageContainer + '</td></tr><tr><td>' + addToolTips(schemaDocument.type) + '</td></tr></table>'
                     let matrixRow = contentMatrix[currentRow]
                     matrixRow[currentColumn] = matrixValue
 
@@ -3063,7 +3063,9 @@ function newSuperalgosDocSpace() {
                             lastChild = false
                         }
 
-                        scanHierarchy(childSchemaDocument, childProject, currentColumn + 1, lastChild)
+                        if (currentColumn + 1 < levels) {
+                            scanHierarchy(childSchemaDocument, childProject, currentColumn + 1, lastChild)
+                        }
                     }
                 }
 
@@ -3137,7 +3139,7 @@ function newSuperalgosDocSpace() {
                                     break
                                 }
                             }
-                            
+
                         }
                     }
                 }
@@ -3299,6 +3301,11 @@ function newSuperalgosDocSpace() {
             let result = text.replace(RGBFound, span)
             return result
         }
+    }
+
+    function reverseParseHierarchy(HTML) {
+        let splittedHTML = HTML.split('"')
+        return splittedHTML[3]
     }
 
     function reverseParseTable(HTML) {

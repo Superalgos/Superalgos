@@ -2986,6 +2986,14 @@ function newSuperalgosDocSpace() {
 
             function parseHierarchy(params) {
 
+                const MAX_COLUMNS = 8
+                const MAX_ROWS = 100
+
+                const ELBOW = 'elbow'
+                const FORK = 'fork'
+                const LINE = 'line'
+                const SPACE = 'space'
+
                 let splittedParams = params.split('->')
                 let project = splittedParams[0]
                 let type = splittedParams[1]
@@ -2994,20 +3002,12 @@ function newSuperalgosDocSpace() {
                 appSchemaDocument = SCHEMAS_BY_PROJECT.get(project).map.appSchema.get(type)
                 if (appSchemaDocument === undefined) { return }
                 if (isNaN(levels) === true) { return }
-                if (levels > 10) { return }                
-
-                const MAX_COLUMNS = 10
-                const MAX_ROWS = 100
-
-                const ELBOW = 'elbow'
-                const FORK = 'fork'
-                const LINE = 'line'
-                const SPACE = 'space'
+                if (levels > MAX_COLUMNS) { return }
 
                 let contentMatrix = []
 
                 for (let i = 0; i < MAX_ROWS; i++) {
-                    contentMatrix.push(['', '', '', '', '', '', '', '', '', ''])
+                    contentMatrix.push(['', '', '', '', '', '', '', ''])
                 }
 
                 let currentColumn = 0
@@ -3037,7 +3037,7 @@ function newSuperalgosDocSpace() {
                     let imageContainer = '<div id="' + imageItem.div + '" class="docs-hierarchy-image-container"/>'
                     hierarchyImagesArray.push(imageItem)
 
-                    let matrixValue = '<table><tr><td>' + imageContainer + '</td></tr><tr><td>' + addToolTips(schemaDocument.type) + '</td></tr></table>'
+                    let matrixValue = '<table><tr><td class="docs-hierarchy-table-cell">' + imageContainer + '</td></tr><tr><td  class="docs-hierarchy-table-cell">' + addToolTips(schemaDocument.type) + '</td></tr></table>'
                     let matrixRow = contentMatrix[currentRow]
                     matrixRow[currentColumn] = matrixValue
 
@@ -3150,19 +3150,27 @@ function newSuperalgosDocSpace() {
                     /*
                     Add HTML
                     */
-                    HTML = HTML + '<table class="hierarchyTable">'
+                    let oddRow = false
                     for (let i = 0; i < currentRow + 1; i++) {
                         let matrixRow = contentMatrix[i]
-                        HTML = HTML + '<tr>'
-                        for (let j = 0; j < matrixRow.length; j++) {
-                            HTML = HTML + '<td>'
-                            HTML = HTML + matrixRow[j]
-                            HTML = HTML + '</td>'
 
+                        let rowClass 
+                        if (oddRow === false) {
+                            oddRow = true
+                            rowClass = ''
+                        } else {
+                            oddRow = false
+                            rowClass = 'class="docs-hierarchy-table-row"'
+                        }
+
+                        HTML = HTML + '<tr ' + rowClass + '>'
+                        for (let j = 0; j < matrixRow.length; j++) {
+                            HTML = HTML + '<td class="docs-hierarchy-table-cell"><center>'
+                            HTML = HTML + matrixRow[j]
+                            HTML = HTML + '</center></td>'
                         }
                         HTML = HTML + '</tr>'
                     }
-                    HTML = HTML + '</table>'
                 }
             }
         }

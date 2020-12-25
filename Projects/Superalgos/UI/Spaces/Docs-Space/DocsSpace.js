@@ -564,6 +564,7 @@ function newSuperalgosDocSpace() {
 
 
         for (let i = 1; i < 10; i++) {
+            if (paragraphNode === undefined || paragraphNode === null) { return false }
             if (paragraphNode.id === undefined || paragraphNode.id.indexOf('paragraph') < 0) {
                 paragraphNode = paragraphNode.parentNode
                 if (paragraphNode === undefined) { return false }

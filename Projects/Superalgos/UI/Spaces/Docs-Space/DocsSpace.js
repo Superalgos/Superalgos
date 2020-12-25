@@ -2132,7 +2132,10 @@ function newSuperalgosDocSpace() {
                         }
 
                         let hierarchyImageDiv = document.getElementById(imageItem.div)
-                        hierarchyImageDiv.appendChild(imageElement)
+                        if (hierarchyImageDiv) { // The lower part of the table is filled with spaces that were added to the array but not to the HTML, we can ignore them.
+                            hierarchyImageDiv.appendChild(imageElement)
+
+                        }
                     }
                 }
 
@@ -2991,6 +2994,7 @@ function newSuperalgosDocSpace() {
                 appSchemaDocument = SCHEMAS_BY_PROJECT.get(project).map.appSchema.get(type)
                 if (appSchemaDocument === undefined) { return }
                 if (isNaN(levels) === true) { return }
+                if (levels > 10) { return }                
 
                 const MAX_COLUMNS = 10
                 const MAX_ROWS = 100

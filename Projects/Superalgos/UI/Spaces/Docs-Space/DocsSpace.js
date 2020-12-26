@@ -2965,8 +2965,6 @@ function newSuperalgosDocSpace() {
                         role = ''
                         key = key + '-gif'
                         innerHTML = parseGIF(paragraph.text)
-                        innerHTML = addItalics(innerHTML)
-                        innerHTML = addToolTips(innerHTML)
                         break
                     }
                     case 'Png': {
@@ -2976,8 +2974,6 @@ function newSuperalgosDocSpace() {
                         role = ''
                         key = key + '-png'
                         innerHTML = parsePNG(paragraph.text)
-                        innerHTML = addItalics(innerHTML)
-                        innerHTML = addToolTips(innerHTML)
                         break
                     }
                     case 'Javascript': {

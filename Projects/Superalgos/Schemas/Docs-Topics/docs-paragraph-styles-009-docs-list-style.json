@@ -9,16 +9,12 @@
             "text": "Any text you type while editting a paragraph of this style will be displayed as a item of a list, represented as a text after a bullet point. If you use colon quotation mark at some point in your text except at the end, all the text before the colon will be rendered in bold."
         },
         {
+            "style": "Title",
+            "text": "Example:"
+        },
+        {
             "style": "List",
-            "text": "For example: from here there is normal text."
-        },
-        {
-            "style": "Text",
-            "text": "Example:"
-        },
-        {
-            "style": "Text",
-            "text": "Example:"
+            "text": "Before colon is bold: after colon is normal text."
         }
     ]
 }

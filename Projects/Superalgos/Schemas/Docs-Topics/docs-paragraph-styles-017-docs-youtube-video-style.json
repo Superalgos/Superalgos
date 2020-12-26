@@ -6,15 +6,31 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Style"
+            "text": "The syntax to embed a YouTube video at a Docs page is the following:"
+        },
+        {
+            "style": "Json",
+            "text": "videoId (taken from YouTube)"
+        },
+        {
+            "style": "Title",
+            "text": "Example:"
+        },
+        {
+            "style": "Json",
+            "text": "fO-CHEEVneI"
         },
         {
             "style": "Text",
-            "text": "A style is a definition of color and opacity in case of a polygon body, and color, opacity and line thickness in case of polygon borders."
+            "text": "This would render the following video:"
         },
         {
-            "style": "Text",
-            "text": "."
+            "style": "Youtube",
+            "text": "fO-CHEEVneI"
+        },
+        {
+            "style": "Success",
+            "text": " To edit a YouTube video found at a Docs page, you need to right click slightly on top of the upper border or the video, not on the video itself.  "
         }
     ]
 }

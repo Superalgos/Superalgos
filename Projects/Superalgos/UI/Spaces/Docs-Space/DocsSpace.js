@@ -1749,6 +1749,7 @@ function newSuperalgosDocSpace() {
 
     function navigateTo(project, category, type, anchor, nodeId) {
 
+        EDITOR_ON_FOCUS = false // forced exit
         paragraphMap = new Map()
 
         /* Replace the current object with this */

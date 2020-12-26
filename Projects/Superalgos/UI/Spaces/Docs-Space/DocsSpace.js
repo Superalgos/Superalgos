@@ -1258,7 +1258,7 @@ function newSuperalgosDocSpace() {
         function addConcept(project, type) {
             let template = {
                 type: type,
-                definition: "Write here the definition of this Concept.",
+                definition: "Write here the summary / definition of this Concept.",
                 paragraphs: [
                     {
                         style: "Text",
@@ -1287,7 +1287,7 @@ function newSuperalgosDocSpace() {
                 topic: topic,
                 pageNumber: pageNumber,
                 type: type,
-                definition: "Write here the definition of this Concept.",
+                definition: "Write here a summary for this topic page.",
                 paragraphs: [
                     {
                         style: "Text",

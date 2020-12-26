@@ -1,6 +1,7 @@
 function newSuperalgosUtilitiesStrings() {
     thisObject = {
-        fromCamelCaseToUpperWithSpaces: fromCamelCaseToUpperWithSpaces
+        fromCamelCaseToUpperWithSpaces: fromCamelCaseToUpperWithSpaces,
+        isCamelCase: isCamelCase
     }
 
     return thisObject
@@ -9,4 +10,8 @@ function newSuperalgosUtilitiesStrings() {
         let result = text.replace( /([A-Z])/g, " $1" );
         return result.charAt(0).toUpperCase() + result.slice(1);
     }    
+
+    function isCamelCase(text) {
+        return /^([a-z]+)(([A-Z]([a-z]+))+)$/.test(text)
+      }
 }

@@ -2793,6 +2793,7 @@ function newSuperalgosDocSpace() {
                         role = ''
                         key = key + '-text'
                         innerHTML = addBold(paragraph.text)
+                        innerHTML = addCodeToCamelCase(innerHTML)
                         innerHTML = addItalics(innerHTML)
                         innerHTML = addToolTips(innerHTML)
                         break
@@ -2882,6 +2883,7 @@ function newSuperalgosDocSpace() {
                         role = ''
                         key = key + '-list'
                         innerHTML = addBold(paragraph.text)
+                        innerHTML = addCodeToCamelCase(innerHTML)
                         innerHTML = addItalics(innerHTML)
                         innerHTML = addToolTips(innerHTML)
                         break
@@ -3155,7 +3157,7 @@ function newSuperalgosDocSpace() {
                     for (let i = 0; i < currentRow + 1; i++) {
                         let matrixRow = contentMatrix[i]
 
-                        let rowClass 
+                        let rowClass
                         if (oddRow === false) {
                             oddRow = true
                             rowClass = ''
@@ -3204,7 +3206,7 @@ function newSuperalgosDocSpace() {
         HTML = HTML + '<ul>'
         HTML = HTML + '<li><a href="https://superalgos.org/" target="_blank" class="docs-footer-link">Superalgos Project</a> — Learn more about the project.</li>'
         HTML = HTML + '<li><a href="https://t.me/superalgoscommunity" rel="nofollow" target="_blank" class="docs-footer-link">Community Group</a> — Lets talk Superalgos!</li>'
-        HTML = HTML + '<li><a href="https://t.me/superalgossupport" rel="nofollow" target="_blank" class="docs-footer-link">Support Group</a> — Need help using the <code class="docs-code">master</code> branch?</li>'
+        HTML = HTML + '<li><a href="https://t.me/superalgossupport" rel="nofollow" target="_blank" class="docs-footer-link">Support Group</a> — Need help using the <code >master</code> branch?</li>'
         HTML = HTML + '<li><a href="https://t.me/superalgosdevelop" rel="nofollow" target="_blank" class="docs-footer-link">Develop Group</a> — Come test the <code class="docs-code">develop</code> branch!</li>'
         HTML = HTML + '<li><a href="https://t.me/superalgosuxui" rel="nofollow" target="_blank" class="docs-footer-link">UX/UI Design Group</a> — Help us improve the GIU!</li>'
         HTML = HTML + '<li><a href="https://t.me/superalgos_es" rel="nofollow" target="_blank" class="docs-footer-link">Grupo en Español</a> — Hablemos en español!</li>'
@@ -3360,6 +3362,23 @@ function newSuperalgosDocSpace() {
         } else {
             return text
         }
+    }
+
+    function addCodeToCamelCase(text) {
+        let splittedText = text.split(' ')
+        let result = ''
+        for (let i = 0; i < splittedText.length; i++) {
+            let word = splittedText[i]
+            if (UI.projects.superalgos.utilities.strings.isCamelCase(word) === true) {
+                word = '<code class="docs-code">' + word + '</code>'
+            }
+            if (i === 0) {
+                result = word
+            } else {
+                result = result + ' ' + word
+            }
+        }
+        return result
     }
 
     function addItalics(text) {

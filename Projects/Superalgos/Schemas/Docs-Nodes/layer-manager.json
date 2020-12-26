@@ -48,7 +48,7 @@
         },
         {
             "style": "Text",
-            "text": "    \"label2FontSize\": 12"
+            "text": "    \"labelTwoFontSize\": 12"
         },
         {
             "style": "Text",
@@ -64,7 +64,7 @@
         },
         {
             "style": "List",
-            "text": "label2FontSize allows adjusting the font size of the second-order label of each layer, displaying the name of the exchange and market."
+            "text": "labelTwoFontSize allows adjusting the font size of the second-order label of each layer, displaying the name of the exchange and market."
         }
     ]
 }

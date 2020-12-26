@@ -661,18 +661,18 @@ function newLayer() {
         UI.projects.superalgos.utilities.drawPrint.roundedCornersBackground(params)
 
         let parentLabel1FontSize = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(thisObject.payload.parentNode.payload, 'label1FontSize')
-        let parentLabel2FontSize = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(thisObject.payload.parentNode.payload, 'label2FontSize')
+        let parentlabelTwoFontSize = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(thisObject.payload.parentNode.payload, 'labelTwoFontSize')
         let parentLabel3FontSize = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(thisObject.payload.parentNode.payload, 'label3FontSize')
 
         let label1FontSize = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(thisObject.payload, 'label1FontSize')
-        let label2FontSize = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(thisObject.payload, 'label2FontSize')
+        let labelTwoFontSize = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(thisObject.payload, 'labelTwoFontSize')
         let label3FontSize = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(thisObject.payload, 'label3FontSize')
 
         if (parentLabel1FontSize !== undefined) {
             label1FontSize = parentLabel1FontSize
         }
-        if (parentLabel2FontSize !== undefined) {
-            label2FontSize = parentLabel2FontSize
+        if (parentlabelTwoFontSize !== undefined) {
+            labelTwoFontSize = parentlabelTwoFontSize
         }
         if (parentLabel3FontSize !== undefined) {
             label3FontSize = parentLabel3FontSize
@@ -686,8 +686,8 @@ function newLayer() {
             }
         }
 
-        if (label2FontSize === undefined) {
-            label2FontSize = 10
+        if (labelTwoFontSize === undefined) {
+            labelTwoFontSize = 10
         }
 
         if (label3FontSize === undefined) {
@@ -695,7 +695,7 @@ function newLayer() {
         }
 
         UI.projects.superalgos.utilities.drawPrint.drawLabel(label1, 1 / 2, 5.2 / 10, -5, 0, label1FontSize, thisObject.container)
-        UI.projects.superalgos.utilities.drawPrint.drawLabel(label2, 1 / 2, 8.2 / 10, -5, 0, label2FontSize, thisObject.container)
+        UI.projects.superalgos.utilities.drawPrint.drawLabel(label2, 1 / 2, 8.2 / 10, -5, 0, labelTwoFontSize, thisObject.container)
         UI.projects.superalgos.utilities.drawPrint.drawLabel(label3, 1 / 2, 9.5 / 10, -5, 0, label3FontSize, thisObject.container)
 
         drawProgressBar(marketFileProgressBar, 2, -45 + 18)

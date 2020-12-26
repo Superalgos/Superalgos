@@ -598,6 +598,23 @@ function newSuperalgosDocSpace() {
             return false
         }
         /*
+        Get the dimenssions of the current paragraph to help us to define the dimenssions of the text area.
+        */
+        selectedParagraph = paragraphNode
+        selectedParagraphHeight = paragraphNode.getClientRects()[0].height
+        if (selectedParagraphHeight < 30) { selectedParagraphHeight = 30 }
+        /*
+        We need to clean the Tool Tips text that might be at the paragraph selected.
+        To not destroy the DOM structure we will use a clone.
+        */
+        paragraphNode = paragraphNode.cloneNode(true)
+        for (let i = 0; i < paragraphNode.childNodes.length; i++) {
+            let childNode = paragraphNode.childNodes[i]
+            if (childNode.className === "docs-tooltip") {
+                childNode.innerText = childNode.childNodes[0].data
+            }
+        }
+        /*
         Depending on the Style of Paragraph we will need to remove
         some info from the innerText. 
         */
@@ -605,17 +622,17 @@ function newSuperalgosDocSpace() {
             if (paragraphNode.id.indexOf('-summary') >= 0) {
                 selectedParagraphData = paragraphNode.innerText.substring(9, paragraphNode.innerText.length)
             } else {
-                selectedParagraphData = paragraphNode.innerText
+                selectedParagraphData = paragraphNode.innerText.trim()
             }
         }
         if (paragraphNode.id.indexOf('-text') >= 0) {
-            selectedParagraphData = paragraphNode.innerText
+            selectedParagraphData = paragraphNode.innerText.trim()
         }
         if (paragraphNode.id.indexOf('-title') >= 0) {
-            selectedParagraphData = paragraphNode.innerText
+            selectedParagraphData = paragraphNode.innerText.trim()
         }
         if (paragraphNode.id.indexOf('-subtitle') >= 0) {
-            selectedParagraphData = paragraphNode.innerText
+            selectedParagraphData = paragraphNode.innerText.trim()
         }
         if (paragraphNode.id.indexOf('-note') >= 0) {
             selectedParagraphData = paragraphNode.innerText.substring(6, paragraphNode.innerText.length)
@@ -633,7 +650,7 @@ function newSuperalgosDocSpace() {
             selectedParagraphData = paragraphNode.innerText.substring(8, paragraphNode.innerText.length)
         }
         if (paragraphNode.id.indexOf('-list') >= 0) {
-            selectedParagraphData = paragraphNode.innerText
+            selectedParagraphData = paragraphNode.innerText.trim()
         }
         if (paragraphNode.id.indexOf('-table') >= 0) {
             selectedParagraphData = reverseParseTable(paragraphNode.innerHTML)
@@ -654,19 +671,19 @@ function newSuperalgosDocSpace() {
             selectedParagraphData = paragraphNode.innerText.substring(1, paragraphNode.innerText.length)
         }
         if (paragraphNode.id.indexOf('-callout') >= 0) {
-            selectedParagraphData = paragraphNode.innerText
+            selectedParagraphData = paragraphNode.innerText.trim()
         }
         if (paragraphNode.id.indexOf('-summary') >= 0) {
             selectedParagraphData = paragraphNode.innerText.substring(9, paragraphNode.innerText.length)
         }
         if (paragraphNode.id.indexOf('-anchor') >= 0) {
-            selectedParagraphData = paragraphNode.innerText
+            selectedParagraphData = paragraphNode.innerText.trim()
         }
         if (paragraphNode.id.indexOf('-block') >= 0) {
-            selectedParagraphData = paragraphNode.innerText
+            selectedParagraphData = paragraphNode.innerText.trim()
         }
         if (paragraphNode.id.indexOf('-include') >= 0) {
-            selectedParagraphData = paragraphNode.innerText
+            selectedParagraphData = paragraphNode.innerText.trim()
         }
         if (paragraphNode.id.indexOf('-link') >= 0) {
             selectedParagraphData = reverseParseLink(paragraphNode.innerHTML)
@@ -675,9 +692,7 @@ function newSuperalgosDocSpace() {
             selectedParagraphData = reverseParseYoutube(paragraphNode.innerHTML)
         }
 
-        selectedParagraph = paragraphNode
-        selectedParagraphHeight = paragraphNode.getClientRects()[0].height
-        if (selectedParagraphHeight < 30) { selectedParagraphHeight = 30 }
+
         return true
     }
 

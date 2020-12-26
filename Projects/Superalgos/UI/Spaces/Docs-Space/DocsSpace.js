@@ -84,7 +84,9 @@ function newSuperalgosDocSpace() {
                 toAnchor: toAnchor,
                 toBlock: toBlock,
                 toInclude: toInclude,
-                copyLink: copyLink
+                copyLink: copyLink,
+                toWebPageLink: toWebPageLink,
+                toYouTubeVideo: toYouTubeVideo
             }
 
             function editParagraph() {
@@ -283,6 +285,20 @@ function newSuperalgosDocSpace() {
             function toInclude() {
                 let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Include'
+                contextMenuForceOutClick()
+                renderDocumentPage()
+            }
+
+            function toWebPageLink() {
+                let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
+                docSchemaParagraph.style = 'Link'
+                contextMenuForceOutClick()
+                renderDocumentPage()
+            }
+
+            function toYouTubeVideo() {
+                let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
+                docSchemaParagraph.style = 'Youtube'
                 contextMenuForceOutClick()
                 renderDocumentPage()
             }
@@ -651,6 +667,12 @@ function newSuperalgosDocSpace() {
         }
         if (paragraphNode.id.indexOf('-include') >= 0) {
             selectedParagraphData = paragraphNode.innerText
+        }
+        if (paragraphNode.id.indexOf('-link') >= 0) {
+            selectedParagraphData = reverseParseLink(paragraphNode.innerHTML)
+        }
+        if (paragraphNode.id.indexOf('-youtube') >= 0) {
+            selectedParagraphData = reverseParseYoutube(paragraphNode.innerHTML)
         }
 
         selectedParagraph = paragraphNode
@@ -1516,6 +1538,14 @@ function newSuperalgosDocSpace() {
                         }
                         case 'include': {
                             documentPoints = documentPoints + thisPhraseCount * 0
+                            break
+                        }
+                        case 'link': {
+                            documentPoints = documentPoints + thisPhraseCount * 1
+                            break
+                        }
+                        case 'youtube': {
+                            documentPoints = documentPoints + thisPhraseCount * 1
                             break
                         }
                     }
@@ -2908,6 +2938,24 @@ function newSuperalgosDocSpace() {
                         innerHTML = parseHierarchy(paragraph.text)
                         break
                     }
+                    case 'Link': {
+                        styleClass = ''
+                        prefix = ''
+                        sufix = ''
+                        role = ''
+                        key = key + '-link'
+                        innerHTML = parseLink(paragraph.text)
+                        break
+                    }
+                    case 'Youtube': {
+                        styleClass = ''
+                        prefix = ''
+                        sufix = ''
+                        role = ''
+                        key = key + '-youtube'
+                        innerHTML = parseYoutube(paragraph.text)
+                        break
+                    }
                     case 'Gif': {
                         styleClass = ''
                         prefix = ''
@@ -3314,6 +3362,34 @@ function newSuperalgosDocSpace() {
             let result = text.replace(RGBFound, span)
             return result
         }
+    }
+
+    function parseLink(text) {
+        let HTML = ''
+        let splittedText = text.split('->')
+        if (splittedText.length < 1) { return }
+        HTML = '<a  params="' + text + '" href="http://' + splittedText[1] + '" target="_" class="docs-link">' + splittedText[0] + '</a>'
+        return HTML
+    }
+
+    function parseYoutube(text) {
+        let HTML = ''
+
+        HTML = HTML + '<div params="' + text + '" class="docs-youtube-video-container">'
+        HTML = HTML + '<iframe width="848" height="476" src="https://www.youtube.com/embed/' + text + '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+        HTML = HTML + '</div>'
+
+        return HTML
+    }
+
+    function reverseParseLink(HTML) {
+        let splittedHTML = HTML.split('"')
+        return splittedHTML[1]
+    }
+
+    function reverseParseYoutube(HTML) {
+        let splittedHTML = HTML.split('"')
+        return splittedHTML[1]
     }
 
     function reverseParseHierarchy(HTML) {

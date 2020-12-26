@@ -1,0 +1,20 @@
+{
+    "topic": "Docs Paragraph Styles",
+    "pageNumber": "17",
+    "type": "Docs YouTube Video Style",
+    "definition": "It is possible to embed YouTube videos at a Docs page. All you need to know is to copy and pate the YouTube video id into a paragraph with Youtube style.",
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Style"
+        },
+        {
+            "style": "Text",
+            "text": "A style is a definition of color and opacity in case of a polygon body, and color, opacity and line thickness in case of polygon borders."
+        },
+        {
+            "style": "Text",
+            "text": "."
+        }
+    ]
+}

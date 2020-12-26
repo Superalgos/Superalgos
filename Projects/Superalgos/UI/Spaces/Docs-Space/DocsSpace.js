@@ -648,10 +648,10 @@ function newSuperalgosDocSpace() {
             selectedParagraphData = reverseParsePNG(paragraphNode.innerHTML)
         }
         if (paragraphNode.id.indexOf('-javascript') >= 0) {
-            selectedParagraphData = paragraphNode.innerText.substring(1, paragraphNode.innerText.length - 1)
+            selectedParagraphData = paragraphNode.innerText.substring(1, paragraphNode.innerText.length)
         }
         if (paragraphNode.id.indexOf('-json') >= 0) {
-            selectedParagraphData = paragraphNode.innerText.substring(1, paragraphNode.innerText.length - 1)
+            selectedParagraphData = paragraphNode.innerText.substring(1, paragraphNode.innerText.length)
         }
         if (paragraphNode.id.indexOf('-callout') >= 0) {
             selectedParagraphData = paragraphNode.innerText
@@ -1949,7 +1949,7 @@ function newSuperalgosDocSpace() {
                         } else {
                             for (let j = 0; j < orderedIndexArray.length; j++) {
                                 let orderedArrayItem = orderedIndexArray[j]
-                                if (arrayItem.pageNumber < orderedArrayItem.pageNumber) {
+                                if (Number(arrayItem.pageNumber) < Number(orderedArrayItem.pageNumber)) {
                                     orderedIndexArray.splice(j, 0, arrayItem)
                                     itemAdded = true
                                     break

@@ -1,0 +1,24 @@
+{
+    "topic": "Docs Paragraph Styles",
+    "pageNumber": "11",
+    "type": "Docs Summary Style",
+    "definition": "Summary paragraphs are usually used at the begining of a page, like in this one.",
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Anything you write while editing a summary paragraph will be rendered at the page."
+        },
+        {
+            "style": "Title",
+            "text": "Example."
+        },
+        {
+            "style": "Summary",
+            "text": "This is a summary paragraph."
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

@@ -874,17 +874,32 @@ function newSuperalgosDocSpace() {
                 }
                 indexParagraph(paragraph)
             }
+            if (documentIndex.docsSchemaDocument.type === "Vaina") {
+                let a = 1
+            }
             if (documentIndex.docsSchemaDocument.definition !== undefined) {
                 let paragraph = {
                     style: 'Definition',
-                    text: documentIndex.docsSchemaDocument.definition.text
+                    text: documentIndex.docsSchemaDocument.definition.text,
+                    translations: documentIndex.docsSchemaDocument.definition.translations
                 }
                 indexParagraph(paragraph)
+                indexAllTranslations(paragraph)
             }
             if (documentIndex.docsSchemaDocument.paragraphs !== undefined) {
                 for (let k = 0; k < documentIndex.docsSchemaDocument.paragraphs.length; k++) {
                     let paragraph = documentIndex.docsSchemaDocument.paragraphs[k]
                     indexParagraph(paragraph)
+                    indexAllTranslations(paragraph)
+                }
+            }
+
+            function indexAllTranslations(paragraph) {
+                if (paragraph.translations === undefined) { return }
+                for (i = 0; i < paragraph.translations.length; i++) {
+                    let translation = paragraph.translations[i]
+                    translation.style = paragraph.style
+                    indexParagraph(translation)
                 }
             }
 
@@ -1941,7 +1956,7 @@ function newSuperalgosDocSpace() {
             function addDefinitionTable(docsSchemaDocument, idPrefix, category, project, type) {
                 if (docsSchemaDocument.definition !== undefined) {
                     let definitionText = getTextBasedOnLanguage(docsSchemaDocument.definition)
-                    
+
                     if (category === 'Topic' || category === 'Concept') {
                         HTML = HTML + '<div id="definition-summary-editable-paragraph" class="docs-summary"><b>Summary:</b> ' + addToolTips(definitionText) + '</div>'
                     } else {

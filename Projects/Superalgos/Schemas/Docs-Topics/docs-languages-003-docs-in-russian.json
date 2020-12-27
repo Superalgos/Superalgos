@@ -2,7 +2,9 @@
     "topic": "Docs Languages",
     "pageNumber": "3",
     "type": "Docs In Russian",
-    "definition": "Write here a summary for this topic page.",
+    "definition": {
+        "text": "Write here a summary for this topic page."
+    },
     "paragraphs": [
         {
             "style": "Text",

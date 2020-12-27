@@ -2,7 +2,9 @@
     "topic": "Docs Languages",
     "pageNumber": "2",
     "type": "Docs In Spanish",
-    "definition": "Si bien la documentación esta originalmente escrita en Inglés, el sistema permite a cualquier usuario buscar contenido en su idioma nativo, siempre y cuando otros usuarios hayan contribuído traducciones de los artículos existentes escritos en el idioma por defecto que es el idioma Inglés.  ",
+    "definition": {
+        "text": "Si bien la documentación esta originalmente escrita en Inglés, el sistema permite a cualquier usuario buscar contenido en su idioma nativo, siempre y cuando otros usuarios hayan contribuído traducciones de los artículos existentes escritos en el idioma por defecto que es el idioma Inglés.  "
+    },
     "paragraphs": [
         {
             "style": "Text",

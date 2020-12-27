@@ -2,7 +2,9 @@
     "topic": "Docs Languages",
     "pageNumber": "1",
     "type": "Docs In English",
-    "definition": "The Docs articles are fully written in English. The system allow users to search / browse articles in other languages as well, as long as other users contribute translations.",
+    "definition": {
+        "text": "The Docs articles are fully written in English. The system allow users to search / browse articles in other languages as well, as long as other users contribute translations."
+    },
     "paragraphs": [
         {
             "style": "Text",

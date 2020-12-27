@@ -1,0 +1,16 @@
+{
+    "topic": "Docs Languages",
+    "pageNumber": "2",
+    "type": "Docs In Spanish",
+    "definition": "Si bien la documentación esta originalmente escrita en Inglés, el sistema permite a cualquier usuario buscar contenido en su idioma nativo, siempre y cuando otros usuarios hayan contribuído traducciones de los artículos existentes escritos en el idioma por defecto que es el idioma Inglés.  ",
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Es importante notar que por mas que uno seleccione un idioma, el contenido se mostrará en ingles en cada sitio donde todavía no ha sido traducido. El sistema permite a cualquier usuario contribuir traducciones con una granularidad a nivel de párrafos. Esto significa que si una página cualquiera pudiera tener todos, algunos o nigún párrafo traducido. Esto solo depende de cuales hayan sido traducidos previamente por miembros de la comunidad."
+        },
+        {
+            "style": "Success",
+            "text": "Para cambiar de un idioma a otro se debe usar los links en el pie de cada página."
+        }
+    ]
+}

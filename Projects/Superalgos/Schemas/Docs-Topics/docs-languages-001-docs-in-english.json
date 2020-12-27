@@ -1,0 +1,20 @@
+{
+    "topic": "Docs Languages",
+    "pageNumber": "1",
+    "type": "Docs In English",
+    "definition": "The Docs articles are fully written in English. The system allow users to search / browse articles in other languages as well, as long as other users contribute translations.",
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Superalgos and any other integrated project are written in English, since English is considered the default language. Node types, variable names, etc., all is originally in English language. "
+        },
+        {
+            "style": "Text",
+            "text": "The Docs content can be translated by anyone willing to contribute some time doing so. That helps users to read the contents of the Docs in their native language. "
+        },
+        {
+            "style": "Success",
+            "text": "Users can switch between languages using the links provided at the footer of every page at the Docs."
+        }
+    ]
+}

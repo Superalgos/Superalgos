@@ -1,6 +1,7 @@
 function newSuperalgosDocSpace() {
     const MODULE_NAME = 'Doc Space'
     let thisObject = {
+        changeLanguage: changeLanguage,
         isVisible: undefined,
         sidePanelTab: undefined,
         container: undefined,
@@ -16,6 +17,7 @@ function newSuperalgosDocSpace() {
     }
 
     let isInitialized = false
+    const DEFAULT_LANGUAGE = 'EN'
     const DOCS_SPACE_WIDTH = 900
     const newParagraphText = "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
 
@@ -44,6 +46,7 @@ function newSuperalgosDocSpace() {
     let menuLabelsMap = new Map()
     let command
     let docsIndex = []
+    let language
 
     return thisObject
 
@@ -58,6 +61,16 @@ function newSuperalgosDocSpace() {
         browserResizedEventSubscriptionId = canvas.eventHandler.listenToEvent('Browser Resized', resize)
         setUpContextMenu()
         setUpMenuItemsMap()
+
+        /*
+        Getting the used preferred languague
+        */
+        if (window.localStorage.getItem('Docs Language') !== null && window.localStorage.getItem('Docs Language') !== undefined && window.localStorage.getItem('Docs Language') !== 'undefined') {
+            language = window.localStorage.getItem('Docs Language')
+        } else {
+            window.localStorage.setItem('Docs Language', DEFAULT_LANGUAGE)
+            language = DEFAULT_LANGUAGE
+        }
 
         isInitialized = true
 
@@ -366,6 +379,13 @@ function newSuperalgosDocSpace() {
     function reset() {
         finalize()
         intialize()
+    }
+
+    function changeLanguage(pLanguage) {
+        window.localStorage.setItem('Docs Language', language)
+        language = pLanguage
+        let languageLabel = UI.projects.superalgos.utilities.languages.getLaguageLabel(language)
+        navigateTo('Superalgos', 'Topic', 'Docs In ' + languageLabel)
     }
 
     function cleanTextForSearch(text) {
@@ -2824,7 +2844,8 @@ function newSuperalgosDocSpace() {
                         prefix = ''
                         role = ''
                         key = key + '-text'
-                        innerHTML = addBold(paragraph.text)
+                        innerHTML = getTextBasedOnLanguage(paragraph)
+                        innerHTML = addBold(innerHTML)
                         innerHTML = addCodeToCamelCase(innerHTML)
                         innerHTML = addItalics(innerHTML)
                         innerHTML = addToolTips(innerHTML)
@@ -2835,7 +2856,7 @@ function newSuperalgosDocSpace() {
                         prefix = ''
                         role = ''
                         key = key + '-title'
-                        innerHTML = paragraph.text
+                        innerHTML = getTextBasedOnLanguage(paragraph)
                         break
                     }
                     case 'Subtitle': {
@@ -2843,7 +2864,7 @@ function newSuperalgosDocSpace() {
                         prefix = ''
                         role = ''
                         key = key + '-subtitle'
-                        innerHTML = paragraph.text
+                        innerHTML = getTextBasedOnLanguage(paragraph)
                         break
                     }
                     case 'Note': {
@@ -2851,7 +2872,8 @@ function newSuperalgosDocSpace() {
                         prefix = '<i class="docs-fa docs-note-circle"></i> <b>Note:</b>'
                         role = 'role="alert"'
                         key = key + '-note'
-                        innerHTML = addItalics(paragraph.text)
+                        innerHTML = getTextBasedOnLanguage(paragraph)
+                        innerHTML = addItalics(innerHTML)
                         innerHTML = addToolTips(innerHTML)
                         break
                     }
@@ -2860,7 +2882,8 @@ function newSuperalgosDocSpace() {
                         prefix = '<i class="docs-fa docs-check-square-o"></i> <b>Tip:</b>'
                         role = 'role="alert"'
                         key = key + '-success'
-                        innerHTML = addItalics(paragraph.text)
+                        innerHTML = getTextBasedOnLanguage(paragraph)
+                        innerHTML = addItalics(innerHTML)
                         innerHTML = addToolTips(innerHTML)
                         break
                     }
@@ -2869,7 +2892,8 @@ function newSuperalgosDocSpace() {
                         prefix = '<i class="docs-fa docs-warning-sign"></i> <b>Important:</b>'
                         role = 'role="alert"'
                         key = key + '-important'
-                        innerHTML = addItalics(paragraph.text)
+                        innerHTML = getTextBasedOnLanguage(paragraph)
+                        innerHTML = addItalics(innerHTML)
                         innerHTML = addToolTips(innerHTML)
                         break
                     }
@@ -2878,7 +2902,8 @@ function newSuperalgosDocSpace() {
                         prefix = '<i class="docs-fa docs-warning-sign"></i> <b>Warning:</b>'
                         role = 'role="alert"'
                         key = key + '-warning'
-                        innerHTML = addItalics(paragraph.text)
+                        innerHTML = getTextBasedOnLanguage(paragraph)
+                        innerHTML = addItalics(innerHTML)
                         innerHTML = addToolTips(innerHTML)
                         break
                     }
@@ -2887,7 +2912,7 @@ function newSuperalgosDocSpace() {
                         prefix = '<i class="docs-fa docs-warning-sign"></i> <b>Error:</b>'
                         role = 'role="alert"'
                         key = key + '-error'
-                        innerHTML = paragraph.text
+                        innerHTML = getTextBasedOnLanguage(paragraph)
                         break
                     }
                     case 'Callout': {
@@ -2895,7 +2920,8 @@ function newSuperalgosDocSpace() {
                         prefix = ''
                         role = ''
                         key = key + '-callout'
-                        innerHTML = addItalics(paragraph.text)
+                        innerHTML = getTextBasedOnLanguage(paragraph)
+                        innerHTML = addItalics(innerHTML)
                         innerHTML = addToolTips(innerHTML)
                         break
                     }
@@ -2904,7 +2930,8 @@ function newSuperalgosDocSpace() {
                         prefix = '<b>Summary:</b>'
                         role = ''
                         key = key + '-summary'
-                        innerHTML = addItalics(paragraph.text)
+                        innerHTML = getTextBasedOnLanguage(paragraph)
+                        innerHTML = addItalics(innerHTML)
                         innerHTML = addToolTips(innerHTML)
                         break
                     }
@@ -2914,7 +2941,8 @@ function newSuperalgosDocSpace() {
                         sufix = '</li>'
                         role = ''
                         key = key + '-list'
-                        innerHTML = addBold(paragraph.text)
+                        innerHTML = getTextBasedOnLanguage(paragraph)
+                        innerHTML = addBold(innerHTML)
                         innerHTML = addCodeToCamelCase(innerHTML)
                         innerHTML = addItalics(innerHTML)
                         innerHTML = addToolTips(innerHTML)
@@ -2926,7 +2954,8 @@ function newSuperalgosDocSpace() {
                         sufix = '</table>'
                         role = ''
                         key = key + '-table'
-                        innerHTML = parseTable(paragraph.text)
+                        innerHTML = getTextBasedOnLanguage(paragraph)
+                        innerHTML = parseTable(innerHTML)
                         innerHTML = addItalics(innerHTML)
                         innerHTML = addToolTips(innerHTML)
                         break
@@ -3024,6 +3053,15 @@ function newSuperalgosDocSpace() {
                 HTML = HTML + '<p><div id="' + key + '" ' + styleClass + ' ' + role + '>' + prefix + ' ' + innerHTML + sufix + '</div></p>'
                 paragraphMap.set(key, paragraph)
 
+                function getTextBasedOnLanguage(paragraph) {
+                    if (paragraph.translations === undefined) { return paragraph.text }
+                    if (paragraph.translations.length === 0) { return paragraph.text }
+                    for (let i = 0; i < paragraph.translations.length; i++) {
+                        let translation = paragraph.translations[i]
+                        if (translation.language === language) { return translation.text }
+                    }
+                    return paragraph.text
+                }
             }
 
             function hightlightEmbeddedCode() {
@@ -3239,6 +3277,8 @@ function newSuperalgosDocSpace() {
     }
 
     function addFooter() {
+        let languageLabel = UI.projects.superalgos.utilities.languages.getLaguageLabel(language)
+
         let HTML = ''
 
         HTML = HTML + '<div class="docs-node-html-footer-container">' // Container Starts
@@ -3249,6 +3289,14 @@ function newSuperalgosDocSpace() {
 
         HTML = HTML + '<div onClick="UI.projects.superalgos.spaces.docsSpace.scrollToElement(\'docs-space-div\')" class="docs-plain-link"><kbd class=docs-kbd>BACK TO TOP ↑</kbd></div>'
 
+        HTML = HTML + '<p>&nbsp;</p>'
+        HTML = HTML + 'You are currently reading the Docs in ' + languageLabel + '. To read the Docs in your language, follow one of these links:'
+        HTML = HTML + '<ul>'
+        HTML = HTML + '<li><a onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'EN\')" class="docs-footer-link">English</a> — The collection of articles is complete in this language.</li>'
+        HTML = HTML + '<li><a onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'ES\')" class="docs-footer-link">Spanish</a> — Work in progress. You are invited to contribute translating content.</li>'
+        HTML = HTML + '<li><a onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'RU\')" class="docs-footer-link">Russian</a> — Work in progress. You are invited to contribute translating content.</li>'
+        HTML = HTML + '</ul>'
+        HTML = HTML + 'Other resources:'
         HTML = HTML + '<ul>'
         HTML = HTML + '<li><a href="https://superalgos.org/" target="_blank" class="docs-footer-link">Superalgos Project</a> — Learn more about the project.</li>'
         HTML = HTML + '<li><a href="https://t.me/superalgoscommunity" rel="nofollow" target="_blank" class="docs-footer-link">Community Group</a> — Lets talk Superalgos!</li>'

@@ -202,6 +202,11 @@
                     "name": "Strings",
                     "propertyName": "strings",
                     "functionName": "newSuperalgosUtilitiesStrings"
+                },
+                {
+                    "name": "Languages",
+                    "propertyName": "languages",
+                    "functionName": "newSuperalgosUtilitiesLanguages"
                 }
             ],
             "spaces": [

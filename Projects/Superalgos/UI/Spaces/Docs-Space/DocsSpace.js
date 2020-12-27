@@ -977,7 +977,7 @@ function newSuperalgosDocSpace() {
         renderSearchResultsPage()
 
         function checkHelpCommand() {
-            if (command.toLowerCase() === 'help') {
+            if (command.toLowerCase() === 'docss.help') {
                 renderCommandResultsPage(
                     [
                         "Command line interface general help info: ",
@@ -1287,7 +1287,7 @@ function newSuperalgosDocSpace() {
         function addNode(project, type) {
             let template = {
                 type: type,
-                definition: "Write here the definition of this Node.",
+                definition: { text: "Write here the definition of this Node." },
                 paragraphs: [
                     {
                         style: "Text",
@@ -1313,7 +1313,7 @@ function newSuperalgosDocSpace() {
         function addConcept(project, type) {
             let template = {
                 type: type,
-                definition: "Write here the summary / definition of this Concept.",
+                definition: { text: "Write here the summary / definition of this Concept." },
                 paragraphs: [
                     {
                         style: "Text",
@@ -1342,7 +1342,7 @@ function newSuperalgosDocSpace() {
                 topic: topic,
                 pageNumber: pageNumber,
                 type: type,
-                definition: "Write here a summary for this topic page.",
+                definition: { text: "Write here a summary for this topic page." },
                 paragraphs: [
                     {
                         style: "Text",
@@ -1864,7 +1864,7 @@ function newSuperalgosDocSpace() {
                 // Use the New Node Template
                 let template = {
                     type: objectBeingRendered.type,
-                    definition: "Write here the definition of this " + objectBeingRendered.category + ".",
+                    definition: { text: "Write here the definition of this " + objectBeingRendered.category + "." },
                     paragraphs: [
                         {
                             style: "Text",
@@ -1966,7 +1966,7 @@ function newSuperalgosDocSpace() {
             function addDefinitionTable(docsSchemaDocument, idPrefix, category, project, type) {
                 if (docsSchemaDocument.definition !== undefined) {
                     let definitionText = getTextBasedOnLanguage(docsSchemaDocument.definition)
-                    definitionText =  definitionText + addWarningIfTranslationIsOutdated(docsSchemaDocument.definition)
+                    definitionText = definitionText + addWarningIfTranslationIsOutdated(docsSchemaDocument.definition)
 
                     if (category === 'Topic' || category === 'Concept') {
                         HTML = HTML + '<div id="definition-summary-editable-paragraph" class="docs-summary"><b>Summary:</b> ' + addToolTips(definitionText) + '</div>'
@@ -2887,7 +2887,7 @@ function newSuperalgosDocSpace() {
                         innerHTML = addCodeToCamelCase(innerHTML)
                         innerHTML = addItalics(innerHTML)
                         innerHTML = addToolTips(innerHTML)
-                        innerHTML =  innerHTML + addWarningIfTranslationIsOutdated(paragraph)
+                        innerHTML = innerHTML + addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
                     case 'Title': {
@@ -2896,7 +2896,7 @@ function newSuperalgosDocSpace() {
                         role = ''
                         key = key + '-title'
                         innerHTML = getTextBasedOnLanguage(paragraph)
-                        innerHTML =  innerHTML + addWarningIfTranslationIsOutdated(paragraph)
+                        innerHTML = innerHTML + addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
                     case 'Subtitle': {
@@ -2905,7 +2905,7 @@ function newSuperalgosDocSpace() {
                         role = ''
                         key = key + '-subtitle'
                         innerHTML = getTextBasedOnLanguage(paragraph)
-                        innerHTML =  innerHTML + addWarningIfTranslationIsOutdated(paragraph)
+                        innerHTML = innerHTML + addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
                     case 'Note': {
@@ -2916,7 +2916,7 @@ function newSuperalgosDocSpace() {
                         innerHTML = getTextBasedOnLanguage(paragraph)
                         innerHTML = addItalics(innerHTML)
                         innerHTML = addToolTips(innerHTML)
-                        innerHTML =  innerHTML + addWarningIfTranslationIsOutdated(paragraph)
+                        innerHTML = innerHTML + addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
                     case 'Success': {
@@ -2927,7 +2927,7 @@ function newSuperalgosDocSpace() {
                         innerHTML = getTextBasedOnLanguage(paragraph)
                         innerHTML = addItalics(innerHTML)
                         innerHTML = addToolTips(innerHTML)
-                        innerHTML =  innerHTML + addWarningIfTranslationIsOutdated(paragraph)
+                        innerHTML = innerHTML + addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
                     case 'Important': {
@@ -2938,7 +2938,7 @@ function newSuperalgosDocSpace() {
                         innerHTML = getTextBasedOnLanguage(paragraph)
                         innerHTML = addItalics(innerHTML)
                         innerHTML = addToolTips(innerHTML)
-                        innerHTML =  innerHTML + addWarningIfTranslationIsOutdated(paragraph)
+                        innerHTML = innerHTML + addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
                     case 'Warning': {
@@ -2949,7 +2949,7 @@ function newSuperalgosDocSpace() {
                         innerHTML = getTextBasedOnLanguage(paragraph)
                         innerHTML = addItalics(innerHTML)
                         innerHTML = addToolTips(innerHTML)
-                        innerHTML =  innerHTML + addWarningIfTranslationIsOutdated(paragraph)
+                        innerHTML = innerHTML + addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
                     case 'Error': {
@@ -2958,7 +2958,7 @@ function newSuperalgosDocSpace() {
                         role = 'role="alert"'
                         key = key + '-error'
                         innerHTML = getTextBasedOnLanguage(paragraph)
-                        innerHTML =  innerHTML + addWarningIfTranslationIsOutdated(paragraph)
+                        innerHTML = innerHTML + addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
                     case 'Callout': {
@@ -2969,7 +2969,7 @@ function newSuperalgosDocSpace() {
                         innerHTML = getTextBasedOnLanguage(paragraph)
                         innerHTML = addItalics(innerHTML)
                         innerHTML = addToolTips(innerHTML)
-                        innerHTML =  innerHTML + addWarningIfTranslationIsOutdated(paragraph)
+                        innerHTML = innerHTML + addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
                     case 'Summary': {
@@ -2980,7 +2980,7 @@ function newSuperalgosDocSpace() {
                         innerHTML = getTextBasedOnLanguage(paragraph)
                         innerHTML = addItalics(innerHTML)
                         innerHTML = addToolTips(innerHTML)
-                        innerHTML =  innerHTML + addWarningIfTranslationIsOutdated(paragraph)
+                        innerHTML = innerHTML + addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
                     case 'List': {
@@ -2994,7 +2994,7 @@ function newSuperalgosDocSpace() {
                         innerHTML = addCodeToCamelCase(innerHTML)
                         innerHTML = addItalics(innerHTML)
                         innerHTML = addToolTips(innerHTML)
-                        innerHTML =  innerHTML + addWarningIfTranslationIsOutdated(paragraph)
+                        innerHTML = innerHTML + addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
                     case 'Table': {

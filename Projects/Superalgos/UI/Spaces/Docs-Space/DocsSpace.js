@@ -1079,6 +1079,11 @@ function newSuperalgosDocSpace() {
             }
             if (command.indexOf('Docs.Add') !== 0 && command.indexOf('docs.add') !== 0) { return 'Not Add Command' }
 
+            if (language !== DEFAULT_LANGUAGE) {
+                renderCommandResultsPage(["Usage Error. You can only add pages to the Docs while you are navigating it in English."])
+                return
+            }
+
             let splittedCommand = command.split(': ')
             if (splittedCommand[1] === undefined) {
                 renderCommandResultsPage(["Syntax Error. Keyword <b>: </b> missing: Example: docs.add Concept to Superalgos: New Concept Name. The keyword is a : character plus a blank space. Type <i>help docs.add</i> to learn the command's syntax."])
@@ -1148,6 +1153,11 @@ function newSuperalgosDocSpace() {
                 return
             }
             if (command.indexOf('Docs.Delete') !== 0 && command.indexOf('docs.delete') !== 0) { return 'Not Delete Command' }
+
+            if (language !== DEFAULT_LANGUAGE) {
+                renderCommandResultsPage(["Usage Error. You can only delete pages from the Docs while you are navigating it in English."])
+                return
+            }
 
             let splittedCommand = command.split(': ')
             if (splittedCommand[1] === undefined) {

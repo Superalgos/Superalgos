@@ -16,7 +16,12 @@
         },
         {
             "style": "Success",
-            "text": "Users can switch between languages using the links provided at the footer of every page at the Docs."
+            "text": " Users can switch between languages using the links provided at the footer of every page at the Docs. ",
+            "updated": 1609085068937
+        },
+        {
+            "style": "Note",
+            "text": "You can only add or delete pages to the Docs if you are navigating it in English, because English is the default language, and from there pages are later translated. "
         }
     ]
 }

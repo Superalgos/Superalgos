@@ -36,7 +36,16 @@
         },
         {
             "style": "Text",
-            "text": "Vaina 1"
+            "text": "Vaina 1 Hello What's up?",
+            "updated": 1609084560339,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Vaina 1 Hola. Que hay?",
+                    "updated": 1609084602600,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Link",

@@ -382,8 +382,8 @@ function newSuperalgosDocSpace() {
     }
 
     function changeLanguage(pLanguage) {
-        window.localStorage.setItem('Docs Language', language)
         language = pLanguage
+        window.localStorage.setItem('Docs Language', language)
         let languageLabel = UI.projects.superalgos.utilities.languages.getLaguageLabel(language)
         navigateTo('Superalgos', 'Topic', 'Docs In ' + languageLabel)
     }
@@ -1956,6 +1956,7 @@ function newSuperalgosDocSpace() {
             function addDefinitionTable(docsSchemaDocument, idPrefix, category, project, type) {
                 if (docsSchemaDocument.definition !== undefined) {
                     let definitionText = getTextBasedOnLanguage(docsSchemaDocument.definition)
+                    definitionText =  definitionText + addWarningIfTranslationIsOutdated(docsSchemaDocument.definition)
 
                     if (category === 'Topic' || category === 'Concept') {
                         HTML = HTML + '<div id="definition-summary-editable-paragraph" class="docs-summary"><b>Summary:</b> ' + addToolTips(definitionText) + '</div>'
@@ -2876,6 +2877,7 @@ function newSuperalgosDocSpace() {
                         innerHTML = addCodeToCamelCase(innerHTML)
                         innerHTML = addItalics(innerHTML)
                         innerHTML = addToolTips(innerHTML)
+                        innerHTML =  innerHTML + addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
                     case 'Title': {
@@ -2884,6 +2886,7 @@ function newSuperalgosDocSpace() {
                         role = ''
                         key = key + '-title'
                         innerHTML = getTextBasedOnLanguage(paragraph)
+                        innerHTML =  innerHTML + addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
                     case 'Subtitle': {
@@ -2892,6 +2895,7 @@ function newSuperalgosDocSpace() {
                         role = ''
                         key = key + '-subtitle'
                         innerHTML = getTextBasedOnLanguage(paragraph)
+                        innerHTML =  innerHTML + addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
                     case 'Note': {
@@ -2902,6 +2906,7 @@ function newSuperalgosDocSpace() {
                         innerHTML = getTextBasedOnLanguage(paragraph)
                         innerHTML = addItalics(innerHTML)
                         innerHTML = addToolTips(innerHTML)
+                        innerHTML =  innerHTML + addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
                     case 'Success': {
@@ -2912,6 +2917,7 @@ function newSuperalgosDocSpace() {
                         innerHTML = getTextBasedOnLanguage(paragraph)
                         innerHTML = addItalics(innerHTML)
                         innerHTML = addToolTips(innerHTML)
+                        innerHTML =  innerHTML + addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
                     case 'Important': {
@@ -2922,6 +2928,7 @@ function newSuperalgosDocSpace() {
                         innerHTML = getTextBasedOnLanguage(paragraph)
                         innerHTML = addItalics(innerHTML)
                         innerHTML = addToolTips(innerHTML)
+                        innerHTML =  innerHTML + addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
                     case 'Warning': {
@@ -2932,6 +2939,7 @@ function newSuperalgosDocSpace() {
                         innerHTML = getTextBasedOnLanguage(paragraph)
                         innerHTML = addItalics(innerHTML)
                         innerHTML = addToolTips(innerHTML)
+                        innerHTML =  innerHTML + addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
                     case 'Error': {
@@ -2940,6 +2948,7 @@ function newSuperalgosDocSpace() {
                         role = 'role="alert"'
                         key = key + '-error'
                         innerHTML = getTextBasedOnLanguage(paragraph)
+                        innerHTML =  innerHTML + addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
                     case 'Callout': {
@@ -2950,6 +2959,7 @@ function newSuperalgosDocSpace() {
                         innerHTML = getTextBasedOnLanguage(paragraph)
                         innerHTML = addItalics(innerHTML)
                         innerHTML = addToolTips(innerHTML)
+                        innerHTML =  innerHTML + addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
                     case 'Summary': {
@@ -2960,6 +2970,7 @@ function newSuperalgosDocSpace() {
                         innerHTML = getTextBasedOnLanguage(paragraph)
                         innerHTML = addItalics(innerHTML)
                         innerHTML = addToolTips(innerHTML)
+                        innerHTML =  innerHTML + addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
                     case 'List': {
@@ -2973,12 +2984,13 @@ function newSuperalgosDocSpace() {
                         innerHTML = addCodeToCamelCase(innerHTML)
                         innerHTML = addItalics(innerHTML)
                         innerHTML = addToolTips(innerHTML)
+                        innerHTML =  innerHTML + addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
                     case 'Table': {
                         styleClass = ''
                         prefix = '<table class="docs-info-table">'
-                        sufix = '</table>'
+                        sufix = '</table>' + addWarningIfTranslationIsOutdated(paragraph)
                         role = ''
                         key = key + '-table'
                         innerHTML = getTextBasedOnLanguage(paragraph)
@@ -3334,6 +3346,25 @@ function newSuperalgosDocSpace() {
         return HTML
     }
 
+    function addWarningIfTranslationIsOutdated(paragraph) {
+        if (paragraph === undefined) { return '' }
+        if (paragraph.updated === undefined) { return '' }
+        if (paragraph.translations === undefined) { return '' }
+        if (paragraph.translations.length === 0) { return '' }
+        for (let i = 0; i < paragraph.translations.length; i++) {
+            let translation = paragraph.translations[i]
+            if (translation.updated === undefined) { continue }
+            if (translation.language === language) {
+                if (paragraph.updated < translation.updated) {
+                    return ''
+                } else {
+                    return ' <b>Warning!!!</b> This translation is outdated. English version is... <i>' + paragraph.text + '</i> Please update this translation.'
+                }
+            }
+        }
+        return ''
+    }
+
     function getTextBasedOnLanguage(paragraph) {
         if (paragraph === undefined) { return }
         if (paragraph.translations === undefined) { return paragraph.text }
@@ -3348,6 +3379,7 @@ function newSuperalgosDocSpace() {
     function setTextBasedOnLanguage(paragraph, text) {
         if (language === DEFAULT_LANGUAGE) {
             paragraph.text = text
+            paragraph.updated = (new Date()).valueOf()
             return
         } else {
             /* 
@@ -3365,12 +3397,14 @@ function newSuperalgosDocSpace() {
             let translation = paragraph.translations[i]
             if (translation.language === language) {
                 translation.text = text
+                translation.updated = (new Date()).valueOf()
                 return
             }
         }
         let translation = {
             language: language,
-            text: text
+            text: text,
+            updated: (new Date()).valueOf()
         }
         paragraph.translations.push(translation)
         return

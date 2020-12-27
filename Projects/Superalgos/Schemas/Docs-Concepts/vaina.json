@@ -1,17 +1,21 @@
 {
     "type": "Vaina",
     "definition": {
-        "text": "Write here the definition of this Concept.",
+        "text": "Write here the definition of this Concept. Updated. Again.",
         "translations": [
             {
                 "language": "ES",
-                "text": "Escribe aqui la definición de este proyecto."
+                "text": "Escribe aqui la definición de este proyecto.  Actualizado. De nuevo.",
+                "style": "Definition",
+                "updated": 1609084415700
             },
             {
                 "language": "RU",
-                "text": "Esto es una Vainuska "
+                "text": "Esto es una Vainuska ",
+                "style": "Definition"
             }
-        ]
+        ],
+        "updated": 1609084340848
     },
     "paragraphs": [
         {
@@ -20,11 +24,13 @@
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Esto esta escrito en ruso."
+                    "text": "Esto esta escrito en ruso.",
+                    "style": "Text"
                 },
                 {
                     "language": "ES",
-                    "text": "Esto esta en espaniol."
+                    "text": "Esto esta en espaniol.",
+                    "style": "Text"
                 }
             ]
         },

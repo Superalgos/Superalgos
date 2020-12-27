@@ -1,6 +1,8 @@
 {
     "type": "Product Definition Folder",
-    "definition": "A product definition folder is an organizational device used to create arrangements of product definitions, particularly useful when the bot has many products.",
+    "definition": {
+        "text": "A product definition folder is an organizational device used to create arrangements of product definitions, particularly useful when the bot has many products."
+    },
     "paragraphs": [
         {
             "style": "Block",

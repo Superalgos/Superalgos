@@ -1,6 +1,8 @@
 {
     "type": "Text Condition",
-    "definition": "A text condition is a rule that allows establishing when text shall be rendered and when not.",
+    "definition": {
+        "text": "A text condition is a rule that allows establishing when text shall be rendered and when not."
+    },
     "paragraphs": [
         {
             "style": "Block",

@@ -1,6 +1,8 @@
 {
     "type": "Hit Ratio",
-    "definition": "Hit ratio is the percentage of positions that closed with a positive profit loss, in the context of the parent node.",
+    "definition": {
+        "text": "Hit ratio is the percentage of positions that closed with a positive profit loss, in the context of the parent node."
+    },
     "paragraphs": [
         {
             "style": "Block",

@@ -1,6 +1,8 @@
 {
     "type": "Size Placed",
-    "definition": "Size placed is the size of the order placed at the exchange.",
+    "definition": {
+        "text": "Size placed is the size of the order placed at the exchange."
+    },
     "paragraphs": [
         {
             "style": "Block",

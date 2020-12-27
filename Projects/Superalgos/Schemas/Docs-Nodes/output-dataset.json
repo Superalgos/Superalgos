@@ -1,6 +1,8 @@
 {
     "type": "Output Dataset",
-    "definition": "The output dataset is a reference to a dataset definition. By establishing such reference, the process acquires the definitions as of how the dataset is to be constructed.",
+    "definition": {
+        "text": "The output dataset is a reference to a dataset definition. By establishing such reference, the process acquires the definitions as of how the dataset is to be constructed."
+    },
     "paragraphs": [
         {
             "style": "Block",

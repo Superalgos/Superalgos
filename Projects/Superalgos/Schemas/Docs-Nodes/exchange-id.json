@@ -1,6 +1,8 @@
 {
     "type": "Exchange Id",
-    "definition": "Exchange ID is a unique identifier the exchange assigns to the order, so that it may be unequivocally identified.",
+    "definition": {
+        "text": "Exchange ID is a unique identifier the exchange assigns to the order, so that it may be unequivocally identified."
+    },
     "paragraphs": [
         {
             "style": "Block",

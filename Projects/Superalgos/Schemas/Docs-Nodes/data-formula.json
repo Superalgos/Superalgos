@@ -1,5 +1,7 @@
 {
     "type": "Data Formula",
-    "definition": "A data formula is a device used to assign a value to the panel data, usually in the form of the name of the corresponding record property.",
+    "definition": {
+        "text": "A data formula is a device used to assign a value to the panel data, usually in the form of the name of the corresponding record property."
+    },
     "paragraphs": []
 }

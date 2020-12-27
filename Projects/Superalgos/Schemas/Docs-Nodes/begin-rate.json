@@ -1,6 +1,8 @@
 {
     "type": "Begin Rate",
-    "definition": "Begin rate is the close rate of the candle corresponding to the datetime of the begin property.",
+    "definition": {
+        "text": "Begin rate is the close rate of the candle corresponding to the datetime of the begin property."
+    },
     "paragraphs": [
         {
             "style": "Block",

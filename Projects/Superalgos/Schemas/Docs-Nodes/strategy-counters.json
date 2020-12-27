@@ -1,5 +1,7 @@
 {
     "type": "Strategy Counters",
-    "definition": "The strategy counters node features counters of instances of objects that come to exist while the strategy is open.",
+    "definition": {
+        "text": "The strategy counters node features counters of instances of objects that come to exist while the strategy is open."
+    },
     "paragraphs": []
 }

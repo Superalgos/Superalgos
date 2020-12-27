@@ -1,6 +1,8 @@
 {
     "type": "Market Buy Order",
-    "definition": "A market buy order is an instruction sent to the exchange to buy the base asset, for immediate execution at current market prices.",
+    "definition": {
+        "text": "A market buy order is an instruction sent to the exchange to buy the base asset, for immediate execution at current market prices."
+    },
     "paragraphs": [
         {
             "style": "Block",

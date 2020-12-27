@@ -1,6 +1,8 @@
 {
     "type": "Managed Take Profit",
-    "definition": "The managed take profit node features the definition of the phases that make up the management of the take profit target as the position develops.",
+    "definition": {
+        "text": "The managed take profit node features the definition of the phases that make up the management of the take profit target as the position develops."
+    },
     "paragraphs": [
         {
             "style": "Block",

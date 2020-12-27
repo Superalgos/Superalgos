@@ -1,6 +1,8 @@
 {
     "type": "Javascript Code",
-    "definition": "The JavaScript code node may hold any snippet of valid JavaScript.",
+    "definition": {
+        "text": "The JavaScript code node may hold any snippet of valid JavaScript."
+    },
     "paragraphs": [
         {
             "style": "Block",

@@ -1,6 +1,8 @@
 {
     "type": "Close Execution",
-    "definition": "The close execution node groups all execution algorithms involved in the process of closing a position.",
+    "definition": {
+        "text": "The close execution node groups all execution algorithms involved in the process of closing a position."
+    },
     "paragraphs": [
         {
             "style": "Block",

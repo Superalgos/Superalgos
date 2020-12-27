@@ -1,6 +1,8 @@
 {
     "type": "Target Size In Base Asset",
-    "definition": "Target size in base asset is used to define the size of the position, denominating it in the base asset.",
+    "definition": {
+        "text": "Target size in base asset is used to define the size of the position, denominating it in the base asset."
+    },
     "paragraphs": [
         {
             "style": "Block",

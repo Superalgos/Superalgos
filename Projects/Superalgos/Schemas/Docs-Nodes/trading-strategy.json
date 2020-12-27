@@ -1,6 +1,8 @@
 {
     "type": "Trading Strategy",
-    "definition": "A trading strategy is the description of a set of actions or events run in stages. Events are triggered upon the validation of precise conditions describing specific market situations. Trading strategies are designed to achieve a specific goal within the broader plan of a trading system via taking and managing positions.",
+    "definition": {
+        "text": "A trading strategy is the description of a set of actions or events run in stages. Events are triggered upon the validation of precise conditions describing specific market situations. Trading strategies are designed to achieve a specific goal within the broader plan of a trading system via taking and managing positions."
+    },
     "paragraphs": [
         {
             "style": "Block",

@@ -1,6 +1,8 @@
 {
     "type": "Spaces",
-    "definition": "Spaces refers to the different types of spaces for which definitions exist in the form of hierarchies. At this stage, the node may spawn the Design Space and the Charting Space hierarchies.",
+    "definition": {
+        "text": "Spaces refers to the different types of spaces for which definitions exist in the form of hierarchies. At this stage, the node may spawn the Design Space and the Charting Space hierarchies."
+    },
     "paragraphs": [
         {
             "style": "Block",

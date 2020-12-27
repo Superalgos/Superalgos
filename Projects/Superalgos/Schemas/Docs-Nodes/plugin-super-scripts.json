@@ -1,6 +1,8 @@
 {
     "type": "Plugin Super Scripts",
-    "definition": "The plugin super scripts node features the definitions of super scripts to be included as plugins in the current workspace.",
+    "definition": {
+        "text": "The plugin super scripts node features the definitions of super scripts to be included as plugins in the current workspace."
+    },
     "paragraphs": [
         {
             "style": "Block",

@@ -1,5 +1,7 @@
 {
     "type": "User Keys",
-    "definition": "The user keys node groups the various exchange account keys the user may have under the corresponding account with the exchange.",
+    "definition": {
+        "text": "The user keys node groups the various exchange account keys the user may have under the corresponding account with the exchange."
+    },
     "paragraphs": []
 }

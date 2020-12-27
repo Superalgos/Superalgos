@@ -1,6 +1,8 @@
 {
     "type": "Exit Type",
-    "definition": "Exit type refers to the reason why the object is closed.",
+    "definition": {
+        "text": "Exit type refers to the reason why the object is closed."
+    },
     "paragraphs": [
         {
             "style": "Block",

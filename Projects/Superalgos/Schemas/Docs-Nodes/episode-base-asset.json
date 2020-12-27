@@ -1,6 +1,8 @@
 {
     "type": "Episode Base Asset",
-    "definition": "The episode base asset node keeps track of the evolution of variables and metrics denominated in the base asset, throughout the episode.",
+    "definition": {
+        "text": "The episode base asset node keeps track of the evolution of variables and metrics denominated in the base asset, throughout the episode."
+    },
     "paragraphs": [
         {
             "style": "Block",

@@ -1,6 +1,8 @@
 {
     "type": "Plugin File",
-    "definition": "A plugin file is the JSON file that constitutes the plugin. In the context of the plugins hierarchy, a plugin is the definition of a hierarchy.",
+    "definition": {
+        "text": "A plugin file is the JSON file that constitutes the plugin. In the context of the plugins hierarchy, a plugin is the definition of a hierarchy."
+    },
     "paragraphs": [
         {
             "style": "Block",

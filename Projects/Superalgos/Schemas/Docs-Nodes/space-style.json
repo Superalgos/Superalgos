@@ -1,6 +1,8 @@
 {
     "type": "Space Style",
-    "definition": "The space style node features controls over the look and feel of the space, in particular, of background colors and font sizes.",
+    "definition": {
+        "text": "The space style node features controls over the look and feel of the space, in particular, of background colors and font sizes."
+    },
     "paragraphs": [
         {
             "style": "Block",

@@ -1,5 +1,7 @@
 {
     "type": "Close Position",
-    "definition": "Counts the periods since the last time a position was closed.",
+    "definition": {
+        "text": "Counts the periods since the last time a position was closed."
+    },
     "paragraphs": []
 }

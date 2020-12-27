@@ -1,5 +1,7 @@
 {
     "type": "Max",
-    "definition": "Max is the maximum rate registered by the exchange during the period between the datetimes of the begin and end properties, as provided by the exchange.",
+    "definition": {
+        "text": "Max is the maximum rate registered by the exchange during the period between the datetimes of the begin and end properties, as provided by the exchange."
+    },
     "paragraphs": []
 }

@@ -1,6 +1,8 @@
 {
     "type": "Polygon Condition",
-    "definition": "A polygon condition is a rule that allows establishing when a polygon shall be rendered and when not.",
+    "definition": {
+        "text": "A polygon condition is a rule that allows establishing when a polygon shall be rendered and when not."
+    },
     "paragraphs": [
         {
             "style": "Block",

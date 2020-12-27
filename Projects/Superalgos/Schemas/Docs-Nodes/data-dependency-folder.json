@@ -1,6 +1,8 @@
 {
     "type": "Data Dependency Folder",
-    "definition": "A data dependency folder node is an organizational device used to map the arrangement of product definition folders of a given bot.",
+    "definition": {
+        "text": "A data dependency folder node is an organizational device used to map the arrangement of product definition folders of a given bot."
+    },
     "paragraphs": [
         {
             "style": "Block",

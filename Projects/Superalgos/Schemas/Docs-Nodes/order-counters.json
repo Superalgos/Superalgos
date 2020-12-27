@@ -1,5 +1,7 @@
 {
     "type": "Order Counters",
-    "definition": "The order counters node features counters of instances of objects that come to exist while the order is open.",
+    "definition": {
+        "text": "The order counters node features counters of instances of objects that come to exist while the order is open."
+    },
     "paragraphs": []
 }

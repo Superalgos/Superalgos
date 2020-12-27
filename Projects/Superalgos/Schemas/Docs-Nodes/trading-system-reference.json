@@ -1,6 +1,8 @@
 {
     "type": "Trading System Reference",
-    "definition": "A trading engine reference determines which trading system shall be evaluated by the trading bot to run the trading session.",
+    "definition": {
+        "text": "A trading engine reference determines which trading system shall be evaluated by the trading bot to run the trading session."
+    },
     "paragraphs": [
         {
             "style": "Block",

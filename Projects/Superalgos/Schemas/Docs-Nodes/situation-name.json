@@ -1,6 +1,8 @@
 {
     "type": "Situation Name",
-    "definition": "Situation name features the name of the situation that triggered a certain event, which is dependent on the context.",
+    "definition": {
+        "text": "Situation name features the name of the situation that triggered a certain event, which is dependent on the context."
+    },
     "paragraphs": [
         {
             "style": "Block",

@@ -1,6 +1,8 @@
 {
     "type": "Data Mine Products",
-    "definition": "Data mine products are references established with data mines to facilitate establishing data product references with multiple products in the given data mine.",
+    "definition": {
+        "text": "Data mine products are references established with data mines to facilitate establishing data product references with multiple products in the given data mine."
+    },
     "paragraphs": [
         {
             "style": "Block",

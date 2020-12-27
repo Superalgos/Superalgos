@@ -1,6 +1,8 @@
 {
     "type": "Polygon Vertex",
-    "definition": "A polygon vertex is a reference to a point defined in the chart points, constituting a specific coordinate to be used as a vertex of a shape.",
+    "definition": {
+        "text": "A polygon vertex is a reference to a point defined in the chart points, constituting a specific coordinate to be used as a vertex of a shape."
+    },
     "paragraphs": [
         {
             "style": "Block",

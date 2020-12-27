@@ -1,6 +1,8 @@
 {
     "type": "Simulated Actual Rate",
-    "definition": "The simulated actual rate node allows setting a specific rate value for the simulation of each order, overriding the slippage parameter of the trading session.",
+    "definition": {
+        "text": "The simulated actual rate node allows setting a specific rate value for the simulation of each order, overriding the slippage parameter of the trading session."
+    },
     "paragraphs": [
         {
             "style": "Block",

@@ -1,6 +1,8 @@
 {
     "type": "Trading Session Reference",
-    "definition": "A session reference establishes which session is the one which shall store data in the current location.",
+    "definition": {
+        "text": "A session reference establishes which session is the one which shall store data in the current location."
+    },
     "paragraphs": [
         {
             "style": "Block",

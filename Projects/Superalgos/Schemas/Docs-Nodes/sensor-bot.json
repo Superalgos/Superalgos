@@ -1,6 +1,8 @@
 {
     "type": "Sensor Bot",
-    "definition": "A sensor bot is an algorithm that extracts raw data from external sources (i.e.: exchanges, Twitter, etc.) and stores it in a dataset that other bots may consume.",
+    "definition": {
+        "text": "A sensor bot is an algorithm that extracts raw data from external sources (i.e.: exchanges, Twitter, etc.) and stores it in a dataset that other bots may consume."
+    },
     "paragraphs": [
         {
             "style": "Block",

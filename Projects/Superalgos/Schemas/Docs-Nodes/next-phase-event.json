@@ -1,6 +1,8 @@
 {
     "type": "Next Phase Event",
-    "definition": "The next phase event determines when there should be a switch of phases to the next phase in a predefined sequence.",
+    "definition": {
+        "text": "The next phase event determines when there should be a switch of phases to the next phase in a predefined sequence."
+    },
     "paragraphs": [
         {
             "style": "Block",

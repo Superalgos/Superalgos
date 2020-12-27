@@ -1,6 +1,8 @@
 {
     "type": "Trigger Stage",
-    "definition": "The trigger stage deals with monitoring the market in search of trading opportunities with the corresponding strategy.",
+    "definition": {
+        "text": "The trigger stage deals with monitoring the market in search of trading opportunities with the corresponding strategy."
+    },
     "paragraphs": [
         {
             "style": "Block",

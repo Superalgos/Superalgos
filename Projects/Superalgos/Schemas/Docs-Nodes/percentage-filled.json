@@ -1,6 +1,8 @@
 {
     "type": "Percentage Filled",
-    "definition": "Percentage filled represents the portion of the order that has been filled, expressed as a percentage.",
+    "definition": {
+        "text": "Percentage filled represents the portion of the order that has been filled, expressed as a percentage."
+    },
     "paragraphs": [
         {
             "style": "Block",

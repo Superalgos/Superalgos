@@ -1,6 +1,8 @@
 {
     "type": "Condition",
-    "definition": "Conditions are rules within a situation. When all conditions under a situation validate true, then the situation gets validated as well, and the associated event is triggered.",
+    "definition": {
+        "text": "Conditions are rules within a situation. When all conditions under a situation validate true, then the situation gets validated as well, and the associated event is triggered."
+    },
     "paragraphs": [
         {
             "style": "Block",

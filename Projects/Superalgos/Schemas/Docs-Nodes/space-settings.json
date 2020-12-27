@@ -1,6 +1,8 @@
 {
     "type": "Space Settings",
-    "definition": "The space settings node features controls over the phisics, proportions, and positioning of icons representing node, and their menus.",
+    "definition": {
+        "text": "The space settings node features controls over the phisics, proportions, and positioning of icons representing node, and their menus."
+    },
     "paragraphs": [
         {
             "style": "Block",

@@ -1,6 +1,8 @@
 {
     "type": "Network Node",
-    "definition": "A network node represents a machine running Superalgos, on which processes run and data is stored.",
+    "definition": {
+        "text": "A network node represents a machine running Superalgos, on which processes run and data is stored."
+    },
     "paragraphs": [
         {
             "style": "Block",

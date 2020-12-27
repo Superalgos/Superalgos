@@ -1,5 +1,7 @@
 {
     "type": "Take Profit",
-    "definition": "Take profit is the current take profit target, as defined in the manage stage of the corresponding strategy.",
+    "definition": {
+        "text": "Take profit is the current take profit target, as defined in the manage stage of the corresponding strategy."
+    },
     "paragraphs": []
 }

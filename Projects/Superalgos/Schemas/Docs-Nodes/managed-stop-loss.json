@@ -1,6 +1,8 @@
 {
     "type": "Managed Stop Loss",
-    "definition": "The managed stop loss node features the definition of the phases that make up the management of the stop loss target as the position develops.",
+    "definition": {
+        "text": "The managed stop loss node features the definition of the phases that make up the management of the stop loss target as the position develops."
+    },
     "paragraphs": [
         {
             "style": "Block",

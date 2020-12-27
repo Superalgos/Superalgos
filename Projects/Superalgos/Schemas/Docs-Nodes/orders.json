@@ -1,5 +1,7 @@
 {
     "type": "Orders",
-    "definition": "Orders counts the number of times orders have been placed, in the context of the parent node.",
+    "definition": {
+        "text": "Orders counts the number of times orders have been placed, in the context of the parent node."
+    },
     "paragraphs": []
 }

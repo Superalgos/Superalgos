@@ -1,6 +1,8 @@
 {
     "type": "Asset",
-    "definition": "An asset node is the definition of an asset listed at the corresponding exchange.",
+    "definition": {
+        "text": "An asset node is the definition of an asset listed at the corresponding exchange."
+    },
     "paragraphs": [
         {
             "style": "Block",

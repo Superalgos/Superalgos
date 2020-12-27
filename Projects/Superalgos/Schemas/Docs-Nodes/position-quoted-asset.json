@@ -1,6 +1,8 @@
 {
     "type": "Position Quoted Asset",
-    "definition": "The position quoted asset node keeps track of the evolution of variables related to the quoted asset throughout the position.",
+    "definition": {
+        "text": "The position quoted asset node keeps track of the evolution of variables related to the quoted asset throughout the position."
+    },
     "paragraphs": [
         {
             "style": "Block",

@@ -1,5 +1,7 @@
 {
     "type": "Order Statistics",
-    "definition": "Order statistics keeps track of several metrics in the context of the order.",
+    "definition": {
+        "text": "Order statistics keeps track of several metrics in the context of the order."
+    },
     "paragraphs": []
 }

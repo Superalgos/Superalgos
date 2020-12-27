@@ -1,6 +1,8 @@
 {
     "type": "Snapshots",
-    "definition": "Snapshots are CSV files output by the trading bot listing every trade in a backtesting session. The snapshots parameter determines whether snapshots shall be produced, and how.",
+    "definition": {
+        "text": "Snapshots are CSV files output by the trading bot listing every trade in a backtesting session. The snapshots parameter determines whether snapshots shall be produced, and how."
+    },
     "paragraphs": [
         {
             "style": "Block",

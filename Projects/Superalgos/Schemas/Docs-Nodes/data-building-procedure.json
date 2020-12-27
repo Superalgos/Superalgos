@@ -1,6 +1,8 @@
 {
     "type": "Data Building Procedure",
-    "definition": "The data building procedure processes information to be fed to properties that are stored in the output dataset.",
+    "definition": {
+        "text": "The data building procedure processes information to be fed to properties that are stored in the output dataset."
+    },
     "paragraphs": [
         {
             "style": "Block",

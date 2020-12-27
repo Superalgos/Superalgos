@@ -1,5 +1,7 @@
 {
     "type": "Trigger Off",
-    "definition": "Counts the periods since the last time a strategy was triggered off.",
+    "definition": {
+        "text": "Counts the periods since the last time a strategy was triggered off."
+    },
     "paragraphs": []
 }

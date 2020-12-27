@@ -1,6 +1,8 @@
 {
     "type": "Size",
-    "definition": "Size is the size set for the order through a combination of formulas and configurations defined in the trading system, and is the value passed on to the exchange as the size of the order.",
+    "definition": {
+        "text": "Size is the size set for the order through a combination of formulas and configurations defined in the trading system, and is the value passed on to the exchange as the size of the order."
+    },
     "paragraphs": [
         {
             "style": "Block",

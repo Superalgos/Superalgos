@@ -1,6 +1,8 @@
 {
     "type": "Indicator Process Instance",
-    "definition": "An indicator process instance is a reference to the process definition of an indicator bot, as defined in a data mine.",
+    "definition": {
+        "text": "An indicator process instance is a reference to the process definition of an indicator bot, as defined in a data mine."
+    },
     "paragraphs": [
         {
             "style": "Block",

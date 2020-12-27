@@ -1,6 +1,8 @@
 {
     "type": "Order Rate",
-    "definition": "The order rate node defines the rate of limit orders.",
+    "definition": {
+        "text": "The order rate node defines the rate of limit orders."
+    },
     "paragraphs": [
         {
             "style": "Block",

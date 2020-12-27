@@ -1,6 +1,8 @@
 {
     "type": "Market",
-    "definition": "A market is the definition of a pair of assets (i.e.: BTC-USDT) listed as a market in the corresponding exchange.",
+    "definition": {
+        "text": "A market is the definition of a pair of assets (i.e.: BTC-USDT) listed as a market in the corresponding exchange."
+    },
     "paragraphs": [
         {
             "style": "Block",

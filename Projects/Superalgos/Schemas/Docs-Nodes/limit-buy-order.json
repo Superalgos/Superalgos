@@ -1,6 +1,8 @@
 {
     "type": "Limit Buy Order",
-    "definition": "A limit buy order is an instruction sent to the exchange to buy the base asset, for execution at a specific rate or better.",
+    "definition": {
+        "text": "A limit buy order is an instruction sent to the exchange to buy the base asset, for execution at a specific rate or better."
+    },
     "paragraphs": [
         {
             "style": "Block",

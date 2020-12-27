@@ -1,6 +1,8 @@
 {
     "type": "Balance",
-    "definition": "Balance is the running balance, that is, the amount of the asset that exists at any point in time.",
+    "definition": {
+        "text": "Balance is the running balance, that is, the amount of the asset that exists at any point in time."
+    },
     "paragraphs": [
         {
             "style": "Block",

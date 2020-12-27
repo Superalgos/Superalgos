@@ -1,6 +1,8 @@
 {
     "type": "Dashboard",
-    "definition": "A dashboard is a collection of time machines, each containing any number of charts.",
+    "definition": {
+        "text": "A dashboard is a collection of time machines, each containing any number of charts."
+    },
     "paragraphs": [
         {
             "style": "Block",

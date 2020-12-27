@@ -1,5 +1,7 @@
 {
     "type": "Indicator Function",
-    "definition": "",
+    "definition": {
+        "text": ""
+    },
     "paragraphs": []
 }

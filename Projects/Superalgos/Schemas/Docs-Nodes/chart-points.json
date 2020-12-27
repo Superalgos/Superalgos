@@ -1,6 +1,8 @@
 {
     "type": "Chart Points",
-    "definition": "A chart points groups definitions of coordinate points used to define polygons.",
+    "definition": {
+        "text": "A chart points groups definitions of coordinate points used to define polygons."
+    },
     "paragraphs": [
         {
             "style": "Block",

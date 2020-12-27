@@ -1,6 +1,8 @@
 {
     "type": "Open Execution",
-    "definition": "The open execution node groups all execution algorithms involved in the process of opening a position.",
+    "definition": {
+        "text": "The open execution node groups all execution algorithms involved in the process of opening a position."
+    },
     "paragraphs": [
         {
             "style": "Block",

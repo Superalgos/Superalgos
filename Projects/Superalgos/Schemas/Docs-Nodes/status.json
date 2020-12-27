@@ -1,6 +1,8 @@
 {
     "type": "Status",
-    "definition": "Status refers to the state of the object represented by the parent node at the moment of evaluation.",
+    "definition": {
+        "text": "Status refers to the state of the object represented by the parent node at the moment of evaluation."
+    },
     "paragraphs": [
         {
             "style": "Block",

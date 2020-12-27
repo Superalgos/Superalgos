@@ -1,6 +1,8 @@
 {
     "type": "Order Name",
-    "definition": "Order name is the name of the order as specified in the trading system.",
+    "definition": {
+        "text": "Order name is the name of the order as specified in the trading system."
+    },
     "paragraphs": [
         {
             "style": "Block",

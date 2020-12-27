@@ -1,6 +1,8 @@
 {
     "type": "Polygon",
-    "definition": "A polygon features definitions that makeup shapes and their styles.",
+    "definition": {
+        "text": "A polygon features definitions that makeup shapes and their styles."
+    },
     "paragraphs": [
         {
             "style": "Block",

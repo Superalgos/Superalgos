@@ -1,6 +1,8 @@
 {
     "type": "Index",
-    "definition": "Index is the position of the parent object in the corresponding data collection, as determined by the context.",
+    "definition": {
+        "text": "Index is the position of the parent object in the corresponding data collection, as determined by the context."
+    },
     "paragraphs": [
         {
             "style": "Block",

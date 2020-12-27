@@ -1,5 +1,7 @@
 {
     "type": "Strategy Name",
-    "definition": "Strategy name features the name of the strategy that is currently open.",
+    "definition": {
+        "text": "Strategy name features the name of the strategy that is currently open."
+    },
     "paragraphs": []
 }

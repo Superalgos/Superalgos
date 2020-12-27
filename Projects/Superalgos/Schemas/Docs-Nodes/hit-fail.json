@@ -1,6 +1,8 @@
 {
     "type": "Hit Fail",
-    "definition": "Hit fail states whether a transaction is successful or not, hit meaning it is successful and fail meaning it is not.",
+    "definition": {
+        "text": "Hit fail states whether a transaction is successful or not, hit meaning it is successful and fail meaning it is not."
+    },
     "paragraphs": [
         {
             "style": "Block",

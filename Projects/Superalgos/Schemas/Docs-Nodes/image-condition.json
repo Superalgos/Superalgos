@@ -1,6 +1,8 @@
 {
     "type": "Image Condition",
-    "definition": "An image condition is a rule that allows establishing when an image shall be rendered and when not.",
+    "definition": {
+        "text": "An image condition is a rule that allows establishing when an image shall be rendered and when not."
+    },
     "paragraphs": [
         {
             "style": "Block",

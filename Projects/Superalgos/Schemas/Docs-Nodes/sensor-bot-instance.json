@@ -1,6 +1,8 @@
 {
     "type": "Sensor Bot Instance",
-    "definition": "A sensor bot instance is a reference to a sensor bot as defined in a data mine. The instance of the bot runs the defined processes and generates the defined data products.",
+    "definition": {
+        "text": "A sensor bot instance is a reference to a sensor bot as defined in a data mine. The instance of the bot runs the defined processes and generates the defined data products."
+    },
     "paragraphs": [
         {
             "style": "Block",

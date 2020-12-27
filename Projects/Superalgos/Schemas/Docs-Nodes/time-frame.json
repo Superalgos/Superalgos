@@ -1,6 +1,8 @@
 {
     "type": "Time Frame",
-    "definition": "The time frame determines the collection of candles to be analyzed during a backtesting session, and the frequency with which the trading bot runs on paper trading, forward testing, and live trading sessions.",
+    "definition": {
+        "text": "The time frame determines the collection of candles to be analyzed during a backtesting session, and the frequency with which the trading bot runs on paper trading, forward testing, and live trading sessions."
+    },
     "paragraphs": [
         {
             "style": "Block",

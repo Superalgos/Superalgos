@@ -1,6 +1,8 @@
 {
     "type": "Exchange Assets",
-    "definition": "The exchange assets node groups the definitions of assets.",
+    "definition": {
+        "text": "The exchange assets node groups the definitions of assets."
+    },
     "paragraphs": [
         {
             "style": "Block",

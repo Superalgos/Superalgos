@@ -1,6 +1,8 @@
 {
     "type": "Entry Target Size",
-    "definition": "Entry target size is the target size set on the initial targets definition, in the open stage of the strategy.",
+    "definition": {
+        "text": "Entry target size is the target size set on the initial targets definition, in the open stage of the strategy."
+    },
     "paragraphs": [
         {
             "style": "Block",

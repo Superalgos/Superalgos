@@ -1,6 +1,8 @@
 {
     "type": "Style",
-    "definition": "A style is a definition of color and opacity in case of a polygon body, and color, opacity and line thickness in case of polygon borders.",
+    "definition": {
+        "text": "A style is a definition of color and opacity in case of a polygon body, and color, opacity and line thickness in case of polygon borders."
+    },
     "paragraphs": [
         {
             "style": "Block",

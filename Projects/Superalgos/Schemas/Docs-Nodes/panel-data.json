@@ -1,6 +1,8 @@
 {
     "type": "Panel Data",
-    "definition": "A panel data node represents a data field to be plotted on the plotter panel.",
+    "definition": {
+        "text": "A panel data node represents a data field to be plotted on the plotter panel."
+    },
     "paragraphs": [
         {
             "style": "Block",

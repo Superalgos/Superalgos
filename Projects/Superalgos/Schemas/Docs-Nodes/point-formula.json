@@ -1,6 +1,8 @@
 {
     "type": "Point Formula",
-    "definition": "A point formula is a node used to input the [x,y] coordinates of a point.",
+    "definition": {
+        "text": "A point formula is a node used to input the [x,y] coordinates of a point."
+    },
     "paragraphs": [
         {
             "style": "Block",

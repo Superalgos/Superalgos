@@ -1,6 +1,8 @@
 {
     "type": "Take Position Event",
-    "definition": "The take position event defines the situation that needs to be met to take a position.",
+    "definition": {
+        "text": "The take position event defines the situation that needs to be met to take a position."
+    },
     "paragraphs": [
         {
             "style": "Block",

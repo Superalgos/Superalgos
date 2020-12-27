@@ -1,6 +1,8 @@
 {
     "type": "Plugin Trading Mines",
-    "definition": "The plugin trading mines node features the definitions of trading mines to be included as plugins in the current workspace.",
+    "definition": {
+        "text": "The plugin trading mines node features the definitions of trading mines to be included as plugins in the current workspace."
+    },
     "paragraphs": [
         {
             "style": "Block",

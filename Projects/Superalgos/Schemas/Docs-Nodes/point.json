@@ -1,6 +1,8 @@
 {
     "type": "Point",
-    "definition": "A point is a definition of an [x,y] coordinate. The value [x] usually represents a datetime. The value [y] may refer to a price or some other concept.",
+    "definition": {
+        "text": "A point is a definition of an [x,y] coordinate. The value [x] usually represents a datetime. The value [y] may refer to a price or some other concept."
+    },
     "paragraphs": [
         {
             "style": "Block",

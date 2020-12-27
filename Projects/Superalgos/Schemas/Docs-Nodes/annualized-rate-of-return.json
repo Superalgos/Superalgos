@@ -1,6 +1,8 @@
 {
     "type": "Annualized Rate Of Return",
-    "definition": "Annualized rate of return is the equivalent ROI scaled to one year.",
+    "definition": {
+        "text": "Annualized rate of return is the equivalent ROI scaled to one year."
+    },
     "paragraphs": [
         {
             "style": "Block",

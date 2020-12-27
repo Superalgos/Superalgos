@@ -1,6 +1,8 @@
 {
     "type": "Network",
-    "definition": "The network hierarchy provides the control functions for running data-mining and trading operations. Because operations may be run either on a single machine or distributed over a network of machines, it also contains definitions regarding the physical location in which nodes live or function.",
+    "definition": {
+        "text": "The network hierarchy provides the control functions for running data-mining and trading operations. Because operations may be run either on a single machine or distributed over a network of machines, it also contains definitions regarding the physical location in which nodes live or function."
+    },
     "paragraphs": [
         {
             "style": "Block",

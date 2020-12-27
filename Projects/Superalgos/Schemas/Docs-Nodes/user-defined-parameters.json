@@ -1,6 +1,8 @@
 {
     "type": "User Defined Parameters",
-    "definition": "Users may define parameters to be used within the trading system during the trading session.",
+    "definition": {
+        "text": "Users may define parameters to be used within the trading system during the trading session."
+    },
     "paragraphs": [
         {
             "style": "Block",

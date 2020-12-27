@@ -1,6 +1,8 @@
 {
     "type": "Episode",
-    "definition": "Episode is the object that handles the information corresponding to the whole run of the trading bot&mdash;beginning to end&mdash;between the specified initial datetime and final datetime, in the time range parameter of the trading session.",
+    "definition": {
+        "text": "Episode is the object that handles the information corresponding to the whole run of the trading bot&mdash;beginning to end&mdash;between the specified initial datetime and final datetime, in the time range parameter of the trading session."
+    },
     "paragraphs": [
         {
             "style": "Block",

@@ -1,5 +1,7 @@
 {
     "type": "User Assets",
-    "definition": "The user assets node groups the assets the user has at the exchange.",
+    "definition": {
+        "text": "The user assets node groups the assets the user has at the exchange."
+    },
     "paragraphs": []
 }

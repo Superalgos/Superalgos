@@ -1,5 +1,7 @@
 {
     "type": "Crypto Exchanges",
-    "definition": "The crypto exchanges node groups definitions of the different exchanges the user may interact with.",
+    "definition": {
+        "text": "The crypto exchanges node groups definitions of the different exchanges the user may interact with."
+    },
     "paragraphs": []
 }

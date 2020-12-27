@@ -1,6 +1,8 @@
 {
     "type": "Product Definition",
-    "definition": "The product definition node holds all definitions that make up a product, including how the product is calculated and the datasets the product is comprised of.",
+    "definition": {
+        "text": "The product definition node holds all definitions that make up a product, including how the product is calculated and the datasets the product is comprised of."
+    },
     "paragraphs": [
         {
             "style": "Block",

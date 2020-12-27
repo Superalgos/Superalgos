@@ -1,6 +1,8 @@
 {
     "type": "Plugin Tutorials",
-    "definition": "The plugin tutorials node features the definitions of tutorials to be included as plugins in the current workspace.",
+    "definition": {
+        "text": "The plugin tutorials node features the definitions of tutorials to be included as plugins in the current workspace."
+    },
     "paragraphs": [
         {
             "style": "Block",

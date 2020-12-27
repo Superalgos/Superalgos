@@ -1,6 +1,8 @@
 {
     "type": "Procedure Initialization",
-    "definition": "The procedure initialization is used to initialize variables used by the procedure loop.",
+    "definition": {
+        "text": "The procedure initialization is used to initialize variables used by the procedure loop."
+    },
     "paragraphs": [
         {
             "style": "Block",

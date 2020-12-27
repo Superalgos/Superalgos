@@ -1,5 +1,7 @@
 {
     "type": "Exchange Accounts",
-    "definition": "The exchange accounts node groups the different accounts the user may have with the corresponding exchange.",
+    "definition": {
+        "text": "The exchange accounts node groups the different accounts the user may have with the corresponding exchange."
+    },
     "paragraphs": []
 }

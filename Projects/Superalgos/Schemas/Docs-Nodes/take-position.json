@@ -1,5 +1,7 @@
 {
     "type": "Take Position",
-    "definition": "Counts the periods since the last time a position was taken.",
+    "definition": {
+        "text": "Counts the periods since the last time a position was taken."
+    },
     "paragraphs": []
 }

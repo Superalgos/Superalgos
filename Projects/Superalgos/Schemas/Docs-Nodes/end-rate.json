@@ -1,6 +1,8 @@
 {
     "type": "End Rate",
-    "definition": "End rate is the close rate of the candle corresponding to the datetime of the end property.",
+    "definition": {
+        "text": "End rate is the close rate of the candle corresponding to the datetime of the end property."
+    },
     "paragraphs": [
         {
             "style": "Block",

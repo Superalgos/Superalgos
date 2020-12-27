@@ -545,36 +545,13 @@ function newSuperalgosDocSpace() {
                     This means that the definition was being edited.
                     */
                     if (textArea.value !== '') {
-                        docsSchemaDocument.definition = textArea.value
+                        setTextBasedOnLanguage(docsSchemaDocument.definition, textArea.value)
                     }
                     break
                 }
             }
             EDITOR_ON_FOCUS = false
             renderDocumentPage()
-
-            function setTextBasedOnLanguage(paragraph, text) {
-                if (language === DEFAULT_LANGUAGE) {
-                    paragraph.text = text
-                    return
-                }
-                if (paragraph.translations === undefined) {
-                    paragraph.translations = []
-                }
-                for (let i = 0; i < paragraph.translations.length; i++) {
-                    let translation = paragraph.translations[i]
-                    if (translation.language === language) {
-                        translation.text = text
-                        return
-                    }
-                }
-                let translation = {
-                    language: language,
-                    text: text
-                }
-                paragraph.translations.push(translation)
-                return
-            }
         }
     }
 
@@ -900,7 +877,7 @@ function newSuperalgosDocSpace() {
             if (documentIndex.docsSchemaDocument.definition !== undefined) {
                 let paragraph = {
                     style: 'Definition',
-                    text: documentIndex.docsSchemaDocument.definition
+                    text: documentIndex.docsSchemaDocument.definition.text
                 }
                 indexParagraph(paragraph)
             }
@@ -1701,7 +1678,7 @@ function newSuperalgosDocSpace() {
                     HTML = HTML + '<p><a onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + result.documentIndex.project + '\', \'' + result.documentIndex.category + '\', \'' + result.documentIndex.docsSchemaDocument.type + '\', ' + undefined + '  ,\'' + result.documentIndex.docsSchemaDocument.nodeId + '\')" class="docs-search-result-content-record-title">' + mainLink + '</a></p>'
 
                     if (result.documentIndex.docsSchemaDocument.definition !== undefined) {
-                        HTML = HTML + '<p class="docs-search-result-content-record-extract">' + result.documentIndex.docsSchemaDocument.definition + '</p>'
+                        HTML = HTML + '<p class="docs-search-result-content-record-extract">' + getTextBasedOnLanguage(result.documentIndex.docsSchemaDocument.definition) + '</p>'
                     } else {
                         HTML = HTML + '<p class="docs-search-result-content-record-extract">' + 'No definition available.' + '</p>'
                     }
@@ -1963,8 +1940,18 @@ function newSuperalgosDocSpace() {
 
             function addDefinitionTable(docsSchemaDocument, idPrefix, category, project, type) {
                 if (docsSchemaDocument.definition !== undefined) {
+                    let definitionText = getTextBasedOnLanguage(docsSchemaDocument.definition)
+                    
+                    /*Migrating to new data structure */
+                    if (definitionText === undefined) {
+                        docsSchemaDocument.definition = {
+                            text: docsSchemaDocument.definition
+                        }
+                        definitionText =docsSchemaDocument.definition.text
+                    }
+
                     if (category === 'Topic' || category === 'Concept') {
-                        HTML = HTML + '<div id="definition-summary-editable-paragraph" class="docs-summary"><b>Summary:</b> ' + addToolTips(docsSchemaDocument.definition) + '</div>'
+                        HTML = HTML + '<div id="definition-summary-editable-paragraph" class="docs-summary"><b>Summary:</b> ' + addToolTips(definitionText) + '</div>'
                     } else {
                         HTML = HTML + '<table class="docs-definition-table">'
                         HTML = HTML + '<tr>'
@@ -1983,7 +1970,7 @@ function newSuperalgosDocSpace() {
                             HTML = HTML + '</td>'
                         }
                         HTML = HTML + '<td>'
-                        HTML = HTML + '<div id="' + idPrefix + 'paragraph" class="docs-font-normal"><strong>' + addToolTips(docsSchemaDocument.definition) + '</strong></div>'
+                        HTML = HTML + '<div id="' + idPrefix + 'paragraph" class="docs-font-normal"><strong>' + addToolTips(definitionText) + '</strong></div>'
                         HTML = HTML + '</td>'
                         HTML = HTML + '</tr>'
                         HTML = HTML + '</table>'
@@ -3085,16 +3072,6 @@ function newSuperalgosDocSpace() {
 
                 HTML = HTML + '<p><div id="' + key + '" ' + styleClass + ' ' + role + '>' + prefix + ' ' + innerHTML + sufix + '</div></p>'
                 paragraphMap.set(key, paragraph)
-
-                function getTextBasedOnLanguage(paragraph) {
-                    if (paragraph.translations === undefined) { return paragraph.text }
-                    if (paragraph.translations.length === 0) { return paragraph.text }
-                    for (let i = 0; i < paragraph.translations.length; i++) {
-                        let translation = paragraph.translations[i]
-                        if (translation.language === language) { return translation.text }
-                    }
-                    return paragraph.text
-                }
             }
 
             function hightlightEmbeddedCode() {
@@ -3348,6 +3325,48 @@ function newSuperalgosDocSpace() {
         HTML = HTML + '</div>' // Container Ends
 
         return HTML
+    }
+
+    function getTextBasedOnLanguage(paragraph) {
+        if (paragraph === undefined) { return }
+        if (paragraph.translations === undefined) { return paragraph.text }
+        if (paragraph.translations.length === 0) { return paragraph.text }
+        for (let i = 0; i < paragraph.translations.length; i++) {
+            let translation = paragraph.translations[i]
+            if (translation.language === language) { return translation.text }
+        }
+        return paragraph.text
+    }
+
+    function setTextBasedOnLanguage(paragraph, text) {
+        if (language === DEFAULT_LANGUAGE) {
+            paragraph.text = text
+            return
+        } else {
+            /* 
+            We will avoid setting up a new language if the text is 
+            the same as the text at the default language.
+            */
+            if (paragraph.text === text) {
+                return
+            }
+        }
+        if (paragraph.translations === undefined) {
+            paragraph.translations = []
+        }
+        for (let i = 0; i < paragraph.translations.length; i++) {
+            let translation = paragraph.translations[i]
+            if (translation.language === language) {
+                translation.text = text
+                return
+            }
+        }
+        let translation = {
+            language: language,
+            text: text
+        }
+        paragraph.translations.push(translation)
+        return
     }
 
     function parseGIF(text) {
@@ -3634,7 +3653,7 @@ function newSuperalgosDocSpace() {
                 return text
             }
 
-            let definition = docsSchemaDocument.definition
+            let definition = getTextBasedOnLanguage(docsSchemaDocument.definition)
             if (definition === undefined || definition === "") {
                 let tooltip = LINK_ONLY_HTML
                     .replace('CATEGORY', category)

@@ -1,6 +1,8 @@
 {
     "type": "Execution Algorithm",
-    "definition": "An execution algorithm is a set of instructions used to place and manage orders at the exchange.",
+    "definition": {
+        "text": "An execution algorithm is a set of instructions used to place and manage orders at the exchange."
+    },
     "paragraphs": [
         {
             "style": "Block",

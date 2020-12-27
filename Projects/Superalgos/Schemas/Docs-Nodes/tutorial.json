@@ -1,6 +1,8 @@
 {
     "type": "Tutorial",
-    "definition": "The tutorial hierarchy features a free arrangement of tutorial topic and tutorial step nodes that make up a tutorial. Each node in the hierarchy, including the parent tutorial node, represents a HTML page that is overlaid on top of both the design space and the charting space. ",
+    "definition": {
+        "text": "The tutorial hierarchy features a free arrangement of tutorial topic and tutorial step nodes that make up a tutorial. Each node in the hierarchy, including the parent tutorial node, represents a HTML page that is overlaid on top of both the design space and the charting space. "
+    },
     "paragraphs": [
         {
             "style": "Block",

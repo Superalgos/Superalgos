@@ -1,6 +1,8 @@
 {
     "type": "Viewport",
-    "definition": "The viewport is a window through which you may look into the charting space.",
+    "definition": {
+        "text": "The viewport is a window through which you may look into the charting space."
+    },
     "paragraphs": [
         {
             "style": "Block",

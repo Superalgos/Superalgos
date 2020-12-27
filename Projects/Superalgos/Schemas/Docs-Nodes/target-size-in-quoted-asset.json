@@ -1,6 +1,8 @@
 {
     "type": "Target Size In Quoted Asset",
-    "definition": "Target size in quoted asset is used to define the size of the position, denominating it in the quoted asset.",
+    "definition": {
+        "text": "Target size in quoted asset is used to define the size of the position, denominating it in the quoted asset."
+    },
     "paragraphs": [
         {
             "style": "Block",

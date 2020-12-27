@@ -1,6 +1,8 @@
 {
     "type": "Status Report",
-    "definition": "Status reports serve as temporal annotations that bots read every time they run to know what was done in the previous cycle and what the state of affairs is at present. Status reports are dynamic, and they change constantly, with updates after every cycle of the associated process.",
+    "definition": {
+        "text": "Status reports serve as temporal annotations that bots read every time they run to know what was done in the previous cycle and what the state of affairs is at present. Status reports are dynamic, and they change constantly, with updates after every cycle of the associated process."
+    },
     "paragraphs": [
         {
             "style": "Block",

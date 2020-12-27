@@ -1,6 +1,8 @@
 {
     "type": "Exchange Orders",
-    "definition": "Exchange orders is the section of the data structure that keeps track of orders of all types.",
+    "definition": {
+        "text": "Exchange orders is the section of the data structure that keeps track of orders of all types."
+    },
     "paragraphs": [
         {
             "style": "Block",

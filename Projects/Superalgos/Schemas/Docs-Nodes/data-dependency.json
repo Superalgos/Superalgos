@@ -1,6 +1,8 @@
 {
     "type": "Data Dependency",
-    "definition": "Data dependencies are references established with dataset definitions of other bots, determining which datasets the process establishing the reference uses as input.",
+    "definition": {
+        "text": "Data dependencies are references established with dataset definitions of other bots, determining which datasets the process establishing the reference uses as input."
+    },
     "paragraphs": [
         {
             "style": "Block",

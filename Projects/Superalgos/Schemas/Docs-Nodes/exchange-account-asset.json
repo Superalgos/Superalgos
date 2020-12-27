@@ -1,6 +1,8 @@
 {
     "type": "Exchange Account Asset",
-    "definition": "The exchange account asset represents a single asset the user has at the exchange.",
+    "definition": {
+        "text": "The exchange account asset represents a single asset the user has at the exchange."
+    },
     "paragraphs": [
         {
             "style": "Block",

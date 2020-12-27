@@ -1,6 +1,8 @@
 {
     "type": "End Balance",
-    "definition": "End balance is the balance at the datetime of the end property of the parent node or concept.",
+    "definition": {
+        "text": "End balance is the balance at the datetime of the end property of the parent node or concept."
+    },
     "paragraphs": [
         {
             "style": "Block",

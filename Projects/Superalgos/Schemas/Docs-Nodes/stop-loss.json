@@ -1,5 +1,7 @@
 {
     "type": "Stop Loss",
-    "definition": "Stop loss is the current stop loss target, as defined in the manage stage of the corresponding strategy.",
+    "definition": {
+        "text": "Stop loss is the current stop loss target, as defined in the manage stage of the corresponding strategy."
+    },
     "paragraphs": []
 }

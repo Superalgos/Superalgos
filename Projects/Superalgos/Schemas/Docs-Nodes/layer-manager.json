@@ -1,6 +1,8 @@
 {
     "type": "Layer Manager",
-    "definition": "The layer manager determines which layers will be visible on the corresponding timeline chart.",
+    "definition": {
+        "text": "The layer manager determines which layers will be visible on the corresponding timeline chart."
+    },
     "paragraphs": [
         {
             "style": "Block",

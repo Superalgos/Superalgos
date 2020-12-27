@@ -1,5 +1,7 @@
 {
     "type": "Positions",
-    "definition": "Positions counts the number of times positions have been opened, in the context of the parent node.",
+    "definition": {
+        "text": "Positions counts the number of times positions have been opened, in the context of the parent node."
+    },
     "paragraphs": []
 }

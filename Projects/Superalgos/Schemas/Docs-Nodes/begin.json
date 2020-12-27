@@ -1,6 +1,8 @@
 {
     "type": "Begin",
-    "definition": "Begin is the datetime at the moment the object represented by the parent node began to exist.",
+    "definition": {
+        "text": "Begin is the datetime at the moment the object represented by the parent node began to exist."
+    },
     "paragraphs": [
         {
             "style": "Block",

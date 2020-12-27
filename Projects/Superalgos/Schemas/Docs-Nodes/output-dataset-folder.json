@@ -1,6 +1,8 @@
 {
     "type": "Output Dataset Folder",
-    "definition": "An output dataset folder is an organizational device used to create arrangements of output datasets, particularly useful when the bot has many products.",
+    "definition": {
+        "text": "An output dataset folder is an organizational device used to create arrangements of output datasets, particularly useful when the bot has many products."
+    },
     "paragraphs": [
         {
             "style": "Block",

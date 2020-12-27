@@ -1,6 +1,8 @@
 {
     "type": "Position Base Asset",
-    "definition": "The position base asset node keeps track of the evolution of variables related to the base asset throughout the position.",
+    "definition": {
+        "text": "The position base asset node keeps track of the evolution of variables related to the base asset throughout the position."
+    },
     "paragraphs": [
         {
             "style": "Block",

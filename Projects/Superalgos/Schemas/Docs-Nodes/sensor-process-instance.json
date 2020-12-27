@@ -1,6 +1,8 @@
 {
     "type": "Sensor Process Instance",
-    "definition": "A sensor process instance is a reference to the process definition of a sensor bot, as defined in a data mine.",
+    "definition": {
+        "text": "A sensor process instance is a reference to the process definition of a sensor bot, as defined in a data mine."
+    },
     "paragraphs": [
         {
             "style": "Block",

@@ -1,6 +1,8 @@
 {
     "type": "Crypto Exchange",
-    "definition": "A crypto exchange node holds the definitions of assets and markets in a specific exchange.",
+    "definition": {
+        "text": "A crypto exchange node holds the definitions of assets and markets in a specific exchange."
+    },
     "paragraphs": [
         {
             "style": "Block",

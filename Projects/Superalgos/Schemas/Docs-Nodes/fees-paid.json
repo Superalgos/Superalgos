@@ -1,6 +1,8 @@
 {
     "type": "Fees Paid",
-    "definition": "Fees paid is the amount paid in fees.",
+    "definition": {
+        "text": "Fees paid is the amount paid in fees."
+    },
     "paragraphs": [
         {
             "style": "Block",

@@ -1,6 +1,8 @@
 {
     "type": "Trading Mine Products",
-    "definition": "Trading mine products are references established with trading mines to facilitate establishing data product references with multiple products in the given mine.",
+    "definition": {
+        "text": "Trading mine products are references established with trading mines to facilitate establishing data product references with multiple products in the given mine."
+    },
     "paragraphs": [
         {
             "style": "Block",

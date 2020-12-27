@@ -1,6 +1,8 @@
 {
     "type": "Cancel Order Event",
-    "definition": "The cancel order event makes cancelling limit orders possible.",
+    "definition": {
+        "text": "The cancel order event makes cancelling limit orders possible."
+    },
     "paragraphs": [
         {
             "style": "Block",

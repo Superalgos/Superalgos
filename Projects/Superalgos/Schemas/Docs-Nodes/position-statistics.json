@@ -1,5 +1,7 @@
 {
     "type": "Position Statistics",
-    "definition": "Position statistics keeps track of several metrics in the context of the position.",
+    "definition": {
+        "text": "Position statistics keeps track of several metrics in the context of the position."
+    },
     "paragraphs": []
 }

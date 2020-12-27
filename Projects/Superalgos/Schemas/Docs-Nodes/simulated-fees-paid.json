@@ -1,6 +1,8 @@
 {
     "type": "Simulated Fees Paid",
-    "definition": "The simulated fees paid node allows setting a specific fee for the simulation of each order, overriding the fee structure parameter of the trading session.",
+    "definition": {
+        "text": "The simulated fees paid node allows setting a specific fee for the simulation of each order, overriding the fee structure parameter of the trading session."
+    },
     "paragraphs": [
         {
             "style": "Block",

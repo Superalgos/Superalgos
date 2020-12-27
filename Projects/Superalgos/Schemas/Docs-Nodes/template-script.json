@@ -1,6 +1,8 @@
 {
     "type": "Template Script",
-    "definition": "The template script node holds the definitions concerned with the scope of a particular structure of nodes.",
+    "definition": {
+        "text": "The template script node holds the definitions concerned with the scope of a particular structure of nodes."
+    },
     "paragraphs": [
         {
             "style": "Block",

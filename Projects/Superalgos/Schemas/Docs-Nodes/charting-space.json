@@ -1,6 +1,8 @@
 {
     "type": "Charting Space",
-    "definition": "The charting space is the hierarchy that governs the configuration of the charts, and the bidimensional space on which charts are drawn.",
+    "definition": {
+        "text": "The charting space is the hierarchy that governs the configuration of the charts, and the bidimensional space on which charts are drawn."
+    },
     "paragraphs": [
         {
             "style": "Block",

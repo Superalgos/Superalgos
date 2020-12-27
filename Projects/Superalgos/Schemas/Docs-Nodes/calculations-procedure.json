@@ -1,6 +1,8 @@
 {
     "type": "Calculations Procedure",
-    "definition": "The calculations procedure processes information to be fed to calculated properties. Calculated properties are not stored in the data set; instead, they are calculated in real-time as the data is consumed by others.",
+    "definition": {
+        "text": "The calculations procedure processes information to be fed to calculated properties. Calculated properties are not stored in the data set; instead, they are calculated in real-time as the data is consumed by others."
+    },
     "paragraphs": [
         {
             "style": "Block",

@@ -1,6 +1,8 @@
 {
     "type": "Exchange Trading Tasks",
-    "definition": "The exchange trading tasks node organizes trading tasks by exchange. That is, each exchange installed in the system has an exchange trading tasks node grouping all market trading tasks corresponding to the said exchange.",
+    "definition": {
+        "text": "The exchange trading tasks node organizes trading tasks by exchange. That is, each exchange installed in the system has an exchange trading tasks node grouping all market trading tasks corresponding to the said exchange."
+    },
     "paragraphs": [
         {
             "style": "Block",

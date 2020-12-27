@@ -1,5 +1,7 @@
 {
     "type": "Episode Statistics",
-    "definition": "Episode statistics keeps track of several metrics in the context of the episode.",
+    "definition": {
+        "text": "Episode statistics keeps track of several metrics in the context of the episode."
+    },
     "paragraphs": []
 }

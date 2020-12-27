@@ -1,6 +1,8 @@
 {
     "type": "Execution Finished Event",
-    "definition": "The execution finished event is the event that processes trigger once they have finished an execution cycle. The event is broadcasted to whoever wants to listen, so that other bots may know when the process has finished its execution cycle.",
+    "definition": {
+        "text": "The execution finished event is the event that processes trigger once they have finished an execution cycle. The event is broadcasted to whoever wants to listen, so that other bots may know when the process has finished its execution cycle."
+    },
     "paragraphs": [
         {
             "style": "Block",

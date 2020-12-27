@@ -1,6 +1,8 @@
 {
     "type": "Market Trading Tasks",
-    "definition": "A market trading tasks node groups trading tasks operating in a specific market.",
+    "definition": {
+        "text": "A market trading tasks node groups trading tasks operating in a specific market."
+    },
     "paragraphs": [
         {
             "style": "Block",

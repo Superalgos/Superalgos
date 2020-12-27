@@ -1,6 +1,8 @@
 {
     "type": "Polygon Body",
-    "definition": "A polygon body is the fill of a shape made out of at least three vertices.",
+    "definition": {
+        "text": "A polygon body is the fill of a shape made out of at least three vertices."
+    },
     "paragraphs": [
         {
             "style": "Block",

@@ -1,6 +1,8 @@
 {
     "type": "Trading Engine",
-    "definition": "The trading engine hierarchy is the data structure used by the trading bot to keep runtime information highly accessible and exposed to others.",
+    "definition": {
+        "text": "The trading engine hierarchy is the data structure used by the trading bot to keep runtime information highly accessible and exposed to others."
+    },
     "paragraphs": [
         {
             "style": "Block",

@@ -1,6 +1,8 @@
 {
     "type": "Style Condition",
-    "definition": "A style condition is a rule that allows applying an alternative style in cases where the rule validates true.",
+    "definition": {
+        "text": "A style condition is a rule that allows applying an alternative style in cases where the rule validates true."
+    },
     "paragraphs": [
         {
             "style": "Block",

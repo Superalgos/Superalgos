@@ -1,6 +1,8 @@
 {
     "type": "Heartbeats",
-    "definition": "During a trading session, the backend communicates with the frontend via heartbeats to inform the frontend about the status of the session. The parameter controls what information is made available to the user through the frontend.",
+    "definition": {
+        "text": "During a trading session, the backend communicates with the frontend via heartbeats to inform the frontend about the status of the session. The parameter controls what information is made available to the user through the frontend."
+    },
     "paragraphs": [
         {
             "style": "Block",

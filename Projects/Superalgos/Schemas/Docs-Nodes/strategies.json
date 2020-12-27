@@ -1,5 +1,7 @@
 {
     "type": "Strategies",
-    "definition": "Strategies counts the number of times strategies have been triggered-on, in the context of the parent node.",
+    "definition": {
+        "text": "Strategies counts the number of times strategies have been triggered-on, in the context of the parent node."
+    },
     "paragraphs": []
 }

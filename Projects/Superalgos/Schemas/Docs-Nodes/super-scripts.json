@@ -1,6 +1,8 @@
 {
     "type": "Super Scripts",
-    "definition": "The super scripts hierarchy holds definitions of scripts used to automate certain aspects of the administration and maintenance of the workspace, such as installing and deleting markets.",
+    "definition": {
+        "text": "The super scripts hierarchy holds definitions of scripts used to automate certain aspects of the administration and maintenance of the workspace, such as installing and deleting markets."
+    },
     "paragraphs": [
         {
             "style": "Block",

@@ -1,6 +1,8 @@
 {
     "type": "Lock",
-    "definition": "Lock is an internal mechanism that blocks the data structure of the order at the trading engine when the definition of the order at the trading system disallows spawning multiple orders.",
+    "definition": {
+        "text": "Lock is an internal mechanism that blocks the data structure of the order at the trading engine when the definition of the order at the trading system disallows spawning multiple orders."
+    },
     "paragraphs": [
         {
             "style": "Block",

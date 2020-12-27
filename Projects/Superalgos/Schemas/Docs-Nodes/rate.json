@@ -1,6 +1,8 @@
 {
     "type": "Rate",
-    "definition": "Rate is the rate at which the order is placed.",
+    "definition": {
+        "text": "Rate is the rate at which the order is placed."
+    },
     "paragraphs": [
         {
             "style": "Block",

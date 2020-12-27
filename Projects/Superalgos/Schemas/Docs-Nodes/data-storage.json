@@ -1,6 +1,8 @@
 {
     "type": "Data Storage",
-    "definition": "The data storage node holds the definitions as to what data is stored in the corresponding network node.",
+    "definition": {
+        "text": "The data storage node holds the definitions as to what data is stored in the corresponding network node."
+    },
     "paragraphs": [
         {
             "style": "Block",

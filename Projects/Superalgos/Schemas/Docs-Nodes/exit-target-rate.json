@@ -1,6 +1,8 @@
 {
     "type": "Exit Target Rate",
-    "definition": "Exit target rate is the target rate set on the initial targets definition, in the close stage of the strategy.",
+    "definition": {
+        "text": "Exit target rate is the target rate set on the initial targets definition, in the close stage of the strategy."
+    },
     "paragraphs": [
         {
             "style": "Block",

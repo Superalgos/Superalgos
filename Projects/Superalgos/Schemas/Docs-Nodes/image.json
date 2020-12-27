@@ -1,6 +1,8 @@
 {
     "type": "Image",
-    "definition": "The image node allows overlaying an image over the charts, controlling its position, size, and when it shall be rendered.",
+    "definition": {
+        "text": "The image node allows overlaying an image over the charts, controlling its position, size, and when it shall be rendered."
+    },
     "paragraphs": [
         {
             "style": "Block",

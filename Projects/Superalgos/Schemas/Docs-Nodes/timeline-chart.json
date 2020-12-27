@@ -1,6 +1,8 @@
 {
     "type": "Timeline Chart",
-    "definition": "The timeline chart represents a chart within a time machine, which may have independent rate and time frame scales, as well as particular layers.",
+    "definition": {
+        "text": "The timeline chart represents a chart within a time machine, which may have independent rate and time frame scales, as well as particular layers."
+    },
     "paragraphs": [
         {
             "style": "Block",

@@ -1,6 +1,8 @@
 {
     "type": "Time Frames Filter",
-    "definition": "The time frame filters node allows control over which time frames are to be calculated by each indicator bot instance running on the data mining operation.",
+    "definition": {
+        "text": "The time frame filters node allows control over which time frames are to be calculated by each indicator bot instance running on the data mining operation."
+    },
     "paragraphs": [
         {
             "style": "Block",

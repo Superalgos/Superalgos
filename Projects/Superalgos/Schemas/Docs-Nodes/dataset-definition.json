@@ -1,6 +1,8 @@
 {
     "type": "Dataset Definition",
-    "definition": "A data set is a collection of files stored in the designated location, as per the definitions on the referenced data product in the corresponding data mine.",
+    "definition": {
+        "text": "A data set is a collection of files stored in the designated location, as per the definitions on the referenced data product in the corresponding data mine."
+    },
     "paragraphs": [
         {
             "style": "Block",

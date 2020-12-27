@@ -1,5 +1,7 @@
 {
     "type": "Episode Counters",
-    "definition": "The episode counters node features counters of instances of objects that come to exist during the duration of the episode.",
+    "definition": {
+        "text": "The episode counters node features counters of instances of objects that come to exist during the duration of the episode."
+    },
     "paragraphs": []
 }

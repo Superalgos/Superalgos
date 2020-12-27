@@ -1,6 +1,8 @@
 {
     "type": "Fee Structure",
-    "definition": "The fee structure is a parameter fundamental to the calculation of fees, both in testing and live trading sessions.",
+    "definition": {
+        "text": "The fee structure is a parameter fundamental to the calculation of fees, both in testing and live trading sessions."
+    },
     "paragraphs": [
         {
             "style": "Block",

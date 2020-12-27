@@ -1,6 +1,8 @@
 {
     "type": "Text Formula",
-    "definition": "The text formula determines the content that shall be rendered over the charts.",
+    "definition": {
+        "text": "The text formula determines the content that shall be rendered over the charts."
+    },
     "paragraphs": [
         {
             "style": "Block",

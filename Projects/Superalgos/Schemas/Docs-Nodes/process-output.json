@@ -1,5 +1,7 @@
 {
     "type": "Process Output",
-    "definition": "The process output groups the definitions of which datasets are impacted by the process, that is, which datasets the process builds or takes a part in building.",
+    "definition": {
+        "text": "The process output groups the definitions of which datasets are impacted by the process, that is, which datasets the process builds or takes a part in building."
+    },
     "paragraphs": []
 }

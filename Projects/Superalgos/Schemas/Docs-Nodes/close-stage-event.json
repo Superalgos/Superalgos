@@ -1,6 +1,8 @@
 {
     "type": "Close Stage Event",
-    "definition": "The close stage event defines the set of rules that need to be met for the corresponding stage to be closed.",
+    "definition": {
+        "text": "The close stage event defines the set of rules that need to be met for the corresponding stage to be closed."
+    },
     "paragraphs": [
         {
             "style": "Block",

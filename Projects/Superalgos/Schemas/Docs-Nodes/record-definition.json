@@ -1,6 +1,8 @@
 {
     "type": "Record Definition",
-    "definition": "The record definition is where indicators define how many properties, what properties and in which order those properties will be made available in each record.",
+    "definition": {
+        "text": "The record definition is where indicators define how many properties, what properties and in which order those properties will be made available in each record."
+    },
     "paragraphs": [
         {
             "style": "Block",

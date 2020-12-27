@@ -1,5 +1,7 @@
 {
     "type": "User Account",
-    "definition": "A user account represents a single account with the corresponding exchange, holding the definitions of user assets, including keys and balances.",
+    "definition": {
+        "text": "A user account represents a single account with the corresponding exchange, holding the definitions of user assets, including keys and balances."
+    },
     "paragraphs": []
 }

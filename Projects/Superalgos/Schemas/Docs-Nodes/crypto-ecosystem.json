@@ -1,6 +1,8 @@
 {
     "type": "Crypto Ecosystem",
-    "definition": "The crypto ecosystem is a hierarchy that contains definitions about third-parties, including exchanges and their markets, as well as accounts of users with those third parties.",
+    "definition": {
+        "text": "The crypto ecosystem is a hierarchy that contains definitions about third-parties, including exchanges and their markets, as well as accounts of users with those third parties."
+    },
     "paragraphs": [
         {
             "style": "Block",

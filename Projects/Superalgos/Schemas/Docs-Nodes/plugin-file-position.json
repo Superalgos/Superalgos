@@ -1,6 +1,8 @@
 {
     "type": "Plugin File Position",
-    "definition": "The position of the plugin file position node determines the position in the workspace on which the plugin hierarchy is placed.",
+    "definition": {
+        "text": "The position of the plugin file position node determines the position in the workspace on which the plugin hierarchy is placed."
+    },
     "paragraphs": [
         {
             "style": "Block",

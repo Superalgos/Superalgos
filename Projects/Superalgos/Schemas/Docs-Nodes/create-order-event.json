@@ -1,6 +1,8 @@
 {
     "type": "Create Order Event",
-    "definition": "The create order event controls the placement of orders.",
+    "definition": {
+        "text": "The create order event controls the placement of orders."
+    },
     "paragraphs": [
         {
             "style": "Block",

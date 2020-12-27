@@ -1,6 +1,8 @@
 {
     "type": "Status Dependency",
-    "definition": "Status dependencies are references to a status report that define which process the process establishing the reference depends on.",
+    "definition": {
+        "text": "Status dependencies are references to a status report that define which process the process establishing the reference depends on."
+    },
     "paragraphs": [
         {
             "style": "Block",

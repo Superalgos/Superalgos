@@ -1,6 +1,8 @@
 {
     "type": "Paper Trading Session",
-    "definition": "A paper trading session is a trading mode by which the trading bot instance reads a live market data feed, applies the rules defined in the associated trading system, and generates a trading simulation.",
+    "definition": {
+        "text": "A paper trading session is a trading mode by which the trading bot instance reads a live market data feed, applies the rules defined in the associated trading system, and generates a trading simulation."
+    },
     "paragraphs": [
         {
             "style": "Block",

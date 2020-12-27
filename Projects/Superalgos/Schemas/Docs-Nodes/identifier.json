@@ -1,6 +1,8 @@
 {
     "type": "Identifier",
-    "definition": "Identifier is a unique alphanumeric string by which the object represented by the parent node may be unequivocally identified.",
+    "definition": {
+        "text": "Identifier is a unique alphanumeric string by which the object represented by the parent node may be unequivocally identified."
+    },
     "paragraphs": [
         {
             "style": "Block",

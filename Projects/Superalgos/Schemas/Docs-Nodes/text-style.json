@@ -1,6 +1,8 @@
 {
     "type": "Text Style",
-    "definition": "The text style is a definition of color, opacity, and font size that determines the appearance of the text to be rendered over the charts.",
+    "definition": {
+        "text": "The text style is a definition of color, opacity, and font size that determines the appearance of the text to be rendered over the charts."
+    },
     "paragraphs": [
         {
             "style": "Block",

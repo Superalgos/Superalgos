@@ -1,6 +1,8 @@
 {
     "type": "Data Mine Data Dependencies",
-    "definition": "Data mine data dependencies are references established with entire data mines to facilitate establishing data dependencies with multiple datasets in the given data mine.",
+    "definition": {
+        "text": "Data mine data dependencies are references established with entire data mines to facilitate establishing data dependencies with multiple datasets in the given data mine."
+    },
     "paragraphs": [
         {
             "style": "Block",

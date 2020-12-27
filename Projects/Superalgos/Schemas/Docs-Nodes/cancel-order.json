@@ -1,5 +1,7 @@
 {
     "type": "Cancel Order",
-    "definition": "Counts the periods since the last time an order was canceled.",
+    "definition": {
+        "text": "Counts the periods since the last time an order was canceled."
+    },
     "paragraphs": []
 }

@@ -1,6 +1,8 @@
 {
     "type": "Episode Quoted Asset",
-    "definition": "The episode quoted asset node keeps track of the evolution of variables and metrics denominated in the quoted asset, throughout the episode.",
+    "definition": {
+        "text": "The episode quoted asset node keeps track of the evolution of variables and metrics denominated in the quoted asset, throughout the episode."
+    },
     "paragraphs": [
         {
             "style": "Block",

@@ -1,6 +1,8 @@
 {
     "type": "Procedure Loop",
-    "definition": "The procedure loop holds the JavaScript code that reads an input, processes the information, and generates an output recursively.",
+    "definition": {
+        "text": "The procedure loop holds the JavaScript code that reads an input, processes the information, and generates an output recursively."
+    },
     "paragraphs": [
         {
             "style": "Block",

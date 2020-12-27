@@ -1,6 +1,8 @@
 {
     "type": "Algorithm Name",
-    "definition": "Algorithm name is the name of the execution algorithm that opened the order, as specified in the trading system.",
+    "definition": {
+        "text": "Algorithm name is the name of the execution algorithm that opened the order, as specified in the trading system."
+    },
     "paragraphs": [
         {
             "style": "Block",

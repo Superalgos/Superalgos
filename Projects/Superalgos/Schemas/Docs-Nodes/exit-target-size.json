@@ -1,6 +1,8 @@
 {
     "type": "Exit Target Size",
-    "definition": "Exit target size is the target size set on the initial targets definition, in the close stage of the strategy.",
+    "definition": {
+        "text": "Exit target size is the target size set on the initial targets definition, in the close stage of the strategy."
+    },
     "paragraphs": [
         {
             "style": "Block",

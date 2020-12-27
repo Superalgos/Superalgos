@@ -1,6 +1,8 @@
 {
     "type": "Stage Base Asset",
-    "definition": "The stage base asset node keeps track of the evolution of variables related to the base asset throughout the stage.",
+    "definition": {
+        "text": "The stage base asset node keeps track of the evolution of variables related to the base asset throughout the stage."
+    },
     "paragraphs": [
         {
             "style": "Block",

@@ -1,6 +1,8 @@
 {
     "type": "Phase",
-    "definition": "The management of take profit and stop loss targets is done in phases. Phase 1 sets the initial targets, either for the managed stop loss or the managed take profit, and becomes active as soon as the first order is placed. Subsequent phases allows switching to different formulas given certain market situations.",
+    "definition": {
+        "text": "The management of take profit and stop loss targets is done in phases. Phase 1 sets the initial targets, either for the managed stop loss or the managed take profit, and becomes active as soon as the first order is placed. Subsequent phases allows switching to different formulas given certain market situations."
+    },
     "paragraphs": [
         {
             "style": "Block",

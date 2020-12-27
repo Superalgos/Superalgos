@@ -1,6 +1,8 @@
 {
     "type": "Time Range",
-    "definition": "The time range parameter determines the period of time on which the trading session is run.",
+    "definition": {
+        "text": "The time range parameter determines the period of time on which the trading session is run."
+    },
     "paragraphs": [
         {
             "style": "Block",

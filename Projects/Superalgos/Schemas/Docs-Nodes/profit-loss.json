@@ -1,6 +1,8 @@
 {
     "type": "Profit Loss",
-    "definition": "Profit loss is the difference between the balance at the end and the balance at the beginning of a certain period, given by the context.",
+    "definition": {
+        "text": "Profit loss is the difference between the balance at the end and the balance at the beginning of a certain period, given by the context."
+    },
     "paragraphs": [
         {
             "style": "Block",

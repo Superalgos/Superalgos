@@ -1,6 +1,8 @@
 {
     "type": "Serial Number",
-    "definition": "Serial number is a sequential number assigned to the object represented by the parent node at the moment it is opened.",
+    "definition": {
+        "text": "Serial number is a sequential number assigned to the object represented by the parent node at the moment it is opened."
+    },
     "paragraphs": [
         {
             "style": "Block",

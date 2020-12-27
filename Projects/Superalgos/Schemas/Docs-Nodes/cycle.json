@@ -1,6 +1,8 @@
 {
     "type": "Cycle",
-    "definition": "The trading bot performs its duties in regards to exchange orders and accounts in two consecutive cycles for each candle.",
+    "definition": {
+        "text": "The trading bot performs its duties in regards to exchange orders and accounts in two consecutive cycles for each candle."
+    },
     "paragraphs": [
         {
             "style": "Block",

@@ -1,6 +1,8 @@
 {
     "type": "Trading Mines Data",
-    "definition": "Session-based data refers to data that is generated as a consequence of running a trading session, that is, data the trading bot instance generates while running backtesting, paper trading, forward testing, or live trading sessions.",
+    "definition": {
+        "text": "Session-based data refers to data that is generated as a consequence of running a trading session, that is, data the trading bot instance generates while running backtesting, paper trading, forward testing, or live trading sessions."
+    },
     "paragraphs": [
         {
             "style": "Block",

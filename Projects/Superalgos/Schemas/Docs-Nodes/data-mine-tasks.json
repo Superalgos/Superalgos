@@ -1,6 +1,8 @@
 {
     "type": "Data Mine Tasks",
-    "definition": "The data mine tasks node is an organizational device that groups tasks corresponding to the referenced data mine.",
+    "definition": {
+        "text": "The data mine tasks node is an organizational device that groups tasks corresponding to the referenced data mine."
+    },
     "paragraphs": [
         {
             "style": "Block",

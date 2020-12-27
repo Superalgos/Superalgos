@@ -1,5 +1,7 @@
 {
     "type": "Position Counters",
-    "definition": "The position counters node features counters of instances of objects that come to exist during the duration of the position.",
+    "definition": {
+        "text": "The position counters node features counters of instances of objects that come to exist during the duration of the position."
+    },
     "paragraphs": []
 }

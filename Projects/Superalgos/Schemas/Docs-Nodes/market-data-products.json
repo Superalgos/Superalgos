@@ -1,6 +1,8 @@
 {
     "type": "Market Data Products",
-    "definition": "A market data products node represents the group of data products generated in a specific market.",
+    "definition": {
+        "text": "A market data products node represents the group of data products generated in a specific market."
+    },
     "paragraphs": [
         {
             "style": "Block",

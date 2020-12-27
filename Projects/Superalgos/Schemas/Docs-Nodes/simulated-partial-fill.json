@@ -1,6 +1,8 @@
 {
     "type": "Simulated Partial Fill",
-    "definition": "The simulated partial fill parameter allows simulating the partial fill of orders.",
+    "definition": {
+        "text": "The simulated partial fill parameter allows simulating the partial fill of orders."
+    },
     "paragraphs": [
         {
             "style": "Block",

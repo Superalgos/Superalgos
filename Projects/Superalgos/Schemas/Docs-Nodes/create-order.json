@@ -1,5 +1,7 @@
 {
     "type": "Create Order",
-    "definition": "Counts the periods since the last time an order was created.",
+    "definition": {
+        "text": "Counts the periods since the last time an order was created."
+    },
     "paragraphs": []
 }

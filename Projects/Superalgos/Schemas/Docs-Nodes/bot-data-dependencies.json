@@ -1,6 +1,8 @@
 {
     "type": "Bot Data Dependencies",
-    "definition": "A bot data dependencies node is an organizational device used to arrange data dependencies corresponding to a specific bot.",
+    "definition": {
+        "text": "A bot data dependencies node is an organizational device used to arrange data dependencies corresponding to a specific bot."
+    },
     "paragraphs": [
         {
             "style": "Block",

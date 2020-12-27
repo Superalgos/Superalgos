@@ -1,6 +1,8 @@
 {
     "type": "Open Stage",
-    "definition": "The open stage deals with the definitions that make up the logic to enter a position, including the target rate and size, and order execution.",
+    "definition": {
+        "text": "The open stage deals with the definitions that make up the logic to enter a position, including the target rate and size, and order execution."
+    },
     "paragraphs": [
         {
             "style": "Block",

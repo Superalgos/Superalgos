@@ -1,5 +1,7 @@
 {
     "type": "Close Order",
-    "definition": "Counts the periods since the last time an order was closed.",
+    "definition": {
+        "text": "Counts the periods since the last time an order was closed."
+    },
     "paragraphs": []
 }

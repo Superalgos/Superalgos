@@ -1,6 +1,8 @@
 {
     "type": "Trading Mine",
-    "definition": "A trading mine is a hierarchy that contains definitions of trading bots and their plotters. These definitions make up the actual programs of such bots&mdash;the source code.",
+    "definition": {
+        "text": "A trading mine is a hierarchy that contains definitions of trading bots and their plotters. These definitions make up the actual programs of such bots&mdash;the source code."
+    },
     "paragraphs": [
         {
             "style": "Block",

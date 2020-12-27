@@ -1,6 +1,8 @@
 {
     "type": "Scripts Library",
-    "definition": "A script library is a collection of related scripts.",
+    "definition": {
+        "text": "A script library is a collection of related scripts."
+    },
     "paragraphs": [
         {
             "style": "Block",

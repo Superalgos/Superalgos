@@ -1,5 +1,7 @@
 {
     "type": "Exchange Markets",
-    "definition": "The exchange markets node groups the definitions of markets.",
+    "definition": {
+        "text": "The exchange markets node groups the definitions of markets."
+    },
     "paragraphs": []
 }

@@ -1,6 +1,8 @@
 {
     "type": "Plugin Project",
-    "definition": "In the context of a multi-project platform, the plugin project node represents the project to which the defined plugins correspond to.",
+    "definition": {
+        "text": "In the context of a multi-project platform, the plugin project node represents the project to which the defined plugins correspond to."
+    },
     "paragraphs": [
         {
             "style": "Block",

@@ -1,6 +1,8 @@
 {
     "type": "Slippage",
-    "definition": "The slippage is an assumption on the difference between the simulated rate and the actual fill rate of a market order, most relevant in the context of backtesting and paper-trading sessions. The parameter is a tool to make simulations more realistic.",
+    "definition": {
+        "text": "The slippage is an assumption on the difference between the simulated rate and the actual fill rate of a market order, most relevant in the context of backtesting and paper-trading sessions. The parameter is a tool to make simulations more realistic."
+    },
     "paragraphs": [
         {
             "style": "Block",

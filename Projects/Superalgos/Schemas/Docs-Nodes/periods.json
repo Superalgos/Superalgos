@@ -1,5 +1,7 @@
 {
     "type": "Periods",
-    "definition": "Periods counts the number of candles that have been evaluated, in the context of the parent node.",
+    "definition": {
+        "text": "Periods counts the number of candles that have been evaluated, in the context of the parent node."
+    },
     "paragraphs": []
 }

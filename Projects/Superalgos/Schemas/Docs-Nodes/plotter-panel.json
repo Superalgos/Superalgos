@@ -1,6 +1,8 @@
 {
     "type": "Plotter Panel",
-    "definition": "A plotter panel usually shows numerical representations of data over the charts on a small window or panel. The plotter panel node features definitions to make that possible.",
+    "definition": {
+        "text": "A plotter panel usually shows numerical representations of data over the charts on a small window or panel. The plotter panel node features definitions to make that possible."
+    },
     "paragraphs": [
         {
             "style": "Block",

@@ -1,6 +1,8 @@
 {
     "type": "Exchange Account Key",
-    "definition": "The exchange account key holds the definition of the key name and secret provided by the corresponding exchange to access the user account via the exchange API.",
+    "definition": {
+        "text": "The exchange account key holds the definition of the key name and secret provided by the corresponding exchange to access the user account via the exchange API."
+    },
     "paragraphs": [
         {
             "style": "Block",

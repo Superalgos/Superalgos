@@ -1,6 +1,8 @@
 {
     "type": "Record Property",
-    "definition": "A record property is a piece of information that may be stored as part of the dataset or made available as a calculated property.",
+    "definition": {
+        "text": "A record property is a piece of information that may be stored as part of the dataset or made available as a calculated property."
+    },
     "paragraphs": [
         {
             "style": "Block",

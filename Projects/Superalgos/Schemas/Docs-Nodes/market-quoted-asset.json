@@ -1,6 +1,8 @@
 {
     "type": "Market Quoted Asset",
-    "definition": "The market quoted asset is the asset in the pair for which a quote is given, denominated in the base asset, as listed at the exchange.",
+    "definition": {
+        "text": "The market quoted asset is the asset in the pair for which a quote is given, denominated in the base asset, as listed at the exchange."
+    },
     "paragraphs": [
         {
             "style": "Block",

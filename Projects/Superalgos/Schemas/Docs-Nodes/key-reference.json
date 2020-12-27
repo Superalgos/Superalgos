@@ -1,6 +1,8 @@
 {
     "type": "Key Reference",
-    "definition": "The key reference is a reference to an exchange account key as defined in a specific user account, in a specific exchange, on the Crypto Ecosystem hierarchy.",
+    "definition": {
+        "text": "The key reference is a reference to an exchange account key as defined in a specific user account, in a specific exchange, on the Crypto Ecosystem hierarchy."
+    },
     "paragraphs": [
         {
             "style": "Block",

@@ -1,6 +1,8 @@
 {
     "type": "Market Order",
-    "definition": "Market order is the section of the data structure that keeps track of the properties of a specific market order, as defined in the trading system.",
+    "definition": {
+        "text": "Market order is the section of the data structure that keeps track of the properties of a specific market order, as defined in the trading system."
+    },
     "paragraphs": [
         {
             "style": "Block",

@@ -1,6 +1,8 @@
 {
     "type": "Order Base Asset",
-    "definition": "The order base asset node keeps track of the evolution of certain properties of orders, denominated in the base asset.",
+    "definition": {
+        "text": "The order base asset node keeps track of the evolution of certain properties of orders, denominated in the base asset."
+    },
     "paragraphs": [
         {
             "style": "Block",

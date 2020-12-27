@@ -1,6 +1,8 @@
 {
     "type": "Template Structure",
-    "definition": "The template structure holds the structure of nodes with all its configurations and properties, exactly as it should be implemented.",
+    "definition": {
+        "text": "The template structure holds the structure of nodes with all its configurations and properties, exactly as it should be implemented."
+    },
     "paragraphs": [
         {
             "style": "Block",

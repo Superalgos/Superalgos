@@ -1,6 +1,8 @@
 {
     "type": "Text Position",
-    "definition": "The text position node is a reference to a point defined in the chart points, and serves to determine the position in which text shall be rendered.",
+    "definition": {
+        "text": "The text position node is a reference to a point defined in the chart points, and serves to determine the position in which text shall be rendered."
+    },
     "paragraphs": [
         {
             "style": "Block",

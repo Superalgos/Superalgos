@@ -1,6 +1,8 @@
 {
     "type": "Actual Rate",
-    "definition": "Actual rate is the number reported by the exchange as the rate at which an order was filled.",
+    "definition": {
+        "text": "Actual rate is the number reported by the exchange as the rate at which an order was filled."
+    },
     "paragraphs": [
         {
             "style": "Block",

@@ -1,5 +1,7 @@
 {
     "type": "Close",
-    "definition": "Close is the rate at the datetime of the end property, as provided by the exchange. That is, the rate at the close of the candle.",
+    "definition": {
+        "text": "Close is the rate at the datetime of the end property, as provided by the exchange. That is, the rate at the close of the candle."
+    },
     "paragraphs": []
 }

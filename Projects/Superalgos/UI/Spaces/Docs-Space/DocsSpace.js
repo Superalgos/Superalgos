@@ -977,7 +977,7 @@ function newSuperalgosDocSpace() {
         renderSearchResultsPage()
 
         function checkHelpCommand() {
-            if (command.toLowerCase() === 'docss.help') {
+            if (command.toLowerCase() === 'docs.help') {
                 renderCommandResultsPage(
                     [
                         "Command line interface general help info: ",

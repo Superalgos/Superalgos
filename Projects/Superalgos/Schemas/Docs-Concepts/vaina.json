@@ -1,7 +1,17 @@
 {
     "type": "Vaina",
     "definition": {
-        "text": "Write here the definition of this Concept."
+        "text": "Write here the definition of this Concept.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Escribe aqui la definición de este proyecto."
+            },
+            {
+                "language": "RU",
+                "text": "Esto es una Vainuska "
+            }
+        ]
     },
     "paragraphs": [
         {

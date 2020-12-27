@@ -1942,14 +1942,6 @@ function newSuperalgosDocSpace() {
                 if (docsSchemaDocument.definition !== undefined) {
                     let definitionText = getTextBasedOnLanguage(docsSchemaDocument.definition)
                     
-                    /*Migrating to new data structure */
-                    if (definitionText === undefined) {
-                        docsSchemaDocument.definition = {
-                            text: docsSchemaDocument.definition
-                        }
-                        definitionText =docsSchemaDocument.definition.text
-                    }
-
                     if (category === 'Topic' || category === 'Concept') {
                         HTML = HTML + '<div id="definition-summary-editable-paragraph" class="docs-summary"><b>Summary:</b> ' + addToolTips(definitionText) + '</div>'
                     } else {

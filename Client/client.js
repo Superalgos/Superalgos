@@ -5,12 +5,13 @@ let ENVIRONMENT_MODULE = ENVIRONMENT.newEnvironment()
 global.env = ENVIRONMENT_MODULE
 
 process.on('uncaughtException', function (err) {
-    if (err.message.indexOf("EADDRINUSE") > 0) {
+    if (err.message && err.message.indexOf("EADDRINUSE") > 0) {
         console.log("A Superalgos Client cannot be started. Reason: the port " + port + " is already in use by another application.")
         return
     }
     console.log('[ERROR] Client -> client-> uncaughtException -> err.message = ' + err.message)
     console.log('[ERROR] Client -> client-> uncaughtException -> err.stack = ' + err.stack)
+    console.log('[ERROR] Client -> client-> uncaughtException -> err = ' + err)
     process.exit(1)
 })
 

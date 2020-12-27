@@ -502,29 +502,39 @@ function newSuperalgosDocSpace() {
                     if (paragraphs.length === 1) {
                         /* There is no need to add new paragraphs, we just update the one we have. */
                         if (paragraphs[0] !== '') {
-                            docSchemaParagraph.text = paragraphs[0]
+                            setTextBasedOnLanguage(docSchemaParagraph, paragraphs[0])
                         } else {
-                            docsSchemaDocument.paragraphs.splice(selectededitableParagraphIndex, 1)
-                            if (docsSchemaDocument.paragraphs.length === 0) {
-                                let newParagraph = {
-                                    style: 'Text',
-                                    text: 'Please contribute to the docs by editing this content.'
+                            /*
+                            Deleting paragarphs is only possible in the default language.
+                            */
+                            if (language === DEFAULT_LANGUAGE) {
+                                docsSchemaDocument.paragraphs.splice(selectededitableParagraphIndex, 1)
+                                if (docsSchemaDocument.paragraphs.length === 0) {
+                                    let newParagraph = {
+                                        style: 'Text',
+                                        text: 'Please contribute to the docs by editing this content.'
+                                    }
+                                    docsSchemaDocument.paragraphs.push(newParagraph)
                                 }
-                                docsSchemaDocument.paragraphs.push(newParagraph)
                             }
                         }
                     } else {
                         /*
-                        We will update the one paragraph we have and we will add the rest. 
+                        Adding paragarphs is only possible in the default language.
                         */
-                        docSchemaParagraph.text = paragraphs[0]
+                        if (language === DEFAULT_LANGUAGE) {
+                            /*
+                            We will update the one paragraph we have and we will add the rest. 
+                            */
+                            setTextBasedOnLanguage(docSchemaParagraph, paragraphs[0])
 
-                        for (let i = 1; i < paragraphs.length; i++) {
-                            let newParagraph = {
-                                style: style,
-                                text: paragraphs[i]
+                            for (let i = 1; i < paragraphs.length; i++) {
+                                let newParagraph = {
+                                    style: style,
+                                    text: paragraphs[i]
+                                }
+                                docsSchemaDocument.paragraphs.splice(selectededitableParagraphIndex + i, 0, newParagraph)
                             }
-                            docsSchemaDocument.paragraphs.splice(selectededitableParagraphIndex + i, 0, newParagraph)
                         }
                     }
 
@@ -542,6 +552,29 @@ function newSuperalgosDocSpace() {
             }
             EDITOR_ON_FOCUS = false
             renderDocumentPage()
+
+            function setTextBasedOnLanguage(paragraph, text) {
+                if (language === DEFAULT_LANGUAGE) {
+                    paragraph.text = text
+                    return
+                }
+                if (paragraph.translations === undefined) {
+                    paragraph.translations = []
+                }
+                for (let i = 0; i < paragraph.translations.length; i++) {
+                    let translation = paragraph.translations[i]
+                    if (translation.language === language) {
+                        translation.text = text
+                        return
+                    }
+                }
+                let translation = {
+                    language: language,
+                    text: text
+                }
+                paragraph.translations.push(translation)
+                return
+            }
         }
     }
 

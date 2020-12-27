@@ -2,7 +2,9 @@
     "topic": "Docs Paragraph Styles",
     "pageNumber": "13",
     "type": "Docs JSON Code Style",
-    "definition": "Use this style to format JSON code, such as the one in configs.",
+    "definition": {
+        "text": "Use this style to format JSON code, such as the one in configs."
+    },
     "paragraphs": [
         {
             "style": "Text",

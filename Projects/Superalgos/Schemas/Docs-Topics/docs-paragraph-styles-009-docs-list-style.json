@@ -2,7 +2,9 @@
     "topic": "Docs Paragraph Styles",
     "pageNumber": "9",
     "type": "Docs List Style",
-    "definition": "This style will render the text as an item of a bullet point list.",
+    "definition": {
+        "text": "This style will render the text as an item of a bullet point list."
+    },
     "paragraphs": [
         {
             "style": "Text",

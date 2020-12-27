@@ -2,7 +2,9 @@
     "topic": "Docs Paragraph Styles",
     "pageNumber": "2",
     "type": "Docs Title Style",
-    "definition": "Use this style to render titles on the docs page.",
+    "definition": {
+        "text": "Use this style to render titles on the docs page."
+    },
     "paragraphs": [
         {
             "style": "Text",

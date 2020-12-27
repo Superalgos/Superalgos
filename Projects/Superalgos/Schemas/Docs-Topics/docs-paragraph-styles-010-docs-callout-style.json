@@ -2,7 +2,9 @@
     "topic": "Docs Paragraph Styles",
     "pageNumber": "10",
     "type": "Docs Callout Style",
-    "definition": "A callout paragraph is used to call the attention of readers.",
+    "definition": {
+        "text": "A callout paragraph is used to call the attention of readers."
+    },
     "paragraphs": [
         {
             "style": "Text",

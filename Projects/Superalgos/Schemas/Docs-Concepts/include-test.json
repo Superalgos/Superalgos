@@ -1,6 +1,8 @@
 {
     "type": "Include Test",
-    "definition": "Write here the definition of this Concept.",
+    "definition": {
+        "text": "Write here the definition of this Concept."
+    },
     "paragraphs": [
         {
             "style": "Include",

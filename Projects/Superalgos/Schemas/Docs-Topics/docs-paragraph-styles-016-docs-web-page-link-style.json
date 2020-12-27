@@ -2,7 +2,9 @@
     "topic": "Docs Paragraph Styles",
     "pageNumber": "16",
     "type": "Docs Web Page Link Style",
-    "definition": "Applying this style to a paragraph is the way to create a link to an external website.",
+    "definition": {
+        "text": "Applying this style to a paragraph is the way to create a link to an external website."
+    },
     "paragraphs": [
         {
             "style": "Text",

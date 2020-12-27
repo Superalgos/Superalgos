@@ -2,7 +2,9 @@
     "topic": "Docs Paragraph Styles",
     "pageNumber": "17",
     "type": "Docs YouTube Video Style",
-    "definition": "It is possible to embed YouTube videos at a Docs page. All you need to know is to copy and pate the YouTube video id into a paragraph with Youtube style.",
+    "definition": {
+        "text": "It is possible to embed YouTube videos at a Docs page. All you need to know is to copy and pate the YouTube video id into a paragraph with Youtube style."
+    },
     "paragraphs": [
         {
             "style": "Text",

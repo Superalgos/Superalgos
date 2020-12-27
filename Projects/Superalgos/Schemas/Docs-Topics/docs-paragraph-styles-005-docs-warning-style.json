@@ -2,7 +2,9 @@
     "topic": "Docs Paragraph Styles",
     "pageNumber": "5",
     "type": "Docs Warning Style",
-    "definition": "Use this style for boxing text as a warning to readers.",
+    "definition": {
+        "text": "Use this style for boxing text as a warning to readers."
+    },
     "paragraphs": [
         {
             "style": "Text",

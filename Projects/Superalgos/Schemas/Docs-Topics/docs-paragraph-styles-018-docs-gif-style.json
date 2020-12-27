@@ -2,7 +2,9 @@
     "topic": "Docs Paragraph Styles",
     "pageNumber": "18",
     "type": "Docs Gif Style",
-    "definition": "It is possible to embed gifs at a Docs page. ",
+    "definition": {
+        "text": "It is possible to embed gifs at a Docs page. "
+    },
     "paragraphs": [
         {
             "style": "Text",

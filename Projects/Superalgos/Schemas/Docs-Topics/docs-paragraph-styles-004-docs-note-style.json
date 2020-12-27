@@ -2,7 +2,9 @@
     "topic": "Docs Paragraph Styles",
     "pageNumber": "4",
     "type": "Docs Note Style",
-    "definition": "This style will render in a blue box with the word note as a prefix.",
+    "definition": {
+        "text": "This style will render in a blue box with the word note as a prefix."
+    },
     "paragraphs": [
         {
             "style": "Text",

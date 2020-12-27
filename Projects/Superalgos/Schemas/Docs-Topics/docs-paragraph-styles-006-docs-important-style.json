@@ -2,7 +2,9 @@
     "topic": "Docs Paragraph Styles",
     "pageNumber": "6",
     "type": "Docs Important Style",
-    "definition": "Use this style to communicate a tip or something important to the reader.",
+    "definition": {
+        "text": "Use this style to communicate a tip or something important to the reader."
+    },
     "paragraphs": [
         {
             "style": "Text",

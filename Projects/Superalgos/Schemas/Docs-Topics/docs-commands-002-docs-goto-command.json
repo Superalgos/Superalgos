@@ -3,12 +3,31 @@
     "pageNumber": "2",
     "type": "Docs Goto Command",
     "definition": {
-        "text": "Write here a summary for this topic page."
+        "text": "This command provides a mechanism to navigate to a Docs page or an specific anchor within a page.",
+        "updated": 1609141474363
     },
     "paragraphs": [
         {
-            "style": "Text",
-            "text": "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+            "style": "Title",
+            "text": "Syntax:",
+            "updated": 1609141687587
+        },
+        {
+            "style": "Json",
+            "text": "docs.goto Project->Docs Page Category->Docs Page Type->Docs Page Anchor"
+        },
+        {
+            "style": "Title",
+            "text": "Examples:"
+        },
+        {
+            "style": "Json",
+            "text": "docs.goto Superalgos->Node->Task"
+        },
+        {
+            "style": "Javascript",
+            "text": "docs.goto Superalgos->Topic->Docs Text Style",
+            "updated": 1609142790073
         }
     ]
 }

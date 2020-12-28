@@ -3,12 +3,42 @@
     "pageNumber": "1",
     "type": "Docs Help Command",
     "definition": {
-        "text": "Write here a summary for this topic page."
+        "text": "The Docs provide a command line interface that users can use to contribute to the Docs. The Docs Help Command provides a list of all available commands at any given Superalgos version.",
+        "updated": 1609140843415
     },
     "paragraphs": [
         {
+            "style": "Title",
+            "text": "Command syntax:",
+            "updated": 1609141399324
+        },
+        {
+            "style": "Json",
+            "text": "docs.help",
+            "updated": 1609141063054
+        },
+        {
             "style": "Text",
-            "text": "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+            "text": "Another way to use this command is by providing the name of another command you would like to see help info on. "
+        },
+        {
+            "style": "Title",
+            "text": "Examples:"
+        },
+        {
+            "style": "Json",
+            "text": "docs.help docs.add",
+            "updated": 1609141312948
+        },
+        {
+            "style": "Json",
+            "text": "docs.help docs.delete",
+            "updated": 1609141326112
+        },
+        {
+            "style": "Json",
+            "text": "docs.help doc.save",
+            "updated": 1609141332029
         }
     ]
 }

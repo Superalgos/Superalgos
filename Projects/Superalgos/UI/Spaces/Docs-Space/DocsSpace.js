@@ -17,6 +17,7 @@ function newSuperalgosDocSpace() {
     }
 
     let isInitialized = false
+    const TAGGING_STRING_SEPARATOR = '~>'
     const DEFAULT_LANGUAGE = 'EN'
     const DOCS_SPACE_WIDTH = 900
     const newParagraphText = "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
@@ -997,7 +998,7 @@ function newSuperalgosDocSpace() {
         }
 
         function checkGotoCommand() {
-            if (command.toLowerCase() === 'help docs.goto') {
+            if (command.toLowerCase() === 'docs.help docs.goto') {
                 renderCommandResultsPage(
                     [
                         "<b>docs.goto</b> command syntax: ",
@@ -1063,7 +1064,7 @@ function newSuperalgosDocSpace() {
         }
 
         function checkAddCommand() {
-            if (command.toLowerCase() === 'help docs.add') {
+            if (command.toLowerCase() === 'docs.help docs.add') {
                 renderCommandResultsPage(
                     [
                         "<b>docs.add</b> command syntax: ",
@@ -1138,7 +1139,7 @@ function newSuperalgosDocSpace() {
         }
 
         function checkDeleteCommand() {
-            if (command.toLowerCase() === 'help docs.delete') {
+            if (command.toLowerCase() === 'docs.help docs.delete') {
                 renderCommandResultsPage(
                     [
                         "<b>docs.delete</b> command syntax: ",
@@ -1213,7 +1214,7 @@ function newSuperalgosDocSpace() {
         }
 
         function checkUReIndexCommand() {
-            if (command.toLowerCase() === 'help docs.reindex') {
+            if (command.toLowerCase() === 'docs.help docs.reindex') {
                 renderCommandResultsPage(
                     [
                         "<b>docs.reindex</b> command syntax: ",
@@ -1234,7 +1235,7 @@ function newSuperalgosDocSpace() {
         }
 
         function checkUSaveCommand() {
-            if (command.toLowerCase() === 'help docs.save') {
+            if (command.toLowerCase() === 'docs.help docs.save') {
                 renderCommandResultsPage(
                     [
                         "<b>docs.save</b> command syntax: ",
@@ -1967,12 +1968,13 @@ function newSuperalgosDocSpace() {
                 if (docsSchemaDocument.definition !== undefined) {
 
                     // DELETE
+                    /*
                     if (docsSchemaDocument.definition.text === undefined) {
                         docsSchemaDocument.definition = {
                             text: docsSchemaDocument.definition
                         }
                     }
-
+*/
 
 
 
@@ -3673,7 +3675,7 @@ function newSuperalgosDocSpace() {
 
         let resultingText = ''
         text = tagDefinedTypes(text, objectBeingRendered.type)
-        let splittedText = text.split('->')
+        let splittedText = text.split(TAGGING_STRING_SEPARATOR)
 
         for (let i = 0; i < splittedText.length; i = i + 2) {
             let firstPart = splittedText[i]
@@ -3761,7 +3763,7 @@ function newSuperalgosDocSpace() {
                 /* Search in docsNodeSchema */
                 if (SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(cleanPhrase4) !== undefined) {
                     if (cleanPhrase4 !== excludedType) {
-                        taggedText = taggedText + phrase4.replace(cleanPhrase4, '->' + 'Node' + '|' + cleanPhrase4 + '|' + project + '->') + ' '
+                        taggedText = taggedText + phrase4.replace(cleanPhrase4, TAGGING_STRING_SEPARATOR + 'Node' + '|' + cleanPhrase4 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
                     } else {
                         taggedText = taggedText + cleanPhrase4 + ' '
                     }
@@ -3771,7 +3773,7 @@ function newSuperalgosDocSpace() {
                 }
                 if (SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(cleanPhrase3) !== undefined) {
                     if (cleanPhrase3 !== excludedType) {
-                        taggedText = taggedText + phrase3.replace(cleanPhrase3, '->' + 'Node' + '|' + cleanPhrase3 + '|' + project + '->') + ' '
+                        taggedText = taggedText + phrase3.replace(cleanPhrase3, TAGGING_STRING_SEPARATOR + 'Node' + '|' + cleanPhrase3 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
                     } else {
                         taggedText = taggedText + cleanPhrase3 + ' '
                     }
@@ -3781,7 +3783,7 @@ function newSuperalgosDocSpace() {
                 }
                 if (SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(cleanPhrase2) !== undefined) {
                     if (cleanPhrase2 !== excludedType) {
-                        taggedText = taggedText + phrase2.replace(cleanPhrase2, '->' + 'Node' + '|' + cleanPhrase2 + '|' + project + '->') + ' '
+                        taggedText = taggedText + phrase2.replace(cleanPhrase2, TAGGING_STRING_SEPARATOR + 'Node' + '|' + cleanPhrase2 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
                     } else {
                         taggedText = taggedText + cleanPhrase2 + ' '
                     }
@@ -3791,7 +3793,7 @@ function newSuperalgosDocSpace() {
                 }
                 if (SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(cleanPhrase1) !== undefined) {
                     if (cleanPhrase1 !== excludedType) {
-                        taggedText = taggedText + phrase1.replace(cleanPhrase1, '->' + 'Node' + '|' + cleanPhrase1 + '|' + project + '->') + ' '
+                        taggedText = taggedText + phrase1.replace(cleanPhrase1, TAGGING_STRING_SEPARATOR + 'Node' + '|' + cleanPhrase1 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
                     } else {
                         taggedText = taggedText + cleanPhrase1 + ' '
                     }
@@ -3802,7 +3804,7 @@ function newSuperalgosDocSpace() {
                 /* Search in docsConceptSchema */
                 if (SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.get(cleanPhrase4) !== undefined) {
                     if (cleanPhrase4 !== excludedType) {
-                        taggedText = taggedText + phrase4.replace(cleanPhrase4, '->' + 'Concept' + '|' + cleanPhrase4 + '|' + project + '->') + ' '
+                        taggedText = taggedText + phrase4.replace(cleanPhrase4, TAGGING_STRING_SEPARATOR + 'Concept' + '|' + cleanPhrase4 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
                     } else {
                         taggedText = taggedText + cleanPhrase4 + ' '
                     }
@@ -3812,7 +3814,7 @@ function newSuperalgosDocSpace() {
                 }
                 if (SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.get(cleanPhrase3) !== undefined) {
                     if (cleanPhrase3 !== excludedType) {
-                        taggedText = taggedText + phrase3.replace(cleanPhrase3, '->' + 'Concept' + '|' + cleanPhrase3 + '|' + project + '->') + ' '
+                        taggedText = taggedText + phrase3.replace(cleanPhrase3, TAGGING_STRING_SEPARATOR + 'Concept' + '|' + cleanPhrase3 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
                     } else {
                         taggedText = taggedText + cleanPhrase3 + ' '
                     }
@@ -3822,7 +3824,7 @@ function newSuperalgosDocSpace() {
                 }
                 if (SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.get(cleanPhrase2) !== undefined) {
                     if (cleanPhrase2 !== excludedType) {
-                        taggedText = taggedText + phrase2.replace(cleanPhrase2, '->' + 'Concept' + '|' + cleanPhrase2 + '|' + project + '->') + ' '
+                        taggedText = taggedText + phrase2.replace(cleanPhrase2, TAGGING_STRING_SEPARATOR + 'Concept' + '|' + cleanPhrase2 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
                     } else {
                         taggedText = taggedText + cleanPhrase2 + ' '
                     }
@@ -3832,7 +3834,7 @@ function newSuperalgosDocSpace() {
                 }
                 if (SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.get(cleanPhrase1) !== undefined) {
                     if (cleanPhrase1 !== excludedType) {
-                        taggedText = taggedText + phrase1.replace(cleanPhrase1, '->' + 'Concept' + '|' + cleanPhrase1 + '|' + project + '->') + ' '
+                        taggedText = taggedText + phrase1.replace(cleanPhrase1, TAGGING_STRING_SEPARATOR + 'Concept' + '|' + cleanPhrase1 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
                     } else {
                         taggedText = taggedText + cleanPhrase1 + ' '
                     }
@@ -3843,7 +3845,7 @@ function newSuperalgosDocSpace() {
                 /* Search in docsTopicSchema */
                 if (SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.get(cleanPhrase4) !== undefined) {
                     if (cleanPhrase4 !== excludedType) {
-                        taggedText = taggedText + phrase4.replace(cleanPhrase4, '->' + 'Topic' + '|' + cleanPhrase4 + '|' + project + '->') + ' '
+                        taggedText = taggedText + phrase4.replace(cleanPhrase4, TAGGING_STRING_SEPARATOR + 'Topic' + '|' + cleanPhrase4 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
                     } else {
                         taggedText = taggedText + cleanPhrase4 + ' '
                     }
@@ -3853,7 +3855,7 @@ function newSuperalgosDocSpace() {
                 }
                 if (SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.get(cleanPhrase3) !== undefined) {
                     if (cleanPhrase3 !== excludedType) {
-                        taggedText = taggedText + phrase3.replace(cleanPhrase3, '->' + 'Topic' + '|' + cleanPhrase3 + '|' + project + '->') + ' '
+                        taggedText = taggedText + phrase3.replace(cleanPhrase3, TAGGING_STRING_SEPARATOR + 'Topic' + '|' + cleanPhrase3 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
                     } else {
                         taggedText = taggedText + cleanPhrase3 + ' '
                     }
@@ -3863,7 +3865,7 @@ function newSuperalgosDocSpace() {
                 }
                 if (SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.get(cleanPhrase2) !== undefined) {
                     if (cleanPhrase2 !== excludedType) {
-                        taggedText = taggedText + phrase2.replace(cleanPhrase2, '->' + 'Topic' + '|' + cleanPhrase2 + '|' + project + '->') + ' '
+                        taggedText = taggedText + phrase2.replace(cleanPhrase2, TAGGING_STRING_SEPARATOR + 'Topic' + '|' + cleanPhrase2 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
                     } else {
                         taggedText = taggedText + cleanPhrase2 + ' '
                     }
@@ -3873,7 +3875,7 @@ function newSuperalgosDocSpace() {
                 }
                 if (SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.get(cleanPhrase1) !== undefined) {
                     if (cleanPhrase1 !== excludedType) {
-                        taggedText = taggedText + phrase1.replace(cleanPhrase1, '->' + 'Topic' + '|' + cleanPhrase1 + '|' + project + '->') + ' '
+                        taggedText = taggedText + phrase1.replace(cleanPhrase1, TAGGING_STRING_SEPARATOR + 'Topic' + '|' + cleanPhrase1 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
                     } else {
                         taggedText = taggedText + cleanPhrase1 + ' '
                     }

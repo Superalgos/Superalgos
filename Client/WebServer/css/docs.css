@@ -244,7 +244,11 @@ color: #808080;
 margin:20px 0px 20px 0px;
 border-left: 5px solid #fd6a33;
 padding-left: 10px;
+}
 
+.docs-section {
+font-size:120%;
+padding: 200px;
 }
 
 .docs-note-circle:before {

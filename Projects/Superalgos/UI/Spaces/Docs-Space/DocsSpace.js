@@ -98,6 +98,7 @@ function newSuperalgosDocSpace() {
                 toAnchor: toAnchor,
                 toBlock: toBlock,
                 toInclude: toInclude,
+                toSection: toSection,
                 copyLink: copyLink,
                 toWebPageLink: toWebPageLink,
                 toYouTubeVideo: toYouTubeVideo
@@ -243,6 +244,13 @@ function newSuperalgosDocSpace() {
             function toSummary() {
                 let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
                 docSchemaParagraph.style = 'Summary'
+                contextMenuForceOutClick()
+                renderDocumentPage()
+            }
+
+            function toSection() {
+                let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
+                docSchemaParagraph.style = 'Section'
                 contextMenuForceOutClick()
                 renderDocumentPage()
             }
@@ -706,6 +714,9 @@ function newSuperalgosDocSpace() {
             selectedParagraphData = paragraphNode.innerText.substring(9, paragraphNode.innerText.length)
         }
         if (paragraphNode.id.indexOf('-anchor') >= 0) {
+            selectedParagraphData = paragraphNode.innerText.trim()
+        }
+        if (paragraphNode.id.indexOf('-section') >= 0) {
             selectedParagraphData = paragraphNode.innerText.trim()
         }
         if (paragraphNode.id.indexOf('-block') >= 0) {
@@ -1500,6 +1511,10 @@ function newSuperalgosDocSpace() {
                         }
                         case 'summary': {
                             documentPoints = documentPoints + thisPhraseCount * 6
+                            break
+                        }
+                        case 'section': {
+                            documentPoints = documentPoints + thisPhraseCount * 8
                             break
                         }
                         case 'table': {
@@ -2934,6 +2949,17 @@ function newSuperalgosDocSpace() {
                         prefix = '<b>Summary:</b>'
                         role = ''
                         key = key + '-summary'
+                        innerHTML = getTextBasedOnLanguage(paragraph)
+                        innerHTML = addToolTips(innerHTML)
+                        innerHTML = addItalics(innerHTML)
+                        innerHTML = innerHTML + addWarningIfTranslationIsOutdated(paragraph)
+                        break
+                    }
+                    case 'Section': {
+                        styleClass = 'class="docs-section"'
+                        prefix = ''
+                        role = ''
+                        key = key + '-section'
                         innerHTML = getTextBasedOnLanguage(paragraph)
                         innerHTML = addToolTips(innerHTML)
                         innerHTML = addItalics(innerHTML)

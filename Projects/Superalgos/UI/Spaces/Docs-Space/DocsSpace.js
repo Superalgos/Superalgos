@@ -985,19 +985,7 @@ function newSuperalgosDocSpace() {
 
         function checkHelpCommand() {
             if (command.toLowerCase() === 'docs.help') {
-                renderCommandResultsPage(
-                    [
-                        "Command line interface general help info: ",
-                        "The Docs is equiped with a command line interface from where you can type commands that will help you contribute to the Docs. Each command listed below has it's own help. You just need to type <i>help</i> and the command to get details about it's sintax and examples on how to use it. The following is the list of available commands:",
-                        "<b>help</b>: This general purpose help info.",
-                        "<b>docs.goto</b>: Use this command to go directly to a Node, Concept or Topic page.",
-                        "<b>docs.add</b>: Use this command to add new Nodes, Concepts or Topics to the Docs.",
-                        "<b>docs.delete</b>: Use this command to delete existing Nodes, Concepts or Topics from the Docs.",
-                        "<b>docs.save</b>: Use this command whenever you would like to save the changes you made to the Docs.",
-                        "<b>docs.reindex</b>: Use this command to re-index all the info again so that your changes are visible at search results.",
-                        "Note that anything you type not identified as a command will be treated as a search query."
-                    ]
-                )
+                navigateTo('Superalgos', 'Topic', 'Docs Help Command')
                 return
             }
             return 'Not Help Command'

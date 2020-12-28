@@ -3,12 +3,35 @@
     "pageNumber": "2",
     "type": "Docs Page Category",
     "definition": {
-        "text": "Write here a summary for this topic page."
+        "text": "The Docs have 3 different categories of pages. Node, Concept and Topic.",
+        "updated": 1609150759942
     },
     "paragraphs": [
         {
+            "style": "Title",
+            "text": "Node Page Category",
+            "updated": 1609150842562
+        },
+        {
             "style": "Text",
-            "text": "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+            "text": "For each Node defined within the project, there is a Docs Node Page at the Docs, explaining what is that Node used for.",
+            "updated": 1609150987235
+        },
+        {
+            "style": "Title",
+            "text": "Cocept Page Category"
+        },
+        {
+            "style": "Text",
+            "text": "Concepts are things users must know that are not needed as a Node in the system and are not ellaborate enough to become a topic."
+        },
+        {
+            "style": "Title",
+            "text": "Topic Page Category"
+        },
+        {
+            "style": "Text",
+            "text": "Topics are multi-faceted concepts that needs more than one page to be correctly explained. It is a set of closely related concepts."
         }
     ]
 }

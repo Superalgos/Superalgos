@@ -9,8 +9,8 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "Syntax:",
-            "updated": 1609141687587
+            "text": "Syntax",
+            "updated": 1609150441764
         },
         {
             "style": "Json",
@@ -18,9 +18,9 @@
             "updated": 1609148983480
         },
         {
-            "style": "Subtitle",
-            "text": "Where:",
-            "updated": 1609146935337
+            "style": "Title",
+            "text": "Parameters",
+            "updated": 1609150455663
         },
         {
             "style": "List",
@@ -43,7 +43,8 @@
         },
         {
             "style": "Title",
-            "text": "Examples:"
+            "text": "Examples",
+            "updated": 1609150465738
         },
         {
             "style": "Json",

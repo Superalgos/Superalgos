@@ -3,12 +3,14 @@
     "pageNumber": "3",
     "type": "Docs Page Name",
     "definition": {
-        "text": "Write here a summary for this topic page."
+        "text": "The Docs Page Name is not only the visible name of a page, but also they key to identify a page in a unique way within a Project.",
+        "updated": 1609151319050
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+            "text": "The page name can always be found at the top of each page.",
+            "updated": 1609151354901
         }
     ]
 }

@@ -9,8 +9,8 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "Syntax:",
-            "updated": 1609149145741
+            "text": "Syntax",
+            "updated": 1609150394630
         },
         {
             "style": "Json",
@@ -18,12 +18,43 @@
             "updated": 1609141063054
         },
         {
-            "style": "Text",
-            "text": "Another way to use this command is by providing the name of another command you would like to see help info on. "
+            "style": "Title",
+            "text": "Available Commands",
+            "updated": 1609150389229
+        },
+        {
+            "style": "List",
+            "text": "Docs Goto Command"
+        },
+        {
+            "style": "List",
+            "text": "Docs Add Command"
+        },
+        {
+            "style": "List",
+            "text": "Docs Delete Command"
+        },
+        {
+            "style": "List",
+            "text": "Docs Save Command"
+        },
+        {
+            "style": "List",
+            "text": "Docs Reindex Command"
         },
         {
             "style": "Title",
-            "text": "Examples:"
+            "text": "Help on Commands",
+            "updated": 1609150376981
+        },
+        {
+            "style": "Text",
+            "text": "Another way to use this command is by providing the name of another command you would like to see help info on."
+        },
+        {
+            "style": "Title",
+            "text": "Examples",
+            "updated": 1609150399428
         },
         {
             "style": "Json",
@@ -38,7 +69,12 @@
         {
             "style": "Json",
             "text": "docs.help doc.save",
-            "updated": 1609141332029
+            "updated": 1609150597166
+        },
+        {
+            "style": "Note",
+            "text": " Anything you type at the command prompt not identified as a command will be treated as a search query.  ",
+            "updated": 1609150627730
         }
     ]
 }

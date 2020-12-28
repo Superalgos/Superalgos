@@ -8,8 +8,8 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "Syntax:",
-            "updated": 1609149769070
+            "text": "Syntax",
+            "updated": 1609150474236
         },
         {
             "style": "Text",
@@ -70,8 +70,9 @@
             "updated": 1609149878993
         },
         {
-            "style": "Text",
-            "text": "Where:"
+            "style": "Title",
+            "text": "Parameters",
+            "updated": 1609150484701
         },
         {
             "style": "Text",

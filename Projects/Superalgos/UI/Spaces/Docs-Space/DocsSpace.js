@@ -1030,12 +1030,12 @@ function newSuperalgosDocSpace() {
                     break
                 }
                 default: {
-                    renderCommandResultsPage(["Syntax Error. Expected <b>Node</b>, <b>Concept</b> or <b>Topic</b>. Found <b>" + category + "</b>"])
+                    navigateTo('Superalgos', 'Topic', 'Docs Command Errors', 'Anchor Category Not Valid')
                     return
                 }
             }
             if (docsSchemaDocument === undefined) {
-                renderCommandResultsPage([category + " <b>" + type + "</b> does not exist."])
+                navigateTo('Superalgos', 'Topic', 'Docs Command Errors', 'Anchor Page Not Found')
                 return
             }
             if (docsSchemaDocument.paragraphs === undefined) {
@@ -2922,6 +2922,7 @@ function newSuperalgosDocSpace() {
                         role = 'role="alert"'
                         key = key + '-error'
                         innerHTML = getTextBasedOnLanguage(paragraph)
+                        innerHTML = addToolTips(innerHTML)
                         innerHTML = innerHTML + addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }

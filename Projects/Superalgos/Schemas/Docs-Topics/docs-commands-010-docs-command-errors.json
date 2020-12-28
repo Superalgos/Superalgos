@@ -27,7 +27,16 @@
         },
         {
             "style": "Success",
-            "text": "Check the command syntax for a detailed list of parameters required."
+            "text": "  Check the command syntax for a detailed list of parameters required.",
+            "updated": 1609160562426
+        },
+        {
+            "style": "Text",
+            "text": "     "
+        },
+        {
+            "style": "Text",
+            "text": ""
         },
         {
             "style": "Anchor",
@@ -47,8 +56,42 @@
             "text": "Check that you typed the Project name correctly. Project names are key-sensitive."
         },
         {
-            "style": "Text",
-            "text": "3"
+            "style": "Anchor",
+            "text": "Anchor Category Not Valid",
+            "updated": 1609160863036
+        },
+        {
+            "style": "Title",
+            "text": "Category not valid",
+            "updated": 1609160881861
+        },
+        {
+            "style": "Error",
+            "text": "The category you have specidied is not a valid Docs Page Category.",
+            "updated": 1609160924575
+        },
+        {
+            "style": "Success",
+            "text": " Valid categories are: Node, Concept and Topic. This parameter is key-sensitive.",
+            "updated": 1609161108040
+        },
+        {
+            "style": "Anchor",
+            "text": "Anchor Page Not Found",
+            "updated": 1609161391540
+        },
+        {
+            "style": "Title",
+            "text": "Page not found"
+        },
+        {
+            "style": "Error",
+            "text": "The Docs Page Name you have specified could not be found in the collection of pages of the Docs Page Category you provided."
+        },
+        {
+            "style": "Success",
+            "text": "Double check that the Docs Page Name is spelled correctly and that it belongs to the Docs Page Category provided. ",
+            "updated": 1609161473688
         },
         {
             "style": "Text",

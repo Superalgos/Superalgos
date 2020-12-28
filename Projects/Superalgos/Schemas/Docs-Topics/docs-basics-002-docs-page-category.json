@@ -3,8 +3,8 @@
     "pageNumber": "2",
     "type": "Docs Page Category",
     "definition": {
-        "text": "The Docs have 3 different categories of pages. Node, Concept and Topic.",
-        "updated": 1609150759942
+        "text": "The Docs have 3 different categories of pages. Node, Concept and Topic. Each of them is a collection of pages users can read.",
+        "updated": 1609161546617
     },
     "paragraphs": [
         {

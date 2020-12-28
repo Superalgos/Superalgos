@@ -1,0 +1,33 @@
+{
+    "topic": "Docs Commands Errors",
+    "pageNumber": "13",
+    "type": "Docs Error Page Does Not Exist",
+    "definition": {
+        "text": "The page you are trying to delete does not exist.",
+        "updated": 1609180948712
+    },
+    "paragraphs": [
+        {
+            "style": "Anchor",
+            "text": "Anchor Page Does Not Exists",
+            "updated": 1609181016148
+        },
+        {
+            "style": "Error",
+            "text": "Page does not already exist at the Docs.",
+            "updated": 1609181023193
+        },
+        {
+            "style": "Success",
+            "text": " Check the Docs Page Name you used at the command, because it seems that a page with that name does not exist at the Docs."
+        },
+        {
+            "style": "Title",
+            "text": "Applies to"
+        },
+        {
+            "style": "List",
+            "text": "Docs Delete Command"
+        }
+    ]
+}

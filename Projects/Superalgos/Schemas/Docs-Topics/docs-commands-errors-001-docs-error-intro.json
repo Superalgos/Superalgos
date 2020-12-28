@@ -9,8 +9,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The following is the complete list of errors you might find while executing Docs commands. In fact, once you get an error, you will be automatically sent to this page at the place the error is explained.",
-            "updated": 1609159398051
+            "text": "The previous is the complete list of errors you might find while executing Docs commands. In fact, once you get an error, you will be automatically sent to the error page.",
+            "updated": 1609175853003
         }
     ]
 }

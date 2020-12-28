@@ -1,0 +1,33 @@
+{
+    "topic": "Docs Commands Errors",
+    "pageNumber": "15",
+    "type": "Docs Error Toopic Mismatch",
+    "definition": {
+        "text": "The Docs Topic Name provided does not match with the Docs Topic Name found at the page you want to delete.",
+        "updated": 1609181659359
+    },
+    "paragraphs": [
+        {
+            "style": "Anchor",
+            "text": "Anchor Topic Mismatch",
+            "updated": 1609181600300
+        },
+        {
+            "style": "Error",
+            "text": "Topic Number Mismatch. The Docs Topic Name provided does not match the Docs Topic Name of the page to be deleted.",
+            "updated": 1609181606847
+        },
+        {
+            "style": "Success",
+            "text": "Check the page you want to delete and get the right Docs Topic Name to use at the command."
+        },
+        {
+            "style": "Title",
+            "text": "Applies to"
+        },
+        {
+            "style": "List",
+            "text": "Docs Delete Command"
+        }
+    ]
+}

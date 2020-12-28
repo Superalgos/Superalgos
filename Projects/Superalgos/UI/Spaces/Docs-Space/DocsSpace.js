@@ -1057,13 +1057,13 @@ function newSuperalgosDocSpace() {
             if (command.indexOf('Docs.Add') !== 0 && command.indexOf('docs.add') !== 0) { return 'Not Add Command' }
 
             if (language !== DEFAULT_LANGUAGE) {
-                renderCommandResultsPage(["Usage Error. You can only add pages to the Docs while you are navigating it in English."])
+                navigateTo('Superalgos', 'Topic', 'Docs Error Only In English', 'Anchor Only In English')
                 return
             }
 
             let splittedCommand = command.split(': ')
             if (splittedCommand[1] === undefined) {
-                renderCommandResultsPage(["Syntax Error. Keyword <b>: </b> missing: Example: docs.add Concept to Superalgos: New Concept Name. The keyword is a : character plus a blank space. Type <i>help docs.add</i> to learn the command's syntax."])
+                navigateTo('Superalgos', 'Topic', 'Docs Error Missing Colon', 'Anchor Missing Colon')
                 return
             }
             let primaryCommand = splittedCommand[0]
@@ -1073,17 +1073,17 @@ function newSuperalgosDocSpace() {
 
             if (splittedPrimaryCommand[0].toLowerCase() === 'docs.add') {
                 if (splittedPrimaryCommand[2] !== 'to') {
-                    renderCommandResultsPage(["Syntax Error. Keyword <b>to</b> missing: Example: docs.add Concept to Superalgos: New Concept Name. Type <i>help docs.add</i> to learn the command's syntax."])
+                    navigateTo('Superalgos', 'Topic', 'Docs Error Missing To', 'Anchor Missing To')
                     return
                 }
 
                 if (splittedPrimaryCommand.length < 4) {
-                    renderCommandResultsPage(["Syntax Error. Too few Add Command parameters. Found <b>" + splittedPrimaryCommand.length + "</b>. Expected at least <b>4</b>. Type <i>help docs.add</i> to learn the command's syntax."])
+                    navigateTo('Superalgos', 'Topic', 'Docs Error Too Few Parameters', 'Anchor Too Few Paramenters')
                     return
                 }
 
                 if (secondaryCommand === '') {
-                    renderCommandResultsPage(["Syntax Error. Node, Concept or Topic name can not be undefined."])
+                    navigateTo('Superalgos', 'Topic', 'Docs Error Category Not Valid', 'Anchor Category Not Valid')
                     return
                 }
 
@@ -1099,14 +1099,14 @@ function newSuperalgosDocSpace() {
                     case 'topic': {
                         let splittedSecondaryCommand = secondaryCommand.split('->')
                         if (splittedSecondaryCommand.length < 3) {
-                            renderCommandResultsPage(["Syntax Error. Too few Topic parameters. Found <b>" + splittedSecondaryCommand.length + "</b>. Expected <b>3</b>. Type <i>help docs.add</i> to learn the command's syntax."])
+                            navigateTo('Superalgos', 'Topic', 'Docs Error Too Few Parameters', 'Anchor Too Few Paramenters')
                             return
                         }
                         addTopic(splittedPrimaryCommand[3], splittedSecondaryCommand[0], splittedSecondaryCommand[1], splittedSecondaryCommand[2])
                         return
                     }
                     default: {
-                        renderCommandResultsPage(["Syntax Error. Expected <b>Node</b>, <b>Concept</b> or <b>Topic</b>. Found <b>" + splittedCommand[1] + "</b>"])
+                        navigateTo('Superalgos', 'Topic', 'Docs Error Category Not Valid', 'Anchor Category Not Valid')
                         return
                     }
                 }
@@ -1122,13 +1122,13 @@ function newSuperalgosDocSpace() {
             if (command.indexOf('Docs.Delete') !== 0 && command.indexOf('docs.delete') !== 0) { return 'Not Delete Command' }
 
             if (language !== DEFAULT_LANGUAGE) {
-                renderCommandResultsPage(["Usage Error. You can only delete pages from the Docs while you are navigating it in English."])
+                navigateTo('Superalgos', 'Topic', 'Docs Error Only In English', 'Anchor Only In English')
                 return
             }
 
             let splittedCommand = command.split(': ')
             if (splittedCommand[1] === undefined) {
-                renderCommandResultsPage(["Syntax Error. Keyword <b>: </b> missing: Example: docs.delete Concept from Superalgos: Concept Name. The keyword is a : character plus a blank space. Type <i>Hekp docs.delete</i> to learn the command's syntax."])
+                navigateTo('Superalgos', 'Topic', 'Docs Error Missing Colon', 'Anchor Missing Colon')
                 return
             }
             let primaryCommand = splittedCommand[0]
@@ -1138,17 +1138,17 @@ function newSuperalgosDocSpace() {
 
             if (splittedPrimaryCommand[0].toLowerCase() === 'docs.delete') {
                 if (splittedPrimaryCommand[2] !== 'from') {
-                    renderCommandResultsPage(["Syntax Error. Keyword <b>from</b> missing: Example: Delete Concept from Superalgos: Concept Name. Type <i>Help docs.delete</i> to learn the command's syntax."])
+                    navigateTo('Superalgos', 'Topic', 'Docs Error Missing From', 'Anchor Missing From')
                     return
                 }
 
                 if (splittedPrimaryCommand.length < 4) {
-                    renderCommandResultsPage(["Syntax Error. Too few Delete Command parameters. Found <b>" + splittedPrimaryCommand.length + "</b>. Expected at least <b>4</b>. Type <i>Help docs.delete</i> to learn the command's syntax."])
+                    navigateTo('Superalgos', 'Topic', 'Docs Error Too Few Parameters', 'Anchor Too Few Paramenters')
                     return
                 }
 
                 if (secondaryCommand === '') {
-                    renderCommandResultsPage(["Syntax Error. Node, Concept or Topic name can not be undefined."])
+                    navigateTo('Superalgos', 'Topic', 'Docs Error Category Not Valid', 'Anchor Category Not Valid')
                     return
                 }
 
@@ -1164,14 +1164,14 @@ function newSuperalgosDocSpace() {
                     case 'topic': {
                         let splittedSecondaryCommand = secondaryCommand.split('->')
                         if (splittedSecondaryCommand.length < 3) {
-                            renderCommandResultsPage(["Syntax Error. Too few Topic parameters. Found <b>" + splittedSecondaryCommand.length + "</b>. Expected <b>3</b>. Type <i>help docs.delete</i> to learn the command's syntax."])
+                            navigateTo('Superalgos', 'Topic', 'Docs Error Too Few Parameters', 'Anchor Too Few Paramenters')
                             return
                         }
                         deleteTopic(splittedPrimaryCommand[3], splittedSecondaryCommand[0], splittedSecondaryCommand[1], splittedSecondaryCommand[2])
                         return
                     }
                     default: {
-                        renderCommandResultsPage(["Syntax Error. Expected <b>Node</b>, <b>Concept</b> or <b>Topic</b>. Found <b>" + splittedCommand[1] + "</b>"])
+                        navigateTo('Superalgos', 'Topic', 'Docs Error Category Not Valid', 'Anchor Category Not Valid')
                         return
                     }
                 }
@@ -1232,7 +1232,7 @@ function newSuperalgosDocSpace() {
                     if (responseCount === okResponses) {
                         renderCommandResultsPage(["Succesfully saved all the latest changes."])
                     } else {
-                        renderCommandResultsPage(["Some of the changes could not be saved."])
+                        navigateTo('Superalgos', 'Topic', 'Docs Error Changes Not Saved', 'Anchor Changes Not Saved')
                     }
                 }
             }
@@ -1250,12 +1250,12 @@ function newSuperalgosDocSpace() {
                 ]
             }
             if (SCHEMAS_BY_PROJECT.get(project) === undefined) {
-                renderCommandResultsPage(["Project <b>" + project + "</b> does not exist."])
+                navigateTo('Superalgos', 'Topic', 'Docs Error Project Does Not Exist', 'Anchor Project Does Not Exist')
                 return
             }
             let exist = SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(type)
             if (exist !== undefined) {
-                renderCommandResultsPage(["Node <b>" + type + "</b> already exist."])
+                navigateTo('Superalgos', 'Topic', 'Docs Error Page Already Exists', 'Anchor Page Already Exists')
                 return
             }
 
@@ -1277,12 +1277,12 @@ function newSuperalgosDocSpace() {
             }
 
             if (SCHEMAS_BY_PROJECT.get(project) === undefined) {
-                renderCommandResultsPage(["Project <b>" + project + "</b> does not exist."])
+                navigateTo('Superalgos', 'Topic', 'Docs Error Project Does Not Exist', 'Anchor Project Does Not Exist')
                 return
             }
             let exist = SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.get(type)
             if (exist !== undefined) {
-                renderCommandResultsPage(["Concept <b>" + type + "</b> already exist."])
+                navigateTo('Superalgos', 'Topic', 'Docs Error Page Already Exists', 'Anchor Page Already Exists')
                 return
             }
 
@@ -1305,12 +1305,12 @@ function newSuperalgosDocSpace() {
                 ]
             }
             if (SCHEMAS_BY_PROJECT.get(project) === undefined) {
-                renderCommandResultsPage(["Project <b>" + project + "</b> does not exist."])
+                navigateTo('Superalgos', 'Topic', 'Docs Error Project Does Not Exist', 'Anchor Project Does Not Exist')
                 return
             }
             let exist = SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.get(type)
             if (exist !== undefined) {
-                renderCommandResultsPage(["Topic Page <b>" + type + "</b> already exist."])
+                navigateTo('Superalgos', 'Topic', 'Docs Error Page Already Exists', 'Anchor Page Already Exists')
                 return
             }
 
@@ -1321,12 +1321,12 @@ function newSuperalgosDocSpace() {
 
         function deleteNode(project, type) {
             if (SCHEMAS_BY_PROJECT.get(project) === undefined) {
-                renderCommandResultsPage(["Project <b>" + project + "</b> does not exist."])
+                navigateTo('Superalgos', 'Topic', 'Docs Error Project Does Not Exist', 'Anchor Project Does Not Exist')
                 return
             }
             let exist = SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(type)
             if (exist === undefined) {
-                renderCommandResultsPage(["Node <b>" + type + "</b> does not exist."])
+                navigateTo('Superalgos', 'Topic', 'Docs Error Page Does Not Exist', 'Anchor Page Does Not Exist')
                 return
             }
 
@@ -1344,12 +1344,12 @@ function newSuperalgosDocSpace() {
 
         function deleteConcept(project, type) {
             if (SCHEMAS_BY_PROJECT.get(project) === undefined) {
-                renderCommandResultsPage(["Project <b>" + project + "</b> does not exist."])
+                navigateTo('Superalgos', 'Topic', 'Docs Error Project Does Not Exist', 'Anchor Project Does Not Exist')
                 return
             }
             let exist = SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.get(type)
             if (exist === undefined) {
-                renderCommandResultsPage(["Concept <b>" + type + "</b> does not exist."])
+                navigateTo('Superalgos', 'Topic', 'Docs Error Page Does Not Exist', 'Anchor Page Does Not Exist')
                 return
             }
 
@@ -1367,20 +1367,20 @@ function newSuperalgosDocSpace() {
 
         function deleteTopic(project, topic, type, pageNumber) {
             if (SCHEMAS_BY_PROJECT.get(project) === undefined) {
-                renderCommandResultsPage(["Project <b>" + project + "</b> does not exist."])
+                navigateTo('Superalgos', 'Topic', 'Docs Error Project Does Not Exist', 'Anchor Project Does Not Exist')
                 return
             }
             let exist = SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.get(type)
             if (exist === undefined) {
-                renderCommandResultsPage(["Topic <b>" + type + "</b> does not exist."])
+                navigateTo('Superalgos', 'Topic', 'Docs Error Page Does Not Exist', 'Anchor Page Does Not Exist')
                 return
             } else {
                 if (exist.pageNumber !== pageNumber) {
-                    renderCommandResultsPage(["Page Number <b>" + pageNumber + "</b> does not match with page number found: <b>" + exist.pageNumber + "</b>."])
+                    navigateTo('Superalgos', 'Topic', 'Docs Error Page Number Mismatch', 'Anchor Page Number Mismatch')
                     return
                 }
                 if (exist.topic !== topic) {
-                    renderCommandResultsPage(["Topic <b>" + topic + "</b> does not match with topic found: <b>" + exist.topic + "</b>."])
+                    navigateTo('Superalgos', 'Topic', 'Docs Error Topic Mismatch', 'Anchor Topic Mismatch')
                     return
                 }
             }

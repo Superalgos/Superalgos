@@ -1,0 +1,15 @@
+{
+    "topic": "Docs Basics",
+    "pageNumber": "6",
+    "type": "Docs Node Page",
+    "definition": {
+        "text": "Each node of each Project have a corresponding Node Page at the Docs, explaining everything to be known about that node.",
+        "updated": 1609182353739
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+        }
+    ]
+}

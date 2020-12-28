@@ -1,0 +1,33 @@
+{
+    "topic": "Docs Commands Errors",
+    "pageNumber": "14",
+    "type": "Docs Error Page Number Mismatch",
+    "definition": {
+        "text": "The Docs Page Number provided does not match with the Docs Page Number found at the page you want to delete. ",
+        "updated": 1609181698772
+    },
+    "paragraphs": [
+        {
+            "style": "Anchor",
+            "text": "Anchor Page Number Mismatch",
+            "updated": 1609181413876
+        },
+        {
+            "style": "Error",
+            "text": "Page Number Mismatch. The Docs Page Number provided does not match the Docs Page Number of the page to be deleted. ",
+            "updated": 1609181722190
+        },
+        {
+            "style": "Summary",
+            "text": "Check the page you want to delete and get the right page number to use at the command."
+        },
+        {
+            "style": "Title",
+            "text": "Applies to"
+        },
+        {
+            "style": "List",
+            "text": "Docs Delete Command"
+        }
+    ]
+}

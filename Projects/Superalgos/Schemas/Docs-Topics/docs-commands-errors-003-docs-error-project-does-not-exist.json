@@ -27,7 +27,16 @@
         },
         {
             "style": "List",
-            "text": "Docs Goto Command"
+            "text": "Docs Goto Command",
+            "updated": 1609180469767
+        },
+        {
+            "style": "List",
+            "text": "Docs Add Command"
+        },
+        {
+            "style": "List",
+            "text": "Docs Delete Command"
         }
     ]
 }

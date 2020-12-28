@@ -1965,6 +1965,18 @@ function newSuperalgosDocSpace() {
 
             function addDefinitionTable(docsSchemaDocument, idPrefix, category, project, type) {
                 if (docsSchemaDocument.definition !== undefined) {
+
+                    // DELETE
+                    if (docsSchemaDocument.definition.text === undefined) {
+                        docsSchemaDocument.definition = {
+                            text: docsSchemaDocument.definition
+                        }
+                    }
+
+
+
+
+
                     let definitionText = getTextBasedOnLanguage(docsSchemaDocument.definition)
                     definitionText = definitionText + addWarningIfTranslationIsOutdated(docsSchemaDocument.definition)
 

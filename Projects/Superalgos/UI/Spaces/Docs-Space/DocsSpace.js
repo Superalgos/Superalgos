@@ -1001,7 +1001,7 @@ function newSuperalgosDocSpace() {
             let splittedCommand = command.split(' ')
 
             if (splittedCommand[1] === undefined) {
-                renderCommandResultsPage(["Syntax error: Too few parameters. Use <i>help docs.goto</i> to learn this command syntax."])
+                navigateTo('Superalgos', 'Topic', 'Docs Command Errors', 'Anchor Too Few Paramenters')
                 return
             }
             let secondaryCommand = command.substring(command.indexOf(' ') + 1, command.length)
@@ -1012,7 +1012,7 @@ function newSuperalgosDocSpace() {
             let anchor = splittedSecondaryCommand[3]
 
             if (SCHEMAS_BY_PROJECT.get(project) === undefined) {
-                renderCommandResultsPage(["Project <b>" + project + "</b> does not exist."])
+                navigateTo('Superalgos', 'Topic', 'Docs Command Errors', 'Anchor Project Does Not Exist')
                 return
             }
             let docsSchemaDocument
@@ -3546,8 +3546,8 @@ function newSuperalgosDocSpace() {
 
     function addBold(text) {
         let splittedText = text.split(':')
-        if (splittedText.length > 1 && splittedText[1].length > 0) {
-            return '<b>' + splittedText[0] + ':' + '</b>' + splittedText[1]
+        if (text.indexOf(':' >= 0)) {
+            return '<b>' + text.substring(0, text.indexOf(':') + 1) + '</b>' + text.substring(text.indexOf(':') + 1, text.length)
         } else {
             return text
         }

@@ -51,9 +51,9 @@
             "text": "docs.goto Superalgos->Node->Task"
         },
         {
-            "style": "Javascript",
+            "style": "Json",
             "text": "docs.goto Superalgos->Topic->Docs Text Style->Anchor 1",
-            "updated": 1609151565628
+            "updated": 1609158328191
         }
     ]
 }

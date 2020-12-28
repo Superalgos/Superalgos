@@ -1,0 +1,66 @@
+{
+    "topic": "Docs Commands",
+    "pageNumber": "10",
+    "type": "Docs Command Errors",
+    "definition": {
+        "text": "While executing a command, you might receive different types of error messanges. These are described below. ",
+        "updated": 1609159174480
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The following is the complete list of errors you might find while executing Docs commands. In fact, once you get an error, you will be automatically sent to this page at the place the error is explained.",
+            "updated": 1609159398051
+        },
+        {
+            "style": "Anchor",
+            "text": "Anchor Too Few Paramenters"
+        },
+        {
+            "style": "Title",
+            "text": "Too few parameters"
+        },
+        {
+            "style": "Error",
+            "text": "Syntax error: Too few parameters.",
+            "updated": 1609160135644
+        },
+        {
+            "style": "Success",
+            "text": "Check the command syntax for a detailed list of parameters required."
+        },
+        {
+            "style": "Anchor",
+            "text": "Anchor Project Does Not Exist"
+        },
+        {
+            "style": "Title",
+            "text": "Project does not exist"
+        },
+        {
+            "style": "Error",
+            "text": "The Project you have specified, does not exist. ",
+            "updated": 1609160205674
+        },
+        {
+            "style": "Success",
+            "text": "Check that you typed the Project name correctly. Project names are key-sensitive."
+        },
+        {
+            "style": "Text",
+            "text": "3"
+        },
+        {
+            "style": "Text",
+            "text": "4"
+        },
+        {
+            "style": "Text",
+            "text": "5"
+        },
+        {
+            "style": "Text",
+            "text": "6"
+        }
+    ]
+}

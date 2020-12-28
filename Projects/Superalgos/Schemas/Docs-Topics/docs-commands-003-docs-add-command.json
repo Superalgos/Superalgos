@@ -3,7 +3,8 @@
     "pageNumber": "3",
     "type": "Docs Add Command",
     "definition": {
-        "text": "Write here a summary for this topic page."
+        "text": "Use this command to add a new page to the Docs.",
+        "updated": 1609151813687
     },
     "paragraphs": [
         {

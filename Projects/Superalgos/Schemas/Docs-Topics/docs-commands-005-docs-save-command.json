@@ -3,7 +3,8 @@
     "pageNumber": "5",
     "type": "Docs Save Command",
     "definition": {
-        "text": "Write here a summary for this topic page."
+        "text": "Use this command to save the changes you have done while adding, deleting or editing paragraphs at the Docs; or adding or deleting pages. ",
+        "updated": 1609152030934
     },
     "paragraphs": [
         {

@@ -993,18 +993,7 @@ function newSuperalgosDocSpace() {
 
         function checkGotoCommand() {
             if (command.toLowerCase() === 'docs.help docs.goto') {
-                renderCommandResultsPage(
-                    [
-                        "<b>docs.goto</b> command syntax: ",
-                        "Option 1: <i>docs.goto</i> Project Name->Node->Node Type[->Anchor Name]",
-                        "Example: docs.goto Superalgos->Node->Task Manager",
-                        "Option 2: <i>docs.goto</i> Project Name->Concept->Concept Name[->Anchor Name]",
-                        "Example: docs.goto Superalgos->Concept->Attaching Nodes->Anchor 1",
-                        "Option 3: <i>docs.goto</i> Project Name->Topic->Topic Page Name[->Anchor Name]",
-                        "Example: docs.goto Superalgos->Topic->Contributing Code->Anchor 3",
-                        "Use this command jump into a Node, Concept or Topic page or an Anchor defined withing that page."
-                    ]
-                )
+                navigateTo('Superalgos', 'Topic', 'Docs Goto Command')
                 return
             }
             if (command.indexOf('Docs.Goto') !== 0 && command.indexOf('docs.goto') !== 0) { return 'Not Goto Command' }
@@ -1059,17 +1048,7 @@ function newSuperalgosDocSpace() {
 
         function checkAddCommand() {
             if (command.toLowerCase() === 'docs.help docs.add') {
-                renderCommandResultsPage(
-                    [
-                        "<b>docs.add</b> command syntax: ",
-                        "Option 1: <i>docs.add</i> Node <i>to</i> Project: Node Type",
-                        "Example: docs.add Node to Superalgos: Task Manager",
-                        "Option 2: <i>docs.add</i> Concept <i>to</i> Project: Concept Name",
-                        "Example: docs.add Concept to Superalgos: Attaching Nodes",
-                        "Option 3: <i>docs.add</i> Topic <i>to</i> Project: Topic->Section Name->Page Number",
-                        "Example: docs.add Topic to Superalgos: Contributing->Code->2"
-                    ]
-                )
+                navigateTo('Superalgos', 'Topic', 'Docs Add Command')
                 return
             }
             if (command.indexOf('Docs.Add') !== 0 && command.indexOf('docs.add') !== 0) { return 'Not Add Command' }
@@ -1134,17 +1113,7 @@ function newSuperalgosDocSpace() {
 
         function checkDeleteCommand() {
             if (command.toLowerCase() === 'docs.help docs.delete') {
-                renderCommandResultsPage(
-                    [
-                        "<b>docs.delete</b> command syntax: ",
-                        "Option 1: <i>docs.delete</i> Node <i>from</i> Project: Node Type",
-                        "Example: docs.delete Node from Superalgos: Task Manager",
-                        "Option 2: <i>docs.delete</i> Concept <i>from</i> Project: Concept Name",
-                        "Example: docs.delete Concept from Superalgos: Attaching Nodes",
-                        "Option 3: <i>docs.delete</i> Topic <i>from</i> Project: Topic->Section Name->Page Number",
-                        "Example: docs.delete Topic from Superalgos: Contributing->Code->2"
-                    ]
-                )
+                navigateTo('Superalgos', 'Topic', 'Docs Delete Command')
                 return
             }
             if (command.indexOf('Docs.Delete') !== 0 && command.indexOf('docs.delete') !== 0) { return 'Not Delete Command' }

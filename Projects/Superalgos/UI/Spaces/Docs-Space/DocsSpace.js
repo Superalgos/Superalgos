@@ -639,10 +639,16 @@ function newSuperalgosDocSpace() {
         To not destroy the DOM structure we will use a clone.
         */
         paragraphNode = paragraphNode.cloneNode(true)
-        for (let i = 0; i < paragraphNode.childNodes.length; i++) {
-            let childNode = paragraphNode.childNodes[i]
-            if (childNode.className === "docs-tooltip") {
-                childNode.innerText = childNode.childNodes[0].data
+        scanNodeChildren(paragraphNode)
+        function scanNodeChildren(node) {
+            if (node.childNodes === undefined) { return }
+            for (let i = 0; i < node.childNodes.length; i++) {
+                let childNode = node.childNodes[i]
+                if (childNode.className === "docs-tooltip") {
+                    childNode.innerText = childNode.childNodes[0].data
+                } else {
+                    scanNodeChildren(childNode)
+                }
             }
         }
         /*
@@ -2897,10 +2903,10 @@ function newSuperalgosDocSpace() {
                         role = ''
                         key = key + '-text'
                         innerHTML = getTextBasedOnLanguage(paragraph)
+                        innerHTML = addToolTips(innerHTML)
                         innerHTML = addBold(innerHTML)
                         innerHTML = addCodeToCamelCase(innerHTML)
                         innerHTML = addItalics(innerHTML)
-                        innerHTML = addToolTips(innerHTML)
                         innerHTML = innerHTML + addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
@@ -2928,8 +2934,8 @@ function newSuperalgosDocSpace() {
                         role = 'role="alert"'
                         key = key + '-note'
                         innerHTML = getTextBasedOnLanguage(paragraph)
-                        innerHTML = addItalics(innerHTML)
                         innerHTML = addToolTips(innerHTML)
+                        innerHTML = addItalics(innerHTML)
                         innerHTML = innerHTML + addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
@@ -2939,8 +2945,8 @@ function newSuperalgosDocSpace() {
                         role = 'role="alert"'
                         key = key + '-success'
                         innerHTML = getTextBasedOnLanguage(paragraph)
-                        innerHTML = addItalics(innerHTML)
                         innerHTML = addToolTips(innerHTML)
+                        innerHTML = addItalics(innerHTML)
                         innerHTML = innerHTML + addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
@@ -2950,8 +2956,8 @@ function newSuperalgosDocSpace() {
                         role = 'role="alert"'
                         key = key + '-important'
                         innerHTML = getTextBasedOnLanguage(paragraph)
-                        innerHTML = addItalics(innerHTML)
                         innerHTML = addToolTips(innerHTML)
+                        innerHTML = addItalics(innerHTML)
                         innerHTML = innerHTML + addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
@@ -2961,8 +2967,8 @@ function newSuperalgosDocSpace() {
                         role = 'role="alert"'
                         key = key + '-warning'
                         innerHTML = getTextBasedOnLanguage(paragraph)
-                        innerHTML = addItalics(innerHTML)
                         innerHTML = addToolTips(innerHTML)
+                        innerHTML = addItalics(innerHTML)
                         innerHTML = innerHTML + addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
@@ -2981,8 +2987,8 @@ function newSuperalgosDocSpace() {
                         role = ''
                         key = key + '-callout'
                         innerHTML = getTextBasedOnLanguage(paragraph)
-                        innerHTML = addItalics(innerHTML)
                         innerHTML = addToolTips(innerHTML)
+                        innerHTML = addItalics(innerHTML)
                         innerHTML = innerHTML + addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
@@ -2992,8 +2998,8 @@ function newSuperalgosDocSpace() {
                         role = ''
                         key = key + '-summary'
                         innerHTML = getTextBasedOnLanguage(paragraph)
-                        innerHTML = addItalics(innerHTML)
                         innerHTML = addToolTips(innerHTML)
+                        innerHTML = addItalics(innerHTML)
                         innerHTML = innerHTML + addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
@@ -3004,10 +3010,10 @@ function newSuperalgosDocSpace() {
                         role = ''
                         key = key + '-list'
                         innerHTML = getTextBasedOnLanguage(paragraph)
+                        innerHTML = addToolTips(innerHTML)
                         innerHTML = addBold(innerHTML)
                         innerHTML = addCodeToCamelCase(innerHTML)
                         innerHTML = addItalics(innerHTML)
-                        innerHTML = addToolTips(innerHTML)
                         innerHTML = innerHTML + addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
@@ -3018,9 +3024,9 @@ function newSuperalgosDocSpace() {
                         role = ''
                         key = key + '-table'
                         innerHTML = getTextBasedOnLanguage(paragraph)
+                        innerHTML = addToolTips(innerHTML)
                         innerHTML = parseTable(innerHTML)
                         innerHTML = addItalics(innerHTML)
-                        innerHTML = addToolTips(innerHTML)
                         break
                     }
                     case 'Hierarchy': {

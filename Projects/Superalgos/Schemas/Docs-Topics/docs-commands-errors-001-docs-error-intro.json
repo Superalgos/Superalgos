@@ -1,0 +1,16 @@
+{
+    "topic": "Docs Commands Errors",
+    "pageNumber": "1",
+    "type": "Docs Error Intro",
+    "definition": {
+        "text": "While executing a command, you might receive different types of error messanges. These are described below. ",
+        "updated": 1609159174480
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The following is the complete list of errors you might find while executing Docs commands. In fact, once you get an error, you will be automatically sent to this page at the place the error is explained.",
+            "updated": 1609159398051
+        }
+    ]
+}

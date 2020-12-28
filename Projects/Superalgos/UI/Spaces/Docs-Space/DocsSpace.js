@@ -1004,7 +1004,7 @@ function newSuperalgosDocSpace() {
             let splittedCommand = command.split(' ')
 
             if (splittedCommand[1] === undefined) {
-                navigateTo('Superalgos', 'Topic', 'Docs Command Errors', 'Anchor Too Few Paramenters')
+                navigateTo('Superalgos', 'Topic', 'Docs Error Too Few Parameters', 'Anchor Too Few Paramenters')
                 return
             }
             let secondaryCommand = command.substring(command.indexOf(' ') + 1, command.length)
@@ -1015,7 +1015,7 @@ function newSuperalgosDocSpace() {
             let anchor = splittedSecondaryCommand[3]
 
             if (SCHEMAS_BY_PROJECT.get(project) === undefined) {
-                navigateTo('Superalgos', 'Topic', 'Docs Command Errors', 'Anchor Project Does Not Exist')
+                navigateTo('Superalgos', 'Topic', 'Docs Error Project Does Not Exist', 'Anchor Project Does Not Exist')
                 return
             }
             let docsSchemaDocument
@@ -1033,16 +1033,16 @@ function newSuperalgosDocSpace() {
                     break
                 }
                 default: {
-                    navigateTo('Superalgos', 'Topic', 'Docs Command Errors', 'Anchor Category Not Valid')
+                    navigateTo('Superalgos', 'Topic', 'Docs Error Category Not Valid', 'Anchor Category Not Valid')
                     return
                 }
             }
             if (docsSchemaDocument === undefined) {
-                navigateTo('Superalgos', 'Topic', 'Docs Command Errors', 'Anchor Page Not Found')
+                navigateTo('Superalgos', 'Topic', 'Docs Error Page Not Found', 'Anchor Page Not Found')
                 return
             }
             if (docsSchemaDocument.paragraphs === undefined) {
-                navigateTo('Superalgos', 'Topic', 'Docs Command Errors', 'Anchor Page With No Paragraphs')
+                navigateTo('Superalgos', 'Topic', 'Docs Error Page With No Paragraphs', 'Anchor Page With No Paragraphs')
                 return
             }
             navigateTo(project, category, type, anchor, undefined)
@@ -1887,7 +1887,7 @@ function newSuperalgosDocSpace() {
             /* Title */
             let titleLabel = ''
             if (docsSchemaDocument.topic !== undefined) {
-                titleLabel = docsSchemaDocument.topic + ' #' + docsSchemaDocument.pageNumber + ' - ' + docsSchemaDocument.type
+                titleLabel = docsSchemaDocument.topic + ' - Page ' + docsSchemaDocument.pageNumber + '<br>' + docsSchemaDocument.type
             } else {
                 titleLabel = docsSchemaDocument.type
             }
@@ -1923,18 +1923,6 @@ function newSuperalgosDocSpace() {
 
             function addDefinitionTable(docsSchemaDocument, idPrefix, category, project, type) {
                 if (docsSchemaDocument.definition !== undefined) {
-
-                    // DELETE
-                    /*
-                    if (docsSchemaDocument.definition.text === undefined) {
-                        docsSchemaDocument.definition = {
-                            text: docsSchemaDocument.definition
-                        }
-                    }
-*/
-
-
-
 
                     let definitionText = getTextBasedOnLanguage(docsSchemaDocument.definition)
                     definitionText = definitionText + addWarningIfTranslationIsOutdated(docsSchemaDocument.definition)

@@ -1,0 +1,33 @@
+{
+    "topic": "Docs Commands Errors",
+    "pageNumber": "3",
+    "type": "Docs Error Project Does Not Exist",
+    "definition": {
+        "text": "While executing a command, you might receive different types of error messanges. These are described below. ",
+        "updated": 1609159174480
+    },
+    "paragraphs": [
+        {
+            "style": "Anchor",
+            "text": "Anchor Project Does Not Exist"
+        },
+        {
+            "style": "Error",
+            "text": "The Project you have specified, does not exist. ",
+            "updated": 1609160205674
+        },
+        {
+            "style": "Success",
+            "text": "Check that you typed the Project name correctly. Project names are key-sensitive."
+        },
+        {
+            "style": "Title",
+            "text": "Applies to",
+            "updated": 1609162883325
+        },
+        {
+            "style": "List",
+            "text": "Docs Goto Command"
+        }
+    ]
+}

@@ -1,0 +1,33 @@
+{
+    "topic": "Docs Commands Errors",
+    "pageNumber": "5",
+    "type": "Docs Error Page Not Found",
+    "definition": {
+        "text": "While executing a command, you might receive different types of error messanges. These are described below. ",
+        "updated": 1609159174480
+    },
+    "paragraphs": [
+        {
+            "style": "Anchor",
+            "text": "Anchor Page Not Found"
+        },
+        {
+            "style": "Error",
+            "text": "The Docs Page Name you have specified could not be found in the collection of pages of the Docs Page Category you provided."
+        },
+        {
+            "style": "Success",
+            "text": "Double check that the Docs Page Name is spelled correctly and that it belongs to the Docs Page Category provided. ",
+            "updated": 1609161473688
+        },
+        {
+            "style": "Title",
+            "text": "Applies to",
+            "updated": 1609162829457
+        },
+        {
+            "style": "List",
+            "text": "Docs Goto Command"
+        }
+    ]
+}

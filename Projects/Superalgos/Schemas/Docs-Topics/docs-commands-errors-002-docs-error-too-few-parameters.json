@@ -1,0 +1,34 @@
+{
+    "topic": "Docs Commands Errors",
+    "pageNumber": "2",
+    "type": "Docs Error Too Few Parameters",
+    "definition": {
+        "text": "While executing a command, you might receive different types of error messanges. These are described below. ",
+        "updated": 1609159174480
+    },
+    "paragraphs": [
+        {
+            "style": "Anchor",
+            "text": "Anchor Too Few Paramenters"
+        },
+        {
+            "style": "Error",
+            "text": "Syntax error: Too few parameters.",
+            "updated": 1609160135644
+        },
+        {
+            "style": "Success",
+            "text": "  Check the command syntax for a detailed list of parameters required.",
+            "updated": 1609160562426
+        },
+        {
+            "style": "Title",
+            "text": "Applies to",
+            "updated": 1609162906747
+        },
+        {
+            "style": "List",
+            "text": "Docs Goto Command"
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+{
+    "topic": "Docs Commands Errors",
+    "pageNumber": "4",
+    "type": "Docs Error Category Not Valid",
+    "definition": {
+        "text": "While executing a command, you might receive different types of error messanges. These are described below. ",
+        "updated": 1609159174480
+    },
+    "paragraphs": [
+        {
+            "style": "Anchor",
+            "text": "Anchor Category Not Valid"
+        },
+        {
+            "style": "Error",
+            "text": "The category you have specidied is not a valid Docs Page Category.",
+            "updated": 1609160924575
+        },
+        {
+            "style": "Success",
+            "text": " Valid categories are: Node, Concept and Topic. This parameter is key-sensitive.",
+            "updated": 1609161108040
+        },
+        {
+            "style": "Title",
+            "text": "Applies to",
+            "updated": 1609162854123
+        },
+        {
+            "style": "List",
+            "text": "Docs Goto Command"
+        }
+    ]
+}

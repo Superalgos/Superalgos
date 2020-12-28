@@ -1178,14 +1178,7 @@ function newSuperalgosDocSpace() {
 
         function checkUReIndexCommand() {
             if (command.toLowerCase() === 'docs.help docs.reindex') {
-                renderCommandResultsPage(
-                    [
-                        "<b>docs.reindex</b> command syntax: ",
-                        "Option 1: <i>docs.reindex</i>",
-                        "Use this command after you modified the Docs content and would like re-index the information so that changes are reflected during search. You can also use this command after you have modified the current workspace and you would like it's nodes to be re-indexed to reflect the changes at the search results. Naturally, the system will re-index all the available information every time you switch workspaces or you refresh the UI page.",
-                        "Expect this command execution to last for a minute or so, depending on the size of the workspace."
-                    ]
-                )
+                navigateTo('Superalgos', 'Topic', 'Docs Reindex Command')
                 return
             }
             if (command.indexOf('Docs.Reindex') !== 0 && command.indexOf('docs.reindex') !== 0) { return 'Not Reindex Command' }
@@ -1199,13 +1192,7 @@ function newSuperalgosDocSpace() {
 
         function checkUSaveCommand() {
             if (command.toLowerCase() === 'docs.help docs.save') {
-                renderCommandResultsPage(
-                    [
-                        "<b>docs.save</b> command syntax: ",
-                        "Option 1: <i>docs.save</i>",
-                        "Use this command after you modified the Docs content and would like save your changes at your Superalgos Client's disk. If you would like to contribute those changes to the project they belong to, you can later commit those changes and they will end up at your Superalgos repository fork. The final step then is to submit a pull request so that those changes are reviewed and merged into the next release of Superalgos."
-                    ]
-                )
+                navigateTo('Superalgos', 'Topic', 'Docs Save Command')
                 return
             }
             if (command.indexOf('Docs.Save') !== 0 && command.indexOf('docs.save') !== 0) { return 'Not Save Command' }

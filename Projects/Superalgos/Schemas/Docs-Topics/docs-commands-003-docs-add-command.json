@@ -7,8 +7,93 @@
     },
     "paragraphs": [
         {
+            "style": "Title",
+            "text": "Syntax:",
+            "updated": 1609149769070
+        },
+        {
             "style": "Text",
-            "text": "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+            "text": "Option 1: ",
+            "updated": 1609149432117
+        },
+        {
+            "style": "Javascript",
+            "text": "docs.add Node to Project: Docs Page Name",
+            "updated": 1609149799453
+        },
+        {
+            "style": "Text",
+            "text": "Example: ",
+            "updated": 1609149442319
+        },
+        {
+            "style": "Javascript",
+            "text": "docs.add Node to Superalgos"
+        },
+        {
+            "style": "Text",
+            "text": "Option 2: ",
+            "updated": 1609149450546
+        },
+        {
+            "style": "Json",
+            "text": "docs.add Concept to Project: Docs Page Name",
+            "updated": 1609149807897
+        },
+        {
+            "style": "Text",
+            "text": "Example: ",
+            "updated": 1609149457691
+        },
+        {
+            "style": "Json",
+            "text": "docs.add Concept to Superalgos"
+        },
+        {
+            "style": "Text",
+            "text": "Option 3: ",
+            "updated": 1609149464103
+        },
+        {
+            "style": "Json",
+            "text": "docs.add Topic to Project: Docs Topic Name->Docs Page Name->Docs Page Number",
+            "updated": 1609149846658
+        },
+        {
+            "style": "Text",
+            "text": "Example: ",
+            "updated": 1609149471266
+        },
+        {
+            "style": "Json",
+            "text": "docs.add Topic to Superalgos: Docs Styles->Docs Text Style->1",
+            "updated": 1609149878993
+        },
+        {
+            "style": "Text",
+            "text": "Where:"
+        },
+        {
+            "style": "Text",
+            "text": "Project : Is the project where the Node, Concept or Topic is defined."
+        },
+        {
+            "style": "Text",
+            "text": "Docs Page Category : Node, Concept or Topic."
+        },
+        {
+            "style": "Text",
+            "text": "Docs Topic Name: The name of the topic which the new page will belong to.",
+            "updated": 1609149944222
+        },
+        {
+            "style": "Text",
+            "text": "Docs Page Name : For Nodes it is the type of node, for Concepts, the concept name, for topics, the topic's page name."
+        },
+        {
+            "style": "Text",
+            "text": "Docs Page Numer: A page number that you would like to assing the new page. This will impact only at the position of the Topic Index.",
+            "updated": 1609149987475
         }
     ]
 }

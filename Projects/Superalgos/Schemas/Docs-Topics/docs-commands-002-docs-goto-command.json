@@ -35,7 +35,11 @@
         {
             "style": "List",
             "text": "Docs Page Name : For Nodes it is the type of node, for Concepts, the concept name, for topics, the topic's page name.",
-            "updated": 1609148969954
+            "updated": 1609149220268
+        },
+        {
+            "style": "List",
+            "text": "Docs Page Anchor : This parameter is optional. If present, it refers to an Docs Anchor paragraph defined within the page."
         },
         {
             "style": "Title",

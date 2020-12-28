@@ -612,20 +612,12 @@ function newSuperalgosDocSpace() {
 
         for (let i = 1; i < 10; i++) {
             if (paragraphNode === undefined || paragraphNode === null) { return false }
-            if (paragraphNode.id === undefined || paragraphNode.id.indexOf('paragraph') < 0) {
+            if (paragraphNode.id === undefined || paragraphNode.id.indexOf('editable-paragraph') < 0) {
                 paragraphNode = paragraphNode.parentNode
                 if (paragraphNode === undefined) { return false }
             }
         }
-        if (paragraphNode.id === undefined || paragraphNode.id.indexOf('paragraph') < 0) {
-            return false
-        }
-
-        /*
-        We woont continue unless the paragraph the mouse is pointnig at was
-        tagged as an editable paragraph.
-        */
-        if (paragraphNode.id.indexOf('editable-paragraph') < 0) {
+        if (paragraphNode.id === undefined || paragraphNode.id.indexOf('editable-paragraph') < 0) {
             return false
         }
         /*
@@ -1039,7 +1031,7 @@ function newSuperalgosDocSpace() {
                 return
             }
             if (docsSchemaDocument.paragraphs === undefined) {
-                renderCommandResultsPage([category + " <b>" + type + "</b> has no paragraphs."])
+                navigateTo('Superalgos', 'Topic', 'Docs Command Errors', 'Anchor Page With No Paragraphs')
                 return
             }
             navigateTo(project, category, type, anchor, undefined)

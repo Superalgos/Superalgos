@@ -1,9 +1,10 @@
 {
     "topic": "Nodes",
-    "pageNumber": "11",
-    "type": "Reference Parent",
+    "pageNumber": "10",
+    "type": "Node's Icon",
     "definition": {
-        "text": "Write here a summary for this topic page."
+        "text": "Each Node must have a icon, that is the one that represents the Node at the Desing Space.",
+        "updated": 1609237637368
     },
     "paragraphs": [
         {

@@ -3,7 +3,8 @@
     "pageNumber": "2",
     "type": "Node's Type",
     "definition": {
-        "text": "Write here a summary for this topic page."
+        "text": "Each Node is of a certain type. It's type defines what the Node can be used for, the Node's Menu, to which other nodes it can attach to, and may other properties that are dependent on the Node's Type At the Design Space, the type of the node is displayed below the Node's Icon.    ",
+        "updated": 1609236288974
     },
     "paragraphs": [
         {

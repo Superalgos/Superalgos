@@ -1,9 +1,10 @@
 {
     "topic": "Nodes",
-    "pageNumber": "10",
+    "pageNumber": "11",
     "type": "Parent Node",
     "definition": {
-        "text": "Write here a summary for this topic page."
+        "text": "The Parent Node of a certain Node A, is the Node who was used to create A. Nodes are automatically attached to their Parent Node. Not all nodes have a Parent Node.  ",
+        "updated": 1609239430453
     },
     "paragraphs": [
         {

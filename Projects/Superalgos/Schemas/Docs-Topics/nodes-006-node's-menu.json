@@ -3,7 +3,8 @@
     "pageNumber": "6",
     "type": "Node's Menu",
     "definition": {
-        "text": "Write here a summary for this topic page."
+        "text": "Nodes usually have a menu that allows users to interact with the node. Each Node's Type can have a different set of menu items. ",
+        "updated": 1609236892270
     },
     "paragraphs": [
         {

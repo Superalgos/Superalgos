@@ -1,10 +1,9 @@
 {
     "topic": "Nodes",
-    "pageNumber": "8",
-    "type": "Node's Attaching Rules",
+    "pageNumber": "12",
+    "type": "Reference Parent",
     "definition": {
-        "text": "Each Node's Type can have a set of rules that defines to which Node's Type it can attach itself to.",
-        "updated": 1609237513121
+        "text": "Write here a summary for this topic page."
     },
     "paragraphs": [
         {

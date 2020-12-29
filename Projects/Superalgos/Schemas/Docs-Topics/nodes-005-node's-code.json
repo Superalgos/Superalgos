@@ -3,7 +3,8 @@
     "pageNumber": "5",
     "type": "Node's Code",
     "definition": {
-        "text": "Write here a summary for this topic page."
+        "text": "Nodes might have code inside of them. When they do, they usually allow users to access and modify it via one of the Node's Menu items. The code stored at a node is later used at Tasks or Bots during their processing.",
+        "updated": 1609236689695
     },
     "paragraphs": [
         {

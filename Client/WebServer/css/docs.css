@@ -66,11 +66,9 @@ display: table;
 }
 
 .docs-image-container {
-padding: 5px 15px 5px 5px;
+
+padding: 5px 0px 5px 5px;
 border: solid 0px;
-margin-left: auto;
-margin-right: auto;
-width: 100%;
 display: table-cell;
 }
 

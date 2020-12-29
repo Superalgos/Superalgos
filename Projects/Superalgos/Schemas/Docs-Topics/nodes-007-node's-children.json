@@ -8,8 +8,13 @@
     },
     "paragraphs": [
         {
+            "style": "Title",
+            "text": "Children Nodes Properties",
+            "updated": 1609242892197
+        },
+        {
             "style": "Text",
-            "text": "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+            "text": "Each type of node might have children. If they do, a reference to the children will be present at runtime at one or more properties of the node object. There is no generic childrenNodes property (like in HTML) with an array of children nodes. Instead what we can find is that each Node's Type defines which properties will hold those children references."
         }
     ]
 }

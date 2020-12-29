@@ -19,24 +19,24 @@
     },
     "paragraphs": [
         {
-            "style": "Text",
+            "style": "Important",
             "text": "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Task",
             "translations": [
                 {
                     "language": "RU",
                     "text": "Esto esta escrito en ruso.",
-                    "style": "Text"
+                    "style": "Important"
                 },
                 {
                     "language": "ES",
                     "text": "Esto esta en espaniol.",
-                    "style": "Text"
+                    "style": "Important"
                 }
             ],
             "updated": 1609142715653
         },
         {
-            "style": "Text",
+            "style": "List",
             "text": "Vaina 1 Hello What's up? Node's Type",
             "updated": 1609232016451,
             "translations": [
@@ -44,7 +44,7 @@
                     "language": "ES",
                     "text": "Vaina 1 Hola. Que hay?",
                     "updated": 1609084602600,
-                    "style": "Text"
+                    "style": "List"
                 }
             ]
         },

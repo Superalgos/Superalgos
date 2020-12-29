@@ -2097,7 +2097,7 @@ function newSuperalgosDocSpace() {
                     let includedSchemaDocument
 
                     if (SCHEMAS_BY_PROJECT.get(project) === undefined) {
-                        return 'Include Paragraph Style Syntax Error. The Project <i>' + project + '</i> could not be found. Check the Docs Include Style Syntax to learn how to include paragraphs from a different page. This error message will dissapear as soon as you fix the problem.'
+                        return 'Include paragraph style Syntax Error. The Project <i>' + project + '</i> could not be found. Check the Docs Include Style Syntax to learn how to include paragraphs from a different page. This error message will dissapear as soon as you fix the problem.'
                     }
                     switch (category) {
                         case 'Node': {

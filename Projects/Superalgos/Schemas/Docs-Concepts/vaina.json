@@ -73,11 +73,7 @@
             "text": "Block #2"
         },
         {
-            "style": "Text",
-            "text": "Vaina Paragraph 4"
-        },
-        {
-            "style": "Include",
+            "style": "Title",
             "text": "Anchor 1"
         },
         {

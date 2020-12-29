@@ -1,0 +1,15 @@
+{
+    "topic": "Docs Context Menu Actions",
+    "pageNumber": "3",
+    "type": "Docs Action Copy To Clipboard",
+    "definition": {
+        "text": "This allows you to easily copy the text of any paragraph into your computer's clipboard. It is specially useful for pagragraphs of Docs Anchor Style or of Docs Block Style to get the string needed to execute the Docs Goto Command in the first case or to use it at a Docs Include Style in the second case.",
+        "updated": 1609262148454
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+        }
+    ]
+}

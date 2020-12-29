@@ -1934,7 +1934,7 @@ function newSuperalgosDocSpace() {
                 titleLabel = docsSchemaDocument.type
             }
 
-            HTML = HTML + '<div id="docs-main-title-div"><table class="docs-title-table"><tr><td width="50px"><div id="projectImageDiv" class="docs-image-container"/></td><td><h2 class="docs-h2" id="' + objectBeingRendered.type.toLowerCase().replace(' ', '-') + '" > ' + titleLabel + '</h2></td></tr></table></div>'
+            HTML = HTML + '<div id="docs-main-title-div" class="docs-title-table"><div class="docs-table-cell"><h2 class="docs-h2" id="' + objectBeingRendered.type.toLowerCase().replace(' ', '-') + '" > ' + titleLabel + '</h2></div><div id="projectImageDiv" class="docs-image-container"/></div>'
 
             addDefinitionTable(docsSchemaDocument, 'definition-editable-', objectBeingRendered.category, objectBeingRendered.project, objectBeingRendered.type)
 

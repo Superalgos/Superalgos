@@ -46,6 +46,11 @@ border: 0px solid #dedede;
 padding: 5px;
 }
 
+.docs-table-cell{
+  display: table-cell;
+  width: 100%;
+}
+
 .docs-definition-table {
 background-color: #f9f9f9;
 vertical-align: middle;
@@ -57,6 +62,7 @@ margin-top: 20px;
 margin-right: 20px;
 border: 1px solid #dedede;
 padding: 10px;
+display: table;
 }
 
 .docs-image-container {
@@ -65,6 +71,7 @@ border: solid 0px;
 margin-left: auto;
 margin-right: auto;
 width: 100%;
+display: table-cell;
 }
 
 .docs-hierarchy-image-container {

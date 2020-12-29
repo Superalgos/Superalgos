@@ -1752,7 +1752,7 @@ function newSuperalgosDocSpace() {
         objectBeingRendered = {
             project: project,
             category: category,
-            type: type,
+            type: type.replace('AMPERSAND', '\''),
             anchor: anchor,
             nodeId: nodeId
         }
@@ -1769,7 +1769,7 @@ function newSuperalgosDocSpace() {
         objectBeingRendered = {
             project: project,
             category: category,
-            type: type,
+            type: type.replace('AMPERSAND', '\''),
             anchor: anchor,
             nodeId: nodeId
         }
@@ -3682,7 +3682,7 @@ function newSuperalgosDocSpace() {
             if (definition === undefined || definition === "") {
                 let tooltip = LINK_ONLY_HTML
                     .replace('CATEGORY', category)
-                    .replace('TYPE', type)
+                    .replace('TYPE', type.replace(/'/g, 'AMPERSAND'))
                     .replace('PROJECT', project)
                     .replace('TYPE_LABEL', type)
 
@@ -3690,7 +3690,7 @@ function newSuperalgosDocSpace() {
             } else {
                 let tooltip = TOOL_TIP_HTML
                     .replace('CATEGORY', category)
-                    .replace('TYPE', type)
+                    .replace('TYPE', type.replace(/'/g, 'AMPERSAND'))
                     .replace('PROJECT', project)
                     .replace('TYPE_LABEL', type)
                     .replace('DEFINITION', definition)

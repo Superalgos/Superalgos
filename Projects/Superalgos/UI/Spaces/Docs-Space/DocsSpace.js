@@ -3577,7 +3577,7 @@ function newSuperalgosDocSpace() {
 
     function addBold(text) {
         let splittedText = text.split(':')
-        if (text.indexOf(':' >= 0)) {
+        if (text.indexOf(':') >= 0) {
             return '<b>' + text.substring(0, text.indexOf(':') + 1) + '</b>' + text.substring(text.indexOf(':') + 1, text.length)
         } else {
             return text

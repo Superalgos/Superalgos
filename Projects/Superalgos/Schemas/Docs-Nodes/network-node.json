@@ -37,32 +37,13 @@
             "text": "Select Configure on the menu to access the configuration."
         },
         {
-            "style": "Text",
-            "text": "{"
-        },
-        {
-            "style": "Text",
-            "text": "\"host\": \"localhost\","
-        },
-        {
-            "style": "Text",
-            "text": "\"webPort\": \"34248\","
-        },
-        {
-            "style": "Text",
-            "text": "\"webSocketsPort\": \"18041\""
-        },
-        {
-            "style": "Text",
-            "text": "}"
-        },
-        {
             "style": "List",
             "text": "host is the machine or hardware represented by the network node. The default parameter is localhost, but if you intend to access the backend services of this node from a remote computer, then you must change localhost for the IP Address of the machine on which the node is running, for example, to 147.0.0.1."
         },
         {
             "style": "List",
-            "text": "webPort is the port used by the Web Server, at this stage 34248."
+            "text": "webPort is the port used by the Web Server, at this stage 34248.",
+            "updated": 1609247881896
         },
         {
             "style": "List",

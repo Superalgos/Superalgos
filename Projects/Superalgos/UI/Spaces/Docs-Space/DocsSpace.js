@@ -3358,8 +3358,10 @@ function newSuperalgosDocSpace() {
 
     function setTextBasedOnLanguage(paragraph, text) {
         if (language === DEFAULT_LANGUAGE) {
-            paragraph.text = text
-            paragraph.updated = (new Date()).valueOf()
+            if (paragraph.text !== text) {
+                paragraph.text = text
+                paragraph.updated = (new Date()).valueOf()
+            }
             return
         } else {
             /* 
@@ -3376,8 +3378,10 @@ function newSuperalgosDocSpace() {
         for (let i = 0; i < paragraph.translations.length; i++) {
             let translation = paragraph.translations[i]
             if (translation.language === language) {
-                translation.text = text
-                translation.updated = (new Date()).valueOf()
+                if (translation.text !== text) {
+                    translation.text = text
+                    translation.updated = (new Date()).valueOf()
+                }
                 return
             }
         }

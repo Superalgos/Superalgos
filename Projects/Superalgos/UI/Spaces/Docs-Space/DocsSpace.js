@@ -39,6 +39,7 @@ function newSuperalgosDocSpace() {
     let textArea
     let selectedParagraph
     let selectedParagraphData = ''
+    let selectedParagraphIndex = ''
     let selectedParagraphHeight = 0
     let objectBeingRendered
     let paragraphMap                    // Here we will store a map of paragraphs from the Docs Node, Concept or Topics Schema in order to find it when we need to update them.
@@ -78,6 +79,7 @@ function newSuperalgosDocSpace() {
         function setUpContextMenu() {
             window.contextMenu = {
                 editParagraph: editParagraph,
+                deleteParagraph: deleteParagraph,
                 toJavascript: toJavascript,
                 toJson: toJson,
                 toText: toText,
@@ -162,6 +164,14 @@ function newSuperalgosDocSpace() {
                     contextMenuForceOutClick()
                     enterEditMode()
                 }
+            }
+
+            function deleteParagraph() {
+                if (selectedParagraphIndex === undefined) { return }
+                if (selectedParagraphIndex === 0) { return }
+                docsSchemaDocument.paragraphs.splice(selectedParagraphIndex, 1)
+                contextMenuForceOutClick()
+                renderDocumentPage()
             }
 
             function toJavascript() {
@@ -651,6 +661,9 @@ function newSuperalgosDocSpace() {
                 }
             }
         }
+
+        /* Reset this */
+        selectedParagraphIndex = undefined
         /*
         Depending on the Style of Paragraph we will need to remove
         some info from the innerText. 
@@ -663,6 +676,14 @@ function newSuperalgosDocSpace() {
             }
             return true
         }
+        /*
+        Remeber the Selected Paragraph Index
+        */
+        let splittedId = paragraphNode.id.split('-')
+        selectedParagraphIndex = splittedId[splittedId.length - 2]
+        /*
+        Check the style of the Paragraph
+        */
         if (paragraphNode.id.indexOf('-text') >= 0) {
             selectedParagraphData = paragraphNode.innerText.trim()
             return true
@@ -2863,8 +2884,8 @@ function newSuperalgosDocSpace() {
                         role = ''
                         key = key + '-text'
                         innerHTML = getTextBasedOnLanguage(paragraph)
-                        innerHTML = addToolTips(innerHTML)
                         innerHTML = addCodeToCamelCase(innerHTML)
+                        innerHTML = addToolTips(innerHTML)
                         innerHTML = addItalics(innerHTML)
                         innerHTML = innerHTML + addWarningIfTranslationIsOutdated(paragraph)
                         break
@@ -2981,9 +3002,9 @@ function newSuperalgosDocSpace() {
                         role = ''
                         key = key + '-list'
                         innerHTML = getTextBasedOnLanguage(paragraph)
+                        innerHTML = addCodeToCamelCase(innerHTML)
                         innerHTML = addToolTips(innerHTML)
                         innerHTML = addBold(innerHTML)
-                        innerHTML = addCodeToCamelCase(innerHTML)
                         innerHTML = addItalics(innerHTML)
                         innerHTML = innerHTML + addWarningIfTranslationIsOutdated(paragraph)
                         break
@@ -3585,7 +3606,14 @@ function newSuperalgosDocSpace() {
     }
 
     function addCodeToCamelCase(text) {
-        let splittedText = text.split(' ')
+        let expandedText = text
+        .replaceAll('{',' { ')
+        .replaceAll('}',' } ')
+        .replaceAll('(',' ( ')
+        .replaceAll(')',' ) ')
+        .replaceAll('[',' [ ')
+        .replaceAll(']',' ] ')
+        let splittedText = expandedText.split(' ')
         let result = ''
         for (let i = 0; i < splittedText.length; i++) {
             let word = splittedText[i]
@@ -3598,6 +3626,13 @@ function newSuperalgosDocSpace() {
                 result = result + ' ' + word
             }
         }
+        result = result
+        .replaceAll(' { ','{')
+        .replaceAll(' } ','}')
+        .replaceAll(' ( ','(')
+        .replaceAll(' ) ',')')
+        .replaceAll(' [ ','[')
+        .replaceAll(' ] ',']')
         return result
     }
 

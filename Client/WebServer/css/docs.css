@@ -689,15 +689,20 @@ width: 95%;
 }
 
 .docs-hidden-block {
-color: #320db9;
-background-color: #6d9aee;
-border-color: #043783;
-padding: 15px;
-border: 1px solid transparent;
-border-radius: 4px;
-margin: 20px 0;
-width: 95%;
+border-top: 1px solid #f0f0f0;
+padding: 0px;
+margin: -5px 0 -20px 0;
+width: 100%;
+text-align: right;
+margin-right: 20px;
+color: transparent;
+font-size: 75%;
 }
+
+.docs-hidden-block::after{
+  content:' BLOCK';
+  color: #ddd;
+  }
 
 .docs-hidden-include {
 color: #880db9;

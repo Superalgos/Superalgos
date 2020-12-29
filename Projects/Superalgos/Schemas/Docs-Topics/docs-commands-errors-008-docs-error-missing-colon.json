@@ -19,8 +19,8 @@
         },
         {
             "style": "Success",
-            "text": "  Check the syntax of the command you are executing and see where to place the colon \":\" character.    ",
-            "updated": 1609176984237
+            "text": "   Check the syntax of the command you are executing and see where to place the colon \":\" character.  The character might not be detected if a space is not following it.    ",
+            "updated": 1609230445669
         },
         {
             "style": "Title",

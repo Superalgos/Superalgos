@@ -2843,7 +2843,6 @@ function newSuperalgosDocSpace() {
                         key = key + '-text'
                         innerHTML = getTextBasedOnLanguage(paragraph)
                         innerHTML = addToolTips(innerHTML)
-                        innerHTML = addBold(innerHTML)
                         innerHTML = addCodeToCamelCase(innerHTML)
                         innerHTML = addItalics(innerHTML)
                         innerHTML = innerHTML + addWarningIfTranslationIsOutdated(paragraph)

@@ -657,83 +657,104 @@ function newSuperalgosDocSpace() {
         */
         if (paragraphNode.id.indexOf('definition-') >= 0) {
             if (paragraphNode.id.indexOf('-summary') >= 0) {
-                selectedParagraphData = paragraphNode.innerText.substring(9, paragraphNode.innerText.length)
+                selectedParagraphData = paragraphNode.innerText.trim().substring(9, paragraphNode.innerText.length)
             } else {
                 selectedParagraphData = paragraphNode.innerText.trim()
             }
+            return true
         }
         if (paragraphNode.id.indexOf('-text') >= 0) {
             selectedParagraphData = paragraphNode.innerText.trim()
+            return true
         }
         if (paragraphNode.id.indexOf('-title') >= 0) {
             selectedParagraphData = paragraphNode.innerText.trim()
+            return true
         }
         if (paragraphNode.id.indexOf('-subtitle') >= 0) {
             selectedParagraphData = paragraphNode.innerText.trim()
+            return true
         }
         if (paragraphNode.id.indexOf('-note') >= 0) {
-            selectedParagraphData = paragraphNode.innerText.substring(6, paragraphNode.innerText.length)
+            selectedParagraphData = paragraphNode.innerText.trim().substring(6, paragraphNode.innerText.length)
+            return true
         }
         if (paragraphNode.id.indexOf('-success') >= 0) {
-            selectedParagraphData = paragraphNode.innerText.substring(5, paragraphNode.innerText.length)
+            selectedParagraphData = paragraphNode.innerText.trim().substring(5, paragraphNode.innerText.length)
+            return true
         }
         if (paragraphNode.id.indexOf('-important') >= 0) {
-            selectedParagraphData = paragraphNode.innerText.substring(11, paragraphNode.innerText.length)
+            selectedParagraphData = paragraphNode.innerText.trim().substring(11, paragraphNode.innerText.length)
+            return true
         }
         if (paragraphNode.id.indexOf('-warning') >= 0) {
-            selectedParagraphData = paragraphNode.innerText.substring(10, paragraphNode.innerText.length)
+            selectedParagraphData = paragraphNode.innerText.trim().substring(10, paragraphNode.innerText.length)
+            return true
         }
         if (paragraphNode.id.indexOf('-error') >= 0) {
-            selectedParagraphData = paragraphNode.innerText.substring(8, paragraphNode.innerText.length)
+            selectedParagraphData = paragraphNode.innerText.trim().substring(8, paragraphNode.innerText.length)
+            return true
         }
         if (paragraphNode.id.indexOf('-list') >= 0) {
             selectedParagraphData = paragraphNode.innerText.trim()
+            return true
         }
         if (paragraphNode.id.indexOf('-table') >= 0) {
             selectedParagraphData = reverseParseTable(paragraphNode.innerHTML)
+            return true
         }
         if (paragraphNode.id.indexOf('-hierarchy') >= 0) {
             selectedParagraphData = reverseParseHierarchy(paragraphNode.innerHTML)
+            return true
         }
         if (paragraphNode.id.indexOf('-gif') >= 0) {
             selectedParagraphData = reverseParseGIF(paragraphNode.innerHTML)
+            return true
         }
         if (paragraphNode.id.indexOf('-png') >= 0) {
             selectedParagraphData = reverseParsePNG(paragraphNode.innerHTML)
+            return true
         }
         if (paragraphNode.id.indexOf('-javascript') >= 0) {
-            selectedParagraphData = paragraphNode.innerText.substring(1, paragraphNode.innerText.length)
+            selectedParagraphData = paragraphNode.innerText.trim().substring(1, paragraphNode.innerText.length)
+            return true
         }
         if (paragraphNode.id.indexOf('-json') >= 0) {
-            selectedParagraphData = paragraphNode.innerText.substring(1, paragraphNode.innerText.length)
+            selectedParagraphData = paragraphNode.innerText.trim().substring(1, paragraphNode.innerText.length)
+            return true
         }
         if (paragraphNode.id.indexOf('-callout') >= 0) {
             selectedParagraphData = paragraphNode.innerText.trim()
+            return true
         }
         if (paragraphNode.id.indexOf('-summary') >= 0) {
-            selectedParagraphData = paragraphNode.innerText.substring(9, paragraphNode.innerText.length)
+            selectedParagraphData = paragraphNode.innerText.trim().substring(9, paragraphNode.innerText.length)
+            return true
         }
         if (paragraphNode.id.indexOf('-anchor') >= 0) {
             selectedParagraphData = paragraphNode.innerText.trim()
+            return true
         }
         if (paragraphNode.id.indexOf('-section') >= 0) {
             selectedParagraphData = paragraphNode.innerText.trim()
+            return true
         }
         if (paragraphNode.id.indexOf('-block') >= 0) {
             selectedParagraphData = paragraphNode.innerText.trim()
+            return true
         }
         if (paragraphNode.id.indexOf('-include') >= 0) {
             selectedParagraphData = paragraphNode.innerText.trim()
+            return true
         }
         if (paragraphNode.id.indexOf('-link') >= 0) {
             selectedParagraphData = reverseParseLink(paragraphNode.innerHTML)
+            return true
         }
         if (paragraphNode.id.indexOf('-youtube') >= 0) {
             selectedParagraphData = reverseParseYoutube(paragraphNode.innerHTML)
+            return true
         }
-
-
-        return true
     }
 
     function onOpening() {
@@ -1636,7 +1657,7 @@ function newSuperalgosDocSpace() {
                             let nodeType = pathStep[1]
                             let nodeProject = pathStep[2]
                             let nodeId = pathStep[3]
-                            let link = ' > <a onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + nodeProject + '\', \'' + result.documentIndex.category + '\', \'' + nodeType + '\', ' + undefined + '  ,\'' + nodeId + '\')"  class="docs-search-result-content-record-project-category-link">'
+                            let link = ' > <a onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + nodeProject + '\', \'' + result.documentIndex.category + '\', \'' + nodeType.replace(/'/g, 'AMPERSAND') + '\', ' + undefined + '  ,\'' + nodeId + '\')"  class="docs-search-result-content-record-project-category-link">'
                             if (nodeName === 'New ' + nodeType || nodeName === 'My ' + nodeType || nodeName === undefined) {
                                 nodeName = ''
                             }
@@ -1658,7 +1679,7 @@ function newSuperalgosDocSpace() {
                     } else {
                         mainLink = result.documentIndex.docsSchemaDocument.topic + ' - Page ' + result.documentIndex.docsSchemaDocument.pageNumber + ' - ' + result.documentIndex.docsSchemaDocument.type
                     }
-                    HTML = HTML + '<p><a onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + result.documentIndex.project + '\', \'' + result.documentIndex.category + '\', \'' + result.documentIndex.docsSchemaDocument.type + '\', ' + undefined + '  ,\'' + result.documentIndex.docsSchemaDocument.nodeId + '\')" class="docs-search-result-content-record-title">' + mainLink + '</a></p>'
+                    HTML = HTML + '<p><a onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + result.documentIndex.project + '\', \'' + result.documentIndex.category + '\', \'' + result.documentIndex.docsSchemaDocument.type.replace(/'/g, 'AMPERSAND') + '\', ' + undefined + '  ,\'' + result.documentIndex.docsSchemaDocument.nodeId + '\')" class="docs-search-result-content-record-title">' + mainLink + '</a></p>'
 
                     if (result.documentIndex.docsSchemaDocument.definition !== undefined) {
                         HTML = HTML + '<p class="docs-search-result-content-record-extract">' + getTextBasedOnLanguage(result.documentIndex.docsSchemaDocument.definition) + '</p>'
@@ -2328,7 +2349,7 @@ function newSuperalgosDocSpace() {
                     autoGeneratedParagraphIndex++
                     paragraph = {
                         style: "Text",
-                        text: "Each type of node, might have a menu defines so that users can interact with the node. There is no fixed set of menu items. Instead each menu item is defined at each node's definition. Each menu item defined carries a set of properties that allow the system to execute some action when the menu item is clicked by users. The " + appSchemaDocument.type + " node has the following menu items:"
+                        text: "The " + appSchemaDocument.type + " Node has the following Node's Menu items:"
                     }
                     renderParagraph(paragraph, key)
                     autoGeneratedParagraphIndex++

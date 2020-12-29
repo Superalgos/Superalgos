@@ -3,7 +3,8 @@
     "pageNumber": "12",
     "type": "Reference Parent",
     "definition": {
-        "text": "Write here a summary for this topic page."
+        "text": "The Reference Parent of a certain Node A, is the node with which A stablishes a Reference.",
+        "updated": 1609240205404
     },
     "paragraphs": [
         {

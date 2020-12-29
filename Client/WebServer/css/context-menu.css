@@ -1,8 +1,8 @@
   
   #menu {
-    display: block;
-    background-color: white;
-    padding: 10px 0px;
+    display: table;
+    background-color: rgba(255, 255, 255);
+    padding: 5px;
     border-radius: 5px;
     box-shadow: 2px 2px 30px lightgrey;
     position: absolute;
@@ -11,6 +11,8 @@
     opacity: 0;
     transform: scale(0);
     transition: transform 0.2s, opacity 0.2s;
+    border-collapse: separate;
+    border-spacing: 5px;
   }
   
   #menu.show {
@@ -20,14 +22,18 @@
   }
   
   .menu-item {
-    display: block;
-    padding: 10px 30px;
+    display: table-cell;
+    padding: 10px;
+    margin: 5px;
     transition: 0.1s;
-    color: #666;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: white;
   }
   
   .menu-item:hover {
-    background-color: #eee;
+    border: 1px solid #e3493c;
+    background-color: #fff6f6;
     cursor: pointer;
   }
   
@@ -40,3 +46,12 @@
     z-index: 1;
     display: none;
   }
+
+.menu-row{
+  display: table-row;
+}
+
+.menu-img {
+width: 40px;
+height: 40px;
+}

@@ -107,33 +107,100 @@
         </form>
     </div>
 
-    <ul id="menu">
-        <li class="menu-item" onClick="window.contextMenu.editParagraph()">Edit</li>
-        <li class="menu-item" onClick="window.contextMenu.toText()">Text Style</li>
-        <li class="menu-item" onClick="window.contextMenu.toTitle()">Title Style</li>
-        <li class="menu-item" onClick="window.contextMenu.toSubtitle()">Subtitle Style</li>
-        <li class="menu-item" onClick="window.contextMenu.toNote()">Note Style</li>
-        <li class="menu-item" onClick="window.contextMenu.toWarning()">Warning Style</li>
-        <li class="menu-item" onClick="window.contextMenu.toImportant()">Important Style</li>
-        <li class="menu-item" onClick="window.contextMenu.toError()">Error Style</li>
-        <li class="menu-item" onClick="window.contextMenu.toSuccess()">Success Style</li>
-        <li class="menu-item" onClick="window.contextMenu.toList()">List Style</li>
-        <li class="menu-item" onClick="window.contextMenu.toCallout()">Callout Style</li>
-        <li class="menu-item" onClick="window.contextMenu.toSummary()">Summary Style</li>
-        <li class="menu-item" onClick="window.contextMenu.toJavascript()">JS Code Style</li>
-        <li class="menu-item" onClick="window.contextMenu.toJson()">JSON Code Style</li>
-        <li class="menu-item" onClick="window.contextMenu.toTable()">Table Style</li>
-        <li class="menu-item" onClick="window.contextMenu.toHierarchy()">Hierarchy Style</li>
-        <li class="menu-item" onClick="window.contextMenu.toWebPageLink()">Web Page Link Style</li>
-        <li class="menu-item" onClick="window.contextMenu.toYouTubeVideo()">YouTube Video Style</li>
-        <li class="menu-item" onClick="window.contextMenu.toSection()">Section Style</li>
-        <li class="menu-item" onClick="window.contextMenu.toGif()">Gif Style</li>
-        <li class="menu-item" onClick="window.contextMenu.toPng()">Png Style</li>
-        <li class="menu-item" onClick="window.contextMenu.toAnchor()">Anchor</li>
-        <li class="menu-item" onClick="window.contextMenu.toBlock()">Block</li>
-        <li class="menu-item" onClick="window.contextMenu.toInclude()">Include</li>
-        <li class="menu-item" onClick="window.contextMenu.copyLink()">Copy</li> 
-    </ul>
+    <div id="menu" class="docs-menu-table">
+        <div class="menu-row">
+            <div class="menu-item" onClick="window.contextMenu.editParagraph()">
+                <img src="Images/Docs-Menu/docs-edit.png" class="menu-img">
+            </div>
+            <div class="menu-item" onClick="window.contextMenu.toTitle()">
+                <img src="Images/Docs-Menu/docs-title-style.png" class="menu-img">
+            </div>
+            <div class="menu-item" onClick="window.contextMenu.toSubtitle()">
+                <img src="Images/Docs-Menu/docs-subtitle-style.png" class="menu-img">
+            </div>
+            <div class="menu-item" onClick="window.contextMenu.toNote()">
+                <img src="Images/Docs-Menu/docs-note-style.png" class="menu-img">
+            </div>
+            <div class="menu-item" onClick="window.contextMenu.toJavascript()">
+                <img src="Images/Docs-Menu/docs-javascript-code-style.png" class="menu-img">
+            </div>
+            <div class="menu-item" onClick="window.contextMenu.toYouTubeVideo()">
+                <img src="Images/Docs-Menu/docs-youtube-style.png" class="menu-img">
+            </div>
+            <div class="menu-item" onClick="window.contextMenu.toBlock()">
+                <img src="Images/Docs-Menu/docs-block.png" class="menu-img">
+            </div>
+        </div>
+        <div class="menu-row">
+            <div class="menu-item" onClick="window.contextMenu.copyLink()">
+                <img src="Images/Docs-Menu/docs-copy.png" class="menu-img">
+            </div>
+            <div class="menu-item" onClick="window.contextMenu.toText()">
+                <img src="Images/Docs-Menu/docs-text-style.png" class="menu-img">
+            </div>
+            <div class="menu-item" onClick="window.contextMenu.toList()">
+                <img src="Images/Docs-Menu/docs-list-style.png" class="menu-img">
+            </div>
+            <div class="menu-item" onClick="window.contextMenu.toSuccess()">
+                <img src="Images/Docs-Menu/docs-sucess-style.png" class="menu-img">
+            </div>
+            <div class="menu-item" onClick="window.contextMenu.toJson()">
+                <img src="Images/Docs-Menu/docs-json-code-style.png" class="menu-img">
+            </div>
+            <div class="menu-item" onClick="window.contextMenu.toGif()">
+                <img src="Images/Docs-Menu/docs-gif-style.png" class="menu-img">
+            </div>
+            <div class="menu-item" onClick="window.contextMenu.toInclude()">
+                <img src="Images/Docs-Menu/docs-include.png" class="menu-img">
+            </div>
+        </div>
+        <div class="menu-row">
+            <div class="menu-item">
+
+            </div>
+            <div class="menu-item" onClick="window.contextMenu.toSummary()">
+                <img src="Images/Docs-Menu/docs-summary-style.png" class="menu-img">
+            </div>
+            <div class="menu-item" onClick="window.contextMenu.toCallout()">
+                <img src="Images/Docs-Menu/docs-callout-style.png" class="menu-img">
+            </div>
+            <div class="menu-item" onClick="window.contextMenu.toImportant()">
+                <img src="Images/Docs-Menu/docs-important-style.png" class="menu-img">
+            </div>
+            <div class="menu-item" onClick="window.contextMenu.toTable()">
+                <img src="Images/Docs-Menu/docs-table-style.png" class="menu-img">
+            </div>
+            <div class="menu-item" onClick="window.contextMenu.toPng()">
+                <img src="Images/Docs-Menu/docs-png-style.png" class="menu-img">
+            </div>
+            <div class="menu-item" onClick="window.contextMenu.toSection()">
+                <img src="Images/Docs-Menu/docs-section.png" class="menu-img">
+            </div>
+        </div>
+        <div class="menu-row">
+            <div class="menu-item">
+
+            </div>
+            <div class="menu-item" onClick="window.contextMenu.toWebPageLink()">
+                <img src="Images/Docs-Menu/docs-link-style.png" class="menu-img">
+            </div>
+            <div class="menu-item" onClick="window.contextMenu.toAnchor()">
+                <img src="Images/Docs-Menu/docs-anchor.png" class="menu-img">
+            </div>
+            <div class="menu-item" onClick="window.contextMenu.toWarning()">
+                <img src="Images/Docs-Menu/docs-warning-style.png" class="menu-img">
+            </div>
+            <div class="menu-item" onClick="window.contextMenu.toHierarchy()">
+                <img src="Images/Docs-Menu/docs-hierarchy-style.png" class="menu-img">
+            </div>
+            <div class="menu-item">
+
+            </div>
+            <div class="menu-item" onClick="window.contextMenu.toError()">
+                <img src="Images/Docs-Menu/docs-error-style.png" class="menu-img">
+            </div>
+        </div>
+    </div>
 
 </body>
 

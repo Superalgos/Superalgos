@@ -375,34 +375,59 @@ padding: 1 5 1 5;
 
 /* Style the button that is used to open and close the docs-collapsible-element content */
 .docs-collapsible-element {
-background-color: #fdfdfd;
-color: #444;
+background-color: #eee;
+color: #31708f;
 cursor: pointer;
-padding: 15px;
 width: 100%;
-border: none;
 text-align: left;
 outline: none;
-font-size: 125%;
+font-size: 100%;
 vertical-align: middle;
-min-height: 80px;
+padding: 10px;
+margin: 4px;
+transition: 0.1s;
+border: 1px solid #ddd;
+border-radius: 5px;
+background-color: white;
+line-height: 40px;
 }
+
+.docs-collapsible-element img {
+  vertical-align: middle;
+  display: inline-block;
+  margin: 0 20px 0 0;
+  width: 40px;
+  height: 40px;
+  }
+
+/* This definition is redundant with .docs-collapsible-element img but affects some images. Investigation required to delete it.*/
+
+  .docs-collapsible-image {
+    vertical-align: middle;
+    display: inline-block;
+    margin: 0 20px 0 0;
+    width: 40px;
+    height: 40px;
+    }
 
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
 .active, .docs-collapsible-element:hover {
-background-color: #eee;
+border: 1px solid #e3493c;
+background-color: #fff6f6;
 }
 
 /* Style the docs-collapsible-element content. Note: hidden by default */
 .docs-collapsible-content {
 padding: 0 18px;
 display: none;
-margin-left: 85px;
+margin-left: 65px;
 z-index: 1;
+font-size: 90%;
+line-height: 90%;
 }
 
 .docs-collapsible-code-content {
-padding: 0 18px;
+padding: 0;
 display: none;
 margin-left: 0px;
 z-index: 1;
@@ -410,23 +435,15 @@ z-index: 1;
 
 .docs-collapsible-element:after {
 content: '\02795'; /* Unicode character for "plus" sign (+) */
-font-size: 80%;
+font-size: 60%;
 color: #31708f;
-float: right;
 margin-left: 5px;
+float: right;
 vertical-align: middle;
 }
 
 .docs-collapsible-active:after {
 content: "\2796"; /* Unicode character for "minus" sign (-) */
-}
-
-.docs-collapsible-image {
-margin-left: 25px;
-margin-right: 25px;
-width: 30px;
-height: 30px;
-vertical-align: middle;
 }
 
 /* This is the same Style as the collapsible counter part but will not hold any collapsed content inside. */

@@ -635,7 +635,7 @@ function newSuperalgosDocSpace() {
                 if (paragraphNode === undefined) { return false }
             }
         }
-        if (paragraphNode.id === undefined || paragraphNode.id.indexOf('editable-paragraph') < 0) {
+        if (paragraphNode === undefined || paragraphNode === null || paragraphNode.id === undefined || paragraphNode.id.indexOf('editable-paragraph') < 0) {
             return false
         }
         /*
@@ -2097,7 +2097,7 @@ function newSuperalgosDocSpace() {
                     let includedSchemaDocument
 
                     if (SCHEMAS_BY_PROJECT.get(project) === undefined) {
-                        return 'Project ' + project + ' not found.'
+                        return 'Include Paragraph Style Syntax Error. The Project <i>' + project + '</i> could not be found. Check the Docs Include Style Syntax to learn how to include paragraphs from a different page. This error message will dissapear as soon as you fix the problem.'
                     }
                     switch (category) {
                         case 'Node': {

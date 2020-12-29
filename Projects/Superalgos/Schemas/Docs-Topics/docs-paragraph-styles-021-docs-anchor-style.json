@@ -1,0 +1,24 @@
+{
+    "topic": "Docs Paragraph Styles",
+    "pageNumber": "21",
+    "type": "Docs Anchor Style",
+    "definition": {
+        "text": "Amchor paragraphs are used together with the Docs Goto Command. When you want to generate a Docs Link to an specific part of a Docs Page, you first need to create an Anchor paragraph in order to be able to create the link to that part of the page.",
+        "updated": 1609258745310
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "To correctly ddefine an Anchor Paragraph, you need to follow the following syntax:",
+            "updated": 1609259277591
+        },
+        {
+            "style": "Javascript",
+            "text": "Anchor Name"
+        },
+        {
+            "style": "List",
+            "text": "Anchor Name: This refers to any name that you would like to give to the newly created Anchor. The name must be unique within the page."
+        }
+    ]
+}

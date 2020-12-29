@@ -54,19 +54,23 @@ padding: 5px;
 .docs-definition-table {
 background-color: #f9f9f9;
 vertical-align: middle;
-width: 100%;
-min-width: 95px;
-margin: auto;
 margin-bottom: 20px;
-margin-top: 20px;
+margin-top: 0px;
 margin-right: 20px;
 border: 1px solid #dedede;
 padding: 10px;
 display: table;
+width: 97%;
+}
+
+.docs-definition-table div {
+  display: table-cell;
+  padding: 5px 10px;
+  vertical-align: middle;
+
 }
 
 .docs-image-container {
-
 padding: 5px 0px 5px 5px;
 border: solid 0px;
 display: table-cell;

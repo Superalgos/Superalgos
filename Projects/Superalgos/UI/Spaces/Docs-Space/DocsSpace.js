@@ -1972,8 +1972,8 @@ function newSuperalgosDocSpace() {
                     if (category === 'Topic' || category === 'Concept') {
                         HTML = HTML + '<div id="definition-summary-editable-paragraph" class="docs-summary"><b>Summary:</b> ' + addToolTips(definitionText) + '</div>'
                     } else {
-                        HTML = HTML + '<table class="docs-definition-table">'
-                        HTML = HTML + '<tr>'
+                        HTML = HTML + '<div class="docs-definition-table">'
+
                         if (category === 'Node') {
 
                             let imageItem = {
@@ -1984,15 +1984,13 @@ function newSuperalgosDocSpace() {
                             }
                             definitionImagesArray.push(imageItem)
 
-                            HTML = HTML + '<td width=150px>'
-                            HTML = HTML + '<div id="' + imageItem.div + '" class="docs-image-container"/>'
-                            HTML = HTML + '</td>'
+                            HTML = HTML + '<div id="' + imageItem.div + '" class="docs-image-container"></div>'
+
                         }
-                        HTML = HTML + '<td>'
+
                         HTML = HTML + '<div id="' + idPrefix + 'paragraph" class="docs-font-normal"><strong>' + addToolTips(definitionText) + '</strong></div>'
-                        HTML = HTML + '</td>'
-                        HTML = HTML + '</tr>'
-                        HTML = HTML + '</table>'
+
+                        HTML = HTML + '</div>'
                     }
                 }
             }

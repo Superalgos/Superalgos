@@ -14,7 +14,8 @@
         },
         {
             "style": "Text",
-            "text": "You may create unlimited network nodes and map them with different machines on a network. Each machine in the network runs an instance of the Superalgos backend, and you may control the whole network operation from a single machine, or&mdash;in general&mdash;from any machine in the network running the Superalgos frontend. To learn more about distributed setups, check the trading farms pages."
+            "text": "You may create unlimited network nodes and map them with different machines on a network. Each computer in the network runs an instance of the Superalgos backend, and you may control the whole network operation from a single machine, or—in general—from any machine in the network running the Superalgos frontend. To learn more about distributed setups, check the trading farms pages.",
+            "updated": 1609249489127
         },
         {
             "style": "Text",

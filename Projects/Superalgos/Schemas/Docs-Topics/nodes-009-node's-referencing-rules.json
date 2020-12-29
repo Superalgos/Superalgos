@@ -3,8 +3,8 @@
     "pageNumber": "9",
     "type": "Node's Referencing Rules",
     "definition": {
-        "text": "Each Node's Type can have a set of rules that defines with which Node's Type it stablish a reference.",
-        "updated": 1609237566388
+        "text": "Each Node's Type can have a set of rules that defines with which Node's Type it can stablish a reference.",
+        "updated": 1609244259240
     },
     "paragraphs": [
         {

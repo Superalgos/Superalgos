@@ -8,7 +8,7 @@ background-color: #fdfdfd;
 font: 400 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
 color: #111; 
 line-height: 150%;
-margin: 20 20 20 30px;
+margin: 20 25 20 30px;
 }
 
 .docs-common-style-container{
@@ -17,14 +17,14 @@ font: 400 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvet
 color: #111; 
 line-height: 150%;
 margin: 20 30px;
-box-sizing: border-box;
+margin: 20 25 20 30px;
 }
 
 .docs-node-html-footer-container {
 font: 400 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
 color: #111; 
 line-height: 150%;
-margin: 20 20 20 30px;
+margin: 20 25 20 30px;
 border-top: 1px solid #dedede;
 margin-top: 100px;
 padding-top: 50px;
@@ -164,9 +164,19 @@ opacity: 1;
 
 /* Headings */
 
-.docs-h1 {font-size:210%; margin-top: 40px; padding-bottom: 5px;}
+.docs-h1 {
+  font-size:210%; 
+  margin-top: 40px; 
+  padding-bottom: 5px;
+}
 
-.docs-h2 {font-weight:700; font-size:170%; margin-top: 30px; padding-bottom: 5px; overflow:hidden;}
+.docs-h2 {
+  font-weight:700; 
+  font-size:170%; 
+  margin-top: 30px; 
+  padding-bottom: 5px; 
+  overflow:hidden;
+}
 
 .docs-h2::after{
 content:'';
@@ -177,14 +187,29 @@ border-bottom: 1px solid #cdd4d5;
 margin-left: 20px;
 }
 
-.docs-h3 {font-weight:400; font-size:150%; margin-top: 35px;}
+.docs-h3 {
+  font-weight:500; 
+  font-size:150%; 
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
 
-.docs-h4 {font-weight:400; font-size:125%; margin-top: 35px;}
+.docs-h4 {
+  font-weight:400; 
+  font-style: italic;
+  font-size:135%; 
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+/* DELETE candidate
 
 .docs-h5 {font-weight:400; font-size:140%; margin-top: 35px; font-style:italic;}
 
 .docs-h6 {font-weight:400; font-size:130%; margin-top: 35px; font-style:italic;}
+margin-right: 20px;
 
+*/
 .docs-text-area {
 font: 400 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
 resize: none;
@@ -745,7 +770,7 @@ width: 100%;
 .docs-hidden-block {
 border-top: 1px solid #f0f0f0;
 padding: 0px;
-margin: -5px 0 -20px 0;
+margin: -5px 0px -30px 0;
 width: 100%;
 text-align: right;
 color: transparent;
@@ -758,7 +783,7 @@ margin-right: 20px;
 }
 
 .docs-hidden-block::after{
-  content:' BLOCK';
+  content:' \25BC';
   color: #ddd;
   }
 

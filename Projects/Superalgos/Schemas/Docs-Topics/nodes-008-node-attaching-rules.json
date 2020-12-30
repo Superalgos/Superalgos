@@ -1,0 +1,16 @@
+{
+    "topic": "Nodes",
+    "pageNumber": "8",
+    "type": "Node Attaching Rules",
+    "definition": {
+        "text": "Each Node Type can have a set of rules that defines to which Node Type it can attach itself to.",
+        "updated": 1609237513121
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Each Node Type, might have a set of rules that defines to which nodes it can be attached to. These rules are literally two lists of Node Type s, one for compatible types and the second one for uncompatible types. There is also the possiblity to replace the list of types for the keyword *Any Node*.",
+            "updated": 1609243750949
+        }
+    ]
+}

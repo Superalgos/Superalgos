@@ -31,11 +31,20 @@
         },
         {
             "style": "Title",
-            "text": "Configuring Network Node"
+            "text": "Network Node Configuration",
+            "updated": 1609352417499
         },
         {
             "style": "Text",
-            "text": "Select Configure on the menu to access the configuration."
+            "text": "Network Node has a Node Config."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties"
+        },
+        {
+            "style": "Text",
+            "text": ""
         },
         {
             "style": "List",

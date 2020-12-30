@@ -1730,6 +1730,8 @@ function newSuperalgosDocSpace() {
             let docsContentDiv = document.getElementById('docs-content-div')
             docsContentDiv.innerHTML = HTML + addFooter()
 
+            console.log(docsContentDiv.innerHTML)
+
             detectEnterOnSearchBox()
             setFocusOnSearchBox()
         }
@@ -3345,7 +3347,9 @@ function newSuperalgosDocSpace() {
         let languageLabel = UI.projects.superalgos.utilities.languages.getLaguageLabel(language)
 
         let HTML = ''
-        
+       // HTML = HTML + '</div>' // Clickeable Container Ends PROVISIONAL
+      //  HTML = HTML + '</div>' // Common Style Container Ends
+
         HTML = HTML + '<div class="docs-node-html-footer-container">' // Container Starts
 
         HTML = HTML + '<div class="docs-footer-row">'

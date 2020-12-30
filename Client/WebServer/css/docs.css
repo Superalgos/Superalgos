@@ -443,14 +443,13 @@ width: 97.5%;
 text-align: left;
 outline: none;
 font-size: 100%;
-vertical-align: middle;
 padding: 10px;
 margin: 4px 0 4 20;
 transition: 0.1s;
 border: 1px solid #ddd;
 border-radius: 5px;
 background-color: white;
-line-height: 40px;
+vertical-align: middle;
 box-sizing: border-box;
 }
 
@@ -502,6 +501,7 @@ color: #31708f;
 margin-left: 5px;
 float: right;
 vertical-align: middle;
+line-height: 40px;
 }
 
 .docs-collapsible-active:after {
@@ -510,6 +510,7 @@ content: "\2796"; /* Unicode character for "minus" sign (-) */
 
 /* This is the same Style as the collapsible counter part but will not hold any collapsed content inside. */
 .docs-non-collapsible-element {
+  /*
 background-color: #fdfdfd;
 color: #444;
 padding: 15px;
@@ -520,6 +521,23 @@ outline: none;
 font-size: 125%;
 vertical-align: middle;
 min-height: 80px;
+*/
+background-color: #eee;
+color: #31708f;
+
+width: 97.5%;
+text-align: left;
+outline: none;
+font-size: 100%;
+vertical-align: middle;
+padding: 10px;
+margin: 4px 0 4 20;
+transition: 0.1s;
+border: 1px solid #ddd;
+border-radius: 5px;
+background-color: white;
+
+box-sizing: border-box;
 }
 
 /* Info Tables */

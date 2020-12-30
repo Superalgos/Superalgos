@@ -1945,8 +1945,10 @@ function newSuperalgosDocSpace() {
 
             addContent()
 
+
             HTML = HTML + '</div>' // Clickeable Container Ends
             HTML = HTML + '</div>' // Common Style Container Ends
+
 
             /*
             Here we inject the HTML we built into the DOM at the Docs Space Div.
@@ -3344,21 +3346,33 @@ function newSuperalgosDocSpace() {
 
         let HTML = ''
 
+        HTML = HTML + '</div>' // Clickeable Container Ends PROVISIONAL
+        HTML = HTML + '</div>' // Common Style Container Ends
+
         HTML = HTML + '<div class="docs-node-html-footer-container">' // Container Starts
 
-        HTML = HTML + '<footer>'
         HTML = HTML + '<div class="docs-footer-row">'
-        HTML = HTML + '<div class="docs-footer-body" style="text-align: left;">'
+        HTML = HTML + '<div class="docs-footer-cell">'
 
         HTML = HTML + '<div onClick="UI.projects.superalgos.spaces.docsSpace.scrollToElement(\'docs-space-div\')" class="docs-plain-link"><kbd class=docs-kbd>BACK TO TOP ↑</kbd></div>'
 
-        HTML = HTML + '<p>&nbsp;</p>'
+        HTML = HTML + '</div>'
+        HTML = HTML + '</div>'
+
+        HTML = HTML + '<div class="docs-footer-row">'
+        HTML = HTML + '<div class="docs-footer-cell">'
+
         HTML = HTML + 'You are currently reading the Docs in ' + languageLabel + '. To read the Docs in your language, follow one of these links:'
         HTML = HTML + '<ul>'
         HTML = HTML + '<li><a onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'EN\')" class="docs-footer-link">English</a> — The collection of articles is complete in this language.</li>'
         HTML = HTML + '<li><a onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'ES\')" class="docs-footer-link">Spanish</a> — Work in progress. You are invited to contribute translating content.</li>'
         HTML = HTML + '<li><a onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'RU\')" class="docs-footer-link">Russian</a> — Work in progress. You are invited to contribute translating content.</li>'
         HTML = HTML + '</ul>'
+        HTML = HTML + '</div>'
+        HTML = HTML + '</div>'
+
+        HTML = HTML + '<div class="docs-footer-row">'
+        HTML = HTML + '<div class="docs-footer-cell">'
         HTML = HTML + 'Other resources:'
         HTML = HTML + '<ul>'
         HTML = HTML + '<li><a href="https://superalgos.org/" target="_blank" class="docs-footer-link">Superalgos Project</a> — Learn more about the project.</li>'
@@ -3369,11 +3383,10 @@ function newSuperalgosDocSpace() {
         HTML = HTML + '<li><a href="https://t.me/superalgos_es" rel="nofollow" target="_blank" class="docs-footer-link">Grupo en Español</a> — Hablemos en español!</li>'
         HTML = HTML + '<li><a href="https://t.me/superalgos" rel="nofollow" target="_blank" class="docs-footer-link">Superalgos Announcements</a> — Be the first to know about new releases, hotfixes, and important issues.</li>'
         HTML = HTML + '</ul>'
-        HTML = HTML + '<img src="Images/superalgos-logo.png" width="200 px">'
+        HTML = HTML + '<img src="Images/superalgos-logo-white.png" width="200 px">'
 
         HTML = HTML + '</div>'
         HTML = HTML + '</div>'
-        HTML = HTML + '</footer>'
 
         HTML = HTML + '</div>' // Container Ends
 

@@ -818,7 +818,7 @@ function newSuperalgosDocSpace() {
                         nodeId: node.id,
                         nodeNameTypePath: nodeNameTypePath,
                         type: node.type,
-                        definition: node.name,
+                        definition: { text: node.name },
                         paragraphs: []
                     }
                     if (node.config !== undefined) {
@@ -925,9 +925,6 @@ function newSuperalgosDocSpace() {
                     text: documentIndex.docsSchemaDocument.type
                 }
                 indexParagraph(paragraph)
-            }
-            if (documentIndex.docsSchemaDocument.type === "Vaina") {
-                let a = 1
             }
             if (documentIndex.docsSchemaDocument.definition !== undefined) {
                 let paragraph = {
@@ -1905,7 +1902,7 @@ function newSuperalgosDocSpace() {
         async function repositionWorkspace() {
             if (objectBeingRendered.category !== 'Workspace') { return }
 
-            let node = await UI.projects.superalgos.spaces.designSpace.workspace.getNodeById(docsSchemaDocument.key)
+            let node = await UI.projects.superalgos.spaces.designSpace.workspace.getNodeById(docsSchemaDocument.nodeId)
             node.payload.floatingObject.unCollapseParent()
             setTimeout(positionAtNode, 3000, node)
             setTimeout(positionAtNode, 5000, node)

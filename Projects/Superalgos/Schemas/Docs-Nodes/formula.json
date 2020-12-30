@@ -17,15 +17,24 @@
             "text": "Formulas may use indicators and trading engine properties. The main difference between writing a formula and writing a condition is that while conditions must evaluate to true or false, formulas must evaluate to a number."
         },
         {
+            "style": "Block",
+            "text": "Examples"
+        },
+        {
             "style": "Text",
-            "text": "A simple math example:"
+            "text": ""
+        },
+        {
+            "style": "Subtitle",
+            "text": "A simple math example",
+            "updated": 1609346397254
         },
         {
             "style": "Text",
             "text": "This simple formula may be used to define an initial take profit target 3% above the rate at which the position was taken."
         },
         {
-            "style": "Text",
+            "style": "Json",
             "text": "tradingEngine.current.position.entryTargetRate.value * 1.03"
         },
         {
@@ -33,8 +42,9 @@
             "text": "You may use any variable made available by the trading engine, as explained on the accessing runtime data page."
         },
         {
-            "style": "Text",
-            "text": "A simple JavaScript example:"
+            "style": "Subtitle",
+            "text": "A simple JavaScript example",
+            "updated": 1609346401859
         },
         {
             "style": "Text",
@@ -42,119 +52,35 @@
         },
         {
             "style": "Text",
-            "text": "This is&mdash;basically&mdash;a trailing stop loss 2% below the moving average that may go higher if the moving average goes up, but it may never come down&mdash;thanks to the use of the IF ELSE clause."
+            "text": "This is—basically—a trailing stop loss 2% below the Bollinger Bands moving average that may go higher if the moving average goes up, but it may never come down—thanks to the use of the IF ELSE clause.",
+            "updated": 1609346444051
+        },
+        {
+            "style": "Javascript",
+            "text": "if (chart.at01hs.bollingerBand.movingAverage * 0.98 > \ntradingEngine.current.position.stopLoss.value)\n{chart.at01hs.bollingerBand.movingAverage * 0.98}\nelse\n{tradingEngine.current.position.stopLoss.value}\n",
+            "updated": 1609346601773
         },
         {
             "style": "Text",
-            "text": "if (chart.at01hs.bollingerBand.movingAverage * 0.98 > tradingEngine.current.position.stopLoss.value)"
+            "text": ""
         },
         {
             "style": "Text",
-            "text": "   {chart.at01hs.bollingerBand.movingAverage * 0.98}"
+            "text": ""
         },
         {
-            "style": "Text",
-            "text": "   else"
-        },
-        {
-            "style": "Text",
-            "text": "   {tradingEngine.current.position.stopLoss.value}"
-        },
-        {
-            "style": "Text",
-            "text": "For developers:"
+            "style": "Subtitle",
+            "text": "For developers",
+            "updated": 1609346635457
         },
         {
             "style": "Text",
             "text": "To build more complex logic within a formula, create a function that implements the logic and returns a numerical value, and then call the function:"
         },
         {
-            "style": "Text",
-            "text": "function orderRate() {"
-        },
-        {
-            "style": "Text",
-            "text": "    const ORDER_STEP_NUMBER = 1    // Secuential step number, starting with 1 from the closest to the price."
-        },
-        {
-            "style": "Text",
-            "text": "    const BUY_SELL_SIGN = -1       // 1 for buy orders, -1 for sell orders."
-        },
-        {
-            "style": "Text",
-            "text": "    const STEP_SEPARATION = 0.15   // % of separation of stair steps between them."
-        },
-        {
-            "style": "Text",
-            "text": "    const BASE_FACTOR = 0.2        // % above or below bollinger band without bias."
-        },
-        {
-            "style": "Text",
-            "text": "    const BIAS_FACTOR = 0.3        // % to move the whole stair of orders up or down depending on the bias."
-        },
-        {
-            "style": "Text",
-            "text": "    const BAND_RATE = chart.at01min.bollingerBand.lowerBand    //  Upper Bollinger Band for sell orders, and Lower for buy orders."
-        },
-        {
-            "style": "Text",
-            "text": "    let inbalance = tradingEngine.current.episode.episodeBaseAsset.beginBalance.value - tradingEngine.current.episode.episodeBaseAsset.balance.value"
-        },
-        {
-            "style": "Text",
-            "text": "    let BIAS_SIGN"
-        },
-        {
-            "style": "Text",
-            "text": "    if (inbalance === 0) {"
-        },
-        {
-            "style": "Text",
-            "text": "        BIAS_SIGN = 0"
-        },
-        {
-            "style": "Text",
-            "text": "    }"
-        },
-        {
-            "style": "Text",
-            "text": "    if (inbalance < 0) {"
-        },
-        {
-            "style": "Text",
-            "text": "        BIAS_SIGN = + 1"
-        },
-        {
-            "style": "Text",
-            "text": "    }"
-        },
-        {
-            "style": "Text",
-            "text": "    if (inbalance > 0) {"
-        },
-        {
-            "style": "Text",
-            "text": "        BIAS_SIGN = - 1"
-        },
-        {
-            "style": "Text",
-            "text": "    }"
-        },
-        {
-            "style": "Text",
-            "text": "    let rate = BAND_RATE + BUY_SELL_SIGN  BAND_RATE  (BASE_FACTOR + ORDER_STEP_NUMBER  STEP_SEPARATION + BIAS_SIGN  BIAS_FACTOR) / 100"
-        },
-        {
-            "style": "Text",
-            "text": "    return rate"
-        },
-        {
-            "style": "Text",
-            "text": "}"
-        },
-        {
-            "style": "Text",
-            "text": "orderRate()"
+            "style": "Javascript",
+            "text": "function orderRate() {\nconst ORDER_STEP_NUMBER = 1 // Secuential step number, starting with 1 from the closest to the price.\nconst BUY_SELL_SIGN = -1 // 1 for buy orders, -1 for sell orders.\nconst STEP_SEPARATION = 0.15 // % of separation of stair steps between them.\nconst BASE_FACTOR = 0.2 // % above or below bollinger band without bias.\nconst BIAS_FACTOR = 0.3 // % to move the whole stair of orders up or down depending on the bias.\nconst BAND_RATE = chart.at01min.bollingerBand.lowerBand // Upper Bollinger Band for sell orders, and Lower for buy orders.\nlet inbalance = tradingEngine.current.episode.episodeBaseAsset.beginBalance.value - tradingEngine.current.episode.episodeBaseAsset.balance.value\nlet BIAS_SIGN\nif (inbalance === 0) {\nBIAS_SIGN = 0\n}\nif (inbalance < 0) {\nBIAS_SIGN = + 1\n}\nif (inbalance > 0) {\nBIAS_SIGN = - 1\n}\nlet rate = BAND_RATE + BUY_SELL_SIGN BAND_RATE (BASE_FACTOR + ORDER_STEP_NUMBER STEP_SEPARATION + BIAS_SIGN BIAS_FACTOR) / 100\nreturn rate\n}\norderRate()",
+            "updated": 1609346807464
         }
     ]
 }

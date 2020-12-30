@@ -208,7 +208,8 @@ padding: 15px;
 border: 1px solid transparent;
 border-radius: 4px;
 margin: 20px 0;
-width: 95%;
+width: 100%;
+box-sizing: border-box;
 }
 
 .docs-alert-success {
@@ -219,7 +220,8 @@ padding: 15px;
 border: 1px solid transparent;
 border-radius: 4px;
 margin: 20px 0;
-width: 95%;
+width: 100%;
+box-sizing: border-box;
 }
 
 .docs-alert-important {
@@ -230,7 +232,8 @@ padding: 15px;
 border: 1px solid transparent;
 border-radius: 4px;
 margin: 20px 0;
-width: 95%;
+width: 100%;
+box-sizing: border-box;
 }
 
 .docs-alert-warning {
@@ -241,7 +244,8 @@ padding: 15px;
 border: 1px solid transparent;
 border-radius: 4px;
 margin: 20px 0;
-width: 95%;
+width: 100%;
+box-sizing: border-box;
 }
 
 .docs-alert-error {
@@ -252,7 +256,8 @@ padding: 50px;
 border: 1px solid transparent;
 border-radius: 4px;
 margin: 20px 0;
-width: 95%;
+width: 100%;
+box-sizing: border-box;
 }
 
 .docs-callout {
@@ -263,7 +268,8 @@ border-left-width: 5px;
 border-radius: 3px;
 border-left-color: #bcd643;
 font-weight: 500;
-width: 95%;
+width: 100%;
+box-sizing: border-box;
 }
 
 .docs-summary {
@@ -272,6 +278,8 @@ color: #808080;
 margin:20px 0px 20px 0px;
 border-left: 5px solid #fd6a33;
 padding-left: 10px;
+width: 100%;
+box-sizing: border-box;
 }
 
 .docs-section {
@@ -449,7 +457,7 @@ background-color: #fff6f6;
 .docs-collapsible-content {
 padding: 0 18px;
 display: none;
-margin-left: 65px;
+margin-left: 55px;
 z-index: 1;
 font-size: 90%;
 line-height: 90%;
@@ -731,7 +739,7 @@ padding: 15px;
 border: 1px solid transparent;
 border-radius: 4px;
 margin: 20px 0;
-width: 95%;
+width: 100%;
 }
 
 .docs-hidden-block {
@@ -762,7 +770,7 @@ padding: 15px;
 border: 1px solid transparent;
 border-radius: 4px;
 margin: 20px 0;
-width: 95%;
+width: 100%;
 }
 
 /* Hierarchy Table */

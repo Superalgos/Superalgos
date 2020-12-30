@@ -1948,8 +1948,9 @@ function newSuperalgosDocSpace() {
 
             addContent()
 
-            HTML = HTML + '</div>' // Common Style Container Ends
             HTML = HTML + '</div>' // Clickeable Container Ends
+            HTML = HTML + '</div>' // Common Style Container Ends
+
             /*
             Here we inject the HTML we built into the DOM at the Docs Space Div.
             */

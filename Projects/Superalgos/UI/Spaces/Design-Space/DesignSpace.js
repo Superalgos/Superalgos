@@ -40,18 +40,25 @@ function newSuperalgosDesignSpace() {
             /* Take types-icons relationships defined at the schema */
             for (let i = 0; i < PROJECTS_ARRAY.length; i++) {
                 let project = PROJECTS_ARRAY[i]
-                let appSchema = SCHEMAS_BY_PROJECT.get(project).array.appSchema
-                for (let j = 0; j < appSchema.length; j++) {
-                    let schemaDocument = appSchema[j]
-                    let iconName = schemaDocument.icon
-                    if (iconName === undefined) {
-                        iconName = schemaDocument.type.toLowerCase()
-                        iconName = iconName.split(" ").join("-")
-                    }
-                    let icon = thisObject.getIconByProjectAndName(project, iconName)
-                    if (icon !== undefined) {
-                        let key = project + '-' + schemaDocument.type
-                        thisObject.iconsByProjectAndType.set(key, icon)
+                
+                addSchemaTypes(SCHEMAS_BY_PROJECT.get(project).array.appSchema)
+                addSchemaTypes(SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema)
+                addSchemaTypes(SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema)
+                addSchemaTypes(SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema)
+
+                function addSchemaTypes(schema) {
+                    for (let j = 0; j < schema.length; j++) {
+                        let schemaDocument = schema[j]
+                        let iconName = schemaDocument.icon
+                        if (iconName === undefined) {
+                            iconName = schemaDocument.type.toLowerCase()
+                            iconName = iconName.split(" ").join("-")
+                        }
+                        let icon = thisObject.getIconByProjectAndName(project, iconName)
+                        if (icon !== undefined) {
+                            let key = project + '-' + schemaDocument.type
+                            thisObject.iconsByProjectAndType.set(key, icon)
+                        }
                     }
                 }
             }

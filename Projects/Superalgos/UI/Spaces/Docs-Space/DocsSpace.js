@@ -1972,27 +1972,24 @@ function newSuperalgosDocSpace() {
                     let definitionText = getTextBasedOnLanguage(docsSchemaDocument.definition)
                     definitionText = definitionText + addWarningIfTranslationIsOutdated(docsSchemaDocument.definition)
 
-                    if (category === 'Topic' || category === 'Concept') {
+                    /* We will test if we can draw an image here or not*/
+                    let testElement = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(project, type)
+
+                    if ((category === 'Topic' || category === 'Concept') && testElement === undefined) {
                         HTML = HTML + '<div id="definition-summary-editable-paragraph" class="docs-summary"><b>Summary:</b> ' + addToolTips(definitionText) + '</div>'
                     } else {
                         HTML = HTML + '<div class="docs-definition-table">'
 
-                        if (category === 'Node') {
-
-                            let imageItem = {
-                                div: 'definition-image-div-' + definitionImagesArray.length,
-                                project: project,
-                                category: category,
-                                type: type
-                            }
-                            definitionImagesArray.push(imageItem)
-
-                            HTML = HTML + '<div id="' + imageItem.div + '" class="docs-image-container"></div>'
-
+                        let imageItem = {
+                            div: 'definition-image-div-' + definitionImagesArray.length,
+                            project: project,
+                            category: category,
+                            type: type
                         }
+                        definitionImagesArray.push(imageItem)
 
+                        HTML = HTML + '<div id="' + imageItem.div + '" class="docs-image-container"></div>'
                         HTML = HTML + '<div id="' + idPrefix + 'paragraph" class="docs-font-normal"><strong>' + addToolTips(definitionText) + '</strong></div>'
-
                         HTML = HTML + '</div>'
                     }
                 }
@@ -2180,11 +2177,14 @@ function newSuperalgosDocSpace() {
 
                     for (let i = 0; i < definitionImagesArray.length; i++) {
                         let imageItem = definitionImagesArray[i]
-
                         let appSchemaDocument = SCHEMAS_BY_PROJECT.get(imageItem.project).map.appSchema.get(imageItem.type)
-
                         let imageElement
-                        if (appSchemaDocument.icon === undefined) {
+                        if (appSchemaDocument !== undefined && appSchemaDocument.icon === undefined) {
+                            /* 
+                            We are checking this because there is a possibility that a different icon is specified
+                            for this Node Type, in that case we would override the default that is that the icon name is
+                            equal to the Node Type.
+                            */
                             let imageName = appSchemaDocument.type.toLowerCase().replaceAll(' ', '-')
                             imageElement = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName(imageItem.project, imageName)
                         } else {
@@ -3608,12 +3608,12 @@ function newSuperalgosDocSpace() {
 
     function addCodeToCamelCase(text) {
         let expandedText = text
-        .replaceAll('{',' { ')
-        .replaceAll('}',' } ')
-        .replaceAll('(',' ( ')
-        .replaceAll(')',' ) ')
-        .replaceAll('[',' [ ')
-        .replaceAll(']',' ] ')
+            .replaceAll('{', ' { ')
+            .replaceAll('}', ' } ')
+            .replaceAll('(', ' ( ')
+            .replaceAll(')', ' ) ')
+            .replaceAll('[', ' [ ')
+            .replaceAll(']', ' ] ')
         let splittedText = expandedText.split(' ')
         let result = ''
         for (let i = 0; i < splittedText.length; i++) {
@@ -3628,12 +3628,12 @@ function newSuperalgosDocSpace() {
             }
         }
         result = result
-        .replaceAll(' { ','{')
-        .replaceAll(' } ','}')
-        .replaceAll(' ( ','(')
-        .replaceAll(' ) ',')')
-        .replaceAll(' [ ','[')
-        .replaceAll(' ] ',']')
+            .replaceAll(' { ', '{')
+            .replaceAll(' } ', '}')
+            .replaceAll(' ( ', '(')
+            .replaceAll(' ) ', ')')
+            .replaceAll(' [ ', '[')
+            .replaceAll(' ] ', ']')
         return result
     }
 

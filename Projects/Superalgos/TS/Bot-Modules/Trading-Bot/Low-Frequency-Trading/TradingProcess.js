@@ -60,7 +60,7 @@
 
             /* Context Variables */
             let contextVariables = {
-                lastFile: undefined,                // Datetime of the last file files sucessfully produced by this process.
+                lastFile: undefined,                // Datetime of the last file files successfully produced by this process.
                 dateBeginOfMarket: undefined,       // Datetime of the first trade file in the whole market history.
                 dateEndOfMarket: undefined          // Datetime of the last file available to be used as an input of this process.
             };

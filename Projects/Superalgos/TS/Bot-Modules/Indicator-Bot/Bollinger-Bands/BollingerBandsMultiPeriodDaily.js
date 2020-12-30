@@ -38,7 +38,7 @@
         try {
             /* Context Variables */
             let contextVariables = {
-                lastBandFile: undefined,          // Datetime of the last file files sucessfully produced by this process.
+                lastBandFile: undefined,          // Datetime of the last file files successfully produced by this process.
                 firstTradeFile: undefined,          // Datetime of the first trade file in the whole market history.
                 maxBandFile: undefined            // Datetime of the last file available to be used as an input of this process.
             };

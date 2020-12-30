@@ -11,6 +11,15 @@ line-height: 150%;
 margin: 20 20 20 30px;
 }
 
+.docs-common-style-container{
+background-color: white; 
+font: 400 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
+color: #111; 
+line-height: 150%;
+margin: 20 30px;
+box-sizing: border-box;
+}
+
 .docs-node-html-footer-container {
 font: 400 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
 color: #111; 
@@ -21,12 +30,15 @@ margin-top: 100px;
 padding-top: 50px;
 }
 
+/* DELETE candidate (delete class assignment on DocsSapace.js too)
+
 .docs-context-menu-clickeable-container {
 font: 400 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
 color: #111; 
 line-height: 150%;
 margin: 20 20 20 30px;
 }
+*/
 
 .docs-font-normal {
 font: 400 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
@@ -38,12 +50,15 @@ line-height: 150%;
 vertical-align: middle;
 width: 100%;
 min-width: 95px;
-margin: auto;
 margin-bottom: 0px;
 margin-top: 0px;
-margin-right: 20px;
 border: 0px solid #dedede;
 padding: 5px;
+
+/* DELETE candidate
+margin: auto;
+margin-right: 20px;
+*/
 }
 
 .docs-table-cell{
@@ -56,11 +71,15 @@ background-color: #f9f9f9;
 vertical-align: middle;
 margin-bottom: 20px;
 margin-top: 0px;
-margin-right: 20px;
 border: 1px solid #dedede;
 padding: 10px;
 display: table;
-width: 97%;
+width: 100%;
+box-sizing: border-box;
+
+/* DELETE candidate
+margin-right: 20px;
+*/
 }
 
 .docs-definition-table div {
@@ -393,12 +412,13 @@ outline: none;
 font-size: 100%;
 vertical-align: middle;
 padding: 10px;
-margin: 4px;
+margin: 4px 0;
 transition: 0.1s;
 border: 1px solid #ddd;
 border-radius: 5px;
 background-color: white;
 line-height: 40px;
+box-sizing: border-box;
 }
 
 .docs-collapsible-element img {
@@ -720,9 +740,13 @@ padding: 0px;
 margin: -5px 0 -20px 0;
 width: 100%;
 text-align: right;
-margin-right: 20px;
 color: transparent;
 font-size: 75%;
+
+/* DELETE candidate
+margin-right: 20px;
+*/
+
 }
 
 .docs-hidden-block::after{
@@ -776,6 +800,3 @@ max-width: 830px;
 max-height: 476px;
 }
 
-.docs-common-style-container{
-  background-color: white; 
-}

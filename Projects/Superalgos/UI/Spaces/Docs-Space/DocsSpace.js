@@ -2168,6 +2168,7 @@ function newSuperalgosDocSpace() {
                     addMenuItemsImages()
                     addChildrenNodesPropertiesImages()
                     addAttachingAndReferencingRulesImages()
+                    addConfigurationImages()
                 }
 
                 function addDefinitionImage() {
@@ -2339,6 +2340,31 @@ function newSuperalgosDocSpace() {
                                 }
                             }
                         }
+                    }
+                }
+
+                function addConfigurationImages() {
+                    if (appSchemaDocument === undefined) { return }
+                    let configImageElementArray = document.getElementsByClassName('docs-configuration-property-image')
+                    if (configImageElementArray === undefined) { return }
+
+                    /* 
+                    We need to create our own array otherwise while replacing the childElement
+                    we will be shrinking the array.
+                    */
+                    let imageArray = []
+                    for (let i = 0; i < configImageElementArray.length; i++) {
+                        let dummyImage = configImageElementArray[i]
+                        imageArray.push(dummyImage)
+                    }
+                    for (let i = 0; i < imageArray.length; i++) {
+                        let dummyImage = imageArray[i]
+                        let parentElement = dummyImage.parentNode
+                        let collectionImage = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName('Superalgos', 'configuration')
+                        let imageElement = collectionImage.cloneNode()
+
+                        imageElement.className = "docs-collapsible-image"
+                        parentElement.replaceChild(imageElement, dummyImage)
                     }
                 }
             }
@@ -2645,7 +2671,7 @@ function newSuperalgosDocSpace() {
 
                         let name = UI.projects.superalgos.utilities.strings.fromCamelCaseToUpperWithSpaces(mapKey)
 
-                        HTML = HTML + '<button id="docs-config-property-' + mapKey.toLowerCase() + '" type="button" class="docs-collapsible-element">' + name + '</button>'
+                        HTML = HTML + '<button id="docs-config-property-' + mapKey.toLowerCase() + '" type="button" class="docs-collapsible-element"><img class="docs-configuration-property-image">' + name + '</button>'
                         HTML = HTML + '<div class="docs-collapsible-content">'
 
                         for (let i = 0; i < valueArray.length; i++) {

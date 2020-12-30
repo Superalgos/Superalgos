@@ -1924,6 +1924,7 @@ function newSuperalgosDocSpace() {
             HTML = HTML + addSearchHeader()
             HTML = HTML + '</section>'
 
+            HTML = HTML + '<div id="docs-common-style-container-div" class="docs-common-style-container">' // Common Style Container Starts
             HTML = HTML + '<div id="docs-context-menu-clickeable-div" class="docs-context-menu-clickeable-container">' // Clickeable Container Starts
 
             /* Title */
@@ -1947,6 +1948,7 @@ function newSuperalgosDocSpace() {
 
             addContent()
 
+            HTML = HTML + '</div>' // Common Style Container Ends
             HTML = HTML + '</div>' // Clickeable Container Ends
             /*
             Here we inject the HTML we built into the DOM at the Docs Space Div.

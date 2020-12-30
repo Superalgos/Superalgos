@@ -775,3 +775,7 @@ margin-bottom: 35px;
 max-width: 830px; 
 max-height: 476px;
 }
+
+.docs-common-style-container{
+  background-color: white; 
+}

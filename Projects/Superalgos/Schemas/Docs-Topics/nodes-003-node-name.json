@@ -1,9 +1,9 @@
 {
     "topic": "Nodes",
     "pageNumber": "3",
-    "type": "Node's Name",
+    "type": "Node Name",
     "definition": {
-        "text": "Each instance of a Node might have a user-assigned name, or a default name assigned to it by the system at the moment the Node was created. At the Design Space the name of a Node appears above the Node's Icon. ",
+        "text": "Each instance of a Node might have a user-assigned name, or a default name assigned to it by the system at the moment the Node was created. At the Design Space the name of a Node appears above the Node Icon. ",
         "updated": 1609236312410
     },
     "paragraphs": [

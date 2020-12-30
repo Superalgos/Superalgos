@@ -1,9 +1,9 @@
 {
     "topic": "Nodes",
     "pageNumber": "4",
-    "type": "Node's Config",
+    "type": "Node Config",
     "definition": {
-        "text": "Nodes might have a config -only when needed- that it is used to store information related to that node. When they do, they usually allow users to access it via one of the Node's Menu items.  A Node's Config is later used by Tasks or Bots during their processing.",
+        "text": "Nodes might have a config -only when needed- that it is used to store information related to that node. When they do, they usually allow users to access it via one of the Node Menu items.  A Node Config is later used by Tasks or Bots during their processing.",
         "updated": 1609236556444
     },
     "paragraphs": [

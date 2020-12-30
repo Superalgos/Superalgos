@@ -1,10 +1,10 @@
 {
     "topic": "Nodes",
-    "pageNumber": "10",
-    "type": "Node's Icon",
+    "pageNumber": "9",
+    "type": "Node Referencing Rules",
     "definition": {
-        "text": "Each Node must have a icon, that is the one that represents the Node at the Desing Space.",
-        "updated": 1609237637368
+        "text": "Each Node Type can have a set of rules that defines with which Node Type it can stablish a reference.",
+        "updated": 1609244259240
     },
     "paragraphs": [
         {

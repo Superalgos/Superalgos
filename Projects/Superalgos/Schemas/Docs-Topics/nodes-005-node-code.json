@@ -1,0 +1,16 @@
+{
+    "topic": "Nodes",
+    "pageNumber": "5",
+    "type": "Node Code",
+    "definition": {
+        "text": "Nodes might have code inside of them. When they do, they usually allow users to access and modify it via one of the Node Menu items. The code stored at a node is later used at Tasks or Bots during their processing.",
+        "updated": 1609236689695
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Some types of nodes, might have code that defines their behaviour. The code can usually be accesed by users via the Edit menu item. When first created, the code of a Node is initialized with the initial value present at the Node's Definition Document. Some types of node represents Formulas and they hold code that defines those formulas at the Node Code.",
+            "updated": 1609246211297
+        }
+    ]
+}

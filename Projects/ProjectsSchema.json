@@ -207,6 +207,11 @@
                     "name": "Languages",
                     "propertyName": "languages",
                     "functionName": "newSuperalgosUtilitiesLanguages"
+                },
+                {
+                    "name": "Docs",
+                    "propertyName": "docs",
+                    "functionName": "newSuperalgosUtilitiesDocs"
                 }
             ],
             "spaces": [

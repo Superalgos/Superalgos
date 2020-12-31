@@ -9,7 +9,9 @@ function newSuperalgosDocSpace() {
         searchResultsPage: undefined,
         footer: undefined,
         documentPage: undefined,
+        commandInterface: undefined,
         language: undefined, 
+        command: undefined,
         changeLanguage: changeLanguage,
         openSpaceAreaAndNavigateTo: openSpaceAreaAndNavigateTo,
         navigateTo: navigateTo,
@@ -52,7 +54,6 @@ function newSuperalgosDocSpace() {
     let appSchemaDocument
     let docsSchemaDocument
     let menuLabelsMap = new Map()
-    let command
 
     return thisObject
 
@@ -68,12 +69,14 @@ function newSuperalgosDocSpace() {
         thisObject.searchResultsPage = newSuperalgosDocsSearchResultsPage()
         thisObject.documentPage = newSuperalgosDocsDocumentPage()
         thisObject.footer = newSuperalgosDocsFooter()
+        thisObject.commandInterface = newSuperalgosDocsCommmandInterface()
 
         thisObject.searchEngine.initialize()
         thisObject.mainSearchPage.initialize()
         thisObject.searchResultsPage.initialize()
         thisObject.documentPage.initialize()
         thisObject.footer.initialize()
+        thisObject.commandInterface.initialize()        
 
         isInitialized = true
 
@@ -415,12 +418,14 @@ function newSuperalgosDocSpace() {
         thisObject.searchResultsPage.finalize()
         thisObject.documentPage.finalize()
         thisObject.footer.finalize()
+        thisObject.commandInterface.finalize()
         
         thisObject.searchEngine = undefined
         thisObject.mainSearchPage = undefined
         thisObject.searchResultsPage = undefined
         thisObject.documentPage = undefined
         thisObject.footer = undefined
+        thisObject.commandInterface =  undefined
 
         objectBeingRendered = undefined
         paragraphMap = undefined
@@ -842,735 +847,18 @@ function newSuperalgosDocSpace() {
         thisObject.isVisible = false
     }
 
-    function detectCommands() {
-
-        if (checkHelpCommand() === undefined) { return }
-        if (checkGotoCommand() === undefined) { return }
-        if (checkAddCommand() === undefined) { return }
-        if (checkDeleteCommand() === undefined) { return }
-        if (checkUReIndexCommand() === undefined) { return }
-        if (checkUSaveCommand() === undefined) { return }
-
-        renderSearchResultsPage()
-
-        function checkHelpCommand() {
-            if (command.toLowerCase() === 'docs.help') {
-                navigateTo('Superalgos', 'Topic', 'Docs Help Command')
-                return
-            }
-            return 'Not Help Command'
-        }
-
-        function checkGotoCommand() {
-            if (command.toLowerCase() === 'docs.help docs.goto') {
-                navigateTo('Superalgos', 'Topic', 'Docs Goto Command')
-                return
-            }
-            if (command.indexOf('Docs.Goto') !== 0 && command.indexOf('docs.goto') !== 0) { return 'Not Goto Command' }
-
-            let splittedCommand = command.split(' ')
-
-            if (splittedCommand[1] === undefined) {
-                navigateTo('Superalgos', 'Topic', 'Docs Error Too Few Parameters', 'Anchor Too Few Paramenters')
-                return
-            }
-            let secondaryCommand = command.substring(command.indexOf(' ') + 1, command.length)
-            let splittedSecondaryCommand = secondaryCommand.split('->')
-            let project = splittedSecondaryCommand[0]
-            let category = splittedSecondaryCommand[1]
-            let type = splittedSecondaryCommand[2]
-            let anchor = splittedSecondaryCommand[3]
-
-            if (SCHEMAS_BY_PROJECT.get(project) === undefined) {
-                navigateTo('Superalgos', 'Topic', 'Docs Error Project Does Not Exist', 'Anchor Project Does Not Exist')
-                return
-            }
-            let docsSchemaDocument
-            switch (category.toLowerCase()) {
-                case 'node': {
-                    docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(type)
-                    break
-                }
-                case 'concept': {
-                    docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.get(type)
-                    break
-                }
-                case 'topic': {
-                    docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.get(type)
-                    break
-                }
-                default: {
-                    navigateTo('Superalgos', 'Topic', 'Docs Error Category Not Valid', 'Anchor Category Not Valid')
-                    return
-                }
-            }
-            if (docsSchemaDocument === undefined) {
-                navigateTo('Superalgos', 'Topic', 'Docs Error Page Not Found', 'Anchor Page Not Found')
-                return
-            }
-            if (docsSchemaDocument.paragraphs === undefined) {
-                navigateTo('Superalgos', 'Topic', 'Docs Error Page With No Paragraphs', 'Anchor Page With No Paragraphs')
-                return
-            }
-            navigateTo(project, category, type, anchor, undefined)
-
-        }
-
-        function checkAddCommand() {
-            if (command.toLowerCase() === 'docs.help docs.add') {
-                navigateTo('Superalgos', 'Topic', 'Docs Add Command')
-                return
-            }
-            if (command.indexOf('Docs.Add') !== 0 && command.indexOf('docs.add') !== 0) { return 'Not Add Command' }
-
-            if (UI.projects.superalgos.spaces.docsSpace.language !== DEFAULT_LANGUAGE) {
-                navigateTo('Superalgos', 'Topic', 'Docs Error Only In English', 'Anchor Only In English')
-                return
-            }
-
-            let splittedCommand = command.split(': ')
-            if (splittedCommand[1] === undefined) {
-                navigateTo('Superalgos', 'Topic', 'Docs Error Missing Colon', 'Anchor Missing Colon')
-                return
-            }
-            let primaryCommand = splittedCommand[0]
-            let secondaryCommand = splittedCommand[1]
-
-            let splittedPrimaryCommand = primaryCommand.split(' ')
-
-            if (splittedPrimaryCommand[0].toLowerCase() === 'docs.add') {
-                if (splittedPrimaryCommand[2] !== 'to') {
-                    navigateTo('Superalgos', 'Topic', 'Docs Error Missing To', 'Anchor Missing To')
-                    return
-                }
-
-                if (splittedPrimaryCommand.length < 4) {
-                    navigateTo('Superalgos', 'Topic', 'Docs Error Too Few Parameters', 'Anchor Too Few Paramenters')
-                    return
-                }
-
-                if (secondaryCommand === '') {
-                    navigateTo('Superalgos', 'Topic', 'Docs Error Category Not Valid', 'Anchor Category Not Valid')
-                    return
-                }
-
-                switch (splittedPrimaryCommand[1].toLowerCase()) {
-                    case 'node': {
-                        addNode(splittedPrimaryCommand[3], secondaryCommand)
-                        return
-                    }
-                    case 'concept': {
-                        addConcept(splittedPrimaryCommand[3], secondaryCommand)
-                        return
-                    }
-                    case 'topic': {
-                        let splittedSecondaryCommand = secondaryCommand.split('->')
-                        if (splittedSecondaryCommand.length < 3) {
-                            navigateTo('Superalgos', 'Topic', 'Docs Error Too Few Parameters', 'Anchor Too Few Paramenters')
-                            return
-                        }
-                        addTopic(splittedPrimaryCommand[3], splittedSecondaryCommand[0], splittedSecondaryCommand[1], splittedSecondaryCommand[2])
-                        return
-                    }
-                    default: {
-                        navigateTo('Superalgos', 'Topic', 'Docs Error Category Not Valid', 'Anchor Category Not Valid')
-                        return
-                    }
-                }
-                return 'Not Add Command'
-            }
-        }
-
-        function checkDeleteCommand() {
-            if (command.toLowerCase() === 'docs.help docs.delete') {
-                navigateTo('Superalgos', 'Topic', 'Docs Delete Command')
-                return
-            }
-            if (command.indexOf('Docs.Delete') !== 0 && command.indexOf('docs.delete') !== 0) { return 'Not Delete Command' }
-
-            if (UI.projects.superalgos.spaces.docsSpace.language !== DEFAULT_LANGUAGE) {
-                navigateTo('Superalgos', 'Topic', 'Docs Error Only In English', 'Anchor Only In English')
-                return
-            }
-
-            let splittedCommand = command.split(': ')
-            if (splittedCommand[1] === undefined) {
-                navigateTo('Superalgos', 'Topic', 'Docs Error Missing Colon', 'Anchor Missing Colon')
-                return
-            }
-            let primaryCommand = splittedCommand[0]
-            let secondaryCommand = splittedCommand[1]
-
-            let splittedPrimaryCommand = primaryCommand.split(' ')
-
-            if (splittedPrimaryCommand[0].toLowerCase() === 'docs.delete') {
-                if (splittedPrimaryCommand[2] !== 'from') {
-                    navigateTo('Superalgos', 'Topic', 'Docs Error Missing From', 'Anchor Missing From')
-                    return
-                }
-
-                if (splittedPrimaryCommand.length < 4) {
-                    navigateTo('Superalgos', 'Topic', 'Docs Error Too Few Parameters', 'Anchor Too Few Paramenters')
-                    return
-                }
-
-                if (secondaryCommand === '') {
-                    navigateTo('Superalgos', 'Topic', 'Docs Error Category Not Valid', 'Anchor Category Not Valid')
-                    return
-                }
-
-                switch (splittedPrimaryCommand[1].toLowerCase()) {
-                    case 'node': {
-                        deleteNode(splittedPrimaryCommand[3], secondaryCommand)
-                        return
-                    }
-                    case 'concept': {
-                        deleteConcept(splittedPrimaryCommand[3], secondaryCommand)
-                        return
-                    }
-                    case 'topic': {
-                        let splittedSecondaryCommand = secondaryCommand.split('->')
-                        if (splittedSecondaryCommand.length < 3) {
-                            navigateTo('Superalgos', 'Topic', 'Docs Error Too Few Parameters', 'Anchor Too Few Paramenters')
-                            return
-                        }
-                        deleteTopic(splittedPrimaryCommand[3], splittedSecondaryCommand[0], splittedSecondaryCommand[1], splittedSecondaryCommand[2])
-                        return
-                    }
-                    default: {
-                        navigateTo('Superalgos', 'Topic', 'Docs Error Category Not Valid', 'Anchor Category Not Valid')
-                        return
-                    }
-                }
-                return 'Not Delete Command'
-            }
-        }
-
-        function checkUReIndexCommand() {
-            if (command.toLowerCase() === 'docs.help docs.reindex') {
-                navigateTo('Superalgos', 'Topic', 'Docs Reindex Command')
-                return
-            }
-            if (command.indexOf('Docs.Reindex') !== 0 && command.indexOf('docs.reindex') !== 0) { return 'Not Reindex Command' }
-
-            setUpWorkspaceSchemas()
-            thisObject.searchEngine.setUpSearchEngine()
-
-            renderCommandResultsPage(["Succesfully rebuild the search engine indexes."])
-        }
-
-        function checkUSaveCommand() {
-            if (command.toLowerCase() === 'docs.help docs.save') {
-                navigateTo('Superalgos', 'Topic', 'Docs Save Command')
-                return
-            }
-            if (command.indexOf('Docs.Save') !== 0 && command.indexOf('docs.save') !== 0) { return 'Not Save Command' }
-
-            let requestsSent = 0
-            let responseCount = 0
-            let okResponses = 0
-            for (let j = 0; j < PROJECTS_ARRAY.length; j++) {
-                let docsSchema
-                let project = PROJECTS_ARRAY[j]
-
-                docsSchema = SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema
-                httpRequest(JSON.stringify(docsSchema), 'Docs/Save-Node-Schema/' + project, onResponse)
-                requestsSent++
-
-                docsSchema = SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema
-                httpRequest(JSON.stringify(docsSchema), 'Docs/Save-Concept-Schema/' + project, onResponse)
-                requestsSent++
-
-                docsSchema = SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema
-                httpRequest(JSON.stringify(docsSchema), 'Docs/Save-Topic-Schema/' + project, onResponse)
-                requestsSent++
-            }
-
-            function onResponse(err, data) {
-                /* Lets check the result of the call through the http interface */
-                data = JSON.parse(data)
-                if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                    okResponses++
-                }
-                responseCount++
-
-                if (responseCount === requestsSent) {
-                    if (responseCount === okResponses) {
-                        renderCommandResultsPage(["Succesfully saved all the latest changes."])
-                    } else {
-                        navigateTo('Superalgos', 'Topic', 'Docs Error Changes Not Saved', 'Anchor Changes Not Saved')
-                    }
-                }
-            }
-        }
-
-        function addNode(project, type) {
-            let template = {
-                type: type,
-                definition: { text: "Write here the definition of this Node." },
-                paragraphs: [
-                    {
-                        style: "Text",
-                        text: newParagraphText
-                    }
-                ]
-            }
-            if (SCHEMAS_BY_PROJECT.get(project) === undefined) {
-                navigateTo('Superalgos', 'Topic', 'Docs Error Project Does Not Exist', 'Anchor Project Does Not Exist')
-                return
-            }
-            let exist = SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(type)
-            if (exist !== undefined) {
-                navigateTo('Superalgos', 'Topic', 'Docs Error Page Already Exists', 'Anchor Page Already Exists')
-                return
-            }
-
-            SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema.push(template)
-            SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.set(type, template)
-            navigateTo(project, 'Node', type)
-        }
-
-        function addConcept(project, type) {
-            let template = {
-                type: type,
-                definition: { text: "Write here the summary / definition of this Concept." },
-                paragraphs: [
-                    {
-                        style: "Text",
-                        text: newParagraphText
-                    }
-                ]
-            }
-
-            if (SCHEMAS_BY_PROJECT.get(project) === undefined) {
-                navigateTo('Superalgos', 'Topic', 'Docs Error Project Does Not Exist', 'Anchor Project Does Not Exist')
-                return
-            }
-            let exist = SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.get(type)
-            if (exist !== undefined) {
-                navigateTo('Superalgos', 'Topic', 'Docs Error Page Already Exists', 'Anchor Page Already Exists')
-                return
-            }
-
-            SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema.push(template)
-            SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.set(type, template)
-            navigateTo(project, 'Concept', type)
-        }
-
-        function addTopic(project, topic, type, pageNumber) {
-            let template = {
-                topic: topic,
-                pageNumber: pageNumber,
-                type: type,
-                definition: { text: "Write here a summary for this topic page." },
-                paragraphs: [
-                    {
-                        style: "Text",
-                        text: newParagraphText
-                    }
-                ]
-            }
-            if (SCHEMAS_BY_PROJECT.get(project) === undefined) {
-                navigateTo('Superalgos', 'Topic', 'Docs Error Project Does Not Exist', 'Anchor Project Does Not Exist')
-                return
-            }
-            let exist = SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.get(type)
-            if (exist !== undefined) {
-                navigateTo('Superalgos', 'Topic', 'Docs Error Page Already Exists', 'Anchor Page Already Exists')
-                return
-            }
-
-            SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema.push(template)
-            SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.set(type, template)
-            navigateTo(project, 'Topic', type)
-        }
-
-        function deleteNode(project, type) {
-            if (SCHEMAS_BY_PROJECT.get(project) === undefined) {
-                navigateTo('Superalgos', 'Topic', 'Docs Error Project Does Not Exist', 'Anchor Project Does Not Exist')
-                return
-            }
-            let exist = SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(type)
-            if (exist === undefined) {
-                navigateTo('Superalgos', 'Topic', 'Docs Error Page Does Not Exist', 'Anchor Page Does Not Exist')
-                return
-            }
-
-            SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.delete(type)
-            renderCommandResultsPage(["Node <b>" + type + "</b> deleted."])
-
-            for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema.length; i++) {
-                docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema[i]
-                if (docsSchemaDocument.type === type) {
-                    docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema.splice(i, 1)
-                    break
-                }
-            }
-        }
-
-        function deleteConcept(project, type) {
-            if (SCHEMAS_BY_PROJECT.get(project) === undefined) {
-                navigateTo('Superalgos', 'Topic', 'Docs Error Project Does Not Exist', 'Anchor Project Does Not Exist')
-                return
-            }
-            let exist = SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.get(type)
-            if (exist === undefined) {
-                navigateTo('Superalgos', 'Topic', 'Docs Error Page Does Not Exist', 'Anchor Page Does Not Exist')
-                return
-            }
-
-            SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.delete(type)
-            renderCommandResultsPage(["Concept <b>" + type + "</b> deleted."])
-
-            for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema.length; i++) {
-                docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema[i]
-                if (docsSchemaDocument.type === type) {
-                    docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema.splice(i, 1)
-                    break
-                }
-            }
-        }
-
-        function deleteTopic(project, topic, type, pageNumber) {
-            if (SCHEMAS_BY_PROJECT.get(project) === undefined) {
-                navigateTo('Superalgos', 'Topic', 'Docs Error Project Does Not Exist', 'Anchor Project Does Not Exist')
-                return
-            }
-            let exist = SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.get(type)
-            if (exist === undefined) {
-                navigateTo('Superalgos', 'Topic', 'Docs Error Page Does Not Exist', 'Anchor Page Does Not Exist')
-                return
-            } else {
-                if (exist.pageNumber !== pageNumber) {
-                    navigateTo('Superalgos', 'Topic', 'Docs Error Page Number Mismatch', 'Anchor Page Number Mismatch')
-                    return
-                }
-                if (exist.topic !== topic) {
-                    navigateTo('Superalgos', 'Topic', 'Docs Error Topic Mismatch', 'Anchor Topic Mismatch')
-                    return
-                }
-            }
-
-            SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.delete(type)
-            renderCommandResultsPage(["Topic <b>" + type + "</b> deleted."])
-
-            for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema.length; i++) {
-                docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema[i]
-                if (docsSchemaDocument.type === type) {
-                    docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema.splice(i, 1)
-                    break
-                }
-            }
-        }
-    }
-
-    function renderCommandResultsPage(resultArray) {
-
-        buildHTML()
-
-        function buildHTML() {
-            let HTML = ''
-            HTML = HTML + '<section id="docs-search-results-div" class="docs-search-page-container">'
-            HTML = HTML + addSearchHeader()
-            // Results
-            for (let i = 0; i < resultArray.length; i++) {
-                let result = resultArray[i]
-                HTML = HTML + '<p class="docs-command-result-message">' + result + '</p>'
-            }
-
-            // End Content
-            HTML = HTML + '</div>'
-
-            // End Section
-            HTML = HTML + '</section>'
-
-            let docsContentDiv = document.getElementById('docs-content-div')
-            docsContentDiv.innerHTML = HTML + UI.projects.superalgos.spaces.docsSpace.footer.addFooter()
-
-            detectEnterOnSearchBox()
-            setFocusOnSearchBox()
-        }
-    }
-
-    function renderSearchResultsPage() {
-
-        let resultsArary = []
-        let initialTime = new Date()
-        buildResultsArray()
-        buildHTML()
-
-        function buildResultsArray() {
-            for (let i = 0; i < thisObject.searchEngine.docsIndex.length; i++) {
-                let documentIndex = thisObject.searchEngine.docsIndex[i]
-                let documentPoints = 0
-
-                for (const style in documentIndex.phraseCount) {
-                    let key = UI.projects.superalgos.utilities.strings.cleanTextOfCommonWordEndings(command.toLowerCase())
-                    let thisPhraseCount = documentIndex.phraseCount[style].get(key)
-                    if (thisPhraseCount === undefined) {
-                        thisPhraseCount = 0
-                    }
-
-                    if (documentIndex.docsSchemaDocument.type !== undefined) {
-                        if (key === UI.projects.superalgos.utilities.strings.cleanTextOfCommonWordEndings(documentIndex.docsSchemaDocument.type.toLowerCase())) {
-                            documentPoints = documentPoints + thisPhraseCount * 100
-                        }
-                    }
-                    if (documentIndex.docsSchemaDocument.topic !== undefined) {
-                        if (key === UI.projects.superalgos.utilities.strings.cleanTextOfCommonWordEndings(documentIndex.docsSchemaDocument.topic.toLowerCase())) {
-                            documentPoints = documentPoints + thisPhraseCount * 200
-                        }
-                    }
-
-                    switch (style) {
-                        case 'topic': {
-                            documentPoints = documentPoints + thisPhraseCount * 100
-                            break
-                        }
-                        case 'type': {
-                            documentPoints = documentPoints + thisPhraseCount * 50
-                            break
-                        }
-                        case 'definition': {
-                            documentPoints = documentPoints + thisPhraseCount * 9
-                            break
-                        }
-                        case 'title': {
-                            documentPoints = documentPoints + thisPhraseCount * 10
-                            break
-                        }
-                        case 'subtitle': {
-                            documentPoints = documentPoints + thisPhraseCount * 8
-                            break
-                        }
-                        case 'text': {
-                            documentPoints = documentPoints + thisPhraseCount * 2
-                            break
-                        }
-                        case 'list': {
-                            documentPoints = documentPoints + thisPhraseCount * 2
-                            break
-                        }
-                        case 'note': {
-                            documentPoints = documentPoints + thisPhraseCount * 4
-                            break
-                        }
-                        case 'warning': {
-                            documentPoints = documentPoints + thisPhraseCount * 6
-                            break
-                        }
-                        case 'error': {
-                            documentPoints = documentPoints + thisPhraseCount * 6
-                            break
-                        }
-                        case 'important': {
-                            documentPoints = documentPoints + thisPhraseCount * 7
-                            break
-                        }
-                        case 'success': {
-                            documentPoints = documentPoints + thisPhraseCount * 5
-                            break
-                        }
-                        case 'callout': {
-                            documentPoints = documentPoints + thisPhraseCount * 5
-                            break
-                        }
-                        case 'summary': {
-                            documentPoints = documentPoints + thisPhraseCount * 6
-                            break
-                        }
-                        case 'section': {
-                            documentPoints = documentPoints + thisPhraseCount * 8
-                            break
-                        }
-                        case 'table': {
-                            documentPoints = documentPoints + thisPhraseCount * 3
-                            break
-                        }
-                        case 'hierarchy': {
-                            documentPoints = documentPoints + thisPhraseCount * 3
-                            break
-                        }
-                        case 'json': {
-                            documentPoints = documentPoints + thisPhraseCount * 2
-                            break
-                        }
-                        case 'javascript': {
-                            documentPoints = documentPoints + thisPhraseCount * 2
-                            break
-                        }
-                        case 'gif': {
-                            documentPoints = documentPoints + thisPhraseCount * 1
-                            break
-                        }
-                        case 'png': {
-                            documentPoints = documentPoints + thisPhraseCount * 1
-                            break
-                        }
-                        case 'anchor': {
-                            documentPoints = documentPoints + thisPhraseCount * 0
-                            break
-                        }
-                        case 'block': {
-                            documentPoints = documentPoints + thisPhraseCount * 0
-                            break
-                        }
-                        case 'include': {
-                            documentPoints = documentPoints + thisPhraseCount * 0
-                            break
-                        }
-                        case 'link': {
-                            documentPoints = documentPoints + thisPhraseCount * 1
-                            break
-                        }
-                        case 'youtube': {
-                            documentPoints = documentPoints + thisPhraseCount * 1
-                            break
-                        }
-                    }
-                }
-
-                if (documentPoints === 0) { continue } // No matches anywhere
-
-                let result = {
-                    documentIndex: documentIndex,
-                    documentPoints: documentPoints
-                }
-                let added = false
-
-                if (resultsArary.length === 0) {
-                    resultsArary.push(result)
-                    added = true
-                } else {
-                    for (let j = 0; j < resultsArary.length; j++) {
-                        let thisResult = resultsArary[j]
-                        if (result.documentPoints > thisResult.documentPoints) {
-                            resultsArary.splice(j, 0, result)
-                            added = true
-                            break
-                        }
-                    }
-                }
-                if (added === false) {
-                    resultsArary.push(result)
-                }
-            }
-        }
-
-        function buildHTML() {
-            const tabs = ['All', 'Nodes', 'Concepts', 'Topics', 'Workspace']
-            let HTML = ''
-            HTML = HTML + '<section id="docs-search-results-div" class="docs-search-page-container">'
-            HTML = HTML + addSearchHeader()
-
-            // Tabs
-            HTML = HTML + '<div class="docs-search-results-header-tabs-container">'
-            let checked = ' checked=""'
-            for (let i = 0; i < tabs.length; i++) {
-                let tab = tabs[i]
-                HTML = HTML + '<input id="tab' + (i + 1) + '" type="radio" name="tabs"' + checked + '><label for="tab' + (i + 1) + '">' + tab + '</label>'
-                checked = ''
-            }
-
-            // Results
-            HTML = HTML + '<div class="docs-search-result-content">'
-
-            let totalResults = new Map()
-            for (let i = 0; i < tabs.length; i++) {
-                let tab = tabs[i]
-                HTML = HTML + '<div id="content' + (i + 1) + '">'
-                HTML = HTML + '<p> ' + tab.toUpperCase() + '_TOTAL_RESULTS results (' + tab.toUpperCase() + '_TOTAL_SECONDS seconds)</p>'
-
-                let resultCounter = 0
-                for (let j = 0; j < resultsArary.length; j++) {
-                    let result = resultsArary[j]
-
-                    if (tab !== 'All') {
-                        if (tab.indexOf(result.documentIndex.category) < 0) {
-                            continue
-                        }
-                    }
-                    resultCounter++
-
-                    /* Lets see if we can show a path */
-                    let path = ''
-                    if (result.documentIndex.docsSchemaDocument.nodeNameTypePath !== undefined) {
-                        let linkLabel
-                        for (let i = 0; i < result.documentIndex.docsSchemaDocument.nodeNameTypePath.length; i++) {
-                            let pathStep = result.documentIndex.docsSchemaDocument.nodeNameTypePath[i]
-                            let nodeName = pathStep[0]
-                            let nodeType = pathStep[1]
-                            let nodeProject = pathStep[2]
-                            let nodeId = pathStep[3]
-                            let link = ' > <a onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + nodeProject + '\', \'' + result.documentIndex.category + '\', \'' + nodeType.replace(/'/g, 'AMPERSAND') + '\', ' + undefined + '  ,\'' + nodeId + '\')"  class="docs-search-result-content-record-project-category-link">'
-                            if (nodeName === 'New ' + nodeType || nodeName === 'My ' + nodeType || nodeName === undefined) {
-                                nodeName = ''
-                            }
-                            if (nodeName === '') {
-                                linkLabel = nodeType
-                            } else {
-                                linkLabel = nodeType + ' (' + nodeName + ')'
-                            }
-                            path = path + link + linkLabel + '</a>'
-                        }
-                    }
-
-                    HTML = HTML + '<div class="docs-search-result-content-record-container">'
-                    HTML = HTML + '<p class="docs-search-result-content-record-project-category">' + result.documentIndex.project + ' > ' + result.documentIndex.category + path + '</p>'
-
-                    let mainLink = ''
-                    if (result.documentIndex.docsSchemaDocument.topic === undefined) {
-                        mainLink = result.documentIndex.docsSchemaDocument.type
-                    } else {
-                        mainLink = result.documentIndex.docsSchemaDocument.topic + ' - Page ' + result.documentIndex.docsSchemaDocument.pageNumber + ' - ' + result.documentIndex.docsSchemaDocument.type
-                    }
-                    HTML = HTML + '<p><a onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + result.documentIndex.project + '\', \'' + result.documentIndex.category + '\', \'' + result.documentIndex.docsSchemaDocument.type.replace(/'/g, 'AMPERSAND') + '\', ' + undefined + '  ,\'' + result.documentIndex.docsSchemaDocument.nodeId + '\')" class="docs-search-result-content-record-title">' + mainLink + '</a></p>'
-
-                    if (result.documentIndex.docsSchemaDocument.definition !== undefined) {
-                        HTML = HTML + '<p class="docs-search-result-content-record-extract">' + getTextBasedOnLanguage(result.documentIndex.docsSchemaDocument.definition) + '</p>'
-                    } else {
-                        HTML = HTML + '<p class="docs-search-result-content-record-extract">' + 'No definition available.' + '</p>'
-                    }
-                    HTML = HTML + '</div>'
-                }
-                HTML = HTML + '</div>'
-                totalResults.set(tab, resultCounter)
-            }
-
-            // End Content
-            HTML = HTML + '</div>'
-            HTML = HTML + '</div>'
-
-            // End Section
-            HTML = HTML + '</section>'
-
-            // Total Seconds Calculation
-            let finalTime = new Date()
-            let totalSeconds = ((finalTime.valueOf() - initialTime.valueOf()) / 1000).toFixed(3)
-            for (let i = 0; i < tabs.length; i++) {
-                let tab = tabs[i]
-                HTML = HTML.replace(tab.toUpperCase() + '_TOTAL_SECONDS', totalSeconds)
-                resultCounter = totalResults.get(tab)
-                HTML = HTML.replace(tab.toUpperCase() + '_TOTAL_RESULTS', resultCounter)
-            }
-
-            let docsContentDiv = document.getElementById('docs-content-div')
-            docsContentDiv.innerHTML = HTML + UI.projects.superalgos.spaces.docsSpace.footer.addFooter()
-
-            detectEnterOnSearchBox()
-            setFocusOnSearchBox()
-        }
-    }
-
     function detectEnterOnSearchBox() {
         const element = document.getElementsByClassName("docs-search-input")[0]
-        if (command !== undefined) {
-            element.value = command
+        if (UI.projects.superalgos.spaces.docsSpace.command !== undefined) {
+            element.value = UI.projects.superalgos.spaces.docsSpace.command
         }
         element.addEventListener("keyup", function (event) {
             if (event.key === "Enter" || event.keyCode === 13) {
-                command = element.value
-                detectCommands()
+                UI.projects.superalgos.spaces.docsSpace.command = element.value
+                thisObject.commandInterface.detectCommands()
+
+                detectEnterOnSearchBox()
+                setFocusOnSearchBox()
             }
         });
     }
@@ -1745,7 +1033,7 @@ function newSuperalgosDocSpace() {
             let HTML = ''
 
             HTML = HTML + '<section id="docs-search-results-div" class="docs-search-page-container">'
-            HTML = HTML + addSearchHeader()
+            HTML = HTML + UI.projects.superalgos.spaces.docsSpace.mainSearchPage.addSearchHeader()
             HTML = HTML + '</section>'
 
             HTML = HTML + '<div id="docs-common-style-container-div" class="docs-common-style-container">' // Common Style Container Starts
@@ -1796,7 +1084,7 @@ function newSuperalgosDocSpace() {
                 if (docsSchemaDocument.definition !== undefined) {
 
                     let definitionText = getTextBasedOnLanguage(docsSchemaDocument.definition)
-                    definitionText = definitionText + addWarningIfTranslationIsOutdated(docsSchemaDocument.definition)
+                    definitionText = definitionText + UI.projects.superalgos.utilities.docs.addWarningIfTranslationIsOutdated(docsSchemaDocument.definition)
 
                     /* We will test if we can draw an image here or not*/
                     let testElement = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(project, type)
@@ -2728,7 +2016,7 @@ function newSuperalgosDocSpace() {
                         innerHTML = addCodeToCamelCase(innerHTML)
                         innerHTML = addToolTips(innerHTML)
                         innerHTML = addItalics(innerHTML)
-                        innerHTML = innerHTML + addWarningIfTranslationIsOutdated(paragraph)
+                        innerHTML = innerHTML + UI.projects.superalgos.utilities.docs.addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
                     case 'Title': {
@@ -2737,7 +2025,7 @@ function newSuperalgosDocSpace() {
                         role = ''
                         key = key + '-title'
                         innerHTML = getTextBasedOnLanguage(paragraph)
-                        innerHTML = innerHTML + addWarningIfTranslationIsOutdated(paragraph)
+                        innerHTML = innerHTML + UI.projects.superalgos.utilities.docs.addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
                     case 'Subtitle': {
@@ -2746,7 +2034,7 @@ function newSuperalgosDocSpace() {
                         role = ''
                         key = key + '-subtitle'
                         innerHTML = getTextBasedOnLanguage(paragraph)
-                        innerHTML = innerHTML + addWarningIfTranslationIsOutdated(paragraph)
+                        innerHTML = innerHTML + UI.projects.superalgos.utilities.docs.addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
                     case 'Note': {
@@ -2757,7 +2045,7 @@ function newSuperalgosDocSpace() {
                         innerHTML = getTextBasedOnLanguage(paragraph)
                         innerHTML = addToolTips(innerHTML)
                         innerHTML = addItalics(innerHTML)
-                        innerHTML = innerHTML + addWarningIfTranslationIsOutdated(paragraph)
+                        innerHTML = innerHTML + UI.projects.superalgos.utilities.docs.addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
                     case 'Success': {
@@ -2768,7 +2056,7 @@ function newSuperalgosDocSpace() {
                         innerHTML = getTextBasedOnLanguage(paragraph)
                         innerHTML = addToolTips(innerHTML)
                         innerHTML = addItalics(innerHTML)
-                        innerHTML = innerHTML + addWarningIfTranslationIsOutdated(paragraph)
+                        innerHTML = innerHTML + UI.projects.superalgos.utilities.docs.addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
                     case 'Important': {
@@ -2779,7 +2067,7 @@ function newSuperalgosDocSpace() {
                         innerHTML = getTextBasedOnLanguage(paragraph)
                         innerHTML = addToolTips(innerHTML)
                         innerHTML = addItalics(innerHTML)
-                        innerHTML = innerHTML + addWarningIfTranslationIsOutdated(paragraph)
+                        innerHTML = innerHTML + UI.projects.superalgos.utilities.docs.addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
                     case 'Warning': {
@@ -2790,7 +2078,7 @@ function newSuperalgosDocSpace() {
                         innerHTML = getTextBasedOnLanguage(paragraph)
                         innerHTML = addToolTips(innerHTML)
                         innerHTML = addItalics(innerHTML)
-                        innerHTML = innerHTML + addWarningIfTranslationIsOutdated(paragraph)
+                        innerHTML = innerHTML + UI.projects.superalgos.utilities.docs.addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
                     case 'Error': {
@@ -2800,7 +2088,7 @@ function newSuperalgosDocSpace() {
                         key = key + '-error'
                         innerHTML = getTextBasedOnLanguage(paragraph)
                         innerHTML = addToolTips(innerHTML)
-                        innerHTML = innerHTML + addWarningIfTranslationIsOutdated(paragraph)
+                        innerHTML = innerHTML + UI.projects.superalgos.utilities.docs.addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
                     case 'Callout': {
@@ -2811,7 +2099,7 @@ function newSuperalgosDocSpace() {
                         innerHTML = getTextBasedOnLanguage(paragraph)
                         innerHTML = addToolTips(innerHTML)
                         innerHTML = addItalics(innerHTML)
-                        innerHTML = innerHTML + addWarningIfTranslationIsOutdated(paragraph)
+                        innerHTML = innerHTML + UI.projects.superalgos.utilities.docs.addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
                     case 'Summary': {
@@ -2822,7 +2110,7 @@ function newSuperalgosDocSpace() {
                         innerHTML = getTextBasedOnLanguage(paragraph)
                         innerHTML = addToolTips(innerHTML)
                         innerHTML = addItalics(innerHTML)
-                        innerHTML = innerHTML + addWarningIfTranslationIsOutdated(paragraph)
+                        innerHTML = innerHTML + UI.projects.superalgos.utilities.docs.addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
                     case 'Section': {
@@ -2833,7 +2121,7 @@ function newSuperalgosDocSpace() {
                         innerHTML = getTextBasedOnLanguage(paragraph)
                         innerHTML = addToolTips(innerHTML)
                         innerHTML = addItalics(innerHTML)
-                        innerHTML = innerHTML + addWarningIfTranslationIsOutdated(paragraph)
+                        innerHTML = innerHTML + UI.projects.superalgos.utilities.docs.addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
                     case 'List': {
@@ -2847,13 +2135,13 @@ function newSuperalgosDocSpace() {
                         innerHTML = addToolTips(innerHTML)
                         innerHTML = addBold(innerHTML)
                         innerHTML = addItalics(innerHTML)
-                        innerHTML = innerHTML + addWarningIfTranslationIsOutdated(paragraph)
+                        innerHTML = innerHTML + UI.projects.superalgos.utilities.docs.addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
                     case 'Table': {
                         styleClass = ''
                         prefix = '<table class="docs-info-table">'
-                        sufix = '</table>' + addWarningIfTranslationIsOutdated(paragraph)
+                        sufix = '</table>' + UI.projects.superalgos.utilities.docs.addWarningIfTranslationIsOutdated(paragraph)
                         role = ''
                         key = key + '-table'
                         innerHTML = getTextBasedOnLanguage(paragraph)
@@ -3153,575 +2441,6 @@ function newSuperalgosDocSpace() {
                 }
             }
         }
-    }
-
-    function addSearchHeader() {
-        let HTML = ''
-        // Logo & Search Box
-        HTML = HTML + '<div class="docs-search-results-header">'
-        HTML = HTML + '<div class="docs-image-logo-search-results"><img src="Images/superalgos-logo.png" width=200></div>'
-        HTML = HTML + '<div class="docs-search-results-box">'
-        HTML = HTML + '<input class="docs-search-input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></input>'
-        HTML = HTML + '</div>'
-        HTML = HTML + '</div>'
-
-        return HTML
-    }
-
-    function addWarningIfTranslationIsOutdated(paragraph) {
-        if (paragraph === undefined) { return '' }
-        if (paragraph.updated === undefined) { return '' }
-        if (paragraph.translations === undefined) { return '' }
-        if (paragraph.translations.length === 0) { return '' }
-        for (let i = 0; i < paragraph.translations.length; i++) {
-            let translation = paragraph.translations[i]
-            if (translation.updated === undefined) { continue }
-            if (translation.language === UI.projects.superalgos.spaces.docsSpace.language) {
-                if (paragraph.updated < translation.updated) {
-                    return ''
-                } else {
-                    return ' <b>Warning!!!</b> This translation is outdated. English version is... <i>' + paragraph.text + '</i> Please update this translation.'
-                }
-            }
-        }
-        return ''
-    }
-
-    function getTextBasedOnLanguage(paragraph) {
-        if (paragraph === undefined) { return }
-        if (paragraph.translations === undefined) { return paragraph.text }
-        if (paragraph.translations.length === 0) { return paragraph.text }
-        for (let i = 0; i < paragraph.translations.length; i++) {
-            let translation = paragraph.translations[i]
-            if (translation.language === UI.projects.superalgos.spaces.docsSpace.language) { return translation.text }
-        }
-        return paragraph.text
-    }
-
-    function setTextBasedOnLanguage(paragraph, text) {
-        if (UI.projects.superalgos.spaces.docsSpace.language === DEFAULT_LANGUAGE) {
-            if (paragraph.text !== text) {
-                paragraph.text = text
-                paragraph.updated = (new Date()).valueOf()
-            }
-            return
-        } else {
-            /* 
-            We will avoid setting up a new language if the text is 
-            the same as the text at the default language.
-            */
-            if (paragraph.text === text) {
-                return
-            }
-        }
-        if (paragraph.translations === undefined) {
-            paragraph.translations = []
-        }
-        for (let i = 0; i < paragraph.translations.length; i++) {
-            let translation = paragraph.translations[i]
-            if (translation.language === UI.projects.superalgos.spaces.docsSpace.language) {
-                if (translation.text !== text) {
-                    translation.text = text
-                    translation.updated = (new Date()).valueOf()
-                }
-                return
-            }
-        }
-        let translation = {
-            language: UI.projects.superalgos.spaces.docsSpace.language,
-            text: text,
-            updated: (new Date()).valueOf()
-        }
-        paragraph.translations.push(translation)
-        return
-    }
-
-    function parseGIF(text) {
-        return '<img class="docs-gif" src="' + text + '">'
-    }
-
-    function reverseParseGIF(HTML) {
-        let result = HTML
-        result = result.replace(' <img class="docs-gif" src="', '')
-        result = result.replace('">  ', '')
-        return result
-    }
-
-    function parsePNG(text) {
-        return '<img class="docs-png" src="' + text + '">'
-    }
-
-    function reverseParsePNG(HTML) {
-        let result = HTML
-        result = result.replace(' <img class="docs-png" src="', '')
-        result = result.replace('">  ', '')
-        return result
-    }
-
-    function parseTable(text) {
-        let HTML = ''
-        let odd = false
-        /* When the text is not formatted as a table, we auto format it as a single cell table */
-        if (text.indexOf('|') < 0) {
-            text = "|" + text + "|"
-        }
-
-        /* We process the text based table*/
-        let rows = text.split(String.fromCharCode(10))
-        for (let i = 0; i < rows.length; i++) {
-            let row = rows[i]
-            if (row === '') {
-                if (i === rows.length - 1) {
-                    HTML = HTML + '</tbody>'
-                }
-                continue
-            }
-            let colums = row.split('|')
-            if (i === 0) {
-                HTML = HTML + '<thead>'
-            }
-            if (i === 1) {
-                HTML = HTML + '<tbody>'
-            }
-            if (odd === true) {
-                HTML = HTML + '<tr class="docs-info-table-alt-bg">'
-                odd = false
-            } else {
-                HTML = HTML + '<tr>'
-                odd = true
-            }
-            if (colums.length < 2) {
-                continue
-            } else {
-                /* We discard anything before the first | and after the last | */
-                for (let j = 1; j < colums.length - 1; j++) {
-                    let column = colums[j]
-                    column = addRGB(column)
-
-                    if (i === 0) {
-                        HTML = HTML + '<th>' + column + '</th>'
-                    } else {
-                        HTML = HTML + '<td>' + column + '</td>'
-                    }
-                }
-            }
-
-            HTML = HTML + '</tr>'
-            if (i === 0) {
-                HTML = HTML + '</thead>'
-            }
-            if (i === rows.length - 1) {
-                HTML = HTML + '</tbody>'
-            }
-        }
-        return HTML
-
-        function addRGB(text) {
-            const RGB_HTML = '<div style=\"display: block; background: RGB; border: 1px solid black;\">&nbsp;&nbsp;&nbsp;</div>'
-            let splittedText = text.split('RGB(')
-            if (splittedText.length === 1) { return text }
-            let remainderSplit = splittedText[1].split(')')
-            if (remainderSplit.length === 1) { return text }
-            let RGBFound = 'RGB(' + remainderSplit[0] + ')'
-            let span = RGB_HTML.replace('RGB', RGBFound)
-            let result = text.replace(RGBFound, span)
-            return result
-        }
-    }
-
-    function parseLink(text) {
-        let HTML = ''
-        let splittedText = text.split('->')
-        if (splittedText.length < 1) { return }
-        HTML = '<a  params="' + text + '" href="http://' + splittedText[1] + '" target="_" class="docs-link">' + splittedText[0] + '</a>'
-        return HTML
-    }
-
-    function parseYoutube(text) {
-        let HTML = ''
-
-        HTML = HTML + '<div params="' + text + '" class="docs-youtube-video-container">'
-        HTML = HTML + '<iframe width="830" height="465" src="https://www.youtube.com/embed/' + text + '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
-        HTML = HTML + '</div>'
-
-        return HTML
-    }
-
-    function reverseParseLink(HTML) {
-        let splittedHTML = HTML.split('"')
-        return splittedHTML[1]
-    }
-
-    function reverseParseYoutube(HTML) {
-        let splittedHTML = HTML.split('"')
-        return splittedHTML[1]
-    }
-
-    function reverseParseHierarchy(HTML) {
-        let splittedHTML = HTML.split('"')
-        return splittedHTML[3]
-    }
-
-    function reverseParseTable(HTML) {
-        text = removeRGB(HTML)
-
-        /* Single occurrance replacements */
-        text = text.replace('<table class="docs-info-table"> ', '')
-        text = text.replace('  </table>', '')
-        text = text.replace('<thead>', '')
-        text = text.replace('</thead>', '')
-        text = text.replace('<tbody>', '')
-        text = text.replace('</tbody>', '')
-
-        /* All instances replacements */
-        text = text.replaceAll('<tr>', '')
-        text = text.replaceAll('<tr class="docs-info-table-alt-bg">', '')
-        text = text.replaceAll('</td><td>', '|')
-        text = text.replaceAll('</th><th>', '|')
-        text = text.replaceAll('<th>', '|')
-        text = text.replaceAll('</th>', '|')
-        text = text.replaceAll('<td>', '|')
-        text = text.replaceAll('</td>', '|')
-        text = text.replaceAll('</tr>', '')
-
-        /* We break lines where needed */
-        text = text.replaceAll('||', '|' + String.fromCharCode(10) + '|')
-        return text
-
-        function removeRGB(HTML) {
-            let text = HTML
-            text = text.replaceAll('<div style="display: block; background: ', '')
-            text = text.replaceAll('; border: 1px solid black;">&nbsp;&nbsp;&nbsp;</div>', '')
-            return text
-        }
-    }
-
-    function addBold(text) {
-        let splittedText = text.split(':')
-        if (text.indexOf(':') >= 0) {
-            return '<b>' + text.substring(0, text.indexOf(':') + 1) + '</b>' + text.substring(text.indexOf(':') + 1, text.length)
-        } else {
-            return text
-        }
-    }
-
-    function addCodeToCamelCase(text) {
-        let expandedText = text
-            .replaceAll('{', ' { ')
-            .replaceAll('}', ' } ')
-            .replaceAll('(', ' ( ')
-            .replaceAll(')', ' ) ')
-            .replaceAll('[', ' [ ')
-            .replaceAll(']', ' ] ')
-        let splittedText = expandedText.split(' ')
-        let result = ''
-        for (let i = 0; i < splittedText.length; i++) {
-            let word = splittedText[i]
-            if (UI.projects.superalgos.utilities.strings.isCamelCase(word) === true) {
-                word = '<code class="docs-code">' + word + '</code>'
-            }
-            if (i === 0) {
-                result = word
-            } else {
-                result = result + ' ' + word
-            }
-        }
-        result = result
-            .replaceAll(' { ', '{')
-            .replaceAll(' } ', '}')
-            .replaceAll(' ( ', '(')
-            .replaceAll(' ) ', ')')
-            .replaceAll(' [ ', '[')
-            .replaceAll(' ] ', ']')
-        return result
-    }
-
-    function addItalics(text) {
-
-        let words = text.split(' ')
-        let changedText = ''
-        for (let i = 0; i < words.length; i++) {
-            let phrase1 = words[i]
-            let phrase2 = words[i] + ' ' + words[i + 1]
-            let phrase3 = words[i] + ' ' + words[i + 1] + ' ' + words[i + 2]
-            let phrase4 = words[i] + ' ' + words[i + 1] + ' ' + words[i + 2] + ' ' + words[i + 3]
-
-            let cleanPhrase1 = cleanPhrase(phrase1)
-            let cleanPhrase2 = cleanPhrase(phrase2)
-            let cleanPhrase3 = cleanPhrase(phrase3)
-            let cleanPhrase4 = cleanPhrase(phrase4)
-
-            let found = false
-
-            if (found === false && menuLabelsMap.get(cleanPhrase4) === true) {
-                changedText = changedText + phrase4.replace(cleanPhrase4, '<i>' + cleanPhrase4 + '</i>') + ' '
-                i = i + 3
-                found = true
-            }
-
-            if (found === false && menuLabelsMap.get(cleanPhrase3) === true) {
-                changedText = changedText + phrase3.replace(cleanPhrase3, '<i>' + cleanPhrase3 + '</i>') + ' '
-                i = i + 2
-                found = true
-            }
-
-            if (found === false && menuLabelsMap.get(cleanPhrase2) === true) {
-                changedText = changedText + phrase2.replace(cleanPhrase2, '<i>' + cleanPhrase2 + '</i>') + ' '
-                i = i + 1
-                found = true
-            }
-
-            if (found === false && menuLabelsMap.get(cleanPhrase1) === true) {
-                changedText = changedText + phrase1.replace(cleanPhrase1, '<i>' + cleanPhrase1 + '</i>') + ' '
-                i = i + 0
-                found = true
-            }
-
-            if (found === false) {
-                changedText = changedText + phrase1 + ' '
-            }
-        }
-        return changedText
-    }
-
-    function addToolTips(text) {
-
-        const TOOL_TIP_HTML = '<div onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'PROJECT\', \'CATEGORY\', \'TYPE\')" class="docs-tooltip">TYPE_LABEL<span class="docs-tooltiptext">DEFINITION</span></div>'
-        const LINK_ONLY_HTML = '<div onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'PROJECT\', \'CATEGORY\', \'TYPE\')" class="docs-link">TYPE_LABEL<span class="docs-tooltiptext"></span></div>'
-
-        let resultingText = ''
-        text = tagDefinedTypes(text, objectBeingRendered.type)
-        let splittedText = text.split(TAGGING_STRING_SEPARATOR)
-
-        for (let i = 0; i < splittedText.length; i = i + 2) {
-            let firstPart = splittedText[i]
-            let taggedText = splittedText[i + 1]
-
-            if (taggedText === undefined) {
-                return resultingText + firstPart
-            }
-
-            let splittedTaggedText = taggedText.split('|')
-            let category = splittedTaggedText[0]
-            let type = splittedTaggedText[1]
-            let project = splittedTaggedText[2]
-
-            /*
-            We will search across all DOC and CONCEPT SCHEMAS
-            */
-            let found = false
-            let docsSchemaDocument
-
-            for (let j = 0; j < PROJECTS_ARRAY.length; j++) {
-                let project = PROJECTS_ARRAY[j]
-                docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(type)
-                if (docsSchemaDocument !== undefined) {
-                    found = true
-                    break
-                }
-                docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.get(type)
-                if (docsSchemaDocument !== undefined) {
-                    found = true
-                    break
-                }
-                docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.get(type)
-                if (docsSchemaDocument !== undefined) {
-                    found = true
-                    break
-                }
-            }
-            if (found === false) {
-                return text
-            }
-
-            let definition = getTextBasedOnLanguage(docsSchemaDocument.definition)
-            if (definition === undefined || definition === "") {
-                let tooltip = LINK_ONLY_HTML
-                    .replace('CATEGORY', category)
-                    .replace('TYPE', type.replace(/'/g, 'AMPERSAND'))
-                    .replace('PROJECT', project)
-                    .replace('TYPE_LABEL', type)
-
-                resultingText = resultingText + firstPart + tooltip
-            } else {
-                let tooltip = TOOL_TIP_HTML
-                    .replace('CATEGORY', category)
-                    .replace('TYPE', type.replace(/'/g, 'AMPERSAND'))
-                    .replace('PROJECT', project)
-                    .replace('TYPE_LABEL', type)
-                    .replace('DEFINITION', definition)
-
-                resultingText = resultingText + firstPart + tooltip
-            }
-        }
-        return resultingText
-    }
-
-    function tagDefinedTypes(text, excludedType) {
-        let words = text.split(' ')
-        let taggedText = ''
-        for (let i = 0; i < words.length; i++) {
-            let phrase1 = words[i]
-            let phrase2 = words[i] + ' ' + words[i + 1]
-            let phrase3 = words[i] + ' ' + words[i + 1] + ' ' + words[i + 2]
-            let phrase4 = words[i] + ' ' + words[i + 1] + ' ' + words[i + 2] + ' ' + words[i + 3]
-
-            let cleanPhrase1 = cleanPhrase(phrase1)
-            let cleanPhrase2 = cleanPhrase(phrase2)
-            let cleanPhrase3 = cleanPhrase(phrase3)
-            let cleanPhrase4 = cleanPhrase(phrase4)
-
-            let found = false
-
-            for (let j = 0; j < PROJECTS_ARRAY.length; j++) {
-                let project = PROJECTS_ARRAY[j]
-
-                /* Search in docsNodeSchema */
-                if (SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(cleanPhrase4) !== undefined) {
-                    if (cleanPhrase4 !== excludedType) {
-                        taggedText = taggedText + phrase4.replace(cleanPhrase4, TAGGING_STRING_SEPARATOR + 'Node' + '|' + cleanPhrase4 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
-                    } else {
-                        taggedText = taggedText + phrase4 + ' '
-                    }
-                    i = i + 3
-                    found = true
-                    break
-                }
-                if (SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(cleanPhrase3) !== undefined) {
-                    if (cleanPhrase3 !== excludedType) {
-                        taggedText = taggedText + phrase3.replace(cleanPhrase3, TAGGING_STRING_SEPARATOR + 'Node' + '|' + cleanPhrase3 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
-                    } else {
-                        taggedText = taggedText + phrase3 + ' '
-                    }
-                    i = i + 2
-                    found = true
-                    break
-                }
-                if (SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(cleanPhrase2) !== undefined) {
-                    if (cleanPhrase2 !== excludedType) {
-                        taggedText = taggedText + phrase2.replace(cleanPhrase2, TAGGING_STRING_SEPARATOR + 'Node' + '|' + cleanPhrase2 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
-                    } else {
-                        taggedText = taggedText + phrase2 + ' '
-                    }
-                    i = i + 1
-                    found = true
-                    break
-                }
-                if (SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(cleanPhrase1) !== undefined) {
-                    if (cleanPhrase1 !== excludedType) {
-                        taggedText = taggedText + phrase1.replace(cleanPhrase1, TAGGING_STRING_SEPARATOR + 'Node' + '|' + cleanPhrase1 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
-                    } else {
-                        taggedText = taggedText + phrase1 + ' '
-                    }
-                    found = true
-                    break
-                }
-
-                /* Search in docsConceptSchema */
-                if (SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.get(cleanPhrase4) !== undefined) {
-                    if (cleanPhrase4 !== excludedType) {
-                        taggedText = taggedText + phrase4.replace(cleanPhrase4, TAGGING_STRING_SEPARATOR + 'Concept' + '|' + cleanPhrase4 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
-                    } else {
-                        taggedText = taggedText + phrase4 + ' '
-                    }
-                    i = i + 3
-                    found = true
-                    break
-                }
-                if (SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.get(cleanPhrase3) !== undefined) {
-                    if (cleanPhrase3 !== excludedType) {
-                        taggedText = taggedText + phrase3.replace(cleanPhrase3, TAGGING_STRING_SEPARATOR + 'Concept' + '|' + cleanPhrase3 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
-                    } else {
-                        taggedText = taggedText + phrase3 + ' '
-                    }
-                    i = i + 2
-                    found = true
-                    break
-                }
-                if (SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.get(cleanPhrase2) !== undefined) {
-                    if (cleanPhrase2 !== excludedType) {
-                        taggedText = taggedText + phrase2.replace(cleanPhrase2, TAGGING_STRING_SEPARATOR + 'Concept' + '|' + cleanPhrase2 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
-                    } else {
-                        taggedText = taggedText + phrase2 + ' '
-                    }
-                    i = i + 1
-                    found = true
-                    break
-                }
-                if (SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.get(cleanPhrase1) !== undefined) {
-                    if (cleanPhrase1 !== excludedType) {
-                        taggedText = taggedText + phrase1.replace(cleanPhrase1, TAGGING_STRING_SEPARATOR + 'Concept' + '|' + cleanPhrase1 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
-                    } else {
-                        taggedText = taggedText + phrase1 + ' '
-                    }
-                    found = true
-                    break
-                }
-
-                /* Search in docsTopicSchema */
-                if (SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.get(cleanPhrase4) !== undefined) {
-                    if (cleanPhrase4 !== excludedType) {
-                        taggedText = taggedText + phrase4.replace(cleanPhrase4, TAGGING_STRING_SEPARATOR + 'Topic' + '|' + cleanPhrase4 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
-                    } else {
-                        taggedText = taggedText + phrase4 + ' '
-                    }
-                    i = i + 3
-                    found = true
-                    break
-                }
-                if (SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.get(cleanPhrase3) !== undefined) {
-                    if (cleanPhrase3 !== excludedType) {
-                        taggedText = taggedText + phrase3.replace(cleanPhrase3, TAGGING_STRING_SEPARATOR + 'Topic' + '|' + cleanPhrase3 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
-                    } else {
-                        taggedText = taggedText + phrase3 + ' '
-                    }
-                    i = i + 2
-                    found = true
-                    break
-                }
-                if (SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.get(cleanPhrase2) !== undefined) {
-                    if (cleanPhrase2 !== excludedType) {
-                        taggedText = taggedText + phrase2.replace(cleanPhrase2, TAGGING_STRING_SEPARATOR + 'Topic' + '|' + cleanPhrase2 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
-                    } else {
-                        taggedText = taggedText + phrase2 + ' '
-                    }
-                    i = i + 1
-                    found = true
-                    break
-                }
-                if (SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.get(cleanPhrase1) !== undefined) {
-                    if (cleanPhrase1 !== excludedType) {
-                        taggedText = taggedText + phrase1.replace(cleanPhrase1, TAGGING_STRING_SEPARATOR + 'Topic' + '|' + cleanPhrase1 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
-                    } else {
-                        taggedText = taggedText + phrase1 + ' '
-                    }
-                    found = true
-                    break
-                }
-            }
-
-            if (found === false) {
-                taggedText = taggedText + phrase1 + ' '
-            }
-        }
-        return taggedText
-    }
-
-    function cleanPhrase(phrase) {
-        return phrase.replace(',', '')
-            .replace(';', '')
-            .replace('(', '')
-            .replace(')', '')
-            .replace('-', '')
-            .replace('_', '')
-            .replace('.', '')
-            .replace('[', '')
-            .replace(']', '')
-            .replace('{', '')
-            .replace('}', '')
-            .replace('/', '')
-            .replace('>', '')
-            .replace('<', '')
     }
 
     function resize() {

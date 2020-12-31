@@ -275,8 +275,7 @@ function newSuperalgosDocSpace() {
         thisObject.isVisible = true
         if (UI.projects.superalgos.spaces.docsSpace.objectBeingRendered === undefined) {
             thisObject.mainSearchPage.render()
-            UI.projects.superalgos.spaces.docsSpace.mainSearchPage.detectEnterOnSearchBox()
-            UI.projects.superalgos.spaces.docsSpace.mainSearchPage.setFocusOnSearchBox()
+
         } else {
             UI.projects.superalgos.spaces.docsSpace.navigateTo(UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.project, UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.category, UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.type)
         }

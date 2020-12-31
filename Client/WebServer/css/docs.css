@@ -372,6 +372,7 @@ width: 100%;
 }
 
 .docs-footer-row {
+  text-decoration: none; /*I added this dummy property because this can not be empty. */
   /* DELETE candidate
 margin-right: -15px;
 margin-left: -15px;

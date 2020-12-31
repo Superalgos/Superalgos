@@ -280,6 +280,8 @@ function newSuperalgosDocsSearchResultsPage() {
             let docsContentDiv = document.getElementById('docs-content-div')
             docsContentDiv.innerHTML = HTML + UI.projects.superalgos.spaces.docsSpace.footer.addFooter()
 
+            UI.projects.superalgos.spaces.docsSpace.mainSearchPage.detectEnterOnSearchBox()
+            UI.projects.superalgos.spaces.docsSpace.mainSearchPage.setFocusOnSearchBox()
         }
     }
 }

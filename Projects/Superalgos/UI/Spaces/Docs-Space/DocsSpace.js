@@ -52,13 +52,11 @@ function newSuperalgosDocSpace() {
     let docsSchemaDocument
     let menuLabelsMap = new Map()
     let command
-    let docsIndex = []
     let language
 
     return thisObject
 
     function initialize() {
-        docsIndex = []
 
         setupSidePanelTab()
         setUpContextMenu()
@@ -70,6 +68,12 @@ function newSuperalgosDocSpace() {
         thisObject.searchResultsPage = newSuperalgosDocsSearchResultsPage()
         thisObject.documentPage = newSuperalgosDocsDocumentPage()
         thisObject.footer = newSuperalgosDocsFooter()
+
+        thisObject.searchEngine.initialize()
+        thisObject.mainSearchPage.initialize()
+        thisObject.searchResultsPage.initialize()
+        thisObject.documentPage.initialize()
+        thisObject.footer.initialize()
 
         isInitialized = true
 
@@ -423,10 +427,7 @@ function newSuperalgosDocSpace() {
         appSchemaDocument = undefined
         docsSchemaDocument = undefined
         menuLabelsMap = undefined
-        docsIndex = undefined
         isInitialized = false
-
-
     }
 
     function reset() {
@@ -439,60 +440,6 @@ function newSuperalgosDocSpace() {
         window.localStorage.setItem('Docs Language', language)
         let languageLabel = UI.projects.superalgos.utilities.languages.getLaguageLabel(language)
         navigateTo('Superalgos', 'Topic', 'Docs In ' + languageLabel)
-    }
-
-    function cleanTextForSearch(text) {
-        let result = replaceSpecialCharactersForSpaces(text)
-        result = result.replaceAll(' ', '')
-        result = result.replaceAll('s', '')
-        result = result.replaceAll('ing', '')
-        result = result.replaceAll('ed', '')
-        result = result.replaceAll('y', '')
-        result = result.replaceAll('ies', '')
-        return result
-    }
-
-    function replaceSpecialCharactersForSpaces(text) {
-        let result = text
-        result = result.replaceAll('. ', ' ')
-        result = result.replaceAll(', ', ' ')
-        result = result.replaceAll('- ', ' ')
-        result = result.replaceAll('/ ', ' ')
-        result = result.replaceAll('_ ', ' ')
-        result = result.replaceAll(': ', ' ')
-        result = result.replaceAll('; ', ' ')
-        result = result.replaceAll('( ', ' ')
-        result = result.replaceAll(') ', ' ')
-        result = result.replaceAll('{ ', ' ')
-        result = result.replaceAll('} ', ' ')
-        result = result.replaceAll('[ ', ' ')
-        result = result.replaceAll('] ', ' ')
-        result = result.replaceAll('" ', ' ')
-        result = result.replaceAll('\\n ', ' ')
-        result = result.replaceAll('\\ ', ' ')
-
-        result = result.replaceAll('.', ' ')
-        result = result.replaceAll(',', ' ')
-        result = result.replaceAll('-', ' ')
-        result = result.replaceAll('/', ' ')
-        result = result.replaceAll('_', ' ')
-        result = result.replaceAll(':', ' ')
-        result = result.replaceAll(';', ' ')
-        result = result.replaceAll('(', ' ')
-        result = result.replaceAll(')', ' ')
-        result = result.replaceAll('{', ' ')
-        result = result.replaceAll('}', ' ')
-        result = result.replaceAll('[', ' ')
-        result = result.replaceAll(']', ' ')
-        result = result.replaceAll('"', ' ')
-        result = result.replaceAll('\\n', ' ')
-        result = result.replaceAll("\\", ' ')
-
-        result = result.replaceAll('@', ' ')
-        result = result.replaceAll('    ', ' ')
-        result = result.replaceAll('   ', ' ')
-        result = result.replaceAll('  ', ' ')
-        return result
     }
 
     function onKeyDown(event) {
@@ -888,149 +835,6 @@ function newSuperalgosDocSpace() {
         }
     }
 
-    function setUpSearchEngine() {
-        for (let j = 0; j < PROJECTS_ARRAY.length; j++) {
-            let project = PROJECTS_ARRAY[j]
-
-            let documentIndex
-
-            /* Search in Nodes */
-            for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema.length; i++) {
-                documentIndex = {
-                    phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
-                    docsSchemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema[i],
-                    category: 'Node',
-                    project: project
-                }
-                indexDocument(documentIndex)
-                docsIndex.push(documentIndex)
-            }
-            /* Search in Concepts */
-            for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema.length; i++) {
-                documentIndex = {
-                    phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
-                    docsSchemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema[i],
-                    category: 'Concept',
-                    project: project
-                }
-                indexDocument(documentIndex)
-                docsIndex.push(documentIndex)
-            }
-            /* Search in Topics */
-            for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema.length; i++) {
-                documentIndex = {
-                    phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
-                    docsSchemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema[i],
-                    category: 'Topic',
-                    project: project
-                }
-                indexDocument(documentIndex)
-                docsIndex.push(documentIndex)
-            }
-            /* Search in Workspace */
-            for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.workspaceSchema.length; i++) {
-                documentIndex = {
-                    phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
-                    docsSchemaDocument: SCHEMAS_BY_PROJECT.get(project).array.workspaceSchema[i],
-                    category: 'Workspace',
-                    project: project
-                }
-                indexDocument(documentIndex)
-                docsIndex.push(documentIndex)
-            }
-        }
-
-        function indexDocument(documentIndex) {
-
-            if (documentIndex.docsSchemaDocument === undefined) {
-                return
-            }
-
-            if (documentIndex.docsSchemaDocument.topic !== undefined) {
-                let paragraph = {
-                    style: 'Topic',
-                    text: documentIndex.docsSchemaDocument.topic
-                }
-                indexParagraph(paragraph)
-            }
-            if (documentIndex.docsSchemaDocument.type !== undefined) {
-                let paragraph = {
-                    style: 'Type',
-                    text: documentIndex.docsSchemaDocument.type
-                }
-                indexParagraph(paragraph)
-            }
-            if (documentIndex.docsSchemaDocument.definition !== undefined) {
-                let paragraph = {
-                    style: 'Definition',
-                    text: documentIndex.docsSchemaDocument.definition.text,
-                    translations: documentIndex.docsSchemaDocument.definition.translations
-                }
-                indexParagraph(paragraph)
-                indexAllTranslations(paragraph)
-            }
-            if (documentIndex.docsSchemaDocument.paragraphs !== undefined) {
-                for (let k = 0; k < documentIndex.docsSchemaDocument.paragraphs.length; k++) {
-                    let paragraph = documentIndex.docsSchemaDocument.paragraphs[k]
-                    indexParagraph(paragraph)
-                    indexAllTranslations(paragraph)
-                }
-            }
-
-            function indexAllTranslations(paragraph) {
-                if (paragraph.translations === undefined) { return }
-                for (i = 0; i < paragraph.translations.length; i++) {
-                    let translation = paragraph.translations[i]
-                    translation.style = paragraph.style
-                    indexParagraph(translation)
-                }
-            }
-
-            function indexParagraph(paragraph) {
-                if (paragraph.text === undefined) {
-                    return
-                }
-                if (paragraph.style === undefined) {
-                    return
-                }
-
-                let text = paragraph.text.toLowerCase()
-                let style = paragraph.style.toLowerCase()
-                let stylePhraseCount = documentIndex.phraseCount[style]
-
-                if (stylePhraseCount === undefined) {
-                    stylePhraseCount = new Map()
-                    documentIndex.phraseCount[style] = stylePhraseCount
-                }
-
-                text = replaceSpecialCharactersForSpaces(text)
-
-                let splittedText = text.split(' ')
-
-                for (n = 0; n < splittedText.length; n++) {
-                    let phrase = ''
-                    for (let m = 0; m < 10; m++) {
-                        let word = splittedText[n + m]
-                        if (word !== undefined) {
-                            if (m === 0) {
-                                phrase = phrase + word
-                            } else {
-                                phrase = phrase + ' ' + word
-                            }
-                            let key = cleanTextForSearch(phrase)
-
-                            let thisPhraseCount = stylePhraseCount.get(key)
-                            if (thisPhraseCount === undefined) { thisPhraseCount = 0 }
-                            thisPhraseCount++
-
-                            stylePhraseCount.set(key, thisPhraseCount)
-                        }
-                    }
-                }
-            }
-        }
-    }
-
     function onClosing() {
         objectBeingRendered = undefined
         thisObject.isVisible = false
@@ -1259,9 +1063,8 @@ function newSuperalgosDocSpace() {
             }
             if (command.indexOf('Docs.Reindex') !== 0 && command.indexOf('docs.reindex') !== 0) { return 'Not Reindex Command' }
 
-            docsIndex = []
             setUpWorkspaceSchemas()
-            setUpSearchEngine()
+            thisObject.searchEngine.setUpSearchEngine()
 
             renderCommandResultsPage(["Succesfully rebuild the search engine indexes."])
         }
@@ -1507,24 +1310,24 @@ function newSuperalgosDocSpace() {
         buildHTML()
 
         function buildResultsArray() {
-            for (let i = 0; i < docsIndex.length; i++) {
-                let documentIndex = docsIndex[i]
+            for (let i = 0; i < thisObject.searchEngine.docsIndex.length; i++) {
+                let documentIndex = thisObject.searchEngine.docsIndex[i]
                 let documentPoints = 0
 
                 for (const style in documentIndex.phraseCount) {
-                    let key = cleanTextForSearch(command.toLowerCase())
+                    let key = UI.projects.superalgos.utilities.strings.cleanTextOfCommonWordEndings(command.toLowerCase())
                     let thisPhraseCount = documentIndex.phraseCount[style].get(key)
                     if (thisPhraseCount === undefined) {
                         thisPhraseCount = 0
                     }
 
                     if (documentIndex.docsSchemaDocument.type !== undefined) {
-                        if (key === cleanTextForSearch(documentIndex.docsSchemaDocument.type.toLowerCase())) {
+                        if (key === UI.projects.superalgos.utilities.strings.cleanTextOfCommonWordEndings(documentIndex.docsSchemaDocument.type.toLowerCase())) {
                             documentPoints = documentPoints + thisPhraseCount * 100
                         }
                     }
                     if (documentIndex.docsSchemaDocument.topic !== undefined) {
-                        if (key === cleanTextForSearch(documentIndex.docsSchemaDocument.topic.toLowerCase())) {
+                        if (key === UI.projects.superalgos.utilities.strings.cleanTextOfCommonWordEndings(documentIndex.docsSchemaDocument.topic.toLowerCase())) {
                             documentPoints = documentPoints + thisPhraseCount * 200
                         }
                     }
@@ -4025,9 +3828,9 @@ function newSuperalgosDocSpace() {
             if (UI.projects.superalgos.spaces.designSpace.workspace === undefined) { return }
             if (UI.projects.superalgos.spaces.designSpace.workspace.isInitialized === false) { return }
 
-            if (docsIndex && docsIndex.length === 0) {
+            if (thisObject.searchEngine.docsIndex && thisObject.searchEngine.docsIndex.length === 0) {
                 setUpWorkspaceSchemas()
-                setUpSearchEngine()
+                thisObject.searchEngine.setUpSearchEngine()
             }
         }
     }

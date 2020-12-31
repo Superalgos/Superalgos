@@ -1,7 +1,9 @@
 function newSuperalgosUtilitiesStrings() {
     thisObject = {
         fromCamelCaseToUpperWithSpaces: fromCamelCaseToUpperWithSpaces,
-        isCamelCase: isCamelCase
+        isCamelCase: isCamelCase,
+        replaceSpecialCharactersForSpaces: replaceSpecialCharactersForSpaces,
+        cleanTextOfCommonWordEndings: cleanTextOfCommonWordEndings
     }
 
     return thisObject
@@ -52,5 +54,59 @@ function newSuperalgosUtilitiesStrings() {
             return false
         }
         return true
+    }
+
+    function replaceSpecialCharactersForSpaces(text) {
+        let result = text
+        result = result.replaceAll('. ', ' ')
+        result = result.replaceAll(', ', ' ')
+        result = result.replaceAll('- ', ' ')
+        result = result.replaceAll('/ ', ' ')
+        result = result.replaceAll('_ ', ' ')
+        result = result.replaceAll(': ', ' ')
+        result = result.replaceAll('; ', ' ')
+        result = result.replaceAll('( ', ' ')
+        result = result.replaceAll(') ', ' ')
+        result = result.replaceAll('{ ', ' ')
+        result = result.replaceAll('} ', ' ')
+        result = result.replaceAll('[ ', ' ')
+        result = result.replaceAll('] ', ' ')
+        result = result.replaceAll('" ', ' ')
+        result = result.replaceAll('\\n ', ' ')
+        result = result.replaceAll('\\ ', ' ')
+
+        result = result.replaceAll('.', ' ')
+        result = result.replaceAll(',', ' ')
+        result = result.replaceAll('-', ' ')
+        result = result.replaceAll('/', ' ')
+        result = result.replaceAll('_', ' ')
+        result = result.replaceAll(':', ' ')
+        result = result.replaceAll(';', ' ')
+        result = result.replaceAll('(', ' ')
+        result = result.replaceAll(')', ' ')
+        result = result.replaceAll('{', ' ')
+        result = result.replaceAll('}', ' ')
+        result = result.replaceAll('[', ' ')
+        result = result.replaceAll(']', ' ')
+        result = result.replaceAll('"', ' ')
+        result = result.replaceAll('\\n', ' ')
+        result = result.replaceAll("\\", ' ')
+
+        result = result.replaceAll('@', ' ')
+        result = result.replaceAll('    ', ' ')
+        result = result.replaceAll('   ', ' ')
+        result = result.replaceAll('  ', ' ')
+        return result
+    }
+
+    function cleanTextOfCommonWordEndings(text) {
+        let result = UI.projects.superalgos.utilities.strings.replaceSpecialCharactersForSpaces(text)
+        result = result.replaceAll(' ', '')
+        result = result.replaceAll('s', '')
+        result = result.replaceAll('ing', '')
+        result = result.replaceAll('ed', '')
+        result = result.replaceAll('y', '')
+        result = result.replaceAll('ies', '')
+        return result
     }
 }

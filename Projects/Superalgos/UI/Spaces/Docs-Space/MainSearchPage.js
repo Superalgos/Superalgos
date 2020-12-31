@@ -1,6 +1,8 @@
 function newSuperalgosDocsMainSearchPage() {
     let thisObject = {
         addSearchHeader: addSearchHeader, 
+        detectEnterOnSearchBox: detectEnterOnSearchBox,
+        setFocusOnSearchBox: setFocusOnSearchBox,
         render: render, 
         initialize: initialize,
         finalize: finalize
@@ -37,5 +39,26 @@ function newSuperalgosDocsMainSearchPage() {
         HTML = HTML + '</div>'
 
         return HTML
+    }
+
+    function detectEnterOnSearchBox() {
+        const element = document.getElementsByClassName("docs-search-input")[0]
+        if (UI.projects.superalgos.spaces.docsSpace.command !== undefined) {
+            element.value = UI.projects.superalgos.spaces.docsSpace.command
+        }
+        element.addEventListener("keyup", function (event) {
+            if (event.key === "Enter" || event.keyCode === 13) {
+                UI.projects.superalgos.spaces.docsSpace.command = element.value
+                UI.projects.superalgos.spaces.docsSpace.commandInterface.detectCommands()
+
+                detectEnterOnSearchBox()
+                setFocusOnSearchBox()
+            }
+        });
+    }
+
+    function setFocusOnSearchBox() {
+        const element = document.getElementsByClassName("docs-search-input")[0]
+        element.focus()
     }
 }

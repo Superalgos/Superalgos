@@ -15,7 +15,7 @@ function newSuperalgosDocsDocumentPage() {
 
     }
 
-    function render(objectBeingRendered, paragraphMap) {
+    function render() {
 
         appSchemaDocument = SCHEMAS_BY_PROJECT.get(objectBeingRendered.project).map.appSchema.get(objectBeingRendered.type)
 
@@ -1526,7 +1526,7 @@ function newSuperalgosDocsDocumentPage() {
                 exitEditMode()
                 return
             }
-            if (contextMenuGetSelection() === false) {
+            if (UI.projects.superalgos.spaces.docsSpace.contextMenu.getSelection() === false) {
                 /*
                 The click was in a place where we can not recognize an editable piece.
                 We will not open the menu in this circunstances.
@@ -1543,7 +1543,7 @@ function newSuperalgosDocsDocumentPage() {
 
         outClick.addEventListener('click', () => {
             if (EDITOR_ON_FOCUS !== true) {
-                contextMenuForceOutClick()
+                UI.projects.superalgos.spaces.docsSpace.contextMenu.forceOutClick()
             }
         })
     }

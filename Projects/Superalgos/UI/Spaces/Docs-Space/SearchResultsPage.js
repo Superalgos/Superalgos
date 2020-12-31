@@ -28,7 +28,7 @@ function newSuperalgosDocsSearchResultsPage() {
                 let documentPoints = 0
 
                 for (const style in documentIndex.phraseCount) {
-                    let key = UI.projects.superalgos.utilities.strings.cleanTextOfCommonWordEndings(UI.projects.superalgos.spaces.docsSpace.command.toLowerCase())
+                    let key = UI.projects.superalgos.utilities.strings.cleanTextOfCommonWordEndings(UI.projects.superalgos.spaces.docsSpace.commandInterface.command.toLowerCase())
                     let thisPhraseCount = documentIndex.phraseCount[style].get(key)
                     if (thisPhraseCount === undefined) {
                         thisPhraseCount = 0

@@ -10,8 +10,8 @@ function newSuperalgosDocSpace() {
         footer: undefined,
         documentPage: undefined,
         commandInterface: undefined,
+        contextMenu: undefined,
         language: undefined, 
-        command: undefined,
         menuLabelsMap: undefined,
         changeLanguage: changeLanguage,
         openSpaceAreaAndNavigateTo: openSpaceAreaAndNavigateTo,
@@ -46,9 +46,6 @@ function newSuperalgosDocSpace() {
 
     let textArea
     let selectedParagraph
-    let selectedParagraphData = ''
-    let selectedParagraphIndex = ''
-    let selectedParagraphHeight = 0
     let objectBeingRendered
     let paragraphMap                    // Here we will store a map of paragraphs from the Docs Node, Concept or Topics Schema in order to find it when we need to update them.
     let appSchemaDocument
@@ -60,7 +57,6 @@ function newSuperalgosDocSpace() {
         thisObject.menuLabelsMap = new Map()
 
         setupSidePanelTab()
-        setUpContextMenu()
         setUpMenuItemsMap()
         setupUserLanguage()
 
@@ -70,6 +66,7 @@ function newSuperalgosDocSpace() {
         thisObject.documentPage = newSuperalgosDocsDocumentPage()
         thisObject.footer = newSuperalgosDocsFooter()
         thisObject.commandInterface = newSuperalgosDocsCommmandInterface()
+        thisObject.contextMenu = newSuperalgosDocsContextMenu()
 
         thisObject.searchEngine.initialize()
         thisObject.mainSearchPage.initialize()
@@ -77,6 +74,7 @@ function newSuperalgosDocSpace() {
         thisObject.documentPage.initialize()
         thisObject.footer.initialize()
         thisObject.commandInterface.initialize()        
+        thisObject.contextMenu.initialize()
 
         isInitialized = true
 
@@ -101,288 +99,6 @@ function newSuperalgosDocSpace() {
             closingEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('closing', onClosing)
 
             browserResizedEventSubscriptionId = canvas.eventHandler.listenToEvent('Browser Resized', resize)
-        }
-
-        function setUpContextMenu() {
-            window.contextMenu = {
-                editParagraph: editParagraph,
-                deleteParagraph: deleteParagraph,
-                toJavascript: toJavascript,
-                toJson: toJson,
-                toText: toText,
-                toTitle: toTitle,
-                toSubtitle: toSubtitle,
-                toNote: toNote,
-                toWarning: toWarning,
-                toError: toError,
-                toImportant: toImportant,
-                toSuccess: toSuccess,
-                toCallout: toCallout,
-                toSummary: toSummary,
-                toList: toList,
-                toTable: toTable,
-                toHierarchy: toHierarchy,
-                toGif: toGif,
-                toPng: toPng,
-                toAnchor: toAnchor,
-                toBlock: toBlock,
-                toInclude: toInclude,
-                toSection: toSection,
-                copyLink: copyLink,
-                toWebPageLink: toWebPageLink,
-                toYouTubeVideo: toYouTubeVideo
-            }
-
-            function editParagraph() {
-                contextMenuForceOutClick()
-                showHTMLTextArea()
-
-                function showHTMLTextArea() {
-                    if (selectedParagraph === undefined) { return }
-
-                    /* 
-                    When in editing mode, some type of paragraphs need to extend
-                    the text area style so that while editing, it looks and feel
-                    like the non editing style of the paragraph. For those we
-                    add an extra style class.
-                    */
-                    let extraClassName = ''
-                    if (selectedParagraph.id.indexOf('definition') >= 0) {
-                        extraClassName = ' ' + ''
-                    }
-                    if (selectedParagraph.id.indexOf('title') >= 0) {
-                        extraClassName = ' ' + 'docs-h3'
-                    }
-                    if (selectedParagraph.id.indexOf('subtitle') >= 0) {
-                        extraClassName = ' ' + 'docs-h4'
-                    }
-                    if (selectedParagraph.id.indexOf('note') >= 0) {
-                        extraClassName = ' ' + 'docs-alert-note'
-                    }
-                    if (selectedParagraph.id.indexOf('success') >= 0) {
-                        extraClassName = ' ' + 'docs-alert-success'
-                    }
-                    if (selectedParagraph.id.indexOf('important') >= 0) {
-                        extraClassName = ' ' + 'docs-alert-important'
-                    }
-                    if (selectedParagraph.id.indexOf('warning') >= 0) {
-                        extraClassName = ' ' + 'docs-alert-warning'
-                    }
-                    if (selectedParagraph.id.indexOf('error') >= 0) {
-                        extraClassName = ' ' + 'docs-alert-error'
-                    }
-                    if (selectedParagraph.id.indexOf('javascript') >= 0) {
-                        extraClassName = ' ' + 'language-javascript'
-                    }
-                    if (selectedParagraph.id.indexOf('json') >= 0) {
-                        extraClassName = ' ' + 'language-json'
-                    }
-
-                    textArea = document.createElement('textarea');
-                    textArea.id = "textArea";
-                    textArea.spellcheck = false;
-                    textArea.className = "docs-text-area" + extraClassName
-                    textArea.style.height = selectedParagraphHeight
-                    textArea.value = selectedParagraphData
-                    selectedParagraph.innerHTML = ""
-                    selectedParagraph.appendChild(textArea)
-                    textArea.style.display = 'block'
-                    textArea.focus()
-                    contextMenuForceOutClick()
-                    enterEditMode()
-                }
-            }
-
-            function deleteParagraph() {
-                if (selectedParagraphIndex === undefined) { return }
-                if (selectedParagraphIndex === 0) { return }
-                docsSchemaDocument.paragraphs.splice(selectedParagraphIndex, 1)
-                contextMenuForceOutClick()
-                UI.projects.superalgos.spaces.docsSpace.documentPage.render(objectBeingRendered, paragraphMap)
-            }
-
-            function toJavascript() {
-                let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
-                docSchemaParagraph.style = 'Javascript'
-                contextMenuForceOutClick()
-                UI.projects.superalgos.spaces.docsSpace.documentPage.render(objectBeingRendered, paragraphMap)
-            }
-
-            function toJson() {
-                let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
-                docSchemaParagraph.style = 'Json'
-                contextMenuForceOutClick()
-                UI.projects.superalgos.spaces.docsSpace.documentPage.render(objectBeingRendered, paragraphMap)
-            }
-
-            function toText() {
-                let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
-                docSchemaParagraph.style = 'Text'
-                contextMenuForceOutClick()
-                UI.projects.superalgos.spaces.docsSpace.documentPage.render(objectBeingRendered, paragraphMap)
-            }
-
-            function toTitle() {
-                let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
-                docSchemaParagraph.style = 'Title'
-                contextMenuForceOutClick()
-                UI.projects.superalgos.spaces.docsSpace.documentPage.render(objectBeingRendered, paragraphMap)
-            }
-
-            function toSubtitle() {
-                let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
-                docSchemaParagraph.style = 'Subtitle'
-                contextMenuForceOutClick()
-                UI.projects.superalgos.spaces.docsSpace.documentPage.render(objectBeingRendered, paragraphMap)
-            }
-
-            function toNote() {
-                let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
-                docSchemaParagraph.style = 'Note'
-                contextMenuForceOutClick()
-                UI.projects.superalgos.spaces.docsSpace.documentPage.render(objectBeingRendered, paragraphMap)
-            }
-
-            function toWarning() {
-                let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
-                docSchemaParagraph.style = 'Warning'
-                contextMenuForceOutClick()
-                UI.projects.superalgos.spaces.docsSpace.documentPage.render(objectBeingRendered, paragraphMap)
-            }
-
-            function toError() {
-                let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
-                docSchemaParagraph.style = 'Error'
-                contextMenuForceOutClick()
-                UI.projects.superalgos.spaces.docsSpace.documentPage.render(objectBeingRendered, paragraphMap)
-            }
-
-            function toImportant() {
-                let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
-                docSchemaParagraph.style = 'Important'
-                contextMenuForceOutClick()
-                UI.projects.superalgos.spaces.docsSpace.documentPage.render(objectBeingRendered, paragraphMap)
-            }
-
-            function toSuccess() {
-                let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
-                docSchemaParagraph.style = 'Success'
-                contextMenuForceOutClick()
-                UI.projects.superalgos.spaces.docsSpace.documentPage.render(objectBeingRendered, paragraphMap)
-            }
-
-            function toCallout() {
-                let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
-                docSchemaParagraph.style = 'Callout'
-                contextMenuForceOutClick()
-                UI.projects.superalgos.spaces.docsSpace.documentPage.render(objectBeingRendered, paragraphMap)
-            }
-
-            function toSummary() {
-                let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
-                docSchemaParagraph.style = 'Summary'
-                contextMenuForceOutClick()
-                UI.projects.superalgos.spaces.docsSpace.documentPage.render(objectBeingRendered, paragraphMap)
-            }
-
-            function toSection() {
-                let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
-                docSchemaParagraph.style = 'Section'
-                contextMenuForceOutClick()
-                UI.projects.superalgos.spaces.docsSpace.documentPage.render(objectBeingRendered, paragraphMap)
-            }
-
-            function toList() {
-                let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
-                docSchemaParagraph.style = 'List'
-                contextMenuForceOutClick()
-                UI.projects.superalgos.spaces.docsSpace.documentPage.render(objectBeingRendered, paragraphMap)
-            }
-
-            function toTable() {
-                let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
-                docSchemaParagraph.style = 'Table'
-                contextMenuForceOutClick()
-                UI.projects.superalgos.spaces.docsSpace.documentPage.render(objectBeingRendered, paragraphMap)
-            }
-
-            function toHierarchy() {
-                let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
-                docSchemaParagraph.style = 'Hierarchy'
-                contextMenuForceOutClick()
-                UI.projects.superalgos.spaces.docsSpace.documentPage.render(objectBeingRendered, paragraphMap)
-            }
-
-            function toGif() {
-                let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
-                docSchemaParagraph.style = 'Gif'
-                contextMenuForceOutClick()
-                UI.projects.superalgos.spaces.docsSpace.documentPage.render(objectBeingRendered, paragraphMap)
-            }
-
-            function toPng() {
-                let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
-                docSchemaParagraph.style = 'Png'
-                contextMenuForceOutClick()
-                UI.projects.superalgos.spaces.docsSpace.documentPage.render(objectBeingRendered, paragraphMap)
-            }
-
-            function toAnchor() {
-                let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
-                docSchemaParagraph.style = 'Anchor'
-                contextMenuForceOutClick()
-                UI.projects.superalgos.spaces.docsSpace.documentPage.render(objectBeingRendered, paragraphMap)
-            }
-
-            function toBlock() {
-                let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
-                docSchemaParagraph.style = 'Block'
-                contextMenuForceOutClick()
-                UI.projects.superalgos.spaces.docsSpace.documentPage.render(objectBeingRendered, paragraphMap)
-            }
-
-            function toInclude() {
-                let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
-                docSchemaParagraph.style = 'Include'
-                contextMenuForceOutClick()
-                UI.projects.superalgos.spaces.docsSpace.documentPage.render(objectBeingRendered, paragraphMap)
-            }
-
-            function toWebPageLink() {
-                let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
-                docSchemaParagraph.style = 'Link'
-                contextMenuForceOutClick()
-                UI.projects.superalgos.spaces.docsSpace.documentPage.render(objectBeingRendered, paragraphMap)
-            }
-
-            function toYouTubeVideo() {
-                let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
-                docSchemaParagraph.style = 'Youtube'
-                contextMenuForceOutClick()
-                UI.projects.superalgos.spaces.docsSpace.documentPage.render(objectBeingRendered, paragraphMap)
-            }
-
-            function copyLink() {
-                let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
-                let clipboard
-                switch (docSchemaParagraph.style) {
-                    case 'Anchor': {
-                        clipboard = "docs.goto " + objectBeingRendered.project + '->' + objectBeingRendered.category + '->' + objectBeingRendered.type + '->' + docSchemaParagraph.text
-                        break
-                    }
-                    case 'Block': {
-                        clipboard = objectBeingRendered.project + '->' + objectBeingRendered.category + '->' + objectBeingRendered.type + '->' + docSchemaParagraph.text
-                        break
-                    }
-                    default: {
-                        clipboard = docSchemaParagraph.text
-                        break
-                    }
-                }
-
-                UI.projects.superalgos.utilities.clipboard.copyTextToClipboard(clipboard)
-                contextMenuForceOutClick()
-            }
         }
 
         function setUpMenuItemsMap() {
@@ -419,6 +135,7 @@ function newSuperalgosDocSpace() {
         thisObject.documentPage.finalize()
         thisObject.footer.finalize()
         thisObject.commandInterface.finalize()
+        thisObject.contextMenu.finalize()
         
         thisObject.searchEngine = undefined
         thisObject.mainSearchPage = undefined
@@ -426,6 +143,7 @@ function newSuperalgosDocSpace() {
         thisObject.documentPage = undefined
         thisObject.footer = undefined
         thisObject.commandInterface =  undefined
+        thisObject.contextMenu = undefined
 
         objectBeingRendered = undefined
         paragraphMap = undefined
@@ -444,7 +162,7 @@ function newSuperalgosDocSpace() {
         UI.projects.superalgos.spaces.docsSpace.language = pLanguage
         window.localStorage.setItem('Docs Language', UI.projects.superalgos.spaces.docsSpace.language)
         let languageLabel = UI.projects.superalgos.utilities.languages.getLaguageLabel(UI.projects.superalgos.spaces.docsSpace.language)
-        navigateTo('Superalgos', 'Topic', 'Docs In ' + languageLabel)
+        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs In ' + languageLabel)
     }
 
     function onKeyDown(event) {
@@ -556,178 +274,7 @@ function newSuperalgosDocSpace() {
                 }
             }
             EDITOR_ON_FOCUS = false
-            UI.projects.superalgos.spaces.docsSpace.documentPage.render(objectBeingRendered, paragraphMap)
-        }
-    }
-
-    function contextMenuForceOutClick() {
-        const outClick = document.getElementById('docs-space-div')
-        const menu = document.getElementById('menu')
-        menu.classList.remove('show')
-        outClick.style.display = "none"
-    }
-
-    function contextMenuGetSelection() {
-        let selection = window.getSelection()
-
-        /* 
-        We need to locate the parent node that it is a Paragraph,
-        otherwise we could end up in an inner html element.
-        */
-        let paragraphNode = selection.baseNode
-
-        if (paragraphNode.id !== undefined && paragraphNode.parentNode.className === "docs-tooltip") {
-            return false
-        }
-
-
-        for (let i = 1; i < 10; i++) {
-            if (paragraphNode === undefined || paragraphNode === null) { return false }
-            if (paragraphNode.id === undefined || paragraphNode.id.indexOf('editable-paragraph') < 0) {
-                paragraphNode = paragraphNode.parentNode
-                if (paragraphNode === undefined) { return false }
-            }
-        }
-        if (paragraphNode === undefined || paragraphNode === null || paragraphNode.id === undefined || paragraphNode.id.indexOf('editable-paragraph') < 0) {
-            return false
-        }
-        /*
-        Get the dimenssions of the current paragraph to help us to define the dimenssions of the text area.
-        */
-        selectedParagraph = paragraphNode
-        selectedParagraphHeight = paragraphNode.getClientRects()[0].height
-        if (selectedParagraphHeight < 30) { selectedParagraphHeight = 30 }
-        /*
-        We need to clean the Tool Tips text that might be at the paragraph selected.
-        To not destroy the DOM structure we will use a clone.
-        */
-        paragraphNode = paragraphNode.cloneNode(true)
-        scanNodeChildren(paragraphNode)
-        function scanNodeChildren(node) {
-            if (node.childNodes === undefined) { return }
-            for (let i = 0; i < node.childNodes.length; i++) {
-                let childNode = node.childNodes[i]
-                if (childNode.className === "docs-tooltip") {
-                    childNode.innerText = childNode.childNodes[0].data
-                } else {
-                    scanNodeChildren(childNode)
-                }
-            }
-        }
-
-        /* Reset this */
-        selectedParagraphIndex = undefined
-        /*
-        Depending on the Style of Paragraph we will need to remove
-        some info from the innerText. 
-        */
-        if (paragraphNode.id.indexOf('definition-') >= 0) {
-            if (paragraphNode.id.indexOf('-summary') >= 0) {
-                selectedParagraphData = paragraphNode.innerText.trim().substring(9, paragraphNode.innerText.length)
-            } else {
-                selectedParagraphData = paragraphNode.innerText.trim()
-            }
-            return true
-        }
-        /*
-        Remeber the Selected Paragraph Index
-        */
-        let splittedId = paragraphNode.id.split('-')
-        selectedParagraphIndex = splittedId[splittedId.length - 2]
-        /*
-        Check the style of the Paragraph
-        */
-        if (paragraphNode.id.indexOf('-text') >= 0) {
-            selectedParagraphData = paragraphNode.innerText.trim()
-            return true
-        }
-        if (paragraphNode.id.indexOf('-title') >= 0) {
-            selectedParagraphData = paragraphNode.innerText.trim()
-            return true
-        }
-        if (paragraphNode.id.indexOf('-subtitle') >= 0) {
-            selectedParagraphData = paragraphNode.innerText.trim()
-            return true
-        }
-        if (paragraphNode.id.indexOf('-note') >= 0) {
-            selectedParagraphData = paragraphNode.innerText.trim().substring(6, paragraphNode.innerText.length)
-            return true
-        }
-        if (paragraphNode.id.indexOf('-success') >= 0) {
-            selectedParagraphData = paragraphNode.innerText.trim().substring(5, paragraphNode.innerText.length)
-            return true
-        }
-        if (paragraphNode.id.indexOf('-important') >= 0) {
-            selectedParagraphData = paragraphNode.innerText.trim().substring(11, paragraphNode.innerText.length)
-            return true
-        }
-        if (paragraphNode.id.indexOf('-warning') >= 0) {
-            selectedParagraphData = paragraphNode.innerText.trim().substring(10, paragraphNode.innerText.length)
-            return true
-        }
-        if (paragraphNode.id.indexOf('-error') >= 0) {
-            selectedParagraphData = paragraphNode.innerText.trim().substring(8, paragraphNode.innerText.length)
-            return true
-        }
-        if (paragraphNode.id.indexOf('-list') >= 0) {
-            selectedParagraphData = paragraphNode.innerText.trim()
-            return true
-        }
-        if (paragraphNode.id.indexOf('-table') >= 0) {
-            selectedParagraphData = UI.projects.superalgos.utilities.docs.reverseParseTable(paragraphNode.innerHTML)
-            return true
-        }
-        if (paragraphNode.id.indexOf('-hierarchy') >= 0) {
-            selectedParagraphData = UI.projects.superalgos.utilities.docs.reverseParseHierarchy(paragraphNode.innerHTML)
-            return true
-        }
-        if (paragraphNode.id.indexOf('-gif') >= 0) {
-            selectedParagraphData = UI.projects.superalgos.utilities.docs.reverseParseGIF(paragraphNode.innerHTML)
-            return true
-        }
-        if (paragraphNode.id.indexOf('-png') >= 0) {
-            selectedParagraphData = UI.projects.superalgos.utilities.docs.reverseParsePNG(paragraphNode.innerHTML)
-            return true
-        }
-        if (paragraphNode.id.indexOf('-javascript') >= 0) {
-            selectedParagraphData = paragraphNode.innerText.trim().substring(1, paragraphNode.innerText.length)
-            return true
-        }
-        if (paragraphNode.id.indexOf('-json') >= 0) {
-            selectedParagraphData = paragraphNode.innerText.trim().substring(1, paragraphNode.innerText.length)
-            return true
-        }
-        if (paragraphNode.id.indexOf('-callout') >= 0) {
-            selectedParagraphData = paragraphNode.innerText.trim()
-            return true
-        }
-        if (paragraphNode.id.indexOf('-summary') >= 0) {
-            selectedParagraphData = paragraphNode.innerText.trim().substring(9, paragraphNode.innerText.length)
-            return true
-        }
-        if (paragraphNode.id.indexOf('-anchor') >= 0) {
-            selectedParagraphData = paragraphNode.innerText.trim()
-            return true
-        }
-        if (paragraphNode.id.indexOf('-section') >= 0) {
-            selectedParagraphData = paragraphNode.innerText.trim()
-            return true
-        }
-        if (paragraphNode.id.indexOf('-block') >= 0) {
-            selectedParagraphData = paragraphNode.innerText.trim()
-            return true
-        }
-        if (paragraphNode.id.indexOf('-include') >= 0) {
-            selectedParagraphData = paragraphNode.innerText.trim()
-            return true
-        }
-        if (paragraphNode.id.indexOf('-link') >= 0) {
-            selectedParagraphData = UI.projects.superalgos.utilities.docs.reverseParseLink(paragraphNode.innerHTML)
-            return true
-        }
-        if (paragraphNode.id.indexOf('-youtube') >= 0) {
-            selectedParagraphData = UI.projects.superalgos.utilities.docs.reverseParseYoutube(paragraphNode.innerHTML)
-            return true
+            UI.projects.superalgos.spaces.docsSpace.documentPage.render()
         }
     }
 
@@ -738,7 +285,7 @@ function newSuperalgosDocSpace() {
             UI.projects.superalgos.spaces.docsSpace.mainSearchPage.detectEnterOnSearchBox()
             UI.projects.superalgos.spaces.docsSpace.mainSearchPage.setFocusOnSearchBox()
         } else {
-            navigateTo(objectBeingRendered.project, objectBeingRendered.category, objectBeingRendered.type)
+            UI.projects.superalgos.spaces.docsSpace.navigateTo(objectBeingRendered.project, objectBeingRendered.category, objectBeingRendered.type)
         }
     }
 
@@ -850,7 +397,7 @@ function newSuperalgosDocSpace() {
             nodeId: nodeId
         }
 
-        UI.projects.superalgos.spaces.docsSpace.documentPage.render(objectBeingRendered, paragraphMap)
+        UI.projects.superalgos.spaces.docsSpace.documentPage.render()
 
         /*
         Here we will check if we need to position the page at a particular anchor or at the top.

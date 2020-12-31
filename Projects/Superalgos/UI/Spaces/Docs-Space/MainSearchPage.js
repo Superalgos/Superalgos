@@ -43,12 +43,12 @@ function newSuperalgosDocsMainSearchPage() {
 
     function detectEnterOnSearchBox() {
         const element = document.getElementsByClassName("docs-search-input")[0]
-        if (UI.projects.superalgos.spaces.docsSpace.command !== undefined) {
-            element.value = UI.projects.superalgos.spaces.docsSpace.command
+        if (UI.projects.superalgos.spaces.docsSpace.commandInterface.command !== undefined) {
+            element.value = UI.projects.superalgos.spaces.docsSpace.commandInterface.command
         }
         element.addEventListener("keyup", function (event) {
             if (event.key === "Enter" || event.keyCode === 13) {
-                UI.projects.superalgos.spaces.docsSpace.command = element.value
+                UI.projects.superalgos.spaces.docsSpace.commandInterface.command = element.value
                 UI.projects.superalgos.spaces.docsSpace.commandInterface.detectCommands()
 
                 detectEnterOnSearchBox()

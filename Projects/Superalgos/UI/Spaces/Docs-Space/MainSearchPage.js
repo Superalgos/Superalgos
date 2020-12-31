@@ -53,8 +53,6 @@ function newSuperalgosDocsMainSearchPage() {
             if (event.key === "Enter" || event.keyCode === 13) {
                 UI.projects.superalgos.spaces.docsSpace.commandInterface.command = element.value
                 UI.projects.superalgos.spaces.docsSpace.commandInterface.detectCommands()
-
-                setFocusOnSearchBox()
             }
         });
     }

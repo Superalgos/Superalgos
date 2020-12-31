@@ -55,7 +55,7 @@ function newSuperalgosUtilitiesDocs() {
     }
 
     function setTextBasedOnLanguage(paragraph, text) {
-        if (UI.projects.superalgos.spaces.docsSpace.language === DEFAULT_LANGUAGE) {
+        if (UI.projects.superalgos.spaces.docsSpace.language === UI.projects.superalgos.globals.docs.DEFAULT_LANGUAGE) {
             if (paragraph.text !== text) {
                 paragraph.text = text
                 paragraph.updated = (new Date()).valueOf()

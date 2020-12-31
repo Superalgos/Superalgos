@@ -1,5 +1,6 @@
 function newSuperalgosDocsContextMenu() {
     let thisObject = {
+        selectedParagraph: undefined, 
         getSelection: getSelection,
         forceOutClick: forceOutClick, 
         initialize: initialize,
@@ -9,7 +10,7 @@ function newSuperalgosDocsContextMenu() {
     let selectedParagraphData = ''
     let selectedParagraphIndex = ''
     let selectedParagraphHeight = 0
-    
+
     return thisObject
 
     function initialize() {
@@ -55,7 +56,7 @@ function newSuperalgosDocsContextMenu() {
             showHTMLTextArea()
 
             function showHTMLTextArea() {
-                if (selectedParagraph === undefined) { return }
+                if (UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph === undefined) { return }
 
                 /* 
                 When in editing mode, some type of paragraphs need to extend
@@ -64,49 +65,49 @@ function newSuperalgosDocsContextMenu() {
                 add an extra style class.
                 */
                 let extraClassName = ''
-                if (selectedParagraph.id.indexOf('definition') >= 0) {
+                if (UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id.indexOf('definition') >= 0) {
                     extraClassName = ' ' + ''
                 }
-                if (selectedParagraph.id.indexOf('title') >= 0) {
+                if (UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id.indexOf('title') >= 0) {
                     extraClassName = ' ' + 'docs-h3'
                 }
-                if (selectedParagraph.id.indexOf('subtitle') >= 0) {
+                if (UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id.indexOf('subtitle') >= 0) {
                     extraClassName = ' ' + 'docs-h4'
                 }
-                if (selectedParagraph.id.indexOf('note') >= 0) {
+                if (UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id.indexOf('note') >= 0) {
                     extraClassName = ' ' + 'docs-alert-note'
                 }
-                if (selectedParagraph.id.indexOf('success') >= 0) {
+                if (UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id.indexOf('success') >= 0) {
                     extraClassName = ' ' + 'docs-alert-success'
                 }
-                if (selectedParagraph.id.indexOf('important') >= 0) {
+                if (UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id.indexOf('important') >= 0) {
                     extraClassName = ' ' + 'docs-alert-important'
                 }
-                if (selectedParagraph.id.indexOf('warning') >= 0) {
+                if (UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id.indexOf('warning') >= 0) {
                     extraClassName = ' ' + 'docs-alert-warning'
                 }
-                if (selectedParagraph.id.indexOf('error') >= 0) {
+                if (UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id.indexOf('error') >= 0) {
                     extraClassName = ' ' + 'docs-alert-error'
                 }
-                if (selectedParagraph.id.indexOf('javascript') >= 0) {
+                if (UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id.indexOf('javascript') >= 0) {
                     extraClassName = ' ' + 'language-javascript'
                 }
-                if (selectedParagraph.id.indexOf('json') >= 0) {
+                if (UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id.indexOf('json') >= 0) {
                     extraClassName = ' ' + 'language-json'
                 }
 
-                textArea = document.createElement('textarea');
-                textArea.id = "textArea";
-                textArea.spellcheck = false;
-                textArea.className = "docs-text-area" + extraClassName
-                textArea.style.height = selectedParagraphHeight
-                textArea.value = selectedParagraphData
-                selectedParagraph.innerHTML = ""
-                selectedParagraph.appendChild(textArea)
-                textArea.style.display = 'block'
-                textArea.focus()
+                UI.projects.superalgos.spaces.docsSpace.textArea = document.createElement('textarea');
+                UI.projects.superalgos.spaces.docsSpace.textArea.id = "UI.projects.superalgos.spaces.docsSpace.textArea";
+                UI.projects.superalgos.spaces.docsSpace.textArea.spellcheck = false;
+                UI.projects.superalgos.spaces.docsSpace.textArea.className = "docs-text-area" + extraClassName
+                UI.projects.superalgos.spaces.docsSpace.textArea.style.height = selectedParagraphHeight
+                UI.projects.superalgos.spaces.docsSpace.textArea.value = selectedParagraphData
+                UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.innerHTML = ""
+                UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.appendChild(UI.projects.superalgos.spaces.docsSpace.textArea)
+                UI.projects.superalgos.spaces.docsSpace.textArea.style.display = 'block'
+                UI.projects.superalgos.spaces.docsSpace.textArea.focus()
                 forceOutClick()
-                enterEditMode()
+                UI.projects.superalgos.spaces.docsSpace.enterEditMode()
             }
         }
 
@@ -119,176 +120,176 @@ function newSuperalgosDocsContextMenu() {
         }
 
         function toJavascript() {
-            let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
             docSchemaParagraph.style = 'Javascript'
             forceOutClick()
             UI.projects.superalgos.spaces.docsSpace.documentPage.render()
         }
 
         function toJson() {
-            let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
             docSchemaParagraph.style = 'Json'
             forceOutClick()
             UI.projects.superalgos.spaces.docsSpace.documentPage.render()
         }
 
         function toText() {
-            let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
             docSchemaParagraph.style = 'Text'
             forceOutClick()
             UI.projects.superalgos.spaces.docsSpace.documentPage.render()
         }
 
         function toTitle() {
-            let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
             docSchemaParagraph.style = 'Title'
             forceOutClick()
             UI.projects.superalgos.spaces.docsSpace.documentPage.render()
         }
 
         function toSubtitle() {
-            let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
             docSchemaParagraph.style = 'Subtitle'
             forceOutClick()
             UI.projects.superalgos.spaces.docsSpace.documentPage.render()
         }
 
         function toNote() {
-            let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
             docSchemaParagraph.style = 'Note'
             forceOutClick()
             UI.projects.superalgos.spaces.docsSpace.documentPage.render()
         }
 
         function toWarning() {
-            let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
             docSchemaParagraph.style = 'Warning'
             forceOutClick()
             UI.projects.superalgos.spaces.docsSpace.documentPage.render()
         }
 
         function toError() {
-            let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
             docSchemaParagraph.style = 'Error'
             forceOutClick()
             UI.projects.superalgos.spaces.docsSpace.documentPage.render()
         }
 
         function toImportant() {
-            let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
             docSchemaParagraph.style = 'Important'
             forceOutClick()
             UI.projects.superalgos.spaces.docsSpace.documentPage.render()
         }
 
         function toSuccess() {
-            let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
             docSchemaParagraph.style = 'Success'
             forceOutClick()
             UI.projects.superalgos.spaces.docsSpace.documentPage.render()
         }
 
         function toCallout() {
-            let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
             docSchemaParagraph.style = 'Callout'
             forceOutClick()
             UI.projects.superalgos.spaces.docsSpace.documentPage.render()
         }
 
         function toSummary() {
-            let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
             docSchemaParagraph.style = 'Summary'
             forceOutClick()
             UI.projects.superalgos.spaces.docsSpace.documentPage.render()
         }
 
         function toSection() {
-            let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
             docSchemaParagraph.style = 'Section'
             forceOutClick()
             UI.projects.superalgos.spaces.docsSpace.documentPage.render()
         }
 
         function toList() {
-            let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
             docSchemaParagraph.style = 'List'
             forceOutClick()
             UI.projects.superalgos.spaces.docsSpace.documentPage.render()
         }
 
         function toTable() {
-            let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
             docSchemaParagraph.style = 'Table'
             forceOutClick()
             UI.projects.superalgos.spaces.docsSpace.documentPage.render()
         }
 
         function toHierarchy() {
-            let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
             docSchemaParagraph.style = 'Hierarchy'
             forceOutClick()
             UI.projects.superalgos.spaces.docsSpace.documentPage.render()
         }
 
         function toGif() {
-            let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
             docSchemaParagraph.style = 'Gif'
             forceOutClick()
             UI.projects.superalgos.spaces.docsSpace.documentPage.render()
         }
 
         function toPng() {
-            let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
             docSchemaParagraph.style = 'Png'
             forceOutClick()
             UI.projects.superalgos.spaces.docsSpace.documentPage.render()
         }
 
         function toAnchor() {
-            let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
             docSchemaParagraph.style = 'Anchor'
             forceOutClick()
             UI.projects.superalgos.spaces.docsSpace.documentPage.render()
         }
 
         function toBlock() {
-            let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
             docSchemaParagraph.style = 'Block'
             forceOutClick()
             UI.projects.superalgos.spaces.docsSpace.documentPage.render()
         }
 
         function toInclude() {
-            let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
             docSchemaParagraph.style = 'Include'
             forceOutClick()
             UI.projects.superalgos.spaces.docsSpace.documentPage.render()
         }
 
         function toWebPageLink() {
-            let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
             docSchemaParagraph.style = 'Link'
             forceOutClick()
             UI.projects.superalgos.spaces.docsSpace.documentPage.render()
         }
 
         function toYouTubeVideo() {
-            let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
             docSchemaParagraph.style = 'Youtube'
             forceOutClick()
             UI.projects.superalgos.spaces.docsSpace.documentPage.render()
         }
 
         function copyLink() {
-            let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
             let clipboard
             switch (docSchemaParagraph.style) {
                 case 'Anchor': {
-                    clipboard = "docs.goto " + objectBeingRendered.project + '->' + objectBeingRendered.category + '->' + objectBeingRendered.type + '->' + docSchemaParagraph.text
+                    clipboard = "docs.goto " + UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.project + '->' + UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.category + '->' + UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.type + '->' + docSchemaParagraph.text
                     break
                 }
                 case 'Block': {
-                    clipboard = objectBeingRendered.project + '->' + objectBeingRendered.category + '->' + objectBeingRendered.type + '->' + docSchemaParagraph.text
+                    clipboard = UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.project + '->' + UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.category + '->' + UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.type + '->' + docSchemaParagraph.text
                     break
                 }
                 default: {
@@ -336,7 +337,7 @@ function newSuperalgosDocsContextMenu() {
         /*
         Get the dimenssions of the current paragraph to help us to define the dimenssions of the text area.
         */
-        selectedParagraph = paragraphNode
+        UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph = paragraphNode
         selectedParagraphHeight = paragraphNode.getClientRects()[0].height
         if (selectedParagraphHeight < 30) { selectedParagraphHeight = 30 }
         /*

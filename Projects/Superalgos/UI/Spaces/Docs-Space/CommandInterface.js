@@ -97,7 +97,7 @@ function newSuperalgosDocsCommmandInterface() {
             }
             if (UI.projects.superalgos.spaces.docsSpace.commandInterface.command.indexOf('Docs.Add') !== 0 && UI.projects.superalgos.spaces.docsSpace.commandInterface.command.indexOf('docs.add') !== 0) { return 'Not Add Command' }
 
-            if (UI.projects.superalgos.spaces.docsSpace.language !== DEFAULT_LANGUAGE) {
+            if (UI.projects.superalgos.spaces.docsSpace.language !== UI.projects.superalgos.globals.docs.DEFAULT_LANGUAGE) {
                 UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Only In English', 'Anchor Only In English')
                 return
             }
@@ -162,7 +162,7 @@ function newSuperalgosDocsCommmandInterface() {
             }
             if (UI.projects.superalgos.spaces.docsSpace.commandInterface.command.indexOf('Docs.Delete') !== 0 && UI.projects.superalgos.spaces.docsSpace.commandInterface.command.indexOf('docs.delete') !== 0) { return 'Not Delete Command' }
 
-            if (UI.projects.superalgos.spaces.docsSpace.language !== DEFAULT_LANGUAGE) {
+            if (UI.projects.superalgos.spaces.docsSpace.language !== UI.projects.superalgos.globals.docs.DEFAULT_LANGUAGE) {
                 UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Only In English', 'Anchor Only In English')
                 return
             }
@@ -285,7 +285,7 @@ function newSuperalgosDocsCommmandInterface() {
                 paragraphs: [
                     {
                         style: "Text",
-                        text: newParagraphText
+                        text: UI.projects.superalgos.globals.docs.NEW_PARAGRAPH_TEXT
                     }
                 ]
             }
@@ -311,7 +311,7 @@ function newSuperalgosDocsCommmandInterface() {
                 paragraphs: [
                     {
                         style: "Text",
-                        text: newParagraphText
+                        text: UI.projects.superalgos.globals.docs.NEW_PARAGRAPH_TEXT
                     }
                 ]
             }
@@ -340,7 +340,7 @@ function newSuperalgosDocsCommmandInterface() {
                 paragraphs: [
                     {
                         style: "Text",
-                        text: newParagraphText
+                        text: UI.projects.superalgos.globals.docs.NEW_PARAGRAPH_TEXT
                     }
                 ]
             }

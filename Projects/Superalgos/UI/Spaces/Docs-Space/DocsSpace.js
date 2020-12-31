@@ -13,7 +13,12 @@ function newSuperalgosDocSpace() {
         contextMenu: undefined,
         language: undefined, 
         menuLabelsMap: undefined,
+        objectBeingRendered: undefined, 
+        paragraphMap: undefined,  // Here we will store a map of paragraphs from the Docs Node, Concept or Topics Schema in order to find it when we need to update them.
+        textArea: undefined,
         changeLanguage: changeLanguage,
+        enterEditMode: enterEditMode, 
+        exitEditMode: exitEditMode, 
         openSpaceAreaAndNavigateTo: openSpaceAreaAndNavigateTo,
         navigateTo: navigateTo,
         scrollToElement: scrollToElement,
@@ -26,9 +31,6 @@ function newSuperalgosDocSpace() {
     }
 
     let isInitialized = false
-    const DEFAULT_LANGUAGE = 'EN'
-    const DOCS_SPACE_WIDTH = 900
-    const newParagraphText = "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
 
     thisObject.container = newContainer()
     thisObject.container.name = MODULE_NAME
@@ -43,14 +45,7 @@ function newSuperalgosDocSpace() {
     let browserResizedEventSubscriptionId
     let openingEventSubscriptionId
     let closingEventSubscriptionId
-
-    let textArea
-    let selectedParagraph
-    let objectBeingRendered
-    let paragraphMap                    // Here we will store a map of paragraphs from the Docs Node, Concept or Topics Schema in order to find it when we need to update them.
-    let appSchemaDocument
-    let docsSchemaDocument
-
+                
     return thisObject
 
     function initialize() {
@@ -85,8 +80,8 @@ function newSuperalgosDocSpace() {
             if (window.localStorage.getItem('Docs Language') !== null && window.localStorage.getItem('Docs Language') !== undefined && window.localStorage.getItem('Docs Language') !== 'undefined') {
                 UI.projects.superalgos.spaces.docsSpace.language = window.localStorage.getItem('Docs Language')
             } else {
-                window.localStorage.setItem('Docs Language', DEFAULT_LANGUAGE)
-                UI.projects.superalgos.spaces.docsSpace.language = DEFAULT_LANGUAGE
+                window.localStorage.setItem('Docs Language', UI.projects.superalgos.globals.docs.DEFAULT_LANGUAGE)
+                UI.projects.superalgos.spaces.docsSpace.language = UI.projects.superalgos.globals.docs.DEFAULT_LANGUAGE
             }
 
         }
@@ -145,10 +140,8 @@ function newSuperalgosDocSpace() {
         thisObject.commandInterface =  undefined
         thisObject.contextMenu = undefined
 
-        objectBeingRendered = undefined
-        paragraphMap = undefined
-        appSchemaDocument = undefined
-        docsSchemaDocument = undefined
+        thisObject.objectBeingRendered = undefined
+        thisObject.paragraphMap = undefined
         thisObject.menuLabelsMap = undefined
         isInitialized = false
     }
@@ -173,7 +166,7 @@ function newSuperalgosDocSpace() {
         would like to close the editor.
         */
         if (event.key === 'Escape') {
-            exitEditMode()
+            UI.projects.superalgos.spaces.docsSpace.exitEditMode()
         }
     }
 
@@ -187,7 +180,7 @@ function newSuperalgosDocSpace() {
     function exitEditMode() {
         if (EDITOR_ON_FOCUS === true) {
             let editing
-            if (selectedParagraph.id.indexOf('definition') >= 0) {
+            if (UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id.indexOf('definition') >= 0) {
                 editing = "Definition"
             } else {
                 editing = "Paragraph"
@@ -197,7 +190,7 @@ function newSuperalgosDocSpace() {
                     /*
                     In this case we are at a regular paragraph.
                     */
-                    let docSchemaParagraph = paragraphMap.get(selectedParagraph.id)
+                    let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
                     /*
                     We will detect if the user has created new paragraphs while editing.
                     For that we will inspect the value of the text area looking for a char
@@ -205,19 +198,19 @@ function newSuperalgosDocSpace() {
                     */
                     let paragraphs = []
                     let paragraph = ''
-                    let splittedSelectedParagraph = selectedParagraph.id.split('-')
+                    let splittedSelectedParagraph = UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id.split('-')
                     let selectededitableParagraphIndex = Number(splittedSelectedParagraph[2])
                     let selectedParagraphStyle = splittedSelectedParagraph[3]
                     let style = selectedParagraphStyle.charAt(0).toUpperCase() + selectedParagraphStyle.slice(1);
 
-                    for (let i = 0; i < textArea.value.length; i++) {
-                        if (textArea.value.charCodeAt(i) === 10 && style !== 'Javascript' && style !== 'Json' && style !== 'Table') {
+                    for (let i = 0; i < UI.projects.superalgos.spaces.docsSpace.textArea.value.length; i++) {
+                        if (UI.projects.superalgos.spaces.docsSpace.textArea.value.charCodeAt(i) === 10 && style !== 'Javascript' && style !== 'Json' && style !== 'Table') {
                             if (paragraph !== '') {
                                 paragraphs.push(paragraph)
                             }
                             paragraph = ''
                         } else {
-                            paragraph = paragraph + textArea.value[i]
+                            paragraph = paragraph + UI.projects.superalgos.spaces.docsSpace.textArea.value[i]
                         }
                     }
                     paragraphs.push(paragraph)
@@ -230,7 +223,7 @@ function newSuperalgosDocSpace() {
                             /*
                             Deleting paragarphs is only possible in the default language.
                             */
-                            if (UI.projects.superalgos.spaces.docsSpace.language === DEFAULT_LANGUAGE) {
+                            if (UI.projects.superalgos.spaces.docsSpace.language === UI.projects.superalgos.globals.docs.DEFAULT_LANGUAGE) {
                                 docsSchemaDocument.paragraphs.splice(selectededitableParagraphIndex, 1)
                                 if (docsSchemaDocument.paragraphs.length === 0) {
                                     let newParagraph = {
@@ -245,7 +238,7 @@ function newSuperalgosDocSpace() {
                         /*
                         Adding paragarphs is only possible in the default language.
                         */
-                        if (UI.projects.superalgos.spaces.docsSpace.language === DEFAULT_LANGUAGE) {
+                        if (UI.projects.superalgos.spaces.docsSpace.language === UI.projects.superalgos.globals.docs.DEFAULT_LANGUAGE) {
                             /*
                             We will update the one paragraph we have and we will add the rest. 
                             */
@@ -267,8 +260,8 @@ function newSuperalgosDocSpace() {
                     /*
                     This means that the definition was being edited.
                     */
-                    if (textArea.value !== '') {
-                        UI.projects.superalgos.utilities.docs.setTextBasedOnLanguage(docsSchemaDocument.definition, textArea.value)
+                    if (UI.projects.superalgos.spaces.docsSpace.textArea.value !== '') {
+                        UI.projects.superalgos.utilities.docs.setTextBasedOnLanguage(docsSchemaDocument.definition, UI.projects.superalgos.spaces.docsSpace.textArea.value)
                     }
                     break
                 }
@@ -280,12 +273,12 @@ function newSuperalgosDocSpace() {
 
     function onOpening() {
         thisObject.isVisible = true
-        if (objectBeingRendered === undefined) {
+        if (UI.projects.superalgos.spaces.docsSpace.objectBeingRendered === undefined) {
             thisObject.mainSearchPage.render()
             UI.projects.superalgos.spaces.docsSpace.mainSearchPage.detectEnterOnSearchBox()
             UI.projects.superalgos.spaces.docsSpace.mainSearchPage.setFocusOnSearchBox()
         } else {
-            UI.projects.superalgos.spaces.docsSpace.navigateTo(objectBeingRendered.project, objectBeingRendered.category, objectBeingRendered.type)
+            UI.projects.superalgos.spaces.docsSpace.navigateTo(UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.project, UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.category, UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.type)
         }
     }
 
@@ -357,7 +350,7 @@ function newSuperalgosDocSpace() {
     }
 
     function onClosing() {
-        objectBeingRendered = undefined
+        UI.projects.superalgos.spaces.docsSpace.objectBeingRendered = undefined
         thisObject.isVisible = false
     }
 
@@ -372,7 +365,7 @@ function newSuperalgosDocSpace() {
 
     function openSpaceAreaAndNavigateTo(project, category, type, anchor, nodeId) {
 
-        objectBeingRendered = {
+        UI.projects.superalgos.spaces.docsSpace.objectBeingRendered = {
             project: project,
             category: category,
             type: type.replace('AMPERSAND', '\''),
@@ -386,10 +379,10 @@ function newSuperalgosDocSpace() {
     function navigateTo(project, category, type, anchor, nodeId) {
 
         EDITOR_ON_FOCUS = false // forced exit
-        paragraphMap = new Map()
+        UI.projects.superalgos.spaces.docsSpace.paragraphMap = new Map()
 
         /* Replace the current object with this */
-        objectBeingRendered = {
+        UI.projects.superalgos.spaces.docsSpace.objectBeingRendered = {
             project: project,
             category: category,
             type: type.replace('AMPERSAND', '\''),
@@ -402,16 +395,16 @@ function newSuperalgosDocSpace() {
         /*
         Here we will check if we need to position the page at a particular anchor or at the top.
         */
-        if (objectBeingRendered.anchor !== undefined) {
-            scrollToElement('docs-anchor-' + objectBeingRendered.anchor.toLowerCase().replaceAll(' ', '-'))
-            objectBeingRendered.anchor = undefined
+        if (UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.anchor !== undefined) {
+            scrollToElement('docs-anchor-' + UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.anchor.toLowerCase().replaceAll(' ', '-'))
+            UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.anchor = undefined
         } else {
             scrollToElement('docs-space-div')
         }
     }
 
     function resize() {
-        thisObject.container.frame.width = DOCS_SPACE_WIDTH
+        thisObject.container.frame.width = UI.projects.superalgos.globals.docs.DOCS_SPACE_WIDTH
         thisObject.container.frame.height = browserCanvas.height // - TOP_SPACE_HEIGHT
         thisObject.container.frame.position.x = browserCanvas.width
         thisObject.container.frame.position.y = 0 // TOP_SPACE_HEIGHT

@@ -121,6 +121,33 @@ function newCanvas() {
                 let spaceAnimationDrawMap = new Map()
                 let spaceDefinitionDrawMap = new Map()
 
+                /* Set up Globals of this Project */
+                if (projectDefinition.UI.globals !== undefined) {
+                    for (let j = 0; j < projectDefinition.UI.globals.length; j++) {
+                        let globalDefinition = projectDefinition.UI.globals[j]
+
+                        projectInstance.globals[globalDefinition.propertyName] = eval(globalDefinition.functionName + '()')
+                    }
+                }
+
+                /* Set up Utilities of this Project */
+                if (projectDefinition.UI.utilities !== undefined) {
+                    for (let j = 0; j < projectDefinition.UI.utilities.length; j++) {
+                        let utilityDefinition = projectDefinition.UI.utilities[j]
+
+                        projectInstance.utilities[utilityDefinition.propertyName] = eval(utilityDefinition.functionName + '()')
+                    }
+                }
+
+                /* Set up Function Libraries of this Project */
+                if (projectDefinition.UI.functionLibraries !== undefined) {
+                    for (let j = 0; j < projectDefinition.UI.functionLibraries.length; j++) {
+                        let functionLibraryDefinition = projectDefinition.UI.functionLibraries[j]
+
+                        projectInstance.functionLibraries[functionLibraryDefinition.propertyName] = eval(functionLibraryDefinition.functionName + '()')
+                    }
+                }
+                
                 /* Space Instantiation */
                 if (projectDefinition.UI.spaces === undefined) { continue }
                 for (let j = 0; j < projectDefinition.UI.spaces.length; j++) {
@@ -183,33 +210,6 @@ function newCanvas() {
                     if (spaceInstance === undefined || spaceDefinition === undefined) { continue }
                     if (spaceInstance.draw !== undefined) {
                         thisObject.animation.addCallBackFunction(spaceDefinition.name + ' ' + 'Draw', spaceInstance.draw)
-                    }
-                }
-
-                /* Set up Utilities of this Project */
-                if (projectDefinition.UI.utilities !== undefined) {
-                    for (let j = 0; j < projectDefinition.UI.utilities.length; j++) {
-                        let utilityDefinition = projectDefinition.UI.utilities[j]
-
-                        projectInstance.utilities[utilityDefinition.propertyName] = eval(utilityDefinition.functionName + '()')
-                    }
-                }
-
-                /* Set up Globals of this Project */
-                if (projectDefinition.UI.globals !== undefined) {
-                    for (let j = 0; j < projectDefinition.UI.globals.length; j++) {
-                        let globalDefinition = projectDefinition.UI.globals[j]
-
-                        projectInstance.globals[globalDefinition.propertyName] = eval(globalDefinition.functionName + '()')
-                    }
-                }
-
-                /* Set up Function Libraries of this Project */
-                if (projectDefinition.UI.functionLibraries !== undefined) {
-                    for (let j = 0; j < projectDefinition.UI.functionLibraries.length; j++) {
-                        let functionLibraryDefinition = projectDefinition.UI.functionLibraries[j]
-
-                        projectInstance.functionLibraries[functionLibraryDefinition.propertyName] = eval(functionLibraryDefinition.functionName + '()')
                     }
                 }
             }

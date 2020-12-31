@@ -1,10 +1,16 @@
 function newSuperalgosDocSpace() {
     const MODULE_NAME = 'Doc Space'
     let thisObject = {
-        changeLanguage: changeLanguage,
         isVisible: undefined,
         sidePanelTab: undefined,
         container: undefined,
+        searchEngine: undefined,
+        mainSearchPage: undefined,
+        searchResultsPage: undefined,
+        footer: undefined,
+        documentPage: undefined,
+        language: undefined, 
+        changeLanguage: changeLanguage,
         openSpaceAreaAndNavigateTo: openSpaceAreaAndNavigateTo,
         navigateTo: navigateTo,
         scrollToElement: scrollToElement,
@@ -47,34 +53,52 @@ function newSuperalgosDocSpace() {
     let docsSchemaDocument
     let menuLabelsMap = new Map()
     let command
-    let docsIndex = []
-    let language
 
     return thisObject
 
     function initialize() {
-        docsIndex = []
-        thisObject.sidePanelTab = newSidePanelTab()
-        thisObject.sidePanelTab.container.connectToParent(thisObject.container, false, false)
-        thisObject.sidePanelTab.initialize('right')
-        openingEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('opening', onOpening)
-        closingEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('closing', onClosing)
 
-        browserResizedEventSubscriptionId = canvas.eventHandler.listenToEvent('Browser Resized', resize)
+        setupSidePanelTab()
         setUpContextMenu()
         setUpMenuItemsMap()
+        setupUserLanguage()
 
-        /*
-        Getting the used preferred languague
-        */
-        if (window.localStorage.getItem('Docs Language') !== null && window.localStorage.getItem('Docs Language') !== undefined && window.localStorage.getItem('Docs Language') !== 'undefined') {
-            language = window.localStorage.getItem('Docs Language')
-        } else {
-            window.localStorage.setItem('Docs Language', DEFAULT_LANGUAGE)
-            language = DEFAULT_LANGUAGE
-        }
+        thisObject.searchEngine = newSuperalgosDocsSearchEngine()
+        thisObject.mainSearchPage = newSuperalgosDocsMainSearchPage()
+        thisObject.searchResultsPage = newSuperalgosDocsSearchResultsPage()
+        thisObject.documentPage = newSuperalgosDocsDocumentPage()
+        thisObject.footer = newSuperalgosDocsFooter()
+
+        thisObject.searchEngine.initialize()
+        thisObject.mainSearchPage.initialize()
+        thisObject.searchResultsPage.initialize()
+        thisObject.documentPage.initialize()
+        thisObject.footer.initialize()
 
         isInitialized = true
+
+        function setupUserLanguage() {
+            /*
+            Getting the used preferred languague
+            */
+            if (window.localStorage.getItem('Docs Language') !== null && window.localStorage.getItem('Docs Language') !== undefined && window.localStorage.getItem('Docs Language') !== 'undefined') {
+                UI.projects.superalgos.spaces.docsSpace.language = window.localStorage.getItem('Docs Language')
+            } else {
+                window.localStorage.setItem('Docs Language', DEFAULT_LANGUAGE)
+                UI.projects.superalgos.spaces.docsSpace.language = DEFAULT_LANGUAGE
+            }
+
+        }
+
+        function setupSidePanelTab() {
+            thisObject.sidePanelTab = newSidePanelTab()
+            thisObject.sidePanelTab.container.connectToParent(thisObject.container, false, false)
+            thisObject.sidePanelTab.initialize('right')
+            openingEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('opening', onOpening)
+            closingEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('closing', onClosing)
+
+            browserResizedEventSubscriptionId = canvas.eventHandler.listenToEvent('Browser Resized', resize)
+        }
 
         function setUpContextMenu() {
             window.contextMenu = {
@@ -386,12 +410,23 @@ function newSuperalgosDocSpace() {
         thisObject.sidePanelTab.container.eventHandler.stopListening(openingEventSubscriptionId)
         thisObject.sidePanelTab.container.eventHandler.stopListening(closingEventSubscriptionId)
 
+        thisObject.searchEngine.finalize()
+        thisObject.mainSearchPage.finalize()
+        thisObject.searchResultsPage.finalize()
+        thisObject.documentPage.finalize()
+        thisObject.footer.finalize()
+        
+        thisObject.searchEngine = undefined
+        thisObject.mainSearchPage = undefined
+        thisObject.searchResultsPage = undefined
+        thisObject.documentPage = undefined
+        thisObject.footer = undefined
+
         objectBeingRendered = undefined
         paragraphMap = undefined
         appSchemaDocument = undefined
         docsSchemaDocument = undefined
         menuLabelsMap = undefined
-        docsIndex = undefined
         isInitialized = false
     }
 
@@ -401,64 +436,10 @@ function newSuperalgosDocSpace() {
     }
 
     function changeLanguage(pLanguage) {
-        language = pLanguage
-        window.localStorage.setItem('Docs Language', language)
-        let languageLabel = UI.projects.superalgos.utilities.languages.getLaguageLabel(language)
+        UI.projects.superalgos.spaces.docsSpace.language = pLanguage
+        window.localStorage.setItem('Docs Language', UI.projects.superalgos.spaces.docsSpace.language)
+        let languageLabel = UI.projects.superalgos.utilities.languages.getLaguageLabel(UI.projects.superalgos.spaces.docsSpace.language)
         navigateTo('Superalgos', 'Topic', 'Docs In ' + languageLabel)
-    }
-
-    function cleanTextForSearch(text) {
-        let result = replaceSpecialCharactersForSpaces(text)
-        result = result.replaceAll(' ', '')
-        result = result.replaceAll('s', '')
-        result = result.replaceAll('ing', '')
-        result = result.replaceAll('ed', '')
-        result = result.replaceAll('y', '')
-        result = result.replaceAll('ies', '')
-        return result
-    }
-
-    function replaceSpecialCharactersForSpaces(text) {
-        let result = text
-        result = result.replaceAll('. ', ' ')
-        result = result.replaceAll(', ', ' ')
-        result = result.replaceAll('- ', ' ')
-        result = result.replaceAll('/ ', ' ')
-        result = result.replaceAll('_ ', ' ')
-        result = result.replaceAll(': ', ' ')
-        result = result.replaceAll('; ', ' ')
-        result = result.replaceAll('( ', ' ')
-        result = result.replaceAll(') ', ' ')
-        result = result.replaceAll('{ ', ' ')
-        result = result.replaceAll('} ', ' ')
-        result = result.replaceAll('[ ', ' ')
-        result = result.replaceAll('] ', ' ')
-        result = result.replaceAll('" ', ' ')
-        result = result.replaceAll('\\n ', ' ')
-        result = result.replaceAll('\\ ', ' ')
-
-        result = result.replaceAll('.', ' ')
-        result = result.replaceAll(',', ' ')
-        result = result.replaceAll('-', ' ')
-        result = result.replaceAll('/', ' ')
-        result = result.replaceAll('_', ' ')
-        result = result.replaceAll(':', ' ')
-        result = result.replaceAll(';', ' ')
-        result = result.replaceAll('(', ' ')
-        result = result.replaceAll(')', ' ')
-        result = result.replaceAll('{', ' ')
-        result = result.replaceAll('}', ' ')
-        result = result.replaceAll('[', ' ')
-        result = result.replaceAll(']', ' ')
-        result = result.replaceAll('"', ' ')
-        result = result.replaceAll('\\n', ' ')
-        result = result.replaceAll("\\", ' ')
-
-        result = result.replaceAll('@', ' ')
-        result = result.replaceAll('    ', ' ')
-        result = result.replaceAll('   ', ' ')
-        result = result.replaceAll('  ', ' ')
-        return result
     }
 
     function onKeyDown(event) {
@@ -526,7 +507,7 @@ function newSuperalgosDocSpace() {
                             /*
                             Deleting paragarphs is only possible in the default language.
                             */
-                            if (language === DEFAULT_LANGUAGE) {
+                            if (UI.projects.superalgos.spaces.docsSpace.language === DEFAULT_LANGUAGE) {
                                 docsSchemaDocument.paragraphs.splice(selectededitableParagraphIndex, 1)
                                 if (docsSchemaDocument.paragraphs.length === 0) {
                                     let newParagraph = {
@@ -541,7 +522,7 @@ function newSuperalgosDocSpace() {
                         /*
                         Adding paragarphs is only possible in the default language.
                         */
-                        if (language === DEFAULT_LANGUAGE) {
+                        if (UI.projects.superalgos.spaces.docsSpace.language === DEFAULT_LANGUAGE) {
                             /*
                             We will update the one paragraph we have and we will add the rest. 
                             */
@@ -781,7 +762,9 @@ function newSuperalgosDocSpace() {
     function onOpening() {
         thisObject.isVisible = true
         if (objectBeingRendered === undefined) {
-            renderSearchPage()
+            thisObject.mainSearchPage.render()
+            detectEnterOnSearchBox()
+            setFocusOnSearchBox()
         } else {
             navigateTo(objectBeingRendered.project, objectBeingRendered.category, objectBeingRendered.type)
         }
@@ -854,164 +837,9 @@ function newSuperalgosDocSpace() {
         }
     }
 
-    function setUpSearchEngine() {
-        for (let j = 0; j < PROJECTS_ARRAY.length; j++) {
-            let project = PROJECTS_ARRAY[j]
-
-            let documentIndex
-
-            /* Search in Nodes */
-            for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema.length; i++) {
-                documentIndex = {
-                    phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
-                    docsSchemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema[i],
-                    category: 'Node',
-                    project: project
-                }
-                indexDocument(documentIndex)
-                docsIndex.push(documentIndex)
-            }
-            /* Search in Concepts */
-            for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema.length; i++) {
-                documentIndex = {
-                    phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
-                    docsSchemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema[i],
-                    category: 'Concept',
-                    project: project
-                }
-                indexDocument(documentIndex)
-                docsIndex.push(documentIndex)
-            }
-            /* Search in Topics */
-            for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema.length; i++) {
-                documentIndex = {
-                    phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
-                    docsSchemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema[i],
-                    category: 'Topic',
-                    project: project
-                }
-                indexDocument(documentIndex)
-                docsIndex.push(documentIndex)
-            }
-            /* Search in Workspace */
-            for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.workspaceSchema.length; i++) {
-                documentIndex = {
-                    phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
-                    docsSchemaDocument: SCHEMAS_BY_PROJECT.get(project).array.workspaceSchema[i],
-                    category: 'Workspace',
-                    project: project
-                }
-                indexDocument(documentIndex)
-                docsIndex.push(documentIndex)
-            }
-        }
-
-        function indexDocument(documentIndex) {
-
-            if (documentIndex.docsSchemaDocument === undefined) {
-                return
-            }
-
-            if (documentIndex.docsSchemaDocument.topic !== undefined) {
-                let paragraph = {
-                    style: 'Topic',
-                    text: documentIndex.docsSchemaDocument.topic
-                }
-                indexParagraph(paragraph)
-            }
-            if (documentIndex.docsSchemaDocument.type !== undefined) {
-                let paragraph = {
-                    style: 'Type',
-                    text: documentIndex.docsSchemaDocument.type
-                }
-                indexParagraph(paragraph)
-            }
-            if (documentIndex.docsSchemaDocument.definition !== undefined) {
-                let paragraph = {
-                    style: 'Definition',
-                    text: documentIndex.docsSchemaDocument.definition.text,
-                    translations: documentIndex.docsSchemaDocument.definition.translations
-                }
-                indexParagraph(paragraph)
-                indexAllTranslations(paragraph)
-            }
-            if (documentIndex.docsSchemaDocument.paragraphs !== undefined) {
-                for (let k = 0; k < documentIndex.docsSchemaDocument.paragraphs.length; k++) {
-                    let paragraph = documentIndex.docsSchemaDocument.paragraphs[k]
-                    indexParagraph(paragraph)
-                    indexAllTranslations(paragraph)
-                }
-            }
-
-            function indexAllTranslations(paragraph) {
-                if (paragraph.translations === undefined) { return }
-                for (i = 0; i < paragraph.translations.length; i++) {
-                    let translation = paragraph.translations[i]
-                    translation.style = paragraph.style
-                    indexParagraph(translation)
-                }
-            }
-
-            function indexParagraph(paragraph) {
-                if (paragraph.text === undefined) {
-                    return
-                }
-                if (paragraph.style === undefined) {
-                    return
-                }
-
-                let text = paragraph.text.toLowerCase()
-                let style = paragraph.style.toLowerCase()
-                let stylePhraseCount = documentIndex.phraseCount[style]
-
-                if (stylePhraseCount === undefined) {
-                    stylePhraseCount = new Map()
-                    documentIndex.phraseCount[style] = stylePhraseCount
-                }
-
-                text = replaceSpecialCharactersForSpaces(text)
-
-                let splittedText = text.split(' ')
-
-                for (n = 0; n < splittedText.length; n++) {
-                    let phrase = ''
-                    for (let m = 0; m < 10; m++) {
-                        let word = splittedText[n + m]
-                        if (word !== undefined) {
-                            if (m === 0) {
-                                phrase = phrase + word
-                            } else {
-                                phrase = phrase + ' ' + word
-                            }
-                            let key = cleanTextForSearch(phrase)
-
-                            let thisPhraseCount = stylePhraseCount.get(key)
-                            if (thisPhraseCount === undefined) { thisPhraseCount = 0 }
-                            thisPhraseCount++
-
-                            stylePhraseCount.set(key, thisPhraseCount)
-                        }
-                    }
-                }
-            }
-        }
-    }
-
     function onClosing() {
         objectBeingRendered = undefined
         thisObject.isVisible = false
-    }
-
-    function renderSearchPage() {
-        let HTML = ''
-        HTML = HTML + '<div id="docs-search-page-div">'
-        HTML = HTML + '<center><img src="Images/superalgos-logo.png" class="docs-image-logo-search" width=400></center>'
-        HTML = HTML + '<center><div class="docs-font-normal docs-search-box"><input class="docs-search-input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></input></div></center>'
-        HTML = HTML + '</div>'
-        let docsContentDiv = document.getElementById('docs-content-div')
-        docsContentDiv.innerHTML = HTML + addFooter()
-        detectEnterOnSearchBox()
-        setFocusOnSearchBox()
     }
 
     function detectCommands() {
@@ -1095,7 +923,7 @@ function newSuperalgosDocSpace() {
             }
             if (command.indexOf('Docs.Add') !== 0 && command.indexOf('docs.add') !== 0) { return 'Not Add Command' }
 
-            if (language !== DEFAULT_LANGUAGE) {
+            if (UI.projects.superalgos.spaces.docsSpace.language !== DEFAULT_LANGUAGE) {
                 navigateTo('Superalgos', 'Topic', 'Docs Error Only In English', 'Anchor Only In English')
                 return
             }
@@ -1160,7 +988,7 @@ function newSuperalgosDocSpace() {
             }
             if (command.indexOf('Docs.Delete') !== 0 && command.indexOf('docs.delete') !== 0) { return 'Not Delete Command' }
 
-            if (language !== DEFAULT_LANGUAGE) {
+            if (UI.projects.superalgos.spaces.docsSpace.language !== DEFAULT_LANGUAGE) {
                 navigateTo('Superalgos', 'Topic', 'Docs Error Only In English', 'Anchor Only In English')
                 return
             }
@@ -1225,9 +1053,8 @@ function newSuperalgosDocSpace() {
             }
             if (command.indexOf('Docs.Reindex') !== 0 && command.indexOf('docs.reindex') !== 0) { return 'Not Reindex Command' }
 
-            docsIndex = []
             setUpWorkspaceSchemas()
-            setUpSearchEngine()
+            thisObject.searchEngine.setUpSearchEngine()
 
             renderCommandResultsPage(["Succesfully rebuild the search engine indexes."])
         }
@@ -1458,7 +1285,7 @@ function newSuperalgosDocSpace() {
             HTML = HTML + '</section>'
 
             let docsContentDiv = document.getElementById('docs-content-div')
-            docsContentDiv.innerHTML = HTML + addFooter()
+            docsContentDiv.innerHTML = HTML + UI.projects.superalgos.spaces.docsSpace.footer.addFooter()
 
             detectEnterOnSearchBox()
             setFocusOnSearchBox()
@@ -1473,24 +1300,24 @@ function newSuperalgosDocSpace() {
         buildHTML()
 
         function buildResultsArray() {
-            for (let i = 0; i < docsIndex.length; i++) {
-                let documentIndex = docsIndex[i]
+            for (let i = 0; i < thisObject.searchEngine.docsIndex.length; i++) {
+                let documentIndex = thisObject.searchEngine.docsIndex[i]
                 let documentPoints = 0
 
                 for (const style in documentIndex.phraseCount) {
-                    let key = cleanTextForSearch(command.toLowerCase())
+                    let key = UI.projects.superalgos.utilities.strings.cleanTextOfCommonWordEndings(command.toLowerCase())
                     let thisPhraseCount = documentIndex.phraseCount[style].get(key)
                     if (thisPhraseCount === undefined) {
                         thisPhraseCount = 0
                     }
 
                     if (documentIndex.docsSchemaDocument.type !== undefined) {
-                        if (key === cleanTextForSearch(documentIndex.docsSchemaDocument.type.toLowerCase())) {
+                        if (key === UI.projects.superalgos.utilities.strings.cleanTextOfCommonWordEndings(documentIndex.docsSchemaDocument.type.toLowerCase())) {
                             documentPoints = documentPoints + thisPhraseCount * 100
                         }
                     }
                     if (documentIndex.docsSchemaDocument.topic !== undefined) {
-                        if (key === cleanTextForSearch(documentIndex.docsSchemaDocument.topic.toLowerCase())) {
+                        if (key === UI.projects.superalgos.utilities.strings.cleanTextOfCommonWordEndings(documentIndex.docsSchemaDocument.topic.toLowerCase())) {
                             documentPoints = documentPoints + thisPhraseCount * 200
                         }
                     }
@@ -1728,7 +1555,7 @@ function newSuperalgosDocSpace() {
             }
 
             let docsContentDiv = document.getElementById('docs-content-div')
-            docsContentDiv.innerHTML = HTML + addFooter()
+            docsContentDiv.innerHTML = HTML + UI.projects.superalgos.spaces.docsSpace.footer.addFooter()
 
             detectEnterOnSearchBox()
             setFocusOnSearchBox()
@@ -1952,7 +1779,7 @@ function newSuperalgosDocSpace() {
             Here we inject the HTML we built into the DOM at the Docs Space Div.
             */
             let docsContentDiv = document.getElementById('docs-content-div')
-            docsContentDiv.innerHTML = HTML + addFooter()
+            docsContentDiv.innerHTML = HTML + UI.projects.superalgos.spaces.docsSpace.footer.addFooter()
 
             console.log(docsContentDiv.innerHTML)
 
@@ -2075,7 +1902,7 @@ function newSuperalgosDocSpace() {
                     }
                 }
                 if (objectBeingRendered.category === 'Node') {
-                   autoGeneratedHtml()
+                    autoGeneratedHtml()
                 }
                 HTML = HTML + '</div>' // Content Ends
 
@@ -3341,51 +3168,6 @@ function newSuperalgosDocSpace() {
         return HTML
     }
 
-    function addFooter() {
-        let languageLabel = UI.projects.superalgos.utilities.languages.getLaguageLabel(language)
-
-        let HTML = ''
-
-        HTML = HTML + '<div class="docs-node-html-footer-container">' // Container Starts
-
-        HTML = HTML + '<div class="docs-footer-row">'
-        HTML = HTML + '<div class="docs-footer-cell">'
-        HTML = HTML + '<div onClick="UI.projects.superalgos.spaces.docsSpace.scrollToElement(\'docs-space-div\')" class="docs-plain-link"><kbd class=docs-kbd>BACK TO TOP ↑</kbd></div>'
-        HTML = HTML + '</div>'
-        HTML = HTML + '</div>'
-
-        HTML = HTML + '<div class="docs-footer-row">'
-        HTML = HTML + '<div class="docs-footer-cell">'
-        HTML = HTML + 'You are currently reading the Docs in ' + languageLabel + '. To read the Docs in your language, follow one of these links:'
-        HTML = HTML + '<ul>'
-        HTML = HTML + '<li><a onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'EN\')" class="docs-footer-link">English</a> — The collection of articles is complete in this language.</li>'
-        HTML = HTML + '<li><a onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'ES\')" class="docs-footer-link">Spanish</a> — Work in progress. You are invited to contribute translating content.</li>'
-        HTML = HTML + '<li><a onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'RU\')" class="docs-footer-link">Russian</a> — Work in progress. You are invited to contribute translating content.</li>'
-        HTML = HTML + '</ul>'
-        HTML = HTML + '</div>'
-        HTML = HTML + '</div>'
-
-        HTML = HTML + '<div class="docs-footer-row">'
-        HTML = HTML + '<div class="docs-footer-cell">'
-        HTML = HTML + 'Other resources:'
-        HTML = HTML + '<ul>'
-        HTML = HTML + '<li><a href="https://superalgos.org/" target="_blank" class="docs-footer-link">Superalgos Project</a> — Learn more about the project.</li>'
-        HTML = HTML + '<li><a href="https://t.me/superalgoscommunity" rel="nofollow" target="_blank" class="docs-footer-link">Community Group</a> — Lets talk Superalgos!</li>'
-        HTML = HTML + '<li><a href="https://t.me/superalgossupport" rel="nofollow" target="_blank" class="docs-footer-link">Support Group</a> — Need help using the <code >master</code> branch?</li>'
-        HTML = HTML + '<li><a href="https://t.me/superalgosdevelop" rel="nofollow" target="_blank" class="docs-footer-link">Develop Group</a> — Come test the <code class="docs-code">develop</code> branch!</li>'
-        HTML = HTML + '<li><a href="https://t.me/superalgosuxui" rel="nofollow" target="_blank" class="docs-footer-link">UX/UI Design Group</a> — Help us improve the GIU!</li>'
-        HTML = HTML + '<li><a href="https://t.me/superalgos_es" rel="nofollow" target="_blank" class="docs-footer-link">Grupo en Español</a> — Hablemos en español!</li>'
-        HTML = HTML + '<li><a href="https://t.me/superalgos" rel="nofollow" target="_blank" class="docs-footer-link">Superalgos Announcements</a> — Be the first to know about new releases, hotfixes, and important issues.</li>'
-        HTML = HTML + '</ul>'
-        HTML = HTML + '<img src="Images/superalgos-logo-white.png" width="200 px">'
-        HTML = HTML + '</div>'
-        HTML = HTML + '</div>'
-
-        HTML = HTML + '</div>' // Container Ends
-
-        return HTML
-    }
-
     function addWarningIfTranslationIsOutdated(paragraph) {
         if (paragraph === undefined) { return '' }
         if (paragraph.updated === undefined) { return '' }
@@ -3394,7 +3176,7 @@ function newSuperalgosDocSpace() {
         for (let i = 0; i < paragraph.translations.length; i++) {
             let translation = paragraph.translations[i]
             if (translation.updated === undefined) { continue }
-            if (translation.language === language) {
+            if (translation.language === UI.projects.superalgos.spaces.docsSpace.language) {
                 if (paragraph.updated < translation.updated) {
                     return ''
                 } else {
@@ -3411,13 +3193,13 @@ function newSuperalgosDocSpace() {
         if (paragraph.translations.length === 0) { return paragraph.text }
         for (let i = 0; i < paragraph.translations.length; i++) {
             let translation = paragraph.translations[i]
-            if (translation.language === language) { return translation.text }
+            if (translation.language === UI.projects.superalgos.spaces.docsSpace.language) { return translation.text }
         }
         return paragraph.text
     }
 
     function setTextBasedOnLanguage(paragraph, text) {
-        if (language === DEFAULT_LANGUAGE) {
+        if (UI.projects.superalgos.spaces.docsSpace.language === DEFAULT_LANGUAGE) {
             if (paragraph.text !== text) {
                 paragraph.text = text
                 paragraph.updated = (new Date()).valueOf()
@@ -3437,7 +3219,7 @@ function newSuperalgosDocSpace() {
         }
         for (let i = 0; i < paragraph.translations.length; i++) {
             let translation = paragraph.translations[i]
-            if (translation.language === language) {
+            if (translation.language === UI.projects.superalgos.spaces.docsSpace.language) {
                 if (translation.text !== text) {
                     translation.text = text
                     translation.updated = (new Date()).valueOf()
@@ -3446,7 +3228,7 @@ function newSuperalgosDocSpace() {
             }
         }
         let translation = {
-            language: language,
+            language: UI.projects.superalgos.spaces.docsSpace.language,
             text: text,
             updated: (new Date()).valueOf()
         }
@@ -3991,9 +3773,9 @@ function newSuperalgosDocSpace() {
             if (UI.projects.superalgos.spaces.designSpace.workspace === undefined) { return }
             if (UI.projects.superalgos.spaces.designSpace.workspace.isInitialized === false) { return }
 
-            if (docsIndex && docsIndex.length === 0) {
+            if (thisObject.searchEngine.docsIndex && thisObject.searchEngine.docsIndex.length === 0) {
                 setUpWorkspaceSchemas()
-                setUpSearchEngine()
+                thisObject.searchEngine.setUpSearchEngine()
             }
         }
     }

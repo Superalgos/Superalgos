@@ -1,6 +1,4 @@
-
 function newSuperalgosDesignSpace() {
-    const MODULE_NAME = 'Designe Space'
     let thisObject = {
         container: undefined,
         iconsByProjectAndName: undefined,

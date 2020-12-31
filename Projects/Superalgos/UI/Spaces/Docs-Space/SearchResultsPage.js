@@ -250,7 +250,7 @@ function newSuperalgosDocsSearchResultsPage() {
                     HTML = HTML + '<p><a onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + result.documentIndex.project + '\', \'' + result.documentIndex.category + '\', \'' + result.documentIndex.docsSchemaDocument.type.replace(/'/g, 'AMPERSAND') + '\', ' + undefined + '  ,\'' + result.documentIndex.docsSchemaDocument.nodeId + '\')" class="docs-search-result-content-record-title">' + mainLink + '</a></p>'
 
                     if (result.documentIndex.docsSchemaDocument.definition !== undefined) {
-                        HTML = HTML + '<p class="docs-search-result-content-record-extract">' + getTextBasedOnLanguage(result.documentIndex.docsSchemaDocument.definition) + '</p>'
+                        HTML = HTML + '<p class="docs-search-result-content-record-extract">' + UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(result.documentIndex.docsSchemaDocument.definition) + '</p>'
                     } else {
                         HTML = HTML + '<p class="docs-search-result-content-record-extract">' + 'No definition available.' + '</p>'
                     }

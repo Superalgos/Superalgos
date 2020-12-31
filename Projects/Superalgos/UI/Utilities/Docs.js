@@ -17,9 +17,10 @@ function newSuperalgosUtilitiesDocs() {
         addBold: addBold, 
         addCodeToCamelCase: addCodeToCamelCase,
         addItalics: addItalics, 
-        addToolTips: addToolTips,
-        tagDefinedTypes: tagDefinedTypes
+        addToolTips: addToolTips
     }
+
+    const TAGGING_STRING_SEPARATOR = '~>'
 
     return thisObject
 
@@ -308,25 +309,25 @@ function newSuperalgosUtilitiesDocs() {
 
             let found = false
 
-            if (found === false && menuLabelsMap.get(cleanPhrase4) === true) {
+            if (found === false && UI.projects.superalgos.spaces.docsSpace.menuLabelsMap.get(cleanPhrase4) === true) {
                 changedText = changedText + phrase4.replace(cleanPhrase4, '<i>' + cleanPhrase4 + '</i>') + ' '
                 i = i + 3
                 found = true
             }
 
-            if (found === false && menuLabelsMap.get(cleanPhrase3) === true) {
+            if (found === false && UI.projects.superalgos.spaces.docsSpace.menuLabelsMap.get(cleanPhrase3) === true) {
                 changedText = changedText + phrase3.replace(cleanPhrase3, '<i>' + cleanPhrase3 + '</i>') + ' '
                 i = i + 2
                 found = true
             }
 
-            if (found === false && menuLabelsMap.get(cleanPhrase2) === true) {
+            if (found === false && UI.projects.superalgos.spaces.docsSpace.menuLabelsMap.get(cleanPhrase2) === true) {
                 changedText = changedText + phrase2.replace(cleanPhrase2, '<i>' + cleanPhrase2 + '</i>') + ' '
                 i = i + 1
                 found = true
             }
 
-            if (found === false && menuLabelsMap.get(cleanPhrase1) === true) {
+            if (found === false && UI.projects.superalgos.spaces.docsSpace.menuLabelsMap.get(cleanPhrase1) === true) {
                 changedText = changedText + phrase1.replace(cleanPhrase1, '<i>' + cleanPhrase1 + '</i>') + ' '
                 i = i + 0
                 found = true
@@ -339,13 +340,13 @@ function newSuperalgosUtilitiesDocs() {
         return changedText
     }
 
-    function addToolTips(text) {
+    function addToolTips(text, excludedType) {
 
         const TOOL_TIP_HTML = '<div onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'PROJECT\', \'CATEGORY\', \'TYPE\')" class="docs-tooltip">TYPE_LABEL<span class="docs-tooltiptext">DEFINITION</span></div>'
         const LINK_ONLY_HTML = '<div onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'PROJECT\', \'CATEGORY\', \'TYPE\')" class="docs-link">TYPE_LABEL<span class="docs-tooltiptext"></span></div>'
 
         let resultingText = ''
-        text = tagDefinedTypes(text, objectBeingRendered.type)
+        text = tagDefinedTypes(text, excludedType)
         let splittedText = text.split(TAGGING_STRING_SEPARATOR)
 
         for (let i = 0; i < splittedText.length; i = i + 2) {
@@ -389,7 +390,7 @@ function newSuperalgosUtilitiesDocs() {
                 return text
             }
 
-            let definition = getTextBasedOnLanguage(docsSchemaDocument.definition)
+            let definition = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(docsSchemaDocument.definition)
             if (definition === undefined || definition === "") {
                 let tooltip = LINK_ONLY_HTML
                     .replace('CATEGORY', category)
@@ -412,6 +413,7 @@ function newSuperalgosUtilitiesDocs() {
         return resultingText
     }
 
+    /* Private Functions follow */
     function tagDefinedTypes(text, excludedType) {
         let words = text.split(' ')
         let taggedText = ''

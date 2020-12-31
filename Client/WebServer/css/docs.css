@@ -25,9 +25,9 @@ margin: 20 25 20 30px;
 font: 400 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
 color: #e6eaea; 
 background-color: #365558;
-line-height: 150%;
-border-top: 3px solid #0295aa;
-margin: 0px;
+line-height: 160%;
+border-top: 5px solid #0295aa;
+margin: 150px 0 0 0;
 padding: 50 25 20 30px;
 }
 
@@ -371,22 +371,53 @@ background: white;
 width: 100%;
 }
 
+/* Footer */
+
+.docs-node-html-footer-table {
+  display: table;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 8px;
+  }
+
 .docs-footer-row {
-  text-decoration: none; /*I added this dummy property because this can not be empty. */
-  /* DELETE candidate
-margin-right: -15px;
-margin-left: -15px;
-*/
+  padding: 40px 0;
+  display: table-row;
 }
 
+.docs-footer-cell {
+  padding: 20 15px;
+  display: table-cell;
+  width: 33%;
+}
+
+#docs-footer h4 {
+  font-size: 120%;
+  font-weight: 300;
+  }
+
+#docs-footer a:hover {
+text-decoration: none;
+color: #ff8c29 !important;
+cursor: pointer;
+}
+
+#docs-footer a:link,
+#docs-footer a:visited,
+#docs-footer a:active {
+text-decoration: none;
+color: #ffd1a9;
+}
+
+
+/* DELETE candidate
 .docs-footer-body {
 position: relative;
 min-height: 1px;
-  /* DELETE candidate
 padding-right: 15px;
 padding-left: 15px;
-*/
 }
+*/
 
 /* Links */
 a:link.docs-plain-link {
@@ -416,25 +447,8 @@ text-decoration: none;
 padding-left: 3px;
 }
 
-a:link.docs-footer-link {
-text-decoration: none;
-color: #ffd1a9;
-}
 
-a:visited.docs-footer-link {
-text-decoration: none;
-color: #ffd1a9;
-}
 
-a:hover.docs-footer-link {
-text-decoration: underline;
-color: #ff8c29;
-}
-
-a:active.docs-footer-link {
-text-decoration: none;
-color: #ff8c29;
-}
 
 /* Tags */
 
@@ -690,7 +704,7 @@ width: 100%;
 .docs-search-results-header-tabs-container > input:checked + label {
   color: #0295aa;
   padding-bottom: 2px;
-  border-bottom:  3px solid #0295aa;
+  border-bottom:  5px solid #0295aa;
 }
 
 /* Search Results Page Content */

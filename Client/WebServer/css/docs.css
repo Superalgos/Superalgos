@@ -110,7 +110,7 @@ width: 100%;
 position: relative;
 display: inline-block;
 color: #0295aa !important; 
-border-bottom: 1px solid #0295aa; 
+text-decoration: underline !important; 
 cursor: pointer;
 }
 
@@ -218,7 +218,6 @@ margin-right: 20px;
 .docs-text-area {
 font: 400 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
 resize: none;
-border: none;
 outline: none;
 box-shadow: none;
 overflow:hidden;
@@ -229,6 +228,9 @@ color: #111;
 width: 100%;
 height: 25%;
 z-index:100;
+padding: 4px 10px;
+font-size: 95%;
+line-height: 140%;
 }
 
 /* Alerts */

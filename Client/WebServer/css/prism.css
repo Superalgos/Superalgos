@@ -56,9 +56,13 @@ pre[class*="language-"] {
 	overflow: auto;
 }
 
+/* This is the main block affecting the container of code blocks in Superalgos */
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-	background: #f5f2f0;
+	background-color: #e6eaea;
+	border: 1px solid #cdd4d5;
+	border-radius: 5px;
+	padding: 15px;
 }
 
 /* Inline code */
@@ -107,9 +111,9 @@ pre[class*="language-"] {
 .token.url,
 .language-css .token.string,
 .style .token.string {
-	color: #9a6e3a;
-	/* This background color was intended by the author of this theme. */
-	background: hsla(0, 0%, 100%, .5);
+	color: #3c763d;
+	/* This background color was intended by the author of this theme. 
+	background: hsla(0, 0%, 100%, .5);*/
 }
 
 .token.atrule,

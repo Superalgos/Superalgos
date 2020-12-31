@@ -9,6 +9,7 @@ function newSuperalgosDocSpace() {
         searchResultsPage: undefined,
         footer: undefined,
         documentPage: undefined,
+        language: undefined, 
         changeLanguage: changeLanguage,
         openSpaceAreaAndNavigateTo: openSpaceAreaAndNavigateTo,
         navigateTo: navigateTo,
@@ -52,7 +53,6 @@ function newSuperalgosDocSpace() {
     let docsSchemaDocument
     let menuLabelsMap = new Map()
     let command
-    let language
 
     return thisObject
 
@@ -82,10 +82,10 @@ function newSuperalgosDocSpace() {
             Getting the used preferred languague
             */
             if (window.localStorage.getItem('Docs Language') !== null && window.localStorage.getItem('Docs Language') !== undefined && window.localStorage.getItem('Docs Language') !== 'undefined') {
-                language = window.localStorage.getItem('Docs Language')
+                UI.projects.superalgos.spaces.docsSpace.language = window.localStorage.getItem('Docs Language')
             } else {
                 window.localStorage.setItem('Docs Language', DEFAULT_LANGUAGE)
-                language = DEFAULT_LANGUAGE
+                UI.projects.superalgos.spaces.docsSpace.language = DEFAULT_LANGUAGE
             }
 
         }
@@ -436,9 +436,9 @@ function newSuperalgosDocSpace() {
     }
 
     function changeLanguage(pLanguage) {
-        language = pLanguage
-        window.localStorage.setItem('Docs Language', language)
-        let languageLabel = UI.projects.superalgos.utilities.languages.getLaguageLabel(language)
+        UI.projects.superalgos.spaces.docsSpace.language = pLanguage
+        window.localStorage.setItem('Docs Language', UI.projects.superalgos.spaces.docsSpace.language)
+        let languageLabel = UI.projects.superalgos.utilities.languages.getLaguageLabel(UI.projects.superalgos.spaces.docsSpace.language)
         navigateTo('Superalgos', 'Topic', 'Docs In ' + languageLabel)
     }
 
@@ -507,7 +507,7 @@ function newSuperalgosDocSpace() {
                             /*
                             Deleting paragarphs is only possible in the default language.
                             */
-                            if (language === DEFAULT_LANGUAGE) {
+                            if (UI.projects.superalgos.spaces.docsSpace.language === DEFAULT_LANGUAGE) {
                                 docsSchemaDocument.paragraphs.splice(selectededitableParagraphIndex, 1)
                                 if (docsSchemaDocument.paragraphs.length === 0) {
                                     let newParagraph = {
@@ -522,7 +522,7 @@ function newSuperalgosDocSpace() {
                         /*
                         Adding paragarphs is only possible in the default language.
                         */
-                        if (language === DEFAULT_LANGUAGE) {
+                        if (UI.projects.superalgos.spaces.docsSpace.language === DEFAULT_LANGUAGE) {
                             /*
                             We will update the one paragraph we have and we will add the rest. 
                             */
@@ -762,7 +762,9 @@ function newSuperalgosDocSpace() {
     function onOpening() {
         thisObject.isVisible = true
         if (objectBeingRendered === undefined) {
-            renderSearchPage()
+            thisObject.mainSearchPage.render()
+            detectEnterOnSearchBox()
+            setFocusOnSearchBox()
         } else {
             navigateTo(objectBeingRendered.project, objectBeingRendered.category, objectBeingRendered.type)
         }
@@ -838,18 +840,6 @@ function newSuperalgosDocSpace() {
     function onClosing() {
         objectBeingRendered = undefined
         thisObject.isVisible = false
-    }
-
-    function renderSearchPage() {
-        let HTML = ''
-        HTML = HTML + '<div id="docs-search-page-div">'
-        HTML = HTML + '<center><img src="Images/superalgos-logo.png" class="docs-image-logo-search" width=400></center>'
-        HTML = HTML + '<center><div class="docs-font-normal docs-search-box"><input class="docs-search-input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></input></div></center>'
-        HTML = HTML + '</div>'
-        let docsContentDiv = document.getElementById('docs-content-div')
-        docsContentDiv.innerHTML = HTML + addFooter()
-        detectEnterOnSearchBox()
-        setFocusOnSearchBox()
     }
 
     function detectCommands() {
@@ -933,7 +923,7 @@ function newSuperalgosDocSpace() {
             }
             if (command.indexOf('Docs.Add') !== 0 && command.indexOf('docs.add') !== 0) { return 'Not Add Command' }
 
-            if (language !== DEFAULT_LANGUAGE) {
+            if (UI.projects.superalgos.spaces.docsSpace.language !== DEFAULT_LANGUAGE) {
                 navigateTo('Superalgos', 'Topic', 'Docs Error Only In English', 'Anchor Only In English')
                 return
             }
@@ -998,7 +988,7 @@ function newSuperalgosDocSpace() {
             }
             if (command.indexOf('Docs.Delete') !== 0 && command.indexOf('docs.delete') !== 0) { return 'Not Delete Command' }
 
-            if (language !== DEFAULT_LANGUAGE) {
+            if (UI.projects.superalgos.spaces.docsSpace.language !== DEFAULT_LANGUAGE) {
                 navigateTo('Superalgos', 'Topic', 'Docs Error Only In English', 'Anchor Only In English')
                 return
             }
@@ -1295,7 +1285,7 @@ function newSuperalgosDocSpace() {
             HTML = HTML + '</section>'
 
             let docsContentDiv = document.getElementById('docs-content-div')
-            docsContentDiv.innerHTML = HTML + addFooter()
+            docsContentDiv.innerHTML = HTML + UI.projects.superalgos.spaces.docsSpace.footer.addFooter()
 
             detectEnterOnSearchBox()
             setFocusOnSearchBox()
@@ -1565,7 +1555,7 @@ function newSuperalgosDocSpace() {
             }
 
             let docsContentDiv = document.getElementById('docs-content-div')
-            docsContentDiv.innerHTML = HTML + addFooter()
+            docsContentDiv.innerHTML = HTML + UI.projects.superalgos.spaces.docsSpace.footer.addFooter()
 
             detectEnterOnSearchBox()
             setFocusOnSearchBox()
@@ -1789,7 +1779,7 @@ function newSuperalgosDocSpace() {
             Here we inject the HTML we built into the DOM at the Docs Space Div.
             */
             let docsContentDiv = document.getElementById('docs-content-div')
-            docsContentDiv.innerHTML = HTML + addFooter()
+            docsContentDiv.innerHTML = HTML + UI.projects.superalgos.spaces.docsSpace.footer.addFooter()
 
             console.log(docsContentDiv.innerHTML)
 
@@ -3178,51 +3168,6 @@ function newSuperalgosDocSpace() {
         return HTML
     }
 
-    function addFooter() {
-        let languageLabel = UI.projects.superalgos.utilities.languages.getLaguageLabel(language)
-
-        let HTML = ''
-
-        HTML = HTML + '<div class="docs-node-html-footer-container">' // Container Starts
-
-        HTML = HTML + '<div class="docs-footer-row">'
-        HTML = HTML + '<div class="docs-footer-cell">'
-        HTML = HTML + '<div onClick="UI.projects.superalgos.spaces.docsSpace.scrollToElement(\'docs-space-div\')" class="docs-plain-link"><kbd class=docs-kbd>BACK TO TOP ↑</kbd></div>'
-        HTML = HTML + '</div>'
-        HTML = HTML + '</div>'
-
-        HTML = HTML + '<div class="docs-footer-row">'
-        HTML = HTML + '<div class="docs-footer-cell">'
-        HTML = HTML + 'You are currently reading the Docs in ' + languageLabel + '. To read the Docs in your language, follow one of these links:'
-        HTML = HTML + '<ul>'
-        HTML = HTML + '<li><a onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'EN\')" class="docs-footer-link">English</a> — The collection of articles is complete in this language.</li>'
-        HTML = HTML + '<li><a onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'ES\')" class="docs-footer-link">Spanish</a> — Work in progress. You are invited to contribute translating content.</li>'
-        HTML = HTML + '<li><a onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'RU\')" class="docs-footer-link">Russian</a> — Work in progress. You are invited to contribute translating content.</li>'
-        HTML = HTML + '</ul>'
-        HTML = HTML + '</div>'
-        HTML = HTML + '</div>'
-
-        HTML = HTML + '<div class="docs-footer-row">'
-        HTML = HTML + '<div class="docs-footer-cell">'
-        HTML = HTML + 'Other resources:'
-        HTML = HTML + '<ul>'
-        HTML = HTML + '<li><a href="https://superalgos.org/" target="_blank" class="docs-footer-link">Superalgos Project</a> — Learn more about the project.</li>'
-        HTML = HTML + '<li><a href="https://t.me/superalgoscommunity" rel="nofollow" target="_blank" class="docs-footer-link">Community Group</a> — Lets talk Superalgos!</li>'
-        HTML = HTML + '<li><a href="https://t.me/superalgossupport" rel="nofollow" target="_blank" class="docs-footer-link">Support Group</a> — Need help using the <code >master</code> branch?</li>'
-        HTML = HTML + '<li><a href="https://t.me/superalgosdevelop" rel="nofollow" target="_blank" class="docs-footer-link">Develop Group</a> — Come test the <code class="docs-code">develop</code> branch!</li>'
-        HTML = HTML + '<li><a href="https://t.me/superalgosuxui" rel="nofollow" target="_blank" class="docs-footer-link">UX/UI Design Group</a> — Help us improve the GIU!</li>'
-        HTML = HTML + '<li><a href="https://t.me/superalgos_es" rel="nofollow" target="_blank" class="docs-footer-link">Grupo en Español</a> — Hablemos en español!</li>'
-        HTML = HTML + '<li><a href="https://t.me/superalgos" rel="nofollow" target="_blank" class="docs-footer-link">Superalgos Announcements</a> — Be the first to know about new releases, hotfixes, and important issues.</li>'
-        HTML = HTML + '</ul>'
-        HTML = HTML + '<img src="Images/superalgos-logo-white.png" width="200 px">'
-        HTML = HTML + '</div>'
-        HTML = HTML + '</div>'
-
-        HTML = HTML + '</div>' // Container Ends
-
-        return HTML
-    }
-
     function addWarningIfTranslationIsOutdated(paragraph) {
         if (paragraph === undefined) { return '' }
         if (paragraph.updated === undefined) { return '' }
@@ -3231,7 +3176,7 @@ function newSuperalgosDocSpace() {
         for (let i = 0; i < paragraph.translations.length; i++) {
             let translation = paragraph.translations[i]
             if (translation.updated === undefined) { continue }
-            if (translation.language === language) {
+            if (translation.language === UI.projects.superalgos.spaces.docsSpace.language) {
                 if (paragraph.updated < translation.updated) {
                     return ''
                 } else {
@@ -3248,13 +3193,13 @@ function newSuperalgosDocSpace() {
         if (paragraph.translations.length === 0) { return paragraph.text }
         for (let i = 0; i < paragraph.translations.length; i++) {
             let translation = paragraph.translations[i]
-            if (translation.language === language) { return translation.text }
+            if (translation.language === UI.projects.superalgos.spaces.docsSpace.language) { return translation.text }
         }
         return paragraph.text
     }
 
     function setTextBasedOnLanguage(paragraph, text) {
-        if (language === DEFAULT_LANGUAGE) {
+        if (UI.projects.superalgos.spaces.docsSpace.language === DEFAULT_LANGUAGE) {
             if (paragraph.text !== text) {
                 paragraph.text = text
                 paragraph.updated = (new Date()).valueOf()
@@ -3274,7 +3219,7 @@ function newSuperalgosDocSpace() {
         }
         for (let i = 0; i < paragraph.translations.length; i++) {
             let translation = paragraph.translations[i]
-            if (translation.language === language) {
+            if (translation.language === UI.projects.superalgos.spaces.docsSpace.language) {
                 if (translation.text !== text) {
                     translation.text = text
                     translation.updated = (new Date()).valueOf()
@@ -3283,7 +3228,7 @@ function newSuperalgosDocSpace() {
             }
         }
         let translation = {
-            language: language,
+            language: UI.projects.superalgos.spaces.docsSpace.language,
             text: text,
             updated: (new Date()).valueOf()
         }

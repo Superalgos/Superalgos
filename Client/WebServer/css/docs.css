@@ -7,7 +7,7 @@ background-color: whitesmoke;
 
 .docs-search-page-container {
 font: 400 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
-color: #000; 
+color: #365558; 
 line-height: 150%;
 margin: 20 25 20 30px;
 }
@@ -15,7 +15,7 @@ margin: 20 25 20 30px;
 .docs-common-style-container{
 /*background-color: white;*/
 font: 400 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
-color: #000; 
+color: #324d50; 
 line-height: 150%;
 margin: 20 30px;
 margin: 20 25 20 30px;
@@ -26,7 +26,7 @@ font: 400 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvet
 color: #e6eaea; 
 background-color: #365558;
 line-height: 150%;
-border-top: 3px solid #e44d40;
+border-top: 3px solid #0295aa;
 margin: 0px;
 padding: 50 25 20 30px;
 }
@@ -53,7 +53,7 @@ width: 100%;
 min-width: 95px;
 margin-bottom: 0px;
 margin-top: 0px;
-border: 0px solid #dedede;
+border: 0px solid #cdcdcd;
 padding: 5px;
 
 /* DELETE candidate
@@ -68,11 +68,12 @@ margin-right: 20px;
 }
 
 .docs-definition-table {
-background-color: #f9f9f9;
+background-color: white;
 vertical-align: middle;
 margin-bottom: 20px;
 margin-top: 0px;
-border: 1px solid #dedede;
+border: 1px solid #cdcdcd;
+border-radius: 5px;
 padding: 10px;
 display: table;
 width: 100%;
@@ -108,14 +109,17 @@ width: 100%;
 .docs-link {
 position: relative;
 display: inline-block;
-border-bottom: 1px dotted black; 
+color: #0295aa !important; 
+border-bottom: 1px solid #0295aa; 
+cursor: pointer;
 }
 
 /* Tooltip container */
 .docs-tooltip {
 position: relative;
 display: inline-block;
-border-bottom: 1px dotted black; 
+border-bottom: 1px dashed #0295aa; 
+cursor: pointer;
 }
 
 /* Tooltip text */
@@ -218,7 +222,9 @@ border: none;
 outline: none;
 box-shadow: none;
 overflow:hidden;
-background-color: transparent;
+background-color: #eff;
+border: 1px solid #0295aa;
+border-radius: 5px;
 color: #111; 
 width: 100%;
 height: 25%;
@@ -409,12 +415,12 @@ padding-left: 3px;
 
 a:link.docs-footer-link {
 text-decoration: none;
-color: #ff8c29;
+color: #ffd1a9;
 }
 
 a:visited.docs-footer-link {
 text-decoration: none;
-color: #ff8c29;
+color: #ffd1a9;
 }
 
 a:hover.docs-footer-link {
@@ -435,7 +441,9 @@ margin: 0 0 0 15px;
 
 code.docs-code {
 color: #d9534f;
-background-color: #eee;
+background-color: #e6eaea;
+border: 1px solid #cdd4d5;
+border-radius: 5px;
 padding: 1 5 1 5;
 }
 
@@ -478,8 +486,8 @@ box-sizing: border-box;
 
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
 .active, .docs-collapsible-element:hover {
-border: 1px solid #e3493c;
-background-color: #fff6f6;
+  border: 1px solid #0295aa;
+  background-color: #eff;
 }
 
 /* Style the docs-collapsible-element content. Note: hidden by default */
@@ -551,7 +559,7 @@ background-color: transparent;
 max-width: 100%;
 margin-bottom: 20px;
 margin-top: 20px;
-border: 1px solid #dedede;
+border: 1px solid #cdcdcd;
 border-spacing: 0px;
 }
 
@@ -575,7 +583,7 @@ text-align: left;
 }
 
 .docs-info-table > tbody > tr > td {
-border-top: 1px solid #dedede;
+border-top: 1px solid #cdcdcd;
 }
 
 .docs-info-table-alt-bg td {
@@ -586,7 +594,7 @@ background-color: #f9f9f9;
 .docs-gif {
 max-width: 100%;
 width: 100%;
-border: 1px solid #dedede;
+border: 1px solid #cdcdcd;
 border-spacing: 1px;
 }
 
@@ -594,7 +602,7 @@ border-spacing: 1px;
 .docs-png {
 max-width: 100%;
 width: 100%;
-border: 1px solid #dedede;
+border: 1px solid #cdcdcd;
 border-spacing: 1px;
 }
 
@@ -666,25 +674,25 @@ width: 100%;
   display: inline-block; 
   vertical-align: bottom;
   padding: 0 15px 5px 15px;
-  color: #333;
+  color: #365558;
   font-size: 90%;
 }
 
 .docs-search-results-header-tabs-container > label:hover {
-  color: #e44d40;
+  color: #0295aa;
   padding-bottom: 5px;
   cursor: pointer;
 }
 
 .docs-search-results-header-tabs-container > input:checked + label {
-  color: #e44d40;
+  color: #0295aa;
   padding-bottom: 2px;
-  border-bottom:  3px solid #e44d40;
+  border-bottom:  3px solid #0295aa;
 }
 
 /* Search Results Page Content */
 .docs-search-result-content {
-border-top: 1px solid #e44d40;
+border-top: 1px solid #0295aa;
 margin-left: -240px;
 }
 
@@ -772,7 +780,7 @@ a:hover.docs-topic-index-link {
 
 /* Command Results Page Content */
 .docs-command-result-content {
-border-top: 1px solid #dedede;
+border-top: 1px solid #cdcdcd;
 margin-left: -240px;
 }
 
@@ -793,7 +801,7 @@ width: 100%;
 }
 
 .docs-hidden-block {
-border-top: 1px solid #f0f0f0;
+border-top: 1px solid #eee;
 padding: 0px;
 margin: -5px 0px -30px 0;
 width: 100%;
@@ -829,7 +837,7 @@ min-width: 100%;
 max-width: 100%;
 margin-bottom: 20px;
 margin-top: 20px;
-border: 1px solid #dedede;
+border: 1px solid #cdcdcd;
 border-spacing: 0;
 border-collapse: collapse;
 font: 400 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";

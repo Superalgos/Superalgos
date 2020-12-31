@@ -365,7 +365,7 @@ function newSuperalgosDocSpace() {
             if (UI.projects.superalgos.spaces.designSpace.workspace === undefined) { return }
             if (UI.projects.superalgos.spaces.designSpace.workspace.isInitialized === false) { return }
 
-            if (thisObject.searchEngine.docsIndex && thisObject.searchEngine.docsIndex.length === 0) {
+            if (thisObject.searchEngine && thisObject.searchEngine.docsIndex && thisObject.searchEngine.docsIndex.length === 0) {
                 setUpWorkspaceSchemas()
                 thisObject.searchEngine.setUpSearchEngine()
             }

@@ -23,9 +23,13 @@ function newSuperalgosDocsFooter() {
         HTML = HTML + '<div id="docs-footer" class="docs-node-html-footer-container">' // Container Starts
 
         HTML = HTML + '<div class="docs-node-html-footer-table">'
-
         HTML = HTML + '<div class="docs-footer-row">'
-        HTML = HTML + '<div onClick="UI.projects.superalgos.spaces.docsSpace.scrollToElement(\'docs-space-div\')"><kbd class=docs-kbd>BACK TO TOP ↑</kbd></div>'
+        HTML = HTML + '<div class="docs-footer-cell" style="white-space: nowrap; overflow-x: auto; padding-bottom: 0px; margin-bottom: 0px;">'
+        HTML = HTML + '<h3 style="display: inline-block;">Help Superalgos Speak Your Language!</h3>'
+        HTML = HTML + '</div>'
+        HTML = HTML + '<div class="docs-footer-cell">'
+        HTML = HTML + '<div style="text-align: right;" onClick="UI.projects.superalgos.spaces.docsSpace.scrollToElement(\'docs-space-div\')"><button>BACK TO TOP</button></div>'
+        HTML = HTML + '</div>'
         HTML = HTML + '</div>'
         HTML = HTML + '</div>'
 
@@ -50,12 +54,24 @@ function newSuperalgosDocsFooter() {
         HTML = HTML + '<div class="docs-footer-cell">'
         HTML = HTML + '<h4>Contribute Translations</h4>'
         HTML = HTML + '<strong>1. </strong>Switch to your language.<br/>'
-        HTML = HTML + '<strong>2. </strong>Edit any English paragraph with your translation.<br/>'
-        HTML = HTML + '<strong>3. </strong>Type <code class="docs-code">docs.save</code> in the search / command box.<br/>'
+        HTML = HTML + '<strong>2. </strong>Edit any English content (title, paragraph, etc.) with your translation.<br/>'
+        HTML = HTML + '<strong>3. </strong>Save changes typing <code class="docs-code">docs.save</code> in the search/command box.<br/>'
         HTML = HTML + '<strong>4. </strong>Update your fork and submit a PR.<br/>'
         HTML = HTML + '</ol>'
         HTML = HTML + '</div>'
         HTML = HTML + '</div>'
+
+        HTML = HTML + '</div>'
+
+        HTML = HTML + '<div class="docs-node-html-footer-table">'
+        HTML = HTML + '<div class="docs-footer-row">'
+        HTML = HTML + '<div class="docs-footer-cell" style="white-space: nowrap; overflow-x: auto; padding-bottom: 0px; margin-bottom: 0px;">'
+        HTML = HTML + '<h3 style="display: inline-block;">Meet the Community and the Team!</h3>'
+        HTML = HTML + '</div>'
+        HTML = HTML + '</div>'
+        HTML = HTML + '</div>'
+
+        HTML = HTML + '<div class="docs-node-html-footer-table">'
 
         HTML = HTML + '<div class="docs-footer-row">'
         HTML = HTML + '<div class="docs-footer-cell">'
@@ -88,6 +104,7 @@ function newSuperalgosDocsFooter() {
 
         HTML = HTML + '<div class="docs-footer-row">'
         HTML = HTML + '<img src="Images/superalgos-logo-white.png" width="200 px">'
+        HTML = HTML + '</div>'
         HTML = HTML + '</div>'
 
         HTML = HTML + '</div>' // Container Ends

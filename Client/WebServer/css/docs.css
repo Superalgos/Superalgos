@@ -381,20 +381,37 @@ width: 100%;
   }
 
 .docs-footer-row {
-  padding: 40px 0;
   display: table-row;
 }
 
 .docs-footer-cell {
-  padding: 20 15px;
+  padding: 0 15px 40px 15px;
   display: table-cell;
   width: 33%;
 }
+
+#docs-footer h3 {
+  font-size: 180%;
+  font-weight: 300;
+  }
 
 #docs-footer h4 {
   font-size: 120%;
   font-weight: 300;
   }
+
+  #docs-footer button{
+  border: 1px outset #e6eaea;
+  border-radius: 20px;
+  background-color: transparent;
+  color: e6eaea;
+  padding: 10px;
+}
+
+#docs-footer button:hover {
+  border: 1px inset #e6eaea;
+  cursor: pointer;
+}
 
 #docs-footer a:hover {
 text-decoration: none;

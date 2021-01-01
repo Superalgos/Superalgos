@@ -24,7 +24,7 @@ function newSuperalgosDocsFooter() {
 
         HTML = HTML + '<div class="docs-node-html-footer-table">'
         HTML = HTML + '<div class="docs-footer-row">'
-        HTML = HTML + '<div class="docs-footer-cell" style="white-space: nowrap; overflow-x: auto; padding-bottom: 0px; margin-bottom: 0px;">'
+        HTML = HTML + '<div class="docs-footer-cell" style="white-space: nowrap; overflow-x: auto; ">'
         HTML = HTML + '<h3 style="display: inline-block;">Help Superalgos Speak Your Language!</h3>'
         HTML = HTML + '</div>'
         HTML = HTML + '<div class="docs-footer-cell">'
@@ -65,7 +65,7 @@ function newSuperalgosDocsFooter() {
 
         HTML = HTML + '<div class="docs-node-html-footer-table">'
         HTML = HTML + '<div class="docs-footer-row">'
-        HTML = HTML + '<div class="docs-footer-cell" style="white-space: nowrap; overflow-x: auto; padding-bottom: 0px; margin-bottom: 0px;">'
+        HTML = HTML + '<div class="docs-footer-cell" style="white-space: nowrap; overflow-x: auto; ">'
         HTML = HTML + '<h3 style="display: inline-block;">Meet the Community and the Team!</h3>'
         HTML = HTML + '</div>'
         HTML = HTML + '</div>'

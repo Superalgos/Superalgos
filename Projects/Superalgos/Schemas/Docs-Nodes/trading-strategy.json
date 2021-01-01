@@ -13,7 +13,7 @@
             "text": "The definition of a strategy may be analyzed in three sections:"
         },
         {
-            "style": "Success",
+            "style": "Callout",
             "text": "A strategy is a set of actions occurring in stages"
         },
         {
@@ -41,7 +41,7 @@
             "text": "While stages are played in a sequence, upon execution there are overlaps. That is, a stage doesn't need to be closed for the next stage to be opened. The framework sets a clear separation of the concepts embodied in each stage to facilitate the process of defining and developing a trading system. But the truth is that, both at the conceptual level and during execution, the lines between stages are rather blurry."
         },
         {
-            "style": "Success",
+            "style": "Callout",
             "text": "designed to achieve a specific goal within a broader plan"
         },
         {
@@ -61,7 +61,7 @@
             "text": "In other words, the infrastructure provided by Superalgos enables the hyperspecialization of strategies. Do not aim to trade in all sorts of market situations with the same strategy. Instead, develop a strategy for each market situation you wish to trade."
         },
         {
-            "style": "Success",
+            "style": "Callout",
             "text": "via taking and managing positions"
         },
         {

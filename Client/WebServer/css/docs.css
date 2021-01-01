@@ -291,15 +291,51 @@ box-sizing: border-box;
 }
 
 .docs-callout {
+  background-color:white;
 padding: 20px;
 margin: 20px 0;
-border: 1px solid #eee;
+border: 1px solid rgba(188, 214, 67, .5);
 border-left-width: 5px;
 border-radius: 3px;
 border-left-color: #bcd643;
-font-weight: 500;
+font-weight: 550 !important;
 width: 100%;
 box-sizing: border-box;
+}
+
+.docs-topic-index {
+background-color:white;
+padding: 0 20 20 20px;
+margin: 20px 0;
+border: 1px solid rgba(49, 112, 143, .2);
+border-left-width: 5px;
+border-radius: 5px;
+border-left-color: #365558;
+width: 100%;
+box-sizing: border-box;
+}
+
+.docs-topic-index h3 {
+  font-size: 100%;
+  font-weight: 300;
+  margin: 0px;
+  padding: 0px;
+}
+
+.docs-topic-index p {
+  font-size: 100%;
+  padding: 0px;
+  margin: 2px 0;
+}
+
+.docs-topic-index a {
+  color: #365558;
+}
+
+.docs-topic-index a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  color: #0295aa;
 }
 
 .docs-summary {
@@ -381,7 +417,7 @@ width: 100%;
 }
 
 .docs-footer-cell {
-  padding: 0 15px 40px 15px;
+  padding: 10px 15px 0px 15px;
   display: table-cell;
   width: 33%;
 }
@@ -402,6 +438,7 @@ width: 100%;
   background-color: transparent;
   color: e6eaea;
   padding: 10px;
+  margin: 0px;
 }
 
 #docs-footer button:hover {
@@ -703,21 +740,21 @@ width: 100%;
 .docs-search-results-header-tabs-container > label {
   display: inline-block; 
   vertical-align: bottom;
-  padding: 0 15px 5px 15px;
+  padding: 0 15px 3px 15px;
   color: #365558;
   font-size: 90%;
 }
 
 .docs-search-results-header-tabs-container > label:hover {
   color: #0295aa;
-  padding-bottom: 5px;
+  padding-bottom: 3px;
   cursor: pointer;
 }
 
 .docs-search-results-header-tabs-container > input:checked + label {
   color: #0295aa;
   padding-bottom: 2px;
-  border-bottom:  5px solid #0295aa;
+  border-bottom:  3px solid #0295aa;
 }
 
 /* Search Results Page Content */
@@ -798,15 +835,7 @@ a:active.docs-search-result-content-record-title {
   margin-top: 5px!important;
 }
 
-.docs-topic-index-link {
-  font-size: 80%;
-  color: #31708f;
-}
 
-a:hover.docs-topic-index-link {
-  text-decoration: underline;
-  cursor: pointer;
-}
 
 /* Command Results Page Content */
 .docs-command-result-content {

@@ -178,6 +178,7 @@ opacity: 1;
 .docs-h2 {
   font-weight:700; 
   font-size:170%; 
+  line-height: 170%;
   margin-top: 30px; 
   padding-bottom: 5px; 
   overflow:hidden;
@@ -281,8 +282,8 @@ box-sizing: border-box;
 .docs-alert-error {
 color: #fff16c;
 background-color: #ff3131;
-adding: 50px;
-border: 1px solid #fff16c;
+padding: 30px;
+border: 1px solid rgba(0, 0, 0, .5);
 border-radius: 4px;
 margin: 20px 0;
 width: 100%;

@@ -148,7 +148,7 @@ function newSuperalgosDocSpace() {
 
     function reset() {
         finalize()
-        intialize()
+        initialize()
     }
 
     function changeLanguage(pLanguage) {

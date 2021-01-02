@@ -25,8 +25,9 @@
             "text": "Events are triggered by situations, which are defined by conditions. Both are explained in the situations, conditions, and formulas page."
         },
         {
-            "style": "Text",
-            "text": "{% include tip.html content=\"To set up a next phase event, add the node and define the situation that should trigger the event.\" %}"
+            "style": "Success",
+            "text": "To set up a next phase event, add the node and define the situation that should trigger the event.",
+            "updated": 1609610098815
         }
     ]
 }

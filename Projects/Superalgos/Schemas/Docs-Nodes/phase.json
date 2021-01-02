@@ -33,8 +33,9 @@
             "text": "The value of the target set for a phase is expressed by a formula. Learn more about formulas and how to write them."
         },
         {
-            "style": "Text",
-            "text": "{% include tip.html content=\"This explanation about phase 1 may be extended to any other phase, as they all work similarly, and it applies both for managed stop loss phases and managed take profit phases.\" %}"
+            "style": "Success",
+            "text": "This explanation about phase 1 may be extended to any other phase, as they all work similarly, and it applies both for managed stop loss phases and managed take profit phases.",
+            "updated": 1609609940697
         }
     ]
 }

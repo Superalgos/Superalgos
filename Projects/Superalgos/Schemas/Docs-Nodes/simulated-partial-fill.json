@@ -26,23 +26,13 @@
         },
         {
             "style": "Title",
-            "text": "Configuring Simulated Partial Fill"
+            "text": "Simulated Partial Fill Configuration",
+            "updated": 1609607669992
         },
         {
-            "style": "Text",
-            "text": "To configure the simulated partial fill node, select Configure on the menu."
-        },
-        {
-            "style": "Text",
-            "text": "{"
-        },
-        {
-            "style": "Text",
-            "text": "     \"fillProbability\": 1"
-        },
-        {
-            "style": "Text",
-            "text": "}"
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609607682304
         },
         {
             "style": "List",

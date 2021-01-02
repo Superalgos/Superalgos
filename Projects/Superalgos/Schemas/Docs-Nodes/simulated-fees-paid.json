@@ -22,23 +22,13 @@
         },
         {
             "style": "Title",
-            "text": "Configuring Simulated Fees Paid"
+            "text": "Simulated Fees Paid Configuration",
+            "updated": 1609607768058
         },
         {
-            "style": "Text",
-            "text": "To configure the simulated fees paid node, select Configure on the menu."
-        },
-        {
-            "style": "Text",
-            "text": "{"
-        },
-        {
-            "style": "Text",
-            "text": "\"percentage\": 0.1"
-        },
-        {
-            "style": "Text",
-            "text": "}"
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609607777687
         },
         {
             "style": "List",

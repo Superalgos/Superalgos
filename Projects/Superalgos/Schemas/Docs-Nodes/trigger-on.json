@@ -3,5 +3,10 @@
     "definition": {
         "text": "Counts the periods since the last time a strategy was triggered on."
     },
-    "paragraphs": []
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+        }
+    ]
 }

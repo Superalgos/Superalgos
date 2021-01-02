@@ -9,16 +9,18 @@
             "text": "Content"
         },
         {
-            "style": "Text",
-            "text": "<H4>Internal Use</H4>"
+            "style": "Title",
+            "text": "Internal Use",
+            "updated": 1609595630529
         },
         {
             "style": "Text",
             "text": "The system needs to determine when the managed stop loss and managed take profit targets have been hit. To do this, the system observes how the user places the targets in relation to the target rate."
         },
         {
-            "style": "Text",
-            "text": "For example:"
+            "style": "Subtitle",
+            "text": "For example",
+            "updated": 1609595707526
         },
         {
             "style": "Text",
@@ -37,8 +39,9 @@
             "text": "This is how the system uses the target rate internally."
         },
         {
-            "style": "Text",
-            "text": "<H4>Fetching the Value from Formulas</H4>"
+            "style": "Title",
+            "text": "Fetching the Value from Formulas",
+            "updated": 1609595638456
         },
         {
             "style": "Text",
@@ -49,16 +52,23 @@
             "text": "For example, tradingEngine.current.position.entryTargetRate.value or tradingEngine.current.position.exitTargetRate.value."
         },
         {
-            "style": "Text",
-            "text": "<H4>Affecting How Simulations are Plotted</H4>"
+            "style": "Title",
+            "text": "Affecting How Simulations are Plotted",
+            "updated": 1609595746127
         },
         {
             "style": "Text",
-            "text": "The target rates defined at the open and close stages affect how the Posittion Base Asset and Position Quoted Asset layers in the Simulation Objects layer manager draw the triangle representing the development of the trade."
+            "text": "The target rates defined at the open and close stages affect how the Position Base Asset and Position Quoted Asset layers in the Simulation Objects layer manager draw the triangle representing the development of the trade.",
+            "updated": 1609595773405
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/Charts/target-rate-in-position.png",
+            "updated": 1609597291786
         },
         {
             "style": "Text",
-            "text": "{% include image.html file='trading-system/target-rate-in-position.png' url='yes' max-width='100' caption='The Position Base Asset layer is on, providing a visual clue of how the position developed.' %}"
+            "text": ""
         },
         {
             "style": "Text",
@@ -73,8 +83,9 @@
             "text": "You may choose to apply a similar reasoning as with the open stage target rate for limit orders, but there is some nouance to consider if you are using market orders."
         },
         {
-            "style": "Success",
-            "text": "The issue arises if you when you run a testing session at a time frame higher than the time frame you use for live trading."
+            "style": "Callout",
+            "text": "The issue arises when you run a testing session at a time frame higher than the time frame you use for live trading.",
+            "updated": 1609596096827
         },
         {
             "style": "Text",
@@ -101,72 +112,9 @@
             "text": "To solve the above issue, you may use a more ellaborate formula for the target rate in the close stage:"
         },
         {
-            "style": "Text",
-            "text": "targetRate()"
-        },
-        {
-            "style": "Text",
-            "text": "function targetRate() {"
-        },
-        {
-            "style": "Text",
-            "text": "    switch (tradingEngine.current.position.exitType.value) {"
-        },
-        {
-            "style": "Text",
-            "text": "        case 'No Exit': {"
-        },
-        {
-            "style": "Text",
-            "text": "            return tradingEngine.current.episode.candle.close.value"
-        },
-        {
-            "style": "Text",
-            "text": "            break"
-        },
-        {
-            "style": "Text",
-            "text": "        }"
-        },
-        {
-            "style": "Text",
-            "text": "        case 'Take Profit': {"
-        },
-        {
-            "style": "Text",
-            "text": "            return tradingEngine.current.position.takeProfit.finalValue.value"
-        },
-        {
-            "style": "Text",
-            "text": "            break"
-        },
-        {
-            "style": "Text",
-            "text": "        }"
-        },
-        {
-            "style": "Text",
-            "text": "        case 'Stop Loss': {"
-        },
-        {
-            "style": "Text",
-            "text": "            return tradingEngine.current.position.stopLoss.finalValue.value"
-        },
-        {
-            "style": "Text",
-            "text": "            break"
-        },
-        {
-            "style": "Text",
-            "text": "        }"
-        },
-        {
-            "style": "Text",
-            "text": "    }"
-        },
-        {
-            "style": "Text",
-            "text": "}"
+            "style": "Javascript",
+            "text": "targetRate()\n\nfunction targetRate() {\n    switch (tradingEngine.current.position.exitType.value) {\n        case 'No Exit': {\n            return tradingEngine.current.episode.candle.close.value\n            break\n        }\n        case 'Take Profit': {\n            return tradingEngine.current.position.takeProfit.finalValue.value\n            break\n        }\n        case 'Stop Loss': {\n            return tradingEngine.current.position.stopLoss.finalValue.value\n            break\n        }\n    }\n}",
+            "updated": 1609596984516
         },
         {
             "style": "Text",
@@ -174,7 +122,8 @@
         },
         {
             "style": "List",
-            "text": "When the no target has been hit, the value of the target rate is the close of the current candle."
+            "text": "When no target has been hit, the value of the target rate is the close of the current candle.",
+            "updated": 1609603780132
         },
         {
             "style": "List",
@@ -185,8 +134,9 @@
             "text": "When the stop loss is hit, the value of the target rate is the last value of the stop loss."
         },
         {
-            "style": "Text",
-            "text": "{% include tip.html content=\"You may use a similar formula on the simulated actual rate node of the simulated exchange events associated with the market order you are using to exit the position. Such use of the simulated actual rate node would impact the accounts kept for the episode and result in more realistic results for your backtesting session.\" %}"
+            "style": "Success",
+            "text": "You may use a similar formula on the simulated actual rate node of the simulated exchange events associated with the market order you are using to exit the position. Such use of the simulated actual rate node would impact the accounts kept for the episode and result in more realistic results for your backtesting session.",
+            "updated": 1609603803351
         },
         {
             "style": "Note",

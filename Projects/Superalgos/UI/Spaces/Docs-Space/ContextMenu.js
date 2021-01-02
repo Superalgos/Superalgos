@@ -114,7 +114,7 @@ function newSuperalgosDocsContextMenu() {
         function deleteParagraph() {
             if (selectedParagraphIndex === undefined) { return }
             if (selectedParagraphIndex === 0) { return }
-            docsSchemaDocument.paragraphs.splice(selectedParagraphIndex, 1)
+            UI.projects.superalgos.spaces.docsSpace.documentPage.docsSchemaDocument.paragraphs.splice(selectedParagraphIndex, 1)
             forceOutClick()
             UI.projects.superalgos.spaces.docsSpace.documentPage.render()
         }

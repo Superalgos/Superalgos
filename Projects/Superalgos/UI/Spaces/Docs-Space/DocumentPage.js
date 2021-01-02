@@ -1,5 +1,6 @@
 function newSuperalgosDocsDocumentPage() {
     let thisObject = {
+        docsSchemaDocument: undefined, 
         exitEditMode: exitEditMode,
         render: render,
         initialize: initialize,
@@ -7,7 +8,6 @@ function newSuperalgosDocsDocumentPage() {
     }
 
     let appSchemaDocument
-    let docsSchemaDocument
 
     return thisObject
 
@@ -17,7 +17,7 @@ function newSuperalgosDocsDocumentPage() {
 
     function finalize() {
         appSchemaDocument = undefined
-        docsSchemaDocument = undefined
+        thisObject.docsSchemaDocument = undefined
     }
 
     function render() {
@@ -34,24 +34,24 @@ function newSuperalgosDocsDocumentPage() {
         function getSchemaDocument() {
             switch (UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.category) {
                 case 'Node': {
-                    docsSchemaDocument = SCHEMAS_BY_PROJECT.get(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project).map.docsNodeSchema.get(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type)
+                    thisObject.docsSchemaDocument = SCHEMAS_BY_PROJECT.get(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project).map.docsNodeSchema.get(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type)
                     break
                 }
                 case 'Concept': {
-                    docsSchemaDocument = SCHEMAS_BY_PROJECT.get(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project).map.docsConceptSchema.get(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type)
+                    thisObject.docsSchemaDocument = SCHEMAS_BY_PROJECT.get(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project).map.docsConceptSchema.get(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type)
                     break
                 }
                 case 'Topic': {
-                    docsSchemaDocument = SCHEMAS_BY_PROJECT.get(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project).map.docsTopicSchema.get(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type)
+                    thisObject.docsSchemaDocument = SCHEMAS_BY_PROJECT.get(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project).map.docsTopicSchema.get(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type)
                     break
                 }
                 case 'Workspace': {
-                    docsSchemaDocument = SCHEMAS_BY_PROJECT.get(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project).map.workspaceSchema.get(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.nodeId)
+                    thisObject.docsSchemaDocument = SCHEMAS_BY_PROJECT.get(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project).map.workspaceSchema.get(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.nodeId)
                     break
                 }
             }
 
-            if (docsSchemaDocument === undefined) {
+            if (thisObject.docsSchemaDocument === undefined) {
                 // Use the New Node Template
                 let template = {
                     type: UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type,
@@ -77,26 +77,26 @@ function newSuperalgosDocsDocumentPage() {
                     }
                 }
 
-                docsSchemaDocument = template
+                thisObject.docsSchemaDocument = template
             }
             /* When for any reason the schema document does not have a paragraphs array */
-            if (docsSchemaDocument.paragraphs === undefined) {
-                docsSchemaDocument.paragraphs = []
+            if (thisObject.docsSchemaDocument.paragraphs === undefined) {
+                thisObject.docsSchemaDocument.paragraphs = []
             }
             /* When the paragraph array is empty. */
-            if (docsSchemaDocument.paragraphs.length === 0) {
+            if (thisObject.docsSchemaDocument.paragraphs.length === 0) {
                 let paragraph = {
                     style: 'Text',
                     text: UI.projects.superalgos.globals.docs.NEW_PARAGRAPH_TEXT
                 }
-                docsSchemaDocument.paragraphs.push(paragraph)
+                thisObject.docsSchemaDocument.paragraphs.push(paragraph)
             }
         }
 
         async function repositionWorkspace() {
             if (UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.category !== 'Workspace') { return }
 
-            let node = await UI.projects.superalgos.spaces.designSpace.workspace.getNodeById(docsSchemaDocument.nodeId)
+            let node = await UI.projects.superalgos.spaces.designSpace.workspace.getNodeById(thisObject.docsSchemaDocument.nodeId)
             node.payload.floatingObject.unCollapseParent()
             setTimeout(positionAtNode, 3000, node)
             setTimeout(positionAtNode, 5000, node)
@@ -120,10 +120,10 @@ function newSuperalgosDocsDocumentPage() {
             HTML = HTML + '<div id="docs-context-menu-clickeable-div" class="docs-context-menu-clickeable-container">' // Clickeable Container Starts
 
             /* Title */
-            let titleLabel = docsSchemaDocument.type
+            let titleLabel = thisObject.docsSchemaDocument.type
             HTML = HTML + '<div id="docs-main-title-div" class="docs-title-table"><div class="docs-table-cell"><h2 class="docs-h2" id="' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type.toLowerCase().replace(' ', '-') + '" > ' + titleLabel + '</h2></div><div id="projectImageDiv" class="docs-image-container"/></div></div>'
 
-            addDefinitionTable(docsSchemaDocument, 'definition-editable-', UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.category, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type)
+            addDefinitionTable(thisObject.docsSchemaDocument, 'definition-editable-', UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.category, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type)
 
             let editableParagraphIndex = 0
             let autoGeneratedParagraphIndex = 0
@@ -138,7 +138,7 @@ function newSuperalgosDocsDocumentPage() {
                 buildOrderedTopicPageIndex()
                 generatePreviousAndNextPageNavigation()
                 /* Topic Title */
-                titleLabel = docsSchemaDocument.topic + ' Topic'
+                titleLabel = thisObject.docsSchemaDocument.topic + ' Topic'
                 HTML = HTML + '<div id="docs-main-title-div" class="docs-title-table"><div class="docs-table-cell"><h2 class="docs-h2" id="' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type.toLowerCase().replace(' ', '-') + '" > ' + titleLabel + '</h2></div><div id="projectImageDiv" class="docs-image-container"/></div></div>'
 
                 generateMultiPageIndex()
@@ -195,7 +195,7 @@ function newSuperalgosDocsDocumentPage() {
                 for (let i = 0; i < schemaArray.length; i++) {
                     let arrayItem = schemaArray[i]
 
-                    if (arrayItem.topic === docsSchemaDocument.topic) {
+                    if (arrayItem.topic === thisObject.docsSchemaDocument.topic) {
                         let itemAdded = false
                         if (orderedTopicPageIndexArray.length === 0) {
                             orderedTopicPageIndexArray.push(arrayItem)
@@ -224,7 +224,7 @@ function newSuperalgosDocsDocumentPage() {
                 for (let i = 0; i < orderedTopicPageIndexArray.length; i++) {
                     let arrayItem = orderedTopicPageIndexArray[i]
 
-                    if (docsSchemaDocument.type === arrayItem.type) {
+                    if (thisObject.docsSchemaDocument.type === arrayItem.type) {
                         previousPage = orderedTopicPageIndexArray[i - 1]
                         nextPage = orderedTopicPageIndexArray[i + 1]
 
@@ -232,7 +232,7 @@ function newSuperalgosDocsDocumentPage() {
                         if (previousPage !== undefined) {
                             HTML = HTML + '(Previous) <a class="docs-link" onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project + '\', \'' + 'Topic' + '\', \'' + previousPage.type.replace(/'/g, 'AMPERSAND') + '\')">' + previousPage.type + '</a>'
                         }
-                        HTML = HTML + ' Current Page: ' + docsSchemaDocument.pageNumber + ' '
+                        HTML = HTML + ' Current Page: ' + thisObject.docsSchemaDocument.pageNumber + ' '
                         if (nextPage !== undefined) {
                             HTML = HTML + '<a class="docs-link" onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project + '\', \'' + 'Topic' + '\', \'' + nextPage.type.replace(/'/g, 'AMPERSAND') + '\')">' + nextPage.type + '</a> (Next)'
                         }
@@ -267,10 +267,10 @@ function newSuperalgosDocsDocumentPage() {
 
             function addContent() {
                 HTML = HTML + '<div id="docs-content">'
-                if (docsSchemaDocument.paragraphs !== undefined) {
-                    for (let i = 0; i < docsSchemaDocument.paragraphs.length; i++) {
+                if (thisObject.docsSchemaDocument.paragraphs !== undefined) {
+                    for (let i = 0; i < thisObject.docsSchemaDocument.paragraphs.length; i++) {
                         let key = 'editable-paragraph-' + editableParagraphIndex
-                        let paragraph = docsSchemaDocument.paragraphs[i]
+                        let paragraph = thisObject.docsSchemaDocument.paragraphs[i]
 
                         if (paragraph.style === "Include") {
                             renderParagraph(paragraph, key)
@@ -1648,13 +1648,13 @@ function newSuperalgosDocsDocumentPage() {
                         Deleting paragarphs is only possible in the default language.
                         */
                         if (UI.projects.superalgos.spaces.docsSpace.language === UI.projects.superalgos.globals.docs.DEFAULT_LANGUAGE) {
-                            docsSchemaDocument.paragraphs.splice(selectededitableParagraphIndex, 1)
-                            if (docsSchemaDocument.paragraphs.length === 0) {
+                            thisObject.docsSchemaDocument.paragraphs.splice(selectededitableParagraphIndex, 1)
+                            if (thisObject.docsSchemaDocument.paragraphs.length === 0) {
                                 let newParagraph = {
                                     style: 'Text',
                                     text: 'Please contribute to the docs by editing this content.'
                                 }
-                                docsSchemaDocument.paragraphs.push(newParagraph)
+                                thisObject.docsSchemaDocument.paragraphs.push(newParagraph)
                             }
                         }
                     }
@@ -1673,7 +1673,7 @@ function newSuperalgosDocsDocumentPage() {
                                 style: style,
                                 text: paragraphs[i]
                             }
-                            docsSchemaDocument.paragraphs.splice(selectededitableParagraphIndex + i, 0, newParagraph)
+                            thisObject.docsSchemaDocument.paragraphs.splice(selectededitableParagraphIndex + i, 0, newParagraph)
                         }
                     }
                 }
@@ -1685,7 +1685,7 @@ function newSuperalgosDocsDocumentPage() {
                 This means that the definition was being edited.
                 */
                 if (UI.projects.superalgos.spaces.docsSpace.textArea.value !== '') {
-                    UI.projects.superalgos.utilities.docs.setTextBasedOnLanguage(docsSchemaDocument.definition, UI.projects.superalgos.spaces.docsSpace.textArea.value)
+                    UI.projects.superalgos.utilities.docs.setTextBasedOnLanguage(thisObject.docsSchemaDocument.definition, UI.projects.superalgos.spaces.docsSpace.textArea.value)
                 }
                 break
             }

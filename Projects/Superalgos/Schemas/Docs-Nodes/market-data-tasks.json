@@ -19,14 +19,6 @@
         {
             "style": "Block",
             "text": "Running"
-        },
-        {
-            "style": "Title",
-            "text": "Running Market Data Tasks"
-        },
-        {
-            "style": "Text",
-            "text": "Select Run All Data Mine Tasks or Stop All Data Mine Tasks on the menu to start and stop all tasks under this node."
         }
     ]
 }

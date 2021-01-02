@@ -17,11 +17,7 @@
             "text": "Running"
         },
         {
-            "style": "Title",
-            "text": "Running Sensor Process Instance"
-        },
-        {
-            "style": "Text",
+            "style": "Note",
             "text": "You do not start or stop a sensor process instance directly. Instead, you start or stop the corresponding task."
         }
     ]

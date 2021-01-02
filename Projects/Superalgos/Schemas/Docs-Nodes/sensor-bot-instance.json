@@ -1,16 +1,13 @@
 {
     "type": "Sensor Bot Instance",
     "definition": {
-        "text": "A sensor bot instance is a reference to a sensor bot as defined in a data mine. The instance of the bot runs the defined processes and generates the defined data products."
+        "text": "A sensor bot instance is a reference to a Sensor Bot as defined in a data mine. The instance of the bot runs the defined processes and generates the defined data products.",
+        "updated": 1609617856257
     },
     "paragraphs": [
         {
             "style": "Block",
             "text": "Content"
-        },
-        {
-            "style": "Text",
-            "text": "{{site.data.concepts.sensor_bot}}"
         },
         {
             "style": "Text",
@@ -22,27 +19,17 @@
         },
         {
             "style": "Title",
-            "text": "Configuring Sensor Bot Instance"
+            "text": "Sensor Bot Instance Configuration",
+            "updated": 1609613944104
         },
         {
-            "style": "Text",
-            "text": "Select Configure Sensor Bot Instance on the menu to access the configuration."
+            "style": "Subtitle",
+            "text": "Properties"
         },
         {
-            "style": "Text",
-            "text": "  {"
-        },
-        {
-            "style": "Text",
-            "text": "    \"startDate\": \"2020-01-01\""
-        },
-        {
-            "style": "Text",
-            "text": "  }"
-        },
-        {
-            "style": "Text",
-            "text": " startDate is the desired starting date* of the data product the sensor bot instance builds, in the YYYY-MM-DD format. The sensor bot instance queries its data source for data starting on the configured startDate."
+            "style": "List",
+            "text": "startDate is the desired starting date of the data product the sensor bot instance builds, in the YYYY-MM-DD format. The sensor bot instance queries its data source for data starting on the configured startDate.",
+            "updated": 1609614002529
         },
         {
             "style": "Text",
@@ -50,22 +37,16 @@
         },
         {
             "style": "Text",
-            "text": "  * In the case the startDate is changed after the sensor bot has started building a data product, either for an earlier or later date, the sensor re-evaluates the feasibility of starting at the new date. The actual date may or may not change; regardless, the sensor bot discards the existing data product and starts over from the newly discovered date. In other words, if the startDate is changed, the sensor bot starts over."
+            "text": "In the case the startDate is changed after the sensor bot has started building a data product, either for an earlier or later date, the sensor re-evaluates the feasibility of starting at the new date. The actual date may or may not change; regardless, the sensor bot discards the existing data product and starts over from the newly discovered date. In other words, if the startDate is changed, the sensor bot starts over.",
+            "updated": 1609614011955
         },
         {
-            "style": "Text",
-            "text": "  * Notice that the above starts a chain reaction among all indicator bots that have a data dependency with the sensor bot's output dataset. Also, if the actual date ends up changing, all indicators that determine the starting date of the market by looking at the date discovered by the sensor bot have to discard their existing data products and start over from the new date."
+            "style": "Note",
+            "text": "Notice that the above starts a chain reaction among all indicator bots that have a data dependency with the sensor bot's output dataset. Also, if the actual date ends up changing, all indicators that determine the starting date of the market by looking at the date discovered by the sensor bot have to discard their existing data products and start over from the new date.",
+            "updated": 1609614020847
         },
         {
-            "style": "Block",
-            "text": "Running"
-        },
-        {
-            "style": "Title",
-            "text": "Running Sensor Bot Instance"
-        },
-        {
-            "style": "Text",
+            "style": "Note",
             "text": "You do not start or stop a sensor bot instance directly. Instead, you start or stop the corresponding task."
         }
     ]

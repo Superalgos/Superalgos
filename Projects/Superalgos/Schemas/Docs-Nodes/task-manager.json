@@ -17,20 +17,13 @@
             "text": "For example, you may set up a task manager to handle tasks related to a particular set of indicators used with a certain strategy. Or, for example, to organize multiple backtesting sessions."
         },
         {
-            "style": "Text",
-            "text": "{% include tip.html content=\"The key aspect of a task manager is that it allows starting and stopping all tasks at once.\" %}"
+            "style": "Success",
+            "text": "The key aspect of a task manager is that it allows starting and stopping all tasks at once.",
+            "updated": 1609613698128
         },
         {
             "style": "Block",
             "text": "Running"
-        },
-        {
-            "style": "Title",
-            "text": "Running Task Manager"
-        },
-        {
-            "style": "Text",
-            "text": "Select Run All Tasks or Stop All Tasks on the menu to start and stop all tasks respectively."
         }
     ]
 }

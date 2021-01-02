@@ -5,5 +5,9 @@
             "style": "Text",
             "text": "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
         }
-    ]
+    ],
+    "definition": {
+        "text": "The Project Data Tasks node is an organizational device grouping all Data Tasks corresponding to the same project.",
+        "updated": 1609618469820
+    }
 }

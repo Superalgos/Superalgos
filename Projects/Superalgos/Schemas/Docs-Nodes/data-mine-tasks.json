@@ -17,24 +17,8 @@
             "text": "Configuring"
         },
         {
-            "style": "Title",
-            "text": "Configuring Data Mine Tasks"
-        },
-        {
-            "style": "Text",
-            "text": "Select Configure on the menu to access the configuration."
-        },
-        {
             "style": "Block",
             "text": "Running"
-        },
-        {
-            "style": "Title",
-            "text": "Running Data Mine Tasks"
-        },
-        {
-            "style": "Text",
-            "text": "Select Run All Task Managers or Stop All Task Managers on the menu to start and stop all tasks under this node."
         }
     ]
 }

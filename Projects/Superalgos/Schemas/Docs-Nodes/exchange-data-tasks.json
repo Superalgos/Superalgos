@@ -19,14 +19,6 @@
         {
             "style": "Block",
             "text": "Running"
-        },
-        {
-            "style": "Title",
-            "text": "Running Exchange Data Tasks"
-        },
-        {
-            "style": "Text",
-            "text": "Select Run All Market Data Tasks or Stop All Market Data Tasks on the menu to start and stop all tasks under this node."
         }
     ]
 }

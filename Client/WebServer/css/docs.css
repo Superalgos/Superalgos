@@ -445,7 +445,7 @@ width: 100%;
   background-color: transparent;
   color: e6eaea;
   padding: 10px;
-  margin: 0px;
+  margin: 0 0 0 10px;
 }
 
 #docs-footer button:hover {

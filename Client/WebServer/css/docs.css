@@ -42,6 +42,12 @@ margin: 20 20 20 30px;
 
 */
 
+#docs-common-style-container-div ul {
+  padding: 0px;
+  margin-left: 35px;
+  list-style-position: outside;
+}
+
 .docs-font-normal {
 font: 400 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
 color: #111; 

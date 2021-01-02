@@ -39,6 +39,7 @@ color: #111;
 line-height: 150%;
 margin: 20 20 20 30px;
 }
+
 */
 
 .docs-font-normal {
@@ -417,7 +418,7 @@ width: 100%;
 }
 
 .docs-footer-cell {
-  padding: 10px 15px 0px 15px;
+  padding: 5px 15px 0px 15px;
   display: table-cell;
   width: 33%;
 }

@@ -424,11 +424,13 @@ function newSuperalgosUtilitiesDocs() {
             let phrase2 = words[i] + ' ' + words[i + 1]
             let phrase3 = words[i] + ' ' + words[i + 1] + ' ' + words[i + 2]
             let phrase4 = words[i] + ' ' + words[i + 1] + ' ' + words[i + 2] + ' ' + words[i + 3]
+            let phrase5 = words[i] + ' ' + words[i + 1] + ' ' + words[i + 2] + ' ' + words[i + 3] + ' ' + words[i + 4]
 
             let cleanPhrase1 = cleanPhrase(phrase1)
             let cleanPhrase2 = cleanPhrase(phrase2)
             let cleanPhrase3 = cleanPhrase(phrase3)
             let cleanPhrase4 = cleanPhrase(phrase4)
+            let cleanPhrase5 = cleanPhrase(phrase5)
 
             let found = false
 
@@ -436,6 +438,16 @@ function newSuperalgosUtilitiesDocs() {
                 let project = PROJECTS_ARRAY[j]
 
                 /* Search in docsNodeSchema */
+                if (SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(cleanPhrase5) !== undefined) {
+                    if (cleanPhrase5 !== excludedType) {
+                        taggedText = taggedText + phrase5.replace(cleanPhrase5, TAGGING_STRING_SEPARATOR + 'Node' + '|' + cleanPhrase5 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
+                    } else {
+                        taggedText = taggedText + phrase5 + ' '
+                    }
+                    i = i + 4
+                    found = true
+                    break
+                }
                 if (SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(cleanPhrase4) !== undefined) {
                     if (cleanPhrase4 !== excludedType) {
                         taggedText = taggedText + phrase4.replace(cleanPhrase4, TAGGING_STRING_SEPARATOR + 'Node' + '|' + cleanPhrase4 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
@@ -477,6 +489,16 @@ function newSuperalgosUtilitiesDocs() {
                 }
 
                 /* Search in docsConceptSchema */
+                if (SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.get(cleanPhrase5) !== undefined) {
+                    if (cleanPhrase5 !== excludedType) {
+                        taggedText = taggedText + phrase5.replace(cleanPhrase5, TAGGING_STRING_SEPARATOR + 'Concept' + '|' + cleanPhrase5 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
+                    } else {
+                        taggedText = taggedText + phrase5 + ' '
+                    }
+                    i = i + 4
+                    found = true
+                    break
+                }
                 if (SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.get(cleanPhrase4) !== undefined) {
                     if (cleanPhrase4 !== excludedType) {
                         taggedText = taggedText + phrase4.replace(cleanPhrase4, TAGGING_STRING_SEPARATOR + 'Concept' + '|' + cleanPhrase4 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
@@ -518,6 +540,16 @@ function newSuperalgosUtilitiesDocs() {
                 }
 
                 /* Search in docsTopicSchema */
+                if (SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.get(cleanPhrase5) !== undefined) {
+                    if (cleanPhrase5 !== excludedType) {
+                        taggedText = taggedText + phrase5.replace(cleanPhrase5, TAGGING_STRING_SEPARATOR + 'Topic' + '|' + cleanPhrase5 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
+                    } else {
+                        taggedText = taggedText + phrase5 + ' '
+                    }
+                    i = i + 4
+                    found = true
+                    break
+                }
                 if (SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.get(cleanPhrase4) !== undefined) {
                     if (cleanPhrase4 !== excludedType) {
                         taggedText = taggedText + phrase4.replace(cleanPhrase4, TAGGING_STRING_SEPARATOR + 'Topic' + '|' + cleanPhrase4 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '

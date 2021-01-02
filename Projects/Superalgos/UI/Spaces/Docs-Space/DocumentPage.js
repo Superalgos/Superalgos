@@ -1,6 +1,6 @@
 function newSuperalgosDocsDocumentPage() {
     let thisObject = {
-        docsSchemaDocument: undefined, 
+        docsSchemaDocument: undefined,
         exitEditMode: exitEditMode,
         render: render,
         initialize: initialize,
@@ -162,32 +162,36 @@ function newSuperalgosDocsDocumentPage() {
             addImages()
 
             function addDefinitionTable(docsSchemaDocument, idPrefix, category, project, type) {
-                if (docsSchemaDocument.definition !== undefined) {
-
-                    let definitionText = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(docsSchemaDocument.definition)
-                    definitionText = definitionText + UI.projects.superalgos.utilities.docs.addWarningIfTranslationIsOutdated(docsSchemaDocument.definition)
-
-                    /* We will test if we can draw an image here or not*/
-                    let testElement = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(project, type)
-
-                    if ((category === 'Topic' || category === 'Concept') && testElement === undefined) {
-                        HTML = HTML + '<div id="definition-summary-editable-paragraph" class="docs-summary"><b>Summary:</b> ' + UI.projects.superalgos.utilities.docs.addToolTips(definitionText, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type) + '</div>'
-                    } else {
-                        HTML = HTML + '<div class="docs-definition-table">'
-
-                        let imageItem = {
-                            div: 'definition-image-div-' + definitionImagesArray.length,
-                            project: project,
-                            category: category,
-                            type: type
-                        }
-                        definitionImagesArray.push(imageItem)
-
-                        HTML = HTML + '<div id="' + imageItem.div + '" class="docs-image-container"></div>'
-                        HTML = HTML + '<div id="' + idPrefix + 'paragraph" class="docs-font-normal"><strong>' + UI.projects.superalgos.utilities.docs.addToolTips(definitionText, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type) + '</strong></div>'
-                        HTML = HTML + '</div>'
+                if (docsSchemaDocument.definition === undefined) {
+                    docsSchemaDocument.definition = {
+                        text: "Right click to edit this text and replace it with a definition / summary for this page. ESC to exit edit mode."
                     }
                 }
+
+                let definitionText = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(docsSchemaDocument.definition)
+                definitionText = definitionText + UI.projects.superalgos.utilities.docs.addWarningIfTranslationIsOutdated(docsSchemaDocument.definition)
+
+                /* We will test if we can draw an image here or not*/
+                let testElement = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(project, type)
+
+                if ((category === 'Topic' || category === 'Concept') && testElement === undefined) {
+                    HTML = HTML + '<div id="definition-summary-editable-paragraph" class="docs-summary"><b>Summary:</b> ' + UI.projects.superalgos.utilities.docs.addToolTips(definitionText, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type) + '</div>'
+                } else {
+                    HTML = HTML + '<div class="docs-definition-table">'
+
+                    let imageItem = {
+                        div: 'definition-image-div-' + definitionImagesArray.length,
+                        project: project,
+                        category: category,
+                        type: type
+                    }
+                    definitionImagesArray.push(imageItem)
+
+                    HTML = HTML + '<div id="' + imageItem.div + '" class="docs-image-container"></div>'
+                    HTML = HTML + '<div id="' + idPrefix + 'paragraph" class="docs-font-normal"><strong>' + UI.projects.superalgos.utilities.docs.addToolTips(definitionText, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type) + '</strong></div>'
+                    HTML = HTML + '</div>'
+                }
+
             }
 
             function buildOrderedTopicPageIndex() {

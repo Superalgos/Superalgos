@@ -433,11 +433,11 @@ function newSuperalgosDocsContextMenu() {
             return true
         }
         if (paragraphNode.id.indexOf('-javascript') >= 0) {
-            selectedParagraphData = paragraphNode.innerText.trim().substring(1, paragraphNode.innerText.length)
+            selectedParagraphData = paragraphNode.innerText.trim().substring(0, paragraphNode.innerText.length)
             return true
         }
         if (paragraphNode.id.indexOf('-json') >= 0) {
-            selectedParagraphData = paragraphNode.innerText.trim().substring(1, paragraphNode.innerText.length)
+            selectedParagraphData = paragraphNode.innerText.trim().substring(0, paragraphNode.innerText.length)
             return true
         }
         if (paragraphNode.id.indexOf('-callout') >= 0) {

@@ -293,8 +293,8 @@ function newSuperalgosUtilitiesDocs() {
     }
 
     function addItalics(text) {
-
-        let words = text.split(' ')
+        let cleanText =  text.replace(/'/g, ' AMPERSAND ') // scaping ampersands, separating them from other words
+        let words = cleanText.split(' ')
         let changedText = ''
         for (let i = 0; i < words.length; i++) {
             let phrase1 = words[i]
@@ -337,6 +337,7 @@ function newSuperalgosUtilitiesDocs() {
                 changedText = changedText + phrase1 + ' '
             }
         }
+        changedText = changedText.replaceAll(' AMPERSAND ',  '\'')
         return changedText
     }
 
@@ -415,7 +416,8 @@ function newSuperalgosUtilitiesDocs() {
 
     /* Private Functions follow */
     function tagDefinedTypes(text, excludedType) {
-        let words = text.split(' ')
+        let cleanText =  text.replace(/'/g, ' AMPERSAND ') // scaping ampersands, separating them from other words
+        let words = cleanText.split(' ')
         let taggedText = ''
         for (let i = 0; i < words.length; i++) {
             let phrase1 = words[i]
@@ -561,6 +563,7 @@ function newSuperalgosUtilitiesDocs() {
                 taggedText = taggedText + phrase1 + ' '
             }
         }
+        taggedText = taggedText.replaceAll(' AMPERSAND ',  '\'')
         return taggedText
     }
 

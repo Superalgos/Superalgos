@@ -13,7 +13,8 @@ function newSuperalgosDocSpace() {
         contextMenu: undefined,
         language: undefined, 
         menuLabelsMap: undefined,
-        objectBeingRendered: undefined, 
+        currentDocumentBeingRendered: undefined, 
+        previousDocumentBeingRendered: undefined, 
         paragraphMap: undefined,  // Here we will store a map of paragraphs from the Docs Node, Concept or Topics Schema in order to find it when we need to update them.
         textArea: undefined,
         changeLanguage: changeLanguage,
@@ -140,7 +141,8 @@ function newSuperalgosDocSpace() {
         thisObject.commandInterface =  undefined
         thisObject.contextMenu = undefined
 
-        thisObject.objectBeingRendered = undefined
+        thisObject.currentDocumentBeingRendered = undefined
+        thisObject.previousDocumentBeingRendered = undefined
         thisObject.paragraphMap = undefined
         thisObject.menuLabelsMap = undefined
         isInitialized = false
@@ -187,11 +189,11 @@ function newSuperalgosDocSpace() {
 
     function onOpening() {
         thisObject.isVisible = true
-        if (UI.projects.superalgos.spaces.docsSpace.objectBeingRendered === undefined) {
+        if (UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered === undefined) {
             thisObject.mainSearchPage.render()
 
         } else {
-            UI.projects.superalgos.spaces.docsSpace.navigateTo(UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.project, UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.category, UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.type)
+            UI.projects.superalgos.spaces.docsSpace.navigateTo(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.category, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type)
         }
     }
 
@@ -263,7 +265,7 @@ function newSuperalgosDocSpace() {
     }
 
     function onClosing() {
-        UI.projects.superalgos.spaces.docsSpace.objectBeingRendered = undefined
+        UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered = undefined
         thisObject.isVisible = false
     }
 
@@ -278,7 +280,17 @@ function newSuperalgosDocSpace() {
 
     function openSpaceAreaAndNavigateTo(project, category, type, anchor, nodeId) {
 
-        UI.projects.superalgos.spaces.docsSpace.objectBeingRendered = {
+        if (UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered !== undefined) {
+            UI.projects.superalgos.spaces.docsSpace.previousDocumentBeingRendered = {
+                project: UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project,
+                category: UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.category,
+                type: UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type,
+                anchor: UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.anchor,
+                nodeId: UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.nodeId
+            }
+        }
+
+        UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered = {
             project: project,
             category: category,
             type: type.replace('AMPERSAND', '\''),
@@ -295,7 +307,17 @@ function newSuperalgosDocSpace() {
         UI.projects.superalgos.spaces.docsSpace.paragraphMap = new Map()
 
         /* Replace the current object with this */
-        UI.projects.superalgos.spaces.docsSpace.objectBeingRendered = {
+        if (UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered !== undefined) {
+            UI.projects.superalgos.spaces.docsSpace.previousDocumentBeingRendered = {
+                project: UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project,
+                category: UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.category,
+                type: UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type,
+                anchor: UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.anchor,
+                nodeId: UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.nodeId
+            }
+        }
+
+        UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered = {
             project: project,
             category: category,
             type: type.replace('AMPERSAND', '\''),
@@ -308,9 +330,9 @@ function newSuperalgosDocSpace() {
         /*
         Here we will check if we need to position the page at a particular anchor or at the top.
         */
-        if (UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.anchor !== undefined) {
-            scrollToElement('docs-anchor-' + UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.anchor.toLowerCase().replaceAll(' ', '-'))
-            UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.anchor = undefined
+        if (UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.anchor !== undefined) {
+            scrollToElement('docs-anchor-' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.anchor.toLowerCase().replaceAll(' ', '-'))
+            UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.anchor = undefined
         } else {
             scrollToElement('docs-space-div')
         }

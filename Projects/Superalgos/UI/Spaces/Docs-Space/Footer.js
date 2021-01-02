@@ -28,7 +28,10 @@ function newSuperalgosDocsFooter() {
         HTML = HTML + '<h3 style="display: inline-block;">Help Superalgos Speak Your Language!</h3>'
         HTML = HTML + '</div>'
         HTML = HTML + '<div class="docs-footer-cell">'
-        HTML = HTML + '<div style="text-align: right;" onClick="UI.projects.superalgos.spaces.docsSpace.scrollToElement(\'docs-space-div\')"><button>BACK TO TOP</button></div>'
+        if (UI.projects.superalgos.spaces.docsSpace.previousDocumentBeingRendered !== undefined ) {
+            HTML = HTML + '<div style="text-align: right;" onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + UI.projects.superalgos.spaces.docsSpace.previousDocumentBeingRendered.project + '\', \'' + UI.projects.superalgos.spaces.docsSpace.previousDocumentBeingRendered.category + '\', \'' + UI.projects.superalgos.spaces.docsSpace.previousDocumentBeingRendered.type + '\')"><button>BACK</button></div>'        
+        }
+        HTML = HTML + '<div style="text-align: right;" onClick="UI.projects.superalgos.spaces.docsSpace.scrollToElement(\'docs-space-div\')"><button>TO TOP</button></div>'
         HTML = HTML + '</div>'
         HTML = HTML + '</div>'
         HTML = HTML + '</div>'

@@ -285,11 +285,11 @@ function newSuperalgosDocsContextMenu() {
             let clipboard
             switch (docSchemaParagraph.style) {
                 case 'Anchor': {
-                    clipboard = "docs.goto " + UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.project + '->' + UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.category + '->' + UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.type + '->' + docSchemaParagraph.text
+                    clipboard = "docs.goto " + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project + '->' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.category + '->' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type + '->' + docSchemaParagraph.text
                     break
                 }
                 case 'Block': {
-                    clipboard = UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.project + '->' + UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.category + '->' + UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.type + '->' + docSchemaParagraph.text
+                    clipboard = UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project + '->' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.category + '->' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type + '->' + docSchemaParagraph.text
                     break
                 }
                 default: {

@@ -22,7 +22,7 @@ function newSuperalgosDocsDocumentPage() {
 
     function render() {
 
-        appSchemaDocument = SCHEMAS_BY_PROJECT.get(UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.project).map.appSchema.get(UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.type)
+        appSchemaDocument = SCHEMAS_BY_PROJECT.get(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project).map.appSchema.get(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type)
 
         disableCollapsibleContent()
         getSchemaDocument()
@@ -32,21 +32,21 @@ function newSuperalgosDocsDocumentPage() {
         enableCollapsibleContent()
 
         function getSchemaDocument() {
-            switch (UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.category) {
+            switch (UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.category) {
                 case 'Node': {
-                    docsSchemaDocument = SCHEMAS_BY_PROJECT.get(UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.project).map.docsNodeSchema.get(UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.type)
+                    docsSchemaDocument = SCHEMAS_BY_PROJECT.get(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project).map.docsNodeSchema.get(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type)
                     break
                 }
                 case 'Concept': {
-                    docsSchemaDocument = SCHEMAS_BY_PROJECT.get(UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.project).map.docsConceptSchema.get(UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.type)
+                    docsSchemaDocument = SCHEMAS_BY_PROJECT.get(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project).map.docsConceptSchema.get(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type)
                     break
                 }
                 case 'Topic': {
-                    docsSchemaDocument = SCHEMAS_BY_PROJECT.get(UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.project).map.docsTopicSchema.get(UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.type)
+                    docsSchemaDocument = SCHEMAS_BY_PROJECT.get(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project).map.docsTopicSchema.get(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type)
                     break
                 }
                 case 'Workspace': {
-                    docsSchemaDocument = SCHEMAS_BY_PROJECT.get(UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.project).map.workspaceSchema.get(UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.nodeId)
+                    docsSchemaDocument = SCHEMAS_BY_PROJECT.get(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project).map.workspaceSchema.get(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.nodeId)
                     break
                 }
             }
@@ -54,8 +54,8 @@ function newSuperalgosDocsDocumentPage() {
             if (docsSchemaDocument === undefined) {
                 // Use the New Node Template
                 let template = {
-                    type: UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.type,
-                    definition: { text: "Write here the definition of this " + UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.category + "." },
+                    type: UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type,
+                    definition: { text: "Write here the definition of this " + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.category + "." },
                     paragraphs: [
                         {
                             style: "Text",
@@ -64,15 +64,15 @@ function newSuperalgosDocsDocumentPage() {
                     ]
                 }
 
-                switch (UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.category) {
+                switch (UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.category) {
                     case 'Node': {
-                        SCHEMAS_BY_PROJECT.get(UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.project).array.docsNodeSchema.push(template)
-                        SCHEMAS_BY_PROJECT.get(UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.project).map.docsNodeSchema.set(UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.type, template)
+                        SCHEMAS_BY_PROJECT.get(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project).array.docsNodeSchema.push(template)
+                        SCHEMAS_BY_PROJECT.get(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project).map.docsNodeSchema.set(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type, template)
                         break
                     }
                     case 'Concept': {
-                        SCHEMAS_BY_PROJECT.get(UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.project).array.docsConceptSchema.push(template)
-                        SCHEMAS_BY_PROJECT.get(UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.project).map.docsConceptSchema.set(UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.type, template)
+                        SCHEMAS_BY_PROJECT.get(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project).array.docsConceptSchema.push(template)
+                        SCHEMAS_BY_PROJECT.get(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project).map.docsConceptSchema.set(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type, template)
                         break
                     }
                 }
@@ -94,7 +94,7 @@ function newSuperalgosDocsDocumentPage() {
         }
 
         async function repositionWorkspace() {
-            if (UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.category !== 'Workspace') { return }
+            if (UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.category !== 'Workspace') { return }
 
             let node = await UI.projects.superalgos.spaces.designSpace.workspace.getNodeById(docsSchemaDocument.nodeId)
             node.payload.floatingObject.unCollapseParent()
@@ -121,9 +121,9 @@ function newSuperalgosDocsDocumentPage() {
 
             /* Title */
             let titleLabel = docsSchemaDocument.type
-            HTML = HTML + '<div id="docs-main-title-div" class="docs-title-table"><div class="docs-table-cell"><h2 class="docs-h2" id="' + UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.type.toLowerCase().replace(' ', '-') + '" > ' + titleLabel + '</h2></div><div id="projectImageDiv" class="docs-image-container"/></div></div>'
+            HTML = HTML + '<div id="docs-main-title-div" class="docs-title-table"><div class="docs-table-cell"><h2 class="docs-h2" id="' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type.toLowerCase().replace(' ', '-') + '" > ' + titleLabel + '</h2></div><div id="projectImageDiv" class="docs-image-container"/></div></div>'
 
-            addDefinitionTable(docsSchemaDocument, 'definition-editable-', UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.category, UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.project, UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.type)
+            addDefinitionTable(docsSchemaDocument, 'definition-editable-', UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.category, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type)
 
             let editableParagraphIndex = 0
             let autoGeneratedParagraphIndex = 0
@@ -133,13 +133,13 @@ function newSuperalgosDocsDocumentPage() {
             HTML = HTML + '</div>' // Clickeable Container Ends
 
 
-            if (UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.category === 'Topic') {
+            if (UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.category === 'Topic') {
 
                 buildOrderedTopicPageIndex()
                 generatePreviousAndNextPageNavigation()
                 /* Topic Title */
                 titleLabel = docsSchemaDocument.topic + ' Topic'
-                HTML = HTML + '<div id="docs-main-title-div" class="docs-title-table"><div class="docs-table-cell"><h2 class="docs-h2" id="' + UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.type.toLowerCase().replace(' ', '-') + '" > ' + titleLabel + '</h2></div><div id="projectImageDiv" class="docs-image-container"/></div></div>'
+                HTML = HTML + '<div id="docs-main-title-div" class="docs-title-table"><div class="docs-table-cell"><h2 class="docs-h2" id="' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type.toLowerCase().replace(' ', '-') + '" > ' + titleLabel + '</h2></div><div id="projectImageDiv" class="docs-image-container"/></div></div>'
 
                 generateMultiPageIndex()
             }
@@ -171,7 +171,7 @@ function newSuperalgosDocsDocumentPage() {
                     let testElement = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(project, type)
 
                     if ((category === 'Topic' || category === 'Concept') && testElement === undefined) {
-                        HTML = HTML + '<div id="definition-summary-editable-paragraph" class="docs-summary"><b>Summary:</b> ' + UI.projects.superalgos.utilities.docs.addToolTips(definitionText, UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.type) + '</div>'
+                        HTML = HTML + '<div id="definition-summary-editable-paragraph" class="docs-summary"><b>Summary:</b> ' + UI.projects.superalgos.utilities.docs.addToolTips(definitionText, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type) + '</div>'
                     } else {
                         HTML = HTML + '<div class="docs-definition-table">'
 
@@ -184,14 +184,14 @@ function newSuperalgosDocsDocumentPage() {
                         definitionImagesArray.push(imageItem)
 
                         HTML = HTML + '<div id="' + imageItem.div + '" class="docs-image-container"></div>'
-                        HTML = HTML + '<div id="' + idPrefix + 'paragraph" class="docs-font-normal"><strong>' + UI.projects.superalgos.utilities.docs.addToolTips(definitionText, UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.type) + '</strong></div>'
+                        HTML = HTML + '<div id="' + idPrefix + 'paragraph" class="docs-font-normal"><strong>' + UI.projects.superalgos.utilities.docs.addToolTips(definitionText, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type) + '</strong></div>'
                         HTML = HTML + '</div>'
                     }
                 }
             }
 
             function buildOrderedTopicPageIndex() {
-                let schemaArray = SCHEMAS_BY_PROJECT.get(UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.project).array.docsTopicSchema
+                let schemaArray = SCHEMAS_BY_PROJECT.get(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project).array.docsTopicSchema
                 for (let i = 0; i < schemaArray.length; i++) {
                     let arrayItem = schemaArray[i]
 
@@ -230,11 +230,11 @@ function newSuperalgosDocsDocumentPage() {
 
                         HTML = HTML + '<p><center>'
                         if (previousPage !== undefined) {
-                            HTML = HTML + '(Previous) <a class="docs-link" onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.project + '\', \'' + 'Topic' + '\', \'' + previousPage.type.replace(/'/g, 'AMPERSAND') + '\')">' + previousPage.type + '</a>'
+                            HTML = HTML + '(Previous) <a class="docs-link" onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project + '\', \'' + 'Topic' + '\', \'' + previousPage.type.replace(/'/g, 'AMPERSAND') + '\')">' + previousPage.type + '</a>'
                         }
                         HTML = HTML + ' Current Page: ' + docsSchemaDocument.pageNumber + ' '
                         if (nextPage !== undefined) {
-                            HTML = HTML + '<a class="docs-link" onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.project + '\', \'' + 'Topic' + '\', \'' + nextPage.type.replace(/'/g, 'AMPERSAND') + '\')">' + nextPage.type + '</a> (Next)'
+                            HTML = HTML + '<a class="docs-link" onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project + '\', \'' + 'Topic' + '\', \'' + nextPage.type.replace(/'/g, 'AMPERSAND') + '\')">' + nextPage.type + '</a> (Next)'
                         }
                         HTML = HTML + '</center></p>'
                         return
@@ -259,7 +259,7 @@ function newSuperalgosDocsDocumentPage() {
                         text: "" + arrayItem.pageNumber + '. ' + arrayItem.type + ""
                     }
                     autoGeneratedParagraphIndex++
-                    HTML = HTML + '<p><a class="docs-link" onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.project + '\', \'' + 'Topic' + '\', \'' + arrayItem.type.replace(/'/g, 'AMPERSAND') + '\')">' + paragraph.text + '</a></p>'
+                    HTML = HTML + '<p><a class="docs-link" onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project + '\', \'' + 'Topic' + '\', \'' + arrayItem.type.replace(/'/g, 'AMPERSAND') + '\')">' + paragraph.text + '</a></p>'
                 }
 
                 HTML = HTML = HTML + '</div>'  // END Container for title and index
@@ -291,7 +291,7 @@ function newSuperalgosDocsDocumentPage() {
                         }
                     }
                 }
-                if (UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.category === 'Node') {
+                if (UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.category === 'Node') {
                     autoGeneratedHtml()
                 }
                 HTML = HTML + '</div>' // Content Ends
@@ -383,7 +383,7 @@ function newSuperalgosDocsDocumentPage() {
                 addDefinitionImage()
                 addhHerarchyImages()
 
-                if (UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.category === 'Node') {
+                if (UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.category === 'Node') {
                     addMenuItemsImages()
                     addChildrenNodesPropertiesImages()
                     addAttachingAndReferencingRulesImages()
@@ -450,8 +450,8 @@ function newSuperalgosDocsDocumentPage() {
                 }
 
                 function addProjectImage() {
-                    let imageName = UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.project.toLowerCase().replaceAll(' ', '-')
-                    let imageElement = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName(UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.project, imageName)
+                    let imageName = UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project.toLowerCase().replaceAll(' ', '-')
+                    let imageElement = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project, imageName)
                     imageElement.width = "50"
                     imageElement.height = "50"
 
@@ -474,10 +474,10 @@ function newSuperalgosDocsDocumentPage() {
 
                         function getIcon() {
                             if (menuItem.relatedUiObject !== undefined) {
-                                return UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.project, menuItem.relatedUiObject)
+                                return UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project, menuItem.relatedUiObject)
                             } else {
                                 if (menuItem.iconPathOn !== undefined) {
-                                    return UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName(UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.project, menuItem.iconPathOn)
+                                    return UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project, menuItem.iconPathOn)
                                 } else {
                                     return UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName('Superalgos', 'bitcoin')
                                 }
@@ -503,7 +503,7 @@ function newSuperalgosDocsDocumentPage() {
                             if (childrenNodesProperty.project !== undefined) {
                                 return UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(childrenNodesProperty.project, childrenNodesProperty.childType)
                             } else {
-                                return UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.project, childrenNodesProperty.childType)
+                                return UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project, childrenNodesProperty.childType)
                             }
                         }
                     }
@@ -551,7 +551,7 @@ function newSuperalgosDocsDocumentPage() {
                             function getIcon() {
                                 let splittedListItem = listItem.split('|')
                                 if (splittedListItem.length === 1) {
-                                    return UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.project, listItem)
+                                    return UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project, listItem)
                                 } else {
                                     let project = splittedListItem[0]
                                     let nodeType = splittedListItem[1]
@@ -675,7 +675,7 @@ function newSuperalgosDocsDocumentPage() {
 
                         let name = UI.projects.superalgos.utilities.strings.fromCamelCaseToUpperWithSpaces(childrenNodesProperty.name)
 
-                        HTML = HTML + '<button id="docs-children-nodes-property-' + i + '" type="button" class="docs-collapsible-element"><img>' + UI.projects.superalgos.utilities.docs.addToolTips(name, UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.type) + '</button>'
+                        HTML = HTML + '<button id="docs-children-nodes-property-' + i + '" type="button" class="docs-collapsible-element"><img>' + UI.projects.superalgos.utilities.docs.addToolTips(name, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type) + '</button>'
                         HTML = HTML + '<div class="docs-collapsible-content">'
 
                         paragraph = {
@@ -748,7 +748,7 @@ function newSuperalgosDocsDocumentPage() {
                         for (let i = 0; i < nodeList.length; i++) {
                             let listItem = nodeList[i]
                             if (listItem === "") { continue }
-                            HTML = HTML + '<button id="docs-' + additionToKey + '-' + i + '" type="button" class="docs-non-collapsible-element"><img>' + UI.projects.superalgos.utilities.docs.addToolTips(listItem, UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.type) + '</button>'
+                            HTML = HTML + '<button id="docs-' + additionToKey + '-' + i + '" type="button" class="docs-non-collapsible-element"><img>' + UI.projects.superalgos.utilities.docs.addToolTips(listItem, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type) + '</button>'
                         }
                     }
                 }
@@ -803,7 +803,7 @@ function newSuperalgosDocsDocumentPage() {
                         for (let i = 0; i < nodeList.length; i++) {
                             let listItem = nodeList[i]
                             if (listItem === "") { continue }
-                            HTML = HTML + '<button id="docs-' + additionToKey + '-' + i + '" type="button" class="docs-non-collapsible-element"><img>' + UI.projects.superalgos.utilities.docs.addToolTips(listItem, UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.type) + '</button>'
+                            HTML = HTML + '<button id="docs-' + additionToKey + '-' + i + '" type="button" class="docs-non-collapsible-element"><img>' + UI.projects.superalgos.utilities.docs.addToolTips(listItem, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type) + '</button>'
                         }
                     }
                 }
@@ -1116,7 +1116,7 @@ function newSuperalgosDocsDocumentPage() {
                         key = key + '-text'
                         innerHTML = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)
                         innerHTML = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(innerHTML)
-                        innerHTML = UI.projects.superalgos.utilities.docs.addToolTips(innerHTML, UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.type)
+                        innerHTML = UI.projects.superalgos.utilities.docs.addToolTips(innerHTML, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type)
                         innerHTML = UI.projects.superalgos.utilities.docs.addItalics(innerHTML)
                         innerHTML = innerHTML + UI.projects.superalgos.utilities.docs.addWarningIfTranslationIsOutdated(paragraph)
                         break
@@ -1145,7 +1145,7 @@ function newSuperalgosDocsDocumentPage() {
                         role = 'role="alert"'
                         key = key + '-note'
                         innerHTML = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)
-                        innerHTML = UI.projects.superalgos.utilities.docs.addToolTips(innerHTML, UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.type)
+                        innerHTML = UI.projects.superalgos.utilities.docs.addToolTips(innerHTML, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type)
                         innerHTML = UI.projects.superalgos.utilities.docs.addItalics(innerHTML)
                         innerHTML = innerHTML + UI.projects.superalgos.utilities.docs.addWarningIfTranslationIsOutdated(paragraph)
                         break
@@ -1156,7 +1156,7 @@ function newSuperalgosDocsDocumentPage() {
                         role = 'role="alert"'
                         key = key + '-success'
                         innerHTML = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)
-                        innerHTML = UI.projects.superalgos.utilities.docs.addToolTips(innerHTML, UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.type)
+                        innerHTML = UI.projects.superalgos.utilities.docs.addToolTips(innerHTML, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type)
                         innerHTML = UI.projects.superalgos.utilities.docs.addItalics(innerHTML)
                         innerHTML = innerHTML + UI.projects.superalgos.utilities.docs.addWarningIfTranslationIsOutdated(paragraph)
                         break
@@ -1167,7 +1167,7 @@ function newSuperalgosDocsDocumentPage() {
                         role = 'role="alert"'
                         key = key + '-important'
                         innerHTML = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)
-                        innerHTML = UI.projects.superalgos.utilities.docs.addToolTips(innerHTML, UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.type)
+                        innerHTML = UI.projects.superalgos.utilities.docs.addToolTips(innerHTML, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type)
                         innerHTML = UI.projects.superalgos.utilities.docs.addItalics(innerHTML)
                         innerHTML = innerHTML + UI.projects.superalgos.utilities.docs.addWarningIfTranslationIsOutdated(paragraph)
                         break
@@ -1178,7 +1178,7 @@ function newSuperalgosDocsDocumentPage() {
                         role = 'role="alert"'
                         key = key + '-warning'
                         innerHTML = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)
-                        innerHTML = UI.projects.superalgos.utilities.docs.addToolTips(innerHTML, UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.type)
+                        innerHTML = UI.projects.superalgos.utilities.docs.addToolTips(innerHTML, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type)
                         innerHTML = UI.projects.superalgos.utilities.docs.addItalics(innerHTML)
                         innerHTML = innerHTML + UI.projects.superalgos.utilities.docs.addWarningIfTranslationIsOutdated(paragraph)
                         break
@@ -1189,7 +1189,7 @@ function newSuperalgosDocsDocumentPage() {
                         role = 'role="alert"'
                         key = key + '-error'
                         innerHTML = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)
-                        innerHTML = UI.projects.superalgos.utilities.docs.addToolTips(innerHTML, UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.type)
+                        innerHTML = UI.projects.superalgos.utilities.docs.addToolTips(innerHTML, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type)
                         innerHTML = innerHTML + UI.projects.superalgos.utilities.docs.addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
@@ -1199,7 +1199,7 @@ function newSuperalgosDocsDocumentPage() {
                         role = ''
                         key = key + '-callout'
                         innerHTML = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)
-                        innerHTML = UI.projects.superalgos.utilities.docs.addToolTips(innerHTML, UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.type)
+                        innerHTML = UI.projects.superalgos.utilities.docs.addToolTips(innerHTML, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type)
                         innerHTML = UI.projects.superalgos.utilities.docs.addItalics(innerHTML)
                         innerHTML = innerHTML + UI.projects.superalgos.utilities.docs.addWarningIfTranslationIsOutdated(paragraph)
                         break
@@ -1210,7 +1210,7 @@ function newSuperalgosDocsDocumentPage() {
                         role = ''
                         key = key + '-summary'
                         innerHTML = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)
-                        innerHTML = UI.projects.superalgos.utilities.docs.addToolTips(innerHTML, UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.type)
+                        innerHTML = UI.projects.superalgos.utilities.docs.addToolTips(innerHTML, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type)
                         innerHTML = UI.projects.superalgos.utilities.docs.addItalics(innerHTML)
                         innerHTML = innerHTML + UI.projects.superalgos.utilities.docs.addWarningIfTranslationIsOutdated(paragraph)
                         break
@@ -1221,7 +1221,7 @@ function newSuperalgosDocsDocumentPage() {
                         role = ''
                         key = key + '-section'
                         innerHTML = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)
-                        innerHTML = UI.projects.superalgos.utilities.docs.addToolTips(innerHTML, UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.type)
+                        innerHTML = UI.projects.superalgos.utilities.docs.addToolTips(innerHTML, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type)
                         innerHTML = UI.projects.superalgos.utilities.docs.addItalics(innerHTML)
                         innerHTML = innerHTML + UI.projects.superalgos.utilities.docs.addWarningIfTranslationIsOutdated(paragraph)
                         break
@@ -1234,7 +1234,7 @@ function newSuperalgosDocsDocumentPage() {
                         key = key + '-list'
                         innerHTML = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)
                         innerHTML = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(innerHTML)
-                        innerHTML = UI.projects.superalgos.utilities.docs.addToolTips(innerHTML, UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.type)
+                        innerHTML = UI.projects.superalgos.utilities.docs.addToolTips(innerHTML, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type)
                         innerHTML = UI.projects.superalgos.utilities.docs.addBold(innerHTML)
                         innerHTML = UI.projects.superalgos.utilities.docs.addItalics(innerHTML)
                         innerHTML = innerHTML + UI.projects.superalgos.utilities.docs.addWarningIfTranslationIsOutdated(paragraph)
@@ -1247,7 +1247,7 @@ function newSuperalgosDocsDocumentPage() {
                         role = ''
                         key = key + '-table'
                         innerHTML = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)
-                        innerHTML = UI.projects.superalgos.utilities.docs.addToolTips(innerHTML, UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.type)
+                        innerHTML = UI.projects.superalgos.utilities.docs.addToolTips(innerHTML, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type)
                         innerHTML = UI.projects.superalgos.utilities.docs.parseTable(innerHTML)
                         innerHTML = UI.projects.superalgos.utilities.docs.addItalics(innerHTML)
                         break
@@ -1406,7 +1406,7 @@ function newSuperalgosDocsDocumentPage() {
                     let imageContainer = '<div id="' + imageItem.div + '" class="docs-hierarchy-image-container"/>'
                     hierarchyImagesArray.push(imageItem)
 
-                    let matrixValue = '<table><tr><td class="docs-hierarchy-table-cell">' + imageContainer + '</td></tr><tr><td  class="docs-hierarchy-table-cell">' + UI.projects.superalgos.utilities.docs.addToolTips(schemaDocument.type, UI.projects.superalgos.spaces.docsSpace.objectBeingRendered.type) + '</td></tr></table>'
+                    let matrixValue = '<table><tr><td class="docs-hierarchy-table-cell">' + imageContainer + '</td></tr><tr><td  class="docs-hierarchy-table-cell">' + UI.projects.superalgos.utilities.docs.addToolTips(schemaDocument.type, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type) + '</td></tr></table>'
                     let matrixRow = contentMatrix[currentRow]
                     matrixRow[currentColumn] = matrixValue
 

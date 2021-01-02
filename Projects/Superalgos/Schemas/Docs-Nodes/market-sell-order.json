@@ -9,8 +9,9 @@
             "text": "Content"
         },
         {
-            "style": "Text",
-            "text": "{% include tip.html content=\"Please read the definition of market buy order for relevant information about how orders in general&mdash;and market orders in particular&mdash;work. \" %}"
+            "style": "Success",
+            "text": "Please read the definition of Market Buy Order for relevant information about how orders in general—and market orders in particular—work.",
+            "updated": 1609608966819
         },
         {
             "style": "Block",
@@ -18,27 +19,13 @@
         },
         {
             "style": "Title",
-            "text": "Configuring Market Sell Order"
+            "text": "Market Sell Order Configuration",
+            "updated": 1609608299620
         },
         {
-            "style": "Text",
-            "text": "To configure the market sell order node, select Configure on the menu."
-        },
-        {
-            "style": "Text",
-            "text": "{"
-        },
-        {
-            "style": "Text",
-            "text": "     \"percentageOfAlgorithmSize\": 100,"
-        },
-        {
-            "style": "Text",
-            "text": "     \"spawnMultipleOrders\": false"
-        },
-        {
-            "style": "Text",
-            "text": "}"
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609608307181
         },
         {
             "style": "List",

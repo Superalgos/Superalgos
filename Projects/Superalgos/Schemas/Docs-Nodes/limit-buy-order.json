@@ -17,8 +17,9 @@
             "text": "Also, many exchanges regard limit orders as market makers, that is, orders that bring liquidity to the market, and, therefore, may charge relatively better fees."
         },
         {
-            "style": "Text",
-            "text": "###### Limit Orders' Rate"
+            "style": "Title",
+            "text": "Limit Order Rate",
+            "updated": 1609608564902
         },
         {
             "style": "Text",
@@ -33,8 +34,9 @@
             "text": "Limit orders must define a rate using the appropriate child node, otherwise, the target rate defined as an initial target is used. If no rate is defined at all, the system stops with an error upon execution. The configuration of the order deals with the size. "
         },
         {
-            "style": "Text",
-            "text": "{% include tip.html content=\"Please read the definition of market buy order for relevant information about how orders in general work, in particular, the section about Order Size, Filling of Orders, Closing of Orders, and Spawning Multiple Orders. \" %}"
+            "style": "Success",
+            "text": "Please read the definition of Market Buy Order for relevant information about how orders in general work, in particular, the sections about Order Size, Filling, Closing, and Spawning Multiple Orders.",
+            "updated": 1609608913403
         },
         {
             "style": "Block",
@@ -42,27 +44,13 @@
         },
         {
             "style": "Title",
-            "text": "Configuring Limit Buy Order"
+            "text": "Limit Buy Order Configuration",
+            "updated": 1609608503478
         },
         {
-            "style": "Text",
-            "text": "To configure the limit buy order node, select Configure on the menu."
-        },
-        {
-            "style": "Text",
-            "text": "{"
-        },
-        {
-            "style": "Text",
-            "text": "     \"percentageOfAlgorithmSize\": 100,"
-        },
-        {
-            "style": "Text",
-            "text": "     \"spawnMultipleOrders\": false"
-        },
-        {
-            "style": "Text",
-            "text": "}"
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609608513384
         },
         {
             "style": "List",

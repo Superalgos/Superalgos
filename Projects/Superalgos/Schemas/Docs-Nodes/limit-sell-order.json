@@ -9,36 +9,22 @@
             "text": "Content"
         },
         {
-            "style": "Text",
-            "text": "{% include tip.html content=\"Please read the definition of limit buy order for relevant information about how limit orders work. Also, please read the definition of "
-        },
-        {
             "style": "Block",
             "text": "Configuring"
         },
         {
+            "style": "Success",
+            "text": "Please read the definition of Limit Buy Order for relevant information about how limit orders work. Also, please read the definition of Market Buy Order for relevant information about how orders in general work, in particular, the section about Size, Filling, Closing, and Spawning Multiple Orders.",
+            "updated": 1609608882268
+        },
+        {
             "style": "Title",
-            "text": "Configuring Limit Sell Order"
+            "text": "Limit Sell Order Configuration"
         },
         {
-            "style": "Text",
-            "text": "To configure the limit sell order node, select Configure on the menu."
-        },
-        {
-            "style": "Text",
-            "text": "{"
-        },
-        {
-            "style": "Text",
-            "text": "     \"percentageOfAlgorithmSize\": 100,"
-        },
-        {
-            "style": "Text",
-            "text": "     \"spawnMultipleOrders\": false"
-        },
-        {
-            "style": "Text",
-            "text": "}"
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609608623308
         },
         {
             "style": "List",

@@ -13,20 +13,23 @@
             "text": "Traders usually use market orders when the priority is the certainty of execution over the rate of execution. Depending on the size of the order and the liquidity of the particular market/exchange, market orders may experience more or less slippage."
         },
         {
-            "style": "Text",
-            "text": "###### Market Orders' Rate"
+            "style": "Title",
+            "text": "Market Orders' Rate",
+            "updated": 1609604792445
         },
         {
             "style": "Text",
             "text": "Users have no control over the rate at which a market order is filled. The exchange fills the order with available bids/asks at the time of execution."
         },
         {
-            "style": "Text",
-            "text": "{% include tip.html content=\"The information below this banner is valid for all types of orders.\" %}"
+            "style": "Success",
+            "text": "The information below this banner is valid for all types of orders.",
+            "updated": 1609604814108
         },
         {
-            "style": "Text",
-            "text": "###### Order Size"
+            "style": "Title",
+            "text": "Order Size",
+            "updated": 1609604828662
         },
         {
             "style": "Text",
@@ -37,7 +40,7 @@
             "text": "The simplified logic for non-coders:"
         },
         {
-            "style": "Text",
+            "style": "Javascript",
             "text": "algorithmSize = targetSize * percentageOfStageTargetSize / 100"
         },
         {
@@ -45,12 +48,9 @@
             "text": "The actual code:"
         },
         {
-            "style": "Text",
-            "text": "let algorithmSizeInBaseAsset = tradingEngineStage.stageBaseAsset.targetSize.value * executionAlgorithm.config.percentageOfStageTargetSize / 100"
-        },
-        {
-            "style": "Text",
-            "text": "let algorithmSizeInQuotedAsset = tradingEngineStage.stageQuotedAsset.targetSize.value * executionAlgorithm.config.percentageOfStageTargetSize / 100"
+            "style": "Javascript",
+            "text": "let algorithmSizeInBaseAsset = \ntradingEngineStage.stageBaseAsset.targetSize.value * \nexecutionAlgorithm.config.percentageOfStageTargetSize / 100\n\nlet algorithmSizeInQuotedAsset = \ntradingEngineStage.stageQuotedAsset.targetSize.value * \nexecutionAlgorithm.config.percentageOfStageTargetSize / 100",
+            "updated": 1609604914758
         },
         {
             "style": "Text",
@@ -61,7 +61,7 @@
             "text": "The simplified logic for non-coders:"
         },
         {
-            "style": "Text",
+            "style": "Javascript",
             "text": "orderSize = algorithmSize * percentageOfAlgorithmSize / 100"
         },
         {
@@ -69,8 +69,9 @@
             "text": "The actual code:"
         },
         {
-            "style": "Text",
-            "text": "tradingEngineOrder.orderBaseAsset.size.value = algorithmSizeInBaseAsset * tradingSystemOrder.config.percentageOfAlgorithmSize / 100"
+            "style": "Javascript",
+            "text": "tradingEngineOrder.orderBaseAsset.size.value = \nalgorithmSizeInBaseAsset * \ntradingSystemOrder.config.percentageOfAlgorithmSize / 100",
+            "updated": 1609605026488
         },
         {
             "style": "Text",
@@ -81,7 +82,7 @@
             "text": "However, it is up to the user how to manage this setting, as different hacks may be found to achieve different behaviors."
         },
         {
-            "style": "Success",
+            "style": "Callout",
             "text": "If orders defined add up to more than 100% of the size allocated to the algorithm, the trading engine does not enforce a cap."
         },
         {
@@ -93,7 +94,7 @@
             "text": "In cases in which the combined sizes amount to less than 100%, the target size would be partially filled at best. On the other hand, in cases in which the combined sizes amount to more than 100%, then the orders and/or algorithms would compete with each other."
         },
         {
-            "style": "Success",
+            "style": "Callout",
             "text": "The one validation the trading engine does is to enforce the target size defined under the initial targets node. The target size is treated as a hard cap, so that no position may ever be sized larger than the target."
         },
         {
@@ -105,56 +106,36 @@
             "text": "The simplified logic for non-coders:"
         },
         {
-            "style": "Text",
-            "text": "if   ( targetSize + sizePlaced > targetSize )"
-        },
-        {
-            "style": "Text",
-            "text": "     { orderSize = targetSize - sizePlaced }"
+            "style": "Javascript",
+            "text": "if ( targetSize + sizePlaced > targetSize )\n{ orderSize = targetSize - sizePlaced }",
+            "updated": 1609605299313
         },
         {
             "style": "Text",
             "text": "The actual code:"
         },
         {
-            "style": "Text",
-            "text": "if ("
-        },
-        {
-            "style": "Text",
-            "text": "     tradingEngineOrder.orderBaseAsset.size.value + tradingEngineStage.stageBaseAsset.sizePlaced.value >"
-        },
-        {
-            "style": "Text",
-            "text": "     tradingEngineStage.stageBaseAsset.targetSize.value"
-        },
-        {
-            "style": "Text",
-            "text": "   ) {"
-        },
-        {
-            "style": "Text",
-            "text": "     tradingEngineOrder.orderBaseAsset.size.value = tradingEngineStage.stageBaseAsset.targetSize.value - tradingEngineStage.stageBaseAsset.sizePlaced.value"
-        },
-        {
-            "style": "Text",
-            "text": "   }"
+            "style": "Javascript",
+            "text": "if (\n     tradingEngineOrder.orderBaseAsset.size.value + \n     tradingEngineStage.stageBaseAsset.sizePlaced.value >\n     tradingEngineStage.stageBaseAsset.targetSize.value\n) {\n     tradingEngineOrder.orderBaseAsset.size.value = \n     tradingEngineStage.stageBaseAsset.targetSize.value - \n     tradingEngineStage.stageBaseAsset.sizePlaced.value\n}",
+            "updated": 1609605319814
         },
         {
             "style": "Note",
             "text": "See the order's configuration to learn how to set up the order size."
         },
         {
-            "style": "Text",
-            "text": "###### Placing and Filling of Orders"
+            "style": "Title",
+            "text": "Placing and Filling of Orders",
+            "updated": 1609605682783
         },
         {
             "style": "Text",
             "text": "The trading engine keeps track of the amounts placed and the amounts filled based on the feedback obtained from the exchange, and makes the information available in the size placed and size filled nodes. The nodes are present in multiple contexts, such as the particular stage (open and close) or the particular order type, and are denominated both in the base asset and quoted asset. You may learn more about how to track the size placed and size filled on the trading engine pages."
         },
         {
-            "style": "Text",
-            "text": "###### Closing of Orders"
+            "style": "Title",
+            "text": "Closing of Orders",
+            "updated": 1609605695838
         },
         {
             "style": "Text",
@@ -193,32 +174,21 @@
             "text": "The size filled at the level of the stage must be within the target size defined under the initial targets node."
         },
         {
+            "style": "Note",
+            "text": "See the order’s configuration to learn how to configure the parameter affecting this behavior."
+        },
+        {
             "style": "Block",
             "text": "Configuring"
         },
         {
             "style": "Title",
-            "text": "Configuring Market Buy Order"
+            "text": "Market Buy Order Configuration",
+            "updated": 1609605867112
         },
         {
-            "style": "Text",
-            "text": "To configure the market buy order node, select Configure on the menu."
-        },
-        {
-            "style": "Text",
-            "text": "{"
-        },
-        {
-            "style": "Text",
-            "text": "     \"percentageOfAlgorithmSize\": 100,"
-        },
-        {
-            "style": "Text",
-            "text": "     \"spawnMultipleOrders\": false"
-        },
-        {
-            "style": "Text",
-            "text": "}"
+            "style": "Subtitle",
+            "text": "Properties"
         },
         {
             "style": "List",

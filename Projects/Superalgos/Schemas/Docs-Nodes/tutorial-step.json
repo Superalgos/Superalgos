@@ -10,7 +10,8 @@
         },
         {
             "style": "Title",
-            "text": "Configuring Tutorial Step"
+            "text": "Tutorial Step Configuration",
+            "updated": 1609706397520
         },
         {
             "style": "Note",
@@ -21,19 +22,20 @@
             "text": "In addition to the basic configuration, tutorial step nodes feature a large collection of resources that allows you to manipulate the user interface and actual nodes in many ways."
         },
         {
-            "style": "Text",
-            "text": "<H4>Navigation</H4>"
+            "style": "Subtitle",
+            "text": "Navigation",
+            "updated": 1609706308531
         },
         {
             "style": "Text",
             "text": "Setting up a reference to any node in the workspace and using the below parameter makes the step load next to the referenced node."
         },
         {
-            "style": "Text",
+            "style": "Javascript",
             "text": "    \"positionAtReferenceParent\": true,"
         },
         {
-            "style": "Text",
+            "style": "Subtitle",
             "text": "<H4>Messages</H4>"
         },
         {
@@ -41,28 +43,14 @@
             "text": "Setting up a reference to any node in the workspace and using the below parameters allows placing different types of messages on the referenced node."
         },
         {
-            "style": "Text",
-            "text": "    \"setErrorMessageReferenceParent\": \"This is a simulated error message!\""
+            "style": "Javascript",
+            "text": "\"setErrorMessageReferenceParent\": \"This is a simulated error message!\"\n\"setInfoMessageReferenceParent\": \"This is a simulated info message!\"\n\"setValueReferenceParent\": \"This is a simulated value message!\"\n\"setPercentageReferenceParent\": \"This is a simulated progress message!\"\n\"setStatusReferenceParent\": \"This is a simulated status message!\"",
+            "updated": 1609706430970
         },
         {
-            "style": "Text",
-            "text": "    \"setInfoMessageReferenceParent\": \"This is a simulated info message!\""
-        },
-        {
-            "style": "Text",
-            "text": "    \"setValueReferenceParent\": \"This is a simulated value message!\""
-        },
-        {
-            "style": "Text",
-            "text": "    \"setPercentageReferenceParent\": \"This is a simulated progress message!\""
-        },
-        {
-            "style": "Text",
-            "text": "    \"setStatusReferenceParent\": \"This is a simulated status message!\""
-        },
-        {
-            "style": "Text",
-            "text": "<H4>Centering and Zooming Into a Time Machine</H4>"
+            "style": "Subtitle",
+            "text": "Centering and Zooming Into a Time Machine",
+            "updated": 1609706456866
         },
         {
             "style": "Text",
@@ -81,40 +69,22 @@
             "text": "The viewport zooms into the time machine."
         },
         {
-            "style": "Text",
+            "style": "Javascript",
             "text": "    \"repositionAtTimeMachineReferenceParent\": true,"
         },
         {
-            "style": "Text",
-            "text": "<H4>Pressing Keys When on a Time Machine</H4>"
+            "style": "Subtitle",
+            "text": "Pressing Keys When on a Time Machine",
+            "updated": 1609706492050
         },
         {
             "style": "Text",
             "text": "Setting up a reference to a time machine node in the charting space hierarchy and using the below parameters allows simulating the pressing of relevant key combinations when on a time machine."
         },
         {
-            "style": "Text",
-            "text": "    \"keyPressedTimeMachineReferenceParent\": {"
-        },
-        {
-            "style": "Text",
-            "text": "        \"shiftKey\": true,"
-        },
-        {
-            "style": "Text",
-            "text": "        \"ctrlKey\": true,"
-        },
-        {
-            "style": "Text",
-            "text": "        \"metaKey\": true,"
-        },
-        {
-            "style": "Text",
-            "text": "        \"key\": \"A\""
-        },
-        {
-            "style": "Text",
-            "text": "    }"
+            "style": "Javascript",
+            "text": "\"keyPressedTimeMachineReferenceParent\": {\n\"shiftKey\": true,\n\"ctrlKey\": true,\n\"metaKey\": true,\n\"key\": \"A\"\n}",
+            "updated": 1609706515897
         },
         {
             "style": "List",
@@ -133,108 +103,9 @@
             "text": "The example below changes the configuration of the three different scale nodes under a time machine. In this case, the time machine is the node referenced, the nodePath is the path of the node whose configuration must be changed relative to the referenceParent, and the properties parameter is the actual configuration to be set."
         },
         {
-            "style": "Text",
-            "text": "    \"batchConfigChangesReferenceParent\": ["
-        },
-        {
-            "style": "Text",
-            "text": "        {"
-        },
-        {
-            "style": "Text",
-            "text": "            \"nodePath\": \"referenceParent.timeScale\","
-        },
-        {
-            "style": "Text",
-            "text": "            \"properties\": {"
-        },
-        {
-            "style": "Text",
-            "text": "                \"autoMinScale\": false,"
-        },
-        {
-            "style": "Text",
-            "text": "                \"autoMaxScale\": false,"
-        },
-        {
-            "style": "Text",
-            "text": "                \"fromDate\": \"2020-08-31T23:40:00.000Z\","
-        },
-        {
-            "style": "Text",
-            "text": "                \"toDate\": \"2020-09-01T01:00:00.000Z\""
-        },
-        {
-            "style": "Text",
-            "text": "            }"
-        },
-        {
-            "style": "Text",
-            "text": "        },"
-        },
-        {
-            "style": "Text",
-            "text": "        {"
-        },
-        {
-            "style": "Text",
-            "text": "            \"nodePath\": \"referenceParent.rateScale\","
-        },
-        {
-            "style": "Text",
-            "text": "            \"properties\": {"
-        },
-        {
-            "style": "Text",
-            "text": "                \"autoMinScale\": false,"
-        },
-        {
-            "style": "Text",
-            "text": "                \"autoMaxScale\": false,"
-        },
-        {
-            "style": "Text",
-            "text": "                \"minValue\": 11400,"
-        },
-        {
-            "style": "Text",
-            "text": "                \"maxValue\": 11800"
-        },
-        {
-            "style": "Text",
-            "text": "            }"
-        },
-        {
-            "style": "Text",
-            "text": "        },"
-        },
-        {
-            "style": "Text",
-            "text": "        {"
-        },
-        {
-            "style": "Text",
-            "text": "            \"nodePath\": \"referenceParent.timeFrameScale\","
-        },
-        {
-            "style": "Text",
-            "text": "            \"properties\": {"
-        },
-        {
-            "style": "Text",
-            "text": "                \"value\": \"01-min\""
-        },
-        {
-            "style": "Text",
-            "text": "            }"
-        },
-        {
-            "style": "Text",
-            "text": "        }"
-        },
-        {
-            "style": "Text",
-            "text": "    ]"
+            "style": "Javascript",
+            "text": "\"batchConfigChangesReferenceParent\": [\n{\n\"nodePath\": \"referenceParent.timeScale\",\n\"properties\": {\n\"autoMinScale\": false,\n\"autoMaxScale\": false,\n\"fromDate\": \"2020-08-31T23:40:00.000Z\",\n\"toDate\": \"2020-09-01T01:00:00.000Z\"\n}\n},\n{\n\"nodePath\": \"referenceParent.rateScale\",\n\"properties\": {\n\"autoMinScale\": false,\n\"autoMaxScale\": false,\n\"minValue\": 11400,\n\"maxValue\": 11800\n}\n},\n{\n\"nodePath\": \"referenceParent.timeFrameScale\",\n\"properties\": {\n\"value\": \"01-min\"\n}\n}\n]",
+            "updated": 1609706585341
         }
     ]
 }

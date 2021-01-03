@@ -9,7 +9,7 @@
             "text": "Content"
         },
         {
-            "style": "Callout",
+            "style": "Text",
             "text": "Nodes in the hierarchy may be arranged freely, meaning that there may be as many tutorial topics and tutorial steps as desired. In general terms, all types of nodes behave similarly in the sense that each node, independently of the precise type, represents a tutorial step in and of itself. There are subtle differences to be covered where appropriate."
         },
         {
@@ -18,7 +18,8 @@
         },
         {
             "style": "Title",
-            "text": "Configuring Tutorial"
+            "text": "Tutorial Configuration",
+            "updated": 1609704877058
         },
         {
             "style": "Text",
@@ -29,7 +30,7 @@
             "text": "The layout of the HTML page is fixed (CSS styles are fixed too) and is made out of a sequence of HTML elements, each of which may or may not be used, depending on whether the corresponding configuration parameter exists or not in the configuration."
         },
         {
-            "style": "Success",
+            "style": "Callout",
             "text": "In other words, you may choose which elements of a potentially long list are used by filling the corresponding parameters with content or not."
         },
         {
@@ -37,172 +38,23 @@
             "text": "The HTML page features a limited space and does not support scrolling. If too much information is defined in the configuration, the resulting content overflows the available space. There is no system-side control to deal with such overflows, so it's up to you to spread information across multiple steps and keep each page within its limits."
         },
         {
-            "style": "Text",
-            "text": "{% include tip.html content=\"You may use HTML element tags and inline CSS as part of the content of parameters. Just consider that they shall be embedded in the fixed layout and their effectiveness may vary.\" %}"
+            "style": "Success",
+            "text": "You may use HTML element tags and inline CSS as part of the content of parameters. Just consider that they shall be embedded in the fixed layout and their effectiveness may vary.",
+            "updated": 1609704857821
         },
         {
-            "style": "Text",
-            "text": "Select Configure on the menu to access the configuration."
+            "style": "Success",
+            "text": "Configuration items are listed in the order of appearance in the HTML layout, that is, the sequence of HTML elements mentioned earlier.",
+            "updated": 1609704957111
         },
         {
-            "style": "Text",
-            "text": "{"
-        },
-        {
-            "style": "Text",
-            "text": "    \"title\": \"\","
-        },
-        {
-            "style": "Text",
-            "text": "    \"summary\": \"\","
-        },
-        {
-            "style": "Text",
-            "text": "    \"subTitle\": \"\","
-        },
-        {
-            "style": "Text",
-            "text": "    \"gif\": \"\","
-        },
-        {
-            "style": "Text",
-            "text": "    \"image\": \"\","
-        },
-        {
-            "style": "Text",
-            "text": "    \"definition\": \"\","
-        },
-        {
-            "style": "Text",
-            "text": "    \"bulletListIntro\": \"\","
-        },
-        {
-            "style": "Text",
-            "text": "    \"bulletArray\": ["
-        },
-        {
-            "style": "Text",
-            "text": "        ["
-        },
-        {
-            "style": "Text",
-            "text": "            \"\","
-        },
-        {
-            "style": "Text",
-            "text": "            \"\""
-        },
-        {
-            "style": "Text",
-            "text": "        ],"
-        },
-        {
-            "style": "Text",
-            "text": "        ["
-        },
-        {
-            "style": "Text",
-            "text": "            \"\","
-        },
-        {
-            "style": "Text",
-            "text": "            \"\""
-        },
-        {
-            "style": "Text",
-            "text": "        ],"
-        },
-        {
-            "style": "Text",
-            "text": "        ["
-        },
-        {
-            "style": "Text",
-            "text": "            \"\","
-        },
-        {
-            "style": "Text",
-            "text": "            \"\""
-        },
-        {
-            "style": "Text",
-            "text": "        ]"
-        },
-        {
-            "style": "Text",
-            "text": "    ],"
-        },
-        {
-            "style": "Text",
-            "text": "    \"paragraph1\": \"\","
-        },
-        {
-            "style": "Text",
-            "text": "    \"callOut\": \"\","
-        },
-        {
-            "style": "Text",
-            "text": "    \"externalLink\": ["
-        },
-        {
-            "style": "Text",
-            "text": "        \"\","
-        },
-        {
-            "style": "Text",
-            "text": "        \"\""
-        },
-        {
-            "style": "Text",
-            "text": "    ],"
-        },
-        {
-            "style": "Text",
-            "text": "    \"paragraph2\": \"\","
-        },
-        {
-            "style": "Text",
-            "text": "    \"note\": \"\","
-        },
-        {
-            "style": "Text",
-            "text": "    \"tip\": \"\","
-        },
-        {
-            "style": "Text",
-            "text": "    \"important\": \"\","
-        },
-        {
-            "style": "Text",
-            "text": "    \"warning\": \"\","
-        },
-        {
-            "style": "Text",
-            "text": "    \"position\": \"\","
-        },
-        {
-            "style": "Text",
-            "text": "    \"slider\": \"toTop\","
-        },
-        {
-            "style": "Text",
-            "text": "    \"pressButton\": \"\","
-        },
-        {
-            "style": "Text",
-            "text": "    \"documentationURL\": \"\""
-        },
-        {
-            "style": "Text",
-            "text": "}"
-        },
-        {
-            "style": "Text",
-            "text": "{% include tip.html content=\"Configuration items are listed in the order of appearance in the HTML layout, that is, the sequence of HTML elements mentioned earlier.\" %}"
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609705050135
         },
         {
             "style": "List",
-            "text": "title is the <H1> tag, the main title of the page."
+            "text": "title is the main title of the page."
         },
         {
             "style": "List",
@@ -210,7 +62,8 @@
         },
         {
             "style": "List",
-            "text": "subTitle is the <H2> tag, the secondary title of the page."
+            "text": "subTitle is the secondary title of the page.",
+            "updated": 1609705068885
         },
         {
             "style": "List",
@@ -222,7 +75,8 @@
         },
         {
             "style": "List",
-            "text": "definition is a block of text in bold style (<strong> HTML tag)."
+            "text": "definition is a block of text in bold style.",
+            "updated": 1609705317162
         },
         {
             "style": "List",
@@ -242,7 +96,8 @@
         },
         {
             "style": "List",
-            "text": "externalLink allows you to set up a link that opens in a new tab at the end of the callOut block. Enter the URL in the first field and the anchor text in the second."
+            "text": "externalLink allows you to set up a link that opens in a new tab at the end of the callOut block. Enter the URL in the first field and the anchor text in the second. You may also use HTML to include links anywhere else.",
+            "updated": 1609705400186
         },
         {
             "style": "List",
@@ -250,27 +105,33 @@
         },
         {
             "style": "List",
-            "text": "note is a block of text within a blue box preceded with the string Note:."
+            "text": "note is a block of text within a blue box preceded with the string Note.",
+            "updated": 1609705469745
         },
         {
             "style": "List",
-            "text": "tip is a block of text within a green box preceded with the string Tip:."
+            "text": "tip is a block of text within a green box preceded with the string Tip.",
+            "updated": 1609705475148
         },
         {
             "style": "List",
-            "text": "important is a block of text within a yellow box preceded with the string Important:."
+            "text": "important is a block of text within a yellow box preceded with the string Important.",
+            "updated": 1609705484520
         },
         {
             "style": "List",
-            "text": "warning is a block of text within a red box preceded with the string Warning:."
+            "text": "warning is a block of text within a red box preceded with the string Warning.",
+            "updated": 1609705492685
         },
         {
             "style": "List",
-            "text": "position determines the position of the floating HTML. There are three alternatives: Left, Right, or leave the field empty to position the page in the center of the screen."
+            "text": "position determines the position of the floating HTML. There are three alternatives... Left, Right, or leave the field empty to position the page in the center of the screen.",
+            "updated": 1609705546655
         },
         {
             "style": "List",
-            "text": "slider determines the position of the horizontal slider. There are four alternatives: toTop, Right, or leave the field empty to position the page in the center of the screen."
+            "text": "slider determines the position of the horizontal slider. There are four alternatives... toTop, Right, or leave the field empty to position the page in the center of the screen.",
+            "updated": 1609705629835
         },
         {
             "style": "List",
@@ -278,7 +139,8 @@
         },
         {
             "style": "List",
-            "text": "documentationURL opens the Superalgos Documentation in the URL you configure. Use the complete URL, including the https:// protocol header."
+            "text": "documentationURL: opens the Superalgos Documentation in the URL you configure. Use the complete URL, including the https:// protocol header.",
+            "updated": 1609705696017
         }
     ]
 }

@@ -416,7 +416,7 @@ width: 100%;
   display: table;
   width: 100%;
   border-collapse: separate;
-  border-spacing: 8px;
+  border-spacing: 6px;
   }
 
 .docs-footer-row {
@@ -424,7 +424,7 @@ width: 100%;
 }
 
 .docs-footer-cell {
-  padding: 5px 15px 0px 25px;
+  padding: 5px 15px 0px 30px;
   display: table-cell;
   width: 33%;
 }
@@ -515,10 +515,10 @@ margin: 0 0 0 15px;
 
 code.docs-code {
 color: #d9534f;
-background-color: #e6eaea;
-border: 1px solid #cdd4d5;
-border-radius: 5px;
-padding: 1 5 1 5;
+background-color: rgba(230, 234, 234, 1);
+border: 1px solid rgba(205, 212, 213, 0.5);
+border-radius: 3px;
+padding: 0 5;
 }
 
 /* Style the button that is used to open and close the docs-collapsible-element content */

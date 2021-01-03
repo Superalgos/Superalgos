@@ -19,14 +19,6 @@
         {
             "style": "Block",
             "text": "Running"
-        },
-        {
-            "style": "Title",
-            "text": "Running Market Trading Tasks"
-        },
-        {
-            "style": "Text",
-            "text": "Select Run All Trading Mine Tasks or Stop All Trading Mine Tasks on the menu to start and stop all tasks under this node."
         }
     ]
 }

@@ -19,14 +19,6 @@
         {
             "style": "Block",
             "text": "Running"
-        },
-        {
-            "style": "Title",
-            "text": "Running Exchange Trading Tasks"
-        },
-        {
-            "style": "Text",
-            "text": "Select Run All Market Trading Tasks or Stop All Market Trading Tasks on the menu to start and stop all tasks under this node."
         }
     ]
 }

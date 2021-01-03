@@ -17,12 +17,9 @@
             "text": "Running"
         },
         {
-            "style": "Title",
-            "text": "Running Trading Process Instance"
-        },
-        {
-            "style": "Text",
-            "text": "You do not start or stop a trading process instance directly. Instead, you start or stop the corresponding task."
+            "style": "Note",
+            "text": "You do not start or stop a Trading Process Instance directly. Instead, you start or stop the corresponding task.",
+            "updated": 1609668850890
         }
     ]
 }

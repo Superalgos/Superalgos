@@ -18,27 +18,13 @@
         },
         {
             "style": "Title",
-            "text": "Configuring Heartbeats"
+            "text": "Heartbeats Configuration",
+            "updated": 1609676752786
         },
         {
-            "style": "Text",
-            "text": "Select Configure Slippage on the menu to access the configuration."
-        },
-        {
-            "style": "Text",
-            "text": "{"
-        },
-        {
-            "style": "Text",
-            "text": "   \"date\": true,"
-        },
-        {
-            "style": "Text",
-            "text": "   \"candleIndex\": false"
-        },
-        {
-            "style": "Text",
-            "text": "}"
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609676758182
         },
         {
             "style": "List",

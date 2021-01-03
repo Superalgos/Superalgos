@@ -10,7 +10,21 @@
         },
         {
             "style": "Text",
-            "text": "The parameter allows defining an initial balance of the corresponding asset, which may be used for trading with the corresponding trading system and trading session. Please see the configuration."
+            "text": "The parameter allows defining an initial balance of the corresponding asset, which may be used for trading with the corresponding trading system and trading session.",
+            "updated": 1609675091584
+        },
+        {
+            "style": "Title",
+            "text": "Session Quoted Asset Configuration",
+            "updated": 1609675107102
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties"
+        },
+        {
+            "style": "List",
+            "text": "initialBalance is the amount of capital you wish to allocate to the trading system."
         }
     ]
 }

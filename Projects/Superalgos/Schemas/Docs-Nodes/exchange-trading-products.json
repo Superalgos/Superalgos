@@ -15,18 +15,6 @@
         {
             "style": "Text",
             "text": "When representing an exchange featured in the system's icons library, the standard exchange trading products icon is replaced by the exchange's logo."
-        },
-        {
-            "style": "Block",
-            "text": "Configuring"
-        },
-        {
-            "style": "Title",
-            "text": "Configuring Exchange Trading Products"
-        },
-        {
-            "style": "Text",
-            "text": "Select Configure on the menu to access the configuration."
         }
     ]
 }

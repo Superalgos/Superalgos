@@ -15,18 +15,6 @@
         {
             "style": "Text",
             "text": "The use of the bot products node is optional, as data products may also exist outside of bot products."
-        },
-        {
-            "style": "Block",
-            "text": "Configuring"
-        },
-        {
-            "style": "Title",
-            "text": "Configuring Bot Products"
-        },
-        {
-            "style": "Text",
-            "text": "Select Configure on the menu to access the configuration."
         }
     ]
 }

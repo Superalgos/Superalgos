@@ -293,9 +293,7 @@ function newSuperalgosUtilitiesDocs() {
         return result
     }
 
-
     function addCodeToWhiteList(text) {
-
         let result = text
             .replaceAll('true', '<code class="docs-code">true</code>')
             .replaceAll('false', '<code class="docs-code">false</code>')

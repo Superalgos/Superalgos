@@ -197,7 +197,7 @@ function newSuperalgosDocsDocumentPage() {
                     definitionImagesArray.push(imageItem)
 
                     HTML = HTML + '<div id="' + imageItem.div + '" class="docs-image-container"></div>'
-                    HTML = HTML + '<div id="' + idPrefix + 'paragraph" class="docs-font-normal"><strong>' + UI.projects.superalgos.utilities.docs.addToolTips(definitionText, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type) + '</strong></div>'
+                    HTML = HTML + '<div id="' + idPrefix + 'paragraph" class="docs-definition-text"><strong>' + UI.projects.superalgos.utilities.docs.addToolTips(definitionText, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type) + '</strong></div>'
                     HTML = HTML + '</div>'
                 }
 

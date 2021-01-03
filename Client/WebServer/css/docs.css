@@ -85,23 +85,24 @@ padding: 10px;
 display: table;
 width: 100%;
 box-sizing: border-box;
-
+border-collapse: separate;
+border-spacing: 10px;
 /* DELETE candidate
 margin-right: 20px;
 */
 }
 
-.docs-definition-table div {
+.docs-definition-text {
   display: table-cell;
-  padding: 5px 10px;
   vertical-align: middle;
-
+  padding: 0 20px;
 }
 
 .docs-image-container {
 padding: 5px 0px 5px 5px;
 border: solid 0px;
 display: table-cell;
+vertical-align: middle;
 }
 
 .docs-hierarchy-image-container {
@@ -127,6 +128,7 @@ position: relative;
 display: inline-block;
 border-bottom: 1px dashed #0295aa; 
 cursor: pointer;
+line-height: inherit;
 }
 
 /* Tooltip text */
@@ -138,7 +140,7 @@ color: #fff;
 font-weight: normal;
 font-style: normal;
 font-size: 15px;
-line-height: 130%;
+line-height: 130%; 
 text-align: center;
 padding: 15px;
 border-radius: 6px;

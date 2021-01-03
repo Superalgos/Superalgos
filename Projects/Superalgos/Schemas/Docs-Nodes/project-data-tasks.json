@@ -2,13 +2,13 @@
     "type": "Project Data Tasks",
     "paragraphs": [
         {
-            "style": "Success",
-            "text": "You may use this node to Run All Project Data Tasks!",
-            "updated": 1609619088086
+            "style": "Note",
+            "text": "Superalgos organizes the data structures in the Network by Project to ensure scalability.",
+            "updated": 1609667592082
         }
     ],
     "definition": {
-        "text": "The Project Data Tasks node is an organizational device grouping all Data Tasks corresponding to the same project.",
-        "updated": 1609618469820
+        "text": "The Project Data Tasks node is an organizational device grouping all Data Tasks corresponding to the same Project.",
+        "updated": 1609667834901
     }
 }

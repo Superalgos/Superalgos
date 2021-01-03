@@ -1,3 +1,41 @@
 {
-    "type": "Production Trading Tasks"
+    "type": "Production Trading Tasks",
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Superalgos aims to provide a flexible and robust trading bots deployment toolbox.",
+            "updated": 1609666709477
+        },
+        {
+            "style": "Text",
+            "text": "With Superalgos, you may deploy as many trading bots as you wish and have them running on a single computer or in as many machines as you wish, in a Trading Farm type of setup. To help with the management of large numbers of live trading sessions, the system helps you with sorting tasks by exchange, market, and trading mine.",
+            "updated": 1609666769136
+        },
+        {
+            "style": "Text",
+            "text": "The production environment works pretty much in the same way as the testing environment, save for two important differences:"
+        },
+        {
+            "style": "List",
+            "text": "The production environment runs forward testing and live trading sessions, instead of backtesting and paper trading sessions."
+        },
+        {
+            "style": "List",
+            "text": "These two types of sessions involve monetary transactions at the exchange, thus require the set up of a key reference to authenticate your account with the exchange."
+        },
+        {
+            "style": "Note",
+            "text": "If you are familiar with the testing environment, there isn’t much more to learn to understand the production environment. If you are not familiar with either, please refer to the tesing environment page for the details.",
+            "updated": 1609666722398
+        },
+        {
+            "style": "Important",
+            "text": "Deleting this node causes market install and uninstall scripts to stop working, even if the node is recreated after being deleted.",
+            "updated": 1609666715486
+        }
+    ],
+    "definition": {
+        "text": "The Production Trading Tasks node organizes trading sessions involving live trading.",
+        "updated": 1609666696048
+    }
 }

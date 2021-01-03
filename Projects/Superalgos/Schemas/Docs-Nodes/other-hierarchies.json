@@ -6,15 +6,13 @@
     "paragraphs": [
         {
             "style": "Block",
-            "text": "Configuring"
+            "text": "Content",
+            "updated": 1609702185140
         },
         {
-            "style": "Title",
-            "text": "Configuring Other Hierarchies"
-        },
-        {
-            "style": "Text",
-            "text": "Select Configure on the menu to access the configuration."
+            "style": "Success",
+            "text": "Use the menu to spawn new hierarchies.",
+            "updated": 1609702252606
         }
     ]
 }

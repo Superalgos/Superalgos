@@ -1246,8 +1246,8 @@ function newSuperalgosDocsDocumentPage() {
                     }
                     case 'List': {
                         styleClass = ''
-                        prefix = '<li>'
-                        sufix = '</li>'
+                        prefix = '<ul><li>'
+                        sufix = '</li></ul>'
                         role = ''
                         key = key + '-list'
                         innerHTML = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)

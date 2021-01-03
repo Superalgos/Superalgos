@@ -1,6 +1,6 @@
 function newSuperalgosDocsSearchResultsPage() {
     let thisObject = {
-        render: render, 
+        render: render,
         initialize: initialize,
         finalize: finalize
     }
@@ -181,7 +181,7 @@ function newSuperalgosDocsSearchResultsPage() {
         }
 
         function buildHTML() {
-            const tabs = ['All', 'Nodes', 'Concepts', 'Topics', 'Workspace']
+            const tabs = ['All', 'Nodes', 'Concepts', 'Topics', 'Books', 'Workspace']
             let HTML = ''
             HTML = HTML + '<section id="docs-search-results-div" class="docs-search-page-container">'
             HTML = HTML + UI.projects.superalgos.spaces.docsSpace.mainSearchPage.addSearchHeader()

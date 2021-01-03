@@ -73,6 +73,10 @@ function newSuperalgosDocsCommmandInterface() {
                     docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.get(type)
                     break
                 }
+                case 'book': {
+                    docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsBookSchema.get(type)
+                    break
+                }
                 default: {
                     UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Category Not Valid', 'Anchor Category Not Valid')
                     return
@@ -146,6 +150,10 @@ function newSuperalgosDocsCommmandInterface() {
                         addTopic(splittedPrimaryCommand[3], splittedSecondaryCommand[0], splittedSecondaryCommand[1], splittedSecondaryCommand[2])
                         return
                     }
+                    case 'book': {
+                        addBook(splittedPrimaryCommand[3], secondaryCommand)
+                        return
+                    }
                     default: {
                         UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Category Not Valid', 'Anchor Category Not Valid')
                         return
@@ -211,6 +219,10 @@ function newSuperalgosDocsCommmandInterface() {
                         deleteTopic(splittedPrimaryCommand[3], splittedSecondaryCommand[0], splittedSecondaryCommand[1], splittedSecondaryCommand[2])
                         return
                     }
+                    case 'book': {
+                        deleteBook(splittedPrimaryCommand[3], secondaryCommand)
+                        return
+                    }
                     default: {
                         UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Category Not Valid', 'Anchor Category Not Valid')
                         return
@@ -227,8 +239,8 @@ function newSuperalgosDocsCommmandInterface() {
             }
             if (UI.projects.superalgos.spaces.docsSpace.commandInterface.command.indexOf('Docs.Reindex') !== 0 && UI.projects.superalgos.spaces.docsSpace.commandInterface.command.indexOf('docs.reindex') !== 0) { return 'Not Reindex Command' }
 
-            setUpWorkspaceSchemas()
-            thisObject.searchEngine.setUpSearchEngine()
+            UI.projects.superalgos.spaces.docsSpace.setUpWorkspaceSchemas()
+            UI.projects.superalgos.spaces.docsSpace.searchEngine.setUpSearchEngine()
 
             renderCommandResultsPage(["Succesfully rebuild the search engine indexes."])
         }
@@ -257,6 +269,10 @@ function newSuperalgosDocsCommmandInterface() {
 
                 docsSchema = SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema
                 httpRequest(JSON.stringify(docsSchema), 'Docs/Save-Topic-Schema/' + project, onResponse)
+                requestsSent++
+
+                docsSchema = SCHEMAS_BY_PROJECT.get(project).array.docsBookSchema
+                httpRequest(JSON.stringify(docsSchema), 'Docs/Save-Book-Schema/' + project, onResponse)
                 requestsSent++
             }
 
@@ -359,6 +375,33 @@ function newSuperalgosDocsCommmandInterface() {
             UI.projects.superalgos.spaces.docsSpace.navigateTo(project, 'Topic', type)
         }
 
+        function addBook(project, type) {
+            let template = {
+                type: type,
+                definition: { text: "Write here the summary / definition of this Book." },
+                paragraphs: [
+                    {
+                        style: "Text",
+                        text: UI.projects.superalgos.globals.docs.NEW_PARAGRAPH_TEXT
+                    }
+                ]
+            }
+
+            if (SCHEMAS_BY_PROJECT.get(project) === undefined) {
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Project Does Not Exist', 'Anchor Project Does Not Exist')
+                return
+            }
+            let exist = SCHEMAS_BY_PROJECT.get(project).map.docsBookSchema.get(type)
+            if (exist !== undefined) {
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Page Already Exists', 'Anchor Page Already Exists')
+                return
+            }
+
+            SCHEMAS_BY_PROJECT.get(project).array.docsBookSchema.push(template)
+            SCHEMAS_BY_PROJECT.get(project).map.docsBookSchema.set(type, template)
+            UI.projects.superalgos.spaces.docsSpace.navigateTo(project, 'Book', type)
+        }
+
         function deleteNode(project, type) {
             if (SCHEMAS_BY_PROJECT.get(project) === undefined) {
                 UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Project Does Not Exist', 'Anchor Project Does Not Exist')
@@ -432,6 +475,29 @@ function newSuperalgosDocsCommmandInterface() {
                 docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema[i]
                 if (docsSchemaDocument.type === type) {
                     docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema.splice(i, 1)
+                    break
+                }
+            }
+        }
+
+        function deleteBook(project, type) {
+            if (SCHEMAS_BY_PROJECT.get(project) === undefined) {
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Project Does Not Exist', 'Anchor Project Does Not Exist')
+                return
+            }
+            let exist = SCHEMAS_BY_PROJECT.get(project).map.docsBookSchema.get(type)
+            if (exist === undefined) {
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Page Does Not Exist', 'Anchor Page Does Not Exist')
+                return
+            }
+
+            SCHEMAS_BY_PROJECT.get(project).map.docsBookSchema.delete(type)
+            renderCommandResultsPage(["Book <b>" + type + "</b> deleted."])
+
+            for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsBookSchema.length; i++) {
+                docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsBookSchema[i]
+                if (docsSchemaDocument.type === type) {
+                    docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsBookSchema.splice(i, 1)
                     break
                 }
             }

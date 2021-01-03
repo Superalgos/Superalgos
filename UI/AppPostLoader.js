@@ -42,13 +42,15 @@ function newAppPostLoader() {
                             appSchema: [],
                             docsNodeSchema: [],
                             docsConceptSchema: [],
-                            docsTopicSchema: []
+                            docsTopicSchema: [],
+                            docsBookSchema: []
                         },
                         map: {
                             appSchema: new Map(),
                             docsNodeSchema: new Map(),
                             docsConceptSchema: new Map(),
-                            docsTopicSchema: new Map()
+                            docsTopicSchema: new Map(),
+                            docsBookSchema: new Map()
                         }
                     }
                     SCHEMAS_BY_PROJECT.set(project, schemas)
@@ -124,6 +126,26 @@ function newAppPostLoader() {
                                 let schemaDocument = schemas.array.docsTopicSchema[j]
                                 let key = schemaDocument.type
                                 schemas.map.docsTopicSchema.set(key, schemaDocument)
+                            }
+                        } catch (err) {
+                            console.log(err.stack)
+                        }
+
+                        webServerResponses++
+                        if (webServerResponses === totalWebServerCalls) { startCanvas() }
+                    }
+
+                    totalWebServerCalls++
+                    httpRequest(undefined, 'Schema/' + project + '/DocsBookSchema', onResponseBookSchema)
+
+                    function onResponseBookSchema(err, schema) {
+                        try {
+                            schemas.array.docsBookSchema = JSON.parse(schema)
+
+                            for (let j = 0; j < schemas.array.docsBookSchema.length; j++) {
+                                let schemaDocument = schemas.array.docsBookSchema[j]
+                                let key = schemaDocument.type
+                                schemas.map.docsBookSchema.set(key, schemaDocument)
                             }
                         } catch (err) {
                             console.log(err.stack)

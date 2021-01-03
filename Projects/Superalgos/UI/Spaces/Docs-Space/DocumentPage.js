@@ -49,6 +49,10 @@ function newSuperalgosDocsDocumentPage() {
                     thisObject.docsSchemaDocument = SCHEMAS_BY_PROJECT.get(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project).map.workspaceSchema.get(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.nodeId)
                     break
                 }
+                case 'Book': {
+                    thisObject.docsSchemaDocument = SCHEMAS_BY_PROJECT.get(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project).map.docsBookSchema.get(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type)
+                    break
+                }
             }
 
             if (thisObject.docsSchemaDocument === undefined) {
@@ -73,6 +77,11 @@ function newSuperalgosDocsDocumentPage() {
                     case 'Concept': {
                         SCHEMAS_BY_PROJECT.get(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project).array.docsConceptSchema.push(template)
                         SCHEMAS_BY_PROJECT.get(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project).map.docsConceptSchema.set(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type, template)
+                        break
+                    }
+                    case 'Book': {
+                        SCHEMAS_BY_PROJECT.get(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project).array.docsBookSchema.push(template)
+                        SCHEMAS_BY_PROJECT.get(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project).map.docsBookSchema.set(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type, template)
                         break
                     }
                 }
@@ -174,7 +183,7 @@ function newSuperalgosDocsDocumentPage() {
                 /* We will test if we can draw an image here or not*/
                 let testElement = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(project, type)
 
-                if ((category === 'Topic' || category === 'Concept') && testElement === undefined) {
+                if ((category === 'Topic' || category === 'Concept' || category === 'Book') && testElement === undefined) {
                     HTML = HTML + '<div id="definition-summary-editable-paragraph" class="docs-summary"><b>Summary:</b> ' + UI.projects.superalgos.utilities.docs.addToolTips(definitionText, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type) + '</div>'
                 } else {
                     HTML = HTML + '<div class="docs-definition-table">'
@@ -330,7 +339,11 @@ function newSuperalgosDocsDocumentPage() {
                             includedSchemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.get(type)
                             break
                         }
-                        default: return 'Category provided (' + category + ') not valid. Use Node, Concept or Topic instead.'
+                        case 'Book': {
+                            includedSchemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsBookSchema.get(type)
+                            break
+                        }
+                        default: return 'Category provided (' + category + ') not valid. Use Node, Concept, Topic or Book instead.'
                     }
                     if (includedSchemaDocument === undefined) {
                         return category + ' document ' + type + ' not found at project ' + project

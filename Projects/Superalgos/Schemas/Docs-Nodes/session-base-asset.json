@@ -18,31 +18,13 @@
         },
         {
             "style": "Title",
-            "text": "Configuring Session Base Asset"
+            "text": "Session Base Asset Configuration",
+            "updated": 1609674870532
         },
         {
-            "style": "Text",
-            "text": "Select Configure Base Asset on the menu to access the configuration."
-        },
-        {
-            "style": "Text",
-            "text": "{"
-        },
-        {
-            "style": "Text",
-            "text": "\"initialBalance\": 0.001,"
-        },
-        {
-            "style": "Text",
-            "text": "\"minimumBalance\": 0.0001,"
-        },
-        {
-            "style": "Text",
-            "text": "\"maximumBalance\": 0.1"
-        },
-        {
-            "style": "Text",
-            "text": "}"
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609674879122
         },
         {
             "style": "List",

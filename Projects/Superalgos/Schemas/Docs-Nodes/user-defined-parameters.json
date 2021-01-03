@@ -10,7 +10,8 @@
         },
         {
             "style": "Text",
-            "text": "Parameters defined in the configuration file of these node become available to trading systems using the following path: sessionParameters.userDefinedParameters.config.parameterName."
+            "text": "Parameters defined in the configuration file of these node become available to trading systems using the following path: sessionParameters.userDefinedParameters.config.parameterName",
+            "updated": 1609676793115
         },
         {
             "style": "Text",
@@ -22,27 +23,13 @@
         },
         {
             "style": "Title",
-            "text": "Configuring User Defined Parameters"
+            "text": "User Defined Parameters Configuration",
+            "updated": 1609676843832
         },
         {
-            "style": "Text",
-            "text": "Select Configure Slippage on the menu to access the configuration."
-        },
-        {
-            "style": "Text",
-            "text": "{"
-        },
-        {
-            "style": "Text",
-            "text": "   \"param1Name\": \"A text string value example\","
-        },
-        {
-            "style": "Text",
-            "text": "   \"param2Name\": 0"
-        },
-        {
-            "style": "Text",
-            "text": "}"
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609676849477
         },
         {
             "style": "List",

@@ -18,27 +18,13 @@
         },
         {
             "style": "Title",
-            "text": "Configuring Snapshots"
+            "text": "Snapshots Configuration",
+            "updated": 1609676701303
         },
         {
-            "style": "Text",
-            "text": "Select Configure Slippage on the menu to access the configuration."
-        },
-        {
-            "style": "Text",
-            "text": "{"
-        },
-        {
-            "style": "Text",
-            "text": "   \"strategy\": true,"
-        },
-        {
-            "style": "Text",
-            "text": "   \"position\": true"
-        },
-        {
-            "style": "Text",
-            "text": "}"
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609676706067
         },
         {
             "style": "List",

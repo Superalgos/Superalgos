@@ -4,7 +4,7 @@ function newSuperalgosUtilitiesDocs() {
         getTextBasedOnLanguage: getTextBasedOnLanguage,
         setTextBasedOnLanguage: setTextBasedOnLanguage,
         parseGIF: parseGIF,
-        reverseParseGIF: reverseParseGIF, 
+        reverseParseGIF: reverseParseGIF,
         parsePNG: parsePNG,
         reverseParsePNG: reverseParsePNG,
         parseTable: parseTable,
@@ -14,9 +14,10 @@ function newSuperalgosUtilitiesDocs() {
         reverseParseYoutube: reverseParseYoutube,
         reverseParseHierarchy: reverseParseHierarchy,
         reverseParseTable: reverseParseTable,
-        addBold: addBold, 
+        addBold: addBold,
         addCodeToCamelCase: addCodeToCamelCase,
-        addItalics: addItalics, 
+        addCodeToWhiteList: addCodeToWhiteList,
+        addItalics: addItalics,
         addToolTips: addToolTips
     }
 
@@ -292,8 +293,17 @@ function newSuperalgosUtilitiesDocs() {
         return result
     }
 
+
+    function addCodeToWhiteList(text) {
+
+        let result = text
+            .replaceAll('true', '<code class="docs-code">true</code>')
+            .replaceAll('false', '<code class="docs-code">false</code>')
+        return result
+    }
+
     function addItalics(text) {
-        let cleanText =  text.replace(/'/g, ' AMPERSAND ') // scaping ampersands, separating them from other words
+        let cleanText = text.replace(/'/g, ' AMPERSAND ') // scaping ampersands, separating them from other words
         let words = cleanText.split(' ')
         let changedText = ''
         for (let i = 0; i < words.length; i++) {
@@ -337,7 +347,7 @@ function newSuperalgosUtilitiesDocs() {
                 changedText = changedText + phrase1 + ' '
             }
         }
-        changedText = changedText.replaceAll(' AMPERSAND ',  '\'')
+        changedText = changedText.replaceAll(' AMPERSAND ', '\'')
         return changedText
     }
 
@@ -416,7 +426,7 @@ function newSuperalgosUtilitiesDocs() {
 
     /* Private Functions follow */
     function tagDefinedTypes(text, excludedType) {
-        let cleanText =  text.replace(/'/g, ' AMPERSAND ') // scaping ampersands, separating them from other words
+        let cleanText = text.replace(/'/g, ' AMPERSAND ') // scaping ampersands, separating them from other words
         let words = cleanText.split(' ')
         let taggedText = ''
         for (let i = 0; i < words.length; i++) {
@@ -595,7 +605,7 @@ function newSuperalgosUtilitiesDocs() {
                 taggedText = taggedText + phrase1 + ' '
             }
         }
-        taggedText = taggedText.replaceAll(' AMPERSAND ',  '\'')
+        taggedText = taggedText.replaceAll(' AMPERSAND ', '\'')
         return taggedText
     }
 

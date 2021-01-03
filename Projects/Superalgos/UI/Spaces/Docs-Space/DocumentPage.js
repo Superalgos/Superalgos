@@ -1120,6 +1120,7 @@ function newSuperalgosDocsDocumentPage() {
                         key = key + '-text'
                         innerHTML = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)
                         innerHTML = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(innerHTML)
+                        innerHTML = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(innerHTML)
                         innerHTML = UI.projects.superalgos.utilities.docs.addToolTips(innerHTML, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type)
                         innerHTML = UI.projects.superalgos.utilities.docs.addItalics(innerHTML)
                         innerHTML = innerHTML + UI.projects.superalgos.utilities.docs.addWarningIfTranslationIsOutdated(paragraph)

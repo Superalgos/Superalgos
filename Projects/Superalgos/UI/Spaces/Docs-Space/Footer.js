@@ -33,6 +33,9 @@ function newSuperalgosDocsFooter() {
         if (UI.projects.superalgos.spaces.docsSpace.previousDocumentBeingRendered !== undefined ) {
             HTML = HTML + '<span style="float: right; display: inline-block;" onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + UI.projects.superalgos.spaces.docsSpace.previousDocumentBeingRendered.project + '\', \'' + UI.projects.superalgos.spaces.docsSpace.previousDocumentBeingRendered.category + '\', \'' + UI.projects.superalgos.spaces.docsSpace.previousDocumentBeingRendered.type + '\')"><button>BACK</button></span>'        
         }
+        if (UI.projects.superalgos.spaces.docsSpace.currentBookBeingRendered !== undefined ) {
+            HTML = HTML + '<span style="float: right; display: inline-block;" onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + UI.projects.superalgos.spaces.docsSpace.currentBookBeingRendered.project + '\', \'' + UI.projects.superalgos.spaces.docsSpace.currentBookBeingRendered.category + '\', \'' + UI.projects.superalgos.spaces.docsSpace.currentBookBeingRendered.type + '\')"><button>TO BOOK</button></span>'        
+        }
         HTML = HTML + '</div>'
         HTML = HTML + '</div>'
         HTML = HTML + '</div>'

@@ -11,16 +11,17 @@ function newSuperalgosDocSpace() {
         documentPage: undefined,
         commandInterface: undefined,
         contextMenu: undefined,
-        language: undefined, 
+        language: undefined,
         menuLabelsMap: undefined,
-        currentDocumentBeingRendered: undefined, 
-        previousDocumentBeingRendered: undefined, 
+        currentDocumentBeingRendered: undefined,
+        previousDocumentBeingRendered: undefined,
+        currentBookBeingRendered: undefined,
         paragraphMap: undefined,  // Here we will store a map of paragraphs from the Docs Node, Concept, Topics or Books Schema in order to find it when we need to update them.
         textArea: undefined,
-        setUpWorkspaceSchemas: setUpWorkspaceSchemas, 
+        setUpWorkspaceSchemas: setUpWorkspaceSchemas,
         changeLanguage: changeLanguage,
-        enterEditMode: enterEditMode, 
-        exitEditMode: exitEditMode, 
+        enterEditMode: enterEditMode,
+        exitEditMode: exitEditMode,
         openSpaceAreaAndNavigateTo: openSpaceAreaAndNavigateTo,
         navigateTo: navigateTo,
         scrollToElement: scrollToElement,
@@ -47,7 +48,7 @@ function newSuperalgosDocSpace() {
     let browserResizedEventSubscriptionId
     let openingEventSubscriptionId
     let closingEventSubscriptionId
-                
+
     return thisObject
 
     function initialize() {
@@ -70,7 +71,7 @@ function newSuperalgosDocSpace() {
         thisObject.searchResultsPage.initialize()
         thisObject.documentPage.initialize()
         thisObject.footer.initialize()
-        thisObject.commandInterface.initialize()        
+        thisObject.commandInterface.initialize()
         thisObject.contextMenu.initialize()
 
         isInitialized = true
@@ -133,13 +134,13 @@ function newSuperalgosDocSpace() {
         thisObject.footer.finalize()
         thisObject.commandInterface.finalize()
         thisObject.contextMenu.finalize()
-        
+
         thisObject.searchEngine = undefined
         thisObject.mainSearchPage = undefined
         thisObject.searchResultsPage = undefined
         thisObject.documentPage = undefined
         thisObject.footer = undefined
-        thisObject.commandInterface =  undefined
+        thisObject.commandInterface = undefined
         thisObject.contextMenu = undefined
 
         thisObject.currentDocumentBeingRendered = undefined
@@ -281,23 +282,7 @@ function newSuperalgosDocSpace() {
 
     function openSpaceAreaAndNavigateTo(project, category, type, anchor, nodeId) {
 
-        if (UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered !== undefined) {
-            UI.projects.superalgos.spaces.docsSpace.previousDocumentBeingRendered = {
-                project: UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project,
-                category: UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.category,
-                type: UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type,
-                anchor: UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.anchor,
-                nodeId: UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.nodeId
-            }
-        }
-
-        UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered = {
-            project: project,
-            category: category,
-            type: type.replace('AMPERSAND', '\''),
-            anchor: anchor,
-            nodeId: nodeId
-        }
+        getReadyToNavigate(project, category, type, anchor, nodeId)
 
         thisObject.sidePanelTab.open()
     }
@@ -307,24 +292,7 @@ function newSuperalgosDocSpace() {
         EDITOR_ON_FOCUS = false // forced exit
         UI.projects.superalgos.spaces.docsSpace.paragraphMap = new Map()
 
-        /* Replace the current object with this */
-        if (UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered !== undefined) {
-            UI.projects.superalgos.spaces.docsSpace.previousDocumentBeingRendered = {
-                project: UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project,
-                category: UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.category,
-                type: UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type,
-                anchor: UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.anchor,
-                nodeId: UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.nodeId
-            }
-        }
-
-        UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered = {
-            project: project,
-            category: category,
-            type: type.replace('AMPERSAND', '\''),
-            anchor: anchor,
-            nodeId: nodeId
-        }
+        getReadyToNavigate(project, category, type, anchor, nodeId)
 
         UI.projects.superalgos.spaces.docsSpace.documentPage.render()
 
@@ -336,6 +304,37 @@ function newSuperalgosDocSpace() {
             UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.anchor = undefined
         } else {
             scrollToElement('docs-space-div')
+        }
+    }
+
+    function getReadyToNavigate(project, category, type, anchor, nodeId) {
+        /* Replace the current object with this */
+        if (UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered !== undefined) {
+            UI.projects.superalgos.spaces.docsSpace.previousDocumentBeingRendered = {
+                project: UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project,
+                category: UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.category,
+                type: UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type,
+                anchor: UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.anchor,
+                nodeId: UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.nodeId
+            }
+        }
+
+        if (category === 'Book') {
+            UI.projects.superalgos.spaces.docsSpace.currentBookBeingRendered = {
+                project: project,
+                category: category,
+                type: type.replace('AMPERSAND', '\''),
+                anchor: anchor,
+                nodeId: nodeId
+            }
+        }
+
+        UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered = {
+            project: project,
+            category: category,
+            type: type.replace('AMPERSAND', '\''),
+            anchor: anchor,
+            nodeId: nodeId
         }
     }
 

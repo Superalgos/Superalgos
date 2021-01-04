@@ -22,23 +22,13 @@
         },
         {
             "style": "Title",
-            "text": "Configuring Data Mine"
+            "text": "Data Mine Configuration",
+            "updated": 1609789108763
         },
         {
-            "style": "Text",
-            "text": "Select Configure Data Mine on the menu to access the configuration."
-        },
-        {
-            "style": "Text",
-            "text": "{"
-        },
-        {
-            "style": "Text",
-            "text": "\"codeName\": \"Supermine\""
-        },
-        {
-            "style": "Text",
-            "text": "}"
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609789116514
         },
         {
             "style": "List",

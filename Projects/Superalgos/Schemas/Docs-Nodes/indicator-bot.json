@@ -22,23 +22,13 @@
         },
         {
             "style": "Title",
-            "text": "Configuring Indicator Bot"
+            "text": "Indicator Bot Configuration",
+            "updated": 1609789150912
         },
         {
             "style": "Text",
-            "text": "Select Configure Bot on the menu to access the configuration."
-        },
-        {
-            "style": "Text",
-            "text": "{"
-        },
-        {
-            "style": "Text",
-            "text": "\"codeName\": \"Superbot\""
-        },
-        {
-            "style": "Text",
-            "text": "}"
+            "text": "Properties",
+            "updated": 1609789156452
         },
         {
             "style": "List",

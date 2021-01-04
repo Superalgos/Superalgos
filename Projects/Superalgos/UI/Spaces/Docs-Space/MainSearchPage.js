@@ -51,6 +51,7 @@ function newSuperalgosDocsMainSearchPage() {
         }
         element.addEventListener("keyup", function (event) {
             if (event.key === "Enter" || event.keyCode === 13) {
+                UI.projects.superalgos.spaces.docsSpace.contextMenu.forceOutClick()
                 UI.projects.superalgos.spaces.docsSpace.commandInterface.command = element.value
                 UI.projects.superalgos.spaces.docsSpace.commandInterface.detectCommands()
             }

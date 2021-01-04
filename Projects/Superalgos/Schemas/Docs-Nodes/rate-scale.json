@@ -17,7 +17,7 @@
             "text": "When set at the level of the time machine, the scale settings affect all charts within the time machine. When set at the level of the timeline chart, the settings override the rate scale at the time machine level. This allows having multiple charts on the same time machine, each with a different rate scale."
         },
         {
-            "style": "Title",
+            "style": "Subtitle",
             "text": "Scale Minimum and Maximum Values"
         },
         {
@@ -29,7 +29,7 @@
             "text": "In technical terms, the minimum and maximum scale values are constantly changing as, whenever you pan across the charts, you are directly affecting the minimum and maximum scale values. That said, the actual scale may change dynamically or not, depending on the scale-automation settings."
         },
         {
-            "style": "Title",
+            "style": "Subtitle",
             "text": "Automatic Scale"
         },
         {
@@ -49,7 +49,7 @@
             "text": "The scale may be automated on either, or both minimum and maximum values at the same time. In the later case, no data point in the span of the chart ever remains out of the visible area of the chart, as the lowest data point aligns with the bottom of the chart and the highest aligns with the top."
         },
         {
-            "style": "Title",
+            "style": "Subtitle",
             "text": "Manual Scale"
         },
         {
@@ -57,7 +57,7 @@
             "text": "The system also features a manual mode. When in manual mode the scale does not change, even if the minimum and maximum values change while panning across a chart. This design feature allows comparing different periods using the same scale, which may be valuable in many cases."
         },
         {
-            "style": "Title",
+            "style": "Subtitle",
             "text": "Scale Offset"
         },
         {
@@ -65,18 +65,72 @@
             "text": "The offset is a feature of the rate scale by which the scale may be shifted upwards or downwards. As a result, charts aligned on the vertical axis&mdash;synchronized in datetime by a shared time machine&mdash;may be put one above the other. In technical terms, what happens is that the scale is shifted upwards or downwards."
         },
         {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Configuring Rate Scale"
+        },
+        {
+            "style": "Text",
+            "text": "Select Configure Rate Scale on the menu to access the configuration."
+        },
+        {
+            "style": "Text",
+            "text": "{"
+        },
+        {
+            "style": "Text",
+            "text": "    \"minValue\": 388.60416666666424,"
+        },
+        {
+            "style": "Text",
+            "text": "    \"maxValue\": 9715.104166666664,"
+        },
+        {
+            "style": "Text",
+            "text": "    \"autoMinScale\": true,"
+        },
+        {
+            "style": "Text",
+            "text": "    \"autoMaxScale\": true"
+        },
+        {
+            "style": "Text",
+            "text": "}"
+        },
+        {
+            "style": "List",
+            "text": "minValue is a numerical value that represents the value of the scale at the bottom of the chart."
+        },
+        {
+            "style": "List",
+            "text": "maxValue is a numerical value that represents the value of the scale at the top of the chart."
+        },
+        {
+            "style": "List",
+            "text": "autoMinScale sets the mode of the scale for the minimum value; true sets the value to automatic, false sets the value to manual."
+        },
+        {
+            "style": "List",
+            "text": "autoMaxScale sets the mode of the scale for the maximum value; true sets the value to automatic, false sets the value to manual."
+        },
+        {
+            "style": "Block",
+            "text": "Charts"
+        },
+        {
             "style": "Title",
             "text": "Rate Scale at the Charts"
         },
         {
-            "style": "Subtitle",
-            "text": "Automatic Scale",
-            "updated": 1609783271471
+            "style": "Text",
+            "text": "<H4>Automatic Scale</H4>"
         },
         {
             "style": "Text",
-            "text": "To change the automatic scale settings, place the mouse pointer over the corresponding time machine or timeline chart rate box, press the <kbd>Shift</kbd> key and slowly scroll the wheel of the mouse. The action cycles through different possible scale automation settings. Notice a tiny green triangle below and/or above the rate scale icon.",
-            "updated": 1609783256953
+            "text": "1. To change the automatic scale settings, place the mouse pointer over the corresponding time machine or timeline chart rate box, press the <kbd>Shift</kbd> key and slowly scroll the wheel of the mouse. The action cycles through different possible scale automation settings. Notice a tiny green triangle below and/or above the rate scale icon."
         },
         {
             "style": "List",
@@ -95,9 +149,8 @@
             "text": "No triangle means that both minimum and maximum values are in manual mode."
         },
         {
-            "style": "Subtitle",
-            "text": "Manual Scale",
-            "updated": 1609783276345
+            "style": "Text",
+            "text": "<H4>Manual Scale</H4>"
         },
         {
             "style": "Text",
@@ -116,9 +169,8 @@
             "text": "This action has no effect when both minimum and maximum values are set to automatic mode."
         },
         {
-            "style": "Subtitle",
-            "text": "Scale Offset",
-            "updated": 1609783281780
+            "style": "Text",
+            "text": "<H4>Scale Offset</H4>"
         },
         {
             "style": "Text",
@@ -131,37 +183,6 @@
         {
             "style": "Note",
             "text": "Setting an offset in a timeline chart only makes sense in the context of a time machine with multiple charts. That is, if you are browsing a single chart, an offset behaves the same as moving the single chart up or down."
-        },
-        {
-            "style": "Block",
-            "text": "Configuring",
-            "updated": 1609783339189
-        },
-        {
-            "style": "Title",
-            "text": "Rate Scale Configuration",
-            "updated": 1609783329574
-        },
-        {
-            "style": "Subtitle",
-            "text": "Properties"
-        },
-        {
-            "style": "List",
-            "text": "minValue is a numerical value that represents the value of the scale at the bottom of the chart.",
-            "updated": 1609783389883
-        },
-        {
-            "style": "List",
-            "text": "maxValue is a numerical value that represents the value of the scale at the top of the chart."
-        },
-        {
-            "style": "List",
-            "text": "autoMinScale sets the mode of the scale for the minimum value; true sets the value to automatic, false sets the value to manual."
-        },
-        {
-            "style": "List",
-            "text": "autoMaxScale sets the mode of the scale for the maximum value; true sets the value to automatic, false sets the value to manual."
         }
     ]
 }

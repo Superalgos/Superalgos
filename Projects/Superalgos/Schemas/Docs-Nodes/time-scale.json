@@ -9,7 +9,7 @@
             "text": "Content"
         },
         {
-            "style": "Title",
+            "style": "Subtitle",
             "text": "Scale Minimum and Maximum Values"
         },
         {
@@ -21,7 +21,7 @@
             "text": "In technical terms, the minimum and maximum scale values are constantly changing as, whenever you pan across the charts, you are directly affecting the minimum and maximum scale values. That said, the actual scale doesn't change when panning across a chart."
         },
         {
-            "style": "Title",
+            "style": "Subtitle",
             "text": "Automatic Scale"
         },
         {
@@ -45,12 +45,64 @@
             "text": "Having the time scale set to automatic by default helps finding the data as soon as it starts being processed the first time you run the Masters bot instances."
         },
         {
-            "style": "Title",
+            "style": "Subtitle",
             "text": "Manual Scale"
         },
         {
             "style": "Text",
             "text": "The scale features a manual mode. When in manual mode the scale does not change, even if the minimum and maximum values change while panning through a chart. This is the natural state of the time scale."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Configuring Time Scale"
+        },
+        {
+            "style": "Text",
+            "text": "Select Configure Rate Scale on the menu to access the configuration."
+        },
+        {
+            "style": "Text",
+            "text": "{"
+        },
+        {
+            "style": "Text",
+            "text": "    \"fromDate\": \"2019-05-02T20:07:50.872Z\","
+        },
+        {
+            "style": "Text",
+            "text": "    \"toDate\": \"2019-05-22T20:28:21.515Z\","
+        },
+        {
+            "style": "Text",
+            "text": "    \"autoMinScale\": false,"
+        },
+        {
+            "style": "Text",
+            "text": "    \"autoMaxScale\": false"
+        },
+        {
+            "style": "Text",
+            "text": "}"
+        },
+        {
+            "style": "List",
+            "text": "minValue is a date in the Epoch time format that represents the value of the scale at the left border of the chart."
+        },
+        {
+            "style": "List",
+            "text": "maxValue is a date in the Epoch time format that represents the value of the scale at the right border of the chart."
+        },
+        {
+            "style": "List",
+            "text": "autoMinScale sets the mode of the scale for the minimum value; true sets the value to automatic, false sets the value to manual."
+        },
+        {
+            "style": "List",
+            "text": "autoMaxScale sets the mode of the scale for the maximum value; true sets the value to automatic, false sets the value to manual."
         },
         {
             "style": "Block",
@@ -61,14 +113,12 @@
             "text": "Time Scale at the Charts"
         },
         {
-            "style": "Subtitle",
-            "text": "Automatic Scale",
-            "updated": 1609782523590
+            "style": "Text",
+            "text": "<H4>Automatic Scale</H4>"
         },
         {
             "style": "Text",
-            "text": "To change the automatic scale settings, place the mouse pointer over the corresponding time box, press the <kbd>Shift</kbd> key and slowly scroll the wheel of the mouse. The action cycles through different possible scale automation settings. Notice a tiny green triangle to the sides of the time scale icon.",
-            "updated": 1609782562160
+            "text": "1. To change the automatic scale settings, place the mouse pointer over the corresponding time box, press the <kbd>Shift</kbd> key and slowly scroll the wheel of the mouse. The action cycles through different possible scale automation settings. Notice a tiny green triangle to the sides of the time scale icon."
         },
         {
             "style": "List",
@@ -87,9 +137,8 @@
             "text": "No triangle means that both minimum and maximum values are in manual mode."
         },
         {
-            "style": "Subtitle",
-            "text": "Manual Scale",
-            "updated": 1609782535042
+            "style": "Text",
+            "text": "<H4>Manual Scale</H4>"
         },
         {
             "style": "Text",
@@ -106,38 +155,6 @@
         {
             "style": "Note",
             "text": "This action has no effect when both minimum and maximum values are set to automatic mode."
-        },
-        {
-            "style": "Block",
-            "text": "Configuring",
-            "updated": 1609782587544
-        },
-        {
-            "style": "Title",
-            "text": "Time Scale Configuration",
-            "updated": 1609782618234
-        },
-        {
-            "style": "Subtitle",
-            "text": "Properties",
-            "updated": 1609782652970
-        },
-        {
-            "style": "List",
-            "text": "minValue is a date in the Epoch time format that represents the value of the scale at the left border of the chart.",
-            "updated": 1609782661151
-        },
-        {
-            "style": "List",
-            "text": "maxValue is a date in the Epoch time format that represents the value of the scale at the right border of the chart."
-        },
-        {
-            "style": "List",
-            "text": "autoMinScale sets the mode of the scale for the minimum value; true sets the value to automatic, false sets the value to manual."
-        },
-        {
-            "style": "List",
-            "text": "autoMaxScale sets the mode of the scale for the maximum value; true sets the value to automatic, false sets the value to manual."
         }
     ]
 }

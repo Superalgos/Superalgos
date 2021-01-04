@@ -27,6 +27,10 @@
         {
             "style": "Chapter",
             "text": "Superalgos->V->Docs Paragraph Styles"
+        },
+        {
+            "style": "Chapter",
+            "text": "Superalgos->VI->Docs Context Menu Actions"
         }
     ]
 }

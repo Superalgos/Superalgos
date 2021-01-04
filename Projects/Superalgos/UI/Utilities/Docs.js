@@ -198,7 +198,7 @@ function newSuperalgosUtilitiesDocs() {
         let HTML = ''
         let splittedText = text.split('->')
         if (splittedText.length < 1) { return }
-        HTML = '<a  params="' + text + '" onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\''+ splittedText[0] + '\', \'Topic\', \''+ splittedText[1] +'\')" class="docs-chapter-link">' + splittedText[1] + '</a>'
+        HTML = '<a  params="' + text + '" onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + splittedText[0] + '\', \'Topic\', \'' + splittedText[1] + '\')" class="docs-chapter-link">' + splittedText[1] + '</a>'
         return HTML
     }
 
@@ -440,6 +440,9 @@ function newSuperalgosUtilitiesDocs() {
     /* Private Functions follow */
     function tagDefinedTypes(text, excludedType) {
         let cleanText = text.replace(/'/g, ' AMPERSAND ') // scaping ampersands, separating them from other words
+            .replaceAll('<', ' < ')
+            .replaceAll('>', ' > ')
+            .replaceAll(':', ' : ')
         let words = cleanText.split(' ')
         let taggedText = ''
         for (let i = 0; i < words.length; i++) {
@@ -670,6 +673,9 @@ function newSuperalgosUtilitiesDocs() {
             }
         }
         taggedText = taggedText.replaceAll(' AMPERSAND ', '\'')
+            .replaceAll(' < ', '<')
+            .replaceAll(' > ', '>')
+            .replaceAll(' : ', ':')
         return taggedText
     }
 

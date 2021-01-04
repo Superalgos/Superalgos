@@ -13,48 +13,22 @@
             "text": "In other words, you use the layers manager node to configure which data products you wish to be made available for visualization purposes on the charts, in particular, on a specific timeline chart to which the layers manager node is attached to."
         },
         {
+            "style": "Note",
+            "text": "The Layer Manager node usually references a Trading Mine Products or Data Mine Products node in the Data Storage section of the Network Node."
+        },
+        {
             "style": "Block",
             "text": "Configuring"
         },
         {
             "style": "Title",
-            "text": "Configuring Layer Manager"
+            "text": "Layer Manager Configuration",
+            "updated": 1609784094455
         },
         {
-            "style": "Text",
-            "text": "Select Configure Layers Manager in the menu to access the configuration."
-        },
-        {
-            "style": "Text",
-            "text": "{"
-        },
-        {
-            "style": "Text",
-            "text": "    \"visibleLayers\": 3,"
-        },
-        {
-            "style": "Text",
-            "text": "    \"panelLocation\": {"
-        },
-        {
-            "style": "Text",
-            "text": "        \"upOrDown\": \"up\","
-        },
-        {
-            "style": "Text",
-            "text": "        \"leftOrRight\": \"left\""
-        },
-        {
-            "style": "Text",
-            "text": "    },"
-        },
-        {
-            "style": "Text",
-            "text": "    \"labelTwoFontSize\": 12"
-        },
-        {
-            "style": "Text",
-            "text": "}"
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609784101355
         },
         {
             "style": "List",

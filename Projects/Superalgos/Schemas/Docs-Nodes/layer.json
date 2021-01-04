@@ -14,42 +14,6 @@
         },
         {
             "style": "Block",
-            "text": "Configuring"
-        },
-        {
-            "style": "Title",
-            "text": "Configuring Layer"
-        },
-        {
-            "style": "Text",
-            "text": "Select Configure Layer on the menu to access the configuration."
-        },
-        {
-            "style": "Text",
-            "text": "{"
-        },
-        {
-            "style": "Text",
-            "text": "    \"status\":\"on\","
-        },
-        {
-            "style": "Text",
-            "text": "    \"showPanels\":true"
-        },
-        {
-            "style": "Text",
-            "text": "}"
-        },
-        {
-            "style": "Text",
-            "text": " status may be on or off* and refers to the layer being visible or not on the charts."
-        },
-        {
-            "style": "Text",
-            "text": " showPanels may be true or false; true shows the plotter panel that may be associated with the data product as per the plotter module definitions; false* makes panels invisible."
-        },
-        {
-            "style": "Block",
             "text": "Charts"
         },
         {
@@ -63,6 +27,30 @@
         {
             "style": "Text",
             "text": "To turn on and off a layer panel, click the panel button on the bottom-left corner of the layer."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring",
+            "updated": 1609784753729
+        },
+        {
+            "style": "Title",
+            "text": "Layer Configuration",
+            "updated": 1609784767118
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609784779223
+        },
+        {
+            "style": "List",
+            "text": "status may be on or off* and refers to the layer being visible or not on the charts.",
+            "updated": 1609784804308
+        },
+        {
+            "style": "List",
+            "text": "showPanels may be true or false; true shows the plotter panel that may be associated with the data product as per the plotter module definitions; false* makes panels invisible."
         }
     ]
 }

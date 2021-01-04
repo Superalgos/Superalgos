@@ -270,6 +270,7 @@ function newSuperalgosUtilitiesDocs() {
             .replaceAll(')', ' ) ')
             .replaceAll('[', ' [ ')
             .replaceAll(']', ' ] ')
+            .replaceAll(',', ' , ')
         let splittedText = expandedText.split(' ')
         let result = ''
         for (let i = 0; i < splittedText.length; i++) {
@@ -290,6 +291,7 @@ function newSuperalgosUtilitiesDocs() {
             .replaceAll(' ) ', ')')
             .replaceAll(' [ ', '[')
             .replaceAll(' ] ', ']')
+            .replaceAll(' , ', ',')
         return result
     }
 

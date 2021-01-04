@@ -1145,7 +1145,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             folder = 'Docs-Topics'
                             break
                         }
-                        case 'DocsBooksSchema': {
+                        case 'DocsBookSchema': {
                             folder = 'Docs-Books'
                             break
                         }
@@ -1162,6 +1162,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                     let schema = JSON.stringify(schemaArray)
                     respondWithContent(schema, httpResponse)
                 } catch (err) {
+                    console.log('Could not send Schema:' ,filePath, schemaType)
                     console.log(err.stack)
                     respondWithContent("[]", httpResponse)
                 }

@@ -1,3 +1,14 @@
 {
-    "type": "Project Dashboards"
+    "type": "Project Dashboards",
+    "paragraphs": [
+        {
+            "style": "Note",
+            "text": "Superalgos organizes the data structures in the Charting Space hierarchy by Project to ensure scalability.",
+            "updated": 1609777659213
+        }
+    ],
+    "definition": {
+        "text": "The Project Dashboards node is an organizational device grouping all dashboards corresponding to the same Project.",
+        "updated": 1609777683263
+    }
 }

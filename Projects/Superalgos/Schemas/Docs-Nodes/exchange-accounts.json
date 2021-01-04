@@ -3,5 +3,15 @@
     "definition": {
         "text": "The exchange accounts node groups the different accounts the user may have with the corresponding exchange."
     },
-    "paragraphs": []
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1609777103880
+        },
+        {
+            "style": "Text",
+            "text": "This section of the Crypto Ecosystem hierarchy deals with concepts related to the user."
+        }
+    ]
 }

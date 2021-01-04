@@ -242,7 +242,7 @@ function newSuperalgosDocsCommmandInterface() {
             UI.projects.superalgos.spaces.docsSpace.setUpWorkspaceSchemas()
             UI.projects.superalgos.spaces.docsSpace.searchEngine.setUpSearchEngine()
 
-            renderCommandResultsPage(["Succesfully rebuild the search engine indexes."])
+            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message Reindexing Succed')
         }
 
         function checkUSaveCommand() {
@@ -286,7 +286,7 @@ function newSuperalgosDocsCommmandInterface() {
 
                 if (responseCount === requestsSent) {
                     if (responseCount === okResponses) {
-                        renderCommandResultsPage(["Succesfully saved all the latest changes."])
+                        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message Saving Succed')
                     } else {
                         UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Changes Not Saved', 'Anchor Changes Not Saved')
                     }
@@ -414,7 +414,6 @@ function newSuperalgosDocsCommmandInterface() {
             }
 
             SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.delete(type)
-            renderCommandResultsPage(["Node <b>" + type + "</b> deleted."])
 
             for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema.length; i++) {
                 docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema[i]
@@ -423,6 +422,7 @@ function newSuperalgosDocsCommmandInterface() {
                     break
                 }
             }
+            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message Deleting Succed')
         }
 
         function deleteConcept(project, type) {
@@ -437,7 +437,6 @@ function newSuperalgosDocsCommmandInterface() {
             }
 
             SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.delete(type)
-            renderCommandResultsPage(["Concept <b>" + type + "</b> deleted."])
 
             for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema.length; i++) {
                 docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema[i]
@@ -446,6 +445,7 @@ function newSuperalgosDocsCommmandInterface() {
                     break
                 }
             }
+            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message Deleting Succed')
         }
 
         function deleteTopic(project, topic, type, pageNumber) {
@@ -469,7 +469,6 @@ function newSuperalgosDocsCommmandInterface() {
             }
 
             SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.delete(type)
-            renderCommandResultsPage(["Topic <b>" + type + "</b> deleted."])
 
             for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema.length; i++) {
                 docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema[i]
@@ -478,6 +477,7 @@ function newSuperalgosDocsCommmandInterface() {
                     break
                 }
             }
+            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message Deleting Succed')
         }
 
         function deleteBook(project, type) {
@@ -492,7 +492,6 @@ function newSuperalgosDocsCommmandInterface() {
             }
 
             SCHEMAS_BY_PROJECT.get(project).map.docsBookSchema.delete(type)
-            renderCommandResultsPage(["Book <b>" + type + "</b> deleted."])
 
             for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsBookSchema.length; i++) {
                 docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsBookSchema[i]
@@ -501,34 +500,7 @@ function newSuperalgosDocsCommmandInterface() {
                     break
                 }
             }
-        }
-    }
-
-    function renderCommandResultsPage(resultArray) {
-
-        buildHTML()
-
-        function buildHTML() {
-            let HTML = ''
-            HTML = HTML + '<section id="docs-search-results-div" class="docs-search-page-container">'
-            HTML = HTML + UI.projects.superalgos.spaces.docsSpace.mainSearchPage.addSearchHeader()
-            // Results
-            for (let i = 0; i < resultArray.length; i++) {
-                let result = resultArray[i]
-                HTML = HTML + '<p class="docs-command-result-message">' + result + '</p>'
-            }
-
-            // End Content
-            HTML = HTML + '</div>'
-
-            // End Section
-            HTML = HTML + '</section>'
-
-            let docsContentDiv = document.getElementById('docs-content-div')
-            docsContentDiv.innerHTML = HTML + UI.projects.superalgos.spaces.docsSpace.footer.addFooter()
-
-            UI.projects.superalgos.spaces.docsSpace.mainSearchPage.detectEnterOnSearchBox()
-            UI.projects.superalgos.spaces.docsSpace.mainSearchPage.setFocusOnSearchBox()
+            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message Deleting Succed')
         }
     }
 }

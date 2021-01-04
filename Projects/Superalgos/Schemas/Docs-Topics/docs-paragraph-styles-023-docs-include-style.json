@@ -23,12 +23,13 @@
         },
         {
             "style": "List",
-            "text": "Project : Is the project where the Docs Page belongs to.",
-            "updated": 1609259672503
+            "text": "Project: Is the project where the Docs Page belongs to.",
+            "updated": 1609777972700
         },
         {
             "style": "List",
-            "text": "Docs Page Category : Node, Concept or Topic."
+            "text": "Docs Page Category: Node, Concept or Topic.",
+            "updated": 1609777966388
         },
         {
             "style": "List",
@@ -46,13 +47,13 @@
         },
         {
             "style": "Javascript",
-            "text": "docs.goto Superalgos->Node->Task->Block Intro",
-            "updated": 1609259810378
+            "text": "Superalgos->Node->Task->Block Intro",
+            "updated": 1609777998302
         },
         {
             "style": "Javascript",
-            "text": "docs.goto Superalgos->Topic->Docs Text Style->Block1",
-            "updated": 1609259792093
+            "text": "Superalgos->Topic->Docs Text Style->Block1",
+            "updated": 1609778004235
         }
     ]
 }

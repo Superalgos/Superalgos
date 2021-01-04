@@ -244,11 +244,11 @@ function newSuperalgosDocsDocumentPage() {
 
                         HTML = HTML + '<p><center>'
                         if (previousPage !== undefined) {
-                            HTML = HTML + '(Previous) <a class="docs-link" onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project + '\', \'' + 'Topic' + '\', \'' + previousPage.type.replace(/'/g, 'AMPERSAND') + '\')">' + previousPage.type + '</a>'
+                            HTML = HTML + '<a class="docs-link" onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project + '\', \'' + 'Topic' + '\', \'' + previousPage.type.replace(/'/g, 'AMPERSAND') + '\')">' + previousPage.type + '</a> << '
                         }
                         HTML = HTML + ' Current Page: ' + thisObject.docsSchemaDocument.pageNumber + ' '
                         if (nextPage !== undefined) {
-                            HTML = HTML + '<a class="docs-link" onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project + '\', \'' + 'Topic' + '\', \'' + nextPage.type.replace(/'/g, 'AMPERSAND') + '\')">' + nextPage.type + '</a> (Next)'
+                            HTML = HTML + ' >> <a class="docs-link" onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project + '\', \'' + 'Topic' + '\', \'' + nextPage.type.replace(/'/g, 'AMPERSAND') + '\')">' + nextPage.type + '</a>'
                         }
                         HTML = HTML + '</center></p>'
                         return
@@ -1194,8 +1194,8 @@ function newSuperalgosDocsDocumentPage() {
                         innerHTML = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)
                         innerHTML = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(innerHTML)
                         innerHTML = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(innerHTML)
-                        innerHTML = UI.projects.superalgos.utilities.docs.addToolTips(innerHTML, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type)
                         innerHTML = UI.projects.superalgos.utilities.docs.addItalics(innerHTML)
+                        innerHTML = UI.projects.superalgos.utilities.docs.addToolTips(innerHTML, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type)
                         innerHTML = innerHTML + UI.projects.superalgos.utilities.docs.addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
@@ -1223,8 +1223,8 @@ function newSuperalgosDocsDocumentPage() {
                         role = 'role="alert"'
                         key = key + '-note'
                         innerHTML = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)
-                        innerHTML = UI.projects.superalgos.utilities.docs.addToolTips(innerHTML, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type)
                         innerHTML = UI.projects.superalgos.utilities.docs.addItalics(innerHTML)
+                        innerHTML = UI.projects.superalgos.utilities.docs.addToolTips(innerHTML, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type)
                         innerHTML = innerHTML + UI.projects.superalgos.utilities.docs.addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
@@ -1234,8 +1234,8 @@ function newSuperalgosDocsDocumentPage() {
                         role = 'role="alert"'
                         key = key + '-success'
                         innerHTML = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)
-                        innerHTML = UI.projects.superalgos.utilities.docs.addToolTips(innerHTML, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type)
                         innerHTML = UI.projects.superalgos.utilities.docs.addItalics(innerHTML)
+                        innerHTML = UI.projects.superalgos.utilities.docs.addToolTips(innerHTML, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type)
                         innerHTML = innerHTML + UI.projects.superalgos.utilities.docs.addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
@@ -1245,8 +1245,8 @@ function newSuperalgosDocsDocumentPage() {
                         role = 'role="alert"'
                         key = key + '-important'
                         innerHTML = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)
-                        innerHTML = UI.projects.superalgos.utilities.docs.addToolTips(innerHTML, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type)
                         innerHTML = UI.projects.superalgos.utilities.docs.addItalics(innerHTML)
+                        innerHTML = UI.projects.superalgos.utilities.docs.addToolTips(innerHTML, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type)
                         innerHTML = innerHTML + UI.projects.superalgos.utilities.docs.addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
@@ -1256,8 +1256,8 @@ function newSuperalgosDocsDocumentPage() {
                         role = 'role="alert"'
                         key = key + '-warning'
                         innerHTML = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)
-                        innerHTML = UI.projects.superalgos.utilities.docs.addToolTips(innerHTML, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type)
                         innerHTML = UI.projects.superalgos.utilities.docs.addItalics(innerHTML)
+                        innerHTML = UI.projects.superalgos.utilities.docs.addToolTips(innerHTML, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type)
                         innerHTML = innerHTML + UI.projects.superalgos.utilities.docs.addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
@@ -1277,8 +1277,8 @@ function newSuperalgosDocsDocumentPage() {
                         role = ''
                         key = key + '-callout'
                         innerHTML = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)
-                        innerHTML = UI.projects.superalgos.utilities.docs.addToolTips(innerHTML, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type)
                         innerHTML = UI.projects.superalgos.utilities.docs.addItalics(innerHTML)
+                        innerHTML = UI.projects.superalgos.utilities.docs.addToolTips(innerHTML, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type)
                         innerHTML = innerHTML + UI.projects.superalgos.utilities.docs.addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
@@ -1288,8 +1288,8 @@ function newSuperalgosDocsDocumentPage() {
                         role = ''
                         key = key + '-summary'
                         innerHTML = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)
-                        innerHTML = UI.projects.superalgos.utilities.docs.addToolTips(innerHTML, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type)
                         innerHTML = UI.projects.superalgos.utilities.docs.addItalics(innerHTML)
+                        innerHTML = UI.projects.superalgos.utilities.docs.addToolTips(innerHTML, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type)
                         innerHTML = innerHTML + UI.projects.superalgos.utilities.docs.addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
@@ -1300,7 +1300,6 @@ function newSuperalgosDocsDocumentPage() {
                         key = key + '-section'
                         innerHTML = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)
                         innerHTML = UI.projects.superalgos.utilities.docs.addToolTips(innerHTML, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type)
-                        innerHTML = UI.projects.superalgos.utilities.docs.addItalics(innerHTML)
                         innerHTML = innerHTML + UI.projects.superalgos.utilities.docs.addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }
@@ -1312,9 +1311,9 @@ function newSuperalgosDocsDocumentPage() {
                         key = key + '-list'
                         innerHTML = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)
                         innerHTML = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(innerHTML)
-                        innerHTML = UI.projects.superalgos.utilities.docs.addToolTips(innerHTML, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type)
                         innerHTML = UI.projects.superalgos.utilities.docs.addBold(innerHTML)
                         innerHTML = UI.projects.superalgos.utilities.docs.addItalics(innerHTML)
+                        innerHTML = UI.projects.superalgos.utilities.docs.addToolTips(innerHTML, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type)
                         innerHTML = innerHTML + UI.projects.superalgos.utilities.docs.addWarningIfTranslationIsOutdated(paragraph)
                         break
                     }

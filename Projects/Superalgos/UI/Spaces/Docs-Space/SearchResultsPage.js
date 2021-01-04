@@ -150,6 +150,10 @@ function newSuperalgosDocsSearchResultsPage() {
                             documentPoints = documentPoints + thisPhraseCount * 1
                             break
                         }
+                        case 'chapter': {
+                            documentPoints = documentPoints + thisPhraseCount * 8
+                            break
+                        }
                     }
                 }
 

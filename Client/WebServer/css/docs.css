@@ -921,7 +921,12 @@ text-align: center;
 vertical-align: middle;
 }
 
-.docs-link {
+.docs-external-link {
+text-decoration: none;
+color: #31708f;
+}
+
+.docs-chapter {
 text-decoration: none;
 color: #31708f;
 }

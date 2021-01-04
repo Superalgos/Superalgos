@@ -45,6 +45,7 @@ function newSuperalgosDocsContextMenu() {
             toAnchor: toAnchor,
             toBlock: toBlock,
             toInclude: toInclude,
+            toChapter: toChapter,
             toSection: toSection,
             copyLink: copyLink,
             toWebPageLink: toWebPageLink,
@@ -266,6 +267,13 @@ function newSuperalgosDocsContextMenu() {
             UI.projects.superalgos.spaces.docsSpace.documentPage.render()
         }
 
+        function toChapter() {
+            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
+            docSchemaParagraph.style = 'Chapter'
+            forceOutClick()
+            UI.projects.superalgos.spaces.docsSpace.documentPage.render()
+        }
+
         function toWebPageLink() {
             let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
             docSchemaParagraph.style = 'Link'
@@ -461,6 +469,10 @@ function newSuperalgosDocsContextMenu() {
             return true
         }
         if (paragraphNode.id.indexOf('-include') >= 0) {
+            selectedParagraphData = paragraphNode.innerText.trim()
+            return true
+        }
+        if (paragraphNode.id.indexOf('-chapter') >= 0) {
             selectedParagraphData = paragraphNode.innerText.trim()
             return true
         }

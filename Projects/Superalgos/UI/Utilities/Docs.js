@@ -190,7 +190,15 @@ function newSuperalgosUtilitiesDocs() {
         let HTML = ''
         let splittedText = text.split('->')
         if (splittedText.length < 1) { return }
-        HTML = '<a  params="' + text + '" href="http://' + splittedText[1] + '" target="_" class="docs-link">' + splittedText[0] + '</a>'
+        HTML = '<a  params="' + text + '" href="http://' + splittedText[1] + '" target="_" class="docs-external-link">' + splittedText[0] + '</a>'
+        return HTML
+    }
+
+    function parseChapter(text) {
+        let HTML = ''
+        let splittedText = text.split('->')
+        if (splittedText.length < 1) { return }
+        HTML = '<a  params="' + text + '" onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\''+ splittedText[0] + '\', \'Topic\', \''+ splittedText[1] +'\')" class="docs-chapter-link">' + splittedText[1] + '</a>'
         return HTML
     }
 

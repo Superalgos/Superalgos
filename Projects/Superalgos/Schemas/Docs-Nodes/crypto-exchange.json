@@ -10,55 +10,13 @@
         },
         {
             "style": "Title",
-            "text": "Configuring Crypto Exchange"
+            "text": "Crypto Exchange Configuration",
+            "updated": 1609771676751
         },
         {
-            "style": "Text",
-            "text": "Select Configure Crypto Exchange on the menu to access the configuration."
-        },
-        {
-            "style": "Text",
-            "text": "{"
-        },
-        {
-            "style": "Text",
-            "text": "    \"codeName\": \"binance\","
-        },
-        {
-            "style": "Text",
-            "text": "    \"API\": ["
-        },
-        {
-            "style": "Text",
-            "text": "        {"
-        },
-        {
-            "style": "Text",
-            "text": "            \"method\": \"fetchTrades\","
-        },
-        {
-            "style": "Text",
-            "text": "            \"fetchType\": \"by Id\","
-        },
-        {
-            "style": "Text",
-            "text": "            \"fetchTradesMethod\": \"publicGetHistoricalTrades\","
-        },
-        {
-            "style": "Text",
-            "text": "            \"firstId\": \"f\""
-        },
-        {
-            "style": "Text",
-            "text": "        }"
-        },
-        {
-            "style": "Text",
-            "text": "    ]"
-        },
-        {
-            "style": "Text",
-            "text": "}"
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609771684679
         },
         {
             "style": "List",

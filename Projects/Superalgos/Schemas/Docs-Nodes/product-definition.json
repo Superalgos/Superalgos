@@ -22,13 +22,31 @@
         },
         {
             "style": "Title",
-            "text": "Product Definition Configuration",
-            "updated": 1609788267834
+            "text": "Configuring Product Definition"
         },
         {
-            "style": "Subtitle",
-            "text": "Properties",
-            "updated": 1609788279998
+            "style": "Text",
+            "text": "Select Configure Product on the menu to access the configuration."
+        },
+        {
+            "style": "Text",
+            "text": "{"
+        },
+        {
+            "style": "Text",
+            "text": "  \"codeName\": \"Product-Name\","
+        },
+        {
+            "style": "Text",
+            "text": "  \"singularVariableName\": \"productName\","
+        },
+        {
+            "style": "Text",
+            "text": "  \"pluralVariableName\": \"productNames\""
+        },
+        {
+            "style": "Text",
+            "text": "}"
         },
         {
             "style": "List",

@@ -17,36 +17,35 @@ function newSuperalgosDocsCommmandInterface() {
     }
 
     function detectCommands() {
-        detectAppCommands()
+        if (detectAppCommands() === true) {return} 
         detectDocsCommands()
     }
 
     function detectAppCommands() {
-        if (checkContributeCommand() === undefined) { return }
+        if (checkContributeCommand() === undefined) { return } else { return true }
 
         function checkContributeCommand() {
             if (UI.projects.superalgos.spaces.docsSpace.commandInterface.command.toLowerCase() === 'app.help app.contribute') {
                 UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Contribute Command')
                 return
             }
-            if (UI.projects.superalgos.spaces.docsSpace.commandInterface.command.indexOf('App.Contribute') !== 0 && UI.projects.superalgos.spaces.docsSpace.commandInterface.command.indexOf('app.contribute') !== 0) { return 'Not Save Command' }
+            if (UI.projects.superalgos.spaces.docsSpace.commandInterface.command.indexOf('App.Contribute') !== 0 && UI.projects.superalgos.spaces.docsSpace.commandInterface.command.indexOf('app.contribute') !== 0) { return }
 
-            httpRequest(JSON.stringify(docsSchema), 'App/Contribute/' + message, onResponse)
+            let message = UI.projects.superalgos.spaces.docsSpace.commandInterface.command.trim().substring(UI.projects.superalgos.spaces.docsSpace.commandInterface.command.indexOf(' ') + 1, UI.projects.superalgos.spaces.docsSpace.commandInterface.command.length)
+            if (message.toLowerCase() === 'app.contribute') {
+                message = 'This is my contribution to Superalgos'
+            } 
+
+            httpRequest(undefined, 'App/Contribute/' + message, onResponse)
+            return true
 
             function onResponse(err, data) {
                 /* Lets check the result of the call through the http interface */
                 data = JSON.parse(data)
                 if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                    okResponses++
-                }
-                responseCount++
-
-                if (responseCount === requestsSent) {
-                    if (responseCount === okResponses) {
-                        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message Saving Succeed')
-                    } else {
-                        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Changes Not Saved', 'Anchor Changes Not Saved')
-                    }
+                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error Contribution Not Sent', 'Anchor Contribution Not Sent')
+                } else {
+                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Message Contribution Succeed')
                 }
             }
         }

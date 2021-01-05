@@ -522,9 +522,9 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                 }
                 break
 
-            case 'Git': {
+            case 'App': {
                 switch (requestParameters[2]) { // switch by command
-                    case 'Commit': {
+                    case 'Contribute': {
                         const simpleGit = require('simple-git');
                         const options = {
                             baseDir: process.cwd(),
@@ -532,9 +532,13 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             maxConcurrentProcesses: 6,
                         }
                         const git = simpleGit(options)
-                        console.log('baseDir = ' + process.cwd())
+                        const commitMessage = unescape(requestParameters[3])
+                        console.log('baseDir = ' + process.cwd(), commitMessage)
+                        respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                        break
                     }
                 }
+                break
             }
             case 'LegacyPlotter.js':
                 {

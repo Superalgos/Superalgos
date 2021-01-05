@@ -526,13 +526,15 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                 switch (requestParameters[2]) { // switch by command
                     case 'Contribute': {
                         try {
-                            const GITHUB = require('../Github.json')
-                            if (GITHUB.user === 'Your Github.com Username' || GITHUB.user === 'Your Github.com Password' ) {
+                            let GITHUB  
+                            try {
+                                GITHUB = require('../Github.json')
+                            } catch (err) {
                                 let error = {
                                     result: 'Fail Because',
                                     message: 'File Github.json does not exist.'
                                 }
-                                respondWithContent(JSON.stringify(error), httpResponse) 
+                                respondWithContent(JSON.stringify(error), httpResponse)
                                 return
                             }
 
@@ -544,16 +546,12 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             }
                             const git = simpleGit(options)
                             const commitMessage = unescape(requestParameters[3])
-                            const USER = 'Luis-Fernando-Molina';
-                            const PASS = 'somewhere';
-                            const REPO = 'github.com/username/private-repo';
-
-                            const remote = `https://${USER}:${PASS}@${REPO}`;
+                            const remote = `https://${GITHUB.user}:${GITHUB.password}@${GITHUB.repository}`;
 
                             git
                                 .add('./*')
                                 .commit(commitMessage)
-                                .push('origin')
+                                .push(remote)
 
                             //function onCommit(err) {
                             //   if (err) { throw err }

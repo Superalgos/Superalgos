@@ -526,7 +526,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                 switch (requestParameters[2]) { // switch by command
                     case 'Contribute': {
                         try {
-                            let GITHUB  
+                            let GITHUB
                             try {
                                 GITHUB = require('../Github.json')
                             } catch (err) {
@@ -549,9 +549,10 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             const remote = `https://${GITHUB.user}:${GITHUB.password}@${GITHUB.repository}`;
 
                             git
+                                .pull()
                                 .add('./*')
                                 .commit(commitMessage)
-                                .push(remote)
+                                .push(remote, 'in-app-documentation')
 
                             //function onCommit(err) {
                             //   if (err) { throw err }

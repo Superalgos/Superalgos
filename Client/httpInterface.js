@@ -536,6 +536,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             const commitMessage = unescape(requestParameters[3])
 
                             git
+                                .pull()
                                 .add('./*')
                                 .commit(commitMessage)
                                 .push('origin', 'in-app-documentation')

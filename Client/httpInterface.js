@@ -536,12 +536,13 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             const commitMessage = unescape(requestParameters[3])
                             git
                                 .add('./*')
-                                .commit(commitMessage, onCommit)
+                                .commit(commitMessage)
+                                .push('origin', 'in-app-documentation')
 
-                            function onCommit(err) {
-                                if (err) { throw err }
-                                respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
-                            }
+                            //function onCommit(err) {
+                            //   if (err) { throw err }
+                            respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                            //}
                         } catch (err) {
                             console.log('[ERROR] httpInterface -> App -> Contribute -> Method call produced an error.')
                             console.log('[ERROR] httpInterface -> App -> Contribute -> err.stack = ' + err.stack)

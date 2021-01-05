@@ -10,11 +10,18 @@
         },
         {
             "style": "Title",
-            "text": "Configuring Plugin Project"
+            "text": "Plugin Project Configuration",
+            "updated": 1609869540204
         },
         {
-            "style": "Text",
-            "text": "Select Configure on the menu to access the configuration."
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609869554268
+        },
+        {
+            "style": "List",
+            "text": "codeName is the name of the Project, as implemented in the code.",
+            "updated": 1609869592120
         }
     ]
 }

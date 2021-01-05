@@ -15,14 +15,6 @@
         {
             "style": "Block",
             "text": "Configuring"
-        },
-        {
-            "style": "Title",
-            "text": "Configuring Plugin File Position"
-        },
-        {
-            "style": "Text",
-            "text": "Select Configure on the menu to access the configuration."
         }
     ]
 }

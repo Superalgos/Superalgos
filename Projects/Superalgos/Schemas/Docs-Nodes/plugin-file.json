@@ -10,35 +10,36 @@
         },
         {
             "style": "Text",
-            "text": "Plugin files distributed with the system are stored in the corresponding folders on the following path: \\Projects\\[ProjectName]\\Plugins\\."
+            "text": "Plugin files distributed with the system are stored in the corresponding folders on the following path:",
+            "updated": 1609869641569
+        },
+        {
+            "style": "Json",
+            "text": "\\Projects\\[ProjectName]\\Plugins\\",
+            "updated": 1609869650031
         },
         {
             "style": "Text",
             "text": "To create a plugin and make it available to the system you need to:"
         },
         {
-            "style": "Text",
-            "text": "1. Take a backup of the hierarchy."
+            "style": "List",
+            "text": "Take a backup of the hierarchy.",
+            "updated": 1609869665918
         },
         {
-            "style": "Text",
-            "text": "2. Place it in the proper folder of the path."
+            "style": "List",
+            "text": "Place it in the proper folder of the path.",
+            "updated": 1609869675048
         },
         {
-            "style": "Text",
-            "text": "{% include important.html content=\"Hierarchies included in the workspace as plugins are not saved at the workspace level. As such, changes made in those hierarchies do not persist. If you wish to modify a plugin and keep working with the modified version in the future, you must either clone or backup the plugin and work on the resulting copy instead. Learn more about the differences between backups and "
+            "style": "Important",
+            "text": "Hierarchies included in the workspace as plugins are not saved at the workspace level. As such, changes made in those hierarchies do not persist. If you wish to modify a plugin and keep working with the modified version in the future, you must either clone or backup the plugin and work on the resulting copy instead.",
+            "updated": 1609869687063
         },
         {
             "style": "Block",
             "text": "Configuring"
-        },
-        {
-            "style": "Title",
-            "text": "Configuring Plugin File"
-        },
-        {
-            "style": "Text",
-            "text": "Select Configure on the menu to access the configuration."
         }
     ]
 }

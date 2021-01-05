@@ -526,7 +526,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                 switch (requestParameters[2]) { // switch by command
                     case 'Contribute': {
                         try {
-                            const GITHUB = require('Github.json')
+                            const GITHUB = require('../Github.json')
                             if (GITHUB.user === 'Your Github.com Username' || GITHUB.user === 'Your Github.com Password' ) {
                                 let error = {
                                     result: 'Fail Because',

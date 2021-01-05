@@ -3,7 +3,8 @@
     "pageNumber": "1",
     "type": "App Error Contribution Not Sent",
     "definition": {
-        "text": "Write here a summary for this topic page."
+        "text": "There was a problmen trying to send your contribution to your fork of the Superalgos repository.",
+        "updated": 1609859551082
     },
     "paragraphs": [
         {

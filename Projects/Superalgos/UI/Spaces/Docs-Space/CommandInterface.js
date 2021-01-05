@@ -45,7 +45,11 @@ function newSuperalgosDocsCommmandInterface() {
                 if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
                     UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Message Contribution Succeed')
                 } else {
-                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error Contribution Not Sent', 'Anchor Contribution Not Sent')
+                    if (data.error.message === 'File Github.json does not exist.') {
+                        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error Github Credentials Missing', 'Anchor Github Credentials Missing')
+                    } else {
+                        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error Contribution Not Sent', 'Anchor Contribution Not Sent')
+                    }
                 }
             }
         }

@@ -526,6 +526,16 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                 switch (requestParameters[2]) { // switch by command
                     case 'Contribute': {
                         try {
+                            const GITHUB = require('Github.json')
+                            if (GITHUB.user === 'Your Github.com Username' || GITHUB.user === 'Your Github.com Password' ) {
+                                let error = {
+                                    result: 'Fail Because',
+                                    message: 'File Github.json does not exist.'
+                                }
+                                respondWithContent(JSON.stringify(error), httpResponse) 
+                                return
+                            }
+
                             const simpleGit = require('simple-git');
                             const options = {
                                 baseDir: process.cwd(),
@@ -534,6 +544,12 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             }
                             const git = simpleGit(options)
                             const commitMessage = unescape(requestParameters[3])
+                            const USER = 'Luis-Fernando-Molina';
+                            const PASS = 'somewhere';
+                            const REPO = 'github.com/username/private-repo';
+
+                            const remote = `https://${USER}:${PASS}@${REPO}`;
+
                             git
                                 .add('./*')
                                 .commit(commitMessage)

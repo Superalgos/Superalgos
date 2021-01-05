@@ -552,7 +552,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 .pull()
                                 .add('./*')
                                 .commit(commitMessage)
-                                .push()
+                                .push('origin', 'in-app-documentation')
 
                             //function onCommit(err) {
                             //   if (err) { throw err }

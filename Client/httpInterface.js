@@ -522,6 +522,20 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                 }
                 break
 
+            case 'Git': {
+                switch (requestParameters[2]) { // switch by command
+                    case 'Commit': {
+                        const simpleGit = require('simple-git');
+                        const options = {
+                            baseDir: process.cwd(),
+                            binary: 'git',
+                            maxConcurrentProcesses: 6,
+                        }
+                        const git = simpleGit(options)
+                        console.log('baseDir = ' + process.cwd())
+                    }
+                }
+            }
             case 'LegacyPlotter.js':
                 {
                     respondWithFile(global.env.PATH_TO_CLIENT + 'WebServer/LegacyPlotter.js', httpResponse)
@@ -1162,7 +1176,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                     let schema = JSON.stringify(schemaArray)
                     respondWithContent(schema, httpResponse)
                 } catch (err) {
-                    console.log('Could not send Schema:' ,filePath, schemaType)
+                    console.log('Could not send Schema:', filePath, schemaType)
                     console.log(err.stack)
                     respondWithContent("[]", httpResponse)
                 }

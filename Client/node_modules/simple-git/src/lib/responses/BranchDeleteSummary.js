@@ -1,0 +1,31 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.isSingleBranchDeleteFailure = exports.branchDeletionFailure = exports.branchDeletionSuccess = exports.BranchDeletionBatch = void 0;
+class BranchDeletionBatch {
+    constructor() {
+        this.all = [];
+        this.branches = {};
+        this.errors = [];
+    }
+    get success() {
+        return !this.errors.length;
+    }
+}
+exports.BranchDeletionBatch = BranchDeletionBatch;
+function branchDeletionSuccess(branch, hash) {
+    return {
+        branch, hash, success: true,
+    };
+}
+exports.branchDeletionSuccess = branchDeletionSuccess;
+function branchDeletionFailure(branch) {
+    return {
+        branch, hash: null, success: false,
+    };
+}
+exports.branchDeletionFailure = branchDeletionFailure;
+function isSingleBranchDeleteFailure(test) {
+    return test.success;
+}
+exports.isSingleBranchDeleteFailure = isSingleBranchDeleteFailure;
+//# sourceMappingURL=BranchDeleteSummary.js.map

@@ -1,0 +1,18 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.parseBranchSummary = void 0;
+const BranchSummary_1 = require("../responses/BranchSummary");
+const utils_1 = require("../utils");
+const parsers = [
+    new utils_1.LineParser(/^(\*\s)?\((?:HEAD )?detached (?:from|at) (\S+)\)\s+([a-z0-9]+)\s(.*)$/, (result, [current, name, commit, label]) => {
+        result.push(!!current, true, name, commit, label);
+    }),
+    new utils_1.LineParser(/^(\*\s)?(\S+)\s+([a-z0-9]+)\s(.*)$/, (result, [current, name, commit, label]) => {
+        result.push(!!current, false, name, commit, label);
+    })
+];
+function parseBranchSummary(stdOut) {
+    return utils_1.parseStringResponse(new BranchSummary_1.BranchSummaryResult(), parsers, stdOut);
+}
+exports.parseBranchSummary = parseBranchSummary;
+//# sourceMappingURL=parse-branch.js.map

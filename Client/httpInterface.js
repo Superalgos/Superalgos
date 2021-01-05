@@ -534,12 +534,12 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             }
                             const git = simpleGit(options)
                             const commitMessage = unescape(requestParameters[3])
-                            git.add('./*')
-                            git.commit(commitMessage, onCommit)
-                            
+                            git
+                                .add('./*')
+                                .commit(commitMessage, onCommit)
+
                             function onCommit(err) {
-                                console.log(err)
-                                if (err) {throw err} 
+                                if (err) { throw err }
                                 respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                             }
                         } catch (err) {

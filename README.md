@@ -32,11 +32,15 @@ Superalgos does not write anything outside the Superalgos folder. To completelly
 
 ## Welcome Tutorial
 
-Once the app finishes loading, an interactive tutorial takes you by the hand and walks you all around the system while you learn the basic skills required to use the interface, mine data, backtest strategies, and even run a live trading session. It is highly recommended you follow the tutorial until the end, as it is carefully crafted to make your onboarding as easy as possible.
+Once the app finishes loading, an interactive tutorial takes you by the hand and walks you all around the system while you learn the basic skills required to use the interface, mine data, backtest strategies, and even run a live trading session. It is highly recommended you follow the tutorial until the end, as it is carefully crafted to make your onboarding as easy as possible. In fact, tutorials are the absolute best way to tackle the learning curve. You should do all tutorials before you start exploring other avenues on your own.
 
-# Full Instalation Guide
+## Full Instalation Guide
 
 If you need more detailed, step-by-step instructions on how to install Superalgos, find them at the [Documentation Site](https://docs.superalgos.org/suite-download-and-set-up.html)
+
+## Docker Deployments
+
+We haven't tested containerized deployments, but many people in the community have. Worth noting is the fact that Superalgos doesn't touch anything outside the Superalgos folder. To uninstall, delete the folder.
 
 # What is Superalgos?
 
@@ -134,25 +138,25 @@ Superalgos is a platform to automate crypto-trading. It is implemented as a Node
 
 # Support
 
-### Via Telegram
+## Via Telegram
 
 Online support through our [Superalgos User's Support Group](https://t.me/superalgossupport).
  
-### Via Documentation Site
+## Via Documentation Site
 
 Self service support available via the [Superalgos Documentation Site](https://docs.superalgos.org/).
 
-### Via Video Tutorials
+## Via Video Tutorials
 
 Self service support via video tutorials at the [Superalgos YouTube Channel](https://www.youtube.com/channel/UCmYSGbB151xFQPNxj7KfKBg).
 
 # Other Resources
 
-### Web Site
+## Web Site
 
 For an overview of what Superalgos can do for you, please check the [Superalgos Website](https://superalgos.org/).
 
-### Telegram
+## Telegram
 
 Meet other users at our [Superalgos Telegram Community Group](https://t.me/superalgoscommunity).
 
@@ -160,15 +164,15 @@ Meet the developers at our [Superalgos Telegram Developer's Group](https://t.me/
 
 Spanish speaking users hang out at our [Superalgos en Español Telegram Group](https://t.me/superalgos_es).
 
-### Blog
+## Blog
 
-You can find everything we have written at the [Superalgos Blog](https://medium.com/superalgos).
+You can find official announcements and various articles on the [Superalgos Blog](https://medium.com/superalgos).
 
-### Twitter
+## Twitter
 
 To stay up-to-date, follow [Superalgos on Twitter](https://twitter.com/superalgos).
 
-### Facebook
+## Facebook
 
 To stay up-to-date, follow [Superalgos on Facebook](https://www.facebook.com/superalgos).
 

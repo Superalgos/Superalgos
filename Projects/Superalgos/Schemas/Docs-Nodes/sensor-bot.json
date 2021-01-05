@@ -18,13 +18,27 @@
         },
         {
             "style": "Title",
-            "text": "Sensor Bot Configuration",
-            "updated": 1609790137912
+            "text": "Configuring Sensor Bot"
         },
         {
-            "style": "Subtitle",
-            "text": "Properties",
-            "updated": 1609790143486
+            "style": "Text",
+            "text": "Select Configure Bot on the menu to access the configuration."
+        },
+        {
+            "style": "Text",
+            "text": "{"
+        },
+        {
+            "style": "Text",
+            "text": "\"codeName\": \"Super\","
+        },
+        {
+            "style": "Text",
+            "text": "\"repo\": \"Super-Sensor-Bot\""
+        },
+        {
+            "style": "Text",
+            "text": "}"
         },
         {
             "style": "List",

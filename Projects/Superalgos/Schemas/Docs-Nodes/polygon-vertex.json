@@ -13,6 +13,10 @@
             "text": "Vertices are the main element defining polygons. Once created, each vertex must establish a reference to the corresponding point in the charts point."
         },
         {
+            "style": "Gif",
+            "text": "GIFs/Superalgos/Docs/inner-foder/vertex-01-add-and-link.gif"
+        },
+        {
             "style": "Text",
             "text": "Drawing curves requires two vertices. Painting areas, such as the background of a chart, likely requires four vertices. Note that vertices are not capable of featuring a style. Instead, styles are applied to polygon borders and polygon bodies."
         },

@@ -11,6 +11,14 @@
         {
             "style": "Text",
             "text": "Most bots consume data other bots have produced. Because bots need the data as input for their calculations, processes establish a data dependency with the dataset definitions of other bots. The reference provides the process with all the information needed to decode the dataset, enabling it to perform the required calculations."
+        },
+        {
+            "style": "Gif",
+            "text": "GIFs/Superalgos/Docs/inner-foder/indicators-process-dependencies-02.gif"
+        },
+        {
+            "style": "Text",
+            "text": "The image above shows data dependencies in one bot referencing dataset definitions of another bot."
         }
     ]
 }

@@ -14,8 +14,7 @@
         },
         {
             "style": "Text",
-            "text": "Notice that, in the context of Superalgos, a trading bot has nothing to do with the trading logic. Think of trading logic as the business rules which—in Superalgos—are defined in trading systems. Anyone may build a Trading System, meaning that creating trading systems and the trading strategies within does not require coding.",
-            "updated": 1609861342619
+            "text": "Notice that, in the context of Superalgos, a trading bot has nothing to do with the trading logic. Think of trading logic as the business rules which&mdash;in Superalgos&mdash;are defined in trading systems. Anyone may build trading systems, meaning that creating a trading system and the trading strategies within does not require coding."
         },
         {
             "style": "Text",
@@ -27,8 +26,11 @@
         },
         {
             "style": "Title",
-            "text": "Trading Mine Configuration",
-            "updated": 1609861240385
+            "text": "Configuring Trading Mine"
+        },
+        {
+            "style": "Text",
+            "text": "Select Configure on the menu to access the configuration."
         }
     ]
 }

@@ -41,8 +41,13 @@
         },
         {
             "style": "List",
-            "text": "icon is the name of the image that illustrates the corresponding layer in the Layers Panel. In case the banner is not specified, the default banner is used. Possible values are...",
-            "updated": 1609790764015
+            "text": "icon is the name of the image that illustrates the corresponding layer in the Layers Panel. In case the icon is not specified, the default idon is used. Possible values are...",
+            "updated": 1609852182210
+        },
+        {
+            "style": "Javascript",
+            "text": "layer-moving-averages\nlayer-bands\nlayer-candles\nlayer-histogram\nlayer-oscilator\nlayer-resistance\nlayer-support\nlayer-trends\nlayer-volume",
+            "updated": 1609852285167
         },
         {
             "style": "Text",
@@ -50,15 +55,18 @@
         },
         {
             "style": "Text",
-            "text": "1. name the image in the following format: image-name.png;"
+            "text": "1. Name the image in the following format: image-name.png;",
+            "updated": 1609852305205
         },
         {
             "style": "Text",
-            "text": "1. place images in the WebServer\\Images\\Icons folder;"
+            "text": "2. Place images in the WebServer\\Images\\Icons folder;",
+            "updated": 1609852315978
         },
         {
             "style": "Text",
-            "text": "1. in the configuration of the module, use the name as is (e.g.: \"icon\": \"image-name\")"
+            "text": "3. In the configuration of the module, use the name as is (e.g.: \"icon\": \"image-name\")",
+            "updated": 1609852322876
         }
     ]
 }

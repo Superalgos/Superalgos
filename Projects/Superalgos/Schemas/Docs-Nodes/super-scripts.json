@@ -22,23 +22,13 @@
         },
         {
             "style": "Title",
-            "text": "Configuring Super Scripts"
+            "text": "Super Scripts Configuration",
+            "updated": 1609873496526
         },
         {
-            "style": "Text",
-            "text": "Select Configure Super Scripts on the menu to access the configuration."
-        },
-        {
-            "style": "Text",
-            "text": "{"
-        },
-        {
-            "style": "Text",
-            "text": "\"codeName\": \"Masters\""
-        },
-        {
-            "style": "Text",
-            "text": "}"
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609873505709
         },
         {
             "style": "List",

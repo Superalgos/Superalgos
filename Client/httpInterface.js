@@ -526,18 +526,6 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                 switch (requestParameters[2]) { // switch by command
                     case 'Contribute': {
                         try {
-                            let GITHUB
-                            try {
-                                GITHUB = require('../Github.json')
-                            } catch (err) {
-                                let error = {
-                                    result: 'Fail Because',
-                                    message: 'File Github.json does not exist.'
-                                }
-                                respondWithContent(JSON.stringify(error), httpResponse)
-                                return
-                            }
-
                             const simpleGit = require('simple-git');
                             const options = {
                                 baseDir: process.cwd(),
@@ -546,18 +534,13 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             }
                             const git = simpleGit(options)
                             const commitMessage = unescape(requestParameters[3])
-                            const remote = `https://${GITHUB.user}:${GITHUB.password}@${GITHUB.repository}`;
 
                             git
-                                .pull()
                                 .add('./*')
                                 .commit(commitMessage)
                                 .push('origin', 'in-app-documentation')
 
-                            //function onCommit(err) {
-                            //   if (err) { throw err }
                             respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
-                            //}
                         } catch (err) {
                             console.log('[ERROR] httpInterface -> App -> Contribute -> Method call produced an error.')
                             console.log('[ERROR] httpInterface -> App -> Contribute -> err.stack = ' + err.stack)

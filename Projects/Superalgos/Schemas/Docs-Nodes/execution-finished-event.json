@@ -11,14 +11,6 @@
         {
             "style": "Text",
             "text": "The execution finished event is responsible for triggering the execution of every process that depends on the data a bot produces. If bot Alice depends on bot Bob, Alice listens to the execution finished event of Bob so that it may start a new execution cycle as soon as Bob finishes its cycle. Alice listens to Bob's execution finished event by establishing a reference from its execution started event."
-        },
-        {
-            "style": "Gif",
-            "text": "GIFs/Superalgos/Docs/inner-foder/indicators-process-execution-started-finished-events-01.gif"
-        },
-        {
-            "style": "Text",
-            "text": "The image above shows a reference established from the execution started event of a process to the execution finished event of another process."
         }
     ]
 }

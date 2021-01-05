@@ -13,20 +13,18 @@
             "text": "To represent some form of variation of the price or a price derivative over time, a typical point formula consists of the following two coordinates: x = datetime and y = rate."
         },
         {
-            "style": "Text",
-            "text": "For example:"
+            "style": "Title",
+            "text": "For example",
+            "updated": 1609852495437
         },
         {
-            "style": "Text",
+            "style": "Subtitle",
             "text": "Point SMA 20 Begin "
         },
         {
-            "style": "Text",
-            "text": "x = record.begin"
-        },
-        {
-            "style": "Text",
-            "text": "y = record.previous.sma20"
+            "style": "Javascript",
+            "text": "x = record.begin\ny = record.previous.sma20",
+            "updated": 1609852623919
         },
         {
             "style": "Text",
@@ -41,16 +39,13 @@
             "text": "To complete the line segment corresponding to a single period, the closing datetime of the period and the closing rate for the 20-periods SMA are required:"
         },
         {
-            "style": "Text",
+            "style": "Subtitle",
             "text": "Point SMA 20 End "
         },
         {
-            "style": "Text",
-            "text": "x = record.end"
-        },
-        {
-            "style": "Text",
-            "text": "y = record.sma20"
+            "style": "Javascript",
+            "text": "x = record.end\ny = record.sma20",
+            "updated": 1609852823376
         },
         {
             "style": "Text",
@@ -65,80 +60,62 @@
             "text": "Anyway, the points definition is just as straight forward, for example:"
         },
         {
-            "style": "Text",
+            "style": "Subtitle",
             "text": "Point RSI Begin "
         },
         {
-            "style": "Text",
-            "text": "x = record.begin"
+            "style": "Javascript",
+            "text": "x = record.begin\ny = record.previous.value",
+            "updated": 1609852852377
         },
         {
-            "style": "Text",
-            "text": "y = record.previous.value"
-        },
-        {
-            "style": "Text",
+            "style": "Subtitle",
             "text": "Point RSI End "
         },
         {
-            "style": "Text",
-            "text": "x = record.end"
-        },
-        {
-            "style": "Text",
-            "text": "y = record.value"
+            "style": "Javascript",
+            "text": "x = record.end\ny = record.value\n",
+            "updated": 1609853081776
         },
         {
             "style": "Text",
             "text": "Points do not necessarily need to refer to values on the dataset produced by the corresponding data product. For example, absolute values for the y-axis may be used to describe fixed graphical elements, for instance, a horizontal line, or a box."
         },
         {
-            "style": "Text",
+            "style": "Subtitle",
             "text": "Point Begin 20 "
         },
         {
-            "style": "Text",
-            "text": "x = record.begin"
+            "style": "Javascript",
+            "text": "x = record.begin\ny = 20",
+            "updated": 1609852867401
         },
         {
-            "style": "Text",
-            "text": "y = 20"
-        },
-        {
-            "style": "Text",
+            "style": "Subtitle",
             "text": "Point End 20 "
         },
         {
-            "style": "Text",
-            "text": "x = record.end"
+            "style": "Javascript",
+            "text": "x = record.end\ny = 20",
+            "updated": 1609852965567
         },
         {
-            "style": "Text",
-            "text": "y = 20"
-        },
-        {
-            "style": "Text",
+            "style": "Subtitle",
             "text": "Point Begin 30 "
         },
         {
-            "style": "Text",
-            "text": "x = record.begin"
+            "style": "Javascript",
+            "text": "x = record.begin\ny = 30\n",
+            "updated": 1609853018216
         },
         {
-            "style": "Text",
-            "text": "y = 30"
-        },
-        {
-            "style": "Text",
+            "style": "Subtitle",
             "text": "Point End 30 "
         },
         {
-            "style": "Text",
-            "text": "x = record.end"
-        },
-        {
-            "style": "Text",
-            "text": "y = 30"
+            "style": "Javascript",
+            "text": "x = record.end\ny = 30\n",
+            "updated": 1609853034626
         },
         {
             "style": "Text",

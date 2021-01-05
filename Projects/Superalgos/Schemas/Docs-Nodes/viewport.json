@@ -27,6 +27,10 @@
         {
             "style": "Note",
             "text": "The information that is out of focus, that is, out of the viewport, is not read nor rendered graphically, thus, does not consume resources."
+        },
+        {
+            "style": "Title",
+            "text": "Viewport Configuration"
         }
     ]
 }

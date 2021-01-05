@@ -1,0 +1,19 @@
+{
+    "type": "Procedure Javascript Code",
+    "definition": {
+        "text": "The Procedure JavaScript code node may hold any snippet of valid JavaScript.",
+        "updated": 1609789511058
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The system allows developers great flexibility as all valid JavaScript code is allowed.",
+            "updated": 1609789473533
+        },
+        {
+            "style": "Important",
+            "text": "Until a robust JavaScript editor is implemented on the UI, it is recommended to write code on an external editor and paste it in the UI code bubble to ensure consistency.",
+            "updated": 1609789526505
+        }
+    ]
+}

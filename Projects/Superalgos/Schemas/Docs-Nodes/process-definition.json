@@ -30,83 +30,13 @@
         },
         {
             "style": "Title",
-            "text": "Configuring Process Definition"
+            "text": "Process Definition Configuration",
+            "updated": 1609786986097
         },
         {
-            "style": "Text",
-            "text": "Select Configure Process on the menu to access the configuration."
-        },
-        {
-            "style": "Text",
-            "text": "Multi-Period-Market:"
-        },
-        {
-            "style": "Text",
-            "text": "  {"
-        },
-        {
-            "style": "Text",
-            "text": "    \"codeName\": \"Multi-Period-Market\","
-        },
-        {
-            "style": "Text",
-            "text": "    \"normalWaitTime\": 0,"
-        },
-        {
-            "style": "Text",
-            "text": "    \"retryWaitTime\": 10000,"
-        },
-        {
-            "style": "Text",
-            "text": "    \"framework\": {"
-        },
-        {
-            "style": "Text",
-            "text": "      \"name\": \"Multi-Period-Market\""
-        },
-        {
-            "style": "Text",
-            "text": "    }"
-        },
-        {
-            "style": "Text",
-            "text": "  }"
-        },
-        {
-            "style": "Text",
-            "text": "Multi-Period-Daily:"
-        },
-        {
-            "style": "Text",
-            "text": "  {"
-        },
-        {
-            "style": "Text",
-            "text": "    \"codeName\": \"Multi-Period-Daily\","
-        },
-        {
-            "style": "Text",
-            "text": "    \"normalWaitTime\": 0,"
-        },
-        {
-            "style": "Text",
-            "text": "    \"retryWaitTime\": 10000,"
-        },
-        {
-            "style": "Text",
-            "text": "    \"framework\": {"
-        },
-        {
-            "style": "Text",
-            "text": "      \"name\": \"Multi-Period-Daily\""
-        },
-        {
-            "style": "Text",
-            "text": "    }"
-        },
-        {
-            "style": "Text",
-            "text": "  }"
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609787034890
         },
         {
             "style": "List",

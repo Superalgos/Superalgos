@@ -14,7 +14,8 @@
         },
         {
             "style": "Text",
-            "text": "The status report referenced may belong to the same process&mdash; which is called a self-reference. In such a case, the process is learning what it did the last time it ran. Also, the status report referenced may belong to another process&mdash;another bot. In that case, the dependency may be of the Market Starting Point or Market Ending Point types."
+            "text": "The status report referenced may belong to the same process— which is called a self-reference. In such a case, the process is learning what it did the last time it ran. Also, the status report referenced may belong to another process—another bot. In that case, the dependency may be of the Market Starting Point or Market Ending Point types. ",
+            "updated": 1609787389239
         },
         {
             "style": "List",
@@ -22,11 +23,13 @@
         },
         {
             "style": "List",
-            "text": "Market Starting Point is a status dependency existing on Multi-Period-Daily processes so that the process establishing the reference learns the datetime of the start of the market. Usually, the reference is established with the sensor's Historic-OHLCVs process status report. Multi-Period-Market processes do not have this type of status dependency as the date of the start of the market is implied in their dataset (a single file with all market data)."
+            "text": "The market starting point is a status dependency existing on Multi-Period-Daily processes so that the process establishing the reference learns the datetime of the start of the market. Usually, the reference is established with the sensor's Historic-OHLCVs process status report. Multi-Period-Market processes do not have this type of status dependency as the date of the start of the market is implied in their dataset (a single file with all market data).",
+            "updated": 1609787724948
         },
         {
             "style": "List",
-            "text": "Market Ending Point is a status dependency existing both in Multi-Period-Market and Multi-Period-Daily processes so that the process establishing the reference knows the datetime of the end of the market."
+            "text": "The market ending point is a status dependency existing both in Multi-Period-Market and Multi-Period-Daily processes so that the process establishing the reference knows the datetime of the end of the market.",
+            "updated": 1609787745299
         },
         {
             "style": "Text",
@@ -38,27 +41,18 @@
         },
         {
             "style": "Title",
-            "text": "Configuring Status Dependency"
+            "text": "Status Dependency Configuration",
+            "updated": 1609787775907
         },
         {
-            "style": "Text",
-            "text": "Select Configure Status Dependency on the menu to access the configuration."
-        },
-        {
-            "style": "Text",
-            "text": "{"
-        },
-        {
-            "style": "Text",
-            "text": "\"mainUtility\": \"Self Reference|Market Starting Point|Market Ending Point\""
-        },
-        {
-            "style": "Text",
-            "text": "}"
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609787781306
         },
         {
             "style": "List",
-            "text": "mainUtility determines the type of status dependency, with possible values being Self Reference, Market Starting Point, or Market Ending Point."
+            "text": "mainUtility determines the type of status dependency, with possible values being Self Reference, MMarket Starting Point, or MMarket Ending Point.",
+            "updated": 1609787859239
         }
     ]
 }

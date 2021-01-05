@@ -34,23 +34,13 @@
         },
         {
             "style": "Title",
-            "text": "Configuring Plotter"
+            "text": "Plotter Configuration",
+            "updated": 1609790186907
         },
         {
-            "style": "Text",
-            "text": "Select Configure Plotter on the menu to access the configuration."
-        },
-        {
-            "style": "Text",
-            "text": "{"
-        },
-        {
-            "style": "Text",
-            "text": "  \"codeName\": \"Plotter-Name\""
-        },
-        {
-            "style": "Text",
-            "text": "}"
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609790191953
         },
         {
             "style": "List",

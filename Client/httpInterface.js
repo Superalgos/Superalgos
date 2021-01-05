@@ -537,7 +537,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             git
                                 .add('./*')
                                 .commit(commitMessage)
-                                .push('origin', 'in-app-documentation')
+                                .push('origin')
 
                             //function onCommit(err) {
                             //   if (err) { throw err }

@@ -1,7 +1,7 @@
 function newSuperalgosDocsCommmandInterface() {
     let thisObject = {
         command: undefined,
-        detectCommands: detectCommands, 
+        detectCommands: detectCommands,
         initialize: initialize,
         finalize: finalize
     }
@@ -17,6 +17,42 @@ function newSuperalgosDocsCommmandInterface() {
     }
 
     function detectCommands() {
+        detectAppCommands()
+        detectDocsCommands()
+    }
+
+    function detectAppCommands() {
+        if (checkContributeCommand() === undefined) { return }
+
+        function checkContributeCommand() {
+            if (UI.projects.superalgos.spaces.docsSpace.commandInterface.command.toLowerCase() === 'app.help app.contribute') {
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Contribute Command')
+                return
+            }
+            if (UI.projects.superalgos.spaces.docsSpace.commandInterface.command.indexOf('App.Contribute') !== 0 && UI.projects.superalgos.spaces.docsSpace.commandInterface.command.indexOf('app.contribute') !== 0) { return 'Not Save Command' }
+
+            httpRequest(JSON.stringify(docsSchema), 'App/Contribute/' + message, onResponse)
+
+            function onResponse(err, data) {
+                /* Lets check the result of the call through the http interface */
+                data = JSON.parse(data)
+                if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                    okResponses++
+                }
+                responseCount++
+
+                if (responseCount === requestsSent) {
+                    if (responseCount === okResponses) {
+                        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message Saving Succeed')
+                    } else {
+                        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Changes Not Saved', 'Anchor Changes Not Saved')
+                    }
+                }
+            }
+        }
+    }
+
+    function detectDocsCommands() {
 
         if (checkHelpCommand() === undefined) { return }
         if (checkGotoCommand() === undefined) { return }
@@ -242,7 +278,7 @@ function newSuperalgosDocsCommmandInterface() {
             UI.projects.superalgos.spaces.docsSpace.setUpWorkspaceSchemas()
             UI.projects.superalgos.spaces.docsSpace.searchEngine.setUpSearchEngine()
 
-            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message Reindexing Succed')
+            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message Reindexing Succeed')
         }
 
         function checkUSaveCommand() {
@@ -286,7 +322,7 @@ function newSuperalgosDocsCommmandInterface() {
 
                 if (responseCount === requestsSent) {
                     if (responseCount === okResponses) {
-                        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message Saving Succed')
+                        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message Saving Succeed')
                     } else {
                         UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Changes Not Saved', 'Anchor Changes Not Saved')
                     }
@@ -422,7 +458,7 @@ function newSuperalgosDocsCommmandInterface() {
                     break
                 }
             }
-            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message Deleting Succed')
+            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message Deleting Succeed')
         }
 
         function deleteConcept(project, type) {
@@ -445,7 +481,7 @@ function newSuperalgosDocsCommmandInterface() {
                     break
                 }
             }
-            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message Deleting Succed')
+            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message Deleting Succeed')
         }
 
         function deleteTopic(project, topic, type, pageNumber) {
@@ -477,7 +513,7 @@ function newSuperalgosDocsCommmandInterface() {
                     break
                 }
             }
-            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message Deleting Succed')
+            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message Deleting Succeed')
         }
 
         function deleteBook(project, type) {
@@ -500,7 +536,7 @@ function newSuperalgosDocsCommmandInterface() {
                     break
                 }
             }
-            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message Deleting Succed')
+            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message Deleting Succeed')
         }
     }
 }

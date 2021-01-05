@@ -535,10 +535,6 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             const git = simpleGit(options)
                             const commitMessage = unescape(requestParameters[3])
 
-                            let remotes = git.getRemotes(true)
-                            console.log('remotes list: ', JSON.stringify(remotes))
-                            respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
-                            return 
                             git
                                 .add('./*')
                                 .commit(commitMessage)

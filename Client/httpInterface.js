@@ -522,6 +522,59 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                 }
                 break
 
+            case 'App': {
+                switch (requestParameters[2]) { // switch by command
+                    case 'Contribute': {
+                        try {
+                            let GITHUB
+                            try {
+                                GITHUB = require('../Github.json')
+                            } catch (err) {
+                                let error = {
+                                    result: 'Fail Because',
+                                    message: 'File Github.json does not exist.'
+                                }
+                                respondWithContent(JSON.stringify(error), httpResponse)
+                                return
+                            }
+
+                            const simpleGit = require('simple-git');
+                            const options = {
+                                baseDir: process.cwd(),
+                                binary: 'git',
+                                maxConcurrentProcesses: 6,
+                            }
+                            const git = simpleGit(options)
+                            const commitMessage = unescape(requestParameters[3])
+                            const remote = `https://${GITHUB.user}:${GITHUB.password}@${GITHUB.repository}`;
+
+                            git
+                                .pull()
+                                .add('./*')
+                                .commit(commitMessage)
+                                .push('origin', 'in-app-documentation')
+
+                            //function onCommit(err) {
+                            //   if (err) { throw err }
+                            respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                            //}
+                        } catch (err) {
+                            console.log('[ERROR] httpInterface -> App -> Contribute -> Method call produced an error.')
+                            console.log('[ERROR] httpInterface -> App -> Contribute -> err.stack = ' + err.stack)
+                            console.log('[ERROR] httpInterface -> App -> Contribute -> Params Received = ' + requestParameters[3])
+
+                            let error = {
+                                result: 'Fail Because',
+                                message: err.message,
+                                stack: err.stack
+                            }
+                            respondWithContent(JSON.stringify(error), httpResponse)
+                        }
+                        break
+                    }
+                }
+                break
+            }
             case 'LegacyPlotter.js':
                 {
                     respondWithFile(global.env.PATH_TO_CLIENT + 'WebServer/LegacyPlotter.js', httpResponse)
@@ -1162,7 +1215,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                     let schema = JSON.stringify(schemaArray)
                     respondWithContent(schema, httpResponse)
                 } catch (err) {
-                    console.log('Could not send Schema:' ,filePath, schemaType)
+                    console.log('Could not send Schema:', filePath, schemaType)
                     console.log(err.stack)
                     respondWithContent("[]", httpResponse)
                 }

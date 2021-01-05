@@ -18,13 +18,123 @@
         },
         {
             "style": "Title",
-            "text": "Dataset Definition Configuration",
-            "updated": 1609788319432
+            "text": "Configuring Dataset Definition"
         },
         {
-            "style": "Subtitle",
-            "text": "Properties",
-            "updated": 1609788325479
+            "style": "Text",
+            "text": "Select Configure Definition on the menu to access the configuration."
+        },
+        {
+            "style": "Text",
+            "text": "Multi-Period-Market:"
+        },
+        {
+            "style": "Text",
+            "text": "{"
+        },
+        {
+            "style": "Text",
+            "text": "    \"codeName\": \"Multi-Period-Market\","
+        },
+        {
+            "style": "Text",
+            "text": "    \"type\": \"Market Files\","
+        },
+        {
+            "style": "Text",
+            "text": "    \"validTimeFrames\": [ \"24-hs\", \"12-hs\", \"08-hs\", \"06-hs\", \"04-hs\", \"03-hs\", \"02-hs\", \"01-hs\" ],"
+        },
+        {
+            "style": "Text",
+            "text": "    \"filePath\": \"@Exchange/@BaseAsset-@QuotedAsset/@DataMine/@Bot/Output/@Product/@Dataset/@Period\","
+        },
+        {
+            "style": "Text",
+            "text": "    \"fileName\": \"Data.json\","
+        },
+        {
+            "style": "Text",
+            "text": "    \"timeFrames\": {"
+        },
+        {
+            "style": "Text",
+            "text": "      \"filePath\": \"\","
+        },
+        {
+            "style": "Text",
+            "text": "      \"fileName\": \"\""
+        },
+        {
+            "style": "Text",
+            "text": "    }"
+        },
+        {
+            "style": "Text",
+            "text": "}"
+        },
+        {
+            "style": "Text",
+            "text": "Multi-Period-Daily:"
+        },
+        {
+            "style": "Text",
+            "text": "{"
+        },
+        {
+            "style": "Text",
+            "text": "    \"codeName\": \"Multi-Period-Daily\","
+        },
+        {
+            "style": "Text",
+            "text": "    \"type\": \"Daily Files\","
+        },
+        {
+            "style": "Text",
+            "text": "    \"validTimeFrames\": [ \"45-min\", \"40-min\", \"30-min\", \"20-min\", \"15-min\", \"10-min\", \"05-min\", \"04-min\", \"03-min\", \"02-min\", \"01-min\" ],"
+        },
+        {
+            "style": "Text",
+            "text": "    \"filePath\": \"@Exchange/@BaseAsset-@QuotedAsset/@DataMine/@Bot/Output/@Product/@Dataset/@Period/@Year/@Month/@Day\","
+        },
+        {
+            "style": "Text",
+            "text": "    \"fileName\": \"Data.json\","
+        },
+        {
+            "style": "Text",
+            "text": "    \"dataRange\": {"
+        },
+        {
+            "style": "Text",
+            "text": "      \"filePath\": \"@Exchange/@BaseAsset-@QuotedAsset/@DataMine/@Bot/Output/@Product/@Dataset\","
+        },
+        {
+            "style": "Text",
+            "text": "      \"fileName\": \"Data.Range.json\""
+        },
+        {
+            "style": "Text",
+            "text": "    },"
+        },
+        {
+            "style": "Text",
+            "text": "    \"timeFrames\": {"
+        },
+        {
+            "style": "Text",
+            "text": "      \"filePath\": \"\","
+        },
+        {
+            "style": "Text",
+            "text": "      \"fileName\": \"\""
+        },
+        {
+            "style": "Text",
+            "text": "    }"
+        },
+        {
+            "style": "Text",
+            "text": "}"
         },
         {
             "style": "List",
@@ -32,8 +142,7 @@
         },
         {
             "style": "List",
-            "text": "type refers to the type of dataset; possible values are market files and daily files.",
-            "updated": 1609788409763
+            "text": "type refers to the type of dataset; possible values are Market Files and Daily Files."
         },
         {
             "style": "List",

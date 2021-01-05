@@ -18,17 +18,51 @@
         },
         {
             "style": "Title",
-            "text": "Panel Data Configuration",
-            "updated": 1609860920089
+            "text": "Configuring Panel Data"
         },
         {
-            "style": "Subtitle",
-            "text": "Properties",
-            "updated": 1609860933462
+            "style": "Text",
+            "text": "Select Configure Panel Data on the menu to access the configuration."
+        },
+        {
+            "style": "Text",
+            "text": "{"
+        },
+        {
+            "style": "Text",
+            "text": "    \"valueDecimals\": 2"
+        },
+        {
+            "style": "Text",
+            "text": "}"
         },
         {
             "style": "List",
             "text": "valueDecimals sets the number of decimals to be shown on the corresponding data field."
+        },
+        {
+            "style": "Text",
+            "text": "{"
+        },
+        {
+            "style": "Text",
+            "text": "    \"labelText\": \"The Label\","
+        },
+        {
+            "style": "Text",
+            "text": "    \"labelPosition\": 15,"
+        },
+        {
+            "style": "Text",
+            "text": "    \"valuePosition\": 20,"
+        },
+        {
+            "style": "Text",
+            "text": "    \"valueDecimals\": 2"
+        },
+        {
+            "style": "Text",
+            "text": "}"
         },
         {
             "style": "List",

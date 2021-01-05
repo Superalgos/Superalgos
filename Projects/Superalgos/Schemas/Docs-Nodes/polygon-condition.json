@@ -18,13 +18,15 @@
         },
         {
             "style": "Title",
-            "text": "Polygon Condition Configuration",
-            "updated": 1609853769074
+            "text": "Configuring Polygon Condition"
         },
         {
             "style": "Text",
-            "text": "Polygon Conditions work pretty much like conditions used on trading systems. The main difference is that the variables available are solely those provided by the bot product definition that reference the corresponding plotter module.",
-            "updated": 1609853810664
+            "text": "Select Edit Condition on the menu to access the configuration."
+        },
+        {
+            "style": "Text",
+            "text": "Polygon conditions work pretty much like conditions used on trading systems. The main difference is that the variables available are solely those provided by the bot product definition that reference the corresponding plotter module."
         }
     ]
 }

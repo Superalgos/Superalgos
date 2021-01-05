@@ -43,9 +43,9 @@ function newSuperalgosDocsCommmandInterface() {
                 /* Lets check the result of the call through the http interface */
                 data = JSON.parse(data)
                 if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error Contribution Not Sent', 'Anchor Contribution Not Sent')
-                } else {
                     UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Message Contribution Succeed')
+                } else {
+                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error Contribution Not Sent', 'Anchor Contribution Not Sent')
                 }
             }
         }

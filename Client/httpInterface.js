@@ -525,16 +525,35 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
             case 'App': {
                 switch (requestParameters[2]) { // switch by command
                     case 'Contribute': {
-                        const simpleGit = require('simple-git');
-                        const options = {
-                            baseDir: process.cwd(),
-                            binary: 'git',
-                            maxConcurrentProcesses: 6,
+                        try {
+                            const simpleGit = require('simple-git');
+                            const options = {
+                                baseDir: process.cwd(),
+                                binary: 'git',
+                                maxConcurrentProcesses: 6,
+                            }
+                            const git = simpleGit(options)
+                            const commitMessage = unescape(requestParameters[3])
+                            git.add('./*')
+                            git.commit(commitMessage, onCommit)
+                            
+                            function onCommit(err) {
+                                console.log(err)
+                                if (err) {throw err} 
+                                respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                            }
+                        } catch (err) {
+                            console.log('[ERROR] httpInterface -> App -> Contribute -> Method call produced an error.')
+                            console.log('[ERROR] httpInterface -> App -> Contribute -> err.stack = ' + err.stack)
+                            console.log('[ERROR] httpInterface -> App -> Contribute -> Params Received = ' + requestParameters[3])
+
+                            let error = {
+                                result: 'Fail Because',
+                                message: err.message,
+                                stack: err.stack
+                            }
+                            respondWithContent(JSON.stringify(error), httpResponse)
                         }
-                        const git = simpleGit(options)
-                        const commitMessage = unescape(requestParameters[3])
-                        console.log('baseDir = ' + process.cwd(), commitMessage)
-                        respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                         break
                     }
                 }

@@ -556,8 +556,9 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                         break
                     }
                 }
-                break
             }
+                break
+
             case 'LegacyPlotter.js':
                 {
                     respondWithFile(global.env.PATH_TO_CLIENT + 'WebServer/LegacyPlotter.js', httpResponse)

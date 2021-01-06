@@ -1,7 +1,8 @@
 {
     "type": "Fees To Be Paid",
     "definition": {
-        "text": "Left click and Edit to enter edit mode and change this text."
+        "text": "Fees To Be Paid is the amount of fees that would be paid in the case the order filled entirely.",
+        "updated": 1609927953008
     },
     "paragraphs": [
         {
@@ -10,7 +11,8 @@
         },
         {
             "style": "Text",
-            "text": "Left click and Edit to enter edit mode and change this text."
+            "text": "It's a value handled at some point internally, but with minor significance to the user.",
+            "updated": 1609927981434
         },
         {
             "style": "Block",
@@ -19,8 +21,8 @@
         },
         {
             "style": "Title",
-            "text": "Serial Number Configuration",
-            "updated": 1609873971454
+            "text": "Fees To Be Paid Configuration",
+            "updated": 1609927726292
         },
         {
             "style": "Subtitle",

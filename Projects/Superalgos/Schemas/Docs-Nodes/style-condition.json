@@ -30,11 +30,8 @@
         },
         {
             "style": "Title",
-            "text": "Configuring Style Condition"
-        },
-        {
-            "style": "Text",
-            "text": "Select Edit Condition on the menu to access the configuration."
+            "text": "Style Condition Configuration",
+            "updated": 1609860654525
         },
         {
             "style": "Text",
@@ -45,7 +42,7 @@
             "text": "To continue the example of the Percentage Bandwidth plotter, the following is the condition that determines the newly added styles:"
         },
         {
-            "style": "Text",
+            "style": "Javascript",
             "text": "record.previous.movingAverage > record.movingAverage"
         },
         {
@@ -57,28 +54,9 @@
             "text": "The definition of secondary styles is slightly different from that of the default style, as&mdash;in such cases&mdash;the atMousePosition property may no longer be defined:"
         },
         {
-            "style": "Text",
-            "text": "{"
-        },
-        {
-            "style": "Text",
-            "text": "    \"opacity\": 0.55,"
-        },
-        {
-            "style": "Text",
-            "text": "    \"lineWidth\": 1,"
-        },
-        {
-            "style": "Text",
-            "text": "    \"lineDash\": [0,0],"
-        },
-        {
-            "style": "Text",
-            "text": "    \"paletteColor\": \"UI_COLOR.RED\""
-        },
-        {
-            "style": "Text",
-            "text": "}"
+            "style": "Json",
+            "text": "{\n    \"opacity\": 0.55,\n    \"lineWidth\": 1,\n    \"lineDash\": [0,0],\n    \"paletteColor\": \"UI_COLOR.RED\"\n}",
+            "updated": 1609860800267
         }
     ]
 }

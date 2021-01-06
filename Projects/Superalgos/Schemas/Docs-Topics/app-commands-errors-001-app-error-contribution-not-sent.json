@@ -1,0 +1,16 @@
+{
+    "topic": "App Commands Errors",
+    "pageNumber": "1",
+    "type": "App Error Contribution Not Sent",
+    "definition": {
+        "text": "There was a problmen trying to send your contribution to your fork of the Superalgos repository.",
+        "updated": 1609859551082
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. 2",
+            "updated": 1609860582103
+        }
+    ]
+}

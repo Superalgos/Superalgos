@@ -1,0 +1,14 @@
+{
+    "topic": "App Commands Messages",
+    "pageNumber": "1",
+    "type": "App Message Contribution Succeed",
+    "definition": {
+        "text": "Write here a summary for this topic page."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+        }
+    ]
+}

@@ -526,23 +526,55 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                 switch (requestParameters[2]) { // switch by command
                     case 'Contribute': {
                         try {
-                            const simpleGit = require('simple-git');
-                            const options = {
-                                baseDir: process.cwd(),
-                                binary: 'git',
-                                maxConcurrentProcesses: 6,
-                            }
-                            const git = simpleGit(options)
                             const commitMessage = unescape(requestParameters[3])
+    
+                            contribute()
 
-                            git
-                                .add('./*')
-                                .commit(commitMessage)
-                                .push('origin', 'in-app-documentation')
+                            async function contribute() {
+                                await doGit()
+                                await doGithub()
+                                respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                            }
 
-                            
+                            async function doGit() {
+                                const simpleGit = require('simple-git');
+                                const options = {
+                                    baseDir: process.cwd(),
+                                    binary: 'git',
+                                    maxConcurrentProcesses: 6,
+                                }
+                                const git = simpleGit(options)
 
-                            respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                                await git.add('./*')
+                                await git.commit(commitMessage)
+                                await git.push('origin', 'in-app-documentation')
+                            }
+
+                            async function doGithub() {
+
+                                const token = ""
+                                const { Octokit } = require("@octokit/rest")
+
+                                const octokit = new Octokit({
+                                    auth: token,
+                                    userAgent: 'Superalgos Beta 8'
+                                })
+
+                                const repo = 'Superalgos'
+                                const owner = 'Superalgos'
+                                const head = 'Luis-Fernando-Molina:in-app-documentation'
+                                const base = 'in-app-documentation'
+                                const title = 'Contribution to Superalgos'
+
+                                await octokit.pulls.create({
+                                    owner,
+                                    repo,
+                                    title,
+                                    head,
+                                    base,
+                                });
+                            }
+
                         } catch (err) {
                             console.log('[ERROR] httpInterface -> App -> Contribute -> Method call produced an error.')
                             console.log('[ERROR] httpInterface -> App -> Contribute -> err.stack = ' + err.stack)

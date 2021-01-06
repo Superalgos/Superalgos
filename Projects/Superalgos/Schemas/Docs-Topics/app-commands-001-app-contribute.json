@@ -1,0 +1,132 @@
+{
+    "topic": "App Commands",
+    "pageNumber": "1",
+    "type": "App Contribute",
+    "definition": {
+        "text": "This command allows you to contribute the changes you have made to the Docs, code, plugins, etc. to the Superalgos main repository so that all other users can enjoy those contributions once they update their installation.",
+        "updated": 1609943282530
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Syntax",
+            "updated": 1609943337280
+        },
+        {
+            "style": "Javascript",
+            "text": "docs.contribute Message",
+            "updated": 1609943744230
+        },
+        {
+            "style": "Title",
+            "text": "Parameters"
+        },
+        {
+            "style": "List",
+            "text": "Message: It is a text that briefly describes what your contribution is about. It is optional.",
+            "updated": 1609943656035
+        },
+        {
+            "style": "Title",
+            "text": "Example",
+            "updated": 1609943733276
+        },
+        {
+            "style": "Javascript",
+            "text": "docs.contribute Typo corrected.",
+            "updated": 1609943773867
+        },
+        {
+            "style": "Title",
+            "text": "For Devs",
+            "updated": 1609944102567
+        },
+        {
+            "style": "Text",
+            "text": "When you run this command the system will do this:"
+        },
+        {
+            "style": "List",
+            "text": "git.add: It will add all the changes to a git commit.",
+            "updated": 1609944157893
+        },
+        {
+            "style": "List",
+            "text": "git.commit: It will git commit all the changes.",
+            "updated": 1609944167291
+        },
+        {
+            "style": "List",
+            "text": "git.push: It will push the changes to your Superalgos fork.",
+            "updated": 1609944179406
+        },
+        {
+            "style": "List",
+            "text": "github.createPullRequest: It will create a Pull Request at the Superalgos/Superalgos repository, or it will add the commit to an already open Pull Request.",
+            "updated": 1609944217509
+        },
+        {
+            "style": "Title",
+            "text": "Authentication"
+        },
+        {
+            "style": "Text",
+            "text": "In order for this command to run, two things need to happen:"
+        },
+        {
+            "style": "List",
+            "text": "Git Authentication: The first time you run this command, Git will open a pop up window that will ask you for your Github.com credentials. This happens only  once. Git will use these credential to be able to push the commit to your own Superalgos fork at Github.com."
+        },
+        {
+            "style": "List",
+            "text": "Github Authentication: The creation of the Pull Request  is something that happens at Github.com and for this operation you need to authenticate yourself. They way to do it, is to generate a token and set it up at the Github Api node's config in your workspace.",
+            "updated": 1609944902844
+        },
+        {
+            "style": "Subtitle",
+            "text": "GitHub.com Token"
+        },
+        {
+            "style": "List",
+            "text": "You can create the token by following this link:"
+        },
+        {
+            "style": "Link",
+            "text": "GitHub.com New Token Page->github.com/settings/tokens/new",
+            "updated": 1609944681129
+        },
+        {
+            "style": "Subtitle",
+            "text": "Github API Node"
+        },
+        {
+            "style": "Text",
+            "text": "Once you have your token, find in the workspace the GitHub API node (you can search for it here at the Docs). The config of this node is something like this:"
+        },
+        {
+            "style": "Javascript",
+            "text": "{\n    \"username\": \"\",\n    \"token\": \"\"\n}",
+            "updated": 1609944956313
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties"
+        },
+        {
+            "style": "List",
+            "text": "username: type here your GitHub.com username."
+        },
+        {
+            "style": "List",
+            "text": "token: Paste here the token you have just created."
+        },
+        {
+            "style": "Note",
+            "text": "Now you are all set. You might run the command at any time after you made some changes, either by editing / adding to the Docs, translating content, adding a Plugin, fixing a bug at the code, etc."
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

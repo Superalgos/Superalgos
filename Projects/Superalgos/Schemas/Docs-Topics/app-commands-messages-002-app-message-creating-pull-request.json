@@ -3,12 +3,26 @@
     "pageNumber": "2",
     "type": "App Message Creating Pull Request",
     "definition": {
-        "text": "Write here a summary for this topic page."
+        "text": "Hold on for a minute while we upload all the changes to GitHub.com and create a pull request with your contributions in it. You will be forwarded to a results page once the operation is complete.",
+        "updated": 1609941046109
     },
     "paragraphs": [
         {
+            "style": "Title",
+            "text": "What's next?",
+            "updated": 1609940971059
+        },
+        {
             "style": "Text",
-            "text": "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+            "text": "Someone will review the Pull Request and if everything is alright, it will merge the changes you submitted into the develop branch of the main Superalgos repository."
+        },
+        {
+            "style": "Text",
+            "text": "If you submit more contributions while the Pull Request is under review, they will be automatically added to the already open Pull Request."
+        },
+        {
+            "style": "Note",
+            "text": "By default you will receive an email from Github.com when the changes are merged, or if the reviewer made comments on it, or reject those changes. You can manage your email suscription setting directly at GitHub.com"
         }
     ]
 }

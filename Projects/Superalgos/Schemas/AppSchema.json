@@ -193,6 +193,12 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Add UI Object",
+                "label": "Add APIs",
+                "relatedUiObject": "APIs",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -2131,6 +2137,72 @@
             "compatibleTypes": "->Master Script->"
         },
         "childrenNodesProperties": []
+    },
+    {
+        "type": "APIs",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Github API",
+                "relatedUiObject": "Github API",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "isHierarchyHead": true,
+        "addLeftIcons": true,
+        "level": 0,
+        "childrenNodesProperties": [
+            {
+                "name": "githubAPI",
+                "type": "node",
+                "childType": "Github API"
+            }
+        ],
+        "icon": "bitcoin"
+    },
+    {
+        "type": "Github API",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n\"username\": \"\", \n\"token\": \"\"\n}"
+        },
+        "addLeftIcons": true,
+        "level": 1,
+        "attachingRules": {
+            "compatibleTypes": "->APIs->"
+        },
+        "propertyNameAtParent": "githubAPI",
+        "icon": "bitcoin"
     },
     {
         "type": "Network",

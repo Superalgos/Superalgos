@@ -19,6 +19,23 @@
         {
             "style": "Text",
             "text": "In the context of an order, it's the situation that triggered the create order event."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Situation Name Configuration",
+            "updated": 1609926290356
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties"
+        },
+        {
+            "style": "List",
+            "text": "initialValue allows resetting the initial state of the node to an arbitrary value."
         }
     ]
 }

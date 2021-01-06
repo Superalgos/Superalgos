@@ -23,6 +23,23 @@
         {
             "style": "Text",
             "text": "In liquid markets, market orders should usually fill immediately. However, limit orders may fill incrementally. Size filled keeps track of how much of the size placed has been filled on every execution."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Size Filled Configuration",
+            "updated": 1609926785857
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties"
+        },
+        {
+            "style": "List",
+            "text": "initialValue allows resetting the initial state of the node to an arbitrary value."
         }
     ]
 }

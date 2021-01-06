@@ -23,6 +23,24 @@
         {
             "style": "List",
             "text": "The configuration of the order: The parameter percentageOfAlgorithmSize determines what fraction of the size handled by the algorithm the order shall be constrained to."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring",
+            "updated": 1609927497028
+        },
+        {
+            "style": "Title",
+            "text": "Size Configuration",
+            "updated": 1609927506777
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties"
+        },
+        {
+            "style": "List",
+            "text": "initialValue allows resetting the initial state of the node to an arbitrary value."
         }
     ]
 }

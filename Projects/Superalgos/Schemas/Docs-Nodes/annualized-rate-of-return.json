@@ -17,8 +17,9 @@
             "text": "The formula:"
         },
         {
-            "style": "Text",
-            "text": "annualized rate of return = (((investment + profits) / investments) ^ (365 / days)) - 1"
+            "style": "Javascript",
+            "text": "annualized rate of return = \n(((investment + profits) / investments) ^ (365 / days)) - 1",
+            "updated": 1609925146643
         },
         {
             "style": "Text",
@@ -29,112 +30,18 @@
             "text": "The formulas:"
         },
         {
-            "style": "Text",
-            "text": "tradingEngine.current.episode.episodeBaseAsset.annualizedRateOfReturn.value ="
-        },
-        {
-            "style": "Text",
-            "text": "((( tradingEngine.current.episode.episodeBaseAsset.beginBalance.value +"
-        },
-        {
-            "style": "Text",
-            "text": "tradingEngine.current.episode.episodeBaseAsset.profitLoss.value ) /"
-        },
-        {
-            "style": "Text",
-            "text": "tradingEngine.current.episode.episodeBaseAsset.beginBalance.value) ^"
-        },
-        {
-            "style": "Text",
-            "text": "(365 / tradingEngine.current.episode.episodeStatistics.days.value)) - 1"
-        },
-        {
-            "style": "Text",
-            "text": "tradingEngine.current.episode.episodeQuotedAsset.annualizedRateOfReturn.value ="
-        },
-        {
-            "style": "Text",
-            "text": "((( tradingEngine.current.episode.episodeQuotedAsset.beginBalance.value +"
-        },
-        {
-            "style": "Text",
-            "text": "tradingEngine.current.episode.episodeQuotedAsset.profitLoss.value ) /"
-        },
-        {
-            "style": "Text",
-            "text": "tradingEngine.current.episode.episodeQuotedAsset.beginBalance.value) ^"
-        },
-        {
-            "style": "Text",
-            "text": "(365 / tradingEngine.current.episode.episodeStatistics.days.value)) - 1"
+            "style": "Javascript",
+            "text": "tradingEngine.current.episode.episodeBaseAsset.annualizedRateOfReturn.value = \n((( tradingEngine.current.episode.episodeBaseAsset.beginBalance.value +\ntradingEngine.current.episode.episodeBaseAsset.profitLoss.value ) / \ntradingEngine.current.episode.episodeBaseAsset.beginBalance.value) ^\n(365 / tradingEngine.current.episode.episodeStatistics.days.value)) - 1\n\ntradingEngine.current.episode.episodeQuotedAsset.annualizedRateOfReturn.value = \n((( tradingEngine.current.episode.episodeQuotedAsset.beginBalance.value +\ntradingEngine.current.episode.episodeQuotedAsset.profitLoss.value ) / \ntradingEngine.current.episode.episodeQuotedAsset.beginBalance.value) ^\n(365 / tradingEngine.current.episode.episodeStatistics.days.value)) - 1",
+            "updated": 1609925166406
         },
         {
             "style": "Text",
             "text": "The JavaScript code:"
         },
         {
-            "style": "Text",
-            "text": "tradingEngine.current.episode.episodeBaseAsset.annualizedRateOfReturn.value ="
-        },
-        {
-            "style": "Text",
-            "text": "Math.pow("
-        },
-        {
-            "style": "Text",
-            "text": "             ( tradingEngine.current.episode.episodeBaseAsset.beginBalance.value +"
-        },
-        {
-            "style": "Text",
-            "text": "             tradingEngine.current.episode.episodeBaseAsset.profitLoss.value ) /"
-        },
-        {
-            "style": "Text",
-            "text": "             tradingEngine.current.episode.episodeBaseAsset.beginBalance.value"
-        },
-        {
-            "style": "Text",
-            "text": "             ,"
-        },
-        {
-            "style": "Text",
-            "text": "             (365 / tradingEngine.current.episode.episodeStatistics.days.value)"
-        },
-        {
-            "style": "Text",
-            "text": "        ) - 1"
-        },
-        {
-            "style": "Text",
-            "text": "tradingEngine.current.episode.episodeQuotedAsset.annualizedRateOfReturn.value ="
-        },
-        {
-            "style": "Text",
-            "text": "Math.pow("
-        },
-        {
-            "style": "Text",
-            "text": "             ( tradingEngine.current.episode.episodeQuotedAsset.beginBalance.value +"
-        },
-        {
-            "style": "Text",
-            "text": "             tradingEngine.current.episode.episodeQuotedAsset.profitLoss.value ) /"
-        },
-        {
-            "style": "Text",
-            "text": "             tradingEngine.current.episode.episodeQuotedAsset.beginBalance.value"
-        },
-        {
-            "style": "Text",
-            "text": "             ,"
-        },
-        {
-            "style": "Text",
-            "text": "             (365 / tradingEngine.current.episode.episodeStatistics.days.value)"
-        },
-        {
-            "style": "Text",
-            "text": "        ) - 1"
+            "style": "Javascript",
+            "text": "tradingEngine.current.episode.episodeBaseAsset.annualizedRateOfReturn.value = \nMath.pow(\n             ( tradingEngine.current.episode.episodeBaseAsset.beginBalance.value +\n             tradingEngine.current.episode.episodeBaseAsset.profitLoss.value ) / \n             tradingEngine.current.episode.episodeBaseAsset.beginBalance.value\n             , \n             (365 / tradingEngine.current.episode.episodeStatistics.days.value)\n        ) - 1\n\ntradingEngine.current.episode.episodeQuotedAsset.annualizedRateOfReturn.value = \nMath.pow(\n             ( tradingEngine.current.episode.episodeQuotedAsset.beginBalance.value +\n             tradingEngine.current.episode.episodeQuotedAsset.profitLoss.value ) / \n             tradingEngine.current.episode.episodeQuotedAsset.beginBalance.value\n             , \n             (365 / tradingEngine.current.episode.episodeStatistics.days.value)\n        ) - 1",
+            "updated": 1609925205928
         },
         {
             "style": "Text",
@@ -149,80 +56,9 @@
             "text": "The JavaScript code:"
         },
         {
-            "style": "Text",
-            "text": "tradingEngine.current.episode.episodeStatistics.annualizedRateOfReturn.value ="
-        },
-        {
-            "style": "Text",
-            "text": "Math.pow("
-        },
-        {
-            "style": "Text",
-            "text": "            ("
-        },
-        {
-            "style": "Text",
-            "text": "                tradingEngine.current.episode.episodeBaseAsset.beginBalance.value *"
-        },
-        {
-            "style": "Text",
-            "text": "                tradingEngine.current.episode.beginRate.value +"
-        },
-        {
-            "style": "Text",
-            "text": "                tradingEngine.current.episode.episodeQuotedAsset.beginBalance.value +"
-        },
-        {
-            "style": "Text",
-            "text": "                tradingEngine.current.episode.episodeBaseAsset.profitLoss.value +"
-        },
-        {
-            "style": "Text",
-            "text": "                tradingEngine.current.episode.episodeQuotedAsset.profitLoss.value"
-        },
-        {
-            "style": "Text",
-            "text": "            ) /"
-        },
-        {
-            "style": "Text",
-            "text": "            ("
-        },
-        {
-            "style": "Text",
-            "text": "                tradingEngine.current.episode.episodeBaseAsset.beginBalance.value *"
-        },
-        {
-            "style": "Text",
-            "text": "                tradingEngine.current.episode.beginRate.value +"
-        },
-        {
-            "style": "Text",
-            "text": "                tradingEngine.current.episode.episodeQuotedAsset.beginBalance.value"
-        },
-        {
-            "style": "Text",
-            "text": "            )"
-        },
-        {
-            "style": "Text",
-            "text": "        ,"
-        },
-        {
-            "style": "Text",
-            "text": "            ("
-        },
-        {
-            "style": "Text",
-            "text": "                365 / tradingEngine.current.episode.episodeStatistics.days.value"
-        },
-        {
-            "style": "Text",
-            "text": "            )"
-        },
-        {
-            "style": "Text",
-            "text": "        ) - 1"
+            "style": "Javascript",
+            "text": "tradingEngine.current.episode.episodeStatistics.annualizedRateOfReturn.value =\nMath.pow(\n            (\n                tradingEngine.current.episode.episodeBaseAsset.beginBalance.value * \n                tradingEngine.current.episode.beginRate.value +\n                tradingEngine.current.episode.episodeQuotedAsset.beginBalance.value +\n                tradingEngine.current.episode.episodeBaseAsset.profitLoss.value +\n                tradingEngine.current.episode.episodeQuotedAsset.profitLoss.value\n            ) / \n            (\n                tradingEngine.current.episode.episodeBaseAsset.beginBalance.value * \n                tradingEngine.current.episode.beginRate.value +\n                tradingEngine.current.episode.episodeQuotedAsset.beginBalance.value \n            ) \n        , \n            (\n                365 / tradingEngine.current.episode.episodeStatistics.days.value\n            ) \n        ) - 1",
+            "updated": 1609925262959
         },
         {
             "style": "Block",
@@ -231,8 +67,8 @@
         },
         {
             "style": "Title",
-            "text": "Serial Number Configuration",
-            "updated": 1609873971454
+            "text": "Annualized Rate Of Return Configuration",
+            "updated": 1609925322383
         },
         {
             "style": "Subtitle",

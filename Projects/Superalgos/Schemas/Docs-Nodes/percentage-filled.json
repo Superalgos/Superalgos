@@ -13,7 +13,7 @@
             "text": "The formula:"
         },
         {
-            "style": "Text",
+            "style": "Javascript",
             "text": "percentage filled = size filled * 100 / size"
         },
         {
@@ -23,8 +23,8 @@
         },
         {
             "style": "Title",
-            "text": "Serial Number Configuration",
-            "updated": 1609873971454
+            "text": "Percentage Filled Configuration",
+            "updated": 1609928046299
         },
         {
             "style": "Subtitle",

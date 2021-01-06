@@ -1,7 +1,8 @@
 {
     "type": "Actual Size",
     "definition": {
-        "text": "Left click and Edit to enter edit mode and change this text."
+        "text": "The Actual Size is the size reported by the exchange during synchronization, or the size resulting from the simulation of the synchronization with the exchange in the case of simulations.",
+        "updated": 1609927441472
     },
     "paragraphs": [
         {
@@ -19,8 +20,8 @@
         },
         {
             "style": "Title",
-            "text": "Serial Number Configuration",
-            "updated": 1609873971454
+            "text": "Actual Size Configuration",
+            "updated": 1609927221799
         },
         {
             "style": "Subtitle",

@@ -1,0 +1,55 @@
+{
+    "topic": "Introduction",
+    "pageNumber": "4",
+    "type": "Workflows",
+    "definition": {
+        "text": "Your preferred workflow will emerge from the understanding of how Superalgos administers the complexity of multiple concepts that make up trading intelligence.",
+        "updated": 1609946305313
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Superalgos features multiple intertwining workflows, each with multiple ramifications and variations. Use cases for a trading automation platform like Superalgos abound and are probably impossible to extricate from one another:"
+        },
+        {
+            "style": "List",
+            "text": "Users may download data from multiple exchanges and multiple markets."
+        },
+        {
+            "style": "List",
+            "text": "They may process data using existing indicators, modify those indicators, or create their own technical studies with varying degrees of complexity."
+        },
+        {
+            "style": "List",
+            "text": "They may use simple charts or may configure complex charts superimposing information from different markets and different exchanges."
+        },
+        {
+            "style": "List",
+            "text": "They may use and modify existing trading systems or create their own, both with or without coding."
+        },
+        {
+            "style": "List",
+            "text": "They may trade in a fully automated fashion, use the system for backtesting, or for generating signals from paper trading sessions."
+        },
+        {
+            "style": "List",
+            "text": "They may run minimalistic, home-sized trading operations or deploy industrial-grade trading farms."
+        },
+        {
+            "style": "List",
+            "text": "They may operate in a single market or leverage multiple exchanges and markets with a complex web of trading systems."
+        },
+        {
+            "style": "Callout",
+            "text": "All of these use cases and the infinite permutations that may result from combining each dimension of use in varying measures may as well produce infinite workflows."
+        },
+        {
+            "style": "Text",
+            "text": "The best approach to start developing your workflow is to build up your understanding of how the system is structured, and—in particular—how information is made available to each of the components of the system."
+        },
+        {
+            "style": "Text",
+            "text": "As a rule of thumb, one of the foremost system design criteria for Superalgos is flexibility. The system should impose no constraints and let your imagination and hardware resources set the limits of what you may or may not do."
+        }
+    ]
+}

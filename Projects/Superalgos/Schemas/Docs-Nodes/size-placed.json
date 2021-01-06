@@ -15,6 +15,23 @@
         {
             "style": "Text",
             "text": "In the context of an order, it refers to the size placed for the particular order."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Size Placed Configuration",
+            "updated": 1609926749496
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties"
+        },
+        {
+            "style": "List",
+            "text": "initialValue allows resetting the initial state of the node to an arbitrary value."
         }
     ]
 }

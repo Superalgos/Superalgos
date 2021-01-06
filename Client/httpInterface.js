@@ -527,7 +527,9 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                     case 'Contribute': {
                         try {
                             const commitMessage = unescape(requestParameters[3])
-    
+                            const username = unescape(requestParameters[4])
+                            const token = unescape(requestParameters[5])
+
                             contribute()
 
                             async function contribute() {
@@ -552,7 +554,6 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
                             async function doGithub() {
 
-                                const token = ""
                                 const { Octokit } = require("@octokit/rest")
 
                                 const octokit = new Octokit({
@@ -562,7 +563,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
                                 const repo = 'Superalgos'
                                 const owner = 'Superalgos'
-                                const head = 'Luis-Fernando-Molina:in-app-documentation'
+                                const head = username + ':in-app-documentation'
                                 const base = 'in-app-documentation'
                                 const title = 'Contribution to Superalgos'
 
@@ -578,7 +579,9 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                         } catch (err) {
                             console.log('[ERROR] httpInterface -> App -> Contribute -> Method call produced an error.')
                             console.log('[ERROR] httpInterface -> App -> Contribute -> err.stack = ' + err.stack)
-                            console.log('[ERROR] httpInterface -> App -> Contribute -> Params Received = ' + requestParameters[3])
+                            console.log('[ERROR] httpInterface -> App -> Contribute -> commitMessage = ' + commitMessage)
+                            console.log('[ERROR] httpInterface -> App -> Contribute -> username = ' + username)
+                            console.log('[ERROR] httpInterface -> App -> Contribute -> token = ' + token)
 
                             let error = {
                                 result: 'Fail Because',

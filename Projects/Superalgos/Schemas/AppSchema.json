@@ -14648,7 +14648,7 @@
             "config": true
         },
         "initialValues": {
-            "config": "{ \n\"backgroundColor\": \"UI_COLOR.BLACK\"\n}"
+            "config": "{\"backgroundColor\":\"UI_COLOR.BLACK\",\"node\":{\"fontSize\":16,\"imageSize\":60,\"type\":{\"fontColor\":\"UI_COLOR.WHITE\"},\"name\":{\"fontColor\":\"UI_COLOR.WHITE\"},\"menuItem\":{\"backgroundColor\":\"UI_COLOR.BLACK\",\"fontColor\":\"UI_COLOR.WHITE\",\"fontSize\":14,\"imageSize\":14}}}"
         },
         "menuItems": [
             {
@@ -14681,7 +14681,7 @@
             "config": true
         },
         "initialValues": {
-            "config": "{ \n\"distanceBetweenNodes\": 500\n}"
+            "config": "{\"node\":{\"distancePercentage\":60,\"radiusPercentage\":85,\"massPercentage\":100,\"animationSteps\":2,\"menuItem\":{\"widthPercentage\":100,\"heightPercentage\":60,\"radiusPercentage\":90}},\"physics\":false}"
         },
         "menuItems": [
             {

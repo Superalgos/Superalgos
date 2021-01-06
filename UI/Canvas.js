@@ -464,7 +464,12 @@ function newCanvas() {
 
         if ((event.ctrlKey === true || event.metaKey === true) && event.altKey === true && event.shiftKey === true && event.keyCode === 123) { // Dev Tool when used with F12
             if (nodeOnFocus !== undefined) {
+                console.log('Node on Focus:')
                 console.log(nodeOnFocus)
+                if (nodeOnFocus.config !== undefined) {
+                    console.log('Node on Focus Config:')
+                    console.log(JSON.stringify(JSON.parse(nodeOnFocus.config)).replaceAll('"', '\"'))
+                }
                 return
             }
         }

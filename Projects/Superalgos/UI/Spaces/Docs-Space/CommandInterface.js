@@ -59,7 +59,9 @@ function newSuperalgosDocsCommmandInterface() {
             }            
 
             httpRequest(undefined, 'App/Contribute/' + message + '/' + config.username + '/' + config.token, onResponse)
-            return true
+            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Message Creating Pull Request')
+
+            return true  
 
             function onResponse(err, data) {
                 /* Lets check the result of the call through the http interface */

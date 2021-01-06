@@ -303,7 +303,7 @@ box-sizing: border-box;
   background-color:white;
 padding: 20px;
 margin: 20px 0;
-border: 1px solid rgba(188, 214, 67, .5);
+border: 1px solid rgba(54, 85, 88, .2);
 border-left-width: 5px;
 border-radius: 3px;
 border-left-color: #bcd643;
@@ -348,11 +348,14 @@ box-sizing: border-box;
 }
 
 .docs-summary {
-font-size:120%;
-color: #808080;
-margin:20px 0px 20px 0px;
+background-color:white;
+font-weight: 600;
+color: #365558;
+padding: 20px;
+margin-bottom: 20px;
+border-radius: 5px;
+border: 1px solid rgba(54, 85, 88, .2);
 border-left: 5px solid #fd6a33;
-padding-left: 10px;
 width: 100%;
 box-sizing: border-box;
 }
@@ -877,27 +880,41 @@ text-align: right;
 color: transparent;
 font-size: 75%;
 
-/* DELETE candidate
-margin-right: 20px;
-*/
-
 }
 
 .docs-hidden-block::after{
-  content:' \25BC';
-  color: #ddd;
+  content:' \25BD';
+  color: #e0e0e0;
+  font-size: 150%;
   }
 
+  .docs-hidden-block:hover::after{
+    content:' \25BC';
+    color: #365558;
+    font-size: 150%;
+    }
+
 .docs-hidden-include {
-color: #880db9;
-background-color: #ea6dee;
-border-color: #550483;
-padding: 15px;
-border: 1px solid transparent;
-border-radius: 4px;
-margin: 20px 0;
-width: 100%;
+  border-top: 1px solid #eee;
+  padding: 0px;
+  margin: -5px 0px -30px 0;
+  width: 100%;
+  text-align: right;
+  color: transparent;
+  font-size: 75%;
 }
+
+.docs-hidden-include::after{
+  content:' \275E';
+  color: #e6e6e6;
+  font-size: 200%;
+  }
+
+  .docs-hidden-include:hover::after{
+    content:' \275E';
+    color: #365558;
+    font-size: 200%;
+    }
 
 /* Hierarchy Table */
 .docs-hierarchy-table {

@@ -37,33 +37,14 @@
             "text": "How to Detach and Attach Nodes"
         },
         {
-            "style": "Text",
-            "text": "To detach a node, click on the detach button on the node's menu. To attach a node, right-click it and drag it closer to the node you wish to attach it to. Release the right-click when the target node is highlighted.",
-            "updated": 1609947216203
+            "style": "Include",
+            "text": "Superalgos->Topic->Detach and Attach Nodes->Definition",
+            "updated": 1609948512326
         },
         {
-            "style": "Text",
-            "text": "Use the detach option on the menu to break a relationship."
-        },
-        {
-            "style": "Text",
-            "text": "Nodes in the workspace may be unchained or detached from its parent, carrying all offspring with it. When a node is left unchained, it is no longer taken into account in the logic of the hierarchy, as it no longer belongs to it. When a node is chained back or reattached to the hierarchy, it goes back to being functional."
-        },
-        {
-            "style": "Text",
-            "text": "This feature is useful when testing different configurations, rules or parameters, as it allows to keep alternatives handy in the workspace."
-        },
-        {
-            "style": "Text",
-            "text": "Nodes may be attached only to potential parents. The system limits the way in which nodes may be attached, according to the logic of the information they contain."
-        },
-        {
-            "style": "Text",
-            "text": " Note: Nodes may not be detached or attached to frozen nodes. You need to unfreeze them before attaching or detaching."
-        },
-        {
-            "style": "Text",
-            "text": " Note: The verbs to chain and to attach may be used interchangeably, as synonyms. Similarly, to unchain and to detach are both valid."
+            "style": "Include",
+            "text": "Superalgos->Topic->Detach and Attach Nodes->Content",
+            "updated": 1609948536788
         }
     ]
 }

@@ -242,15 +242,15 @@ function newSuperalgosDocsDocumentPage() {
                         previousPage = orderedTopicPageIndexArray[i - 1]
                         nextPage = orderedTopicPageIndexArray[i + 1]
 
-                        HTML = HTML + '<p><center>'
+                        HTML = HTML + '<div class="docs-topic-navigation"><div>'
                         if (previousPage !== undefined) {
-                            HTML = HTML + '<a class="docs-link" onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project + '\', \'' + 'Topic' + '\', \'' + previousPage.type.replace(/'/g, 'AMPERSAND') + '\')">' + previousPage.type + '</a> << '
+                            HTML = HTML + '<span" onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project + '\', \'' + 'Topic' + '\', \'' + previousPage.type.replace(/'/g, 'AMPERSAND') + '\')"><button>' + previousPage.type + '</button></span>'
                         }
-                        HTML = HTML + ' Current Page: ' + thisObject.docsSchemaDocument.pageNumber + ' '
+                        HTML = HTML + '</div><div> << Current Page: ' + thisObject.docsSchemaDocument.pageNumber + ' >> </div><div>'
                         if (nextPage !== undefined) {
-                            HTML = HTML + ' >> <a class="docs-link" onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project + '\', \'' + 'Topic' + '\', \'' + nextPage.type.replace(/'/g, 'AMPERSAND') + '\')">' + nextPage.type + '</a>'
+                            HTML = HTML + '<span" onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project + '\', \'' + 'Topic' + '\', \'' + nextPage.type.replace(/'/g, 'AMPERSAND') + '\')"><button>' + nextPage.type + '</button></span>'
                         }
-                        HTML = HTML + '</center></p>'
+                        HTML = HTML + '</div></div>'
                         return
                     }
                 }

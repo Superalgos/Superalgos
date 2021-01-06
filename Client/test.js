@@ -1,58 +1,51 @@
-githubTest()
-//gitTest()
+//const commitMessage = unescape(requestParameters[3])
+const commitMessage = 'My Message'
 
+contribute()
 
-async function githubTest() {
+async function contribute() {
+    await doGit()
+    await doGithub()
+    console.log('Finished')
+}
+
+async function doGit() {
+    const simpleGit = require('simple-git');
+    const options = {
+        baseDir: process.cwd(),
+        binary: 'git',
+        maxConcurrentProcesses: 6,
+    }
+    const git = simpleGit(options)
+
+    await git.add('./*')
+    await git.commit(commitMessage)
+    await git.push('origin', 'in-app-documentation')
+}
+
+async function doGithub() {
 
     const token = ""
     const { Octokit } = require("@octokit/rest")
 
     const octokit = new Octokit({
         auth: token,
-        userAgent: 'Superalgos Beta 8',
-        //previews: ['jean-grey', 'symmetra'],
-        //timeZone: 'Europe/London',
-        //baseUrl: 'https://api.github.com',
-        /*
-        log: {
-            debug: () => { },
-            info: () => { },
-            warn: console.warn,
-            error: console.error
-        },
-        request: {
-            agent: undefined,
-            fetch: undefined,
-            timeout: 0
-        }
-        */
+        userAgent: 'Superalgos Beta 8'
     })
 
     const repo = 'Superalgos'
-    const owner = 'Luis-Fernando-Molina'
-    const username = 'Luis-Fernando-Molina'
+    const owner = 'Superalgos'
     const head = 'Luis-Fernando-Molina:in-app-documentation'
     const base = 'in-app-documentation'
+    const title = 'My Contribution to Superalgos'
 
-    /*
-    let user = await octokit.users.getByUsername({
-        username,
-    });
-
-    let superalgosRepo = await octokit.repos.get({
+    await octokit.pulls.create({
         owner,
         repo,
-      });
-    */
-
-    let pullRequest = await octokit.pulls.create({
-        owner,
-        repo,
+        title,
         head,
         base,
     });
-
-    console.log(pullRequest)
 }
 
 

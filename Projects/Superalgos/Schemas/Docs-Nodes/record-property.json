@@ -17,8 +17,9 @@
             "text": "The order in which record properties are defined around the parent record definition node is the order in which they are stored in the actual record."
         },
         {
-            "style": "Text",
-            "text": "{% include tip.html content=\"The first two records are usually the begin and end records, featuring the corresponding datetimes that indicate when the record starts and ends.\" %}"
+            "style": "Success",
+            "text": "The first two records are usually the begin and end records, featuring the corresponding datetimes that indicate when the record starts and ends.",
+            "updated": 1609788556871
         },
         {
             "style": "Block",
@@ -26,47 +27,25 @@
         },
         {
             "style": "Title",
-            "text": "Configuring Record Property"
+            "text": "Record Property Configuration",
+            "updated": 1609788569963
         },
         {
-            "style": "Text",
-            "text": "Select Configure Property on the menu to access the configuration."
-        },
-        {
-            "style": "Text",
-            "text": "{"
-        },
-        {
-            "style": "Text",
-            "text": "  \"codeName\": \"record-name\","
-        },
-        {
-            "style": "Text",
-            "text": "  \"isString\": false,"
-        },
-        {
-            "style": "Text",
-            "text": "  \"isCalculated\": true"
-        },
-        {
-            "style": "Text",
-            "text": "}"
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609788577195
         },
         {
             "style": "List",
             "text": "codeName is the name of the record as it is used in the bot's code."
         },
         {
-            "style": "Text",
+            "style": "List",
+            "text": "isString determines if the field is a text string or if, in turn, is a numeric field. Dates are stored in the epoch format, which is numeric. The reason why this configuration is important is that fields that are strings need to be stored between “double quotes”."
+        },
+        {
+            "style": "List",
             "text": " isCalculated determines if the field is stored in the dataset or if, instead, is calculated at a later stage. A value true* means that the record is not stored. In the case isCaculated is not defined in the configuration, it is assumed to be false."
-        },
-        {
-            "style": "Gif",
-            "text": "GIFs/Superalgos/Docs/inner-foder/indicators-record-definitions-01.gif"
-        },
-        {
-            "style": "Text",
-            "text": "The image above shows a record definition with four record properties."
         }
     ]
 }

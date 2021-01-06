@@ -13,8 +13,9 @@
             "text": "These coordinate points are used to define polygons. Values for [x,y]coordinates are entered with a point formula."
         },
         {
-            "style": "Text",
-            "text": "{% include tip.html content=\"Each point should be given a significant name so that it is easier to identify them at the time of establishing references with polygon vertices.\" %}"
+            "style": "Success",
+            "text": "Give points a significant name so that it is easier to identify them at the time of establishing references with polygon vertices.",
+            "updated": 1609852471920
         }
     ]
 }

@@ -1,7 +1,7 @@
 {
     "topic": "App Commands",
     "pageNumber": "1",
-    "type": "App Contribute",
+    "type": "App Contribute Command",
     "definition": {
         "text": "This command allows you to contribute the changes you have made to the Docs, code, plugins, etc. to the Superalgos main repository so that all other users can enjoy those contributions once they update their installation.",
         "updated": 1609943282530
@@ -66,12 +66,18 @@
             "updated": 1609944217509
         },
         {
+            "style": "Block",
+            "text": "Block Authentication",
+            "updated": 1609945385299
+        },
+        {
             "style": "Title",
             "text": "Authentication"
         },
         {
             "style": "Text",
-            "text": "In order for this command to run, two things need to happen:"
+            "text": "In order for the App Contribute Command to run, two things need to happen:",
+            "updated": 1609945880855
         },
         {
             "style": "List",
@@ -107,6 +113,24 @@
             "style": "Javascript",
             "text": "{\n    \"username\": \"\",\n    \"token\": \"\"\n}",
             "updated": 1609944956313
+        },
+        {
+            "style": "Text",
+            "text": "If you can't find the node it is because it is not there. We only include it at the Getting Started Workspace. Don't worry you can create it. Just do this:",
+            "updated": 1609946259572
+        },
+        {
+            "style": "List",
+            "text": "Superalgos Project: Find this node."
+        },
+        {
+            "style": "List",
+            "text": "Other Hierarchies: You can use this to create the APIs node.",
+            "updated": 1609946284646
+        },
+        {
+            "style": "List",
+            "text": "APIs: Use it to creat Github API"
         },
         {
             "style": "Subtitle",

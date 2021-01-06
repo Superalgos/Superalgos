@@ -31,12 +31,34 @@ function newSuperalgosDocsCommmandInterface() {
             }
             if (UI.projects.superalgos.spaces.docsSpace.commandInterface.command.indexOf('App.Contribute') !== 0 && UI.projects.superalgos.spaces.docsSpace.commandInterface.command.indexOf('app.contribute') !== 0) { return }
 
+            /* Set up the commit message */
             let message = UI.projects.superalgos.spaces.docsSpace.commandInterface.command.trim().substring(UI.projects.superalgos.spaces.docsSpace.commandInterface.command.indexOf(' ') + 1, UI.projects.superalgos.spaces.docsSpace.commandInterface.command.length)
             if (message.toLowerCase() === 'app.contribute') {
                 message = 'This is my contribution to Superalgos'
-            } 
+            }
 
-            httpRequest(undefined, 'App/Contribute/' + message, onResponse)
+            /* Find the Username and Password */
+            let apisNode = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsByType('APIs')
+            if (apisNode === undefined) {
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error Github Credentials Missing', 'Anchor Github Credentials Missing')
+                return true
+            }
+            if (apisNode.githubAPI === undefined) {
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error Github Credentials Missing', 'Anchor Github Credentials Missing')
+                return true
+            }
+
+            let config = JSON.parse(apisNode.githubAPI.config)
+            if (config.username === undefined || config.username === "") {
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error Github Credentials Missing', 'Anchor Github Credentials Missing')
+                return true
+            }
+            if (config.token === undefined || config.token === "") {
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error Github Credentials Missing', 'Anchor Github Credentials Missing')
+                return true
+            }            
+
+            httpRequest(undefined, 'App/Contribute/' + message + '/' + config.username + '/' + config.token, onResponse)
             return true
 
             function onResponse(err, data) {

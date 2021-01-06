@@ -567,13 +567,19 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 const base = 'in-app-documentation'
                                 const title = 'Contribution to Superalgos'
 
-                                await octokit.pulls.create({
-                                    owner,
-                                    repo,
-                                    title,
-                                    head,
-                                    base,
-                                });
+                                try {
+                                    await octokit.pulls.create({
+                                        owner,
+                                        repo,
+                                        title,
+                                        head,
+                                        base,
+                                    });
+                                } catch (err) {
+                                    if (err.stack.indexOf('A pull request already exists') <0) {
+                                        throw(err)
+                                    }
+                                }
                             }
 
                         } catch (err) {

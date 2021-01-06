@@ -7,14 +7,6 @@
         {
             "style": "Block",
             "text": "Configuring"
-        },
-        {
-            "style": "Title",
-            "text": "Configuring Plugin Data Mines"
-        },
-        {
-            "style": "Text",
-            "text": "Select Configure on the menu to access the configuration."
         }
     ]
 }

@@ -100,8 +100,8 @@ function newSuperalgosUtilitiesDocs() {
     function reverseParseGIF(HTML) {
         let result = HTML
         result = result.replace(' <img class="docs-gif" src="', '')
-        result = result.replace('">  ', '')
-        return result
+        result = result.replace('">', '')
+        return result.trim()
     }
 
     function parsePNG(text) {
@@ -111,8 +111,8 @@ function newSuperalgosUtilitiesDocs() {
     function reverseParsePNG(HTML) {
         let result = HTML
         result = result.replace(' <img class="docs-png" src="', '')
-        result = result.replace('">  ', '')
-        return result
+        result = result.replace('">', '')
+        return result.trim()
     }
 
     function parseTable(text) {
@@ -194,14 +194,6 @@ function newSuperalgosUtilitiesDocs() {
         return HTML
     }
 
-    function parseChapter(text) {
-        let HTML = ''
-        let splittedText = text.split('->')
-        if (splittedText.length < 1) { return }
-        HTML = '<a  params="' + text + '" onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + splittedText[0] + '\', \'Topic\', \'' + splittedText[1] + '\')" class="docs-chapter-link">' + splittedText[1] + '</a>'
-        return HTML
-    }
-
     function parseYoutube(text) {
         let HTML = ''
 
@@ -232,7 +224,7 @@ function newSuperalgosUtilitiesDocs() {
 
         /* Single occurrance replacements */
         text = text.replace('<table class="docs-info-table"> ', '')
-        text = text.replace('  </table>', '')
+        text = text.replace('</table>', '')
         text = text.replace('<thead>', '')
         text = text.replace('</thead>', '')
         text = text.replace('<tbody>', '')
@@ -251,13 +243,13 @@ function newSuperalgosUtilitiesDocs() {
 
         /* We break lines where needed */
         text = text.replaceAll('||', '|' + String.fromCharCode(10) + '|')
-        return text
+        return text.trim()
 
         function removeRGB(HTML) {
             let text = HTML
             text = text.replaceAll('<div style="display: block; background: ', '')
             text = text.replaceAll('; border: 1px solid black;">&nbsp;&nbsp;&nbsp;</div>', '')
-            return text
+            return text.trim()
         }
     }
 

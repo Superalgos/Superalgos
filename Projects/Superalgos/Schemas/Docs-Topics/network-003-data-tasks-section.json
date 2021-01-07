@@ -1,0 +1,196 @@
+{
+    "topic": "Network",
+    "pageNumber": "3",
+    "type": "Data Tasks Section",
+    "definition": {
+        "text": "The Data Tasks structure of nodes controls the bots you need to run to extract data from exchanges and process it into indicators or technical studies.",
+        "updated": 1610051156939
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Data Tasks->Definition",
+            "updated": 1610051799865
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Note for Hierarchy Tables",
+            "updated": 1610051833622
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Data Tasks->7",
+            "updated": 1610052622292
+        },
+        {
+            "style": "Title",
+            "text": "Project Data Tasks"
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Project Data Tasks->Definition",
+            "updated": 1610052251554
+        },
+        {
+            "style": "Title",
+            "text": "Exchange Data Tasks",
+            "updated": 1610051854969
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Exchange Data Tasks->Definition",
+            "updated": 1610052267040
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Exchange Data Tasks->Content",
+            "updated": 1610052271283
+        },
+        {
+            "style": "Title",
+            "text": "Data Mine Tasks",
+            "updated": 1610051908264
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Data Mine Tasks->Definition",
+            "updated": 1610052291134
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Data Mine Tasks->Content",
+            "updated": 1610052294849
+        },
+        {
+            "style": "Title",
+            "text": "Task Manager",
+            "updated": 1610051922962
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Task Manager->Definition",
+            "updated": 1610052305576
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Task Manager->Content",
+            "updated": 1610052315139
+        },
+        {
+            "style": "Title",
+            "text": "Task"
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Task->Definition",
+            "updated": 1610052512203
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Task->Content",
+            "updated": 1610052515948
+        },
+        {
+            "style": "Callout",
+            "text": "Data tasks may run instances of Indicator Bots or Sensor Bots, and some exchange may require an API key for downloading certain kinds or amounts of data. We will look into each of these cases.",
+            "updated": 1610053358825
+        },
+        {
+            "style": "Title",
+            "text": "Indicator Bot Instance"
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Indicator Bot Instance->5",
+            "updated": 1610052779634
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Indicator Bot Instance->Definition",
+            "updated": 1610052992001
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Indicator Bot Instance->Content",
+            "updated": 1610053001117
+        },
+        {
+            "style": "Subtitle",
+            "text": "Indicator Process Instance",
+            "updated": 1610053039264
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Indicator Process Instance->Definition",
+            "updated": 1610053043468
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Indicator Process Instance->Content",
+            "updated": 1610053048925
+        },
+        {
+            "style": "Subtitle",
+            "text": "Time Frames Filter",
+            "updated": 1610053086734
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Time Frames Filter->Definition",
+            "updated": 1610053096751
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Time Frames Filter->Content->",
+            "updated": 1610053112916
+        },
+        {
+            "style": "Title",
+            "text": "Sensor Bot Instance"
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Sensor Bot Instance->5"
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Sensor Bot Instance->Definition",
+            "updated": 1610053220123
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Sensor Bot Instance->Content",
+            "updated": 1610053224701
+        },
+        {
+            "style": "Subtitle",
+            "text": "Sensor Process Instance",
+            "updated": 1610051983233
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Sensor Process Instance->Definition",
+            "updated": 1610053248186
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Sensor Process Instance->Content",
+            "updated": 1610053252094
+        },
+        {
+            "style": "Title",
+            "text": "Key Reference",
+            "updated": 1610053470203
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Key Reference->Definition",
+            "updated": 1610053463992
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Key Reference->Content",
+            "updated": 1610053479747
+        }
+    ]
+}

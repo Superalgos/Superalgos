@@ -1,8 +1,8 @@
 {
-    "type": "Indicator Bot",
+    "type": "Remove Angle to Parent Node",
     "definition": {
-        "text": "An indicator bot is an algorithm that processes information that other bots have generated, and produces elaborate datasets for others to consume.",
-        "updated": 1609614405833
+        "text": "The rotational symmetry is disabled and the node may take any position. The connection line with its parent is yellow.",
+        "updated": 1610029243797
     },
     "paragraphs": [
         {

@@ -417,7 +417,7 @@ function newSuperalgosDocsContextMenu() {
             return true
         }
         if (paragraphNode.id.indexOf('-error') >= 0) {
-            selectedParagraphData = paragraphNode.innerText.trim().substring(8, paragraphNode.innerText.length)
+            selectedParagraphData = paragraphNode.innerText.trim().substring(7, paragraphNode.innerText.length)
             return true
         }
         if (paragraphNode.id.indexOf('-list') >= 0) {

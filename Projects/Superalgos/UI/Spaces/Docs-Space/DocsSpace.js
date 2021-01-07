@@ -16,7 +16,7 @@ function newSuperalgosDocSpace() {
         currentDocumentBeingRendered: undefined,
         previousDocumentBeingRendered: undefined,
         currentBookBeingRendered: undefined,
-        paragraphMap: undefined,  // Here we will store a map of paragraphs from the Docs Node, Concept, Topics or Books Schema in order to find it when we need to update them.
+        paragraphMap: undefined,  // Here we will store a map of paragraphs from the Docs Node, Concept, Topics, Tutorials or Books Schema in order to find it when we need to update them.
         textArea: undefined,
         setUpWorkspaceSchemas: setUpWorkspaceSchemas,
         changeLanguage: changeLanguage,

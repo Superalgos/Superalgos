@@ -43,6 +43,7 @@ function newAppPostLoader() {
                             docsNodeSchema: [],
                             docsConceptSchema: [],
                             docsTopicSchema: [],
+                            docsTutorialSchema: [],
                             docsBookSchema: []
                         },
                         map: {
@@ -50,6 +51,7 @@ function newAppPostLoader() {
                             docsNodeSchema: new Map(),
                             docsConceptSchema: new Map(),
                             docsTopicSchema: new Map(),
+                            docsTutorialSchema: new Map(),
                             docsBookSchema: new Map()
                         }
                     }
@@ -126,6 +128,26 @@ function newAppPostLoader() {
                                 let schemaDocument = schemas.array.docsTopicSchema[j]
                                 let key = schemaDocument.type
                                 schemas.map.docsTopicSchema.set(key, schemaDocument)
+                            }
+                        } catch (err) {
+                            console.log(err.stack)
+                        }
+
+                        webServerResponses++
+                        if (webServerResponses === totalWebServerCalls) { startCanvas() }
+                    }
+
+                    totalWebServerCalls++
+                    httpRequest(undefined, 'Schema/' + project + '/DocsTutorialSchema', onResponseTutorialSchema)
+
+                    function onResponseTutorialSchema(err, schema) {
+                        try {
+                            schemas.array.docsTutorialSchema = JSON.parse(schema)
+
+                            for (let j = 0; j < schemas.array.docsTutorialSchema.length; j++) {
+                                let schemaDocument = schemas.array.docsTutorialSchema[j]
+                                let key = schemaDocument.type
+                                schemas.map.docsTutorialSchema.set(key, schemaDocument)
                             }
                         } catch (err) {
                             console.log(err.stack)

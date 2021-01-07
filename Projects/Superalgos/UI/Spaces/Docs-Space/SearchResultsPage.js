@@ -44,9 +44,18 @@ function newSuperalgosDocsSearchResultsPage() {
                             documentPoints = documentPoints + thisPhraseCount * 200
                         }
                     }
+                    if (documentIndex.docsSchemaDocument.tutorial !== undefined) {
+                        if (key === UI.projects.superalgos.utilities.strings.cleanTextOfCommonWordEndings(documentIndex.docsSchemaDocument.tutorial.toLowerCase())) {
+                            documentPoints = documentPoints + thisPhraseCount * 200
+                        }
+                    }
 
                     switch (style) {
                         case 'topic': {
+                            documentPoints = documentPoints + thisPhraseCount * 100
+                            break
+                        }
+                        case 'tutorial': {
                             documentPoints = documentPoints + thisPhraseCount * 100
                             break
                         }
@@ -185,7 +194,7 @@ function newSuperalgosDocsSearchResultsPage() {
         }
 
         function buildHTML() {
-            const tabs = ['All', 'Nodes', 'Concepts', 'Topics', 'Books', 'Workspace']
+            const tabs = ['All', 'Nodes', 'Concepts', 'Topics', 'Tutorials', 'Books', 'Workspace']
             let HTML = ''
             HTML = HTML + '<section id="docs-search-results-div" class="docs-search-page-container">'
             HTML = HTML + UI.projects.superalgos.spaces.docsSpace.mainSearchPage.addSearchHeader()
@@ -246,10 +255,19 @@ function newSuperalgosDocsSearchResultsPage() {
                     HTML = HTML + '<p class="docs-search-result-content-record-project-category">' + result.documentIndex.project + ' > ' + result.documentIndex.category + path + '</p>'
 
                     let mainLink = ''
-                    if (result.documentIndex.docsSchemaDocument.topic === undefined) {
-                        mainLink = result.documentIndex.docsSchemaDocument.type
-                    } else {
-                        mainLink = result.documentIndex.docsSchemaDocument.topic + ' - Page ' + result.documentIndex.docsSchemaDocument.pageNumber + ' - ' + result.documentIndex.docsSchemaDocument.type
+
+                    switch (result.documentIndex.docsSchemaDocument.type) {
+                        case 'Topic': {
+                            mainLink = result.documentIndex.docsSchemaDocument.topic + ' - Page ' + result.documentIndex.docsSchemaDocument.pageNumber + ' - ' + result.documentIndex.docsSchemaDocument.type
+                            break
+                        }
+                        case 'Tutorial': {
+                            mainLink = result.documentIndex.docsSchemaDocument.tutorial + ' - Page ' + result.documentIndex.docsSchemaDocument.pageNumber + ' - ' + result.documentIndex.docsSchemaDocument.type
+                            break
+                        }
+                        default: {
+                            mainLink = result.documentIndex.docsSchemaDocument.type
+                        }
                     }
                     HTML = HTML + '<p><a onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + result.documentIndex.project + '\', \'' + result.documentIndex.category + '\', \'' + result.documentIndex.docsSchemaDocument.type.replace(/'/g, 'AMPERSAND') + '\', ' + undefined + '  ,\'' + result.documentIndex.docsSchemaDocument.nodeId + '\')" class="docs-search-result-content-record-title">' + mainLink + '</a></p>'
 

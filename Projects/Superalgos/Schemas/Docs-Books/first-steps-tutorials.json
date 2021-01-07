@@ -1,0 +1,19 @@
+{
+    "type": "First Steps Tutorials",
+    "definition": {
+        "text": "This Book will help you find the right tutorials for you to do when you just arrive to Superalgos. The order of the Tutorials listed is the one you should follow.",
+        "updated": 1610014928439
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "You can explore the content of these tutorials by reading this book, or even better, locate the tutorials in the workspace where they are defined and DO the tutorial there. There is a big difference between reading the content and doing the tutorial, since in the last case the tutorial will positionn you at the right places withing the Desing Space and the Charting Space so as to facilitate your understanding.",
+            "updated": 1610015175932
+        },
+        {
+            "style": "Chapter",
+            "text": "I->Superalgos->Tutorial->Test Tut",
+            "updated": 1610016446699
+        }
+    ]
+}

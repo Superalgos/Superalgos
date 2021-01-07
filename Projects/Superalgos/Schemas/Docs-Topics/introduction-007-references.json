@@ -1,0 +1,71 @@
+{
+    "topic": "Introduction",
+    "pageNumber": "7",
+    "type": "References",
+    "definition": {
+        "text": "A reference is a mechanism by which information in a node is related to, or accessed by, other nodes. The ability of a node to establish a reference with another node enables the first to access the information or features entailed in the second one.",
+        "updated": 1609950165954
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Direction",
+            "updated": 1609950210690
+        },
+        {
+            "style": "Text",
+            "text": "References have a direction property relative to each of the nodes involved in the reference: the node establishing the reference sets an outgoing reference, while the one accepting the reference sets an incoming reference."
+        },
+        {
+            "style": "Text",
+            "text": "For example, a session establishes an outgoing reference with a trading system. This allows the session to access the information within the whole trading system hierarchy, including strategies. At the trading system level, the same reference is viewed as an incoming reference."
+        },
+        {
+            "style": "Title",
+            "text": "Scope"
+        },
+        {
+            "style": "Text",
+            "text": "A reference established between nodes of any particular structure within a hierarchy is said to be an internal reference relative to the said structure of nodes. Similarly, a reference established with a node outside of the said structure, that is, in a different part of the hierarchy or in another hierarchy, is said to be an external reference."
+        },
+        {
+            "style": "Text",
+            "text": "Examples of internal references may be found in the data mine and crypto ecosystem hierarchies. For example, let’s briefly look into one such case within a plotter module:"
+        },
+        {
+            "style": "Text",
+            "text": "The capture below shows the shapes node and several offspring nodes: on one hand, several polygons; on the other hand, the chart points node."
+        },
+        {
+            "style": "Text",
+            "text": "Notice that vertices under each polygon reference to points under the chart points node."
+        },
+        {
+            "style": "Text",
+            "text": "This means that the node shapes feature several internal references."
+        },
+        {
+            "style": "Note",
+            "text": " The backup, clone and share operations make different uses of the properties of references. We will cover the three of them extensively so that you may make the most of these features.",
+            "updated": 1609950276151
+        },
+        {
+            "style": "Title",
+            "text": "How to Estabish and Remove References",
+            "updated": 1609950438203
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Topic->Establish and Remove References->Definition"
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Topic->Establish and Remove References->Content",
+            "updated": 1609950361692
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

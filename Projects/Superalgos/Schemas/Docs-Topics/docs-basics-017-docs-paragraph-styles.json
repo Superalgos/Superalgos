@@ -1,10 +1,10 @@
 {
     "topic": "Docs Basics",
-    "pageNumber": "6",
-    "type": "Docs Node Page",
+    "pageNumber": "17",
+    "type": "Docs Paragraph Styles",
     "definition": {
-        "text": "Each node of each Project have a corresponding Node Page at the Docs, explaining everything to be known about that node.",
-        "updated": 1609182353739
+        "text": "Each paragraph at a Docs Page, need to be assigend a style. The most commonly used style is the Docs Text Style.",
+        "updated": 1609260947769
     },
     "paragraphs": [
         {

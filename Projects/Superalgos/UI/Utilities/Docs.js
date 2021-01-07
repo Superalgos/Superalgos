@@ -396,6 +396,11 @@ function newSuperalgosUtilitiesDocs() {
                     found = true
                     break
                 }
+                docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema.get(type)
+                if (docsSchemaDocument !== undefined) {
+                    found = true
+                    break
+                }
                 docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsBookSchema.get(type)
                 if (docsSchemaDocument !== undefined) {
                     found = true
@@ -601,6 +606,57 @@ function newSuperalgosUtilitiesDocs() {
                 if (SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.get(cleanPhrase1) !== undefined) {
                     if (cleanPhrase1 !== excludedType) {
                         taggedText = taggedText + phrase1.replace(cleanPhrase1, TAGGING_STRING_SEPARATOR + 'Topic' + '|' + cleanPhrase1 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
+                    } else {
+                        taggedText = taggedText + phrase1 + ' '
+                    }
+                    found = true
+                    break
+                }
+
+                /* Search in docsTutorialSchema */
+                if (SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema.get(cleanPhrase5) !== undefined) {
+                    if (cleanPhrase5 !== excludedType) {
+                        taggedText = taggedText + phrase5.replace(cleanPhrase5, TAGGING_STRING_SEPARATOR + 'Tutorial' + '|' + cleanPhrase5 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
+                    } else {
+                        taggedText = taggedText + phrase5 + ' '
+                    }
+                    i = i + 4
+                    found = true
+                    break
+                }
+                if (SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema.get(cleanPhrase4) !== undefined) {
+                    if (cleanPhrase4 !== excludedType) {
+                        taggedText = taggedText + phrase4.replace(cleanPhrase4, TAGGING_STRING_SEPARATOR + 'Tutorial' + '|' + cleanPhrase4 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
+                    } else {
+                        taggedText = taggedText + phrase4 + ' '
+                    }
+                    i = i + 3
+                    found = true
+                    break
+                }
+                if (SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema.get(cleanPhrase3) !== undefined) {
+                    if (cleanPhrase3 !== excludedType) {
+                        taggedText = taggedText + phrase3.replace(cleanPhrase3, TAGGING_STRING_SEPARATOR + 'Tutorial' + '|' + cleanPhrase3 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
+                    } else {
+                        taggedText = taggedText + phrase3 + ' '
+                    }
+                    i = i + 2
+                    found = true
+                    break
+                }
+                if (SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema.get(cleanPhrase2) !== undefined) {
+                    if (cleanPhrase2 !== excludedType) {
+                        taggedText = taggedText + phrase2.replace(cleanPhrase2, TAGGING_STRING_SEPARATOR + 'Tutorial' + '|' + cleanPhrase2 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
+                    } else {
+                        taggedText = taggedText + phrase2 + ' '
+                    }
+                    i = i + 1
+                    found = true
+                    break
+                }
+                if (SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema.get(cleanPhrase1) !== undefined) {
+                    if (cleanPhrase1 !== excludedType) {
+                        taggedText = taggedText + phrase1.replace(cleanPhrase1, TAGGING_STRING_SEPARATOR + 'Tutorial' + '|' + cleanPhrase1 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
                     } else {
                         taggedText = taggedText + phrase1 + ' '
                     }

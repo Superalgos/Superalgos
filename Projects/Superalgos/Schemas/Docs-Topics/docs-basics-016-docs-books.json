@@ -1,10 +1,10 @@
 {
     "topic": "Docs Basics",
     "pageNumber": "16",
-    "type": "Docs Paragraph Styles",
+    "type": "Docs Books",
     "definition": {
-        "text": "Each paragraph at a Docs Page, need to be assigend a style. The most commonly used style is the Docs Text Style.",
-        "updated": 1609260947769
+        "text": "A book is page in the Docs that contains chapters. Chapters points to a Docs Topics and are rendered as the index table of the topic they point to.",
+        "updated": 1609771773385
     },
     "paragraphs": [
         {

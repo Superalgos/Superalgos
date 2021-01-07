@@ -1,7 +1,7 @@
 {
     "topic": "Docs Commands Errors",
     "pageNumber": "15",
-    "type": "Docs Error Toopic Mismatch",
+    "type": "Docs Error Topic Mismatch",
     "definition": {
         "text": "The Docs Topic Name provided does not match with the Docs Topic Name found at the page you want to delete.",
         "updated": 1609181659359

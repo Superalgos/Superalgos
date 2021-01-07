@@ -136,6 +136,10 @@ function newSuperalgosDocsCommmandInterface() {
                     docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.get(type)
                     break
                 }
+                case 'tutorial': {
+                    docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema.get(type)
+                    break
+                }
                 case 'book': {
                     docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsBookSchema.get(type)
                     break
@@ -213,6 +217,15 @@ function newSuperalgosDocsCommmandInterface() {
                         addTopic(splittedPrimaryCommand[3], splittedSecondaryCommand[0], splittedSecondaryCommand[1], splittedSecondaryCommand[2])
                         return
                     }
+                    case 'tutorial': {
+                        let splittedSecondaryCommand = secondaryCommand.split('->')
+                        if (splittedSecondaryCommand.length < 3) {
+                            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Too Few Parameters', 'Anchor Too Few Paramenters')
+                            return
+                        }
+                        addTutorial(splittedPrimaryCommand[3], splittedSecondaryCommand[0], splittedSecondaryCommand[1], splittedSecondaryCommand[2])
+                        return
+                    }
                     case 'book': {
                         addBook(splittedPrimaryCommand[3], secondaryCommand)
                         return
@@ -282,6 +295,15 @@ function newSuperalgosDocsCommmandInterface() {
                         deleteTopic(splittedPrimaryCommand[3], splittedSecondaryCommand[0], splittedSecondaryCommand[1], splittedSecondaryCommand[2])
                         return
                     }
+                    case 'tutorial': {
+                        let splittedSecondaryCommand = secondaryCommand.split('->')
+                        if (splittedSecondaryCommand.length < 3) {
+                            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Too Few Parameters', 'Anchor Too Few Paramenters')
+                            return
+                        }
+                        deleteTutorial(splittedPrimaryCommand[3], splittedSecondaryCommand[0], splittedSecondaryCommand[1], splittedSecondaryCommand[2])
+                        return
+                    }
                     case 'book': {
                         deleteBook(splittedPrimaryCommand[3], secondaryCommand)
                         return
@@ -332,6 +354,10 @@ function newSuperalgosDocsCommmandInterface() {
 
                 docsSchema = SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema
                 httpRequest(JSON.stringify(docsSchema), 'Docs/Save-Topic-Schema/' + project, onResponse)
+                requestsSent++
+
+                docsSchema = SCHEMAS_BY_PROJECT.get(project).array.docsTutorialSchema
+                httpRequest(JSON.stringify(docsSchema), 'Docs/Save-Tutorial-Schema/' + project, onResponse)
                 requestsSent++
 
                 docsSchema = SCHEMAS_BY_PROJECT.get(project).array.docsBookSchema
@@ -438,6 +464,34 @@ function newSuperalgosDocsCommmandInterface() {
             UI.projects.superalgos.spaces.docsSpace.navigateTo(project, 'Topic', type)
         }
 
+        function addTutorial(project, tutorial, type, pageNumber) {
+            let template = {
+                tutorial: tutorial,
+                pageNumber: pageNumber,
+                type: type,
+                definition: { text: "Write here a summary for this tutorial page." },
+                paragraphs: [
+                    {
+                        style: "Text",
+                        text: UI.projects.superalgos.globals.docs.NEW_PARAGRAPH_TEXT
+                    }
+                ]
+            }
+            if (SCHEMAS_BY_PROJECT.get(project) === undefined) {
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Project Does Not Exist', 'Anchor Project Does Not Exist')
+                return
+            }
+            let exist = SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema.get(type)
+            if (exist !== undefined) {
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Page Already Exists', 'Anchor Page Already Exists')
+                return
+            }
+
+            SCHEMAS_BY_PROJECT.get(project).array.docsTutorialSchema.push(template)
+            SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema.set(type, template)
+            UI.projects.superalgos.spaces.docsSpace.navigateTo(project, 'Tutorial', type)
+        }
+
         function addBook(project, type) {
             let template = {
                 type: type,
@@ -537,6 +591,38 @@ function newSuperalgosDocsCommmandInterface() {
                 docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema[i]
                 if (docsSchemaDocument.type === type) {
                     docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema.splice(i, 1)
+                    break
+                }
+            }
+            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message Deleting Succeed')
+        }
+
+        function deleteTutorial(project, tutorial, type, pageNumber) {
+            if (SCHEMAS_BY_PROJECT.get(project) === undefined) {
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Project Does Not Exist', 'Anchor Project Does Not Exist')
+                return
+            }
+            let exist = SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema.get(type)
+            if (exist === undefined) {
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Page Does Not Exist', 'Anchor Page Does Not Exist')
+                return
+            } else {
+                if (exist.pageNumber !== pageNumber) {
+                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Page Number Mismatch', 'Anchor Page Number Mismatch')
+                    return
+                }
+                if (exist.tutorial !== tutorial) {
+                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Tutorial Mismatch', 'Anchor Tutorial Mismatch')
+                    return
+                }
+            }
+
+            SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema.delete(type)
+
+            for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsTutorialSchema.length; i++) {
+                docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsTutorialSchema[i]
+                if (docsSchemaDocument.type === type) {
+                    docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsTutorialSchema.splice(i, 1)
                     break
                 }
             }

@@ -1,9 +1,10 @@
 {
     "topic": "Docs Basics",
-    "pageNumber": "8",
-    "type": "Docs Topic Page",
+    "pageNumber": "14",
+    "type": "Docs Concepts",
     "definition": {
-        "text": "Write here a summary for this topic page."
+        "text": "Docs Concepts is the set of all pages in the Docs under the Docs Page Category of Concept.",
+        "updated": 1609260746120
     },
     "paragraphs": [
         {

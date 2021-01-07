@@ -57,6 +57,17 @@ function newSuperalgosDocsSearchEngine() {
                 indexDocument(documentIndex)
                 thisObject.docsIndex.push(documentIndex)
             }
+            /* Search in Tutorials */
+            for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsTutorialSchema.length; i++) {
+                documentIndex = {
+                    phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
+                    docsSchemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsTutorialSchema[i],
+                    category: 'Tutorial',
+                    project: project
+                }
+                indexDocument(documentIndex)
+                thisObject.docsIndex.push(documentIndex)
+            }
             /* Search in Books */
             for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsBookSchema.length; i++) {
                 documentIndex = {
@@ -91,6 +102,13 @@ function newSuperalgosDocsSearchEngine() {
                 let paragraph = {
                     style: 'Topic',
                     text: documentIndex.docsSchemaDocument.topic
+                }
+                indexParagraph(paragraph)
+            }
+            if (documentIndex.docsSchemaDocument.tutorial !== undefined) {
+                let paragraph = {
+                    style: 'Tutorial',
+                    text: documentIndex.docsSchemaDocument.tutorial
                 }
                 indexParagraph(paragraph)
             }

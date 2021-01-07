@@ -464,6 +464,60 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             }
                             break
                         }
+                        case 'Save-Tutorial-Schema': {
+                            getBody(processRequest)
+
+                            async function processRequest(body) {
+                                try {
+                                    let docsSchema = JSON.parse(body)
+                                    let project = requestParameters[3]
+                                    let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Tutorials'
+
+                                    const fs = require('fs')
+                                    fs.rmdir(filePath, { recursive: true }, onDirDeleted)
+
+                                    function onDirDeleted(err) {
+                                        if (err && err.code === 'EBUSY') {
+                                            throw ('Can not delete the folder ' + filePath + ' because a file in it is open by some other program.')
+                                        }
+                                        try {
+                                            fs.mkdirSync(filePath)
+                                        } catch (err) {
+                                            if (err.code !== 'EEXIST') {
+                                                throw (err)
+                                            }
+                                        }
+
+                                        for (let i = 0; i < docsSchema.length; i++) {
+                                            let schemaDocument = docsSchema[i]
+                                            let fileContent = JSON.stringify(schemaDocument, undefined, 4)
+                                            let pageNumber = '00' + schemaDocument.pageNumber
+                                            let fileName = schemaDocument.tutorial.toLowerCase() + '-' + pageNumber.substring(pageNumber.length - 3, pageNumber.length) + '-' + schemaDocument.type.toLowerCase()
+                                            for (let j = 0; j < 10; j++) {
+                                                fileName = fileName.replace(' ', '-')
+                                            }
+                                            fileName = fileName + '.json'
+
+                                            fs.writeFileSync(filePath + '/' + fileName, fileContent)
+                                        }
+                                        respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                                    }
+
+                                } catch (err) {
+                                    console.log('[ERROR] httpInterface -> Docs -> Save-Tutorial-Schema -> Method call produced an error.')
+                                    console.log('[ERROR] httpInterface -> Docs -> Save-Tutorial-Schema -> err.stack = ' + err.stack)
+                                    console.log('[ERROR] httpInterface -> Docs -> Save-Tutorial-Schema -> Params Received = ' + body)
+
+                                    let error = {
+                                        result: 'Fail Because',
+                                        message: err.message,
+                                        stack: err.stack
+                                    }
+                                    respondWithContent(JSON.stringify(error), httpResponse)
+                                }
+                            }
+                            break
+                        }
                         case 'Save-Book-Schema': {
                             getBody(processRequest)
 
@@ -565,7 +619,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 const owner = 'Superalgos'
                                 const head = username + ':in-app-documentation'
                                 const base = 'in-app-documentation'
-                                const title = 'Contribution to Superalgos'
+                                const title = 'Contribution: ' + commitMessage
 
                                 try {
                                     await octokit.pulls.create({
@@ -1223,6 +1277,10 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                         }
                         case 'DocsTopicSchema': {
                             folder = 'Docs-Topics'
+                            break
+                        }
+                        case 'DocsTutorialSchema': {
+                            folder = 'Docs-Tutorials'
                             break
                         }
                         case 'DocsBookSchema': {

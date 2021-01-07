@@ -1,0 +1,21 @@
+{
+    "type": "Reusable Snippets",
+    "definition": {
+        "text": "Write here the summary / definition of this Concept."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Note for Hierarchy Tables",
+            "updated": 1610049150289
+        },
+        {
+            "style": "Block",
+            "text": "Note for Hierarchy Tables"
+        },
+        {
+            "style": "Note",
+            "text": "This page discusses the top-level information about the section of the hierarchy represented on the below table. Click on any of the nodes to get the details."
+        }
+    ]
+}

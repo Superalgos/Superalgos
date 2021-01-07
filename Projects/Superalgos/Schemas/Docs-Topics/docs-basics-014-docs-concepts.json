@@ -1,10 +1,10 @@
 {
     "topic": "Docs Basics",
-    "pageNumber": "11",
-    "type": "Docs Page Block",
+    "pageNumber": "14",
+    "type": "Docs Concepts",
     "definition": {
-        "text": "A Page Block is a set of paragraphs within a specific Docs Page. A single Docs Page may have 0 to any number of paragraphs.",
-        "updated": 1609260648075
+        "text": "Docs Concepts is the set of all pages in the Docs under the Docs Page Category of Concept.",
+        "updated": 1609260746120
     },
     "paragraphs": [
         {

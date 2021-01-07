@@ -1,10 +1,10 @@
 {
     "topic": "Docs Basics",
-    "pageNumber": "15",
-    "type": "Docs Books",
+    "pageNumber": "7",
+    "type": "Docs Node Page",
     "definition": {
-        "text": "A book is page in the Docs that contains chapters. Chapters points to a Docs Topics and are rendered as the index table of the topic they point to.",
-        "updated": 1609771773385
+        "text": "Each node of each Project have a corresponding Node Page at the Docs, explaining everything to be known about that node.",
+        "updated": 1609182353739
     },
     "paragraphs": [
         {

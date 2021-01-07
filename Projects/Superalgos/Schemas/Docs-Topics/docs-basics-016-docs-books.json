@@ -1,9 +1,10 @@
 {
     "topic": "Docs Basics",
-    "pageNumber": "8",
-    "type": "Docs Topic Page",
+    "pageNumber": "16",
+    "type": "Docs Books",
     "definition": {
-        "text": "Write here a summary for this topic page."
+        "text": "A book is page in the Docs that contains chapters. Chapters points to a Docs Topics and are rendered as the index table of the topic they point to.",
+        "updated": 1609771773385
     },
     "paragraphs": [
         {

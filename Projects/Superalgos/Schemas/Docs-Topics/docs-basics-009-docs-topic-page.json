@@ -1,10 +1,9 @@
 {
     "topic": "Docs Basics",
-    "pageNumber": "14",
-    "type": "Docs Topics",
+    "pageNumber": "9",
+    "type": "Docs Topic Page",
     "definition": {
-        "text": "Docs Topics is the set of all pages in the Docs under the Docs Page Category of Topic.",
-        "updated": 1609260810214
+        "text": "Write here a summary for this topic page."
     },
     "paragraphs": [
         {

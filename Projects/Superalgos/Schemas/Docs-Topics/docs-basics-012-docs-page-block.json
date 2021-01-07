@@ -1,10 +1,10 @@
 {
     "topic": "Docs Basics",
-    "pageNumber": "5",
-    "type": "Docs Page Number",
+    "pageNumber": "12",
+    "type": "Docs Page Block",
     "definition": {
-        "text": "Each topic page must have an assigned page number. The page number is used to build the topic index displayed at the top of each Docs Topic Page.",
-        "updated": 1609182198659
+        "text": "A Page Block is a set of paragraphs within a specific Docs Page. A single Docs Page may have 0 to any number of paragraphs.",
+        "updated": 1609260648075
     },
     "paragraphs": [
         {

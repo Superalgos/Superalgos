@@ -1,10 +1,10 @@
 {
     "topic": "Docs Basics",
-    "pageNumber": "12",
-    "type": "Docs Nodes",
+    "pageNumber": "17",
+    "type": "Docs Paragraph Styles",
     "definition": {
-        "text": "Docs Nodes is the set of all pages in the Docs under the Docs Page Category of Node.",
-        "updated": 1609260759079
+        "text": "Each paragraph at a Docs Page, need to be assigend a style. The most commonly used style is the Docs Text Style.",
+        "updated": 1609260947769
     },
     "paragraphs": [
         {

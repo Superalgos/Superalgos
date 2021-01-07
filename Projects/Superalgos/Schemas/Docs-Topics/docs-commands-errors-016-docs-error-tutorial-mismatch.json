@@ -1,0 +1,34 @@
+{
+    "topic": "Docs Commands Errors",
+    "pageNumber": "16",
+    "type": "Docs Error Tutorial Mismatch",
+    "definition": {
+        "text": "The Docs Tutorial Name provided does not match with the Docs Tutorial Name found at the page you want to delete.",
+        "updated": 1610012937766
+    },
+    "paragraphs": [
+        {
+            "style": "Anchor",
+            "text": "Anchor Topic Mismatch",
+            "updated": 1609181600300
+        },
+        {
+            "style": "Error",
+            "text": "Tutorial Mismatch. The Docs Tutorial Name provided does not match the Docs Tutorial Name of the page to be deleted.",
+            "updated": 1610012998692
+        },
+        {
+            "style": "Success",
+            "text": "Check the page you want to delete and get the right Docs Tutorial Name to use at the command.",
+            "updated": 1610013007982
+        },
+        {
+            "style": "Title",
+            "text": "Applies to"
+        },
+        {
+            "style": "List",
+            "text": "Docs Delete Command"
+        }
+    ]
+}

@@ -1,10 +1,10 @@
 {
     "topic": "Docs Basics",
-    "pageNumber": "6",
-    "type": "Docs Node Page",
+    "pageNumber": "15",
+    "type": "Docs Topics",
     "definition": {
-        "text": "Each node of each Project have a corresponding Node Page at the Docs, explaining everything to be known about that node.",
-        "updated": 1609182353739
+        "text": "Docs Topics is the set of all pages in the Docs under the Docs Page Category of Topic.",
+        "updated": 1609260810214
     },
     "paragraphs": [
         {

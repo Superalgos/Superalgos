@@ -619,7 +619,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 const owner = 'Superalgos'
                                 const head = username + ':in-app-documentation'
                                 const base = 'in-app-documentation'
-                                const title = 'Contribution to Superalgos'
+                                const title = 'Contribution: ' + commitMessage
 
                                 try {
                                     await octokit.pulls.create({

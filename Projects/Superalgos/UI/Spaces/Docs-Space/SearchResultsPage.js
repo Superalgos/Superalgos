@@ -256,7 +256,7 @@ function newSuperalgosDocsSearchResultsPage() {
 
                     let mainLink = ''
 
-                    switch (result.documentIndex.docsSchemaDocument.type) {
+                    switch (result.documentIndex.category) {
                         case 'Topic': {
                             mainLink = result.documentIndex.docsSchemaDocument.topic + ' - Page ' + result.documentIndex.docsSchemaDocument.pageNumber + ' - ' + result.documentIndex.docsSchemaDocument.type
                             break

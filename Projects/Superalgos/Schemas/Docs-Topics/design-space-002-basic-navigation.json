@@ -1,0 +1,107 @@
+{
+    "topic": "Design Space",
+    "pageNumber": "2",
+    "type": "Basic Navigation",
+    "definition": {
+        "text": "You may use your mouse and keyboard to navigate the interface.",
+        "updated": 1610039680742
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Accessing the Design Space",
+            "updated": 1610039830808
+        },
+        {
+            "style": "Subtitle",
+            "text": "Using the mouse"
+        },
+        {
+            "style": "Text",
+            "text": "Click and drag to pull the slider up and down, making more room for the Charting Space on top, or the Design Space in the bottom.",
+            "updated": 1610040136240
+        },
+        {
+            "style": "Title",
+            "text": ""
+        },
+        {
+            "style": "Gif",
+            "text": "GIFs/Superalgos/Docs/design-space/accessing-the-design-space.gif",
+            "updated": 1610039978281
+        },
+        {
+            "style": "Subtitle",
+            "text": "Using the keyboard",
+            "updated": 1610040168590
+        },
+        {
+            "style": "Text",
+            "text": "Use the following key combiantions for the same purpose:",
+            "updated": 1610040210636
+        },
+        {
+            "style": "List",
+            "text": "<kbd>Ctrl</kbd> or <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>↑</kbd> to close the charting space and open the design space.",
+            "updated": 1610040275547
+        },
+        {
+            "style": "List",
+            "text": "<kbd>Ctrl</kbd> or <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>↓</kbd> to close the design space and open the charting space.",
+            "updated": 1610040360113
+        },
+        {
+            "style": "List",
+            "text": "<kbd>Ctrl</kbd> or <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>→</kbd> to incrementally lower the slider.",
+            "updated": 1610040384881
+        },
+        {
+            "style": "List",
+            "text": "<kbd>Ctrl</kbd> or <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>←</kbd> to incrementally raise the slider.",
+            "updated": 1610040400821
+        },
+        {
+            "style": "Gif",
+            "text": "GIFs/Superalgos/Docs/design-space/accessing-the-design-space-with-keyboard.gif",
+            "updated": 1610040508434
+        },
+        {
+            "style": "Title",
+            "text": "Navigation",
+            "updated": 1610040536263
+        },
+        {
+            "style": "Text",
+            "text": "Left-click on the black background and drag to move around the workspace.",
+            "updated": 1610040578937
+        },
+        {
+            "style": "Text",
+            "text": "You may also use the following key combinations on your keyboard:"
+        },
+        {
+            "style": "List",
+            "text": "<kbd>Ctrl</kbd> or <kbd>⌘</kbd> + <kbd>←</kbd> to pan to the left.",
+            "updated": 1610040692407
+        },
+        {
+            "style": "List",
+            "text": "<kbd>Ctrl</kbd> or <kbd>⌘</kbd> + <kbd>→</kbd> to pan to the right.",
+            "updated": 1610040706743
+        },
+        {
+            "style": "List",
+            "text": "<kbd>Ctrl</kbd> or <kbd>⌘</kbd> + <kbd>↑</kbd> to pan upwards.",
+            "updated": 1610040720472
+        },
+        {
+            "style": "List",
+            "text": "<kbd>Ctrl</kbd> or <kbd>⌘</kbd> + <kbd>↓</kbd> to pan downwards.",
+            "updated": 1610040740709
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

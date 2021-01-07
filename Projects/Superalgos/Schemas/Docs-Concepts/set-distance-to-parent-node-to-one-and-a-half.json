@@ -1,0 +1,13 @@
+{
+    "type": "Set Distance to Parent Node to One and a Half",
+    "definition": {
+        "text": "The node is locked to 1.5X of the distance.",
+        "updated": 1610031576818
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+        }
+    ]
+}

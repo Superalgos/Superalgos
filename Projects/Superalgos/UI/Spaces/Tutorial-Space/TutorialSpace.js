@@ -20,6 +20,9 @@ function newSuperalgosTutorialSpace() {
         finalize: finalize
     }
 
+    let TUTORIAL_NAME
+    let PAGE_NUMBER
+
     let isInitialized = false
 
     thisObject.container = newContainer()
@@ -858,6 +861,10 @@ function newSuperalgosTutorialSpace() {
     }
 
     function playTutorial(node) {
+
+        PAGE_NUMBER = 0
+        TUTORIAL_NAME = node.name
+
         navigationStack = []
         node.payload.uiObject.isPlaying = true
         tutorialRootNode = node
@@ -1102,11 +1109,146 @@ function newSuperalgosTutorialSpace() {
         }
     }
 
+    function buildDocument() {
+
+        let nodeConfig = JSON.parse(currentNode.config)
+
+        if (nodeConfig.subTitle === undefined || nodeConfig.subTitle === "") { return }
+        PAGE_NUMBER = PAGE_NUMBER + 1
+        const project = 'Superalgos'
+
+
+        let type = 'Page Name'
+
+        let template = {
+            tutorial: TUTORIAL_NAME,
+            pageNumber: PAGE_NUMBER,
+            type: currentNode.type + ' - ' + nodeConfig.subTitle,
+            definition: { text: "Write here a summary for this tutorial page." },
+            paragraphs: [
+
+            ]
+        }
+
+        /**DEFINITION */
+        if (nodeConfig.definition !== undefined && nodeConfig.definition !== "") {
+            template.definition.text = clean(nodeConfig.definition)
+        }
+        if (nodeConfig.summary !== undefined && nodeConfig.summary !== "") {
+            if (template.definition.text === 'Write here a summary for this tutorial page.') {
+                template.definition.text = nodeConfig.summary
+            } else {
+                template.definition.text = template.definition.text + ' ' + clean(nodeConfig.summary)
+            }
+        }
+        template.definition.text = template.definition.text.trim()
+
+        if (nodeConfig.bulletListIntro !== undefined && nodeConfig.bulletListIntro !== '') {
+            let paragraph = {
+                style: 'Text',
+                text: clean(nodeConfig.bulletListIntro)
+            }
+            template.paragraphs.push(paragraph)
+        }
+        if (nodeConfig.bulletArray !== undefined) {
+            for (let i = 0; i < nodeConfig.bulletArray.length; i++) {
+                let bullet = nodeConfig.bulletArray[i]
+                let paragraph = {
+                    style: 'List',
+                    text: clean(bullet[0]) + ' ' + clean(bullet[1])
+                }
+                template.paragraphs.push(paragraph)
+
+            }
+        }
+        if (nodeConfig.paragraph1 !== undefined && nodeConfig.paragraph1 !== '') {
+            let paragraph = {
+                style: 'Text',
+                text: clean(nodeConfig.paragraph1)
+            }
+            template.paragraphs.push(paragraph)
+        }
+
+        if (nodeConfig.callOut !== undefined && nodeConfig.callOut !== '') {
+            let paragraph = {
+                style: 'Callout',
+                text: clean(nodeConfig.callOut)
+            }
+            template.paragraphs.push(paragraph)
+        }
+
+        if (nodeConfig.externalLink !== undefined) {
+            let paragraph = {
+                style: 'Link',
+                text: nodeConfig.externalLink[0] + '->' + nodeConfig.externalLink[1] 
+            }
+            template.paragraphs.push(paragraph)
+        }
+
+        if (nodeConfig.paragraph2 !== undefined && nodeConfig.paragraph2 !== '') {
+            let paragraph = {
+                style: 'Text',
+                text: clean(nodeConfig.paragraph2)
+            }
+            template.paragraphs.push(paragraph)
+        }
+
+        if (nodeConfig.note !== undefined && nodeConfig.note !== '') {
+            let paragraph = {
+                style: 'Note',
+                text: clean(nodeConfig.note)
+            }
+            template.paragraphs.push(paragraph)
+        }
+        
+        if (nodeConfig.tip !== undefined && nodeConfig.tip !== '') {
+            let paragraph = {
+                style: 'Success',
+                text: clean(nodeConfig.tip)
+            }
+            template.paragraphs.push(paragraph)
+        }
+
+        if (nodeConfig.important !== undefined && nodeConfig.important !== '') {
+            let paragraph = {
+                style: 'Important',
+                text: clean(nodeConfig.important)
+            }
+            template.paragraphs.push(paragraph)
+        }
+        
+        if (nodeConfig.warning !== undefined && nodeConfig.warning !== '') {
+            let paragraph = {
+                style: 'Warning',
+                text: clean(nodeConfig.warning)
+            }
+            template.paragraphs.push(paragraph)
+        }
+
+        SCHEMAS_BY_PROJECT.get(project).array.docsTutorialSchema.push(template)
+        SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema.set(template.type, template)
+        UI.projects.superalgos.spaces.docsSpace.navigateTo(project, 'Tutorial', template.type)
+
+        function clean(text) {
+            let result = text 
+            result = result
+            .replaceAll('->', '')
+            .replaceAll('<b>', '')
+            .replaceAll('</b>', '')
+            .replaceAll('<i>', '')
+            .replaceAll('</i>', '')
+            .trim()
+            return result
+        }
+    }
+
     function buildHTML() {
 
         newConfig = currentNode.config
         if (newConfig === currentConfig) { return }
         currentConfig = newConfig
+
+        buildDocument()
 
         let nodeConfig = JSON.parse(currentNode.config)
         let html = ''
@@ -1195,13 +1337,13 @@ function newSuperalgosTutorialSpace() {
                 }
                 let splittedNodeType = nodeType.split('/')
                 let project
-                let type  
+                let type
                 if (splittedNodeType.length > 1) {
                     project = splittedNodeType[0]
-                    type =  splittedNodeType[1]
+                    type = splittedNodeType[1]
                 } else {
                     project = 'Superalgos'
-                    type =  splittedNodeType[0]
+                    type = splittedNodeType[0]
                 }
                 let definitionNode = SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(type)
                 if (definitionNode === undefined) {

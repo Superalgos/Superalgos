@@ -271,14 +271,15 @@ function newSuperalgosTutorialSpace() {
                     /*
                     This forces the tutorial to close the documentation panel and to keep it closed.
                     */
-                    UI.projects.superalgos.spaces.docsSpace.sidePanelTab.close()
+                    UI.projects.superalgos.spaces.docsSpace.sidePanelTab.open() // TODO
+                    // UI.projects.superalgos.spaces.docsSpace.sidePanelTab.close()
                     return
                 }
                 UI.projects.superalgos.spaces.docsSpace.sidePanelTab.open()
                 if (newDocumentationURL === currentDocumentationURL) { return }
 
                 currentDocumentationURL = newDocumentationURL
-                console.log('Trying to navigate to: '  + currentDocumentationURL  + ' at ' + config.subTitle)
+                console.log('Trying to navigate to: ' + currentDocumentationURL + ' at ' + config.subTitle)
                 // TODO UI.projects.superalgos.spaces.docsSpace.openSpaceAreaAndNavigateTo('Superalgos', 'Node', currentDocumentationURL)
             }
         }
@@ -307,7 +308,7 @@ function newSuperalgosTutorialSpace() {
                 This forces the tutorial to open the workspaces panel and to keep it closed.
                 */
                 if (workspacesCounter === 5) {
-                    UI.projects.superalgos.spaces.sideSpace.sidePanelTab.open()
+                    UI.projects.superalgos.spaces.sideSpace.sidePanelTab.close() // TODO .open()
                 }
                 return
             }
@@ -330,7 +331,7 @@ function newSuperalgosTutorialSpace() {
                         /*
                         This forces the tutorial to close the charting space and to keep it closed.
                         */
-                        UI.projects.superalgos.spaces.cockpitSpace.toTop()
+                        UI.projects.superalgos.spaces.cockpitSpace.toTop() // TODO .toTop()
                         return
                     }
                     case "toMiddle": {
@@ -338,14 +339,14 @@ function newSuperalgosTutorialSpace() {
                         This forces the tutorial to share the screen half with the designer and half 
                         with the charting space and force it in that way.
                         */
-                        UI.projects.superalgos.spaces.cockpitSpace.toMiddle()
+                        UI.projects.superalgos.spaces.cockpitSpace.toTop() // TODO toMiddle()
                         return
                     }
                     case "toBottom": {
                         /*
                         This forces the tutorial to fully open the charting space and to keep it open.
                         */
-                        UI.projects.superalgos.spaces.cockpitSpace.toBottom()
+                        UI.projects.superalgos.spaces.cockpitSpace.toTop() // TODO
                         return
                     }
                 }
@@ -663,6 +664,7 @@ function newSuperalgosTutorialSpace() {
                 return
             }
 
+            nodeConfig.position = 'Left' // TODO
             switch (nodeConfig.position) {
                 case 'Left': {
                     tutorialPosition = {
@@ -1125,7 +1127,13 @@ function newSuperalgosTutorialSpace() {
             tutorial: TUTORIAL_NAME,
             pageNumber: PAGE_NUMBER,
             type: currentNode.type + ' - ' + nodeConfig.subTitle,
-            definition: { text: "Write here a summary for this tutorial page." },
+            definition: {
+                icon: {
+                    project: 'Superalgos',
+                    name: nodeConfig.image
+                },
+                text: "Write here a summary for this tutorial page."
+            },
             paragraphs: [
 
             ]
@@ -1241,7 +1249,7 @@ function newSuperalgosTutorialSpace() {
 
         SCHEMAS_BY_PROJECT.get(project).array.docsTutorialSchema.push(template)
         SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema.set(template.type, template)
-        //UI.projects.superalgos.spaces.docsSpace.navigateTo(project, 'Tutorial', template.type)
+        UI.projects.superalgos.spaces.docsSpace.navigateTo(project, 'Tutorial', template.type)
 
         function clean(text) {
             let result = text

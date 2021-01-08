@@ -116,7 +116,7 @@ function newWorkspace() {
         executeAction({ name: 'Syncronize Tasks', project: 'Superalgos' })
         executeAction({ name: 'Syncronize Trading Sessions', project: 'Superalgos' })
         executeAction({ name: 'Syncronize Learning Sessions', project: 'Superalgos' })
-        executeAction({ name: 'Play Tutorials', project: 'Superalgos' })
+        //executeAction({ name: 'Play Tutorials', project: 'Superalgos' }) TODO reactivate this
     }
 
     function setupEventsServerClients() {

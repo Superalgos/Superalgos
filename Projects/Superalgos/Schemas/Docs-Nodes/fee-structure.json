@@ -21,9 +21,13 @@
             "text": "The accuracy of the internal account-keeping depends on this parameter. Make sure you obtain the correct fee structure from the exchange corresponding to the tier of your account."
         },
         {
+            "style": "Block",
+            "text": "Configuring",
+            "updated": 1610120917432
+        },
+        {
             "style": "Title",
-            "text": "Fee Structure Configuration",
-            "updated": 1609676648252
+            "text": "Fee Structure Configuration"
         },
         {
             "style": "Subtitle",

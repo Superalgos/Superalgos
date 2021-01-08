@@ -1,7 +1,8 @@
 {
     "type": "Reusable Snippets",
     "definition": {
-        "text": "Write here the summary / definition of this Concept."
+        "text": "This page lists snippets of text required in multiple pages. Keeping snippets in a central location makes maintenance easier and avoids duplicating content. Each snippet is arranged under a block featuring the same name as the title displayed before the snippet. To use these snippets, include the corresponding block on the destination page.",
+        "updated": 1610121599173
     },
     "paragraphs": [
         {
@@ -18,6 +19,11 @@
             "text": "This page discusses the top-level information about the section of the hierarchy represented on the below table. Click on any of the nodes to get the details."
         },
         {
+            "style": "Block",
+            "text": "Dummy",
+            "updated": 1610121260808
+        },
+        {
             "style": "Title",
             "text": "Important for Live Sessions"
         },
@@ -29,6 +35,10 @@
             "style": "Important",
             "text": "Running a live session requires the setup of a key reference at the Task. It also requires a live data feed, meaning that the corresponding Sensor Bot Instance, along with all indicators used by the referenced Trading System, must be up and running. Finally, a live session also requires at least 48 hours of historic market data. Bear in mind that the Trading System may require even more historic market data to properly analyze the market depending on the indicators used.",
             "updated": 1610106222219
+        },
+        {
+            "style": "Block",
+            "text": "Dummy"
         }
     ]
 }

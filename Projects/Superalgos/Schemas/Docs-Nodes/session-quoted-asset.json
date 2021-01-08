@@ -10,13 +10,26 @@
         },
         {
             "style": "Text",
-            "text": "The parameter allows defining an initial balance of the corresponding asset, which may be used for trading with the corresponding trading system and trading session.",
-            "updated": 1609675091584
+            "text": "The parameter allows defining an initial balance for the corresponding asset, which may be used for trading with the corresponding trading system and trading session.",
+            "updated": 1610120612671
+        },
+        {
+            "style": "Note",
+            "text": "Notice that the initial balance may be defined on either or both assets in the market.",
+            "updated": 1610120649770
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Block",
+            "text": "Configuring",
+            "updated": 1610120575504
         },
         {
             "style": "Title",
-            "text": "Session Quoted Asset Configuration",
-            "updated": 1609675107102
+            "text": "Session Quoted Asset Configuration"
         },
         {
             "style": "Subtitle",

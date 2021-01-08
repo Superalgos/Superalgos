@@ -1,5 +1,6 @@
 function newSuperalgosUtilitiesStrings() {
     thisObject = {
+        allWordsToUpper: allWordsToUpper, 
         fromCamelCaseToUpperWithSpaces: fromCamelCaseToUpperWithSpaces,
         isCamelCase: isCamelCase,
         replaceSpecialCharactersForSpaces: replaceSpecialCharactersForSpaces,
@@ -7,6 +8,17 @@ function newSuperalgosUtilitiesStrings() {
     }
 
     return thisObject
+
+    function allWordsToUpper(text) {
+        let splittedText = text.split(' ')
+        let result = ''
+        for (let i = 0; i < splittedText.length; i++) {
+            let word = splittedText[i]
+            word = word.charAt(0).toUpperCase() + word.slice(1)
+            result = result + ' ' + word
+        }
+        return result.trim()
+    }
 
     function fromCamelCaseToUpperWithSpaces(text) {
         let result = text.replace(/([A-Z])/g, " $1");
@@ -41,8 +53,8 @@ function newSuperalgosUtilitiesStrings() {
             }
 
             result = /^[A-Z]+$/.test(character)
-            if (result === true) { 
-                upperCaseDetected = true 
+            if (result === true) {
+                upperCaseDetected = true
                 if (text[i - 1] === '.') { return false }
             }
 

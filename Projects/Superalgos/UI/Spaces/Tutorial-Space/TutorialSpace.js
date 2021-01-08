@@ -20,6 +20,9 @@ function newSuperalgosTutorialSpace() {
         finalize: finalize
     }
 
+    let TUTORIAL_NAME
+    let PAGE_NUMBER
+
     let isInitialized = false
 
     thisObject.container = newContainer()
@@ -268,14 +271,16 @@ function newSuperalgosTutorialSpace() {
                     /*
                     This forces the tutorial to close the documentation panel and to keep it closed.
                     */
-                    UI.projects.superalgos.spaces.docsSpace.sidePanelTab.close()
+                    UI.projects.superalgos.spaces.docsSpace.sidePanelTab.open() // TODO
+                    // UI.projects.superalgos.spaces.docsSpace.sidePanelTab.close()
                     return
                 }
                 UI.projects.superalgos.spaces.docsSpace.sidePanelTab.open()
                 if (newDocumentationURL === currentDocumentationURL) { return }
 
                 currentDocumentationURL = newDocumentationURL
-                UI.projects.superalgos.spaces.docsSpace.openSpaceAreaAndNavigateTo('Superalgos', 'Node', currentDocumentationURL)
+                console.log('Trying to navigate to: ' + currentDocumentationURL + ' at ' + config.subTitle)
+                // TODO UI.projects.superalgos.spaces.docsSpace.openSpaceAreaAndNavigateTo('Superalgos', 'Node', currentDocumentationURL)
             }
         }
 
@@ -303,7 +308,7 @@ function newSuperalgosTutorialSpace() {
                 This forces the tutorial to open the workspaces panel and to keep it closed.
                 */
                 if (workspacesCounter === 5) {
-                    UI.projects.superalgos.spaces.sideSpace.sidePanelTab.open()
+                    UI.projects.superalgos.spaces.sideSpace.sidePanelTab.close() // TODO .open()
                 }
                 return
             }
@@ -326,7 +331,7 @@ function newSuperalgosTutorialSpace() {
                         /*
                         This forces the tutorial to close the charting space and to keep it closed.
                         */
-                        UI.projects.superalgos.spaces.cockpitSpace.toTop()
+                        UI.projects.superalgos.spaces.cockpitSpace.toTop() // TODO .toTop()
                         return
                     }
                     case "toMiddle": {
@@ -334,14 +339,14 @@ function newSuperalgosTutorialSpace() {
                         This forces the tutorial to share the screen half with the designer and half 
                         with the charting space and force it in that way.
                         */
-                        UI.projects.superalgos.spaces.cockpitSpace.toMiddle()
+                        UI.projects.superalgos.spaces.cockpitSpace.toTop() // TODO toMiddle()
                         return
                     }
                     case "toBottom": {
                         /*
                         This forces the tutorial to fully open the charting space and to keep it open.
                         */
-                        UI.projects.superalgos.spaces.cockpitSpace.toBottom()
+                        UI.projects.superalgos.spaces.cockpitSpace.toTop() // TODO
                         return
                     }
                 }
@@ -659,6 +664,7 @@ function newSuperalgosTutorialSpace() {
                 return
             }
 
+            nodeConfig.position = 'Left' // TODO
             switch (nodeConfig.position) {
                 case 'Left': {
                     tutorialPosition = {
@@ -858,6 +864,10 @@ function newSuperalgosTutorialSpace() {
     }
 
     function playTutorial(node) {
+
+        PAGE_NUMBER = 0
+        TUTORIAL_NAME = node.name
+
         navigationStack = []
         node.payload.uiObject.isPlaying = true
         tutorialRootNode = node
@@ -1102,6 +1112,195 @@ function newSuperalgosTutorialSpace() {
         }
     }
 
+    function buildDocument() {
+
+        let nodeConfig = JSON.parse(currentNode.config)
+        if (nodeConfig.docs !== undefined) { return }
+
+        if (
+            (nodeConfig.subTitle === undefined || nodeConfig.subTitle === "") &&
+            (nodeConfig.gif === undefined || nodeConfig.gif === "") &&
+            (nodeConfig.warning === undefined || nodeConfig.warning === "")
+        ) {
+            return
+        }
+
+        PAGE_NUMBER = PAGE_NUMBER + 1
+        const project = 'Superalgos'
+
+
+        let type = 'Page Name'
+
+        let template = {
+            tutorial: TUTORIAL_NAME,
+            pageNumber: PAGE_NUMBER,
+            type: currentNode.type + ' - ' + nodeConfig.subTitle,
+            definition: {
+                icon: {
+                    project: 'Superalgos',
+                    name: nodeConfig.image
+                },
+                text: "Write here a summary for this tutorial page."
+            },
+            paragraphs: [
+
+            ]
+        }
+
+        /**DEFINITION */
+        if (nodeConfig.definition !== undefined && nodeConfig.definition !== "") {
+            template.definition.text = clean(nodeConfig.definition)
+        }
+        if (nodeConfig.summary !== undefined && nodeConfig.summary !== "") {
+            if (template.definition.text === 'Write here a summary for this tutorial page.') {
+                template.definition.text = nodeConfig.summary
+            } else {
+                template.definition.text = template.definition.text + ' ' + clean(nodeConfig.summary)
+            }
+        }
+        template.definition.text = template.definition.text.trim()
+
+        if (nodeConfig.bulletListIntro !== undefined && nodeConfig.bulletListIntro !== '') {
+            let paragraph = {
+                style: 'Text',
+                text: clean(nodeConfig.bulletListIntro)
+            }
+            template.paragraphs.push(paragraph)
+        }
+        if (nodeConfig.bulletArray !== undefined) {
+            for (let i = 0; i < nodeConfig.bulletArray.length; i++) {
+                let bullet = nodeConfig.bulletArray[i]
+                let paragraph = {
+                    style: 'List',
+                    text: clean(bullet[0]) + ' ' + clean(bullet[1])
+                }
+                template.paragraphs.push(paragraph)
+
+            }
+        }
+        if (nodeConfig.paragraph1 !== undefined && nodeConfig.paragraph1 !== '') {
+            let paragraph = {
+                style: 'Text',
+                text: clean(nodeConfig.paragraph1)
+            }
+            template.paragraphs.push(paragraph)
+        }
+
+        if (nodeConfig.callOut !== undefined && nodeConfig.callOut !== '') {
+            let paragraph = {
+                style: 'Callout',
+                text: clean(nodeConfig.callOut)
+            }
+            template.paragraphs.push(paragraph)
+        }
+
+        if (nodeConfig.externalLink !== undefined) {
+            let paragraph = {
+                style: 'Link',
+                text: nodeConfig.externalLink[0] + '->' + nodeConfig.externalLink[1]
+            }
+            template.paragraphs.push(paragraph)
+        }
+
+        if (nodeConfig.paragraph2 !== undefined && nodeConfig.paragraph2 !== '') {
+            let paragraph = {
+                style: 'Text',
+                text: clean(nodeConfig.paragraph2)
+            }
+            template.paragraphs.push(paragraph)
+        }
+
+        if (nodeConfig.note !== undefined && nodeConfig.note !== '') {
+            let paragraph = {
+                style: 'Note',
+                text: clean(nodeConfig.note)
+            }
+            template.paragraphs.push(paragraph)
+        }
+
+        if (nodeConfig.tip !== undefined && nodeConfig.tip !== '') {
+            let paragraph = {
+                style: 'Success',
+                text: clean(nodeConfig.tip)
+            }
+            template.paragraphs.push(paragraph)
+        }
+
+        if (nodeConfig.important !== undefined && nodeConfig.important !== '') {
+            let paragraph = {
+                style: 'Important',
+                text: clean(nodeConfig.important)
+            }
+            template.paragraphs.push(paragraph)
+        }
+
+        if (nodeConfig.warning !== undefined && nodeConfig.warning !== '') {
+            let paragraph = {
+                style: 'Warning',
+                text: clean(nodeConfig.warning)
+            }
+            template.paragraphs.push(paragraph)
+        }
+
+        /**FULL SCREEN GIF */
+        if (nodeConfig.gif !== undefined && nodeConfig.gif !== "") {
+            let type = nodeConfig.gif.replaceAll("-", " ")
+            type = UI.projects.superalgos.utilities.strings.allWordsToUpper(type)
+            template.type = currentNode.type + ' - ' + type
+            template.definition.text = "This step will play a video in full screen mode."
+            let paragraph = {
+                style: 'Gif',
+                text: 'GIFs/Superalgos/Tutorials/' + nodeConfig.gif + '.gif'
+            }
+            template.paragraphs.push(paragraph)
+        }
+
+        SCHEMAS_BY_PROJECT.get(project).array.docsTutorialSchema.push(template)
+        SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema.set(template.type, template)
+        UI.projects.superalgos.spaces.docsSpace.navigateTo(project, 'Tutorial', template.type)
+
+        /* Here we will store the keys to access the Content from the Docs */
+        nodeConfig.docs = {
+            project: project,
+            category: 'Tutorial',
+            type: template.type
+        }
+        /* Deleting all the in-configuration content */
+        nodeConfig.title = undefined
+        nodeConfig.subTitle = undefined
+        nodeConfig.gif = undefined
+        nodeConfig.definition = undefined
+        nodeConfig.summary =  undefined
+        nodeConfig.bulletListIntro = undefined
+        nodeConfig.bulletArray = undefined
+        nodeConfig.paragraph1 = undefined
+        nodeConfig.paragraph2 = undefined
+        nodeConfig.note =  undefined
+        nodeConfig.warning = undefined
+        nodeConfig.tip = undefined
+        nodeConfig.important = undefined
+        nodeConfig.callOut = undefined
+
+        currentNode.config = JSON.stringify(nodeConfig, undefined, 4)
+
+        function clean(text) {
+            let result = text
+            result = result
+                .replaceAll('->', '')
+                .replaceAll('<b>', '')
+                .replaceAll('</b>', '')
+                .replaceAll('<i>', '')
+                .replaceAll('</i>', '')
+                .replaceAll('<kbd>', '')
+                .replaceAll('</kbd>', '')
+                .replaceAll('<code>', '')
+                .replaceAll('</code>', '')
+                .trim()
+            return result
+        }
+
+    }
+
     function buildHTML() {
 
         newConfig = currentNode.config
@@ -1109,6 +1308,9 @@ function newSuperalgosTutorialSpace() {
         currentConfig = newConfig
 
         let nodeConfig = JSON.parse(currentNode.config)
+
+        if (nodeConfig.docs !== undefined) { return } // TODO Added this
+        
         let html = ''
         if (nodeConfig.title !== undefined && nodeConfig.title !== '') {
             html = html + '<div><h1 class="tutorial-font-large">' + nodeConfig.title + '</h1></div>'
@@ -1182,6 +1384,8 @@ function newSuperalgosTutorialSpace() {
 
         tutorialDiv.innerHTML = html
 
+        buildDocument()
+
         function addToolTips(text) {
             const TOOL_TIP_HTML = '<div class="tutorial-tooltip">NODE_TYPE<span class="tutorial-tooltiptext">NODE_DEFINITION</span></div>'
             let resultingText = ''
@@ -1195,13 +1399,13 @@ function newSuperalgosTutorialSpace() {
                 }
                 let splittedNodeType = nodeType.split('/')
                 let project
-                let type  
+                let type
                 if (splittedNodeType.length > 1) {
                     project = splittedNodeType[0]
-                    type =  splittedNodeType[1]
+                    type = splittedNodeType[1]
                 } else {
                     project = 'Superalgos'
-                    type =  splittedNodeType[0]
+                    type = splittedNodeType[0]
                 }
                 let definitionNode = SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(type)
                 if (definitionNode === undefined) {

@@ -15,6 +15,7 @@ function newSuperalgosUtilitiesDocs() {
         reverseParseHierarchy: reverseParseHierarchy,
         reverseParseTable: reverseParseTable,
         addBold: addBold,
+        addKeyboard: addKeyboard, 
         addCodeToCamelCase: addCodeToCamelCase,
         addCodeToWhiteList: addCodeToWhiteList,
         addItalics: addItalics,
@@ -260,6 +261,89 @@ function newSuperalgosUtilitiesDocs() {
         } else {
             return text
         }
+    }
+
+    function addKeyboard(text) {
+        let expandedText = text
+            .replaceAll('{', ' { ')
+            .replaceAll('}', ' } ')
+            .replaceAll('(', ' ( ')
+            .replaceAll(')', ' ) ')
+            .replaceAll('[', ' [ ')
+            .replaceAll(']', ' ] ')
+            .replaceAll(',', ' , ')
+            .replaceAll('.', ' . ')
+        let splittedText = expandedText.split(' ')
+        let result = ''
+        for (let i = 0; i < splittedText.length; i++) {
+            let word = splittedText[i]
+            if (
+                word === 'Ctrl' || 
+                word === 'Alt' || 
+                word === 'Shift' ||
+                word === 'Cmd' || 
+                word === 'F1' || 
+                word === 'F2' || 
+                word === 'F3' || 
+                word === 'F4' || 
+                word === 'F5' || 
+                word === 'F6' || 
+                word === 'F7' || 
+                word === 'F8' || 
+                word === 'F9' || 
+                word === 'F10' || 
+                word === 'F11' || 
+                word === 'F12' ||  
+                word === 'Del' ||
+                word === '←' || 
+                word === '→' || 
+                word === '↑' || 
+                word === '↓' || 
+                word === 'Key-A' || 
+                word === 'Key-B' ||
+                word === 'Key-C' ||
+                word === 'Key-D' || 
+                word === 'Key-E' ||
+                word === 'Key-F' ||
+                word === 'Key-G' || 
+                word === 'Key-H' ||
+                word === 'Key-I' ||
+                word === 'Key-J' || 
+                word === 'Key-K' ||
+                word === 'Key-L' ||
+                word === 'Key-M' || 
+                word === 'Key-N' ||
+                word === 'Key-O' ||
+                word === 'Key-P' || 
+                word === 'Key-Q' ||
+                word === 'Key-R' ||
+                word === 'Key-S' || // S
+                word === 'Key-T' || 
+                word === 'Key-U' ||
+                word === 'Key-V' || 
+                word === 'Key-W' ||
+                word === 'Key-X' ||
+                word === 'Key-Y' || 
+                word === 'Key-Z'                    
+            ) {
+                word = '<kbd>' + word + '</kbd>'
+            }
+            if (i === 0) {
+                result = word
+            } else {
+                result = result + ' ' + word
+            }
+        }
+        result = result
+            .replaceAll(' { ', '{')
+            .replaceAll(' } ', '}')
+            .replaceAll(' ( ', '(')
+            .replaceAll(' ) ', ')')
+            .replaceAll(' [ ', '[')
+            .replaceAll(' ] ', ']')
+            .replaceAll(' , ', ',')
+            .replaceAll(' . ', '.')
+        return result.trim()
     }
 
     function addCodeToCamelCase(text) {

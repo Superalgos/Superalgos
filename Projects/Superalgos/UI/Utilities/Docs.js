@@ -295,36 +295,36 @@ function newSuperalgosUtilitiesDocs() {
                 word === 'F11' || 
                 word === 'F12' ||  
                 word === 'Del' ||
-                word === '&#8592;' || 
-                word === '&#8594;' || 
-                word === '&#8593;' || 
-                word === '&#8595;' || 
-                word === 'KEY-A' || 
-                word === 'KEY-B' ||
-                word === 'KEY-C' ||
-                word === 'KEY-D' || 
-                word === 'KEY-E' ||
-                word === 'KEY-F' ||
-                word === 'KEY-G' || 
-                word === 'KEY-H' ||
-                word === 'KEY-I' ||
-                word === 'KEY-J' || 
-                word === 'KEY-K' ||
-                word === 'KEY-L' ||
-                word === 'KEY-M' || 
-                word === 'KEY-N' ||
-                word === 'KEY-O' ||
-                word === 'KEY-P' || 
-                word === 'KEY-Q' ||
-                word === 'KEY-R' ||
-                word === 'KEY-S' || // S
-                word === 'KEY-T' || 
-                word === 'KEY-U' ||
-                word === 'KEY-V' || 
-                word === 'KEY-W' ||
-                word === 'KEY-X' ||
-                word === 'KEY-Y' || 
-                word === 'KEY-Z'                    
+                word === '←' || 
+                word === '→' || 
+                word === '↑' || 
+                word === '↓' || 
+                word === 'Key-A' || 
+                word === 'Key-B' ||
+                word === 'Key-C' ||
+                word === 'Key-D' || 
+                word === 'Key-E' ||
+                word === 'Key-F' ||
+                word === 'Key-G' || 
+                word === 'Key-H' ||
+                word === 'Key-I' ||
+                word === 'Key-J' || 
+                word === 'Key-K' ||
+                word === 'Key-L' ||
+                word === 'Key-M' || 
+                word === 'Key-N' ||
+                word === 'Key-O' ||
+                word === 'Key-P' || 
+                word === 'Key-Q' ||
+                word === 'Key-R' ||
+                word === 'Key-S' || // S
+                word === 'Key-T' || 
+                word === 'Key-U' ||
+                word === 'Key-V' || 
+                word === 'Key-W' ||
+                word === 'Key-X' ||
+                word === 'Key-Y' || 
+                word === 'Key-Z'                    
             ) {
                 word = '<kbd>' + word + '</kbd>'
             }

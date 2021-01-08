@@ -27,7 +27,7 @@
         },
         {
             "style": "List",
-            "text": "Condition B: chart.at01hs.candle.previous.max > chart.at01hs.bollingerBand.previous.MovingAverage &#8594; This means that the maximum value of the candle before the last one, was higher than the Bollinger Bands moving average."
+            "text": "Condition B: chart.at01hs.candle.previous.max > chart.at01hs.bollingerBand.previous.MovingAverage → This means that the maximum value of the candle before the last one, was higher than the Bollinger Bands moving average."
         },
         {
             "style": "Text",

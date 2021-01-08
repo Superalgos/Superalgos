@@ -1115,6 +1115,7 @@ function newSuperalgosTutorialSpace() {
     function buildDocument() {
 
         let nodeConfig = JSON.parse(currentNode.config)
+        if (nodeConfig.docs !== undefined) {return}
 
         if ((nodeConfig.subTitle === undefined || nodeConfig.subTitle === "") && (nodeConfig.gif === undefined || nodeConfig.gif === "")) { return }
         PAGE_NUMBER = PAGE_NUMBER + 1

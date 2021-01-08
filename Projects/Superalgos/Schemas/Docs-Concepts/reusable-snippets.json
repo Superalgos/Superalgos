@@ -16,6 +16,19 @@
         {
             "style": "Note",
             "text": "This page discusses the top-level information about the section of the hierarchy represented on the below table. Click on any of the nodes to get the details."
+        },
+        {
+            "style": "Title",
+            "text": "Important for Live Sessions"
+        },
+        {
+            "style": "Block",
+            "text": "Important for Live Sessions"
+        },
+        {
+            "style": "Important",
+            "text": "Running a live session requires the setup of a key reference at the Task. It also requires a live data feed, meaning that the corresponding Sensor Bot Instance, along with all indicators used by the referenced Trading System, must be up and running. Finally, a live session also requires at least 48 hours of historic market data. Bear in mind that the Trading System may require even more historic market data to properly analyze the market depending on the indicators used.",
+            "updated": 1610106222219
         }
     ]
 }

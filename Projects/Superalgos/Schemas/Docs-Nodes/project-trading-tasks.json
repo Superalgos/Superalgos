@@ -2,9 +2,13 @@
     "type": "Project Trading Tasks",
     "paragraphs": [
         {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1610099516571
+        },
+        {
             "style": "Note",
-            "text": "Superalgos organizes the data structures in the Network by Project to ensure scalability.",
-            "updated": 1609667622393
+            "text": "Superalgos organizes the data structures in the Network by Project to ensure scalability."
         }
     ],
     "definition": {

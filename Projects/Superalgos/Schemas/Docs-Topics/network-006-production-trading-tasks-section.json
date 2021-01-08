@@ -1,0 +1,30 @@
+{
+    "topic": "Network",
+    "pageNumber": "6",
+    "type": "Production Trading Tasks Section",
+    "definition": {
+        "text": "The production environment organizes your strategy-deployment resources, grouping tasks and associated forward testing and live trading sessions.",
+        "updated": 1610106563761
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Production Trading Tasks->Definition",
+            "updated": 1610106660823
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Production Trading Tasks->Content",
+            "updated": 1610106664031
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Note for Hierarchy Tables",
+            "updated": 1610111896199
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Production Trading Tasks->7"
+        }
+    ]
+}

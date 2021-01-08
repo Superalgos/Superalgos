@@ -2,9 +2,13 @@
     "type": "Production Trading Tasks",
     "paragraphs": [
         {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1610106726574
+        },
+        {
             "style": "Text",
-            "text": "Superalgos aims to provide a flexible and robust trading bots deployment toolbox.",
-            "updated": 1609666709477
+            "text": "Superalgos aims to provide a flexible and robust trading bots deployment toolbox."
         },
         {
             "style": "Text",
@@ -25,8 +29,8 @@
         },
         {
             "style": "Note",
-            "text": "If you are familiar with the testing environment, there isn’t much more to learn to understand the production environment. If you are not familiar with either, please refer to the tesing environment page for the details.",
-            "updated": 1609666722398
+            "text": "If you are familiar with Testing Trading Tasks, there isn’t much more to learn to understand Production Trading Tasks. If you are not familiar with either, please refer to the Testing Trading Tasks Section page for the details.",
+            "updated": 1610111338574
         },
         {
             "style": "Important",

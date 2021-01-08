@@ -2,9 +2,13 @@
     "type": "Testing Trading Tasks",
     "paragraphs": [
         {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1610098901334
+        },
+        {
             "style": "Text",
-            "text": "Thorough and comprehensive testing of strategies is at the core of successful trading. Superalgos strives to put you in control of the testing process providing you with flexible tools to fit your criteria.",
-            "updated": 1609666609067
+            "text": "Thorough and comprehensive testing of strategies is at the core of successful trading. Superalgos strives to put you in control of the testing process providing you with flexible tools to fit your criteria."
         },
         {
             "style": "Text",

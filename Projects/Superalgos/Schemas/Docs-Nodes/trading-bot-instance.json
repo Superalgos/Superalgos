@@ -11,8 +11,8 @@
         },
         {
             "style": "Text",
-            "text": "The rading bot instance holds no definitions as to what the bot does. Instead, its process instance references the process definition in the Masters data mine. That is how the indicator bot instance obtains the information of what it needs to do once it is run.",
-            "updated": 1609668704862
+            "text": "The trading bot instance holds no definitions as to what the bot does. Instead, its process instance references the process definition in the Masters data mine. That is how the indicator bot instance obtains the information of what it needs to do once it is run.",
+            "updated": 1610105308091
         },
         {
             "style": "Note",

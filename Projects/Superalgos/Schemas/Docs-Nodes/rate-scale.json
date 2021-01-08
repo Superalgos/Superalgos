@@ -14,7 +14,13 @@
         },
         {
             "style": "Text",
-            "text": "When set at the level of the time machine, the scale settings affect all charts within the time machine. When set at the level of the timeline chart, the settings override the rate scale at the time machine level. This allows having multiple charts on the same time machine, each with a different rate scale."
+            "text": "When set at the level of the time machine, the scale settings affect all charts within the time machine. When set at the level of the timeline chart, the settings override the rate scale at the time machine level. ",
+            "updated": 1610136729523
+        },
+        {
+            "style": "Success",
+            "text": "This allows having multiple charts on the same time machine, each with a different rate scale. This is the way to set up indicators the are designed for a scale different than that of the rate of the assets in the market. For example, the RSI and Percentage Bandwidth indicators oscillate between 0 and 100.",
+            "updated": 1610136956037
         },
         {
             "style": "Title",

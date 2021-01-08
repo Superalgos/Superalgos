@@ -1,0 +1,54 @@
+{
+    "topic": "Charting Space",
+    "pageNumber": "3",
+    "type": "Time Machines and Timeline Charts",
+    "definition": {
+        "text": "Time machines and timeline charts are the devices that render graphical information on the Viewport.",
+        "updated": 1610135709494
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Time Machine",
+            "updated": 1610135798826
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Time Machine->Definition",
+            "updated": 1610135810888
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Time Machine->Content",
+            "updated": 1610135814540
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Note for Hierarchy Tables"
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Time Machine->3",
+            "updated": 1610135969339
+        },
+        {
+            "style": "Title",
+            "text": "Timeline Chart"
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Timeline Chart->Definition",
+            "updated": 1610135983766
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Timeline Chart->Content",
+            "updated": 1610135991211
+        },
+        {
+            "style": "Note",
+            "text": "We will cover scales and layer managers in separate pages!",
+            "updated": 1610136541919
+        }
+    ]
+}

@@ -10,7 +10,12 @@
         },
         {
             "style": "Text",
-            "text": "When the time frame scale is set at the level of the time machine, the scale setting affects all charts within the time machine. When set at the level of the timeline chart, the setting overrides the time frame scale at the time machine level. This allows comparing charts in different time frames, but still synchronized at the datetime level."
+            "text": "When the time frame scale is set at the level of the time machine, the scale setting affects all charts within the time machine. When set at the level of the timeline chart, the setting overrides the time frame scale at the time machine level.",
+            "updated": 1610136694170
+        },
+        {
+            "style": "Success",
+            "text": "This allows comparing charts in different time frames, but still synchronized at the datetime level."
         },
         {
             "style": "Block",

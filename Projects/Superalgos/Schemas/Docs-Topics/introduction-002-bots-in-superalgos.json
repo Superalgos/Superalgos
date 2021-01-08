@@ -1,0 +1,109 @@
+{
+    "topic": "Introduction",
+    "pageNumber": "2",
+    "type": "Bots In Superalgos",
+    "definition": {
+        "text": "Bots are a crucial concept in Superalgos, and a good thread to explain how hierarchies interact with each other.",
+        "updated": 1609944023850
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "While sometimes people use the terms trading bot, trading strategy, and trading system interchangeably, in Superalgos the distinction is sharp and unequivocal. Let’s start by offering three fundamental definitions:",
+            "updated": 1609944046617
+        },
+        {
+            "style": "List",
+            "text": "Trading System: A trading system is a framework handling the low-level logic that serves to structure the processes and methods used to implement and deploy trading strategies."
+        },
+        {
+            "style": "List",
+            "text": "Trading Strategy: A trading strategy is the description of a set of actions or events run in stages. Events are triggered upon the validation of precise conditions describing specific market situations. Trading strategies are designed to achieve a specific goal within the broader plan of a trading system via taking and managing positions."
+        },
+        {
+            "style": "List",
+            "text": "Trading Bot: A trading bot is a computer program that—based on datasets exposed as products by other bots (counting sensors, indicators and even other trading bots)—applies the trading logic defined on a trading system to, on one side, generate a complete trading simulation (outputting datasets that include trades, the action of strategies, validation of conditions, etc.), and on the other side, manage the execution of orders when on a forward testing or live trading session."
+        },
+        {
+            "style": "Callout",
+            "text": "In Superalgos, trading systems and trading strategies are definitions describing trading logic, while the trading bot is the computer program that uses the trading logic to test strategies, produce simulations, and trade."
+        },
+        {
+            "style": "Note",
+            "text": "This documentation expands extensively on these three concepts. For the time being, the above distinction is sufficient to continue.",
+            "updated": 1609944079526
+        },
+        {
+            "style": "Text",
+            "text": "Before diving into an in-depth exploration of each hierarchy, a quick overview is in order. One of the most important underlying concepts in Superalgos is that of bots. Let’s then use bots as the guiding thread to show you how the different hierarchies in Superalgos interact with each other."
+        },
+        {
+            "style": "Title",
+            "text": "Bot Definitions"
+        },
+        {
+            "style": "Text",
+            "text": "In the pages describing data mines and trading mines you will learn that bots are algorithms defined in such mines. That is, mines hold the source code and configuration—the complete set of definitions—of the three existing kinds of bots: sensors, indicators, and the trading bot."
+        },
+        {
+            "style": "Text",
+            "text": "As a user, you may use all bots in data mines shipping with the system. As a developer, you may create your own mines to develop your own sensors, indicators, and even a new trading bot."
+        },
+        {
+            "style": "Title",
+            "text": "Bot Instances"
+        },
+        {
+            "style": "Text",
+            "text": "Using any of these bots entails creating an instance of the bot definition, so that this instance may run the bot’s code. You will seldom need to create bot instances manually, as the process of installing a new market creates all necessary bot instances for your data mining operation and for running trading sessions (by the way, markets are defined and installed from within the crypto ecosystem hierarchy)."
+        },
+        {
+            "style": "Text",
+            "text": "A bot instance is a reference to a bot as defined in a data or trading mine. The instance of the bot runs the defined processes and generates the defined data products."
+        },
+        {
+            "style": "Text",
+            "text": "Bot instances are run from within the network hierarchy. You use task managers and tasks to control bot instances, meaning, to start and stop them. Also in the network hierarchy lies the configurations about where the data they generate is to be stored."
+        },
+        {
+            "style": "Title",
+            "text": "Bot Dependencies"
+        },
+        {
+            "style": "Text",
+            "text": "Upon execution, bot instances run in a branched sequence determined by their status and data dependencies. For instance, if bot Alice depends on the data produced by bot Bob, then Alice is configured to run as soon as Bob finishes its execution. These configurations are already set up in the corresponding data mines for all existing bots. Therefore, you only need to worry about this if you develop new bots."
+        },
+        {
+            "style": "Text",
+            "text": "What you do need to understand as a user is that, if Alice depends on data Bob produces, then Bob needs to be running for Alice to do her job. If Bob is not running, then Alice can only sit and wait for Bob to do his part first."
+        },
+        {
+            "style": "Text",
+            "text": "A good example of such dependencies may be found when running a live trading session. In such a case, the trading bot depends on the sensor and all indicator bots used in the referenced trading system. Indicators must process the data so that the trading bot may analyze it in realtime. Therefore, before running a live trading session, the data mining operation must be running and up to date."
+        },
+        {
+            "style": "Title",
+            "text": "Bots Execution"
+        },
+        {
+            "style": "Text",
+            "text": "Each bot runs for as long as it may require to perform its job, usually in the order of a few seconds, and remains asleep until the next cycle is due. That is, bots run for short bursts, in frequent cycles. The reason for this behavior is that bots are prepared to read live data feeds and process it online."
+        },
+        {
+            "style": "Text",
+            "text": "Bots need to know which market of which exchange they should work with. Exchanges and markets are defined in the crypto ecosystem hierarchy. Bots obtain that information by establishing references with the appropriate markets in that hierarchy."
+        },
+        {
+            "style": "Text",
+            "text": "In the case of the trading bot, it also needs to know which type of trading session it should run, and what trading system’s rules it should follow. For those reasons, trading bots are paired with a specific session, which in turn, references a trading system."
+        },
+        {
+            "style": "Text",
+            "text": "Trading systems are themselves hierarchies. You may create a trading system by following a framework in which strategies are described in stages. You do not need to code to create a strategy, as the rules are written with simple mathematical statements. However, both basic and advanced knowledge of JavaScript will give you an edge. You may test and deploy your trading system by running trading sessions from within the network hierarchy."
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

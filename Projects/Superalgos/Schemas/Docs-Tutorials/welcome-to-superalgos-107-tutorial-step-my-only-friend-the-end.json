@@ -1,0 +1,26 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 107,
+    "type": "Tutorial Step - My Only Friend, The End!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "close-stage-event"
+        },
+        "text": "Ok, my friend, this is the end! I hope you've enjoyed the show and that I've managed to get you hooked to Superalgos!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "There's no doubt in my mind that you haven't seen anything like Superalgos before. As you may now figure, Superalgos is a vast system and keeps growing fast."
+        },
+        {
+            "style": "Callout",
+            "text": "There are <a href='' target='_blank' style='color:blue;'>many more ways in which you can help</a> the project grow stronger!"
+        },
+        {
+            "style": "Success",
+            "text": "That's it! No more steps after this one! I promise! Click Next if you don't believe me!"
+        }
+    ]
+}

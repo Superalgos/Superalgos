@@ -1,0 +1,17 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 40,
+    "type": "Tutorial Step - Welcome Charts Scales Auto Locked",
+    "definition": {
+        "icon": {
+            "project": "Superalgos"
+        },
+        "text": "This step will play a video in full screen mode."
+    },
+    "paragraphs": [
+        {
+            "style": "Gif",
+            "text": "GIFs/Superalgos/Tutorials/welcome-charts-scales-auto-locked.gif"
+        }
+    ]
+}

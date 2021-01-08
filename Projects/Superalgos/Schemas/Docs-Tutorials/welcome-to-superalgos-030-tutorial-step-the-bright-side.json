@@ -1,0 +1,26 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 30,
+    "type": "Tutorial Step - The Bright Side",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "charting-space"
+        },
+        "text": "So far, you've been confined to the dark side of Superalgos. Get ready to be exposed to the bright side: the Charting Space."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The charting space lives on top of the design space, separated by a turquoise slider."
+        },
+        {
+            "style": "Text",
+            "text": "As you will come to expect from Superalgos, the charting space is configurable and highly flexible. Everything that happens there is defined on the Charting Space hierarchy."
+        },
+        {
+            "style": "Warning",
+            "text": "The charting space is known for blowing people's minds. Please, refrain from continuing with this tutorial if you are currently under the influence of psychoactive substances."
+        }
+    ]
+}

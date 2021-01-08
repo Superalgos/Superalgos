@@ -1,0 +1,22 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 87,
+    "type": "Tutorial Step - Let's Start With 100 Bucks!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "session-quoted-asset"
+        },
+        "text": "The default initialBalance is set to 100 USDT, well above the minimum transaction size supported by Binance."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The initialBalance is defined in the configuration of the Session Quoted Asset. Check it out and decide for yourself if you wish to change it!"
+        },
+        {
+            "style": "Success",
+            "text": "Binance defines the minimum transaction size in BTC, so the requirement in USDT varies a lot with time. I set the amount to 100 USDT just to ensure you don't run into errors. You are free to try with a smaller amount. You will get errors if it's too small but may try again as many times as needed. Just stop the task, change the initialBalance in the Session Quoted Asset, and try again!"
+        }
+    ]
+}

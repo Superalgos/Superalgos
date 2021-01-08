@@ -333,7 +333,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                             let fileContent = JSON.stringify(schemaDocument, undefined, 4)
                                             let fileName = schemaDocument.type.toLowerCase()
                                             for (let j = 0; j < 10; j++) {
-                                                fileName = cleanFileName (fileName)
+                                                fileName = cleanFileName(fileName)
                                             }
                                             fileName = fileName + '.json'
 
@@ -385,7 +385,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                             let schemaDocument = docsSchema[i]
                                             let fileContent = JSON.stringify(schemaDocument, undefined, 4)
                                             let fileName = schemaDocument.type.toLowerCase()
-                                            fileName = cleanFileName (fileName)
+                                            fileName = cleanFileName(fileName)
                                             fileName = fileName + '.json'
 
                                             fs.writeFileSync(filePath + '/' + fileName, fileContent)
@@ -437,7 +437,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                             let fileContent = JSON.stringify(schemaDocument, undefined, 4)
                                             let pageNumber = '00' + schemaDocument.pageNumber
                                             let fileName = schemaDocument.topic.toLowerCase() + '-' + pageNumber.substring(pageNumber.length - 3, pageNumber.length) + '-' + schemaDocument.type.toLowerCase()
-                                            fileName = cleanFileName (fileName)
+                                            fileName = cleanFileName(fileName)
                                             fileName = fileName + '.json'
 
                                             fs.writeFileSync(filePath + '/' + fileName, fileContent)
@@ -489,7 +489,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                             let fileContent = JSON.stringify(schemaDocument, undefined, 4)
                                             let pageNumber = '00' + schemaDocument.pageNumber
                                             let fileName = schemaDocument.tutorial.toLowerCase() + '-' + pageNumber.substring(pageNumber.length - 3, pageNumber.length) + '-' + schemaDocument.type.toLowerCase()
-                                            fileName = cleanFileName (fileName)
+                                            fileName = cleanFileName(fileName)
                                             fileName = fileName + '.json'
 
                                             fs.writeFileSync(filePath + '/' + fileName, fileContent)
@@ -540,7 +540,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                             let schemaDocument = docsSchema[i]
                                             let fileContent = JSON.stringify(schemaDocument, undefined, 4)
                                             let fileName = schemaDocument.type.toLowerCase()
-                                            fileName = cleanFileName (fileName)
+                                            fileName = cleanFileName(fileName)
                                             fileName = fileName + '.json'
 
                                             fs.writeFileSync(filePath + '/' + fileName, fileContent)
@@ -565,18 +565,24 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                         }
                     }
                     function cleanFileName(fileName) {
-                        fileName = fileName
-                            .replaceAll(' ', '-')
-                            .replaceAll('---', '-')
-                            .replaceAll('?', '')
-                            .replaceAll('#', '')
-                            .replaceAll('$', '')
-                            .replaceAll('%', '')
-                            .replaceAll('^', '')
-                            .replaceAll('&', '')
-                            .replaceAll('*', '')
-                            .replaceAll('(', '')
-                            .replaceAll(')', '')
+                        for (let i = 0; i < 10; i++) {
+                            fileName = fileName
+                                .replace(' ', '-')
+                                .replace('--', '-')
+                                .replace('?', '')
+                                .replace('#', '')
+                                .replace('$', '')
+                                .replace('%', '')
+                                .replace('^', '')
+                                .replace('&', '')
+                                .replace('*', '')
+                                .replace('(', '')
+                                .replace(')', '')
+                                .replace('!', '')
+                                .replace('..', '.')
+                                .replace(',', '')
+                                .replace('\'', '')
+                        }
                         return fileName
                     }
                 }

@@ -1,0 +1,17 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 96,
+    "type": "Tutorial Step - Welcome Live Trading Console",
+    "definition": {
+        "icon": {
+            "project": "Superalgos"
+        },
+        "text": "This step will play a video in full screen mode."
+    },
+    "paragraphs": [
+        {
+            "style": "Gif",
+            "text": "GIFs/Superalgos/Tutorials/welcome-live-trading-console.gif"
+        }
+    ]
+}

@@ -1115,9 +1115,16 @@ function newSuperalgosTutorialSpace() {
     function buildDocument() {
 
         let nodeConfig = JSON.parse(currentNode.config)
-        if (nodeConfig.docs !== undefined) {return}
+        if (nodeConfig.docs !== undefined) { return }
 
-        if ((nodeConfig.subTitle === undefined || nodeConfig.subTitle === "") && (nodeConfig.gif === undefined || nodeConfig.gif === "")) { return }
+        if (
+            (nodeConfig.subTitle === undefined || nodeConfig.subTitle === "") &&
+            (nodeConfig.gif === undefined || nodeConfig.gif === "") &&
+            (nodeConfig.warning === undefined || nodeConfig.warning === "")
+        ) {
+            return
+        }
+
         PAGE_NUMBER = PAGE_NUMBER + 1
         const project = 'Superalgos'
 
@@ -1253,12 +1260,26 @@ function newSuperalgosTutorialSpace() {
         UI.projects.superalgos.spaces.docsSpace.navigateTo(project, 'Tutorial', template.type)
 
         /* Here we will store the keys to access the Content from the Docs */
-
         nodeConfig.docs = {
             project: project,
             category: 'Tutorial',
             type: template.type
         }
+        /* Deleting all the in-configuration content */
+        nodeConfig.title = undefined
+        nodeConfig.subTitle = undefined
+        nodeConfig.gif = undefined
+        nodeConfig.definition = undefined
+        nodeConfig.summary =  undefined
+        nodeConfig.bulletListIntro = undefined
+        nodeConfig.bulletArray = undefined
+        nodeConfig.paragraph1 = undefined
+        nodeConfig.paragraph2 = undefined
+        nodeConfig.note =  undefined
+        nodeConfig.warning = undefined
+        nodeConfig.tip = undefined
+        nodeConfig.important = undefined
+        nodeConfig.callOut = undefined
 
         currentNode.config = JSON.stringify(nodeConfig, undefined, 4)
 
@@ -1286,9 +1307,10 @@ function newSuperalgosTutorialSpace() {
         if (newConfig === currentConfig) { return }
         currentConfig = newConfig
 
-        buildDocument()
-
         let nodeConfig = JSON.parse(currentNode.config)
+
+        if (nodeConfig.docs !== undefined) { return } // TODO Added this
+        
         let html = ''
         if (nodeConfig.title !== undefined && nodeConfig.title !== '') {
             html = html + '<div><h1 class="tutorial-font-large">' + nodeConfig.title + '</h1></div>'
@@ -1361,6 +1383,8 @@ function newSuperalgosTutorialSpace() {
         html = html + '</div>'
 
         tutorialDiv.innerHTML = html
+
+        buildDocument()
 
         function addToolTips(text) {
             const TOOL_TIP_HTML = '<div class="tutorial-tooltip">NODE_TYPE<span class="tutorial-tooltiptext">NODE_DEFINITION</span></div>'

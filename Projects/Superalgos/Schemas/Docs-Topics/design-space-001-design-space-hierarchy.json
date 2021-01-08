@@ -1,0 +1,49 @@
+{
+    "topic": "Design Space",
+    "pageNumber": "1",
+    "type": "Design Space Hierarchy",
+    "definition": {
+        "text": "Use this hierarchy to control the look, feel, and behavior of the Design Space.",
+        "updated": 1610039508226
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Design Space->Definition",
+            "updated": 1610037964711
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Design Space->Content",
+            "updated": 1610037971754
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Note for Hierarchy Tables",
+            "updated": 1610049285680
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Design Space->2",
+            "updated": 1610038604028
+        },
+        {
+            "style": "Title",
+            "text": "Space Style",
+            "updated": 1610038698256
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Space Style->Definition"
+        },
+        {
+            "style": "Title",
+            "text": "Space Settings",
+            "updated": 1610038707204
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Space Settings->Definition"
+        }
+    ]
+}

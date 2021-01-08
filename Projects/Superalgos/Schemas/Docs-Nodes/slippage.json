@@ -13,10 +13,6 @@
             "text": "In the context of forward testing and live trading sessions, slippage does not affect the actual transactions. However, the parameter is taken into account when creating the live trading simulation until the actual order fill values are obtained from the exchange."
         },
         {
-            "style": "Note",
-            "text": "Check the configuration section for the details on how slippage works."
-        },
-        {
             "style": "Block",
             "text": "Configuring"
         },

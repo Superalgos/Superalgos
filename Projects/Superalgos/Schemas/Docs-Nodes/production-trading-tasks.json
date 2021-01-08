@@ -2,9 +2,13 @@
     "type": "Production Trading Tasks",
     "paragraphs": [
         {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1610106726574
+        },
+        {
             "style": "Text",
-            "text": "Superalgos aims to provide a flexible and robust trading bots deployment toolbox.",
-            "updated": 1609666709477
+            "text": "Superalgos aims to provide a flexible and robust trading bots deployment toolbox."
         },
         {
             "style": "Text",
@@ -25,13 +29,13 @@
         },
         {
             "style": "Note",
-            "text": "If you are familiar with the testing environment, there isn’t much more to learn to understand the production environment. If you are not familiar with either, please refer to the tesing environment page for the details.",
-            "updated": 1609666722398
+            "text": "If you are familiar with Testing Trading Tasks, there isn’t much more to learn to understand Production Trading Tasks. If you are not familiar with either, please refer to the Testing Trading Tasks Section page for the details.",
+            "updated": 1610111338574
         },
         {
-            "style": "Important",
-            "text": "Deleting this node causes market install and uninstall scripts to stop working, even if the node is recreated after being deleted.",
-            "updated": 1609666715486
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Deleting Node Warning",
+            "updated": 1610122740064
         }
     ],
     "definition": {

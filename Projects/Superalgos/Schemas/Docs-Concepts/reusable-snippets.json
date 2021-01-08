@@ -1,0 +1,73 @@
+{
+    "type": "Reusable Snippets",
+    "definition": {
+        "text": "This page lists snippets of text required in multiple pages. Keeping snippets in a central location makes maintenance easier and avoids duplicating content. Each snippet is arranged under a block featuring the same name as the title displayed before the snippet. To use these snippets, include the corresponding block on the destination page.",
+        "updated": 1610121599173
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Note for Hierarchy Tables",
+            "updated": 1610049150289
+        },
+        {
+            "style": "Block",
+            "text": "Note for Hierarchy Tables"
+        },
+        {
+            "style": "Note",
+            "text": "This page discusses the top-level information about the section of the hierarchy represented in the below table. Click on any of the nodes to get the details, including particulars on their configuration, when applicable.",
+            "updated": 1610124674614
+        },
+        {
+            "style": "Block",
+            "text": "Dummy",
+            "updated": 1610121260808
+        },
+        {
+            "style": "Title",
+            "text": "Important for Live Sessions"
+        },
+        {
+            "style": "Block",
+            "text": "Important for Live Sessions"
+        },
+        {
+            "style": "Important",
+            "text": "Running a live session requires the setup of a key reference at the Task. It also requires a live data feed, meaning that the corresponding Sensor Bot Instance, along with all indicators used by the referenced Trading System, must be up and running. Finally, a live session also requires at least 48 hours of historic market data. Bear in mind that the Trading System may require even more historic market data to properly analyze the market depending on the indicators used.",
+            "updated": 1610106222219
+        },
+        {
+            "style": "Block",
+            "text": "Dummy"
+        },
+        {
+            "style": "Title",
+            "text": "Deleting Node Warning",
+            "updated": 1610122599631
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Block",
+            "text": "Deleting Node Warning",
+            "updated": 1610122587231
+        },
+        {
+            "style": "Warning",
+            "text": "Deleting this node causes market install and uninstall scripts to stop working, even if the node is recreated after being deleted.",
+            "updated": 1610122503324
+        },
+        {
+            "style": "Block",
+            "text": "Dummy",
+            "updated": 1610122641114
+        },
+        {
+            "style": "Text",
+            "text": "Next snippet"
+        }
+    ]
+}

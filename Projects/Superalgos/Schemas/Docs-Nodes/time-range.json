@@ -13,72 +13,41 @@
             "text": "The parameter offers precise control over the duration, starting and ending points of the session. Several options are available, and there are differences in how backtesting and the rest of the types of trading sessions function in this regard."
         },
         {
-            "style": "Text",
-            "text": "Check the configuration to learn more."
-        },
-        {
             "style": "Block",
             "text": "Configuring"
         },
         {
             "style": "Title",
-            "text": "Configuring Time Range"
+            "text": "Time Range Configuration",
+            "updated": 1610120685734
         },
         {
-            "style": "Text",
-            "text": "Select Configure Time Range on the menu to access the configuration. The configuration varies slightly depending on the type of session you are running."
+            "style": "Subtitle",
+            "text": "On Backtesting Sessions",
+            "updated": 1610120720887
         },
         {
-            "style": "Text",
-            "text": "<H4>On Backtesting Sessions</H4>"
-        },
-        {
-            "style": "Text",
-            "text": "{"
-        },
-        {
-            "style": "Text",
-            "text": "\"initialDatetime\": \"2019-09-01T00:00:00.000Z\","
-        },
-        {
-            "style": "Text",
-            "text": "\"finalDatetime\": \"2019-09-25T00:00:00.000Z\""
-        },
-        {
-            "style": "Text",
-            "text": "}"
+            "style": "Json",
+            "text": "{\n\"initialDatetime\": \"2019-09-01T00:00:00.000Z\",\n\"finalDatetime\": \"2019-09-25T00:00:00.000Z\"\n}",
+            "updated": 1610120762359
         },
         {
             "style": "List",
             "text": "initialDatetime is the datetime the session starts at."
         },
         {
-            "style": "Text",
-            "text": "<H4>On Paper Trading, Forward Testing and Live Trading Sessions</H4>"
+            "style": "List",
+            "text": "finalDatetime is the datetime the session finishes at. If you don't set a finalDatetime* at the level of the testing session or the trading system, then the session runs for one year."
         },
         {
-            "style": "Text",
-            "text": "{"
+            "style": "Subtitle",
+            "text": "On Paper Trading, Forward Testing and Live Trading Sessions",
+            "updated": 1610120775806
         },
         {
-            "style": "Text",
-            "text": "\"initialDatetime\": \"2019-09-01T00:00:00.000Z\","
-        },
-        {
-            "style": "Text",
-            "text": "\"finalDatetime\": \"2019-09-25T00:00:00.000Z\","
-        },
-        {
-            "style": "Text",
-            "text": "\"allowStartingFromThePast\": false"
-        },
-        {
-            "style": "Text",
-            "text": "}"
-        },
-        {
-            "style": "Text",
-            "text": " finalDatetime is the datetime the session finishes at. If you don't set a finalDatetime* at the level of the testing session or the trading system, then the session runs for one year."
+            "style": "Json",
+            "text": "{\n\"initialDatetime\": \"2019-09-01T00:00:00.000Z\",\n\"finalDatetime\": \"2019-09-25T00:00:00.000Z\",\n\"allowStartingFromThePast\": false\n}",
+            "updated": 1610120789823
         },
         {
             "style": "Text",

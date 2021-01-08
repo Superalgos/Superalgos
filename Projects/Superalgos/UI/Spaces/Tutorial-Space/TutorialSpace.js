@@ -1251,6 +1251,16 @@ function newSuperalgosTutorialSpace() {
         SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema.set(template.type, template)
         UI.projects.superalgos.spaces.docsSpace.navigateTo(project, 'Tutorial', template.type)
 
+        /* Here we will store the keys to access the Content from the Docs */
+
+        nodeConfig.docs = {
+            project: project,
+            category: 'Tutorial',
+            type: template.type
+        }
+
+        currentNode.config = JSON.stringify(nodeConfig, undefined, 4)
+
         function clean(text) {
             let result = text
             result = result
@@ -1266,6 +1276,7 @@ function newSuperalgosTutorialSpace() {
                 .trim()
             return result
         }
+
     }
 
     function buildHTML() {

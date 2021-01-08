@@ -1,0 +1,20 @@
+{
+    "topic": "Trading Systems",
+    "pageNumber": "2",
+    "type": "Trading Strategies",
+    "definition": {
+        "text": "Write here a summary for this topic page."
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Trading Strategy->Definition",
+            "updated": 1610138825934
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Trading Strategy->Content",
+            "updated": 1610138829122
+        }
+    ]
+}

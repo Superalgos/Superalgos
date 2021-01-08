@@ -1239,7 +1239,7 @@ function newSuperalgosTutorialSpace() {
             let type = nodeConfig.gif.replaceAll("-", " ")
             type = UI.projects.superalgos.utilities.strings.allWordsToUpper(type)
             template.type = currentNode.type + ' - ' + type
-            template.definition.text = "This step will play a video full screen."
+            template.definition.text = "This step will play a video in full screen mode."
             let paragraph = {
                 style: 'Gif',
                 text: 'GIFs/Superalgos/Tutorials/' + nodeConfig.gif + '.gif'
@@ -1259,6 +1259,10 @@ function newSuperalgosTutorialSpace() {
                 .replaceAll('</b>', '')
                 .replaceAll('<i>', '')
                 .replaceAll('</i>', '')
+                .replaceAll('<kbd>', '')
+                .replaceAll('</kbd>', '')
+                .replaceAll('<code>', '')
+                .replaceAll('</code>', '')
                 .trim()
             return result
         }

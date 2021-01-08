@@ -15,6 +15,7 @@ function newSuperalgosUtilitiesDocs() {
         reverseParseHierarchy: reverseParseHierarchy,
         reverseParseTable: reverseParseTable,
         addBold: addBold,
+        addKeyboard: addKeyboard, 
         addCodeToCamelCase: addCodeToCamelCase,
         addCodeToWhiteList: addCodeToWhiteList,
         addItalics: addItalics,
@@ -260,6 +261,89 @@ function newSuperalgosUtilitiesDocs() {
         } else {
             return text
         }
+    }
+
+    function addKeyboard(text) {
+        let expandedText = text
+            .replaceAll('{', ' { ')
+            .replaceAll('}', ' } ')
+            .replaceAll('(', ' ( ')
+            .replaceAll(')', ' ) ')
+            .replaceAll('[', ' [ ')
+            .replaceAll(']', ' ] ')
+            .replaceAll(',', ' , ')
+            .replaceAll('.', ' . ')
+        let splittedText = expandedText.split(' ')
+        let result = ''
+        for (let i = 0; i < splittedText.length; i++) {
+            let word = splittedText[i]
+            if (
+                word === 'Ctrl' || 
+                word === 'Alt' || 
+                word === 'Shift' ||
+                word === 'Cmd' || 
+                word === 'F1' || 
+                word === 'F2' || 
+                word === 'F3' || 
+                word === 'F4' || 
+                word === 'F5' || 
+                word === 'F6' || 
+                word === 'F7' || 
+                word === 'F8' || 
+                word === 'F9' || 
+                word === 'F10' || 
+                word === 'F11' || 
+                word === 'F12' ||  
+                word === 'Del' ||
+                word === '&#8592;' || 
+                word === '&#8594;' || 
+                word === '&#8593;' || 
+                word === '&#8595;' || 
+                word === '&#65' || 
+                word === '&#66' ||
+                word === '&#67' ||
+                word === '&#68' || 
+                word === '&#69' ||
+                word === '&#70' ||
+                word === '&#71' || 
+                word === '&#72' ||
+                word === '&#73' ||
+                word === '&#74' || 
+                word === '&#75' ||
+                word === '&#76' ||
+                word === '&#77' || 
+                word === '&#78' ||
+                word === '&#79' ||
+                word === '&#80' || 
+                word === '&#81' ||
+                word === '&#82' ||
+                word === '&#83' || 
+                word === '&#84' ||
+                word === '&#85' ||
+                word === '&#86' || 
+                word === '&#87' ||
+                word === '&#88' ||
+                word === '&#89' || 
+                word === '&#90'                    
+            ) {
+                word = '<kbd>' + word + '</kbd>'
+            }
+            if (i === 0) {
+                result = word
+            } else {
+                result = result + ' ' + word
+            }
+        }
+        result = result
+            .replaceAll(' { ', '{')
+            .replaceAll(' } ', '}')
+            .replaceAll(' ( ', '(')
+            .replaceAll(' ) ', ')')
+            .replaceAll(' [ ', '[')
+            .replaceAll(' ] ', ']')
+            .replaceAll(' , ', ',')
+            .replaceAll(' . ', '.')
+        return result.trim()
     }
 
     function addCodeToCamelCase(text) {

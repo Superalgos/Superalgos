@@ -278,7 +278,8 @@ function newSuperalgosTutorialSpace() {
                 if (newDocumentationURL === currentDocumentationURL) { return }
 
                 currentDocumentationURL = newDocumentationURL
-                UI.projects.superalgos.spaces.docsSpace.openSpaceAreaAndNavigateTo('Superalgos', 'Node', currentDocumentationURL)
+                console.log('Trying to navigate to: '  + currentDocumentationURL  + ' at ' + config.subTitle)
+                // TODO UI.projects.superalgos.spaces.docsSpace.openSpaceAreaAndNavigateTo('Superalgos', 'Node', currentDocumentationURL)
             }
         }
 
@@ -1113,7 +1114,7 @@ function newSuperalgosTutorialSpace() {
 
         let nodeConfig = JSON.parse(currentNode.config)
 
-        if (nodeConfig.subTitle === undefined || nodeConfig.subTitle === "") { return }
+        if ((nodeConfig.subTitle === undefined || nodeConfig.subTitle === "") && (nodeConfig.gif === undefined || nodeConfig.gif === "")) { return }
         PAGE_NUMBER = PAGE_NUMBER + 1
         const project = 'Superalgos'
 
@@ -1180,7 +1181,7 @@ function newSuperalgosTutorialSpace() {
         if (nodeConfig.externalLink !== undefined) {
             let paragraph = {
                 style: 'Link',
-                text: nodeConfig.externalLink[0] + '->' + nodeConfig.externalLink[1] 
+                text: nodeConfig.externalLink[0] + '->' + nodeConfig.externalLink[1]
             }
             template.paragraphs.push(paragraph)
         }
@@ -1200,7 +1201,7 @@ function newSuperalgosTutorialSpace() {
             }
             template.paragraphs.push(paragraph)
         }
-        
+
         if (nodeConfig.tip !== undefined && nodeConfig.tip !== '') {
             let paragraph = {
                 style: 'Success',
@@ -1216,7 +1217,7 @@ function newSuperalgosTutorialSpace() {
             }
             template.paragraphs.push(paragraph)
         }
-        
+
         if (nodeConfig.warning !== undefined && nodeConfig.warning !== '') {
             let paragraph = {
                 style: 'Warning',
@@ -1225,19 +1226,32 @@ function newSuperalgosTutorialSpace() {
             template.paragraphs.push(paragraph)
         }
 
+        /**FULL SCREEN GIF */
+        if (nodeConfig.gif !== undefined && nodeConfig.gif !== "") {
+            let type = nodeConfig.gif.replaceAll("-", " ")
+            type = UI.projects.superalgos.utilities.strings.allWordsToUpper(type)
+            template.type = currentNode.type + ' - ' + type
+            template.definition.text = "This step will play a video full screen."
+            let paragraph = {
+                style: 'Gif',
+                text: 'GIFs/Superalgos/Tutorials/' + nodeConfig.gif + '.gif'
+            }
+            template.paragraphs.push(paragraph)
+        }
+
         SCHEMAS_BY_PROJECT.get(project).array.docsTutorialSchema.push(template)
         SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema.set(template.type, template)
-        UI.projects.superalgos.spaces.docsSpace.navigateTo(project, 'Tutorial', template.type)
+        //UI.projects.superalgos.spaces.docsSpace.navigateTo(project, 'Tutorial', template.type)
 
         function clean(text) {
-            let result = text 
+            let result = text
             result = result
-            .replaceAll('->', '')
-            .replaceAll('<b>', '')
-            .replaceAll('</b>', '')
-            .replaceAll('<i>', '')
-            .replaceAll('</i>', '')
-            .trim()
+                .replaceAll('->', '')
+                .replaceAll('<b>', '')
+                .replaceAll('</b>', '')
+                .replaceAll('<i>', '')
+                .replaceAll('</i>', '')
+                .trim()
             return result
         }
     }

@@ -21,9 +21,9 @@
             "text": "You may also set up data mining tasks by using the different functions in this section of the hierarchy, starting with the options in the menu of this node. This route offers finer control over what tasks you set up, and how."
         },
         {
-            "style": "Important",
-            "text": "Deleting this node causes market install and uninstall scripts to stop working, even if the node is recreated after being deleted.",
-            "updated": 1609618388438
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Deleting Node Warning",
+            "updated": 1610122758940
         }
     ],
     "definition": {

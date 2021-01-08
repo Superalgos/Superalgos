@@ -1,6 +1,6 @@
 {
     "topic": "Network",
-    "pageNumber": "8",
+    "pageNumber": "9",
     "type": "Trading Session Parameters",
     "definition": {
         "text": "Parameters control the behavior of trading sessions and improve the quality of simulations.",

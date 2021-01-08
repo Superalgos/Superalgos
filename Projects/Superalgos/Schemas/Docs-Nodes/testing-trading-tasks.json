@@ -28,9 +28,9 @@
             "updated": 1609666617978
         },
         {
-            "style": "Important",
-            "text": "Deleting this node causes market install and uninstall scripts to stop working, even if the node is recreated after being deleted.",
-            "updated": 1609666622752
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Deleting Node Warning",
+            "updated": 1610122709689
         }
     ],
     "definition": {

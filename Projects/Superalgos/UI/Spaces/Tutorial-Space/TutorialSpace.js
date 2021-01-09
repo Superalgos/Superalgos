@@ -1329,32 +1329,32 @@ function newSuperalgosTutorialSpace() {
         if (nodeConfig.docs === undefined) { return }
 
         let schemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema.get(nodeConfig.docs.type)
-        let infoToRender = {}
+        let title 
 
         transformDocsInfoIntoTutorialInfo()
         createTheHTML()
 
         function transformDocsInfoIntoTutorialInfo() {
             if (schemaDocument === undefined) {
-                infoToRender.subTitle = "Configuration Error"
-                infoToRender.warning = "The configured Docs reference does not point to any page. Correct that to see here the page contents."
+                title = "Configuration Error"
+                schemaDocument = {
+                    paragraphs: [
+                        {
+                            style: "Warning",
+                            text: "The configured Docs reference does not point to any page. Correct that to see here the page contents."
+                        }
+                    ]
+                }
                 return
             }
 
             let splittedType = nodeConfig.docs.type.split(' - ')
-            infoToRender.subTitle = getTextFromParagraphStyle('Title')
-            if (infoToRender.subTitle === undefined) {
-                infoToRender.subTitle = splittedType[1]
-            } else {
-                infoToRender.title = splittedType[1]
-            }
+            title = splittedType[1]
         }
 
         function createTheHTML() {
             let html = ''
-            if (infoToRender.title !== undefined && infoToRender.title !== '') {
-                html = html + '<div><h1 class="tutorial-font-large">' + infoToRender.title + '</h1></div>'
-            }
+            html = html + '<div><h1 class="tutorial-font-large">' + title + '</h1></div>'
             html = html + '<div>'
 
             if (schemaDocument.definition !== undefined && schemaDocument.definition.text !== '') {
@@ -1435,7 +1435,7 @@ function newSuperalgosTutorialSpace() {
                     case 'Important': {
                         let text = paragraph.text
                         text = UI.projects.superalgos.utilities.docs.addToolTips(text)
-                        html = html + '<div class="tutorial-font-small tutorial-alert-important" role="alert"><i class="tutorial-fa tutorial-warning"></i> <b>Important:</b> ' + text+ '</div>'
+                        html = html + '<div class="tutorial-font-small tutorial-alert-important" role="alert"><i class="tutorial-fa tutorial-warning"></i> <b>Important:</b> ' + text + '</div>'
                         break
                     }
                     case 'Warning': {

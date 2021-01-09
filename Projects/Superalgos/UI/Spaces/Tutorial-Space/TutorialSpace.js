@@ -1162,7 +1162,7 @@ function newSuperalgosTutorialSpace() {
 
         /* TITLE and SUBTITLE HANDLING */
 
-        if (nodeConfig.title !== undefined && nodeConfig.title !== "") { 
+        if (nodeConfig.title !== undefined && nodeConfig.title !== "") {
             template.type = currentNode.type + ' - ' + nodeConfig.title
 
             if (nodeConfig.subTitle !== undefined && nodeConfig.subTitle !== '') {
@@ -1211,7 +1211,7 @@ function newSuperalgosTutorialSpace() {
             template.paragraphs.push(paragraph)
         }
 
-        if (nodeConfig.externalLink !== undefined && nodeConfig.externalLink[0] !== "" && nodeConfig.externalLink[1] !== "")  {
+        if (nodeConfig.externalLink !== undefined && nodeConfig.externalLink[0] !== "" && nodeConfig.externalLink[1] !== "") {
             let paragraph = {
                 style: 'Link',
                 text: nodeConfig.externalLink[0] + '->' + nodeConfig.externalLink[1]
@@ -1273,7 +1273,7 @@ function newSuperalgosTutorialSpace() {
         }
 
         SCHEMAS_BY_PROJECT.get(project).array.docsTutorialSchema.push(template)
-        SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema.set(template.type, template)
+
         UI.projects.superalgos.spaces.docsSpace.navigateTo(project, 'Tutorial', template.type)
 
         /* Here we will store the keys to access the Content from the Docs */
@@ -1326,82 +1326,149 @@ function newSuperalgosTutorialSpace() {
 
         let nodeConfig = JSON.parse(currentNode.config)
 
-        if (nodeConfig.docs !== undefined) { return } // TODO Added this
+        if (nodeConfig.docs === undefined) { return }
+
+        let schemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema.get(nodeConfig.docs.type)
+        let infoToRender = {}
+
+        transformDocsInfoIntoTutorialInfo()
+
+        function transformDocsInfoIntoTutorialInfo() {
+            if (schemaDocument === undefined) {
+                infoToRender.subTitle = "Configuration Error"
+                infoToRender.warning = "The configured Docs reference does not point to any page. Correct that to see here the page contents."
+                return
+            }
+
+            let splittedType = nodeConfig.docs.type.split(' - ')
+            infoToRender.subTitle = getTextFromParagraphStyle('Title')
+            if (infoToRender.subTitle === undefined) {
+                infoToRender.subTitle = splittedType[1]
+            } else {
+                infoToRender.title = splittedType[1]
+            }
+
+            infoToRender.summary = getTextFromParagraphStyle('Summary')
+            infoToRender.gif = getTextFromParagraphStyle('Gif')
+            infoToRender.summary = getTextFromParagraphStyle('Summary')
+            infoToRender.callOut = getTextFromParagraphStyle('Callout')
+            infoToRender.note = getTextFromParagraphStyle('Note')
+            infoToRender.tip = getTextFromParagraphStyle('Tip')
+            infoToRender.warning = getTextFromParagraphStyle('Warning')
+            infoToRender.important = getTextFromParagraphStyle('Important')
+
+            let textsFounds = 0
+            let listFound = false
+            for (let i = 0; i < schemaDocument.paragraphs.length; i++) {
+                let paragraph = schemaDocument.paragraphs[i]
+                if (paragraph.style === 'Text') {
+                    listFound = true
+                }
+                if (paragraph.style === 'Text') {
+                    textsFounds++
+                    switch (textsFounds) {
+                        case 1: {
+                            if (listFound === false) {
+                                infoToRender.bulletListIntro = paragraph.text
+                            } else {
+                                infoToRender.paragraph1 = paragraph.text
+                            }
+                            break
+                        }
+                        case 2: {
+                            if (listFound === false) {
+                                infoToRender.bulletListIntro = paragraph.text
+                            } else {
+                                infoToRender.paragraph1 = paragraph.text
+                            }
+                            break
+                        }
+                    }
+                }
+            }
+
+            function getTextFromParagraphStyle(style) {
+                for (let i = 0; i < schemaDocument.paragraphs.length; i++) {
+                    let paragraph = schemaDocument.paragraphs[i]
+                    if (paragraph.style === style) {
+                        return paragraph.text
+                    }
+                }
+            }
+        }
 
         let html = ''
-        if (nodeConfig.title !== undefined && nodeConfig.title !== '') {
-            html = html + '<div><h1 class="tutorial-font-large">' + nodeConfig.title + '</h1></div>'
+        if (infoToRender.title !== undefined && infoToRender.title !== '') {
+            html = html + '<div><h1 class="tutorial-font-large">' + infoToRender.title + '</h1></div>'
         }
         html = html + '<div>'
-        if (nodeConfig.summary !== undefined && nodeConfig.summary !== '') {
-            html = html + '<div class="tutorial-font-small tutorial-summary">' + addToolTips(nodeConfig.summary) + '</div>'
+        if (infoToRender.summary !== undefined && infoToRender.summary !== '') {
+            html = html + '<div class="tutorial-font-small tutorial-summary">' + addToolTips(infoToRender.summary) + '</div>'
         }
-        if (nodeConfig.subTitle !== undefined && nodeConfig.subTitle !== '') {
-            html = html + '<h2 class="tutorial-font-medium">' + nodeConfig.subTitle + '</h2>'
+        if (infoToRender.subTitle !== undefined && infoToRender.subTitle !== '') {
+            html = html + '<h2 class="tutorial-font-medium">' + infoToRender.subTitle + '</h2>'
         }
-        if (nodeConfig.gif !== undefined && nodeConfig.gif !== '') {
+        if (infoToRender.gif !== undefined && infoToRender.gif !== '') {
             html = html + '<div id="tutorialGifDiv" width="200" width="290"/>'
-            newGifName = nodeConfig.gif
+            newGifName = infoToRender.gif
         }
 
-        if (nodeConfig.definition !== undefined && nodeConfig.definition !== '') {
+        if (infoToRender.definition !== undefined && infoToRender.definition !== '') {
             html = html + '<table class="tutorial-definitionTable">'
             html = html + '<tr>'
             html = html + '<td>'
-            if (nodeConfig.image !== undefined && nodeConfig.image !== '') {
+            if (infoToRender.image !== undefined && infoToRender.image !== '') {
                 html = html + '<div id="tutorialImageDiv" class="tutorial-image-container"/>'
-                newImageName = nodeConfig.image
+                newImageName = infoToRender.image
             }
             html = html + '</td>'
             html = html + '<td>'
-            html = html + '<strong class="tutorial-font-bold-small">' + addToolTips(nodeConfig.definition) + '</strong>'
+            html = html + '<strong class="tutorial-font-bold-small">' + addToolTips(infoToRender.definition) + '</strong>'
             html = html + '</td>'
             html = html + '</tr>'
             html = html + '</table>'
         }
-        if (nodeConfig.bulletListIntro !== undefined && nodeConfig.bulletListIntro !== '') {
-            html = html + '<div class="tutorial-font-small">' + addToolTips(nodeConfig.bulletListIntro) + '</div>'
+        if (infoToRender.bulletListIntro !== undefined && infoToRender.bulletListIntro !== '') {
+            html = html + '<div class="tutorial-font-small">' + addToolTips(infoToRender.bulletListIntro) + '</div>'
         }
-        if (nodeConfig.bulletArray !== undefined) {
+        if (infoToRender.bulletArray !== undefined) {
             html = html + '<ul>'
-            for (let i = 0; i < nodeConfig.bulletArray.length; i++) {
-                let bullet = nodeConfig.bulletArray[i]
+            for (let i = 0; i < infoToRender.bulletArray.length; i++) {
+                let bullet = infoToRender.bulletArray[i]
                 html = html + '<li>'
                 html = html + '<div class="tutorial-font-small"><strong class="tutorial-font-bold-small">' + addToolTips(bullet[0]) + '</strong> ' + addToolTips(bullet[1]) + '</div>'
                 html = html + '</li>'
             }
             html = html + '</ul>'
         }
-        if (nodeConfig.paragraph1 !== undefined && nodeConfig.paragraph1 !== '') {
-            html = html + '<div class="tutorial-font-small">' + addToolTips(nodeConfig.paragraph1) + '</div>'
+        if (infoToRender.paragraph1 !== undefined && infoToRender.paragraph1 !== '') {
+            html = html + '<div class="tutorial-font-small">' + addToolTips(infoToRender.paragraph1) + '</div>'
         }
-        if (nodeConfig.callOut !== undefined && nodeConfig.callOut !== '') {
-            html = html + '<div class="tutorial-font-bold-small tutorial-callout" > ' + addToolTips(nodeConfig.callOut) + ''
-            if (nodeConfig.externalLink !== undefined) {
-                html = html + '<a href="' + nodeConfig.externalLink[1] + '" target="_blank">' + nodeConfig.externalLink[0] + '</a>'
+        if (infoToRender.callOut !== undefined && infoToRender.callOut !== '') {
+            html = html + '<div class="tutorial-font-bold-small tutorial-callout" > ' + addToolTips(infoToRender.callOut) + ''
+            if (infoToRender.externalLink !== undefined) {
+                html = html + '<a href="' + infoToRender.externalLink[1] + '" target="_blank">' + infoToRender.externalLink[0] + '</a>'
             }
             html = html + '</div>'
         }
-        if (nodeConfig.paragraph2 !== undefined && nodeConfig.paragraph2 !== '') {
-            html = html + '<div class="tutorial-font-small">' + addToolTips(nodeConfig.paragraph2) + '</div>'
+        if (infoToRender.paragraph2 !== undefined && infoToRender.paragraph2 !== '') {
+            html = html + '<div class="tutorial-font-small">' + addToolTips(infoToRender.paragraph2) + '</div>'
         }
-        if (nodeConfig.note !== undefined && nodeConfig.note !== '') {
-            html = html + '<div class="tutorial-font-small tutorial-alert-info" role="alert"><i class="tutorial-fa tutorial-info-circle"></i> <b>Note:</b> ' + addToolTips(nodeConfig.note) + '</div>'
+        if (infoToRender.note !== undefined && infoToRender.note !== '') {
+            html = html + '<div class="tutorial-font-small tutorial-alert-info" role="alert"><i class="tutorial-fa tutorial-info-circle"></i> <b>Note:</b> ' + addToolTips(infoToRender.note) + '</div>'
         }
-        if (nodeConfig.tip !== undefined && nodeConfig.tip !== '') {
-            html = html + '<div class="tutorial-font-small tutorial-alert-success" role="alert"><i class="tutorial-fa tutorial-check-square-o"></i> <b>Tip:</b> ' + addToolTips(nodeConfig.tip) + '</div>'
+        if (infoToRender.tip !== undefined && infoToRender.tip !== '') {
+            html = html + '<div class="tutorial-font-small tutorial-alert-success" role="alert"><i class="tutorial-fa tutorial-check-square-o"></i> <b>Tip:</b> ' + addToolTips(infoToRender.tip) + '</div>'
         }
-        if (nodeConfig.important !== undefined && nodeConfig.important !== '') {
-            html = html + '<div class="tutorial-font-small tutorial-alert-important" role="alert"><i class="tutorial-fa tutorial-warning"></i> <b>Important:</b> ' + addToolTips(nodeConfig.important) + '</div>'
+        if (infoToRender.important !== undefined && infoToRender.important !== '') {
+            html = html + '<div class="tutorial-font-small tutorial-alert-important" role="alert"><i class="tutorial-fa tutorial-warning"></i> <b>Important:</b> ' + addToolTips(infoToRender.important) + '</div>'
         }
-        if (nodeConfig.warning !== undefined && nodeConfig.warning !== '') {
-            html = html + '<div class="tutorial-font-small tutorial-alert-warning" role="alert"><i class="tutorial-fa tutorial-warning"></i> <b>Warning:</b> ' + addToolTips(nodeConfig.warning) + '</div>'
+        if (infoToRender.warning !== undefined && infoToRender.warning !== '') {
+            html = html + '<div class="tutorial-font-small tutorial-alert-warning" role="alert"><i class="tutorial-fa tutorial-warning"></i> <b>Warning:</b> ' + addToolTips(infoToRender.warning) + '</div>'
         }
         html = html + '</div>'
 
         tutorialDiv.innerHTML = html
-
-        buildDocument()
 
         function addToolTips(text) {
             const TOOL_TIP_HTML = '<div class="tutorial-tooltip">NODE_TYPE<span class="tutorial-tooltiptext">NODE_DEFINITION</span></div>'

@@ -1,0 +1,22 @@
+{
+    "tutorial": "Developers Intro",
+    "pageNumber": 6,
+    "type": "Tutorial Step - Web Sockets Server",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": ""
+        },
+        "text": "This is a simple implementation of a web sockets server. It essentially allows the UI or any of the other services to communicate with the Events Server via WS."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The system does not allow different processes to talk to each other via WS. All they can do is talk to the Events Server to subscribe to events or to emit events."
+        },
+        {
+            "style": "Note",
+            "text": "The Web Socket Server enables this indirect communication mechanism between all processes and the UI running on a single machine, as well as communication between processes running on different machines."
+        }
+    ]
+}

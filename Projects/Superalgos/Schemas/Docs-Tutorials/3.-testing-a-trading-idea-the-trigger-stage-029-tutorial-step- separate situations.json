@@ -1,0 +1,26 @@
+{
+    "tutorial": "3. Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 29,
+    "type": "Tutorial Step - Separate Situations!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "situation"
+        },
+        "text": "Think of it in this way: we have identified two different market situations that would invalidate this idea!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "We will set up each of the conditions in separate situations!"
+        },
+        {
+            "style": "Callout",
+            "text": "Set up the first condition in the existing situation, and the second condition in a new situation!"
+        },
+        {
+            "style": "Text",
+            "text": "<strong>Condition 1:</strong><br/>chart.at24hs.bollingerSubChannel.direction === 'Up'<br/><strong>Condition 2:</strong><br/>chart.at24hs.bollingerSubChannel.slope === 'Side'"
+        }
+    ]
+}

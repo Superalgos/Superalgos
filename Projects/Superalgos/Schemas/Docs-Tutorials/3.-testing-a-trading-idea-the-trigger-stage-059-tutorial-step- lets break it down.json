@@ -1,0 +1,30 @@
+{
+    "tutorial": "3. Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 59,
+    "type": "Tutorial Step - Let's Break It Down!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "condition"
+        },
+        "text": "We will go through the statement step and step and put it into proper syntax!"
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "Remember, time goes first: in the 1H chart! <br/>chart.at01hs."
+        },
+        {
+            "style": "List",
+            "text": "The close of the candle: <br/>candle.close"
+        },
+        {
+            "style": "List",
+            "text": "Is lesser than: <br/><"
+        },
+        {
+            "style": "List",
+            "text": "The moving average minus the deviation, and remember you need to define a time frame for every statement: <br/>chart.at01hs.bollingerBand.movingAverage - chart.at01hs.bollingerBand.deviation"
+        }
+    ]
+}

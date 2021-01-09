@@ -1,0 +1,26 @@
+{
+    "topic": "Low-Frequency Trading Bot",
+    "pageNumber": "1",
+    "type": "Trading Bots in Superalgos",
+    "definition": {
+        "text": "A trading bot leverages the Superalgos infrastructure to provide users with advanced trading features.",
+        "updated": 1610217988042
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Trading Bot->Definition",
+            "updated": 1610218014743
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Trading Bot->Content",
+            "updated": 1610218017545
+        },
+        {
+            "style": "Callout",
+            "text": "The Low-Frequency trading bot is the one and only Trading Bot shipping with Superalgos at this point in time. It is made available by the Masters Trading Mine. The bot is a robust implementation that leverages every piece of infrastructure provided by Superalgos to provide a feature-rich automated trading assistant.",
+            "updated": 1610218505400
+        }
+    ]
+}

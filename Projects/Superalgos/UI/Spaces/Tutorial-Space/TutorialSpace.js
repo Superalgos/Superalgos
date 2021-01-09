@@ -1163,7 +1163,6 @@ function newSuperalgosTutorialSpace() {
         /* TITLE and SUBTITLE HANDLING */
 
         if (nodeConfig.title !== undefined && nodeConfig.title !== "") { 
-            nodeConfig.subTitle = nodeConfig.title 
             template.type = currentNode.type + ' - ' + nodeConfig.title
 
             if (nodeConfig.subTitle !== undefined && nodeConfig.subTitle !== '') {

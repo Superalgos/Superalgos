@@ -1369,7 +1369,14 @@ function newSuperalgosTutorialSpace() {
                 }
                 html = html + '</td>'
                 html = html + '<td>'
-                html = html + '<strong class="tutorial-font-bold-small">' + UI.projects.superalgos.utilities.docs.addToolTips(schemaDocument.definition.text) + '</strong>'
+                
+                let text = schemaDocument.definition.text
+                text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
+                text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
+                text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
+                text = UI.projects.superalgos.utilities.docs.addToolTips(text)
+
+                html = html + '<strong class="tutorial-font-bold-small">' + text + '</strong>'
                 html = html + '</td>'
                 html = html + '</tr>'
                 html = html + '</table>'
@@ -1380,6 +1387,9 @@ function newSuperalgosTutorialSpace() {
                 switch (paragraph.style) {
                     case 'Summary': {
                         let text = paragraph.text
+                        text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
+                        text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
+                        text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
                         text = UI.projects.superalgos.utilities.docs.addToolTips(text)
                         html = html + '<div class="tutorial-font-small tutorial-summary">' + text + '</div>'
                         break
@@ -1397,19 +1407,27 @@ function newSuperalgosTutorialSpace() {
                     }
                     case 'Text': {
                         let text = paragraph.text
+                        text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
+                        text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
+                        text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
                         text = UI.projects.superalgos.utilities.docs.addToolTips(text)
                         html = html + '<div class="tutorial-font-small">' + text + '</div>'
                         break
                     }
                     case 'List': {
                         let text = paragraph.text
+                        text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
+                        text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
+                        text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
                         text = UI.projects.superalgos.utilities.docs.addToolTips(text)
-                        text = UI.projects.superalgos.utilities.docs.addBold(text)
                         html = html + '<div class="tutorial-font-small"><li>' + text + '</li></div>'
                         break
                     }
                     case 'Callout': {
                         let text = paragraph.text
+                        text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
+                        text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
+                        text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
                         text = UI.projects.superalgos.utilities.docs.addToolTips(text)
                         html = html + '<div class="tutorial-font-bold-small tutorial-callout" > ' + text + '</div>'
                         break
@@ -1422,24 +1440,36 @@ function newSuperalgosTutorialSpace() {
                     }
                     case 'Note': {
                         let text = paragraph.text
+                        text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
+                        text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
+                        text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
                         text = UI.projects.superalgos.utilities.docs.addToolTips(text)
                         html = html + '<div class="tutorial-font-small tutorial-alert-info" role="alert"><i class="tutorial-fa tutorial-info-circle"></i> <b>Note:</b> ' + text + '</div>'
                         break
                     }
                     case 'Success': {
                         let text = paragraph.text
+                        text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
+                        text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
+                        text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
                         text = UI.projects.superalgos.utilities.docs.addToolTips(text)
                         html = html + '<div class="tutorial-font-small tutorial-alert-success" role="alert"><i class="tutorial-fa tutorial-check-square-o"></i> <b>Tip:</b> ' + text + '</div>'
                         break
                     }
                     case 'Important': {
                         let text = paragraph.text
+                        text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
+                        text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
+                        text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
                         text = UI.projects.superalgos.utilities.docs.addToolTips(text)
                         html = html + '<div class="tutorial-font-small tutorial-alert-important" role="alert"><i class="tutorial-fa tutorial-warning"></i> <b>Important:</b> ' + text + '</div>'
                         break
                     }
                     case 'Warning': {
                         let text = paragraph.text
+                        text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
+                        text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
+                        text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
                         text = UI.projects.superalgos.utilities.docs.addToolTips(text)
                         html = html + '<div class="tutorial-font-small tutorial-alert-warning" role="alert"><i class="tutorial-fa tutorial-warning"></i> <b>Warning:</b> ' + text + '</div>'
                         break

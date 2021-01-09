@@ -1126,8 +1126,6 @@ function newSuperalgosTutorialSpace() {
             return
         }
 
-        if (nodeConfig.title !== undefined && nodeConfig.title !== "") { nodeConfig.subTitle = nodeConfig.title }
-
         PAGE_NUMBER = PAGE_NUMBER + 1
         const project = 'Superalgos'
 
@@ -1136,7 +1134,7 @@ function newSuperalgosTutorialSpace() {
         let template = {
             tutorial: TUTORIAL_NAME,
             pageNumber: PAGE_NUMBER,
-            type: currentNode.type + ' - ' + nodeConfig.subTitle,
+            type: '',
             definition: {
                 icon: {
                     project: 'Superalgos',
@@ -1161,6 +1159,24 @@ function newSuperalgosTutorialSpace() {
             }
         }
         template.definition.text = template.definition.text.trim()
+
+        /* TITLE and SUBTITLE HANDLING */
+
+        if (nodeConfig.title !== undefined && nodeConfig.title !== "") { 
+            nodeConfig.subTitle = nodeConfig.title 
+            template.type = currentNode.type + ' - ' + nodeConfig.title
+
+            if (nodeConfig.subTitle !== undefined && nodeConfig.subTitle !== '') {
+                let paragraph = {
+                    style: 'Title',
+                    text: clean(nodeConfig.subTitle)
+                }
+                template.paragraphs.push(paragraph)
+            }
+        } else {
+            template.type = currentNode.type + ' - ' + nodeConfig.subTitle
+        }
+
 
         if (nodeConfig.bulletListIntro !== undefined && nodeConfig.bulletListIntro !== '') {
             let paragraph = {

@@ -50,6 +50,7 @@ function newSuperalgosTutorialSpace() {
     let htmlImage = document.createElement("IMG")
     let currentImageName = 'Never Set'
     let newImageName = 'Never Set'
+    let newImageProject = 'Never Set'
     let currentConfig
     let newConfig
     let currentDocumentationURL
@@ -231,7 +232,7 @@ function newSuperalgosTutorialSpace() {
 
             if (currentGifName === newGifName) { return }
             currentGifName = newGifName
-            htmlGif.src = 'GIFs/' + currentNode.project + '/Tutorials/' + currentGifName + '.gif'
+            htmlGif.src = currentGifName
             htmlGif.width = "400"
             htmlGif.height = "580"
         }
@@ -242,14 +243,11 @@ function newSuperalgosTutorialSpace() {
                 tutorialImageDiv.appendChild(htmlImage)
             }
 
+            if (newImageName === undefined) { return }
             if (currentImageName === newImageName) { return }
             currentImageName = newImageName
-            let webParam
-            if (currentImageName.indexOf('/') >= 0) {
-                webParam = 'Icons/' + currentImageName + '.png'
-            } else {
-                webParam = 'Icons/' + 'Superalgos' + '/' + currentImageName + '.png'
-            }
+            let webParam = 'Icons/' + newImageProject + '/' + newImageName + '.png'
+
             htmlImage.src = webParam
             htmlImage.width = "100"
             htmlImage.height = "100"
@@ -1329,7 +1327,7 @@ function newSuperalgosTutorialSpace() {
         if (nodeConfig.docs === undefined) { return }
 
         let schemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema.get(nodeConfig.docs.type)
-        let title 
+        let title
 
         transformDocsInfoIntoTutorialInfo()
         createTheHTML()
@@ -1355,31 +1353,52 @@ function newSuperalgosTutorialSpace() {
         }
 
         function createTheHTML() {
+            let fullscreenMode = false
             let html = ''
-            html = html + '<h2 class="tutorial-font-medium">' + title  + '</h2>'
+
+            /* Check for Full Screen Mode */
+            for (let i = 0; i < schemaDocument.paragraphs.length; i++) {
+                let paragraph = schemaDocument.paragraphs[i]
+                if (paragraph.style === 'Gif') {
+                    fullscreenMode = true
+                }
+            }
+            if (schemaDocument.definition !== undefined && schemaDocument.definition.text !== '') {
+                if (schemaDocument.definition.text.indexOf('full screen mode') >= 0) {
+                    fullscreenMode = true
+                }
+            }
+
+            if (fullscreenMode === false) {
+                html = html + '<h2 class="tutorial-font-medium">' + title + '</h2>'
+            }
+
             html = html + '<div>'
 
             if (schemaDocument.definition !== undefined && schemaDocument.definition.text !== '') {
-                html = html + '<table class="tutorial-definitionTable">'
-                html = html + '<tr>'
-                html = html + '<td>'
-                if (schemaDocument.icon !== undefined && schemaDocument.icon.name !== '') {
-                    html = html + '<div id="tutorialImageDiv" class="tutorial-image-container"/>'
-                    newImageName = schemaDocument.icon.name
-                }
-                html = html + '</td>'
-                html = html + '<td>'
-                
-                let text = schemaDocument.definition.text
-                text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
-                text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
-                text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
-                text = UI.projects.superalgos.utilities.docs.addToolTips(text)
+                if (fullscreenMode === false) {
+                    html = html + '<table class="tutorial-definitionTable">'
+                    html = html + '<tr>'
+                    html = html + '<td>'
+                    if (schemaDocument.definition.icon !== undefined && schemaDocument.definition.icon.name !== '') {
+                        html = html + '<div id="tutorialImageDiv" class="tutorial-image-container"/>'
+                        newImageName = schemaDocument.definition.icon.name
+                        newImageProject = schemaDocument.definition.icon.project
+                    }
+                    html = html + '</td>'
+                    html = html + '<td>'
 
-                html = html + '<strong class="tutorial-font-bold-small">' + text + '</strong>'
-                html = html + '</td>'
-                html = html + '</tr>'
-                html = html + '</table>'
+                    let text = schemaDocument.definition.text
+                    text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
+                    text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
+                    text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
+                    text = UI.projects.superalgos.utilities.docs.addToolTips(text)
+
+                    html = html + '<strong class="tutorial-font-bold-small">' + text + '</strong>'
+                    html = html + '</td>'
+                    html = html + '</tr>'
+                    html = html + '</table>'
+                }
             }
 
             for (let i = 0; i < schemaDocument.paragraphs.length; i++) {
@@ -1419,6 +1438,7 @@ function newSuperalgosTutorialSpace() {
                         text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
                         text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
                         text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
+                        text = UI.projects.superalgos.utilities.docs.addBold(text)
                         text = UI.projects.superalgos.utilities.docs.addToolTips(text)
                         html = html + '<div class="tutorial-font-small"><li>' + text + '</li></div>'
                         break

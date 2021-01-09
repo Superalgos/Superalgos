@@ -1332,6 +1332,7 @@ function newSuperalgosTutorialSpace() {
         let infoToRender = {}
 
         transformDocsInfoIntoTutorialInfo()
+        createTheHTML()
 
         function transformDocsInfoIntoTutorialInfo() {
             if (schemaDocument === undefined) {
@@ -1347,167 +1348,109 @@ function newSuperalgosTutorialSpace() {
             } else {
                 infoToRender.title = splittedType[1]
             }
+        }
 
-            infoToRender.summary = getTextFromParagraphStyle('Summary')
-            infoToRender.gif = getTextFromParagraphStyle('Gif')
-            infoToRender.summary = getTextFromParagraphStyle('Summary')
-            infoToRender.callOut = getTextFromParagraphStyle('Callout')
-            infoToRender.note = getTextFromParagraphStyle('Note')
-            infoToRender.tip = getTextFromParagraphStyle('Tip')
-            infoToRender.warning = getTextFromParagraphStyle('Warning')
-            infoToRender.important = getTextFromParagraphStyle('Important')
+        function createTheHTML() {
+            let html = ''
+            if (infoToRender.title !== undefined && infoToRender.title !== '') {
+                html = html + '<div><h1 class="tutorial-font-large">' + infoToRender.title + '</h1></div>'
+            }
+            html = html + '<div>'
 
-            let textsFounds = 0
-            let listFound = false
+            if (schemaDocument.definition !== undefined && schemaDocument.definition.text !== '') {
+                html = html + '<table class="tutorial-definitionTable">'
+                html = html + '<tr>'
+                html = html + '<td>'
+                if (schemaDocument.icon !== undefined && schemaDocument.icon.name !== '') {
+                    html = html + '<div id="tutorialImageDiv" class="tutorial-image-container"/>'
+                    newImageName = schemaDocument.icon.name
+                }
+                html = html + '</td>'
+                html = html + '<td>'
+                html = html + '<strong class="tutorial-font-bold-small">' + UI.projects.superalgos.utilities.docs.addToolTips(schemaDocument.definition.text) + '</strong>'
+                html = html + '</td>'
+                html = html + '</tr>'
+                html = html + '</table>'
+            }
+
             for (let i = 0; i < schemaDocument.paragraphs.length; i++) {
                 let paragraph = schemaDocument.paragraphs[i]
-                if (paragraph.style === 'Text') {
-                    listFound = true
-                }
-                if (paragraph.style === 'Text') {
-                    textsFounds++
-                    switch (textsFounds) {
-                        case 1: {
-                            if (listFound === false) {
-                                infoToRender.bulletListIntro = paragraph.text
-                            } else {
-                                infoToRender.paragraph1 = paragraph.text
-                            }
-                            break
-                        }
-                        case 2: {
-                            if (listFound === false) {
-                                infoToRender.bulletListIntro = paragraph.text
-                            } else {
-                                infoToRender.paragraph1 = paragraph.text
-                            }
-                            break
-                        }
+                switch (paragraph.style) {
+                    case 'Summary': {
+                        let text = paragraph.text
+                        text = UI.projects.superalgos.utilities.docs.addToolTips(text)
+                        html = html + '<div class="tutorial-font-small tutorial-summary">' + text + '</div>'
+                        break
+                    }
+                    case 'Title': {
+                        let text = paragraph.text
+                        html = html + '<h2 class="tutorial-font-medium">' + text + '</h2>'
+                        break
+                    }
+                    case 'Gif': {
+                        let text = paragraph.text
+                        html = html + '<div id="tutorialGifDiv" width="200" width="290"/>'
+                        newGifName = text
+                        break
+                    }
+                    case 'Text': {
+                        let text = paragraph.text
+                        text = UI.projects.superalgos.utilities.docs.addToolTips(text)
+                        html = html + '<div class="tutorial-font-small">' + text + '</div>'
+                        break
+                    }
+                    case 'List': {
+                        let text = paragraph.text
+                        text = UI.projects.superalgos.utilities.docs.addToolTips(text)
+                        text = UI.projects.superalgos.utilities.docs.addBold(text)
+                        html = html + '<li>'
+                        html = html + '<div class="tutorial-font-small">' + text + '</div>'
+                        html = html + '</li>'
+                        break
+                    }
+                    case 'Callout': {
+                        let text = paragraph.text
+                        text = UI.projects.superalgos.utilities.docs.addToolTips(text)
+                        html = html + '<div class="tutorial-font-bold-small tutorial-callout" > ' + text + '</div>'
+                        break
+                    }
+                    case 'Link': {
+                        let text = paragraph.text
+                        let splittedText = text.split('->')
+                        html = html + '<a href="' + splittedText[1] + '" target="_blank">' + splittedText[0] + '</a>'
+                        break
+                    }
+                    case 'Note': {
+                        let text = paragraph.text
+                        text = UI.projects.superalgos.utilities.docs.addToolTips(text)
+                        html = html + '<div class="tutorial-font-small tutorial-alert-info" role="alert"><i class="tutorial-fa tutorial-info-circle"></i> <b>Note:</b> ' + text + '</div>'
+                        break
+                    }
+                    case 'Success': {
+                        let text = paragraph.text
+                        text = UI.projects.superalgos.utilities.docs.addToolTips(text)
+                        html = html + '<div class="tutorial-font-small tutorial-alert-success" role="alert"><i class="tutorial-fa tutorial-check-square-o"></i> <b>Tip:</b> ' + text + '</div>'
+                        break
+                    }
+                    case 'Important': {
+                        let text = paragraph.text
+                        text = UI.projects.superalgos.utilities.docs.addToolTips(text)
+                        html = html + '<div class="tutorial-font-small tutorial-alert-important" role="alert"><i class="tutorial-fa tutorial-warning"></i> <b>Important:</b> ' + text+ '</div>'
+                        break
+                    }
+                    case 'Warning': {
+                        let text = paragraph.text
+                        text = UI.projects.superalgos.utilities.docs.addToolTips(text)
+                        html = html + '<div class="tutorial-font-small tutorial-alert-warning" role="alert"><i class="tutorial-fa tutorial-warning"></i> <b>Warning:</b> ' + text + '</div>'
+                        break
                     }
                 }
             }
 
-            function getTextFromParagraphStyle(style) {
-                for (let i = 0; i < schemaDocument.paragraphs.length; i++) {
-                    let paragraph = schemaDocument.paragraphs[i]
-                    if (paragraph.style === style) {
-                        return paragraph.text
-                    }
-                }
-            }
-        }
-
-        let html = ''
-        if (infoToRender.title !== undefined && infoToRender.title !== '') {
-            html = html + '<div><h1 class="tutorial-font-large">' + infoToRender.title + '</h1></div>'
-        }
-        html = html + '<div>'
-        if (infoToRender.summary !== undefined && infoToRender.summary !== '') {
-            html = html + '<div class="tutorial-font-small tutorial-summary">' + addToolTips(infoToRender.summary) + '</div>'
-        }
-        if (infoToRender.subTitle !== undefined && infoToRender.subTitle !== '') {
-            html = html + '<h2 class="tutorial-font-medium">' + infoToRender.subTitle + '</h2>'
-        }
-        if (infoToRender.gif !== undefined && infoToRender.gif !== '') {
-            html = html + '<div id="tutorialGifDiv" width="200" width="290"/>'
-            newGifName = infoToRender.gif
-        }
-
-        if (infoToRender.definition !== undefined && infoToRender.definition !== '') {
-            html = html + '<table class="tutorial-definitionTable">'
-            html = html + '<tr>'
-            html = html + '<td>'
-            if (infoToRender.image !== undefined && infoToRender.image !== '') {
-                html = html + '<div id="tutorialImageDiv" class="tutorial-image-container"/>'
-                newImageName = infoToRender.image
-            }
-            html = html + '</td>'
-            html = html + '<td>'
-            html = html + '<strong class="tutorial-font-bold-small">' + addToolTips(infoToRender.definition) + '</strong>'
-            html = html + '</td>'
-            html = html + '</tr>'
-            html = html + '</table>'
-        }
-        if (infoToRender.bulletListIntro !== undefined && infoToRender.bulletListIntro !== '') {
-            html = html + '<div class="tutorial-font-small">' + addToolTips(infoToRender.bulletListIntro) + '</div>'
-        }
-        if (infoToRender.bulletArray !== undefined) {
-            html = html + '<ul>'
-            for (let i = 0; i < infoToRender.bulletArray.length; i++) {
-                let bullet = infoToRender.bulletArray[i]
-                html = html + '<li>'
-                html = html + '<div class="tutorial-font-small"><strong class="tutorial-font-bold-small">' + addToolTips(bullet[0]) + '</strong> ' + addToolTips(bullet[1]) + '</div>'
-                html = html + '</li>'
-            }
-            html = html + '</ul>'
-        }
-        if (infoToRender.paragraph1 !== undefined && infoToRender.paragraph1 !== '') {
-            html = html + '<div class="tutorial-font-small">' + addToolTips(infoToRender.paragraph1) + '</div>'
-        }
-        if (infoToRender.callOut !== undefined && infoToRender.callOut !== '') {
-            html = html + '<div class="tutorial-font-bold-small tutorial-callout" > ' + addToolTips(infoToRender.callOut) + ''
-            if (infoToRender.externalLink !== undefined) {
-                html = html + '<a href="' + infoToRender.externalLink[1] + '" target="_blank">' + infoToRender.externalLink[0] + '</a>'
-            }
             html = html + '</div>'
-        }
-        if (infoToRender.paragraph2 !== undefined && infoToRender.paragraph2 !== '') {
-            html = html + '<div class="tutorial-font-small">' + addToolTips(infoToRender.paragraph2) + '</div>'
-        }
-        if (infoToRender.note !== undefined && infoToRender.note !== '') {
-            html = html + '<div class="tutorial-font-small tutorial-alert-info" role="alert"><i class="tutorial-fa tutorial-info-circle"></i> <b>Note:</b> ' + addToolTips(infoToRender.note) + '</div>'
-        }
-        if (infoToRender.tip !== undefined && infoToRender.tip !== '') {
-            html = html + '<div class="tutorial-font-small tutorial-alert-success" role="alert"><i class="tutorial-fa tutorial-check-square-o"></i> <b>Tip:</b> ' + addToolTips(infoToRender.tip) + '</div>'
-        }
-        if (infoToRender.important !== undefined && infoToRender.important !== '') {
-            html = html + '<div class="tutorial-font-small tutorial-alert-important" role="alert"><i class="tutorial-fa tutorial-warning"></i> <b>Important:</b> ' + addToolTips(infoToRender.important) + '</div>'
-        }
-        if (infoToRender.warning !== undefined && infoToRender.warning !== '') {
-            html = html + '<div class="tutorial-font-small tutorial-alert-warning" role="alert"><i class="tutorial-fa tutorial-warning"></i> <b>Warning:</b> ' + addToolTips(infoToRender.warning) + '</div>'
-        }
-        html = html + '</div>'
 
-        tutorialDiv.innerHTML = html
+            tutorialDiv.innerHTML = html
 
-        function addToolTips(text) {
-            const TOOL_TIP_HTML = '<div class="tutorial-tooltip">NODE_TYPE<span class="tutorial-tooltiptext">NODE_DEFINITION</span></div>'
-            let resultingText = ''
-            let splittedText = text.split('->')
-
-            for (let i = 0; i < splittedText.length; i = i + 2) {
-                let firstPart = splittedText[i]
-                let nodeType = splittedText[i + 1]
-                if (nodeType === undefined) {
-                    return resultingText + firstPart
-                }
-                let splittedNodeType = nodeType.split('/')
-                let project
-                let type
-                if (splittedNodeType.length > 1) {
-                    project = splittedNodeType[0]
-                    type = splittedNodeType[1]
-                } else {
-                    project = 'Superalgos'
-                    type = splittedNodeType[0]
-                }
-                let definitionNode = SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(type)
-                if (definitionNode === undefined) {
-                    definitionNode = SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.get(type)
-                    if (definitionNode === undefined) {
-                        currentNode.payload.uiObject.setErrorMessage(type + ' not found at Doc Schema or Concept Schema.')
-                        return
-                    }
-                }
-                let definition = definitionNode.definition
-                if (definition === undefined || definition === "") {
-                    resultingText = resultingText + firstPart + type
-                } else {
-                    let tooltip = TOOL_TIP_HTML.replace('NODE_TYPE', type).replace('NODE_DEFINITION', definition)
-                    resultingText = resultingText + firstPart + tooltip
-                }
-            }
-            return resultingText
         }
     }
 

@@ -1,7 +1,7 @@
 {
     "tutorial": "Install a New Market",
     "pageNumber": 5,
-    "type": "Tutorial Step - Add the Assets",
+    "type": "Tutorial Step - Add the Assets 3",
     "definition": {
         "icon": {
             "project": "Superalgos",
@@ -13,10 +13,6 @@
         {
             "style": "Title",
             "text": "Step 3: Label Nodes"
-        },
-        {
-            "style": "Link",
-            "text": "->"
         },
         {
             "style": "Success",

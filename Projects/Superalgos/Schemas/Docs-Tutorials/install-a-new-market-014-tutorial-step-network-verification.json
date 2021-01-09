@@ -1,7 +1,7 @@
 {
     "tutorial": "Install a New Market",
     "pageNumber": 14,
-    "type": "Tutorial Step - Network Verification",
+    "type": "Tutorial Step - Network Verification 2",
     "definition": {
         "icon": {
             "project": "Superalgos",
@@ -29,10 +29,6 @@
         {
             "style": "List",
             "text": "One Task Manager per trading mine and one Task with a Backtesting Session for each Trading System in the workspace."
-        },
-        {
-            "style": "Link",
-            "text": "->"
         }
     ]
 }

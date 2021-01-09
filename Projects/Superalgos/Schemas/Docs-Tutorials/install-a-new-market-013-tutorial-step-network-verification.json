@@ -1,7 +1,7 @@
 {
     "tutorial": "Install a New Market",
     "pageNumber": 13,
-    "type": "Tutorial Step - Network Verification",
+    "type": "Tutorial Step - Network Verification 1",
     "definition": {
         "icon": {
             "project": "Superalgos",
@@ -29,10 +29,6 @@
         {
             "style": "List",
             "text": "One Task Manager per Data Mine and one Task for each bot defined in each data mine."
-        },
-        {
-            "style": "Link",
-            "text": "->"
         }
     ]
 }

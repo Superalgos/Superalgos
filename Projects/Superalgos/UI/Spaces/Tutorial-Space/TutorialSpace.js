@@ -1377,27 +1377,37 @@ function newSuperalgosTutorialSpace() {
 
             if (schemaDocument.definition !== undefined && schemaDocument.definition.text !== '') {
                 if (fullscreenMode === false) {
-                    html = html + '<table class="tutorial-definitionTable">'
-                    html = html + '<tr>'
-                    html = html + '<td>'
-                    if (schemaDocument.definition.icon !== undefined && schemaDocument.definition.icon.name !== '') {
-                        html = html + '<div id="tutorialImageDiv" class="tutorial-image-container"/>'
-                        newImageName = schemaDocument.definition.icon.name
-                        newImageProject = schemaDocument.definition.icon.project
+                    if (schemaDocument.definition.icon === undefined || schemaDocument.definition.icon.name === '') {
+                        /* When there is no image, we will render a Summary instead of a Table */
+                        let text = schemaDocument.definition.text
+                        text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
+                        text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
+                        text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
+                        text = UI.projects.superalgos.utilities.docs.addToolTips(text)
+                        html = html + '<div class="tutorial-font-small tutorial-summary">' + text + '</div>'
+                    } else {
+                        html = html + '<table class="tutorial-definitionTable">'
+                        html = html + '<tr>'
+                        html = html + '<td>'
+                        if (schemaDocument.definition.icon !== undefined && schemaDocument.definition.icon.name !== '') {
+                            html = html + '<div id="tutorialImageDiv" class="tutorial-image-container"/>'
+                            newImageName = schemaDocument.definition.icon.name
+                            newImageProject = schemaDocument.definition.icon.project
+                        }
+                        html = html + '</td>'
+                        html = html + '<td>'
+
+                        let text = schemaDocument.definition.text
+                        text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
+                        text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
+                        text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
+                        text = UI.projects.superalgos.utilities.docs.addToolTips(text)
+
+                        html = html + '<strong class="tutorial-font-bold-small">' + text + '</strong>'
+                        html = html + '</td>'
+                        html = html + '</tr>'
+                        html = html + '</table>'
                     }
-                    html = html + '</td>'
-                    html = html + '<td>'
-
-                    let text = schemaDocument.definition.text
-                    text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
-                    text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
-                    text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
-                    text = UI.projects.superalgos.utilities.docs.addToolTips(text)
-
-                    html = html + '<strong class="tutorial-font-bold-small">' + text + '</strong>'
-                    html = html + '</td>'
-                    html = html + '</tr>'
-                    html = html + '</table>'
                 }
             }
 

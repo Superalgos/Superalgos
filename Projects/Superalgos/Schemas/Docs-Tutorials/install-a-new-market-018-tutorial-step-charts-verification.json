@@ -1,7 +1,7 @@
 {
     "tutorial": "Install a New Market",
     "pageNumber": 18,
-    "type": "Tutorial Step - Charts Verification",
+    "type": "Tutorial Step - Charts Verification 1",
     "definition": {
         "icon": {
             "project": "Superalgos",
@@ -25,10 +25,6 @@
         {
             "style": "List",
             "text": "A Time Machine node for each trading session created in the Production Trading Tasks."
-        },
-        {
-            "style": "Link",
-            "text": "->"
         }
     ]
 }

@@ -1118,6 +1118,7 @@ function newSuperalgosTutorialSpace() {
         if (nodeConfig.docs !== undefined) { return }
 
         if (
+            (nodeConfig.title === undefined || nodeConfig.title === "") &&
             (nodeConfig.subTitle === undefined || nodeConfig.subTitle === "") &&
             (nodeConfig.gif === undefined || nodeConfig.gif === "") &&
             (nodeConfig.warning === undefined || nodeConfig.warning === "")
@@ -1125,9 +1126,10 @@ function newSuperalgosTutorialSpace() {
             return
         }
 
+        if (nodeConfig.title !== undefined && nodeConfig.title !== "") { nodeConfig.subTitle = nodeConfig.title }
+
         PAGE_NUMBER = PAGE_NUMBER + 1
         const project = 'Superalgos'
-
 
         let type = 'Page Name'
 
@@ -1270,12 +1272,12 @@ function newSuperalgosTutorialSpace() {
         nodeConfig.subTitle = undefined
         nodeConfig.gif = undefined
         nodeConfig.definition = undefined
-        nodeConfig.summary =  undefined
+        nodeConfig.summary = undefined
         nodeConfig.bulletListIntro = undefined
         nodeConfig.bulletArray = undefined
         nodeConfig.paragraph1 = undefined
         nodeConfig.paragraph2 = undefined
-        nodeConfig.note =  undefined
+        nodeConfig.note = undefined
         nodeConfig.warning = undefined
         nodeConfig.tip = undefined
         nodeConfig.important = undefined
@@ -1310,7 +1312,7 @@ function newSuperalgosTutorialSpace() {
         let nodeConfig = JSON.parse(currentNode.config)
 
         if (nodeConfig.docs !== undefined) { return } // TODO Added this
-        
+
         let html = ''
         if (nodeConfig.title !== undefined && nodeConfig.title !== '') {
             html = html + '<div><h1 class="tutorial-font-large">' + nodeConfig.title + '</h1></div>'

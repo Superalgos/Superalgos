@@ -1334,6 +1334,8 @@ function newSuperalgosTutorialSpace() {
         transformDocsInfoIntoTutorialInfo()
         createTheHTML()
 
+        UI.projects.superalgos.spaces.docsSpace.navigateTo(nodeConfig.docs.project, 'Tutorial', nodeConfig.docs.type)
+
         function transformDocsInfoIntoTutorialInfo() {
             if (schemaDocument === undefined) {
                 title = "Configuration Error"
@@ -1354,7 +1356,7 @@ function newSuperalgosTutorialSpace() {
 
         function createTheHTML() {
             let html = ''
-            html = html + '<div><h1 class="tutorial-font-large">' + title + '</h1></div>'
+            html = html + '<h2 class="tutorial-font-medium">' + title  + '</h2>'
             html = html + '<div>'
 
             if (schemaDocument.definition !== undefined && schemaDocument.definition.text !== '') {
@@ -1403,9 +1405,7 @@ function newSuperalgosTutorialSpace() {
                         let text = paragraph.text
                         text = UI.projects.superalgos.utilities.docs.addToolTips(text)
                         text = UI.projects.superalgos.utilities.docs.addBold(text)
-                        html = html + '<li>'
-                        html = html + '<div class="tutorial-font-small">' + text + '</div>'
-                        html = html + '</li>'
+                        html = html + '<div class="tutorial-font-small"><li>' + text + '</li></div>'
                         break
                     }
                     case 'Callout': {

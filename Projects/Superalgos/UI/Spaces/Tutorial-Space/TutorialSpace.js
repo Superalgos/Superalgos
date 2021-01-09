@@ -1211,7 +1211,7 @@ function newSuperalgosTutorialSpace() {
             template.paragraphs.push(paragraph)
         }
 
-        if (nodeConfig.externalLink !== undefined) {
+        if (nodeConfig.externalLink !== undefined && nodeConfig.externalLink[0] !== "" && nodeConfig.externalLink[1] !== "")  {
             let paragraph = {
                 style: 'Link',
                 text: nodeConfig.externalLink[0] + '->' + nodeConfig.externalLink[1]

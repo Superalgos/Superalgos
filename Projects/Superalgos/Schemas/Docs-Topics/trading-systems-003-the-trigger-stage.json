@@ -1,7 +1,7 @@
 {
     "topic": "Trading Systems",
     "pageNumber": "3",
-    "type": "Trigger Stage",
+    "type": "The Trigger Stage",
     "definition": {
         "text": "The trigger stage features the definitions of the Trigger-On Event, Trigger-Off Event, and Take Position Event.",
         "updated": 1610139390213

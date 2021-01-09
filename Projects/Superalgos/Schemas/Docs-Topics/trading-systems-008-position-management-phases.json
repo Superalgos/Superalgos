@@ -3,7 +3,8 @@
     "pageNumber": "8",
     "type": "Position Management Phases",
     "definition": {
-        "text": "Write here a summary for this topic page."
+        "text": "You may manage a position using dynammic stop loss and take profit targets. Targets are dynamic in the sense that they are defined by formulas, which may change depending on defined market situations.",
+        "updated": 1610207512419
     },
     "paragraphs": [
         {

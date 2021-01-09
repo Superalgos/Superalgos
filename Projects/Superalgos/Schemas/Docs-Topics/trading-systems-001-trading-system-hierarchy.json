@@ -1,7 +1,7 @@
 {
     "topic": "Trading Systems",
     "pageNumber": "1",
-    "type": "The Trading System Hierarchy",
+    "type": "Trading System Hierarchy",
     "definition": {
         "text": "A Trading System carries the trading logic implemented by the Trading Bot during a trading session.",
         "updated": 1610138743003

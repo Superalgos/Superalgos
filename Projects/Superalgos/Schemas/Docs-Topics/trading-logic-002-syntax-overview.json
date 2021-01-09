@@ -34,6 +34,19 @@
             "text": "The above syntax returns the value of the property of the declared product at the latest closed candle. This is common throughout all available datasets."
         },
         {
+            "style": "Success",
+            "text": "Each Indicator Bot outputs one or more data products, each with a set of properties. Find the details of the products and properties available in the documentation of each indicator.",
+            "updated": 1610216390888
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
             "style": "Title",
             "text": "Specifying the Time Frame"
         },
@@ -232,18 +245,22 @@
         },
         {
             "style": "Title",
-            "text": "Trading Engine Node Path",
-            "updated": 1610215613207
+            "text": "JaveScript Code"
         },
         {
             "style": "Text",
-            "text": "The trading engine is the data structure that keeps track of all the information processed by the trading bot. The information is made available to both human users through the Design Space and the Charting Space interfaces. But—most importantly—it is made available to trading systems through a similar syntax as the one described earlier.",
-            "updated": 1610215642822
+            "text": "You may use any valid piece of JavaScript code for your conditions and formulas. The system imposses no contraints whatsoever. The code on conditions and formulas is run through the eval() function, as follows:",
+            "updated": 1610215780497
         },
         {
-            "style": "Note",
-            "text": "Learn more about the Trading Engine and Accessing Runtime Data.",
-            "updated": 1610215673351
+            "style": "Javascript",
+            "text": "try {\n    let code = node.code\n    value = eval(code);\n    addCodeToSnapshot(code)\n}",
+            "updated": 1610215800115
+        },
+        {
+            "style": "Success",
+            "text": "Remember that all conditions must evaluate to true or false and that formulas must evaluate to a number. If you are having issues with your code, learn how to debug a task.",
+            "updated": 1610215814504
         }
     ]
 }

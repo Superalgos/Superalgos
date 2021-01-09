@@ -1,7 +1,8 @@
 {
     "type": "Phase",
     "definition": {
-        "text": "The management of take profit and stop loss targets is done in phases. Phase 1 sets the initial targets, either for the managed stop loss or the managed take profit, and becomes active as soon as the first order is placed. Subsequent phases allows switching to different formulas given certain market situations."
+        "text": "The management of take profit and stop loss targets is done in phases, each with their own formula that determines the target. ",
+        "updated": 1610205977723
     },
     "paragraphs": [
         {
@@ -10,15 +11,22 @@
         },
         {
             "style": "Text",
+            "text": "Phase 1 sets the initial targets, either for the Managed Stop Loss or the Managed Take Profit, and becomes active as soon as the Take Position Event validates true. Subsequent phases allows switching to different formulas given certain market situations.",
+            "updated": 1610206033350
+        },
+        {
+            "style": "Text",
             "text": "The default management of phases is sequential, meaning that phase 2 comes after phase 1, phase 3 comes after phase 2, and so on."
         },
         {
             "style": "Text",
-            "text": "To switch from one phase to the next phase in the sequence, the next phase event is used. When the situation described in the next phase event validates true, the switch occurs and the next phase becomes the active phase."
+            "text": "To switch from one phase to the next phase in the sequence, the Next Phase event is used. When the Situation described in the next phase event validates true, the switch occurs and the next phase becomes the active phase.",
+            "updated": 1610206075265
         },
         {
             "style": "Text",
-            "text": "However, management does not need to happen sequentially. By using the move to phase event instead of the next phase event, the system may activate any other phase and not just the one next in the sequence."
+            "text": "However, management does not need to happen sequentially. By using the Move To Phase Event instead of the Next Phase Event, the system may activate any other phase and not just the one next in the sequence.",
+            "updated": 1610206113858
         },
         {
             "style": "Text",

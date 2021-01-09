@@ -10,11 +10,13 @@
         },
         {
             "style": "Text",
-            "text": "In the context of a trading system, formulas are used to determine the values for several properties, such as the target rate, target size, managed stop loss, managed take profit, and so on."
+            "text": "In the context of a Trading System, formulas are used to determine the values for several properties, such as the Target Rate, Target Size, Managed Stop Loss, Managed Take Profit, and so on.",
+            "updated": 1610211948110
         },
         {
             "style": "Text",
-            "text": "Formulas may use indicators and trading engine properties. The main difference between writing a formula and writing a condition is that while conditions must evaluate to true or false, formulas must evaluate to a number."
+            "text": "Formulas may use indicators and Trading Engine properties. The main difference between writing a Formula and writing a Condition is that while conditions must evaluate to true or false, formulas must evaluate to a number.",
+            "updated": 1610211971367
         },
         {
             "style": "Block",

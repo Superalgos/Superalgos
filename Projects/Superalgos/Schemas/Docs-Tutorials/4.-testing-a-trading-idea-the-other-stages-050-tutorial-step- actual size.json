@@ -1,0 +1,26 @@
+{
+    "tutorial": "4. Testing a Trading Idea - The Other Stages",
+    "pageNumber": 50,
+    "type": "Tutorial Step - Actual Size",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "actual-size"
+        },
+        "text": "What happens if the actual rate of the order is different than the rate established as a target? Recalculation time!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "When the trading bot adjusts a variable in an order, there's a ripple effect of further adjustments."
+        },
+        {
+            "style": "Callout",
+            "text": "Check the warning in the Actual Size node!"
+        },
+        {
+            "style": "Note",
+            "text": "For the open stage, we defined the target size in the base asset. However, the system must keep track of variables in both assets! Because the order rate was adjusted, the size of the order in the quoted asset must be adjusted too!"
+        }
+    ]
+}

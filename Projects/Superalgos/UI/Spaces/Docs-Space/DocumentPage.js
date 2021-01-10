@@ -141,7 +141,7 @@ function newSuperalgosDocsDocumentPage() {
                 let key = 'auto-generated-flag-paragraph'
                 let paragraph = {
                     style: "Warning",
-                    text: "This page is flagged to be deleted. Next time you execute Docs Save Command this content will be deleted from the Client's disk. If you don't really want to delete this page, the way to avoiding it is by reloading the UI by pressing F5."
+                    text: "This page is flagged to be deleted. Next time you run Docs Save Command, the content will be deleted from the Client's folder. If you refresh the page or close the browser before running the Docs Save Command, the flag is lost and the pade is not deleted. Changes will be applied to the Docs Search Engine Index only after you run the Docs Reindex Command."
                 }
                 renderParagraph(paragraph, key)
             } else {
@@ -149,7 +149,7 @@ function newSuperalgosDocsDocumentPage() {
                     let key = 'auto-generated-flag-paragraph'
                     let paragraph = {
                         style: "Important",
-                        text: "This page is flagged to be created / updated. Next time you execute Docs Save Command this content will be saved at the Client's disk. The changes will be applied to the Docs Search Engine Index only after you manually run the Docs Reindex Command."
+                        text: "This page is flagged to be created / updated. Next time you run the Docs Save Command, the content will be saved on the Client's folder. If you refresh the page or close the browser before running the Docs Save Command, changes will be lost. Changes will be applied to the Docs Search Engine Index only after you run the Docs Reindex Command."
                     }
                     renderParagraph(paragraph, key)
                 }

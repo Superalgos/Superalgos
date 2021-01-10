@@ -1,0 +1,79 @@
+{
+    "topic": "Trading Systems",
+    "pageNumber": "3",
+    "type": "The Trigger Stage",
+    "definition": {
+        "text": "The trigger stage features the definitions of the Trigger-On Event, Trigger-Off Event, and Take Position Event.",
+        "updated": 1610139390213
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Trigger Stage->Definition",
+            "updated": 1610139409395
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Trigger Stage->Content",
+            "updated": 1610139413791
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Note for Hierarchy Tables"
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Trigger Stage->2",
+            "updated": 1610139448080
+        },
+        {
+            "style": "Note",
+            "text": "Announcements is a feature external to Trading Systems and shall be addressed elsewhere.",
+            "updated": 1610139662103
+        },
+        {
+            "style": "Title",
+            "text": "Trigger On Event"
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Trigger On Event->Definition",
+            "updated": 1610139524793
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Trigger On Event->Content",
+            "updated": 1610139534038
+        },
+        {
+            "style": "Title",
+            "text": "Trigger Off Event",
+            "updated": 1610139540955
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Trigger Off Event->Definition",
+            "updated": 1610139544555
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Trigger Off Event->Content",
+            "updated": 1610139548323
+        },
+        {
+            "style": "Title",
+            "text": "Take Position Event",
+            "updated": 1610139565779
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Take Position Event->Definition",
+            "updated": 1610139569040
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Take Position Event->Content",
+            "updated": 1610139572696
+        }
+    ]
+}

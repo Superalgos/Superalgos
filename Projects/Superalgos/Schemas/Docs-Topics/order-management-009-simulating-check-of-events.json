@@ -1,0 +1,34 @@
+{
+    "topic": "Order Management",
+    "pageNumber": "9",
+    "type": "Simulating Check of Events",
+    "definition": {
+        "text": "Instead of checking what happened with the order at the exchange, the bot launches the synchronization simulation and updates the trading engine with the results of the calculations.",
+        "updated": 1610222347712
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The process is the same for all orders and involves a simulated synchronization with the exchange (see Simulating Sync With the Exchange), which performs all the checks and calculations, and updates the associated nodes in the trading engine hierarchy.",
+            "updated": 1610222491422
+        },
+        {
+            "style": "Text",
+            "text": "Once the simulated synchronization is done, the bot checks if the order was completely filled during the simulation... ",
+            "updated": 1610222413583
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngineOrder.orderStatistics.percentageFilled.value === 100"
+        },
+        {
+            "style": "Text",
+            "text": "... and updates the corresponding trading engine nodes accordingly:"
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngineOrder.status.value = 'Closed'\ntradingEngineOrder.exitType.value = 'Filled'",
+            "updated": 1610222428232
+        }
+    ]
+}

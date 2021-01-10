@@ -1,0 +1,21 @@
+{
+    "topic": "Trading Systems",
+    "pageNumber": "2",
+    "type": "Trading Strategies",
+    "definition": {
+        "text": "Trading strategies encompass the logic to trigger a strategy among the many that may exist in the Trading System, take a position, manage it, and close a position.",
+        "updated": 1610199807593
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Trading Strategy->Definition",
+            "updated": 1610138825934
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Trading Strategy->Content",
+            "updated": 1610138829122
+        }
+    ]
+}

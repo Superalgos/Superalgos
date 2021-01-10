@@ -9,13 +9,14 @@
             "text": "Content"
         },
         {
-            "style": "Block",
-            "text": "Configuring"
-        },
-        {
             "style": "Success",
             "text": "Please read the definition of Limit Buy Order for relevant information about how limit orders work. Also, please read the definition of Market Buy Order for relevant information about how orders in general work, in particular, the section about Size, Filling, Closing, and Spawning Multiple Orders.",
             "updated": 1609608882268
+        },
+        {
+            "style": "Block",
+            "text": "Configuring",
+            "updated": 1610188212039
         },
         {
             "style": "Title",

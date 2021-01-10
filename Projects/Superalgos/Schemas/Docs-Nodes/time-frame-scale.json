@@ -10,43 +10,12 @@
         },
         {
             "style": "Text",
-            "text": "When the time frame scale is set at the level of the time machine, the scale setting affects all charts within the time machine. When set at the level of the timeline chart, the setting overrides the time frame scale at the time machine level. This allows comparing charts in different time frames, but still synchronized at the datetime level."
+            "text": "When the time frame scale is set at the level of the time machine, the scale setting affects all charts within the time machine. When set at the level of the timeline chart, the setting overrides the time frame scale at the time machine level.",
+            "updated": 1610136694170
         },
         {
-            "style": "Block",
-            "text": "Configuring"
-        },
-        {
-            "style": "Title",
-            "text": "Configuring Time Frame Scale"
-        },
-        {
-            "style": "Text",
-            "text": "Select Configure Frame Scale on the menu to access the configuration."
-        },
-        {
-            "style": "Text",
-            "text": "{"
-        },
-        {
-            "style": "Text",
-            "text": "    \"value\":\"06-hs\""
-        },
-        {
-            "style": "Text",
-            "text": "}"
-        },
-        {
-            "style": "List",
-            "text": "value can be any of the time frames supported by the system:"
-        },
-        {
-            "style": "Text",
-            "text": "  * 01-hs, 02-hs, 03-hs, 04-hs, 06-hs, 08-hs, 12-hs, and 24-hs."
-        },
-        {
-            "style": "Note",
-            "text": "  The values entered via the design space and the charts are synchronized and stored in the node."
+            "style": "Success",
+            "text": "This allows comparing charts in different time frames, but still synchronized at the datetime level."
         },
         {
             "style": "Block",
@@ -58,11 +27,37 @@
         },
         {
             "style": "Text",
-            "text": "1. To set a time frame value, place the mouse pointer over the corresponding time machine or timeline chart time frame box and scroll the mouse wheel."
+            "text": "To set a time frame value, place the mouse pointer over the corresponding time machine or timeline chart time frame box and scroll the mouse wheel.",
+            "updated": 1609783625339
+        },
+        {
+            "style": "Block",
+            "text": "Configuring",
+            "updated": 1609783710191
         },
         {
             "style": "Text",
-            "text": "{% include image.html file='interface/time-frame-scale-00.gif' url='yes' max-width='100' caption='To set a time frame, scroll the wheel of the mouse over the time frame scale box.' %}"
+            "text": ""
+        },
+        {
+            "style": "Title",
+            "text": "Time Frame Scale Configuration",
+            "updated": 1609783714701
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609783740323
+        },
+        {
+            "style": "Javascript",
+            "text": "01-hs\n02-hs\n03-hs\n04-hs\n06-hs\n08-hs\n12-hs\n24-hs",
+            "updated": 1609783795852
+        },
+        {
+            "style": "Note",
+            "text": "The values entered via the design space and the charts are synchronized and stored in the node.",
+            "updated": 1609783812074
         }
     ]
 }

@@ -1,0 +1,50 @@
+{
+    "topic": "Order Management",
+    "pageNumber": "1",
+    "type": "Overview of the Management Issue",
+    "definition": {
+        "text": "The Low-Frequency trading bot manages live orders, produces a simulation that is synchronized with the events occurring at the exchange, and does the accounting to keep all trading information in order.",
+        "updated": 1610219490073
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The management of orders is at the heart of the Low-Frequency trading bot’s competency.",
+            "updated": 1610219504082
+        },
+        {
+            "style": "Text",
+            "text": "The process has some intricacies, as it involves handling orders at the exchange as well as producing a simulation. The system must be synchronized with what happens at the exchange so that the on-screen monitoring of the trading session, the accounts, and all trading information reflects reality."
+        },
+        {
+            "style": "Callout",
+            "text": "Understanding how the trading bot manages orders will help you make the most out of Superalgos. This knowledge will allow you to transcend simple trading system setups, and stretch the limits of what you may do with more elaborate or unusual definitions."
+        },
+        {
+            "style": "Text",
+            "text": "The following pages feature a chronological description of the life of an order, from the moment in which the trading system definitions of orders are read, until the accounting is done."
+        },
+        {
+            "style": "Text",
+            "text": "Once an order is created, it is maintained on each execution of the trading bot. At this point, the bot handles two parallel jobs:"
+        },
+        {
+            "style": "List",
+            "text": "In the case of forward testing and live trading sessions, the maintenance of orders involves dealing with the exchange and live orders."
+        },
+        {
+            "style": "List",
+            "text": "In the case of backtesting and paper trading sessions, the bot simulates those interactions, while dealing with simulated orders."
+        },
+        {
+            "style": "Important",
+            "text": "This whole section assumes that you are familiar with trading systems. Make sure you read about them first in case you are not.",
+            "updated": 1610219545354
+        },
+        {
+            "style": "Success",
+            "text": "The rest of the pages in this section are a detailed, step-by-step account of the actions the Low-Frequency trading bot performs while dealing with orders. You would make the most out of this content if you read the whole sequence of pages in the proposed order.",
+            "updated": 1610219534393
+        }
+    ]
+}

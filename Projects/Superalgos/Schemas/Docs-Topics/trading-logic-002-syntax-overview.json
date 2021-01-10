@@ -1,0 +1,266 @@
+{
+    "topic": "Trading Logic",
+    "pageNumber": "2",
+    "type": "Syntax Overview",
+    "definition": {
+        "text": "The syntax for writing conditions and formulas combine references to the data product name, the name of the property, and the time frame.",
+        "updated": 1610214683129
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Introduction",
+            "updated": 1610214707473
+        },
+        {
+            "style": "Text",
+            "text": "Different bots running within the system produce data products that others may consume. These products are available for you to use within your strategies."
+        },
+        {
+            "style": "Text",
+            "text": "Datasets are stored as a collection of sequential records and you may access any of the properties (fields) of each record."
+        },
+        {
+            "style": "Text",
+            "text": "To do that, you will use the following syntax: ",
+            "updated": 1610214730077
+        },
+        {
+            "style": "Javascript",
+            "text": ".productName + .propertyName."
+        },
+        {
+            "style": "Text",
+            "text": "The above syntax returns the value of the property of the declared product at the latest closed candle. This is common throughout all available datasets."
+        },
+        {
+            "style": "Success",
+            "text": "Each Indicator Bot outputs one or more data products, each with a set of properties. Find the details of the products and properties available in the documentation of each indicator.",
+            "updated": 1610216390888
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Title",
+            "text": "Specifying the Time Frame"
+        },
+        {
+            "style": "Text",
+            "text": "When building conditions and formulas, you may want to use analysis concerning different time frames. This is perfectly possible."
+        },
+        {
+            "style": "Text",
+            "text": "The variables explained further down this section, written as described for each indicator, are not valid unless they are preceeded by the declaration of the time frame they refer to."
+        },
+        {
+            "style": "Text",
+            "text": "To do that, you need to preceed the above syntax with the following:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at + time frame"
+        },
+        {
+            "style": "Text",
+            "text": "Therefore, the complete syntax to build a valid statement is:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at + time frame + .productName + .propertyName"
+        },
+        {
+            "style": "Text",
+            "text": "For example:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at04hs.candle.close > chart.at04hs.candle.previous.close"
+        },
+        {
+            "style": "Text",
+            "text": "The above statement compares the current 4 hours candle to the previous 4 hours candle."
+        },
+        {
+            "style": "Text",
+            "text": "The complete list of time frames available is:"
+        },
+        {
+            "style": "Table",
+            "text": "| Time Frame | Syntax |\n| 1 min | chart.at01min |\n| 2 min | chart.at02min |\n| 3 min | chart.at03min |\n| 4 min | chart.at04min |\n| 5 min | chart.at05min |\n| 10 min | chart.at10min |\n| 15 min | chart.at15min |\n| 20 min | chart.at20min |\n| 30 min | chart.at30min |\n| 40 min | chart.at40min |\n| 45 min | chart.at45min |\n| 1 h | chart.at01hs |\n| 2 hs | chart.at02hs |\n| 3 hs | chart.at03hs |\n| 4 hs | chart.at04hs |\n| 6 hs | chart.at06hs |\n| 8 hs | chart.at08hs |\n| 12 hs | chart.at12hs |\n| 24 hs | chart.at24hs |",
+            "updated": 1610214935448
+        },
+        {
+            "style": "Text",
+            "text": "The previous property is a property common to all products that allows you to retrieve the value of the candle that closed previous to the last one."
+        },
+        {
+            "style": "Text",
+            "text": "The property is used with the following syntax: ",
+            "updated": 1610215018833
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at + time frame + .productName + .previous + .propertyName. "
+        },
+        {
+            "style": "Text",
+            "text": "You may use the property on any of the indicators in a similar way."
+        },
+        {
+            "style": "Text",
+            "text": "In addition, you may use the previous property more than once, to retrieve values further in the past: ",
+            "updated": 1610215040020
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at + time frame + .productName + .previous.previous... ...previous + .propertyName"
+        },
+        {
+            "style": "Text",
+            "text": "For example:",
+            "updated": 1610215089118
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.candle.previous.previous.max"
+        },
+        {
+            "style": "Text",
+            "text": "The above returns the maximum value of two candles before the last closed candle at the 1-hour chart.",
+            "updated": 1610215099927
+        },
+        {
+            "style": "Title",
+            "text": "Alternative to the Previous Property"
+        },
+        {
+            "style": "Text",
+            "text": "There is a cool alternative to the previous property, that you can use to fetch the value of a property beyond the last closed candle."
+        },
+        {
+            "style": "Text",
+            "text": "The syntax is:",
+            "updated": 1610215130206
+        },
+        {
+            "style": "Javascript",
+            "text": "productName.[currentCandleIndex-n].propertyName"
+        },
+        {
+            "style": "Text",
+            "text": "... where currentCandleIndex represents the last closed candle and n may be replaced by any integer number."
+        },
+        {
+            "style": "Text",
+            "text": "For example:",
+            "updated": 1610215164809
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.candle.[currentCandleIndex-5].max"
+        },
+        {
+            "style": "Text",
+            "text": "... retrieves the maximum value of the fifth candle previous to the last closed candle at the 1-hour chart."
+        },
+        {
+            "style": "Note",
+            "text": "There is a technical limitation by which you may retrieve the value of a property up to a maximum of 24 hours in the past, whatever number of periods that may represent, depending on the time frame you may be working on. For instance, if you are working on the 1 hour time frame, you may fetch up to 23 candles before the last one. If you are working on the 1 minute time frame, you may retrieve 1439 candles. If you need to retrieve information further in the past, then you should consider building an indicator that makes the data available to your strategies.",
+            "updated": 1610215195223
+        },
+        {
+            "style": "Title",
+            "text": "Comparison and Logical Operators"
+        },
+        {
+            "style": "Text",
+            "text": "To define conditions you will use statements using the syntax described above. You will use the properties of indicators that will be introduced later on. The data behind those indicators describe what is happening with the market."
+        },
+        {
+            "style": "Text",
+            "text": "Remember, conditions need to evaluate either true or false."
+        },
+        {
+            "style": "Text",
+            "text": "To create such statements you will use comparison and logical operators:"
+        },
+        {
+            "style": "Table",
+            "text": "| Operator | Description |\n| === | equal value and equal type |\n| != | not equal |\n| > | greater than |\n| < | less than |\n| >= | greater than or equal to |\n| <= | less than or equal to |\n| && | and |\n| ∣∣ | or |",
+            "updated": 1610215345573
+        },
+        {
+            "style": "Text",
+            "text": "For example:",
+            "updated": 1610215388469
+        },
+        {
+            "style": "Subtitle",
+            "text": "Situation 1"
+        },
+        {
+            "style": "List",
+            "text": "Condition A: The latest candle at the 1 hour chart closed above the Bollinger Bands moving average.",
+            "updated": 1610215456837
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.candle.close > chart.at01hs.bollingerBand.MovingAverage"
+        },
+        {
+            "style": "List",
+            "text": "Condition B: The maximum value of the candle before the last one, was higher than the Bollinger Bands moving average.",
+            "updated": 1610215484498
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.candle.previous.max > chart.at01hs.bollingerBand.previous.MovingAverage"
+        },
+        {
+            "style": "Text",
+            "text": "In the example above, conditions A and B are comparison statements that may evaluate either true or false. In the case both would evaluate true then Situation 1 would be true as well."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Situation 2"
+        },
+        {
+            "style": "List",
+            "text": "Condition C:  The entire candle at the 4 hours chart fits within the price range between 9000 and 10000.",
+            "updated": 1610215565978
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at04hs.candle.max <= 10000 && chart.at04hs.candle.min >= 9000"
+        },
+        {
+            "style": "Text",
+            "text": "In the example above, condition C would be true if the whole 4-hour candle falls within the range between 9000 and 10000. If this is true, then situation 2 is true as well, as there is only one condition to check."
+        },
+        {
+            "style": "Title",
+            "text": "JaveScript Code"
+        },
+        {
+            "style": "Text",
+            "text": "You may use any valid piece of JavaScript code for your conditions and formulas. The system imposses no contraints whatsoever. The code on conditions and formulas is run through the eval() function, as follows:",
+            "updated": 1610215780497
+        },
+        {
+            "style": "Javascript",
+            "text": "try {\n    let code = node.code\n    value = eval(code);\n    addCodeToSnapshot(code)\n}",
+            "updated": 1610215800115
+        },
+        {
+            "style": "Success",
+            "text": "Remember that all conditions must evaluate to true or false and that formulas must evaluate to a number. If you are having issues with your code, learn how to debug a task.",
+            "updated": 1610215814504
+        }
+    ]
+}

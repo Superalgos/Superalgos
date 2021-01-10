@@ -48,6 +48,8 @@ function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
         addPluginNodes()
 
         function addPluginNodes(pluginNames) {
+            UI.projects.superalgos.utilities.creditsPage.changeStatus("Loading Plugins...")
+
             let blobService = newFileStorage()
             let totalPlugin = 0
             let totalRead = 0
@@ -144,16 +146,35 @@ function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
             /* Create the workspace UI OBject and then continue with the root nodes. */
             createUiObject(false, 'Workspace', node.name, node, undefined, undefined, 'Workspace')
             if (node.rootNodes !== undefined) {
-                for (let i = 0; i < node.rootNodes.length; i++) {
-                    let rootNode = node.rootNodes[i]
+                UI.projects.superalgos.utilities.creditsPage.changeStatus("Setting up Rootnodes...")
+                
+                let rootNode
+                let i = -1
+                controlLoop()
+
+                function loopBody() {
                     createUiObjectFromNode(rootNode, undefined, undefined)
+                    controlLoop()
+                }
+
+                function controlLoop() {
+                    i++
+                    if (i < node.rootNodes.length) {
+                        rootNode = node.rootNodes[i]
+                        UI.projects.superalgos.utilities.creditsPage.changeStatus("Connecting children nodes from " + rootNode.name + " - " + rootNode.type + "...")
+                        setTimeout(loopBody, 0) 
+                    } else {
+                        UI.projects.superalgos.utilities.creditsPage.changeStatus("Setting up the Docs Search Engine Index...")
+                        setTimeout(endLoop)
+                    }
                 }
             }
+            function endLoop() {
+                tryToConnectChildrenWithReferenceParents()
 
-            tryToConnectChildrenWithReferenceParents()
-
-            if (callBackFunction !== undefined) {
-                callBackFunction() // The recreation of the workspace is complete
+                if (callBackFunction !== undefined) {
+                    callBackFunction() // The recreation of the workspace is complete
+                }
             }
         }
     }
@@ -341,7 +362,7 @@ function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
             project: project
         }
 
-        let parentSchemaDocument 
+        let parentSchemaDocument
         /* Resolve Initial Values */
         let schemaDocument = getSchemaDocument(object, project)
 

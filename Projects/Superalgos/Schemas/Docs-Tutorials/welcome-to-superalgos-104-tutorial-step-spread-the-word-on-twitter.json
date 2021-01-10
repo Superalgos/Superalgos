@@ -1,0 +1,30 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 104,
+    "type": "Tutorial Step - Spread the Word on Twitter!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "twitter"
+        },
+        "text": "Making some noise on Twitter will help bring more traders to the project. That's important too, for similar reasons!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The more traders using Superalgos, the more they will drive the Core Team to develop ever more advanced features! This is what you need to do:"
+        },
+        {
+            "style": "List",
+            "text": "Go to our <a href='https://twitter.com/superalgos' target='_blank' style='color:blue;'>Twitter</a> page, follow us, and retweet our latest tweet. Make sure you tag traders you follow!"
+        },
+        {
+            "style": "Text",
+            "text": "That's it! No big deal, right?"
+        },
+        {
+            "style": "Callout",
+            "text": "We appreciate your help and wish you some happy and prosperous trading!"
+        }
+    ]
+}

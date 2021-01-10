@@ -1,0 +1,38 @@
+{
+    "tutorial": "Developers Intro",
+    "pageNumber": 2,
+    "type": "Tutorial Topic - System Architecture",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": ""
+        },
+        "text": "Superalgos is essentially a Node.js application + a Web App."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The overall idea is that Superalgos runs at users' machines. Advanced users may deploy multiple Superalgos nodes in a LAN and distribute tasks easily. In the current version, these nodes are not ready to be exposed to the Internet. Someday they will, and eventually, they will be able to provide services to other users. These services may include:"
+        },
+        {
+            "style": "List",
+            "text": "Data Products: Pre-calculated indicators or studies."
+        },
+        {
+            "style": "List",
+            "text": "Backtest Execution: To scale testing capabilities."
+        },
+        {
+            "style": "List",
+            "text": "Live Trading Execution: Only if trusted entities emerge."
+        },
+        {
+            "style": "List",
+            "text": "Data Processing Execution: External data processing power."
+        },
+        {
+            "style": "Link",
+            "text": "->"
+        }
+    ]
+}

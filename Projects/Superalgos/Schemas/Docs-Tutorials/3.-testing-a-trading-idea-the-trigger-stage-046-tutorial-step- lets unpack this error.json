@@ -1,0 +1,26 @@
+{
+    "tutorial": "3. Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 46,
+    "type": "Tutorial Step - Let's Unpack This Error",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "bullet-error"
+        },
+        "text": "The error is associated with one of our conditions, so we must check the Javascript Code we used!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "This is the code in our condition:<br/>chart.at24hs.bollingerSubChannel.direction === 'Down'"
+        },
+        {
+            "style": "Callout",
+            "text": "The error says that the direction property of an object that is 'undefined' cannot be read."
+        },
+        {
+            "style": "Text",
+            "text": "The object the error refers to is the bollingerSubChannel product. That object is 'undefined'. Why? There is one last piece to fit in the puzzle: the error happens at the beginning of the data set. Do you see the problem?"
+        }
+    ]
+}

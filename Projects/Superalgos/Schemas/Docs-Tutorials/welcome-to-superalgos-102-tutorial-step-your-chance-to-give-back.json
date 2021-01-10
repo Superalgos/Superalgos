@@ -1,0 +1,30 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 102,
+    "type": "Tutorial Step - Your Chance to Give Back!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "superalgos"
+        },
+        "text": "Tens of thousands of hours have gone into building Superalgos and we are happy to share it with you, free of charge..."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "All we ask from you is to give three minutes of your time! We need your help to get the word out and grow the user base. There are very good reasons to help us!"
+        },
+        {
+            "style": "List",
+            "text": "Removing bugs: more people using the system means that bugs are found and removed faster from each version&mdash;your experience improves!"
+        },
+        {
+            "style": "List",
+            "text": "More contributors: the more people using the system, the more may contribute indicators or strategies&mdash;more intelligence available to you!"
+        },
+        {
+            "style": "List",
+            "text": "Core Team focus: if you don't help us, we have to do it ourselves! That means we have less time to code new features for you to enjoy!"
+        }
+    ]
+}

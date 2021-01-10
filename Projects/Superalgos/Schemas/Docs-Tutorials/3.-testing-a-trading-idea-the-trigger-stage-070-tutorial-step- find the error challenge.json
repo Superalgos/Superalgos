@@ -1,0 +1,22 @@
+{
+    "tutorial": "3. Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 70,
+    "type": "Tutorial Step - Find The Error Challenge",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "bullet-error"
+        },
+        "text": "Did you find the error? What? You haven't looked? I just split the screen so that you may do your thing!"
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "The Trading System Errors layer is on! Go ahead and track the error on the Trading System!"
+        },
+        {
+            "style": "Success",
+            "text": "Remember... You just need to point to the error at the bottom of the chart, find the red circle on the design space, read the error message, and interpret it! Good luck!"
+        }
+    ]
+}

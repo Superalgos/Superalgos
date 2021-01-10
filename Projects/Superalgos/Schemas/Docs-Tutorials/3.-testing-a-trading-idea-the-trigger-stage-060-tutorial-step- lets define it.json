@@ -1,0 +1,26 @@
+{
+    "tutorial": "3. Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 60,
+    "type": "Tutorial Step - Let's Define It!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "javascript-code"
+        },
+        "text": "We are ready to set up the condition under the Take Position Event! Let's do it!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The complete statement:<br/>chart.at01hs.candle.close < chart.at01hs.bollingerBand.movingAverage - chart.at01hs.bollingerBand.deviation"
+        },
+        {
+            "style": "Callout",
+            "text": "Copy and paste the statement in the Javascript Code node!"
+        },
+        {
+            "style": "Success",
+            "text": "Remember to give the condition a descriptive name, for example, 1H Breakdown."
+        }
+    ]
+}

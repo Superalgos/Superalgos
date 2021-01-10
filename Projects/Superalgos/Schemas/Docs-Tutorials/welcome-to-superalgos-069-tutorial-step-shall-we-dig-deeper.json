@@ -1,0 +1,26 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 69,
+    "type": "Tutorial Step - Shall We Dig Deeper?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "layer-resistance"
+        },
+        "text": "The logic behind the placing of buy orders is influenced by the Resistances & Supports Indicator Bot from the Masters Data Mine you ran earlier."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "I took the liberty to turn the Supports layer on to show you this beauty... I hope you don't mind!"
+        },
+        {
+            "style": "Callout",
+            "text": "The indicator identifies levels (price ranges) on which price is rejected, and keeps a counter of how many rejections occur until the level is breached."
+        },
+        {
+            "style": "Text",
+            "text": "The way levels are represented on-screen varies with the number of rejections the level has witnessed, giving us a visual clue of how strong each support level may be. Once a level is breached, it disappears."
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 91,
+    "type": "Tutorial Step - Fire Up the Machine!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "data-tasks"
+        },
+        "text": "Now it's time to fire up your Data Tasks operation."
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Select Run All Project Data Tasks on the menu."
+        },
+        {
+            "style": "Text",
+            "text": "We'll give it a few minutes to catch up with the present time. Remember, all indicators must get to 100% before we can start trading!"
+        },
+        {
+            "style": "Success",
+            "text": "If you're getting a bit anxious, feel free to go down the Data Tasks section and check the status of the process instances!"
+        }
+    ]
+}

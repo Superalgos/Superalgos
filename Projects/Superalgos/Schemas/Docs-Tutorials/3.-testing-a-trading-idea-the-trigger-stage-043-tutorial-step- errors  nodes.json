@@ -1,0 +1,26 @@
+{
+    "tutorial": "3. Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 43,
+    "type": "Tutorial Step - Errors & Nodes",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "bullet-error"
+        },
+        "text": "When errors happen due to definitions in the trading system, that is where you will find the corresponding error messages!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The Trading System Errors layer interacts with the design space so that you may track and find error messages. Messages are tied to the node responsible for producing the error!"
+        },
+        {
+            "style": "Callout",
+            "text": "Place the mouse pointer over one of the error bullets in the charting space and use the design space map to find the source of the red circle."
+        },
+        {
+            "style": "Note",
+            "text": "The video next shows what I found!"
+        }
+    ]
+}

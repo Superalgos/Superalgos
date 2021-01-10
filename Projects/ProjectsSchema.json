@@ -212,6 +212,11 @@
                     "name": "Docs",
                     "propertyName": "docs",
                     "functionName": "newSuperalgosUtilitiesDocs"
+                },
+                {
+                    "name": "Credits Page",
+                    "propertyName": "creditsPage",
+                    "functionName": "newSuperalgosUtilitiesCreditsPage"
                 }
             ],
             "spaces": [

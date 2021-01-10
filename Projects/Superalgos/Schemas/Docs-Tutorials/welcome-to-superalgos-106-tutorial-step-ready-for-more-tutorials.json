@@ -1,0 +1,34 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 106,
+    "type": "Tutorial Step - Ready for More Tutorials?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "tutorial"
+        },
+        "text": "There are a few more tutorials ready to walk you through other matters upon request!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "At the bottom of this workspace:"
+        },
+        {
+            "style": "List",
+            "text": "Developers Intro is a technical overview!"
+        },
+        {
+            "style": "List",
+            "text": "Install a New Market helps you go beyond BTC/USDT!"
+        },
+        {
+            "style": "Text",
+            "text": "Load the Trading System Design Tutorials plugin workspace from the tab on the left to learn how to design strategies!"
+        },
+        {
+            "style": "Text",
+            "text": "Also, the Weak-hands Buster V.2 plugin workspace features a tutorial about the Trading Bot Layers to complete your understanding of simulations and how they help while designing and debugging strategies."
+        }
+    ]
+}

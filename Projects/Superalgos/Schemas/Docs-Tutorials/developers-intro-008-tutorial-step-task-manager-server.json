@@ -1,0 +1,30 @@
+{
+    "tutorial": "Developers Intro",
+    "pageNumber": 8,
+    "type": "Tutorial Step - Task Manager Server",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": ""
+        },
+        "text": "The Task Manager Server is a simple server to manage the execution of Task Servers Node.js processes. It keeps track of all the instances running at any point in time and allows the UI to decide when to run more instance or stop any of those running."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The Task Manager Server provides the following commands to the UI:"
+        },
+        {
+            "style": "List",
+            "text": "Run Task: Used to run a new task, spawns a Node.js fork process where a Task Server is run."
+        },
+        {
+            "style": "List",
+            "text": "Stop Task: Sends a fork-process-message to the Task Server instance that needs to stop."
+        },
+        {
+            "style": "List",
+            "text": "Task Status: Tells the caller if the Task Id provided corresponds to a running task or not."
+        }
+    ]
+}

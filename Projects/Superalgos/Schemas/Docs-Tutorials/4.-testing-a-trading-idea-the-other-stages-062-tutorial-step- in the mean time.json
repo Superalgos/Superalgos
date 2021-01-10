@@ -1,0 +1,34 @@
+{
+    "tutorial": "4. Testing a Trading Idea - The Other Stages",
+    "pageNumber": 62,
+    "type": "Tutorial Step - In The Mean Time!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "scripts-library"
+        },
+        "text": "If you are willing to keep going on your own, mastering building strategies requires some reading and a lot of practice!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Continue your education by reading the following sections of the documentation:"
+        },
+        {
+            "style": "List",
+            "text": "<a class='tutorial-link' href='https://docs.superalgos.org/suite-strategies.html' target='_blank'>The nuances of stages of trading strategies.</a> "
+        },
+        {
+            "style": "List",
+            "text": "<a class='tutorial-link' href='https://docs.superalgos.org/suite-trading-engine.html' target='_blank'>The whole trading engine section.</a> "
+        },
+        {
+            "style": "List",
+            "text": "<a class='tutorial-link' href='https://docs.superalgos.org/suite-trading-bot.html' target='_blank'>The whole section on the trading bot.</a> "
+        },
+        {
+            "style": "Success",
+            "text": "You may keep developing what we started on this series, or go your own way and start implementing your own idea! Good luck, and see you on the next tutorial!"
+        }
+    ]
+}

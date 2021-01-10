@@ -1,0 +1,22 @@
+{
+    "tutorial": "Developers Intro",
+    "pageNumber": 19,
+    "type": "Tutorial Step - Panel Space",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": ""
+        },
+        "text": "The Panel Space is where all panels defined by plotters exist. The space has its own physics engine which governs the way users interact with panels, and panels with other panels."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Panels are constrained within the boundaries of the Panel Space, which matches the boundaries of the Charting Space."
+        },
+        {
+            "style": "Note",
+            "text": "Although the panel space has existed since the project's inception, it is still quite underdeveloped, and there is a lot of room to improve it."
+        }
+    ]
+}

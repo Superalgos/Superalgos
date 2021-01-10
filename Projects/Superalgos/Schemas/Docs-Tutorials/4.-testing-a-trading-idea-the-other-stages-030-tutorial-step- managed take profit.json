@@ -1,0 +1,26 @@
+{
+    "tutorial": "4. Testing a Trading Idea - The Other Stages",
+    "pageNumber": 30,
+    "type": "Tutorial Step - Managed Take Profit",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "managed-take-profit"
+        },
+        "text": "Now that we have a formula for a fixed stop loss target, it shouldn't be hard to come up with the formula for the take profit target!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "We just need to subtract 10% to the entry target rate node's value:<br/><br/>tradingEngine.current.<br/>position.entryTargetRate.value * 0.9"
+        },
+        {
+            "style": "Callout",
+            "text": "Use the above for the Phase #1 take profit formula!"
+        },
+        {
+            "style": "Success",
+            "text": "We are done with the manage stage!"
+        }
+    ]
+}

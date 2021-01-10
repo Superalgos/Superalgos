@@ -1,0 +1,26 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 72,
+    "type": "Tutorial Step - Find the Logic Challenge!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "layer-resistance"
+        },
+        "text": "Now that you know how the indicator works, can you find the relationship between buy orders and support levels?"
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Take some time to explore the period of time tested looking for clues on how support levels determine the rate of the Limit Buy Order!"
+        },
+        {
+            "style": "Text",
+            "text": "It's fun noticing how new levels form when price changes direction, and how an established level changes color when price bounces-off it."
+        },
+        {
+            "style": "Success",
+            "text": "But the trick lies in counting levels above the order!"
+        }
+    ]
+}

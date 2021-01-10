@@ -1,0 +1,30 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 11,
+    "type": "Tutorial Step - Let's Mine Some Data!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "run"
+        },
+        "text": "The Run All Project Data Tasks button on the top-right corner of the Data Tasks node menu runs... well... all Project Data Tasks!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "And that is exactly what we want to do, so..."
+        },
+        {
+            "style": "Callout",
+            "text": "Select the button on the menu and let's mine!"
+        },
+        {
+            "style": "Text",
+            "text": "Confirm the request by clicking the button a second time. In about 30 seconds, you should see a status notice below the Data Mining node indicating that 1 out of 1 Exchange Data Tasks node is running."
+        },
+        {
+            "style": "Note",
+            "text": "Your console app should show something similar to the video on the next step."
+        }
+    ]
+}

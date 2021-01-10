@@ -50,9 +50,11 @@ function newSuperalgosTutorialSpace() {
     let htmlImage = document.createElement("IMG")
     let currentImageName = 'Never Set'
     let newImageName = 'Never Set'
+    let newImageProject = 'Never Set'
     let currentConfig
     let newConfig
-    let currentDocumentationURL
+    let currentDocument
+    let newDocument
     let resumeModeActivated // In this mode, we skip all the node which status is 'Done'
     let lastExecutedAction = ''
     let actionCounter = 0
@@ -231,7 +233,7 @@ function newSuperalgosTutorialSpace() {
 
             if (currentGifName === newGifName) { return }
             currentGifName = newGifName
-            htmlGif.src = 'GIFs/' + currentNode.project + '/Tutorials/' + currentGifName + '.gif'
+            htmlGif.src = currentGifName
             htmlGif.width = "400"
             htmlGif.height = "580"
         }
@@ -242,14 +244,11 @@ function newSuperalgosTutorialSpace() {
                 tutorialImageDiv.appendChild(htmlImage)
             }
 
+            if (newImageName === undefined) { return }
             if (currentImageName === newImageName) { return }
             currentImageName = newImageName
-            let webParam
-            if (currentImageName.indexOf('/') >= 0) {
-                webParam = 'Icons/' + currentImageName + '.png'
-            } else {
-                webParam = 'Icons/' + 'Superalgos' + '/' + currentImageName + '.png'
-            }
+            let webParam = 'Icons/' + newImageProject + '/' + newImageName + '.png'
+
             htmlImage.src = webParam
             htmlImage.width = "100"
             htmlImage.height = "100"
@@ -258,29 +257,44 @@ function newSuperalgosTutorialSpace() {
         function checkDocumentation() {
             if (currentNode === undefined) { return }
             let config = JSON.parse(currentNode.config)
-            let newDocumentationURL = config.documentationURL
+
             documentationCounter++
             if (documentationCounter === 10) {
-                if (newDocumentationURL === undefined) {
+
+                /* Deprecated Property Documentation URL */
+                if (config.documentationURL !== undefined && config.documentationURL !== "") {
+                    console.log('Trying to navigate to: ' + config.documentationURL + ' at ' + config.docs.type)
+                }
+
+                if (config.controlDocs === undefined) {
                     /*
                     The doc panel will remain as it is, and the user will be free to open or close it at will.
                     */
                     return
                 }
-                if (newDocumentationURL === "") {
+                if (config.controlDocs.panel === "Open") {
                     /*
-                    This forces the tutorial to close the documentation panel and to keep it closed.
+                    This forces the tutorial to open the documentation panel.
                     */
-                    UI.projects.superalgos.spaces.docsSpace.sidePanelTab.open() // TODO
-                    // UI.projects.superalgos.spaces.docsSpace.sidePanelTab.close()
-                    return
+                    UI.projects.superalgos.spaces.docsSpace.sidePanelTab.open()
                 }
-                UI.projects.superalgos.spaces.docsSpace.sidePanelTab.open()
-                if (newDocumentationURL === currentDocumentationURL) { return }
-
-                currentDocumentationURL = newDocumentationURL
-                console.log('Trying to navigate to: ' + currentDocumentationURL + ' at ' + config.subTitle)
-                // TODO UI.projects.superalgos.spaces.docsSpace.openSpaceAreaAndNavigateTo('Superalgos', 'Node', currentDocumentationURL)
+                if (config.controlDocs.panel === "Close") {
+                    /*
+                    This forces the tutorial to close the documentation panel.
+                    */
+                    UI.projects.superalgos.spaces.docsSpace.sidePanelTab.close()
+                }
+                if (
+                    config.controlDocs.page !== undefined &&
+                    config.controlDocs.page.project !== undefined &&
+                    config.controlDocs.page.category !== undefined &&
+                    config.controlDocs.page.type !== undefined
+                ) {
+                    /*
+                    This produces the Docs to laod the specified page.
+                    */
+                    UI.projects.superalgos.spaces.docsSpace.openSpaceAreaAndNavigateTo(config.controlDocs.page.project, config.controlDocs.page.category, config.controlDocs.page.type)
+                }
             }
         }
 
@@ -308,7 +322,7 @@ function newSuperalgosTutorialSpace() {
                 This forces the tutorial to open the workspaces panel and to keep it closed.
                 */
                 if (workspacesCounter === 5) {
-                    UI.projects.superalgos.spaces.sideSpace.sidePanelTab.close() // TODO .open()
+                    UI.projects.superalgos.spaces.sideSpace.sidePanelTab.open()
                 }
                 return
             }
@@ -331,7 +345,7 @@ function newSuperalgosTutorialSpace() {
                         /*
                         This forces the tutorial to close the charting space and to keep it closed.
                         */
-                        UI.projects.superalgos.spaces.cockpitSpace.toTop() // TODO .toTop()
+                        UI.projects.superalgos.spaces.cockpitSpace.toTop()
                         return
                     }
                     case "toMiddle": {
@@ -339,14 +353,14 @@ function newSuperalgosTutorialSpace() {
                         This forces the tutorial to share the screen half with the designer and half 
                         with the charting space and force it in that way.
                         */
-                        UI.projects.superalgos.spaces.cockpitSpace.toTop() // TODO toMiddle()
+                        UI.projects.superalgos.spaces.cockpitSpace.toMiddle()
                         return
                     }
                     case "toBottom": {
                         /*
                         This forces the tutorial to fully open the charting space and to keep it open.
                         */
-                        UI.projects.superalgos.spaces.cockpitSpace.toTop() // TODO
+                        UI.projects.superalgos.spaces.cockpitSpace.toBottom()
                         return
                     }
                 }
@@ -663,9 +677,12 @@ function newSuperalgosTutorialSpace() {
             } catch (err) {
                 return
             }
+            let position = nodeConfig.position 
+            if (UI.projects.superalgos.spaces.docsSpace.isVisible === true) {
+                position = 'Left'
+            }
 
-            nodeConfig.position = 'Left' // TODO
-            switch (nodeConfig.position) {
+            switch (position) {
                 case 'Left': {
                     tutorialPosition = {
                         x: MARGIN,
@@ -803,7 +820,7 @@ function newSuperalgosTutorialSpace() {
         }
 
         function resetDocumentation() {
-            currentDocumentationURL = ''
+            currentDocumentationPage = ''
             documentationCounter = 0
         }
 
@@ -1112,318 +1129,207 @@ function newSuperalgosTutorialSpace() {
         }
     }
 
-    function buildDocument() {
-
-        let nodeConfig = JSON.parse(currentNode.config)
-        if (nodeConfig.docs !== undefined) { return }
-
-        if (
-            (nodeConfig.subTitle === undefined || nodeConfig.subTitle === "") &&
-            (nodeConfig.gif === undefined || nodeConfig.gif === "") &&
-            (nodeConfig.warning === undefined || nodeConfig.warning === "")
-        ) {
-            return
-        }
-
-        PAGE_NUMBER = PAGE_NUMBER + 1
-        const project = 'Superalgos'
-
-
-        let type = 'Page Name'
-
-        let template = {
-            tutorial: TUTORIAL_NAME,
-            pageNumber: PAGE_NUMBER,
-            type: currentNode.type + ' - ' + nodeConfig.subTitle,
-            definition: {
-                icon: {
-                    project: 'Superalgos',
-                    name: nodeConfig.image
-                },
-                text: "Write here a summary for this tutorial page."
-            },
-            paragraphs: [
-
-            ]
-        }
-
-        /**DEFINITION */
-        if (nodeConfig.definition !== undefined && nodeConfig.definition !== "") {
-            template.definition.text = clean(nodeConfig.definition)
-        }
-        if (nodeConfig.summary !== undefined && nodeConfig.summary !== "") {
-            if (template.definition.text === 'Write here a summary for this tutorial page.') {
-                template.definition.text = nodeConfig.summary
-            } else {
-                template.definition.text = template.definition.text + ' ' + clean(nodeConfig.summary)
-            }
-        }
-        template.definition.text = template.definition.text.trim()
-
-        if (nodeConfig.bulletListIntro !== undefined && nodeConfig.bulletListIntro !== '') {
-            let paragraph = {
-                style: 'Text',
-                text: clean(nodeConfig.bulletListIntro)
-            }
-            template.paragraphs.push(paragraph)
-        }
-        if (nodeConfig.bulletArray !== undefined) {
-            for (let i = 0; i < nodeConfig.bulletArray.length; i++) {
-                let bullet = nodeConfig.bulletArray[i]
-                let paragraph = {
-                    style: 'List',
-                    text: clean(bullet[0]) + ' ' + clean(bullet[1])
-                }
-                template.paragraphs.push(paragraph)
-
-            }
-        }
-        if (nodeConfig.paragraph1 !== undefined && nodeConfig.paragraph1 !== '') {
-            let paragraph = {
-                style: 'Text',
-                text: clean(nodeConfig.paragraph1)
-            }
-            template.paragraphs.push(paragraph)
-        }
-
-        if (nodeConfig.callOut !== undefined && nodeConfig.callOut !== '') {
-            let paragraph = {
-                style: 'Callout',
-                text: clean(nodeConfig.callOut)
-            }
-            template.paragraphs.push(paragraph)
-        }
-
-        if (nodeConfig.externalLink !== undefined) {
-            let paragraph = {
-                style: 'Link',
-                text: nodeConfig.externalLink[0] + '->' + nodeConfig.externalLink[1]
-            }
-            template.paragraphs.push(paragraph)
-        }
-
-        if (nodeConfig.paragraph2 !== undefined && nodeConfig.paragraph2 !== '') {
-            let paragraph = {
-                style: 'Text',
-                text: clean(nodeConfig.paragraph2)
-            }
-            template.paragraphs.push(paragraph)
-        }
-
-        if (nodeConfig.note !== undefined && nodeConfig.note !== '') {
-            let paragraph = {
-                style: 'Note',
-                text: clean(nodeConfig.note)
-            }
-            template.paragraphs.push(paragraph)
-        }
-
-        if (nodeConfig.tip !== undefined && nodeConfig.tip !== '') {
-            let paragraph = {
-                style: 'Success',
-                text: clean(nodeConfig.tip)
-            }
-            template.paragraphs.push(paragraph)
-        }
-
-        if (nodeConfig.important !== undefined && nodeConfig.important !== '') {
-            let paragraph = {
-                style: 'Important',
-                text: clean(nodeConfig.important)
-            }
-            template.paragraphs.push(paragraph)
-        }
-
-        if (nodeConfig.warning !== undefined && nodeConfig.warning !== '') {
-            let paragraph = {
-                style: 'Warning',
-                text: clean(nodeConfig.warning)
-            }
-            template.paragraphs.push(paragraph)
-        }
-
-        /**FULL SCREEN GIF */
-        if (nodeConfig.gif !== undefined && nodeConfig.gif !== "") {
-            let type = nodeConfig.gif.replaceAll("-", " ")
-            type = UI.projects.superalgos.utilities.strings.allWordsToUpper(type)
-            template.type = currentNode.type + ' - ' + type
-            template.definition.text = "This step will play a video in full screen mode."
-            let paragraph = {
-                style: 'Gif',
-                text: 'GIFs/Superalgos/Tutorials/' + nodeConfig.gif + '.gif'
-            }
-            template.paragraphs.push(paragraph)
-        }
-
-        SCHEMAS_BY_PROJECT.get(project).array.docsTutorialSchema.push(template)
-        SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema.set(template.type, template)
-        UI.projects.superalgos.spaces.docsSpace.navigateTo(project, 'Tutorial', template.type)
-
-        /* Here we will store the keys to access the Content from the Docs */
-        nodeConfig.docs = {
-            project: project,
-            category: 'Tutorial',
-            type: template.type
-        }
-        /* Deleting all the in-configuration content */
-        nodeConfig.title = undefined
-        nodeConfig.subTitle = undefined
-        nodeConfig.gif = undefined
-        nodeConfig.definition = undefined
-        nodeConfig.summary =  undefined
-        nodeConfig.bulletListIntro = undefined
-        nodeConfig.bulletArray = undefined
-        nodeConfig.paragraph1 = undefined
-        nodeConfig.paragraph2 = undefined
-        nodeConfig.note =  undefined
-        nodeConfig.warning = undefined
-        nodeConfig.tip = undefined
-        nodeConfig.important = undefined
-        nodeConfig.callOut = undefined
-
-        currentNode.config = JSON.stringify(nodeConfig, undefined, 4)
-
-        function clean(text) {
-            let result = text
-            result = result
-                .replaceAll('->', '')
-                .replaceAll('<b>', '')
-                .replaceAll('</b>', '')
-                .replaceAll('<i>', '')
-                .replaceAll('</i>', '')
-                .replaceAll('<kbd>', '')
-                .replaceAll('</kbd>', '')
-                .replaceAll('<code>', '')
-                .replaceAll('</code>', '')
-                .trim()
-            return result
-        }
-
-    }
-
     function buildHTML() {
+        let nodeConfig = JSON.parse(currentNode.config)
+
+        if (nodeConfig.docs === undefined) { 
+            /* The current node is not referencing any page at the Docs */
+            return 
+        }
+
+        let schemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema.get(nodeConfig.docs.type) 
 
         newConfig = currentNode.config
-        if (newConfig === currentConfig) { return }
+        newDocument = JSON.stringify(schemaDocument) + ' - ' + UI.projects.superalgos.spaces.docsSpace.language
+
+        if (newConfig === currentConfig && newDocument === currentDocument) { return }
         currentConfig = newConfig
+        currentDocument = newDocument
 
-        let nodeConfig = JSON.parse(currentNode.config)
+        let title
 
-        if (nodeConfig.docs !== undefined) { return } // TODO Added this
-        
-        let html = ''
-        if (nodeConfig.title !== undefined && nodeConfig.title !== '') {
-            html = html + '<div><h1 class="tutorial-font-large">' + nodeConfig.title + '</h1></div>'
-        }
-        html = html + '<div>'
-        if (nodeConfig.summary !== undefined && nodeConfig.summary !== '') {
-            html = html + '<div class="tutorial-font-small tutorial-summary">' + addToolTips(nodeConfig.summary) + '</div>'
-        }
-        if (nodeConfig.subTitle !== undefined && nodeConfig.subTitle !== '') {
-            html = html + '<h2 class="tutorial-font-medium">' + nodeConfig.subTitle + '</h2>'
-        }
-        if (nodeConfig.gif !== undefined && nodeConfig.gif !== '') {
-            html = html + '<div id="tutorialGifDiv" width="200" width="290"/>'
-            newGifName = nodeConfig.gif
-        }
+        transformDocsInfoIntoTutorialInfo()
+        createTheHTML()
 
-        if (nodeConfig.definition !== undefined && nodeConfig.definition !== '') {
-            html = html + '<table class="tutorial-definitionTable">'
-            html = html + '<tr>'
-            html = html + '<td>'
-            if (nodeConfig.image !== undefined && nodeConfig.image !== '') {
-                html = html + '<div id="tutorialImageDiv" class="tutorial-image-container"/>'
-                newImageName = nodeConfig.image
-            }
-            html = html + '</td>'
-            html = html + '<td>'
-            html = html + '<strong class="tutorial-font-bold-small">' + addToolTips(nodeConfig.definition) + '</strong>'
-            html = html + '</td>'
-            html = html + '</tr>'
-            html = html + '</table>'
-        }
-        if (nodeConfig.bulletListIntro !== undefined && nodeConfig.bulletListIntro !== '') {
-            html = html + '<div class="tutorial-font-small">' + addToolTips(nodeConfig.bulletListIntro) + '</div>'
-        }
-        if (nodeConfig.bulletArray !== undefined) {
-            html = html + '<ul>'
-            for (let i = 0; i < nodeConfig.bulletArray.length; i++) {
-                let bullet = nodeConfig.bulletArray[i]
-                html = html + '<li>'
-                html = html + '<div class="tutorial-font-small"><strong class="tutorial-font-bold-small">' + addToolTips(bullet[0]) + '</strong> ' + addToolTips(bullet[1]) + '</div>'
-                html = html + '</li>'
-            }
-            html = html + '</ul>'
-        }
-        if (nodeConfig.paragraph1 !== undefined && nodeConfig.paragraph1 !== '') {
-            html = html + '<div class="tutorial-font-small">' + addToolTips(nodeConfig.paragraph1) + '</div>'
-        }
-        if (nodeConfig.callOut !== undefined && nodeConfig.callOut !== '') {
-            html = html + '<div class="tutorial-font-bold-small tutorial-callout" > ' + addToolTips(nodeConfig.callOut) + ''
-            if (nodeConfig.externalLink !== undefined) {
-                html = html + '<a href="' + nodeConfig.externalLink[1] + '" target="_blank">' + nodeConfig.externalLink[0] + '</a>'
-            }
-            html = html + '</div>'
-        }
-        if (nodeConfig.paragraph2 !== undefined && nodeConfig.paragraph2 !== '') {
-            html = html + '<div class="tutorial-font-small">' + addToolTips(nodeConfig.paragraph2) + '</div>'
-        }
-        if (nodeConfig.note !== undefined && nodeConfig.note !== '') {
-            html = html + '<div class="tutorial-font-small tutorial-alert-info" role="alert"><i class="tutorial-fa tutorial-info-circle"></i> <b>Note:</b> ' + addToolTips(nodeConfig.note) + '</div>'
-        }
-        if (nodeConfig.tip !== undefined && nodeConfig.tip !== '') {
-            html = html + '<div class="tutorial-font-small tutorial-alert-success" role="alert"><i class="tutorial-fa tutorial-check-square-o"></i> <b>Tip:</b> ' + addToolTips(nodeConfig.tip) + '</div>'
-        }
-        if (nodeConfig.important !== undefined && nodeConfig.important !== '') {
-            html = html + '<div class="tutorial-font-small tutorial-alert-important" role="alert"><i class="tutorial-fa tutorial-warning"></i> <b>Important:</b> ' + addToolTips(nodeConfig.important) + '</div>'
-        }
-        if (nodeConfig.warning !== undefined && nodeConfig.warning !== '') {
-            html = html + '<div class="tutorial-font-small tutorial-alert-warning" role="alert"><i class="tutorial-fa tutorial-warning"></i> <b>Warning:</b> ' + addToolTips(nodeConfig.warning) + '</div>'
-        }
-        html = html + '</div>'
+        UI.projects.superalgos.spaces.docsSpace.navigateTo(nodeConfig.docs.project, 'Tutorial', nodeConfig.docs.type)
 
-        tutorialDiv.innerHTML = html
-
-        buildDocument()
-
-        function addToolTips(text) {
-            const TOOL_TIP_HTML = '<div class="tutorial-tooltip">NODE_TYPE<span class="tutorial-tooltiptext">NODE_DEFINITION</span></div>'
-            let resultingText = ''
-            let splittedText = text.split('->')
-
-            for (let i = 0; i < splittedText.length; i = i + 2) {
-                let firstPart = splittedText[i]
-                let nodeType = splittedText[i + 1]
-                if (nodeType === undefined) {
-                    return resultingText + firstPart
+        function transformDocsInfoIntoTutorialInfo() {
+            if (schemaDocument === undefined) {
+                title = "Configuration Error"
+                schemaDocument = {
+                    paragraphs: [
+                        {
+                            style: "Warning",
+                            text: "The configured Docs reference does not point to any page. Correct that to see here the page contents."
+                        }
+                    ]
                 }
-                let splittedNodeType = nodeType.split('/')
-                let project
-                let type
-                if (splittedNodeType.length > 1) {
-                    project = splittedNodeType[0]
-                    type = splittedNodeType[1]
-                } else {
-                    project = 'Superalgos'
-                    type = splittedNodeType[0]
+                return
+            }
+
+            let splittedType = nodeConfig.docs.type.split(' - ')
+            title = splittedType[1]
+        }
+
+        function createTheHTML() {
+            let fullscreenMode = false
+            let html = ''
+
+            /* Check for Full Screen Mode */
+            for (let i = 0; i < schemaDocument.paragraphs.length; i++) {
+                let paragraph = schemaDocument.paragraphs[i]
+                if (paragraph.style === 'Gif') {
+                    fullscreenMode = true
                 }
-                let definitionNode = SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(type)
-                if (definitionNode === undefined) {
-                    definitionNode = SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.get(type)
-                    if (definitionNode === undefined) {
-                        currentNode.payload.uiObject.setErrorMessage(type + ' not found at Doc Schema or Concept Schema.')
-                        return
+            }
+            if (schemaDocument.definition !== undefined && schemaDocument.definition.text !== '') {
+                if (schemaDocument.definition.text.indexOf('full screen mode') >= 0) {
+                    fullscreenMode = true
+                }
+            }
+
+            if (fullscreenMode === false) {
+                html = html + '<h2 class="tutorial-font-medium">' + title + '</h2>'
+            }
+
+            html = html + '<div>'
+
+            if (schemaDocument.definition !== undefined && schemaDocument.definition.text !== '') {
+                if (fullscreenMode === false) {
+                    if (schemaDocument.definition.icon === undefined || schemaDocument.definition.icon.name === '') {
+                        /* When there is no image, we will render a Summary instead of a Table */
+                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(schemaDocument.definition) 
+                        text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
+                        text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
+                        text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
+                        text = UI.projects.superalgos.utilities.docs.addToolTips(text)
+                        html = html + '<div class="tutorial-font-small tutorial-summary">' + text + '</div>'
+                    } else {
+                        html = html + '<table class="tutorial-definitionTable">'
+                        html = html + '<tr>'
+                        html = html + '<td>'
+                        if (schemaDocument.definition.icon !== undefined && schemaDocument.definition.icon.name !== '') {
+                            html = html + '<div id="tutorialImageDiv" class="tutorial-image-container"/>'
+                            newImageName = schemaDocument.definition.icon.name
+                            newImageProject = schemaDocument.definition.icon.project
+                        }
+                        html = html + '</td>'
+                        html = html + '<td>'
+
+                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(schemaDocument.definition) 
+                        text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
+                        text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
+                        text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
+                        text = UI.projects.superalgos.utilities.docs.addToolTips(text)
+
+                        html = html + '<strong class="tutorial-font-bold-small">' + text + '</strong>'
+                        html = html + '</td>'
+                        html = html + '</tr>'
+                        html = html + '</table>'
                     }
                 }
-                let definition = definitionNode.definition
-                if (definition === undefined || definition === "") {
-                    resultingText = resultingText + firstPart + type
-                } else {
-                    let tooltip = TOOL_TIP_HTML.replace('NODE_TYPE', type).replace('NODE_DEFINITION', definition)
-                    resultingText = resultingText + firstPart + tooltip
+            }
+
+            for (let i = 0; i < schemaDocument.paragraphs.length; i++) {
+                let paragraph = schemaDocument.paragraphs[i]
+                switch (paragraph.style) {
+                    case 'Summary': {
+                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)  
+                        text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
+                        text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
+                        text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
+                        text = UI.projects.superalgos.utilities.docs.addToolTips(text)
+                        html = html + '<div class="tutorial-font-small tutorial-summary">' + text + '</div>'
+                        break
+                    }
+                    case 'Title': {
+                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)  
+                        html = html + '<h2 class="tutorial-font-medium">' + text + '</h2>'
+                        break
+                    }
+                    case 'Gif': {
+                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)  
+                        html = html + '<div id="tutorialGifDiv" width="200" width="290"/>'
+                        newGifName = text
+                        break
+                    }
+                    case 'Text': {
+                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)  
+                        text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
+                        text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
+                        text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
+                        text = UI.projects.superalgos.utilities.docs.addToolTips(text)
+                        html = html + '<div class="tutorial-font-small">' + text + '</div>'
+                        break
+                    }
+                    case 'List': {
+                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)  
+                        text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
+                        text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
+                        text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
+                        text = UI.projects.superalgos.utilities.docs.addBold(text)
+                        text = UI.projects.superalgos.utilities.docs.addToolTips(text)
+                        html = html + '<div class="tutorial-font-small"><li>' + text + '</li></div>'
+                        break
+                    }
+                    case 'Callout': {
+                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)  
+                        text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
+                        text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
+                        text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
+                        text = UI.projects.superalgos.utilities.docs.addToolTips(text)
+                        html = html + '<div class="tutorial-font-bold-small tutorial-callout" > ' + text + '</div>'
+                        break
+                    }
+                    case 'Link': {
+                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)  
+                        let splittedText = text.split('->')
+                        html = html + '<a href="' + splittedText[1] + '" target="_blank">' + splittedText[0] + '</a>'
+                        break
+                    }
+                    case 'Note': {
+                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)  
+                        text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
+                        text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
+                        text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
+                        text = UI.projects.superalgos.utilities.docs.addToolTips(text)
+                        html = html + '<div class="tutorial-font-small tutorial-alert-info" role="alert"><i class="tutorial-fa tutorial-info-circle"></i> <b>Note:</b> ' + text + '</div>'
+                        break
+                    }
+                    case 'Success': {
+                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)  
+                        text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
+                        text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
+                        text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
+                        text = UI.projects.superalgos.utilities.docs.addToolTips(text)
+                        html = html + '<div class="tutorial-font-small tutorial-alert-success" role="alert"><i class="tutorial-fa tutorial-check-square-o"></i> <b>Tip:</b> ' + text + '</div>'
+                        break
+                    }
+                    case 'Important': {
+                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)  
+                        text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
+                        text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
+                        text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
+                        text = UI.projects.superalgos.utilities.docs.addToolTips(text)
+                        html = html + '<div class="tutorial-font-small tutorial-alert-important" role="alert"><i class="tutorial-fa tutorial-warning"></i> <b>Important:</b> ' + text + '</div>'
+                        break
+                    }
+                    case 'Warning': {
+                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)  
+                        text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
+                        text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
+                        text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
+                        text = UI.projects.superalgos.utilities.docs.addToolTips(text)
+                        html = html + '<div class="tutorial-font-small tutorial-alert-warning" role="alert"><i class="tutorial-fa tutorial-warning"></i> <b>Warning:</b> ' + text + '</div>'
+                        break
+                    }
                 }
             }
-            return resultingText
+
+            html = html + '</div>'
+
+            tutorialDiv.innerHTML = html
+
         }
     }
 

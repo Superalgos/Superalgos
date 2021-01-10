@@ -1,0 +1,17 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 12,
+    "type": "Tutorial Step - Welcome Start Data Mining Console",
+    "definition": {
+        "icon": {
+            "project": "Superalgos"
+        },
+        "text": "This step will play a video in full screen mode."
+    },
+    "paragraphs": [
+        {
+            "style": "Gif",
+            "text": "GIFs/Superalgos/Tutorials/welcome-start-data-mining-console.gif"
+        }
+    ]
+}

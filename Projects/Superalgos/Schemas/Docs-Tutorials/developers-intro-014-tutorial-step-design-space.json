@@ -1,0 +1,26 @@
+{
+    "tutorial": "Developers Intro",
+    "pageNumber": 14,
+    "type": "Tutorial Step - Design Space",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": ""
+        },
+        "text": "Manages the core concept of nodes which, when attached to one another, may form vast definitions easily made and maintained by users."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The system features a file called App Schema which has the rules about the existing types of nodes, which nodes may be the child of other nodes, and which may reference other nodes and which. It also defines the menu items of nodes. All these rules are enforced on the Design Space."
+        },
+        {
+            "style": "Callout",
+            "text": "Users may then attach nodes, establish references between nodes, select menu items,  and more..."
+        },
+        {
+            "style": "Note",
+            "text": "The Design Space is tightly coupled with the Floating Space."
+        }
+    ]
+}

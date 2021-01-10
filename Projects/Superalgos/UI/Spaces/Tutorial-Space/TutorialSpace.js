@@ -53,6 +53,8 @@ function newSuperalgosTutorialSpace() {
     let newImageProject = 'Never Set'
     let currentConfig
     let newConfig
+    let currentDocument
+    let newDocument
     let resumeModeActivated // In this mode, we skip all the node which status is 'Done'
     let lastExecutedAction = ''
     let actionCounter = 0
@@ -675,8 +677,12 @@ function newSuperalgosTutorialSpace() {
             } catch (err) {
                 return
             }
+            let position = nodeConfig.position 
+            if (UI.projects.superalgos.spaces.docsSpace.isVisible === true) {
+                position = 'Left'
+            }
 
-            switch (nodeConfig.position) {
+            switch (position) {
                 case 'Left': {
                     tutorialPosition = {
                         x: MARGIN,
@@ -1124,16 +1130,22 @@ function newSuperalgosTutorialSpace() {
     }
 
     function buildHTML() {
-
-        newConfig = currentNode.config
-        if (newConfig === currentConfig) { return }
-        currentConfig = newConfig
-
         let nodeConfig = JSON.parse(currentNode.config)
 
-        if (nodeConfig.docs === undefined) { return }
+        if (nodeConfig.docs === undefined) { 
+            /* The current node is not referencing any page at the Docs */
+            return 
+        }
 
         let schemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema.get(nodeConfig.docs.type)
+
+        newConfig = currentNode.config
+        newDocument = JSON.stringify(schemaDocument)
+
+        if (newConfig === currentConfig && newDocument === currentDocument) { return }
+        currentConfig = newConfig
+        currentDocument = newDocument
+
         let title
 
         transformDocsInfoIntoTutorialInfo()

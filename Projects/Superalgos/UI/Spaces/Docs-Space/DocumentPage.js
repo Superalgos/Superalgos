@@ -1834,6 +1834,10 @@ function newSuperalgosDocsDocumentPage() {
     }
 
     function exitEditMode() {
+        /* This will make the Client to save this in a file overwritting the previous version*/
+        thisObject.docsSchemaDocument.edited = true
+
+        /* We will update the paragraph that was being edited*/
         let editing
         if (UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id.indexOf('definition') >= 0) {
             editing = "Definition"

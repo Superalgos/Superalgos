@@ -17,7 +17,7 @@ function newSuperalgosDocsCommmandInterface() {
     }
 
     function detectCommands() {
-        if (detectAppCommands() === true) {return} 
+        if (detectAppCommands() === true) { return }
         detectDocsCommands()
     }
 
@@ -56,12 +56,12 @@ function newSuperalgosDocsCommmandInterface() {
             if (config.token === undefined || config.token === "") {
                 UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error Github Credentials Missing', 'Anchor Github Credentials Missing')
                 return true
-            }            
+            }
 
             httpRequest(undefined, 'App/Contribute/' + message + '/' + config.username + '/' + config.token, onResponse)
             UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Message Creating Pull Request')
 
-            return true  
+            return true
 
             function onResponse(err, data) {
                 /* Lets check the result of the call through the http interface */
@@ -376,15 +376,103 @@ function newSuperalgosDocsCommmandInterface() {
                 if (responseCount === requestsSent) {
                     if (responseCount === okResponses) {
                         UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message Saving Succeed')
+                        afterSaving()
                     } else {
                         UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Changes Not Saved', 'Anchor Changes Not Saved')
                     }
+                }
+            }
+
+            function afterSaving() {
+                /*
+                Since all the changes where saved, we need to remove the change flags at the different shcema documents.
+                We also need to remove from the arrays the deleted items.
+                */
+                for (let j = 0; j < PROJECTS_ARRAY.length; j++) {
+                    let project = PROJECTS_ARRAY[j]
+                    let documents
+
+                    /* Nodes */
+                    documents = []
+                    for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema.length; i++) {
+                        docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema[i]
+                        docsSchemaDocument.updated = undefined
+                        docsSchemaDocument.created = undefined
+
+                        if (docsSchemaDocument.deleted === true) {
+                            SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.delete(docsSchemaDocument.type)
+                        } else {
+                            documents.push(docsSchemaDocument)
+                        }
+                    }
+                    SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema = documents
+
+                    /* Concepts */
+                    documents = []
+                    for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema.length; i++) {
+                        docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema[i]
+                        docsSchemaDocument.updated = undefined
+                        docsSchemaDocument.created = undefined
+
+                        if (docsSchemaDocument.deleted === true) {
+                            SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.delete(docsSchemaDocument.type)
+                        } else {
+                            documents.push(docsSchemaDocument)
+                        }
+                    }
+                    SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema = documents
+
+                    /* Topics */
+                    documents = []
+                    for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema.length; i++) {
+                        docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema[i]
+                        docsSchemaDocument.updated = undefined
+                        docsSchemaDocument.created = undefined
+
+                        if (docsSchemaDocument.deleted === true) {
+                            SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.delete(docsSchemaDocument.type)
+                        } else {
+                            documents.push(docsSchemaDocument)
+                        }
+                    }
+                    SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema = documents
+
+                    /* Tutorials */
+                    documents = []
+                    for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsTutorialSchema.length; i++) {
+                        docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsTutorialSchema[i]
+                        docsSchemaDocument.updated = undefined
+                        docsSchemaDocument.created = undefined
+
+                        if (docsSchemaDocument.deleted === true) {
+                            SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema.delete(docsSchemaDocument.type)
+                        } else {
+                            documents.push(docsSchemaDocument)
+                        }
+                    }
+                    SCHEMAS_BY_PROJECT.get(project).array.docsTutorialSchema = documents
+
+                    /* Books */
+                    documents = []
+                    for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsBookSchema.length; i++) {
+                        docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsBookSchema[i]
+                        docsSchemaDocument.updated = undefined
+                        docsSchemaDocument.created = undefined
+
+                        if (docsSchemaDocument.deleted === true) {
+                            SCHEMAS_BY_PROJECT.get(project).map.docsBookSchema.delete(docsSchemaDocument.type)
+                        } else {
+                            documents.push(docsSchemaDocument)
+                        }
+                    }
+                    SCHEMAS_BY_PROJECT.get(project).array.docsBookSchema = documents
                 }
             }
         }
 
         function addNode(project, type) {
             let template = {
+                created: true,
                 type: type,
                 definition: { text: "Write here the definition of this Node." },
                 paragraphs: [
@@ -411,6 +499,7 @@ function newSuperalgosDocsCommmandInterface() {
 
         function addConcept(project, type) {
             let template = {
+                created: true,
                 type: type,
                 definition: { text: "Write here the summary / definition of this Concept." },
                 paragraphs: [
@@ -438,6 +527,7 @@ function newSuperalgosDocsCommmandInterface() {
 
         function addTopic(project, topic, type, pageNumber) {
             let template = {
+                created: true,
                 topic: topic,
                 pageNumber: pageNumber,
                 type: type,
@@ -466,6 +556,7 @@ function newSuperalgosDocsCommmandInterface() {
 
         function addTutorial(project, tutorial, type, pageNumber) {
             let template = {
+                created: true,
                 tutorial: tutorial,
                 pageNumber: pageNumber,
                 type: type,
@@ -494,6 +585,7 @@ function newSuperalgosDocsCommmandInterface() {
 
         function addBook(project, type) {
             let template = {
+                created: true,
                 type: type,
                 definition: { text: "Write here the summary / definition of this Book." },
                 paragraphs: [
@@ -530,15 +622,9 @@ function newSuperalgosDocsCommmandInterface() {
                 return
             }
 
-            SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.delete(type)
+            let schemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(type)
+            schemaDocument.deleted = true
 
-            for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema.length; i++) {
-                docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema[i]
-                if (docsSchemaDocument.type === type) {
-                    docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema.splice(i, 1)
-                    break
-                }
-            }
             UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message Deleting Succeed')
         }
 
@@ -553,15 +639,9 @@ function newSuperalgosDocsCommmandInterface() {
                 return
             }
 
-            SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.delete(type)
+            let schemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.get(type)
+            schemaDocument.deleted = true
 
-            for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema.length; i++) {
-                docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema[i]
-                if (docsSchemaDocument.type === type) {
-                    docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema.splice(i, 1)
-                    break
-                }
-            }
             UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message Deleting Succeed')
         }
 
@@ -585,15 +665,9 @@ function newSuperalgosDocsCommmandInterface() {
                 }
             }
 
-            SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.delete(type)
+            let schemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.get(type)
+            schemaDocument.deleted = true
 
-            for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema.length; i++) {
-                docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema[i]
-                if (docsSchemaDocument.type === type) {
-                    docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema.splice(i, 1)
-                    break
-                }
-            }
             UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message Deleting Succeed')
         }
 
@@ -617,15 +691,9 @@ function newSuperalgosDocsCommmandInterface() {
                 }
             }
 
-            SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema.delete(type)
+            let schemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema.get(type)
+            schemaDocument.deleted = true
 
-            for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsTutorialSchema.length; i++) {
-                docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsTutorialSchema[i]
-                if (docsSchemaDocument.type === type) {
-                    docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsTutorialSchema.splice(i, 1)
-                    break
-                }
-            }
             UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message Deleting Succeed')
         }
 
@@ -640,15 +708,9 @@ function newSuperalgosDocsCommmandInterface() {
                 return
             }
 
-            SCHEMAS_BY_PROJECT.get(project).map.docsBookSchema.delete(type)
+            let schemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsBookSchema.get(type)
+            schemaDocument.deleted = true
 
-            for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsBookSchema.length; i++) {
-                docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsBookSchema[i]
-                if (docsSchemaDocument.type === type) {
-                    docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsBookSchema.splice(i, 1)
-                    break
-                }
-            }
             UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message Deleting Succeed')
         }
     }

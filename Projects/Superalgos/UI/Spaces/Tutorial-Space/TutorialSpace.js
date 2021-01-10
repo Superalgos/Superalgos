@@ -264,34 +264,34 @@ function newSuperalgosTutorialSpace() {
                     console.log('Trying to navigate to: ' + config.documentationURL + ' at ' + config.docs.type)
                 }
 
-                if (config.showDocsPage === undefined) {
+                if (config.controlDocs === undefined) {
                     /*
                     The doc panel will remain as it is, and the user will be free to open or close it at will.
                     */
                     return
                 }
-                if (showDocsPage.panel === "Open") {
+                if (config.controlDocs.panel === "Open") {
                     /*
                     This forces the tutorial to open the documentation panel.
                     */
                     UI.projects.superalgos.spaces.docsSpace.sidePanelTab.open()
                 }
-                if (showDocsPage.panel === "Close") {
+                if (config.controlDocs.panel === "Close") {
                     /*
                     This forces the tutorial to close the documentation panel.
                     */
                     UI.projects.superalgos.spaces.docsSpace.sidePanelTab.close()
                 }
                 if (
-                    showDocsPage.page !== undefined &&
-                    showDocsPage.page.project !== undefined &&
-                    showDocsPage.page.category !== undefined &&
-                    showDocsPage.page.type !== undefined
+                    config.controlDocs.page !== undefined &&
+                    config.controlDocs.page.project !== undefined &&
+                    config.controlDocs.page.category !== undefined &&
+                    config.controlDocs.page.type !== undefined
                 ) {
                     /*
                     This produces the Docs to laod the specified page.
                     */
-                    UI.projects.superalgos.spaces.docsSpace.openSpaceAreaAndNavigateTo(showDocsPage.page.project, showDocsPage.page.category, showDocsPage.page.type)
+                    UI.projects.superalgos.spaces.docsSpace.openSpaceAreaAndNavigateTo(config.controlDocs.page.project, config.controlDocs.page.category, config.controlDocs.page.type)
                 }
             }
         }

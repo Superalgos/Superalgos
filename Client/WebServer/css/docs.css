@@ -315,7 +315,7 @@ box-sizing: border-box;
 .docs-topic-index {
 background-color:white;
 padding: 25 20px;
-margin: 40px 0;
+margin: 40px 0 0 0;
 border: 1px solid rgba(49, 112, 143, .2);
 border-left-width: 5px;
 border-radius: 5px;
@@ -1003,10 +1003,32 @@ color: #31708f;
 }
 
 .docs-chapter {
-text-decoration: none;
-color: #31708f;
+  border-top: 1px solid #eee;
+  padding: 0px;
+  margin: -5px 0px -30px 0;
+  width: 100%;
+  height: 40px;
+  text-align: right;
+  color: transparent;
+  font-size: 75%;
 }
+/* DELETE Candidate
+.docs-chapter::after{
+  content:' \24b8';
+  color: #e6e6e6;
+  font-size: 150%;
+  position: relative;
+  top: -15px;
+  }
 
+.docs-chapter:hover::after{
+content:' \1f152';
+color: #365558;
+font-size: 150%;
+position: relative;
+top: -15px;
+}
+*/
 .docs-youtube-video-container{
 background-color: white; 
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 

@@ -1137,10 +1137,10 @@ function newSuperalgosTutorialSpace() {
             return 
         }
 
-        let schemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema.get(nodeConfig.docs.type)
+        let schemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema.get(nodeConfig.docs.type) 
 
         newConfig = currentNode.config
-        newDocument = JSON.stringify(schemaDocument)
+        newDocument = JSON.stringify(schemaDocument) + ' - ' + UI.projects.superalgos.spaces.docsSpace.language
 
         if (newConfig === currentConfig && newDocument === currentDocument) { return }
         currentConfig = newConfig
@@ -1198,7 +1198,7 @@ function newSuperalgosTutorialSpace() {
                 if (fullscreenMode === false) {
                     if (schemaDocument.definition.icon === undefined || schemaDocument.definition.icon.name === '') {
                         /* When there is no image, we will render a Summary instead of a Table */
-                        let text = schemaDocument.definition.text
+                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(schemaDocument.definition) 
                         text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
                         text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
                         text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
@@ -1216,7 +1216,7 @@ function newSuperalgosTutorialSpace() {
                         html = html + '</td>'
                         html = html + '<td>'
 
-                        let text = schemaDocument.definition.text
+                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(schemaDocument.definition) 
                         text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
                         text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
                         text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
@@ -1234,7 +1234,7 @@ function newSuperalgosTutorialSpace() {
                 let paragraph = schemaDocument.paragraphs[i]
                 switch (paragraph.style) {
                     case 'Summary': {
-                        let text = paragraph.text
+                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)  
                         text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
                         text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
                         text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
@@ -1243,18 +1243,18 @@ function newSuperalgosTutorialSpace() {
                         break
                     }
                     case 'Title': {
-                        let text = paragraph.text
+                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)  
                         html = html + '<h2 class="tutorial-font-medium">' + text + '</h2>'
                         break
                     }
                     case 'Gif': {
-                        let text = paragraph.text
+                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)  
                         html = html + '<div id="tutorialGifDiv" width="200" width="290"/>'
                         newGifName = text
                         break
                     }
                     case 'Text': {
-                        let text = paragraph.text
+                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)  
                         text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
                         text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
                         text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
@@ -1263,7 +1263,7 @@ function newSuperalgosTutorialSpace() {
                         break
                     }
                     case 'List': {
-                        let text = paragraph.text
+                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)  
                         text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
                         text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
                         text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
@@ -1273,7 +1273,7 @@ function newSuperalgosTutorialSpace() {
                         break
                     }
                     case 'Callout': {
-                        let text = paragraph.text
+                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)  
                         text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
                         text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
                         text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
@@ -1282,13 +1282,13 @@ function newSuperalgosTutorialSpace() {
                         break
                     }
                     case 'Link': {
-                        let text = paragraph.text
+                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)  
                         let splittedText = text.split('->')
                         html = html + '<a href="' + splittedText[1] + '" target="_blank">' + splittedText[0] + '</a>'
                         break
                     }
                     case 'Note': {
-                        let text = paragraph.text
+                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)  
                         text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
                         text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
                         text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
@@ -1297,7 +1297,7 @@ function newSuperalgosTutorialSpace() {
                         break
                     }
                     case 'Success': {
-                        let text = paragraph.text
+                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)  
                         text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
                         text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
                         text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
@@ -1306,7 +1306,7 @@ function newSuperalgosTutorialSpace() {
                         break
                     }
                     case 'Important': {
-                        let text = paragraph.text
+                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)  
                         text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
                         text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
                         text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
@@ -1315,7 +1315,7 @@ function newSuperalgosTutorialSpace() {
                         break
                     }
                     case 'Warning': {
-                        let text = paragraph.text
+                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)  
                         text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
                         text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
                         text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)

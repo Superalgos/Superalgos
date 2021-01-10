@@ -147,12 +147,12 @@ function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
             createUiObject(false, 'Workspace', node.name, node, undefined, undefined, 'Workspace')
             if (node.rootNodes !== undefined) {
                 UI.projects.superalgos.utilities.creditsPage.changeStatus("Setting up Rootnodes...")
+                
+                let rootNode
                 let i = -1
                 controlLoop()
 
                 function loopBody() {
-                    let rootNode = node.rootNodes[i]
-                    UI.projects.superalgos.utilities.creditsPage.changeStatus("Connecting children nodes from " + rootNode.name + " - " + rootNode.type + "...")
                     createUiObjectFromNode(rootNode, undefined, undefined)
                     controlLoop()
                 }
@@ -160,14 +160,16 @@ function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
                 function controlLoop() {
                     i++
                     if (i < node.rootNodes.length) {
+                        rootNode = node.rootNodes[i]
+                        UI.projects.superalgos.utilities.creditsPage.changeStatus("Connecting children nodes from " + rootNode.name + " - " + rootNode.type + "...")
                         setTimeout(loopBody, 0) 
                     } else {
-                        endLoop()
+                        UI.projects.superalgos.utilities.creditsPage.changeStatus("Setting up the Docs Search Engine Index...")
+                        setTimeout(endLoop)
                     }
                 }
             }
             function endLoop() {
-                UI.projects.superalgos.utilities.creditsPage.changeStatus("Setting up references...")
                 tryToConnectChildrenWithReferenceParents()
 
                 if (callBackFunction !== undefined) {

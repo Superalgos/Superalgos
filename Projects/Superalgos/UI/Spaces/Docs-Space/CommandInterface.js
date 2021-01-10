@@ -405,7 +405,7 @@ function newSuperalgosDocsCommmandInterface() {
                             documents.push(docsSchemaDocument)
                         }
                     }
-                    SCHEMAS_BY_PROJECT.get(project).array = documents
+                    SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema = documents
 
                     /* Concepts */
                     documents = []
@@ -420,7 +420,7 @@ function newSuperalgosDocsCommmandInterface() {
                             documents.push(docsSchemaDocument)
                         }
                     }
-                    SCHEMAS_BY_PROJECT.get(project).array = documents
+                    SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema = documents
 
                     /* Topics */
                     documents = []
@@ -435,7 +435,7 @@ function newSuperalgosDocsCommmandInterface() {
                             documents.push(docsSchemaDocument)
                         }
                     }
-                    SCHEMAS_BY_PROJECT.get(project).array = documents
+                    SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema = documents
 
                     /* Tutorials */
                     documents = []
@@ -450,7 +450,7 @@ function newSuperalgosDocsCommmandInterface() {
                             documents.push(docsSchemaDocument)
                         }
                     }
-                    SCHEMAS_BY_PROJECT.get(project).array = documents
+                    SCHEMAS_BY_PROJECT.get(project).array.docsTutorialSchema = documents
 
                     /* Books */
                     documents = []
@@ -465,7 +465,7 @@ function newSuperalgosDocsCommmandInterface() {
                             documents.push(docsSchemaDocument)
                         }
                     }
-                    SCHEMAS_BY_PROJECT.get(project).array = documents
+                    SCHEMAS_BY_PROJECT.get(project).array.docsBookSchema = documents
                 }
             }
         }

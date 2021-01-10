@@ -396,7 +396,7 @@ function newSuperalgosDocsCommmandInterface() {
                     documents = []
                     for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema.length; i++) {
                         docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema[i]
-                        docsSchemaDocument.edited = undefined
+                        docsSchemaDocument.updated = undefined
                         docsSchemaDocument.created = undefined
 
                         if (docsSchemaDocument.deleted === true) {
@@ -411,7 +411,7 @@ function newSuperalgosDocsCommmandInterface() {
                     documents = []
                     for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema.length; i++) {
                         docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema[i]
-                        docsSchemaDocument.edited = undefined
+                        docsSchemaDocument.updated = undefined
                         docsSchemaDocument.created = undefined
 
                         if (docsSchemaDocument.deleted === true) {
@@ -426,7 +426,7 @@ function newSuperalgosDocsCommmandInterface() {
                     documents = []
                     for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema.length; i++) {
                         docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema[i]
-                        docsSchemaDocument.edited = undefined
+                        docsSchemaDocument.updated = undefined
                         docsSchemaDocument.created = undefined
 
                         if (docsSchemaDocument.deleted === true) {
@@ -441,7 +441,7 @@ function newSuperalgosDocsCommmandInterface() {
                     documents = []
                     for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsTutorialSchema.length; i++) {
                         docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsTutorialSchema[i]
-                        docsSchemaDocument.edited = undefined
+                        docsSchemaDocument.updated = undefined
                         docsSchemaDocument.created = undefined
 
                         if (docsSchemaDocument.deleted === true) {
@@ -456,7 +456,7 @@ function newSuperalgosDocsCommmandInterface() {
                     documents = []
                     for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsBookSchema.length; i++) {
                         docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).array.docsBookSchema[i]
-                        docsSchemaDocument.edited = undefined
+                        docsSchemaDocument.updated = undefined
                         docsSchemaDocument.created = undefined
 
                         if (docsSchemaDocument.deleted === true) {

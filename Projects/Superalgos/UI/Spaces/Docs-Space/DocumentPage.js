@@ -137,6 +137,24 @@ function newSuperalgosDocsDocumentPage() {
             let titleLabel = thisObject.docsSchemaDocument.type
             HTML = HTML + '<div id="docs-main-title-div" class="docs-title-table"><div class="docs-table-cell"><h2 class="docs-h2" id="' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type.toLowerCase().replace(' ', '-') + '" > ' + titleLabel + '</h2></div><div id="projectImageDiv" class="docs-image-container"/></div></div>'
 
+            if (thisObject.docsSchemaDocument.deleted === true) {
+                let key = 'auto-generated-flag-paragraph'
+                let paragraph = {
+                    style: "Warning",
+                    text: "This page is flagged to be deleted. Next time you execute Docs Save Command this content will be deleted from the Client's disk. If you don't really want to delete this page, the way to avoiding it is by reloading the UI by pressing F5."
+                }
+                renderParagraph(paragraph, key)
+            } else {
+                if (thisObject.docsSchemaDocument.created === true || thisObject.docsSchemaDocument.updated === true) {
+                    let key = 'auto-generated-flag-paragraph'
+                    let paragraph = {
+                        style: "Important",
+                        text: "This page is flagged to be created / updated. Next time you execute Docs Save Command this content will be saved at the Client's disk. The changes will be applied to the Docs Search Engine Index only after you manually run the Docs Reindex Command."
+                    }
+                    renderParagraph(paragraph, key)
+                }
+            }
+
             addDefinitionTable(thisObject.docsSchemaDocument, 'definition-editable-', UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.category, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type)
 
             let editableParagraphIndex = 0
@@ -1835,7 +1853,7 @@ function newSuperalgosDocsDocumentPage() {
 
     function exitEditMode() {
         /* This will make the Client to save this in a file overwritting the previous version*/
-        thisObject.docsSchemaDocument.edited = true
+        thisObject.docsSchemaDocument.updated = true
 
         /* We will update the paragraph that was being edited*/
         let editing

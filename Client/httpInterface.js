@@ -462,9 +462,9 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     console.log('[ERROR] httpInterface -> Docs -> Save -> err.stack = ' + err.stack)
                                 }
                             } else {
-                                if (schemaDocument.edited === true || schemaDocument.created === true) {
+                                if (schemaDocument.updated === true || schemaDocument.created === true) {
                                     try {
-                                        schemaDocument.edited = undefined
+                                        schemaDocument.updated = undefined
                                         schemaDocument.created = undefined
                                         let fileContent = JSON.stringify(schemaDocument, undefined, 4)
                                         fs.writeFileSync(filePath + '/' + fileName, fileContent)

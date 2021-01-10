@@ -446,7 +446,6 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
                         for (let i = 0; i < docsSchema.length; i++) {
                             let schemaDocument = docsSchema[i]
-                            let fileContent = JSON.stringify(schemaDocument, undefined, 4)
                             let fileName = schemaDocument.type.toLowerCase()
                             for (let j = 0; j < 10; j++) {
                                 fileName = cleanFileName(fileName)
@@ -465,6 +464,9 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             } else {
                                 if (schemaDocument.edited === true || schemaDocument.created === true) {
                                     try {
+                                        schemaDocument.edited = undefined
+                                        schemaDocument.created = undefined
+                                        let fileContent = JSON.stringify(schemaDocument, undefined, 4)
                                         fs.writeFileSync(filePath + '/' + fileName, fileContent)
                                         console.log('[SUCCESS] ' + filePath + '/' + fileName + '  updated.')
                                     } catch (err) {

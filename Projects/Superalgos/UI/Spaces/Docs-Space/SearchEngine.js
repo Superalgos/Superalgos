@@ -17,6 +17,7 @@ function newSuperalgosDocsSearchEngine() {
     }
 
     function setUpSearchEngine() {
+        UI.projects.superalgos.utilities.creditsPage.changeStatus("Setting up Docs Search Engine...")
         thisObject.docsIndex = []
 
         for (let j = 0; j < PROJECTS_ARRAY.length; j++) {

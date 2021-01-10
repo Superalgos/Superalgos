@@ -64,6 +64,8 @@ function newWorkspace() {
 
     function initialize() {
         try {
+            UI.projects.superalgos.utilities.creditsPage.changeStatus("Initializing...")
+
             /* Set up the action switches map */
             for (let i = 0; i < PROJECTS_ARRAY.length; i++) {
                 let project = PROJECTS_ARRAY[i]
@@ -75,6 +77,9 @@ function newWorkspace() {
             let lastUsedWorkspace = window.localStorage.getItem('Last Used Workspace')
 
             if (lastUsedWorkspace !== 'undefined' && lastUsedWorkspace !== null && lastUsedWorkspace !== undefined) {
+
+                UI.projects.superalgos.utilities.creditsPage.changeStatus("Loading Workspace " + lastUsedWorkspace + "...")
+
                 httpRequest(undefined, 'LoadMyWorkspace' + '/' + lastUsedWorkspace, onFileReceived)
                 function onFileReceived(err, text, response) {
                     if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
@@ -95,10 +100,12 @@ function newWorkspace() {
             }
 
             function recreateWorkspace() {
+                UI.projects.superalgos.utilities.creditsPage.changeStatus("Connecting all the workspace nodes...")
                 executeAction({ node: thisObject.workspaceNode, name: 'Recreate Workspace', project: 'Superalgos', callBackFunction: finishInitialization })
             }
 
             function finishInitialization() {
+                UI.projects.superalgos.utilities.creditsPage.changeStatus("Setting up websockets connections...")
                 setupEventsServerClients()
                 runTasksAndSessions()
                 thisObject.enabled = true
@@ -106,6 +113,7 @@ function newWorkspace() {
                 CAN_SPACES_DRAW = true
                 savingWorkspaceIntervalId = setInterval(saveWorkspace, 60000)
                 thisObject.isInitialized = true
+                UI.projects.superalgos.utilities.creditsPage.changeStatus("Displaying the UI...")
             }
         } catch (err) {
             if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }

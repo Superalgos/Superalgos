@@ -48,6 +48,8 @@ function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
         addPluginNodes()
 
         function addPluginNodes(pluginNames) {
+            //UI.projects.superalgos.utilities.creditsPage.changeStatus("Adding Plugins...")
+
             let blobService = newFileStorage()
             let totalPlugin = 0
             let totalRead = 0
@@ -144,12 +146,15 @@ function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
             /* Create the workspace UI OBject and then continue with the root nodes. */
             createUiObject(false, 'Workspace', node.name, node, undefined, undefined, 'Workspace')
             if (node.rootNodes !== undefined) {
+                UI.projects.superalgos.utilities.creditsPage.changeStatus("Setting up Rootnodes...")
                 for (let i = 0; i < node.rootNodes.length; i++) {
                     let rootNode = node.rootNodes[i]
+                    UI.projects.superalgos.utilities.creditsPage.changeStatus("Connecting children nodes from " + rootNode.type.name + " - " + rootNode.type + "...")
                     createUiObjectFromNode(rootNode, undefined, undefined)
                 }
             }
 
+            UI.projects.superalgos.utilities.creditsPage.changeStatus("Setting up references...")
             tryToConnectChildrenWithReferenceParents()
 
             if (callBackFunction !== undefined) {
@@ -341,7 +346,7 @@ function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
             project: project
         }
 
-        let parentSchemaDocument 
+        let parentSchemaDocument
         /* Resolve Initial Values */
         let schemaDocument = getSchemaDocument(object, project)
 

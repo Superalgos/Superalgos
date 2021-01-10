@@ -269,7 +269,7 @@ function newSuperalgosTutorialSpace() {
                     /*
                     This forces the tutorial to close the documentation panel and to keep it closed.
                     */
-                    UI.projects.superalgos.spaces.docsSpace.sidePanelTab.open() // TODO
+                    UI.projects.superalgos.spaces.docsSpace.sidePanelTab.close() 
                     // UI.projects.superalgos.spaces.docsSpace.sidePanelTab.close()
                     return
                 }
@@ -306,7 +306,7 @@ function newSuperalgosTutorialSpace() {
                 This forces the tutorial to open the workspaces panel and to keep it closed.
                 */
                 if (workspacesCounter === 5) {
-                    UI.projects.superalgos.spaces.sideSpace.sidePanelTab.close() // TODO .open()
+                    UI.projects.superalgos.spaces.sideSpace.sidePanelTab.open()
                 }
                 return
             }
@@ -329,7 +329,7 @@ function newSuperalgosTutorialSpace() {
                         /*
                         This forces the tutorial to close the charting space and to keep it closed.
                         */
-                        UI.projects.superalgos.spaces.cockpitSpace.toTop() // TODO .toTop()
+                        UI.projects.superalgos.spaces.cockpitSpace.toTop()
                         return
                     }
                     case "toMiddle": {
@@ -337,14 +337,14 @@ function newSuperalgosTutorialSpace() {
                         This forces the tutorial to share the screen half with the designer and half 
                         with the charting space and force it in that way.
                         */
-                        UI.projects.superalgos.spaces.cockpitSpace.toTop() // TODO toMiddle()
+                        UI.projects.superalgos.spaces.cockpitSpace.toMiddle()
                         return
                     }
                     case "toBottom": {
                         /*
                         This forces the tutorial to fully open the charting space and to keep it open.
                         */
-                        UI.projects.superalgos.spaces.cockpitSpace.toTop() // TODO
+                        UI.projects.superalgos.spaces.cockpitSpace.toBottom() 
                         return
                     }
                 }
@@ -662,7 +662,6 @@ function newSuperalgosTutorialSpace() {
                 return
             }
 
-            nodeConfig.position = 'Left' // TODO
             switch (nodeConfig.position) {
                 case 'Left': {
                     tutorialPosition = {

@@ -171,15 +171,19 @@ function newSuperalgosDocsDocumentPage() {
 
                 HTML = HTML = HTML + '<div class="docs-topic-index">' // Container for Topic Navigation including buttons, title and index
 
-                /* Topic Title */
+                /* Topic Title 
+
                 titleLabel = thisObject.docsSchemaDocument.topic + ' Topic Navigation'
                 HTML = HTML + '<div id="docs-main-title-div" class="docs-title-table"><div class="docs-table-cell"><h2 class="docs-h2" id="' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type.toLowerCase().replace(' ', '-') + '" > ' + titleLabel + '</h2></div><div id="projectImageDiv" class="docs-image-container"/></div></div>'
 
+                */
                 generateTopicPreviousAndNextPageNavigation()
 
                 /* TOC*/
 
-                HTML = HTML + '<h3 class="docs-h3"> Table of Contents</h3>'
+                HTML = HTML + '<h3 class="docs-h3">' + thisObject.docsSchemaDocument.topic + ' Table of Contents</h3>'
+
+                HTML = HTML + '<p style="margin-bottom: 15px;">You just read page <strong>' + thisObject.docsSchemaDocument.pageNumber + '</strong> in the series.</p>'
 
                 generateTopicMultiPageIndex()
 
@@ -307,15 +311,13 @@ function newSuperalgosDocsDocumentPage() {
                         previousPage = orderedTopicPageIndexArray[i - 1]
                         nextPage = orderedTopicPageIndexArray[i + 1]
 
-                        HTML = HTML + '<p>You just read page <strong>' + thisObject.docsSchemaDocument.pageNumber + '</strong> in the series. Click the buttons below for the previous and next pages...</p>'
-
                         HTML = HTML + '<div class="docs-topic-navigation"><div>'
                         if (previousPage !== undefined) {
-                            HTML = HTML + '<span" onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project + '\', \'' + 'Topic' + '\', \'' + previousPage.type.replace(/'/g, 'AMPERSAND') + '\')"><button>' + previousPage.type + '</button></span><br/>&#8592;'
+                            HTML = HTML + '<span" onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project + '\', \'' + 'Topic' + '\', \'' + previousPage.type.replace(/'/g, 'AMPERSAND') + '\')"><button> &#8592; Previous </button></span><br/>'+ previousPage.type
                         }
                         HTML = HTML + '</div><div>'
                         if (nextPage !== undefined) {
-                            HTML = HTML + '<span" onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project + '\', \'' + 'Topic' + '\', \'' + nextPage.type.replace(/'/g, 'AMPERSAND') + '\')"><button>' + nextPage.type + '</button></span><br/>&#8594;'
+                            HTML = HTML + '<span" onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project + '\', \'' + 'Topic' + '\', \'' + nextPage.type.replace(/'/g, 'AMPERSAND') + '\')"><button> Next &#8594;</button></span><br/>' + nextPage.type
                         }
                         HTML = HTML + '</div></div>'
                         return

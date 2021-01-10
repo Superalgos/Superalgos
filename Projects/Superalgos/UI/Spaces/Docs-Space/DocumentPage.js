@@ -169,7 +169,7 @@ function newSuperalgosDocsDocumentPage() {
 
                 buildOrderedTopicPageIndex(thisObject.docsSchemaDocument.topic)
 
-                HTML = HTML = HTML + '<div class="docs-topic-index">' // Container for Topic Navigation including buttons, title and index
+                
 
                 /* Topic Title 
 
@@ -179,7 +179,7 @@ function newSuperalgosDocsDocumentPage() {
                 */
                 generateTopicPreviousAndNextPageNavigation()
 
-                /* TOC*/
+                HTML = HTML = HTML + '<div class="docs-topic-index">' // Container for Topic Navigation including buttons, title and index
 
                 HTML = HTML + '<h3 class="docs-h3">' + thisObject.docsSchemaDocument.topic + ' Table of Contents</h3>'
 

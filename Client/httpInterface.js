@@ -313,7 +313,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     let project = requestParameters[3]
                                     let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Nodes'
 
-                                    checkAllSchmemaDocuments(docsSchema, filePath, fileName)
+                                    checkAllSchmemaDocuments(docsSchema, filePath)
                                     respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
 
                                 } catch (err) {
@@ -340,7 +340,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     let project = requestParameters[3]
                                     let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Concepts'
 
-                                    checkAllSchmemaDocuments(docsSchema, filePath, fileName)
+                                    checkAllSchmemaDocuments(docsSchema, filePath)
                                     respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
 
                                 } catch (err) {
@@ -367,7 +367,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     let project = requestParameters[3]
                                     let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Topics'
 
-                                    checkAllSchmemaDocuments(docsSchema, filePath, fileName)
+                                    checkAllSchmemaDocuments(docsSchema, filePath)
                                     respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
 
                                 } catch (err) {
@@ -394,7 +394,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     let project = requestParameters[3]
                                     let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Tutorials'
 
-                                    checkAllSchmemaDocuments(docsSchema, filePath, fileName)
+                                    checkAllSchmemaDocuments(docsSchema, filePath)
                                     respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
 
                                 } catch (err) {
@@ -421,7 +421,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     let project = requestParameters[3]
                                     let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Books'
 
-                                    checkAllSchmemaDocuments(docsSchema, filePath, fileName)
+                                    checkAllSchmemaDocuments(docsSchema, filePath)
                                     respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
 
                                 } catch (err) {
@@ -441,7 +441,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                         }
                     }
 
-                    function checkAllSchmemaDocuments(docsSchema, filePath, fileName) {
+                    function checkAllSchmemaDocuments(docsSchema, filePath) {
                         const fs = require('fs')
 
                         for (let i = 0; i < docsSchema.length; i++) {

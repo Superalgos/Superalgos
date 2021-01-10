@@ -53,7 +53,6 @@ function newSuperalgosTutorialSpace() {
     let newImageProject = 'Never Set'
     let currentConfig
     let newConfig
-    let currentDocumentationURL
     let resumeModeActivated // In this mode, we skip all the node which status is 'Done'
     let lastExecutedAction = ''
     let actionCounter = 0
@@ -256,29 +255,44 @@ function newSuperalgosTutorialSpace() {
         function checkDocumentation() {
             if (currentNode === undefined) { return }
             let config = JSON.parse(currentNode.config)
-            let newDocumentationURL = config.documentationURL
+
             documentationCounter++
             if (documentationCounter === 10) {
-                if (newDocumentationURL === undefined) {
+
+                /* Deprecated Property Documentation URL */
+                if (config.documentationURL !== undefined && config.documentationURL !== "") {
+                    console.log('Trying to navigate to: ' + config.documentationURL + ' at ' + config.docs.type)
+                }
+
+                if (config.showDocsPage === undefined) {
                     /*
                     The doc panel will remain as it is, and the user will be free to open or close it at will.
                     */
                     return
                 }
-                if (newDocumentationURL === "") {
+                if (showDocsPage.panel === "Open") {
                     /*
-                    This forces the tutorial to close the documentation panel and to keep it closed.
+                    This forces the tutorial to open the documentation panel.
                     */
-                    UI.projects.superalgos.spaces.docsSpace.sidePanelTab.close() 
-                    // UI.projects.superalgos.spaces.docsSpace.sidePanelTab.close()
-                    return
+                    UI.projects.superalgos.spaces.docsSpace.sidePanelTab.open()
                 }
-                UI.projects.superalgos.spaces.docsSpace.sidePanelTab.open()
-                if (newDocumentationURL === currentDocumentationURL) { return }
-
-                currentDocumentationURL = newDocumentationURL
-                console.log('Trying to navigate to: ' + currentDocumentationURL + ' at ' + config.docs.type)
-                // TODO UI.projects.superalgos.spaces.docsSpace.openSpaceAreaAndNavigateTo('Superalgos', 'Node', currentDocumentationURL)
+                if (showDocsPage.panel === "Close") {
+                    /*
+                    This forces the tutorial to close the documentation panel.
+                    */
+                    UI.projects.superalgos.spaces.docsSpace.sidePanelTab.close()
+                }
+                if (
+                    showDocsPage.page !== undefined &&
+                    showDocsPage.page.project !== undefined &&
+                    showDocsPage.page.category !== undefined &&
+                    showDocsPage.page.type !== undefined
+                ) {
+                    /*
+                    This produces the Docs to laod the specified page.
+                    */
+                    UI.projects.superalgos.spaces.docsSpace.openSpaceAreaAndNavigateTo(showDocsPage.page.project, showDocsPage.page.category, showDocsPage.page.type)
+                }
             }
         }
 
@@ -344,7 +358,7 @@ function newSuperalgosTutorialSpace() {
                         /*
                         This forces the tutorial to fully open the charting space and to keep it open.
                         */
-                        UI.projects.superalgos.spaces.cockpitSpace.toBottom() 
+                        UI.projects.superalgos.spaces.cockpitSpace.toBottom()
                         return
                     }
                 }
@@ -800,7 +814,7 @@ function newSuperalgosTutorialSpace() {
         }
 
         function resetDocumentation() {
-            currentDocumentationURL = ''
+            currentDocumentationPage = ''
             documentationCounter = 0
         }
 
@@ -1124,6 +1138,8 @@ function newSuperalgosTutorialSpace() {
 
         transformDocsInfoIntoTutorialInfo()
         createTheHTML()
+
+        UI.projects.superalgos.spaces.docsSpace.navigateTo(nodeConfig.docs.project, 'Tutorial', nodeConfig.docs.type)
 
         function transformDocsInfoIntoTutorialInfo() {
             if (schemaDocument === undefined) {

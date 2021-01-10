@@ -48,7 +48,7 @@ function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
         addPluginNodes()
 
         function addPluginNodes(pluginNames) {
-            //UI.projects.superalgos.utilities.creditsPage.changeStatus("Adding Plugins...")
+            UI.projects.superalgos.utilities.creditsPage.changeStatus("Loading Plugins...")
 
             let blobService = newFileStorage()
             let totalPlugin = 0
@@ -147,18 +147,32 @@ function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
             createUiObject(false, 'Workspace', node.name, node, undefined, undefined, 'Workspace')
             if (node.rootNodes !== undefined) {
                 UI.projects.superalgos.utilities.creditsPage.changeStatus("Setting up Rootnodes...")
-                for (let i = 0; i < node.rootNodes.length; i++) {
+                let i = -1
+                controlLoop()
+
+                function loopBody() {
                     let rootNode = node.rootNodes[i]
-                    UI.projects.superalgos.utilities.creditsPage.changeStatus("Connecting children nodes from " + rootNode.type.name + " - " + rootNode.type + "...")
+                    UI.projects.superalgos.utilities.creditsPage.changeStatus("Connecting children nodes from " + rootNode.name + " - " + rootNode.type + "...")
                     createUiObjectFromNode(rootNode, undefined, undefined)
+                    controlLoop()
+                }
+
+                function controlLoop() {
+                    i++
+                    if (i < node.rootNodes.length) {
+                        setTimeout(loopBody, 0) 
+                    } else {
+                        endLoop()
+                    }
                 }
             }
+            function endLoop() {
+                UI.projects.superalgos.utilities.creditsPage.changeStatus("Setting up references...")
+                tryToConnectChildrenWithReferenceParents()
 
-            UI.projects.superalgos.utilities.creditsPage.changeStatus("Setting up references...")
-            tryToConnectChildrenWithReferenceParents()
-
-            if (callBackFunction !== undefined) {
-                callBackFunction() // The recreation of the workspace is complete
+                if (callBackFunction !== undefined) {
+                    callBackFunction() // The recreation of the workspace is complete
+                }
             }
         }
     }

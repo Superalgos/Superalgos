@@ -919,15 +919,26 @@ color: #31708f;
 }
 
 .docs-hidden-anchor {
-color: #b90d6c;
-background-color: #ee6db4;
-border-color: #830452;
-padding: 15px;
-border: 1px solid transparent;
-border-radius: 4px;
-margin: 20px 0;
-width: 100%;
-}
+  border-top: 1px solid #eee;
+  padding: 0px;
+  margin: -15px 0px -30px 0;
+  width: 100%;
+  text-align: right;
+  color: transparent;
+  font-size: 75%;
+  }
+  
+  .docs-hidden-anchor::after{
+  content:' \2693';
+  color: transparent;
+  font-size: 150%;
+  }
+  
+  .docs-hidden-anchor:hover::after{
+  content:' \2693';
+  color: #365558;
+  font-size: 150%;
+  }
 
 .docs-hidden-block {
 border-top: 1px solid #eee;
@@ -937,20 +948,19 @@ width: 100%;
 text-align: right;
 color: transparent;
 font-size: 75%;
-
 }
 
 .docs-hidden-block::after{
-  content:' \25BD';
-  color: #e0e0e0;
-  font-size: 150%;
-  }
+content:' \25BD';
+color: #e0e0e0;
+font-size: 150%;
+}
 
-  .docs-hidden-block:hover::after{
-    content:' \25BC';
-    color: #365558;
-    font-size: 150%;
-    }
+.docs-hidden-block:hover::after{
+content:' \25BC';
+color: #365558;
+font-size: 150%;
+}
 
 .docs-hidden-include {
   border-top: 1px solid #eee;

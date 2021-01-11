@@ -293,7 +293,7 @@ function newSuperalgosTutorialSpace() {
                     /*
                     This produces the Docs to laod the specified page.
                     */
-                    UI.projects.superalgos.spaces.docsSpace.openSpaceAreaAndNavigateTo(config.controlDocs.page.project, config.controlDocs.page.category, config.controlDocs.page.type)
+                    UI.projects.superalgos.spaces.docsSpace.openSpaceAreaAndNavigateTo(config.controlDocs.page.project, config.controlDocs.page.category, config.controlDocs.page.type, config.controlDocs.page.anchor)
                 }
             }
         }

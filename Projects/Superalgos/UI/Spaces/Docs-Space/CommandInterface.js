@@ -544,28 +544,22 @@ function newSuperalgosDocsCommmandInterface() {
                 return
             }
 
-            let docsSchema
-            switch (category) {
-                case 'Topic': {
-                    docsSchema = SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema
-                    break
-                }
-                case 'Tutorial': {
-                    docsSchema = SCHEMAS_BY_PROJECT.get(project).array.docsTutorialSchema
-                    break
-                }
-            }
+            let orderedArray = UI.projects.superalgos.utilities.docs.buildOrderedPageIndex(
+                project,
+                category,
+                query
+            )
 
             let pageNumber = 1
-            for (let i = 0; i < docsSchema.length; i++) {
-                schemaDocument = docsSchema[i]
+            for (let i = 0; i < orderedArray.length; i++) {
+                schemaDocument = orderedArray[i]
                 switch (category) {
                     case 'Topic': {
                         if (schemaDocument.topic === query) {
                             schemaDocument.pageNumber = pageNumber
                             pageNumber++
                             schemaDocument.updated = true
-                        } 
+                        }
                         break
                     }
                     case 'Tutorial': {
@@ -573,7 +567,7 @@ function newSuperalgosDocsCommmandInterface() {
                             schemaDocument.pageNumber = pageNumber
                             pageNumber++
                             schemaDocument.updated = true
-                        } 
+                        }
                         break
                     }
                 }

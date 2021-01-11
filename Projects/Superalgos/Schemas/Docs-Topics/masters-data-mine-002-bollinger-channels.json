@@ -1,6 +1,6 @@
 {
-    "topic": "Masters",
-    "pageNumber": "2",
+    "topic": "Masters Data Mine",
+    "pageNumber": 2,
     "type": "Bollinger Channels",
     "definition": {
         "text": "The indicator produces the Bollinger Channels and Bollinger Subchannels products.",

@@ -1,6 +1,6 @@
 {
     "topic": "Docs Commands Errors",
-    "pageNumber": "12",
+    "pageNumber": 12,
     "type": "Docs Error Page Already Exists",
     "definition": {
         "text": "The page you are trying to add already exists at Docs.",

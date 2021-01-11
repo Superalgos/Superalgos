@@ -1,6 +1,6 @@
 {
     "topic": "Docs Commands Errors",
-    "pageNumber": "3",
+    "pageNumber": 3,
     "type": "Docs Error Project Does Not Exist",
     "definition": {
         "text": "While executing a command, you might receive different types of error messanges. These are described below. ",
@@ -37,6 +37,10 @@
         {
             "style": "List",
             "text": "Docs Delete Command"
+        },
+        {
+            "style": "List",
+            "text": "Docs Repaginate Command"
         }
     ]
 }

@@ -1,6 +1,6 @@
 {
     "topic": "Docs Commands Errors",
-    "pageNumber": "5",
+    "pageNumber": 5,
     "type": "Docs Error Page Not Found",
     "definition": {
         "text": "While executing a command, you might receive different types of error messanges. These are described below. ",

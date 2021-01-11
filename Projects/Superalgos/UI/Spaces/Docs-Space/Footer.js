@@ -63,7 +63,7 @@ function newSuperalgosDocsFooter() {
         HTML = HTML + '<strong>1. </strong>Switch to your language.<br/>'
         HTML = HTML + '<strong>2. </strong>Edit any English content (title, paragraph, etc.) with your translation.<br/>'
         HTML = HTML + '<strong>3. </strong>Save changes typing <code class="docs-code">docs.save</code> in the search/command box.<br/>'
-        HTML = HTML + '<strong>4. </strong>Update your fork and submit a PR.<br/>'
+        HTML = HTML + '<strong>4. </strong>Type <code class="docs-code">app.contribute</code> to update your fork and submit a PR.<br/>'
         HTML = HTML + '</ol>'
         HTML = HTML + '</div>'
         HTML = HTML + '</div>'

@@ -1,5 +1,6 @@
 function newSuperalgosUtilitiesDocs() {
     thisObject = {
+        buildOrderedPageIndex: buildOrderedPageIndex,
         addWarningIfTranslationIsOutdated: addWarningIfTranslationIsOutdated,
         getTextBasedOnLanguage: getTextBasedOnLanguage,
         setTextBasedOnLanguage: setTextBasedOnLanguage,
@@ -25,6 +26,57 @@ function newSuperalgosUtilitiesDocs() {
     const TAGGING_STRING_SEPARATOR = '~>'
 
     return thisObject
+
+    function buildOrderedPageIndex(project, category, query) {
+        let array = []
+        let schemaArray
+
+        switch (category) {
+            case 'Topic': {
+                schemaArray = SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema
+                break
+            }
+            case 'Tutorial': {
+                schemaArray = SCHEMAS_BY_PROJECT.get(project).array.docsTutorialSchema
+                break
+            }
+        }
+
+        for (let i = 0; i < schemaArray.length; i++) {
+            let arrayItem = schemaArray[i]
+
+            switch (category) {
+                case 'Topic': {
+                    if (arrayItem.topic !== query) { continue }
+                    break
+                }
+                case 'Tutorial': {
+                    if (arrayItem.tutorial !== query) { continue }
+                    break
+                }
+            }
+
+            let itemAdded = false
+            if (array.length === 0) {
+                array.push(arrayItem)
+                itemAdded = true
+            } else {
+                for (let j = 0; j < array.length; j++) {
+                    let orderedArrayItem = array[j]
+                    if (Number(arrayItem.pageNumber) < Number(orderedArrayItem.pageNumber)) {
+                        array.splice(j, 0, arrayItem)
+                        itemAdded = true
+                        break
+                    }
+                }
+            }
+            if (itemAdded === false) {
+                array.push(arrayItem)
+            }
+
+        }
+        return array
+    }
 
     function addWarningIfTranslationIsOutdated(paragraph) {
         if (paragraph === undefined) { return '' }
@@ -534,294 +586,69 @@ function newSuperalgosUtilitiesDocs() {
 
     /* Private Functions follow */
     function tagDefinedTypes(text, excludedType) {
+        const MAX_NUMBER_OF_WORDS = 10
         let cleanText = text.replace(/'/g, ' AMPERSAND ') // scaping ampersands, separating them from other words
             .replaceAll('<', ' < ')
             .replaceAll('>', ' > ')
             .replaceAll(':', ' : ')
+            .replaceAll(',', ' , ')
+            .replaceAll('.', ' . ')
         let words = cleanText.split(' ')
         let taggedText = ''
         for (let i = 0; i < words.length; i++) {
-            let phrase1 = words[i]
-            let phrase2 = words[i] + ' ' + words[i + 1]
-            let phrase3 = words[i] + ' ' + words[i + 1] + ' ' + words[i + 2]
-            let phrase4 = words[i] + ' ' + words[i + 1] + ' ' + words[i + 2] + ' ' + words[i + 3]
-            let phrase5 = words[i] + ' ' + words[i + 1] + ' ' + words[i + 2] + ' ' + words[i + 3] + ' ' + words[i + 4]
 
-            let cleanPhrase1 = cleanPhrase(phrase1)
-            let cleanPhrase2 = cleanPhrase(phrase2)
-            let cleanPhrase3 = cleanPhrase(phrase3)
-            let cleanPhrase4 = cleanPhrase(phrase4)
-            let cleanPhrase5 = cleanPhrase(phrase5)
+            let phrases = []
+            let cleanPhrases = []
+            let phrase = ''
+
+            for (let j = 0; j < MAX_NUMBER_OF_WORDS; j++) {
+                phrase = phrase + ' ' + words[i + j]
+                phrase = phrase.trim()
+                phrases.push(phrase)
+                cleanPhrases.push(cleanPhrase(phrase))
+            }
 
             let found = false
 
-            for (let j = 0; j < PROJECTS_ARRAY.length; j++) {
-                let project = PROJECTS_ARRAY[j]
+            for (let j = MAX_NUMBER_OF_WORDS - 1; j >= 0; j--) {
+                for (let p = 0; p < PROJECTS_ARRAY.length; p++) {
+                    let project = PROJECTS_ARRAY[p]
 
-                /* Search in docsNodeSchema */
-                if (SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(cleanPhrase5) !== undefined) {
-                    if (cleanPhrase5 !== excludedType) {
-                        taggedText = taggedText + phrase5.replace(cleanPhrase5, TAGGING_STRING_SEPARATOR + 'Node' + '|' + cleanPhrase5 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
-                    } else {
-                        taggedText = taggedText + phrase5 + ' '
-                    }
-                    i = i + 4
-                    found = true
-                    break
-                }
-                if (SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(cleanPhrase4) !== undefined) {
-                    if (cleanPhrase4 !== excludedType) {
-                        taggedText = taggedText + phrase4.replace(cleanPhrase4, TAGGING_STRING_SEPARATOR + 'Node' + '|' + cleanPhrase4 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
-                    } else {
-                        taggedText = taggedText + phrase4 + ' '
-                    }
-                    i = i + 3
-                    found = true
-                    break
-                }
-                if (SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(cleanPhrase3) !== undefined) {
-                    if (cleanPhrase3 !== excludedType) {
-                        taggedText = taggedText + phrase3.replace(cleanPhrase3, TAGGING_STRING_SEPARATOR + 'Node' + '|' + cleanPhrase3 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
-                    } else {
-                        taggedText = taggedText + phrase3 + ' '
-                    }
-                    i = i + 2
-                    found = true
-                    break
-                }
-                if (SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(cleanPhrase2) !== undefined) {
-                    if (cleanPhrase2 !== excludedType) {
-                        taggedText = taggedText + phrase2.replace(cleanPhrase2, TAGGING_STRING_SEPARATOR + 'Node' + '|' + cleanPhrase2 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
-                    } else {
-                        taggedText = taggedText + phrase2 + ' '
-                    }
-                    i = i + 1
-                    found = true
-                    break
-                }
-                if (SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(cleanPhrase1) !== undefined) {
-                    if (cleanPhrase1 !== excludedType) {
-                        taggedText = taggedText + phrase1.replace(cleanPhrase1, TAGGING_STRING_SEPARATOR + 'Node' + '|' + cleanPhrase1 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
-                    } else {
-                        taggedText = taggedText + phrase1 + ' '
-                    }
-                    found = true
-                    break
-                }
+                    searchInSchema(SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema)
+                    searchInSchema(SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema)
+                    searchInSchema(SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema)
+                    searchInSchema(SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema)
+                    searchInSchema(SCHEMAS_BY_PROJECT.get(project).map.docsBookSchema)
 
-                /* Search in docsConceptSchema */
-                if (SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.get(cleanPhrase5) !== undefined) {
-                    if (cleanPhrase5 !== excludedType) {
-                        taggedText = taggedText + phrase5.replace(cleanPhrase5, TAGGING_STRING_SEPARATOR + 'Concept' + '|' + cleanPhrase5 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
-                    } else {
-                        taggedText = taggedText + phrase5 + ' '
-                    }
-                    i = i + 4
-                    found = true
-                    break
-                }
-                if (SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.get(cleanPhrase4) !== undefined) {
-                    if (cleanPhrase4 !== excludedType) {
-                        taggedText = taggedText + phrase4.replace(cleanPhrase4, TAGGING_STRING_SEPARATOR + 'Concept' + '|' + cleanPhrase4 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
-                    } else {
-                        taggedText = taggedText + phrase4 + ' '
-                    }
-                    i = i + 3
-                    found = true
-                    break
-                }
-                if (SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.get(cleanPhrase3) !== undefined) {
-                    if (cleanPhrase3 !== excludedType) {
-                        taggedText = taggedText + phrase3.replace(cleanPhrase3, TAGGING_STRING_SEPARATOR + 'Concept' + '|' + cleanPhrase3 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
-                    } else {
-                        taggedText = taggedText + phrase3 + ' '
-                    }
-                    i = i + 2
-                    found = true
-                    break
-                }
-                if (SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.get(cleanPhrase2) !== undefined) {
-                    if (cleanPhrase2 !== excludedType) {
-                        taggedText = taggedText + phrase2.replace(cleanPhrase2, TAGGING_STRING_SEPARATOR + 'Concept' + '|' + cleanPhrase2 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
-                    } else {
-                        taggedText = taggedText + phrase2 + ' '
-                    }
-                    i = i + 1
-                    found = true
-                    break
-                }
-                if (SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.get(cleanPhrase1) !== undefined) {
-                    if (cleanPhrase1 !== excludedType) {
-                        taggedText = taggedText + phrase1.replace(cleanPhrase1, TAGGING_STRING_SEPARATOR + 'Concept' + '|' + cleanPhrase1 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
-                    } else {
-                        taggedText = taggedText + phrase1 + ' '
-                    }
-                    found = true
-                    break
-                }
+                    function searchInSchema(docSchema) {
+                        if (found === true) { return }
 
-                /* Search in docsTopicSchema */
-                if (SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.get(cleanPhrase5) !== undefined) {
-                    if (cleanPhrase5 !== excludedType) {
-                        taggedText = taggedText + phrase5.replace(cleanPhrase5, TAGGING_STRING_SEPARATOR + 'Topic' + '|' + cleanPhrase5 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
-                    } else {
-                        taggedText = taggedText + phrase5 + ' '
+                        if (docSchema.get(cleanPhrases[j]) !== undefined) {
+                            if (cleanPhrases[j] !== excludedType) {
+                                taggedText = taggedText + phrases[j].replace(
+                                    cleanPhrases[j],
+                                    TAGGING_STRING_SEPARATOR + 'Node' + '|' + cleanPhrases[j] + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
+                            } else {
+                                taggedText = taggedText + phrases[j] + ' '
+                            }
+                            i = i + j
+                            found = true
+                            return
+                        }
                     }
-                    i = i + 4
-                    found = true
-                    break
-                }
-                if (SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.get(cleanPhrase4) !== undefined) {
-                    if (cleanPhrase4 !== excludedType) {
-                        taggedText = taggedText + phrase4.replace(cleanPhrase4, TAGGING_STRING_SEPARATOR + 'Topic' + '|' + cleanPhrase4 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
-                    } else {
-                        taggedText = taggedText + phrase4 + ' '
-                    }
-                    i = i + 3
-                    found = true
-                    break
-                }
-                if (SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.get(cleanPhrase3) !== undefined) {
-                    if (cleanPhrase3 !== excludedType) {
-                        taggedText = taggedText + phrase3.replace(cleanPhrase3, TAGGING_STRING_SEPARATOR + 'Topic' + '|' + cleanPhrase3 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
-                    } else {
-                        taggedText = taggedText + phrase3 + ' '
-                    }
-                    i = i + 2
-                    found = true
-                    break
-                }
-                if (SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.get(cleanPhrase2) !== undefined) {
-                    if (cleanPhrase2 !== excludedType) {
-                        taggedText = taggedText + phrase2.replace(cleanPhrase2, TAGGING_STRING_SEPARATOR + 'Topic' + '|' + cleanPhrase2 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
-                    } else {
-                        taggedText = taggedText + phrase2 + ' '
-                    }
-                    i = i + 1
-                    found = true
-                    break
-                }
-                if (SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.get(cleanPhrase1) !== undefined) {
-                    if (cleanPhrase1 !== excludedType) {
-                        taggedText = taggedText + phrase1.replace(cleanPhrase1, TAGGING_STRING_SEPARATOR + 'Topic' + '|' + cleanPhrase1 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
-                    } else {
-                        taggedText = taggedText + phrase1 + ' '
-                    }
-                    found = true
-                    break
-                }
-
-                /* Search in docsTutorialSchema */
-                if (SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema.get(cleanPhrase5) !== undefined) {
-                    if (cleanPhrase5 !== excludedType) {
-                        taggedText = taggedText + phrase5.replace(cleanPhrase5, TAGGING_STRING_SEPARATOR + 'Tutorial' + '|' + cleanPhrase5 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
-                    } else {
-                        taggedText = taggedText + phrase5 + ' '
-                    }
-                    i = i + 4
-                    found = true
-                    break
-                }
-                if (SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema.get(cleanPhrase4) !== undefined) {
-                    if (cleanPhrase4 !== excludedType) {
-                        taggedText = taggedText + phrase4.replace(cleanPhrase4, TAGGING_STRING_SEPARATOR + 'Tutorial' + '|' + cleanPhrase4 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
-                    } else {
-                        taggedText = taggedText + phrase4 + ' '
-                    }
-                    i = i + 3
-                    found = true
-                    break
-                }
-                if (SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema.get(cleanPhrase3) !== undefined) {
-                    if (cleanPhrase3 !== excludedType) {
-                        taggedText = taggedText + phrase3.replace(cleanPhrase3, TAGGING_STRING_SEPARATOR + 'Tutorial' + '|' + cleanPhrase3 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
-                    } else {
-                        taggedText = taggedText + phrase3 + ' '
-                    }
-                    i = i + 2
-                    found = true
-                    break
-                }
-                if (SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema.get(cleanPhrase2) !== undefined) {
-                    if (cleanPhrase2 !== excludedType) {
-                        taggedText = taggedText + phrase2.replace(cleanPhrase2, TAGGING_STRING_SEPARATOR + 'Tutorial' + '|' + cleanPhrase2 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
-                    } else {
-                        taggedText = taggedText + phrase2 + ' '
-                    }
-                    i = i + 1
-                    found = true
-                    break
-                }
-                if (SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema.get(cleanPhrase1) !== undefined) {
-                    if (cleanPhrase1 !== excludedType) {
-                        taggedText = taggedText + phrase1.replace(cleanPhrase1, TAGGING_STRING_SEPARATOR + 'Tutorial' + '|' + cleanPhrase1 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
-                    } else {
-                        taggedText = taggedText + phrase1 + ' '
-                    }
-                    found = true
-                    break
-                }
-
-                /* Search in docsBookSchema */
-                if (SCHEMAS_BY_PROJECT.get(project).map.docsBookSchema.get(cleanPhrase5) !== undefined) {
-                    if (cleanPhrase5 !== excludedType) {
-                        taggedText = taggedText + phrase5.replace(cleanPhrase5, TAGGING_STRING_SEPARATOR + 'Book' + '|' + cleanPhrase5 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
-                    } else {
-                        taggedText = taggedText + phrase5 + ' '
-                    }
-                    i = i + 4
-                    found = true
-                    break
-                }
-                if (SCHEMAS_BY_PROJECT.get(project).map.docsBookSchema.get(cleanPhrase4) !== undefined) {
-                    if (cleanPhrase4 !== excludedType) {
-                        taggedText = taggedText + phrase4.replace(cleanPhrase4, TAGGING_STRING_SEPARATOR + 'Book' + '|' + cleanPhrase4 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
-                    } else {
-                        taggedText = taggedText + phrase4 + ' '
-                    }
-                    i = i + 3
-                    found = true
-                    break
-                }
-                if (SCHEMAS_BY_PROJECT.get(project).map.docsBookSchema.get(cleanPhrase3) !== undefined) {
-                    if (cleanPhrase3 !== excludedType) {
-                        taggedText = taggedText + phrase3.replace(cleanPhrase3, TAGGING_STRING_SEPARATOR + 'Book' + '|' + cleanPhrase3 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
-                    } else {
-                        taggedText = taggedText + phrase3 + ' '
-                    }
-                    i = i + 2
-                    found = true
-                    break
-                }
-                if (SCHEMAS_BY_PROJECT.get(project).map.docsBookSchema.get(cleanPhrase2) !== undefined) {
-                    if (cleanPhrase2 !== excludedType) {
-                        taggedText = taggedText + phrase2.replace(cleanPhrase2, TAGGING_STRING_SEPARATOR + 'Book' + '|' + cleanPhrase2 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
-                    } else {
-                        taggedText = taggedText + phrase2 + ' '
-                    }
-                    i = i + 1
-                    found = true
-                    break
-                }
-                if (SCHEMAS_BY_PROJECT.get(project).map.docsBookSchema.get(cleanPhrase1) !== undefined) {
-                    if (cleanPhrase1 !== excludedType) {
-                        taggedText = taggedText + phrase1.replace(cleanPhrase1, TAGGING_STRING_SEPARATOR + 'Book' + '|' + cleanPhrase1 + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
-                    } else {
-                        taggedText = taggedText + phrase1 + ' '
-                    }
-                    found = true
-                    break
                 }
             }
 
             if (found === false) {
-                taggedText = taggedText + phrase1 + ' '
+                taggedText = taggedText + phrases[0] + ' '
             }
         }
         taggedText = taggedText.replaceAll(' AMPERSAND ', '\'')
             .replaceAll(' < ', '<')
             .replaceAll(' > ', '>')
             .replaceAll(' : ', ':')
+            .replaceAll(' . ', '.')
+            .replaceAll(' , ', ',')
         return taggedText
     }
 
@@ -830,7 +657,6 @@ function newSuperalgosUtilitiesDocs() {
             .replace(';', '')
             .replace('(', '')
             .replace(')', '')
-            .replace('-', '')
             .replace('_', '')
             .replace('.', '')
             .replace('[', '')

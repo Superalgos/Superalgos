@@ -1,6 +1,6 @@
 {
     "topic": "Docs Commands Messages",
-    "pageNumber": "1",
+    "pageNumber": 1,
     "type": "Docs Message Saving Succeed",
     "definition": {
         "text": "The docs.save command you executed was successful and all changes have been saved at the Superalgos Client.",

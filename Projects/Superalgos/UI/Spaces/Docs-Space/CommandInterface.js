@@ -85,6 +85,7 @@ function newSuperalgosDocsCommmandInterface() {
         if (checkGotoCommand() === undefined) { return }
         if (checkAddCommand() === undefined) { return }
         if (checkDeleteCommand() === undefined) { return }
+        if (checkRepaginateCommand() === undefined) { return }
         if (checkUReIndexCommand() === undefined) { return }
         if (checkUSaveCommand() === undefined) { return }
 
@@ -317,6 +318,68 @@ function newSuperalgosDocsCommmandInterface() {
             }
         }
 
+        function checkRepaginateCommand() {
+            if (UI.projects.superalgos.spaces.docsSpace.commandInterface.command.toLowerCase() === 'docs.help docs.repaginate') {
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Repaginate Command')
+                return
+            }
+            if (UI.projects.superalgos.spaces.docsSpace.commandInterface.command.indexOf('Docs.Repaginate') !== 0 && UI.projects.superalgos.spaces.docsSpace.commandInterface.command.indexOf('docs.repaginate') !== 0) { return 'Not Repaginate Command' }
+
+            let splittedCommand = UI.projects.superalgos.spaces.docsSpace.commandInterface.command.split(': ')
+            if (splittedCommand[1] === undefined) {
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Missing Colon', 'Anchor Missing Colon')
+                return
+            }
+            let primaryCommand = splittedCommand[0]
+            let secondaryCommand = splittedCommand[1]
+
+            let splittedPrimaryCommand = primaryCommand.split(' ')
+
+            if (splittedPrimaryCommand[0].toLowerCase() === 'docs.repaginate') {
+                if (splittedPrimaryCommand[2] !== 'from') {
+                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Missing From', 'Anchor Missing From')
+                    return
+                }
+
+                if (splittedPrimaryCommand.length < 4) {
+                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Too Few Parameters', 'Anchor Too Few Paramenters')
+                    return
+                }
+
+                if (secondaryCommand === '') {
+                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Category Not Valid', 'Anchor Category Not Valid')
+                    return
+                }
+
+                switch (splittedPrimaryCommand[1].toLowerCase()) {
+                    case 'node': {
+                        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Category Not Valid', 'Anchor Category Not Valid')
+                        return
+                    }
+                    case 'concept': {
+                        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Category Not Valid', 'Anchor Category Not Valid')
+                        return
+                    }
+                    case 'topic': {
+                        repaginate(splittedPrimaryCommand[3], 'Topic', secondaryCommand)
+                        return
+                    }
+                    case 'tutorial': {
+                        repaginate(splittedPrimaryCommand[3], 'Tutorial', secondaryCommand)
+                        return
+                    }
+                    case 'book': {
+                        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Category Not Valid', 'Anchor Category Not Valid')
+                        return
+                    }
+                    default: {
+                        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Category Not Valid', 'Anchor Category Not Valid')
+                        return
+                    }
+                }
+            }
+        }
+
         function checkUReIndexCommand() {
             if (UI.projects.superalgos.spaces.docsSpace.commandInterface.command.toLowerCase() === 'docs.help docs.reindex') {
                 UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Reindex Command')
@@ -327,10 +390,10 @@ function newSuperalgosDocsCommmandInterface() {
             UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message Reindexing Started')
             setTimeout(startReindexingProcess, 100)
 
-            function startReindexingProcess(){
+            function startReindexingProcess() {
                 UI.projects.superalgos.spaces.docsSpace.setUpWorkspaceSchemas()
                 UI.projects.superalgos.spaces.docsSpace.searchEngine.setUpSearchEngine()
-    
+
                 UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message Reindexing Succeed')
             }
         }
@@ -473,6 +536,43 @@ function newSuperalgosDocsCommmandInterface() {
                     SCHEMAS_BY_PROJECT.get(project).array.docsBookSchema = documents
                 }
             }
+        }
+
+        function repaginate(project, category, query) {
+            if (SCHEMAS_BY_PROJECT.get(project) === undefined) {
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Project Does Not Exist', 'Anchor Project Does Not Exist')
+                return
+            }
+
+            let orderedArray = UI.projects.superalgos.utilities.docs.buildOrderedPageIndex(
+                project,
+                category,
+                query
+            )
+
+            let pageNumber = 1
+            for (let i = 0; i < orderedArray.length; i++) {
+                schemaDocument = orderedArray[i]
+                switch (category) {
+                    case 'Topic': {
+                        if (schemaDocument.topic === query) {
+                            schemaDocument.pageNumber = pageNumber
+                            pageNumber++
+                            schemaDocument.updated = true
+                        }
+                        break
+                    }
+                    case 'Tutorial': {
+                        if (schemaDocument.tutorial === query) {
+                            schemaDocument.pageNumber = pageNumber
+                            pageNumber++
+                            schemaDocument.updated = true
+                        }
+                        break
+                    }
+                }
+            }
+            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message Repagination Succeed')
         }
 
         function addNode(project, type) {

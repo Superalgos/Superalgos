@@ -1,6 +1,6 @@
 {
     "topic": "Docs Commands Errors",
-    "pageNumber": "2",
+    "pageNumber": 2,
     "type": "Docs Error Too Few Parameters",
     "definition": {
         "text": "While executing a command, you might receive different types of error messanges. These are described below. ",
@@ -39,6 +39,14 @@
         {
             "style": "List",
             "text": "Docs Delete Command"
+        },
+        {
+            "style": "List",
+            "text": "Docs Delete Command"
+        },
+        {
+            "style": "List",
+            "text": "Docs Repaginate Command"
         }
     ]
 }

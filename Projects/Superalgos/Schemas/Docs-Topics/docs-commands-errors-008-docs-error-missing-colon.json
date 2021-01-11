@@ -1,6 +1,6 @@
 {
     "topic": "Docs Commands Errors",
-    "pageNumber": "8",
+    "pageNumber": 8,
     "type": "Docs Error Missing Colon",
     "definition": {
         "text": "You forgot the colon character \":\" that is part of the syntax of the command. ",
@@ -34,6 +34,14 @@
         {
             "style": "List",
             "text": "Docs Delete Command"
+        },
+        {
+            "style": "List",
+            "text": "Docs Delete Command"
+        },
+        {
+            "style": "List",
+            "text": "Docs Repaginate Command"
         }
     ]
 }

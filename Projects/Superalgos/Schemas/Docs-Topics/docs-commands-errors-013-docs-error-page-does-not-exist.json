@@ -1,6 +1,6 @@
 {
     "topic": "Docs Commands Errors",
-    "pageNumber": "13",
+    "pageNumber": 13,
     "type": "Docs Error Page Does Not Exist",
     "definition": {
         "text": "The page you are trying to delete does not exist.",

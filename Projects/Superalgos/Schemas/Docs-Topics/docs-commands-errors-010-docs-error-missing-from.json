@@ -1,6 +1,6 @@
 {
     "topic": "Docs Commands Errors",
-    "pageNumber": "10",
+    "pageNumber": 10,
     "type": "Docs Error Missing From",
     "definition": {
         "text": "The word \"from\" is part of the syntax of the command and it is missing.",
@@ -28,6 +28,14 @@
         {
             "style": "List",
             "text": "Docs Delete Command"
+        },
+        {
+            "style": "List",
+            "text": "Docs Delete Command"
+        },
+        {
+            "style": "List",
+            "text": "Docs Repaginate Command"
         }
     ]
 }

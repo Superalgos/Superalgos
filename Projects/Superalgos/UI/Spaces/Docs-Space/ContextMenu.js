@@ -425,7 +425,7 @@ function newSuperalgosDocsContextMenu() {
             return true
         }
         if (paragraphNode.id.indexOf('-table') >= 0) {
-            selectedParagraphData = UI.projects.superalgos.utilities.docs.reverseParseTable(paragraphNode.innerHTML)
+            selectedParagraphData = UI.projects.superalgos.utilities.docs.reverseParseTable(paragraphNode)
             return true
         }
         if (paragraphNode.id.indexOf('-hierarchy') >= 0) {

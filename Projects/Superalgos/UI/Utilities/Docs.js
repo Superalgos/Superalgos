@@ -15,7 +15,7 @@ function newSuperalgosUtilitiesDocs() {
         reverseParseHierarchy: reverseParseHierarchy,
         reverseParseTable: reverseParseTable,
         addBold: addBold,
-        addKeyboard: addKeyboard, 
+        addKeyboard: addKeyboard,
         addCodeToCamelCase: addCodeToCamelCase,
         addCodeToWhiteList: addCodeToWhiteList,
         addItalics: addItalics,
@@ -220,36 +220,50 @@ function newSuperalgosUtilitiesDocs() {
         return splittedHTML[3]
     }
 
-    function reverseParseTable(HTML) {
-        text = removeRGB(HTML)
+    function reverseParseTable(paragraphNode) {
 
-        /* Single occurrance replacements */
-        text = text.replace('<table class="docs-info-table"> ', '')
-        text = text.replace('</table>', '')
-        text = text.replace('<thead>', '')
-        text = text.replace('</thead>', '')
-        text = text.replace('<tbody>', '')
-        text = text.replace('</tbody>', '')
+        let tableNode = paragraphNode.childNodes[0]
+        let thead
+        let tbody
+        let result = ''
 
-        /* All instances replacements */
-        text = text.replaceAll('<tr>', '')
-        text = text.replaceAll('<tr class="docs-info-table-alt-bg">', '')
-        text = text.replaceAll('</td><td>', '|')
-        text = text.replaceAll('</th><th>', '|')
-        text = text.replaceAll('<th>', '|')
-        text = text.replaceAll('</th>', '|')
-        text = text.replaceAll('<td>', '|')
-        text = text.replaceAll('</td>', '|')
-        text = text.replaceAll('</tr>', '')
+        for (let i = 0; i < tableNode.childNodes.length; i++) {
+            let childNode = tableNode.childNodes[i]
+            if (childNode.nodeName === "THEAD") {
+                thead = childNode
+            }
+            if (childNode.nodeName === "TBODY") {
+                tbody = childNode
+            }
+        }
+        if (thead !== undefined) { processTRs(thead) }
+        if (tbody !== undefined) { processTRs(tbody) }
+
+        function processTRs(TRs) {
+            for (let i = 0; i < TRs.childNodes.length; i++) {
+                let TR = TRs.childNodes[i]
+                for (let j = 0; j < TR.childNodes.length; j++) {
+                    let TD = TR.childNodes[j]
+                    if (TD.innerText.trim() === "") {
+                        let RGB = removeRGB(TD.innerHTML)
+                        result = result + '|' + RGB
+                    } else {
+                        result = result + '|' + TD.innerText
+                    }
+                }
+                result = result + '|'
+            }
+        }
 
         /* We break lines where needed */
-        text = text.replaceAll('||', '|' + String.fromCharCode(10) + '|')
-        return text.trim()
+        result = result.replaceAll('||', '|' + String.fromCharCode(10) + '|')
+        return result.trim()
 
         function removeRGB(HTML) {
             let text = HTML
             text = text.replaceAll('<div style="display: block; background: ', '')
             text = text.replaceAll('; border: 1px solid black;">&nbsp;&nbsp;&nbsp;</div>', '')
+            text = text.replaceAll('&nbsp;', '')
             return text.trim()
         }
     }
@@ -278,53 +292,53 @@ function newSuperalgosUtilitiesDocs() {
         for (let i = 0; i < splittedText.length; i++) {
             let word = splittedText[i]
             if (
-                word === 'Ctrl' || 
-                word === 'Alt' || 
+                word === 'Ctrl' ||
+                word === 'Alt' ||
                 word === 'Shift' ||
-                word === 'Cmd' || 
-                word === 'F1' || 
-                word === 'F2' || 
-                word === 'F3' || 
-                word === 'F4' || 
-                word === 'F5' || 
-                word === 'F6' || 
-                word === 'F7' || 
-                word === 'F8' || 
-                word === 'F9' || 
-                word === 'F10' || 
-                word === 'F11' || 
-                word === 'F12' ||  
+                word === 'Cmd' ||
+                word === 'F1' ||
+                word === 'F2' ||
+                word === 'F3' ||
+                word === 'F4' ||
+                word === 'F5' ||
+                word === 'F6' ||
+                word === 'F7' ||
+                word === 'F8' ||
+                word === 'F9' ||
+                word === 'F10' ||
+                word === 'F11' ||
+                word === 'F12' ||
                 word === 'Del' ||
-                word === '←' || 
-                word === '→' || 
-                word === '↑' || 
-                word === '↓' || 
-                word === 'Key-A' || 
+                word === '←' ||
+                word === '→' ||
+                word === '↑' ||
+                word === '↓' ||
+                word === 'Key-A' ||
                 word === 'Key-B' ||
                 word === 'Key-C' ||
-                word === 'Key-D' || 
+                word === 'Key-D' ||
                 word === 'Key-E' ||
                 word === 'Key-F' ||
-                word === 'Key-G' || 
+                word === 'Key-G' ||
                 word === 'Key-H' ||
                 word === 'Key-I' ||
-                word === 'Key-J' || 
+                word === 'Key-J' ||
                 word === 'Key-K' ||
                 word === 'Key-L' ||
-                word === 'Key-M' || 
+                word === 'Key-M' ||
                 word === 'Key-N' ||
                 word === 'Key-O' ||
-                word === 'Key-P' || 
+                word === 'Key-P' ||
                 word === 'Key-Q' ||
                 word === 'Key-R' ||
                 word === 'Key-S' || // S
-                word === 'Key-T' || 
+                word === 'Key-T' ||
                 word === 'Key-U' ||
-                word === 'Key-V' || 
+                word === 'Key-V' ||
                 word === 'Key-W' ||
                 word === 'Key-X' ||
-                word === 'Key-Y' || 
-                word === 'Key-Z'                    
+                word === 'Key-Y' ||
+                word === 'Key-Z'
             ) {
                 word = '<kbd>' + word + '</kbd>'
             }

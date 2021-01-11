@@ -1,6 +1,6 @@
 {
     "topic": "Docs Commands Messages",
-    "pageNumber": "3",
+    "pageNumber": "4",
     "type": "Docs Message Deleting Succeed",
     "definition": {
         "text": "The docs.delete command you executed successfuly delete the page you requested.",

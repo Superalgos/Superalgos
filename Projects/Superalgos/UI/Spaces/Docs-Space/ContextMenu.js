@@ -117,6 +117,7 @@ function newSuperalgosDocsContextMenu() {
             if (selectedParagraphIndex === 0) { return }
             UI.projects.superalgos.spaces.docsSpace.documentPage.docsSchemaDocument.paragraphs.splice(selectedParagraphIndex, 1)
             forceOutClick()
+            UI.projects.superalgos.spaces.docsSpace.documentPage.docsSchemaDocument.updated = true
             UI.projects.superalgos.spaces.docsSpace.documentPage.render()
         }
 

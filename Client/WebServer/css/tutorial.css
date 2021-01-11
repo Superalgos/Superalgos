@@ -126,13 +126,23 @@ text-rendering:auto;
 line-height: 150%
 }
 
-li > .tutorial-font-small {
-margin-bottom:7px;
+.tutorial-list {
+    margin: -8 0 -8 -15px;
+    font:normal normal normal 16px/1 "segoeui";
+    line-height: 150%
+    }
+
+ul > .tutorial-list {
+    list-style-position: outside;
 }
+
+/* DELETE candidate
+
 
 div.tutorial-font-small {
 margin-bottom:7px;
 }
+*/
 
 .tutorial-font-medium {
 font:normal normal normal 32px/1 "segoeui";

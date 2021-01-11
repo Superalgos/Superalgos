@@ -1272,7 +1272,7 @@ function newSuperalgosTutorialSpace() {
                         text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
                         text = UI.projects.superalgos.utilities.docs.addBold(text)
                         text = UI.projects.superalgos.utilities.docs.addToolTips(text)
-                        html = html + '<div class="tutorial-font-small"><li>' + text + '</li></div>'
+                        html = html + '<div class="tutorial-list"><ul><li>' + text + '</li></ul></div>'
                         break
                     }
                     case 'Callout': {

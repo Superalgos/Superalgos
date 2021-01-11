@@ -468,7 +468,14 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                         schemaDocument.created = undefined
                                         let fileContent = JSON.stringify(schemaDocument, undefined, 4)
                                         fs.writeFileSync(filePath + '/' + fileName, fileContent)
-                                        console.log('[SUCCESS] ' + filePath + '/' + fileName + '  updated.')
+                                        if (schemaDocument.created === true) {
+                                            console.log('[SUCCESS] ' + filePath + '/' + fileName + '  created.')
+                                            return
+                                        }
+                                        if (schemaDocument.updated === true) {
+                                            console.log('[SUCCESS] ' + filePath + '/' + fileName + '  updated.')
+                                            return
+                                        }
                                     } catch (err) {
                                         console.log('[ERROR] httpInterface -> Docs -> Save -> ' + filePath + '/' + fileName + ' could not be created / updated.')
                                         console.log('[ERROR] httpInterface -> Docs -> Save -> Dont worry, the changes are still at the UI, but you will need to do 2 things: 1) Resolve the issue that is preventing the Client to write this file. Look at the error message below as a guide. 2) At the UI, locate this page and edit it with some small change again, so that is flagged that contains changes, otherwise those original changes will be ignored by the Client during the next docs.save command execution.')

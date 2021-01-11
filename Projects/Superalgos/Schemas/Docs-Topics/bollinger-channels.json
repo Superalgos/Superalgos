@@ -68,6 +68,11 @@
             "text": "bollingerChannel.period: The number of periods the channel spans at the moment the variable is being read. For instance, if a channel spans 10 candles and the variable is checked on the fourth candle, then bollingerChannel.period = 4. Put in other words, it is the current span of the channel."
         },
         {
+            "style": "Anchor",
+            "text": "Bollinger SubChannels 2",
+            "updated": 1610390312262
+        },
+        {
             "style": "Subtitle",
             "text": "Bollinger SubChannels"
         },

@@ -167,9 +167,11 @@ function newSuperalgosDocsDocumentPage() {
 
             if (UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.category === 'Topic') {
 
-                buildOrderedTopicPageIndex(thisObject.docsSchemaDocument.topic)
-
-
+                orderedTopicPageIndexArray = UI.projects.superalgos.utilities.docs.buildOrderedPageIndex(
+                    UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project,
+                    'Topic',
+                    thisObject.docsSchemaDocument.topic
+                )
 
                 /* Topic Title 
 
@@ -192,7 +194,11 @@ function newSuperalgosDocsDocumentPage() {
 
             if (UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.category === 'Tutorial') {
 
-                buildOrderedTutorialPageIndex(thisObject.docsSchemaDocument.tutorial)
+                orderedTutorialPageIndexArray = UI.projects.superalgos.utilities.docs.buildOrderedPageIndex(
+                    UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project,
+                    'Tutorial',
+                    thisObject.docsSchemaDocument.tutorial
+                )
 
                 /* Tutorial Title 
                 titleLabel = thisObject.docsSchemaDocument.tutorial + ' Tutorial Navigation'
@@ -273,34 +279,6 @@ function newSuperalgosDocsDocumentPage() {
 
             }
 
-            function buildOrderedTopicPageIndex(topic) {
-                orderedTopicPageIndexArray = []
-                let schemaArray = SCHEMAS_BY_PROJECT.get(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project).array.docsTopicSchema
-                for (let i = 0; i < schemaArray.length; i++) {
-                    let arrayItem = schemaArray[i]
-
-                    if (arrayItem.topic === topic) {
-                        let itemAdded = false
-                        if (orderedTopicPageIndexArray.length === 0) {
-                            orderedTopicPageIndexArray.push(arrayItem)
-                            itemAdded = true
-                        } else {
-                            for (let j = 0; j < orderedTopicPageIndexArray.length; j++) {
-                                let orderedArrayItem = orderedTopicPageIndexArray[j]
-                                if (Number(arrayItem.pageNumber) < Number(orderedArrayItem.pageNumber)) {
-                                    orderedTopicPageIndexArray.splice(j, 0, arrayItem)
-                                    itemAdded = true
-                                    break
-                                }
-                            }
-                        }
-                        if (itemAdded === false) {
-                            orderedTopicPageIndexArray.push(arrayItem)
-                        }
-                    }
-                }
-            }
-
             function generateTopicPreviousAndNextPageNavigation() {
                 let previousPage
                 let nextPage
@@ -348,34 +326,6 @@ function newSuperalgosDocsDocumentPage() {
                     HTML = HTML + '<p>' + arrayItem.pageNumber + '. ' + '<a onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project + '\', \'' + 'Topic' + '\', \'' + arrayItem.type.replace(/'/g, 'AMPERSAND') + '\')">' + paragraph.text + '</a></p>'
                 }
 
-            }
-
-            function buildOrderedTutorialPageIndex(tutorial) {
-                orderedTutorialPageIndexArray = []
-                let schemaArray = SCHEMAS_BY_PROJECT.get(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project).array.docsTutorialSchema
-                for (let i = 0; i < schemaArray.length; i++) {
-                    let arrayItem = schemaArray[i]
-
-                    if (arrayItem.tutorial === tutorial) {
-                        let itemAdded = false
-                        if (orderedTutorialPageIndexArray.length === 0) {
-                            orderedTutorialPageIndexArray.push(arrayItem)
-                            itemAdded = true
-                        } else {
-                            for (let j = 0; j < orderedTutorialPageIndexArray.length; j++) {
-                                let orderedArrayItem = orderedTutorialPageIndexArray[j]
-                                if (Number(arrayItem.pageNumber) < Number(orderedArrayItem.pageNumber)) {
-                                    orderedTutorialPageIndexArray.splice(j, 0, arrayItem)
-                                    itemAdded = true
-                                    break
-                                }
-                            }
-                        }
-                        if (itemAdded === false) {
-                            orderedTutorialPageIndexArray.push(arrayItem)
-                        }
-                    }
-                }
             }
 
             function generateTutorialPreviousAndNextPageNavigation() {
@@ -587,7 +537,11 @@ function newSuperalgosDocsDocumentPage() {
 
                     switch (category) {
                         case 'Topic': {
-                            buildOrderedTopicPageIndex(chapterName)
+                            orderedTopicPageIndexArray = UI.projects.superalgos.utilities.docs.buildOrderedPageIndex(
+                                UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project,
+                                'Topic',
+                                chapterName
+                            )
 
                             if (orderedTopicPageIndexArray.length === 0) {
                                 return 'Chapter paragraph style Syntax Error. The Topic <i>' + chapterName + '</i> could not be found. Check the Docs Chapter Style Syntax. This error message will dissapear as soon as you fix the problem.'
@@ -595,7 +549,11 @@ function newSuperalgosDocsDocumentPage() {
                             break
                         }
                         case 'Tutorial': {
-                            buildOrderedTutorialPageIndex(chapterName)
+                            orderedTutorialPageIndexArray = UI.projects.superalgos.utilities.docs.buildOrderedPageIndex(
+                                UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project,
+                                'Tutorial',
+                                chapterName
+                            )
 
                             if (orderedTutorialPageIndexArray.length === 0) {
                                 return 'Chapter paragraph style Syntax Error. The Tutorial <i>' + chapterName + '</i> could not be found. Check the Docs Chapter Style Syntax. This error message will dissapear as soon as you fix the problem.'

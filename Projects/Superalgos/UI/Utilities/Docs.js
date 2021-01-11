@@ -1,5 +1,6 @@
 function newSuperalgosUtilitiesDocs() {
     thisObject = {
+        buildOrderedPageIndex: buildOrderedPageIndex,
         addWarningIfTranslationIsOutdated: addWarningIfTranslationIsOutdated,
         getTextBasedOnLanguage: getTextBasedOnLanguage,
         setTextBasedOnLanguage: setTextBasedOnLanguage,
@@ -25,6 +26,57 @@ function newSuperalgosUtilitiesDocs() {
     const TAGGING_STRING_SEPARATOR = '~>'
 
     return thisObject
+
+    function buildOrderedPageIndex(project, category, query) {
+        let array = []
+        let schemaArray
+
+        switch (category) {
+            case 'Topic': {
+                schemaArray = SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema
+                break
+            }
+            case 'Tutorial': {
+                schemaArray = SCHEMAS_BY_PROJECT.get(project).array.docsTutorialSchema
+                break
+            }
+        }
+
+        for (let i = 0; i < schemaArray.length; i++) {
+            let arrayItem = schemaArray[i]
+
+            switch (category) {
+                case 'Topic': {
+                    if (arrayItem.topic !== query) { continue }
+                    break
+                }
+                case 'Tutorial': {
+                    if (arrayItem.tutorial !== query) { continue }
+                    break
+                }
+            }
+
+            let itemAdded = false
+            if (array.length === 0) {
+                array.push(arrayItem)
+                itemAdded = true
+            } else {
+                for (let j = 0; j < array.length; j++) {
+                    let orderedArrayItem = array[j]
+                    if (Number(arrayItem.pageNumber) < Number(orderedArrayItem.pageNumber)) {
+                        array.splice(j, 0, arrayItem)
+                        itemAdded = true
+                        break
+                    }
+                }
+            }
+            if (itemAdded === false) {
+                array.push(arrayItem)
+            }
+
+        }
+        return array
+    }
 
     function addWarningIfTranslationIsOutdated(paragraph) {
         if (paragraph === undefined) { return '' }

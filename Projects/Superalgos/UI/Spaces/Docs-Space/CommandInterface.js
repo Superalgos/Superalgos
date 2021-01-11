@@ -324,10 +324,15 @@ function newSuperalgosDocsCommmandInterface() {
             }
             if (UI.projects.superalgos.spaces.docsSpace.commandInterface.command.indexOf('Docs.Reindex') !== 0 && UI.projects.superalgos.spaces.docsSpace.commandInterface.command.indexOf('docs.reindex') !== 0) { return 'Not Reindex Command' }
 
-            UI.projects.superalgos.spaces.docsSpace.setUpWorkspaceSchemas()
-            UI.projects.superalgos.spaces.docsSpace.searchEngine.setUpSearchEngine()
+            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message Reindexing Started')
+            setTimeout(startReindexingProcess, 100)
 
-            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message Reindexing Succeed')
+            function startReindexingProcess(){
+                UI.projects.superalgos.spaces.docsSpace.setUpWorkspaceSchemas()
+                UI.projects.superalgos.spaces.docsSpace.searchEngine.setUpSearchEngine()
+    
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message Reindexing Succeed')
+            }
         }
 
         function checkUSaveCommand() {

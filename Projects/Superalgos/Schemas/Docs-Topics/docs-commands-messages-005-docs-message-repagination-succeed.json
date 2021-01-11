@@ -1,6 +1,6 @@
 {
     "topic": "Docs Commands Messages",
-    "pageNumber": "3.1",
+    "pageNumber": 5,
     "type": "Docs Message Repagination Succeed",
     "definition": {
         "text": "The docs.repaginate command you executed successfuly.",

@@ -12,7 +12,8 @@
     "paragraphs": [
         {
             "style": "List",
-            "text": "The Trigger Stage with it's three events: Trigger On Event, Trigger Off Event, and Take Position Event."
+            "text": "The Trigger Stage with it's three events (Trigger On Event, Trigger Off Event, and Take Position Event).",
+            "updated": 1610382946451
         },
         {
             "style": "List",

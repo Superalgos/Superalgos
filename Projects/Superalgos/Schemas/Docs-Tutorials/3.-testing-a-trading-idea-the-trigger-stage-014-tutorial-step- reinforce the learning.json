@@ -24,7 +24,8 @@
         },
         {
             "style": "List",
-            "text": "FOURTH: Compound words in the product and property name are written altogether, with the first word in lowercase and the rest of the words capitalized! (i.e.: forExampleLikeThis)"
+            "text": "FOURTH: Compound words in the product and property name are written in camel case, that is, altogether, with the first word in lowercase and the rest of the words capitalized! (forExampleLikeThis)",
+            "updated": 1610384140775
         }
     ]
 }

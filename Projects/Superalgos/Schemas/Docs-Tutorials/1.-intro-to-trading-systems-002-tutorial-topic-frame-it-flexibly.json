@@ -12,7 +12,8 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Please, read this page to get up to speed with how trading systems work!"
+            "text": "Please, read this page to get up to speed with how trading systems work!",
+            "updated": 1610367185240
         },
         {
             "style": "Success",

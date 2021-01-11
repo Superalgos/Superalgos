@@ -1265,6 +1265,16 @@ function newSuperalgosTutorialSpace() {
                         html = html + '<div class="tutorial-font-small">' + text + '</div>'
                         break
                     }
+                    case 'Json': {
+                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)  
+                        html = html + '<pre><code class="language-json">' + text + '</code></pre>'
+                        break
+                    }
+                    case 'Javascript': {
+                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)  
+                        html = html + '<pre><code class="language-json">' + text + '</code></pre>'
+                        break
+                    }
                     case 'List': {
                         let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)  
                         text = UI.projects.superalgos.utilities.docs.addKeyboard(text)

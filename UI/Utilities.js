@@ -18,16 +18,17 @@ function dynamicDecimals(value, minDecimals) {
         minDecimals = 0
     }
     let decimals = 0
-    if (value < 1) { decimals = 2 }
-
-    if (Math.abs(Math.trunc(value * 10)) < 1) { decimals = 4 }
-    if (Math.abs(Math.trunc(value * 100)) < 1) { decimals = 5 }
-    if (Math.abs(Math.trunc(value * 1000)) < 1) { decimals = 6 }
-    if (Math.abs(Math.trunc(value * 10000)) < 1) { decimals = 7 }
-    if (Math.abs(Math.trunc(value * 100000)) < 1) { decimals = 8 }
-    if (Math.abs(Math.trunc(value * 1000000)) < 1) { decimals = 9 }
-    if (Math.abs(Math.trunc(value * 10000000)) < 1) { decimals = 10 }
-    if (Math.abs(Math.trunc(value * 100000000000)) < 1) { value = 0; decimals = 0 }
+    if (value < 1) { decimals = 3 }
+    else if (value < 10) { decimals = 2 }
+    else if (value < 100) { decimals = 1 }
+    else if (Math.abs(Math.trunc(value * 10)) < 1) { decimals = 4 }
+    else if (Math.abs(Math.trunc(value * 100)) < 1) { decimals = 5 }
+    else if (Math.abs(Math.trunc(value * 1000)) < 1) { decimals = 6 }
+    else if (Math.abs(Math.trunc(value * 10000)) < 1) { decimals = 7 }
+    else if (Math.abs(Math.trunc(value * 100000)) < 1) { decimals = 8 }
+    else if (Math.abs(Math.trunc(value * 1000000)) < 1) { decimals = 9 }
+    else if (Math.abs(Math.trunc(value * 10000000)) < 1) { decimals = 10 }
+    else if (Math.abs(Math.trunc(value * 100000000000)) < 1) { value = 0; decimals = 0 }
 
     if (decimals < minDecimals) { decimals = minDecimals }
 

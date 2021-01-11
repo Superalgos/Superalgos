@@ -1,6 +1,6 @@
 {
     "topic": "Docs Commands Errors",
-    "pageNumber": "9",
+    "pageNumber": 9,
     "type": "Docs Error Missing To",
     "definition": {
         "text": "The word \"to\" is part of the syntax of the command and you did not include it.",

@@ -1,6 +1,6 @@
 {
     "topic": "Docs Commands Errors",
-    "pageNumber": "4",
+    "pageNumber": 4,
     "type": "Docs Error Category Not Valid",
     "definition": {
         "text": "While executing a command, you might receive different types of error messanges. These are described below. ",
@@ -39,6 +39,14 @@
         {
             "style": "List",
             "text": "Docs Delete Command"
+        },
+        {
+            "style": "List",
+            "text": "Docs Delete Command"
+        },
+        {
+            "style": "List",
+            "text": "Docs Repaginate Command"
         }
     ]
 }

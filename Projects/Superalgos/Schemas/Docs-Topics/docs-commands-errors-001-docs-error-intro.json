@@ -1,6 +1,6 @@
 {
     "topic": "Docs Commands Errors",
-    "pageNumber": "1",
+    "pageNumber": 1,
     "type": "Docs Error Intro",
     "definition": {
         "text": "While executing a command, you might receive different types of error messanges. These are described below. ",

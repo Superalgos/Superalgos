@@ -1,6 +1,6 @@
 {
     "topic": "Docs Commands Errors",
-    "pageNumber": "14",
+    "pageNumber": 14,
     "type": "Docs Error Page Number Mismatch",
     "definition": {
         "text": "The Docs Page Number provided does not match with the Docs Page Number found at the page you want to delete. ",

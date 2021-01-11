@@ -1,6 +1,6 @@
 {
     "topic": "Docs Paragraph Styles",
-    "pageNumber": "12",
+    "pageNumber": 12,
     "type": "Docs JS Code Style",
     "definition": {
         "text": "Use this style to correctly format javascript code."

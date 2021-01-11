@@ -1,6 +1,6 @@
 {
     "topic": "Docs Paragraph Styles",
-    "pageNumber": "24",
+    "pageNumber": 24,
     "type": "Docs Chapter Style",
     "definition": {
         "text": "This style is used in Docs Books to define a new chapeter for that book. The style renders in the book's page the index of the Docs Topics referenced.",

@@ -1,6 +1,6 @@
 {
     "topic": "Docs Paragraph Styles",
-    "pageNumber": "1",
+    "pageNumber": 1,
     "type": "Docs Text Style",
     "definition": {
         "text": "The text style is the one used for content without any particular style applied."

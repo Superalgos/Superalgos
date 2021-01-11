@@ -1,6 +1,6 @@
 {
     "topic": "Docs Paragraph Styles",
-    "pageNumber": "14",
+    "pageNumber": 14,
     "type": "Docs Table Style",
     "definition": {
         "text": "It is possible to render table in docs pages. To do so you just need to follow some formatting rules."

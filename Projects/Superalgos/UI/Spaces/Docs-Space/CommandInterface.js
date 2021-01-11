@@ -550,27 +550,17 @@ function newSuperalgosDocsCommmandInterface() {
                 query
             )
 
+            if (orderedArray.length = 0) {
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'No Matching Topic Or Tutorial Found')
+                return
+            }
+
             let pageNumber = 1
             for (let i = 0; i < orderedArray.length; i++) {
                 schemaDocument = orderedArray[i]
-                switch (category) {
-                    case 'Topic': {
-                        if (schemaDocument.topic === query) {
-                            schemaDocument.pageNumber = pageNumber
-                            pageNumber++
-                            schemaDocument.updated = true
-                        }
-                        break
-                    }
-                    case 'Tutorial': {
-                        if (schemaDocument.tutorial === query) {
-                            schemaDocument.pageNumber = pageNumber
-                            pageNumber++
-                            schemaDocument.updated = true
-                        }
-                        break
-                    }
-                }
+                schemaDocument.pageNumber = pageNumber
+                pageNumber++
+                schemaDocument.updated = true
             }
             UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message Repagination Succeed')
         }

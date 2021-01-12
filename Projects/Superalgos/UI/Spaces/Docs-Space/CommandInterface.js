@@ -44,26 +44,26 @@ function newSuperalgosDocsCommmandInterface() {
             /* Find the Username and Password */
             let apisNode = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsByType('APIs')
             if (apisNode === undefined) {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error Github Credentials Missing', 'Anchor Github Credentials Missing')
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
                 return
             }
             if (apisNode.githubAPI === undefined) {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error Github Credentials Missing', 'Anchor Github Credentials Missing')
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
                 return
             }
 
             let config = JSON.parse(apisNode.githubAPI.config)
             if (config.username === undefined || config.username === "") {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error Github Credentials Missing', 'Anchor Github Credentials Missing')
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
                 return
             }
             if (config.token === undefined || config.token === "") {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error Github Credentials Missing', 'Anchor Github Credentials Missing')
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
                 return
             }
 
             httpRequest(undefined, 'App/Contribute/' + message + '/' + config.username + '/' + config.token, onResponse)
-            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Message Creating Pull Request')
+            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Message - Creating Pull Request')
 
             return
 
@@ -71,9 +71,9 @@ function newSuperalgosDocsCommmandInterface() {
                 /* Lets check the result of the call through the http interface */
                 data = JSON.parse(data)
                 if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Message Contribution Succeed')
+                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Message - Contribution Succeed')
                 } else {
-                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error Contribution Not Sent', 'Anchor Contribution Not Sent')
+                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error - Contribution Not Sent', 'Anchor Contribution Not Sent')
                 }
             }
         }
@@ -94,26 +94,26 @@ function newSuperalgosDocsCommmandInterface() {
             /* Find the Username and Password */
             let apisNode = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsByType('APIs')
             if (apisNode === undefined) {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error Github Credentials Missing', 'Anchor Github Credentials Missing')
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
                 return
             }
             if (apisNode.githubAPI === undefined) {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error Github Credentials Missing', 'Anchor Github Credentials Missing')
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
                 return
             }
 
             let config = JSON.parse(apisNode.githubAPI.config)
             if (config.username === undefined || config.username === "") {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error Github Credentials Missing', 'Anchor Github Credentials Missing')
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
                 return
             }
             if (config.token === undefined || config.token === "") {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error Github Credentials Missing', 'Anchor Github Credentials Missing')
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
                 return
             }
 
             httpRequest(undefined, 'App/Update/' + message + '/' + config.username + '/' + config.token, onResponse)
-            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Message Updating Your Local App')
+            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Message - Updating Your Local App')
 
             return
 
@@ -122,12 +122,12 @@ function newSuperalgosDocsCommmandInterface() {
                 data = JSON.parse(data)
                 if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.CUSTOM_OK_RESPONSE.result) {
                     if (data.message.summary.changes + data.message.summary.deletions + data.message.summary.insertions > 0) {
-                        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Message Update Succeed - New Version Found')
+                        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Message - Update Succeed - New Version Found')
                     } else {
-                        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Message Update Succeed - Already Up-To-Date')
+                        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Message - Update Succeed - Already Up-To-Date')
                     }
                 } else {
-                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error Update Failed', 'Anchor Update Failed')
+                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error - Update Failed', 'Anchor Update Failed')
                 }
             }
         }
@@ -161,7 +161,7 @@ function newSuperalgosDocsCommmandInterface() {
             let splittedCommand = UI.projects.superalgos.spaces.docsSpace.commandInterface.command.split(' ')
 
             if (splittedCommand[1] === undefined) {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Too Few Parameters', 'Anchor Too Few Paramenters')
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Too Few Parameters', 'Anchor Too Few Paramenters')
                 return
             }
             let secondaryCommand = UI.projects.superalgos.spaces.docsSpace.commandInterface.command.substring(UI.projects.superalgos.spaces.docsSpace.commandInterface.command.indexOf(' ') + 1, UI.projects.superalgos.spaces.docsSpace.commandInterface.command.length)
@@ -172,7 +172,7 @@ function newSuperalgosDocsCommmandInterface() {
             let anchor = splittedSecondaryCommand[3]
 
             if (SCHEMAS_BY_PROJECT.get(project) === undefined) {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Project Does Not Exist', 'Anchor Project Does Not Exist')
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Project Does Not Exist', 'Anchor Project Does Not Exist')
                 return
             }
             let docsSchemaDocument
@@ -198,16 +198,16 @@ function newSuperalgosDocsCommmandInterface() {
                     break
                 }
                 default: {
-                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Category Not Valid', 'Anchor Category Not Valid')
+                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Category Not Valid', 'Anchor Category Not Valid')
                     return
                 }
             }
             if (docsSchemaDocument === undefined) {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Page Not Found', 'Anchor Page Not Found')
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Page Not Found', 'Anchor Page Not Found')
                 return
             }
             if (docsSchemaDocument.paragraphs === undefined) {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Page With No Paragraphs', 'Anchor Page With No Paragraphs')
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Page With No Paragraphs', 'Anchor Page With No Paragraphs')
                 return
             }
             UI.projects.superalgos.spaces.docsSpace.navigateTo(project, category, type, anchor, undefined)
@@ -222,13 +222,13 @@ function newSuperalgosDocsCommmandInterface() {
             if (UI.projects.superalgos.spaces.docsSpace.commandInterface.command.indexOf('Docs.Add') !== 0 && UI.projects.superalgos.spaces.docsSpace.commandInterface.command.indexOf('docs.add') !== 0) { return 'Not Add Command' }
 
             if (UI.projects.superalgos.spaces.docsSpace.language !== UI.projects.superalgos.globals.docs.DEFAULT_LANGUAGE) {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Only In English', 'Anchor Only In English')
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Only In English', 'Anchor Only In English')
                 return
             }
 
             let splittedCommand = UI.projects.superalgos.spaces.docsSpace.commandInterface.command.split(': ')
             if (splittedCommand[1] === undefined) {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Missing Colon', 'Anchor Missing Colon')
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Missing Colon', 'Anchor Missing Colon')
                 return
             }
             let primaryCommand = splittedCommand[0]
@@ -238,17 +238,17 @@ function newSuperalgosDocsCommmandInterface() {
 
             if (splittedPrimaryCommand[0].toLowerCase() === 'docs.add') {
                 if (splittedPrimaryCommand[2] !== 'to') {
-                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Missing To', 'Anchor Missing To')
+                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Missing To', 'Anchor Missing To')
                     return
                 }
 
                 if (splittedPrimaryCommand.length < 4) {
-                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Too Few Parameters', 'Anchor Too Few Paramenters')
+                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Too Few Parameters', 'Anchor Too Few Paramenters')
                     return
                 }
 
                 if (secondaryCommand === '') {
-                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Category Not Valid', 'Anchor Category Not Valid')
+                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Category Not Valid', 'Anchor Category Not Valid')
                     return
                 }
 
@@ -264,7 +264,7 @@ function newSuperalgosDocsCommmandInterface() {
                     case 'topic': {
                         let splittedSecondaryCommand = secondaryCommand.split('->')
                         if (splittedSecondaryCommand.length < 3) {
-                            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Too Few Parameters', 'Anchor Too Few Paramenters')
+                            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Too Few Parameters', 'Anchor Too Few Paramenters')
                             return
                         }
                         addTopic(splittedPrimaryCommand[3], splittedSecondaryCommand[0], splittedSecondaryCommand[1], splittedSecondaryCommand[2])
@@ -273,7 +273,7 @@ function newSuperalgosDocsCommmandInterface() {
                     case 'tutorial': {
                         let splittedSecondaryCommand = secondaryCommand.split('->')
                         if (splittedSecondaryCommand.length < 3) {
-                            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Too Few Parameters', 'Anchor Too Few Paramenters')
+                            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Too Few Parameters', 'Anchor Too Few Paramenters')
                             return
                         }
                         addTutorial(splittedPrimaryCommand[3], splittedSecondaryCommand[0], splittedSecondaryCommand[1], splittedSecondaryCommand[2])
@@ -284,7 +284,7 @@ function newSuperalgosDocsCommmandInterface() {
                         return
                     }
                     default: {
-                        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Category Not Valid', 'Anchor Category Not Valid')
+                        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Category Not Valid', 'Anchor Category Not Valid')
                         return
                     }
                 }
@@ -300,13 +300,13 @@ function newSuperalgosDocsCommmandInterface() {
             if (UI.projects.superalgos.spaces.docsSpace.commandInterface.command.indexOf('Docs.Delete') !== 0 && UI.projects.superalgos.spaces.docsSpace.commandInterface.command.indexOf('docs.delete') !== 0) { return 'Not Delete Command' }
 
             if (UI.projects.superalgos.spaces.docsSpace.language !== UI.projects.superalgos.globals.docs.DEFAULT_LANGUAGE) {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Only In English', 'Anchor Only In English')
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Only In English', 'Anchor Only In English')
                 return
             }
 
             let splittedCommand = UI.projects.superalgos.spaces.docsSpace.commandInterface.command.split(': ')
             if (splittedCommand[1] === undefined) {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Missing Colon', 'Anchor Missing Colon')
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Missing Colon', 'Anchor Missing Colon')
                 return
             }
             let primaryCommand = splittedCommand[0]
@@ -316,17 +316,17 @@ function newSuperalgosDocsCommmandInterface() {
 
             if (splittedPrimaryCommand[0].toLowerCase() === 'docs.delete') {
                 if (splittedPrimaryCommand[2] !== 'from') {
-                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Missing From', 'Anchor Missing From')
+                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Missing From', 'Anchor Missing From')
                     return
                 }
 
                 if (splittedPrimaryCommand.length < 4) {
-                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Too Few Parameters', 'Anchor Too Few Paramenters')
+                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Too Few Parameters', 'Anchor Too Few Paramenters')
                     return
                 }
 
                 if (secondaryCommand === '') {
-                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Category Not Valid', 'Anchor Category Not Valid')
+                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Category Not Valid', 'Anchor Category Not Valid')
                     return
                 }
 
@@ -342,7 +342,7 @@ function newSuperalgosDocsCommmandInterface() {
                     case 'topic': {
                         let splittedSecondaryCommand = secondaryCommand.split('->')
                         if (splittedSecondaryCommand.length < 3) {
-                            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Too Few Parameters', 'Anchor Too Few Paramenters')
+                            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Too Few Parameters', 'Anchor Too Few Paramenters')
                             return
                         }
                         deleteTopic(splittedPrimaryCommand[3], splittedSecondaryCommand[0], splittedSecondaryCommand[1], splittedSecondaryCommand[2])
@@ -351,7 +351,7 @@ function newSuperalgosDocsCommmandInterface() {
                     case 'tutorial': {
                         let splittedSecondaryCommand = secondaryCommand.split('->')
                         if (splittedSecondaryCommand.length < 3) {
-                            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Too Few Parameters', 'Anchor Too Few Paramenters')
+                            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Too Few Parameters', 'Anchor Too Few Paramenters')
                             return
                         }
                         deleteTutorial(splittedPrimaryCommand[3], splittedSecondaryCommand[0], splittedSecondaryCommand[1], splittedSecondaryCommand[2])
@@ -362,7 +362,7 @@ function newSuperalgosDocsCommmandInterface() {
                         return
                     }
                     default: {
-                        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Category Not Valid', 'Anchor Category Not Valid')
+                        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Category Not Valid', 'Anchor Category Not Valid')
                         return
                     }
                 }
@@ -379,7 +379,7 @@ function newSuperalgosDocsCommmandInterface() {
 
             let splittedCommand = UI.projects.superalgos.spaces.docsSpace.commandInterface.command.split(': ')
             if (splittedCommand[1] === undefined) {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Missing Colon', 'Anchor Missing Colon')
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Missing Colon', 'Anchor Missing Colon')
                 return
             }
             let primaryCommand = splittedCommand[0]
@@ -389,27 +389,27 @@ function newSuperalgosDocsCommmandInterface() {
 
             if (splittedPrimaryCommand[0].toLowerCase() === 'docs.repaginate') {
                 if (splittedPrimaryCommand[2] !== 'from') {
-                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Missing From', 'Anchor Missing From')
+                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Missing From', 'Anchor Missing From')
                     return
                 }
 
                 if (splittedPrimaryCommand.length < 4) {
-                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Too Few Parameters', 'Anchor Too Few Paramenters')
+                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Too Few Parameters', 'Anchor Too Few Paramenters')
                     return
                 }
 
                 if (secondaryCommand === '') {
-                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Category Not Valid', 'Anchor Category Not Valid')
+                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Category Not Valid', 'Anchor Category Not Valid')
                     return
                 }
 
                 switch (splittedPrimaryCommand[1].toLowerCase()) {
                     case 'node': {
-                        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Category Not Valid', 'Anchor Category Not Valid')
+                        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Category Not Valid', 'Anchor Category Not Valid')
                         return
                     }
                     case 'concept': {
-                        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Category Not Valid', 'Anchor Category Not Valid')
+                        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Category Not Valid', 'Anchor Category Not Valid')
                         return
                     }
                     case 'topic': {
@@ -421,11 +421,11 @@ function newSuperalgosDocsCommmandInterface() {
                         return
                     }
                     case 'book': {
-                        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Category Not Valid', 'Anchor Category Not Valid')
+                        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Category Not Valid', 'Anchor Category Not Valid')
                         return
                     }
                     default: {
-                        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Category Not Valid', 'Anchor Category Not Valid')
+                        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Category Not Valid', 'Anchor Category Not Valid')
                         return
                     }
                 }
@@ -439,14 +439,14 @@ function newSuperalgosDocsCommmandInterface() {
             }
             if (UI.projects.superalgos.spaces.docsSpace.commandInterface.command.indexOf('Docs.Reindex') !== 0 && UI.projects.superalgos.spaces.docsSpace.commandInterface.command.indexOf('docs.reindex') !== 0) { return 'Not Reindex Command' }
 
-            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message Reindexing Started')
+            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message - Reindexing Started')
             setTimeout(startReindexingProcess, 100)
 
             function startReindexingProcess() {
                 UI.projects.superalgos.spaces.docsSpace.setUpWorkspaceSchemas()
                 UI.projects.superalgos.spaces.docsSpace.searchEngine.setUpSearchEngine()
 
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message Reindexing Succeed')
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message - Reindexing Succeed')
             }
         }
 
@@ -495,10 +495,10 @@ function newSuperalgosDocsCommmandInterface() {
 
                 if (responseCount === requestsSent) {
                     if (responseCount === okResponses) {
-                        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message Saving Succeed')
+                        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message - Saving Succeed')
                         afterSaving()
                     } else {
-                        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Changes Not Saved', 'Anchor Changes Not Saved')
+                        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Changes Not Saved', 'Anchor Changes Not Saved')
                     }
                 }
             }
@@ -592,7 +592,7 @@ function newSuperalgosDocsCommmandInterface() {
 
         function repaginate(project, category, query) {
             if (SCHEMAS_BY_PROJECT.get(project) === undefined) {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Project Does Not Exist', 'Anchor Project Does Not Exist')
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Project Does Not Exist', 'Anchor Project Does Not Exist')
                 return
             }
 
@@ -614,7 +614,7 @@ function newSuperalgosDocsCommmandInterface() {
                 pageNumber++
                 schemaDocument.updated = true
             }
-            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message Repagination Succeed')
+            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message - Repagination Succeed')
         }
 
         function addNode(project, type) {
@@ -630,12 +630,12 @@ function newSuperalgosDocsCommmandInterface() {
                 ]
             }
             if (SCHEMAS_BY_PROJECT.get(project) === undefined) {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Project Does Not Exist', 'Anchor Project Does Not Exist')
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Project Does Not Exist', 'Anchor Project Does Not Exist')
                 return
             }
             let exist = SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(type)
             if (exist !== undefined) {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Page Already Exists', 'Anchor Page Already Exists')
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Page Already Exists', 'Anchor Page Already Exists')
                 return
             }
 
@@ -658,12 +658,12 @@ function newSuperalgosDocsCommmandInterface() {
             }
 
             if (SCHEMAS_BY_PROJECT.get(project) === undefined) {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Project Does Not Exist', 'Anchor Project Does Not Exist')
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Project Does Not Exist', 'Anchor Project Does Not Exist')
                 return
             }
             let exist = SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.get(type)
             if (exist !== undefined) {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Page Already Exists', 'Anchor Page Already Exists')
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Page Already Exists', 'Anchor Page Already Exists')
                 return
             }
 
@@ -687,12 +687,12 @@ function newSuperalgosDocsCommmandInterface() {
                 ]
             }
             if (SCHEMAS_BY_PROJECT.get(project) === undefined) {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Project Does Not Exist', 'Anchor Project Does Not Exist')
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Project Does Not Exist', 'Anchor Project Does Not Exist')
                 return
             }
             let exist = SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.get(type)
             if (exist !== undefined) {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Page Already Exists', 'Anchor Page Already Exists')
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Page Already Exists', 'Anchor Page Already Exists')
                 return
             }
 
@@ -716,12 +716,12 @@ function newSuperalgosDocsCommmandInterface() {
                 ]
             }
             if (SCHEMAS_BY_PROJECT.get(project) === undefined) {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Project Does Not Exist', 'Anchor Project Does Not Exist')
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Project Does Not Exist', 'Anchor Project Does Not Exist')
                 return
             }
             let exist = SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema.get(type)
             if (exist !== undefined) {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Page Already Exists', 'Anchor Page Already Exists')
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Page Already Exists', 'Anchor Page Already Exists')
                 return
             }
 
@@ -744,12 +744,12 @@ function newSuperalgosDocsCommmandInterface() {
             }
 
             if (SCHEMAS_BY_PROJECT.get(project) === undefined) {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Project Does Not Exist', 'Anchor Project Does Not Exist')
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Project Does Not Exist', 'Anchor Project Does Not Exist')
                 return
             }
             let exist = SCHEMAS_BY_PROJECT.get(project).map.docsBookSchema.get(type)
             if (exist !== undefined) {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Page Already Exists', 'Anchor Page Already Exists')
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Page Already Exists', 'Anchor Page Already Exists')
                 return
             }
 
@@ -760,54 +760,54 @@ function newSuperalgosDocsCommmandInterface() {
 
         function deleteNode(project, type) {
             if (SCHEMAS_BY_PROJECT.get(project) === undefined) {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Project Does Not Exist', 'Anchor Project Does Not Exist')
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Project Does Not Exist', 'Anchor Project Does Not Exist')
                 return
             }
             let exist = SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(type)
             if (exist === undefined) {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Page Does Not Exist', 'Anchor Page Does Not Exist')
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Page Does Not Exist', 'Anchor Page Does Not Exist')
                 return
             }
 
             let schemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(type)
             schemaDocument.deleted = true
 
-            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message Deleting Succeed')
+            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message - Deleting Succeed')
         }
 
         function deleteConcept(project, type) {
             if (SCHEMAS_BY_PROJECT.get(project) === undefined) {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Project Does Not Exist', 'Anchor Project Does Not Exist')
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Project Does Not Exist', 'Anchor Project Does Not Exist')
                 return
             }
             let exist = SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.get(type)
             if (exist === undefined) {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Page Does Not Exist', 'Anchor Page Does Not Exist')
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Page Does Not Exist', 'Anchor Page Does Not Exist')
                 return
             }
 
             let schemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.get(type)
             schemaDocument.deleted = true
 
-            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message Deleting Succeed')
+            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message - Deleting Succeed')
         }
 
         function deleteTopic(project, topic, type, pageNumber) {
             if (SCHEMAS_BY_PROJECT.get(project) === undefined) {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Project Does Not Exist', 'Anchor Project Does Not Exist')
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Project Does Not Exist', 'Anchor Project Does Not Exist')
                 return
             }
             let exist = SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.get(type)
             if (exist === undefined) {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Page Does Not Exist', 'Anchor Page Does Not Exist')
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Page Does Not Exist', 'Anchor Page Does Not Exist')
                 return
             } else {
                 if (exist.pageNumber !== pageNumber) {
-                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Page Number Mismatch', 'Anchor Page Number Mismatch')
+                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Page Number Mismatch', 'Anchor Page Number Mismatch')
                     return
                 }
                 if (exist.topic !== topic) {
-                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Topic Mismatch', 'Anchor Topic Mismatch')
+                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Topic Mismatch', 'Anchor Topic Mismatch')
                     return
                 }
             }
@@ -815,25 +815,25 @@ function newSuperalgosDocsCommmandInterface() {
             let schemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.get(type)
             schemaDocument.deleted = true
 
-            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message Deleting Succeed')
+            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message - Deleting Succeed')
         }
 
         function deleteTutorial(project, tutorial, type, pageNumber) {
             if (SCHEMAS_BY_PROJECT.get(project) === undefined) {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Project Does Not Exist', 'Anchor Project Does Not Exist')
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Project Does Not Exist', 'Anchor Project Does Not Exist')
                 return
             }
             let exist = SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema.get(type)
             if (exist === undefined) {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Page Does Not Exist', 'Anchor Page Does Not Exist')
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Page Does Not Exist', 'Anchor Page Does Not Exist')
                 return
             } else {
                 if (exist.pageNumber !== pageNumber) {
-                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Page Number Mismatch', 'Anchor Page Number Mismatch')
+                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Page Number Mismatch', 'Anchor Page Number Mismatch')
                     return
                 }
                 if (exist.tutorial !== tutorial) {
-                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Tutorial Mismatch', 'Anchor Tutorial Mismatch')
+                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Tutorial Mismatch', 'Anchor Tutorial Mismatch')
                     return
                 }
             }
@@ -841,24 +841,24 @@ function newSuperalgosDocsCommmandInterface() {
             let schemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema.get(type)
             schemaDocument.deleted = true
 
-            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message Deleting Succeed')
+            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message - Deleting Succeed')
         }
 
         function deleteBook(project, type) {
             if (SCHEMAS_BY_PROJECT.get(project) === undefined) {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Project Does Not Exist', 'Anchor Project Does Not Exist')
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Project Does Not Exist', 'Anchor Project Does Not Exist')
                 return
             }
             let exist = SCHEMAS_BY_PROJECT.get(project).map.docsBookSchema.get(type)
             if (exist === undefined) {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error Page Does Not Exist', 'Anchor Page Does Not Exist')
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Page Does Not Exist', 'Anchor Page Does Not Exist')
                 return
             }
 
             let schemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsBookSchema.get(type)
             schemaDocument.deleted = true
 
-            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message Deleting Succeed')
+            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message - Deleting Succeed')
         }
     }
 }

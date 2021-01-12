@@ -1,7 +1,7 @@
 {
     "topic": "Docs Commands Errors",
     "pageNumber": 7,
-    "type": "Docs Error Only In English",
+    "type": "Docs Error - Only In English",
     "definition": {
         "text": "Command not available because you are not set in English language.",
         "updated": 1609176264266

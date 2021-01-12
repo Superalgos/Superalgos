@@ -46,9 +46,9 @@ Before you begin, it is recommended that you set up Chrome as your default brows
 
 **1.** If you are not there already, go to [https://github.com/Superalgos/Superalgos](https://github.com/Superalgos/Superalgos)
 
-**2.** Scroll the page all the way to the top. Find and click the Start button on the top-right corner of the page to like Superalgos! Thank you! This helps more developers find the project, which makes Superalgos better for you.
+**2.** Scroll the page all the way to the top. Find and click the **Star** button on the top-right corner of the page to like Superalgos! Thank you! This helps developers find the project, which makes Superalgos better for you through their contributions.
 
-**3.** Next to the Star button, find and click the Fork button to create your fork/copy of this repository. To fork Superalgos you need a GitHub account. If you don't have one, go ahead and create one.
+**3.** Next to the Star button, find and click the **Fork** button to create your fork/copy of this repository. To fork Superalgos you need a GitHub account. If you don't have one, go ahead and create one. A Fork is required for your contributions to the project (more on this later).
 
 **4.** Once the fork is created, you will land on the page of your fork. Copy the URL from your browser's address bar.
 
@@ -72,7 +72,7 @@ git clone https://github.com/John/Superalgos
 
 ## Instalation Notes
 
-**1.** You need to make a fork so that you may contribute work. Superalgos is a Community project and you are expected to contribute, like everyone else. You don't need to be a technical person to contribute. Fixing a typo or translating a paragraph into your native language are valuable contributions too. Superalgos has built-in features that make contributing easy. Help make Superalgos better and Superalgos will better serve you! [Free-riding is not cool](https://en.wikipedia.org/wiki/Free-rider_problem), particularly on free, open-source, Community-driven projects.
+**1.** You need to make a fork so that you may contribute work. Superalgos is a Community project and you are expected to contribute, like everyone else. You don't need to be a technical person to contribute. Fixing a typo in the docs or translating a paragraph into your native language are valuable contributions too. Superalgos has built-in features that make contributing easy. Help make Superalgos better and Superalgos will better serve you! [Free-riding is not cool](https://en.wikipedia.org/wiki/Free-rider_problem), particularly on free, open-source, Community-driven projects.
 
 **2.** You are better off running the git clone command as an administrator to avoid permission issues while creating the Superalgos folder and downloading the repository. It may work without admin powers depending on your setup, particularly if you are running the command on a folder where you've got write permissions.
 

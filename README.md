@@ -68,6 +68,7 @@ git clone https://github.com/John/Superalgos
 ### Instalation Notes
 
 **1.** You need to make a fork in order for the App functionality that facilitates contributions to work.
+
 **2.** You need to run the command git clone as an administrator in order to avoid permission problems while creating the Superalgos folder and downloading the repository there. It might also work without admin power, depending on your setup. 
 
 ## Usage
@@ -86,6 +87,7 @@ node run
 ### Usage Notes
 
 **1.** We have only tested the UI with Google Chrome. It might work with other browsers as well, or it might not.
+
 **2.** Before installing the client in a different hardware that from where you are going to load the UI, we reccomend you to first do a standard installation at your PC / laptop, and leave your Raspberry Pi or Server for after you have done all available tutorials. This single tip will save you a lot of time. 
 
  **Tip:** If your computer has less than 8 GB of RAM, use node run minMemo to run the system with minimal RAM memory requirements.
@@ -101,10 +103,6 @@ Once the app finishes loading, an interactive tutorial takes you by the hand and
 ![Welcome Tutorial](https://docs.superalgos.org/images/how-to/tutorial-welcome-00.png)
 
  **Note:** The tutorial uses Binance as the exchange of choice. If you don’t have an account with Binance, you will still be able to follow 85% of the tutorial. The remaining 15% involves running a live trading session, which requires an account with the exchange. You may learn how to work with other exchanges later on.
-
-## Full Instalation Guide
-
-If you need more detailed, step-by-step instructions on how to install Superalgos, find them at the [Documentation Site](https://docs.superalgos.org/suite-download-and-set-up.html)
 
 ## Docker Deployments
 

@@ -1,7 +1,7 @@
 {
     "topic": "App Commands Errors",
     "pageNumber": "3",
-    "type": "App Error Update Failed",
+    "type": "App Error - Update Failed",
     "definition": {
         "text": "Write here a summary for this topic page."
     },

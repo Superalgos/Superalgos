@@ -1,7 +1,7 @@
 {
     "topic": "Docs Commands Errors",
     "pageNumber": 4,
-    "type": "Docs Error Category Not Valid",
+    "type": "Docs Error - Category Not Valid",
     "definition": {
         "text": "While executing a command, you might receive different types of error messanges. These are described below. ",
         "updated": 1609159174480

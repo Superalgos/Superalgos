@@ -1,7 +1,7 @@
 {
     "topic": "Docs Commands Errors",
     "pageNumber": 6,
-    "type": "Docs Error Page With No Paragraphs",
+    "type": "Docs Error - Page With No Paragraphs",
     "definition": {
         "text": "While executing a command, you might receive different types of error messanges. These are described below. ",
         "updated": 1609159174480

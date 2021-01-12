@@ -1,7 +1,7 @@
 {
     "topic": "App Commands Messages",
     "pageNumber": "5",
-    "type": "App Message Update Succeed - Already Up-To-Date",
+    "type": "App Message - Update Succeed - Already Up-To-Date",
     "definition": {
         "text": "The update process was executed successfully, but no changes where found since you were running the latest version of Superalgos. No further action need to be taken.",
         "updated": 1610454235682

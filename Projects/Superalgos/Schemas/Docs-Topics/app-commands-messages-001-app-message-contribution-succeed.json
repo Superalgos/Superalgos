@@ -1,16 +1,16 @@
 {
     "topic": "App Commands Messages",
     "pageNumber": "1",
-    "type": "App Message Contribution Succeed",
+    "type": "App Message - Contribution Succeed",
     "definition": {
-        "text": "Your contributions where uploaded to your Superalgos Fork and from there a Pull Request was submitted to the main Superalgos repository.",
-        "updated": 1610461472544
+        "text": "Your contributions were uploaded to your Superalgo's Fork and from there a Pull Request was submitted to the main Superalgos's repository.",
+        "updated": 1610478517848
     },
     "paragraphs": [
         {
             "style": "Success",
-            "text": "There is no further action from you required. Someone will review your changes and merge them into the latest version of the software. If your changes are rejected for any reason, you will have to follow the issue at the Github.com wen site. ",
-            "updated": 1610461544661
+            "text": "There is no further action from you required. Someone will review your changes and merge them into the latest version of the software. If your changes are rejected for any reason, you will have to follow the issue at the Github.com web site.",
+            "updated": 1610478538194
         }
     ]
 }

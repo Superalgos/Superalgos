@@ -1,7 +1,7 @@
 {
     "topic": "Docs Commands Messages",
     "pageNumber": 4,
-    "type": "Docs Message Deleting Succeed",
+    "type": "Docs Message - Deleting Succeed",
     "definition": {
         "text": "The docs.delete command you executed successfuly deleted the page you requested.",
         "updated": 1610292270590

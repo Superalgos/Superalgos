@@ -1,7 +1,7 @@
 {
     "topic": "App Commands Messages",
     "pageNumber": "2",
-    "type": "App Message Creating Pull Request",
+    "type": "App Message - Creating Pull Request",
     "definition": {
         "text": "Hold on for a minute while we upload all the changes to GitHub.com and create a pull request with your contributions in it. You will be forwarded to a results page once the operation is complete.",
         "updated": 1609941046109

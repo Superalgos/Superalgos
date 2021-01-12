@@ -1,7 +1,7 @@
 {
     "topic": "Docs Commands Messages",
     "pageNumber": 2,
-    "type": "Docs Message Reindexing Started",
+    "type": "Docs Message - Reindexing Started",
     "definition": {
         "text": "The docs.reindex command you executed succesfully started the rebuing of the Docs Search Engine Index.",
         "updated": 1609783396612

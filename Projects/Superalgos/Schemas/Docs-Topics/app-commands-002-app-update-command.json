@@ -1,0 +1,37 @@
+{
+    "topic": "App Commands",
+    "pageNumber": "2",
+    "type": "App Update Command",
+    "definition": {
+        "text": "Use this command to update your local installation of Superalgos to the latest version available. ",
+        "updated": 1610449365984
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Syntax",
+            "updated": 1610449451990
+        },
+        {
+            "style": "Json",
+            "text": "docs.update Message"
+        },
+        {
+            "style": "Title",
+            "text": "Parameters"
+        },
+        {
+            "style": "List",
+            "text": "Message: This is optional. It is the message that is going to be recorded at Github.com when we merge for you the branch of the main repository into the branch of your fork.",
+            "updated": 1610449466750
+        },
+        {
+            "style": "Title",
+            "text": "Examples"
+        },
+        {
+            "style": "Json",
+            "text": "app.update"
+        }
+    ]
+}

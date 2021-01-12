@@ -18,18 +18,22 @@ function newSuperalgosDocsCommmandInterface() {
 
     function detectCommands() {
         if (detectAppCommands() === true) { return }
-        detectDocsCommands()
+        if (detectDocsCommands() === true) { return }
+
+        /* If we can not detect any app or docs commands, then we assume the users is running a search query */
+        UI.projects.superalgos.spaces.docsSpace.searchResultsPage.render()
     }
 
     function detectAppCommands() {
-        if (checkContributeCommand() === undefined) { return } else { return true }
+        if (checkContributeCommand() === undefined) { return true }
+        if (checkUpdateCommand() === undefined) { return true }
 
         function checkContributeCommand() {
             if (UI.projects.superalgos.spaces.docsSpace.commandInterface.command.toLowerCase() === 'app.help app.contribute') {
                 UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Contribute Command')
                 return
             }
-            if (UI.projects.superalgos.spaces.docsSpace.commandInterface.command.indexOf('App.Contribute') !== 0 && UI.projects.superalgos.spaces.docsSpace.commandInterface.command.indexOf('app.contribute') !== 0) { return }
+            if (UI.projects.superalgos.spaces.docsSpace.commandInterface.command.indexOf('App.Contribute') !== 0 && UI.projects.superalgos.spaces.docsSpace.commandInterface.command.indexOf('app.contribute') !== 0) { return 'Not Contribute Commands' }
 
             /* Set up the commit message */
             let message = UI.projects.superalgos.spaces.docsSpace.commandInterface.command.trim().substring(UI.projects.superalgos.spaces.docsSpace.commandInterface.command.indexOf(' ') + 1, UI.projects.superalgos.spaces.docsSpace.commandInterface.command.length)
@@ -41,27 +45,27 @@ function newSuperalgosDocsCommmandInterface() {
             let apisNode = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsByType('APIs')
             if (apisNode === undefined) {
                 UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error Github Credentials Missing', 'Anchor Github Credentials Missing')
-                return true
+                return
             }
             if (apisNode.githubAPI === undefined) {
                 UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error Github Credentials Missing', 'Anchor Github Credentials Missing')
-                return true
+                return
             }
 
             let config = JSON.parse(apisNode.githubAPI.config)
             if (config.username === undefined || config.username === "") {
                 UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error Github Credentials Missing', 'Anchor Github Credentials Missing')
-                return true
+                return
             }
             if (config.token === undefined || config.token === "") {
                 UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error Github Credentials Missing', 'Anchor Github Credentials Missing')
-                return true
+                return
             }
 
             httpRequest(undefined, 'App/Contribute/' + message + '/' + config.username + '/' + config.token, onResponse)
             UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Message Creating Pull Request')
 
-            return true
+            return
 
             function onResponse(err, data) {
                 /* Lets check the result of the call through the http interface */
@@ -69,11 +73,61 @@ function newSuperalgosDocsCommmandInterface() {
                 if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
                     UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Message Contribution Succeed')
                 } else {
-                    if (data.message === 'File Github.json does not exist.') {
-                        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error Github Credentials Missing', 'Anchor Github Credentials Missing')
+                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error Contribution Not Sent', 'Anchor Contribution Not Sent')
+                }
+            }
+        }
+
+        function checkUpdateCommand() {
+            if (UI.projects.superalgos.spaces.docsSpace.commandInterface.command.toLowerCase() === 'app.help app.update') {
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Update Command')
+                return
+            }
+            if (UI.projects.superalgos.spaces.docsSpace.commandInterface.command.indexOf('App.Update') !== 0 && UI.projects.superalgos.spaces.docsSpace.commandInterface.command.indexOf('app.update') !== 0) { return 'Not Update Commands' }
+
+            /* Set up the commit message */
+            let message = UI.projects.superalgos.spaces.docsSpace.commandInterface.command.trim().substring(UI.projects.superalgos.spaces.docsSpace.commandInterface.command.indexOf(' ') + 1, UI.projects.superalgos.spaces.docsSpace.commandInterface.command.length)
+            if (message.toLowerCase() === 'app.update') {
+                message = 'Updating my Superalgos Fork and local Repository'
+            }
+
+            /* Find the Username and Password */
+            let apisNode = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsByType('APIs')
+            if (apisNode === undefined) {
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error Github Credentials Missing', 'Anchor Github Credentials Missing')
+                return
+            }
+            if (apisNode.githubAPI === undefined) {
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error Github Credentials Missing', 'Anchor Github Credentials Missing')
+                return
+            }
+
+            let config = JSON.parse(apisNode.githubAPI.config)
+            if (config.username === undefined || config.username === "") {
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error Github Credentials Missing', 'Anchor Github Credentials Missing')
+                return
+            }
+            if (config.token === undefined || config.token === "") {
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error Github Credentials Missing', 'Anchor Github Credentials Missing')
+                return
+            }
+
+            httpRequest(undefined, 'App/Update/' + message + '/' + config.username + '/' + config.token, onResponse)
+            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Message Updating Your Local App')
+
+            return
+
+            function onResponse(err, data) {
+                /* Lets check the result of the call through the http interface */
+                data = JSON.parse(data)
+                if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.CUSTOM_OK_RESPONSE.result) {
+                    if (data.message.summary.changes + data.message.summary.deletions + data.message.summary.insertions > 0) {
+                        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Message Update Succeed - New Version Found')
                     } else {
-                        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error Contribution Not Sent', 'Anchor Contribution Not Sent')
+                        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Message Update Succeed - Already Up-To-Date')
                     }
+                } else {
+                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error Update Failed', 'Anchor Update Failed')
                 }
             }
         }
@@ -81,15 +135,13 @@ function newSuperalgosDocsCommmandInterface() {
 
     function detectDocsCommands() {
 
-        if (checkHelpCommand() === undefined) { return }
-        if (checkGotoCommand() === undefined) { return }
-        if (checkAddCommand() === undefined) { return }
-        if (checkDeleteCommand() === undefined) { return }
-        if (checkRepaginateCommand() === undefined) { return }
-        if (checkUReIndexCommand() === undefined) { return }
-        if (checkUSaveCommand() === undefined) { return }
-
-        UI.projects.superalgos.spaces.docsSpace.searchResultsPage.render()
+        if (checkHelpCommand() === undefined) { return true }
+        if (checkGotoCommand() === undefined) { return true }
+        if (checkAddCommand() === undefined) { return true }
+        if (checkDeleteCommand() === undefined) { return true }
+        if (checkRepaginateCommand() === undefined) { return true }
+        if (checkUReIndexCommand() === undefined) { return true }
+        if (checkUSaveCommand() === undefined) { return true }
 
         function checkHelpCommand() {
             if (UI.projects.superalgos.spaces.docsSpace.commandInterface.command.toLowerCase() === 'docs.help') {

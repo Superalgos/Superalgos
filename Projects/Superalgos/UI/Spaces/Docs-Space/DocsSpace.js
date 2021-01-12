@@ -195,7 +195,12 @@ function newSuperalgosDocSpace() {
             thisObject.mainSearchPage.render()
 
         } else {
-            UI.projects.superalgos.spaces.docsSpace.navigateTo(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.category, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type)
+            UI.projects.superalgos.spaces.docsSpace.navigateTo(
+                UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project,
+                UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.category,
+                UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type,
+                UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.anchor
+            )
         }
     }
 

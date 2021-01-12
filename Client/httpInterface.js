@@ -602,6 +602,52 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                         }
                         break
                     }
+                    case 'Update': {
+                        try {
+                            const message = unescape(requestParameters[3])
+                            const username = unescape(requestParameters[4])
+                            const token = unescape(requestParameters[5])
+
+                            update()
+
+                            async function update() {
+                                let message = await doGit()
+
+                                let customResponse = {
+                                    result: global.CUSTOM_OK_RESPONSE.result,
+                                    message: message
+                                }
+                                respondWithContent(JSON.stringify(customResponse), httpResponse)
+                            }
+
+                            async function doGit() {
+                                const simpleGit = require('simple-git');
+                                const options = {
+                                    baseDir: process.cwd(),
+                                    binary: 'git',
+                                    maxConcurrentProcesses: 6,
+                                }
+                                const git = simpleGit(options)
+
+                                return await git.pull('upstream', 'in-app-documentation')
+                            }
+
+                        } catch (err) {
+                            console.log('[ERROR] httpInterface -> App -> Update -> Method call produced an error.')
+                            console.log('[ERROR] httpInterface -> App -> Update -> err.stack = ' + err.stack)
+                            console.log('[ERROR] httpInterface -> App -> Update -> commitMessage = ' + commitMessage)
+                            console.log('[ERROR] httpInterface -> App -> Update -> username = ' + username)
+                            console.log('[ERROR] httpInterface -> App -> Update -> token = ' + token)
+
+                            let error = {
+                                result: 'Fail Because',
+                                message: err.message,
+                                stack: err.stack
+                            }
+                            respondWithContent(JSON.stringify(error), httpResponse)
+                        }
+                        break
+                    }
                 }
             }
                 break

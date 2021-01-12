@@ -3,8 +3,8 @@
     "pageNumber": 2,
     "type": "Bollinger Channels",
     "definition": {
-        "text": "The indicator produces the Bollinger Channels and Bollinger Subchannels products.",
-        "updated": 1610385654126
+        "text": "The indicator produces the Bollinger Channels and Bollinger Sub-Channels products.",
+        "updated": 1610468458099
     },
     "paragraphs": [
         {
@@ -74,13 +74,13 @@
         },
         {
             "style": "Anchor",
-            "text": "Bollinger SubChannels 2",
-            "updated": 1610467682638
+            "text": "Bollinger Sub-Channels 2",
+            "updated": 1610468483005
         },
         {
             "style": "Subtitle",
-            "text": "Bollinger SubChannels",
-            "updated": 1610467716297
+            "text": "Bollinger Sub-Channels",
+            "updated": 1610468477026
         },
         {
             "style": "Text",

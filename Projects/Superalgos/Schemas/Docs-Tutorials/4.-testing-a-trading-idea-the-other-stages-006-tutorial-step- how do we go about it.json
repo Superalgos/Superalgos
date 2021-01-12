@@ -16,7 +16,12 @@
         },
         {
             "style": "Text",
-            "text": "Well... a good choice would be the rate at the close of the candle, right? Our target rate formula would then be:<br/><br/>chart.at01hs.candle.close"
+            "text": "Well... a good choice would be the rate at the close of the candle, right? Our target rate formula would then be:",
+            "updated": 1610472351878
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.candle.close"
         },
         {
             "style": "Success",

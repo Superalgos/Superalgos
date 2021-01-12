@@ -12,15 +12,22 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "We just need to subtract 10% to the entry target rate node's value:<br/><br/>tradingEngine.current.<br/>position.entryTargetRate.value * 0.9"
+            "text": "We just need to subtract 10% to the entry target rate node's value:",
+            "updated": 1610472925103
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngine.current.position.entryTargetRate.value * 0.9"
         },
         {
             "style": "Callout",
-            "text": "Use the above for the Phase #1 take profit formula!"
+            "text": "Use is for the Phase #1 take profit formula!",
+            "updated": 1610472948413
         },
         {
             "style": "Success",
-            "text": "We are done with the manage stage!"
+            "text": "We are done with the Manage Stage!",
+            "updated": 1610472960123
         }
     ]
 }

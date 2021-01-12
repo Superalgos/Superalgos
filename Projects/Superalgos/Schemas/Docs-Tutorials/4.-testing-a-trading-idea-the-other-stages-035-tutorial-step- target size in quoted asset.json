@@ -20,7 +20,13 @@
         },
         {
             "style": "Text",
-            "text": "Copying paths, I built this for the target size formula... Use it, making sure you don't introduce line breaks on the nodes' paths!<br/><br/>tradingEngine.current.strategyOpenStage.<br/>stageQuotedAsset.sizeFilled.value - <br/>tradingEngine.current.strategyOpenStage.<br/>stageQuotedAsset.feesPaid.value"
+            "text": "I built this for the target size formula copying paths... Use it, making sure you don't introduce line breaks on the nodes' paths!",
+            "updated": 1610473186038
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngine.current.strategyOpenStage.stageQuotedAsset.sizeFilled.value - \ntradingEngine.current.strategyOpenStage.stageQuotedAsset.feesPaid.value",
+            "updated": 1610473148011
         }
     ]
 }

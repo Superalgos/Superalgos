@@ -63,7 +63,7 @@ function newSuperalgosDocsCommmandInterface() {
             }
 
             httpRequest(undefined, 'App/Contribute/' + message + '/' + config.username + '/' + config.token, onResponse)
-            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Message Creating Pull Request')
+            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Message - Creating Pull Request')
 
             return
 
@@ -71,7 +71,7 @@ function newSuperalgosDocsCommmandInterface() {
                 /* Lets check the result of the call through the http interface */
                 data = JSON.parse(data)
                 if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Message Contribution Succeed')
+                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Message - Contribution Succeed')
                 } else {
                     UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error - Contribution Not Sent', 'Anchor Contribution Not Sent')
                 }
@@ -113,7 +113,7 @@ function newSuperalgosDocsCommmandInterface() {
             }
 
             httpRequest(undefined, 'App/Update/' + message + '/' + config.username + '/' + config.token, onResponse)
-            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Message Updating Your Local App')
+            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Message - Updating Your Local App')
 
             return
 
@@ -122,9 +122,9 @@ function newSuperalgosDocsCommmandInterface() {
                 data = JSON.parse(data)
                 if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.CUSTOM_OK_RESPONSE.result) {
                     if (data.message.summary.changes + data.message.summary.deletions + data.message.summary.insertions > 0) {
-                        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Message Update Succeed - New Version Found')
+                        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Message - Update Succeed - New Version Found')
                     } else {
-                        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Message Update Succeed - Already Up-To-Date')
+                        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Message - Update Succeed - Already Up-To-Date')
                     }
                 } else {
                     UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error - Update Failed', 'Anchor Update Failed')

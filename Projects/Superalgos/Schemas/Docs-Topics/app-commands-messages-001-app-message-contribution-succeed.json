@@ -1,7 +1,7 @@
 {
     "topic": "App Commands Messages",
     "pageNumber": "1",
-    "type": "App Message Contribution Succeed",
+    "type": "App Message - Contribution Succeed",
     "definition": {
         "text": "Your contributions where uploaded to your Superalgos Fork and from there a Pull Request was submitted to the main Superalgos repository.",
         "updated": 1610461472544

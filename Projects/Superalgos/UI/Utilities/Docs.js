@@ -599,6 +599,7 @@ function newSuperalgosUtilitiesDocs() {
     /* Private Functions follow */
     function tagDefinedTypes(text, excludedType) {
         const MAX_NUMBER_OF_WORDS = 10
+        text = text.trim()
         let cleanText = text.replace(/'/g, ' AMPERSAND ') // scaping ampersands, separating them from other words
             .replaceAll('<', ' < ')
             .replaceAll('>', ' > ')
@@ -615,10 +616,18 @@ function newSuperalgosUtilitiesDocs() {
             let phrase = ''
 
             for (let j = 0; j < MAX_NUMBER_OF_WORDS; j++) {
-                phrase = phrase + ' ' + words[i + j]
-                phrase = phrase.trim()
-                phrases.push(phrase)
-                cleanPhrases.push(cleanPhrase(phrase))
+                let word = words[i + j]
+                if (word === "" ) { word = " "}
+                if (word !== undefined) {
+                    if (phrase === '') {
+                        phrase = word
+                    } else {
+                        phrase = phrase + ' ' + word
+                    }
+                    if (phrase === undefined) { continue }
+                    phrases.push(phrase)
+                    cleanPhrases.push(cleanPhrase(phrase))
+                }
             }
 
             let found = false
@@ -663,6 +672,7 @@ function newSuperalgosUtilitiesDocs() {
             .replaceAll(' . ', '.')
             .replaceAll(' , ', ',')
             .replaceAll(' ! ', '!')
+            .replaceAll('  ', ' ')
         return taggedText
     }
 

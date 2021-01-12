@@ -121,19 +121,10 @@ function newSuperalgosDocsCommmandInterface() {
                 /* Lets check the result of the call through the http interface */
                 data = JSON.parse(data)
                 if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.CUSTOM_OK_RESPONSE.result) {
-                    switch (data.message) {
-                        case 'New Version Found': {
-                            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Message Update Succeed - New Version Found')
-                            break
-                        }
-                        case 'Already Up-To-Date': {
-                            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Message Update Succeed - Already Up-To-Date')
-                            break
-                        }
-                        case 'Not Updated': {
-                            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error Update Failed', 'Anchor Update Failed')
-                            break
-                        }
+                    if (data.message.summary.changes + data.message.summary.deletions + data.message.summary.insertions > 0) {
+                        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Message Update Succeed - New Version Found')
+                    } else {
+                        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Message Update Succeed - Already Up-To-Date')
                     }
                 } else {
                     UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error Update Failed', 'Anchor Update Failed')

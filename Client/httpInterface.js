@@ -611,7 +611,6 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             update()
 
                             async function update() {
-                                //await doGithub()
                                 let message = await doGit()
 
                                 let customResponse = {
@@ -619,34 +618,6 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     message: message
                                 }
                                 respondWithContent(JSON.stringify(customResponse), httpResponse)
-                            }
-
-                            async function doGithub() {
-
-                                const { Octokit } = require("@octokit/rest")
-
-                                const octokit = new Octokit({
-                                    auth: token,
-                                    userAgent: 'Superalgos Beta 8'
-                                })
-
-                                const repo = 'Superalgos'
-                                const owner = username
-                                const head = 'upstream/in-app-documentation'
-                                const base = 'in-app-documentation'
-                                const commitMessage = 'Update: ' + message
-
-                                try {
-                                    await octokit.repos.merge({
-                                        owner,
-                                        repo,
-                                        base,
-                                        head,
-                                        commitMessage
-                                    });
-                                } catch (err) {
-                                    throw (err)
-                                }
                             }
 
                             async function doGit() {
@@ -658,23 +629,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 }
                                 const git = simpleGit(options)
 
-                                return await git.pull('upstream', 'in-app-documentation', onPull)
-
-                                function onPull(err, update) {
-                                    if (update) {
-                                        if (update.summary.changes) {
-                                            return 'New Version Found'
-                                        } else {
-                                            return 'Already Up-To-Date'
-                                        }
-                                    } else {
-                                        if (err) {
-                                            throw (err)
-                                        } else {
-                                            return 'Not Updated'
-                                        }
-                                    }
-                                }
+                                return await git.pull('upstream', 'in-app-documentation')
                             }
 
                         } catch (err) {

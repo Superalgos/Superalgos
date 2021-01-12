@@ -44,13 +44,15 @@ Before you begin, it is recommended that you set up Chrome as your default brows
 
 ## Superalgos App Installation
 
-**1.** If you are not already here, goto to [https://github.com/Superalgos/Superalgos](https://github.com/Superalgos/Superalgos)
+**1.** If you are not there already, go to [https://github.com/Superalgos/Superalgos](https://github.com/Superalgos/Superalgos)
 
-**2.** Find and click the fork button on the top-right corner of the page to create your fork/copy of this repository.
+**2.** Scroll the page all the way to the top. Find and click the Start button on the top-right corner of the page to like Superalgos! Thank you! This helps more developers find the project, which makes Superalgos better for you.
 
-**3.** Once you are at the page of your fork, copy the URL from your browser's address bar.
+**3.** Next to the Star button, find and click the Fork button to create your fork/copy of this repository. To fork Superalgos you need a GitHub account. If you don't have one, go ahead and create one.
 
-**4.** In your computer/laptop/server, open a command prompt or terminal as an administrator (to avoid issues with permissions) and type:
+**4.** Once the fork is created, you will land on the page of your fork. Copy the URL from your browser's address bar.
+
+**5.** In your computer/laptop/server, open a command prompt or terminal as an administrator (to avoid issues with permissions) and type:
 
 ```
 git clone 

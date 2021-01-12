@@ -1008,7 +1008,7 @@ vertical-align: middle;
 }
 
 .docs-external-link {
-text-decoration: none;
+text-decoration: underline;
 color: #31708f;
 }
 

@@ -294,5 +294,9 @@ visibility: visible;
 opacity: 1;
 }
 
+.tutorial-external-link {
+    text-decoration: underline;
+    color: #31708f;
+    }
 
 

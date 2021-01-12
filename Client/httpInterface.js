@@ -611,7 +611,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             update()
 
                             async function update() {
-                                await doGithub()
+                                //await doGithub()
                                 let message = await doGit()
 
                                 let customResponse = {
@@ -631,9 +631,9 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 })
 
                                 const repo = 'Superalgos'
-                                const owner = 'Superalgos'
-                                const head = 'in-app-documentation'
-                                const base = username + ':in-app-documentation'
+                                const owner = username
+                                const head = 'upstream/in-app-documentation'
+                                const base = 'in-app-documentation'
                                 const commitMessage = 'Update: ' + message
 
                                 try {
@@ -658,7 +658,9 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 }
                                 const git = simpleGit(options)
 
-                                await git.pull((err, update) => {
+                                return await git.pull('upstream', 'in-app-documentation', onPull)
+
+                                function onPull(err, update) {
                                     if (update) {
                                         if (update.summary.changes) {
                                             return 'New Version Found'
@@ -672,7 +674,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                             return 'Not Updated'
                                         }
                                     }
-                                })
+                                }
                             }
 
                         } catch (err) {

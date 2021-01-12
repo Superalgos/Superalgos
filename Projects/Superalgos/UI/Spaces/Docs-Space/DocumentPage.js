@@ -1618,10 +1618,7 @@ function newSuperalgosDocsDocumentPage() {
             }
 
             function hightlightEmbeddedCode() {
-                _self.Prism.highlightAllUnder(docsContentDiv, true, onHighlighted)
-                function onHighlighted() {
-                    // nothing to do here
-                }
+                _self.Prism.highlightAllUnder(docsContentDiv, true)
             }
 
             function parseHierarchy(params) {

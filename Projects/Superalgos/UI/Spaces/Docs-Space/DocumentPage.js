@@ -1874,8 +1874,6 @@ function newSuperalgosDocsDocumentPage() {
     }
 
     function exitEditMode() {
-        /* This will make the Client to save this in a file overwritting the previous version*/
-        thisObject.docsSchemaDocument.updated = true
 
         /* We will update the paragraph that was being edited*/
         let editing

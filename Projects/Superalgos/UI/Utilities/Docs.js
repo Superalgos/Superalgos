@@ -111,8 +111,13 @@ function newSuperalgosUtilitiesDocs() {
     function setTextBasedOnLanguage(paragraph, text) {
         if (UI.projects.superalgos.spaces.docsSpace.language === UI.projects.superalgos.globals.docs.DEFAULT_LANGUAGE) {
             if (paragraph.text !== text) {
+
+                /* This will make the Client to save this in a file overwritting the previous version*/
+                UI.projects.superalgos.spaces.docsSpace.documentPage.docsSchemaDocument.updated = true
+
                 paragraph.text = text
                 paragraph.updated = (new Date()).valueOf()
+
             }
             return
         } else {
@@ -131,6 +136,10 @@ function newSuperalgosUtilitiesDocs() {
             let translation = paragraph.translations[i]
             if (translation.language === UI.projects.superalgos.spaces.docsSpace.language) {
                 if (translation.text !== text) {
+
+                    /* This will make the Client to save this in a file overwritting the previous version*/
+                    UI.projects.superalgos.spaces.docsSpace.documentPage.docsSchemaDocument.updated = true
+
                     translation.text = text
                     translation.updated = (new Date()).valueOf()
                 }
@@ -143,6 +152,9 @@ function newSuperalgosUtilitiesDocs() {
             updated: (new Date()).valueOf()
         }
         paragraph.translations.push(translation)
+
+        /* This will make the Client to save this in a file overwritting the previous version*/
+        UI.projects.superalgos.spaces.docsSpace.documentPage.docsSchemaDocument.updated = true
         return
     }
 

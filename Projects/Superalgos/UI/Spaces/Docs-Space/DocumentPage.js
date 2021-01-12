@@ -1918,6 +1918,7 @@ function newSuperalgosDocsDocumentPage() {
                         Deleting paragarphs is only possible in the default language.
                         */
                         if (UI.projects.superalgos.spaces.docsSpace.language === UI.projects.superalgos.globals.docs.DEFAULT_LANGUAGE) {
+                            UI.projects.superalgos.spaces.docsSpace.documentPage.docsSchemaDocument.updated = true
                             thisObject.docsSchemaDocument.paragraphs.splice(selectededitableParagraphIndex, 1)
                             if (thisObject.docsSchemaDocument.paragraphs.length === 0) {
                                 let newParagraph = {
@@ -1944,6 +1945,7 @@ function newSuperalgosDocsDocumentPage() {
                                 text: paragraphs[i]
                             }
                             thisObject.docsSchemaDocument.paragraphs.splice(selectededitableParagraphIndex + i, 0, newParagraph)
+                            UI.projects.superalgos.spaces.docsSpace.documentPage.docsSchemaDocument.updated = true
                         }
                     }
                 }

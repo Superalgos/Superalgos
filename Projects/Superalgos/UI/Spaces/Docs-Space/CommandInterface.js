@@ -18,7 +18,9 @@ function newSuperalgosDocsCommmandInterface() {
 
     function detectCommands() {
         if (detectAppCommands() === true) { return }
-        detectDocsCommands()
+        if (detectDocsCommands() === true) { return }
+
+        UI.projects.superalgos.spaces.docsSpace.searchResultsPage.render()
     }
 
     function detectAppCommands() {
@@ -81,15 +83,13 @@ function newSuperalgosDocsCommmandInterface() {
 
     function detectDocsCommands() {
 
-        if (checkHelpCommand() === undefined) { return }
-        if (checkGotoCommand() === undefined) { return }
-        if (checkAddCommand() === undefined) { return }
-        if (checkDeleteCommand() === undefined) { return }
-        if (checkRepaginateCommand() === undefined) { return }
-        if (checkUReIndexCommand() === undefined) { return }
-        if (checkUSaveCommand() === undefined) { return }
-
-        UI.projects.superalgos.spaces.docsSpace.searchResultsPage.render()
+        if (checkHelpCommand() === undefined) { return true}
+        if (checkGotoCommand() === undefined) { return true}
+        if (checkAddCommand() === undefined) { return true}
+        if (checkDeleteCommand() === undefined) { return true}
+        if (checkRepaginateCommand() === undefined) { return true}
+        if (checkUReIndexCommand() === undefined) { return true}
+        if (checkUSaveCommand() === undefined) { return true}
 
         function checkHelpCommand() {
             if (UI.projects.superalgos.spaces.docsSpace.commandInterface.command.toLowerCase() === 'docs.help') {

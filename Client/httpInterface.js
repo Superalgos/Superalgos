@@ -602,6 +602,95 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                         }
                         break
                     }
+                    case 'Update': {
+                        try {
+                            const message = unescape(requestParameters[3])
+                            const username = unescape(requestParameters[4])
+                            const token = unescape(requestParameters[5])
+
+                            update()
+
+                            async function update() {
+                                await doGithub()
+                                let message = await doGit()
+
+                                let customResponse = {
+                                    result: global.CUSTOM_OK_RESPONSE.result,
+                                    message: message
+                                }
+                                respondWithContent(JSON.stringify(customResponse), httpResponse)
+                            }
+
+                            async function doGithub() {
+
+                                const { Octokit } = require("@octokit/rest")
+
+                                const octokit = new Octokit({
+                                    auth: token,
+                                    userAgent: 'Superalgos Beta 8'
+                                })
+
+                                const repo = 'Superalgos'
+                                const owner = 'Superalgos'
+                                const head = 'in-app-documentation'
+                                const base = username + ':in-app-documentation'
+                                const commitMessage = 'Update: ' + message
+
+                                try {
+                                    await octokit.repos.merge({
+                                        owner,
+                                        repo,
+                                        base,
+                                        head,
+                                        commitMessage
+                                    });
+                                } catch (err) {
+                                    throw (err)
+                                }
+                            }
+
+                            async function doGit() {
+                                const simpleGit = require('simple-git');
+                                const options = {
+                                    baseDir: process.cwd(),
+                                    binary: 'git',
+                                    maxConcurrentProcesses: 6,
+                                }
+                                const git = simpleGit(options)
+
+                                await git.pull((err, update) => {
+                                    if (update) {
+                                        if (update.summary.changes) {
+                                            return 'App Changed'
+                                        } else {
+                                            return 'App Not Changed'
+                                        }
+                                    } else {
+                                        if (err) {
+                                            throw (err)
+                                        } else {
+                                            return 'Not Updated'
+                                        }
+                                    }
+                                })
+                            }
+
+                        } catch (err) {
+                            console.log('[ERROR] httpInterface -> App -> Update -> Method call produced an error.')
+                            console.log('[ERROR] httpInterface -> App -> Update -> err.stack = ' + err.stack)
+                            console.log('[ERROR] httpInterface -> App -> Update -> commitMessage = ' + commitMessage)
+                            console.log('[ERROR] httpInterface -> App -> Update -> username = ' + username)
+                            console.log('[ERROR] httpInterface -> App -> Update -> token = ' + token)
+
+                            let error = {
+                                result: 'Fail Because',
+                                message: err.message,
+                                stack: err.stack
+                            }
+                            respondWithContent(JSON.stringify(error), httpResponse)
+                        }
+                        break
+                    }
                 }
             }
                 break

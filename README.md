@@ -13,36 +13,51 @@ All procedures are the same for Windows, Linux or Mac OS. Note: only tested with
 
 ### App Setup
 
-1. Press the fork button to create your own fork of this repository.
+1. If you are not already here, goto to: [https://github.com/Superalgos/Superalgos](https://github.com/Superalgos/Superalgos)
 
-2. Copy the URL of your fork from your browser address bar.
+2. At the up-right corner of this page, press the fork button to create your own fork of this repository.
 
-3. Open a command prompt or terminal as an administrator and type:
+3. At the page of your fork, copy the URL from your browser address bar.
+
+4. At your computer / laptop / server, open a command prompt or terminal as an administrator and type:
+
 ```
 git clone 
 ```
-4. Paste the URL of your fork to complete the git clone command.
+
+5. Paste the URL of your fork to complete the git clone command.
+
 ```
 git clone + URL of your Fork of Superalgos.
 ```
-5. For example, if your Github username is John, the command will look like this:
+
+6. For example, if your Github username is John, the command will look like this:
+
 ```
 git clone https://github.com/John/Superalgos
 ```
 
 ### Notes
 
-1. You need to make a fork in order for the Apps functionality that facilitates contributions to work. Also for being able to update the App from within the App.
+1. You need to make a fork in order for the App functionality that facilitates contributions to work. Also for being able to update the App from within the App.
 
-2. You need to run the command git clone as an administrator in order to avoid permission problems while creating the Superalgos folder and downloading the repository there.
+2. You need to run the command git clone as an administrator in order to avoid permission problems while creating the Superalgos folder and downloading the repository there. It might also work without admin power, depending on your setup. 
 
 ## Usage
 
-1. Change to the Superalgos directory / folder and type:
+1. Run the Superalgos Client doing this: change to the Superalgos directory / folder and type:
+
 ```
 node run
 ```
-2. Follow the in-app Welcome Tutorial to learn the basics. It's the ultimate onboarding experience, superior to all other resources available.
+
+2. The UI will be loaded at your default browser. Be patient it make take a minute to fully load.
+
+3. A Welcome Tutorial will automatically pop-up. You need to do this Tutorial to finish the setup and to learn the basics. It's the ultimate onboarding experience, superior to all other resources available, including videos and the docs.
+
+### Notes
+
+1. Before installing the client in a different hardware that from where you are going to load the UI, we reccomend you to first do a standard installation at your PC / laptop, and leave your Raspberry Pi or Server for after you have done all available tutorials. This single tip will save you a lot of time. 
 
 ## Uninstall
 

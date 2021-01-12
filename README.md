@@ -40,7 +40,7 @@ b. Run the installer.
 
 Before you begin, it is highly recommended that you install Chrome and set it up as your default browser (if you don't already have it).
 
-*Important:* Use Chrome so that you have a similar environment as the dev team in case you need help. We are not testing on any other browsers, and it is a well-known fact that browsers behave differently.
+**Important:** Use Chrome so that you have a similar environment as the dev team in case you need help. We are not testing on any other browsers, and it is a well-known fact that browsers behave differently.
 
 ## Superalgos App Installation
 
@@ -72,6 +72,8 @@ git clone https://github.com/John/Superalgos
 
 ## Usage
 
+![Run the system](https://docs.superalgos.org/images/how-to/run-the-system-01.gif)
+
 1. Run the Superalgos Client doing this: change to the Superalgos directory / folder and type:
 
 ```
@@ -85,6 +87,8 @@ node run
 
 1. We have only tested the UI with Google Chrome. It might work with other browsers as well, or it might not.
 2. Before installing the client in a different hardware that from where you are going to load the UI, we reccomend you to first do a standard installation at your PC / laptop, and leave your Raspberry Pi or Server for after you have done all available tutorials. This single tip will save you a lot of time. 
+
+ **Tip:** If your computer has less than 8 GB of RAM, use node run minMemo to run the system with minimal RAM memory requirements.
 
 ## Uninstall
 

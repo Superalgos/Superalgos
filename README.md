@@ -1,8 +1,8 @@
-![Superalgos video capture (16)](https://user-images.githubusercontent.com/9479367/77251218-76d25980-6c4d-11ea-8e47-be7db2e8abdb.gif)
-
 # Quick Getting Started Guide
 
 All procedures are the same for Windows, Linux, or Mac OS. Note: tested only on Google Chrome.
+
+![Superalgos video capture (16)](https://user-images.githubusercontent.com/9479367/77251218-76d25980-6c4d-11ea-8e47-be7db2e8abdb.gif)
 
 # Pre-Requisites
 

@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 48,
+    "type": "Tutorial Step - Three Warnings?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "bullet-warning"
+        },
+        "text": "Each warning may be displayed in more than one node when the action taken by the trading bot affects multiple nodes."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "In other words, warnings are displayed in affected nodes, which may be many for any given warning. We'll work with a few examples in a minute!"
+        },
+        {
+            "style": "Callout",
+            "text": "In fact, let's look into each warning, one by one!"
+        },
+        {
+            "style": "Success",
+            "text": "We're going to take a little detour to explore warnings further. They are a great tool to understand what the trading bot does and how!"
+        }
+    ]
+}

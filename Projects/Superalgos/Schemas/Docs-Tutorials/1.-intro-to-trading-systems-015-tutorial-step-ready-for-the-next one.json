@@ -1,7 +1,7 @@
 {
     "tutorial": "1. Intro to Trading Systems",
     "pageNumber": 15,
-    "type": "Tutorial Step - Are You Ready For The Next One?",
+    "type": "Tutorial Step - Ready For The Next One?",
     "definition": {
         "icon": {
             "project": "Superalgos",
@@ -16,7 +16,8 @@
         },
         {
             "style": "Success",
-            "text": "Click Next to finish this tutorial, and select Play in the next one when you are ready!"
+            "text": "Click Next to finish this tutorial, and select Play in the next one when you are ready!",
+            "updated": 1610466322417
         }
     ]
 }

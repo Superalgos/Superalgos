@@ -36,49 +36,45 @@ width: 100%;
 .tutorial-alert-info {
 color: #31708f;
 background-color: #d9edf7;
-border-color: #bce8f1;
 padding: 15px;
-border: 1px solid transparent;
+border: 1px solid rgba(49, 112, 143, .3);
 border-radius: 4px;
 margin: 20px 0;
-border-top-color: #a6e1ec;
-width: 90%;
+width: 100%;
+box-sizing: border-box;
 }
 
 .tutorial-alert-success {
 color: #3c763d;
 background-color: #dff0d8;
-border-color: #d6e9c6;
 padding: 15px;
-border: 1px solid transparent;
+border: 1px solid rgba(60, 118, 61, .3);
 border-radius: 4px;
 margin: 20px 0;
-border-top-color: #c9e2b3;
-width: 90%;
+width: 100%;
+box-sizing: border-box;
 }
 
 .tutorial-alert-important {
-color: #8a6d3b;
+color: #5e3e07;
 background-color: #fcf8e3;
-border-color: #faebcc;
 padding: 15px;
-border: 1px solid transparent;
+border: 1px solid rgba(138, 109, 59, .3);
 border-radius: 4px;
 margin: 20px 0;
-border-top-color: #f7e1b5;
-width: 90%;
+width: 100%;
+box-sizing: border-box;
 }
 
 .tutorial-alert-warning {
 color: #a94442;
 background-color: #f2dede;
-border-color: #ebccd1;
 padding: 15px;
-border: 1px solid transparent;
+border: 1px solid rgba(169, 68, 66, .3);
 border-radius: 4px;
 margin: 20px 0;
-border-top-color: #e4b9c0;
-width: 90%;
+width: 100%;
+box-sizing: border-box;
 }
 
 .tutorial-callout {

@@ -12,7 +12,13 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "If you are not familiar with this indicator, it's definitely worth spending a few minutes reading these rules directly from the horse's mouth!"
+            "text": "If you are not familiar with this indicator, it's definitely worth spending a few minutes reading these rules...",
+            "updated": 1610452250895
+        },
+        {
+            "style": "Link",
+            "text": "as defined by John Bollinger himself!->https://www.bollingerbands.com/bollinger-band-rules",
+            "updated": 1610452258290
         },
         {
             "style": "Callout",

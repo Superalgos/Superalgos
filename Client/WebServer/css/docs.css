@@ -921,7 +921,7 @@ color: #31708f;
 .docs-hidden-anchor {
   border-top: 1px solid #eee;
   padding: 0px;
-  margin: -15px 0px -30px 0;
+  margin: -20px 0px -40px 0;
   width: 100%;
   text-align: right;
   color: transparent;
@@ -931,13 +931,13 @@ color: #31708f;
   .docs-hidden-anchor::after{
   content:' \2693';
   color: transparent;
-  font-size: 150%;
+  font-size: 130%;
   }
   
   .docs-hidden-anchor:hover::after{
   content:' \2693';
   color: #365558;
-  font-size: 150%;
+  font-size: 130%;
   }
 
 .docs-hidden-block {
@@ -1008,7 +1008,7 @@ vertical-align: middle;
 }
 
 .docs-external-link {
-text-decoration: none;
+text-decoration: underline;
 color: #31708f;
 }
 

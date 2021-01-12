@@ -96,6 +96,15 @@
             "updated": 1610214935448
         },
         {
+            "style": "Anchor",
+            "text": "Previous Property",
+            "updated": 1610446045717
+        },
+        {
+            "style": "Title",
+            "text": "Previous Property"
+        },
+        {
             "style": "Text",
             "text": "The previous property is a property common to all products that allows you to retrieve the value of the candle that closed previous to the last one."
         },

@@ -8,7 +8,7 @@ All procedures are the same for Windows, Linux or Mac OS. Note: only tested with
 
 ### Pre-Requisites
 
-#### 1. Nodejs
+### Nodejs
 
 If you don't have it yet, download and install Node.js.
 
@@ -18,7 +18,7 @@ a. Go to the Node JS [download page](https://nodejs.org/en/download/).
 b. Download your system’s installer. Select LTS Recommended for Most Users and click the big Windows or MacOS Installer button. If you are on Linux, the installer is listed further down.
 c. Run the installer with the default configuration—just click Next until Node.JS is fully installed.
 
-#### 2. Git
+### Git
 
 If you don't have it yet, download and install Git.
 
@@ -28,7 +28,7 @@ a. Go to the Git [download page](https://git-scm.com/downloads).
 b. Download the version for your Operating System
 c. Run the installer and go through the process until Git is fully installed.
 
-#### 3. Google Chrome
+### Google Chrome
 
 Use Chrome, the Only Tested Browser.
 

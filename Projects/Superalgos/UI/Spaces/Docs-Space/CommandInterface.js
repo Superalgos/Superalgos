@@ -131,7 +131,7 @@ function newSuperalgosDocsCommmandInterface() {
                             break
                         }
                         case 'Not Updated': {
-                            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Message Not Updated')
+                            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error Update Failed', 'Anchor Update Failed')
                             break
                         }
                     }

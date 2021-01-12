@@ -32,9 +32,13 @@
             "updated": 1610187711323
         },
         {
-            "style": "Title",
+            "style": "Anchor",
             "text": "Execution Algorithm",
             "updated": 1610187940008
+        },
+        {
+            "style": "Title",
+            "text": "Execution Algorithm"
         },
         {
             "style": "Include",

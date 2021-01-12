@@ -661,9 +661,9 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 await git.pull((err, update) => {
                                     if (update) {
                                         if (update.summary.changes) {
-                                            return 'App Changed'
+                                            return 'New Version Found'
                                         } else {
-                                            return 'App Not Changed'
+                                            return 'Already Up-To-Date'
                                         }
                                     } else {
                                         if (err) {

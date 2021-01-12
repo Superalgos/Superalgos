@@ -4,39 +4,105 @@
 
 All procedures are the same for Windows, Linux or Mac OS. Note: only tested with Google Chrome.
 
-## Installation
+## Pre-Requisites
 
-### Pre-Requisites
+### Nodejs
 
-1. If you don't have it yet, [download and install Node.js.](https://nodejs.org/en/download/)
-2. If you don't have it yet, [download and install Git.](https://git-scm.com/downloads)
+If you don't have it yet, download and install Node.js.
 
-### App Setup
+Node JS is an open-source server environment required to run Superalgos.
 
-1. Open a command prompt or terminal as an administrator and type:
+**a.** Go to the Node JS [download page](https://nodejs.org/en/download/).
+
+**b.** Download your system’s installer. Select LTS Recommended for Most Users and click the big Windows or MacOS Installer button. If you are on Linux, the installer is listed further down.
+
+**c.** Run the installer with the default configuration—just click Next until Node.JS is fully installed.
+
+### Git
+
+If you don't have it yet, download and install Git.
+
+Please install Git, an open-source distributed version control system required to download and stay up to date with Superalgos.
+
+**a.** Go to the Git [download page](https://git-scm.com/downloads).
+
+**b.** Download the version for your Operating System
+
+**c.** Run the installer and go through the process until Git is fully installed.
+
+### Google Chrome
+
+Use Chrome, the Only Tested Browser.
+
+**a.** Go to the Chrome [download page](https://www.google.com/chrome/).
+
+**b.** Run the installer.
+
+Before you begin, it is highly recommended that you install Chrome and set it up as your default browser (if you don't already have it).
+
+**Important:** Use Chrome so that you have a similar environment as the dev team in case you need help. We are not testing on any other browsers, and it is a well-known fact that browsers behave differently.
+
+## Superalgos App Installation
+
+**1.** If you are not already here, goto to: [https://github.com/Superalgos/Superalgos](https://github.com/Superalgos/Superalgos)
+**2.** At the up-right corner of this page, press the fork button to create your own fork / copy of this repository.
+**3.** At the page of your fork, copy the URL from your browser address bar.
+**4.** At your computer / laptop / server, open a command prompt or terminal as an administrator and start typing:
+
 ```
-git clone https://github.com/Superalgos/Superalgos
+git clone 
 ```
+
+**5.** Paste the URL of your fork to complete the git clone command.
+
+```
+git clone + URL of your Fork of Superalgos.
+```
+
+**6.** For example, if your Github username is John, the command will look like this:
+
+```
+git clone https://github.com/John/Superalgos
+```
+
+### Instalation Notes
+
+**1.** You need to make a fork in order for the App functionality that facilitates contributions to work.
+
+**2.** You need to run the command git clone as an administrator in order to avoid permission problems while creating the Superalgos folder and downloading the repository there. It might also work without admin power, depending on your setup. 
 
 ## Usage
 
-1. Change to the Superalgos directory / folder and type:
+![Run the system](https://docs.superalgos.org/images/how-to/run-the-system-01.gif)
+
+**1.** To run the Superalgos client, change to the Superalgos directory / folder and type:
+
 ```
 node run
 ```
-2. Follow the in-app Welcome Tutorial to learn the basics. It's the ultimate onboarding experience, superior to all other resources available.
+
+**2.** The UI will be loaded at your default browser. Be patient it make take a minute to fully load.
+**3.** A Welcome Tutorial will automatically pop-up. You need to do this Tutorial to finish the setup and to learn the basics. It's the ultimate onboarding experience, superior to all other resources available, including videos and the docs.
+
+### Usage Notes
+
+**1.** We have only tested the UI with Google Chrome. It might work with other browsers as well, or it might not.
+
+**2.** Before installing the client in a different hardware that from where you are going to load the UI, we reccomend you to first do a standard installation at your PC / laptop, and leave your Raspberry Pi or Server for after you have done all available tutorials. This single tip will save you a lot of time. 
+
+ **Tip:** If your computer has less than 8 GB of RAM, use node run minMemo to run the system with minimal RAM memory requirements.
 
 ## Uninstall
 
-Superalgos does not write anything outside the Superalgos folder. To completelly uninstall the software, just delete the Superalgos folder. 
+Superalgos does not write anything outside the Superalgos's folder. To completelly uninstall the software, just delete the Superalgos's folder. 
 
 ## Welcome Tutorial
 
 Once the app finishes loading, an interactive tutorial takes you by the hand and walks you all around the system while you learn the basic skills required to use the interface, mine data, backtest strategies, and even run a live trading session. It is highly recommended you follow the tutorial until the end, as it is carefully crafted to make your onboarding as easy as possible. In fact, tutorials are the absolute best way to tackle the learning curve. You should do all tutorials before you start exploring other avenues on your own.
 
-## Full Instalation Guide
+![Welcome Tutorial](https://docs.superalgos.org/images/how-to/tutorial-welcome-00.png)
 
-If you need more detailed, step-by-step instructions on how to install Superalgos, find them at the [Documentation Site](https://docs.superalgos.org/suite-download-and-set-up.html)
+ **Note:** The tutorial uses Binance as the exchange of choice. If you don’t have an account with Binance, you will still be able to follow 85% of the tutorial. The remaining 15% involves running a live trading session, which requires an account with the exchange. You may learn how to work with other exchanges later on.
 
 ## Docker Deployments
 

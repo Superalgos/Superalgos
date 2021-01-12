@@ -605,6 +605,7 @@ function newSuperalgosUtilitiesDocs() {
             .replaceAll(':', ' : ')
             .replaceAll(',', ' , ')
             .replaceAll('.', ' . ')
+            .replaceAll('!', ' ! ')
         let words = cleanText.split(' ')
         let taggedText = ''
         for (let i = 0; i < words.length; i++) {
@@ -661,6 +662,7 @@ function newSuperalgosUtilitiesDocs() {
             .replaceAll(' : ', ':')
             .replaceAll(' . ', '.')
             .replaceAll(' , ', ',')
+            .replaceAll(' ! ', '!')
         return taggedText
     }
 

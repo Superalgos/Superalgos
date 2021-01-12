@@ -3,12 +3,14 @@
     "pageNumber": "4",
     "type": "App Message Update Succeed - New Version Found",
     "definition": {
-        "text": "Write here a summary for this topic page."
+        "text": "The update process ran successfully. It found a new version of Superalgos and it download it replacing the current one. In order for the new changes to take effect, you need to restart the Client and refresh the UI page.",
+        "updated": 1610454363656
     },
     "paragraphs": [
         {
-            "style": "Text",
-            "text": "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+            "style": "Success",
+            "text": "You now have the latest version of Superalgos. Just remeber to restart the Client and the UI.",
+            "updated": 1610454408134
         }
     ]
 }

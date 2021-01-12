@@ -3,12 +3,14 @@
     "pageNumber": "5",
     "type": "App Message Update Succeed - Already Up-To-Date",
     "definition": {
-        "text": "Write here a summary for this topic page."
+        "text": "The update process was executed successfully, but no changes where found since you were running the latest version of Superalgos. No further action need to be taken.",
+        "updated": 1610454235682
     },
     "paragraphs": [
         {
-            "style": "Text",
-            "text": "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+            "style": "Success",
+            "text": "You are up-to-date. No need to reboot the Client or refresh the UI page.",
+            "updated": 1610454271911
         }
     ]
 }

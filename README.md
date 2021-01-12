@@ -13,10 +13,28 @@ All procedures are the same for Windows, Linux or Mac OS. Note: only tested with
 
 ### App Setup
 
-1. Open a command prompt or terminal as an administrator and type:
+1. Press the fork button to create your own fork of this repository.
+
+2. Copy the URL of your fork from your browser address bar.
+
+3. Open a command prompt or terminal as an administrator and type:
 ```
-git clone https://github.com/Superalgos/Superalgos
+git clone 
 ```
+4. Paste the URL of your fork to complete the git clone command.
+```
+git clone + URL of your Fork of Superalgos.
+```
+5. For example, if your Github username is John, the command will look like this:
+```
+git clone https://github.com/John/Superalgos
+```
+
+### Notes
+
+1. You need to make a fork in order for the Apps functionality that facilitates contributions to work. Also for being able to update the App from within the App.
+
+2. You need to run the command git clone as an administrator in order to avoid permission problems while creating the Superalgos folder and downloading the repository there.
 
 ## Usage
 

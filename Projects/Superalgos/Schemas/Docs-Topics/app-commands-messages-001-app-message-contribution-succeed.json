@@ -3,12 +3,14 @@
     "pageNumber": "1",
     "type": "App Message Contribution Succeed",
     "definition": {
-        "text": "Write here a summary for this topic page."
+        "text": "Your contributions where uploaded to your Superalgos Fork and from there a Pull Request was submitted to the main Superalgos repository.",
+        "updated": 1610461472544
     },
     "paragraphs": [
         {
-            "style": "Text",
-            "text": "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+            "style": "Success",
+            "text": "There is no further action from you required. Someone will review your changes and merge them into the latest version of the software. If your changes are rejected for any reason, you will have to follow the issue at the Github.com wen site. ",
+            "updated": 1610461544661
         }
     ]
 }

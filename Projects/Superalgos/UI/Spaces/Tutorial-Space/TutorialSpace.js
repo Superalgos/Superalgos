@@ -1272,7 +1272,7 @@ function newSuperalgosTutorialSpace() {
                     }
                     case 'Javascript': {
                         let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)  
-                        html = html + '<pre><code class="language-json">' + text + '</code></pre>'
+                        html = html + '<pre><code class="language-javascript">' + text + '</code></pre>'
                         break
                     }
                     case 'List': {
@@ -1342,6 +1342,7 @@ function newSuperalgosTutorialSpace() {
             html = html + '</div>'
 
             tutorialDiv.innerHTML = html
+            _self.Prism.highlightAllUnder(tutorialDiv, true)
 
         }
     }

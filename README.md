@@ -4,9 +4,9 @@
 
 All procedures are the same for Windows, Linux, or Mac OS. Note: tested only on Google Chrome.
 
-## Pre-Requisites
+# Pre-Requisites
 
-### Node JS
+## Node JS
 
 If you don't have it yet, download and install Node.js.
 
@@ -18,7 +18,7 @@ Node JS is an open-source server environment required to run Superalgos.
 
 **c.** Run the installer with the default configuration — just click Next until Node.JS is fully installed.
 
-### Git
+## Git
 
 If you don't have it yet, download and install Git.
 
@@ -30,7 +30,7 @@ Git is an open-source distributed version control system required to download an
 
 **c.** Run the installer and go through the process until Git is fully installed.
 
-### Google Chrome
+## Google Chrome
 
 Use Chrome, the only tested browser.
 
@@ -42,7 +42,7 @@ Before you begin, it is recommended that you set up Chrome as your default brows
 
 **Important:** Use Chrome so that you have a similar environment as the dev team in case you need help. We are not testing on any other browsers, and it is a well-known fact that browsers behave differently.
 
-## Superalgos App Installation
+# Superalgos App Installation
 
 **1.** If you are not there already, go to [https://github.com/Superalgos/Superalgos](https://github.com/Superalgos/Superalgos)
 
@@ -70,7 +70,7 @@ For example, if your Github username is John, the command will look like this:
 git clone https://github.com/John/Superalgos
 ```
 
-### Instalation Notes
+## Instalation Notes
 
 **1.** You need to make a fork so that you may contribute work. Superalgos is a Community project and you are expected to contribute, like everyone else. You don't need to be a technical person to contribute. Fixing a typo or translating a paragraph into your native language are valuable contributions too. Superalgos has built-in features that make contributing easy. Help make Superalgos better and Superalgos will better serve you! [Free-riding is not cool](https://en.wikipedia.org/wiki/Free-rider_problem), particularly on free, open-source, Community-driven projects.
 
@@ -78,7 +78,7 @@ git clone https://github.com/John/Superalgos
 
 **3.** Before installing the client on a remote computer in an attempt to access the UI from a different machine, we highly recommend you do a standard installation on your PC / laptop first. Leave your Raspberry Pi or server for later, once you have done all available tutorials. This single tip will save you a lot of time: you don't need to add complexity before you learn how to handle the app. 
 
-## Usage
+# Usage
 
 ![Run the system](https://docs.superalgos.org/images/how-to/run-the-system-01.gif)
 
@@ -92,17 +92,17 @@ node run
 
 **3.** A Welcome Tutorial pops-up automatically. You must do this Tutorial to finish the setup and to learn the basics. It's the ultimate onboarding experience, superior to all other resources available, including videos and the docs.
 
-### Usage Notes
+## Usage Notes
 
 **1.** We are testing the UI on Google Chrome only. It may work on other browsers as well &mdash; or not. If you are running on a different browser and ever need support, make sure you mention that fact upfront, or even better, try on Chrome first.
 
  **Tip:** If your computer has 8 GB of RAM or less, use ```node run minMemo``` to run the system with minimal RAM requirements.
 
-## Uninstall
+# Uninstall
 
 Superalgos writes nothing out of the ```Superalgos``` folder. To completely uninstall the software, just delete the folder. 
 
-## Welcome Tutorial
+# Welcome Tutorial
 
 Once the app finishes loading, an interactive tutorial takes you by the hand and walks you all around the system while you learn the basic skills required to use the interface, mine data, backtest strategies, and even run a live trading session. It is highly recommended you follow the tutorial until the end, as it is carefully crafted to make your onboarding as easy as possible. Tutorials are the absolute best way to tackle the learning curve. You should do all tutorials before you start exploring other avenues on your own.
 
@@ -110,7 +110,7 @@ Once the app finishes loading, an interactive tutorial takes you by the hand and
 
  **Note:** The tutorial uses Binance or Binance US as the exchange of choice. If you don’t have an account with Binance or Binance US, you will still be able to follow 85% of the tutorial. The remaining 15% involves running a live trading session, which requires an account with the exchange. You may learn how to work with other exchanges later on.
 
-## Docker Deployments
+# Docker Deployments
 
 We haven't tested containerized deployments, but many people in the community have. Worth noting is the fact that Superalgos doesn't touch anything outside the Superalgos folder. To uninstall, delete the folder.
 

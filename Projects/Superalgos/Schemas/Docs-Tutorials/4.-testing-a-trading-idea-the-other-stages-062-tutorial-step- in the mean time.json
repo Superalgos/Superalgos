@@ -16,15 +16,18 @@
         },
         {
             "style": "List",
-            "text": "<a class='tutorial-link' href='https://docs.superalgos.org/suite-strategies.html' target='_blank'>The nuances of stages of trading strategies.</a> "
+            "text": "The nuances of stages of Trading Strategies.",
+            "updated": 1610465367806
         },
         {
             "style": "List",
-            "text": "<a class='tutorial-link' href='https://docs.superalgos.org/suite-trading-engine.html' target='_blank'>The whole trading engine section.</a> "
+            "text": "The whole Trading Engine section.",
+            "updated": 1610465391868
         },
         {
             "style": "List",
-            "text": "<a class='tutorial-link' href='https://docs.superalgos.org/suite-trading-bot.html' target='_blank'>The whole section on the trading bot.</a> "
+            "text": "The whole section following the Overview of the Management Issue.",
+            "updated": 1610465441136
         },
         {
             "style": "Success",

@@ -1,8 +1,8 @@
 function newSuperalgosDocsContextMenu() {
     let thisObject = {
-        selectedParagraph: undefined, 
+        selectedParagraph: undefined,
         getSelection: getSelection,
-        forceOutClick: forceOutClick, 
+        forceOutClick: forceOutClick,
         initialize: initialize,
         finalize: finalize
     }
@@ -123,170 +123,122 @@ function newSuperalgosDocsContextMenu() {
 
         function toJavascript() {
             let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
-            docSchemaParagraph.style = 'Javascript'
-            forceOutClick()
-            UI.projects.superalgos.spaces.docsSpace.documentPage.render()
+            replaceStyle(docSchemaParagraph, 'Javascript')
         }
 
         function toJson() {
             let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
-            docSchemaParagraph.style = 'Json'
-            forceOutClick()
-            UI.projects.superalgos.spaces.docsSpace.documentPage.render()
+            replaceStyle(docSchemaParagraph, 'Json')
         }
 
         function toText() {
             let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
-            docSchemaParagraph.style = 'Text'
-            forceOutClick()
-            UI.projects.superalgos.spaces.docsSpace.documentPage.render()
+            replaceStyle(docSchemaParagraph, 'Text')
         }
 
         function toTitle() {
             let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
-            docSchemaParagraph.style = 'Title'
-            forceOutClick()
-            UI.projects.superalgos.spaces.docsSpace.documentPage.render()
+            replaceStyle(docSchemaParagraph, 'Title')
         }
 
         function toSubtitle() {
             let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
-            docSchemaParagraph.style = 'Subtitle'
-            forceOutClick()
-            UI.projects.superalgos.spaces.docsSpace.documentPage.render()
+            replaceStyle(docSchemaParagraph, 'Subtitle')
         }
 
         function toNote() {
             let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
-            docSchemaParagraph.style = 'Note'
-            forceOutClick()
-            UI.projects.superalgos.spaces.docsSpace.documentPage.render()
+            replaceStyle(docSchemaParagraph, 'Note')
         }
 
         function toWarning() {
             let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
-            docSchemaParagraph.style = 'Warning'
-            forceOutClick()
-            UI.projects.superalgos.spaces.docsSpace.documentPage.render()
+            replaceStyle(docSchemaParagraph, 'Warning')
         }
 
         function toError() {
             let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
-            docSchemaParagraph.style = 'Error'
-            forceOutClick()
-            UI.projects.superalgos.spaces.docsSpace.documentPage.render()
+            replaceStyle(docSchemaParagraph, 'Error')
         }
 
         function toImportant() {
             let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
-            docSchemaParagraph.style = 'Important'
-            forceOutClick()
-            UI.projects.superalgos.spaces.docsSpace.documentPage.render()
+            replaceStyle(docSchemaParagraph, 'Important')
         }
 
         function toSuccess() {
             let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
-            docSchemaParagraph.style = 'Success'
-            forceOutClick()
-            UI.projects.superalgos.spaces.docsSpace.documentPage.render()
+            replaceStyle(docSchemaParagraph, 'Success')
         }
 
         function toCallout() {
             let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
-            docSchemaParagraph.style = 'Callout'
-            forceOutClick()
-            UI.projects.superalgos.spaces.docsSpace.documentPage.render()
+            replaceStyle(docSchemaParagraph, 'Callout')
         }
 
         function toSummary() {
             let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
-            docSchemaParagraph.style = 'Summary'
-            forceOutClick()
-            UI.projects.superalgos.spaces.docsSpace.documentPage.render()
+            replaceStyle(docSchemaParagraph, 'Summary')
         }
 
         function toSection() {
             let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
-            docSchemaParagraph.style = 'Section'
-            forceOutClick()
-            UI.projects.superalgos.spaces.docsSpace.documentPage.render()
+            replaceStyle(docSchemaParagraph, 'Section')
         }
 
         function toList() {
             let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
-            docSchemaParagraph.style = 'List'
-            forceOutClick()
-            UI.projects.superalgos.spaces.docsSpace.documentPage.render()
+            replaceStyle(docSchemaParagraph, 'List')
         }
 
         function toTable() {
             let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
-            docSchemaParagraph.style = 'Table'
-            forceOutClick()
-            UI.projects.superalgos.spaces.docsSpace.documentPage.render()
+            replaceStyle(docSchemaParagraph, 'Table')
         }
 
         function toHierarchy() {
             let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
-            docSchemaParagraph.style = 'Hierarchy'
-            forceOutClick()
-            UI.projects.superalgos.spaces.docsSpace.documentPage.render()
+            replaceStyle(docSchemaParagraph, 'Hierarchy')
         }
 
         function toGif() {
             let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
-            docSchemaParagraph.style = 'Gif'
-            forceOutClick()
-            UI.projects.superalgos.spaces.docsSpace.documentPage.render()
+            replaceStyle(docSchemaParagraph, 'Gif')
         }
 
         function toPng() {
             let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
-            docSchemaParagraph.style = 'Png'
-            forceOutClick()
-            UI.projects.superalgos.spaces.docsSpace.documentPage.render()
+            replaceStyle(docSchemaParagraph, 'Png')
         }
 
         function toAnchor() {
             let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
-            docSchemaParagraph.style = 'Anchor'
-            forceOutClick()
-            UI.projects.superalgos.spaces.docsSpace.documentPage.render()
+            replaceStyle(docSchemaParagraph, 'Anchor')
         }
 
         function toBlock() {
             let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
-            docSchemaParagraph.style = 'Block'
-            forceOutClick()
-            UI.projects.superalgos.spaces.docsSpace.documentPage.render()
+            replaceStyle(docSchemaParagraph, 'Block')
         }
 
         function toInclude() {
             let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
-            docSchemaParagraph.style = 'Include'
-            forceOutClick()
-            UI.projects.superalgos.spaces.docsSpace.documentPage.render()
+            replaceStyle(docSchemaParagraph, 'Include')
         }
 
         function toChapter() {
             let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
-            docSchemaParagraph.style = 'Chapter'
-            forceOutClick()
-            UI.projects.superalgos.spaces.docsSpace.documentPage.render()
+            replaceStyle(docSchemaParagraph, 'Chapter')
         }
 
         function toWebPageLink() {
             let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
-            docSchemaParagraph.style = 'Link'
-            forceOutClick()
-            UI.projects.superalgos.spaces.docsSpace.documentPage.render()
+            replaceStyle(docSchemaParagraph, 'Link')
         }
 
         function toYouTubeVideo() {
             let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
-            docSchemaParagraph.style = 'Youtube'
-            forceOutClick()
-            UI.projects.superalgos.spaces.docsSpace.documentPage.render()
+            replaceStyle(docSchemaParagraph, 'Youtube')
         }
 
         function copyLink() {
@@ -309,6 +261,15 @@ function newSuperalgosDocsContextMenu() {
 
             UI.projects.superalgos.utilities.clipboard.copyTextToClipboard(clipboard)
             forceOutClick()
+        }
+
+        function replaceStyle(docSchemaParagraph, style) {
+            if (docSchemaParagraph.style !== style) {
+                UI.projects.superalgos.spaces.docsSpace.documentPage.docsSchemaDocument.updated = true
+                docSchemaParagraph.style = style
+                forceOutClick()
+                UI.projects.superalgos.spaces.docsSpace.documentPage.render()
+            }
         }
     }
 

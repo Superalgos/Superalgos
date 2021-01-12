@@ -20,7 +20,8 @@
         },
         {
             "style": "Text",
-            "text": "This happens because as soon as the strategy closes, the bot goes back to evaluating the Trigger On Event! That is what it usually does after a position is closed... look for more trading opportunities! This behavior is part of the normal functioning of the system, and a consequence of not defining the open, close, and manage stages."
+            "text": "This happens because as soon as the strategy closes, the bot goes back to evaluating the Trigger On Event. That is what it usually does after a position is closed... look for more trading opportunities! This behavior is part of the normal functioning of the system, and a consequence of not defining the open, close, and manage stages.",
+            "updated": 1610471951252
         }
     ]
 }

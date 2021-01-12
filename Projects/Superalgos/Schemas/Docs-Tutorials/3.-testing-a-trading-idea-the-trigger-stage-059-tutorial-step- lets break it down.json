@@ -12,19 +12,31 @@
     "paragraphs": [
         {
             "style": "List",
-            "text": "Remember, time goes first: in the 1H chart! <br/>chart.at01hs."
+            "text": "Remember, time goes first: in the 1H chart! ",
+            "updated": 1610470932699
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs."
         },
         {
             "style": "List",
-            "text": "The close of the candle: <br/>candle.close"
+            "text": "The close of the candle is lesser than: ",
+            "updated": 1610470968732
+        },
+        {
+            "style": "Javascript",
+            "text": "candle.close <"
         },
         {
             "style": "List",
-            "text": "Is lesser than: <br/><"
+            "text": "The moving average minus the deviation, with a time frame defined for every statement:",
+            "updated": 1610471073502
         },
         {
-            "style": "List",
-            "text": "The moving average minus the deviation, and remember you need to define a time frame for every statement: <br/>chart.at01hs.bollingerBand.movingAverage - chart.at01hs.bollingerBand.deviation"
+            "style": "Javascript",
+            "text": "chart.at01hs.bollingerBand.movingAverage - \nchart.at01hs.bollingerBand.deviation",
+            "updated": 1610471042788
         }
     ]
 }

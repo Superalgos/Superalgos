@@ -12,11 +12,18 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "To describe the close of the previous candle, we need to use the previous property to modify each property of each indicator used on both sides of the statement:<br/>chart.at01hs.candle.previous.close < chart.at01hs.bollingerBand.<br/>previous.movingAverage - chart.at01hs.bollingerBand.<br/>previous.deviation"
+            "text": "To describe the close of the previous candle, we need to use the previous property to modify each property of each indicator used on both sides of the statement:",
+            "updated": 1610471485501
         },
         {
-            "style": "Text",
-            "text": "<strong>Create a new condition under the same situation and use the code above!</strong> Before you do that, notice that I introduced a couple of breaks in the statements after bollingerBand. just to have them fit the screen. You must remove them so that they don't cause trouble!"
+            "style": "Javascript",
+            "text": "chart.at01hs.candle.previous.close < \nchart.at01hs.bollingerBand.previous.movingAverage - \nchart.at01hs.bollingerBand.previous.deviation",
+            "updated": 1610471501818
+        },
+        {
+            "style": "Callout",
+            "text": "Create a new condition under the same situation and use the code above!",
+            "updated": 1610471548093
         }
     ]
 }

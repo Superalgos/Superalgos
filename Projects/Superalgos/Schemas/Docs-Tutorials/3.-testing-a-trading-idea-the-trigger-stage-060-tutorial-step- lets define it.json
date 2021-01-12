@@ -11,16 +11,19 @@
     },
     "paragraphs": [
         {
-            "style": "Text",
-            "text": "The complete statement:<br/>chart.at01hs.candle.close < chart.at01hs.bollingerBand.movingAverage - chart.at01hs.bollingerBand.deviation"
+            "style": "Javascript",
+            "text": "chart.at01hs.candle.close < \nchart.at01hs.bollingerBand.movingAverage - \nchart.at01hs.bollingerBand.deviation",
+            "updated": 1610471254569
         },
         {
             "style": "Callout",
-            "text": "Copy and paste the statement in the Javascript Code node!"
+            "text": "Copy and paste the statement!",
+            "updated": 1610471298083
         },
         {
             "style": "Success",
-            "text": "Remember to give the condition a descriptive name, for example, 1H Breakdown."
+            "text": "Remember to give the condition a descriptive name! 1H Breakdown?",
+            "updated": 1610471356372
         }
     ]
 }

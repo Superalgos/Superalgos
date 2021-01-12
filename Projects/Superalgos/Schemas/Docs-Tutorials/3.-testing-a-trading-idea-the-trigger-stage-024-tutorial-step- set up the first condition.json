@@ -16,7 +16,16 @@
         },
         {
             "style": "Text",
-            "text": "Follow the structure of nodes under the Situation and get to the Javascript Code node under the Condition node. Click Edit on the menu, select and delete the placeholder text, and paste the below condition:<br/><br/>chart.at24hs.bollingerSubChannel.direction === 'Down'<br/><br/><strong>Label the condition node 24H Down to have a quick reference of what the condition is about.</strong>"
+            "text": "Follow the structure of nodes under the Situation and get to the Javascript Code node under the Condition node. Click Edit on the menu, select and delete the placeholder text, and paste the below condition:",
+            "updated": 1610469943553
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at24hs.bollingerSubChannel.direction === 'Down'"
+        },
+        {
+            "style": "Text",
+            "text": "Label the condition node 24H Down to have a quick reference of what the condition is about."
         }
     ]
 }

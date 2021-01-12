@@ -12,15 +12,21 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "We will set up each of the conditions in separate situations!"
+            "text": "We will set up each condition in separate situation!",
+            "updated": 1610470622189
         },
         {
             "style": "Callout",
             "text": "Set up the first condition in the existing situation, and the second condition in a new situation!"
         },
         {
-            "style": "Text",
-            "text": "<strong>Condition 1:</strong><br/>chart.at24hs.bollingerSubChannel.direction === 'Up'<br/><strong>Condition 2:</strong><br/>chart.at24hs.bollingerSubChannel.slope === 'Side'"
+            "style": "Javascript",
+            "text": "chart.at24hs.bollingerSubChannel.direction === 'Up'",
+            "updated": 1610470580629
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at24hs.bollingerSubChannel.slope === 'Side'"
         }
     ]
 }

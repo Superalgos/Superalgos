@@ -128,7 +128,8 @@
         },
         {
             "style": "Javascript",
-            "text": "chart.at + time frame + .productName + .previous.previous... ...previous + .propertyName"
+            "text": "chart.at + time frame + .productName + .previous.previous... \n...previous + .propertyName",
+            "updated": 1610471423898
         },
         {
             "style": "Text",

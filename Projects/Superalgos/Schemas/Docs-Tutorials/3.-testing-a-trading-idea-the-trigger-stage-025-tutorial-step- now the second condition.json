@@ -11,7 +11,7 @@
     },
     "paragraphs": [
         {
-            "style": "Text",
+            "style": "Javascript",
             "text": "chart.at24hs.bollingerSubChannel.slope != 'Side'"
         },
         {
@@ -20,7 +20,8 @@
         },
         {
             "style": "Note",
-            "text": "We could have chosen to write the two conditions in one by using the && operator. After all, we want the Trigger On Event to validate true when both conditions are true, right? I'll tell you why that is not a good idea in the next step!"
+            "text": "We could have chosen to write the two conditions in one by using the && operator. I'll tell you why that is not a good idea in the next step!",
+            "updated": 1610470019656
         }
     ]
 }

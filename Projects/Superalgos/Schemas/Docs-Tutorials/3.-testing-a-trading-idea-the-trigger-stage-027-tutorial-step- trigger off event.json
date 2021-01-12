@@ -12,15 +12,18 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Well... this is a bit of a no-brainer right? We don't want to trade with this strategy when there is no downtrend. So, we'll reverse the logic of the trigger on event!"
+            "text": "We don't want to trade with this strategy when there is no downtrend. So, we'll reverse the logic of the trigger on event! Find conditions 1 and 2 below:",
+            "updated": 1610470163153
         },
         {
-            "style": "List",
-            "text": "Condition 1: chart.at24hs.bollingerSubChannel.direction === 'Up'"
+            "style": "Javascript",
+            "text": "chart.at24hs.bollingerSubChannel.direction === 'Up'",
+            "updated": 1610470169627
         },
         {
-            "style": "List",
-            "text": "Condition 2: chart.at24hs.bollingerSubChannel.slope === 'Side'"
+            "style": "Javascript",
+            "text": "chart.at24hs.bollingerSubChannel.slope === 'Side'",
+            "updated": 1610470175519
         },
         {
             "style": "Text",

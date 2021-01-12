@@ -98,6 +98,10 @@ Superalgos does not write anything outside the Superalgos's folder. To completel
 
 Once the app finishes loading, an interactive tutorial takes you by the hand and walks you all around the system while you learn the basic skills required to use the interface, mine data, backtest strategies, and even run a live trading session. It is highly recommended you follow the tutorial until the end, as it is carefully crafted to make your onboarding as easy as possible. In fact, tutorials are the absolute best way to tackle the learning curve. You should do all tutorials before you start exploring other avenues on your own.
 
+![Welcome Tutorial](https://docs.superalgos.org/images/how-to/tutorial-welcome-00.png)
+
+ **Note:** The tutorial uses Binance as the exchange of choice. If you don’t have an account with Binance, you will still be able to follow 85% of the tutorial. The remaining 15% involves running a live trading session, which requires an account with the exchange. You may learn how to work with other exchanges later on.
+
 ## Full Instalation Guide
 
 If you need more detailed, step-by-step instructions on how to install Superalgos, find them at the [Documentation Site](https://docs.superalgos.org/suite-download-and-set-up.html)

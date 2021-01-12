@@ -19,8 +19,9 @@
             "text": "An event validates true when either of the situations within validates true. It is as if situations within an event were bound by the || (or) operator! If any of the situations is true at a certain point in time, then the event is triggered!"
         },
         {
-            "style": "Text",
-            "text": "Can you figure out how to set up this definition?"
+            "style": "Success",
+            "text": "Can you tell how to set up this definition?",
+            "updated": 1610445299181
         }
     ]
 }

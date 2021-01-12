@@ -8,18 +8,45 @@ All procedures are the same for Windows, Linux or Mac OS. Note: only tested with
 
 ### Pre-Requisites
 
-1. If you don't have it yet, [download and install Node.js.](https://nodejs.org/en/download/)
-2. If you don't have it yet, [download and install Git.](https://git-scm.com/downloads)
+1. If you don't have it yet, download and install Node.js.
+
+Please install Node JS, an open-source server environment required to run Superalgos.
+
+a. Go to the Node JS [download page](https://nodejs.org/en/download/).
+
+b. Download your system’s installer. Select LTS Recommended for Most Users and click the big Windows or MacOS Installer button. If you are on Linux, the installer is listed further down.
+
+c. Run the installer with the default configuration—just click Next until Node.JS is fully installed.
+
+2. If you don't have it yet, download and install Git.
+
+Please install Git, an open-source distributed version control system required to download and stay up to date with Superalgos.
+
+a. Go to the Git [download page](https://git-scm.com/downloads).
+
+b. Download the version for your Operating System
+
+c. Run the installer and go through the process until Git is fully installed.
+
+3. Use Chrome, the Only Tested Browser
+
+a. Go to the Chrome [download page](https://www.google.com/chrome/).
+
+b. Run the installer.
+
+Before you begin, it is highly recommended that you install Chrome and set it up as your default browser (if you don't already have it).
+
+*Important:* Use Chrome so that you have a similar environment as the dev team in case you need help. We are not testing on any other browsers, and it is a well-known fact that browsers behave differently.
 
 ### App Setup
 
 1. If you are not already here, goto to: [https://github.com/Superalgos/Superalgos](https://github.com/Superalgos/Superalgos)
 
-2. At the up-right corner of this page, press the fork button to create your own fork of this repository.
+2. At the up-right corner of this page, press the fork button to create your own fork / copy of this repository.
 
 3. At the page of your fork, copy the URL from your browser address bar.
 
-4. At your computer / laptop / server, open a command prompt or terminal as an administrator and type:
+4. At your computer / laptop / server, open a command prompt or terminal as an administrator and start typing:
 
 ```
 git clone 
@@ -39,7 +66,7 @@ git clone https://github.com/John/Superalgos
 
 ### Notes
 
-1. You need to make a fork in order for the App functionality that facilitates contributions to work. Also for being able to update the App from within the App.
+1. You need to make a fork in order for the App functionality that facilitates contributions to work.
 
 2. You need to run the command git clone as an administrator in order to avoid permission problems while creating the Superalgos folder and downloading the repository there. It might also work without admin power, depending on your setup. 
 
@@ -57,11 +84,13 @@ node run
 
 ### Notes
 
-1. Before installing the client in a different hardware that from where you are going to load the UI, we reccomend you to first do a standard installation at your PC / laptop, and leave your Raspberry Pi or Server for after you have done all available tutorials. This single tip will save you a lot of time. 
+1. We have only tested the UI with Google Chrome. It might work with other browsers as well, or it might not.
+
+2. Before installing the client in a different hardware that from where you are going to load the UI, we reccomend you to first do a standard installation at your PC / laptop, and leave your Raspberry Pi or Server for after you have done all available tutorials. This single tip will save you a lot of time. 
 
 ## Uninstall
 
-Superalgos does not write anything outside the Superalgos folder. To completelly uninstall the software, just delete the Superalgos folder. 
+Superalgos does not write anything outside the Superalgos's folder. To completelly uninstall the software, just delete the Superalgos's folder. 
 
 ## Welcome Tutorial
 

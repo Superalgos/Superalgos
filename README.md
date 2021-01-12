@@ -4,9 +4,7 @@
 
 All procedures are the same for Windows, Linux or Mac OS. Note: only tested with Google Chrome.
 
-## Installation
-
-### Pre-Requisites
+## Pre-Requisites
 
 ### Nodejs
 
@@ -39,7 +37,7 @@ Before you begin, it is highly recommended that you install Chrome and set it up
 
 *Important:* Use Chrome so that you have a similar environment as the dev team in case you need help. We are not testing on any other browsers, and it is a well-known fact that browsers behave differently.
 
-### App Setup
+## Superalgos App Installation
 
 1. If you are not already here, goto to: [https://github.com/Superalgos/Superalgos](https://github.com/Superalgos/Superalgos)
 2. At the up-right corner of this page, press the fork button to create your own fork / copy of this repository.
@@ -62,7 +60,7 @@ git clone + URL of your Fork of Superalgos.
 git clone https://github.com/John/Superalgos
 ```
 
-### Notes
+### Instalation Notes
 
 1. You need to make a fork in order for the App functionality that facilitates contributions to work.
 2. You need to run the command git clone as an administrator in order to avoid permission problems while creating the Superalgos folder and downloading the repository there. It might also work without admin power, depending on your setup. 
@@ -78,7 +76,7 @@ node run
 2. The UI will be loaded at your default browser. Be patient it make take a minute to fully load.
 3. A Welcome Tutorial will automatically pop-up. You need to do this Tutorial to finish the setup and to learn the basics. It's the ultimate onboarding experience, superior to all other resources available, including videos and the docs.
 
-### Notes
+### Usage Notes
 
 1. We have only tested the UI with Google Chrome. It might work with other browsers as well, or it might not.
 2. Before installing the client in a different hardware that from where you are going to load the UI, we reccomend you to first do a standard installation at your PC / laptop, and leave your Raspberry Pi or Server for after you have done all available tutorials. This single tip will save you a lot of time. 

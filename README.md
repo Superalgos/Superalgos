@@ -10,10 +10,12 @@ All procedures are the same for Windows, Linux or Mac OS. Note: only tested with
 
 If you don't have it yet, download and install Node.js.
 
-Please install Node JS, an open-source server environment required to run Superalgos.
+Node JS is an open-source server environment required to run Superalgos.
 
 a. Go to the Node JS [download page](https://nodejs.org/en/download/).
+
 b. Download your system’s installer. Select LTS Recommended for Most Users and click the big Windows or MacOS Installer button. If you are on Linux, the installer is listed further down.
+
 c. Run the installer with the default configuration—just click Next until Node.JS is fully installed.
 
 ### Git
@@ -23,7 +25,9 @@ If you don't have it yet, download and install Git.
 Please install Git, an open-source distributed version control system required to download and stay up to date with Superalgos.
 
 a. Go to the Git [download page](https://git-scm.com/downloads).
+
 b. Download the version for your Operating System
+
 c. Run the installer and go through the process until Git is fully installed.
 
 ### Google Chrome
@@ -31,6 +35,7 @@ c. Run the installer and go through the process until Git is fully installed.
 Use Chrome, the Only Tested Browser.
 
 a. Go to the Chrome [download page](https://www.google.com/chrome/).
+
 b. Run the installer.
 
 Before you begin, it is highly recommended that you install Chrome and set it up as your default browser (if you don't already have it).

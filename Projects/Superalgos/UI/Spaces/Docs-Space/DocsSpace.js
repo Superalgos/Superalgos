@@ -12,6 +12,8 @@ function newSuperalgosDocSpace() {
         commandInterface: undefined,
         contextMenu: undefined,
         language: undefined,
+        activeBranch: undefined,
+        contributionsBranch: undefined,
         menuLabelsMap: undefined,
         currentDocumentBeingRendered: undefined,
         previousDocumentBeingRendered: undefined,
@@ -20,6 +22,8 @@ function newSuperalgosDocSpace() {
         textArea: undefined,
         setUpWorkspaceSchemas: setUpWorkspaceSchemas,
         changeLanguage: changeLanguage,
+        changeActiveBranch: changeActiveBranch,
+        changeContributionsBranch: changeContributionsBranch,
         enterEditMode: enterEditMode,
         exitEditMode: exitEditMode,
         openSpaceAreaAndNavigateTo: openSpaceAreaAndNavigateTo,
@@ -57,6 +61,8 @@ function newSuperalgosDocSpace() {
         setupSidePanelTab()
         setUpMenuItemsMap()
         setupUserLanguage()
+        setupActiveBranch()
+        setupContributionsBranch() 
 
         thisObject.searchEngine = newSuperalgosDocsSearchEngine()
         thisObject.mainSearchPage = newSuperalgosDocsMainSearchPage()
@@ -76,6 +82,30 @@ function newSuperalgosDocSpace() {
 
         isInitialized = true
 
+        function setupActiveBranch() {
+            /*
+            Getting the used preferred languague
+            */
+            if (window.localStorage.getItem('Active Branch') !== null && window.localStorage.getItem('Active Branch') !== undefined && window.localStorage.getItem('Active Branch') !== 'undefined') {
+                UI.projects.superalgos.spaces.docsSpace.activeBranch = window.localStorage.getItem('Active Branch')
+            } else {
+                window.localStorage.setItem('Active Branch', UI.projects.superalgos.globals.docs.DEFAULT_ACTIVE_BRANCH)
+                UI.projects.superalgos.spaces.docsSpace.activeBranch = UI.projects.superalgos.globals.docs.DEFAULT_ACTIVE_BRANCH
+            }
+        }
+
+        function setupContributionsBranch() {
+            /*
+            Getting the used preferred languague
+            */
+            if (window.localStorage.getItem('Contributions Branch') !== null && window.localStorage.getItem('Contributions Branch') !== undefined && window.localStorage.getItem('Contributions Branch') !== 'undefined') {
+                UI.projects.superalgos.spaces.docsSpace.contributionsBranch = window.localStorage.getItem('Contributions Branch')
+            } else {
+                window.localStorage.setItem('Contributions Branch', UI.projects.superalgos.globals.docs.DEFAULT_CONTRIBUTIONS_BRANCH)
+                UI.projects.superalgos.spaces.docsSpace.contributionsBranch = UI.projects.superalgos.globals.docs.DEFAULT_CONTRIBUTIONS_BRANCH
+            }
+        }
+
         function setupUserLanguage() {
             /*
             Getting the used preferred languague
@@ -86,7 +116,6 @@ function newSuperalgosDocSpace() {
                 window.localStorage.setItem('Docs Language', UI.projects.superalgos.globals.docs.DEFAULT_LANGUAGE)
                 UI.projects.superalgos.spaces.docsSpace.language = UI.projects.superalgos.globals.docs.DEFAULT_LANGUAGE
             }
-
         }
 
         function setupSidePanelTab() {
@@ -153,6 +182,18 @@ function newSuperalgosDocSpace() {
     function reset() {
         finalize()
         initialize()
+    }
+
+    function changeActiveBranch(branch) {
+        UI.projects.superalgos.spaces.docsSpace.activeBranch = branch
+        window.localStorage.setItem('Active Branch', UI.projects.superalgos.spaces.docsSpace.activeBranch)
+        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Switching Branches - Changing Active Branch')
+    }
+
+    function changeContributionsBranch(branch) {
+        UI.projects.superalgos.spaces.docsSpace.contributionsBranch = branch
+        window.localStorage.setItem('Contributions Branch', UI.projects.superalgos.spaces.docsSpace.contributionsBranch)
+        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Switching Branches - Contributions Branch Changed')
     }
 
     function changeLanguage(pLanguage) {

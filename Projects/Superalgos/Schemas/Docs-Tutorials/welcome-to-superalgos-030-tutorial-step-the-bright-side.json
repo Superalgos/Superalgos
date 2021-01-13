@@ -12,11 +12,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The charting space lives on top of the design space, separated by a turquoise slider."
-        },
-        {
-            "style": "Text",
-            "text": "As you will come to expect from Superalgos, the charting space is configurable and highly flexible. Everything that happens there is defined on the Charting Space hierarchy."
+            "text": "The charting space lives on top of the design space, separated by a turquoise slider. As you will come to expect from Superalgos, the charting space is configurable and highly flexible. Everything that happens there is defined on the Charting Space hierarchy.",
+            "updated": 1610538092491
         },
         {
             "style": "Warning",

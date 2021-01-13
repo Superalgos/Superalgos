@@ -50,9 +50,13 @@
             "updated": 1609950276151
         },
         {
-            "style": "Title",
+            "style": "Anchor",
             "text": "How to Estabish and Remove References",
             "updated": 1609950438203
+        },
+        {
+            "style": "Title",
+            "text": "How to Estabish and Remove References"
         },
         {
             "style": "Include",

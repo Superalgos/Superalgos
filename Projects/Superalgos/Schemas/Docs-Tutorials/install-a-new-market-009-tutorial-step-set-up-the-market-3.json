@@ -11,8 +11,9 @@
     },
     "paragraphs": [
         {
-            "style": "Title",
-            "text": "Step 3: Reference Quoted A."
+            "style": "List",
+            "text": "Step 3:  Reference Quoted Asset.",
+            "updated": 1610540662459
         }
     ]
 }

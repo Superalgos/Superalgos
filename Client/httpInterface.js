@@ -674,7 +674,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 }
                                 const git = simpleGit(options)
                                 try {
-                                    await git.checkoutBranch(currentBranch)
+                                    await git.checkout(currentBranch)
                                 } catch (err) {
                                     console.log('[ERROR] Error changing current branch to ' + currentBranch)
                                     console.log(err.stack)

@@ -103,21 +103,21 @@ function newSuperalgosDocsCommmandInterface() {
             /* Find the Username and Password */
             let apisNode = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsByType('APIs')
             if (apisNode === undefined) {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Hierarchy APIs Not Found')
                 return
             }
             if (apisNode.githubAPI === undefined) {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github API Node Not Found')
                 return
             }
 
             let config = JSON.parse(apisNode.githubAPI.config)
             if (config.username === undefined || config.username === "") {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Config Property Username Not Found')
                 return
             }
             if (config.token === undefined || config.token === "") {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Config Property Token Not Found')
                 return
             }
 

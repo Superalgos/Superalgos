@@ -657,10 +657,8 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 let result = await doGit()
 
                                 if (result === true) {
-                                    console.log(true)
                                     respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                                 } else {
-                                    console.log(false)
                                     respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                                 }
                             }

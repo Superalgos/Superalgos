@@ -28,7 +28,7 @@ background-color: #365558;
 line-height: 160%;
 border-top: 5px solid #0295aa;
 margin: 80px 0 0 0;
-padding: 50 0 20 0px;
+padding: 30 0 20 0px;
 }
 
 /* DELETE candidate (delete class assignment on DocsSapace.js too)
@@ -488,6 +488,7 @@ width: 100%;
 #docs-footer h3 {
   font-size: 180%;
   font-weight: 300;
+  padding: 10px 0 0 0;
   }
 
 #docs-footer h4 {

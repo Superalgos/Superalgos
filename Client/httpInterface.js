@@ -654,13 +654,13 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             checkout()
 
                             async function checkout() {
-                                let message = await doGit()
+                                let result = await doGit()
 
-                                let customResponse = {
-                                    result: global.CUSTOM_OK_RESPONSE.result,
-                                    message: message
+                                if (result === true) {
+                                    respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                                } else {
+                                    respondWithContent(JSON.stringify(global.FAIL_OK_RESPONSE), httpResponse)
                                 }
-                                respondWithContent(JSON.stringify(customResponse), httpResponse)
                             }
 
                             async function doGit() {
@@ -671,8 +671,13 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     maxConcurrentProcesses: 6,
                                 }
                                 const git = simpleGit(options)
-
-                                return await git.checkoutBranch(currentBranch)
+                                console.log('checkout ' + currentBranch)
+                                try {
+                                    await git.checkoutBranch(currentBranch)
+                                } catch (err) {
+                                    return false
+                                }
+                                return true
                             }
 
                         } catch (err) {

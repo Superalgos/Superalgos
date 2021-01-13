@@ -74,9 +74,11 @@ git clone https://github.com/John/Superalgos
 
 **1.** You need to make a fork so that you may contribute work. Superalgos is a Community project and you are expected to contribute, like everyone else. You don't need to be a technical person to contribute. Fixing a typo in the docs or translating a paragraph into your native language are valuable contributions too. Superalgos has built-in features that make contributing easy. Help make Superalgos better and Superalgos will better serve you! [Free-riding is not cool](https://en.wikipedia.org/wiki/Free-rider_problem), particularly on free, open-source, Community-driven projects.
 
-**2.** You are better off running the git clone command as an administrator to avoid permission issues while creating the Superalgos folder and downloading the repository. It may work without admin powers depending on your setup, particularly if you are running the command on a folder where you've got write permissions.
+**2.** You also need a fork to use the in-app self-update features. These will help you stay up-to-date with the latest version of the software. Updates are on-demand, so don't worry about undesired updates. The project moves very fast and new features become available regularly.
 
-**3.** Before installing the client on a remote computer in an attempt to access the UI from a different machine, we highly recommend you do a standard installation on your PC / laptop first. Leave your Raspberry Pi or server for later, once you have done all available tutorials. This single tip will save you a lot of time: you don't need to add complexity before you learn how to handle the app. 
+**3.** You are better off running the git clone command as an administrator to avoid permission issues while creating the Superalgos folder and downloading the repository. It may work without admin powers depending on your setup, particularly if you are running the command on a folder where you've got write permissions.
+
+**4.** Before installing the client on a remote computer in an attempt to access the UI from a different machine, we highly recommend you do a standard installation on your PC / laptop first. Leave your Raspberry Pi or server for later, once you have done all available tutorials. This single tip will save you a lot of time: you don't need to add complexity before you learn how to handle the app. 
 
 # Usage
 

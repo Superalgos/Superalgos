@@ -1,0 +1,20 @@
+{
+    "type": "Plugin Super Scripts",
+    "definition": {
+        "text": "The plugin super scripts node features the definitions of super scripts to be included as plugins in the current workspace."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Configuring Plugin Super Scripts"
+        },
+        {
+            "style": "Text",
+            "text": "Select Configure on the menu to access the configuration."
+        }
+    ]
+}

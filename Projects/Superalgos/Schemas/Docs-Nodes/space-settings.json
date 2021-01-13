@@ -1,0 +1,60 @@
+{
+    "type": "Space Settings",
+    "definition": {
+        "text": "The space settings node features controls over the phisics, proportions, and positioning of icons representing node, and their menus."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Space Settings Configuration",
+            "updated": 1609863913978
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609863924784
+        },
+        {
+            "style": "List",
+            "text": "node refers to every node in the design space."
+        },
+        {
+            "style": "List",
+            "text": "radiusPercentage is the radius of the circular nodes' menu applied as a percentage of an arbitrary default radius.",
+            "updated": 1609863960583
+        },
+        {
+            "style": "List",
+            "text": "massPercentage is the refernce mass of nodes that affect the attraction and repulsion of the environment's pysics whe the physics setting is set to true.",
+            "updated": 1609863964761
+        },
+        {
+            "style": "List",
+            "text": "menuItem refers to the items on the right-hand side of nodes' menus.",
+            "updated": 1609863969621
+        },
+        {
+            "style": "List",
+            "text": "widthPercentage is the reference width of an item applied as a percentage of an arbitrary default width.",
+            "updated": 1609863995477
+        },
+        {
+            "style": "List",
+            "text": "heightPercentage is the reference height of an item applied as a percentage of an arbitrary default height.",
+            "updated": 1609863990453
+        },
+        {
+            "style": "List",
+            "text": "radiusPercentage is the reference radious of the circular matrix that governs the distribution of items in the circular menu. Larger numbers cause items to spread appart while smaller numbers makes items lie closer to each other.",
+            "updated": 1609863985113
+        },
+        {
+            "style": "List",
+            "text": "physics determines wether the environment is static (false) or dynamic (true). When physics is set to true, nodes in the design space are affected by th gravitational pull and repulsion of other nodes."
+        }
+    ]
+}

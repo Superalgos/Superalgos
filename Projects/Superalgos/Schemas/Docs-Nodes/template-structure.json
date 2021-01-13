@@ -1,0 +1,20 @@
+{
+    "type": "Template Structure",
+    "definition": {
+        "text": "The template structure holds the structure of nodes with all its configurations and properties, exactly as it should be implemented."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "Properties include the physical arrangement of nodes, references and so on."
+        },
+        {
+            "style": "Note",
+            "text": "The actual structure of nodes contained in the template usually originates as a clone of an existing structure of nodes."
+        }
+    ]
+}

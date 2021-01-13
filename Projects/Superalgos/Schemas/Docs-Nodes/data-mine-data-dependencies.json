@@ -1,0 +1,28 @@
+{
+    "type": "Data Mine Data Dependencies",
+    "definition": {
+        "text": "Data mine data dependencies are references established with entire data mines to facilitate establishing data dependencies with multiple datasets in the given data mine."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The node may be used as an organizational device, simply to arrange bot data dependencies. However, the smart use of the node involves automating the deployment of multiple data dependencies and their references."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Configuring Data Mine Data Dependencies"
+        },
+        {
+            "style": "Text",
+            "text": "Select Configure on the menu to access the configuration."
+        }
+    ]
+}

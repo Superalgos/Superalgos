@@ -1,0 +1,45 @@
+{
+    "type": "Production Trading Tasks",
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1610106726574
+        },
+        {
+            "style": "Text",
+            "text": "Superalgos aims to provide a flexible and robust trading bots deployment toolbox."
+        },
+        {
+            "style": "Text",
+            "text": "With Superalgos, you may deploy as many trading bots as you wish and have them running on a single computer or in as many machines as you wish, in a Trading Farm type of setup. To help with the management of large numbers of live trading sessions, the system helps you with sorting tasks by exchange, market, and trading mine.",
+            "updated": 1609666769136
+        },
+        {
+            "style": "Text",
+            "text": "The production environment works pretty much in the same way as the testing environment, save for two important differences:"
+        },
+        {
+            "style": "List",
+            "text": "The production environment runs forward testing and live trading sessions, instead of backtesting and paper trading sessions."
+        },
+        {
+            "style": "List",
+            "text": "These two types of sessions involve monetary transactions at the exchange, thus require the set up of a key reference to authenticate your account with the exchange."
+        },
+        {
+            "style": "Note",
+            "text": "If you are familiar with Testing Trading Tasks, there isn’t much more to learn to understand Production Trading Tasks. If you are not familiar with either, please refer to the Testing Trading Tasks Section page for the details.",
+            "updated": 1610111338574
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Deleting Node Warning",
+            "updated": 1610122740064
+        }
+    ],
+    "definition": {
+        "text": "The Production Trading Tasks node organizes trading sessions involving live trading.",
+        "updated": 1609666696048
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "topic": "Docs Languages",
+    "pageNumber": "3",
+    "type": "Docs In Russian",
+    "definition": {
+        "text": "The Docs articles are fully written in English. The system allow users to search / browse articles in other languages as well, as long as other users contribute translations.",
+        "updated": 1609832026056
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Superalgos and any other integrated project are written in English, since English is considered the default language. Node types, variable names, etc., all is originally in English language.",
+            "updated": 1609832046885
+        },
+        {
+            "style": "Text",
+            "text": "The Docs content can be translated by anyone willing to contribute some time doing so. That helps users to read the contents of the Docs in their native language."
+        },
+        {
+            "style": "Success",
+            "text": "Users can switch between languages using the links provided at the footer of every page at the Docs.",
+            "updated": 1609832065974
+        },
+        {
+            "style": "Note",
+            "text": "You can only add or delete pages to the Docs if you are navigating it in English, because English is the default language, and from there pages are later translated.",
+            "updated": 1609832076465
+        }
+    ]
+}

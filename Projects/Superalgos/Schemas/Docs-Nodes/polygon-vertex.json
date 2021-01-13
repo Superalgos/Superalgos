@@ -1,0 +1,24 @@
+{
+    "type": "Polygon Vertex",
+    "definition": {
+        "text": "A polygon vertex is a reference to a point defined in the chart points, constituting a specific coordinate to be used as a vertex of a shape."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "Vertices are the main element defining polygons. Once created, each vertex must establish a reference to the corresponding point in the charts point."
+        },
+        {
+            "style": "Text",
+            "text": "Drawing curves requires two vertices. Painting areas, such as the background of a chart, likely requires four vertices. Note that vertices are not capable of featuring a style. Instead, styles are applied to polygon borders and polygon bodies."
+        },
+        {
+            "style": "Important",
+            "text": "Bear in mind that the order in which vertices in a polygon are arranged around the parent polygon node when their rotational symmetry property is selected, is the order in which the plotter computes the points. This means that points need to be in the correct order, for example, when drawing a box. Imagine drawing a box on a piece of paper without lifting the pencil... that is how the plotter does it."
+        }
+    ]
+}

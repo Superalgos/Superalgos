@@ -73,7 +73,7 @@ function newConfigEditor() {
         thisObject.payload.uiObject.uiObjectTitle.exitEditMode()
 
         let textArea = document.getElementById('textArea')
-        textArea.value = thisObject.payload.node.config
+        textArea.value =  JSON.stringify(JSON.parse(thisObject.payload.node.config), undefined, 4)
         textArea.style = 'resize: none;' +
             ' border: none;' +
             ' outline: none;' +

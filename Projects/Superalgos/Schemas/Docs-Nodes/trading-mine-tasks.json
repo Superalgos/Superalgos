@@ -1,0 +1,24 @@
+{
+    "type": "Trading Mine Tasks",
+    "definition": {
+        "text": "The trading mine tasks node is an organizational device that groups tasks corresponding to the referenced trading mine."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The market trading tasks node must reference the definition of a data mine. The node may spawn tasks for each bot in the data mine."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Block",
+            "text": "Running"
+        }
+    ]
+}

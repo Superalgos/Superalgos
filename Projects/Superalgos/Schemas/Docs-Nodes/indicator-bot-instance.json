@@ -1,0 +1,30 @@
+{
+    "type": "Indicator Bot Instance",
+    "definition": {
+        "text": "An indicator bot instance is a reference to an Indicator Bot as defined in a data mine. The instance of the bot runs the defined processes and generates the defined data products.",
+        "updated": 1609617888057
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": "The indicator bot instance holds no definitions as to what the bot does. Instead, its processes instances reference the process definitions in the corresponding Data Mine. That is how the indicator bot instance obtains the information of what it needs to do once it is run.",
+            "updated": 1609617815818
+        },
+        {
+            "style": "Block",
+            "text": "Running"
+        },
+        {
+            "style": "Note",
+            "text": "You do not start or stop an indicator bot instance directly. Instead, you start or stop the corresponding task."
+        }
+    ]
+}

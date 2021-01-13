@@ -1,0 +1,44 @@
+{
+    "type": "Lock",
+    "definition": {
+        "text": "Lock is an internal mechanism that blocks the data structure of the order at the trading engine when the definition of the order at the trading system disallows spawning multiple orders."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "Possible values for lock are open and closed."
+        },
+        {
+            "style": "Text",
+            "text": "The moment an order is closed, the system checks the spawnMultipleOrders parameter at the order's configuration in the trading system. If the value is false, the system sets the lock to closed so that the data structure may not be used again during the same position."
+        },
+        {
+            "style": "Text",
+            "text": "At the moment of opening an order, the system checks the spawnMultipleOrders parameter at the order's configuration in the trading system. If the value is false, the system checks the value of the lock. If the value is open, then it may create the order; if it is closed then the order may not be created."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring",
+            "updated": 1609873831169
+        },
+        {
+            "style": "Title",
+            "text": "Lock Configuration",
+            "updated": 1609927200185
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609873980538
+        },
+        {
+            "style": "List",
+            "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
+            "updated": 1609875415147
+        }
+    ]
+}

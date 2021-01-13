@@ -1,0 +1,16 @@
+{
+    "type": "Text",
+    "definition": {
+        "text": "The text node allows overlaying text on the charts, controlling its position, size, appearance, and when it shall be rendered."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The node's offspring control the different aspects of how, where, and when text shall be rendered over the charts."
+        }
+    ]
+}

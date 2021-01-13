@@ -1,0 +1,16 @@
+{
+    "topic": "Docs Commands Messages",
+    "pageNumber": 5,
+    "type": "Docs Message - Repagination Succeed",
+    "definition": {
+        "text": "The docs.repaginate command you executed successfuly.",
+        "updated": 1610292270590
+    },
+    "paragraphs": [
+        {
+            "style": "Important",
+            "text": "To complete this procedure, you need to manually delete from disk all the files of the Topic / Tutorial you just repaginated, and execute the Docs Save Command to save the in-memory updated pages.",
+            "updated": 1610292163004
+        }
+    ]
+}

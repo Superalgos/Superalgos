@@ -5,12 +5,13 @@ let ENVIRONMENT_MODULE = ENVIRONMENT.newEnvironment()
 global.env = ENVIRONMENT_MODULE
 
 process.on('uncaughtException', function (err) {
-    if (err.message.indexOf("EADDRINUSE") > 0) {
+    if (err.message && err.message.indexOf("EADDRINUSE") > 0) {
         console.log("A Superalgos Client cannot be started. Reason: the port " + port + " is already in use by another application.")
         return
     }
     console.log('[ERROR] Client -> client-> uncaughtException -> err.message = ' + err.message)
     console.log('[ERROR] Client -> client-> uncaughtException -> err.stack = ' + err.stack)
+    console.log('[ERROR] Client -> client-> uncaughtException -> err = ' + err)
     process.exit(1)
 })
 
@@ -126,11 +127,12 @@ try {
     console.log('Http Interface ..................... Listening at port ' + global.env.HTTP_INTERFACE_PORT)
 
     console.log('')
-    console.log("You are running Superalgos Beta 7 SP 1")
+    console.log("You are running Superalgos Beta 8")
     console.log('')
     console.log("What's new? The following was implemented here:")
     console.log('')
-    console.log('Multi-Project Infrastructure ....... This allow us to integrate crypto projects into Superalgos. Note that with this upgrade you will need to download and calculate market data again.')
+    console.log('Task Server Upgraded ............... This allow us to integrate crypto projects into the Task Server, opening the door to new types of bots defined at other projects.')
+    console.log('In-App Documentation Improved ...... This allow users to improve the docs and also to document other integrated projects.')
     console.log('')
     console.log("What's next? At the development pipeline we have:")
     console.log('')

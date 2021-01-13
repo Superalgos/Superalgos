@@ -1,0 +1,16 @@
+{
+    "type": "Trading Session Reference",
+    "definition": {
+        "text": "A session reference establishes which session is the one which shall store data in the current location."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "A such, the session reference node must establish a reference with a trading session. Also, its offspring nodes determine precisely which data products are stored."
+        }
+    ]
+}

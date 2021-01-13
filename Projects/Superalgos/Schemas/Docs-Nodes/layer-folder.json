@@ -1,0 +1,18 @@
+{
+    "type": "Layer Folder",
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": " ",
+            "updated": 1609784713559
+        },
+        {
+            "style": "Text",
+            "text": "The node is created automatically when installing new markets."
+        }
+    ],
+    "definition": {
+        "text": "The Layer Folder node is a device used to facilitate the organization of layers, particularly when a single bot produces many of them.",
+        "updated": 1609784707718
+    }
+}

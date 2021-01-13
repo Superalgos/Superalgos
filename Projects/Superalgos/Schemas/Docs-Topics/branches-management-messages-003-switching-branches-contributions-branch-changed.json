@@ -1,0 +1,16 @@
+{
+    "topic": "Branches Management Messages",
+    "pageNumber": "3",
+    "type": "Switching Branches - Contributions Branch Changed",
+    "definition": {
+        "text": "Your Contributions Branch was succesfully changed. This will only have an inpact the next time you run the App Contribute Command. This branch is going to receive the Pull Request with all your changes.",
+        "updated": 1610543909026
+    },
+    "paragraphs": [
+        {
+            "style": "Note",
+            "text": "There is no further action required.",
+            "updated": 1610543930216
+        }
+    ]
+}

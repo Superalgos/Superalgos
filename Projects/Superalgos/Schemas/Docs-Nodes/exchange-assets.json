@@ -1,0 +1,27 @@
+{
+    "type": "Exchange Assets",
+    "definition": {
+        "text": "The exchange assets node groups the definitions of assets that may be used to define markets under the Exchange Markets node.",
+        "updated": 1609771958983
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Exchange Assets Configuration",
+            "updated": 1609771814727
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609771820241
+        },
+        {
+            "style": "List",
+            "text": " addMissingAssets acts as a filter to determine which assets of a (potentially long) list of assets listed at the exchange will be added when the Add Missing Assets* option in the menu is used. Because many exchanges do not offer a list of assets, the system fetches assets from actual markets (pairs) listed at the exchange. You may add missing assets filtered by the quotedAsset or by the baseAsset. For example, the above configuration would add all assets listed in markets in which BTC is the quoted asset."
+        }
+    ]
+}

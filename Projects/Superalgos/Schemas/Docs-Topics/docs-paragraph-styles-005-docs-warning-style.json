@@ -1,0 +1,22 @@
+{
+    "topic": "Docs Paragraph Styles",
+    "pageNumber": 5,
+    "type": "Docs Warning Style",
+    "definition": {
+        "text": "Use this style for boxing text as a warning to readers."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Anything you type while editing a paragraph of this style will be rendered inside the warning box."
+        },
+        {
+            "style": "Title",
+            "text": "Example:"
+        },
+        {
+            "style": "Warning",
+            "text": "This is an example of a paragraph in warning style."
+        }
+    ]
+}

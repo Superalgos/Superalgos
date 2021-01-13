@@ -1,0 +1,40 @@
+{
+    "type": "End",
+    "definition": {
+        "text": "End is the datetime on which the object represented by the parent node ceased to exist. In case the object has not been closed yet, it is the datetime at the moment of evaluation."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "In the context of a candle, it is the datetime of the close of the candle as provided by the exchange."
+        },
+        {
+            "style": "Text",
+            "text": "In every other context, the datetime is given by the datetime of the moment of evaluation. When evaluating a point in time in which the object remains open, end stores the datetime of that moment, because the object existed until that point in time when the value was last being updated. Once the object is closed, the end value is not modified again."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring",
+            "updated": 1609873831169
+        },
+        {
+            "style": "Title",
+            "text": "End Configuration",
+            "updated": 1609880073775
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609873980538
+        },
+        {
+            "style": "List",
+            "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
+            "updated": 1609875415147
+        }
+    ]
+}

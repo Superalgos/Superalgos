@@ -1,0 +1,26 @@
+{
+    "type": "Trading Mines Data",
+    "definition": {
+        "text": "Trading Mines Data refers to data that is generated as a consequence of running a trading session, that is, data the trading bot instance generates while running backtesting, paper trading, forward testing, or live trading sessions.",
+        "updated": 1609667925651
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "Trading mines data is sorted by exchange, market, the corresponding trading session, and the corresponding trading mine, trading bot, and bot product. That is, most of the nodes in this section of the hierarchy play an organizational role.",
+            "updated": 1609667942769
+        },
+        {
+            "style": "Text",
+            "text": "Many of them require references to the nodes that delimit the context for which the data is applicable. For example, the exchange trading products node must reference one of the installed exchanges, in particular, the exchange on which the trading operation is run. These references help other entities understand the context to which the data belongs to."
+        },
+        {
+            "style": "Text",
+            "text": "Whenever you create trading tasks manually from within the Network hierarchy (as opposed to using the install market function under the exchange markets node of the Crypto Ecosystem hierarchy"
+        }
+    ]
+}

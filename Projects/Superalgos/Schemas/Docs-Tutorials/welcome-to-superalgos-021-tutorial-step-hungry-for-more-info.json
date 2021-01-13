@@ -1,0 +1,42 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 21,
+    "type": "Tutorial Step - Hungry For More Info?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "help"
+        },
+        "text": "I won't go into every detail as we move along, but if you need more info on a node, the help button on the menu takes you straight to its documentation."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The documentation of a node may include one or more of the following sections:"
+        },
+        {
+            "style": "List",
+            "text": "Definition: describes what the node is or does."
+        },
+        {
+            "style": "List",
+            "text": "Content: describes how the node works."
+        },
+        {
+            "style": "List",
+            "text": "Adding: describes how to add the node."
+        },
+        {
+            "style": "List",
+            "text": "Configure: goes through the node's configuration."
+        },
+        {
+            "style": "List",
+            "text": "Start: for nodes that may be started or stopped."
+        },
+        {
+            "style": "Callout",
+            "text": "Click the help button on the Data Tasks node!"
+        }
+    ]
+}

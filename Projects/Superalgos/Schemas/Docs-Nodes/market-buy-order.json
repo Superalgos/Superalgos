@@ -1,0 +1,202 @@
+{
+    "type": "Market Buy Order",
+    "definition": {
+        "text": "A market buy order is an instruction sent to the exchange to buy the base asset, for immediate execution at current market prices."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "Traders usually use market orders when the priority is the certainty of execution over the rate of execution. Depending on the size of the order and the liquidity of the particular market/exchange, market orders may experience more or less slippage."
+        },
+        {
+            "style": "Title",
+            "text": "Market Orders' Rate",
+            "updated": 1609604792445
+        },
+        {
+            "style": "Text",
+            "text": "Users have no control over the rate at which a market order is filled. The exchange fills the order with available bids/asks at the time of execution."
+        },
+        {
+            "style": "Success",
+            "text": "The information below this banner is valid for all types of orders.",
+            "updated": 1609604814108
+        },
+        {
+            "style": "Title",
+            "text": "Order Size",
+            "updated": 1609604828662
+        },
+        {
+            "style": "Text",
+            "text": "As explained in the definition of the execution algorithm, each algorithm is allocated a percentage of the target size defined under the initial targets node."
+        },
+        {
+            "style": "Text",
+            "text": "The simplified logic for non-coders:"
+        },
+        {
+            "style": "Javascript",
+            "text": "algorithmSize = targetSize * percentageOfStageTargetSize / 100"
+        },
+        {
+            "style": "Text",
+            "text": "The actual code:"
+        },
+        {
+            "style": "Javascript",
+            "text": "let algorithmSizeInBaseAsset = \ntradingEngineStage.stageBaseAsset.targetSize.value * \nexecutionAlgorithm.config.percentageOfStageTargetSize / 100\n\nlet algorithmSizeInQuotedAsset = \ntradingEngineStage.stageQuotedAsset.targetSize.value * \nexecutionAlgorithm.config.percentageOfStageTargetSize / 100",
+            "updated": 1609604914758
+        },
+        {
+            "style": "Text",
+            "text": "Similarly, the size of an order is defined as a percentage of the size that the particular algorithm is allowed to execute (see the configuration)."
+        },
+        {
+            "style": "Text",
+            "text": "The simplified logic for non-coders:"
+        },
+        {
+            "style": "Javascript",
+            "text": "orderSize = algorithmSize * percentageOfAlgorithmSize / 100"
+        },
+        {
+            "style": "Text",
+            "text": "The actual code:"
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngineOrder.orderBaseAsset.size.value = \nalgorithmSizeInBaseAsset * \ntradingSystemOrder.config.percentageOfAlgorithmSize / 100",
+            "updated": 1609605026488
+        },
+        {
+            "style": "Text",
+            "text": "Because each execution algorithm may define multiple orders, the typical scenario is that all orders defined within an algorithm add up to 100% of the size allocated to the algorithm."
+        },
+        {
+            "style": "Text",
+            "text": "However, it is up to the user how to manage this setting, as different hacks may be found to achieve different behaviors."
+        },
+        {
+            "style": "Callout",
+            "text": "If orders defined add up to more than 100% of the size allocated to the algorithm, the trading engine does not enforce a cap."
+        },
+        {
+            "style": "Text",
+            "text": "Pretty much like the user may decide to define the size of orders within an algorithm above or below the 100% mark, the same is true when defining multiple algorithms. In other words, the user may choose to set up algorithms whose combined sizes amount to more or less than 100%."
+        },
+        {
+            "style": "Text",
+            "text": "In cases in which the combined sizes amount to less than 100%, the target size would be partially filled at best. On the other hand, in cases in which the combined sizes amount to more than 100%, then the orders and/or algorithms would compete with each other."
+        },
+        {
+            "style": "Callout",
+            "text": "The one validation the trading engine does is to enforce the target size defined under the initial targets node. The target size is treated as a hard cap, so that no position may ever be sized larger than the target."
+        },
+        {
+            "style": "Text",
+            "text": "If the order size as defined would cause the target size to be breached, then the order size is lowered to match the hard cap."
+        },
+        {
+            "style": "Text",
+            "text": "The simplified logic for non-coders:"
+        },
+        {
+            "style": "Javascript",
+            "text": "if ( targetSize + sizePlaced > targetSize )\n{ orderSize = targetSize - sizePlaced }",
+            "updated": 1609605299313
+        },
+        {
+            "style": "Text",
+            "text": "The actual code:"
+        },
+        {
+            "style": "Javascript",
+            "text": "if (\n     tradingEngineOrder.orderBaseAsset.size.value + \n     tradingEngineStage.stageBaseAsset.sizePlaced.value >\n     tradingEngineStage.stageBaseAsset.targetSize.value\n) {\n     tradingEngineOrder.orderBaseAsset.size.value = \n     tradingEngineStage.stageBaseAsset.targetSize.value - \n     tradingEngineStage.stageBaseAsset.sizePlaced.value\n}",
+            "updated": 1609605319814
+        },
+        {
+            "style": "Note",
+            "text": "See the order's configuration to learn how to set up the order size."
+        },
+        {
+            "style": "Title",
+            "text": "Placing and Filling of Orders",
+            "updated": 1609605682783
+        },
+        {
+            "style": "Text",
+            "text": "The trading engine keeps track of the amounts placed and the amounts filled based on the feedback obtained from the exchange, and makes the information available in the size placed and size filled nodes. The nodes are present in multiple contexts, such as the particular stage (open and close) or the particular order type, and are denominated both in the base asset and quoted asset. You may learn more about how to track the size placed and size filled on the trading engine pages."
+        },
+        {
+            "style": "Title",
+            "text": "Closing of Orders",
+            "updated": 1609605695838
+        },
+        {
+            "style": "Text",
+            "text": "Orders may be closed upon the occurrence of the following two events:"
+        },
+        {
+            "style": "List",
+            "text": "The exchange reports the order was filled. In such a case, the trading engine closes the order."
+        },
+        {
+            "style": "List",
+            "text": "The cancel order event is triggered. This is an event the user may configure with the typical set up of situations and conditions."
+        },
+        {
+            "style": "Text",
+            "text": "All of the available types of orders may be configured so that multiple orders may be spawned, one after the other, through the same order definition."
+        },
+        {
+            "style": "Text",
+            "text": "This allows, for example, setting an order for 1% of the size allocated to the algorithm, and have the trading engine spawn one order per execution cycle until the 100% mark is reached. Such a feature may allow many more hacks and is yet another tool that&mdash;combined with the rest&mdash;enables a great deal of control over orders execution."
+        },
+        {
+            "style": "Text",
+            "text": "A new instance of an order may be spawned only under the following  context:"
+        },
+        {
+            "style": "List",
+            "text": "The previous instance of the order is closed. That is, two instances of the same order may not exist at the same time."
+        },
+        {
+            "style": "List",
+            "text": "The size filled at the level of the execution algorithm is within the limit established in the algorithm's configuration."
+        },
+        {
+            "style": "List",
+            "text": "The size filled at the level of the stage must be within the target size defined under the initial targets node."
+        },
+        {
+            "style": "Note",
+            "text": "See the order’s configuration to learn how to configure the parameter affecting this behavior."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Market Buy Order Configuration",
+            "updated": 1609605867112
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties"
+        },
+        {
+            "style": "List",
+            "text": "percentageOfAlgorithmSize is the definition of how much of the size handled by the algorithm shall be allocated to this particular order. Posible values are real numbers between 0 and 100, including the extremes. If you set the value to 0, the order will not be executed."
+        },
+        {
+            "style": "List",
+            "text": "spawnMultipleOrders is the parameter that indicates whether additional spawned orders are allowed (true) or not (false)."
+        }
+    ]
+}

@@ -40,13 +40,19 @@ function newAppPostLoader() {
                     let schemas = {
                         array: {
                             appSchema: [],
-                            docSchema: [],
-                            conceptSchema: []
+                            docsNodeSchema: [],
+                            docsConceptSchema: [],
+                            docsTopicSchema: [],
+                            docsTutorialSchema: [],
+                            docsBookSchema: []
                         },
                         map: {
                             appSchema: new Map(),
-                            docSchema: new Map(),
-                            conceptSchema: new Map()
+                            docsNodeSchema: new Map(),
+                            docsConceptSchema: new Map(),
+                            docsTopicSchema: new Map(),
+                            docsTutorialSchema: new Map(),
+                            docsBookSchema: new Map()
                         }
                     }
                     SCHEMAS_BY_PROJECT.set(project, schemas)
@@ -59,9 +65,9 @@ function newAppPostLoader() {
                             schemas.array.appSchema = JSON.parse(schema)
 
                             for (let j = 0; j < schemas.array.appSchema.length; j++) {
-                                let nodeDefinition = schemas.array.appSchema[j]
-                                let key = nodeDefinition.type
-                                schemas.map.appSchema.set(key, nodeDefinition)
+                                let schemaDocument = schemas.array.appSchema[j]
+                                let key = schemaDocument.type
+                                schemas.map.appSchema.set(key, schemaDocument)
                             }
                         } catch (err) {
                             console.log(err.stack)
@@ -72,16 +78,16 @@ function newAppPostLoader() {
                     }
 
                     totalWebServerCalls++
-                    httpRequest(undefined, 'Schema/' + project + '/DocSchema', onResponseDocSchema)
+                    httpRequest(undefined, 'Schema/' + project + '/DocsNodeSchema', onResponseDocSchema)
 
                     function onResponseDocSchema(err, schema) {
                         try {
-                            schemas.array.docSchema = JSON.parse(schema)
+                            schemas.array.docsNodeSchema = JSON.parse(schema)
 
-                            for (let j = 0; j < schemas.array.docSchema.length; j++) {
-                                let nodeDefinition = schemas.array.docSchema[j]
-                                let key = nodeDefinition.type
-                                schemas.map.docSchema.set(key, nodeDefinition)
+                            for (let j = 0; j < schemas.array.docsNodeSchema.length; j++) {
+                                let schemaDocument = schemas.array.docsNodeSchema[j]
+                                let key = schemaDocument.type
+                                schemas.map.docsNodeSchema.set(key, schemaDocument)
                             }
                         } catch (err) {
                             console.log(err.stack)
@@ -92,16 +98,76 @@ function newAppPostLoader() {
                     }
 
                     totalWebServerCalls++
-                    httpRequest(undefined, 'Schema/' + project + '/ConceptSchema', onResponseConceptSchema)
+                    httpRequest(undefined, 'Schema/' + project + '/DocsConceptSchema', onResponseConceptSchema)
 
                     function onResponseConceptSchema(err, schema) {
                         try {
-                            schemas.array.conceptSchema = JSON.parse(schema)
+                            schemas.array.docsConceptSchema = JSON.parse(schema)
 
-                            for (let j = 0; j < schemas.array.conceptSchema.length; j++) {
-                                let nodeDefinition = schemas.array.conceptSchema[j]
-                                let key = nodeDefinition.type
-                                schemas.map.conceptSchema.set(key, nodeDefinition)
+                            for (let j = 0; j < schemas.array.docsConceptSchema.length; j++) {
+                                let schemaDocument = schemas.array.docsConceptSchema[j]
+                                let key = schemaDocument.type
+                                schemas.map.docsConceptSchema.set(key, schemaDocument)
+                            }
+                        } catch (err) {
+                            console.log(err.stack)
+                        }
+
+                        webServerResponses++
+                        if (webServerResponses === totalWebServerCalls) { startCanvas() }
+                    }
+
+                    totalWebServerCalls++
+                    httpRequest(undefined, 'Schema/' + project + '/DocsTopicSchema', onResponseTopicSchema)
+
+                    function onResponseTopicSchema(err, schema) {
+                        try {
+                            schemas.array.docsTopicSchema = JSON.parse(schema)
+
+                            for (let j = 0; j < schemas.array.docsTopicSchema.length; j++) {
+                                let schemaDocument = schemas.array.docsTopicSchema[j]
+                                let key = schemaDocument.type
+                                schemas.map.docsTopicSchema.set(key, schemaDocument)
+                            }
+                        } catch (err) {
+                            console.log(err.stack)
+                        }
+
+                        webServerResponses++
+                        if (webServerResponses === totalWebServerCalls) { startCanvas() }
+                    }
+
+                    totalWebServerCalls++
+                    httpRequest(undefined, 'Schema/' + project + '/DocsTutorialSchema', onResponseTutorialSchema)
+
+                    function onResponseTutorialSchema(err, schema) {
+                        try {
+                            schemas.array.docsTutorialSchema = JSON.parse(schema)
+
+                            for (let j = 0; j < schemas.array.docsTutorialSchema.length; j++) {
+                                let schemaDocument = schemas.array.docsTutorialSchema[j]
+                                let key = schemaDocument.type
+                                schemas.map.docsTutorialSchema.set(key, schemaDocument)
+                            }
+                        } catch (err) {
+                            console.log(err.stack)
+                        }
+
+                        webServerResponses++
+                        if (webServerResponses === totalWebServerCalls) { startCanvas() }
+                    }
+
+                    totalWebServerCalls++
+                    httpRequest(undefined, 'Schema/' + project + '/DocsBookSchema', onResponseBookSchema)
+
+                    function onResponseBookSchema(err, schema) {
+                        try {
+                            schemas.array.docsBookSchema = JSON.parse(schema)
+
+                            for (let j = 0; j < schemas.array.docsBookSchema.length; j++) {
+                                let schemaDocument = schemas.array.docsBookSchema[j]
+                                let key = schemaDocument.type
+                                schemas.map.docsBookSchema.set(key, schemaDocument)
                             }
                         } catch (err) {
                             console.log(err.stack)

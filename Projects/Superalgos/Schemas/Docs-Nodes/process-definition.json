@@ -1,0 +1,46 @@
+{
+    "type": "Process Definition",
+    "definition": {
+        "text": "The process definition node groups all definitions required for a process to function. The Multi-Period-Market Process deals with time frames of one hour and above. The Multi-Period-Daily Process deals with time frames of 45 minutes and below."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "As hinted above, most bots&mdash;in particular indicators&mdash;have two different processes. The reason is that different data structures need to be handled in different manners. The Multi-Period-Daily process handles daily files, while the Multi-Period-Market process handles market files."
+        },
+        {
+            "style": "Text",
+            "text": "The Multi-Period-Market process deals with time frames of one hour and above. Because these time frames produce relatively small numbers of records, the process builds one single file per time frame spanning the whole market history&mdash;hence the name Multi-Period-Market."
+        },
+        {
+            "style": "Text",
+            "text": "On the other hand, the Multi-Period-Daily process deals with time frames below one hour. These time frames produce huge numbers of records, therefore, the corresponding data must be fragmented in multiple files. The Multi-Period-Daily process builds one file per day for each time frame&mdash;hence the name Multi-Period-Daily."
+        },
+        {
+            "style": "Note",
+            "text": "The way in which datasets are structured by each of the processes is determined by the corresponding dataset definitions."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Process Definition Configuration",
+            "updated": 1609786986097
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609787034890
+        },
+        {
+            "style": "List",
+            "text": "codeName is the name of the process as used within the code of the system."
+        }
+    ]
+}

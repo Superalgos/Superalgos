@@ -1,0 +1,16 @@
+{
+    "topic": "Docs Basics",
+    "pageNumber": "1",
+    "type": "Docs Intro",
+    "definition": {
+        "text": "The Docs is a Space within Superalgos Project that allow users to search for information that explain the nodes, concepts and topics related to the different projects.",
+        "updated": 1609151076248
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The Docs pages are organized in categories, explained in the page Docs Page Category.",
+            "updated": 1609151246461
+        }
+    ]
+}

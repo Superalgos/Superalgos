@@ -1,0 +1,22 @@
+{
+    "topic": "Docs Paragraph Styles",
+    "pageNumber": 8,
+    "type": "Docs Success Style",
+    "definition": {
+        "text": "This style will render the text inside a success box."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Any text formatted with this style will be showed inside the success box."
+        },
+        {
+            "style": "Title",
+            "text": "Example:"
+        },
+        {
+            "style": "Success",
+            "text": "This is an example of a paragraph in success style."
+        }
+    ]
+}

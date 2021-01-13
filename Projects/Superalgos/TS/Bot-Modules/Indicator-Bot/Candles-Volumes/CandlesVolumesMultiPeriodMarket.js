@@ -50,7 +50,7 @@
         try {
             /* Context Variables */
             let contextVariables = {
-                lastCandleFile: undefined,          // Datetime of the last file files sucessfully produced by this process.
+                lastCandleFile: undefined,          // Datetime of the last file files successfully produced by this process.
                 firstTradeFile: undefined,          // Datetime of the first trade file in the whole market history.
                 maxCandleFile: undefined            // Datetime of the last file available to be used as an input of this process.
             };

@@ -1,0 +1,16 @@
+{
+    "topic": "App Commands Errors",
+    "pageNumber": "1",
+    "type": "App Error - Contribution Not Sent",
+    "definition": {
+        "text": "There was a problmen trying to send your contribution to your fork of the Superalgos repository, or from your fork to the Superalgos/Superalgos main repository.",
+        "updated": 1610441932801
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "You will need to check for the Client's console for details on what happened. After you fix the issue that prevented the App Contribute Command to run, you might try again.",
+            "updated": 1610441999433
+        }
+    ]
+}

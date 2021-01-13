@@ -1,0 +1,16 @@
+{
+    "type": "Position Base Asset",
+    "definition": {
+        "text": "The position base asset node keeps track of the evolution of variables related to the base asset throughout the position."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Note",
+            "text": "Learn more about how accounts for the base asset and the quoted asset are kept in the base asset and quoted asset page on the trading engine section of the documentation."
+        }
+    ]
+}

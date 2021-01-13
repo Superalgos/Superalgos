@@ -1,0 +1,51 @@
+{
+    "type": "Record Property",
+    "definition": {
+        "text": "A record property is a piece of information that may be stored as part of the dataset or made available as a calculated property."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "Records may have as many properties as required."
+        },
+        {
+            "style": "Important",
+            "text": "The order in which record properties are defined around the parent record definition node is the order in which they are stored in the actual record."
+        },
+        {
+            "style": "Success",
+            "text": "The first two records are usually the begin and end records, featuring the corresponding datetimes that indicate when the record starts and ends.",
+            "updated": 1609788556871
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Record Property Configuration",
+            "updated": 1609788569963
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609788577195
+        },
+        {
+            "style": "List",
+            "text": "codeName is the name of the record as it is used in the bot's code."
+        },
+        {
+            "style": "List",
+            "text": "isString determines if the field is a text string or if, in turn, is a numeric field. Dates are stored in the epoch format, which is numeric. The reason why this configuration is important is that fields that are strings need to be stored between “double quotes”."
+        },
+        {
+            "style": "List",
+            "text": " isCalculated determines if the field is stored in the dataset or if, instead, is calculated at a later stage. A value true* means that the record is not stored. In the case isCaculated is not defined in the configuration, it is assumed to be false."
+        }
+    ]
+}

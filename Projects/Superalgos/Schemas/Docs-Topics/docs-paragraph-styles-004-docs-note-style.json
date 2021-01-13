@@ -1,0 +1,22 @@
+{
+    "topic": "Docs Paragraph Styles",
+    "pageNumber": 4,
+    "type": "Docs Note Style",
+    "definition": {
+        "text": "This style will render in a blue box with the word note as a prefix."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "While editing a paragraph of this style, simply type the text you would like to appear inside the box. The word note is added automatically."
+        },
+        {
+            "style": "Title",
+            "text": "Example:"
+        },
+        {
+            "style": "Note",
+            "text": " This is an example of a paragraph in note style."
+        }
+    ]
+}

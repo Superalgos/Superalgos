@@ -1,0 +1,7 @@
+{
+    "type": "Stop Loss Phase",
+    "definition": {
+        "text": "Stop loss phase is the numeric value of the phase that is currently open, and thus, defining the value of the stop loss."
+    },
+    "paragraphs": []
+}

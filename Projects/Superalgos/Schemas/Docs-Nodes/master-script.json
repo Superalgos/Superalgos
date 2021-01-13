@@ -1,0 +1,20 @@
+{
+    "type": "Master Script",
+    "definition": {
+        "text": "A master script contains the definitions of any number of template scripts along with the master JavaScript code providing the logic to implement them."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "In general terms, master scripts serve to atomize the complexity of the task at hand by subdividing the task into any number of specific scopes, handled by individual template scripts. The master script controls the execution of template scripts and solves issues beyond their scope."
+        },
+        {
+            "style": "Text",
+            "text": "The current implementation of the Masters super scripts hierarchy features two master scripts you may use as examples. The Setup Market master script deals with all the steps required to install a new market, while the Delete Market Dependencies master script deals with uninstalling markets."
+        }
+    ]
+}

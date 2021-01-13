@@ -1,0 +1,47 @@
+{
+    "type": "Asset",
+    "definition": {
+        "text": "An asset node is the definition of an asset in Superalgos.",
+        "updated": 1609771995506
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1609772067590
+        },
+        {
+            "style": "Text",
+            "text": "Assets defined under the Exchange Assets node may then be used to define markets, or to define holdings denominated in these assets under the User Assets node.",
+            "updated": 1609772147353
+        },
+        {
+            "style": "Block",
+            "text": "Configuring",
+            "updated": 1609772157097
+        },
+        {
+            "style": "Title",
+            "text": ""
+        },
+        {
+            "style": "Title",
+            "text": "Asset Configuration",
+            "updated": 1609772023763
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609772168896
+        },
+        {
+            "style": "List",
+            "text": "codeName is the ticker of the asset as listed by the exchange (i.e. BTC, BTH, ETH, LTC, BNB, USDT, USD, etc.)",
+            "updated": 1609772199109
+        },
+        {
+            "style": "Note",
+            "text": "When a configured asset is within the system's icon catalog, the standard asset icon is replaced with the logotype of the corresponding asset."
+        }
+    ]
+}

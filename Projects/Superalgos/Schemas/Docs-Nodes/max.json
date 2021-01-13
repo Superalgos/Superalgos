@@ -1,0 +1,16 @@
+{
+    "type": "Max",
+    "definition": {
+        "text": "Max is the maximum rate registered by the exchange during the period between the datetimes of the begin and end properties, as provided by the exchange."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "Left click and Edit to enter edit mode and change this text."
+        }
+    ]
+}

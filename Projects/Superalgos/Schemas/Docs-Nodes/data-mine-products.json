@@ -1,0 +1,20 @@
+{
+    "type": "Data Mine Products",
+    "definition": {
+        "text": "Data mine products are references established with data mines to facilitate establishing data product references with multiple products in the given data mine."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The node may be used as an organizational device, simply to arrange bot products. However, the smart use of the node involves automating the deployment of multiple data products."
+        },
+        {
+            "style": "Text",
+            "text": "The use of the data mine products node is optional, as data products may also exist outside of data mine products nodes."
+        }
+    ]
+}

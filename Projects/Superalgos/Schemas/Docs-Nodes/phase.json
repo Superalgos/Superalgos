@@ -1,0 +1,69 @@
+{
+    "type": "Phase",
+    "definition": {
+        "text": "The management of take profit and stop loss targets is done in phases, each with their own formula that determines the target. ",
+        "updated": 1610205977723
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "Phase 1 sets the initial targets, either for the Managed Stop Loss or the Managed Take Profit, and becomes active as soon as the Take Position Event validates true. Subsequent phases allows switching to different formulas given certain market situations.",
+            "updated": 1610206033350
+        },
+        {
+            "style": "Text",
+            "text": "The default management of phases is sequential, meaning that phase 2 comes after phase 1, phase 3 comes after phase 2, and so on."
+        },
+        {
+            "style": "Text",
+            "text": "To switch from one phase to the next phase in the sequence, the Next Phase event is used. When the Situation described in the next phase event validates true, the switch occurs and the next phase becomes the active phase.",
+            "updated": 1610206075265
+        },
+        {
+            "style": "Text",
+            "text": "However, management does not need to happen sequentially. By using the Move To Phase Event instead of the Next Phase Event, the system may activate any other phase and not just the one next in the sequence.",
+            "updated": 1610206113858
+        },
+        {
+            "style": "Text",
+            "text": "Both events may be used at the same time, and whichever event is triggered first takes precedence."
+        },
+        {
+            "style": "Note",
+            "text": "Notice that stop loss and take profit phases are independent and defined separately from each other, each below the corresponding managed stop loss and managed take profit nodes."
+        },
+        {
+            "style": "Note",
+            "text": "The value of the target set for a phase is expressed by a formula. Learn more about formulas and how to write them."
+        },
+        {
+            "style": "Success",
+            "text": "This explanation about phase 1 may be extended to any other phase, as they all work similarly, and it applies both for managed stop loss phases and managed take profit phases.",
+            "updated": 1609609940697
+        },
+        {
+            "style": "Block",
+            "text": "Configuring",
+            "updated": 1609873831169
+        },
+        {
+            "style": "Title",
+            "text": "Serial Number Configuration",
+            "updated": 1609873971454
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609873980538
+        },
+        {
+            "style": "List",
+            "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
+            "updated": 1609875415147
+        }
+    ]
+}

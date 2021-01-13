@@ -1,0 +1,16 @@
+{
+    "type": "Limit Order",
+    "definition": {
+        "text": "Limit order is the section of the data structure that keeps track of the properties of a specific limit order, as defined in the trading system."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "Each limit order defined in the trading system must reference the data structure of a limit order in the trading engine."
+        }
+    ]
+}

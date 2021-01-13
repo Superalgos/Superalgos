@@ -301,6 +301,412 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                 }
                 break
 
+            case 'Docs':
+                {
+                    switch (requestParameters[2]) { // switch by command
+                        case 'Save-Node-Schema': {
+                            getBody(processRequest)
+
+                            async function processRequest(body) {
+                                try {
+                                    let docsSchema = JSON.parse(body)
+                                    let project = requestParameters[3]
+                                    let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Nodes'
+
+                                    checkAllSchmemaDocuments('Node', docsSchema, filePath)
+                                    respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+
+                                } catch (err) {
+                                    console.log('[ERROR] httpInterface -> Docs -> Save-Node-Schema -> Method call produced an error.')
+                                    console.log('[ERROR] httpInterface -> Docs -> Save-Node-Schema -> err.stack = ' + err.stack)
+                                    console.log('[ERROR] httpInterface -> Docs -> Save-Node-Schema -> Params Received = ' + body)
+
+                                    let error = {
+                                        result: 'Fail Because',
+                                        message: err.message,
+                                        stack: err.stack
+                                    }
+                                    respondWithContent(JSON.stringify(error), httpResponse)
+                                }
+                            }
+                            break
+                        }
+                        case 'Save-Concept-Schema': {
+                            getBody(processRequest)
+
+                            async function processRequest(body) {
+                                try {
+                                    let docsSchema = JSON.parse(body)
+                                    let project = requestParameters[3]
+                                    let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Concepts'
+
+                                    checkAllSchmemaDocuments('Concept', docsSchema, filePath)
+                                    respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+
+                                } catch (err) {
+                                    console.log('[ERROR] httpInterface -> Docs -> Save-Concept-Schema -> Method call produced an error.')
+                                    console.log('[ERROR] httpInterface -> Docs -> Save-Concept-Schema -> err.stack = ' + err.stack)
+                                    console.log('[ERROR] httpInterface -> Docs -> Save-Concept-Schema -> Params Received = ' + body)
+
+                                    let error = {
+                                        result: 'Fail Because',
+                                        message: err.message,
+                                        stack: err.stack
+                                    }
+                                    respondWithContent(JSON.stringify(error), httpResponse)
+                                }
+                            }
+                            break
+                        }
+                        case 'Save-Topic-Schema': {
+                            getBody(processRequest)
+
+                            async function processRequest(body) {
+                                try {
+                                    let docsSchema = JSON.parse(body)
+                                    let project = requestParameters[3]
+                                    let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Topics'
+
+                                    checkAllSchmemaDocuments('Topic', docsSchema, filePath)
+                                    respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+
+                                } catch (err) {
+                                    console.log('[ERROR] httpInterface -> Docs -> Save-Topic-Schema -> Method call produced an error.')
+                                    console.log('[ERROR] httpInterface -> Docs -> Save-Topic-Schema -> err.stack = ' + err.stack)
+                                    console.log('[ERROR] httpInterface -> Docs -> Save-Topic-Schema -> Params Received = ' + body)
+
+                                    let error = {
+                                        result: 'Fail Because',
+                                        message: err.message,
+                                        stack: err.stack
+                                    }
+                                    respondWithContent(JSON.stringify(error), httpResponse)
+                                }
+                            }
+                            break
+                        }
+                        case 'Save-Tutorial-Schema': {
+                            getBody(processRequest)
+
+                            async function processRequest(body) {
+                                try {
+                                    let docsSchema = JSON.parse(body)
+                                    let project = requestParameters[3]
+                                    let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Tutorials'
+
+                                    checkAllSchmemaDocuments('Tutorial', docsSchema, filePath)
+                                    respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+
+                                } catch (err) {
+                                    console.log('[ERROR] httpInterface -> Docs -> Save-Tutorial-Schema -> Method call produced an error.')
+                                    console.log('[ERROR] httpInterface -> Docs -> Save-Tutorial-Schema -> err.stack = ' + err.stack)
+                                    console.log('[ERROR] httpInterface -> Docs -> Save-Tutorial-Schema -> Params Received = ' + body)
+
+                                    let error = {
+                                        result: 'Fail Because',
+                                        message: err.message,
+                                        stack: err.stack
+                                    }
+                                    respondWithContent(JSON.stringify(error), httpResponse)
+                                }
+                            }
+                            break
+                        }
+                        case 'Save-Book-Schema': {
+                            getBody(processRequest)
+
+                            async function processRequest(body) {
+                                try {
+                                    let docsSchema = JSON.parse(body)
+                                    let project = requestParameters[3]
+                                    let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Books'
+
+                                    checkAllSchmemaDocuments('Book', docsSchema, filePath)
+                                    respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+
+                                } catch (err) {
+                                    console.log('[ERROR] httpInterface -> Docs -> Save-Book-Schema -> Method call produced an error.')
+                                    console.log('[ERROR] httpInterface -> Docs -> Save-Book-Schema -> err.stack = ' + err.stack)
+                                    console.log('[ERROR] httpInterface -> Docs -> Save-Book-Schema -> Params Received = ' + body)
+
+                                    let error = {
+                                        result: 'Fail Because',
+                                        message: err.message,
+                                        stack: err.stack
+                                    }
+                                    respondWithContent(JSON.stringify(error), httpResponse)
+                                }
+                            }
+                            break
+                        }
+                    }
+
+                    function checkAllSchmemaDocuments(category, docsSchema, filePath) {
+                        const fs = require('fs')
+
+                        for (let i = 0; i < docsSchema.length; i++) {
+                            let schemaDocument = docsSchema[i]
+                            let fileName = schemaDocument.type.toLowerCase()
+                            for (let j = 0; j < 10; j++) {
+                                fileName = cleanFileName(fileName)
+                            }
+                            let pageNumber = '00' + schemaDocument.pageNumber
+
+                            switch (category) {
+                                case 'Topic': {
+                                    fileName = schemaDocument.topic.toLowerCase() + '-' + pageNumber.substring(pageNumber.length - 3, pageNumber.length) + '-' + schemaDocument.type.toLowerCase()
+                                    fileName = cleanFileName(fileName)
+                                    break
+                                }
+                                case 'Tutorial': {
+                                    fileName = schemaDocument.tutorial.toLowerCase() + '-' + pageNumber.substring(pageNumber.length - 3, pageNumber.length) + '-' + schemaDocument.type.toLowerCase()
+                                    fileName = cleanFileName(fileName)
+                                    break
+                                }
+                            }
+                            fileName = fileName + '.json'
+
+                            if (schemaDocument.deleted === true) {
+                                try {
+                                    fs.unlinkSync(filePath + '/' + fileName)
+                                    console.log('[SUCCESS] ' + filePath + '/' + fileName + ' deleted.')
+                                } catch (err) {
+                                    console.log('[ERROR] httpInterface -> Docs -> Save -> ' + filePath + '/' + fileName + ' could not be deleted.')
+                                    console.log('[ERROR] httpInterface -> Docs -> Save -> Resolve the issue that is preventing the Client to delete this file. Look at the error message below as a guide. At the UI you will need to delete this page again in order for the Client to retry next time you execute the docs.save command.')
+                                    console.log('[ERROR] httpInterface -> Docs -> Save -> err.stack = ' + err.stack)
+                                }
+                            } else {
+                                if (schemaDocument.updated === true || schemaDocument.created === true) {
+                                    try {
+                                        let created = schemaDocument.created
+                                        let updated = schemaDocument.updated
+                                        schemaDocument.updated = undefined
+                                        schemaDocument.created = undefined
+                                        let fileContent = JSON.stringify(schemaDocument, undefined, 4)
+                                        fs.writeFileSync(filePath + '/' + fileName, fileContent)
+                                        if (created === true) {
+                                            console.log('[SUCCESS] ' + filePath + '/' + fileName + '  created.')
+                                        } else {
+                                            if (updated === true) {
+                                                console.log('[SUCCESS] ' + filePath + '/' + fileName + '  updated.')
+                                            }
+                                        }
+
+                                    } catch (err) {
+                                        console.log('[ERROR] httpInterface -> Docs -> Save -> ' + filePath + '/' + fileName + ' could not be created / updated.')
+                                        console.log('[ERROR] httpInterface -> Docs -> Save -> Dont worry, the changes are still at the UI, but you will need to do 2 things: 1) Resolve the issue that is preventing the Client to write this file. Look at the error message below as a guide. 2) At the UI, locate this page and edit it with some small change again, so that is flagged that contains changes, otherwise those original changes will be ignored by the Client during the next docs.save command execution.')
+                                        console.log('[ERROR] httpInterface -> Docs -> Save -> err.stack = ' + err.stack)
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    function cleanFileName(fileName) {
+                        for (let i = 0; i < 10; i++) {
+                            fileName = fileName
+                                .replace(' ', '-')
+                                .replace('--', '-')
+                                .replace('?', '')
+                                .replace('#', '')
+                                .replace('$', '')
+                                .replace('%', '')
+                                .replace('^', '')
+                                .replace('&', '')
+                                .replace('*', '')
+                                .replace('(', '')
+                                .replace(')', '')
+                                .replace('!', '')
+                                .replace('..', '.')
+                                .replace(',', '')
+                                .replace('\'', '')
+                        }
+                        return fileName
+                    }
+                }
+                break
+
+            case 'App': {
+                switch (requestParameters[2]) { // switch by command
+                    case 'Contribute': {
+                        try {
+                            const commitMessage = unescape(requestParameters[3])
+                            const username = unescape(requestParameters[4])
+                            const token = unescape(requestParameters[5])
+                            const currentBranch = unescape(requestParameters[6])
+                            const contributionsBranch = unescape(requestParameters[7])
+
+                            contribute()
+
+                            async function contribute() {
+                                await doGit()
+                                await doGithub()
+                                respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                            }
+
+                            async function doGit() {
+                                const simpleGit = require('simple-git');
+                                const options = {
+                                    baseDir: process.cwd(),
+                                    binary: 'git',
+                                    maxConcurrentProcesses: 6,
+                                }
+                                const git = simpleGit(options)
+
+                                try {
+                                    await git.add('./*')
+                                    await git.commit(commitMessage)
+                                    await git.push('origin', currentBranch)
+                                } catch(err) {
+                                    console.log('[ERROR] Error running Contribute.')
+                                    console.log(err.stack)
+                                    throw (err)
+                                }
+                            }
+
+                            async function doGithub() {
+
+                                const { Octokit } = require("@octokit/rest")
+
+                                const octokit = new Octokit({
+                                    auth: token,
+                                    userAgent: 'Superalgos Beta 8'
+                                })
+
+                                const repo = 'Superalgos'
+                                const owner = 'Superalgos'
+                                const head = username + ':' + contributionsBranch
+                                const base = currentBranch
+                                const title = 'Contribution: ' + commitMessage
+
+                                try {
+                                    await octokit.pulls.create({
+                                        owner,
+                                        repo,
+                                        title,
+                                        head,
+                                        base,
+                                    });
+                                } catch (err) {
+                                    if (err.stack.indexOf('A pull request already exists') < 0) {
+                                        throw (err)
+                                    }
+                                }
+                            }
+
+                        } catch (err) {
+                            console.log('[ERROR] httpInterface -> App -> Contribute -> Method call produced an error.')
+                            console.log('[ERROR] httpInterface -> App -> Contribute -> err.stack = ' + err.stack)
+                            console.log('[ERROR] httpInterface -> App -> Contribute -> commitMessage = ' + commitMessage)
+                            console.log('[ERROR] httpInterface -> App -> Contribute -> username = ' + username)
+                            console.log('[ERROR] httpInterface -> App -> Contribute -> token = ' + token)
+
+                            let error = {
+                                result: 'Fail Because',
+                                message: err.message,
+                                stack: err.stack
+                            }
+                            respondWithContent(JSON.stringify(error), httpResponse)
+                        }
+                        break
+                    }
+                    case 'Update': {
+                        try {
+                            const currentBranch = unescape(requestParameters[3])
+                            update()
+
+                            async function update() {
+                                let message = await doGit()
+
+                                let customResponse = {
+                                    result: global.CUSTOM_OK_RESPONSE.result,
+                                    message: message
+                                }
+                                respondWithContent(JSON.stringify(customResponse), httpResponse)
+                            }
+
+                            async function doGit() {
+                                const simpleGit = require('simple-git');
+                                const options = {
+                                    baseDir: process.cwd(),
+                                    binary: 'git',
+                                    maxConcurrentProcesses: 6,
+                                }
+                                const git = simpleGit(options)
+
+                                return await git.pull('upstream', currentBranch)
+                            }
+
+                        } catch (err) {
+                            console.log('[ERROR] httpInterface -> App -> Update -> Method call produced an error.')
+                            console.log('[ERROR] httpInterface -> App -> Update -> err.stack = ' + err.stack)
+                            console.log('[ERROR] httpInterface -> App -> Update -> commitMessage = ' + commitMessage)
+                            console.log('[ERROR] httpInterface -> App -> Update -> username = ' + username)
+                            console.log('[ERROR] httpInterface -> App -> Update -> token = ' + token)
+
+                            let error = {
+                                result: 'Fail Because',
+                                message: err.message,
+                                stack: err.stack
+                            }
+                            respondWithContent(JSON.stringify(error), httpResponse)
+                        }
+                        break
+                    }
+
+                    case 'Checkout': {
+                        try {
+                            const currentBranch = unescape(requestParameters[3])
+                            checkout()
+
+                            async function checkout() {
+                                let result = await doGit()
+
+                                if (result === true) {
+                                    respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                                } else {
+                                    respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                }
+                            }
+
+                            async function doGit() {
+                                const simpleGit = require('simple-git');
+                                const options = {
+                                    baseDir: process.cwd(),
+                                    binary: 'git',
+                                    maxConcurrentProcesses: 6,
+                                }
+                                const git = simpleGit(options)
+                                try {
+                                    await git.checkout(currentBranch)
+                                } catch (err) {
+                                    console.log('[ERROR] Error changing current branch to ' + currentBranch)
+                                    console.log(err.stack)
+                                    return false
+                                }
+                                return true
+                            }
+
+                        } catch (err) {
+                            console.log('[ERROR] httpInterface -> App -> Update -> Method call produced an error.')
+                            console.log('[ERROR] httpInterface -> App -> Update -> err.stack = ' + err.stack)
+                            console.log('[ERROR] httpInterface -> App -> Update -> commitMessage = ' + commitMessage)
+                            console.log('[ERROR] httpInterface -> App -> Update -> username = ' + username)
+                            console.log('[ERROR] httpInterface -> App -> Update -> token = ' + token)
+
+                            let error = {
+                                result: 'Fail Because',
+                                message: err.message,
+                                stack: err.stack
+                            }
+                            respondWithContent(JSON.stringify(error), httpResponse)
+                        }
+                        break
+                    }
+                }
+            }
+                break
+
             case 'LegacyPlotter.js':
                 {
                     respondWithFile(global.env.PATH_TO_CLIENT + 'WebServer/LegacyPlotter.js', httpResponse)
@@ -356,9 +762,30 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                 }
                 break
 
-            case 'Gifs': // This means the Gifs folder under Projects.
+            case 'GIFs': // This means the GIFs folder under Projects.
                 {
-                    let path = global.env.PATH_TO_PROJECTS + '/' + requestParameters[2] + '/Gifs'
+                    let path = global.env.PATH_TO_PROJECTS + '/' + requestParameters[2] + '/GIFs'
+
+                    if (requestParameters[3] !== undefined) {
+                        path = path + '/' + requestParameters[3]
+                    }
+
+                    if (requestParameters[4] !== undefined) {
+                        path = path + '/' + requestParameters[4]
+                    }
+
+                    if (requestParameters[5] !== undefined) {
+                        path = path + '/' + requestParameters[5]
+                    }
+
+                    path = unescape(path)
+                    respondWithImage(path, httpResponse)
+                }
+                break
+
+            case 'PNGs': // This means the PNGs folder under Projects.
+                {
+                    let path = global.env.PATH_TO_PROJECTS + '/' + requestParameters[2] + '/PNGs'
 
                     if (requestParameters[3] !== undefined) {
                         path = path + '/' + requestParameters[3]
@@ -433,7 +860,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
             case 'Schema':
                 {
-                    sendSchema(global.env.PATH_TO_PROJECTS + '/' + requestParameters[2] + '/Schemas/', requestParameters[3] + '.json')
+                    sendSchema(global.env.PATH_TO_PROJECTS + '/' + requestParameters[2] + '/Schemas/', requestParameters[3])
                 }
                 break
 
@@ -563,7 +990,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
                             function onDirRead(err, fileList) {
                                 if (err) {
-                                    console.log('[WARN] Could not read this directory content. filePath = ' + dirPath)
+                                    // This happens the first time you run the software.
                                     respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                                     return
                                 } else {
@@ -756,11 +1183,48 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                 }
                 break
 
+            case 'tutorial.css':
+                {
+                    sendStyleSheet('tutorial.css')
+                }
+                break
+
+            case 'docs.css':
+                {
+                    sendStyleSheet('docs.css')
+                }
+                break
+
+            case 'context-menu.css':
+                {
+                    sendStyleSheet('context-menu.css')
+                }
+                break
+
+            case 'credits.css':
+                {
+                    sendStyleSheet('credits.css')
+                }
+                break
+
+            case 'docs.css':
+                {
+                    sendStyleSheet('docs.css')
+                }
+                break
+
             case 'font-awasome.css':
                 {
                     sendStyleSheet('font-awasome.css')
                 }
                 break
+
+            case 'prism.css':
+                {
+                    sendStyleSheet('prism.css')
+                }
+                break
+
             case 'ExecuteTerminalCommand':
                 {
                     let command = unescape(requestParameters[2])
@@ -831,21 +1295,65 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
             lsWithGrep();
         }
 
-        function sendSchema(filePath, fileName) {
+        function sendSchema(filePath, schemaType) {
             let fs = require('fs')
 
-            try {
-                filePath = filePath + fileName
-                fs.readFile(filePath, onFileRead)
-            } catch (e) {
-                console.log('[ERROR] Error reading the ' + fileName, e)
-            }
+            if (schemaType === 'AppSchema') {
+                let fileName = 'AppSchema.json'
+                try {
+                    filePath = filePath + fileName
+                    fs.readFile(filePath, onFileRead)
+                } catch (e) {
+                    console.log('[ERROR] Error reading the ' + fileName, e)
+                }
 
-            function onFileRead(err, schema) {
-                if (err) {
-                    respondWithContent(undefined, httpResponse)
-                } else {
+                function onFileRead(err, schema) {
+                    if (err) {
+                        respondWithContent(undefined, httpResponse)
+                    } else {
+                        respondWithContent(schema, httpResponse)
+                    }
+                }
+            } else {
+                try {
+                    let folder = ''
+                    switch (schemaType) {
+                        case 'DocsNodeSchema': {
+                            folder = 'Docs-Nodes'
+                            break
+                        }
+                        case 'DocsConceptSchema': {
+                            folder = 'Docs-Concepts'
+                            break
+                        }
+                        case 'DocsTopicSchema': {
+                            folder = 'Docs-Topics'
+                            break
+                        }
+                        case 'DocsTutorialSchema': {
+                            folder = 'Docs-Tutorials'
+                            break
+                        }
+                        case 'DocsBookSchema': {
+                            folder = 'Docs-Books'
+                            break
+                        }
+                    }
+
+                    let schemaArray = []
+                    let fileList = fs.readdirSync(filePath + '/' + folder)
+                    for (let k = 0; k < fileList.length; k++) {
+                        let name = fileList[k]
+                        let fileContent = fs.readFileSync(filePath + '/' + folder + '/' + name)
+                        let schemaDocument = JSON.parse(fileContent)
+                        schemaArray.push(schemaDocument)
+                    }
+                    let schema = JSON.stringify(schemaArray)
                     respondWithContent(schema, httpResponse)
+                } catch (err) {
+                    console.log('Could not send Schema:', filePath, schemaType)
+                    console.log(err.stack)
+                    respondWithContent("[]", httpResponse)
                 }
             }
         }
@@ -853,7 +1361,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
         function sendStyleSheet(fileName) {
             let fs = require('fs')
             try {
-                let filePath = global.env.PATH_TO_CLIENT + 'WebServer/' + fileName
+                let filePath = global.env.PATH_TO_CLIENT + 'WebServer/css/' + fileName
                 fs.readFile(filePath, onFileRead)
 
                 function onFileRead(err, file) {

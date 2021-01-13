@@ -1,0 +1,32 @@
+{
+    "type": "Strategies",
+    "definition": {
+        "text": "Strategies counts the number of times strategies have been triggered-on, in the context of the parent node."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring",
+            "updated": 1609924900877
+        },
+        {
+            "style": "Title",
+            "text": "Strategies Configuration",
+            "updated": 1609924917986
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609924925185
+        },
+        {
+            "style": "List",
+            "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
+            "updated": 1609924939749
+        }
+    ]
+}

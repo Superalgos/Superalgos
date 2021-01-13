@@ -1,0 +1,30 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 28,
+    "type": "Tutorial Step - Time to Stop!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "stop"
+        },
+        "text": "We are not going to run a Live Trading Session just yet, so there is no point in keeping our data mining running at this point."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "There are two main reasons to run a data mining op:"
+        },
+        {
+            "style": "List",
+            "text": "To process historic data. You may want to process a datetime range of any given Market to run a Backtesting Session, or to process new indicators."
+        },
+        {
+            "style": "List",
+            "text": "To run a live session. Live sessions (Paper Trading Session, Forward Testing Session, and Live Trading Session) need a live market feed."
+        },
+        {
+            "style": "Callout",
+            "text": "If all processes are up to date, then select Stop All Tasks in the Masters Task Manager"
+        }
+    ]
+}

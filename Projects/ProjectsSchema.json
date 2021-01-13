@@ -197,6 +197,31 @@
                     "name": "Folders",
                     "propertyName": "folders",
                     "functionName": "newSuperalgosUtilitiesFolders"
+                },
+                {
+                    "name": "Strings",
+                    "propertyName": "strings",
+                    "functionName": "newSuperalgosUtilitiesStrings"
+                },
+                {
+                    "name": "Languages",
+                    "propertyName": "languages",
+                    "functionName": "newSuperalgosUtilitiesLanguages"
+                },
+                {
+                    "name": "Git Branches",
+                    "propertyName": "gitBranches",
+                    "functionName": "newSuperalgosUtilitiesGitBranches"
+                },
+                {
+                    "name": "Docs",
+                    "propertyName": "docs",
+                    "functionName": "newSuperalgosUtilitiesDocs"
+                },
+                {
+                    "name": "Credits Page",
+                    "propertyName": "creditsPage",
+                    "functionName": "newSuperalgosUtilitiesCreditsPage"
                 }
             ],
             "spaces": [
@@ -220,7 +245,7 @@
                     "functionName": "newSuperalgosTopSpace",
                     "initializationIndex": 1,
                     "animationPhysicsIndex": 7,
-                    "animationDrawIndex": 6,
+                    "animationDrawIndex": 5,
                     "onMouseOverIndex": 4,
                     "onMouseClickIndex": 4,
                     "onMouseDownIndex": 4
@@ -232,7 +257,7 @@
                     "functionName": "newSuperalgosCockpitSpace",
                     "initializationIndex": 2,
                     "animationPhysicsIndex": 0,
-                    "animationDrawIndex": 7,
+                    "animationDrawIndex": 6,
                     "onMouseWheelIndex": 4,
                     "onMouseOverIndex": 5,
                     "onMouseClickIndex": 5,
@@ -291,13 +316,13 @@
                     "onMouseDownIndex": 2
                 },
                 {
-                    "name": "Doc Space",
-                    "folderName": "Doc-Space",
-                    "propertyName": "docSpace",
+                    "name": "Docs Space",
+                    "folderName": "Docs-Space",
+                    "propertyName": "docsSpace",
                     "functionName": "newSuperalgosDocSpace",
                     "initializationIndex": 7,
                     "animationPhysicsIndex": 5,
-                    "animationDrawIndex": 4,
+                    "animationDrawIndex": 7,
                     "onMouseWheelIndex": 1,
                     "onMouseOverIndex": 1,
                     "onMouseClickIndex": 1,
@@ -316,7 +341,7 @@
                     "functionName": "newSuperalgosTutorialSpace",
                     "initializationIndex": 8,
                     "animationPhysicsIndex": 6,
-                    "animationDrawIndex": 5,
+                    "animationDrawIndex": 4,
                     "onMouseWheelIndex": 0,
                     "onMouseOverIndex": 0,
                     "onMouseClickIndex": 0,

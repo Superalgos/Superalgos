@@ -1,0 +1,16 @@
+{
+    "type": "Trading Engine Reference",
+    "definition": {
+        "text": "A trading engine reference determines which trading engine the trading bot shall use to structure the data it processes while running the trading session."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "In other words, the trading engine reference lets the process instance know which data structure to use to store information related to the trading session. This means that a workspace may have more than one trading engine."
+        }
+    ]
+}

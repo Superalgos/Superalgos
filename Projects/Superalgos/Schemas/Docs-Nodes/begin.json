@@ -1,0 +1,36 @@
+{
+    "type": "Begin",
+    "definition": {
+        "text": "Begin is the datetime at the moment the object represented by the parent node began to exist."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "In the context of a candle, it is the datetime of the open of the candle as provided by the exchange."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring",
+            "updated": 1609873831169
+        },
+        {
+            "style": "Title",
+            "text": "Begin Configuration",
+            "updated": 1609880063550
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609873980538
+        },
+        {
+            "style": "List",
+            "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
+            "updated": 1609875415147
+        }
+    ]
+}

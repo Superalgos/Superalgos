@@ -1,0 +1,83 @@
+{
+    "type": "Style",
+    "definition": {
+        "text": "A style is a definition of color and opacity in case of a polygon body, and color, opacity and line thickness in case of polygon borders."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "A style applied to a polygon body or a polygon border node acts as the default style. Styles including colors, opacity, line width, and more, are defined in the node's configuration."
+        },
+        {
+            "style": "Note",
+            "text": "See the configuration for further details."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Style Configuration",
+            "updated": 1609854042226
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609854059581
+        },
+        {
+            "style": "Text",
+            "text": "A typical definition for a polygon body style looks like this:"
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"default\": {\n        \"opacity\": 0.2,\n        \"paletteColor\": \"UI_COLOR.DARK_TURQUOISE\"\n    },\n    \"atMousePosition\": {\n        \"opacity\": 0.3,\n        \"paletteColor\": \"UI_COLOR.DARK_TURQUOISE\"\n    }\n}",
+            "updated": 1609854100248
+        },
+        {
+            "style": "Text",
+            "text": "A typical definition for a polygon border style has a couple more properties:"
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"default\": {\n        \"opacity\": 0.2,\n        \"lineWidth\": 1,\n        \"lineDash\": [0,0],\n        \"paletteColor\": \"UI_COLOR.DARK_TURQUOISE\"\n    },\n    \"atMousePosition\": {\n        \"opacity\": 0.3,\n        \"lineWidth\": 2,\n        \"lineDash\": [0,0],\n        \"paletteColor\": \"UI_COLOR.RUSTED_RED\"\n    }\n}",
+            "updated": 1609854144329
+        },
+        {
+            "style": "Text",
+            "text": "The first section of the definition refers, as explicitly stated, to the default state of the style."
+        },
+        {
+            "style": "Text",
+            "text": "The second section refers to the style assigned to the column or period on which the mouse pointer is located. This is very useful for highlighting the specific zone of interest as the user browses the charts."
+        },
+        {
+            "style": "List",
+            "text": "opacity is probably self-explanatory. It may range from 0 for a fully transparent object to 1 for a solid object.",
+            "updated": 1609854205298
+        },
+        {
+            "style": "List",
+            "text": "paletteColor sets the color for the fill or stroke in cases of polygon bodies and polygon borders respectively. Use the variable UI_COLOR followed by a dot and any of the properties in the following list for a selection of currently available colors.",
+            "updated": 1609854289128
+        },
+        {
+            "style": "Table",
+            "text": "| Variable Value | RGB Value | Color Sample |\n| DARK | 48, 48, 54 | RGB(48, 48, 54) |\n| LIGHT | 234, 226, 222 | RGB(234, 226, 222) |\n| GREY | 150, 150, 150 | RGB(150, 150, 150) |\n| LIGHT_GREY | 247, 247, 247 | RGB(247, 247, 247) |\n| WHITE | 255, 255, 255 | RGB(255, 255, 255) |\n| BLACK | 0, 0, 0 | RGB(0, 0, 0) |\n| GOLDEN_ORANGE | 240, 162, 2 | RGB(240, 162, 2) |\n| RUSTED_RED | 204, 88, 53 | RGB(204, 88, 53) |\n| GREEN | 188, 214, 67 | RGB(188, 214, 67) |\n| RED | 223, 70, 60 | RGB(223, 70, 60) |\n| PATINATED_TURQUOISE | 27, 153, 139 | RGB(27, 153, 139) |\n| TITANIUM_YELLOW | 244, 228, 9 | RGB(244, 228, 9) |\n| MANGANESE_PURPLE | 91,80, 122 | RGB(91,80, 122) |\n| TURQUOISE | 74, 207, 217 | RGB(74, 207, 217) |\n| DARK_TURQUOISE | 2, 149, 170 | RGB(2, 149, 170) |",
+            "updated": 1609854356242
+        },
+        {
+            "style": "List",
+            "text": "lineWidth is the width of the border line, which should be greater than 0."
+        },
+        {
+            "style": "List",
+            "text": "lineDash is used to turn the border into a dashed-line; the first value corresponds to the length of the dash while the second value defines the length of the space."
+        }
+    ]
+}

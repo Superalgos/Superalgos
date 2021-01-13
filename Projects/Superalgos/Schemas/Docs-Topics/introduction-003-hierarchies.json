@@ -1,0 +1,203 @@
+{
+    "topic": "Introduction",
+    "pageNumber": "3",
+    "type": "Hierarchies",
+    "definition": {
+        "text": "A hierarchy is a data structure representing an overarching, top-level concept, resulting in a long chain of nodes, usually with many ramifications. The system manages different types of hierarchies, each of them with a specific focus.",
+        "updated": 1609945718294
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": " In the design space, the head or parent node of each hierarchy is represented by the corresponding icon surrounded by an ever-present white ring, so that they are easier to locate within the workspace.",
+            "updated": 1609944331184
+        },
+        {
+            "style": "Important",
+            "text": " Hierarchies included in the workspace as plugins are not saved at the workspace level. As such, changes made in those hierarchies do not persist. If you wish to modify a plugin and keep working with the modified version in the future, you must either clone or backup the plugin and work on the resulting copy instead.",
+            "updated": 1609945802943
+        },
+        {
+            "style": "Title",
+            "text": "Superalgos Project",
+            "updated": 1609945005370
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Superalgos Project->Definition",
+            "updated": 1609944933341
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Superalgos Project->Content",
+            "updated": 1609944944285
+        },
+        {
+            "style": "Title",
+            "text": "Design Space",
+            "updated": 1609945819410
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Design Space->Definition",
+            "updated": 1609945823788
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Design Space->Content",
+            "updated": 1609945827564
+        },
+        {
+            "style": "Title",
+            "text": "Crypto Ecosystem"
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Crypto Ecosystem->Definition",
+            "updated": 1609945187089
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Crypto Ecosystem->Content",
+            "updated": 1609945202345
+        },
+        {
+            "style": "Title",
+            "text": "Network",
+            "updated": 1609945037649
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Network->Definition",
+            "updated": 1609945860234
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Network->Content",
+            "updated": 1609945864347
+        },
+        {
+            "style": "Title",
+            "text": "Charting Space",
+            "updated": 1609945048562
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Charting Space->Definition",
+            "updated": 1609945880962
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Charting Space->Content",
+            "updated": 1609945886008
+        },
+        {
+            "style": "Title",
+            "text": "Trading System",
+            "updated": 1609945101604
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Trading System->Definition",
+            "updated": 1609945942207
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Trading System->Content",
+            "updated": 1609945952584
+        },
+        {
+            "style": "Title",
+            "text": "Trading Mine"
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Trading Mine->Definition",
+            "updated": 1609945981528
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Trading Mine->Content",
+            "updated": 1609945984960
+        },
+        {
+            "style": "Title",
+            "text": "Trading Engine",
+            "updated": 1609945113032
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Trading Engine->Definition",
+            "updated": 1609945998216
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Trading Engine->Content",
+            "updated": 1609946001567
+        },
+        {
+            "style": "Title",
+            "text": "Data Mine",
+            "updated": 1609945134789
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Data Mine->Definition",
+            "updated": 1609946022992
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Data Mine->Content",
+            "updated": 1609946026584
+        },
+        {
+            "style": "Title",
+            "text": "Plugins",
+            "updated": 1609945527199
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Plugins->Definition",
+            "updated": 1609946038957
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Plugins->Content",
+            "updated": 1609946042538
+        },
+        {
+            "style": "Title",
+            "text": "Tutorial",
+            "updated": 1609946064589
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Tutorial->Definition",
+            "updated": 1609946067573
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Tutorial->Content",
+            "updated": 1609946070683
+        },
+        {
+            "style": "Title",
+            "text": "Super Scripts",
+            "updated": 1609945544452
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Super Scripts->Definition",
+            "updated": 1609946084954
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Super Scripts->Content",
+            "updated": 1609946088312
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

@@ -6,6 +6,7 @@ function newWorkspace() {
     
 
     let thisObject = {
+        isInitialized: false,
         workspaceNode: undefined,
         container: undefined,
         enabled: false,
@@ -42,7 +43,6 @@ function newWorkspace() {
     thisObject.nodeChildren = newNodeChildren()
 
     let savingWorkspaceIntervalId
-    let isInitialized = false
     let workingAtTask = 0
     let circularProgressBar = newBusyProgressBar()
     circularProgressBar.fitFunction = UI.projects.superalgos.spaces.floatingSpace.fitIntoVisibleArea
@@ -64,6 +64,8 @@ function newWorkspace() {
 
     function initialize() {
         try {
+            UI.projects.superalgos.utilities.creditsPage.changeStatus("Initializing...")
+
             /* Set up the action switches map */
             for (let i = 0; i < PROJECTS_ARRAY.length; i++) {
                 let project = PROJECTS_ARRAY[i]
@@ -75,6 +77,9 @@ function newWorkspace() {
             let lastUsedWorkspace = window.localStorage.getItem('Last Used Workspace')
 
             if (lastUsedWorkspace !== 'undefined' && lastUsedWorkspace !== null && lastUsedWorkspace !== undefined) {
+
+                UI.projects.superalgos.utilities.creditsPage.changeStatus("Loading Workspace " + lastUsedWorkspace + "...")
+
                 httpRequest(undefined, 'LoadMyWorkspace' + '/' + lastUsedWorkspace, onFileReceived)
                 function onFileReceived(err, text, response) {
                     if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
@@ -95,17 +100,20 @@ function newWorkspace() {
             }
 
             function recreateWorkspace() {
+                UI.projects.superalgos.utilities.creditsPage.changeStatus("Connecting all the workspace nodes...")
                 executeAction({ node: thisObject.workspaceNode, name: 'Recreate Workspace', project: 'Superalgos', callBackFunction: finishInitialization })
             }
 
             function finishInitialization() {
+                UI.projects.superalgos.utilities.creditsPage.changeStatus("Setting up websockets connections...")
                 setupEventsServerClients()
                 runTasksAndSessions()
                 thisObject.enabled = true
                 UI.projects.superalgos.spaces.cockpitSpace.initializePosition()
                 CAN_SPACES_DRAW = true
                 savingWorkspaceIntervalId = setInterval(saveWorkspace, 60000)
-                isInitialized = true
+                thisObject.isInitialized = true
+                UI.projects.superalgos.utilities.creditsPage.changeStatus("Displaying the UI...")
             }
         } catch (err) {
             if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
@@ -116,7 +124,7 @@ function newWorkspace() {
         executeAction({ name: 'Syncronize Tasks', project: 'Superalgos' })
         executeAction({ name: 'Syncronize Trading Sessions', project: 'Superalgos' })
         executeAction({ name: 'Syncronize Learning Sessions', project: 'Superalgos' })
-        executeAction({ name: 'Play Tutorials', project: 'Superalgos' })
+        executeAction({ name: 'Play Tutorials', project: 'Superalgos' }) 
     }
 
     function setupEventsServerClients() {
@@ -141,7 +149,7 @@ function newWorkspace() {
         let workspace = UI.projects.superalgos.spaces.designSpace.workspace.workspaceNode
 
         /* Validation if it is too early to save. */
-        if (isInitialized === false) { return }
+        if (thisObject.isInitialized === false) { return }
 
         /* Validation of 2 sessions opened at the same time. */
         let savedSessionTimestamp = window.localStorage.getItem('Session Timestamp')
@@ -241,7 +249,7 @@ function newWorkspace() {
 
             switch (workingAtTask) {
                 case 1:
-                    isInitialized = false
+                    thisObject.isInitialized = false
                     console.log('[INFO] Replacing Workspace Procedure Started')
                     console.log('[INFO] Deleting Workspace ' + thisObject.workspaceNode.name + '. This might take a few minutes depending on the size of the workspace.')
                     UI.projects.superalgos.spaces.tutorialSpace.stop()
@@ -292,8 +300,9 @@ function newWorkspace() {
                     console.log('[INFO] Replacing Workspace Procedure Finished')
                     workingAtTask = 0
                     circularProgressBar.visible = false
-                    isInitialized = true
+                    thisObject.isInitialized = true
                     saveWorkspace()
+                    UI.projects.superalgos.spaces.docsSpace.reset() // The docs needs to index the loaded workspace.  
                     break
             }
         }
@@ -382,9 +391,9 @@ function newWorkspace() {
         let nodes = []
         for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
             let rootNode = thisObject.workspaceNode.rootNodes[i]
-            let nodeDefinition = getNodeDefinition(rootNode)
-            if (nodeDefinition !== undefined) {
-                if (nodeDefinition.isHierarchyHead === true) {
+            let schemaDocument = getSchemaDocument(rootNode)
+            if (schemaDocument !== undefined) {
+                if (schemaDocument.isHierarchyHead === true) {
                     nodes.push(rootNode)
                 }
             }
@@ -396,9 +405,9 @@ function newWorkspace() {
         let nodes = []
         for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
             let rootNode = thisObject.workspaceNode.rootNodes[i]
-            let nodeDefinition = getNodeDefinition(rootNode)
-            if (nodeDefinition !== undefined) {
-                if (nodeDefinition.isProjectHead === true) {
+            let schemaDocument = getSchemaDocument(rootNode)
+            if (schemaDocument !== undefined) {
+                if (schemaDocument.isProjectHead === true) {
                     nodes.push(rootNode)
                 }
             }

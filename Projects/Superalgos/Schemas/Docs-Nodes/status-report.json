@@ -1,0 +1,21 @@
+{
+    "type": "Status Report",
+    "definition": {
+        "text": "\nA status report serves as a temporal annotation that bots read every time they run to know what was done in the previous cycle and what the state of affairs is at present. They are dynamic and change constantly, with updates after every cycle of the associated process.",
+        "updated": 1609788111201
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "Bots do not run continuously. Instead, they run in cycles. A cycle usually lasts until there is no more data to process, and once they finish, they shut down until the next cycle is due. A status report is a file every bot writes at the end of each cycle with information about the last run, including the datetime of the run and the last record processed."
+        },
+        {
+            "style": "Text",
+            "text": "A status report may be consumed by the same bot producing it, or by other bots."
+        }
+    ]
+}

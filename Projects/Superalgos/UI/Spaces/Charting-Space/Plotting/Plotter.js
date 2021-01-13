@@ -339,12 +339,12 @@ function newPlotter() {
 
         /* This is Initialization Code */
         if (calculationsProcedure.initialization !== undefined) {
-            if (calculationsProcedure.initialization.javascriptCode !== undefined) {
+            if (calculationsProcedure.initialization.procedureJavascriptCode !== undefined) {
                 try {
-                    eval(calculationsProcedure.initialization.javascriptCode.code)
+                    eval(calculationsProcedure.initialization.procedureJavascriptCode.code)
                 } catch (err) {
                     logger.write('[ERROR] calculationsProcedure -> initialization -> Error executing User Code. Error = ' + err.stack.stack)
-                    logger.write('[ERROR] calculationsProcedure -> initialization -> Error executing User Code. Code = ' + calculationsProcedure.initialization.javascriptCode.code)
+                    logger.write('[ERROR] calculationsProcedure -> initialization -> Error executing User Code. Code = ' + calculationsProcedure.initialization.procedureJavascriptCode.code)
                     throw ('Error Executing User Code.')
                 }
             }
@@ -352,17 +352,17 @@ function newPlotter() {
 
         /* This is Initialization Code */
         if (calculationsProcedure.loop !== undefined) {
-            if (calculationsProcedure.loop.javascriptCode !== undefined) {
+            if (calculationsProcedure.loop.procedureJavascriptCode !== undefined) {
                 for (let index = 0; index < jsonArray.length; index++) {
                     let product = jsonArray[index]
 
                     /* This is Loop Code */
                     try {
-                        eval(calculationsProcedure.loop.javascriptCode.code)
+                        eval(calculationsProcedure.loop.procedureJavascriptCode.code)
                     } catch (err) {
                         logger.write('[ERROR] calculationsProcedure -> loop -> Error executing User Code. Error = ' + err.stack.stack)
                         logger.write('[ERROR] calculationsProcedure -> loop -> Error executing User Code. product = ' + JSON.stringify(product))
-                        logger.write('[ERROR] calculationsProcedure -> loop -> Error executing User Code. Code = ' + calculationsProcedure.loop.javascriptCode.code)
+                        logger.write('[ERROR] calculationsProcedure -> loop -> Error executing User Code. Code = ' + calculationsProcedure.loop.procedureJavascriptCode.code)
                         throw ('Error Executing User Code.')
                     }
 
@@ -370,16 +370,16 @@ function newPlotter() {
                     for (let j = 0; j < recordDefinition.properties.length; j++) {
                         let property = recordDefinition.properties[j]
                         if (property.config.isCalculated === true) {
-                            if (property.formula !== undefined) {
-                                if (property.formula.code !== undefined) {
+                            if (property.recordFormula !== undefined) {
+                                if (property.recordFormula.code !== undefined) {
                                     try {
-                                        let newValue = eval(property.formula.code)
+                                        let newValue = eval(property.recordFormula.code)
                                         let currentRecord = product
                                         currentRecord[property.config.codeName] = newValue
                                     } catch (err) {
                                         logger.write('[ERROR] calculationsProcedure -> loop -> formula -> Error executing User Code. Error = ' + err.stack.stack)
                                         logger.write('[ERROR] calculationsProcedure -> loop -> formula -> Error executing User Code. product = ' + JSON.stringify(product))
-                                        logger.write('[ERROR] calculationsProcedure -> loop -> formula -> Error executing User Code. Code = ' + property.formula.code)
+                                        logger.write('[ERROR] calculationsProcedure -> loop -> formula -> Error executing User Code. Code = ' + property.recordFormula.code)
                                         throw ('Error Executing User Code.')
                                     }
                                 }
@@ -499,8 +499,8 @@ function newPlotter() {
                 checkAtMousePosition()
 
                 /* If there is code we execute it now. */
-                if (productDefinition.referenceParent.javascriptCode !== undefined) {
-                    eval(productDefinition.referenceParent.javascriptCode.code)
+                if (productDefinition.referenceParent.plotterModuleJavascriptCode !== undefined) {
+                    eval(productDefinition.referenceParent.plotterModuleJavascriptCode.code)
                 }
 
                 if (productDefinition.referenceParent.shapes === undefined) { continue }

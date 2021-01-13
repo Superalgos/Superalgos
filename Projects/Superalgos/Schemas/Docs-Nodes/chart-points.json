@@ -1,0 +1,16 @@
+{
+    "type": "Chart Points",
+    "definition": {
+        "text": "A chart points groups definitions of coordinate points used to define polygons."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The definition of a point consists of the name of the point and the corresponding values for the x and y coordinates. To create such definitions, point and point formulas are used."
+        }
+    ]
+}

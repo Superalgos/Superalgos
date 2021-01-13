@@ -1,0 +1,22 @@
+{
+    "tutorial": "Developers Intro",
+    "pageNumber": 3,
+    "type": "Tutorial Topic - Client",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": ""
+        },
+        "text": "The Client has two main components: The Client and the Task Server. When you run the app, what you are running are the Client. An instance of the Task Server is put to run once a user decides to run a task."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Once the services at the Client are running, the default web browser is called with the URL of the local machine so that it may load the UI and let users interact with the system."
+        },
+        {
+            "style": "Note",
+            "text": "The system holds all of its data and logs in the installation folder. The system does not modify&mdash;in any way&mdash;anything outside the installation folder. Deleting this folder completely removes Superalgos from the computer."
+        }
+    ]
+}

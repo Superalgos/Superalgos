@@ -1,0 +1,16 @@
+{
+    "topic": "Docs Basics",
+    "pageNumber": "4",
+    "type": "Docs Topic Name",
+    "definition": {
+        "text": "Refers to the name of the topic, which in turn is a collection of related pages at the Docs.",
+        "updated": 1609182060836
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Topic names are used to group a set of related pages under a certain topic. ",
+            "updated": 1609182145551
+        }
+    ]
+}

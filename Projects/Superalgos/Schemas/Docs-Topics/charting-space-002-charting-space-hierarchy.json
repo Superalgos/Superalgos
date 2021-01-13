@@ -1,0 +1,93 @@
+{
+    "topic": "Charting Space",
+    "pageNumber": "2",
+    "type": "Charting Space Hierarchy",
+    "definition": {
+        "text": "The charting space hierarchy organizes the charts on the Viewport and controls their behavior.",
+        "updated": 1610134676796
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Charting Space->Definition",
+            "updated": 1610134731920
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Charting Space->Content",
+            "updated": 1610134734810
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Note for Hierarchy Tables"
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Charting Space->3"
+        },
+        {
+            "style": "Title",
+            "text": "Viewport",
+            "updated": 1610134925124
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Viewport->Definition",
+            "updated": 1610134928724
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Viewport->Content",
+            "updated": 1610134932526
+        },
+        {
+            "style": "Title",
+            "text": "Space Style",
+            "updated": 1610134940862
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Space Style->Definition",
+            "updated": 1610135219837
+        },
+        {
+            "style": "Title",
+            "text": "Space Settings",
+            "updated": 1610135200205
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Space Settings->Definition",
+            "updated": 1610135203747
+        },
+        {
+            "style": "Title",
+            "text": "Project Dashboards",
+            "updated": 1610135093870
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Project Dashboards->Definition",
+            "updated": 1610135099780
+        },
+        {
+            "style": "Title",
+            "text": "Dashboard",
+            "updated": 1610135137855
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Dashboard->Definition",
+            "updated": 1610135143439
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Dashboard->Content",
+            "updated": 1610135147076
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

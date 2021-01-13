@@ -1,0 +1,22 @@
+{
+    "topic": "Docs Paragraph Styles",
+    "pageNumber": 3,
+    "type": "Docs Subtitle Style",
+    "definition": {
+        "text": "This is simply the way to show subtitles within a docs page."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "In edit mode, type whatever you want to be rendered as a subtitle at the docs page."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "The previous is a paragraph in subtitle style."
+        }
+    ]
+}

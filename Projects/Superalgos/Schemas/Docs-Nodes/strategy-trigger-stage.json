@@ -1,0 +1,16 @@
+{
+    "type": "Strategy Trigger Stage",
+    "definition": {
+        "text": "Strategy trigger stage is the section of the data structure that keeps track of information specific to the scope of the trigger stage during the period the stage is open."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The trigger stage is active from the instant the trigger-on event is triggered until either the trigger-off event or the take position event gets triggered. Therefore, this section of the data structure features information spaning those periods only."
+        }
+    ]
+}

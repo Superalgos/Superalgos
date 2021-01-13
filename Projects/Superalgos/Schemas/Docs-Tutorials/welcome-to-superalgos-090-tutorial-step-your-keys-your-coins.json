@@ -1,0 +1,26 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 90,
+    "type": "Tutorial Step - Your Keys, Your Coins!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "exchange-account-key"
+        },
+        "text": "This is where you configure your Exchange Account Key for the Lightning Strike Live Trading Session."
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Open the configuration and carefully enter the API name or label and the API secret key."
+        },
+        {
+            "style": "Text",
+            "text": "Delete the default text string for each parameter first, so that no foreign character gets mixed up with the keys."
+        },
+        {
+            "style": "Note",
+            "text": "In the future, when you get to run multiple live sessions at the same time, you will need to set up one Exchange Account Key per session. This is a requirement in most exchanges."
+        }
+    ]
+}

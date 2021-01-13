@@ -656,11 +656,11 @@ function newSuperalgosFunctionLibraryCryptoEcosystemFunctions() {
                         delete the project reference.
                         */
                         let projectReference = dashboard.payload.parentNode
-                        nodeDefinition = getNodeDefinition(dashboard)
+                        schemaDocument = getSchemaDocument(dashboard)
                         UI.projects.superalgos.functionLibraries.nodeDeleter.deleteUIObject(dashboard, rootNodes)
-                        if (projectReference !== undefined && nodeDefinition.propertyNameAtParent !== undefined) {
-                            if (projectReference[nodeDefinition.propertyNameAtParent] !== undefined) {
-                                if (projectReference[nodeDefinition.propertyNameAtParent].length === 0) {
+                        if (projectReference !== undefined && schemaDocument.propertyNameAtParent !== undefined) {
+                            if (projectReference[schemaDocument.propertyNameAtParent] !== undefined) {
+                                if (projectReference[schemaDocument.propertyNameAtParent].length === 0) {
                                     UI.projects.superalgos.functionLibraries.nodeDeleter.deleteUIObject(projectReference, rootNodes)
                                 }
                             }
@@ -704,19 +704,19 @@ function newSuperalgosFunctionLibraryCryptoEcosystemFunctions() {
                             delete the exchange reference.
                             */
                             let exchangeReference = marketReference.payload.parentNode
-                            let nodeDefinition = getNodeDefinition(marketReference)
+                            let schemaDocument = getSchemaDocument(marketReference)
                             UI.projects.superalgos.functionLibraries.nodeDeleter.deleteUIObject(marketReference, rootNodes)
-                            if (exchangeReference !== undefined && nodeDefinition.propertyNameAtParent !== undefined) {
-                                if (exchangeReference[nodeDefinition.propertyNameAtParent].length === 0) {
+                            if (exchangeReference !== undefined && schemaDocument.propertyNameAtParent !== undefined) {
+                                if (exchangeReference[schemaDocument.propertyNameAtParent].length === 0) {
                                     /* 
                                     If possible, after we delete the exchange reference, we will also
                                     delete the project reference.
                                     */
                                     let projectReference = exchangeReference.payload.parentNode
-                                    nodeDefinition = getNodeDefinition(exchangeReference)
+                                    schemaDocument = getSchemaDocument(exchangeReference)
                                     UI.projects.superalgos.functionLibraries.nodeDeleter.deleteUIObject(exchangeReference, rootNodes)
-                                    if (projectReference !== undefined && nodeDefinition.propertyNameAtParent !== undefined) {
-                                        if (projectReference[nodeDefinition.propertyNameAtParent].length === 0) {
+                                    if (projectReference !== undefined && schemaDocument.propertyNameAtParent !== undefined) {
+                                        if (projectReference[schemaDocument.propertyNameAtParent].length === 0) {
                                             UI.projects.superalgos.functionLibraries.nodeDeleter.deleteUIObject(projectReference, rootNodes)
                                         }
                                     }

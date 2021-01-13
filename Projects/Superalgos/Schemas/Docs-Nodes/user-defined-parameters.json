@@ -1,0 +1,39 @@
+{
+    "type": "User Defined Parameters",
+    "definition": {
+        "text": "Users may define parameters to be used within the trading system during the trading session."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "Parameters defined in the configuration file of these node become available to trading systems using the following path: sessionParameters.userDefinedParameters.config.parameterName",
+            "updated": 1609676793115
+        },
+        {
+            "style": "Text",
+            "text": "These parameters may be useful, for example, when you wish to use a constant multiple times across several nodes in the definition of a strategy. Instead of feeding a constant value to all formulas involved, you may feed the parameter instead. This gives you the added benefit of being able to change the value of such a constant in a single point."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "User Defined Parameters Configuration",
+            "updated": 1609676843832
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609676849477
+        },
+        {
+            "style": "List",
+            "text": "param1Name is an example of a name. You may change the names of the parameters as required. Values including text strings go between quotation marks, while numeric values, without. You may define as many parameters as you wish; simply separate them with a comma to keep a valid JSON format for the configuration file."
+        }
+    ]
+}

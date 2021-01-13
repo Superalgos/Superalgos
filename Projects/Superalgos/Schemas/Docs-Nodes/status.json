@@ -1,0 +1,48 @@
+{
+    "type": "Status",
+    "definition": {
+        "text": "Status refers to the state of the object represented by the parent node at the moment of evaluation."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "There are three possible status:"
+        },
+        {
+            "style": "List",
+            "text": "Not Open: the object is not open at the current candle."
+        },
+        {
+            "style": "List",
+            "text": "Open: the object is open at the current candle."
+        },
+        {
+            "style": "List",
+            "text": "Closed: the object closes at the current candle."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring",
+            "updated": 1609880131905
+        },
+        {
+            "style": "Title",
+            "text": "Status Configuration",
+            "updated": 1609880144610
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609880158050
+        },
+        {
+            "style": "List",
+            "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
+            "updated": 1609880181465
+        }
+    ]
+}

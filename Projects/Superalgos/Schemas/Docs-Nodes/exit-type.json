@@ -1,0 +1,60 @@
+{
+    "type": "Exit Type",
+    "definition": {
+        "text": "Exit type refers to the reason why the object is closed."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "No Exit is the default value until a new value is assigned before the object is closed. Other possible values vary with the context."
+        },
+        {
+            "style": "Text",
+            "text": "In the context of the episode object:"
+        },
+        {
+            "style": "List",
+            "text": "Last Candle Reached: the object was closed because the last candle was reached."
+        },
+        {
+            "style": "List",
+            "text": "Position Closed: the position was closed."
+        },
+        {
+            "style": "List",
+            "text": "Take Profit: the take profit target was hit."
+        },
+        {
+            "style": "List",
+            "text": "Stop Loss: the stop loss target was hit."
+        },
+        {
+            "style": "List",
+            "text": "Closing Stage: the current stage started closing because the Close Stage is opening."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring",
+            "updated": 1609873831169
+        },
+        {
+            "style": "Title",
+            "text": "Exit Type Configuration",
+            "updated": 1609880198732
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609873980538
+        },
+        {
+            "style": "List",
+            "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
+            "updated": 1609875415147
+        }
+    ]
+}

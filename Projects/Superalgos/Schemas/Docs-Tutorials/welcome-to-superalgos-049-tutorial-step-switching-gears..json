@@ -1,0 +1,26 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 49,
+    "type": "Tutorial Step - Switching Gears...",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "layer-manager"
+        },
+        "text": "Leaving scales behind, let's take a look at how the system makes data available on the charts."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Every Timeline Chart has an associated Layer Manager, which is represented as a drop-down menu listing multiple layers."
+        },
+        {
+            "style": "Callout",
+            "text": "To open a layers manager, scroll the wheel of the mouse on its header. Use the wheel of the mouse to scroll through its content too!"
+        },
+        {
+            "style": "Text",
+            "text": "See the video on the next step for clarity..."
+        }
+    ]
+}

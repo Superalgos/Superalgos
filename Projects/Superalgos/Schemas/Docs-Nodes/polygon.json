@@ -1,0 +1,20 @@
+{
+    "type": "Polygon",
+    "definition": {
+        "text": "A polygon features definitions that makeup shapes and their styles."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "Polygons are defined by two or more vertices, which map points in a charts point. The graphic representation of polygons originates in styles applied to either or both polygon bodies and polygon borders."
+        },
+        {
+            "style": "Note",
+            "text": "The order in which polygons are ordered around the parent shapes node determines the order in which they are drawn on the screen. In cases on which polygons intersect, those drawn last are drawn on top of those drawn first."
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "type": "Plotter Panel",
+    "definition": {
+        "text": "A plotter panel usually shows numerical representations of data over the charts on a small window or panel. The plotter panel node features definitions to make that possible."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "Beyond the graphic representation of data over the charts, plotters may also feature a data panel, that is, a numerical representation of the data showing the exact figures corresponding to the column or period that is in focus (the point of the charts where the mouse pointer is at any point)."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring",
+            "updated": 1609932499869
+        },
+        {
+            "style": "Title",
+            "text": "Plotter Panel Configuration",
+            "updated": 1609932508408
+        }
+    ]
+}

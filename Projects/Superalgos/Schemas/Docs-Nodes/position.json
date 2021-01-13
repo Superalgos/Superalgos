@@ -1,0 +1,44 @@
+{
+    "type": "Position",
+    "definition": {
+        "text": "Position is the section of the data structure that keeps track of information within the scope of each position, and during the time a position is open."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The position node is available both in the current context and the last context, that is, you may retrieve information of the position that was last opened or the one currently open."
+        },
+        {
+            "style": "Text",
+            "text": "A position is open from the instant the take position event is triggered until the instant the close stage is closed. Therefore, this section of the data structure features information spaning those periods only."
+        },
+        {
+            "style": "Text",
+            "text": "In this section of the hierarchy, you have access to:"
+        },
+        {
+            "style": "List",
+            "text": " balances and position performance metrics denominated in both the base and quoted assets;"
+        },
+        {
+            "style": "List",
+            "text": "counters, such as the number of periods the position has been open;"
+        },
+        {
+            "style": "List",
+            "text": "statistics, such as performance metrics consolidating both assets, or user-defined statistics;"
+        },
+        {
+            "style": "List",
+            "text": "the distance to certain events, such as the number of candles to the last  take position event, or the last create order event;"
+        },
+        {
+            "style": "List",
+            "text": "rates describing each candle in the episode, such as the open, close, min and max rates;"
+        }
+    ]
+}

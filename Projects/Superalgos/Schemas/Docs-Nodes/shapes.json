@@ -1,0 +1,36 @@
+{
+    "type": "Shapes",
+    "definition": {
+        "text": "The shapes node contains definitions of polygons and styles to be rendered on a per-period basis over the charts."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "A plotter recursively renders graphics for each period or candle. This means that a definition of what shapes need to be drawn for a single period is required. The plotter does the same thing for every period or candle that is visible on the screen at any point in time, for any time frame, as long as the corresponding data is available."
+        },
+        {
+            "style": "Text",
+            "text": "In general terms, the process of defining what is going to be rendered on the screen consist of the following four steps:"
+        },
+        {
+            "style": "Text",
+            "text": " 1. Identifying points defined by [x,y] coordinates"
+        },
+        {
+            "style": "Text",
+            "text": " 2. Defining polygons"
+        },
+        {
+            "style": "Text",
+            "text": " 3. Defining default styles"
+        },
+        {
+            "style": "Text",
+            "text": " 4. Defining conditional styles"
+        }
+    ]
+}

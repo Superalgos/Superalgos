@@ -1,0 +1,30 @@
+{
+    "tutorial": "Developers Intro",
+    "pageNumber": 7,
+    "type": "Tutorial Step - Events Server",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": ""
+        },
+        "text": "The Events Server provides the communication model between processes and the UI. It essentially allows any entity inside each process to create a system-wide event handler and allow any other entity inside a process (or the UI) to subscribe or emit events at that event handler."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Events-based communication happens between:"
+        },
+        {
+            "style": "List",
+            "text": "UI and Task Manager: To run and stop Task Server processes."
+        },
+        {
+            "style": "List",
+            "text": "Task Server and UI: To get online feedback of what is going on at the Task Server, to display relevant status info at the UI."
+        },
+        {
+            "style": "Note",
+            "text": "The communication between the UI and the Web Server is HTTP only."
+        }
+    ]
+}

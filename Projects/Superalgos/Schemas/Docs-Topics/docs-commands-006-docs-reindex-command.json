@@ -1,0 +1,25 @@
+{
+    "topic": "Docs Commands",
+    "pageNumber": "6",
+    "type": "Docs Reindex Command",
+    "definition": {
+        "text": "Use this command to re-index all the pages of the docs, together with all the nodes at the current workspace, so that any changes you made to the content is available through search. ",
+        "updated": 1609152126427
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Syntax",
+            "updated": 1609157772210
+        },
+        {
+            "style": "Json",
+            "text": "docs.reindex",
+            "updated": 1609157842226
+        },
+        {
+            "style": "Note",
+            "text": "The reindexing of all the pages and workspace node might take a minute or two. If you workspace is very big, expect it to take even more time than that."
+        }
+    ]
+}

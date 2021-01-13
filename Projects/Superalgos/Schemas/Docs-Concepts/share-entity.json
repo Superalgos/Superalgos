@@ -1,0 +1,13 @@
+{
+    "type": "Share Entity",
+    "definition": {
+        "text": "Downloads a JSON file containing information similar to a backup. The only difference is that no personal information is included. This is particularly important so that you do not share sensitive information accidentally, such as your API keys. Always use this function when you intend to share work. Do not share your backups. The file downloaded is named Share followed by the name of the entity you are sharing.",
+        "updated": 1610033141189
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+        }
+    ]
+}

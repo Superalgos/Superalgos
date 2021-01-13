@@ -1,0 +1,59 @@
+{
+    "topic": "Docs Commands",
+    "pageNumber": "2",
+    "type": "Docs Goto Command",
+    "definition": {
+        "text": "This command provides a mechanism to navigate to a Docs page or an specific anchor within a page.",
+        "updated": 1609141474363
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Syntax",
+            "updated": 1609150441764
+        },
+        {
+            "style": "Json",
+            "text": "docs.goto Project->Docs Page Category->Docs Page Name->Docs Page Anchor",
+            "updated": 1609148983480
+        },
+        {
+            "style": "Title",
+            "text": "Parameters",
+            "updated": 1609150455663
+        },
+        {
+            "style": "List",
+            "text": "Project : Is the project where the Node, Concept or Topic is defined.",
+            "updated": 1609148511059
+        },
+        {
+            "style": "List",
+            "text": "Docs Page Category : Node, Concept or Topic.",
+            "updated": 1609148563484
+        },
+        {
+            "style": "List",
+            "text": "Docs Page Name : For Nodes it is the type of node, for Concepts, the concept name, for topics, the topic's page name.",
+            "updated": 1609149220268
+        },
+        {
+            "style": "List",
+            "text": "Docs Page Anchor : This parameter is optional. If present, it refers to an Docs Anchor paragraph defined within the page."
+        },
+        {
+            "style": "Title",
+            "text": "Examples",
+            "updated": 1609150465738
+        },
+        {
+            "style": "Json",
+            "text": "docs.goto Superalgos->Node->Task"
+        },
+        {
+            "style": "Json",
+            "text": "docs.goto Superalgos->Topic->Docs Text Style->Anchor 1",
+            "updated": 1609158328191
+        }
+    ]
+}

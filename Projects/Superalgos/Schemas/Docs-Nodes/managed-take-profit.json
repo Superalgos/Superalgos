@@ -1,0 +1,24 @@
+{
+    "type": "Managed Take Profit",
+    "definition": {
+        "text": "The managed take profit node features the definition of the phases that make up the management of the take profit target as the position develops."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "A take profit target bears an important role in your strategy, as it plays a crucial role in determining the risk/reward ratio of the trading opportunity that materialized, and upon which your strategy acted to take a position."
+        },
+        {
+            "style": "Text",
+            "text": "The foremost goal of trading is to increase your capital, and how you set your initial take profit target and manage it afterward determines how much you may increase your capital given a favorable price action."
+        },
+        {
+            "style": "Note",
+            "text": "The system provides the same functionality for managing the take profit target as explained for the managed stop loss target, so please make sure you go through that section too. "
+        }
+    ]
+}

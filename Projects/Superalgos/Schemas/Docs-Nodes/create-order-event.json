@@ -1,0 +1,24 @@
+{
+    "type": "Create Order Event",
+    "definition": {
+        "text": "The create order event controls the placement of orders."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "Even though the decision to take a position may have been made, the user may still decide to exert additional control over the placement of orders. Such is the intent of the create order event."
+        },
+        {
+            "style": "Text",
+            "text": "An order defined in an execution algorithm will be executed only if the event evaluates true."
+        },
+        {
+            "style": "Text",
+            "text": "If you wish orders to be placed as defined immediately after the take position event has been triggered, the use the statement true your only create order event condition."
+        }
+    ]
+}

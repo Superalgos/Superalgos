@@ -1,0 +1,42 @@
+{
+    "topic": "Docs Paragraph Styles",
+    "pageNumber": 16,
+    "type": "Docs Web Page Link Style",
+    "definition": {
+        "text": "Applying this style to a paragraph is the way to create a link to an external website."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "There is an specific syntax to follow if you want to create a link to an external web site. The syntax is:"
+        },
+        {
+            "style": "Json",
+            "text": "Link Caption->URL"
+        },
+        {
+            "style": "Title",
+            "text": "Example:"
+        },
+        {
+            "style": "Json",
+            "text": "Google->google.com"
+        },
+        {
+            "style": "Text",
+            "text": "produces the following html link to Google's home page:"
+        },
+        {
+            "style": "Link",
+            "text": "Google->google.com"
+        },
+        {
+            "style": "Note",
+            "text": "It is not possible to have any other text at the same paragraph."
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

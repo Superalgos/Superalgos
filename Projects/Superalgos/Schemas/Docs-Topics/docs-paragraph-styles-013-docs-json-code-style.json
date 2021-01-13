@@ -1,0 +1,22 @@
+{
+    "topic": "Docs Paragraph Styles",
+    "pageNumber": 13,
+    "type": "Docs JSON Code Style",
+    "definition": {
+        "text": "Use this style to format JSON code, such as the one in configs."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Line breaks in this style are not generating new paragraphs."
+        },
+        {
+            "style": "Title",
+            "text": "Example:"
+        },
+        {
+            "style": "Json",
+            "text": "{\n    property: value\n}"
+        }
+    ]
+}

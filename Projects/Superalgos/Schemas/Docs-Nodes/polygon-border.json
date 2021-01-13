@@ -1,0 +1,16 @@
+{
+    "type": "Polygon Border",
+    "definition": {
+        "text": "A polygon border is a shape defined by at least two vertices used to draw lines or to apply a style to the stroke of a closed shape."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "A polygon border needs at least two vertices to be defined. A border serves to create a stroke for the outlines of any sort of polygon, either closed or open, by giving it a style."
+        }
+    ]
+}

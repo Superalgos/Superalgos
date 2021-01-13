@@ -1,0 +1,20 @@
+{
+    "type": "Target Size In Quoted Asset",
+    "definition": {
+        "text": "Target size in quoted asset is used to define the size of the position, denominating it in the quoted asset."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "If you prefer to define the size of the position denominated in the quoted asset, then use this node and delete the target size in base asset node."
+        },
+        {
+            "style": "Important",
+            "text": "Make sure you read the definition of the target size in base asset node to get the proper context for this definition."
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "type": "Template Script",
+    "definition": {
+        "text": "The template script node holds the definitions concerned with the scope of a particular structure of nodes."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "As such, a template script features all the components required to deal with such scope only."
+        },
+        {
+            "style": "Text",
+            "text": "In the particular Masters super script implementation, each template script in the Setup Markets master script features a structure of nodes to be created in a specific location, and the associated JavaScript code deals with implementing such structure of nodes and establishing the corresponding references."
+        }
+    ]
+}

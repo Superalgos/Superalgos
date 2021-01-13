@@ -1,0 +1,16 @@
+{
+    "type": "Polygon Body",
+    "definition": {
+        "text": "A polygon body is the fill of a shape made out of at least three vertices."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "A polygon body needs at least three vertices to be defined. A body serves to create a fill for the outlines of any sort of polygon, either closed or open, by giving it a style."
+        }
+    ]
+}

@@ -179,10 +179,10 @@ function newLayer() {
                 'Sensor Bot->Indicator Bot->Trading Bot->Learning Bot->' +
                 'Data Mine->Trading Mine->Learning Mine->' +
                 'Dataset Definition->' +
-                'Record Definition->Record Property->Formula->' +
-                'Data Building Procedure->Procedure Loop->Javascript Code->Procedure Initialization->Javascript Code->' +
-                'Calculations Procedure->Procedure Loop->Javascript Code->Procedure Initialization->Javascript Code->' +
-                'Plotter Module->Plotter->' +
+                'Record Definition->Record Property->Record Formula->' +
+                'Data Building Procedure->Procedure Loop->Procedure Javascript Code->Procedure Initialization->Procedure Javascript Code->' +
+                'Calculations Procedure->Procedure Loop->Procedure Javascript Code->Procedure Initialization->Procedure Javascript Code->' +
+                'Plotter Module->Plotter->Plotter Module Javascript Code->' +
                 'Shapes->' +
                 'Chart Points->Point->Point Formula->' +
                 'Polygon->Polygon Condition->Polygon Body->Style->Style Condition->Style->' +
@@ -190,7 +190,7 @@ function newLayer() {
                 'Polygon Vertex->Point->' +
                 'Image->Image Condition->Image Position->Point->' +
                 'Text->Text Condition->Text Position->Point->Text Formula->Text Style->' +
-                'Plotter Panel->Javascript Code->Panel Data->Data Formula->Text Style->' +
+                'Plotter Panel->Plotter Panel Javascript Code->Panel Data->Data Formula->Text Style->' +
                 'Nodes Highlights->Nodes Values->Nodes Errors->Nodes Warnings->Nodes Infos->Nodes Status->Nodes Progress->Nodes Running->Nodes Announcements->Record Values->'
             thisObject.definition = UI.projects.superalgos.functionLibraries.protocolNode.getProtocolNode(thisObject.payload.node, false, true, true, false, false, lightingPath)
 
@@ -303,12 +303,12 @@ function newLayer() {
             thisObject.quotedAssetIcon = getIcon(thisObject.quotedAsset)
 
             function getIcon(node) {
-                let nodeDefinition = getNodeDefinition(node)
+                let schemaDocument = getSchemaDocument(node)
                 let iconName
                 let icon
-                if (nodeDefinition.alternativeIcons !== undefined) {
-                    for (let i = 0; i < nodeDefinition.alternativeIcons.length; i++) {
-                        let alternativeIcon = nodeDefinition.alternativeIcons[i]
+                if (schemaDocument.alternativeIcons !== undefined) {
+                    for (let i = 0; i < schemaDocument.alternativeIcons.length; i++) {
+                        let alternativeIcon = schemaDocument.alternativeIcons[i]
                         if (alternativeIcon.codeName === node.config.codeName) {
                             iconName = alternativeIcon.iconName
                         }
@@ -317,7 +317,7 @@ function newLayer() {
                 if (iconName !== undefined) {
                     icon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName('Superalgos', iconName)
                 } else {
-                    icon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName('Superalgos', nodeDefinition.icon)
+                    icon = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName('Superalgos', schemaDocument.icon)
                 }
                 return icon
             }
@@ -661,18 +661,18 @@ function newLayer() {
         UI.projects.superalgos.utilities.drawPrint.roundedCornersBackground(params)
 
         let parentLabel1FontSize = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(thisObject.payload.parentNode.payload, 'label1FontSize')
-        let parentLabel2FontSize = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(thisObject.payload.parentNode.payload, 'label2FontSize')
+        let parentlabelTwoFontSize = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(thisObject.payload.parentNode.payload, 'labelTwoFontSize')
         let parentLabel3FontSize = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(thisObject.payload.parentNode.payload, 'label3FontSize')
 
         let label1FontSize = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(thisObject.payload, 'label1FontSize')
-        let label2FontSize = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(thisObject.payload, 'label2FontSize')
+        let labelTwoFontSize = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(thisObject.payload, 'labelTwoFontSize')
         let label3FontSize = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(thisObject.payload, 'label3FontSize')
 
         if (parentLabel1FontSize !== undefined) {
             label1FontSize = parentLabel1FontSize
         }
-        if (parentLabel2FontSize !== undefined) {
-            label2FontSize = parentLabel2FontSize
+        if (parentlabelTwoFontSize !== undefined) {
+            labelTwoFontSize = parentlabelTwoFontSize
         }
         if (parentLabel3FontSize !== undefined) {
             label3FontSize = parentLabel3FontSize
@@ -686,8 +686,8 @@ function newLayer() {
             }
         }
 
-        if (label2FontSize === undefined) {
-            label2FontSize = 10
+        if (labelTwoFontSize === undefined) {
+            labelTwoFontSize = 10
         }
 
         if (label3FontSize === undefined) {
@@ -695,7 +695,7 @@ function newLayer() {
         }
 
         UI.projects.superalgos.utilities.drawPrint.drawLabel(label1, 1 / 2, 5.2 / 10, -5, 0, label1FontSize, thisObject.container)
-        UI.projects.superalgos.utilities.drawPrint.drawLabel(label2, 1 / 2, 8.2 / 10, -5, 0, label2FontSize, thisObject.container)
+        UI.projects.superalgos.utilities.drawPrint.drawLabel(label2, 1 / 2, 8.2 / 10, -5, 0, labelTwoFontSize, thisObject.container)
         UI.projects.superalgos.utilities.drawPrint.drawLabel(label3, 1 / 2, 9.5 / 10, -5, 0, label3FontSize, thisObject.container)
 
         drawProgressBar(marketFileProgressBar, 2, -45 + 18)

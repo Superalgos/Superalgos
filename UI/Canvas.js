@@ -5,7 +5,7 @@ function newCanvas() {
     const MODULE_NAME = 'Canvas'
     const ERROR_LOG = true
     const logger = newWebDebugLog()
-    
+
 
     /* Mouse event related variables. */
 
@@ -51,7 +51,7 @@ function newCanvas() {
     function finalize() {
         try {
             UI.projects.superalgos.spaces.tutorialSpace.finalize()
-            UI.projects.superalgos.spaces.docSpace.finalize()
+            UI.projects.superalgos.spaces.docsSpace.finalize()
             //thisObject.chatSpace.finalize()
             UI.projects.superalgos.spaces.sideSpace.finalize()
             UI.projects.superalgos.spaces.chartingSpace.finalize()
@@ -121,6 +121,33 @@ function newCanvas() {
                 let spaceAnimationDrawMap = new Map()
                 let spaceDefinitionDrawMap = new Map()
 
+                /* Set up Globals of this Project */
+                if (projectDefinition.UI.globals !== undefined) {
+                    for (let j = 0; j < projectDefinition.UI.globals.length; j++) {
+                        let globalDefinition = projectDefinition.UI.globals[j]
+
+                        projectInstance.globals[globalDefinition.propertyName] = eval(globalDefinition.functionName + '()')
+                    }
+                }
+
+                /* Set up Utilities of this Project */
+                if (projectDefinition.UI.utilities !== undefined) {
+                    for (let j = 0; j < projectDefinition.UI.utilities.length; j++) {
+                        let utilityDefinition = projectDefinition.UI.utilities[j]
+
+                        projectInstance.utilities[utilityDefinition.propertyName] = eval(utilityDefinition.functionName + '()')
+                    }
+                }
+
+                /* Set up Function Libraries of this Project */
+                if (projectDefinition.UI.functionLibraries !== undefined) {
+                    for (let j = 0; j < projectDefinition.UI.functionLibraries.length; j++) {
+                        let functionLibraryDefinition = projectDefinition.UI.functionLibraries[j]
+
+                        projectInstance.functionLibraries[functionLibraryDefinition.propertyName] = eval(functionLibraryDefinition.functionName + '()')
+                    }
+                }
+                
                 /* Space Instantiation */
                 if (projectDefinition.UI.spaces === undefined) { continue }
                 for (let j = 0; j < projectDefinition.UI.spaces.length; j++) {
@@ -183,33 +210,6 @@ function newCanvas() {
                     if (spaceInstance === undefined || spaceDefinition === undefined) { continue }
                     if (spaceInstance.draw !== undefined) {
                         thisObject.animation.addCallBackFunction(spaceDefinition.name + ' ' + 'Draw', spaceInstance.draw)
-                    }
-                }
-
-                /* Set up Utilities of this Project */
-                if (projectDefinition.UI.utilities !== undefined) {
-                    for (let j = 0; j < projectDefinition.UI.utilities.length; j++) {
-                        let utilityDefinition = projectDefinition.UI.utilities[j]
-
-                        projectInstance.utilities[utilityDefinition.propertyName] = eval(utilityDefinition.functionName + '()')
-                    }
-                }
-
-                /* Set up Globals of this Project */
-                if (projectDefinition.UI.globals !== undefined) {
-                    for (let j = 0; j < projectDefinition.UI.globals.length; j++) {
-                        let globalDefinition = projectDefinition.UI.globals[j]
-
-                        projectInstance.globals[globalDefinition.propertyName] = eval(globalDefinition.functionName + '()')
-                    }
-                }
-
-                /* Set up Function Libraries of this Project */
-                if (projectDefinition.UI.functionLibraries !== undefined) {
-                    for (let j = 0; j < projectDefinition.UI.functionLibraries.length; j++) {
-                        let functionLibraryDefinition = projectDefinition.UI.functionLibraries[j]
-
-                        projectInstance.functionLibraries[functionLibraryDefinition.propertyName] = eval(functionLibraryDefinition.functionName + '()')
                     }
                 }
             }
@@ -367,7 +367,18 @@ function newCanvas() {
     }
 
     async function onKeyDown(event) {
-        if (EDITOR_ON_FOCUS === true) { return }
+        if (EDITOR_ON_FOCUS === true) {
+            /*
+             We will fordward the event to whoever is 
+             controlling the editor.
+            */
+            window.editorController.onKeyDown(event)
+            return
+        }
+        /* When the Docs is Visible, we do not process key down events of the Designer Space. */
+        if (UI.projects.superalgos.spaces.docsSpace.isVisible === true) {
+            return
+        }
         thisObject.mouse.event = event
         thisObject.mouse.action = 'key down'
 
@@ -453,7 +464,12 @@ function newCanvas() {
 
         if ((event.ctrlKey === true || event.metaKey === true) && event.altKey === true && event.shiftKey === true && event.keyCode === 123) { // Dev Tool when used with F12
             if (nodeOnFocus !== undefined) {
+                console.log('Node on Focus:')
                 console.log(nodeOnFocus)
+                if (nodeOnFocus.config !== undefined) {
+                    console.log('Node on Focus Config:')
+                    console.log(JSON.stringify(JSON.parse(nodeOnFocus.config)).replaceAll('"', '\"'))
+                }
                 return
             }
         }

@@ -1,0 +1,17 @@
+{
+    "type": "Design Space",
+    "definition": {
+        "text": "The Design Space is the visual environment that hosts all system and user definitions. In practical terms, it is the black space below the slider that splits the screen horizontally, separating the Design Space in the bottom from the Charting Space on top. As a hierarchy, it features nodes that enable user-control over certain aspects of the look, feel, and behavior of the space.",
+        "updated": 1609861711688
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "Think of the design space as your desktop, or the control room of the system."
+        }
+    ]
+}

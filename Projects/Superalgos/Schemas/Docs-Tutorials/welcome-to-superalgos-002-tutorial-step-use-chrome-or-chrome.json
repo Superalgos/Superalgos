@@ -1,0 +1,34 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 2,
+    "type": "Tutorial Step - Use Chrome or Chrome!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "bullet-warning"
+        },
+        "text": "When running the frontend, we highly recommend using Chrome!! We are not testing on any other browsers!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "It is a well-known fact that browsers behave differently, and we do know of features that do not work on other browsers. If you are on Chrome, click Next and continue. If not, do the following:"
+        },
+        {
+            "style": "List",
+            "text": "Copy the current URL. "
+        },
+        {
+            "style": "List",
+            "text": "Close this browser as is. Do not close the tutorial!"
+        },
+        {
+            "style": "List",
+            "text": "Open Chrome and paste the URL. The tutorial should be open on this step when you come back."
+        },
+        {
+            "style": "Warning",
+            "text": "We offer online support, but we can't help you with any browser other than Chrome!"
+        }
+    ]
+}

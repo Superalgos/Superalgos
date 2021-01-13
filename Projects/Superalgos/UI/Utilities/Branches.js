@@ -9,29 +9,36 @@ function newSuperalgosUtilitiesBranches() {
     function nodeBranchToArray(node, nodeType) {
         /*
         This function scans a node branch for a certain node type and 
-        return an array of with all the nodes of that type found. 
+        return an array of with all the nodes of that type found. Note that once
+        a node with a matching type is found, it's children are not further scanned. 
+
+        If nodeType is undefined, then all nodes of this branch will be returned in
+        the array, including the children of the nodes added to the result array.
         */
         if (node === undefined) { return }
-        if (nodeType === undefined) { return }
-        let resultArray = []
-        scanNodeBranch(node, nodeType)
+         let resultArray = []
+        scanNodeBranch(node)
         return resultArray
 
         function scanNodeBranch(startingNode) {
             if (startingNode === undefined) { return }
 
-            let nodeDefinition = getNodeDefinition(startingNode)
-            if (nodeDefinition === undefined) { return }
+            let schemaDocument = getSchemaDocument(startingNode)
+            if (schemaDocument === undefined) { return }
 
-            if (startingNode.type === nodeType) {
+            if (nodeType === undefined) {
                 resultArray.push(startingNode)
-                return
+            } else {
+                if (startingNode.type === nodeType) {
+                    resultArray.push(startingNode)
+                    return
+                }
             }
 
-            if (nodeDefinition.properties === undefined) { return }
+            if (schemaDocument.childrenNodesProperties === undefined) { return }
             let lastNodePropertyName
-            for (let i = 0; i < nodeDefinition.properties.length; i++) {
-                let property = nodeDefinition.properties[i]
+            for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+                let property = schemaDocument.childrenNodesProperties[i]
                 if (lastNodePropertyName === property.name) { continue } // Some nodes have a single property por multiple child node types. We need to check repeated properties only once so as no to duplicate results.
                 switch (property.type) {
                     case 'node': {

@@ -1,0 +1,26 @@
+{
+    "topic": "Docs Paragraph Styles",
+    "pageNumber": 12,
+    "type": "Docs JS Code Style",
+    "definition": {
+        "text": "Use this style to correctly format javascript code."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "One of the main difference of this style with the previous ones is that you might have many line breaks and they wont be considered as new paragraphs, instead they will all be treated as a single block."
+        },
+        {
+            "style": "Title",
+            "text": "Example:"
+        },
+        {
+            "style": "Javascript",
+            "text": "function hello(text){\nconsole.log('hello ' + text)\n}"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

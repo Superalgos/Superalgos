@@ -1,0 +1,26 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 36,
+    "type": "Tutorial Step - Putting Things in Order",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "hand-drag"
+        },
+        "text": "One more thing before we dive into the charts. You need to know how to put the house in order!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The time will come in which you may be working with tens of charts. You already know how to change their format... Now you need to know how to move them around, so that you may create whatever arrangements you require. It's quite easy:"
+        },
+        {
+            "style": "Callout",
+            "text": "Hit Shift left-click, and drag!"
+        },
+        {
+            "style": "Text",
+            "text": "I believe we've covered everything about how to manage the charting space. It's time to dive into the charts!"
+        }
+    ]
+}

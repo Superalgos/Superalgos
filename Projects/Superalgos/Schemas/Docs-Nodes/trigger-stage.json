@@ -1,0 +1,40 @@
+{
+    "type": "Trigger Stage",
+    "definition": {
+        "text": "The trigger stage deals with monitoring the market in search of trading opportunities with the corresponding strategy."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "A trading system may have multiple strategies designed for the same market."
+        },
+        {
+            "style": "Text",
+            "text": "An important aspect of trading systems is that they are allocated a certain amount of capital (see the base asset parameter of the trading session). As a consequence, strategies within a trading system share a certain capital allocation."
+        },
+        {
+            "style": "Text",
+            "text": "The logic behind the concept of the trigger stage assumes that different strategies within a trading system may be specialized for trading in different market situations. The trigger stage in each strategy is, therefore, the mechanism by which any particular strategy within the trading system may be selected to trade, given any particular market situation."
+        },
+        {
+            "style": "Text",
+            "text": "The triggering-on of a strategy effectively blocks the selection of any other strategy in the trading system and reserves the whole capital allocation for the one strategy selected, until the strategy is triggered-off."
+        },
+        {
+            "style": "Text",
+            "text": "Therefore, if certain strategies are meant to trade under the same market situations and open trades concurrently, then those strategies should be deployed in separate trading systems."
+        },
+        {
+            "style": "Text",
+            "text": "Once a strategy is triggered, the strategy may decide&mdash;or not&mdash;to take a position. If a position is taken, then the rest of the stages eventually become active."
+        },
+        {
+            "style": "Text",
+            "text": "However, the strategy may also be triggered off without taking a position. When a strategy is triggered off, the trading system goes back to monitoring the trigger-on definitions for all strategies, and capital is released to be used by whatever strategy is triggered-on next."
+        }
+    ]
+}

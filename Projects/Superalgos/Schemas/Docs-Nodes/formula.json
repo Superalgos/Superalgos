@@ -54,8 +54,8 @@
         },
         {
             "style": "Text",
-            "text": "This is—basically—a trailing stop loss 2% below the Bollinger Bands moving average that may go higher if the moving average goes up, but it may never come down—thanks to the use of the IF ELSE clause.",
-            "updated": 1610561159135
+            "text": "This is—basically—a trailing stop loss 2% below the Bollinger Bands moving average that may go higher if the moving average goes up, but it may never come down—thanks to the use of the IF / ELSE clause.",
+            "updated": 1610563073190
         },
         {
             "style": "Javascript",

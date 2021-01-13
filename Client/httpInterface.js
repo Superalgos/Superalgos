@@ -553,9 +553,14 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 }
                                 const git = simpleGit(options)
 
-                                await git.add('./*')
-                                await git.commit(commitMessage)
-                                await git.push('origin', branch)
+                                try {
+                                    await git.add('./*')
+                                    await git.commit(commitMessage)
+                                    await git.push('origin', branch)
+                                } catch(err) {
+                                    console.log('[ERROR] Error running Contribute.')
+                                    console.log(err.stack)
+                                }
                             }
 
                             async function doGithub() {

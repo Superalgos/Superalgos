@@ -185,9 +185,20 @@ function newSuperalgosDocSpace() {
     }
 
     function changeActiveBranch(branch) {
-        UI.projects.superalgos.spaces.docsSpace.activeBranch = branch
         window.localStorage.setItem('Active Branch', UI.projects.superalgos.spaces.docsSpace.activeBranch)
+        httpRequest(undefined, 'App/Checkout/' + UI.projects.superalgos.spaces.docsSpace.activeBranch, onResponse)
         UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Switching Branches - Changing Active Branch')
+        
+        function onResponse(err, data) {
+            /* Lets check the result of the call through the http interface */
+            data = JSON.parse(data)
+            if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.CUSTOM_OK_RESPONSE.result) {
+                UI.projects.superalgos.spaces.docsSpace.activeBranch = branch
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Switching Branches - Active Branch Changed')
+            } else {
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Switching Branches - Active Branch Not Changed')
+            }
+        }
     }
 
     function changeContributionsBranch(branch) {

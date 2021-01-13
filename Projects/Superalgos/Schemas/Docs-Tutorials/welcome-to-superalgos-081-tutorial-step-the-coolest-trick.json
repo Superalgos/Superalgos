@@ -20,7 +20,8 @@
         },
         {
             "style": "List",
-            "text": "Turn on the Current Position layer on the Trading Engine layers manager. I chose this layer because it corresponds to this section of the hierarchy... tradingEngine.current.position... remember ?"
+            "text": "Turn on the Current Position layer on the Trading Engine layers manager. I chose this layer because it corresponds to this section of the hierarchy... tradingEngine.current.position, remember ?",
+            "updated": 1610536718614
         },
         {
             "style": "Callout",

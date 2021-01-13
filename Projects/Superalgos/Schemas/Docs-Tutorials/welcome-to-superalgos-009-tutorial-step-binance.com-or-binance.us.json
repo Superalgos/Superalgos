@@ -19,8 +19,14 @@
             "text": "If you trade at binance.us you need to do something with the Binance node to the right! The video on the next step shows you how!"
         },
         {
-            "style": "Text",
-            "text": "1. Open the configuration and change the codeName</br>to binanceus.</br></br>2. Edit the label of the node to read Binanceus."
+            "style": "List",
+            "text": "1. Open the configuration and change the codeName to binanceus.",
+            "updated": 1610537934323
+        },
+        {
+            "style": "List",
+            "text": "2. Edit the label of the node to read Binanceus.",
+            "updated": 1610537864275
         }
     ]
 }

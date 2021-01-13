@@ -12,7 +12,12 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Rember my comments about granularity? Remember how the formula on the trading system fetched the value of the exit target rate? Here's a quick reminder: <br/><br/>tradingEngine.current.position.exitTargetRate.value"
+            "text": "Rember my comments about granularity? Remember how the formula on the trading system fetched the value of the exit target rate? Here's a quick reminder:",
+            "updated": 1610536534720
+        },
+        {
+            "style": "Text",
+            "text": "tradingEngine.current.position.exitTargetRate.value"
         },
         {
             "style": "Callout",

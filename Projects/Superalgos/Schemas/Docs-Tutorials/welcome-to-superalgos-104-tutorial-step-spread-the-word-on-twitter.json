@@ -16,7 +16,8 @@
         },
         {
             "style": "List",
-            "text": "Go to our <a href='https://twitter.com/superalgos' target='_blank' style='color:blue;'>Twitter</a> page, follow us, and retweet our latest tweet. Make sure you tag traders you follow!"
+            "text": "Go to our Twitter page, follow us, and retweet our latest tweet. Make sure you tag traders you follow!",
+            "updated": 1610537221339
         },
         {
             "style": "Text",

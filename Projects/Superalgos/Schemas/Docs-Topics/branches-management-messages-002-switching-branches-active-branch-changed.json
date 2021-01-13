@@ -1,7 +1,7 @@
 {
     "topic": "Branches Management Messages",
     "pageNumber": "2",
-    "type": "Switching Branches - Active Branch Changed",
+    "type": "Switching Branches - Current Branch Changed",
     "definition": {
         "text": "Write here a summary for this topic page."
     },

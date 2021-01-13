@@ -533,7 +533,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             const commitMessage = unescape(requestParameters[3])
                             const username = unescape(requestParameters[4])
                             const token = unescape(requestParameters[5])
-                            const activeBranch = unescape(requestParameters[6])
+                            const currentBranch = unescape(requestParameters[6])
                             const contributionsBranch = unescape(requestParameters[7])
 
                             contribute()
@@ -570,7 +570,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 const repo = 'Superalgos'
                                 const owner = 'Superalgos'
                                 const head = username + ':' + contributionsBranch
-                                const base = activeBranch
+                                const base = currentBranch
                                 const title = 'Contribution: ' + commitMessage
 
                                 try {
@@ -606,7 +606,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                     }
                     case 'Update': {
                         try {
-                            const activeBranch = unescape(requestParameters[3])
+                            const currentBranch = unescape(requestParameters[3])
                             update()
 
                             async function update() {
@@ -628,7 +628,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 }
                                 const git = simpleGit(options)
 
-                                return await git.pull('upstream', activeBranch)
+                                return await git.pull('upstream', currentBranch)
                             }
 
                         } catch (err) {
@@ -650,7 +650,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
                     case 'Checkout': {
                         try {
-                            const activeBranch = unescape(requestParameters[3])
+                            const currentBranch = unescape(requestParameters[3])
                             checkout()
 
                             async function checkout() {
@@ -672,7 +672,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 }
                                 const git = simpleGit(options)
 
-                                return await git.checkoutBranch(activeBranch)
+                                return await git.checkoutBranch(currentBranch)
                             }
 
                         } catch (err) {

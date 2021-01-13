@@ -68,7 +68,7 @@ function newSuperalgosDocsCommmandInterface() {
                 message + '/' +
                 config.username + '/' +
                 config.token + '/' +
-                UI.projects.superalgos.spaces.docsSpace.activeBranch + '/' +
+                UI.projects.superalgos.spaces.docsSpace.currentBranch + '/' +
                 UI.projects.superalgos.spaces.docsSpace.contributionBranch
                 , onResponse)
 
@@ -121,7 +121,7 @@ function newSuperalgosDocsCommmandInterface() {
                 return
             }
 
-            httpRequest(undefined, 'App/Update/' + UI.projects.superalgos.spaces.docsSpace.activeBranch, onResponse)
+            httpRequest(undefined, 'App/Update/' + UI.projects.superalgos.spaces.docsSpace.currentBranch, onResponse)
             UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Message - Updating Your Local App')
 
             return

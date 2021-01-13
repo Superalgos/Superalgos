@@ -556,10 +556,11 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 try {
                                     await git.add('./*')
                                     await git.commit(commitMessage)
-                                    await git.push('origin', branch)
+                                    await git.push('origin', currentBranch)
                                 } catch(err) {
                                     console.log('[ERROR] Error running Contribute.')
                                     console.log(err.stack)
+                                    throw (err)
                                 }
                             }
 

@@ -70,13 +70,6 @@ For example, if your Github username is John, the command will look like this:
 git clone https://github.com/John/Superalgos
 ```
 
-**6.** Switch to the develop branch running this command: 
-
-```
-git checkout develop
-```
-
-
 ## Instalation Notes
 
 **1.** You need to make a fork so that you may contribute work. Superalgos is a Community project and you are expected to contribute, like everyone else. You don't need to be a technical person to contribute. Fixing a typo in the docs or translating a paragraph into your native language are valuable contributions too. Superalgos has built-in features that make contributing easy. Help make Superalgos better and Superalgos will better serve you! [Free-riding is not cool](https://en.wikipedia.org/wiki/Free-rider_problem), particularly on free, open-source, Community-driven projects.
@@ -91,15 +84,23 @@ git checkout develop
 
 ![Run the system](https://docs.superalgos.org/images/how-to/run-the-system-01.gif)
 
-**1.** To run the Superalgos client, change to the Superalgos directory/folder and type:
+**1.** To run the Superalgos client, change to the Superalgos directory/folder.
+
+**2.** Switch to the develop branch running this command: 
+
+```
+git checkout develop
+```
+
+**3.** Run this command:
 
 ```
 node run
 ```
 
-**2.** The command launches your default browser to load the UI. If Chrome is not your default browser, copy the URL, close the browser, open Chrome, and paste the URL. Be patient... it takes a few seconds to fully load the UI.
+**4.** The command launches your default browser to load the UI. If Chrome is not your default browser, copy the URL, close the browser, open Chrome, and paste the URL. Be patient... it takes a few seconds to fully load the UI.
 
-**3.** A Welcome Tutorial pops-up automatically. You must do this Tutorial to finish the setup and to learn the basics. It's the ultimate onboarding experience, superior to all other resources available, including videos and the docs.
+**5.** A Welcome Tutorial pops-up automatically. You must do this Tutorial to finish the setup and to learn the basics. It's the ultimate onboarding experience, superior to all other resources available, including videos and the docs.
 
 ## Usage Notes
 

@@ -313,8 +313,11 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     let project = requestParameters[3]
                                     let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Nodes'
 
-                                    checkAllSchmemaDocuments('Node', docsSchema, filePath)
-                                    respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                                    if (checkAllSchmemaDocuments('Node', docsSchema, filePath) === true) {
+                                        respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                                    } else {
+                                        respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                    }
 
                                 } catch (err) {
                                     console.log('[ERROR] httpInterface -> Docs -> Save-Node-Schema -> Method call produced an error.')
@@ -340,8 +343,11 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     let project = requestParameters[3]
                                     let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Concepts'
 
-                                    checkAllSchmemaDocuments('Concept', docsSchema, filePath)
-                                    respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                                    if (checkAllSchmemaDocuments('Concept', docsSchema, filePath) === true) {
+                                        respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                                    } else {
+                                        respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                    }
 
                                 } catch (err) {
                                     console.log('[ERROR] httpInterface -> Docs -> Save-Concept-Schema -> Method call produced an error.')
@@ -367,8 +373,11 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     let project = requestParameters[3]
                                     let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Topics'
 
-                                    checkAllSchmemaDocuments('Topic', docsSchema, filePath)
-                                    respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                                    if (checkAllSchmemaDocuments('Topic', docsSchema, filePath) === true) {
+                                        respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                                    } else {
+                                        respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                    }
 
                                 } catch (err) {
                                     console.log('[ERROR] httpInterface -> Docs -> Save-Topic-Schema -> Method call produced an error.')
@@ -394,8 +403,11 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     let project = requestParameters[3]
                                     let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Tutorials'
 
-                                    checkAllSchmemaDocuments('Tutorial', docsSchema, filePath)
-                                    respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                                    if (checkAllSchmemaDocuments('Tutorial', docsSchema, filePath) === true) {
+                                        respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                                    } else {
+                                        respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                    }
 
                                 } catch (err) {
                                     console.log('[ERROR] httpInterface -> Docs -> Save-Tutorial-Schema -> Method call produced an error.')
@@ -421,8 +433,11 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     let project = requestParameters[3]
                                     let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Books'
 
-                                    checkAllSchmemaDocuments('Book', docsSchema, filePath)
-                                    respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                                    if (checkAllSchmemaDocuments('Book', docsSchema, filePath) === true) {
+                                        respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                                    } else {
+                                        respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                    }
 
                                 } catch (err) {
                                     console.log('[ERROR] httpInterface -> Docs -> Save-Book-Schema -> Method call produced an error.')
@@ -443,6 +458,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
                     function checkAllSchmemaDocuments(category, docsSchema, filePath) {
                         const fs = require('fs')
+                        let noErrorsDuringSaving = true
 
                         for (let i = 0; i < docsSchema.length; i++) {
                             let schemaDocument = docsSchema[i]
@@ -471,6 +487,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     fs.unlinkSync(filePath + '/' + fileName)
                                     console.log('[SUCCESS] ' + filePath + '/' + fileName + ' deleted.')
                                 } catch (err) {
+                                    noErrorsDuringSaving = false
                                     console.log('[ERROR] httpInterface -> Docs -> Save -> ' + filePath + '/' + fileName + ' could not be deleted.')
                                     console.log('[ERROR] httpInterface -> Docs -> Save -> Resolve the issue that is preventing the Client to delete this file. Look at the error message below as a guide. At the UI you will need to delete this page again in order for the Client to retry next time you execute the docs.save command.')
                                     console.log('[ERROR] httpInterface -> Docs -> Save -> err.stack = ' + err.stack)
@@ -483,6 +500,13 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                         schemaDocument.updated = undefined
                                         schemaDocument.created = undefined
                                         let fileContent = JSON.stringify(schemaDocument, undefined, 4)
+                                        try {
+                                            fs.mkdirSync(filePath)
+                                        } catch (err) {
+                                            if (err.message.indexOf('file already exists') < 0) {
+                                                throw(err)
+                                            }
+                                        }
                                         fs.writeFileSync(filePath + '/' + fileName, fileContent)
                                         if (created === true) {
                                             console.log('[SUCCESS] ' + filePath + '/' + fileName + '  created.')
@@ -491,15 +515,16 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                                 console.log('[SUCCESS] ' + filePath + '/' + fileName + '  updated.')
                                             }
                                         }
-
                                     } catch (err) {
+                                        noErrorsDuringSaving = false
                                         console.log('[ERROR] httpInterface -> Docs -> Save -> ' + filePath + '/' + fileName + ' could not be created / updated.')
-                                        console.log('[ERROR] httpInterface -> Docs -> Save -> Dont worry, the changes are still at the UI, but you will need to do 2 things: 1) Resolve the issue that is preventing the Client to write this file. Look at the error message below as a guide. 2) At the UI, locate this page and edit it with some small change again, so that is flagged that contains changes, otherwise those original changes will be ignored by the Client during the next docs.save command execution.')
                                         console.log('[ERROR] httpInterface -> Docs -> Save -> err.stack = ' + err.stack)
                                     }
                                 }
                             }
                         }
+
+                        return noErrorsDuringSaving
                     }
 
                     function cleanFileName(fileName) {
@@ -557,7 +582,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     await git.add('./*')
                                     await git.commit(commitMessage)
                                     await git.push('origin', currentBranch)
-                                } catch(err) {
+                                } catch (err) {
                                     console.log('[ERROR] Error running Contribute.')
                                     console.log(err.stack)
                                     throw (err)
@@ -618,11 +643,15 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             async function update() {
                                 let message = await doGit()
 
-                                let customResponse = {
-                                    result: global.CUSTOM_OK_RESPONSE.result,
-                                    message: message
+                                if (message !== undefined) {
+                                    let customResponse = {
+                                        result: global.CUSTOM_OK_RESPONSE.result,
+                                        message: message
+                                    }
+                                    respondWithContent(JSON.stringify(customResponse), httpResponse)
+                                } else {
+                                    respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                                 }
-                                respondWithContent(JSON.stringify(customResponse), httpResponse)
                             }
 
                             async function doGit() {
@@ -634,7 +663,14 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 }
                                 const git = simpleGit(options)
 
-                                return await git.pull('upstream', currentBranch)
+                                let message
+                                try {
+                                    message = await git.pull('upstream', currentBranch)
+                                    return message
+                                } catch (err) {
+                                    console.log('[ERROR] Error updating ' + currentBranch)
+                                    console.log(err.stack)
+                                }
                             }
 
                         } catch (err) {
@@ -1351,8 +1387,10 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                     let schema = JSON.stringify(schemaArray)
                     respondWithContent(schema, httpResponse)
                 } catch (err) {
-                    console.log('Could not send Schema:', filePath, schemaType)
-                    console.log(err.stack)
+                    if (err.message.indexOf('no such file or directory') < 0) {
+                        console.log('Could not send Schema:', filePath, schemaType)
+                        console.log(err.stack)
+                    }
                     respondWithContent("[]", httpResponse)
                 }
             }

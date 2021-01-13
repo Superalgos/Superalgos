@@ -89,8 +89,8 @@ function newSuperalgosDocSpace() {
             if (window.localStorage.getItem('Current Branch') !== null && window.localStorage.getItem('Current Branch') !== undefined && window.localStorage.getItem('Current Branch') !== 'undefined') {
                 UI.projects.superalgos.spaces.docsSpace.currentBranch = window.localStorage.getItem('Current Branch')
             } else {
-                window.localStorage.setItem('Current Branch', UI.projects.superalgos.globals.docs.DEFAULT_ACTIVE_BRANCH)
-                UI.projects.superalgos.spaces.docsSpace.currentBranch = UI.projects.superalgos.globals.docs.DEFAULT_ACTIVE_BRANCH
+                window.localStorage.setItem('Current Branch', UI.projects.superalgos.globals.docs.DEFAULT_CURRENT_BRANCH)
+                UI.projects.superalgos.spaces.docsSpace.currentBranch = UI.projects.superalgos.globals.docs.DEFAULT_CURRENT_BRANCH
             }
         }
 

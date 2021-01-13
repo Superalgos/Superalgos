@@ -10,7 +10,16 @@
         },
         {
             "style": "Text",
-            "text": "To represent some form of variation of the price or a price derivative over time, a typical point formula consists of the following two coordinates: x = datetime and y = rate."
+            "text": "To represent some form of variation of the price or a price derivative over time, a typical point formula consists of the following two coordinates: ",
+            "updated": 1610559758845
+        },
+        {
+            "style": "List",
+            "text": "x = datetime and "
+        },
+        {
+            "style": "List",
+            "text": "y = rate."
         },
         {
             "style": "Title",

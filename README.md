@@ -20,7 +20,9 @@ Node JS is an open-source server environment required to run Superalgos.
 
 ## Git
 
-If you don't have it yet, download and install Git.
+Download and install Git. 
+
+**Important:** The latest version of Git is required.
 
 Git is an open-source distributed version control system required to download and stay up to date with Superalgos.
 
@@ -46,13 +48,11 @@ Before you begin, it is recommended that you set up Chrome as your default brows
 
 **1.** If you are not there already, go to [https://github.com/Superalgos/Superalgos](https://github.com/Superalgos/Superalgos)
 
-**2.** Scroll the page all the way to the top. Find and click the **Star** button on the top-right corner of the page to like Superalgos! Thank you! This helps developers find the project, which makes Superalgos better for you through their contributions. This step is in fact, your first contribution.
+**2.** Scroll the page all the way to the top. Find and click the **Fork** button to create your fork/copy of this repository. To fork Superalgos you need a GitHub account. If you don't have one, go ahead and create it. A Fork is required for your contributions to the project and to stay up to date with the latest version of the software (more on this later).
 
-**3.** Next to the Star button, find and click the **Fork** button to create your fork/copy of this repository. To fork Superalgos you need a GitHub account. If you don't have one, go ahead and create one. A Fork is required for your contributions to the project and to stay up to date with the latest version of the software (more on this later).
+**3.** Once the fork is created, you will land on the page of your fork. Copy the URL from your browser's address bar.
 
-**4.** Once the fork is created, you will land on the page of your fork. Copy the URL from your browser's address bar.
-
-**5.** In your computer/laptop/server, open a command prompt or terminal as an administrator (to avoid issues with permissions) and type:
+**4.** In your computer/laptop/server, open a command prompt or terminal as an administrator (to avoid issues with permissions) and type:
 
 ```
 git clone 
@@ -70,7 +70,7 @@ For example, if your Github username is John, the command will look like this:
 git clone https://github.com/John/Superalgos
 ```
 
-**6.** Change to the Superalgos directory/folder and run this commmand to switch to the develop branch.
+**5.** Change to the Superalgos directory/folder and run this commmand to switch to the develop branch.
 
 ```
 git checkout develop
@@ -136,7 +136,7 @@ Superalgos is a platform to automate crypto-trading. It is implemented as a Node
 * In-App Tutorials.
 * Complete In-App Documentation.
 
-## Superalgos Allows You to...
+## Superalgos Allows You To...
 
 * Visually design your trading strategies.
 * Visually debug your trading strategies.
@@ -202,7 +202,7 @@ Superalgos is a platform to automate crypto-trading. It is implemented as a Node
 * Your installations may be used by as many people as required.
 * You may connect to as many crypto exchanges as you wish.
 
-## Superalgos minimizes your risks
+## Superalgos Minimizes Risks
 
 * No one can know what strategies you design/run.
 * No one can front-run you.

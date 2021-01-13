@@ -25,7 +25,6 @@ function newSuperalgosDocsFooter() {
         // Language Section
 
         HTML = HTML + '<div class="docs-node-html-footer-table">'
-
         HTML = HTML + '<div class="docs-footer-row">'
 
         HTML = HTML + '<div class="docs-footer-cell" style="white-space: nowrap; overflow-x: auto; ">'
@@ -43,11 +42,9 @@ function newSuperalgosDocsFooter() {
         HTML = HTML + '</div>'
 
         HTML = HTML + '</div>'
-
         HTML = HTML + '</div>'
 
         HTML = HTML + '<div class="docs-node-html-footer-table">'
-
         HTML = HTML + '<div class="docs-footer-row">'
 
         HTML = HTML + '<div class="docs-footer-cell">'
@@ -75,13 +72,11 @@ function newSuperalgosDocsFooter() {
         HTML = HTML + '</div>'
 
         HTML = HTML + '</div>'
-
         HTML = HTML + '</div>'
 
         // GitHub Section
 
         HTML = HTML + '<div class="docs-node-html-footer-table">'
-
         HTML = HTML + '<div class="docs-footer-row">'
 
         HTML = HTML + '<div class="docs-footer-cell" style="white-space: nowrap; overflow-x: auto; ">'
@@ -89,7 +84,6 @@ function newSuperalgosDocsFooter() {
         HTML = HTML + '</div>'
 
         HTML = HTML + '</div>'
-
         HTML = HTML + '</div>'
 
         HTML = HTML + '<div class="docs-node-html-footer-table">'
@@ -164,7 +158,9 @@ function newSuperalgosDocsFooter() {
         HTML = HTML + '</div>'
 
         HTML = HTML + '<div class="docs-footer-row">'
+        HTML = HTML + '<div class="docs-footer-cell">'
         HTML = HTML + '<img src="Images/superalgos-logo-white.png" width="200 px">'
+        HTML = HTML + '</div>'
         HTML = HTML + '</div>'
         HTML = HTML + '</div>'
 

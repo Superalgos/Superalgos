@@ -578,6 +578,24 @@ border-radius: 3px;
 padding: 0 5;
 }
 
+code.docs-footer-code {
+color: #eee;
+background-color: rgba(230, 234, 234, 0.2);
+/* border: 1px solid rgba(205, 212, 213, 0.5); DELETE Candidate*/
+border: 1px solid rgba(200, 200, 200, .5);
+border-radius: 3px;
+padding: 0 5;
+}
+
+a:hover.code.docs-footer-code {
+color: #eee;
+background-color: rgba(253, 106, 51, 1);
+/* border: 1px solid rgba(205, 212, 213, 0.5); DELETE Candidate*/
+border: 1px solid rgba(200, 200, 200, .5);
+border-radius: 3px;
+padding: 0 5;
+}
+
 /* Style the button that is used to open and close the docs-collapsible-element content */
 .docs-collapsible-element {
 background-color: #eee;

@@ -77,7 +77,8 @@
         },
         {
             "style": "Text",
-            "text": "To build more complex logic within a formula, create a function that implements the logic and returns a numerical value, and then call the function:"
+            "text": "To build more complex logic within a formula, create a function that implements the logic and returns a numerical value—and then call the function:",
+            "updated": 1610561517656
         },
         {
             "style": "Javascript",

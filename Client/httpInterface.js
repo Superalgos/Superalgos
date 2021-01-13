@@ -661,7 +661,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                                 } else {
                                     console.log(false)
-                                    respondWithContent(JSON.stringify(global.FAIL_OK_RESPONSE), httpResponse)
+                                    respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                                 }
                             }
 
@@ -676,7 +676,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 try {
                                     await git.checkoutBranch(currentBranch)
                                 } catch (err) {
-                                    console.log('[ERROR] Error changing current branch to ' + currentBranch + err.stack)
+                                    console.log('[ERROR] Error changing current branch to ' + currentBranch)
                                     console.log(err.stack)
                                     return false
                                 }

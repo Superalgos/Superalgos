@@ -209,6 +209,11 @@
                     "functionName": "newSuperalgosUtilitiesLanguages"
                 },
                 {
+                    "name": "Git Branches",
+                    "propertyName": "gitBranches",
+                    "functionName": "newSuperalgosUtilitiesGitBranches"
+                },
+                {
                     "name": "Docs",
                     "propertyName": "docs",
                     "functionName": "newSuperalgosUtilitiesDocs"

@@ -1,6 +1,6 @@
 function newSuperalgosDocsFooter() {
     let thisObject = {
-        addFooter: addFooter, 
+        addFooter: addFooter,
         initialize: initialize,
         finalize: finalize
     }
@@ -16,7 +16,6 @@ function newSuperalgosDocsFooter() {
     }
 
     function addFooter() {
-        let languageLabel = UI.projects.superalgos.utilities.languages.getLaguageLabel(UI.projects.superalgos.spaces.docsSpace.language)
 
         let HTML = ''
 
@@ -33,11 +32,11 @@ function newSuperalgosDocsFooter() {
 
         HTML = HTML + '<div class="docs-footer-cell style="white-space: nowrap; overflow-x: auto;" >' // white-space: nowrap; overflow-x: auto; prevents line breaks when combined with display: inline-block;" in the child elements
         HTML = HTML + '<span style="float: right; display: inline-block;" onClick="UI.projects.superalgos.spaces.docsSpace.scrollToElement(\'docs-space-div\')"><button>TO TOP</button></span>'
-        if (UI.projects.superalgos.spaces.docsSpace.previousDocumentBeingRendered !== undefined ) {
-            HTML = HTML + '<span style="float: right; display: inline-block;" onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + UI.projects.superalgos.spaces.docsSpace.previousDocumentBeingRendered.project + '\', \'' + UI.projects.superalgos.spaces.docsSpace.previousDocumentBeingRendered.category + '\', \'' + UI.projects.superalgos.spaces.docsSpace.previousDocumentBeingRendered.type + '\')"><button>BACK</button></span>'        
+        if (UI.projects.superalgos.spaces.docsSpace.previousDocumentBeingRendered !== undefined) {
+            HTML = HTML + '<span style="float: right; display: inline-block;" onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + UI.projects.superalgos.spaces.docsSpace.previousDocumentBeingRendered.project + '\', \'' + UI.projects.superalgos.spaces.docsSpace.previousDocumentBeingRendered.category + '\', \'' + UI.projects.superalgos.spaces.docsSpace.previousDocumentBeingRendered.type + '\')"><button>BACK</button></span>'
         }
-        if (UI.projects.superalgos.spaces.docsSpace.currentBookBeingRendered !== undefined ) {
-            HTML = HTML + '<span style="float: right; display: inline-block;" onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + UI.projects.superalgos.spaces.docsSpace.currentBookBeingRendered.project + '\', \'' + UI.projects.superalgos.spaces.docsSpace.currentBookBeingRendered.category + '\', \'' + UI.projects.superalgos.spaces.docsSpace.currentBookBeingRendered.type + '\')"><button>TO BOOK</button></span>'        
+        if (UI.projects.superalgos.spaces.docsSpace.currentBookBeingRendered !== undefined) {
+            HTML = HTML + '<span style="float: right; display: inline-block;" onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + UI.projects.superalgos.spaces.docsSpace.currentBookBeingRendered.project + '\', \'' + UI.projects.superalgos.spaces.docsSpace.currentBookBeingRendered.category + '\', \'' + UI.projects.superalgos.spaces.docsSpace.currentBookBeingRendered.type + '\')"><button>TO BOOK</button></span>'
         }
         HTML = HTML + '</div>'
 
@@ -54,7 +53,7 @@ function newSuperalgosDocsFooter() {
 
         HTML = HTML + '<div class="docs-footer-cell">'
         HTML = HTML + '<h4>Choose Your Language</h4>'
-        HTML = HTML + 'The current preferred language is <strong>' + languageLabel + '</strong>. Switch to:'
+        HTML = HTML + 'The current preferred language is <strong>' + UI.projects.superalgos.utilities.languages.getLaguageLabel(UI.projects.superalgos.spaces.docsSpace.language) + '</strong>. Switch to:'
         HTML = HTML + '<ul>'
         HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'EN\')">English</a></li>'
         HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'ES\')">Spanish</a></li>'
@@ -91,24 +90,26 @@ function newSuperalgosDocsFooter() {
         HTML = HTML + '<div class="docs-footer-row">'
         HTML = HTML + '<div class="docs-footer-cell">'
         HTML = HTML + '<h4>About Your Deployment</h4>'
-        HTML = HTML + 'Superalgos may run from different branches in the repository. The <code class="docs-footer-code">master</code> branch features the stable version, and the <code class="docs-footer-code">develop</code> branch the version in development.'
+        HTML = HTML + 'Superalgos may run from different branches in the repository. The <code class="docs-footer-code">Master</code> branch features the stable version, and the <code class="docs-footer-code">Develop</code> branch the version in development anyone can test. <code class="docs-footer-code">Bug Fixes</code> is where we fix bugs.'
         HTML = HTML + '</div>'
 
         HTML = HTML + '<div class="docs-footer-cell">'
-        HTML = HTML + '<h4>Choose the Active Branch</h4>'
-        HTML = HTML + 'You are currently running on the <code class="docs-footer-code">' + languageLabel + '</code> branch. Switch to:'
+        HTML = HTML + '<h4>Choose the Current Branch</h4>'
+        HTML = HTML + 'You are currently running on the <code class="docs-footer-code">' + UI.projects.superalgos.utilities.gitBranches.getBranchLabel(UI.projects.superalgos.spaces.docsSpace.currentBranch) + '</code> branch. Switch to:'
         HTML = HTML + '<ul>'
-        HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'EN\')"><code class="docs-footer-code">English</code></a></li>'
-        HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'ES\')"><code class="docs-footer-code">Spanish</a></code></li>'
+        HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeActiveBranch(\'master\')">Master</a></li>'
+        HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeActiveBranch(\'develop\')">Develop</a></li>'
+        HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeActiveBranch(\'bug-fixes\')">Bug Fixes</a></li>'
         HTML = HTML + '</ul>'
         HTML = HTML + '</div>'
 
         HTML = HTML + '<div class="docs-footer-cell">'
         HTML = HTML + '<h4>Contributions Branch</h4>'
-        HTML = HTML + 'You are currently contributing to the <code class="docs-footer-code">' + languageLabel + '</code> branch. Switch to:'
+        HTML = HTML + 'You are currently contributing to the <code class="docs-footer-code">' + UI.projects.superalgos.utilities.gitBranches.getBranchLabel(UI.projects.superalgos.spaces.docsSpace.contributionsBranch)  + '</code> branch. Switch to:'
         HTML = HTML + '<ul>'
-        HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'EN\')"><code class="docs-footer-code">English</code></a></li>'
-        HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'ES\')"><code class="docs-footer-code">Spanish</a></code></li>'
+        HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeContributionsBranch(\'master\')">Master</code></li>'
+        HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeContributionsBranch(\'develop\')">Develop</a></li>'
+        HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeContributionsBranch(\'bug-fixes\')">Bug Fixes</a></li>'
         HTML = HTML + '</ul>'
         HTML = HTML + '</ul>'
         HTML = HTML + '</div>'

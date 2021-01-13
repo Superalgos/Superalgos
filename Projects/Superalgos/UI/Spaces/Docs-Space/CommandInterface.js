@@ -62,7 +62,16 @@ function newSuperalgosDocsCommmandInterface() {
                 return
             }
 
-            httpRequest(undefined, 'App/Contribute/' + message + '/' + config.username + '/' + config.token, onResponse)
+            httpRequest(
+                undefined,
+                'App/Contribute/' +
+                message + '/' +
+                config.username + '/' +
+                config.token + '/' +
+                UI.projects.superalgos.spaces.docsSpace.currentBranch + '/' +
+                UI.projects.superalgos.spaces.docsSpace.contributionBranch
+                , onResponse)
+
             UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Message - Creating Pull Request')
 
             return
@@ -112,7 +121,7 @@ function newSuperalgosDocsCommmandInterface() {
                 return
             }
 
-            httpRequest(undefined, 'App/Update/' + message + '/' + config.username + '/' + config.token, onResponse)
+            httpRequest(undefined, 'App/Update/' + UI.projects.superalgos.spaces.docsSpace.currentBranch, onResponse)
             UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Message - Updating Your Local App')
 
             return

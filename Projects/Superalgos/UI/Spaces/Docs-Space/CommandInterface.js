@@ -69,7 +69,7 @@ function newSuperalgosDocsCommmandInterface() {
                 config.username + '/' +
                 config.token + '/' +
                 UI.projects.superalgos.spaces.docsSpace.currentBranch + '/' +
-                UI.projects.superalgos.spaces.docsSpace.contributionBranch
+                UI.projects.superalgos.spaces.docsSpace.contributionsBranch
                 , onResponse)
 
             UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Message - Creating Pull Request')

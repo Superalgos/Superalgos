@@ -70,6 +70,12 @@ For example, if your Github username is John, the command will look like this:
 git clone https://github.com/John/Superalgos
 ```
 
+**6.** Change to the Superalgos directory/folder and run this commmand to switch to the develop branch.
+
+```
+git checkout develop
+```
+
 ## Instalation Notes
 
 **1.** You need to make a fork so that you may contribute work. Superalgos is a Community project and you are expected to contribute, like everyone else. You don't need to be a technical person to contribute. Fixing a typo in the docs or translating a paragraph into your native language are valuable contributions too. Superalgos has built-in features that make contributing easy. Help make Superalgos better and Superalgos will better serve you! [Free-riding is not cool](https://en.wikipedia.org/wiki/Free-rider_problem), particularly on free, open-source, Community-driven projects.
@@ -84,7 +90,7 @@ git clone https://github.com/John/Superalgos
 
 ![Run the system](https://docs.superalgos.org/images/how-to/run-the-system-01.gif)
 
-**1.** To run the Superalgos client, change to the Superalgos directory/folder and type:
+**1.** To run the Superalgos client, from inside the Superalgos directory/folder, run this command: 
 
 ```
 node run

@@ -1,0 +1,16 @@
+{
+    "topic": "Branches Management Messages",
+    "pageNumber": "4",
+    "type": "Switching Branches - Current Branch Not Changed",
+    "definition": {
+        "text": "It was not possible to change the current branch. The most likely cause is that you have changes that you have not contribute yet. Run the App Contribute Command to send those changes to the main repository and try this command again.",
+        "updated": 1610543788194
+    },
+    "paragraphs": [
+        {
+            "style": "Note",
+            "text": "More detailed info of what caused this failure to switch can be find at the Client's Console.",
+            "updated": 1610543823314
+        }
+    ]
+}

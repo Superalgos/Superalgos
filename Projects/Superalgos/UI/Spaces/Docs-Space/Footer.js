@@ -90,7 +90,7 @@ function newSuperalgosDocsFooter() {
         HTML = HTML + '<div class="docs-footer-row">'
         HTML = HTML + '<div class="docs-footer-cell">'
         HTML = HTML + '<h4>About Your Deployment</h4>'
-        HTML = HTML + 'Superalgos may run from different branches in the repository. The <code class="docs-footer-code">Master</code> branch features the stable version, and the <code class="docs-footer-code">Develop</code> branch the version in development anyone can test. <code class="docs-footer-code">Bug Fixes</code> is where we fix bugs.'
+        HTML = HTML + 'Superalgos may run from different branches in the repository. The <code class="docs-footer-code">Master</code> branch features the stable version, and the <code class="docs-footer-code">Develop</code> branch the version in development anyone can test.'
         HTML = HTML + '</div>'
 
         HTML = HTML + '<div class="docs-footer-cell">'
@@ -99,7 +99,6 @@ function newSuperalgosDocsFooter() {
         HTML = HTML + '<ul>'
         HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeActiveBranch(\'master\')">Master</a></li>'
         HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeActiveBranch(\'develop\')">Develop</a></li>'
-        HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeActiveBranch(\'bug-fixes\')">Bug Fixes</a></li>'
         HTML = HTML + '</ul>'
         HTML = HTML + '</div>'
 
@@ -109,7 +108,6 @@ function newSuperalgosDocsFooter() {
         HTML = HTML + '<ul>'
         HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeContributionsBranch(\'master\')">Master</code></li>'
         HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeContributionsBranch(\'develop\')">Develop</a></li>'
-        HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeContributionsBranch(\'bug-fixes\')">Bug Fixes</a></li>'
         HTML = HTML + '</ul>'
         HTML = HTML + '</ul>'
         HTML = HTML + '</div>'

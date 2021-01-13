@@ -533,6 +533,8 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             const commitMessage = unescape(requestParameters[3])
                             const username = unescape(requestParameters[4])
                             const token = unescape(requestParameters[5])
+                            const currentBranch = unescape(requestParameters[6])
+                            const contributionsBranch = unescape(requestParameters[7])
 
                             contribute()
 
@@ -553,7 +555,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
                                 await git.add('./*')
                                 await git.commit(commitMessage)
-                                await git.push('origin', 'in-app-documentation')
+                                await git.push('origin', branch)
                             }
 
                             async function doGithub() {
@@ -567,8 +569,8 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
                                 const repo = 'Superalgos'
                                 const owner = 'Superalgos'
-                                const head = username + ':in-app-documentation'
-                                const base = 'in-app-documentation'
+                                const head = username + ':' + contributionsBranch
+                                const base = currentBranch
                                 const title = 'Contribution: ' + commitMessage
 
                                 try {
@@ -604,10 +606,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                     }
                     case 'Update': {
                         try {
-                            const message = unescape(requestParameters[3])
-                            const username = unescape(requestParameters[4])
-                            const token = unescape(requestParameters[5])
-
+                            const currentBranch = unescape(requestParameters[3])
                             update()
 
                             async function update() {
@@ -629,7 +628,57 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 }
                                 const git = simpleGit(options)
 
-                                return await git.pull('upstream', 'in-app-documentation')
+                                return await git.pull('upstream', currentBranch)
+                            }
+
+                        } catch (err) {
+                            console.log('[ERROR] httpInterface -> App -> Update -> Method call produced an error.')
+                            console.log('[ERROR] httpInterface -> App -> Update -> err.stack = ' + err.stack)
+                            console.log('[ERROR] httpInterface -> App -> Update -> commitMessage = ' + commitMessage)
+                            console.log('[ERROR] httpInterface -> App -> Update -> username = ' + username)
+                            console.log('[ERROR] httpInterface -> App -> Update -> token = ' + token)
+
+                            let error = {
+                                result: 'Fail Because',
+                                message: err.message,
+                                stack: err.stack
+                            }
+                            respondWithContent(JSON.stringify(error), httpResponse)
+                        }
+                        break
+                    }
+
+                    case 'Checkout': {
+                        try {
+                            const currentBranch = unescape(requestParameters[3])
+                            checkout()
+
+                            async function checkout() {
+                                let result = await doGit()
+
+                                if (result === true) {
+                                    respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                                } else {
+                                    respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                }
+                            }
+
+                            async function doGit() {
+                                const simpleGit = require('simple-git');
+                                const options = {
+                                    baseDir: process.cwd(),
+                                    binary: 'git',
+                                    maxConcurrentProcesses: 6,
+                                }
+                                const git = simpleGit(options)
+                                try {
+                                    await git.checkout(currentBranch)
+                                } catch (err) {
+                                    console.log('[ERROR] Error changing current branch to ' + currentBranch)
+                                    console.log(err.stack)
+                                    return false
+                                }
+                                return true
                             }
 
                         } catch (err) {

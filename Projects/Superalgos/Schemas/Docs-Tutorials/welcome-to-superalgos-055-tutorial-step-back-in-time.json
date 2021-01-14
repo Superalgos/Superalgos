@@ -16,7 +16,8 @@
         },
         {
             "style": "Text",
-            "text": "I hope the structure of nodes is intuitive enough to grasp how powerful the concept of the design space is. You set up a time machine by adding timeline charts nodes and the desired scales. Then set up layer managers and layers referencing the corresponding Data Mine Products so that the desired data becomes available on a particular layers manager on the charts. It's like the Legoland&reg; of trading charts!"
+            "text": "I hope the structure of nodes is intuitive enough to grasp how powerful the concept of the Design Space is. You set up a time machine by adding timeline charts nodes and the desired scales. Then set up layer managers and layers referencing the corresponding Data Mine Products so that the desired data becomes available on a particular layers manager on the charts. It's like the Legoland® of trading charts!",
+            "updated": 1610622901511
         }
     ]
 }

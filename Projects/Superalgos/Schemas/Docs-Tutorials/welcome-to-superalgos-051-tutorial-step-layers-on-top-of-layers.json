@@ -20,7 +20,8 @@
         },
         {
             "style": "Note",
-            "text": "Superalgos ships with many more indicator bots, but we are not using them for this tutorial. You will learn about them later!"
+            "text": "Superalgos ships with many more indicators, but they are not configured in this Workspace. You will learn about them later!",
+            "updated": 1610622819519
         }
     ]
 }

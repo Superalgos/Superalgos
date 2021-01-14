@@ -20,7 +20,8 @@
         },
         {
             "style": "Text",
-            "text": "Notice the label emerging on the left-hand side showing which exchange and market the data is associated with. A single time machine may hold data from multiple markets and multiple exchanges!"
+            "text": "Notice the label emerging on the left-hand side showing which exchanges and markets the data is associated with. A single time machine may hold data from multiple markets and multiple exchanges!",
+            "updated": 1610622145377
         }
     ]
 }

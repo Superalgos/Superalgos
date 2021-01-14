@@ -10,18 +10,36 @@ function newSuperalgosFunctionLibraryNodeDeleter() {
         UI.projects.superalgos.spaces.floatingSpace.uiObjectConstructor.destroyUiObject(node.payload)
     }
 
-    function deleteWorkspace(node, rootNodes) {
+    function deleteWorkspace(node, rootNodes, callBackFuntion) {
         if (node.rootNodes !== undefined) {
-            while (node.rootNodes.length > 0) {
-                let rootNode = node.rootNodes[0]
+
+            let totalDeleted = 0
+            let totalToBeDeleted = node.rootNodes.length
+
+            for (let i = 0; i < node.rootNodes.length; i++) {
+                let rootNode = node.rootNodes[i]
+                setTimeout(deleteRootNode, 100, rootNode)
+            }
+
+            function deleteRootNode(rootNode) {
                 let result = deleteUIObject(rootNode, rootNodes)
-                if (result === false) { return false}
+                if (result === false) {
+                    return false
+                } else {
+                    totalDeleted++
+                    if (totalDeleted === totalToBeDeleted) {
+                        finish()
+                    }
+                }
             }
         }
 
-        completeDeletion(node, rootNodes)
-        destroyUiObject(node)
-        cleanNode(node)
+        function finish() {
+            completeDeletion(node, rootNodes)
+            destroyUiObject(node)
+            cleanNode(node)
+            callBackFuntion()
+        }
     }
 
     function deleteUIObject(node, rootNodes) {
@@ -44,7 +62,7 @@ function newSuperalgosFunctionLibraryNodeDeleter() {
                             if (property.name !== previousPropertyName) {
                                 if (node[property.name] !== undefined) {
                                     let result = deleteUIObject(node[property.name], rootNodes)
-                                    if (result === false) { return false}
+                                    if (result === false) { return false }
                                 }
                                 previousPropertyName = property.name
                             }
@@ -55,7 +73,7 @@ function newSuperalgosFunctionLibraryNodeDeleter() {
                             if (nodePropertyArray !== undefined) {
                                 while (nodePropertyArray.length > 0) {
                                     let result = deleteUIObject(nodePropertyArray[0], rootNodes)
-                                    if (result === false) { return false}
+                                    if (result === false) { return false }
                                 }
                             }
                         }
@@ -94,7 +112,7 @@ function newSuperalgosFunctionLibraryNodeDeleter() {
                                                                     nextArrayItem.payload.chainParent = node.payload.chainParent
                                                                 }
                                                             }
-    
+
                                                             nodePropertyArray.splice(j, 1)
                                                             removedFromParent = true
                                                         }

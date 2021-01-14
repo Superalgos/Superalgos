@@ -3,7 +3,7 @@ function newWorkspace() {
     const MODULE_NAME = 'Workspace'
     const ERROR_LOG = true
     const logger = newWebDebugLog()
-    
+
 
     let thisObject = {
         isInitialized: false,
@@ -44,8 +44,6 @@ function newWorkspace() {
 
     let savingWorkspaceIntervalId
     let workingAtTask = 0
-    let circularProgressBar = newBusyProgressBar()
-    circularProgressBar.fitFunction = UI.projects.superalgos.spaces.floatingSpace.fitIntoVisibleArea
     let loadedWorkspaceNode
     let sessionTimestamp = (new Date()).valueOf()
     window.localStorage.setItem('Session Timestamp', sessionTimestamp)
@@ -57,14 +55,12 @@ function newWorkspace() {
     function finalize() {
         thisObject.definition = undefined
         thisObject.workspaceNode = undefined
-        circularProgressBar.finalize()
-        circularProgressBar = undefined
         actionSwitchesByProject = undefined
     }
 
     function initialize() {
         try {
-            UI.projects.superalgos.utilities.creditsPage.changeStatus("Initializing...")
+            UI.projects.superalgos.utilities.statusBar.changeStatus("Initializing...")
 
             /* Set up the action switches map */
             for (let i = 0; i < PROJECTS_ARRAY.length; i++) {
@@ -78,7 +74,7 @@ function newWorkspace() {
 
             if (lastUsedWorkspace !== 'undefined' && lastUsedWorkspace !== null && lastUsedWorkspace !== undefined) {
 
-                UI.projects.superalgos.utilities.creditsPage.changeStatus("Loading Workspace " + lastUsedWorkspace + "...")
+                UI.projects.superalgos.utilities.statusBar.changeStatus("Loading Workspace " + lastUsedWorkspace + "...")
 
                 httpRequest(undefined, 'LoadMyWorkspace' + '/' + lastUsedWorkspace, onFileReceived)
                 function onFileReceived(err, text, response) {
@@ -100,26 +96,30 @@ function newWorkspace() {
             }
 
             function recreateWorkspace() {
-                UI.projects.superalgos.utilities.creditsPage.changeStatus("Connecting all the workspace nodes...")
+                UI.projects.superalgos.utilities.statusBar.changeStatus("Connecting all the workspace nodes...")
                 executeAction({ node: thisObject.workspaceNode, name: 'Recreate Workspace', project: 'Superalgos', callBackFunction: finishInitialization })
             }
 
             function finishInitialization() {
-                UI.projects.superalgos.utilities.creditsPage.changeStatus("Setting up websockets connections...")
-                setupEventsServerClients()
-                runTasksAndSessions()
-                thisObject.enabled = true
-                UI.projects.superalgos.spaces.cockpitSpace.initializePosition()
-                CAN_SPACES_DRAW = true
-
                 /* 
                 We will help the Docs Space finish its initialization, since it is 
                 waiting for the workspace to be done.
                 */
-                UI.projects.superalgos.spaces.docsSpace.searchEngine.setUpSearchEngine()
-                thisObject.isInitialized = true
-                savingWorkspaceIntervalId = setInterval(saveWorkspace, 60000)
-                UI.projects.superalgos.utilities.creditsPage.changeStatus("Displaying the UI...")
+                UI.projects.superalgos.utilities.statusBar.changeStatus("Setting up Docs Search Engine...")
+                setTimeout(theEnd, 100)
+                function theEnd() {
+                    UI.projects.superalgos.spaces.docsSpace.searchEngine.setUpSearchEngine()
+
+                    setupEventsServerClients()
+                    runTasksAndSessions()
+                    thisObject.enabled = true
+                    UI.projects.superalgos.spaces.cockpitSpace.initializePosition()
+                    CAN_SPACES_DRAW = true
+
+                    thisObject.isInitialized = true
+                    savingWorkspaceIntervalId = setInterval(saveWorkspace, 60000)
+                    UI.projects.superalgos.utilities.statusBar.changeStatus("Displaying the UI...")
+                }
             }
         } catch (err) {
             if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
@@ -130,7 +130,7 @@ function newWorkspace() {
         executeAction({ name: 'Syncronize Tasks', project: 'Superalgos' })
         executeAction({ name: 'Syncronize Trading Sessions', project: 'Superalgos' })
         executeAction({ name: 'Syncronize Learning Sessions', project: 'Superalgos' })
-        executeAction({ name: 'Play Tutorials', project: 'Superalgos' }) 
+        executeAction({ name: 'Play Tutorials', project: 'Superalgos' })
     }
 
     function setupEventsServerClients() {
@@ -151,7 +151,7 @@ function newWorkspace() {
         }
     }
 
-    async function saveWorkspace() {
+    async function saveWorkspace(callBackFunction) {
         let workspace = UI.projects.superalgos.spaces.designSpace.workspace.workspaceNode
 
         /* Validation if it is too early to save. */
@@ -199,6 +199,9 @@ function newWorkspace() {
                 window.localStorage.setItem('Session Timestamp', sessionTimestamp)
                 if (ARE_WE_RECORDING_A_MARKET_PANORAMA === false) {
                     UI.projects.superalgos.spaces.cockpitSpace.setStatus(workspace.name + ' Saved.', 50, UI.projects.superalgos.spaces.cockpitSpace.statusTypes.ALL_GOOD)
+                }
+                if (callBackFunction !== undefined) {
+                    callBackFunction()
                 }
             } else {
                 UI.projects.superalgos.spaces.cockpitSpace.setStatus('Could not save the Workspace at the Client. Please check the Client Console for more information.', 150, UI.projects.superalgos.spaces.cockpitSpace.statusTypes.WARNING)
@@ -251,73 +254,135 @@ function newWorkspace() {
         if (thisObject.enabled !== true) { return }
 
         if (workingAtTask > 0) {
-            circularProgressBar.physics()
 
             switch (workingAtTask) {
-                case 1:
-                    thisObject.isInitialized = false
-                    console.log('[INFO] Replacing Workspace Procedure Started')
-                    console.log('[INFO] Deleting Workspace ' + thisObject.workspaceNode.name + '. This might take a few minutes depending on the size of the workspace.')
-                    UI.projects.superalgos.spaces.tutorialSpace.stop()
-                    let result = await executeAction({ node: thisObject.workspaceNode, name: 'Delete Workspace', project: 'Superalgos' })
-                    if (result === false) {
-                        console.log('[ERROR] Could not replace the current workspace because there was a problem removing one node from memory.')
-                        console.log('[ERROR] The system is at an inconsistent state and your workspace is partially deleted. Saving has been disabled to prevent data loss.')
-                        console.log('[ERROR] The only thing you can do now is to fix the APP SCHEMA and refresh the page to reaload the previously saved workspace again.')
-                        circularProgressBar.visible = false
-                        workingAtTask = 0
-                        return
-                    }
-                    workingAtTask++
-                    break
-                case 2:
-                    console.log('[INFO] Closing Events Server')
-                    finalizeEventsServerClients()
-                    thisObject.eventsServerClients = new Map()
-                    workingAtTask++
-                    break
-                case 3:
-                    console.log('[INFO] Stopping Automatic Saving')
-                    clearInterval(savingWorkspaceIntervalId)
-                    workingAtTask++
-                    break
-                case 4:
-                    console.log('[INFO] Loading new Workspace ' + loadedWorkspaceNode.name + '.')
-                    thisObject.workspaceNode = loadedWorkspaceNode
-                    thisObject.workspaceNode.project = 'Superalgos'
-                    loadedWorkspaceNode = undefined
-                    workingAtTask++
-                    break
-                case 5:
-                    console.log('[INFO] Setting up Workspace')
-                    executeAction({ node: thisObject.workspaceNode, name: 'Recreate Workspace', project: 'Superalgos', callBackFunction: finishInitialization })
-                    function finishInitialization() {
-                        setupEventsServerClients()
-                        runTasksAndSessions()
-                    }
-                    workingAtTask++
-                    break
-                case 6:
-                    console.log('[INFO] Resetting Spaces')
-                    UI.projects.superalgos.spaces.chartingSpace.reset()
-                    workingAtTask++
-                    break
-                case 7:
-                    console.log('[INFO] Replacing Workspace Procedure Finished')
+                case 1: {
+                    UI.projects.superalgos.utilities.statusBar.changeStatus('Saving Workspace ' + thisObject.workspaceNode.name + '.')
                     workingAtTask = 0
-                    circularProgressBar.visible = false
-                    thisObject.isInitialized = true
-                    saveWorkspace()
-                    UI.projects.superalgos.spaces.docsSpace.reset() // The docs needs to index the loaded workspace.  
+
+                    UI.projects.superalgos.spaces.docsSpace.sidePanelTab.close()
+                    UI.projects.superalgos.spaces.sideSpace.sidePanelTab.close()
+                    UI.projects.superalgos.spaces.floatingSpace.inMapMode = true
+                    saveWorkspace(takeAction)
+
+                    function takeAction() {
+                        workingAtTask = 2
+                    }
                     break
+                }
+                case 2:
+                    {
+                        UI.projects.superalgos.utilities.statusBar.changeStatus('Unloading Workspace ' + thisObject.workspaceNode.name + '. This might take a few minutes depending on the size of the workspace.')
+                        setTimeout(takeAction, 100)
+                        workingAtTask = 0
+
+                        async function takeAction() {
+                            thisObject.isInitialized = false
+                            UI.projects.superalgos.spaces.tutorialSpace.stop()
+
+                            let result = await executeAction({ node: thisObject.workspaceNode, name: 'Delete Workspace', project: 'Superalgos', callBackFunction: onDeleted })
+                            if (result === false) {
+                                console.log('[ERROR] Could not replace the current workspace because there was a problem removing one node from memory.')
+                                console.log('[ERROR] The system is at an inconsistent state and your workspace is partially deleted. Saving has been disabled to prevent data loss.')
+                                console.log('[ERROR] The only thing you can do now is to fix the APP SCHEMA and refresh the page to reaload the previously saved workspace again.')
+                                workingAtTask = 0
+                                return
+                            }
+                            function onDeleted() {
+                                workingAtTask = 3
+                            }
+                        }
+
+                        break
+                    }
+                case 3:
+                    {
+                        UI.projects.superalgos.utilities.statusBar.changeStatus('Stopping Events Server Client...')
+                        setTimeout(takeAction, 100)
+                        workingAtTask = 0
+
+                        function takeAction() {
+                            finalizeEventsServerClients()
+                            thisObject.eventsServerClients = new Map()
+                            workingAtTask = 4
+                        }
+                        break
+                    }
+                case 4:
+                    {
+                        UI.projects.superalgos.utilities.statusBar.changeStatus('Stopping Automatic Saving...')
+                        setTimeout(takeAction, 100)
+                        workingAtTask = 0
+
+                        function takeAction() {
+                            clearInterval(savingWorkspaceIntervalId)
+                            workingAtTask = 5
+                        }
+                        break
+                    }
+                case 5:
+                    {
+                        UI.projects.superalgos.utilities.statusBar.changeStatus('Loading Workspace ' + loadedWorkspaceNode.name + '...')
+                        setTimeout(takeAction, 100)
+                        workingAtTask = 0
+
+                        function takeAction() {
+                            thisObject.workspaceNode = loadedWorkspaceNode
+                            thisObject.workspaceNode.project = 'Superalgos'
+                            loadedWorkspaceNode = undefined
+                            workingAtTask = 6
+                        }
+                        break
+                    }
+                case 6:
+                    {
+                        UI.projects.superalgos.utilities.statusBar.changeStatus('Setting up Workspace...')
+                        setTimeout(takeAction, 100)
+                        workingAtTask = 0
+
+                        function takeAction() {
+                            executeAction({ node: thisObject.workspaceNode, name: 'Recreate Workspace', project: 'Superalgos', callBackFunction: finishInitialization })
+                            function finishInitialization() {
+                                setupEventsServerClients()
+                                workingAtTask = 7
+                            }
+                        }
+                        break
+                    }
+                case 7:
+                    {
+                        UI.projects.superalgos.utilities.statusBar.changeStatus('Rebuilding the Charting Space...')
+                        setTimeout(takeAction, 100)
+                        workingAtTask = 0
+
+                        function takeAction() {
+                            UI.projects.superalgos.spaces.chartingSpace.reset()
+                            workingAtTask = 8
+                        }
+                        break
+                    }
+                case 8:
+                    {
+                        UI.projects.superalgos.utilities.statusBar.changeStatus('Reindexing Search Engine...')
+                        setTimeout(takeAction, 100)
+                        workingAtTask = 0
+
+                        function takeAction() {
+                            UI.projects.superalgos.spaces.docsSpace.reset()   
+                            UI.projects.superalgos.spaces.docsSpace.searchEngine.setUpSearchEngine() // The docs needs to index the loaded workspace.
+                            UI.projects.superalgos.spaces.floatingSpace.inMapMode = false
+                            thisObject.isInitialized = true
+                            saveWorkspace()
+                            runTasksAndSessions()
+                        }
+                        break
+                    }
             }
         }
     }
 
     function draw() {
-        if (circularProgressBar !== undefined) {
-            circularProgressBar.draw()
-        }
+
     }
 
     async function stringifyWorkspace(removePersonalData) {
@@ -378,6 +443,7 @@ function newWorkspace() {
     }
 
     async function getNodeByShortcutKey(searchingKey) {
+        if (thisObject.workspaceNode === undefined) { return }
         for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
             let rootNode = thisObject.workspaceNode.rootNodes[i]
             let node = await executeAction({ node: rootNode, name: 'Get Node By Shortcut Key', project: 'Superalgos', extraParameter: searchingKey })
@@ -386,6 +452,7 @@ function newWorkspace() {
     }
 
     async function getNodeThatIsOnFocus() {
+        if (thisObject.workspaceNode === undefined) { return }
         for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
             let rootNode = thisObject.workspaceNode.rootNodes[i]
             let node = await executeAction({ node: rootNode, name: 'Get Node On Focus', project: 'Superalgos' })
@@ -394,6 +461,7 @@ function newWorkspace() {
     }
 
     function getHierarchyHeads() {
+        if (thisObject.workspaceNode === undefined) { return }
         let nodes = []
         for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
             let rootNode = thisObject.workspaceNode.rootNodes[i]
@@ -408,6 +476,7 @@ function newWorkspace() {
     }
 
     function getProjectsHeads() {
+        if (thisObject.workspaceNode === undefined) { return }
         let nodes = []
         for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
             let rootNode = thisObject.workspaceNode.rootNodes[i]
@@ -422,21 +491,23 @@ function newWorkspace() {
     }
 
     function getHierarchyHeadsById(nodeId) {
-        let hiriatchyHeads = getHierarchyHeads()
-        for (let i = 0; i < hiriatchyHeads.length; i++) {
-            let hiriatchyHead = hiriatchyHeads[i]
-            if (hiriatchyHead.id === nodeId) {
-                return hiriatchyHead
+        let hierarchyHeads = getHierarchyHeads()
+        if (hierarchyHeads === undefined) { return }
+        for (let i = 0; i < hierarchyHeads.length; i++) {
+            let hierarchyHead = hierarchyHeads[i]
+            if (hierarchyHead.id === nodeId) {
+                return hierarchyHead
             }
         }
     }
 
     function getHierarchyHeadsByType(nodeType) {
-        let hiriatchyHeads = getHierarchyHeads()
-        for (let i = 0; i < hiriatchyHeads.length; i++) {
-            let hiriatchyHead = hiriatchyHeads[i]
-            if (hiriatchyHead.type === nodeType) {
-                return hiriatchyHead
+        let hierarchyHeads = getHierarchyHeads()
+        if (hierarchyHeads === undefined) { return }
+        for (let i = 0; i < hierarchyHeads.length; i++) {
+            let hierarchyHead = hierarchyHeads[i]
+            if (hierarchyHead.type === nodeType) {
+                return hierarchyHead
             }
         }
     }
@@ -459,19 +530,11 @@ function newWorkspace() {
             }
 
             loadedWorkspaceNode = JSON.parse(text)
-            saveWorkspace()
             UI.projects.superalgos.spaces.cockpitSpace.toTop()
-
-            let position = {
-                x: browserCanvas.width / 2,
-                y: browserCanvas.height / 2
-            }
 
             UI.projects.superalgos.spaces.floatingSpace.container.frame.position.x = browserCanvas.width / 2 - UI.projects.superalgos.spaces.floatingSpace.container.frame.width / 2
             UI.projects.superalgos.spaces.floatingSpace.container.frame.position.y = browserCanvas.height / 2 - UI.projects.superalgos.spaces.floatingSpace.container.frame.height / 2
 
-            circularProgressBar.initialize(position)
-            circularProgressBar.visible = true
             workingAtTask = 1
         }
     }
@@ -490,8 +553,6 @@ function newWorkspace() {
 
             if (droppedNode.type === 'Workspace') {
                 loadedWorkspaceNode = droppedNode
-                circularProgressBar.initialize(mousePointer)
-                circularProgressBar.visible = true
                 workingAtTask = 1
                 return
             }

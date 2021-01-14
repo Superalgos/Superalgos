@@ -48,7 +48,7 @@ function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
         addPluginNodes()
 
         function addPluginNodes(pluginNames) {
-            UI.projects.superalgos.utilities.creditsPage.changeStatus("Loading Plugins...")
+            UI.projects.superalgos.utilities.statusBar.changeStatus("Loading Plugins...")
 
             let blobService = newFileStorage()
             let totalPlugin = 0
@@ -146,7 +146,7 @@ function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
             /* Create the workspace UI OBject and then continue with the root nodes. */
             createUiObject(false, 'Workspace', node.name, node, undefined, undefined, 'Workspace')
             if (node.rootNodes !== undefined) {
-                UI.projects.superalgos.utilities.creditsPage.changeStatus("Setting up Rootnodes...")
+                UI.projects.superalgos.utilities.statusBar.changeStatus("Setting up Rootnodes...")
                 
                 let rootNode
                 let i = -1
@@ -161,10 +161,10 @@ function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
                     i++
                     if (i < node.rootNodes.length) {
                         rootNode = node.rootNodes[i]
-                        UI.projects.superalgos.utilities.creditsPage.changeStatus("Connecting children nodes from " + rootNode.name + " - " + rootNode.type + "...")
+                        UI.projects.superalgos.utilities.statusBar.changeStatus("Connecting children nodes from " + rootNode.name + " - " + rootNode.type + "...")
                         setTimeout(loopBody, 100) 
                     } else {
-                        UI.projects.superalgos.utilities.creditsPage.changeStatus("Setting up the Docs Search Engine Index...")
+                        UI.projects.superalgos.utilities.statusBar.changeStatus("Finished connecting all nodes.")
                         setTimeout(endLoop, 100)
                     }
                 }

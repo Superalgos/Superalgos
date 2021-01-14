@@ -162,10 +162,10 @@ function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
                     if (i < node.rootNodes.length) {
                         rootNode = node.rootNodes[i]
                         UI.projects.superalgos.utilities.creditsPage.changeStatus("Connecting children nodes from " + rootNode.name + " - " + rootNode.type + "...")
-                        setTimeout(loopBody, 0) 
+                        setTimeout(loopBody, 100) 
                     } else {
                         UI.projects.superalgos.utilities.creditsPage.changeStatus("Setting up the Docs Search Engine Index...")
-                        setTimeout(endLoop)
+                        setTimeout(endLoop, 100)
                     }
                 }
             }

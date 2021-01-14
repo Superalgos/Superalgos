@@ -12,7 +12,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Buy now you've learned about six different devices that you may use to control each bot in your data mining operation. At the highest level, the Data Tasks node controls all data mining bots in the Network Node."
+            "text": "By now you've learned about six different devices that you may use to control each bot in your data mining operation. At the highest level, the Data Tasks node controls all data mining bots in the Network Node.",
+            "updated": 1610614923203
         },
         {
             "style": "Callout",
@@ -20,7 +21,8 @@
         },
         {
             "style": "Text",
-            "text": "At the lowest level, an individual task controls a single bot. The nodes in between are organizational nodes that help keep the operation orderly, and allow granular control over the different sections."
+            "text": "At the lowest level, an individual Task controls a single bot. The nodes in between are organizational nodes that help keep the operation in order, and allow granular control over the different sections.",
+            "updated": 1610614976513
         }
     ]
 }

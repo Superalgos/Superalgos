@@ -11,17 +11,19 @@
     },
     "paragraphs": [
         {
-            "style": "Text",
-            "text": "Here's the trick:"
+            "style": "Callout",
+            "text": "Regular folks may use the Ctrl key plus arrow keys:  ←  →  ↑  ↓",
+            "updated": 1610614017276
         },
         {
-            "style": "Callout",
-            "text": "Regular folks may use the Ctrl key plus arrow keys: ← → ↑ ↓"
+            "style": "Note",
+            "text": "Notice that keeping the keys pressed makes you fly!",
+            "updated": 1610614056593
         },
         {
             "style": "Success",
-            "text": "Of course Mac fanboys and fangirls must replace Ctrl with Cmd",
-            "updated": 1610134856371
+            "text": "Of course Mac fanboys and girls must replace Ctrl with Cmd",
+            "updated": 1610614224444
         }
     ]
 }

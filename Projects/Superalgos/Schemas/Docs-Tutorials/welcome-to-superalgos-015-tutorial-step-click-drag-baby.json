@@ -16,7 +16,12 @@
         },
         {
             "style": "Text",
-            "text": "Easy, right? Great! <br/><br/>However, the design space is a huge place and I wouldn't want you to get tendinitis dragging your way around like this. I'll teach you a couple more tricks in the next couple of steps."
+            "text": "Easy, right? Great! However, the design space is a huge place and I wouldn't want you to get tendinitis dragging your way around like this.",
+            "updated": 1610613840200
+        },
+        {
+            "style": "Success",
+            "text": "I'll teach you a couple more tricks in the next couple of steps."
         }
     ]
 }

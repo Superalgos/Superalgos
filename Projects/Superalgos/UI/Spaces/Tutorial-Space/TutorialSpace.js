@@ -1167,6 +1167,9 @@ function newSuperalgosTutorialSpace() {
                     name: nodeConfig.image, // This property comes from the migration 
                     project: 'Superalgos'
                 }
+
+                nodeConfig.image = undefined // Removing this legacy property.
+                currentNode.config = JSON.stringify(nodeConfig)
             }
             if (nodeConfig.icon.name !== undefined) {
                 if (schemaDocument.definition.icon !== undefined) {

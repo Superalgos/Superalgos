@@ -17,6 +17,8 @@ function newSuperalgosDocsSearchEngine() {
     }
 
     function setUpSearchEngine() {
+
+        setUpWorkspaceSchemas()        
         thisObject.docsIndex = []
 
         for (let j = 0; j < PROJECTS_ARRAY.length; j++) {
@@ -185,6 +187,73 @@ function newSuperalgosDocsSearchEngine() {
                             stylePhraseCount.set(key, thisPhraseCount)
                         }
                     }
+                }
+            }
+        }
+    }
+
+    function setUpWorkspaceSchemas() {
+        /*
+        We will scan the whole workspace and create an array with all of its nodes.
+        */
+        let rootNodes = UI.projects.superalgos.spaces.designSpace.workspace.workspaceNode.rootNodes
+        let allNodesFound = []
+        for (let i = 0; i < rootNodes.length; i++) {
+            let rootNode = rootNodes[i]
+            if (rootNode !== null) {
+                let nodeArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(rootNode)
+                allNodesFound = allNodesFound.concat(nodeArray)
+            }
+        }
+        /*
+        We will create a document for each node, so that can later be indexed into the search engine.
+        */
+        for (let j = 0; j < PROJECTS_ARRAY.length; j++) {
+            let project = PROJECTS_ARRAY[j]
+            SCHEMAS_BY_PROJECT.get(project).array.workspaceSchema = []
+            SCHEMAS_BY_PROJECT.get(project).map.workspaceSchema = new Map()
+
+            for (let i = 0; i < allNodesFound.length; i++) {
+                let node = allNodesFound[i]
+
+                if (node.project === project) {
+                    let nodeNameTypePath = UI.projects.superalgos.utilities.hierarchy.getNodeNameTypePath(node)
+
+                    let docsSchemaDocument = {
+                        nodeId: node.id,
+                        nodeNameTypePath: nodeNameTypePath,
+                        type: node.type,
+                        definition: { text: node.name },
+                        paragraphs: []
+                    }
+                    if (node.config !== undefined) {
+                        let paragraph
+                        paragraph = {
+                            style: "Title",
+                            text: "Config"
+                        }
+                        docsSchemaDocument.paragraphs.push(paragraph)
+                        paragraph = {
+                            style: "Json",
+                            text: node.config
+                        }
+                        docsSchemaDocument.paragraphs.push(paragraph)
+                    }
+                    if (node.code !== undefined) {
+                        let paragraph
+                        paragraph = {
+                            style: "Title",
+                            text: "Code"
+                        }
+                        docsSchemaDocument.paragraphs.push(paragraph)
+                        paragraph = {
+                            style: "Javascript",
+                            text: node.code
+                        }
+                        docsSchemaDocument.paragraphs.push(paragraph)
+                    }
+                    SCHEMAS_BY_PROJECT.get(project).array.workspaceSchema.push(docsSchemaDocument)
+                    SCHEMAS_BY_PROJECT.get(project).map.workspaceSchema.set(node.id, docsSchemaDocument)
                 }
             }
         }

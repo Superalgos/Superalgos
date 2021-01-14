@@ -20,7 +20,6 @@ function newSuperalgosDocSpace() {
         currentBookBeingRendered: undefined,
         paragraphMap: undefined,  // Here we will store a map of paragraphs from the Docs Node, Concept, Topics, Tutorials or Books Schema in order to find it when we need to update them.
         textArea: undefined,
-        setUpWorkspaceSchemas: setUpWorkspaceSchemas,
         changeLanguage: changeLanguage,
         changeActiveBranch: changeActiveBranch,
         changeContributionsBranch: changeContributionsBranch,
@@ -256,73 +255,6 @@ function newSuperalgosDocSpace() {
         }
     }
 
-    function setUpWorkspaceSchemas() {
-        /*
-        We will scan the whole workspace and create an array with all of its nodes.
-        */
-        let rootNodes = UI.projects.superalgos.spaces.designSpace.workspace.workspaceNode.rootNodes
-        let allNodesFound = []
-        for (let i = 0; i < rootNodes.length; i++) {
-            let rootNode = rootNodes[i]
-            if (rootNode !== null) {
-                let nodeArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(rootNode)
-                allNodesFound = allNodesFound.concat(nodeArray)
-            }
-        }
-        /*
-        We will create a document for each node, so that can later be indexed into the search engine.
-        */
-        for (let j = 0; j < PROJECTS_ARRAY.length; j++) {
-            let project = PROJECTS_ARRAY[j]
-            SCHEMAS_BY_PROJECT.get(project).array.workspaceSchema = []
-            SCHEMAS_BY_PROJECT.get(project).map.workspaceSchema = new Map()
-
-            for (let i = 0; i < allNodesFound.length; i++) {
-                let node = allNodesFound[i]
-
-                if (node.project === project) {
-                    let nodeNameTypePath = UI.projects.superalgos.utilities.hierarchy.getNodeNameTypePath(node)
-
-                    let docsSchemaDocument = {
-                        nodeId: node.id,
-                        nodeNameTypePath: nodeNameTypePath,
-                        type: node.type,
-                        definition: { text: node.name },
-                        paragraphs: []
-                    }
-                    if (node.config !== undefined) {
-                        let paragraph
-                        paragraph = {
-                            style: "Title",
-                            text: "Config"
-                        }
-                        docsSchemaDocument.paragraphs.push(paragraph)
-                        paragraph = {
-                            style: "Json",
-                            text: node.config
-                        }
-                        docsSchemaDocument.paragraphs.push(paragraph)
-                    }
-                    if (node.code !== undefined) {
-                        let paragraph
-                        paragraph = {
-                            style: "Title",
-                            text: "Code"
-                        }
-                        docsSchemaDocument.paragraphs.push(paragraph)
-                        paragraph = {
-                            style: "Javascript",
-                            text: node.code
-                        }
-                        docsSchemaDocument.paragraphs.push(paragraph)
-                    }
-                    SCHEMAS_BY_PROJECT.get(project).array.workspaceSchema.push(docsSchemaDocument)
-                    SCHEMAS_BY_PROJECT.get(project).map.workspaceSchema.set(node.id, docsSchemaDocument)
-                }
-            }
-        }
-    }
-
     function onClosing() {
         UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered = undefined
         thisObject.isVisible = false
@@ -422,7 +354,6 @@ function newSuperalgosDocSpace() {
     function physics() {
         thisObject.sidePanelTab.physics()
         docsAppDivPhysics()
-        finishInitializePhysics()
 
         function docsAppDivPhysics() {
             let docsSpaceDiv = document.getElementById('docs-space-div')
@@ -438,16 +369,6 @@ function newSuperalgosDocSpace() {
                 'left:' + docsAppDivPosition.x + 'px; z-index:1; ' +
                 'width: ' + thisObject.container.frame.width + 'px;' +
                 'height: ' + thisObject.container.frame.height + 'px'
-        }
-
-        function finishInitializePhysics() {
-            if (UI.projects.superalgos.spaces.designSpace.workspace === undefined) { return }
-            if (UI.projects.superalgos.spaces.designSpace.workspace.isInitialized === false) { return }
-
-            if (thisObject.searchEngine && thisObject.searchEngine.docsIndex && thisObject.searchEngine.docsIndex.length === 0) {
-                setUpWorkspaceSchemas()
-                thisObject.searchEngine.setUpSearchEngine()
-            }
         }
     }
 

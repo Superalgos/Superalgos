@@ -20,6 +20,10 @@ function newSuperalgosUtilitiesLanguages() {
                 languageLabel = 'Russian'
                 break
             }
+            case 'IT': {
+                languageLabel = 'Italian'
+                break
+            }
         }
         return languageLabel 
     }    

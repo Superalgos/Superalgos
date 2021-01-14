@@ -12,7 +12,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "As you can see to the right, a trading session has a reference to a Trading System. That is, the Trading Bot will apply the rules of the referenced trading system to make decisions. There's also a reference to a Trading Engine&mdash;a subject worth its own chapter, so I'll leave it for later!"
+            "text": "As you can see to the right, a trading session has a reference to a Trading System. That is, the Trading Bot will apply the rules of the referenced trading system to make decisions. There's also a reference to a Trading Engine, a subject worth its own chapter, so I'll leave it for later!",
+            "updated": 1610639102636
         },
         {
             "style": "Callout",

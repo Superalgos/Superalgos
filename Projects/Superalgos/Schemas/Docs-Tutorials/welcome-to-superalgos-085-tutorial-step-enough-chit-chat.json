@@ -24,11 +24,13 @@
         },
         {
             "style": "List",
-            "text": "Ensure a live data feed , that is, the data mining operation with the indicators required by the Trading System must be running and up to date."
+            "text": "Ensure a live data feed, that is, the data mining operation with the indicators required by the Trading System must be running and up to date.",
+            "updated": 1610642474628
         },
         {
-            "style": "Callout",
-            "text": "To proceed with a Live Trading Session, click Next."
+            "style": "Note",
+            "text": "If you are not ready to do some live trading for whatever reason, no worries, just keep going.",
+            "updated": 1610642653006
         }
     ]
 }

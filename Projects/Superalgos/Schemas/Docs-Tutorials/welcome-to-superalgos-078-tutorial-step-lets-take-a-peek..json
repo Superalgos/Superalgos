@@ -16,7 +16,21 @@
         },
         {
             "style": "Text",
-            "text": "Let's focus on this misterious bit of the formula:<br/>tradingEngine.current.position.exitTargetRate.value<br/><br/>The formula is fetching the value of the Exit Target Rate, defined elsewhere. Let's not focus and what this target rate may be. Instead, let's take a look at the mechanism by which a Trading System may have access to information processed by the Trading Bot."
+            "text": "Let's focus on this misterious bit of the formula:",
+            "updated": 1610642070428
+        },
+        {
+            "style": "Text",
+            "text": "tradingEngine.current.position.exitTargetRate.value"
+        },
+        {
+            "style": "Text",
+            "text": "&nbsp;",
+            "updated": 1610642114068
+        },
+        {
+            "style": "Text",
+            "text": "The formula is fetching the value of the Exit Target Rate, defined elsewhere. Let's not focus and what this target rate may be. Instead, let's take a look at the mechanism by which a Trading System may have access to information processed by the Trading Bot."
         }
     ]
 }

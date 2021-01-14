@@ -17,6 +17,11 @@
         {
             "style": "Important",
             "text": "The Trading Bot will place one limit order for the initialBalance, and cancel it the next minute in case it is not filled, as explained earlier."
+        },
+        {
+            "style": "Note",
+            "text": "Keep going even if you are not ready to trade. You'll a few more tricks before we finish.",
+            "updated": 1610642841048
         }
     ]
 }

@@ -3,9 +3,6 @@
     "pageNumber": 86,
     "type": "Tutorial Step - Disclaimer",
     "definition": {
-        "icon": {
-            "project": "Superalgos"
-        },
         "text": "This warning will be rendered in full screen mode."
     },
     "paragraphs": [

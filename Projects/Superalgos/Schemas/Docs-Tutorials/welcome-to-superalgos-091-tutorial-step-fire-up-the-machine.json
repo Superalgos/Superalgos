@@ -20,7 +20,8 @@
         },
         {
             "style": "Success",
-            "text": "If you're getting a bit anxious, feel free to go down the Data Tasks section and check the status of the process instances!"
+            "text": "If you are not going to run the live session, you don't need to start the Data Tasks. Just keep going to learn how the process works. ",
+            "updated": 1610643039999
         }
     ]
 }

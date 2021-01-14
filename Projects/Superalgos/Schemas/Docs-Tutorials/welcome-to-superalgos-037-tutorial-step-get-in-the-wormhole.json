@@ -20,7 +20,8 @@
         },
         {
             "style": "Text",
-            "text": "Exactly! Just like in Google Maps! Point the mouse to the area of interest, then roll the wheel of the mouse forwards to zoom in, and backward to zoom out!"
+            "text": "Exactly! Just like in Google Maps! Point the mouse to the area of interest, then roll the wheel of the mouse forwards to zoom in, and backwards to zoom out!",
+            "updated": 1610622413974
         }
     ]
 }

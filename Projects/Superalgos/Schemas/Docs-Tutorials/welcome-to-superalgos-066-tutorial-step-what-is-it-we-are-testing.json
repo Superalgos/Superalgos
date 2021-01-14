@@ -20,7 +20,8 @@
         },
         {
             "style": "Note",
-            "text": "Let's not discuss the merits of the trading idea but the implementation. This is a demo to show off the capacities of the Trading Bot, not the strategy per se."
+            "text": "Let's not discuss the merits of the trading idea but the implementation. This is just a demo to show off the capacities of the Trading Bot, not the strategy per se.",
+            "updated": 1610640921014
         }
     ]
 }

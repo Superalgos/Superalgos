@@ -4,7 +4,11 @@
     "type": "Tutorial Step - About Small Hardware",
     "definition": {
         "text": "While minimalist hardware like the Raspberry Pi can handle the Superalgos Client to run both data and trading tasks, some may be too small for active work!",
-        "updated": 1610615755927
+        "updated": 1610615755927,
+        "icon": {
+            "name": "bullet-warning",
+            "project": "Superalgos"
+        }
     },
     "paragraphs": [
         {

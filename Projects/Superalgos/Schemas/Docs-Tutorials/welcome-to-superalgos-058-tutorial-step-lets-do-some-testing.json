@@ -12,7 +12,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "But before you run your first Backtesting Session, let's go on a quick scouting mission to grasp how the Testing Trading Tasks is set up."
+            "text": "But before you run your first Backtesting Session, let's go on a quick scouting mission to grasp how the Testing Trading Tasks node is set up.",
+            "updated": 1610638880718
         },
         {
             "style": "Callout",

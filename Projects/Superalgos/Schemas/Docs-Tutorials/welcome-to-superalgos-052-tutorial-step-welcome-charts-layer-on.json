@@ -3,9 +3,6 @@
     "pageNumber": 52,
     "type": "Tutorial Step - Welcome Charts Layer On",
     "definition": {
-        "icon": {
-            "project": "Superalgos"
-        },
         "text": "This step will play a video in full screen mode."
     },
     "paragraphs": [

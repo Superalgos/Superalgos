@@ -3,9 +3,6 @@
     "pageNumber": 47,
     "type": "Tutorial Step - Welcome Charts Scales Time Frame Scale",
     "definition": {
-        "icon": {
-            "project": "Superalgos"
-        },
         "text": "This step will play a video in full screen mode."
     },
     "paragraphs": [

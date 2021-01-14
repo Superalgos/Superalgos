@@ -3,9 +3,6 @@
     "pageNumber": 42,
     "type": "Tutorial Step - Welcome Charts Scales Unlock Time Scale",
     "definition": {
-        "icon": {
-            "project": "Superalgos"
-        },
         "text": "This step will play a video in full screen mode."
     },
     "paragraphs": [

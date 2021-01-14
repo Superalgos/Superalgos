@@ -3,9 +3,6 @@
     "pageNumber": 98,
     "type": "Tutorial Step - Welcome Live Trading Binance Orders",
     "definition": {
-        "icon": {
-            "project": "Superalgos"
-        },
         "text": "This step will play a video in full screen mode."
     },
     "paragraphs": [

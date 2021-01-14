@@ -452,7 +452,6 @@ function newSuperalgosDocsCommmandInterface() {
             setTimeout(startReindexingProcess, 100)
 
             function startReindexingProcess() {
-                UI.projects.superalgos.spaces.docsSpace.setUpWorkspaceSchemas()
                 UI.projects.superalgos.spaces.docsSpace.searchEngine.setUpSearchEngine()
 
                 UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message - Reindexing Succeed')

@@ -111,8 +111,14 @@ function newWorkspace() {
                 thisObject.enabled = true
                 UI.projects.superalgos.spaces.cockpitSpace.initializePosition()
                 CAN_SPACES_DRAW = true
-                savingWorkspaceIntervalId = setInterval(saveWorkspace, 60000)
+
+                /* 
+                We will help the Docs Space finish its initialization, since it is 
+                waiting for the workspace to be done.
+                */
+                UI.projects.superalgos.spaces.docsSpace.searchEngine.setUpSearchEngine()
                 thisObject.isInitialized = true
+                savingWorkspaceIntervalId = setInterval(saveWorkspace, 60000)
                 UI.projects.superalgos.utilities.creditsPage.changeStatus("Displaying the UI...")
             }
         } catch (err) {

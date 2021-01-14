@@ -601,13 +601,18 @@ function newSuperalgosUtilitiesDocs() {
         const MAX_NUMBER_OF_WORDS = 10
         text = text.trim()
         let cleanText = text.replace(/'/g, ' AMPERSAND ') // scaping ampersands, separating them from other words
-            .replaceAll('<', ' < ')
-            .replaceAll('>', ' > ')
-            .replaceAll(':', ' : ')
-            .replaceAll(',', ' , ')
-            .replaceAll('.', ' . ')
-            .replaceAll('!', ' ! ')
-        let words = cleanText.split(' ')
+            .replaceAll(':', ' :')
+            .replaceAll(',', ' ,')
+            .replaceAll('.', ' .')
+            .replaceAll('!', ' !')
+        let allWords = cleanText.split(' ')
+        let words = []
+        for (let i = 0; i < allWords.length; i++) {
+            let word = allWords[i]
+            if (word !== "") {
+                words.push(word)
+            }
+        }
         let taggedText = ''
         for (let i = 0; i < words.length; i++) {
 
@@ -617,7 +622,7 @@ function newSuperalgosUtilitiesDocs() {
 
             for (let j = 0; j < MAX_NUMBER_OF_WORDS; j++) {
                 let word = words[i + j]
-                if (word === "" ) { word = " "}
+                if (word === "") { word = " " }
                 if (word !== undefined) {
                     if (phrase === '') {
                         phrase = word
@@ -666,12 +671,10 @@ function newSuperalgosUtilitiesDocs() {
             }
         }
         taggedText = taggedText.replaceAll(' AMPERSAND ', '\'')
-            .replaceAll(' < ', '<')
-            .replaceAll(' > ', '>')
-            .replaceAll(' : ', ':')
-            .replaceAll(' . ', '.')
-            .replaceAll(' , ', ',')
-            .replaceAll(' ! ', '!')
+            .replaceAll(' :', ':')
+            .replaceAll(' .', '.')
+            .replaceAll(' ,', ',')
+            .replaceAll(' !', '!')
             .replaceAll('  ', ' ')
         return taggedText
     }

@@ -12,15 +12,18 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "There are two main reasons to run a data mining op:"
+            "text": "There are two main reasons to run Data Tasks:",
+            "updated": 1610616990837
         },
         {
             "style": "List",
-            "text": "To process historic data. You may want to process a datetime range of any given Market to run a Backtesting Session, or to process new indicators."
+            "text": "To process historic data: You may want to process a datetime range of any given Market to run a Backtesting Session, or to process new indicators.",
+            "updated": 1610617009486
         },
         {
             "style": "List",
-            "text": "To run a live session. Live sessions (Paper Trading Session, Forward Testing Session, and Live Trading Session) need a live market feed."
+            "text": "To run a live session: Live sessions (Paper Trading Session, Forward Testing Session, and Live Trading Session) need a live market feed.",
+            "updated": 1610617132164
         },
         {
             "style": "Callout",

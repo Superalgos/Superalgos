@@ -12,8 +12,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "As soon as you start using the system, the workspace is saved every minute. It is also saved before closing the browser or browser tab, and you may save it manually too using the Ctrl + Shift + Key-S keys.",
-            "updated": 1610134881062
+            "text": "As soon as you start using the system, the workspace is saved every minute. It is also saved before closing the browser or browser tab, and you may save it manually using the Ctrl + Shift + Key-S",
+            "updated": 1610614718976
         },
         {
             "style": "Callout",

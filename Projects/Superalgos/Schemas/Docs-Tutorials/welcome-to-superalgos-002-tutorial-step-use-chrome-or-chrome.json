@@ -7,7 +7,8 @@
             "project": "Superalgos",
             "name": "bullet-warning"
         },
-        "text": "When running the frontend, we highly recommend using Chrome!! We are not testing on any other browsers!"
+        "text": "When running the frontend, we highly recommend using Chrome! We are not testing on any other browsers!",
+        "updated": 1610612226890
     },
     "paragraphs": [
         {

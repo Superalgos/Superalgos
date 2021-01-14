@@ -24,15 +24,13 @@
         },
         {
             "style": "List",
-            "text": "Adding: describes how to add the node."
+            "text": "Configuration: some node may have one.",
+            "updated": 1610614516774
         },
         {
             "style": "List",
-            "text": "Configure: goes through the node's configuration."
-        },
-        {
-            "style": "List",
-            "text": "Start: for nodes that may be started or stopped."
+            "text": "Technical: the rest of the infor is usually of a technical nature, oriented to developers.",
+            "updated": 1610614574015
         },
         {
             "style": "Callout",

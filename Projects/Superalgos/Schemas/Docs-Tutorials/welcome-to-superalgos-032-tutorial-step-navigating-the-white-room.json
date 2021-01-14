@@ -12,7 +12,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "There are only two charts in this default Workspace,  to keep things simple for newcomers. Advanced users monitor charts from multiple exchanges and multiple markets."
+            "text": "There are only two charts in this Getting Started Workspace,  to keep things simple for newcomers. Advanced users monitor charts from multiple exchanges and multiple markets.",
+            "updated": 1610619913827
         },
         {
             "style": "Callout",

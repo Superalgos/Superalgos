@@ -22,8 +22,8 @@
         },
         {
             "style": "List",
-            "text": "To run a live session: Live sessions (Paper Trading Session, Forward Testing Session, and Live Trading Session) need a live market feed.",
-            "updated": 1610617132164
+            "text": "To run a live session:   Live sessions of different types, like Paper Trading Session, Forward Testing Session, and Live Trading Session, all need a live market feed.",
+            "updated": 1610619757862
         },
         {
             "style": "Callout",

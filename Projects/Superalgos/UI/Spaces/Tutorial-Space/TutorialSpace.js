@@ -288,7 +288,7 @@ function newSuperalgosTutorialSpace() {
                     config.controlDocs.page !== undefined &&
                     config.controlDocs.page.project !== undefined &&
                     config.controlDocs.page.category !== undefined &&
-                    config.controlDocs.page.type !== undefined && 
+                    config.controlDocs.page.type !== undefined &&
                     config.controlDocs.page.project !== '' &&
                     config.controlDocs.page.category !== '' &&
                     config.controlDocs.page.type !== ''
@@ -680,7 +680,7 @@ function newSuperalgosTutorialSpace() {
             } catch (err) {
                 return
             }
-            let position = nodeConfig.position 
+            let position = nodeConfig.position
             if (UI.projects.superalgos.spaces.docsSpace.isVisible === true) {
                 position = 'Left'
             }
@@ -1135,12 +1135,12 @@ function newSuperalgosTutorialSpace() {
     function buildHTML() {
         let nodeConfig = JSON.parse(currentNode.config)
 
-        if (nodeConfig.docs === undefined) { 
+        if (nodeConfig.docs === undefined) {
             /* The current node is not referencing any page at the Docs */
-            return 
+            return
         }
 
-        let schemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema.get(nodeConfig.docs.type) 
+        let schemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema.get(nodeConfig.docs.type)
 
         newConfig = currentNode.config
         newDocument = JSON.stringify(schemaDocument) + ' - ' + UI.projects.superalgos.spaces.docsSpace.language
@@ -1151,10 +1151,46 @@ function newSuperalgosTutorialSpace() {
 
         let title
 
+        syncConfigIconWithDocumentIcon()
         transformDocsInfoIntoTutorialInfo()
         createTheHTML()
 
         UI.projects.superalgos.spaces.docsSpace.navigateTo(nodeConfig.docs.project, 'Tutorial', nodeConfig.docs.type)
+
+        function syncConfigIconWithDocumentIcon() {
+            /* 
+            We update here the image of the document with whatever we find at the config, since
+            we need to mechanism to keep this syncronized.
+            */
+            if (nodeConfig.icon === undefined) {
+                nodeConfig.icon = {
+                    name: nodeConfig.image, // This property comes from the migration 
+                    project: 'Superalgos'
+                }
+            }
+            if (nodeConfig.icon.name !== undefined) {
+                if (schemaDocument.definition.icon !== undefined) {
+                    if (nodeConfig.icon.name + '-' + nodeConfig.icon.project !== schemaDocument.definition.icon.name + '-' + schemaDocument.definition.icon.project) {
+                        schemaDocument.definition.icon = {
+                            name: nodeConfig.icon.name,
+                            project: nodeConfig.icon.project
+                        }
+                        schemaDocument.updated = true
+                    }
+                } else {
+                    schemaDocument.definition.icon = {
+                        name: nodeConfig.icon.name,
+                        project: nodeConfig.icon.project
+                    }
+                    schemaDocument.updated = true
+                }
+            } else {
+                if (schemaDocument.definition.icon !== undefined) {
+                    schemaDocument.definition.icon = undefined
+                    schemaDocument.updated = true
+                }
+            }
+        }
 
         function transformDocsInfoIntoTutorialInfo() {
             if (schemaDocument === undefined) {
@@ -1201,7 +1237,7 @@ function newSuperalgosTutorialSpace() {
                 if (fullscreenMode === false) {
                     if (schemaDocument.definition.icon === undefined || schemaDocument.definition.icon.name === '') {
                         /* When there is no image, we will render a Summary instead of a Table */
-                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(schemaDocument.definition) 
+                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(schemaDocument.definition)
                         text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
                         text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
                         text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
@@ -1219,7 +1255,7 @@ function newSuperalgosTutorialSpace() {
                         html = html + '</td>'
                         html = html + '<td>'
 
-                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(schemaDocument.definition) 
+                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(schemaDocument.definition)
                         text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
                         text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
                         text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
@@ -1237,7 +1273,7 @@ function newSuperalgosTutorialSpace() {
                 let paragraph = schemaDocument.paragraphs[i]
                 switch (paragraph.style) {
                     case 'Summary': {
-                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)  
+                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)
                         text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
                         text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
                         text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
@@ -1246,18 +1282,18 @@ function newSuperalgosTutorialSpace() {
                         break
                     }
                     case 'Title': {
-                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)  
+                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)
                         html = html + '<h2 class="tutorial-font-medium">' + text + '</h2>'
                         break
                     }
                     case 'Gif': {
-                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)  
+                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)
                         html = html + '<div id="tutorialGifDiv" width="200" width="290"/>'
                         newGifName = text
                         break
                     }
                     case 'Text': {
-                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)  
+                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)
                         text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
                         text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
                         text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
@@ -1266,17 +1302,17 @@ function newSuperalgosTutorialSpace() {
                         break
                     }
                     case 'Json': {
-                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)  
+                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)
                         html = html + '<pre><code class="language-json">' + text + '</code></pre>'
                         break
                     }
                     case 'Javascript': {
-                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)  
+                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)
                         html = html + '<pre><code class="language-javascript">' + text + '</code></pre>'
                         break
                     }
                     case 'List': {
-                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)  
+                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)
                         text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
                         text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
                         text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
@@ -1286,7 +1322,7 @@ function newSuperalgosTutorialSpace() {
                         break
                     }
                     case 'Callout': {
-                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)  
+                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)
                         text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
                         text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
                         text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
@@ -1295,13 +1331,13 @@ function newSuperalgosTutorialSpace() {
                         break
                     }
                     case 'Link': {
-                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)  
+                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)
                         let splittedText = text.split('->')
                         html = html + '<a class="tutorial-font-small tutorial-external-link" href="' + splittedText[1] + '" target="_blank">' + splittedText[0] + '</a>'
                         break
                     }
                     case 'Note': {
-                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)  
+                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)
                         text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
                         text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
                         text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
@@ -1310,7 +1346,7 @@ function newSuperalgosTutorialSpace() {
                         break
                     }
                     case 'Success': {
-                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)  
+                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)
                         text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
                         text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
                         text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
@@ -1319,7 +1355,7 @@ function newSuperalgosTutorialSpace() {
                         break
                     }
                     case 'Important': {
-                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)  
+                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)
                         text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
                         text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
                         text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
@@ -1328,7 +1364,7 @@ function newSuperalgosTutorialSpace() {
                         break
                     }
                     case 'Warning': {
-                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)  
+                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)
                         text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
                         text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
                         text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)

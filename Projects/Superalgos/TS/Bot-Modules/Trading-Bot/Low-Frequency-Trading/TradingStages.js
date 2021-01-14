@@ -274,18 +274,18 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
         }
 
         function runWhenStatusIsOpening() {
-            /*
-            The system allows the user not to define a Open Stage, because the Open Stage is optional.
-            Here we are goint to see if that is the case and if it is, we will inmidiatelly consider 
-            the Open Stage as closed.
-            */
-            if (tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].openStage === undefined) {
-                changeStageStatus('Open Stage', 'Closed', 'Open Stage Undefined')
-                changeStageStatus('Close Stage', 'Opening')
-                return
-            }
             /* Opening Status Procedure */
             if (tradingEngine.current.strategyOpenStage.status.value === 'Opening') {
+                /*
+                The system allows the user not to define an Open Stage, because the Open Stage is optional.
+                Here we are going to see if that is the case and if it is, we will inmidiatelly consider 
+                the Open Stage as closed.
+                */
+                if (tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].openStage === undefined) {
+                    changeStageStatus('Open Stage', 'Closed', 'Open Stage Undefined')
+                    changeStageStatus('Close Stage', 'Opening')
+                    return
+                }
 
                 /* This procedure is intended to run only once */
                 let tradingSystemStage = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].openStage
@@ -399,18 +399,18 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
         runWhenStatusIsOpen()
 
         function runWhenStatusIsOpening() {
-            /*
-            The system allows the user not to define a Manage Stage, because the Manage Stage is optional.
-            Here we are goint to see if that is the case and if it is, we will inmidiatelly consider 
-            the Manage Stage as closed.
-            */
-            if (tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].manageStage === undefined) {
-                changeStageStatus('Manage Stage', 'Closed', 'Manage Stage Undefined')
-                changeStageStatus('Close Stage', 'Opening')
-                return
-            }
             /* Opening Status Procedure */
             if (tradingEngine.current.strategyManageStage.status.value === 'Opening') {
+                /*
+                The system allows the user not to define a Manage Stage, because the Manage Stage is optional.
+                Here we are goint to see if that is the case and if it is, we will inmidiatelly consider 
+                the Manage Stage as closed.
+                */
+                if (tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].manageStage === undefined) {
+                    changeStageStatus('Manage Stage', 'Closed', 'Manage Stage Undefined')
+                    changeStageStatus('Close Stage', 'Opening')
+                    return
+                }
 
                 /* Now we switch to the Open status. */
                 changeStageStatus('Manage Stage', 'Open')
@@ -775,17 +775,19 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
         await runWhenStatusIsOpen()
 
         function runWhenStatusIsOpening() {
-            /*
-            The system allows the user not to define a close stage, because the close stage is optional.
-            Here we are goint to see if that is the case and if it is, we will inmidiatelly consider 
-            the close stage as closed.
-            */
-            if (tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].closeStage === undefined) {
-                changeStageStatus('Close Stage', 'Closed', 'Close Stage Undefined')
-                return
-            }
+
             /* Opening Status Procedure */
             if (tradingEngine.current.strategyCloseStage.status.value === 'Opening') {
+                /*
+                The system allows the user not to define a close stage, because the close stage is optional.
+                Here we are goint to see if that is the case and if it is, we will inmidiatelly consider 
+                the close stage as closed.
+                */
+                if (tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].closeStage === undefined) {
+                    changeStageStatus('Close Stage', 'Closed', 'Close Stage Undefined')
+                    return
+                }
+
                 /* 
                 This will happen only once, as soon as the Take Profit or Stop was hit.
                 */

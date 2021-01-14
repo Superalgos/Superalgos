@@ -272,7 +272,7 @@ function newWorkspace() {
                 }
                 case 2:
                     {
-                        UI.projects.superalgos.utilities.statusBar.changeStatus('Deleting Workspace ' + thisObject.workspaceNode.name + '. This might take a few minutes depending on the size of the workspace.')
+                        UI.projects.superalgos.utilities.statusBar.changeStatus('Unloading Workspace ' + thisObject.workspaceNode.name + '. This might take a few minutes depending on the size of the workspace.')
                         setTimeout(takeAction, 100)
                         workingAtTask = 0
 
@@ -344,7 +344,6 @@ function newWorkspace() {
                             executeAction({ node: thisObject.workspaceNode, name: 'Recreate Workspace', project: 'Superalgos', callBackFunction: finishInitialization })
                             function finishInitialization() {
                                 setupEventsServerClients()
-                                runTasksAndSessions()
                                 workingAtTask = 7
                             }
                         }
@@ -364,15 +363,17 @@ function newWorkspace() {
                     }
                 case 8:
                     {
-                        UI.projects.superalgos.utilities.statusBar.changeStatus('Search Engine Reindexing...')
+                        UI.projects.superalgos.utilities.statusBar.changeStatus('Reindexing Search Engine...')
                         setTimeout(takeAction, 100)
                         workingAtTask = 0
 
                         function takeAction() {
+                            UI.projects.superalgos.spaces.docsSpace.reset()   
+                            UI.projects.superalgos.spaces.docsSpace.searchEngine.setUpSearchEngine() // The docs needs to index the loaded workspace.
+                            UI.projects.superalgos.spaces.floatingSpace.inMapMode = false
                             thisObject.isInitialized = true
                             saveWorkspace()
-                            UI.projects.superalgos.spaces.docsSpace.reset() // The docs needs to index the loaded workspace.  
-                            UI.projects.superalgos.spaces.floatingSpace.inMapMode = false
+                            runTasksAndSessions()
                         }
                         break
                     }

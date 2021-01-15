@@ -95,6 +95,7 @@ function newSuperalgosChartingSpace() {
         if (isInitialized === true) { return }
         if (UI.projects.superalgos.spaces.designSpace === undefined) { return }
         if (UI.projects.superalgos.spaces.designSpace.workspace === undefined) { return }
+        if (UI.projects.superalgos.spaces.designSpace.workspace.isInitialized !== true) { return }
 
         let rootNodes = UI.projects.superalgos.spaces.designSpace.workspace.workspaceNode.rootNodes
         for (let i = 0; i < rootNodes.length; i++) {

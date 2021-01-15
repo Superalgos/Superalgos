@@ -599,8 +599,12 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             contribute()
 
                             async function contribute() {
-                                await doGit()
-                                await doGithub()
+                                if (await doGit() === false) {
+                                    respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                }
+                                if (await doGithub() === false) {
+                                    respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                }
                                 respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                             }
 
@@ -617,10 +621,14 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     await git.add('./*')
                                     await git.commit(commitMessage)
                                     await git.push('origin', currentBranch)
+                                    return true
                                 } catch (err) {
-                                    console.log('[ERROR] Error running Contribute.')
-                                    console.log(err.stack)
-                                    throw (err)
+                                    console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> Method call produced an error.')
+                                    console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> err.stack = ' + err.stack)
+                                    console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> commitMessage = ' + commitMessage)
+                                    console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> currentBranch = ' + currentBranch)
+                                    console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> contributionsBranch = ' + contributionsBranch)
+                                    return false
                                 }
                             }
 
@@ -647,9 +655,19 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                         head,
                                         base,
                                     });
+                                    return true
                                 } catch (err) {
-                                    if (err.stack.indexOf('A pull request already exists') < 0) {
-                                        throw (err)
+                                    if (err.stack.indexOf('A pull request already exists') >= 0) {
+                                        return true
+                                    } else {
+                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> Method call produced an error.')
+                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> err.stack = ' + err.stack)
+                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> commitMessage = ' + commitMessage)
+                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> username = ' + username)
+                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> token = ' + token)
+                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> currentBranch = ' + currentBranch)
+                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> contributionsBranch = ' + contributionsBranch)
+                                        return false
                                     }
                                 }
                             }
@@ -660,6 +678,8 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             console.log('[ERROR] httpInterface -> App -> Contribute -> commitMessage = ' + commitMessage)
                             console.log('[ERROR] httpInterface -> App -> Contribute -> username = ' + username)
                             console.log('[ERROR] httpInterface -> App -> Contribute -> token = ' + token)
+                            console.log('[ERROR] httpInterface -> App -> Contribute -> currentBranch = ' + currentBranch)
+                            console.log('[ERROR] httpInterface -> App -> Contribute -> contributionsBranch = ' + contributionsBranch)
 
                             let error = {
                                 result: 'Fail Because',

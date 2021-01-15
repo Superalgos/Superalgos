@@ -539,7 +539,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                             fs.mkdirSync(filePath)
                                         } catch (err) {
                                             if (err.message.indexOf('file already exists') < 0) {
-                                                throw(err)
+                                                throw (err)
                                             }
                                         }
                                         fs.writeFileSync(filePath + '/' + fileName, fileContent)
@@ -666,8 +666,8 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                         console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> err.stack = ' + err.stack)
                                         console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> commitMessage = ' + commitMessage)
                                         console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> username = ' + username)
-                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> token starts with = ' + token.substring(1, 5)) + '...'
-                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> token ends with = ' + '...' + token.substring(token.length-5, 5))
+                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> token starts with = ' + token.substring(1, 10)) + '...'
+                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
                                         console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> currentBranch = ' + currentBranch)
                                         console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> contributionsBranch = ' + contributionsBranch)
                                         return false

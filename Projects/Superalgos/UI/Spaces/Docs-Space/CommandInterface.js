@@ -202,7 +202,7 @@ function newSuperalgosDocsCommmandInterface() {
                     docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema.get(type)
                     break
                 }
-                case 'Review': {
+                case 'review': {
                     docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsReviewSchema.get(type)
                     break
                 }

@@ -1142,6 +1142,37 @@ function newSuperalgosTutorialSpace() {
 
         let schemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema.get(nodeConfig.docs.type)
 
+        if (schemaDocument === undefined) {
+            schemaDocument = {
+                type: 'Tutorial',
+                definition: {
+                    text: "You need to reference a page at the docs at the config of this node. Use the docs property for that."
+                },
+                icon: {
+                    project: "Superalgos",
+                    name: "warning"
+                },
+                paragraphs: [
+                    {
+                        style: "Title",
+                        text: "Example"
+                    },
+                    {
+                        style: "Json",
+                        text: ' \"docs\": { \n' +
+                            '\"project\": \"Superalgos\",\n' +
+                            '\"category\": \"Tutorial\",\n' +
+                            '\"type\": \"Tutorial Step - Bla Bla\"\n' +
+                            '}'
+                    },
+                    {
+                        style: "Note",
+                        text: "If you did, then that page was not found."
+                    },
+                ]
+            }
+        }
+
         newConfig = currentNode.config
         newDocument = JSON.stringify(schemaDocument) + ' - ' + UI.projects.superalgos.spaces.docsSpace.language
 

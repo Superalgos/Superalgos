@@ -1,0 +1,44 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": "116",
+    "type": "Tutorial Step - Let's Add Your Review!",
+    "definition": {
+        "text": "In this step, you are going to run your first command to create a review page! This page will be yours to edit in the future too!",
+        "updated": 1610720363593,
+        "icon": {
+            "name": "expand",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The syntax to write commands is quite colloquial! You'll love it! Check it out and follow the instructions below!",
+            "updated": 1610730420596
+        },
+        {
+            "style": "Javascript",
+            "text": "docs.add Review to Superalgos: Superalgos Project Review->Superalgos Review - YOUR REVIEW TITLE"
+        },
+        {
+            "style": "List",
+            "text": "FIRST: Copy the above command",
+            "updated": 1610721087742
+        },
+        {
+            "style": "List",
+            "text": "SECOND: Paste it on a text editor.",
+            "updated": 1610721128275
+        },
+        {
+            "style": "List",
+            "text": "THIRD: Replace YOUR REVIEW TITLE with a meaningful title for your review.",
+            "updated": 1610721106177
+        },
+        {
+            "style": "List",
+            "text": "FOURTH: Paste the updated command on the search/command box and click Enter.",
+            "updated": 1610736916242
+        }
+    ]
+}

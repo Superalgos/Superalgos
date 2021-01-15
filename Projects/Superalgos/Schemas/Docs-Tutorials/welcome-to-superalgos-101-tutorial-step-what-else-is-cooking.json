@@ -12,7 +12,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "What does integrating Ethereum means, you ask? It means that&mdash;with Beta 8&mdash;you will be able to:"
+            "text": "What does integrating Ethereum mean, you ask? It means that—in future versions—you will be able to:",
+            "updated": 1610719381268
         },
         {
             "style": "List",

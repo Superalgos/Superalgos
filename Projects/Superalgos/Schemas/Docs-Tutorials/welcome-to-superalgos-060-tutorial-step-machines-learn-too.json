@@ -12,7 +12,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "With upcoming Beta 8, you will be able to train a new type of Learning Bot running a reinforcement learning algorithm! You will feed the bot with data mined from any source, and the learning process will output a policy file describing how to make decisions."
+            "text": "With upcoming versions of Superalgos, you will be able to train a new type of Learning Bot running a reinforcement learning algorithm! You will feed the bot with data mined from any source, and the learning process will output a policy file describing how to make decisions.",
+            "updated": 1610711392539
         },
         {
             "style": "Callout",

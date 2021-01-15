@@ -49,6 +49,10 @@ function newSuperalgosDocsDocumentPage() {
                     thisObject.docsSchemaDocument = SCHEMAS_BY_PROJECT.get(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project).map.docsTutorialSchema.get(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type)
                     break
                 }
+                case 'Review': {
+                    thisObject.docsSchemaDocument = SCHEMAS_BY_PROJECT.get(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project).map.docsReviewSchema.get(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type)
+                    break
+                }
                 case 'Workspace': {
                     thisObject.docsSchemaDocument = SCHEMAS_BY_PROJECT.get(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project).map.workspaceSchema.get(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.nodeId)
                     break
@@ -124,6 +128,7 @@ function newSuperalgosDocsDocumentPage() {
             let hierarchyImagesArray = []
             let orderedTopicPageIndexArray = []
             let orderedTutorialPageIndexArray = []
+            let orderedReviewPageIndexArray = []
             let HTML = ''
 
             HTML = HTML + '<section id="docs-search-results-div" class="docs-search-page-container">'
@@ -218,6 +223,32 @@ function newSuperalgosDocsDocumentPage() {
                 HTML = HTML = HTML + '</div>'  // END Container for Tutorial Navigation
             }
 
+            if (UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.category === 'Review') {
+
+                orderedReviewPageIndexArray = UI.projects.superalgos.utilities.docs.buildOrderedPageIndex(
+                    UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project,
+                    'Review',
+                    thisObject.docsSchemaDocument.review
+                )
+
+                /* Review Title 
+                titleLabel = thisObject.docsSchemaDocument.review + ' Review Navigation'
+                HTML = HTML + '<div id="docs-main-title-div" class="docs-title-table"><div class="docs-table-cell"><h2 class="docs-h2" id="' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type.toLowerCase().replace(' ', '-') + '" > ' + titleLabel + '</h2></div><div id="projectImageDiv" class="docs-image-container"/></div></div>'
+                */
+
+                generateReviewPreviousAndNextPageNavigation()
+
+                HTML = HTML = HTML + '<div class="docs-topic-index">' // Container for Review Navigation including buttons, title and index
+
+                HTML = HTML + '<h3 class="docs-h3">' + thisObject.docsSchemaDocument.review + ' &mdash; TOC</h3>'
+
+                HTML = HTML + '<p style="margin-bottom: 15px;">You just read page <strong>' + thisObject.docsSchemaDocument.pageNumber + '</strong> of this review collection.</p>'
+
+                generateReviewMultiPageIndex()
+
+                HTML = HTML = HTML + '</div>'  // END Container for Review Navigation
+            }
+
             HTML = HTML + '</div>' // Common Style Container Ends
 
             /*
@@ -258,7 +289,7 @@ function newSuperalgosDocsDocumentPage() {
                 each node will have an icon. For the rest only if we could load an 
                 image we use a table, otherwise we will render the definitaion as a Summary.
                 */
-                if ((category === 'Topic' || category === 'Tutorial' || category === 'Concept' || category === 'Book') && testElement === undefined) {
+                if ((category === 'Topic' || category === 'Tutorial'  || category === 'Review' || category === 'Concept' || category === 'Book') && testElement === undefined) {
                     HTML = HTML + '<div id="definition-summary-editable-paragraph" class="docs-summary"><b>Summary:</b> ' + UI.projects.superalgos.utilities.docs.addToolTips(definitionText, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type) + '</div>'
                 } else {
                     HTML = HTML + '<div class="docs-definition-table">'
@@ -374,6 +405,52 @@ function newSuperalgosDocsDocumentPage() {
                 }
             }
 
+            function generateReviewPreviousAndNextPageNavigation() {
+                let previousPage
+                let nextPage
+
+                for (let i = 0; i < orderedReviewPageIndexArray.length; i++) {
+                    let arrayItem = orderedReviewPageIndexArray[i]
+
+                    if (thisObject.docsSchemaDocument.type === arrayItem.type) {
+                        previousPage = orderedReviewPageIndexArray[i - 1]
+                        nextPage = orderedReviewPageIndexArray[i + 1]
+
+                        HTML = HTML + '<div class="docs-topic-navigation"><div>'
+                        if (previousPage !== undefined) {
+                            HTML = HTML + '<span" onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project + '\', \'' + 'Review' + '\', \'' + previousPage.type.replace(/'/g, 'AMPERSAND') + '\')"><button> Previous </button></span><br/>' + previousPage.type
+                        }
+                        HTML = HTML + '</div><div>'
+                        if (nextPage !== undefined) {
+                            HTML = HTML + '<span" onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project + '\', \'' + 'Review' + '\', \'' + nextPage.type.replace(/'/g, 'AMPERSAND') + '\')"><button> Next </button></span><br/>' + nextPage.type
+                        }
+                        HTML = HTML + '</div></div>'
+                        return
+                    }
+                }
+            }
+
+            function generateReviewMultiPageIndex() {
+                /* 
+                We will go through all the schema docuents array for the current project and pick 
+                the documents that share the same key thatn the document we are rendering now. 
+                With the info on those picked document we will build the index.
+                */
+                let key = 'auto-generated-index-paragraph-' + autoGeneratedParagraphIndex
+                let paragraph
+
+                for (let i = 0; i < orderedReviewPageIndexArray.length; i++) {
+                    let arrayItem = orderedReviewPageIndexArray[i]
+                    key = 'auto-generated-index-paragraph-' + autoGeneratedParagraphIndex
+                    paragraph = {
+                        style: "Title",
+                        text: "" + arrayItem.type + ""
+                    }
+                    autoGeneratedParagraphIndex++
+                    HTML = HTML + '<p>' + arrayItem.pageNumber + '. ' + '<a onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project + '\', \'' + 'Review' + '\', \'' + arrayItem.type.replace(/'/g, 'AMPERSAND') + '\')">' + paragraph.text + '</a></p>'
+                }
+            }
+
             function addContent() {
                 HTML = HTML + '<div id="docs-content">'
                 if (thisObject.docsSchemaDocument.paragraphs !== undefined) {
@@ -458,11 +535,15 @@ function newSuperalgosDocsDocumentPage() {
                             includedSchemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema.get(type)
                             break
                         }
+                        case 'Review': {
+                            includedSchemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsReviewSchema.get(type)
+                            break
+                        }
                         case 'Book': {
                             includedSchemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsBookSchema.get(type)
                             break
                         }
-                        default: return 'Category provided (' + category + ') not valid. Use Node, Concept, Topic, Tutorial or Book instead.'
+                        default: return 'Category provided (' + category + ') not valid. Use Node, Concept, Topic, Review or Book instead.'
                     }
                     if (includedSchemaDocument === undefined) {
                         return category + ' document ' + type + ' not found at project ' + project
@@ -531,8 +612,8 @@ function newSuperalgosDocsDocumentPage() {
                         return 'Chapter paragraph style Syntax Error. The Project <i>' + project + '</i> could not be found. Check the Docs Chapter Style Syntax. This error message will dissapear as soon as you fix the problem.'
                     }
 
-                    if (category !== 'Topic' && category !== 'Tutorial') {
-                        return 'Category must be either Topic or Tutorial. Found: <i>' + category + '</i>'
+                    if (category !== 'Topic' && category !== 'Tutorial' && category !== 'Review') {
+                        return 'Category must be either Topic, Tutorial or Review. Found: <i>' + category + '</i>'
                     }
 
                     switch (category) {
@@ -557,6 +638,18 @@ function newSuperalgosDocsDocumentPage() {
 
                             if (orderedTutorialPageIndexArray.length === 0) {
                                 return 'Chapter paragraph style Syntax Error. The Tutorial <i>' + chapterName + '</i> could not be found. Check the Docs Chapter Style Syntax. This error message will dissapear as soon as you fix the problem.'
+                            }
+                            break
+                        }
+                        case 'Review': {
+                            orderedReviewPageIndexArray = UI.projects.superalgos.utilities.docs.buildOrderedPageIndex(
+                                UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project,
+                                'Review',
+                                chapterName
+                            )
+
+                            if (orderedReviewPageIndexArray.length === 0) {
+                                return 'Chapter paragraph style Syntax Error. The Review <i>' + chapterName + '</i> could not be found. Check the Docs Chapter Style Syntax. This error message will dissapear as soon as you fix the problem.'
                             }
                             break
                         }
@@ -596,6 +689,10 @@ function newSuperalgosDocsDocumentPage() {
                         }
                         case 'Tutorial': {
                             generateTutorialMultiPageIndex()
+                            break
+                        }
+                        case 'Review': {
+                            generateReviewMultiPageIndex()
                             break
                         }
                     }

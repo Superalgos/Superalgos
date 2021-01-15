@@ -13,26 +13,26 @@
             "updated": 1609150474236
         },
         {
-            "style": "Text",
+            "style": "Subtitle",
             "text": "Option 1: ",
             "updated": 1609149432117
         },
         {
-            "style": "Javascript",
+            "style": "Json",
             "text": "docs.add Node to Project: Docs Page Name",
             "updated": 1609149799453
         },
         {
-            "style": "Text",
+            "style": "Subtitle",
             "text": "Example: ",
             "updated": 1609149442319
         },
         {
-            "style": "Javascript",
+            "style": "Json",
             "text": "docs.add Node to Superalgos"
         },
         {
-            "style": "Text",
+            "style": "Subtitle",
             "text": "Option 2: ",
             "updated": 1609149450546
         },
@@ -42,7 +42,7 @@
             "updated": 1609149807897
         },
         {
-            "style": "Text",
+            "style": "Subtitle",
             "text": "Example: ",
             "updated": 1609149457691
         },
@@ -51,7 +51,7 @@
             "text": "docs.add Concept to Superalgos"
         },
         {
-            "style": "Text",
+            "style": "Subtitle",
             "text": "Option 3: ",
             "updated": 1609149464103
         },
@@ -61,7 +61,7 @@
             "updated": 1609149846658
         },
         {
-            "style": "Text",
+            "style": "Subtitle",
             "text": "Example: ",
             "updated": 1609149471266
         },
@@ -71,31 +71,68 @@
             "updated": 1609149878993
         },
         {
-            "style": "Title",
-            "text": "Parameters",
-            "updated": 1609150484701
+            "style": "Subtitle",
+            "text": "Option 4:",
+            "updated": 1610706520317
         },
         {
-            "style": "Text",
+            "style": "Json",
+            "text": "docs.add Topic to Project: Docs Tutorial Name->Docs Page Name->Docs Page Number",
+            "updated": 1610706514194
+        },
+        {
+            "style": "Subtitle",
+            "text": "Example:"
+        },
+        {
+            "style": "Json",
+            "text": "docs.add Tutorial to Superalgos: How to Build Indicators->Intro",
+            "updated": 1610706570716
+        },
+        {
+            "style": "Subtitle",
+            "text": "Option 5:",
+            "updated": 1610706652124
+        },
+        {
+            "style": "Json",
+            "text": "docs.add Review to Project: Docs Review Name->Docs Page Name->Docs Page Number",
+            "updated": 1610706722998
+        },
+        {
+            "style": "Subtitle",
+            "text": "Example:"
+        },
+        {
+            "style": "Json",
+            "text": "docs.add Review to Project: Superalgos Project Review->Superalgos Review - Great Project!",
+            "updated": 1610706675495
+        },
+        {
+            "style": "Title",
+            "text": "Parameters"
+        },
+        {
+            "style": "List",
             "text": "Project : Is the project where the Node, Concept or Topic is defined."
         },
         {
-            "style": "Text",
+            "style": "List",
             "text": "Docs Page Category : Node, Concept or Topic."
         },
         {
-            "style": "Text",
+            "style": "List",
             "text": "Docs Topic Name: The name of the topic which the new page will belong to.",
             "updated": 1609149944222
         },
         {
-            "style": "Text",
+            "style": "List",
             "text": "Docs Page Name : For Nodes it is the type of node, for Concepts, the concept name, for topics, the topic's page name."
         },
         {
-            "style": "Text",
-            "text": "Docs Page Numer: A page number that you would like to assing the new page. This will impact only at the position of the Topic Index.",
-            "updated": 1609149987475
+            "style": "List",
+            "text": "Docs Page Numer: Optional. A page number that you would like to assing the new page. This will impact only at the position of the Topic Index. If you don't provide one, it will be automatically assigned the last page number in the collection plus 1.",
+            "updated": 1610706305834
         }
     ]
 }

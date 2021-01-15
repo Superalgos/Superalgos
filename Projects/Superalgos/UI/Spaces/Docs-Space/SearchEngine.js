@@ -18,7 +18,7 @@ function newSuperalgosDocsSearchEngine() {
 
     function setUpSearchEngine() {
 
-        setUpWorkspaceSchemas()        
+        setUpWorkspaceSchemas()
         thisObject.docsIndex = []
 
         for (let j = 0; j < PROJECTS_ARRAY.length; j++) {
@@ -70,6 +70,17 @@ function newSuperalgosDocsSearchEngine() {
                 indexDocument(documentIndex)
                 thisObject.docsIndex.push(documentIndex)
             }
+            /* Search in Reviews */
+            for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsReviewSchema.length; i++) {
+                documentIndex = {
+                    phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
+                    docsSchemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsReviewSchema[i],
+                    category: 'Review',
+                    project: project
+                }
+                indexDocument(documentIndex)
+                thisObject.docsIndex.push(documentIndex)
+            }
             /* Search in Books */
             for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsBookSchema.length; i++) {
                 documentIndex = {
@@ -111,6 +122,13 @@ function newSuperalgosDocsSearchEngine() {
                 let paragraph = {
                     style: 'Tutorial',
                     text: documentIndex.docsSchemaDocument.tutorial
+                }
+                indexParagraph(paragraph)
+            }
+            if (documentIndex.docsSchemaDocument.review !== undefined) {
+                let paragraph = {
+                    style: 'Review',
+                    text: documentIndex.docsSchemaDocument.review
                 }
                 indexParagraph(paragraph)
             }

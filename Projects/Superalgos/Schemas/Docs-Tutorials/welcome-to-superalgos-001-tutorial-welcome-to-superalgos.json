@@ -12,7 +12,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "I will get you started, show you the tools that will help you move around comfortably, and help you discover all the cool things that Superalgos may do for you."
+            "text": "I will get you started, show you the tools that will help you move around comfortably and help you discover all the cool things that Superalgos may do for you.",
+            "updated": 1610701742422
         },
         {
             "style": "Callout",

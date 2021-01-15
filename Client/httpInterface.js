@@ -424,6 +424,36 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             }
                             break
                         }
+                        case 'Save-Review-Schema': {
+                            getBody(processRequest)
+
+                            async function processRequest(body) {
+                                try {
+                                    let docsSchema = JSON.parse(body)
+                                    let project = requestParameters[3]
+                                    let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/Docs-Reviews'
+
+                                    if (checkAllSchmemaDocuments('Review', docsSchema, filePath) === true) {
+                                        respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                                    } else {
+                                        respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                    }
+
+                                } catch (err) {
+                                    console.log('[ERROR] httpInterface -> Docs -> Save-Review-Schema -> Method call produced an error.')
+                                    console.log('[ERROR] httpInterface -> Docs -> Save-Review-Schema -> err.stack = ' + err.stack)
+                                    console.log('[ERROR] httpInterface -> Docs -> Save-Review-Schema -> Params Received = ' + body)
+
+                                    let error = {
+                                        result: 'Fail Because',
+                                        message: err.message,
+                                        stack: err.stack
+                                    }
+                                    respondWithContent(JSON.stringify(error), httpResponse)
+                                }
+                            }
+                            break
+                        }
                         case 'Save-Book-Schema': {
                             getBody(processRequest)
 
@@ -476,6 +506,11 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 }
                                 case 'Tutorial': {
                                     fileName = schemaDocument.tutorial.toLowerCase() + '-' + pageNumber.substring(pageNumber.length - 3, pageNumber.length) + '-' + schemaDocument.type.toLowerCase()
+                                    fileName = cleanFileName(fileName)
+                                    break
+                                }
+                                case 'Review': {
+                                    fileName = schemaDocument.review.toLowerCase() + '-' + pageNumber.substring(pageNumber.length - 3, pageNumber.length) + '-' + schemaDocument.type.toLowerCase()
                                     fileName = cleanFileName(fileName)
                                     break
                                 }
@@ -1368,6 +1403,10 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                         }
                         case 'DocsTutorialSchema': {
                             folder = 'Docs-Tutorials'
+                            break
+                        }
+                        case 'DocsReviewSchema': {
+                            folder = 'Docs-Reviews'
                             break
                         }
                         case 'DocsBookSchema': {

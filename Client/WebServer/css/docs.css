@@ -816,7 +816,7 @@ width: 100%;
 
 .docs-search-results-header-tabs-container {
   display: table;
-  padding-left: 240px;
+  padding-left: 180px;
   margin-top: 20px;
 }
 
@@ -848,7 +848,7 @@ width: 100%;
 /* Search Results Page Content */
 .docs-search-result-content {
 border-top: 1px solid #0295aa;
-margin-left: -240px;
+margin-left: -180px;
 }
 
 .docs-search-result-content > div {

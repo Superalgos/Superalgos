@@ -1933,7 +1933,7 @@ function newSuperalgosDocsDocumentPage() {
 
         outClick.addEventListener('click', () => {
             if (EDITOR_ON_FOCUS !== true) {
-                UI.projects.superalgos.spaces.docsSpace.contextMenu.forceOutClick()
+                UI.projects.superalgos.spaces.docsSpace.contextMenu.removeContextMenuFromScreen()
             }
         })
     }

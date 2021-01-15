@@ -2,7 +2,7 @@ function newSuperalgosDocsContextMenu() {
     let thisObject = {
         selectedParagraph: undefined,
         getSelection: getSelection,
-        forceOutClick: forceOutClick,
+        removeContextMenuFromScreen: removeContextMenuFromScreen,
         initialize: initialize,
         finalize: finalize
     }
@@ -53,7 +53,7 @@ function newSuperalgosDocsContextMenu() {
         }
 
         function editParagraph() {
-            forceOutClick()
+            removeContextMenuFromScreen()
             showHTMLTextArea()
 
             function showHTMLTextArea() {
@@ -107,7 +107,7 @@ function newSuperalgosDocsContextMenu() {
                 UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.appendChild(UI.projects.superalgos.spaces.docsSpace.textArea)
                 UI.projects.superalgos.spaces.docsSpace.textArea.style.display = 'block'
                 UI.projects.superalgos.spaces.docsSpace.textArea.focus()
-                forceOutClick()
+                removeContextMenuFromScreen()
                 UI.projects.superalgos.spaces.docsSpace.enterEditMode()
             }
         }
@@ -116,7 +116,7 @@ function newSuperalgosDocsContextMenu() {
             if (selectedParagraphIndex === undefined) { return }
             if (selectedParagraphIndex === 0) { return }
             UI.projects.superalgos.spaces.docsSpace.documentPage.docsSchemaDocument.paragraphs.splice(selectedParagraphIndex, 1)
-            forceOutClick()
+            removeContextMenuFromScreen()
             UI.projects.superalgos.spaces.docsSpace.documentPage.docsSchemaDocument.updated = true
             UI.projects.superalgos.spaces.docsSpace.documentPage.render()
         }
@@ -260,20 +260,20 @@ function newSuperalgosDocsContextMenu() {
             }
 
             UI.projects.superalgos.utilities.clipboard.copyTextToClipboard(clipboard)
-            forceOutClick()
+            removeContextMenuFromScreen()
         }
 
         function replaceStyle(docSchemaParagraph, style) {
             if (docSchemaParagraph.style !== style) {
                 UI.projects.superalgos.spaces.docsSpace.documentPage.docsSchemaDocument.updated = true
                 docSchemaParagraph.style = style
-                forceOutClick()
+                removeContextMenuFromScreen()
                 UI.projects.superalgos.spaces.docsSpace.documentPage.render()
             }
         }
     }
 
-    function forceOutClick() {
+    function removeContextMenuFromScreen() {
         const outClick = document.getElementById('docs-space-div')
         const menu = document.getElementById('menu')
         menu.classList.remove('show')

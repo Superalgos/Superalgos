@@ -483,37 +483,50 @@
                             continue
                         }
 
+                        /*
+                        If it is not a dependency then we pass..
+                        */
                         if (dataDependenciesModule.isItADepenency(timeFrameLabel, datasetModule.node.parentNode.config.singularVariableName) !== true) {
                             if (!(TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeFrame.config.label === timeFrameLabel && datasetModule.node.parentNode.config.pluralVariableName === 'candles')) {
                                 continue
                             }
                         }
 
-                        let dateForPath = tradingProcessDate.getUTCFullYear() + '/' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(tradingProcessDate.getUTCMonth() + 1, 2) + '/' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(tradingProcessDate.getUTCDate(), 2);
-                        let filePath
-                        if (dependency.referenceParent.config.codeName === "Multi-Period-Daily") {
-                            filePath = dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName + "/" + timeFrameLabel + "/" + dateForPath;
-                        } else {
-                            filePath = dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName + "/" + dateForPath;
-                        }
-                        let fileName = "Data.json";
+                        /*
+                        We will need to fetch the data of the current day and the previous day, in order for .previous properties in conditions and formulas to work well.
+                        */
+                        let previousDate = new Date(tradingProcessDate.valueOf() - TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
+                        let currentDate = new Date(tradingProcessDate.valueOf())
 
-                        /* We cut the async calls via callBacks at this point, so as to have a clearer code upstream */
-                        let response = await asyncGetDatasetFile(datasetModule, filePath, fileName)
+                        let previousFile = getDataFileFromDate(previousDate)
+                        if (previousFile === false) { return false }
+                        let currentFile = getDataFileFromDate(currentDate)
+                        if (currentFile === false) { return false }
+                        let bothFiles = previousFile.concat(currentFile)
 
-                        if (response.err.message === 'File does not exist.') {
-                            return false
-                        }
-                        if (response.err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-                            throw (response.err)
-                        }
+                        let mapKey = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[n][1];
+                        multiPeriodDataFiles.set(mapKey, bothFiles)
+                        dataFiles.set(dependency.id, bothFiles)
 
-                        let dataFile = JSON.parse(response.text);
-                        dataFiles.set(dependency.id, dataFile);
+                        function getDataFileFromDate(processDate) {
+
+                            let dateForPath = processDate.getUTCFullYear() + '/' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(processDate.getUTCMonth() + 1, 2) + '/' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(processDate.getUTCDate(), 2);
+                            let filePath = dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName + "/" + timeFrameLabel + "/" + dateForPath
+                            let fileName = "Data.json";
+
+                            /* We cut the async calls via callBacks at this point, so as to have a clearer code upstream */
+                            let response = await asyncGetDatasetFile(datasetModule, filePath, fileName)
+
+                            if (response.err.message === 'File does not exist.') {
+                                return false
+                            }
+                            if (response.err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
+                                throw (response.err)
+                            }
+
+                            return JSON.parse(response.text)
+                        }
                     }
-
-                    let mapKey = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[n][1];
-                    multiPeriodDataFiles.set(mapKey, dataFiles)
                 }
                 return true
             }

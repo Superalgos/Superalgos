@@ -498,17 +498,16 @@
                         let previousDate = new Date(tradingProcessDate.valueOf() - TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
                         let currentDate = new Date(tradingProcessDate.valueOf())
 
-                        let previousFile = getDataFileFromDate(previousDate)
+                        let previousFile = await getDataFileFromDate(previousDate)
                         if (previousFile === false) { return false }
-                        let currentFile = getDataFileFromDate(currentDate)
+                        let currentFile = await getDataFileFromDate(currentDate)
                         if (currentFile === false) { return false }
                         let bothFiles = previousFile.concat(currentFile)
-
-                        let mapKey = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[n][1];
-                        multiPeriodDataFiles.set(mapKey, bothFiles)
                         dataFiles.set(dependency.id, bothFiles)
-
-                        function getDataFileFromDate(processDate) {
+                        let mapKey = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[n][1];
+                        multiPeriodDataFiles.set(mapKey, dataFiles)
+                        
+                        async function getDataFileFromDate(processDate) {
 
                             let dateForPath = processDate.getUTCFullYear() + '/' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(processDate.getUTCMonth() + 1, 2) + '/' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(processDate.getUTCDate(), 2);
                             let filePath = dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName + "/" + timeFrameLabel + "/" + dateForPath

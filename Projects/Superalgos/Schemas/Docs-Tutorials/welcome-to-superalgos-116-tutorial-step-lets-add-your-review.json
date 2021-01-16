@@ -3,8 +3,8 @@
     "pageNumber": "116",
     "type": "Tutorial Step - Let's Add Your Review!",
     "definition": {
-        "text": "In this step, you are going to run your first command to create a review page! This page will be yours to edit in the future too!",
-        "updated": 1610720363593,
+        "text": "In this step, you are going to run your first command to create a review page! This page will be yours to edit in the future!",
+        "updated": 1610822585419,
         "icon": {
             "name": "expand",
             "project": "Superalgos"
@@ -22,8 +22,8 @@
         },
         {
             "style": "List",
-            "text": "FIRST: Copy the above command",
-            "updated": 1610721087742
+            "text": "FIRST: Copy the above command.",
+            "updated": 1610822613784
         },
         {
             "style": "List",
@@ -32,8 +32,8 @@
         },
         {
             "style": "List",
-            "text": "THIRD: Replace YOUR REVIEW TITLE with a meaningful title for your review.",
-            "updated": 1610721106177
+            "text": "THIRD: Replace YOUR REVIEW TITLE with a meaningful title. Review titles must be unique!",
+            "updated": 1610822662803
         },
         {
             "style": "List",

@@ -7,7 +7,8 @@
             "project": "Superalgos",
             "name": "exchange-account-key"
         },
-        "text": "This is where you configure your Exchange Account Key for the Lightning Strike Live Trading Session."
+        "text": "This is where you configure your Exchange Account Key for the Live Trading Session of the Lightning Strike Trading System.",
+        "updated": 1610817577376
     },
     "paragraphs": [
         {
@@ -20,7 +21,8 @@
         },
         {
             "style": "Note",
-            "text": "In the future, when you get to run multiple live sessions at the same time, you will need to set up one Exchange Account Key per session. This is a requirement in most exchanges."
+            "text": "The Exchange Account Key is stored in the workspace file. It is used to authenticate with the exchange when Trading Bot has to deal with an order. It is never sent or stored anywhere else.",
+            "updated": 1610817739939
         }
     ]
 }

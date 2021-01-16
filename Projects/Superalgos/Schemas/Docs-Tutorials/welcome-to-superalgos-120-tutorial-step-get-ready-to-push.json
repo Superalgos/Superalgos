@@ -3,12 +3,12 @@
     "pageNumber": "120",
     "type": "Tutorial Step - Get Ready to Push!",
     "definition": {
-        "text": "Amazing! You learned to add a page to the Docs, edit it, and save it! Now you've got to make it transcend your PC and contribute it to Superalgos!",
+        "text": "Amazing! You learned to add a page to the Docs, edit it, and save it! Now you've got to make it transcend your PC, and contribute it to Superalgos!",
         "icon": {
             "name": "github",
             "project": "Superalgos"
         },
-        "updated": 1610738103790
+        "updated": 1610791858248
     },
     "paragraphs": [
         {

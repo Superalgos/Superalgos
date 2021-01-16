@@ -18,12 +18,13 @@
         },
         {
             "style": "Text",
-            "text": "You just spent an hour or two discovering Superalgos. We want to have your first impression. We want to know what you think! And we want your initial feedback to be the first of many contributions to the project."
+            "text": "You just spent an hour or two discovering Superalgos. We want to have your first impression, fresh from the recent experience! And we want your initial feedback to be the first of many contributions to the project.",
+            "updated": 1610822389227
         },
         {
             "style": "Success",
-            "text": "You don't need to be a star programmer or professional trader to contribute. Every user is expected to give back!",
-            "updated": 1610715439365
+            "text": "You don't need to be a star programmer or professional trader to contribute. Every user is expected to give back! I'll tell you how!",
+            "updated": 1610822419407
         }
     ]
 }

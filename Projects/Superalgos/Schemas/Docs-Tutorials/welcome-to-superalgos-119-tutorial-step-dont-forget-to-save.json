@@ -13,8 +13,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Each paragraph you write is stored at the level of the browser's session as soon as you exit Edit mode. However, to save the page on disk and avoid losing work on an eventual browser crash, run this command:",
-            "updated": 1610737846767
+            "text": "Each paragraph you write is stored at the level of the browser session as soon as you exit Edit mode. However, to save the page on disk and avoid losing work on an eventual browser crash, run this command:",
+            "updated": 1610822788853
         },
         {
             "style": "Javascript",

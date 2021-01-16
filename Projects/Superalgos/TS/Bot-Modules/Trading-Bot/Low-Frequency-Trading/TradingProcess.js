@@ -504,9 +504,7 @@
                         if (currentFile === false) { return false }
                         let bothFiles = previousFile.concat(currentFile)
                         dataFiles.set(dependency.id, bothFiles)
-                        let mapKey = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[n][1];
-                        multiPeriodDataFiles.set(mapKey, dataFiles)
-                        
+
                         async function getDataFileFromDate(processDate) {
 
                             let dateForPath = processDate.getUTCFullYear() + '/' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(processDate.getUTCMonth() + 1, 2) + '/' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(processDate.getUTCDate(), 2);
@@ -526,6 +524,8 @@
                             return JSON.parse(response.text)
                         }
                     }
+                    let mapKey = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[n][1];
+                    multiPeriodDataFiles.set(mapKey, dataFiles)
                 }
                 return true
             }

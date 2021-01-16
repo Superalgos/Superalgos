@@ -45,6 +45,23 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex) {
             let propertyName = 'at' + sessionParameters.timeFrame.config.label.replace('-', '')
             let candles = chart[propertyName].candles
 
+            if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES) {
+                /*
+                We need to purge from the candles array all the candles from the previous day 
+                that comes when processing daily files.
+                */
+                let dailyCandles = []
+                for (let i = 0; i < candles.length; i++) {
+                    let candle = candles[i]
+                    if (candle.begin >= TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingEngine.current.episode.processDate.value) {
+                        dailyCandles.push(candle)
+                    }
+                }
+                candles = dailyCandles
+            } else {
+                candles = chart[propertyName].candles
+            }
+
             /* Variables needed for heartbeat functionality */
             let heartBeatDate
             let previousHeartBeatDate
@@ -55,7 +72,8 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex) {
             if (
                 TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_FIRST_LOOP === true &&
                 TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_RESUMING === false) {
-                /* Estimate Initial Candle based on the timeRage configured for the session. */
+
+                /* Estimate Initial Candle based on the timeRange configured for the session. */
                 let firstEnd = candles[0].end
                 let targetEnd = sessionParameters.timeRange.config.initialDatetime
                 let diff = targetEnd - firstEnd
@@ -73,8 +91,8 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex) {
                         '[IMPORTANT] runSimulation -> Data is not up-to-date enough. Stopping the Session now. ')
                     return
                 }
-            } else {
 
+            } else {
                 /* 
                 In this case we already have at the last candle index the next candle to be
                 processed. We will just continue with this candle.
@@ -545,7 +563,7 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex) {
                 return true
             }
         } catch (err) {
-            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, 
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                 '[ERROR] runSimulation -> err = ' + err.stack)
             throw (TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
         }

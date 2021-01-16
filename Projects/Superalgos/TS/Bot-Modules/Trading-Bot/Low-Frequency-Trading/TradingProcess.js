@@ -757,11 +757,6 @@
         }
     }
 
-    function pad(str, max) {
-        str = str.toString();
-        return str.length < max ? pad(" " + str, max) : str;
-    }
-
     async function asyncGetDatasetFile(datasetModule, filePath, fileName) {
 
         let promise = new Promise((resolve, reject) => {

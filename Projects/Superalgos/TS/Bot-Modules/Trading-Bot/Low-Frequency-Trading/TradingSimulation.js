@@ -55,13 +55,18 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex) {
             if (
                 TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_FIRST_LOOP === true &&
                 TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_RESUMING === false) {
-                /* Estimate Initial Candle based on the timeRage configured for the session. */
-                let firstEnd = candles[0].end
+
+                /* Estimate Initial Candle based on the timeRange configured for the session. */
+                let firstIndex 
+                let firstEnd
+                
+                sccanForInitialCandle() 
+
                 let targetEnd = sessionParameters.timeRange.config.initialDatetime
                 let diff = targetEnd - firstEnd
                 let amount = diff / sessionParameters.timeFrame.config.value
 
-                initialCandle = Math.trunc(amount)
+                initialCandle = Math.trunc(amount) + firstIndex
                 if (initialCandle < 0) { initialCandle = 0 }
                 if (initialCandle > candles.length - 1) {
                     /* 
@@ -73,8 +78,28 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex) {
                         '[IMPORTANT] runSimulation -> Data is not up-to-date enough. Stopping the Session now. ')
                     return
                 }
-            } else {
 
+                function sccanForInitialCandle() {
+                    if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES) {
+                        /*
+                        When processing daily files, the initialCandle can not be the first candle of the arrray, 
+                        since we receive the candles from both the initialDatetime and the previousDay. We also don't know
+                        now if the previousDay is complete, so the only effective solution is to scan all the candles until
+                        we find the first one that is begining at the initialDay. 
+                        */
+                        for (let i = 0; i < candles.length; i++) {
+                            let candle = candles[i]
+                            if (candle.begin >= sessionParameters.timeRange.config.initialDatetime) {
+                                firstEnd = candle.end
+                                firstIndex = i
+                            }
+                        }
+                    } else {
+                        firstEnd = candles[0].end
+                        firstIndex = 0
+                    }
+                }
+            } else {
                 /* 
                 In this case we already have at the last candle index the next candle to be
                 processed. We will just continue with this candle.
@@ -545,7 +570,7 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex) {
                 return true
             }
         } catch (err) {
-            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, 
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                 '[ERROR] runSimulation -> err = ' + err.stack)
             throw (TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
         }

@@ -2202,6 +2202,7 @@
             "compatibleTypes": "->APIs->"
         },
         "propertyNameAtParent": "githubAPI",
+        "isPersonalData": true,
         "icon": "bitcoin"
     },
     {

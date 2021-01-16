@@ -45,6 +45,23 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex) {
             let propertyName = 'at' + sessionParameters.timeFrame.config.label.replace('-', '')
             let candles = chart[propertyName].candles
 
+            if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES) {
+                /*
+                We need to purge from the candles array all the candles from the previous day 
+                that comes when processing daily files.
+                */
+                let dailyCandles = []
+                for (let i = 0; i < candles.length; i++) {
+                    let candle = candles[i]
+                    if (candle.begin >= TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingEngine.current.episode.processDate.value) {
+                        dailyCandles.push(candle)
+                    }
+                }
+                candles = dailyCandles
+            } else {
+                candles = chart[propertyName].candles
+            }
+
             /* Variables needed for heartbeat functionality */
             let heartBeatDate
             let previousHeartBeatDate
@@ -57,16 +74,12 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex) {
                 TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_RESUMING === false) {
 
                 /* Estimate Initial Candle based on the timeRange configured for the session. */
-                let firstIndex 
-                let firstEnd
-                
-                sccanForInitialCandle() 
-
+                let firstEnd = candles[0].end
                 let targetEnd = sessionParameters.timeRange.config.initialDatetime
                 let diff = targetEnd - firstEnd
                 let amount = diff / sessionParameters.timeFrame.config.value
 
-                initialCandle = Math.trunc(amount) + firstIndex
+                initialCandle = Math.trunc(amount)
                 if (initialCandle < 0) { initialCandle = 0 }
                 if (initialCandle > candles.length - 1) {
                     /* 
@@ -79,26 +92,6 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex) {
                     return
                 }
 
-                function sccanForInitialCandle() {
-                    if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES) {
-                        /*
-                        When processing daily files, the initialCandle can not be the first candle of the arrray, 
-                        since we receive the candles from both the initialDatetime and the previousDay. We also don't know
-                        now if the previousDay is complete, so the only effective solution is to scan all the candles until
-                        we find the first one that is begining at the initialDay. 
-                        */
-                        for (let i = 0; i < candles.length; i++) {
-                            let candle = candles[i]
-                            if (candle.begin >= sessionParameters.timeRange.config.initialDatetime) {
-                                firstEnd = candle.end
-                                firstIndex = i
-                            }
-                        }
-                    } else {
-                        firstEnd = candles[0].end
-                        firstIndex = 0
-                    }
-                }
             } else {
                 /* 
                 In this case we already have at the last candle index the next candle to be

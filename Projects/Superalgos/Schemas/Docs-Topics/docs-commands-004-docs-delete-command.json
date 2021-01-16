@@ -13,7 +13,7 @@
             "updated": 1609152160707
         },
         {
-            "style": "Text",
+            "style": "Subtitle",
             "text": "Option 1:",
             "updated": 1609152344322
         },
@@ -23,7 +23,7 @@
             "updated": 1609152359725
         },
         {
-            "style": "Text",
+            "style": "Subtitle",
             "text": "Example:"
         },
         {
@@ -32,16 +32,16 @@
             "updated": 1609152405379
         },
         {
-            "style": "Text",
+            "style": "Subtitle",
             "text": "Option 2:"
         },
         {
-            "style": "Javascript",
+            "style": "Json",
             "text": "docs.delete Concept from Project: Docs Page Name",
             "updated": 1609152445366
         },
         {
-            "style": "Text",
+            "style": "Subtitle",
             "text": "Example:"
         },
         {
@@ -50,7 +50,7 @@
             "updated": 1609152464312
         },
         {
-            "style": "Text",
+            "style": "Subtitle",
             "text": "Option 3:"
         },
         {
@@ -59,7 +59,7 @@
             "updated": 1609152484236
         },
         {
-            "style": "Text",
+            "style": "Subtitle",
             "text": "Example:"
         },
         {
@@ -68,19 +68,57 @@
             "updated": 1609152521245
         },
         {
+            "style": "Subtitle",
+            "text": "Option 4:",
+            "updated": 1610706965604
+        },
+        {
+            "style": "Json",
+            "text": "docs.delete Tutorial from Project: Docs Tutorial Name->Docs Page Name->Docs Page Number",
+            "updated": 1610706951438
+        },
+        {
+            "style": "Subtitle",
+            "text": "Example:"
+        },
+        {
+            "style": "Json",
+            "text": "docs.delete Tutorial from Superalgos: How to Build Indicatiors->Intro->1",
+            "updated": 1610707006603
+        },
+        {
+            "style": "Subtitle",
+            "text": "Option 5:",
+            "updated": 1610707021714
+        },
+        {
+            "style": "Json",
+            "text": "docs.delete Review from Project: Docs Review Name->Docs Page Name->Docs Page Number",
+            "updated": 1610707068615
+        },
+        {
+            "style": "Subtitle",
+            "text": "Example:"
+        },
+        {
+            "style": "Json",
+            "text": "docs.delete Review from Project: Superalgos Project Review->Awasome!->2",
+            "updated": 1610707101903
+        },
+        {
             "style": "Title",
             "text": "Parameters"
         },
         {
-            "style": "Text",
+            "style": "List",
             "text": "Project : Is the project where the Node, Concept or Topic is defined."
         },
         {
-            "style": "Text",
+            "style": "List",
             "text": "Docs Page Category : Node, Concept or Topic."
         },
         {
-            "style": "Text",
+            "style": "List",
             "text": "Docs Page Name : For Nodes it is the type of node, for Concepts, the concept name, for topics, the topic's page name."
         }
     ]

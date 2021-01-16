@@ -40,6 +40,10 @@ function newSuperalgosUtilitiesDocs() {
                 schemaArray = SCHEMAS_BY_PROJECT.get(project).array.docsTutorialSchema
                 break
             }
+            case 'Review': {
+                schemaArray = SCHEMAS_BY_PROJECT.get(project).array.docsReviewSchema
+                break
+            }
         }
 
         for (let i = 0; i < schemaArray.length; i++) {
@@ -52,6 +56,10 @@ function newSuperalgosUtilitiesDocs() {
                 }
                 case 'Tutorial': {
                     if (arrayItem.tutorial !== query) { continue }
+                    break
+                }
+                case 'Review': {
+                    if (arrayItem.review !== query) { continue }
                     break
                 }
             }
@@ -563,6 +571,11 @@ function newSuperalgosUtilitiesDocs() {
                     found = true
                     break
                 }
+                docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsReviewSchema.get(type)
+                if (docsSchemaDocument !== undefined) {
+                    found = true
+                    break
+                }
                 docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsBookSchema.get(type)
                 if (docsSchemaDocument !== undefined) {
                     found = true
@@ -645,6 +658,7 @@ function newSuperalgosUtilitiesDocs() {
                     searchInSchema(SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema)
                     searchInSchema(SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema)
                     searchInSchema(SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema)
+                    searchInSchema(SCHEMAS_BY_PROJECT.get(project).map.docsReviewSchema)
                     searchInSchema(SCHEMAS_BY_PROJECT.get(project).map.docsBookSchema)
 
                     function searchInSchema(docSchema) {

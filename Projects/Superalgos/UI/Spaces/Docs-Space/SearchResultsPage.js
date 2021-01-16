@@ -49,6 +49,11 @@ function newSuperalgosDocsSearchResultsPage() {
                             documentPoints = documentPoints + thisPhraseCount * 200
                         }
                     }
+                    if (documentIndex.docsSchemaDocument.review !== undefined) {
+                        if (key === UI.projects.superalgos.utilities.strings.cleanTextOfCommonWordEndings(documentIndex.docsSchemaDocument.review.toLowerCase())) {
+                            documentPoints = documentPoints + thisPhraseCount * 200
+                        }
+                    }
 
                     switch (style) {
                         case 'topic': {
@@ -56,6 +61,10 @@ function newSuperalgosDocsSearchResultsPage() {
                             break
                         }
                         case 'tutorial': {
+                            documentPoints = documentPoints + thisPhraseCount * 100
+                            break
+                        }
+                        case 'review': {
                             documentPoints = documentPoints + thisPhraseCount * 100
                             break
                         }
@@ -194,7 +203,7 @@ function newSuperalgosDocsSearchResultsPage() {
         }
 
         function buildHTML() {
-            const tabs = ['All', 'Nodes', 'Concepts', 'Topics', 'Tutorials', 'Books', 'Workspace']
+            const tabs = ['All', 'Nodes', 'Concepts', 'Topics', 'Tutorials', 'Reviews', 'Books', 'Workspace']
             let HTML = ''
             HTML = HTML + '<section id="docs-search-results-div" class="docs-search-page-container">'
             HTML = HTML + UI.projects.superalgos.spaces.docsSpace.mainSearchPage.addSearchHeader()
@@ -263,6 +272,10 @@ function newSuperalgosDocsSearchResultsPage() {
                         }
                         case 'Tutorial': {
                             mainLink = result.documentIndex.docsSchemaDocument.tutorial + ' - Page ' + result.documentIndex.docsSchemaDocument.pageNumber + ' - ' + result.documentIndex.docsSchemaDocument.type
+                            break
+                        }
+                        case 'Review': {
+                            mainLink = result.documentIndex.docsSchemaDocument.review + ' - Page ' + result.documentIndex.docsSchemaDocument.pageNumber + ' - ' + result.documentIndex.docsSchemaDocument.type
                             break
                         }
                         default: {

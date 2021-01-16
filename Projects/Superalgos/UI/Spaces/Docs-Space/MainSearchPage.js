@@ -1,9 +1,9 @@
 function newSuperalgosDocsMainSearchPage() {
     let thisObject = {
-        addSearchHeader: addSearchHeader, 
+        addSearchHeader: addSearchHeader,
         detectEnterOnSearchBox: detectEnterOnSearchBox,
         setFocusOnSearchBox: setFocusOnSearchBox,
-        render: render, 
+        render: render,
         initialize: initialize,
         finalize: finalize
     }
@@ -51,9 +51,10 @@ function newSuperalgosDocsMainSearchPage() {
         }
         element.addEventListener("keyup", function (event) {
             if (event.key === "Enter" || event.keyCode === 13) {
+                UI.projects.superalgos.spaces.docsSpace.exitEditMode()
                 UI.projects.superalgos.spaces.docsSpace.currentBookBeingRendered = undefined
-                UI.projects.superalgos.spaces.docsSpace.contextMenu.forceOutClick()
-                UI.projects.superalgos.spaces.docsSpace.commandInterface.command = element.value
+                UI.projects.superalgos.spaces.docsSpace.contextMenu.removeContextMenuFromScreen()
+                UI.projects.superalgos.spaces.docsSpace.commandInterface.command = element.value.trim()
                 UI.projects.superalgos.spaces.docsSpace.commandInterface.detectCommands()
             }
         });

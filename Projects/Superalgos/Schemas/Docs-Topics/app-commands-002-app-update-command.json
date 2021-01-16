@@ -14,16 +14,8 @@
         },
         {
             "style": "Json",
-            "text": "docs.update Message"
-        },
-        {
-            "style": "Title",
-            "text": "Parameters"
-        },
-        {
-            "style": "List",
-            "text": "Message: This is optional. It is the message that is going to be recorded at Github.com when we merge for you the branch of the main repository into the branch of your fork.",
-            "updated": 1610449466750
+            "text": "docs.update",
+            "updated": 1610710006400
         },
         {
             "style": "Title",

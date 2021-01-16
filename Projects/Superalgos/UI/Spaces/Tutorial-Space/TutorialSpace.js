@@ -1186,7 +1186,9 @@ function newSuperalgosTutorialSpace() {
         transformDocsInfoIntoTutorialInfo()
         createTheHTML()
 
-        UI.projects.superalgos.spaces.docsSpace.navigateTo(nodeConfig.docs.project, 'Tutorial', nodeConfig.docs.type)
+        if (nodeConfig.closeEditor !== true) {
+            UI.projects.superalgos.spaces.docsSpace.navigateTo(nodeConfig.docs.project, 'Tutorial', nodeConfig.docs.type)
+        }
 
         function syncConfigIconWithDocumentIcon() {
             /* 

@@ -505,7 +505,7 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                                         volume: record[5],
                                         id: record[6]
                                     }
-                                    checkOHLCVMinute()
+                                    setImmediate (checkOHLCVMinute)
                                 }
                             }
 

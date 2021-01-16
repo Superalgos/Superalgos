@@ -590,6 +590,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                 switch (requestParameters[2]) { // switch by command
                     case 'Contribute': {
                         try {
+                            console.log(JSON.stringify(requestParameters))
                             const commitMessage = unescape(requestParameters[3])
                             const username = unescape(requestParameters[4])
                             const token = unescape(requestParameters[5])

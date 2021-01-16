@@ -13,13 +13,13 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "You need to authenticate at GitHub.com for the Client to create the Pull Request on your behalf. To do that, you will create a Personal Access token in the following URL:",
-            "updated": 1610799974046
+            "text": "You need to authenticate at GitHub.com for the Client to create the Pull Request on your behalf. To do that, you will create a Personal Access Token on GitHub.com:",
+            "updated": 1610827192524
         },
         {
             "style": "Link",
-            "text": "GitHub.com Personal Access Token->https://github.com/settings/tokens/new",
-            "updated": 1610813456957
+            "text": "Create a GitHub.com Personal Access Token->https://github.com/settings/tokens/new",
+            "updated": 1610827221130
         },
         {
             "style": "Callout",

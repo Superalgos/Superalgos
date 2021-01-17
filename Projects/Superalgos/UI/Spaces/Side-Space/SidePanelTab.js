@@ -4,6 +4,8 @@ function newSidePanelTab() {
         screenside: undefined,
         pointerDirection: undefined,
         container: undefined,
+        isOpen: false,
+        isClosed: true,
         index: 0,
         open: open,
         close: close,
@@ -136,6 +138,8 @@ function newSidePanelTab() {
     function animate() {
 
         if (animation === 'opening') {
+            thisObject.isOpen = false
+            thisObject.isClosed = false
             xOffset = xOffset + ANIMATION_STEP
             switch (thisObject.screenside) {
                 case 'left': {
@@ -155,6 +159,8 @@ function newSidePanelTab() {
         }
 
         if (animation === 'closing') {
+            thisObject.isOpen = false
+            thisObject.isClosed = false
             xOffset = xOffset - ANIMATION_STEP
             switch (thisObject.screenside) {
                 case 'left': {
@@ -175,6 +181,7 @@ function newSidePanelTab() {
     }
 
     function setOpened() {
+        thisObject.isOpen = true
         animation = 'none'
         xOffset = thisObject.container.parentContainer.frame.width
         thisObject.container.parentContainer.status = 'visible'
@@ -192,6 +199,7 @@ function newSidePanelTab() {
         }
     }
     function setClosed() {
+        thisObject.isClosed = true
         animation = 'none'
         xOffset = 0
         thisObject.container.parentContainer.status = 'hidden'

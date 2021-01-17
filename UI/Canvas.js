@@ -147,7 +147,7 @@ function newCanvas() {
                         projectInstance.functionLibraries[functionLibraryDefinition.propertyName] = eval(functionLibraryDefinition.functionName + '()')
                     }
                 }
-                
+
                 /* Space Instantiation */
                 if (projectDefinition.UI.spaces === undefined) { continue }
                 for (let j = 0; j < projectDefinition.UI.spaces.length; j++) {
@@ -372,7 +372,9 @@ function newCanvas() {
              We will fordward the event to whoever is 
              controlling the editor.
             */
-            window.editorController.onKeyDown(event)
+            if (window.editorController !== undefined) {
+                window.editorController.onKeyDown(event)
+            }
             return
         }
         /* When the Docs is Visible, we do not process key down events of the Designer Space. */

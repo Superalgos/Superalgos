@@ -125,6 +125,10 @@ function newUiObject() {
     let warningMessage = ''
     let infoMessage = ''
 
+    let errorDocs = undefined
+    let warningDocs = undefined
+    let infoDocs = undefined
+
     let currentValue = 0
     let valueMinDecimals = undefined
     let currentPercentage = ''
@@ -203,6 +207,10 @@ function newUiObject() {
         lastHeartBeat = undefined
 
         onRunningCallBackFunction = undefined
+
+        errorDocs = undefined
+        warningDocs = undefined
+        infoDocs = undefined
     }
 
     function finalizeEventsServerClient() {
@@ -831,9 +839,10 @@ function newUiObject() {
         runningAtBackendCounter = 5
     }
 
-    function setErrorMessage(message, duration) {
+    function setErrorMessage(message, duration, docs) {
         if (message !== undefined) {
             errorMessage = message
+            errorDocs = docs
             thisObject.hasError = true
             if (duration === undefined) { duration = 2 }
             errorMessageCounter = 100 * duration
@@ -863,6 +872,7 @@ function newUiObject() {
 
     function resetErrorMessage() {
         errorMessage = undefined
+        errorDocs = undefined
         thisObject.hasError = false
 
         if (thisObject.uiObjectMessage.type === 'Error') {
@@ -871,9 +881,10 @@ function newUiObject() {
         }
     }
 
-    function setWarningMessage(message, duration) {
+    function setWarningMessage(message, duration, docs) {
         if (message !== undefined) {
             warningMessage = message
+            warningDocs = docs
             thisObject.hasWarning = true
             if (duration === undefined) { duration = 1 }
             warningMessageCounter = 100 * duration
@@ -903,6 +914,7 @@ function newUiObject() {
 
     function resetWarningMessage() {
         warningMessage = undefined
+        warningDocs = undefined
         thisObject.hasWarning = false
 
         if (thisObject.uiObjectMessage.type === 'Warning') {
@@ -911,9 +923,10 @@ function newUiObject() {
         }
     }
 
-    function setInfoMessage(message, duration) {
+    function setInfoMessage(message, duration, docs) {
         if (message !== undefined) {
             infoMessage = message
+            infoDocs = docs
             thisObject.hasInfo = true
             if (duration === undefined) { duration = 1 }
             infoMessageCounter = 100 * duration
@@ -943,6 +956,7 @@ function newUiObject() {
 
     function resetInfoMessage() {
         infoMessage = undefined
+        infoDocs = undefined
         thisObject.hasInfo = false
 
         if (thisObject.uiObjectMessage.type === 'Info') {
@@ -1730,6 +1744,7 @@ function newUiObject() {
 
         thisObject.uiObjectMessage.text = errorMessage
         thisObject.uiObjectMessage.type = 'Error'
+        thisObject.uiObjectMessage.docs = errorDocs
     }
 
     function drawWarningMessage() {
@@ -1738,6 +1753,7 @@ function newUiObject() {
 
         thisObject.uiObjectMessage.text = errorMessage
         thisObject.uiObjectMessage.type = 'Warning'
+        thisObject.uiObjectMessage.docs = warningDocs
     }
 
     function drawInfoMessage() {
@@ -1747,6 +1763,7 @@ function newUiObject() {
 
         thisObject.uiObjectMessage.text = errorMessage
         thisObject.uiObjectMessage.type = 'Info'
+        thisObject.uiObjectMessage.docs = infoDocs
     }
 
     function drawValue() {

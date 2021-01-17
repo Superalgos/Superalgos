@@ -62,7 +62,7 @@ function newUiObjectMessage() {
 
         /* Here we set the dimensions and position of this object */
         const FRAME_HEIGHT = 120
-        const FRAME_WIDTH = 300
+        const FRAME_WIDTH = 350
 
         thisObject.container.frame.position.x = - FRAME_WIDTH / 2
         thisObject.container.frame.position.y = + 160
@@ -80,7 +80,19 @@ function newUiObjectMessage() {
         checkPoint = thisObject.container.frame.frameThisPoint(checkPoint)
 
         if (thisObject.isVisibleFunction(checkPoint) === true) {
-            // Open the docs and navigate.
+            if (thisObject.docs !== undefined) {
+
+                if (UI.projects.superalgos.spaces.docsSpace.sidePanelTab.isOpen === true) {
+                    UI.projects.superalgos.spaces.docsSpace.sidePanelTab.close()
+                } else {
+                    UI.projects.superalgos.spaces.docsSpace.openSpaceAreaAndNavigateTo(
+                        thisObject.docs.project,
+                        thisObject.docs.category,
+                        thisObject.docs.type,
+                        thisObject.docs.anchor
+                    )
+                }
+            }
         }
     }
 
@@ -154,7 +166,7 @@ function newUiObjectMessage() {
         if (radius > 6) {
             const IDEAL_LABEL_LENGTH = 80
 
-            label = message  
+            label = message
 
             if (label !== undefined && label !== null) {
                 if (label.length > IDEAL_LABEL_LENGTH) {
@@ -177,7 +189,7 @@ function newUiObjectMessage() {
                     let phrase = phrases[i]
                     labelPoint = {
                         x: position.x - getTextWidth(phrase) / 2 + thisObject.container.frame.width / 2,
-                        y: position.y + lineSeparator * (4 - phrases.length + 1 + i) 
+                        y: position.y + lineSeparator * (4 - phrases.length + 1 + i)
                     }
                     printMessage(phrase)
                 }

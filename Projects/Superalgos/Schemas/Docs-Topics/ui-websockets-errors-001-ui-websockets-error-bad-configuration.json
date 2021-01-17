@@ -1,0 +1,16 @@
+{
+    "topic": "UI Websockets Errors",
+    "pageNumber": "1",
+    "type": "UI Websockets Error - Bad Configuration",
+    "definition": {
+        "text": "To enable websockets communications from the UI to Superalgos Clients, we need to read the config of the Network Node. In this case this configuration is unreadable because is not correctly formatted in JSON.",
+        "updated": 1610882552794
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "Edit the configuration and double check that is correctly formatted. If needed copy the text to an online JSON formatter to see clearly which is the problem.",
+            "updated": 1610882640511
+        }
+    ]
+}

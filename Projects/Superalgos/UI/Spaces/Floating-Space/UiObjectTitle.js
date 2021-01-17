@@ -1,10 +1,6 @@
 
 function newUiObjectTitle() {
     const MODULE_NAME = 'UI Object Title'
-    const ERROR_LOG = true
-
-    const logger = newWebDebugLog()
-    
 
     let thisObject = {
         fitFunction: undefined,

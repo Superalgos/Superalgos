@@ -13,7 +13,7 @@ exports.newSuperalgosGlobalsProcessConstants = function () {
     TRADING_SYSTEM_NODE             This is a Trading System node structure.
     TRADING_ENGINE_NODE             This is a Trading Engine node structure. 
     SESSION_NODE                    This is a Trading Session node structure.
-    DEPENDENCY_FILTER               This is the counter of main loops for a bot process.
+    DEPENDENCY_FILTER               This is an array that defines which indicators and at which time frame are dependencies for a process.
     */
     return thisObject
 }

@@ -1,4 +1,13 @@
 function newSuperalgosFunctionLibraryDependenciesFilter() {
+    /* 
+    The function will scen a node branch, most likely a Trading System,
+    looking into the code property of each node. It will analyze it's
+    content and try to make a list of all indicators mentioned at the code 
+    text and at which time frames they are mentioned.
+
+    It is important to note that all node that are not of the type
+    Javascript Code are going to be filtered out.
+    */
     thisObject = {
         createFilter: createFilter
     }
@@ -12,7 +21,9 @@ function newSuperalgosFunctionLibraryDependenciesFilter() {
         return Array.from(filters.keys())
 
         function recursiveFilter(node) {
-            filter(node.code)
+            if (node.type === 'Javascript Code') {
+                filter(node.code)
+            }            
 
             let schemaDocument = getSchemaDocument(node)
             if (schemaDocument !== undefined) {

@@ -22,8 +22,8 @@
         },
         {
             "style": "Success",
-            "text": "You may run the command as many times as you wish. If for any reason you loose sight of the page, run the docs.reindex command and search for the title you used while adding it!",
-            "updated": 1610737763346
+            "text": "You may run the command as many times as you wish. If for any reason you loose sight of the page, run the docs.reindex command and search for the title you gave it while adding it!",
+            "updated": 1610889687853
         }
     ]
 }

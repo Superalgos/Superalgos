@@ -19,7 +19,7 @@
         {
             "style": "Important",
             "text": "Do not use the Superalgos folder to store personal stuff or files that are not meant to be part of the Superalgos software! Anything that you include in the Superalgos folder (save for the noted exempted folder) is subject to be committed as a change, sent to your fork on GitHub.com, and included in a Pull Request, both publicly accessible!",
-            "updated": 1610823908363
+            "updated": 1610884811294
         }
     ]
 }

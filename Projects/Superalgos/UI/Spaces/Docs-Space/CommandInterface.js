@@ -731,7 +731,7 @@ function newSuperalgosDocsCommmandInterface() {
                 let orderedArray = UI.projects.superalgos.utilities.docs.buildOrderedPageIndex(
                     project,
                     'Topic',
-                    review
+                    topic
                 )
 
                 pageNumber = orderedArray.length + 1
@@ -771,7 +771,7 @@ function newSuperalgosDocsCommmandInterface() {
                 let orderedArray = UI.projects.superalgos.utilities.docs.buildOrderedPageIndex(
                     project,
                     'Tutorial',
-                    review
+                    tutorial
                 )
 
                 pageNumber = orderedArray.length + 1

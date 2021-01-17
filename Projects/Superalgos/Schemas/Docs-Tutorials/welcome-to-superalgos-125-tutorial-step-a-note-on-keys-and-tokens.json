@@ -13,8 +13,8 @@
     "paragraphs": [
         {
             "style": "Important",
-            "text": "Superalgos stores the workspace file that contains your keys and tokens in the JSON format, unencrypted. In this state, this crucial information is as safe as your computer may be.",
-            "updated": 1610899072148
+            "text": "Superalgos stores the workspace file that contains your keys and tokens in the JSON format—unencrypted. In this state, this crucial information is as safe as your computer may be.",
+            "updated": 1610906633022
         },
         {
             "style": "Warning",

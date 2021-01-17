@@ -101,7 +101,12 @@
             Here is the point where we sync one and the other.
             */
             let tradingProcessDate = TS.projects.superalgos.utilities.dateTimeFunctions.removeTime(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingEngine.current.episode.processDate.value)
-            await processSingleFiles()
+
+            if (await processSingleFiles() === false) {
+                TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, undefined, undefined, 'Waiting for Data Mining to be run')
+                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
+                return
+            }
 
             if (await processMarketFiles() === false) {
                 TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, undefined, undefined, 'Waiting for Data Mining to be run')
@@ -343,6 +348,16 @@
                     /* We cut the async calls via callBacks at this point, so as to have a clearer code upstream */
                     let response = await asyncGetDatasetFile(datasetModule, filePath, fileName)
 
+                    if (response.err.message === 'File does not exist.') {
+                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                            "[ERROR] File not Found. This process will wait until you run your Data Mining and this file is created. File = " + filePath + '/' + fileName)
+                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                            "[ERROR] Your strategy depends on the dataset  " + dependency.name + '.')
+                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                            "[ERROR] The reason that it depends on this dataset is becuase in one of your condition's Javascript Code node, you have written an expression that references this dataset. If you don't want to depend on this dataset, just locate that code and remove the mention.")
+                        return false
+                    }
+
                     if (response.err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                         throw (response.err)
                     }
@@ -393,6 +408,12 @@
                         let response = await asyncGetDatasetFile(datasetModule, filePath, fileName)
 
                         if (response.err.message === 'File does not exist.') {
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                "[ERROR] File not Found. This process will wait until you run your Data Mining and this file is created. File = " + filePath + '/' + fileName)
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                "[ERROR] Your strategy depends on the dataset  " + dependency.name + '.')
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                "[ERROR] The reason that it depends on this dataset is becuase in one of your condition's Javascript Code node, you have written an expression that references this dataset. If you don't want to depend on this dataset, just locate that code and remove the mention.")
                             return false
                         }
 
@@ -516,6 +537,12 @@
                             let response = await asyncGetDatasetFile(datasetModule, filePath, fileName)
 
                             if (response.err.message === 'File does not exist.') {
+                                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                    "[ERROR] File not Found. This process will wait until you run your Data Mining and this file is created. File = " + filePath + '/' + fileName)
+                                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                    "[ERROR] Your strategy depends on the dataset  " + dependency.name + '.')
+                                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                    "[ERROR] The reason that it depends on this dataset is becuase in one of your condition's Javascript Code node, you have written an expression that references this dataset. If you don't want to depend on this dataset, just locate that code and remove the mention.")
                                 return false
                             }
                             if (response.err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {

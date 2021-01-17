@@ -1751,7 +1751,7 @@ function newUiObject() {
         if (thisObject.hasError === true) { return }
         if (thisObject.hasWarning !== true) { return }
 
-        thisObject.uiObjectMessage.text = errorMessage
+        thisObject.uiObjectMessage.text = warningMessage
         thisObject.uiObjectMessage.type = 'Warning'
         thisObject.uiObjectMessage.docs = warningDocs
     }
@@ -1761,7 +1761,7 @@ function newUiObject() {
         if (thisObject.hasWarning === true) { return }
         if (thisObject.hasInfo !== true) { return }
 
-        thisObject.uiObjectMessage.text = errorMessage
+        thisObject.uiObjectMessage.text = infoMessage
         thisObject.uiObjectMessage.type = 'Info'
         thisObject.uiObjectMessage.docs = infoDocs
     }

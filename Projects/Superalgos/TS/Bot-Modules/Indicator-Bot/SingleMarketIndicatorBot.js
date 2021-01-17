@@ -91,9 +91,6 @@
                     let dataDependencies;
 
                     let nextWaitTime;
-                    processStopped()
-                    TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE = "The world is collapsing..."
-                    return
 
                     initializeProcessExecutionEvents();
 

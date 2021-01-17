@@ -58,7 +58,6 @@ function newUiObjectMessage() {
 
     function physics() {
         if (thisObject.text === undefined) { return }
-        let text = trimMessageText(thisObject.text)
 
         /* Here we set the dimensions and position of this object */
         const FRAME_HEIGHT = 120
@@ -173,7 +172,6 @@ function newUiObjectMessage() {
                     if (label.length > IDEAL_LABEL_LENGTH * 3) {
                         label = label.substring(0, IDEAL_LABEL_LENGTH * 3) + '...'
                     }
-                    fontSize = 15
                 }
 
                 /* Split the line into Phrases */
@@ -200,15 +198,6 @@ function newUiObjectMessage() {
                 }
             }
         }
-    }
-
-    function trimMessageText(text) {
-        if (text === undefined) { return }
-        const MAX_LABEL_LENGTH = 35
-        if (text.length > MAX_LABEL_LENGTH) {
-            text = text.substring(0, MAX_LABEL_LENGTH) + '...'
-        }
-        return text
     }
 }
 

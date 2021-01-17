@@ -13,8 +13,8 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Copy the token! Open the Github API node configuration, and paste it between the double quotes of the token parameter. Fill in the username parameter with your GitHub.com user.",
-            "updated": 1610824281449
+            "text": "Copy the token, open the Github API node configuration, and paste it between the double quotes of the token parameter. Fill in the username parameter with your GitHub.com user.",
+            "updated": 1610910956757
         },
         {
             "style": "Note",

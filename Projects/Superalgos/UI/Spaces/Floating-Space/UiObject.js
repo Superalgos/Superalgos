@@ -1119,7 +1119,7 @@ function newUiObject() {
             async function onError(message) {
 
                 let uiObject = await getTargetUiObject(message)
-                uiObject.setErrorMessage(message.event.errorMessage, 10)
+                uiObject.setErrorMessage(message.event.errorMessage, 10, message.event.docs)
 
                 let event = {
                     type: 'Secondary Action Already Executed'
@@ -1138,7 +1138,7 @@ function newUiObject() {
 
             async function onWarning(message) {
                 let uiObject = await getTargetUiObject(message)
-                uiObject.setWarningMessage(message.event.warningMessage, 10)
+                uiObject.setWarningMessage(message.event.warningMessage, 10, message.event.docs)
             }
         }
 
@@ -1152,7 +1152,7 @@ function newUiObject() {
 
             async function onInfo(message) {
                 let uiObject = await getTargetUiObject(message)
-                uiObject.setInfoMessage(message.event.infoMessage, 10)
+                uiObject.setInfoMessage(message.event.infoMessage, 10, message.event.docs)
             }
         }
     }

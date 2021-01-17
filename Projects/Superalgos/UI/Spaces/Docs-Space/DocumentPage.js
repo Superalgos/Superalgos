@@ -66,6 +66,7 @@ function newSuperalgosDocsDocumentPage() {
             if (thisObject.docsSchemaDocument === undefined) {
                 // Use the New Node Template
                 let template = {
+                    updated: true,
                     type: UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type,
                     definition: { text: "Write here the definition of this " + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.category + "." },
                     paragraphs: [

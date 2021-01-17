@@ -58,15 +58,10 @@
 
     function run(callBackFunction) {
         try {
-            loop();
+            loop()
 
             function loop() {
                 try {
-                    function pad(str, max) {
-                        str = str.toString();
-                        return str.length < max ? pad(" " + str, max) : str;
-                    }
-
                     /* For each loop we want to create a new log file. */
                     if (TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT !== undefined) {
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.finalize()
@@ -96,6 +91,9 @@
                     let dataDependencies;
 
                     let nextWaitTime;
+                    processStopped()
+                    TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE = "The world is collapsing..."
+                    return
 
                     initializeProcessExecutionEvents();
 
@@ -798,8 +796,17 @@
 
             function processStopped() {
                 if (TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE !== undefined) {
-                    TS.projects.superalgos.functionLibraries.processFunctions.processError(
-                        TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_KEY, undefined, "An unexpected error caused the Process to stop.")
+                    TS.projects.superalgos.functionLibraries.processFunctions.processError
+                        (
+                            TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_KEY,
+                            undefined,
+                            "An unexpected error caused the Process to stop.",
+                            {
+                                project: 'Superalgos',
+                                category: 'Topic',
+                                type: 'TS Process Error - Unexpected Error'
+                            }
+                        )
                 } else {
                     TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent(
                         TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_KEY, 'Stopped')

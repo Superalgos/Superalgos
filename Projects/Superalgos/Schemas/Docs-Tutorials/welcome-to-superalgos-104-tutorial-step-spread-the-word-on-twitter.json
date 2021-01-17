@@ -7,12 +7,14 @@
             "project": "Superalgos",
             "name": "twitter"
         },
-        "text": "Making some noise on Twitter will help bring more traders to the project. That's important too, for similar reasons!"
+        "text": "Making some noise on Twitter will help bring more traders to the project. More traders pushing the boundaries of the software is the best driver of evolution!",
+        "updated": 1610914488286
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The more traders using Superalgos, the more they will drive the Core Team to develop ever more advanced features! This is what you need to do:"
+            "text": "The more traders using Superalgos, the more they will drive the Community to develop ever more advanced features! This is what you need to do:",
+            "updated": 1610914531306
         },
         {
             "style": "List",

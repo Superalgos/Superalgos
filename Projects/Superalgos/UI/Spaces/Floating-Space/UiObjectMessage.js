@@ -88,7 +88,9 @@ function newUiObjectMessage() {
                         thisObject.docs.project,
                         thisObject.docs.category,
                         thisObject.docs.type,
-                        thisObject.docs.anchor
+                        thisObject.docs.anchor,
+                        thisObject.docs.nodeId,
+                        thisObject.docs.placeholder
                     )
                 }
             }

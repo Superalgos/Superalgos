@@ -19,7 +19,8 @@ exports.newSuperalgosFunctionLibrariesTaskFunctions = function () {
             }
         } else {
             event = {
-                errorMessage: errorMessage
+                errorMessage: errorMessage,
+                docs: docs
             }
         }
         let key = TS.projects.superalgos.globals.taskConstants.TASK_NODE.name + '-' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.type + '-' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.id

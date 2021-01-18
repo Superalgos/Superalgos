@@ -713,6 +713,8 @@
             }
 
         } catch (err) {
+            TS.projects.superalgos.globals.taskVariables.UNEXPECTED_ERROR = err
+
             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                 "[ERROR] run -> err = " + err.stack);
             clearTimeout(nextLoopTimeoutHandle);

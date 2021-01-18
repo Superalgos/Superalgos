@@ -61,7 +61,7 @@ function newSuperalgosDocSpace() {
         setUpMenuItemsMap()
         setupUserLanguage()
         setupActiveBranch()
-        setupContributionsBranch() 
+        setupContributionsBranch()
 
         thisObject.searchEngine = newSuperalgosDocsSearchEngine()
         thisObject.mainSearchPage = newSuperalgosDocsMainSearchPage()
@@ -186,7 +186,7 @@ function newSuperalgosDocSpace() {
     function changeActiveBranch(branch) {
         httpRequest(undefined, 'App/Checkout/' + branch, onResponse)
         UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Switching Branches - Changing Current Branch')
-        
+
         function onResponse(err, data) {
             /* Lets check the result of the call through the http interface */
             data = JSON.parse(data)
@@ -250,7 +250,9 @@ function newSuperalgosDocSpace() {
                 UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project,
                 UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.category,
                 UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type,
-                UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.anchor
+                UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.anchor,
+                UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.nodeId,
+                UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.placeholder
             )
         }
     }
@@ -269,19 +271,19 @@ function newSuperalgosDocSpace() {
         }
     }
 
-    function openSpaceAreaAndNavigateTo(project, category, type, anchor, nodeId) {
+    function openSpaceAreaAndNavigateTo(project, category, type, anchor, nodeId, placeholder) {
 
-        getReadyToNavigate(project, category, type, anchor, nodeId)
+        getReadyToNavigate(project, category, type, anchor, nodeId, placeholder)
 
         thisObject.sidePanelTab.open()
     }
 
-    function navigateTo(project, category, type, anchor, nodeId) {
+    function navigateTo(project, category, type, anchor, nodeId, placeholder) {
 
         EDITOR_ON_FOCUS = false // forced exit
         UI.projects.superalgos.spaces.docsSpace.paragraphMap = new Map()
 
-        getReadyToNavigate(project, category, type, anchor, nodeId)
+        getReadyToNavigate(project, category, type, anchor, nodeId, placeholder)
 
         UI.projects.superalgos.spaces.docsSpace.documentPage.render()
 
@@ -296,16 +298,10 @@ function newSuperalgosDocSpace() {
         }
     }
 
-    function getReadyToNavigate(project, category, type, anchor, nodeId) {
+    function getReadyToNavigate(project, category, type, anchor, nodeId, placeholder) {
         /* Replace the current object with this */
         if (UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered !== undefined) {
-            UI.projects.superalgos.spaces.docsSpace.previousDocumentBeingRendered = {
-                project: UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project,
-                category: UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.category,
-                type: UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type,
-                anchor: UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.anchor,
-                nodeId: UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.nodeId
-            }
+            UI.projects.superalgos.spaces.docsSpace.previousDocumentBeingRendered = JSON.parse(JSON.stringify(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered))
         }
 
         if (category === 'Book') {
@@ -314,7 +310,8 @@ function newSuperalgosDocSpace() {
                 category: category,
                 type: type.replace('AMPERSAND', '\''),
                 anchor: anchor,
-                nodeId: nodeId
+                nodeId: nodeId,
+                placeholder: placeholder
             }
         }
 
@@ -323,7 +320,8 @@ function newSuperalgosDocSpace() {
             category: category,
             type: type.replace('AMPERSAND', '\''),
             anchor: anchor,
-            nodeId: nodeId
+            nodeId: nodeId,
+            placeholder: placeholder
         }
     }
 

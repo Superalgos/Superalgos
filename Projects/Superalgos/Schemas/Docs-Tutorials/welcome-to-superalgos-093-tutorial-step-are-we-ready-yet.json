@@ -1,0 +1,28 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 93,
+    "type": "Tutorial Step - Are We Ready Yet?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "indicator-process-instance"
+        },
+        "text": "Resistances and Supports Multi-Period-Daily to the left is the last of the processes to finish.",
+        "updated": 1610643083669
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "If this process is at 100%, then we are ready to go."
+        },
+        {
+            "style": "Note",
+            "text": "Either way, nothing catastrophic happens if you attempt to run a Live Trading Session when the required indicators are not up to date. There would be an error, and you'd be notified of the reason. So, no big deal!"
+        },
+        {
+            "style": "Success",
+            "text": "In the next step I'll ask you to start the Task and the Live Trading Session. If you choose not to, keep going with the tutorial as if you had...",
+            "updated": 1610643323637
+        }
+    ]
+}

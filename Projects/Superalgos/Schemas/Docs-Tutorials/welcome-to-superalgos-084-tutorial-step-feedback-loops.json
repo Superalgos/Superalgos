@@ -1,0 +1,26 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 84,
+    "type": "Tutorial Step - Feedback Loops",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "limit-buy-order"
+        },
+        "text": "Lets take a look at another example to let the notion of the constant feedback loop sink in before we move on!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "This is the data structure where information about limit buy orders is kept."
+        },
+        {
+            "style": "Callout",
+            "text": "Go to the Trading Engine layers manager on the charts (the second counting from the left). Scroll down and turn on the Limit Buy Orders layer. Now swipe the mouse pointer over a few of the buy orders and check the effect on the nodes on the design space."
+        },
+        {
+            "style": "Text",
+            "text": "Can you envision the implications of having this level of control over the data managed by the trading bot?"
+        }
+    ]
+}

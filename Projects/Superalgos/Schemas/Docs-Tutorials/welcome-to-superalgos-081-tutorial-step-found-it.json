@@ -1,0 +1,26 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 81,
+    "type": "Tutorial Step - Found It?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "copy-path"
+        },
+        "text": "This is how the Trading Engine makes every bit of information processed by the Trading Bot available to trading systems."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "There is a path to every piece of data, and by knowing the path, you may access the data from within any Formula or Condition in a Trading Strategy. Let's run a quick check:"
+        },
+        {
+            "style": "Callout",
+            "text": "Open the menu of the Exit Target Rate node to the left, and click Copy Node Path. Now, open a text editor and paste what you copied."
+        },
+        {
+            "style": "Text",
+            "text": "Ok! This is how formulas and conditions access the information... How about humans?"
+        }
+    ]
+}

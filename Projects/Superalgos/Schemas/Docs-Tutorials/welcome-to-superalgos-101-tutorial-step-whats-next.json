@@ -1,0 +1,24 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 101,
+    "type": "Tutorial Step - What's Next?",
+    "definition": {
+        "icon": {
+            "name": "help",
+            "project": "Superalgos"
+        },
+        "text": "There are tons of things we haven't covered yet, I know! Just look around! So much stuff to see! It's mind-boggling."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "I'm sure you still have tons of questions floating in your head... How do I build my own strategies? How do I measure performance? How do I build an indicator? How do I deploy a trading farm? How may I integrate with TradingView? How do I set up Telegram announcements?",
+            "updated": 1610711099627
+        },
+        {
+            "style": "Success",
+            "text": "Don't worry! You'll get there my friend! There are more tutorials and a lot of reading material available! But before we get there, allow me a bit of gossiping... I got this from the Develop group too!",
+            "updated": 1610712307704
+        }
+    ]
+}

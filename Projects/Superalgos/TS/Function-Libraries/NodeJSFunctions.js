@@ -45,11 +45,13 @@ exports.newSuperalgosFunctionLibrariesNodeJSFunctions = function () {
             }
         }
 
-        TS.projects.superalgos.functionLibraries.taskFunctions.taskError(
-            undefined,
-            uiError,
-            docs
-        )
+        if (TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE || TS.projects.superalgos.globals.taskVariables.UNEXPECTED_ERROR) {
+            TS.projects.superalgos.functionLibraries.taskFunctions.taskError(
+                undefined,
+                uiError,
+                docs
+            )
+        }
 
         if (isNodeJsProcessShuttingDown === true) { return }
         isNodeJsProcessShuttingDown = true

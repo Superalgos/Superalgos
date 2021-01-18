@@ -3,8 +3,8 @@
     "pageNumber": "17",
     "type": "Docs Paragraph Styles",
     "definition": {
-        "text": "Each paragraph at a Docs Page, need to be assigend a style. The most commonly used style is the Docs Text Style.",
-        "updated": 1609260947769
+        "text": "Each paragraph in a Docs Page is assigned a style. The default and most commonly used style is the Docs Text Style.",
+        "updated": 1611001762378
     },
     "paragraphs": [
         {

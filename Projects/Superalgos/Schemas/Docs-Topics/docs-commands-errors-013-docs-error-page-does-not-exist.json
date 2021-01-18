@@ -14,12 +14,13 @@
         },
         {
             "style": "Error",
-            "text": "Page does not exist at the Docs.  ",
-            "updated": 1609229439038
+            "text": "Page does not exist.",
+            "updated": 1610999156598
         },
         {
             "style": "Success",
-            "text": " Check the Docs Page Name you used at the command, because it seems that a page with that name does not exist at the Docs."
+            "text": "Check the Docs Page Name you used on the command. It seems that a page with such name does not exist.",
+            "updated": 1610999206043
         },
         {
             "style": "Title",

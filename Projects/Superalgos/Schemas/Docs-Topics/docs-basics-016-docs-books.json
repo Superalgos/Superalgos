@@ -3,8 +3,8 @@
     "pageNumber": "16",
     "type": "Docs Books",
     "definition": {
-        "text": "A book is page in the Docs that contains chapters. Chapters points to a Docs Topics and are rendered as the index table of the topic they point to.",
-        "updated": 1609771773385
+        "text": "A book is a page that lists chapters. A chapters points to a Docs Topics, and is rendered as the table of contents of the topic in question.",
+        "updated": 1611001687100
     },
     "paragraphs": [
         {

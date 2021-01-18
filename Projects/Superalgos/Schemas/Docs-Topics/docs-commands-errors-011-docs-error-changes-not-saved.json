@@ -14,13 +14,13 @@
         },
         {
             "style": "Error",
-            "text": "Changes could not be saved. There were one or more problems while saving your changes.",
-            "updated": 1609180259963
+            "text": "Changes could not be saved. There was one or more problems while saving your changes.",
+            "updated": 1610999017039
         },
         {
             "style": "Success",
-            "text": "Please check the Client Console to see if there are errors logged there. You might also check the Browser Console for errors logged there.",
-            "updated": 1609180277501
+            "text": "Please check the Client Console to see if there are logged errors. You mayalso check the Browser Console.",
+            "updated": 1610999048470
         },
         {
             "style": "Title",

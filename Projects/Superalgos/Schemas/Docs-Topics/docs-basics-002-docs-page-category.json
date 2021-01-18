@@ -3,8 +3,8 @@
     "pageNumber": "2",
     "type": "Docs Page Category",
     "definition": {
-        "text": "The Docs have 3 different categories of pages. Node, Concept and Topic. Each of them is a collection of pages users can read.",
-        "updated": 1609161546617
+        "text": "The Docs feature five different categories of pages. Node, Concept, Topic, Tutorial, and Review. Each of them is a collection of pages users may read.",
+        "updated": 1610999695838
     },
     "paragraphs": [
         {
@@ -14,16 +14,18 @@
         },
         {
             "style": "Text",
-            "text": "For each Node defined within the project, there is a Docs Node Page at the Docs, explaining what is that Node used for.",
-            "updated": 1609150987235
+            "text": "For each Node defined within the Project, there is a Docs Node Page explaining what the Node is used for.",
+            "updated": 1610999767253
         },
         {
             "style": "Title",
-            "text": "Cocept Page Category"
+            "text": "Concept Page Category",
+            "updated": 1610999775828
         },
         {
             "style": "Text",
-            "text": "Concepts are things users must know that are not needed as a Node in the system and are not ellaborate enough to become a topic."
+            "text": "Concepts are notions that are not represented as nodes in the system. They are not ellaborate or deep enough to require a topic.",
+            "updated": 1610999879515
         },
         {
             "style": "Title",
@@ -31,7 +33,27 @@
         },
         {
             "style": "Text",
-            "text": "Topics are multi-faceted concepts that needs more than one page to be correctly explained. It is a set of closely related concepts."
+            "text": "Topics are multi-faceted, deep concepts that require more than one page to be correctly addressed. Topics are sets of closely related concepts.",
+            "updated": 1610999935621
+        },
+        {
+            "style": "Title",
+            "text": "Tutorial Page Category"
+        },
+        {
+            "style": "Text",
+            "text": "Tutorials are made of steps, and each step draws information from a tutorial step page in the Docs. Pages in a tutorial are arranged in a sequence.",
+            "updated": 1611000079464
+        },
+        {
+            "style": "Title",
+            "text": "Reviews Page Category",
+            "updated": 1611000089258
+        },
+        {
+            "style": "Text",
+            "text": "Reviews are user-generated content describing their experience with certain components of Superalgos or other projects.",
+            "updated": 1611000148351
         }
     ]
 }

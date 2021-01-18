@@ -3,8 +3,8 @@
     "pageNumber": "2",
     "type": "App Message - Creating Pull Request",
     "definition": {
-        "text": "Hold on for a minute while we upload all the changes to GitHub.com and create a pull request with your contributions in it. You will be forwarded to a results page once the operation is complete.",
-        "updated": 1609941046109
+        "text": "Hold on while changes are uploaded to GitHub.com and a Pull Request is created. You will get a new message when the operation is complete.",
+        "updated": 1611002766659
     },
     "paragraphs": [
         {
@@ -14,15 +14,18 @@
         },
         {
             "style": "Text",
-            "text": "Someone will review the Pull Request and if everything is alright, it will merge the changes you submitted into the develop branch of the main Superalgos repository."
+            "text": "No further action from you is required. Someone will review your Pull Request and merge it into the latest version of the software should everything be in order. If your changes are rejected for any reason, you will have to follow the issue at Github.com.",
+            "updated": 1611002796639
         },
         {
             "style": "Text",
-            "text": "If you submit more contributions while the Pull Request is under review, they will be automatically added to the already open Pull Request."
+            "text": "If you submit more contributions while the Pull Request is under review, they will be automatically appended to the open Pull Request.",
+            "updated": 1611002870980
         },
         {
             "style": "Note",
-            "text": "By default you will receive an email from Github.com when the changes are merged, or if the reviewer made comments on it, or reject those changes. You can manage your email suscription setting directly at GitHub.com"
+            "text": "You should receive an email from Github.com when changes are merged, or if the reviewer makes comments or reject the changes. You may manage your email suscription settings at GitHub.com.",
+            "updated": 1611002949297
         }
     ]
 }

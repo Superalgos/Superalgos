@@ -3,8 +3,8 @@
     "pageNumber": "10",
     "type": "Docs Page",
     "definition": {
-        "text": "The Docs is a collection of pages classified in 3 different categories: Docs Nodes, Docs Concepts and Docs Topics. A page contains information valuable for the users of the system.",
-        "updated": 1609260440891
+        "text": "The Docs is a collection of pages classified in five different categories: Docs Nodes, Docs Concepts, Docs Topics, Docs Tutorials, and Docs Reviews.",
+        "updated": 1611000990872
     },
     "paragraphs": [
         {

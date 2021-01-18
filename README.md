@@ -30,7 +30,7 @@ Git is an open-source distributed version control system required to download an
 
 **b.** Download the version for your Operating System.
 
-**c.** Run the installer and go through the process until Git is fully installed.
+**c.** Run the installer with the default configuration — just click Next until Git is fully installed.
 
 ## Google Chrome
 
@@ -44,7 +44,7 @@ Before you begin, it is recommended that you set up Chrome as your default brows
 
 **Important:** Use Chrome so that you have a similar environment as the dev team in case you need help. We are not testing on any other browsers, and it is a well-known fact that browsers behave differently.
 
-# Superalgos App Installation
+# Superalgos Client Installation
 
 **1.** If you are not there already, go to [https://github.com/Superalgos/Superalgos](https://github.com/Superalgos/Superalgos)
 

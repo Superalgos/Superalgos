@@ -3,8 +3,8 @@
     "pageNumber": 2,
     "type": "Docs Error - Too Few Parameters",
     "definition": {
-        "text": "While executing a command, you might receive different types of error messanges. These are described below. ",
-        "updated": 1609159174480
+        "text": "The system expects more parameters. This may happen when you effectively missed a parameter or when a syntax error breaks the command.",
+        "updated": 1610976595172
     },
     "paragraphs": [
         {
@@ -35,10 +35,6 @@
             "style": "List",
             "text": "Docs Add Command",
             "updated": 1609180038275
-        },
-        {
-            "style": "List",
-            "text": "Docs Delete Command"
         },
         {
             "style": "List",

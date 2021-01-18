@@ -3,8 +3,8 @@
     "pageNumber": 6,
     "type": "Docs Error - Page With No Paragraphs",
     "definition": {
-        "text": "While executing a command, you might receive different types of error messanges. These are described below. ",
-        "updated": 1609159174480
+        "text": "The page exists but it's empty.",
+        "updated": 1610977367224
     },
     "paragraphs": [
         {
@@ -13,12 +13,13 @@
         },
         {
             "style": "Error",
-            "text": "The Docs Page Name you  specified was found, but it does not have any paragraphs in it. "
+            "text": "The Docs Page Name you specified was found, but it has no paragraphs in it.",
+            "updated": 1610977343685
         },
         {
             "style": "Success",
-            "text": "You need to fix this in order for you or others users to be able to use this command.",
-            "updated": 1609161948865
+            "text": "Please, help us fix this page!",
+            "updated": 1610977394319
         },
         {
             "style": "Title",

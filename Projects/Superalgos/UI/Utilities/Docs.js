@@ -654,21 +654,21 @@ function newSuperalgosUtilitiesDocs() {
                 for (let p = 0; p < PROJECTS_ARRAY.length; p++) {
                     let project = PROJECTS_ARRAY[p]
 
-                    searchInSchema(SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema)
-                    searchInSchema(SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema)
-                    searchInSchema(SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema)
-                    searchInSchema(SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema)
-                    searchInSchema(SCHEMAS_BY_PROJECT.get(project).map.docsReviewSchema)
-                    searchInSchema(SCHEMAS_BY_PROJECT.get(project).map.docsBookSchema)
+                    searchInSchema(SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema, 'Node')
+                    searchInSchema(SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema, 'Concept')
+                    searchInSchema(SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema, 'Topic')
+                    searchInSchema(SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema, 'Tutorial')
+                    searchInSchema(SCHEMAS_BY_PROJECT.get(project).map.docsReviewSchema, 'Review')
+                    searchInSchema(SCHEMAS_BY_PROJECT.get(project).map.docsBookSchema, 'Book')
 
-                    function searchInSchema(docSchema) {
+                    function searchInSchema(docSchema, category) {
                         if (found === true) { return }
 
                         if (docSchema.get(cleanPhrases[j]) !== undefined) {
                             if (cleanPhrases[j] !== excludedType) {
                                 taggedText = taggedText + phrases[j].replace(
                                     cleanPhrases[j],
-                                    TAGGING_STRING_SEPARATOR + 'Node' + '|' + cleanPhrases[j] + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
+                                    TAGGING_STRING_SEPARATOR + category + '|' + cleanPhrases[j] + '|' + project + TAGGING_STRING_SEPARATOR) + ' '
                             } else {
                                 taggedText = taggedText + phrases[j] + ' '
                             }

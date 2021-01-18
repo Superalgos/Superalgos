@@ -1,0 +1,106 @@
+{
+    "topic": "UI Websockets Errors",
+    "pageNumber": "1",
+    "type": "UI Websockets Error - Bad Configuration",
+    "definition": {
+        "text": "To enable websockets communications from the UI to Superalgos Clients, we need to read the config of the Network Node. If anything is wrong with that configuration, the UI will not be able to communicate with the Client via websockets and many things, like running a Task will not be possible.",
+        "updated": 1610887696051
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "There are several reasons for the UI Web Sockets Client to report a Bad Configuration error. They are all listed below.",
+            "updated": 1610889008413
+        },
+        {
+            "style": "Anchor",
+            "text": "Invalid JSON Format"
+        },
+        {
+            "style": "Title",
+            "text": "Reason #1: Invalid JSON Format",
+            "updated": 1610889030985
+        },
+        {
+            "style": "Text",
+            "text": "To enable websockets communications from the UI to Superalgos Clients, we need to read the config of the Network Node. In this case this configuration is unreadable because is not correctly formatted in JSON."
+        },
+        {
+            "style": "Error",
+            "text": "Bad Configuration - Invalid JSON Format",
+            "updated": 1610889068414
+        },
+        {
+            "style": "Success",
+            "text": "Edit the configuration and double check that is correctly formatted. If needed, copy the text to an online JSON formatter to see clearly which is the problem.",
+            "updated": 1610887620569
+        },
+        {
+            "style": "Note",
+            "text": "This page contains several error conditions. When clicking at the Error Menssage at a node, you are redirected within this page to the section where the the error that is happening at that node is explained."
+        },
+        {
+            "style": "Anchor",
+            "text": "Host Property Not Found"
+        },
+        {
+            "style": "Title",
+            "text": "Reason #2: Host Property Not Found"
+        },
+        {
+            "style": "Text",
+            "text": "The following property was expected and not found at the Network Node config:",
+            "updated": 1610889169227
+        },
+        {
+            "style": "Json",
+            "text": "host"
+        },
+        {
+            "style": "Error",
+            "text": "Bad Configuration - Host Property Not Found",
+            "updated": 1610889199843
+        },
+        {
+            "style": "Success",
+            "text": "Double check that you did not misspell this property. It's value should be the hostName or IP number of the computer / server hosting the Superalgos Client.",
+            "updated": 1610889251223
+        },
+        {
+            "style": "Note",
+            "text": "This page contains several error conditions. When clicking at the Error Menssage at a node, you are redirected within this page to the section where the the error that is happening at that node is explained."
+        },
+        {
+            "style": "Anchor",
+            "text": "WebSocketsPort Property Not Found",
+            "updated": 1610889501929
+        },
+        {
+            "style": "Title",
+            "text": "Reason #3: WebSocketsPort Property Not Found"
+        },
+        {
+            "style": "Text",
+            "text": "The following property was expected and not found at the Network Node config:"
+        },
+        {
+            "style": "Json",
+            "text": "webSocketsPort",
+            "updated": 1610889416628
+        },
+        {
+            "style": "Error",
+            "text": "Error: Bad Configuration - WebSocketsPort Property Not Found",
+            "updated": 1610889423432
+        },
+        {
+            "style": "Success",
+            "text": "Tip: Double check that you did not misspell this property. It's value should be the port number configured for the Client Websockets Interface.",
+            "updated": 1610889486046
+        },
+        {
+            "style": "Note",
+            "text": "This page contains several error conditions. When clicking at the Error Menssage at a node, you are redirected within this page to the section where the the error that is happening at that node is explained."
+        }
+    ]
+}

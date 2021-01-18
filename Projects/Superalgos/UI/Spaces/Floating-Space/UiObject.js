@@ -4,7 +4,7 @@ function newUiObject() {
     const ERROR_LOG = true
 
     const logger = newWebDebugLog()
-    
+
 
     let thisObject = {
         fitFunction: undefined,
@@ -19,6 +19,7 @@ function newUiObject() {
         conditionEditor: undefined,
         formulaEditor: undefined,
         uiObjectTitle: undefined,
+        uiObjectMessage: undefined,
         circularProgressBar: undefined,
         isRunning: undefined,
         isPlaying: undefined,
@@ -124,6 +125,10 @@ function newUiObject() {
     let warningMessage = ''
     let infoMessage = ''
 
+    let errorDocs = undefined
+    let warningDocs = undefined
+    let infoDocs = undefined
+
     let currentValue = 0
     let valueMinDecimals = undefined
     let currentPercentage = ''
@@ -171,6 +176,8 @@ function newUiObject() {
         thisObject.menu = undefined
         thisObject.uiObjectTitle.finalize()
         thisObject.uiObjectTitle = undefined
+        thisObject.uiObjectMessage.finalize()
+        thisObject.uiObjectMessage = undefined
         thisObject.fitFunction = undefined
         thisObject.isVisibleFunction = undefined
 
@@ -200,6 +207,10 @@ function newUiObject() {
         lastHeartBeat = undefined
 
         onRunningCallBackFunction = undefined
+
+        errorDocs = undefined
+        warningDocs = undefined
+        infoDocs = undefined
     }
 
     function finalizeEventsServerClient() {
@@ -237,9 +248,17 @@ function newUiObject() {
 
         thisObject.uiObjectTitle = newUiObjectTitle()
         thisObject.uiObjectTitle.isVisibleFunction = thisObject.isVisibleFunction
-        thisObject.uiObjectTitle.container.connectToParent(thisObject.container, false, false, true, true, false, false, true, true)
+        thisObject.uiObjectTitle.container.connectToParent(thisObject.container, false, false, true, true, false, false,  true, true)
         thisObject.uiObjectTitle.fitFunction = thisObject.fitFunction
         thisObject.uiObjectTitle.initialize(thisObject.payload)
+
+        /* Initialize UI Object Message */
+
+        thisObject.uiObjectMessage = newUiObjectMessage()
+        thisObject.uiObjectMessage.isVisibleFunction = thisObject.isVisibleFunction
+        thisObject.uiObjectMessage.container.connectToParent(thisObject.container, false, false, true, true, false, false, false, true)
+        thisObject.uiObjectMessage.fitFunction = thisObject.fitFunction
+        thisObject.uiObjectMessage.initialize(thisObject.payload)
 
         /* Load UI Object Image */
 
@@ -305,6 +324,9 @@ function newUiObject() {
                 if (container !== undefined) { return container }
             }
 
+            container = thisObject.uiObjectMessage.getContainer(point)
+            if (container !== undefined) { return container }
+
             container = thisObject.menu.getContainer(point)
             if (container !== undefined) { return container }
         }
@@ -320,11 +342,15 @@ function newUiObject() {
         thisObject.menu.invisiblePhysics()
         childrenRunningPhysics()
         thisObject.uiObjectTitle.physics()
+        thisObject.uiObjectMessage.physics()
     }
 
     function physics() {
         thisObject.menu.physics()
         thisObject.uiObjectTitle.physics()
+
+        thisObject.menu.physics()
+        thisObject.uiObjectMessage.physics()
 
         if (thisObject.codeEditor !== undefined) {
             thisObject.codeEditor.physics()
@@ -676,6 +702,11 @@ function newUiObject() {
             if (errorMessageCounter < 0) {
                 errorMessageCounter = 0
                 thisObject.hasError = false
+
+                if (thisObject.uiObjectMessage.type === 'Error') {
+                    thisObject.uiObjectMessage.text = undefined
+                    thisObject.uiObjectMessage.type = undefined
+                }
             }
         }
 
@@ -684,6 +715,11 @@ function newUiObject() {
             if (warningMessageCounter < 0) {
                 warningMessageCounter = 0
                 thisObject.hasWarning = false
+
+                if (thisObject.uiObjectMessage.type === 'Warning') {
+                    thisObject.uiObjectMessage.text = undefined
+                    thisObject.uiObjectMessage.type = undefined
+                }
             }
         }
 
@@ -692,6 +728,11 @@ function newUiObject() {
             if (infoMessageCounter < 0) {
                 infoMessageCounter = 0
                 thisObject.hasInfo = false
+
+                if (thisObject.uiObjectMessage.type === 'Info') {
+                    thisObject.uiObjectMessage.text = undefined
+                    thisObject.uiObjectMessage.type = undefined
+                }
             }
         }
 
@@ -798,9 +839,10 @@ function newUiObject() {
         runningAtBackendCounter = 5
     }
 
-    function setErrorMessage(message, duration) {
+    function setErrorMessage(message, duration, docs) {
         if (message !== undefined) {
             errorMessage = message
+            errorDocs = docs
             thisObject.hasError = true
             if (duration === undefined) { duration = 2 }
             errorMessageCounter = 100 * duration
@@ -830,12 +872,19 @@ function newUiObject() {
 
     function resetErrorMessage() {
         errorMessage = undefined
+        errorDocs = undefined
         thisObject.hasError = false
+
+        if (thisObject.uiObjectMessage.type === 'Error') {
+            thisObject.uiObjectMessage.text = undefined
+            thisObject.uiObjectMessage.type = undefined
+        }
     }
 
-    function setWarningMessage(message, duration) {
+    function setWarningMessage(message, duration, docs) {
         if (message !== undefined) {
             warningMessage = message
+            warningDocs = docs
             thisObject.hasWarning = true
             if (duration === undefined) { duration = 1 }
             warningMessageCounter = 100 * duration
@@ -865,12 +914,19 @@ function newUiObject() {
 
     function resetWarningMessage() {
         warningMessage = undefined
+        warningDocs = undefined
         thisObject.hasWarning = false
+
+        if (thisObject.uiObjectMessage.type === 'Warning') {
+            thisObject.uiObjectMessage.text = undefined
+            thisObject.uiObjectMessage.type = undefined
+        }
     }
 
-    function setInfoMessage(message, duration) {
+    function setInfoMessage(message, duration, docs) {
         if (message !== undefined) {
             infoMessage = message
+            infoDocs = docs
             thisObject.hasInfo = true
             if (duration === undefined) { duration = 1 }
             infoMessageCounter = 100 * duration
@@ -900,7 +956,13 @@ function newUiObject() {
 
     function resetInfoMessage() {
         infoMessage = undefined
+        infoDocs = undefined
         thisObject.hasInfo = false
+
+        if (thisObject.uiObjectMessage.type === 'Info') {
+            thisObject.uiObjectMessage.text = undefined
+            thisObject.uiObjectMessage.type = undefined
+        }
     }
 
     function getValue() {
@@ -1057,7 +1119,7 @@ function newUiObject() {
             async function onError(message) {
 
                 let uiObject = await getTargetUiObject(message)
-                uiObject.setErrorMessage(message.event.errorMessage, 10)
+                uiObject.setErrorMessage(message.event.errorMessage, 10, message.event.docs)
 
                 let event = {
                     type: 'Secondary Action Already Executed'
@@ -1076,7 +1138,7 @@ function newUiObject() {
 
             async function onWarning(message) {
                 let uiObject = await getTargetUiObject(message)
-                uiObject.setWarningMessage(message.event.warningMessage, 10)
+                uiObject.setWarningMessage(message.event.warningMessage, 10, message.event.docs)
             }
         }
 
@@ -1090,7 +1152,7 @@ function newUiObject() {
 
             async function onInfo(message) {
                 let uiObject = await getTargetUiObject(message)
-                uiObject.setInfoMessage(message.event.infoMessage, 10)
+                uiObject.setInfoMessage(message.event.infoMessage, 10, message.event.docs)
             }
         }
     }
@@ -1346,6 +1408,7 @@ function newUiObject() {
             drawPercentage()
             drawStatus()
             thisObject.uiObjectTitle.draw()
+            thisObject.uiObjectMessage.draw()
             drawNodeType()
         }
     }
@@ -1431,6 +1494,7 @@ function newUiObject() {
 
             if (drawTitle === true) {
                 thisObject.uiObjectTitle.draw()
+                thisObject.uiObjectMessage.draw()
             }
         }
     }
@@ -1677,94 +1741,29 @@ function newUiObject() {
 
     function drawErrorMessage() {
         if (thisObject.hasError === false) { return }
-        drawMessage(errorMessage, UI_COLOR.RUSTED_RED)
+
+        thisObject.uiObjectMessage.text = errorMessage
+        thisObject.uiObjectMessage.type = 'Error'
+        thisObject.uiObjectMessage.docs = errorDocs
     }
 
     function drawWarningMessage() {
         if (thisObject.hasError === true) { return }
         if (thisObject.hasWarning !== true) { return }
-        drawMessage(warningMessage, UI_COLOR.TITANIUM_YELLOW)
+
+        thisObject.uiObjectMessage.text = warningMessage
+        thisObject.uiObjectMessage.type = 'Warning'
+        thisObject.uiObjectMessage.docs = warningDocs
     }
 
     function drawInfoMessage() {
         if (thisObject.hasError === true) { return }
         if (thisObject.hasWarning === true) { return }
         if (thisObject.hasInfo !== true) { return }
-        drawMessage(infoMessage, UI_COLOR.TURQUOISE)
-    }
 
-    function drawMessage(message, textColor) {
-
-        if (UI.projects.superalgos.spaces.floatingSpace.inMapMode === true) {
-            return
-        }
-        if (thisObject.codeEditor !== undefined && thisObject.codeEditor.visible === true) { return }
-        if (thisObject.formulaEditor !== undefined && thisObject.formulaEditor.visible === true) { return }
-        if (thisObject.confitionEditor !== undefined && thisObject.confitionEditor.visible === true) { return }
-        if (thisObject.configEditor !== undefined && thisObject.configEditor.visible === true) { return }
-
-        /* Text Follows */
-        let position = {
-            x: 0,
-            y: 0
-        }
-
-        position = thisObject.container.frame.frameThisPoint(position)
-
-        if (UI.projects.superalgos.spaces.floatingSpace.inMapMode === true) {
-            position = UI.projects.superalgos.spaces.floatingSpace.transformPointToMap(position)
-        }
-
-        let radius = thisObject.payload.floatingObject.container.frame.radius
-        /* Label Text */
-        let labelPoint
-        let fontSize = thisObject.payload.floatingObject.currentFontSize * 3 / 4
-        let lineSeparator = thisObject.payload.floatingObject.currentFontSize * 1.2
-        let label
-
-        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-
-        if (radius > 6) {
-            const IDEAL_LABEL_LENGTH = 80
-
-            label = message
-
-            if (label !== undefined && label !== null) {
-                if (label.length > IDEAL_LABEL_LENGTH) {
-                    if (label.length > IDEAL_LABEL_LENGTH * 3) {
-                        label = label.substring(0, IDEAL_LABEL_LENGTH * 3) + '...'
-                    }
-                    fontSize = thisObject.payload.floatingObject.currentFontSize * 2 / 4
-                }
-
-                if (thisObject.isOnFocus === true) {
-                    /* Split the line into Phrases */
-                    let phrases = splitTextIntoPhrases(label, 5)
-
-                    for (let i = 0; i < phrases.length; i++) {
-                        let phrase = phrases[i]
-                        labelPoint = {
-                            x: position.x - getTextWidth(phrase) / 2,
-                            y: position.y + lineSeparator * (6 - phrases.length + 1 + i) + 30
-                        }
-                        printMessage(phrase)
-                    }
-                } else {
-                    if (label.length < 50) {
-                        labelPoint = {
-                            x: position.x - getTextWidth(label) / 2,
-                            y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 6
-                        }
-                        printMessage(label)
-                    }
-                }
-
-                function printMessage(text) {
-                    browserCanvasContext.fillStyle = 'rgba(' + textColor + ', 1)'
-                    browserCanvasContext.fillText(text, labelPoint.x, labelPoint.y)
-                }
-            }
-        }
+        thisObject.uiObjectMessage.text = infoMessage
+        thisObject.uiObjectMessage.type = 'Info'
+        thisObject.uiObjectMessage.docs = infoDocs
     }
 
     function drawValue() {

@@ -1373,7 +1373,7 @@ function newSuperalgosTutorialSpace() {
                     case 'Link': {
                         let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)
                         let splittedText = text.split('->')
-                        html = html + '<a class="tutorial-font-small tutorial-external-link" href="' + splittedText[1] + '" target="_blank">' + splittedText[0] + '</a>'
+                        html = html + '<a class="tutorial-font-small tutorial-external-link" href="' + 'https://' + splittedText[1] + '" target="_blank">' + splittedText[0] + '</a>'
                         break
                     }
                     case 'Note': {

@@ -6,7 +6,7 @@ function newEventsServerClient(networkNode) {
     const ERROR_LOG = true
     const INFO_LOG = true
     const logger = newWebDebugLog()
-    
+
 
     let WEB_SOCKETS_CONNECTION
 
@@ -27,7 +27,7 @@ function newEventsServerClient(networkNode) {
     let commandsWaitingConfirmation = new Map()
     let commandsSentByTimestamp = new Map()
     let nonce = 0
-    let lastTryToReconnectDatetime 
+    let lastTryToReconnectDatetime
 
     return thisObject
 
@@ -54,7 +54,7 @@ function newEventsServerClient(networkNode) {
         if (WEB_SOCKETS_CONNECTION !== undefined) {
             if (WEB_SOCKETS_CONNECTION.readyState === 1) {
                 return true
-            }  
+            }
         }
     }
 
@@ -76,7 +76,7 @@ function newEventsServerClient(networkNode) {
     }
 
     function sendToWebSocketServer(command) {
-        if (commandsWaitingConfirmation === undefined) {return} // object already finalized
+        if (commandsWaitingConfirmation === undefined) { return } // object already finalized
 
         nonce++
         let stringNonce = nonce.toString()
@@ -162,7 +162,7 @@ function newEventsServerClient(networkNode) {
 
     function physics() {
         if (WEB_SOCKETS_CONNECTION !== undefined) {
-            if (WEB_SOCKETS_CONNECTION.readyState === 3) { 
+            if (WEB_SOCKETS_CONNECTION.readyState === 3) {
                 /*
                 Connection closed. May happen after computer goes to sleep.
                 We will try to reconnect, but we will do it no more that once 
@@ -177,7 +177,7 @@ function newEventsServerClient(networkNode) {
                         setuptWebSockets(onOpen)
                     }
                 }
-                
+
                 function onOpen() {
                     if (INFO_LOG === true) { logger.write('[INFO] setuptWebSockets -> Found Web Sockets Connection Closed. Reconnected to WebSockets Server.') }
                 }
@@ -190,8 +190,8 @@ function newEventsServerClient(networkNode) {
             setuptWebSockets(onOpen)
         }
 
-        if (thisObject.isConnected() !== true ) {
-            if ( lastTryToReconnectDatetime !== undefined) {
+        if (thisObject.isConnected() !== true) {
+            if (lastTryToReconnectDatetime !== undefined) {
                 if (networkNode !== undefined) {
                     if (networkNode.payload !== undefined) {
                         if (networkNode.payload.uiObject !== undefined) {
@@ -206,8 +206,8 @@ function newEventsServerClient(networkNode) {
                     if (networkNode.payload.uiObject !== undefined) {
                         networkNode.payload.uiObject.setStatus('Connected to Superalgos Client via WebSockets.')
                         retryCommandsPhysics()
-                    }   
-                }   
+                    }
+                }
             }
         }
 
@@ -225,19 +225,46 @@ function newEventsServerClient(networkNode) {
                 port = config.webSocketsPort
 
                 /* Check if we really have to stablish the connection. */
-                if (config.autoConnect === false) {return}
+                if (config.autoConnect === false) { return }
             } catch (err) {
-                networkNode.payload.uiObject.setErrorMessage('Bad configuration. Cannot know the host name or the webSocketsPort.')
+                networkNode.payload.uiObject.setErrorMessage(
+                    'Bad configuration. Invalid JSON Format.',
+                    undefined,
+                    {
+                        project: 'Superalgos',
+                        category: 'Topic',
+                        type: 'UI Websockets Error - Bad Configuration',
+                        anchor: 'Invalid JSON Format'
+                    }
+                )
                 return
             }
 
             if (host === undefined) {
-                networkNode.payload.uiObject.setErrorMessage('Bad configuration. You need to have a host property.')
+                networkNode.payload.uiObject.setErrorMessage(
+                    'Bad configuration. Host Property Not Found.',
+                    undefined,
+                    {
+                        project: 'Superalgos',
+                        category: 'Topic',
+                        type: 'UI Websockets Error - Bad Configuration',
+                        anchor: 'Host Property Not Found'
+                    }
+                )
                 return
             }
 
             if (port === undefined) {
-                networkNode.payload.uiObject.setErrorMessage('Bad configuration. You need to have a webSocketsPort property.')
+                networkNode.payload.uiObject.setErrorMessage(
+                    'Bad configuration. WebSocketsPort Property Not Found.',
+                    undefined,
+                    {
+                        project: 'Superalgos',
+                        category: 'Topic',
+                        type: 'UI Websockets Error - Bad Configuration',
+                        anchor: 'WebSocketsPort Property Not Found'
+                    }
+                )
                 return
             }
 

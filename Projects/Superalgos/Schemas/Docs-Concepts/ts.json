@@ -1,0 +1,14 @@
+{
+    "type": "TS",
+    "definition": {
+        "text": "TS is the abbreviation of Task Server, one of the core components of the Superalgos Software.",
+        "updated": 1610912495126
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "TS is also the root object of a data structure available at runtime within the Task Server.",
+            "updated": 1610911849966
+        }
+    ]
+}

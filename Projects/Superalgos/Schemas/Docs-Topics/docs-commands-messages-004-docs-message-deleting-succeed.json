@@ -3,14 +3,14 @@
     "pageNumber": 4,
     "type": "Docs Message - Deleting Succeed",
     "definition": {
-        "text": "The docs.delete command you executed successfuly deleted the page you requested.",
-        "updated": 1610292270590
+        "text": "The docs.delete command deleted from memory the page you requested.",
+        "updated": 1610973738997
     },
     "paragraphs": [
         {
             "style": "Important",
-            "text": "The page was flagged to be deleted. It will be removed from the in-memory collection of pages once you run the Docs Save Command. Even after that it will still be indexed at the Docs Search Engine Index. To remove it from the index you need to execute Docs Reindex Command. The Docs Save Command will instruct the Client to delete it from it's disk.",
-            "updated": 1610292163004
+            "text": "The page was flagged to be deleted. It will be removed from the in-memory collection of pages once you run the Docs Save Command. The Docs Save Command instructs the Client to delete the file from disk. To remove the page from the index you must run the Docs Reindex Command.",
+            "updated": 1610973712136
         }
     ]
 }

@@ -3,14 +3,14 @@
     "pageNumber": 3,
     "type": "Docs Message - Reindexing Succeed",
     "definition": {
-        "text": "The docs.reindex command you executed succesfully rebuilt the Docs Search Engine Index.",
-        "updated": 1609783396612
+        "text": "The docs.reindex command finished rebuilding the Docs Search Engine Index.",
+        "updated": 1610973361369
     },
     "paragraphs": [
         {
             "style": "Success",
-            "text": "The index was rebuilt and now includes all the latest changes you have made since you open the UI or since the last time you executed the docs.reindex command. That means that new content created now should affect the search results. Also, changes in the Workspace have been applied to the index too.",
-            "updated": 1609783508213
+            "text": "The index was rebuilt and now includes all the latest changes you made since you open the UI or since the last time you run the docs.reindex command. That means that new content created is now searchable. Changes in the Workspace have been entered in the index too.",
+            "updated": 1610973446156
         }
     ]
 }

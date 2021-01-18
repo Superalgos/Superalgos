@@ -3,8 +3,8 @@
     "pageNumber": 5,
     "type": "Docs Message - Repagination Succeed",
     "definition": {
-        "text": "The docs.repaginate command you executed successfuly.",
-        "updated": 1610292270590
+        "text": "The docs.repaginate command finished repaginating.",
+        "updated": 1610973772448
     },
     "paragraphs": [
         {

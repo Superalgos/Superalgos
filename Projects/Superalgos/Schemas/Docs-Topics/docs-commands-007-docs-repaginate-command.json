@@ -1,0 +1,44 @@
+{
+    "topic": "Docs Commands",
+    "pageNumber": "7",
+    "type": "Docs Repaginate Command",
+    "definition": {
+        "text": "When you add a Docs Topic Page or a Docs Tutorial Page, you may define a page number. The number defines the position of the page within the table of contents. To add a page in-between other pages you may use decimal values. Use the Repaginate command to recalculate all page numbers and leave the whole set in integers.",
+        "updated": 1610976158171
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Syntax",
+            "updated": 1610393031768
+        },
+        {
+            "style": "Javascript",
+            "text": "docs.repaginate Category from Project: Topic or Tutorial name."
+        },
+        {
+            "style": "Title",
+            "text": "Properties"
+        },
+        {
+            "style": "List",
+            "text": "Category: It must be either Topic or Tutorial."
+        },
+        {
+            "style": "List",
+            "text": "Project: Any existing already integrated project."
+        },
+        {
+            "style": "List",
+            "text": "Topic or Tutorial name: The name given tu the Topic or Tutorial that you want to repaginate."
+        },
+        {
+            "style": "Title",
+            "text": "Example"
+        },
+        {
+            "style": "Javascript",
+            "text": "docs.repaginate Topic from Superalgos: Docs Commands"
+        }
+    ]
+}

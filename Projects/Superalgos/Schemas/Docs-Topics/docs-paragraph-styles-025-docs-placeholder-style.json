@@ -1,0 +1,38 @@
+{
+    "topic": "Docs Paragraph Styles",
+    "pageNumber": "25",
+    "type": "Docs Placeholder Style",
+    "definition": {
+        "text": "A placeholder is used to render information comming from and external source outside the docs, like the UI in general, the Client or the TS. It is the mechanism used for instance to display error messages or values inside a Docs Page.",
+        "updated": 1610962972510
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "When the docs is opened from a node at the UI displaying an Error, Warning or Info message, the Docs has the ability to display even more detailed information about that event. The way is that is by receiving a Placeholder Object with different properties, like for instance, errorMessage, errorStack, and potentially others.",
+            "updated": 1610963199983
+        },
+        {
+            "style": "Text",
+            "text": "If you create a place holder at the page to be opened with a text value matching any of this object properties, the content of that property will be displayed at the placeholder paragraph.",
+            "updated": 1610963314406
+        },
+        {
+            "style": "Title",
+            "text": "Examples"
+        },
+        {
+            "style": "Text",
+            "text": "Placeholder for the property errorMessage"
+        },
+        {
+            "style": "Placeholder",
+            "text": "errorMessage"
+        },
+        {
+            "style": "Note",
+            "text": "If the page is viewed without the Placeholder object being available, it will just display the property name defined for it.",
+            "updated": 1610963328965
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 30,
+    "type": "Tutorial Step - Careful With Your Data!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "dataset-definition"
+        },
+        "text": "It may take up to one minute for all tasks to come to a halt. You should never close the system before all tasks stop."
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Take another quick look at the console app to see how tasks get stopped!"
+        },
+        {
+            "style": "Warning",
+            "text": "Closing the Client before tasks stop may cause your data to become corrupt."
+        }
+    ]
+}

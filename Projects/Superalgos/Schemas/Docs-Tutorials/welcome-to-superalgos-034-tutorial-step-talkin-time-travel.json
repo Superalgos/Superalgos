@@ -1,0 +1,27 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 34,
+    "type": "Tutorial Step - Talkin' Time Travel",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "time-machine"
+        },
+        "text": "I mentioned earlier there are two charts in this workspace. In Superalgos, we call each of these a Time Machine."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "A time machine may hold one Timeline Chart or more. We call them time machines because all timeline charts within a time machine are synchronized in time. This feature of time machines allows to superimpose different layers of data sharing the same Time Scale."
+        },
+        {
+            "style": "Callout",
+            "text": "Hover your mouse pointer over the time machines!"
+        },
+        {
+            "style": "Text",
+            "text": "Notice the label emerging on the left-hand side showing which exchanges and markets the data is associated with. A single time machine may hold data from multiple markets and multiple exchanges!",
+            "updated": 1610622145377
+        }
+    ]
+}

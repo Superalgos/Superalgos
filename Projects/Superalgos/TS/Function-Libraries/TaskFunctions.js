@@ -7,18 +7,20 @@ exports.newSuperalgosFunctionLibrariesTaskFunctions = function () {
 
     return thisObject
 
-    function taskError(node, errorMessage) {
+    function taskError(node, errorMessage, docs) {
         let event
         if (node !== undefined) {
             event = {
                 nodeName: node.name,
                 nodeType: node.type,
                 nodeId: node.id,
-                errorMessage: errorMessage
+                errorMessage: errorMessage,
+                docs: docs
             }
         } else {
             event = {
-                errorMessage: errorMessage
+                errorMessage: errorMessage,
+                docs: docs
             }
         }
         let key = TS.projects.superalgos.globals.taskConstants.TASK_NODE.name + '-' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.type + '-' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.id

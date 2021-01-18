@@ -2167,8 +2167,7 @@
                 "childType": "Github API"
             }
         ],
-        "isPersonalData": true,
-        "icon": "bitcoin"
+        "isPersonalData": true
     },
     {
         "type": "Github API",
@@ -2203,8 +2202,7 @@
             "compatibleTypes": "->APIs->"
         },
         "propertyNameAtParent": "githubAPI",
-        "isPersonalData": true,
-        "icon": "bitcoin"
+        "isPersonalData": true
     },
     {
         "type": "Network",

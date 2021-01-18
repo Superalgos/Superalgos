@@ -3,8 +3,8 @@
     "pageNumber": "7",
     "type": "Docs Node Page",
     "definition": {
-        "text": "Each node of each Project have a corresponding Node Page at the Docs, explaining everything to be known about that node.",
-        "updated": 1609182353739
+        "text": "Each node in a Project should have a corresponding Node Page defining the node and explaining how it is used.",
+        "updated": 1611000867717
     },
     "paragraphs": [
         {

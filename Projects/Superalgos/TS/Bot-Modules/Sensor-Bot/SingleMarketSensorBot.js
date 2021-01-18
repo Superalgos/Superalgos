@@ -551,7 +551,17 @@
 
             function processStopped() {
                 if (TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE !== undefined) {
-                    TS.projects.superalgos.functionLibraries.processFunctions.processError(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_KEY, undefined, "An unexpected error caused the Process to stop.")
+                    TS.projects.superalgos.functionLibraries.processFunctions.processError
+                        (
+                            TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_KEY,
+                            undefined,
+                            "An unexpected error caused the Process to stop.",
+                            {
+                                project: 'Superalgos',
+                                category: 'Topic',
+                                type: 'TS Process Error - Unexpected Error'
+                            }
+                        )
                 } else {
                     TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_KEY, 'Stopped')
                 }

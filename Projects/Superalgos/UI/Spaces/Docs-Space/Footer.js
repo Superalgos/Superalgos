@@ -63,7 +63,7 @@ function newSuperalgosDocsFooter() {
         HTML = HTML + '</div>'
 
         HTML = HTML + '<div class="docs-footer-cell">'
-        HTML = HTML + '<h4>Contribute Translations</h4>'
+        HTML = HTML + '<h4>To Contribute Translations</h4>'
         HTML = HTML + '<strong>1. </strong>Switch to your language.<br/>'
         HTML = HTML + '<strong>2. </strong>Edit any English content (title, paragraph, etc.) with your translation.<br/>'
         HTML = HTML + '<strong>3. </strong>Save changes typing <code class="docs-footer-code">docs.save</code> in the search/command box.<br/>'
@@ -91,7 +91,7 @@ function newSuperalgosDocsFooter() {
         HTML = HTML + '<div class="docs-footer-row">'
         HTML = HTML + '<div class="docs-footer-cell">'
         HTML = HTML + '<h4>About Your Deployment</h4>'
-        HTML = HTML + 'Superalgos may run from different branches in the repository. The <code class="docs-footer-code">Master</code> branch features the stable version, and the <code class="docs-footer-code">Develop</code> branch the version in development anyone can test.'
+        HTML = HTML + 'Superalgos may run from different branches in the repository. The <code class="docs-footer-code">Master</code> branch features the stable version, and the <code class="docs-footer-code">Develop</code> branch the version in development open for testing.'
         HTML = HTML + '</div>'
 
         HTML = HTML + '<div class="docs-footer-cell">'
@@ -153,6 +153,10 @@ function newSuperalgosDocsFooter() {
         HTML = HTML + '<li><a href="https://t.me/superalgos" target="_blank">Official Announcements</a></li>'
         HTML = HTML + '<li><a href="https://superalgos.org" target="_blank">Features and Functionality</a></li>'
         HTML = HTML + '<li><a href="https://github.com/Superalgos/Superalgos" target="_blank">Main Repository</a></li>'
+        HTML = HTML + '<li><a href="https://www.youtube.com/c/superalgos" target="_blank">Subscribe in YouTube</a></li>'
+        HTML = HTML + '<li><a href="https://twitter.com/superalgos" target="_blank">Follow us on Twitter</a></li>'
+        HTML = HTML + '<li><a href="https://www.facebook.com/superalgos" target="_blank">Connect on Facebook</a></li>'
+        HTML = HTML + '<li><a href="https://medium.com/Superalgos/" target="_blank">Read the Blog</a></li>'
         HTML = HTML + '</ul>'
         HTML = HTML + '</div>'
         HTML = HTML + '</div>'

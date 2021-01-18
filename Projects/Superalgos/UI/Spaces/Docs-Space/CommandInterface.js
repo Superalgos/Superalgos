@@ -170,7 +170,7 @@ function newSuperalgosDocsCommmandInterface() {
             let splittedCommand = UI.projects.superalgos.spaces.docsSpace.commandInterface.command.split(' ')
 
             if (splittedCommand[1] === undefined) {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Too Few Parameters', 'Anchor Too Few Paramenters')
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Too Few Parameters', 'Anchor Too Few Parameters')
                 return
             }
             let secondaryCommand = UI.projects.superalgos.spaces.docsSpace.commandInterface.command.substring(UI.projects.superalgos.spaces.docsSpace.commandInterface.command.indexOf(' ') + 1, UI.projects.superalgos.spaces.docsSpace.commandInterface.command.length)
@@ -256,7 +256,7 @@ function newSuperalgosDocsCommmandInterface() {
                 }
 
                 if (splittedPrimaryCommand.length < 4) {
-                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Too Few Parameters', 'Anchor Too Few Paramenters')
+                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Too Few Parameters', 'Anchor Too Few Parameters')
                     return
                 }
 
@@ -277,7 +277,7 @@ function newSuperalgosDocsCommmandInterface() {
                     case 'topic': {
                         let splittedSecondaryCommand = secondaryCommand.split('->')
                         if (splittedSecondaryCommand.length < 2) {
-                            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Too Few Parameters', 'Anchor Too Few Paramenters')
+                            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Too Few Parameters', 'Anchor Too Few Parameters')
                             return
                         }
                         addTopic(splittedPrimaryCommand[3], splittedSecondaryCommand[0], splittedSecondaryCommand[1], splittedSecondaryCommand[2])
@@ -286,7 +286,7 @@ function newSuperalgosDocsCommmandInterface() {
                     case 'tutorial': {
                         let splittedSecondaryCommand = secondaryCommand.split('->')
                         if (splittedSecondaryCommand.length < 2) {
-                            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Too Few Parameters', 'Anchor Too Few Paramenters')
+                            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Too Few Parameters', 'Anchor Too Few Parameters')
                             return
                         }
                         addTutorial(splittedPrimaryCommand[3], splittedSecondaryCommand[0], splittedSecondaryCommand[1], splittedSecondaryCommand[2])
@@ -295,7 +295,7 @@ function newSuperalgosDocsCommmandInterface() {
                     case 'review': {
                         let splittedSecondaryCommand = secondaryCommand.split('->')
                         if (splittedSecondaryCommand.length < 2) {
-                            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Too Few Parameters', 'Anchor Too Few Paramenters')
+                            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Too Few Parameters', 'Anchor Too Few Parameters')
                             return
                         }
                         addReview(splittedPrimaryCommand[3], splittedSecondaryCommand[0], splittedSecondaryCommand[1], splittedSecondaryCommand[2])
@@ -343,7 +343,7 @@ function newSuperalgosDocsCommmandInterface() {
                 }
 
                 if (splittedPrimaryCommand.length < 4) {
-                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Too Few Parameters', 'Anchor Too Few Paramenters')
+                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Too Few Parameters', 'Anchor Too Few Parameters')
                     return
                 }
 
@@ -364,7 +364,7 @@ function newSuperalgosDocsCommmandInterface() {
                     case 'topic': {
                         let splittedSecondaryCommand = secondaryCommand.split('->')
                         if (splittedSecondaryCommand.length < 3) {
-                            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Too Few Parameters', 'Anchor Too Few Paramenters')
+                            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Too Few Parameters', 'Anchor Too Few Parameters')
                             return
                         }
                         deleteTopic(splittedPrimaryCommand[3], splittedSecondaryCommand[0], splittedSecondaryCommand[1], splittedSecondaryCommand[2])
@@ -373,7 +373,7 @@ function newSuperalgosDocsCommmandInterface() {
                     case 'tutorial': {
                         let splittedSecondaryCommand = secondaryCommand.split('->')
                         if (splittedSecondaryCommand.length < 3) {
-                            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Too Few Parameters', 'Anchor Too Few Paramenters')
+                            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Too Few Parameters', 'Anchor Too Few Parameters')
                             return
                         }
                         deleteTutorial(splittedPrimaryCommand[3], splittedSecondaryCommand[0], splittedSecondaryCommand[1], splittedSecondaryCommand[2])
@@ -382,7 +382,7 @@ function newSuperalgosDocsCommmandInterface() {
                     case 'review': {
                         let splittedSecondaryCommand = secondaryCommand.split('->')
                         if (splittedSecondaryCommand.length < 3) {
-                            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Too Few Parameters', 'Anchor Too Few Paramenters')
+                            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Too Few Parameters', 'Anchor Too Few Parameters')
                             return
                         }
                         deleteReview(splittedPrimaryCommand[3], splittedSecondaryCommand[0], splittedSecondaryCommand[1], splittedSecondaryCommand[2])
@@ -425,7 +425,7 @@ function newSuperalgosDocsCommmandInterface() {
                 }
 
                 if (splittedPrimaryCommand.length < 4) {
-                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Too Few Parameters', 'Anchor Too Few Paramenters')
+                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Too Few Parameters', 'Anchor Too Few Parameters')
                     return
                 }
 
@@ -480,7 +480,7 @@ function newSuperalgosDocsCommmandInterface() {
             function startReindexingProcess() {
                 UI.projects.superalgos.spaces.docsSpace.searchEngine.setUpSearchEngine()
 
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message - Reindexing Succeed')
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message - Reindexing Done')
             }
         }
 
@@ -533,7 +533,7 @@ function newSuperalgosDocsCommmandInterface() {
 
                 if (responseCount === requestsSent) {
                     if (responseCount === okResponses) {
-                        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message - Saving Succeed')
+                        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message - Saving Done')
                         afterSaving()
                     } else {
                         UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Changes Not Saved', 'Anchor Changes Not Saved')
@@ -667,14 +667,14 @@ function newSuperalgosDocsCommmandInterface() {
                 pageNumber++
                 schemaDocument.updated = true
             }
-            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message - Repagination Succeed')
+            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message - Repagination Done')
         }
 
         function addNode(project, type) {
             let template = {
                 created: true,
                 type: type,
-                definition: { text: "Write here the definition of this Node." },
+                definition: { text: "Write a definition for this Node." },
                 paragraphs: [
                     {
                         style: "Text",
@@ -701,7 +701,7 @@ function newSuperalgosDocsCommmandInterface() {
             let template = {
                 created: true,
                 type: type,
-                definition: { text: "Write here the summary / definition of this Concept." },
+                definition: { text: "Write a summary / definition for this Concept." },
                 paragraphs: [
                     {
                         style: "Text",
@@ -742,7 +742,7 @@ function newSuperalgosDocsCommmandInterface() {
                 topic: topic,
                 pageNumber: pageNumber,
                 type: type,
-                definition: { text: "Write here a summary for this topic page." },
+                definition: { text: "Write a summary for this topic page." },
                 paragraphs: [
                     {
                         style: "Text",
@@ -782,7 +782,7 @@ function newSuperalgosDocsCommmandInterface() {
                 tutorial: tutorial,
                 pageNumber: pageNumber,
                 type: type,
-                definition: { text: "Write here a summary for this tutorial page." },
+                definition: { text: "Write a summary for this tutorial page." },
                 paragraphs: [
                     {
                         style: "Text",
@@ -822,7 +822,7 @@ function newSuperalgosDocsCommmandInterface() {
                 review: review,
                 pageNumber: pageNumber,
                 type: type,
-                definition: { text: "Write here a summary for this review page." },
+                definition: { text: "Write a summary for this review page." },
                 paragraphs: [
                     {
                         style: "Text",
@@ -849,7 +849,7 @@ function newSuperalgosDocsCommmandInterface() {
             let template = {
                 created: true,
                 type: type,
-                definition: { text: "Write here the summary / definition of this Book." },
+                definition: { text: "Write a summary / definition for this Book." },
                 paragraphs: [
                     {
                         style: "Text",
@@ -887,7 +887,7 @@ function newSuperalgosDocsCommmandInterface() {
             let schemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(type)
             schemaDocument.deleted = true
 
-            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message - Deleting Succeed')
+            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message - Deleting Done')
         }
 
         function deleteConcept(project, type) {
@@ -904,7 +904,7 @@ function newSuperalgosDocsCommmandInterface() {
             let schemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.get(type)
             schemaDocument.deleted = true
 
-            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message - Deleting Succeed')
+            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message - Deleting Done')
         }
 
         function deleteTopic(project, topic, type, pageNumber) {
@@ -930,7 +930,7 @@ function newSuperalgosDocsCommmandInterface() {
             let schemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.get(type)
             schemaDocument.deleted = true
 
-            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message - Deleting Succeed')
+            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message - Deleting Done')
         }
 
         function deleteTutorial(project, tutorial, type, pageNumber) {
@@ -956,7 +956,7 @@ function newSuperalgosDocsCommmandInterface() {
             let schemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema.get(type)
             schemaDocument.deleted = true
 
-            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message - Deleting Succeed')
+            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message - Deleting Done')
         }
 
         function deleteReview(project, review, type, pageNumber) {
@@ -982,7 +982,7 @@ function newSuperalgosDocsCommmandInterface() {
             let schemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsReviewSchema.get(type)
             schemaDocument.deleted = true
 
-            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message - Deleting Succeed')
+            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message - Deleting Done')
         }
 
         function deleteBook(project, type) {
@@ -999,7 +999,7 @@ function newSuperalgosDocsCommmandInterface() {
             let schemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsBookSchema.get(type)
             schemaDocument.deleted = true
 
-            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message - Deleting Succeed')
+            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message - Deleting Done')
         }
     }
 }

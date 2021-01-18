@@ -160,6 +160,10 @@ function newSuperalgosDocsSearchResultsPage() {
                             documentPoints = documentPoints + thisPhraseCount * 0
                             break
                         }
+                        case 'placeholder': {
+                            documentPoints = documentPoints + thisPhraseCount * 0
+                            break
+                        }
                         case 'link': {
                             documentPoints = documentPoints + thisPhraseCount * 1
                             break

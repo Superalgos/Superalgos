@@ -1696,6 +1696,14 @@ function newSuperalgosDocsDocumentPage() {
                         innerHTML = paragraph.text
                         break
                     }
+                    case 'Placeholder': {
+                        styleClass = 'class="docs-hidden-placeholder"'
+                        prefix = ''
+                        role = ''
+                        key = key + '-placeholder'
+                        innerHTML = paragraph.text
+                        break
+                    }
                     case 'Chapter': {
                         styleClass = 'class="docs-chapter"'
                         prefix = ''

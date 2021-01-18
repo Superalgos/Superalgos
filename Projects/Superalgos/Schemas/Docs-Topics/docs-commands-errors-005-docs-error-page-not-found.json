@@ -3,8 +3,8 @@
     "pageNumber": 5,
     "type": "Docs Error - Page Not Found",
     "definition": {
-        "text": "While executing a command, you might receive different types of error messanges. These are described below. ",
-        "updated": 1609159174480
+        "text": "The page does not exist in the category specified.",
+        "updated": 1610977264289
     },
     "paragraphs": [
         {
@@ -13,7 +13,8 @@
         },
         {
             "style": "Error",
-            "text": "The Docs Page Name you have specified could not be found in the collection of pages of the Docs Page Category you provided."
+            "text": "The Docs Page Name you specified can not be found in the collection of pages of the Docs Page Category you provided.",
+            "updated": 1610977238380
         },
         {
             "style": "Success",

@@ -3,8 +3,8 @@
     "pageNumber": 3,
     "type": "Docs Error - Project Does Not Exist",
     "definition": {
-        "text": "While executing a command, you might receive different types of error messanges. These are described below. ",
-        "updated": 1609159174480
+        "text": "You may have misspelled the name of the project.",
+        "updated": 1610976884761
     },
     "paragraphs": [
         {
@@ -13,12 +13,13 @@
         },
         {
             "style": "Error",
-            "text": "The Project you have specified, does not exist. ",
-            "updated": 1609160205674
+            "text": "The Project you have specified does not exist.",
+            "updated": 1610976906083
         },
         {
             "style": "Success",
-            "text": "Check that you typed the Project name correctly. Project names are key-sensitive."
+            "text": "Verify the Project name you typed. Project names are case-sensitive.",
+            "updated": 1610977145287
         },
         {
             "style": "Title",

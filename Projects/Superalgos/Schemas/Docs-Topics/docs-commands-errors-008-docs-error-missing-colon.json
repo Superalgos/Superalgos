@@ -3,8 +3,8 @@
     "pageNumber": 8,
     "type": "Docs Error - Missing Colon",
     "definition": {
-        "text": "You forgot the colon character \":\" that is part of the syntax of the command. ",
-        "updated": 1609176951837
+        "text": "Make sure you are using the \":\" in the appropriate position.",
+        "updated": 1610977606831
     },
     "paragraphs": [
         {
@@ -19,8 +19,8 @@
         },
         {
             "style": "Success",
-            "text": "   Check the syntax of the command you are executing and see where to place the colon \":\" character.  The character might not be detected if a space is not following it.    ",
-            "updated": 1609230445669
+            "text": "Check the syntax of the command you are executing and see where to place the colon \":\" character. The character may not be detected if it's not followed by a space.",
+            "updated": 1610977564139
         },
         {
             "style": "Title",

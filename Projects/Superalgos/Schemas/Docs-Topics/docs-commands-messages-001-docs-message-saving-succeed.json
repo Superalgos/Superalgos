@@ -3,14 +3,14 @@
     "pageNumber": 1,
     "type": "Docs Message - Saving Succeed",
     "definition": {
-        "text": "The docs.save command you executed was successful and all changes have been saved at the Superalgos Client.",
-        "updated": 1609783244197
+        "text": "The docs.save command was successful and all changes were saved at the Superalgos Client.",
+        "updated": 1610973296568
     },
     "paragraphs": [
         {
             "style": "Success",
-            "text": "All the latest changes to node, concept, topic and book pages have benn saved to disk.",
-            "updated": 1609832163904
+            "text": "All the latest changes to node, concept, topic, tutorial, review, and book pages have been saved to disk.",
+            "updated": 1610973308339
         }
     ]
 }

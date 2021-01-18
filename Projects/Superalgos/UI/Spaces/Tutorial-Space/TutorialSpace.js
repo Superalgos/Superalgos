@@ -734,6 +734,7 @@ function newSuperalgosTutorialSpace() {
     }
 
     function stop() {
+        resumeModeActivated = false
         resetAfterButtonPressed()
         checkForceFocus()
         if (tutorialRootNode !== undefined) {
@@ -744,6 +745,7 @@ function newSuperalgosTutorialSpace() {
     }
 
     function skip() {
+        resumeModeActivated = false
         resetAfterButtonPressed()
         checkForceFocus()
         let tutorial = {
@@ -754,6 +756,7 @@ function newSuperalgosTutorialSpace() {
     }
 
     function previous() {
+        resumeModeActivated = false
         resetAfterButtonPressed()
         checkForceFocus()
         if (navigationStack.length > 1) {
@@ -785,6 +788,7 @@ function newSuperalgosTutorialSpace() {
     }
 
     function next() {
+        resumeModeActivated = false
         resetAfterButtonPressed()
         checkForceFocus()
         if (ckeckGoingToAnotherTutorial() === true) { return }

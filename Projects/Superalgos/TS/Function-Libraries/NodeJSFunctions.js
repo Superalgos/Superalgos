@@ -9,9 +9,47 @@ exports.newSuperalgosFunctionLibrariesNodeJSFunctions = function () {
 
     function exitProcess() {
 
+        let uiError
+
         if (TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE !== undefined) {
-            TS.projects.superalgos.functionLibraries.taskFunctions.taskError(undefined, "An unexpected error caused the Task to stop. " + TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE)
+            uiError = "An unexpected error caused the Task to stop. " + TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE
+        } else {
+            uiError = "An unexpected error caused the Task to stop."
         }
+
+        let docs = {
+            project: 'Superalgos',
+            category: 'Topic',
+            type: 'TS Task Error - Unexpected Error',
+            placeholder: {}
+        }
+
+        if (TS.projects.superalgos.globals.taskVariables.UNEXPECTED_ERROR !== undefined) {
+            if (TS.projects.superalgos.globals.taskVariables.UNEXPECTED_ERROR.message !== undefined) {
+                docs.placeholder.errorMessage = {
+                    style: 'Error',
+                    text: TS.projects.superalgos.globals.taskVariables.UNEXPECTED_ERROR.message
+                }
+            }
+            if (TS.projects.superalgos.globals.taskVariables.UNEXPECTED_ERROR.stack !== undefined) {
+                docs.placeholder.errorStack = {
+                    style: 'Javascript',
+                    text: TS.projects.superalgos.globals.taskVariables.UNEXPECTED_ERROR.stack
+                }
+            }
+            if (TS.projects.superalgos.globals.taskVariables.UNEXPECTED_ERROR.code !== undefined) {
+                docs.placeholder.errorCode = {
+                    style: 'Json',
+                    text: TS.projects.superalgos.globals.taskVariables.UNEXPECTED_ERROR.code
+                }
+            }
+        }
+
+        TS.projects.superalgos.functionLibraries.taskFunctions.taskError(
+            undefined,
+            uiError,
+            docs
+        )
 
         if (isNodeJsProcessShuttingDown === true) { return }
         isNodeJsProcessShuttingDown = true

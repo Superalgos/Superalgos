@@ -68,11 +68,11 @@ function newSuperalgosDocsDocumentPage() {
                 let template = {
                     updated: true,
                     type: UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type,
-                    definition: { text: "Write here the definition of this " + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.category + "." },
+                    definition: { text: "Write the definition for this " + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.category + "." },
                     paragraphs: [
                         {
                             style: "Text",
-                            text: "Left click and Edit to enter edit mode and change this text."
+                            text: "Left click and select the pencil button to enter edit mode."
                         }
                     ]
                 }
@@ -147,7 +147,7 @@ function newSuperalgosDocsDocumentPage() {
                 let key = 'auto-generated-flag-paragraph'
                 let paragraph = {
                     style: "Warning",
-                    text: "This page is flagged to be deleted. Next time you run Docs Save Command, the content will be deleted from the Client's disk. If you refresh the page or close the browser before running the Docs Save Command, the flag is lost and the pade is not deleted. Changes will be applied to the Docs Search Engine Index only after you run the Docs Reindex Command."
+                    text: "This page is flagged to be deleted. Next time you run the Docs Save Command, the content will be deleted from the Client's disk. If you refresh the page or close the browser before running the Docs Save Command, the flag will be lost and the page will not be deleted. Changes will be applied to the Docs Search Engine Index only after you run the Docs Reindex Command."
                 }
                 renderParagraph(paragraph, key)
             } else {
@@ -155,7 +155,7 @@ function newSuperalgosDocsDocumentPage() {
                     let key = 'auto-generated-flag-paragraph'
                     let paragraph = {
                         style: "Important",
-                        text: "This page is flagged to be created / updated. Next time you run the Docs Save Command, the content will be saved on the Client's disk. If you refresh the page or close the browser before running the Docs Save Command, changes will be lost. Changes will be applied to the Docs Search Engine Index only after you run the Docs Reindex Command."
+                        text: "This page is flagged to be created / updated. Next time you run the Docs Save Command the content will be saved on the Client's disk. If you refresh the page or close the browser before running the Docs Save Command, changes will be lost. Changes will be applied to the Docs Search Engine Index only after you run the Docs Reindex Command."
                     }
                     renderParagraph(paragraph, key)
                 }
@@ -273,7 +273,7 @@ function newSuperalgosDocsDocumentPage() {
             function addDefinitionTable(docsSchemaDocument, idPrefix, category, project, type) {
                 if (docsSchemaDocument.definition === undefined) {
                     docsSchemaDocument.definition = {
-                        text: "Right click to edit this text and replace it with a definition / summary for this page. ESC to exit edit mode."
+                        text: "Right click and select the pencil button to edit this tex. Replace it with a definition / summary. Hit ESC to exit edit mode."
                     }
                 }
 
@@ -530,7 +530,7 @@ function newSuperalgosDocsDocumentPage() {
                     let includedSchemaDocument
 
                     if (SCHEMAS_BY_PROJECT.get(project) === undefined) {
-                        return 'Include paragraph style Syntax Error. The Project <i>' + project + '</i> could not be found. Check the Docs Include Style Syntax to learn how to include paragraphs from a different page. This error message will dissapear as soon as you fix the problem.'
+                        return 'Include paragraph style Syntax Error. The Project <i>' + project + '</i> could not be found. Check the Docs Include Style Syntax to learn how to include blocks from a page. This error message will dissapear as soon as you fix the problem.'
                     }
                     switch (category) {
                         case 'Node': {
@@ -557,7 +557,7 @@ function newSuperalgosDocsDocumentPage() {
                             includedSchemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsBookSchema.get(type)
                             break
                         }
-                        default: return 'Category provided (' + category + ') not valid. Use Node, Concept, Topic, Review or Book instead.'
+                        default: return 'Category (' + category + ') is not valid. Use Node, Concept, Topic, Review or Book instead.'
                     }
                     if (includedSchemaDocument === undefined) {
                         return category + ' document ' + type + ' not found at project ' + project
@@ -768,7 +768,7 @@ function newSuperalgosDocsDocumentPage() {
                             let imageName = appSchemaDocument.type.toLowerCase().replaceAll(' ', '-')
                             imageElement = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName(imageItem.project, imageName)
                             if (imageElement === undefined) {
-                                console.log('[WARN] Image for project (' + imageItem.project + ') with name (' + imageName + ') not found. This produces that the Docs Page will be rendered without this icon. ')
+                                console.log('[WARN] Image for project (' + imageItem.project + ') with name (' + imageName + ') not found. As a consequence, the Docs Page will be rendered without the icon. ')
                                 continue
                             }
                         } else {
@@ -776,14 +776,14 @@ function newSuperalgosDocsDocumentPage() {
                                 /* This is the default behavious */
                                 imageElement = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(imageItem.project, imageItem.type)
                                 if (imageElement === undefined) {
-                                    console.log('[WARN] Image for project (' + imageItem.project + ') with name (' + imageItem.type + ') not found. This produces that the Docs Page will be rendered without this icon. ')
+                                    console.log('[WARN] Image for project (' + imageItem.project + ') with name (' + imageItem.type + ') not found. As a consequence, the Docs Page will be rendered without the icon. ')
                                     continue
                                 }
                             } else {
                                 /* Here we take the image from the icon specification */
                                 imageElement = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName(imageItem.icon.project, imageItem.icon.name)
                                 if (imageElement === undefined) {
-                                    console.log('[WARN] Image for project (' + imageItem.icon.project + ') with name (' + imageItem.icon.name + ') not found. This produces that the Docs Page will be rendered without this icon. ')
+                                    console.log('[WARN] Image for project (' + imageItem.icon.project + ') with name (' + imageItem.icon.name + ') not found. As a consequence, the Docs Page will be rendered without the icon. ')
                                     continue
                                 }
                             }
@@ -808,20 +808,20 @@ function newSuperalgosDocsDocumentPage() {
                                 let imageName = appSchemaDocument.type.toLowerCase().replaceAll(' ', '-')
                                 collectionImage = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName(imageItem.project, imageName)
                                 if (collectionImage === undefined) {
-                                    console.log('[WARN] Image for project (' + imageItem.project + ') with name (' + imageName + ') not found. This produces that the hierarchy will be rendered without this icon. ')
+                                    console.log('[WARN] Image for project (' + imageItem.project + ') with name (' + imageName + ') not found. As a consequence, the hierarchy will be rendered without the icon. ')
                                     continue
                                 }
                             } else {
                                 collectionImage = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(imageItem.project, imageItem.type)
                                 if (collectionImage === undefined) {
-                                    console.log('[WARN] Image for project (' + imageItem.project + ') with type (' + imageItem.type + ') not found. This produces that the hierarchy will be rendered without this icon. ')
+                                    console.log('[WARN] Image for project (' + imageItem.project + ') with type (' + imageItem.type + ') not found. As a consequence, the hierarchy will be rendered without the icon. ')
                                     continue
                                 }
                             }
                         } else {
                             collectionImage = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName(imageItem.project, imageItem.name)
                             if (collectionImage === undefined) {
-                                console.log('[WARN] Image for project (' + imageItem.project + ') with name (' + imageItem.name + ') not found. This produces that the hierarchy will be rendered without this icon. ')
+                                console.log('[WARN] Image for project (' + imageItem.project + ') with name (' + imageItem.name + ') not found. As a consequence, the hierarchy will be rendered without the icon. ')
                                 continue
                             }
                         }
@@ -1035,7 +1035,7 @@ function newSuperalgosDocsDocumentPage() {
                     }
                     paragraph = {
                         style: "Success",
-                        text: "When any of the menu items is grayed out, it means that " + appSchemaDocument.type + " already has the type of children that that menu item can add, and that only one children is possible in that case. "
+                        text: "When a menu item is grayed out, it means that " + appSchemaDocument.type + " already has the type of children that the menu item may add, and that only one children is allowed in that case. "
                     }
                     renderParagraph(paragraph, key)
                     autoGeneratedParagraphIndex++
@@ -1058,7 +1058,7 @@ function newSuperalgosDocsDocumentPage() {
                     autoGeneratedParagraphIndex++
                     paragraph = {
                         style: "Text",
-                        text: "The " + appSchemaDocument.type + " node has the following childrenNodesProperties which hold the Node Children at runtime:"
+                        text: "The " + appSchemaDocument.type + " node has the following childrenNodesProperties:"
                     }
                     renderParagraph(paragraph, key)
                     autoGeneratedParagraphIndex++
@@ -1072,7 +1072,7 @@ function newSuperalgosDocsDocumentPage() {
 
                         paragraph = {
                             style: "Text",
-                            text: 'The ' + name + ' children node property has in turn the following properties:'
+                            text: 'The ' + name + ' node property features the following properties:'
                         }
                         renderParagraph(paragraph, key)
                         autoGeneratedParagraphIndex++
@@ -1106,7 +1106,7 @@ function newSuperalgosDocsDocumentPage() {
                     autoGeneratedParagraphIndex++
                     paragraph = {
                         style: "Text",
-                        text: "The following are Node Attaching Rules that govern the attacment of  " + appSchemaDocument.type + " with other nodes:"
+                        text: "The following are the Node Attaching Rules that govern the attachment of  " + appSchemaDocument.type + " with other nodes:"
                     }
                     renderParagraph(paragraph, key)
                     autoGeneratedParagraphIndex++
@@ -1161,7 +1161,7 @@ function newSuperalgosDocsDocumentPage() {
                     autoGeneratedParagraphIndex++
                     paragraph = {
                         style: "Text",
-                        text: "The following are Node Referencing Rules that govern to which nodes " + appSchemaDocument.type + " can stablish a reference:"
+                        text: "The following are the Node Referencing Rules that determine which nodes " + appSchemaDocument.type + " may stablish a reference to:"
                     }
                     renderParagraph(paragraph, key)
                     autoGeneratedParagraphIndex++
@@ -1218,7 +1218,7 @@ function newSuperalgosDocsDocumentPage() {
 
                     paragraph = {
                         style: "Text",
-                        text: "The Initial Values for " + appSchemaDocument.type + "'s Config are:"
+                        text: "These are the Initial Values for " + appSchemaDocument.type + " configuration:"
                     }
                     renderParagraph(paragraph, key)
                     autoGeneratedParagraphIndex++
@@ -1238,7 +1238,7 @@ function newSuperalgosDocsDocumentPage() {
                     autoGeneratedParagraphIndex++
                     paragraph = {
                         style: "Text",
-                        text: "This is a list of properties used at the " + appSchemaDocument.type + " configuration. Expanding a property shows you sample values for that property taken from the current Workspace."
+                        text: "This is a list of properties featured by the " + appSchemaDocument.type + " configuration. Expanding a property shows sample values for the property extracted from the current Workspace."
                     }
                     renderParagraph(paragraph, key)
                     autoGeneratedParagraphIndex++
@@ -1315,7 +1315,7 @@ function newSuperalgosDocsDocumentPage() {
                     autoGeneratedParagraphIndex++
                     paragraph = {
                         style: "Text",
-                        text: "In this section we will explore " + appSchemaDocument.type + " Node Code."
+                        text: "This section explores " + appSchemaDocument.type + " Node Code."
                     }
                     renderParagraph(paragraph, key)
                     autoGeneratedParagraphIndex++
@@ -1330,7 +1330,7 @@ function newSuperalgosDocsDocumentPage() {
                     autoGeneratedParagraphIndex++
                     paragraph = {
                         style: "Text",
-                        text: "The initial value for " + appSchemaDocument.type + "'s Code is:"
+                        text: "The initial value for " + appSchemaDocument.type + " Code is:"
                     }
                     renderParagraph(paragraph, key)
                     autoGeneratedParagraphIndex++
@@ -1350,7 +1350,7 @@ function newSuperalgosDocsDocumentPage() {
                     autoGeneratedParagraphIndex++
                     paragraph = {
                         style: "Text",
-                        text: "This is a list of examples used at the " + appSchemaDocument.type + " code collected from this workspace."
+                        text: "This is a list of examples used on the " + appSchemaDocument.type + " code, collected from this workspace."
                     }
                     renderParagraph(paragraph, key)
                     autoGeneratedParagraphIndex++
@@ -1411,7 +1411,7 @@ function newSuperalgosDocsDocumentPage() {
                     autoGeneratedParagraphIndex++
                     paragraph = {
                         style: "Text",
-                        text: "In this section we will explore " + appSchemaDocument.type + " Node Code."
+                        text: "This section explores " + appSchemaDocument.type + " Node Code."
                     }
                     renderParagraph(paragraph, key)
                     autoGeneratedParagraphIndex++
@@ -1446,7 +1446,7 @@ function newSuperalgosDocsDocumentPage() {
                     autoGeneratedParagraphIndex++
                     paragraph = {
                         style: "Text",
-                        text: "This is a list of examples used at the " + appSchemaDocument.type + " code collected from this workspace."
+                        text: "This is a list of examples used on the " + appSchemaDocument.type + " code, collected from this workspace."
                     }
                     renderParagraph(paragraph, key)
                     autoGeneratedParagraphIndex++
@@ -2068,7 +2068,7 @@ function newSuperalgosDocsDocumentPage() {
                             if (thisObject.docsSchemaDocument.paragraphs.length === 0) {
                                 let newParagraph = {
                                     style: 'Text',
-                                    text: 'Please contribute to the docs by editing this content.'
+                                    text: 'Please contribute to the Docs by editing this content!'
                                 }
                                 thisObject.docsSchemaDocument.paragraphs.push(newParagraph)
                             }

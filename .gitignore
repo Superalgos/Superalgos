@@ -2,3 +2,5 @@ Data-Storage
 Log-Files
 My-Workspaces
 debug.log
+
+*.db

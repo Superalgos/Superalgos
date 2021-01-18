@@ -1,0 +1,33 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": "121",
+    "type": "Tutorial Step - Translation for Mere Mortals",
+    "definition": {
+        "text": "If you are not a developer or are not familiar with Git or GitHub, the previous step probably sounded like gibberish! I know!",
+        "icon": {
+            "name": "github",
+            "project": "Superalgos"
+        },
+        "updated": 1610794461181
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Git is an open-source version control system designed to handle collaboration. It's an industry standard.",
+            "updated": 1610794687324
+        },
+        {
+            "style": "Success",
+            "text": "The previous step details the techinical steps required for the collaboration to work, meeting some basic norms so that your work doesn't mess up other people's work!"
+        },
+        {
+            "style": "Note",
+            "text": "If you do understand Git, you are always free to decide what workflow is best for you!",
+            "updated": 1610792704217
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

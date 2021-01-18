@@ -1,0 +1,25 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": "126",
+    "type": "Tutorial Step - Contributable files?",
+    "definition": {
+        "text": "Most files within the Superalgos folder are subject to be modified and contributed to the project! That includes code, images, documentation, etc.",
+        "icon": {
+            "name": "dataset",
+            "project": "Superalgos"
+        },
+        "updated": 1610823292611
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "The one folder that is exempt from being contributed is the My-Workspaces folder.",
+            "updated": 1610823384700
+        },
+        {
+            "style": "Important",
+            "text": "Do not use the Superalgos folder to store personal stuff or files that are not meant to be part of the Superalgos software! Anything that you include in the Superalgos folder (save for the noted exempted folder) is subject to be committed as a change, sent to your fork on GitHub.com, and included in a Pull Request, both publicly accessible!",
+            "updated": 1610884811294
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": "129",
+    "type": "Tutorial Step - Congrats and Thank You!",
+    "definition": {
+        "text": "This is awesome! You just arrived and are already contributing to the project! We are grateful for your first contribution!",
+        "updated": 1610913778458,
+        "icon": {
+            "name": "docs-success-style",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "If everything went well with your authentication, you should be seeing the Contribution Succeeded message!",
+            "updated": 1610913443275
+        },
+        {
+            "style": "Callout",
+            "text": "Ok my friend, we're going to start wraping this up!"
+        },
+        {
+            "style": "Success",
+            "text": "Before I let you go, I'll give you a few pointers as to what is the best way forwards with learning Superalgos, how to engage with the community, and how to make a second valuable contribution!",
+            "updated": 1610914286146
+        }
+    ]
+}

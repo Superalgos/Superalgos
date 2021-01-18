@@ -1,0 +1,40 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": "117",
+    "type": "Tutorial Step - Did It Work?",
+    "definition": {
+        "text": "If you didn't mess up the command, you should be seeing a new page with the title you set, an invitation to write a summary, and more below!",
+        "icon": {
+            "name": "docs-action-edit-paragraph",
+            "project": "Superalgos"
+        },
+        "updated": 1610731827383
+    },
+    "paragraphs": [
+        {
+            "style": "Note",
+            "text": "If you are getting an error message, read it and fix the problem! It's likely about the syntax in the command. Remember you may always go back a step to recover the original command!",
+            "updated": 1610732596680
+        },
+        {
+            "style": "List",
+            "text": "Right-click and select the pencil icon to edit.",
+            "updated": 1610732029994
+        },
+        {
+            "style": "List",
+            "text": "To exit edit mode, hit the Escape key.",
+            "updated": 1610822743193
+        },
+        {
+            "style": "List",
+            "text": "To add new paragraphs, edit the last one, click Enter and keep writing. See what happens when you exit!",
+            "updated": 1610732334559
+        },
+        {
+            "style": "List",
+            "text": "To change styles, right-click and explore the menu!",
+            "updated": 1610732414111
+        }
+    ]
+}

@@ -16,7 +16,8 @@
         },
         {
             "style": "Callout",
-            "text": "There are <a href='' target='_blank' style='color:blue;'>many more ways in which you can help</a> the project grow stronger!"
+            "text": "There are more ways in which <a href=\"https://docs.superalgos.org/contributing-to-superalgos.html\" target=\"_blank\" style=\"color:blue;\">you can help</a> the project grow stronger!",
+            "updated": 1610965580555
         },
         {
             "style": "Success",

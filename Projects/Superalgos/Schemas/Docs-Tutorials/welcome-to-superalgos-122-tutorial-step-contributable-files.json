@@ -13,8 +13,8 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "The one folder that is exempt from being contributed is the My-Workspaces folder.",
-            "updated": 1610823384700
+            "text": "These folders are exempt from being contributed: My-Workspaces, Data-Storage, and Log-Files.",
+            "updated": 1610984106655
         },
         {
             "style": "Important",

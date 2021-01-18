@@ -3,8 +3,8 @@
     "pageNumber": 15,
     "type": "Docs Error - Topic Mismatch",
     "definition": {
-        "text": "The Docs Topic Name provided does not match with the Docs Topic Name found at the page you want to delete.",
-        "updated": 1609181659359
+        "text": "The Docs Topic Name provided does not match the Docs Topic Name found on the page you wish to delete.",
+        "updated": 1610999291997
     },
     "paragraphs": [
         {
@@ -19,7 +19,8 @@
         },
         {
             "style": "Success",
-            "text": "Check the page you want to delete and get the right Docs Topic Name to use at the command."
+            "text": "Check the page you wish to delete and get the correct Docs Topic Name to use on the command.",
+            "updated": 1610999316336
         },
         {
             "style": "Title",

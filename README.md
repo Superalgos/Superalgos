@@ -30,7 +30,7 @@ Git is an open-source distributed version control system required to download an
 
 **b.** Download the version for your Operating System.
 
-**c.** Run the installer and go through the process until Git is fully installed.
+**c.** Run the installer with the default configuration — just click Next until Git is fully installed.
 
 ## Google Chrome
 

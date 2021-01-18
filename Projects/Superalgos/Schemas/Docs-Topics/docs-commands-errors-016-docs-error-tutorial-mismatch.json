@@ -3,8 +3,8 @@
     "pageNumber": 16,
     "type": "Docs Error - Tutorial Mismatch",
     "definition": {
-        "text": "The Docs Tutorial Name provided does not match with the Docs Tutorial Name found at the page you want to delete.",
-        "updated": 1610012937766
+        "text": "The Docs Tutorial Name provided does not match the Docs Tutorial Name found on the page you wish to delete.",
+        "updated": 1610999355066
     },
     "paragraphs": [
         {
@@ -19,8 +19,8 @@
         },
         {
             "style": "Success",
-            "text": "Check the page you want to delete and get the right Docs Tutorial Name to use at the command.",
-            "updated": 1610013007982
+            "text": "Check the page you wish to delete and get the correct Docs Tutorial Name to use on the command.",
+            "updated": 1610999372592
         },
         {
             "style": "Title",

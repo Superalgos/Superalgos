@@ -3,8 +3,8 @@
     "pageNumber": 12,
     "type": "Docs Error - Page Already Exists",
     "definition": {
-        "text": "The page you are trying to add already exists at Docs.",
-        "updated": 1609180663496
+        "text": "The page you are trying to add already exists.",
+        "updated": 1610999079334
     },
     "paragraphs": [
         {
@@ -14,11 +14,13 @@
         },
         {
             "style": "Error",
-            "text": "Page already exists at the Docs."
+            "text": "Page already exists.",
+            "updated": 1610999086141
         },
         {
             "style": "Success",
-            "text": "Check the Docs Page Name you used at the command, because it seems that it already exists at the Docs."
+            "text": "Check the Docs Page Name you used on the command. It seems that a page with the same name already exists.",
+            "updated": 1610999134449
         },
         {
             "style": "Title",

@@ -5,9 +5,10 @@ exports.newSuperalgosGlobalsTaskVariables = function () {
     */
     let thisObject = {
         IS_TASK_STOPPING: false,
-        LOGGER_MAP: new Map(),   // We will put all the loggers in a map, so that we can eventually finalize them.
-        SESSION_MAP: new Map(),   // We will put all the sessions in a map, so that we can eventually finalize them.
-        FATAL_ERROR_MESSAGE: undefined
+        LOGGER_MAP: new Map(),              // We will put all the loggers in a map, so that we can eventually finalize them.
+        SESSION_MAP: new Map(),             // We will put all the sessions in a map, so that we can eventually finalize them.
+        FATAL_ERROR_MESSAGE: undefined,
+        UNEXPECTED_ERROR: undefined,        // This is where we store the latest unexpected task error.
     }
 
     return thisObject

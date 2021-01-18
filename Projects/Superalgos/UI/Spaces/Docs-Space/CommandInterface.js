@@ -655,7 +655,7 @@ function newSuperalgosDocsCommmandInterface() {
                 query
             )
 
-            if (orderedArray.length = 0) {
+            if (orderedArray.length === 0) {
                 UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'No Matching Topic, Tutorial or Review Found')
                 return
             }

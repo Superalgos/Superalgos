@@ -170,85 +170,7 @@ function newSuperalgosDocsDocumentPage() {
 
             HTML = HTML + '</div>' // Clickeable Container Ends
 
-
-            if (UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.category === 'Topic') {
-
-                orderedTopicPageIndexArray = UI.projects.superalgos.utilities.docs.buildOrderedPageIndex(
-                    UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project,
-                    'Topic',
-                    thisObject.docsSchemaDocument.topic
-                )
-
-                /* Topic Title 
-
-                titleLabel = thisObject.docsSchemaDocument.topic + ' Topic Navigation'
-                HTML = HTML + '<div id="docs-main-title-div" class="docs-title-table"><div class="docs-table-cell"><h2 class="docs-h2" id="' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type.toLowerCase().replace(' ', '-') + '" > ' + titleLabel + '</h2></div><div id="projectImageDiv" class="docs-image-container"/></div></div>'
-
-                */
-                generateTopicPreviousAndNextPageNavigation()
-
-                HTML = HTML + '<div class="docs-topic-index">' // Container for Topic Navigation including buttons, title and index
-
-                HTML = HTML + '<h3 class="docs-h3">' + thisObject.docsSchemaDocument.topic + ' &mdash; TOC</h3>'
-
-                HTML = HTML + '<p style="margin-bottom: 15px;">You just read page <strong>' + thisObject.docsSchemaDocument.pageNumber + '</strong> in the topic.</p>'
-
-                generateTopicMultiPageIndex()
-
-                HTML = HTML + '</div>'  // END Container for Topic Navigation
-            }
-
-            if (UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.category === 'Tutorial') {
-
-                orderedTutorialPageIndexArray = UI.projects.superalgos.utilities.docs.buildOrderedPageIndex(
-                    UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project,
-                    'Tutorial',
-                    thisObject.docsSchemaDocument.tutorial
-                )
-
-                /* Tutorial Title 
-                titleLabel = thisObject.docsSchemaDocument.tutorial + ' Tutorial Navigation'
-                HTML = HTML + '<div id="docs-main-title-div" class="docs-title-table"><div class="docs-table-cell"><h2 class="docs-h2" id="' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type.toLowerCase().replace(' ', '-') + '" > ' + titleLabel + '</h2></div><div id="projectImageDiv" class="docs-image-container"/></div></div>'
-                */
-
-                generateTutorialPreviousAndNextPageNavigation()
-
-                HTML = HTML + '<div class="docs-topic-index">' // Container for Tutorial Navigation including buttons, title and index
-
-                HTML = HTML + '<h3 class="docs-h3">' + thisObject.docsSchemaDocument.tutorial + ' &mdash; TOC</h3>'
-
-                HTML = HTML + '<p style="margin-bottom: 15px;">You just did step <strong>' + thisObject.docsSchemaDocument.pageNumber + '</strong> in the tutorial.</p>'
-
-                generateTutorialMultiPageIndex()
-
-                HTML = HTML + '</div>'  // END Container for Tutorial Navigation
-            }
-
-            if (UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.category === 'Review') {
-
-                orderedReviewPageIndexArray = UI.projects.superalgos.utilities.docs.buildOrderedPageIndex(
-                    UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project,
-                    'Review',
-                    thisObject.docsSchemaDocument.review
-                )
-
-                /* Review Title 
-                titleLabel = thisObject.docsSchemaDocument.review + ' Review Navigation'
-                HTML = HTML + '<div id="docs-main-title-div" class="docs-title-table"><div class="docs-table-cell"><h2 class="docs-h2" id="' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type.toLowerCase().replace(' ', '-') + '" > ' + titleLabel + '</h2></div><div id="projectImageDiv" class="docs-image-container"/></div></div>'
-                */
-
-                generateReviewPreviousAndNextPageNavigation()
-
-                HTML = HTML + '<div class="docs-topic-index">' // Container for Review Navigation including buttons, title and index
-
-                HTML = HTML + '<h3 class="docs-h3">' + thisObject.docsSchemaDocument.review + ' &mdash; TOC</h3>'
-
-                HTML = HTML + '<p style="margin-bottom: 15px;">You just read page <strong>' + thisObject.docsSchemaDocument.pageNumber + '</strong> of this review collection.</p>'
-
-                generateReviewMultiPageIndex()
-
-                HTML = HTML + '</div>'  // END Container for Review Navigation
-            }
+            generateNavigationAndTableOfContents()
 
             HTML = HTML + '</div>' // Common Style Container Ends
 
@@ -266,6 +188,87 @@ function newSuperalgosDocsDocumentPage() {
             there are images to be added.
             */
             addImages()
+
+            function generateNavigationAndTableOfContents() {
+                if (UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.category === 'Topic') {
+
+                    orderedTopicPageIndexArray = UI.projects.superalgos.utilities.docs.buildOrderedPageIndex(
+                        UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project,
+                        'Topic',
+                        thisObject.docsSchemaDocument.topic
+                    )
+
+                    /* Topic Title 
+    
+                    titleLabel = thisObject.docsSchemaDocument.topic + ' Topic Navigation'
+                    HTML = HTML + '<div id="docs-main-title-div" class="docs-title-table"><div class="docs-table-cell"><h2 class="docs-h2" id="' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type.toLowerCase().replace(' ', '-') + '" > ' + titleLabel + '</h2></div><div id="projectImageDiv" class="docs-image-container"/></div></div>'
+    
+                    */
+                    generateTopicPreviousAndNextPageNavigation()
+
+                    HTML = HTML + '<div class="docs-topic-index">' // Container for Topic Navigation including buttons, title and index
+
+                    HTML = HTML + '<h3 class="docs-h3">' + thisObject.docsSchemaDocument.topic + ' &mdash; TOC</h3>'
+
+                    HTML = HTML + '<p style="margin-bottom: 15px;">You just read page <strong>' + thisObject.docsSchemaDocument.pageNumber + '</strong> in the topic.</p>'
+
+                    generateTopicMultiPageIndex()
+
+                    HTML = HTML + '</div>'  // END Container for Topic Navigation
+                }
+
+                if (UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.category === 'Tutorial') {
+
+                    orderedTutorialPageIndexArray = UI.projects.superalgos.utilities.docs.buildOrderedPageIndex(
+                        UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project,
+                        'Tutorial',
+                        thisObject.docsSchemaDocument.tutorial
+                    )
+
+                    /* Tutorial Title 
+                    titleLabel = thisObject.docsSchemaDocument.tutorial + ' Tutorial Navigation'
+                    HTML = HTML + '<div id="docs-main-title-div" class="docs-title-table"><div class="docs-table-cell"><h2 class="docs-h2" id="' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type.toLowerCase().replace(' ', '-') + '" > ' + titleLabel + '</h2></div><div id="projectImageDiv" class="docs-image-container"/></div></div>'
+                    */
+
+                    generateTutorialPreviousAndNextPageNavigation()
+
+                    HTML = HTML + '<div class="docs-topic-index">' // Container for Tutorial Navigation including buttons, title and index
+
+                    HTML = HTML + '<h3 class="docs-h3">' + thisObject.docsSchemaDocument.tutorial + ' &mdash; TOC</h3>'
+
+                    HTML = HTML + '<p style="margin-bottom: 15px;">You just did step <strong>' + thisObject.docsSchemaDocument.pageNumber + '</strong> in the tutorial.</p>'
+
+                    generateTutorialMultiPageIndex()
+
+                    HTML = HTML + '</div>'  // END Container for Tutorial Navigation
+                }
+
+                if (UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.category === 'Review') {
+
+                    orderedReviewPageIndexArray = UI.projects.superalgos.utilities.docs.buildOrderedPageIndex(
+                        UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project,
+                        'Review',
+                        thisObject.docsSchemaDocument.review
+                    )
+
+                    /* Review Title 
+                    titleLabel = thisObject.docsSchemaDocument.review + ' Review Navigation'
+                    HTML = HTML + '<div id="docs-main-title-div" class="docs-title-table"><div class="docs-table-cell"><h2 class="docs-h2" id="' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type.toLowerCase().replace(' ', '-') + '" > ' + titleLabel + '</h2></div><div id="projectImageDiv" class="docs-image-container"/></div></div>'
+                    */
+
+                    generateReviewPreviousAndNextPageNavigation()
+
+                    HTML = HTML + '<div class="docs-topic-index">' // Container for Review Navigation including buttons, title and index
+
+                    HTML = HTML + '<h3 class="docs-h3">' + thisObject.docsSchemaDocument.review + ' &mdash; TOC</h3>'
+
+                    HTML = HTML + '<p style="margin-bottom: 15px;">You just read page <strong>' + thisObject.docsSchemaDocument.pageNumber + '</strong> of this review collection.</p>'
+
+                    generateReviewMultiPageIndex()
+
+                    HTML = HTML + '</div>'  // END Container for Review Navigation
+                }
+            }
 
             function addDefinitionTable(docsSchemaDocument, idPrefix, category, project, type) {
                 if (docsSchemaDocument.definition === undefined) {
@@ -290,7 +293,7 @@ function newSuperalgosDocsDocumentPage() {
                 each node will have an icon. For the rest only if we could load an 
                 image we use a table, otherwise we will render the definitaion as a Summary.
                 */
-                if ((category === 'Topic' || category === 'Tutorial'  || category === 'Review' || category === 'Concept' || category === 'Book') && testElement === undefined) {
+                if ((category === 'Topic' || category === 'Tutorial' || category === 'Review' || category === 'Concept' || category === 'Book') && testElement === undefined) {
                     HTML = HTML + '<div id="definition-summary-editable-paragraph" class="docs-summary"><b>Summary:</b> ' + UI.projects.superalgos.utilities.docs.addToolTips(definitionText, UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type) + '</div>'
                 } else {
                     HTML = HTML + '<div class="docs-definition-table">'
@@ -470,6 +473,21 @@ function newSuperalgosDocsDocumentPage() {
                                 }
                                 break
                             }
+                            case "Placeholder": {
+                                renderParagraph(paragraph, key)
+                                editableParagraphIndex++
+                                let error = addPlaceholdedParagraph(paragraph.text)
+                                if (error !== undefined) {
+                                    paragraph = {
+                                        style: "Error",
+                                        text: error
+                                    }
+                                    key = 'error-paragraph-' + autoGeneratedParagraphIndex
+                                    renderParagraph(paragraph, key)
+                                    autoGeneratedParagraphIndex++
+                                }
+                                break
+                            }
                             case "Chapter": {
                                 renderParagraph(paragraph, key)
                                 editableParagraphIndex++
@@ -586,6 +604,32 @@ function newSuperalgosDocsDocumentPage() {
                         }
                         if (blockFound === false) {
                             return 'Block <i>' + block + '</i> not found.'
+                        }
+                    }
+                }
+
+                function addPlaceholdedParagraph(propertyName) {
+                    if (UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.placeholder !== undefined) {
+                        let placeholder = UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.placeholder[propertyName]
+
+                        if (placeholder !== undefined) {
+                            let paragraph = {
+                                style: placeholder.style,
+                                text: placeholder.text
+                            }
+                            let key = 'placeholded-paragraph-' + autoGeneratedParagraphIndex
+                            renderParagraph(paragraph, key)
+                            autoGeneratedParagraphIndex++
+                            return  
+                        } else {
+                            let paragraph = {
+                                type: "Json",
+                                text: JSON.stringify(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.placeholder, undefined, 4)
+                            }
+                            let key = 'placeholded-paragraph-' + autoGeneratedParagraphIndex
+                            renderParagraph(paragraph, key)
+                            autoGeneratedParagraphIndex++
+                            return 'Property ' + propertyName + ' not found at the placeholder object.'
                         }
                     }
                 }
@@ -1693,6 +1737,14 @@ function newSuperalgosDocsDocumentPage() {
                         prefix = ''
                         role = ''
                         key = key + '-include'
+                        innerHTML = paragraph.text
+                        break
+                    }
+                    case 'Placeholder': {
+                        styleClass = 'class="docs-hidden-placeholder"'
+                        prefix = ''
+                        role = ''
+                        key = key + '-placeholder'
                         innerHTML = paragraph.text
                         break
                     }

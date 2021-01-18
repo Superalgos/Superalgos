@@ -45,6 +45,7 @@ function newSuperalgosDocsContextMenu() {
             toAnchor: toAnchor,
             toBlock: toBlock,
             toInclude: toInclude,
+            toPlaceholder: toPlaceholder,
             toChapter: toChapter,
             toSection: toSection,
             copyLink: copyLink,
@@ -224,6 +225,11 @@ function newSuperalgosDocsContextMenu() {
         function toInclude() {
             let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
             replaceStyle(docSchemaParagraph, 'Include')
+        }
+
+        function toPlaceholder() {
+            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
+            replaceStyle(docSchemaParagraph, 'Placeholder')
         }
 
         function toChapter() {
@@ -431,6 +437,10 @@ function newSuperalgosDocsContextMenu() {
             return true
         }
         if (paragraphNode.id.indexOf('-include') >= 0) {
+            selectedParagraphData = paragraphNode.innerText.trim()
+            return true
+        }
+        if (paragraphNode.id.indexOf('-placeholder') >= 0) {
             selectedParagraphData = paragraphNode.innerText.trim()
             return true
         }

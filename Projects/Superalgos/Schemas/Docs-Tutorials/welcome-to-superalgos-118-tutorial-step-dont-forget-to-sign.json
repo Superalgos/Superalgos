@@ -18,8 +18,8 @@
         },
         {
             "style": "Note",
-            "text": "Contributions are subject to the terms of the <a href=\"https://github.com/Superalgos/Superalgos/blob/master/LICENSE\" target=\"_blank\">Apache Licence 2.0</a>. In short, Contributors provide an express grant of copyright/patent rights.",
-            "updated": 1610735233965
+            "text": "Contributions are subject to the terms of the <a href=\"https://github.com/Superalgos/Superalgos/blob/master/LICENSE\" target=\"_blank\" style=\"color:blue;\">Apache Licence 2.0</a>. In short, Contributors provide an express grant of copyright/patent rights.",
+            "updated": 1610963383947
         }
     ]
 }

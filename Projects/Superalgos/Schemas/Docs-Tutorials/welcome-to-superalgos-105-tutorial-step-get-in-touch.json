@@ -12,34 +12,32 @@
     },
     "paragraphs": [
         {
-            "style": "Link",
-            "text": "<strong>Community Group:</strong> Let's talk Superalgos!->t.me/superalgoscommunity",
-            "updated": 1610957929181
+            "style": "Text",
+            "text": "<li style=\"padding-bottom: 7px;\"><a href=\"https://t.me/superalgoscommunity\" target=\"_blank\" style=\"color:blue;\">Community Group</a> &mdash; Let's talk Superalgos!</li>",
+            "updated": 1610964967140
         },
         {
-            "style": "Link",
-            "text": "<br/><br/><strong>Support Group:</strong> Ran into an issue and need help?->t.me/superalgossupport",
-            "updated": 1610958194807
+            "style": "Text",
+            "text": "<li style=\"padding-bottom: 7px;\"><a href=\"https://t.me/superalgossupport\" target=\"_blank\" style=\"color:blue;\">Support Group</a> &mdash; Have an issue and need help?</li>",
+            "updated": 1610964976645
         },
         {
-            "style": "Link",
-            "text": "<br/><br/><strong>Develop Group:</strong> Meet developers and help with testing!->t.me/superalgosdevelop",
-            "updated": 1610958202322
+            "style": "Text",
+            "text": "<li><a href=\"https://t.me/superalgosdevelop\" target=\"_blank\" style=\"color:blue;\">Develop Group</a> &mdash; Meet other developers!</li>"
         },
         {
-            "style": "Link",
-            "text": "<br/><br/><strong>Superalgos Announcements:</strong> Be the first to know about new releases, hot fixes, and important issues.->t.me/superalgos",
-            "updated": 1610958212574
+            "style": "Callout",
+            "text": "Join the <a href=\"https://t.me/superalgos\" target=\"_blank\" style=\"color:blue;\">Announcements Channel</a> to be the first to know about new releases, hot fixes, and important issues!",
+            "updated": 1610964709408
         },
         {
-            "style": "Link",
-            "text": "<br/><br/><strong>Grupo en Español:</strong> Hablemos en español!->t.me/superalgos_es ",
-            "updated": 1610958218928
+            "style": "Text",
+            "text": "<li style=\"padding-bottom: 7px;\"><a href=\"https://t.me/superalgos_es\" target=\"_blank\" style=\"color:blue;\">Grupo en Español</a> &mdash; Hablemos en español!</li>",
+            "updated": 1610964994878
         },
         {
-            "style": "Link",
-            "text": "<br/><br/><strong>Группа на русском:</strong> Давайте говорить по русски->t.me/superalgos_ru",
-            "updated": 1610958422770
+            "style": "Text",
+            "text": "<li><a href=\"https://t.me/superalgos_ru\" target=\"_blank\" style=\"color:blue;\">Группа на русском</a> &mdash; Давайте говорить по русски</li>"
         }
     ]
 }

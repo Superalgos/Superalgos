@@ -3,12 +3,12 @@
     "pageNumber": "114",
     "type": "Tutorial Step - What is a Contribution?",
     "definition": {
-        "text": "Superalgos is about fostering global collaboration. We welcome contributions of all sorts so that everyone may give back!",
+        "text": "The project will succeed if it manages to foster global collaboration. We welcome contributions of all sorts so that everyone may give back!",
         "icon": {
             "name": "execution-algorithm",
             "project": "Superalgos"
         },
-        "updated": 1610715826372
+        "updated": 1610967203397
     },
     "paragraphs": [
         {

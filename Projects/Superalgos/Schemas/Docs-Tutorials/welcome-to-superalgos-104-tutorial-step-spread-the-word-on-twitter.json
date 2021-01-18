@@ -18,8 +18,8 @@
         },
         {
             "style": "Callout",
-            "text": "Go to our Twitter page, follow us, and retweet our latest tweet. Make sure you tag traders you follow!",
-            "updated": 1610537221339
+            "text": "Go to our <a href=\"https://twitter.com/superalgos\" style=\"color:blue\" target=\"_blank\">Twitter page</a>, follow us, and retweet our latest tweet. Make sure you tag traders you follow!",
+            "updated": 1610961950814
         },
         {
             "style": "Text",

@@ -18,8 +18,8 @@
         },
         {
             "style": "Link",
-            "text": "Create a GitHub.com Personal Access Token->https://github.com/settings/tokens/new",
-            "updated": 1610827221130
+            "text": "Create a GitHub.com Personal Access Token->github.com/settings/tokens/new",
+            "updated": 1610959147665
         },
         {
             "style": "Callout",

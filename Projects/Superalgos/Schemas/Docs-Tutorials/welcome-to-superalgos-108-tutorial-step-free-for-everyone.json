@@ -1,0 +1,25 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 108,
+    "type": "Tutorial Step - Free For Everyone?",
+    "definition": {
+        "text": "Superalgos is a Community project! We make the software available to everyone free-of-charge, but we do ask for something in return... your help!",
+        "updated": 1610713937383,
+        "icon": {
+            "name": "help",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "How can Superalgos be free? What's the catch? We get those questions often! This is the short story...",
+            "updated": 1610967035192
+        },
+        {
+            "style": "Callout",
+            "text": "Superalgos started with a group of friends joining forces to automate their crypto trading. They soon realized that to compete with top market players a huge software infrastructure was required. The system needed to be on par or better than commercial and proprietary software available to firms. Such requirements could not be fulfilled by a small team in a reasonable timeframe.",
+            "updated": 1610967051787
+        }
+    ]
+}

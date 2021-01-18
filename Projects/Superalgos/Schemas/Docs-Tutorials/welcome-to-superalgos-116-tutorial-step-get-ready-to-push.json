@@ -1,0 +1,40 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 116,
+    "type": "Tutorial Step - Get Ready to Push!",
+    "definition": {
+        "text": "Amazing! You learned to add a page to the Docs, edit it, and save it! Now you've got to make it transcend your PC, and contribute it to Superalgos!",
+        "icon": {
+            "name": "github",
+            "project": "Superalgos"
+        },
+        "updated": 1610791858248
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Superalgos interacts with Git to keep your Superalgos instalation up to date and to make contributions easier for less technical users. The App Contribute Command runs the following Git commands in a sequence:",
+            "updated": 1610743150715
+        },
+        {
+            "style": "List",
+            "text": "git.add: adds the changes you've made to contributable files to a git commit.",
+            "updated": 1610743268237
+        },
+        {
+            "style": "List",
+            "text": "git.commit: commits all the changes.",
+            "updated": 1610743294792
+        },
+        {
+            "style": "List",
+            "text": "git.push: pushes the changes to your fork.",
+            "updated": 1610743337006
+        },
+        {
+            "style": "List",
+            "text": "github.createPullRequest: creates a Pull Request at the Superalgos repository, or add commits to an existing Pull Request.",
+            "updated": 1610743396382
+        }
+    ]
+}

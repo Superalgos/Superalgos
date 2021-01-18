@@ -1,0 +1,40 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 107,
+    "type": "Tutorial Step - You Are In Command",
+    "definition": {
+        "text": "The search box, my friend, has a double life. Sometimes she searches, but other times she commands, and does stuff... whatever you tell her!",
+        "updated": 1610657116033,
+        "icon": {
+            "name": "strategy-manage-stage",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Not just anything, of course. There's a list of available commands that have to do with two main subjects:",
+            "updated": 1610704166915
+        },
+        {
+            "style": "List",
+            "text": "Producing and editing the Documentation.",
+            "updated": 1610719727338
+        },
+        {
+            "style": "List",
+            "text": "Contributing work to the project.",
+            "updated": 1610657381257
+        },
+        {
+            "style": "Callout",
+            "text": "Let's work on a practical example that involves the two! I'll teach you how to edit the docs, and how to contribute, using a couple of commands!",
+            "updated": 1610820646564
+        },
+        {
+            "style": "Text",
+            "text": "I'll set up the next few steps with a little story... I hope you like the idea!",
+            "updated": 1610820358700
+        }
+    ]
+}

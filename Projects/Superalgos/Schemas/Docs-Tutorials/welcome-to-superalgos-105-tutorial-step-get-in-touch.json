@@ -7,33 +7,39 @@
             "project": "Superalgos",
             "name": "telegram-bot"
         },
-        "text": "We strive to help users progress fast and push the boundaries of what is possible with Superalgos! Join the conversation!",
-        "updated": 1610914667111
+        "text": "We strive to help users progress fast and push the boundaries of what is possible with Superalgos! Join the conversation in the...",
+        "updated": 1610957615235
     },
     "paragraphs": [
         {
-            "style": "List",
-            "text": "<a href='https://t.me/superalgoscommunity' rel='nofollow' rel='noopener' target='_blank' style='color:blue;'>Community Group</a> &mdash; Let's talk Superalgos!"
+            "style": "Link",
+            "text": "<strong>Community Group:</strong> Let's talk Superalgos!->t.me/superalgoscommunity",
+            "updated": 1610957929181
         },
         {
-            "style": "List",
-            "text": "<a href='https://t.me/superalgossupport' rel='nofollow' rel='noopener' target='_blank' style='color:blue;'>Support Group</a> &mdash; Need help?"
+            "style": "Link",
+            "text": "<br/><br/><strong>Support Group:</strong> Ran into an issue and need help?->t.me/superalgossupport",
+            "updated": 1610958194807
         },
         {
-            "style": "List",
-            "text": "<a href='https://t.me/superalgosdevelop' rel='nofollow' rel='noopener' target='_blank' style='color:blue;'>Develop Group</a> &mdash; Come test the develop branch!"
+            "style": "Link",
+            "text": "<br/><br/><strong>Develop Group:</strong> Meet developers and help with testing!->t.me/superalgosdevelop",
+            "updated": 1610958202322
         },
         {
-            "style": "List",
-            "text": "<a href='https://t.me/superalgos_es' rel='nofollow' rel='noopener' target='_blank' style='color:blue;'>Grupo en Español</a> &mdash; Hablemos en español!"
+            "style": "Link",
+            "text": "<br/><br/><strong>Superalgos Announcements:</strong> Be the first to know about new releases, hot fixes, and important issues.->t.me/superalgos",
+            "updated": 1610958212574
         },
         {
-            "style": "List",
-            "text": "<a href='https://t.me/superalgos' rel='nofollow' rel='noopener' target='_blank' style='color:blue;'>Superalgos Announcements</a> &mdash; Be the first to know about new releases, hot fixes, and important issues."
+            "style": "Link",
+            "text": "<br/><br/><strong>Grupo en Español:</strong> Hablemos en español!->t.me/superalgos_es ",
+            "updated": 1610958218928
         },
         {
-            "style": "Callout",
-            "text": "Tell us how you are using Superalgos, or let us know if you are missing any features!"
+            "style": "Link",
+            "text": "<br/><br/><strong>Группа на русском:</strong> Давайте говорить по русски->t.me/superalgos_ru",
+            "updated": 1610958422770
         }
     ]
 }

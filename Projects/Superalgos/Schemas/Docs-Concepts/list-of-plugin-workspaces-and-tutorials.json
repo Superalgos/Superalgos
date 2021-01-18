@@ -1,0 +1,65 @@
+{
+    "type": "List of Plugin Workspaces and Tutorials",
+    "definition": {
+        "text": "Write here the summary / definition of this Concept."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1610955289507
+        },
+        {
+            "style": "Subtitle",
+            "text": "Getting Started"
+        },
+        {
+            "style": "List",
+            "text": "Welcome to Superalgos!"
+        },
+        {
+            "style": "List",
+            "text": "Developers Intro"
+        },
+        {
+            "style": "List",
+            "text": "Install a New Market"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Weak-hands Buster V2"
+        },
+        {
+            "style": "List",
+            "text": "Trading Bot Layers"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Trading System Design Tutorials"
+        },
+        {
+            "style": "List",
+            "text": "Intro to Trading Systems"
+        },
+        {
+            "style": "List",
+            "text": "Defining a Trading Idea"
+        },
+        {
+            "style": "List",
+            "text": "Testing a Trading Idea - The Trigger Stage"
+        },
+        {
+            "style": "List",
+            "text": "Testing a Trading Idea - The Other Stages"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

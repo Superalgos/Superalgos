@@ -7,28 +7,19 @@
             "project": "Superalgos",
             "name": "tutorial"
         },
-        "text": "There are a few more tutorials ready to walk you through other matters upon request!"
+        "text": "Not to brag, but I can't stress enough how important it is that you make all tutorials available venturing on your own!",
+        "updated": 1610958620851
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "At the bottom of this workspace:"
+            "text": "The system is vast and covers complex matters. Going solo on your first days with Superalgos is only recommended for people who enjoy banging their heads against the wall!",
+            "updated": 1610956232418
         },
         {
-            "style": "List",
-            "text": "Developers Intro is a technical overview!"
-        },
-        {
-            "style": "List",
-            "text": "Install a New Market helps you go beyond BTC/USDT!"
-        },
-        {
-            "style": "Text",
-            "text": "Load the Trading System Design Tutorials plugin workspace from the tab on the left to learn how to design strategies!"
-        },
-        {
-            "style": "Text",
-            "text": "Also, the Weak-hands Buster V.2 plugin workspace features a tutorial about the Trading Bot Layers to complete your understanding of simulations and how they help while designing and debugging strategies."
+            "style": "Success",
+            "text": "The First Steps Tutorials book to your right provides all the details on the best way to invest your time learning Superalgos. That said, we all have our ways, so feel free to approach the task as best suits you! The rest of the Documentation is your second-best friend!",
+            "updated": 1610956478069
         }
     ]
 }

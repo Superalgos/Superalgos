@@ -3,8 +3,8 @@
     "pageNumber": "1",
     "type": "Docs Help Command",
     "definition": {
-        "text": "The Docs provide a command line interface that users can use to contribute to the Docs. The Docs Help Command provides a list of all available commands at any given Superalgos version.",
-        "updated": 1609140843415
+        "text": "The Docs provide a command line interface that you may use to contribute to the Docs. The Docs Help Command provides a list of all available commands.",
+        "updated": 1610974835590
     },
     "paragraphs": [
         {
@@ -49,7 +49,8 @@
         },
         {
             "style": "Text",
-            "text": "Another way to use this command is by providing the name of another command you would like to see help info on."
+            "text": "Another way to use this command is to provide the name of a command for which you would like to see help info.",
+            "updated": 1610974898665
         },
         {
             "style": "Title",
@@ -73,8 +74,8 @@
         },
         {
             "style": "Note",
-            "text": " Anything you type at the command prompt not identified as a command will be treated as a search query.  ",
-            "updated": 1609150627730
+            "text": "Entries in the command prompt not identified as a command are treated as a search query.",
+            "updated": 1610974943826
         }
     ]
 }

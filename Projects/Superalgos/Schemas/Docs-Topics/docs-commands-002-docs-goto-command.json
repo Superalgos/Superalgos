@@ -3,8 +3,8 @@
     "pageNumber": "2",
     "type": "Docs Goto Command",
     "definition": {
-        "text": "This command provides a mechanism to navigate to a Docs page or an specific anchor within a page.",
-        "updated": 1609141474363
+        "text": "This command provides a mechanism to navigate to a Docs page or an anchor within the page.",
+        "updated": 1610975620919
     },
     "paragraphs": [
         {
@@ -24,18 +24,18 @@
         },
         {
             "style": "List",
-            "text": "Project : Is the project where the Node, Concept or Topic is defined.",
-            "updated": 1609148511059
+            "text": "Project: It's the project where the Node, Concept, Topic, Tutorial or Review is defined.",
+            "updated": 1610975746510
         },
         {
             "style": "List",
-            "text": "Docs Page Category : Node, Concept or Topic.",
-            "updated": 1609148563484
+            "text": "Docs Page Category: Node, Concept, Topic, Tutorial or Review.",
+            "updated": 1610975692859
         },
         {
             "style": "List",
-            "text": "Docs Page Name : For Nodes it is the type of node, for Concepts, the concept name, for topics, the topic's page name.",
-            "updated": 1609149220268
+            "text": "Docs Page Name: For Nodes it is the type of node; for Concepts, the concept name; for Topics, the topic's page name, for Tutorials, the tutorial step name; for Reviews, the review page name.",
+            "updated": 1610975736116
         },
         {
             "style": "List",

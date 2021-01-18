@@ -111,15 +111,17 @@
         },
         {
             "style": "List",
-            "text": "Project : Is the project where the Node, Concept or Topic is defined."
+            "text": "Project: It's the project where the Node, Concept, Topic or Review is defined.",
+            "updated": 1610975967746
         },
         {
             "style": "List",
-            "text": "Docs Page Category : Node, Concept or Topic."
+            "text": "Docs Page Category: Node, Concept, Topic, Tutorial, or Review.",
+            "updated": 1610975936004
         },
         {
             "style": "List",
-            "text": "Docs Page Name : For Nodes it is the type of node, for Concepts, the concept name, for topics, the topic's page name."
+            "text": "Docs Page Name: For Nodes it is the type of node; for Concepts, the concept name; for Topics, the topic's page name, for Tutorials, the tutorial step name; for Reviews, the review page name."
         }
     ]
 }

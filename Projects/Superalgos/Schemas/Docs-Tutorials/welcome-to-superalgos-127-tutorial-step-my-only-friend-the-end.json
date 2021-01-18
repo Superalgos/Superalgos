@@ -21,7 +21,8 @@
         },
         {
             "style": "Success",
-            "text": "That's it! No more steps after this one! I promise! Click Next if you don't believe me!"
+            "text": "That's it! No more steps after this one! I promise! Click Next if you don't believe me! Or go back one step to look into the tutorials book!",
+            "updated": 1610985063708
         }
     ]
 }

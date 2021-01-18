@@ -1,7 +1,7 @@
 {
     "topic": "Docs Commands Messages",
     "pageNumber": 5,
-    "type": "Docs Message - Repagination Succeed",
+    "type": "Docs Message - Repagination Done",
     "definition": {
         "text": "The docs.repaginate command finished repaginating.",
         "updated": 1610973772448

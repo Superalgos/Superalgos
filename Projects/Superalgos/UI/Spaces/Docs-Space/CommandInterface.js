@@ -480,7 +480,7 @@ function newSuperalgosDocsCommmandInterface() {
             function startReindexingProcess() {
                 UI.projects.superalgos.spaces.docsSpace.searchEngine.setUpSearchEngine()
 
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message - Reindexing Succeed')
+                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message - Reindexing Done')
             }
         }
 
@@ -533,7 +533,7 @@ function newSuperalgosDocsCommmandInterface() {
 
                 if (responseCount === requestsSent) {
                     if (responseCount === okResponses) {
-                        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message - Saving Succeed')
+                        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message - Saving Done')
                         afterSaving()
                     } else {
                         UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Error - Changes Not Saved', 'Anchor Changes Not Saved')
@@ -667,7 +667,7 @@ function newSuperalgosDocsCommmandInterface() {
                 pageNumber++
                 schemaDocument.updated = true
             }
-            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message - Repagination Succeed')
+            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message - Repagination Done')
         }
 
         function addNode(project, type) {
@@ -887,7 +887,7 @@ function newSuperalgosDocsCommmandInterface() {
             let schemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(type)
             schemaDocument.deleted = true
 
-            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message - Deleting Succeed')
+            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message - Deleting Done')
         }
 
         function deleteConcept(project, type) {
@@ -904,7 +904,7 @@ function newSuperalgosDocsCommmandInterface() {
             let schemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema.get(type)
             schemaDocument.deleted = true
 
-            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message - Deleting Succeed')
+            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message - Deleting Done')
         }
 
         function deleteTopic(project, topic, type, pageNumber) {
@@ -930,7 +930,7 @@ function newSuperalgosDocsCommmandInterface() {
             let schemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsTopicSchema.get(type)
             schemaDocument.deleted = true
 
-            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message - Deleting Succeed')
+            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message - Deleting Done')
         }
 
         function deleteTutorial(project, tutorial, type, pageNumber) {
@@ -956,7 +956,7 @@ function newSuperalgosDocsCommmandInterface() {
             let schemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema.get(type)
             schemaDocument.deleted = true
 
-            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message - Deleting Succeed')
+            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message - Deleting Done')
         }
 
         function deleteReview(project, review, type, pageNumber) {
@@ -982,7 +982,7 @@ function newSuperalgosDocsCommmandInterface() {
             let schemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsReviewSchema.get(type)
             schemaDocument.deleted = true
 
-            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message - Deleting Succeed')
+            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message - Deleting Done')
         }
 
         function deleteBook(project, type) {
@@ -999,7 +999,7 @@ function newSuperalgosDocsCommmandInterface() {
             let schemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsBookSchema.get(type)
             schemaDocument.deleted = true
 
-            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message - Deleting Succeed')
+            UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs Message - Deleting Done')
         }
     }
 }

@@ -92,13 +92,8 @@ function newAutoScaleButton() {
         }
     }
     function onMouseWheel(event) {
-         let delta = event.wheelDelta
-        if (delta < 0) {
-            delta = -1
-        } else {
-            delta = 1
-        }
-        currentStatus = currentStatus + delta
+        
+        currentStatus = currentStatus + event.delta
         if (currentStatus === 7) { currentStatus = 1 }
         if (currentStatus === 0) { currentStatus = 6 }
 

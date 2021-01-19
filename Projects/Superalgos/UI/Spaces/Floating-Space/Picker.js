@@ -40,6 +40,9 @@ function newPicker() {
     let onMouseOverEventSubscriptionId
     let onMouseNotOverEventSubscriptionId
 
+    let wheelDeltaDirection
+    let wheelDeltaCounter = 0
+
     return thisObject
 
     function finalize() {
@@ -134,14 +137,49 @@ function newPicker() {
     }
 
     function onMouseWheel() {
-        delta = event.wheelDelta
-        if (delta > 0) {
-            delta = -1
-        } else {
-            delta = 1
+
+        if (IS_MAC) {
+            let sensitivity
+            if (event.delta < 0) {
+                if (event.shiftKey === true) {
+                    sensitivity = MAC_SCROLL_SENSITIVITY
+                } else {
+                    sensitivity = MAC_ZOOM_SENSITIVITY
+                }
+                if (wheelDeltaDirection === -1) {
+                    wheelDeltaCounter++
+                    if (wheelDeltaCounter < sensitivity) {
+                        return
+                    } else {
+                        wheelDeltaCounter = 0
+                    }
+                } else {
+                    wheelDeltaCounter = 0
+                    wheelDeltaDirection = -1
+                    return
+                }
+            } else {
+                if (event.shiftKey === true) {
+                    sensitivity = MAC_SCROLL_SENSITIVITY
+                } else {
+                    sensitivity = MAC_ZOOM_SENSITIVITY
+                }
+                if (wheelDeltaDirection === 1) {
+                    wheelDeltaCounter++
+                    if (wheelDeltaCounter < sensitivity) {
+                        return
+                    } else {
+                        wheelDeltaCounter = 0
+                    }
+                } else {
+                    wheelDeltaCounter = 0
+                    wheelDeltaDirection = 1
+                    return
+                }
+            }
         }
 
-        selected = selected + delta
+        selected = selected + event.delta
         if (selected < 0) { selected = 0 }
         if (selected > optionsList.length - 1) {
             selected = optionsList.length - 1

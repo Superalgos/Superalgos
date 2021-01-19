@@ -347,7 +347,7 @@ function newSuperalgosCockpitSpace() {
         point5 = thisObject.container.frame.frameThisPoint(point5)
         point6 = thisObject.container.frame.frameThisPoint(point6)
 
-        //browserCanvasContext.setLineDash([0, 0])
+        browserCanvasContext.setLineDash([0, 0])
 
         browserCanvasContext.beginPath()
 

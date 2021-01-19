@@ -658,7 +658,7 @@
 
                         browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', 0.40)';
                         browserCanvasContext.lineWidth = 1;
-                        //browserCanvasContext.setLineDash([0, 0])
+                        browserCanvasContext.setLineDash([0, 0])
                         browserCanvasContext.stroke();
 
                         browserCanvasContext.beginPath();
@@ -683,7 +683,7 @@
                         browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RED + ', 0.40)';
 
                         browserCanvasContext.lineWidth = 1;
-                        //browserCanvasContext.setLineDash([0, 0])
+                        browserCanvasContext.setLineDash([0, 0])
                         browserCanvasContext.stroke();
 
                         if (userPositionDate >= volume.begin && userPositionDate <= volume.end) {

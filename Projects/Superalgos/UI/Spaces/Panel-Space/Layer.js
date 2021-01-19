@@ -626,10 +626,10 @@ function newLayer() {
 
         browserCanvasContext.strokeStyle = progressBar.strokeStyle.replace('@Opacity', progressBar.opacity.toString())
 
-        //browserCanvasContext.setLineDash([2, 4])
+        browserCanvasContext.setLineDash([2, 4])
         browserCanvasContext.lineWidth = lineWidth
         browserCanvasContext.stroke()
-        //browserCanvasContext.setLineDash([0, 0])
+        browserCanvasContext.setLineDash([0, 0])
     }
 
     function drawLayerDisplay() {

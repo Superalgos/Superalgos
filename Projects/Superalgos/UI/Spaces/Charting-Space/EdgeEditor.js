@@ -670,7 +670,7 @@ function newEdgeEditor() {
         pointB3 = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoViewport(pointB3)
         pointB4 = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoViewport(pointB4)
 
-        //browserCanvasContext.setLineDash([0, 0])
+        browserCanvasContext.setLineDash([0, 0])
 
         browserCanvasContext.beginPath()
         browserCanvasContext.moveTo(pointA1.x, pointA1.y)

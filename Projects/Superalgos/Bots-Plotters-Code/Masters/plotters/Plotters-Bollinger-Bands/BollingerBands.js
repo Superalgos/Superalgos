@@ -636,7 +636,7 @@
                     }
 
                     browserCanvasContext.lineWidth = 0.2;
-                    //browserCanvasContext.setLineDash([0, 0])
+                    browserCanvasContext.setLineDash([0, 0])
                     browserCanvasContext.stroke();
 
 
@@ -662,7 +662,7 @@
                     }
 
                     browserCanvasContext.lineWidth = 0.2;
-                    //browserCanvasContext.setLineDash([0, 0])
+                    browserCanvasContext.setLineDash([0, 0])
                     browserCanvasContext.stroke();
 
                     /* Contributing to Auto-Scale*/

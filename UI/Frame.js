@@ -329,7 +329,7 @@ function newFrame() {
 
         browserCanvasContext.lineWidth = 0.1
         browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.MANGANESE_PURPLE + ', 0.75)'
-        //browserCanvasContext.setLineDash([0, 0])
+        browserCanvasContext.setLineDash([0, 0])
         browserCanvasContext.stroke()
 
         /* print the title */
@@ -411,10 +411,10 @@ function newFrame() {
 
         browserCanvasContext.strokeStyle = 'rgba(' + style.color + ', ' + style.opacity + ')'
         browserCanvasContext.lineWidth = style.lineWidth
-        //browserCanvasContext.setLineDash(style.lineDash)
+        browserCanvasContext.setLineDash(style.lineDash)
         browserCanvasContext.stroke()
-
         browserCanvasContext.closePath()
+        browserCanvasContext.setLineDash([0, 0])
     }
 
     function grid(fitFunction, smallLines) {
@@ -473,7 +473,7 @@ function newFrame() {
             browserCanvasContext.closePath()
             browserCanvasContext.strokeStyle = 'rgba(150, 150, 150, 0.1)'
             browserCanvasContext.lineWidth = 1
-            //browserCanvasContext.setLineDash([0, 0])
+            browserCanvasContext.setLineDash([0, 0])
             browserCanvasContext.stroke()
         }
 
@@ -531,7 +531,7 @@ function newFrame() {
         browserCanvasContext.closePath()
         browserCanvasContext.strokeStyle = 'rgba(100, 100, 100, 0.2)'
         browserCanvasContext.lineWidth = 1
-        //browserCanvasContext.setLineDash([0, 0])
+        browserCanvasContext.setLineDash([0, 0])
         browserCanvasContext.stroke()
     }
 }

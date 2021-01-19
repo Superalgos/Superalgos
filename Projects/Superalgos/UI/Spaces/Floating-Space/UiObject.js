@@ -1541,7 +1541,7 @@ function newUiObject() {
             browserCanvasContext.setLineDash([0, chainLineCounter, 2, 3, 0, 500 - chainLineCounter])
             browserCanvasContext.lineWidth = 2
             browserCanvasContext.stroke()
-            browserCanvasContext.setLineDash([0, 0])
+            browserCanvasContext.setLineDash([]) // Resets Line Dash
 
             browserCanvasContext.beginPath()
             browserCanvasContext.moveTo(position.x, position.y)
@@ -1550,7 +1550,7 @@ function newUiObject() {
             browserCanvasContext.setLineDash([3, 47])
             browserCanvasContext.lineWidth = 3
             browserCanvasContext.stroke()
-            browserCanvasContext.setLineDash([0, 0])
+            browserCanvasContext.setLineDash([]) // Resets Line Dash
 
             browserCanvasContext.beginPath()
             browserCanvasContext.moveTo(position.x, position.y)
@@ -1559,7 +1559,7 @@ function newUiObject() {
             browserCanvasContext.setLineDash([1, 9])
             browserCanvasContext.lineWidth = 1
             browserCanvasContext.stroke()
-            browserCanvasContext.setLineDash([0, 0])
+            browserCanvasContext.setLineDash([]) // Resets Line Dash
         }
 
         if (thisObject.payload.floatingObject.container.frame.radius > 0.5) {
@@ -1612,7 +1612,7 @@ function newUiObject() {
             browserCanvasContext.setLineDash([1, 9])
             browserCanvasContext.lineWidth = 0.75
             browserCanvasContext.stroke()
-            browserCanvasContext.setLineDash([0, 0])
+            browserCanvasContext.setLineDash([]) // Resets Line Dash
 
             browserCanvasContext.beginPath()
             browserCanvasContext.moveTo(position.x, position.y)
@@ -1621,7 +1621,7 @@ function newUiObject() {
             browserCanvasContext.setLineDash([0, referenceLineCounter, 1, 9, 2, 8, 3, 7, 4, 6, 0, 500 - referenceLineCounter])
             browserCanvasContext.lineWidth = 4
             browserCanvasContext.stroke()
-            browserCanvasContext.setLineDash([0, 0])
+            browserCanvasContext.setLineDash([]) // Resets Line Dash
         }
 
         if (thisObject.payload.floatingObject.container.frame.radius > 0.5) {
@@ -2088,7 +2088,7 @@ function newUiObject() {
                     browserCanvasContext.closePath()
                     browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + 1 + ')'
                     browserCanvasContext.lineWidth = 3
-                    browserCanvasContext.setLineDash([0, 0])
+                    browserCanvasContext.setLineDash([]) // Resets Line Dash
                     browserCanvasContext.stroke()
 
                     browserCanvasContext.beginPath()
@@ -2096,7 +2096,7 @@ function newUiObject() {
                     browserCanvasContext.closePath()
                     browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK_TURQUOISE + ', ' + 1 + ')'
                     browserCanvasContext.lineWidth = 2
-                    browserCanvasContext.setLineDash([0, 0])
+                    browserCanvasContext.setLineDash([]) // Resets Line Dash
                     browserCanvasContext.stroke()
 
                 }
@@ -2124,12 +2124,12 @@ function newUiObject() {
                 browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.LIGHT_GREY + ', ' + OPACITY + ')'
                 browserCanvasContext.lineWidth = 1
                 if (thisObject.payload.node.isPlugin === true) {
-                    browserCanvasContext.setLineDash([0, 0])
+                    browserCanvasContext.setLineDash([]) // Resets Line Dash
                 } else {
                     browserCanvasContext.setLineDash([10, 20])
                 }
                 browserCanvasContext.stroke()
-                browserCanvasContext.setLineDash([0, 0])
+                browserCanvasContext.setLineDash([]) // Resets Line Dash
             }
 
             /* Project Head Ring */
@@ -2147,14 +2147,14 @@ function newUiObject() {
 
                 if (thisObject.payload.floatingObject.isOnFocus === true) {
                     browserCanvasContext.lineWidth = 30
-                    browserCanvasContext.setLineDash([0, 0])
+                    browserCanvasContext.setLineDash([]) // Resets Line Dash
                 } else {
                     browserCanvasContext.lineWidth = 30
                     browserCanvasContext.setLineDash([1, 3])
 
                 }
                 browserCanvasContext.stroke()
-                browserCanvasContext.setLineDash([0, 0])
+                browserCanvasContext.setLineDash([]) // Resets Line Dash
             }
 
             /* Info Ring */
@@ -2171,7 +2171,7 @@ function newUiObject() {
                 browserCanvasContext.lineWidth = 5
                 browserCanvasContext.setLineDash([2 + infoRingAnimation, 14 - infoRingAnimation])
                 browserCanvasContext.stroke()
-                browserCanvasContext.setLineDash([0, 0])
+                browserCanvasContext.setLineDash([]) // Resets Line Dash
             }
 
             /* Warning Ring */
@@ -2188,7 +2188,7 @@ function newUiObject() {
                 browserCanvasContext.lineWidth = 5
                 browserCanvasContext.setLineDash([2 + warningRingAnimation, 14 - warningRingAnimation])
                 browserCanvasContext.stroke()
-                browserCanvasContext.setLineDash([0, 0])
+                browserCanvasContext.setLineDash([]) // Resets Line Dash
             }
 
             /* Error Ring */
@@ -2205,7 +2205,7 @@ function newUiObject() {
                 browserCanvasContext.lineWidth = 5
                 browserCanvasContext.setLineDash([2 + errorRingAnimation, 14 - errorRingAnimation])
                 browserCanvasContext.stroke()
-                browserCanvasContext.setLineDash([0, 0])
+                browserCanvasContext.setLineDash([]) // Resets Line Dash
             }
 
             if (isHighlighted === true) {
@@ -2221,7 +2221,7 @@ function newUiObject() {
                 browserCanvasContext.lineWidth = 10
                 browserCanvasContext.setLineDash([4, 20])
                 browserCanvasContext.stroke()
-                browserCanvasContext.setLineDash([0, 0])
+                browserCanvasContext.setLineDash([]) // Resets Line Dash
             }
 
             if (isReadyToChainAttach === true) {
@@ -2252,7 +2252,7 @@ function newUiObject() {
                 browserCanvasContext.setLineDash([2, 8])
                 browserCanvasContext.stroke()
 
-                browserCanvasContext.setLineDash([0, 0])
+                browserCanvasContext.setLineDash([]) // Resets Line Dash
             }
 
             if (isAvailableToChainAttach === true && isReadyToChainAttach === false) {
@@ -2275,7 +2275,7 @@ function newUiObject() {
                 browserCanvasContext.setLineDash([3, 5])
                 browserCanvasContext.stroke()
 
-                browserCanvasContext.setLineDash([0, 0])
+                browserCanvasContext.setLineDash([]) // Resets Line Dash
             }
 
             if (isReadyToReferenceAttach === true) {
@@ -2306,7 +2306,7 @@ function newUiObject() {
                 browserCanvasContext.setLineDash([2, 8])
                 browserCanvasContext.stroke()
 
-                browserCanvasContext.setLineDash([0, 0])
+                browserCanvasContext.setLineDash([]) // Resets Line Dash
             }
 
             if (isAvailableToReferenceAttach === true && isReadyToReferenceAttach === false) {
@@ -2329,7 +2329,7 @@ function newUiObject() {
                 browserCanvasContext.setLineDash([3, 5])
                 browserCanvasContext.stroke()
 
-                browserCanvasContext.setLineDash([0, 0])
+                browserCanvasContext.setLineDash([]) // Resets Line Dash
             }
         }
 

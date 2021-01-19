@@ -408,7 +408,7 @@ function newSuperalgosDocSpace() {
         point3 = thisObject.container.frame.frameThisPoint(point3)
         point4 = thisObject.container.frame.frameThisPoint(point4)
 
-        browserCanvasContext.setLineDash([0, 0])
+        browserCanvasContext.setLineDash([]) // Resets Line Dash
         browserCanvasContext.beginPath()
         browserCanvasContext.moveTo(point1.x, point1.y)
         browserCanvasContext.lineTo(point2.x, point2.y)
@@ -432,7 +432,7 @@ function newSuperalgosDocSpace() {
             for (let i = 0; i <= 30; i++) {
                 opacity = 1 - (i / 300) - 0.95
 
-                browserCanvasContext.setLineDash([0, 0])
+                browserCanvasContext.setLineDash([]) // Resets Line Dash
                 browserCanvasContext.beginPath()
                 browserCanvasContext.moveTo(point2.x + i, point2.y)
                 browserCanvasContext.lineTo(point3.x + i, point3.y)

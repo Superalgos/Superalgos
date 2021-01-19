@@ -644,7 +644,7 @@
 
                     browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.LIGHT + ', 1)';
                     browserCanvasContext.lineWidth = 1;
-                    browserCanvasContext.setLineDash([0, 0])
+                    browserCanvasContext.setLineDash([]) // Resets Line Dash
                     browserCanvasContext.stroke();
 
                 }
@@ -669,7 +669,7 @@
 
                     browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)';
                     browserCanvasContext.lineWidth = 1;
-                    browserCanvasContext.setLineDash([0, 0])
+                    browserCanvasContext.setLineDash([]) // Resets Line Dash
                     browserCanvasContext.stroke();
                 }
 
@@ -714,7 +714,7 @@
                     if (direction === 'side') { browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK + ', 1)'; }
 
                     browserCanvasContext.lineWidth = 1;
-                    browserCanvasContext.setLineDash([0, 0])
+                    browserCanvasContext.setLineDash([]) // Resets Line Dash
                     browserCanvasContext.stroke();
 
                 }

@@ -143,7 +143,7 @@ function newCircularProgressBar() {
             browserCanvasContext.setLineDash([2, 10])
             browserCanvasContext.stroke()
 
-            browserCanvasContext.setLineDash([0, 0])
+            browserCanvasContext.setLineDash([]) // Resets Line Dash
         }
     }
 }

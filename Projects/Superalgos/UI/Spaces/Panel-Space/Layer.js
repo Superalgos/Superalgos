@@ -629,7 +629,7 @@ function newLayer() {
         browserCanvasContext.setLineDash([2, 4])
         browserCanvasContext.lineWidth = lineWidth
         browserCanvasContext.stroke()
-        browserCanvasContext.setLineDash([0, 0])
+        browserCanvasContext.setLineDash([]) // Resets Line Dash
     }
 
     function drawLayerDisplay() {

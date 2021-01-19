@@ -1,4 +1,4 @@
-# Quick Getting Started Guide
+# Getting Started Guide
 
 All procedures are the same for Windows, Linux, or Mac OS.
 

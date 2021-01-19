@@ -163,6 +163,7 @@ function newListView() {
                     return
                 }
             }
+            event.delta = - event.delta 
         }
 
         firstVisibleListItem = firstVisibleListItem - event.delta

@@ -251,6 +251,7 @@ function newLayersPanel() {
                     return
                 }
             }
+            event.delta = - event.delta 
         }
 
         if (event.y - thisObject.container.frame.position.y - CURRENT_TOP_MARGIN < headerHeight) { // Mouse wheel over the header, not a layer

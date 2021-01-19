@@ -177,6 +177,7 @@ function newPicker() {
                     return
                 }
             }
+            event.delta = - event.delta 
         }
 
         selected = selected - event.delta

@@ -318,12 +318,13 @@ function newSidePanelTab() {
 
             browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.BLACK + ', ' + opacity + ''
             browserCanvasContext.lineWidth = 1
+            browserCanvasContext.setLineDash([]) // Resets Line Dash
             browserCanvasContext.stroke()
         }
 
         /* Background and Border */
 
-        browserCanvasContext.setLineDash([0, 0])
+        browserCanvasContext.setLineDash([]) // Resets Line Dash
         browserCanvasContext.beginPath()
         browserCanvasContext.moveTo(point1.x, point1.y)
         browserCanvasContext.lineTo(point2.x, point2.y)
@@ -339,6 +340,7 @@ function newSidePanelTab() {
 
         browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GREY + ', ' + opacity + ''
         browserCanvasContext.lineWidth = 0.3
+        browserCanvasContext.setLineDash([]) // Resets Line Dash
         browserCanvasContext.stroke()
     }
 }

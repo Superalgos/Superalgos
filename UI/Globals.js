@@ -35,6 +35,8 @@ const UI_FONT = {
 
 const MAC_AMOUNT_FACTOR = 5
 const IS_MAC = navigator.platform.toUpperCase().indexOf('MAC') >= 0
+const MAC_ZOOM_SENSITIVITY = 5
+const MAC_SCROLL_SENSITIVITY = 20
 
 const DEBUG = {}
 

@@ -721,6 +721,7 @@ function newPlotter() {
                             browserCanvasContext.setLineDash(strokeStyle.lineDash)
                             browserCanvasContext.strokeStyle = 'rgba(' + strokeStyle.paletteColor + ', ' + strokeStyle.opacity + ')'
                             browserCanvasContext.stroke()
+                            browserCanvasContext.setLineDash([]) // Resets Line Dash
                         }
                     }
                 }

@@ -241,11 +241,11 @@ function newTimeFrameScale() {
     function onMouseWheel(event) {
         if (IS_MAC) {
             let sensitivity
-            if (event.wheelDelta < 0) {
+            if (event.delta < 0) {
                 if (event.shiftKey === true) {
-                    sensitivity = 20
+                    sensitivity = MAC_SCROLL_SENSITIVITY
                 } else {
-                    sensitivity = 5
+                    sensitivity = MAC_ZOOM_SENSITIVITY
                 }
                 if (wheelDeltaDirection === -1) {
                     wheelDeltaCounter++
@@ -261,9 +261,9 @@ function newTimeFrameScale() {
                 }
             } else {
                 if (event.shiftKey === true) {
-                    sensitivity = 20
+                    sensitivity = MAC_SCROLL_SENSITIVITY
                 } else {
-                    sensitivity = 5
+                    sensitivity = MAC_ZOOM_SENSITIVITY
                 }
                 if (wheelDeltaDirection === 1) {
                     wheelDeltaCounter++
@@ -280,8 +280,7 @@ function newTimeFrameScale() {
             }
         }
 
-        let delta = event.wheelDelta
-        if (delta < 0) {
+        if (event.delta < 0) {
             timeFrameIndex--
             if (timeFrameIndex < 0) {
                 filePeriodIndex--

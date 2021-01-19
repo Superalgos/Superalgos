@@ -99,7 +99,7 @@ function newSpeedometer() {
             thisObject.params.ASSET_NAME === thisObject.params.BASE_ASSET &&
             thisObject.params.POSITION_TAKEN === false
         ) {
-            browserCanvasContext.setLineDash([0, 0])
+            browserCanvasContext.setLineDash([]) // Resets Line Dash
 
             browserCanvasContext.beginPath()
             browserCanvasContext.arc(centerPoint.x, centerPoint.y, BAR_RADIUS, BAR_START_ANGLE, MIN_VALUE_ANGLE)
@@ -160,6 +160,8 @@ function newSpeedometer() {
             browserCanvasContext.lineWidth = VALUE_THICKNESS
             browserCanvasContext.stroke()
             browserCanvasContext.closePath()
+            browserCanvasContext.setLineDash([]) // Resets Line Dash
+
 
             if (PROFIT_VALUE_ANGLE > INIT_VALUE_ANGLE) {
                 browserCanvasContext.beginPath()

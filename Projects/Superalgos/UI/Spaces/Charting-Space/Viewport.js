@@ -68,6 +68,9 @@ function newViewport() {
 
     let overrideMousePositionCounter = 0
 
+    let wheelDeltaDirection
+    let wheelDeltaCounter = 0
+
     return thisObject
 
     function finalize() {
@@ -204,11 +207,48 @@ function newViewport() {
         let morePower = 1
 
         if (IS_MAC) {
-            event.delta = event.delta * MAC_AMOUNT_FACTOR
+            let sensitivity
+            if (event.delta < 0) {
+                if (event.shiftKey === true) {
+                    sensitivity = MAC_SCROLL_SENSITIVITY
+                } else {
+                    sensitivity = MAC_ZOOM_SENSITIVITY
+                }
+                if (wheelDeltaDirection === -1) {
+                    wheelDeltaCounter++
+                    if (wheelDeltaCounter < sensitivity) {
+                        return
+                    } else {
+                        wheelDeltaCounter = 0
+                    }
+                } else {
+                    wheelDeltaCounter = 0
+                    wheelDeltaDirection = -1
+                    return
+                }
+            } else {
+                if (event.shiftKey === true) {
+                    sensitivity = MAC_SCROLL_SENSITIVITY
+                } else {
+                    sensitivity = MAC_ZOOM_SENSITIVITY
+                }
+                if (wheelDeltaDirection === 1) {
+                    wheelDeltaCounter++
+                    if (wheelDeltaCounter < sensitivity) {
+                        return
+                    } else {
+                        wheelDeltaCounter = 0
+                    }
+                } else {
+                    wheelDeltaCounter = 0
+                    wheelDeltaDirection = 1
+                    return
+                }
+            }
         }
 
         let amount = event.delta
-
+        
         if (event.buttons === 4) { morePower = 2 } // Mouse wheel pressed.
         /* We adjust the sensitivity for Mac Users */
 

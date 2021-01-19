@@ -42,6 +42,9 @@ function newListView() {
 
     let onMouseWheelEventSuscriptionId
 
+    let wheelDeltaDirection
+    let wheelDeltaCounter = 0
+
     return thisObject
 
     function finalize() {
@@ -120,14 +123,50 @@ function newListView() {
     }
 
     function onMouseWheel(event) {
-        delta = event.wheelDelta
-        if (delta > 0) {
-            delta = -1
-        } else {
-            delta = 1
+
+        if (IS_MAC) {
+            let sensitivity
+            if (event.delta < 0) {
+                if (event.shiftKey === true) {
+                    sensitivity = MAC_SCROLL_SENSITIVITY
+                } else {
+                    sensitivity = MAC_ZOOM_SENSITIVITY
+                }
+                if (wheelDeltaDirection === -1) {
+                    wheelDeltaCounter++
+                    if (wheelDeltaCounter < sensitivity) {
+                        return
+                    } else {
+                        wheelDeltaCounter = 0
+                    }
+                } else {
+                    wheelDeltaCounter = 0
+                    wheelDeltaDirection = -1
+                    return
+                }
+            } else {
+                if (event.shiftKey === true) {
+                    sensitivity = MAC_SCROLL_SENSITIVITY
+                } else {
+                    sensitivity = MAC_ZOOM_SENSITIVITY
+                }
+                if (wheelDeltaDirection === 1) {
+                    wheelDeltaCounter++
+                    if (wheelDeltaCounter < sensitivity) {
+                        return
+                    } else {
+                        wheelDeltaCounter = 0
+                    }
+                } else {
+                    wheelDeltaCounter = 0
+                    wheelDeltaDirection = 1
+                    return
+                }
+            }
+            event.delta = - event.delta 
         }
 
-        firstVisibleListItem = firstVisibleListItem + delta
+        firstVisibleListItem = firstVisibleListItem - event.delta
 
         calculateVisbleListItems()
     }
@@ -252,7 +291,7 @@ function newListView() {
             browserCanvasContext.moveTo(barTopPoint.x, barTopPoint.y)
             browserCanvasContext.lineTo(barBottomPoint.x, barBottomPoint.y)
             browserCanvasContext.closePath()
-            browserCanvasContext.setLineDash([0, 0])
+            browserCanvasContext.setLineDash([]) // Resets Line Dash
             browserCanvasContext.lineWidth = 1
             browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GREY + ', ' + 1 + ')'
             browserCanvasContext.stroke()
@@ -261,7 +300,7 @@ function newListView() {
             browserCanvasContext.moveTo(handleTopPoint.x, handleTopPoint.y)
             browserCanvasContext.lineTo(handleBottomPoint.x, handleBottomPoint.y)
             browserCanvasContext.closePath()
-            browserCanvasContext.setLineDash([0, 0])
+            browserCanvasContext.setLineDash([]) // Resets Line Dash
             browserCanvasContext.lineWidth = 4
             browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', ' + 1 + ')'
             browserCanvasContext.stroke()

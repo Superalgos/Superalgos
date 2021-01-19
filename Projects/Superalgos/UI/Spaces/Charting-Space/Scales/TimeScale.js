@@ -108,11 +108,11 @@ function newTimeScale() {
     function onMouseWheel(event) {
         if (IS_MAC) {
             let sensitivity
-            if (event.wheelDelta < 0) {
+            if (event.delta < 0) {
                 if (event.shiftKey === true) {
-                    sensitivity = 20
+                    sensitivity = MAC_SCROLL_SENSITIVITY
                 } else {
-                    sensitivity = 5
+                    sensitivity = MAC_ZOOM_SENSITIVITY
                 }
                 if (wheelDeltaDirection === -1) {
                     wheelDeltaCounter++
@@ -128,9 +128,9 @@ function newTimeScale() {
                 }
             } else {
                 if (event.shiftKey === true) {
-                    sensitivity = 20
+                    sensitivity = MAC_SCROLL_SENSITIVITY
                 } else {
-                    sensitivity = 5
+                    sensitivity = MAC_ZOOM_SENSITIVITY
                 }
                 if (wheelDeltaDirection === 1) {
                     wheelDeltaCounter++
@@ -155,8 +155,7 @@ function newTimeScale() {
         let morePower = 10
         if (event.buttons === 4) { morePower = 1 } // Mouse wheel pressed.
 
-        let delta = event.wheelDelta
-        if (delta < 0) {
+        if (event.delta < 0) {
             factor = -0.01 * morePower
         } else {
             factor = 0.01 * morePower

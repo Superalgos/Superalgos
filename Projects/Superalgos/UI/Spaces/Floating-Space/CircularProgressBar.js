@@ -142,6 +142,8 @@ function newCircularProgressBar() {
             browserCanvasContext.lineWidth = 0 + opacityCounters[i] / 100 / 4
             browserCanvasContext.setLineDash([2, 10])
             browserCanvasContext.stroke()
+
+            browserCanvasContext.setLineDash([]) // Resets Line Dash
         }
     }
 }

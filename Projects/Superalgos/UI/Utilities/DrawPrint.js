@@ -59,7 +59,7 @@ function newSuperalgosUtilitiesDrawPrint() {
             borderPoint4 = params.fitFunction(borderPoint4)
         }
 
-        browserCanvasContext.setLineDash([0, 0])
+        browserCanvasContext.setLineDash([]) // Resets Line Dash
 
         /* Shadow  */
 

@@ -16,7 +16,8 @@
         },
         {
             "style": "Warning",
-            "text": "At this stage, Superalgos does not implement any form of security measures. Therefore, you should use the system in the context of a restricted Local Area Network only. If you chose to run the Client in the cloud, you must implement your own network security."
+            "text": "At this stage, Superalgos does not implement any form of security. You should use the system in the context of a restricted Local Area Network only. If you chose to run the Client in the cloud, you must implement your own security.",
+            "updated": 1611076067427
         }
     ]
 }

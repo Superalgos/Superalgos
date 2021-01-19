@@ -129,7 +129,7 @@ function newSuperalgosSideSpace() {
         point3 = thisObject.container.frame.frameThisPoint(point3)
         point4 = thisObject.container.frame.frameThisPoint(point4)
 
-        browserCanvasContext.setLineDash([0, 0])
+        browserCanvasContext.setLineDash([]) // Resets Line Dash
         browserCanvasContext.beginPath()
         browserCanvasContext.moveTo(point1.x, point1.y)
         browserCanvasContext.lineTo(point2.x, point2.y)
@@ -145,6 +145,7 @@ function newSuperalgosSideSpace() {
 
         browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GREY + ', ' + opacity + ''
         browserCanvasContext.lineWidth = 0.3
+        browserCanvasContext.setLineDash([]) // Resets Line Dash
         browserCanvasContext.stroke()
 
         /* Shadow */
@@ -153,7 +154,7 @@ function newSuperalgosSideSpace() {
             for (let i = 0; i <= 30; i++) {
                 opacity = 1 - (i / 300) - 0.95
 
-                browserCanvasContext.setLineDash([0, 0])
+                browserCanvasContext.setLineDash([]) // Resets Line Dash
                 browserCanvasContext.beginPath()
                 browserCanvasContext.moveTo(point2.x + i, point2.y)
                 browserCanvasContext.lineTo(point3.x + i, point3.y)
@@ -161,6 +162,7 @@ function newSuperalgosSideSpace() {
 
                 browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.BLACK + ', ' + opacity + ''
                 browserCanvasContext.lineWidth = 1
+                browserCanvasContext.setLineDash([]) // Resets Line Dash
                 browserCanvasContext.stroke()
             }
         }

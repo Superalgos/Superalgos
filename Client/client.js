@@ -132,7 +132,7 @@ try {
     console.log("What's new? The following was implemented here:")
     console.log('')
     console.log('Task Server Upgraded ............... This allow us to integrate crypto projects into the Task Server, opening the door to new types of bots defined at other projects.')
-    console.log('In-App Documentation Improved ...... This allow users to improve the docs and also to document other integrated projects.')
+    console.log('In-App Documentation Improved ...... This allow users to improve the docs / tutorials, correcting, expanding and translating pages.')
     console.log('')
     console.log("What's next? At the development pipeline we have:")
     console.log('')
